@@ -1,6 +1,6 @@
 ---
-title: "Refaster rules related to AssertJ assertions over `Duration`s"
-sidebar_label: "Refaster rules related to AssertJ assertions over `Duration`s"
+title: "`AssertJDurationRules` Refaster recipes"
+sidebar_label: "`AssertJDurationRules` Refaster recipes"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster rules related to AssertJ assertions over `Duration`s"}
-  description={"These rules simplify and improve the readability of tests by using `Duration`-specific\n AssertJ assertion methods instead of generic assertions.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJDurationRules)."}
+  displayName={"`AssertJDurationRules` Refaster recipes"}
+  description={"Refaster rules related to AssertJ assertions over `Duration`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJDurationRules)."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes.md"}
 >
 
-<RecipeHeader.Title>Refaster rules related to AssertJ assertions over `Duration`s</RecipeHeader.Title>
+<RecipeHeader.Title>`AssertJDurationRules` Refaster recipes</RecipeHeader.Title>
 
-<RecipeHeader.Description>These rules simplify and improve the readability of tests by using `Duration`-specific  AssertJ assertion methods instead of generic assertions. [Source](https://error-prone.picnic.tech/refasterrules/AssertJDurationRules).</RecipeHeader.Description>
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `Duration`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJDurationRules).</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes","displayName":"Refaster rules related to AssertJ assertions over `Duration`s","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes","displayName":"`AssertJDurationRules` Refaster recipes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

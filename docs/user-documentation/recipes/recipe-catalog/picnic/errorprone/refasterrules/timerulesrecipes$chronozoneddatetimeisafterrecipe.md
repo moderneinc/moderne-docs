@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TimeRules.ChronoZonedDateTimeIsAfter`"}
-  description={"Prefer `ChronoZonedDateTime#isBefore(ChronoZonedDateTime)` over explicit comparison, as it yields more readable code."}
+  description={"Prefer `ChronoZonedDateTime#isAfter(ChronoZonedDateTime)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$ChronoZonedDateTimeIsAfterRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TimeRules.ChronoZonedDateTimeIsAfter`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ChronoZonedDateTime#isBefore(ChronoZonedDateTime)` over explicit comparison, as it yields more readable code.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ChronoZonedDateTime#isAfter(ChronoZonedDateTime)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -35,7 +35,7 @@ jobs:
         with:
           dotnet-version: '9.0.x'
       - uses: gradle/actions/setup-gradle@v5
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '1.25'        # recipes-go and rewrite-go both require go 1.25 (their go.mod)
       - name: Build the rewrite-go-rpc server

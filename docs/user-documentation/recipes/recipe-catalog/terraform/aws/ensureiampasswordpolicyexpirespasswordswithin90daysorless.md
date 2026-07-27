@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_AWS_9","terraform","AWS"]}
+  tags={["CKV_AWS_9","AWS","terraform"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EnsureIAMPasswordPolicyExpiresPasswordsWithin90DaysOrLess"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

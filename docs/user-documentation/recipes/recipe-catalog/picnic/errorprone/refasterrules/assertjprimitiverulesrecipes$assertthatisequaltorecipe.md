@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJPrimitiveRules.AssertThatIsEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsEqualTo {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(boolean actual, boolean expected) {\n        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractByteAssert<?> before(byte actual, byte expected) {\n        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractCharacterAssert<?> before(char actual, char expected) {\n        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractShortAssert<?> before(short actual, short expected) {\n        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(int actual, int expected) {\n        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(long actual, long expected) {\n        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractFloatAssert<?> before(float actual, float expected) {\n        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractDoubleAssert<?> before(double actual, double expected) {\n        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractBooleanAssert<?> after(boolean actual, boolean expected) {\n        return assertThat(actual).isEqualTo(expected);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractBooleanAssert#isEqualTo` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJPrimitiveRulesRecipes$AssertThatIsEqualToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,62 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJPrimitiveRules.AssertThatIsEqualTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsEqualTo {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(boolean actual, boolean expected) {
-        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));
-    }
-    
-    @BeforeTemplate
-    AbstractByteAssert<?> before(byte actual, byte expected) {
-        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));
-    }
-    
-    @BeforeTemplate
-    AbstractCharacterAssert<?> before(char actual, char expected) {
-        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));
-    }
-    
-    @BeforeTemplate
-    AbstractShortAssert<?> before(short actual, short expected) {
-        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));
-    }
-    
-    @BeforeTemplate
-    AbstractIntegerAssert<?> before(int actual, int expected) {
-        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));
-    }
-    
-    @BeforeTemplate
-    AbstractLongAssert<?> before(long actual, long expected) {
-        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));
-    }
-    
-    @BeforeTemplate
-    AbstractFloatAssert<?> before(float actual, float expected) {
-        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));
-    }
-    
-    @BeforeTemplate
-    AbstractDoubleAssert<?> before(double actual, double expected) {
-        return Refaster.anyOf(assertThat(actual).isSameAs(expected), assertThat(actual).isSameAs(expected));
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    AbstractBooleanAssert<?> after(boolean actual, boolean expected) {
-        return assertThat(actual).isEqualTo(expected);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractBooleanAssert#isEqualTo` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

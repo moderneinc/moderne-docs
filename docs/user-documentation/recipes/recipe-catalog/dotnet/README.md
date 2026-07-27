@@ -6,6 +6,12 @@ description: .NET OpenRewrite recipes.
 
 _Recipes to migrate projects using .NET tools._
 
+## Composite Recipes
+
+_Recipes that include further recipes, often including the individual recipes below._
+
+* [Migrate .NET install URLs from retiring Azure CDN domains](./migratedotnetinstallurls.md)
+
 ## Recipes
 
 * [Analyze a .NET project using upgrade-assistant](./upgradeassistantanalyze.md)

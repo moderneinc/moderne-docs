@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ImmutableListRules.ImmutableListOf4`"}
-  description={"Prefer `ImmutableList#of(Object, Object, Object, Object)` over alternatives that don't communicate the immutability of the resulting list at the type level."}
+  description={"Prefer `ImmutableList#of(Object, Object, Object, Object)` over imprecisely typed alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$ImmutableListOf4Recipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ImmutableListRules.ImmutableListOf4`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ImmutableList#of(Object, Object, Object, Object)` over alternatives that don't communicate the immutability of the resulting list at the type level.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ImmutableList#of(Object, Object, Object, Object)` over imprecisely typed alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

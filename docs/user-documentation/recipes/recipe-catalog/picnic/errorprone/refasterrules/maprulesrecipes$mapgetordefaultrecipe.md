@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `MapRules.MapGetOrDefault`"
-sidebar_label: "Refaster template `MapRules.MapGetOrDefault`"
+title: "Prefer `Map#getOrDefault(Object, Object)` over more contrived alternatives"
+sidebar_label: "Prefer `Map#getOrDefault(Object, Object)` over more contrived alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `MapRules.MapGetOrDefault`"}
-  description={"Prefer `Map#getOrDefault(Object, Object)` over more contrived alternatives."}
+  displayName={"Prefer `Map#getOrDefault(Object, Object)` over more contrived alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes behavior if `defaultValue` is `null`: `java.util.Objects#requireNonNullElse` throws a `NullPointerException` in\n that case, while `Map#getOrDefault(Object, Object)` does not."}
   fqName={"tech.picnic.errorprone.refasterrules.MapRulesRecipes$MapGetOrDefaultRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapgetordefaultrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `MapRules.MapGetOrDefault`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Map#getOrDefault(Object, Object)` over more contrived alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Map#getOrDefault(Object, Object)` over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes behavior if `defaultValue` is `null`: `java.util.Objects#requireNonNullElse` throws a `NullPointerException` in  that case, while `Map#getOrDefault(Object, Object)` does not.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.MapRulesRecipes$MapGetOrDefaultRecipe","displayName":"Refaster template `MapRules.MapGetOrDefault`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.MapRulesRecipes$MapGetOrDefaultRecipe","displayName":"Prefer `Map#getOrDefault(Object, Object)` over more contrived alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

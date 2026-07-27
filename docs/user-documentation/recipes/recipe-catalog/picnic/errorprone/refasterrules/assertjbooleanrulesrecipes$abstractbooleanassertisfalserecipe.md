@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsFalse`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractBooleanAssertIsFalse {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(AbstractBooleanAssert<?> boolAssert) {\n        return Refaster.anyOf(boolAssert.isEqualTo(false), boolAssert.isNotEqualTo(true));\n    }\n    \n    @AfterTemplate\n    AbstractBooleanAssert<?> after(AbstractBooleanAssert<?> boolAssert) {\n        return boolAssert.isFalse();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractBooleanAssert#isFalse()` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJBooleanRulesRecipes$AbstractBooleanAssertIsFalseRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsFalse`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractBooleanAssertIsFalse {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(AbstractBooleanAssert<?> boolAssert) {
-        return Refaster.anyOf(boolAssert.isEqualTo(false), boolAssert.isNotEqualTo(true));
-    }
-    
-    @AfterTemplate
-    AbstractBooleanAssert<?> after(AbstractBooleanAssert<?> boolAssert) {
-        return boolAssert.isFalse();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractBooleanAssert#isFalse()` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

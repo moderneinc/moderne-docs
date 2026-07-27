@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `DequeRules.DequePollFirst`"}
-  description={"Prefer `Deque#pollFirst()` over less clear alternatives."}
+  description={"Prefer `Deque#pollFirst()` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.DequeRulesRecipes$DequePollFirstRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `DequeRules.DequePollFirst`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Deque#pollFirst()` over less clear alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Deque#pollFirst()` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

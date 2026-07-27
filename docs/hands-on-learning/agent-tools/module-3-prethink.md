@@ -14,7 +14,7 @@ For the deep reference on what Prethink is, see the [Moderne Prethink doc](../..
 
 ### Goals for this exercise
 
-* Run the `UpdatePrethinkContextNoAiStarter` recipe across the workspace
+* Run the `UpdatePrethinkContextStarter` recipe across the workspace
 * Apply the generated `.moderne/context/` files into your repositories
 * Understand what each phase of the recipe contributed
 
@@ -22,7 +22,7 @@ For the deep reference on what Prethink is, see the [Moderne Prethink doc](../..
 
 Prethink is delivered as an OpenRewrite [composite recipe](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#composite-recipes) that runs many smaller recipes in phases. Each phase produces data tables, and a final phase exports those tables as CSV and Markdown into `.moderne/context/` inside each repository. Your AI agent reads those files instead of inferring everything from the source code.
 
-You'll run the **No AI** starter in this workshop, which doesn't require an LLM provider. If you have an OpenAI/Gemini/Poolside key handy, you can swap to `UpdatePrethinkContextStarter` later to also get AI-generated method/class summaries. See [Available recipes](../../user-documentation/agent-tools/prethink.md#available-recipes) for the parameters.
+You'll run the **No AI** starter in this workshop, which doesn't require an LLM provider.
 
 ### Steps
 
@@ -31,7 +31,7 @@ You'll run the **No AI** starter in this workshop, which doesn't require an LLM 
 From your `~/agent-tools-workshop` directory:
 
 ```bash
-mod run . --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+mod run . --recipe io.moderne.prethink.UpdatePrethinkContextStarter
 ```
 
 This will take a few minutes. The recipe runs through architectural discovery, code quality analysis, test coverage mapping, dependency inventory, and CALM architecture diagram generation. The CLI will report `Fix results` per repository as it completes.
@@ -65,7 +65,7 @@ The "What to do next" footer suggests `mod study` commands for inspecting each g
 If you're impatient, target a single repository first to see the output faster:
 
 ```bash
-mod run ./spring-projects/spring-petclinic --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+mod run ./spring-projects/spring-petclinic --recipe io.moderne.prethink.UpdatePrethinkContextStarter
 ```
 
 Then re-run on the full workspace once you've seen what gets produced.

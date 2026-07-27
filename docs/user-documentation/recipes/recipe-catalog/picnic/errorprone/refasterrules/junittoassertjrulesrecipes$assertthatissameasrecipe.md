@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `JUnitToAssertJRules.AssertThatIsSameAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsSameAs {\n    \n    @BeforeTemplate\n    void before(Object actual, Object expected) {\n        assertSame(expected, actual);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object actual, Object expected) {\n        assertThat(actual).isSameAs(expected);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractAssert#isSameAs(Object)` over non-AssertJ alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIsSameAsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatIsSameAs`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsSameAs {
-    
-    @BeforeTemplate
-    void before(Object actual, Object expected) {
-        assertSame(expected, actual);
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after(Object actual, Object expected) {
-        assertThat(actual).isSameAs(expected);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractAssert#isSameAs(Object)` over non-AssertJ alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

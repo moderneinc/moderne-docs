@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # Getting started with the Moderne CLI
 
-The Moderne CLI is a command line tool that complements the Moderne Platform and Moderne DX, enabling you to build [Lossless Semantic Tree](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) (LST) artifacts across many repositories and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
+The Moderne CLI is a command line tool that complements the Moderne Platform and Moderne DX, enabling you to build [Lossless Semantic Tree](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) (LST) artifacts across many repositories and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
 
 To ensure you can use the Moderne CLI successfully, in this guide, we will walk you through everything you need to get started – from installation, to configuration, to examples demonstrating how to use it.
 
@@ -69,7 +69,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 Usage:
 
@@ -231,7 +231,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 Usage:
 
@@ -426,7 +426,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 ⏺ Retrieving the configured organizations
 
@@ -498,7 +498,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 ⏺ Retrieving the configured organizations
 

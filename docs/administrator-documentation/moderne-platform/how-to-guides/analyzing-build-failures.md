@@ -10,7 +10,7 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 # Analyzing build failures with mod trace
 
-When building [Lossless Semantic Trees (LSTs)](../references/lossless-semantic-trees.md) across many repositories, some builds will inevitably fail due to missing dependencies, compilation errors, or infrastructure issues. If you are managing a handful of repositories, you can probably dig through logs one at a time.
+When building [Lossless Semantic Trees (LSTs)](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) across many repositories, some builds will inevitably fail due to missing dependencies, compilation errors, or infrastructure issues. If you are managing a handful of repositories, you can probably dig through logs one at a time.
 
 But what if you are working with dozens or hundreds of repos? You will need a way to step back and see the bigger picture: Which failures are related? What are the most common root causes? Where should you focus your effort first?
 

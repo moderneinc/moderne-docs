@@ -5,7 +5,7 @@ description: Learn what the Moderne MCP server provides to AI coding agents and 
 
 # Moderne MCP server
 
-The Moderne CLI includes a local [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents tools for semantic code search, navigation, and refactoring. It runs on your own workstation as a subprocess of your coding agent, operating directly on the repositories you have checked out locally. While [skills](../skills.md) teach agents *how* to work with recipes, the MCP server gives agents direct access to these tools, backed by OpenRewrite's [Lossless Semantic Tree (LST)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) and [Moderne Trigrep](../trigrep.md).
+The Moderne CLI includes a local [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents tools for semantic code search, navigation, and refactoring. It runs on your own workstation as a subprocess of your coding agent, operating directly on the repositories you have checked out locally. While [skills](../skills.md) teach agents *how* to work with recipes, the MCP server gives agents direct access to these tools, backed by OpenRewrite's [Lossless Semantic Tree (LST)](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) and [Moderne Trigrep](../trigrep.md).
 
 :::info
 This page describes the **local** MCP server (`mod mcp`), which runs on a developer workstation through the CLI. Moderne also offers a [remote MCP server](./remote-server.md) hosted on the Moderne Platform that runs recipes against the repositories already ingested into your tenant.
@@ -32,7 +32,7 @@ The MCP server **must be started from within a git repository**. If the working 
 When the MCP server starts, it builds two things in the background:
 
 1. **[Moderne Trigrep](../trigrep.md)**: a pre-computed trigram index that enables sub-second text search across the entire repository. This powers the `trigrep_search` and `trigrep_structural_search` tools.
-2. **[LSTs (Lossless Semantic Trees)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md)**: a type-attributed tree representation of your source code that enables semantic tools like `find_types`, `find_methods`, `change_type`, and recipe execution.
+2. **[LSTs (Lossless Semantic Trees)](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md)**: a type-attributed tree representation of your source code that enables semantic tools like `find_types`, `find_methods`, `change_type`, and recipe execution.
 
 Tools become available progressively as each build completes. You can check their progress with the `build_status` and `lst_status` tools.
 

@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["junit","testing","arquillian"]}
+  tags={["junit","arquillian","testing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.arquillian.ArquillianJUnit4ToArquillianJUnit5"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

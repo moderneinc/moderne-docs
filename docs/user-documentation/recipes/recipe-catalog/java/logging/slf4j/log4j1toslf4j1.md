@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate Log4j 1.x to Log4j 2.x","href":"/user-documentation/recipes/recipe-catalog/java/logging/log4j/log4j1tolog4j2/"},{"name":"Migrate Log4j 2.x to SLF4J 1.x","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2toslf4j1/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate Log4j 1.x MDC to SLF4J MDC","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j1toslf4jmdc/"},{"name":"Migrate Log4j 1.x to Log4j 2.x","href":"/user-documentation/recipes/recipe-catalog/java/logging/log4j/log4j1tolog4j2/"},{"name":"Migrate Log4j 2.x to SLF4J 1.x","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2toslf4j1/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

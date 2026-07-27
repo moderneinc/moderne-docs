@@ -25,7 +25,7 @@ If your new recipe idea can be composed of many other recipes or if it can be cr
 
 If your recipe is more complex than that, please check out the [OpenRewrite recipe authoring documentation](https://docs.openrewrite.org/authoring-recipes/recipe-development-environment). Make sure to read over the documentation on the [different types of recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes) so that you can create a recipe that best meets your needs.
 
-You may also find it beneficial to work through our [recipe authoring workshop](../../workshops/recipe-authoring.md) that will take you through the process of writing and running many different types of recipes.
+You may also find it beneficial to work through our [recipe authoring workshop](../../../hands-on-learning/fundamentals/workshop-overview.md) that will take you through the process of writing and running many different types of recipes.
 
 :::tip
 As a Moderne customer, you have access to the [Moderne recipe bom](https://central.sonatype.com/artifact/io.moderne.recipe/moderne-recipe-bom/versions) which can help you align versions of all Moderne recipe modules.

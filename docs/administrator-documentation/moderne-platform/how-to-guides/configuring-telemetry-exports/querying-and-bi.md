@@ -5,7 +5,11 @@ description: Query Moderne telemetry from object storage with Athena, Snowflake,
 
 # Querying and BI
 
-Once telemetry is landing in your bucket or container, you can query it directly with any engine that reads CSV from object storage. If you haven't configured replication yet, start with the [AWS](./aws-replication.md) or [Azure](./azure-replication.md) guide. The Hive partition layout means every major engine can prune to just the partitions a query needs.
+Once telemetry is landing in your bucket or container, you can query it directly with any engine that reads CSV from object storage. Because the data is Hive-partitioned, every major engine can prune to just the partitions a query needs.
+
+This page applies whether Moderne replicates your telemetry for you or you self-publish it from the CLI wrapper. For replication, set it up first with the [AWS](./aws-replication.md) or [Azure](./azure-replication.md) guides. For self-publishing, follow [Exporting CLI telemetry to Amazon S3](../../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export.md), whose worked example writes the same layout.
+
+Everything here assumes the `tenant`/`source`/`type`/`year`/`month`/`day` layout. Replication always produces it, and the wrapper example matches it, so the queries and the table definitions in the templates repo work unchanged. If you customized the wrapper to write a different path structure, adjust the partition keys to match.
 
 The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repository is a starter kit for turning this telemetry into reports and dashboards: an example data layer to make it queryable, ready-to-run report queries, and dashboards to render them. Start there to go from raw telemetry to working reports without assembling the query layer yourself.
 
@@ -53,11 +57,11 @@ Please confirm that:
 ### I see `source=cli` data but no `source=saas` data (or vice versa)
 
 * If you see no `saas` rows, no one has run a recipe or committed via the web UI during the period queried.
-* If you see no `cli` rows, either no one has run `mod` against your tenant, or CLI users haven't authenticated yet (the CLI auto-pushes telemetry on its next license-lease refresh, typically within an hour of signing in). Users can also force a flush with `mod telemetry publish`.
+* If you see no `cli` rows, either no one has run `mod` against your tenant, or CLI users haven't authenticated yet. The CLI auto-pushes telemetry when it next refreshes its license lease (at most once every three days), or users can force a flush with `mod telemetry publish`.
 
 ### Some `mod` commands are missing traces
 
-Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit telemetry: sync, build, run, apply, add, commit, push, publish, exec, and checkout. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
+Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit telemetry: sync, build, run, apply, add, commit, push, publish, exec, checkout, and mcp. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
 
 ### Replication lag is too high
 

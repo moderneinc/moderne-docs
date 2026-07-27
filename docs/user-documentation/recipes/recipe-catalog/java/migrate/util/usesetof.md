@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `Set.of(..)`"}
-  description={"Prefer `Set.of(..)` instead of using `java.util.Set#add(..)` in anonymous HashSet initializers in Java 10 or higher. This recipe will not modify code where the Set is later mutated since `Set.of` returns an immutable set."}
+  description={"Prefer `Set.of(..)` in Java 10 or higher. Two input shapes are recognised:\n\n- Anonymous-class initialization (`new HashSet<>() {{ add(\"a\"); add(\"b\"); }}`), which is replaced wholesale with `Set.of(\"a\", \"b\")` (immutable result, matching the anonymous-class idiom's typical intent).\n- A `new HashSet<>()` declaration followed by a chain of `target.add(..)` statements, which is collapsed to `new HashSet<>(Set.of(..))` (preserving the mutable `HashSet`)."}
   fqName={"org.openrewrite.java.migrate.util.UseSetOf"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,14 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `Set.of(..)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Set.of(..)` instead of using `java.util.Set#add(..)` in anonymous HashSet initializers in Java 10 or higher. This recipe will not modify code where the Set is later mutated since `Set.of` returns an immutable set.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Prefer `Set.of(..)` in Java 10 or higher. Two input shapes are recognised:
+
+- Anonymous-class initialization (`new HashSet<>() {{ add("a"); add("b"); }}`), which is replaced wholesale with `Set.of("a", "b")` (immutable result, matching the anonymous-class idiom's typical intent).
+- A `new HashSet<>()` declaration followed by a chain of `target.add(..)` statements, which is collapsed to `new HashSet<>(Set.of(..))` (preserving the mutable `HashSet`).
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

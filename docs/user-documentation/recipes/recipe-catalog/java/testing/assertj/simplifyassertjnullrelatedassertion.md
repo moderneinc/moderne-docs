@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass A {\n    void foo(Object a) {\n        assertThat(null == a).isTrue();\n        assertThat(a == null).isTrue();\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass A {\n    void foo(Object a) {\n        assertThat(a).isNull();\n        assertThat(a).isNull();\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass A {\n    void foo(Object a) {\n-       assertThat(null == a).isTrue();\n-       assertThat(a == null).isTrue();\n+       assertThat(a).isNull();\n+       assertThat(a).isNull();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion","displayName":"Simplify AssertJ assertions on `null` reference comparisons","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

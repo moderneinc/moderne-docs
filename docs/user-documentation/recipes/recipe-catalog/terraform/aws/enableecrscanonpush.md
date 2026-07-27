@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_AWS_33","terraform","AWS"]}
+  tags={["AWS","CKV_AWS_33","terraform"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EnableECRScanOnPush"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

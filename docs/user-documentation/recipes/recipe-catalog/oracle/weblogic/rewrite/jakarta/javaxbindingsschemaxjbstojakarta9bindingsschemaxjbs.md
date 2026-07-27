@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["jaxb","xjb","bindings","jakarta"]}
+  tags={["jaxb","xjb","jakarta","bindings"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.jakarta.JavaxBindingsSchemaXjbsToJakarta9BindingsSchemaXjbs"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `BugCheckerRules.ASTHelpersGetStartPosition`"}
-  description={"Prefer `ASTHelpers#getStartPosition(Tree)` over alternatives that require casting."}
+  description={"Prefer `ASTHelpers#getStartPosition(Tree)` over more fragile alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes$ASTHelpersGetStartPositionRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `BugCheckerRules.ASTHelpersGetStartPosition`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ASTHelpers#getStartPosition(Tree)` over alternatives that require casting.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ASTHelpers#getStartPosition(Tree)` over more fragile alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

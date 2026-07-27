@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ImmutableListRules.ImmutableListSortedCopyOf`"}
-  description={"Prefer `ImmutableList#sortedCopyOf(Iterable)` over more contrived alternatives."}
+  description={"Prefer `ImmutableList#sortedCopyOf(Iterable)` over more verbose or less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$ImmutableListSortedCopyOfRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ImmutableListRules.ImmutableListSortedCopyOf`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ImmutableList#sortedCopyOf(Iterable)` over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ImmutableList#sortedCopyOf(Iterable)` over more verbose or less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

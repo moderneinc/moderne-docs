@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJDurationRules.AssertThatHasMillis`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasMillis {\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(Duration duration, long millis) {\n        return assertThat(duration.toMillis()).isEqualTo(millis);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration, long millis) {\n        return assertThat(duration).hasMillis(millis);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractDurationAssert#hasMillis(long)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatHasMillisRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatHasMillis`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasMillis {
-    
-    @BeforeTemplate
-    AbstractLongAssert<?> before(Duration duration, long millis) {
-        return assertThat(duration.toMillis()).isEqualTo(millis);
-    }
-    
-    @AfterTemplate
-    AbstractDurationAssert<?> after(Duration duration, long millis) {
-        return assertThat(duration).hasMillis(millis);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractDurationAssert#hasMillis(long)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

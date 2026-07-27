@@ -39,6 +39,7 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/running-your-first-recipe',
           'user-documentation/moderne-platform/getting-started/proof-of-value-prerequisites',
           'user-documentation/moderne-platform/getting-started/proof-of-value',
+          'user-documentation/moderne-platform/getting-started/proof-of-value-csharp',
           'user-documentation/moderne-platform/getting-started/code-quality',
           'user-documentation/moderne-platform/getting-started/data-tables',
           'user-documentation/moderne-platform/getting-started/visualizations',
@@ -46,7 +47,6 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/changelog',
           'user-documentation/moderne-platform/getting-started/prethink',
           'user-documentation/moderne-platform/getting-started/activity-view',
-          'user-documentation/moderne-platform/getting-started/code-mods',
         ],
       },
       {
@@ -60,6 +60,7 @@ const platform = {
           keywords: ['guides'],
         },
         items: [
+          'user-documentation/moderne-platform/how-to-guides/vulnerability-remediation-playbook',
           'user-documentation/moderne-platform/how-to-guides/find-pii',
           'user-documentation/moderne-platform/how-to-guides/vulnerable-dependencies',
           'user-documentation/moderne-platform/how-to-guides/addressing-cves',
@@ -74,8 +75,6 @@ const platform = {
           'user-documentation/moderne-platform/how-to-guides/track-migrations',
           'user-documentation/moderne-platform/how-to-guides/track-commits',
           'user-documentation/moderne-platform/how-to-guides/transitive-dependencies',
-          'user-documentation/moderne-platform/how-to-guides/how-to-find-method-invocations-based-on-a-pattern',
-          'user-documentation/moderne-platform/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering',
           'user-documentation/moderne-platform/how-to-guides/writing-and-installing-recipes',
         ],
       },
@@ -268,7 +267,6 @@ const platformV1 = {
           'user-documentation/moderne-platform-v1/getting-started/dev-center',
           'user-documentation/moderne-platform-v1/getting-started/prethink',
           'user-documentation/moderne-platform-v1/getting-started/activity-view',
-          'user-documentation/moderne-platform-v1/getting-started/code-mods',
         ],
       },
       {
@@ -296,8 +294,6 @@ const platformV1 = {
           'user-documentation/moderne-platform-v1/how-to-guides/track-migrations',
           'user-documentation/moderne-platform-v1/how-to-guides/track-commits',
           'user-documentation/moderne-platform-v1/how-to-guides/transitive-dependencies',
-          'user-documentation/moderne-platform-v1/how-to-guides/how-to-find-method-invocations-based-on-a-pattern',
-          'user-documentation/moderne-platform-v1/how-to-guides/how-to-gain-a-high-level-overview-of-your-codebase-using-clustering',
           'user-documentation/moderne-platform-v1/how-to-guides/writing-and-installing-recipes',
           'user-documentation/moderne-platform-v1/how-to-guides/categorize-recipes',
         ],
@@ -485,6 +481,7 @@ const dx = {
       items: [
         'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx',
         'administrator-documentation/moderne-dx/how-to-guides/mass-run-dx',
+        'administrator-documentation/moderne-dx/how-to-guides/configure-telemetry-dx',
       ],
     },
     {
@@ -563,6 +560,7 @@ const cli = {
           label: 'Language support',
           items: [
             'user-documentation/moderne-cli/how-to-guides/csharp',
+            'user-documentation/moderne-cli/how-to-guides/go',
             'user-documentation/moderne-cli/how-to-guides/java',
             'user-documentation/moderne-cli/how-to-guides/javascript',
             'user-documentation/moderne-cli/how-to-guides/python',
@@ -575,6 +573,7 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands',
         'user-documentation/moderne-cli/how-to-guides/on-prem-scm-config',
         'user-documentation/moderne-cli/how-to-guides/build-steps',
+        'user-documentation/moderne-cli/how-to-guides/custom-build-tool-prebuild',
         'user-documentation/moderne-cli/how-to-guides/custom-parser-mappings',
         'user-documentation/moderne-cli/how-to-guides/build-partitions',
         'user-documentation/moderne-cli/how-to-guides/batch-changes',
@@ -752,6 +751,7 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes',
             'user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-java-refactoring-recipe',
             'user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-javascript-refactoring-recipe',
+            'user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-csharp-refactoring-recipe',
             'user-documentation/recipes/authoring-recipes/writing-recipes/writing-python-recipes',
             'user-documentation/recipes/authoring-recipes/writing-recipes/refaster-recipes',
           ],
@@ -773,7 +773,6 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/advanced-authoring/multiple-versions',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/automate-breaking-changes',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/modifying-methods-with-javatemplate',
-            'user-documentation/recipes/authoring-recipes/advanced-authoring/recipe-with-npm-dependency',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/estimated-time-saved',
           ],
         },
@@ -789,6 +788,7 @@ const recipes = {
           },
           items: [
             'user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing',
+            'user-documentation/recipes/authoring-recipes/testing-and-best-practices/validating-recipes-at-scale',
             'user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices',
           ],
         },

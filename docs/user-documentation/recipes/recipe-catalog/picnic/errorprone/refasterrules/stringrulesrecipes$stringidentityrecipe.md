@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StringRules.StringIdentity`"}
-  description={"Avoid unnecessary creation of new `String` objects."}
+  description={"Prefer using `String`s as-is over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIdentityRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StringRules.StringIdentity`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid unnecessary creation of new `String` objects.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer using `String`s as-is over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

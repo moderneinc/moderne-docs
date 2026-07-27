@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.ImmutableCollectionStream`"}
-  description={"Don't call `ImmutableCollection#asList()` if the result is going to be streamed; stream directly."}
+  description={"Prefer `ImmutableCollection#stream()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ImmutableCollectionStreamRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.ImmutableCollectionStream`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't call `ImmutableCollection#asList()` if the result is going to be streamed; stream directly.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ImmutableCollection#stream()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamMapCollect`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMapCollect<T, U, R> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    R before(Stream<T> stream, Function<? super T, ? extends U> mapper, Collector<? super U, ?, R> collector) {\n        return stream.collect(mapping(mapper, collector));\n    }\n    \n    @AfterTemplate\n    R after(Stream<T> stream, Function<? super T, ? extends U> mapper, Collector<? super U, ?, R> collector) {\n        return stream.map(mapper).collect(collector);\n    }\n}\n```\n."}
+  description={"Prefer `Stream#map(Function)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapCollectRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamMapCollect`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamMapCollect<T, U, R> {
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "java:S4266")
-    R before(Stream<T> stream, Function<? super T, ? extends U> mapper, Collector<? super U, ?, R> collector) {
-        return stream.collect(mapping(mapper, collector));
-    }
-    
-    @AfterTemplate
-    R after(Stream<T> stream, Function<? super T, ? extends U> mapper, Collector<? super U, ?, R> collector) {
-        return stream.map(mapper).collect(collector);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#map(Function)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ComparatorRules.ReverseOrder`"}
-  description={"Prefer `Comparator#reverseOrder()` over more complicated constructs."}
+  description={"Prefer `Comparator#reverseOrder()` over less explicit, more verbose, or more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ReverseOrderRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ComparatorRules.ReverseOrder`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Comparator#reverseOrder()` over more complicated constructs.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Comparator#reverseOrder()` over less explicit, more verbose, or more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

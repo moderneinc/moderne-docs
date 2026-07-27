@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.LongToUnsignedString`"}
-  description={"Prefer JDK's `Long#toUnsignedString(long)` over third-party or more verbose alternatives."}
+  description={"Prefer `Long#toUnsignedString(long)` over non-JDK or more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LongToUnsignedStringRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.LongToUnsignedString`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer JDK's `Long#toUnsignedString(long)` over third-party or more verbose alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Long#toUnsignedString(long)` over non-JDK or more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["Azure","CKV_AZURE_42","terraform"]}
+  tags={["terraform","Azure","CKV_AZURE_42"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.azure.EnsureAzureKeyVaultIsRecoverable"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

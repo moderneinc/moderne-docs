@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJStreamRules.AssertThatNoneMatch`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatNoneMatch<T> {\n    \n    @BeforeTemplate\n    void before(Stream<T> stream, Predicate<? super T> predicate) {\n        assertThat(stream).filteredOn(predicate).isEmpty();\n    }\n    \n    @BeforeTemplate\n    void before2(Stream<T> stream, Predicate<? super T> predicate) {\n        Refaster.anyOf(assertThat(stream.anyMatch(predicate)).isFalse(), assertThat(stream.noneMatch(predicate)).isTrue());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Stream<T> stream, Predicate<? super T> predicate) {\n        assertThat(stream).noneMatch(predicate);\n    }\n}\n```\n."}
+  description={"Prefer `assertThat(stream).noneMatch(predicate)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatNoneMatchRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,32 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJStreamRules.AssertThatNoneMatch`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatNoneMatch<T> {
-    
-    @BeforeTemplate
-    void before(Stream<T> stream, Predicate<? super T> predicate) {
-        assertThat(stream).filteredOn(predicate).isEmpty();
-    }
-    
-    @BeforeTemplate
-    void before2(Stream<T> stream, Predicate<? super T> predicate) {
-        Refaster.anyOf(assertThat(stream.anyMatch(predicate)).isFalse(), assertThat(stream.noneMatch(predicate)).isTrue());
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after(Stream<T> stream, Predicate<? super T> predicate) {
-        assertThat(stream).noneMatch(predicate);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `assertThat(stream).noneMatch(predicate)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

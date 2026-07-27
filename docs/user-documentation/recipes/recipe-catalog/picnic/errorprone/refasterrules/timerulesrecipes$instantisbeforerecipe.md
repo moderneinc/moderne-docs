@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TimeRules.InstantIsBefore`"}
-  description={"Prefer `Instant#isBefore(Instant)` over explicit comparison, as it yields more readable code."}
+  description={"Prefer `Instant#isBefore(Instant)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$InstantIsBeforeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TimeRules.InstantIsBefore`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Instant#isBefore(Instant)` over explicit comparison, as it yields more readable code.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Instant#isBefore(Instant)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

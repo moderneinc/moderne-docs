@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsNotEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractBigIntegerAssertIsNotEqualTo {\n    \n    @BeforeTemplate\n    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> bigIntegerAssert, BigInteger n) {\n        return Refaster.anyOf(bigIntegerAssert.isNotCloseTo(n, offset(BigInteger.ZERO)), bigIntegerAssert.isNotCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractBigIntegerAssert<?> after(AbstractBigIntegerAssert<?> bigIntegerAssert, BigInteger n) {\n        return bigIntegerAssert.isNotEqualTo(n);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractBigIntegerAssert#isNotEqualTo(Object)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJBigIntegerRulesRecipes$AbstractBigIntegerAssertIsNotEqualToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsNotEqualTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractBigIntegerAssertIsNotEqualTo {
-    
-    @BeforeTemplate
-    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> bigIntegerAssert, BigInteger n) {
-        return Refaster.anyOf(bigIntegerAssert.isNotCloseTo(n, offset(BigInteger.ZERO)), bigIntegerAssert.isNotCloseTo(n, withPercentage(0)));
-    }
-    
-    @AfterTemplate
-    AbstractBigIntegerAssert<?> after(AbstractBigIntegerAssert<?> bigIntegerAssert, BigInteger n) {
-        return bigIntegerAssert.isNotEqualTo(n);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractBigIntegerAssert#isNotEqualTo(Object)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

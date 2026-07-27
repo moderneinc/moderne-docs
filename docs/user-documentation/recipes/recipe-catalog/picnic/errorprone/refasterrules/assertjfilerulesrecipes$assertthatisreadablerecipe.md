@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJFileRules.AssertThatIsReadable`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsReadable {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(File actual) {\n        return assertThat(actual.canRead()).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractFileAssert<?> after(File actual) {\n        return assertThat(actual).isReadable();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractFileAssert#isReadable()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatIsReadableRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatIsReadable`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsReadable {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(File actual) {
-        return assertThat(actual.canRead()).isTrue();
-    }
-    
-    @AfterTemplate
-    AbstractFileAssert<?> after(File actual) {
-        return assertThat(actual).isReadable();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractFileAssert#isReadable()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

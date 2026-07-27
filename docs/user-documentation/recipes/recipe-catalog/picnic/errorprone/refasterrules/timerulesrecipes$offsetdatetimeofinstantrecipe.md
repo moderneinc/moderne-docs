@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TimeRules.OffsetDateTimeOfInstant`"}
-  description={"Prefer `OffsetDateTime#ofInstant(Instant, ZoneId)` over more indirect alternatives."}
+  description={"Prefer `OffsetDateTime#ofInstant(Instant, ZoneId)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$OffsetDateTimeOfInstantRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TimeRules.OffsetDateTimeOfInstant`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `OffsetDateTime#ofInstant(Instant, ZoneId)` over more indirect alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `OffsetDateTime#ofInstant(Instant, ZoneId)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

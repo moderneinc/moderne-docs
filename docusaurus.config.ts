@@ -4,6 +4,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import { readdirSync } from 'node:fs';
 import latestVersions from "./src/plugins/latest-versions";
 import remarkTokenReplacer from "./src/plugins/replace-tokens";
+import redirects from "./redirects";
 
 // Fast iteration on the redesigned recipe pages: when EXAMPLE_RECIPES_ONLY is set, exclude the entire
 // recipe-catalog EXCEPT the handful of example pages we're actively developing, so a build/start only
@@ -209,6 +210,12 @@ const config: Config = {
           },
         ],
       },
+    ],
+    // Client-side redirects for docs that have moved. The list lives in
+    // ./redirects.ts — add an entry there when you move or rename a doc.
+    [
+      '@docusaurus/plugin-client-redirects',
+      { redirects },
     ],
   ],
 

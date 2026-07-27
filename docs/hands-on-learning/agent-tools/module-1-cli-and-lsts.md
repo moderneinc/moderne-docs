@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 # Module 1: CLI and LSTs
 
-In this module, you'll set up everything the agent tools depend on: the Moderne CLI, a couple of recipe JARs (including `io.moderne.recipe:rewrite-prethink`), and [Lossless Semantic Trees (LSTs)](../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) for a small working set of Java and Spring repositories. The later modules build on top of this setup, so don't skip ahead until your LSTs build cleanly.
+In this module, you'll set up everything the agent tools depend on: the Moderne CLI, a couple of recipe JARs (including `io.moderne.recipe:rewrite-prethink`), and [Lossless Semantic Trees (LSTs)](../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) for a small working set of Java and Spring repositories. The later modules build on top of this setup, so don't skip ahead until your LSTs build cleanly.
 
 ## Exercise 1-1: Install and configure the Moderne CLI
 
@@ -129,13 +129,13 @@ If you'd rather have the entire catalog available, run `mod config recipes moder
 
 #### Step 2: Confirm the recipes are installed
 
-Search for one of the Prethink recipes to confirm it resolved:
+Search for the Prethink recipe to confirm it resolved:
 
 ```bash
 mod config recipes search UpdatePrethinkContext
 ```
 
-The CLI walks through each matching recipe interactively and asks whether to set it as the active recipe. You should see at least the `io.moderne.prethink.UpdatePrethinkContextNoAiStarter` and `io.moderne.prethink.UpdatePrethinkContextStarter` recipes show up. Press `n` (or just `Enter`) at each prompt to skip — you'll select recipes explicitly with `--recipe` later.
+The CLI walks through each matching recipe interactively and asks whether to set it as the active recipe. You should see at least the `io.moderne.prethink.UpdatePrethinkContextStarter` recipe show up. Press `n` (or just `Enter`) at each prompt to skip — you'll select recipes explicitly with `--recipe` later.
 
 ### Takeaways
 
@@ -153,7 +153,7 @@ The CLI walks through each matching recipe interactively and asks whether to set
 
 ### Key concepts
 
-A [Lossless Semantic Tree (LST)](../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) is a type-attributed, format-preserving tree representation of your source code. Recipes, the MCP server's semantic tools, and the Trigrep search index all read from LSTs rather than raw text, which is what gives them type awareness.
+A [Lossless Semantic Tree (LST)](../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) is a type-attributed, format-preserving tree representation of your source code. Recipes, the MCP server's semantic tools, and the Trigrep search index all read from LSTs rather than raw text, which is what gives them type awareness.
 
 You can either **download** pre-built LSTs from the Moderne Platform or **build** them locally with `mod build`. Both options work for the rest of this workshop, but a local build is the more realistic flow for your own repositories. We'll show both paths.
 

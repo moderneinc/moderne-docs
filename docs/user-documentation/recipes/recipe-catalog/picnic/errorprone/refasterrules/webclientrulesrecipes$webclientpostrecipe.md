@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `WebClientRules.WebClientPost`"}
-  description={"Prefer `WebClient#post()` over `WebClient#method(HttpMethod)` with `HttpMethod#POST`."}
+  description={"Prefer `WebClient#post()` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$WebClientPostRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `WebClientRules.WebClientPost`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `WebClient#post()` over `WebClient#method(HttpMethod)` with `HttpMethod#POST`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `WebClient#post()` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

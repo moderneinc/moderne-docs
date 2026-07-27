@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.LongCompareUnsigned`"}
-  description={"Prefer JDK's `Long#compareUnsigned(long, long)` over third-party alternatives."}
+  description={"Prefer `Long#compareUnsigned(long, long)` over non-JDK alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LongCompareUnsignedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.LongCompareUnsigned`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer JDK's `Long#compareUnsigned(long, long)` over third-party alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Long#compareUnsigned(long, long)` over non-JDK alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

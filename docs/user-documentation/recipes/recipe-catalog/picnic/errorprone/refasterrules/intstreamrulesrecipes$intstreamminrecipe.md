@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `IntStreamRules.IntStreamMin`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class IntStreamMin {\n    \n    @BeforeTemplate\n    OptionalInt before(IntStream stream) {\n        return stream.sorted().findFirst();\n    }\n    \n    @AfterTemplate\n    OptionalInt after(IntStream stream) {\n        return stream.min();\n    }\n}\n```\n."}
+  description={"Prefer `IntStream#min()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes$IntStreamMinRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `IntStreamRules.IntStreamMin`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class IntStreamMin {
-    
-    @BeforeTemplate
-    OptionalInt before(IntStream stream) {
-        return stream.sorted().findFirst();
-    }
-    
-    @AfterTemplate
-    OptionalInt after(IntStream stream) {
-        return stream.min();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `IntStream#min()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

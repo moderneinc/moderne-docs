@@ -367,6 +367,10 @@ These other docs might also be useful for you depending on where you want to pub
 * Sonatype's instructions for [publishing to Maven Central](https://maven.apache.org/repository/guide-central-repository-upload.html)
 * Gradle's instructions on the [Gradle Publishing Plugin](https://docs.gradle.org/current/userguide/publishing\_maven.html).
 
+### Deploying to the Moderne Platform
+
+If you want your recipes to appear in your organization's Moderne Platform instance, you'll need to publish them to an artifact repository connected to that instance and have an administrator import them. For step-by-step instructions, see [Writing and installing recipes](../../../moderne-platform/how-to-guides/writing-and-installing-recipes.md).
+
 ### Running your Recipes
 
 Once your recipe module is published, either locally for testing or to an external artifact repository for broader distribution, you'll need to configure a separate repository to test with (See the [Getting Started Guide](https://docs.openrewrite.org/running-recipes/getting-started) for more detailed instructions). In the repository you want to test your recipe against, update the build plugins accordingly:
@@ -476,5 +480,6 @@ Moderne offers a [CLI](../../../moderne-cli/getting-started/cli-intro.md) and an
 
 * [Learn about the different types of recipes you can create](../writing-recipes/types-of-recipes.md)
 * [Write a Java refactoring recipe](../writing-recipes/writing-a-java-refactoring-recipe.md)
+* [Deploy your recipes to the Moderne Platform](../../../moderne-platform/how-to-guides/writing-and-installing-recipes.md)
 * [Maven plugin configuration](https://docs.openrewrite.org/reference/rewrite-maven-plugin)
 * [Gradle plugin configuration](https://docs.openrewrite.org/reference/gradle-plugin-configuration)

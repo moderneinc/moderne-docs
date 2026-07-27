@@ -28,6 +28,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find hardcoded initialization vectors](./findhardcodediv.md)
 * [Find inadequate cryptographic key sizes](./findinadequatekeysize.md)
 * [Find insecure Spring Security RememberMe configuration](./findinsecureremembermeconfig.md)
+* [Find insecure cipher modes and padding schemes](./findinsecureciphermode.md)
 * [Find long or disabled HTTP session timeout](./findlongsessiontimeout.md)
 * [Find permissive CORS configuration](./findpermissivecorsconfiguration.md)
 * [Find potential SQL injection](./findsqlinjection.md)

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.LongBytes`"}
-  description={"Prefer `Long#BYTES` over the Guava alternative."}
+  description={"Prefer `Long#BYTES` over non-JDK alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LongBytesRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.LongBytes`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Long#BYTES` over the Guava alternative.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Long#BYTES` over non-JDK alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

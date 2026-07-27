@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.StepVerifierVerifyLater`"}
-  description={"Don't unnecessarily invoke `StepVerifier#verifyLater()` multiple times."}
+  description={"Prefer invoking `StepVerifier#verifyLater()` once over multiple invocations."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$StepVerifierVerifyLaterRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.StepVerifierVerifyLater`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't unnecessarily invoke `StepVerifier#verifyLater()` multiple times.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer invoking `StepVerifier#verifyLater()` once over multiple invocations.</RecipeHeader.Description>
 
 </RecipeHeader>
 

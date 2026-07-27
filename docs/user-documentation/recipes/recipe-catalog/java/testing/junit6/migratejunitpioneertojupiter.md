@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["junit","testing","junit-pioneer","jupiter"]}
+  tags={["junit-pioneer","junit","jupiter","testing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

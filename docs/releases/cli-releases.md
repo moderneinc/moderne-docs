@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.6           |
+| CLI version | 4.4.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,185 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.4.1 (2026-07-23)
+
+#### What's Changed
+* Validate trust/key store before persisting it to config
+* Represent oversize source files as Quarks in the RPC project parsers
+
+### CLI / DX v4.4.0 (2026-07-22)
+
+#### What's Changed
+* bound recipe-run HTTP senders with timeouts so a stalled repository can't hang the run
+* resolve recipe by exact id before suffix fallback
+* Generate a Maven toolchains.xml from installed JDKs
+* Cache the wrapper's latest-version lookup with a per-channel TTL
+* Offline jOOQ code generation during mass-ingest via embedded pglite
+* Publish CLI snapshots and releases to the Code Genome Project
+* Run builds on Java 11+ when using com.mycila license-maven-plugin 5+
+* Tag Maven wrapper files with BuildTool(Maven) so UpdateMavenWrapper runs under the CLI
+
+### CLI / DX v4.3.18 (2026-07-20)
+
+#### What's Changed
+* Force spectator-reg-atlas to 1.10.x for patched shaded Jackson
+* Stage both paths of a renamed file in `mod git add`
+* Cap concurrent polyglot rewrite-rpc engines to run.polyglotParallel
+* Remove the query-time relevance ranker from trigrep search
+* Publish LST jars under a valid Maven 2 path
+* Retry failed CLI telemetry, and permanently set aside what can never be sent
+
+### CLI / DX v4.3.17 (2026-07-16)
+
+#### What's Changed
+* Union macOS system roots and keychain trust for `trust-store edit system`
+* share the Maven auth cache with POM resolution in the recipe bundle downloader
+* Fix incorrect comments + description about parallelization
+* Fix ModerneCliRepoGenerator self extract
+* Align text in plain progress bar wrt different lengths of time descri…
+* populate run.log for other languages too
+* Correct Prethink recipe id in examples and config test
+* Intern JavaTemplate types on the V2 read path to prevent recipe-run OOM
+
+### CLI / DX v4.3.16 (2026-07-15)
+
+#### What's Changed
+* Solve Lombok warnings
+* Explain 'mod git apply' failures by showing the conflicting code
+* Drop commas from organization directory names
+* Fix proguard config for bazel
+* Float httpclient5 to latest.release (CVE-2026-54399, CVE-2026-54428)
+* Add kind-qualified ref: filters to trigrep symbol search
+
+### CLI / DX v4.3.15 (2026-07-14)
+
+#### What's Changed CLI
+* Incorporates the latest versions of OpenRewrite ([v8.87.0](https://github.com/openrewrite/rewrite/releases/tag/v8.87.0)), the rewrite-gradle-plugin ([v7.37.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.37.0)), and the rewrite-maven-plugin ([v6.44.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.44.0)) to improve code parsing accuracy and recipe execution reliability.
+
+### CLI / DX v4.3.14 (2026-07-13)
+
+#### What's Changed
+* Add opencode support to `mod config agent-tools`
+* Ensure that we preserve maven settings repositories in the built LST
+
+### CLI / DX v4.3.13 (2026-07-12)
+
+#### What's Changed
+* Upgrade to Jackson 2.21.5
+* Remove CLI telemetry sweep
+* Strip non-host platform natives from per-platform CLI distributions
+* Trigrep search fidelity: javadoc-ref symbol kind, balance-aware structural holes, dependency-type ref coverage
+* Inject moderne_cli via the module graph on Bazel < 8 with Bzlmod active
+* Download each shared type table once in the Bazel harvest
+* Derive missing type tables from dependencies.bin, dropping types-manifest.txt
+* Kill the process tree on build timeout, tolerate list-shaped android manifests, and lead with the verb for bazel wrappers
+
+### CLI / DX v4.3.12 (2026-07-10)
+
+#### What's Changed
+* Add LST v3 entries for go.sum
+* Add `mod mcp --no-build` (INCUBATING) to serve search over a prebuilt index
+* Verify Bazel CLI distribution download + self-heal a corrupt cli_dist
+* Fall back to default Maven settings in the prebuild MavenParser pass
+* Pass configured recipe artifact repositories to RPC servers during recipe resolution
+
+### CLI / DX v4.3.10 (2026-07-08)
+
+#### What's Changed
+* Cache reflection accessors in TreeWriter's remaining generic write paths
+* Run the delegated structure sync inside the host run's output and record Skipped sync outcomes for repos with no published LST
+* Fix issue with manual CLI publishing
+* Match local recipe bundles by absolute path on uninstall
+* Add lines added/removed metrics to recipe run report
+* Fix RPC servers running on Windows - `error: unknown option --package'`
+
+### CLI / DX v4.3.10 (2026-07-08)
+
+#### What's Changed
+* Cache reflection accessors in TreeWriter's remaining generic write paths
+* Run the delegated structure sync inside the host run's output and record Skipped sync outcomes for repos with no published LST
+* Fix issue with manual CLI publishing
+* Match local recipe bundles by absolute path on uninstall
+* Add lines added/removed metrics to recipe run report
+* Fix RPC servers running on Windows - `error: unknown option --package'`
+
+### CLI / DX v4.3.9 (2026-07-07)
+
+#### What's Changed
+* Migrate from tibdex/github-app-token to actions/create-github-app-token
+* Re-record build tool versions after validation so node/python traces carry real versions
+* serialize Remote recipe results in the V3 tree codec
+* Add `--gzip` to `mod study` for compressed CSV output
+* Approximate mod study Excel column widths instead of POI autoSizeColumn
+* remove leftover merge conflict markers in V3 tree registry
+* Custom JVM build tools: pick up hand-authored prebuild trees + V3 book chapter
+* Expand external SYSIN/SYSTSIN .prm members into the JCL LST during build
+* Call JclParser parmMembers(List`<Path>`) for the rewrite-cobol 2.20.1 seam
+
+### CLI / DX v4.3.8 (2026-07-06)
+
+#### What's Changed
+* Speed up the organization-directory walk (read git metadata from files)
+* mcp: rebase trigrep fragment offsets onto the trimmed line
+* Fix Gradle metadata extraction crash on older Gradle wrapper versions
+* Tell users to reload their shell after the curl installer updates PATH
+* Move the CI scheduled run to the UTC evening
+* Extend OWASP vuln suppression for azure
+* Set maxStringLength on edit-store and LST-writer serializers
+* mcp: query_datatable echoes the bare view name as `name`, not the dotted FQN
+* Fix NPE writing null JavaTypes in the V3 type-table writer
+* mcp: steer the agent on a 0-result run_recipe instead of going silent
+* Generate typed structural and comment serializers for non-Java V3 trees
+* Skip the organization walk for large orgs with a stat cache
+* actions/checkout@v7
+* Upgrade official GitHub Actions to their latest versions
+* Fix the StatCacheTests
+* mcp: accept the bare Comby form trigrep_structural_search advertises
+* Bound exported metric cardinality (and stop per-repo registry leak) in mod run
+* Validate the run_recipe 'recipe' argument before the LST/store precondition
+* Aggregate mod study data tables bottom-up without build-time dedup
+* Fix MavenResolutionResult dependencies losing their depth field during serialization roundtrip
+* Add responsive layout so the trace analyzer table keeps usable rows on short screens
+
+### CLI / DX v4.3.7 (2026-07-01)
+
+#### What's Changed
+* Add an `annotated:` filter to trigrep symbol search
+* Narrow recipe runs for all MethodMatcher separator forms
+* trace analyze: surface builds with undetermined tool versions
+* Report target-count progress and phases for Bazel monorepo builds
+* Share the repository-markers parse across source sets
+* mcp: compact trigrep_search content-mode results for token efficiency
+* Stop parsing `manifest.csv` to detect LST format version
+* mcp: guard run_recipe against missing required options
+* Prevent invalid rows from reaching repos-lock.csv
+* `GoRpcServerWithRecipes`
+* Fail Bazel build when the server crashes mid-build (truncated build event stream)
+* Speed up the V3 .tree read path: ByteBuffer fast paths, heap header read, single-open
+* Fix corrupted GolangRecipeBundleResolver import breaking the build
+* Revert "Synthesize V3 build LST node ids on read instead of persisting them (#4230)"
+* Raise Gradle classpath-extraction timeout from 2 to 5 minutes
+* Re-land synthesized V3 build-LST ids; degrade unreadable trees to quarks
+* Release class bytes before writeTo to prevent OOM on large JARs
+* Back JavaSourceSetProxy.getTypeFactory() with the V3 type-table chain
+* Skip the resource build step when no resource files changed incrementally
+* Pick up SNAPSHOT recipe republishes immediately
+* Index V3LstReader.findByPath by pathHash (fixes quadratic stall on file-generating recipes)
+* Write data tables to a single shared file per table for RPC-language recipes
+* Drop the ANTLR4 codegen tool from the CLI runtime (CVE-2026-13500)
+* Comby structural fidelity fixes + full-scan guard for non-narrowable searches
+* Go: add memory limits and a way to configure them
+* Fixing race condition in PlainProgressBar
+* Bound the build-metadata git walk to the committers window
+* Eliminate allocation hotspot and exception-as-control-flow in mini-builds
+* Filter cross-package resources in Bazel LST aspect to eliminate duplicate manifest entries
+* mcp: hand back the queryable DataTable name + matchCount honesty on run_recipe
+* mcp: trigrep_search robustness — parse leniency + typed-search redirect
+* MCP: stream recipe data tables to disk instead of buffering them in memory
+* Detect Gradle Daemon JVM criteria for LST builds
+* Fix rewrite-polyglot install rejected with wrong-GAV suggestion
+* Include sibling source-set outputs on the Gradle test parse classpath
 
 ### CLI / DX v4.3.6 (2026-06-23)
 

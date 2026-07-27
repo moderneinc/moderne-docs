@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["cobertura","java11"]}
+  tags={["java11","cobertura"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.migrate.cobertura.RemoveCoberturaMavenPlugin"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}

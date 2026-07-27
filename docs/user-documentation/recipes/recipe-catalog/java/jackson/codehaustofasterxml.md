@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Remove Codehaus Jackson annotations if doubly annotated","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/removedoublyannotatedcodehausannotations/"},{"name":"Transfer @JsonSerialize arguments from Codehaus to FasterXML","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/transferjsonserializeargumentsfromcodehaustofasterxml/"},{"name":"Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehausclassestofasterxml/"},{"name":"Migrate dependencies from Jackson Codehaus (legacy) to FasterXML","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/codehausdependencytofasterxml/"}]}>
+<RecipeList recipes={[{"name":"Transfer @JsonSerialize arguments from Codehaus to FasterXML","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/transferjsonserializeargumentsfromcodehaustofasterxml/"},{"name":"Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehausclassestofasterxml/"},{"name":"Migrate dependencies from Jackson Codehaus (legacy) to FasterXML","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/codehausdependencytofasterxml/"}]}>
 
 ## Definition
 

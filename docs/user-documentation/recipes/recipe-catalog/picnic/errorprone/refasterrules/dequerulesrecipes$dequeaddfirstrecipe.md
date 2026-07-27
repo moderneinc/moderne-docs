@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `DequeRules.DequeAddFirst`"}
-  description={"Prefer `Deque#addLast(Object)` over less clear alternatives."}
+  description={"Prefer `Deque#addFirst(Object)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.DequeRulesRecipes$DequeAddFirstRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `DequeRules.DequeAddFirst`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Deque#addLast(Object)` over less clear alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Deque#addFirst(Object)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

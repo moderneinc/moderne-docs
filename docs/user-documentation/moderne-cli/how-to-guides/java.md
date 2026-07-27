@@ -287,16 +287,20 @@ mod build /path/to/your/repos
 Presuming everything has been set up correctly, you should see output similar to:
 
 ```bash
-▶ spring-projects/spring-petclinic@main
-    Build output will be written to build.log
+● Building LST(s)
+
+    ▶ spring-projects/spring-petclinic@main
+        Build output will be written to build.log
+        Looking for Gradle subprojects in spring-petclinic
+        Selected the 17.0.19-tem JDK for spring-petclinic
     # highlight-start
-    > Step 1 - build with Maven
-        Selected JDK 17.0.7-tem
-        Running mvn install
-    ✓ Built spring-petclinic-20260424120000000-ast.jar
+        ✓ Gradle · JDK 17.0.19-tem
     # highlight-end
-    Cleaned 1 older builds
+
+Built 1 repository.
 ```
+
+Spring PetClinic ships both a Maven and a Gradle build, and the `gradle` step takes precedence over `maven` in the default pipeline, so the CLI parses it through Gradle. It discovers the project and its metadata, selects a JDK, then parses the sources itself — the `✓ Gradle · JDK 17.0.19-tem` line marks a successful build. See [discovery and parsing](./build-steps.md#discovery-and-parsing) for how the two phases work.
 
 ## Step 7: Install recipes
 

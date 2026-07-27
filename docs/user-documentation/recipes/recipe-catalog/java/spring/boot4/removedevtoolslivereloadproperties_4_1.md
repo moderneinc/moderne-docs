@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","devtools","boot"]}
+  tags={["spring","boot","devtools"]}
   license={"Moderne Proprietary License"}
   fqName={"io.moderne.java.spring.boot4.RemoveDevtoolsLiveReloadProperties_4_1"}
   artifact={"io.moderne.recipe:rewrite-spring"}

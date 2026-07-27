@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StringRules.StringIsEmpty`"}
-  description={"Prefer `String#isEmpty()` over alternatives that consult the string's length."}
+  description={"Prefer `String#isEmpty()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIsEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S7158"]}
+  tags={[]}
   license={"Apache License Version 2.0"}
   fqName={"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIsEmptyRecipe"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StringRules.StringIsEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `String#isEmpty()` over alternatives that consult the string's length.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `String#isEmpty()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

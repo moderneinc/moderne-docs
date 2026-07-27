@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJFileRules.AssertThatHasNoParent`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasNoParent {\n    \n    @BeforeTemplate\n    void before(File actual) {\n        assertThat(actual.getParent()).isNull();\n    }\n    \n    @AfterTemplate\n    void after(File actual) {\n        assertThat(actual).hasNoParent();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractFileAssert#hasNoParent()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatHasNoParentRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatHasNoParent`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasNoParent {
-    
-    @BeforeTemplate
-    void before(File actual) {
-        assertThat(actual.getParent()).isNull();
-    }
-    
-    @AfterTemplate
-    void after(File actual) {
-        assertThat(actual).hasNoParent();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractFileAssert#hasNoParent()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

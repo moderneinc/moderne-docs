@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Generate GitHub App token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         id: app-token
         with:
           # Only sees explicitly added repositories: https://github.com/organizations/moderneinc/settings/installations/88151565

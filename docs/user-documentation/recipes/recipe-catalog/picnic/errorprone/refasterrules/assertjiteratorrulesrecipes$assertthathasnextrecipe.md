@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJIteratorRules.AssertThatHasNext`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasNext<T> {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Iterator<T> iterator) {\n        return assertThat(iterator.hasNext()).isTrue();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    IteratorAssert<T> after(Iterator<T> iterator) {\n        return assertThat(iterator).hasNext();\n    }\n}\n```\n."}
+  description={"Prefer `IteratorAssert#hasNext()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJIteratorRulesRecipes$AssertThatHasNextRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJIteratorRules.AssertThatHasNext`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasNext<T> {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Iterator<T> iterator) {
-        return assertThat(iterator.hasNext()).isTrue();
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    IteratorAssert<T> after(Iterator<T> iterator) {
-        return assertThat(iterator).hasNext();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `IteratorAssert#hasNext()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

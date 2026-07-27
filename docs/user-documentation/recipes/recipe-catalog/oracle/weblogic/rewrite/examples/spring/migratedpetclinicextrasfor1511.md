@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["examples","weblogic","petclinic","springframework"]}
+  tags={["weblogic","petclinic","springframework","examples"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.examples.spring.MigratedPetClinicExtrasFor1511"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

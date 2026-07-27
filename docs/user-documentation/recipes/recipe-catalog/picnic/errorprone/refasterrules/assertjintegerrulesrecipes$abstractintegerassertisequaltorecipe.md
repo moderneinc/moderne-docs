@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractIntegerAssertIsEqualTo {\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(AbstractIntegerAssert<?> intAssert, int n) {\n        return Refaster.anyOf(intAssert.isCloseTo(n, offset(0)), intAssert.isCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractIntegerAssert<?> after(AbstractIntegerAssert<?> intAssert, int n) {\n        return intAssert.isEqualTo(n);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractIntegerAssert#isEqualTo(int)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJIntegerRulesRecipes$AbstractIntegerAssertIsEqualToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsEqualTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractIntegerAssertIsEqualTo {
-    
-    @BeforeTemplate
-    AbstractIntegerAssert<?> before(AbstractIntegerAssert<?> intAssert, int n) {
-        return Refaster.anyOf(intAssert.isCloseTo(n, offset(0)), intAssert.isCloseTo(n, withPercentage(0)));
-    }
-    
-    @AfterTemplate
-    AbstractIntegerAssert<?> after(AbstractIntegerAssert<?> intAssert, int n) {
-        return intAssert.isEqualTo(n);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractIntegerAssert#isEqualTo(int)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

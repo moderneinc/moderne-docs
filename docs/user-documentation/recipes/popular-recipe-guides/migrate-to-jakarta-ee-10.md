@@ -23,7 +23,7 @@ In this guide, we will show you how to run this recipe on the Moderne Platform o
 Before running this recipe, make sure:
 
 * Your codebase currently uses the `javax.*` enterprise APIs (Java EE or Jakarta EE 8) or an earlier Jakarta EE 9 release. `JakartaEE10` includes the [Jakarta EE 9 namespace migration](../recipe-catalog/java/migrate/jakarta/javaxmigrationtojakarta.md) transitively, so the `javax` to `jakarta` rename and the EE 10 updates are applied in a single run – you do not need to migrate to Jakarta EE 9 first.
-* Your build environment uses **Java 11 or later**. Jakarta EE 10 sets its baseline at Java SE 11 and also supports Java SE 17. If you are still on Java 8, run [Migrate to Java 17](./migrate-to-java-17.md) first and verify everything still builds.
+* Your build environment uses **Java 11 or later**. Jakarta EE 10 sets its baseline at Java SE 11 and also supports Java SE 17. If you are still on Java 8, run [Migrate to Java 17](./migrate-to-java.md) first and verify everything still builds.
 
 ## What this recipe does
 
@@ -104,5 +104,5 @@ Running the recipe never modifies your source repositories directly. Instead, th
 
 ## Additional reading
 
-* [Migrate to Spring Boot 3](./migrate-to-spring-boot-3.md) – Spring Boot 3 builds on this same `javax.*` to `jakarta.*` move, so start there if you are upgrading Spring applications.
+* [Migrate to Spring Boot 3](./migrate-to-spring-boot.md#coming-from-spring-boot-2x) – Spring Boot 3 builds on this same `javax.*` to `jakarta.*` move, so start there if you are upgrading Spring applications.
 * [Tracking migrations](../../moderne-platform/how-to-guides/track-migrations.md) – use data tables and visualizations to track the rollout of a Jakarta EE 10 upgrade across many repositories.

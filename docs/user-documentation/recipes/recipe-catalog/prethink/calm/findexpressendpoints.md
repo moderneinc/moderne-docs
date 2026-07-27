@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"packageJson","code":"{\n  \"name\": \"app\",\n  \"version\": \"1.0.0\",\n  \"dependencies\": { \"express\": \"^4.18.2\" },\n  \"devDependencies\": { \"@types/express\": \"^4.17.21\" }\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindExpressEndpoints","displayName":"Find Express endpoints","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

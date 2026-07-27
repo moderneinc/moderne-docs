@@ -37,7 +37,7 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 ### Mass ingest with mod CLI
 
-In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](./lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne Connector](#moderne-connector) has access to.
+In order for Moderne to know the current state of your code, artifacts will need to be generated that contain a serialized representation of your code's [LSTs](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md). These artifacts must be put inside an artifact repository that the [Moderne Connector](#moderne-connector) has access to.
 
 To do this, you'll want to set up mass ingestion with the Moderne CLI. For instructions on how to do that, please read our [mass ingestion guide](../how-to-guides/mass-ingest.md).
 
@@ -165,7 +165,7 @@ The indexer works with the [Connector](#moderne-connector) to scan your configur
 
 The recipe marketplace manages the catalog of available recipes, including discovery, search, and installation. Recipes can come from the public OpenRewrite marketplace, from custom recipe JARs your team publishes to your artifact repositories, or from inline YAML definitions.
 
-When you run a recipe, the recipe worker picks up the request, executes the recipe against the [LSTs](./lossless-semantic-trees.md) for the target repositories, and produces a changeset of results. Workers decrypt LST and recipe artifacts by requesting a customer-provided symmetric key via the [API gateway](#moderne-api-gateway) from the [Connector](#moderne-connector). Workers discard this key at the end of every request.
+When you run a recipe, the recipe worker picks up the request, executes the recipe against the [LSTs](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) for the target repositories, and produces a changeset of results. Workers decrypt LST and recipe artifacts by requesting a customer-provided symmetric key via the [API gateway](#moderne-api-gateway) from the [Connector](#moderne-connector). Workers discard this key at the end of every request.
 
 Workers also fetch a user's SCM OAuth token via the [API gateway](#moderne-api-gateway) in order to make authorization decisions about which repositories said user is allowed to read from. This ensures Moderne's read access is aligned with a user's SCM access in real-time for every recipe run request.
 
@@ -245,7 +245,7 @@ For more details, see the [DevCenter guide](../../../user-documentation/moderne-
 
 Moderne Trigrep provides code search across all repositories in your organization. You can search for code patterns, function calls, imports, and other structural elements across your entire codebase without needing to clone repositories locally.
 
-For more details, see the [Moderne Trigrep documentation](../../../user-documentation/recipes/moderne-trigrep.md).
+For more details, see the [Moderne Trigrep documentation](../../../user-documentation/agent-tools/trigrep.md).
 
 **Setup requirements**
 

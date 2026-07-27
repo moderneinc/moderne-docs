@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `FileRules.PathResolveSiblingString`"
-sidebar_label: "Refaster template `FileRules.PathResolveSiblingString`"
+title: "Prefer `Path#resolveSibling(String)` over more fragile or more verbose alternatives"
+sidebar_label: "Prefer `Path#resolveSibling(String)` over more fragile or more verbose alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `FileRules.PathResolveSiblingString`"}
-  description={"Prefer `Path#resolveSibling(String)` over the more verbose alternatives."}
+  displayName={"Prefer `Path#resolveSibling(String)` over more fragile or more verbose alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes behavior when `path` has no parent: the\n original code throws a `NullPointerException`, while the replacement handles this case\n gracefully."}
   fqName={"tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathResolveSiblingStringRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/filerulesrecipes$pathresolvesiblingstringrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `FileRules.PathResolveSiblingString`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Path#resolveSibling(String)` over more fragile or more verbose alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Path#resolveSibling(String)` over the more verbose alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes behavior when `path` has no parent: the  original code throws a `NullPointerException`, while the replacement handles this case  gracefully.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathResolveSiblingStringRecipe","displayName":"Refaster template `FileRules.PathResolveSiblingString`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathResolveSiblingStringRecipe","displayName":"Prefer `Path#resolveSibling(String)` over more fragile or more verbose alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

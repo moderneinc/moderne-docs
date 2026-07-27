@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["slf4j","RSPEC-S2629","logging"]}
+  tags={["slf4j","logging","RSPEC-S2629"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.logging.slf4j.ParameterizedLogging"}
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}

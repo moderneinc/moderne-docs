@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamMin`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMin<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    Optional<T> before(Stream<T> stream, Comparator<? super T> comparator) {\n        return Refaster.anyOf(stream.max(comparator.reversed()), stream.sorted(comparator).findFirst(), stream.collect(minBy(comparator)));\n    }\n    \n    @AfterTemplate\n    Optional<T> after(Stream<T> stream, Comparator<? super T> comparator) {\n        return stream.min(comparator);\n    }\n}\n```\n."}
+  description={"Prefer `Stream#min(Comparator)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMinRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamMin`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamMin<T> {
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "java:S4266")
-    Optional<T> before(Stream<T> stream, Comparator<? super T> comparator) {
-        return Refaster.anyOf(stream.max(comparator.reversed()), stream.sorted(comparator).findFirst(), stream.collect(minBy(comparator)));
-    }
-    
-    @AfterTemplate
-    Optional<T> after(Stream<T> stream, Comparator<? super T> comparator) {
-        return stream.min(comparator);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#min(Comparator)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_AWS_30","terraform","AWS"]}
+  tags={["AWS","terraform","CKV_AWS_30"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EncryptElastiCacheRedisInTransit"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

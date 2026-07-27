@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `AssertJPathRules.AssertThatHasParentRaw`"
-sidebar_label: "Refaster template `AssertJPathRules.AssertThatHasParentRaw`"
+title: "Prefer `AbstractPathAssert#hasParentRaw(Path)` over more contrived alternatives"
+sidebar_label: "Prefer `AbstractPathAssert#hasParentRaw(Path)` over more contrived alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `AssertJPathRules.AssertThatHasParentRaw`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasParentRaw {\n    \n    @BeforeTemplate\n    AbstractPathAssert<?> before(Path actual, Path expected) {\n        return assertThat(actual.getParent()).isEqualTo(expected);\n    }\n    \n    @AfterTemplate\n    AbstractPathAssert<?> after(Path actual, Path expected) {\n        return assertThat(actual).hasParentRaw(expected);\n    }\n}\n```\n."}
+  displayName={"Prefer `AbstractPathAssert#hasParentRaw(Path)` over more contrived alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes the `Path` against which subsequent\n assertions are made."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatHasParentRawRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,32 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthathasparentrawrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `AssertJPathRules.AssertThatHasParentRaw`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `AbstractPathAssert#hasParentRaw(Path)` over more contrived alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasParentRaw {
-    
-    @BeforeTemplate
-    AbstractPathAssert<?> before(Path actual, Path expected) {
-        return assertThat(actual.getParent()).isEqualTo(expected);
-    }
-    
-    @AfterTemplate
-    AbstractPathAssert<?> after(Path actual, Path expected) {
-        return assertThat(actual).hasParentRaw(expected);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes the `Path` against which subsequent  assertions are made.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatHasParentRawRecipe","displayName":"Refaster template `AssertJPathRules.AssertThatHasParentRaw`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatHasParentRawRecipe","displayName":"Prefer `AbstractPathAssert#hasParentRaw(Path)` over more contrived alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

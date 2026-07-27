@@ -45,6 +45,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config agent-tools codex**](#mod-config-agent-tools-codex)
 * [**mod config agent-tools codex install**](#mod-config-agent-tools-codex-install)
 * [**mod config agent-tools codex uninstall**](#mod-config-agent-tools-codex-uninstall)
+* [**mod config agent-tools opencode**](#mod-config-agent-tools-opencode)
+* [**mod config agent-tools opencode install**](#mod-config-agent-tools-opencode-install)
+* [**mod config agent-tools opencode uninstall**](#mod-config-agent-tools-opencode-uninstall)
 * [**mod config agent-tools prethink**](#mod-config-agent-tools-prethink)
 * [**mod config agent-tools prethink edit**](#mod-config-agent-tools-prethink-edit)
 * [**mod config agent-tools prethink show**](#mod-config-agent-tools-prethink-show)
@@ -72,6 +75,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build environment delete**](#mod-config-build-environment-delete)
 * [**mod config build environment edit**](#mod-config-build-environment-edit)
 * [**mod config build environment show**](#mod-config-build-environment-show)
+* [**mod config build go**](#mod-config-build-go)
+* [**mod config build go gomemlimit**](#mod-config-build-go-gomemlimit)
+* [**mod config build go gomemlimit delete**](#mod-config-build-go-gomemlimit-delete)
+* [**mod config build go gomemlimit edit**](#mod-config-build-go-gomemlimit-edit)
+* [**mod config build go gomemlimit show**](#mod-config-build-go-gomemlimit-show)
 * [**mod config build gradle**](#mod-config-build-gradle)
 * [**mod config build gradle arguments**](#mod-config-build-gradle-arguments)
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
@@ -837,7 +845,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 Manage Moderne agent tools for coding agents.
 
 
-Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, and OpenAI Codex.
+Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, and opencode.
 
 ### Usage
 
@@ -863,6 +871,7 @@ mod config agent-tools install
 * `copilot`: Manage Moderne agent tools for GitHub Copilot.
 * `amp`: Manage Moderne agent tools for Sourcegraph Amp.
 * `codex`: Manage Moderne agent tools for OpenAI Codex.
+* `opencode`: Manage Moderne agent tools for opencode.
 * `prethink`: Configures the Prethink context refreshed live by the Moderne MCP server.
 
 ## mod config agent-tools install
@@ -1376,6 +1385,73 @@ mod config agent-tools codex uninstall
 
 
 
+## mod config agent-tools opencode
+
+Manage Moderne agent tools for opencode.
+
+
+Installs skills under ~/.config/opencode/skills/ (auto-discovered by opencode) and registers the Moderne MCP server in ~/.config/opencode/opencode.json(c).
+
+### Usage
+
+```
+mod config agent-tools opencode [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools opencode install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for opencode.
+* `uninstall`: Remove Moderne agent tools from opencode.
+
+## mod config agent-tools opencode install
+
+Install Moderne agent tools for opencode.
+
+
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under ~/.config/opencode/skills/ and registers the Moderne MCP server in ~/.config/opencode/opencode.json. Safe to run multiple times.
+
+### Usage
+
+```
+mod config agent-tools opencode install
+```
+
+### Examples
+
+```
+mod config agent-tools opencode install
+```
+
+
+
+## mod config agent-tools opencode uninstall
+
+Remove Moderne agent tools from opencode.
+
+
+Removes skills and unregisters the Moderne MCP server from opencode.
+
+### Usage
+
+```
+mod config agent-tools opencode uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools opencode uninstall
+```
+
+
+
 ## mod config agent-tools prethink
 
 Configures the Prethink context refreshed live by the Moderne MCP server.
@@ -1392,7 +1468,7 @@ mod config agent-tools prethink [subcommands]
 ### Examples
 
 ```
-mod config agent-tools prethink edit --recipe io.moderne.recipe.UpdatePrethinkContextNoAiStarter --enabled
+mod config agent-tools prethink edit --recipe io.moderne.prethink.UpdatePrethinkContextStarter --enabled
 ```
 
 ### Subcommands
@@ -1417,7 +1493,7 @@ mod config agent-tools prethink edit
 ### Examples
 
 ```
-mod config agent-tools prethink edit --recipe io.moderne.recipe.UpdatePrethinkContextNoAiStarter --enabled
+mod config agent-tools prethink edit --recipe io.moderne.prethink.UpdatePrethinkContextStarter --enabled
 ```
 
 ### Options
@@ -1426,7 +1502,7 @@ mod config agent-tools prethink edit --recipe io.moderne.recipe.UpdatePrethinkCo
 | ---- | ----------- | ---------- |
 | `--enabled` |  Enables the live Prethink context refresh. Disabled by default. |  |
 | `--option` |  A recipe option as **key=value**. May be repeated to supply multiple options. |  |
-| `--recipe` |  The fully-qualified name of the Prethink recipe to run on refresh. | `io.moderne.recipe.UpdatePrethinkContextNoAiStarter` |
+| `--recipe` |  The fully-qualified name of the Prethink recipe to run on refresh. | `io.moderne.prethink.UpdatePrethinkContextStarter` |
 
 
 ## mod config agent-tools prethink show
@@ -1478,6 +1554,7 @@ mod config build [subcommands]
 * `bazel`: Configures Bazel as it is used for LST production.
 * `dotnet`: Configures dotnet as it is used for LST production.
 * `environment`: Configure environment variables to apply to build tool when building LSTs.
+* `go`: Configures Go as it is used to produce LSTs and run recipes.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `javascript`: Configures JavaScript/TypeScript as it is used to produce LSTs.
 * `mainframe`: Configures the mainframe parsers (Cobol, JCL, Control-M) as they are used for LST production.
@@ -1937,6 +2014,115 @@ Displays the configured build environment variables.
 
 ```
 mod config build environment show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build go
+
+Configures Go as it is used to produce LSTs and run recipes.
+
+
+
+
+### Usage
+
+```
+mod config build go [subcommands]
+```
+
+### Examples
+
+```
+mod config build go gomemlimit edit "8GiB"
+```
+
+
+### Subcommands
+
+* `gomemlimit`: Configure the Go runtime memory limit.
+
+## mod config build go gomemlimit
+
+Configure the Go runtime memory limit.
+
+
+Sets the GOMEMLIMIT environment variable for the Go engine when building LSTs and running recipes. Accepts a Go memory limit such as '4GiB', '512MiB', or 'off'. Defaults to 4GiB.
+
+### Usage
+
+```
+mod config build go gomemlimit [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured Go memory limit.
+* `edit`: Configure the Go runtime memory limit.
+* `show`: Displays the configured Go memory limit.
+
+## mod config build go gomemlimit delete
+
+Removes the configured Go memory limit.
+
+
+### Usage
+
+```
+mod config build go gomemlimit delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build go gomemlimit edit
+
+Configure the Go runtime memory limit.
+
+
+Sets the GOMEMLIMIT environment variable for the Go engine when building LSTs and running recipes.
+
+### Usage
+
+```
+mod config build go gomemlimit edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `value` |  The Go memory limit, e.g. '4GiB', '512MiB', or 'off' to disable it. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build go gomemlimit show
+
+Displays the configured Go memory limit.
+
+
+### Usage
+
+```
+mod config build go gomemlimit show
 ```
 
 ### Options
@@ -2577,6 +2763,12 @@ Build arguments are added to the end of the Maven command line when building LST
 
 ```
 mod config build maven arguments edit
+```
+
+### Examples
+
+```
+mod config build maven arguments edit -Dexec.skip=true
 ```
 
 ### Options
@@ -9172,7 +9364,7 @@ mod run /path/to/project \
 | `--no-patch` |  (INCUBATING) Do not generate patch files on disk at the conclusion of a recipe run that makes changes. This is useful when you are looking to only use data table outputs and don't wish to incur the cost of writing patch files when they will be unused. |  |
 | `-P`, `--recipe-option` |  Recipe options, if any. If a recipe accepts more than one option, you can include this argument multiple times. | `mod run . --recipe=<recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
-| `--recipe` |  The recipe ID of the recipe that should be run. Executes recipes in sequential mode, unless --parallel is specified. | `org.openrewrite.java.search.FindMethods` |
+| `--recipe` |  The recipe ID of the recipe that should be run. Executes the recipe in parallel by default; pass --parallel 1 to run sequentially. | `org.openrewrite.java.search.FindMethods` |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
 | `--search` |  A search run ID to filter repositories to only those with matches. |  |
 | `--streaming` |  (INCUBATING) Stream results from the recipe run to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. Executes the recipe in parallel by default. |  |
@@ -9240,6 +9432,7 @@ mod search /path/to/working-set "@Autowired"
 | `-m`, `--max` |  Maximum number of results per repository (default: 100). An explicit **count:** filter in the query overrides this. |
 | `--output` |  Output mode: rich (default, highlighted diffs with run directory) or plain (fast text output) |
 | `--syntax` |  Query syntax: sourcegraph (default) or zoekt |
+| `-y`, `--yes` |  Proceed without confirmation for a search that cannot use the trigram index and must scan every file. Required when there is no console to prompt on. |
 
 
 ## mod study
@@ -9274,6 +9467,7 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 | `--csv` |  Output in CSV format |
 | `--data-table` |  The name of the data table to study. |
 | `--group` |  When multiple data tables share a fully-qualified name, disambiguate by group. A null/absent value matches ungrouped tables. |
+| `--gzip` |  Gzip-compress the CSV output (.csv.gz). |
 | `--json` |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `-o`, `--output-file` |  The location to output the data table. When neither --csv nor --json is given, the format is inferred from this file's extension (.csv, .json, or .xlsx), defaulting to Excel. |
@@ -9304,7 +9498,7 @@ mod telemetry [subcommands]
 Push queued CLI telemetry to the configured Moderne tenant.
 
 
-Drains the local telemetry queue at **~/.moderne/cli/trace/** to the tenant gateway. Telemetry normally pushes automatically when the CLI refreshes its license lease — use this command to flush on demand.%n%nExits non-zero if any traces moved to **failed/** during this run (gateway rejected as misconfigured).
+Drains the local telemetry queue at **~/.moderne/cli/trace/** to the tenant gateway. Telemetry normally pushes automatically when the CLI refreshes its license lease — use this command to flush on demand.%n%nExits non-zero if the gateway permanently rejects any traces (moved to **rejected/** as unpublishable).
 
 ### Usage
 
@@ -9497,6 +9691,8 @@ mod wrapper
 | `--distribution-password` |  Password for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-token` |  Bearer token for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null and null placeholders. |
+| `--distribution-url-cache-ttl` |  How long the wrapper caches the resolved RELEASE version before re-checking the distribution repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. Avoids a metadata lookup on every invocation. |
+| `--distribution-url-early-access-cache-ttl` |  How long the wrapper caches the resolved LATEST/snapshot version before re-checking the early-access repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. |
 | `--distribution-username` |  Username for authenticated distribution downloads (stored in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--global` |  Configure the global CLI installation instead of creating a project-local wrapper. |
 | `--jdk-url` |  URL template for a JDK archive, used when no bundled JRE or system JDK is found. Supports null and null placeholders. Set to 'skip' to disable JDK auto-download (useful for air-gapped environments where Java is available via MODERNE_JAVA_HOME or PATH). |

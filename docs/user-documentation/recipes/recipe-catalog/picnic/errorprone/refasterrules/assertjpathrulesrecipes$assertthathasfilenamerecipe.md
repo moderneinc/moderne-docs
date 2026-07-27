@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `AssertJPathRules.AssertThatHasFileName`"
-sidebar_label: "Refaster template `AssertJPathRules.AssertThatHasFileName`"
+title: "Prefer `AbstractPathAssert#hasFileName(String)` over more contrived alternatives"
+sidebar_label: "Prefer `AbstractPathAssert#hasFileName(String)` over more contrived alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `AssertJPathRules.AssertThatHasFileName`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasFileName {\n    \n    @BeforeTemplate\n    AbstractPathAssert<?> before(Path actual, String fileName) {\n        return assertThat(actual.getFileName()).hasToString(fileName);\n    }\n    \n    @AfterTemplate\n    AbstractPathAssert<?> after(Path actual, String fileName) {\n        return assertThat(actual).hasFileName(fileName);\n    }\n}\n```\n."}
+  displayName={"Prefer `AbstractPathAssert#hasFileName(String)` over more contrived alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes the `Path` against which subsequent\n assertions are made."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatHasFileNameRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,32 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthathasfilenamerecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `AssertJPathRules.AssertThatHasFileName`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `AbstractPathAssert#hasFileName(String)` over more contrived alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasFileName {
-    
-    @BeforeTemplate
-    AbstractPathAssert<?> before(Path actual, String fileName) {
-        return assertThat(actual.getFileName()).hasToString(fileName);
-    }
-    
-    @AfterTemplate
-    AbstractPathAssert<?> after(Path actual, String fileName) {
-        return assertThat(actual).hasFileName(fileName);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes the `Path` against which subsequent  assertions are made.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatHasFileNameRecipe","displayName":"Refaster template `AssertJPathRules.AssertThatHasFileName`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatHasFileNameRecipe","displayName":"Prefer `AbstractPathAssert#hasFileName(String)` over more contrived alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

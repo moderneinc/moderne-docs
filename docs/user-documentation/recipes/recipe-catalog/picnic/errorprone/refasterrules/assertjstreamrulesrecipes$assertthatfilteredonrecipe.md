@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJStreamRules.AssertThatFilteredOn`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatFilteredOn<T> {\n    \n    @BeforeTemplate\n    ListAssert<T> before(Stream<T> stream, Predicate<? super T> predicate) {\n        return assertThat(stream.filter(predicate));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<T> after(Stream<T> stream, Predicate<? super T> predicate) {\n        return assertThat(stream).filteredOn(predicate);\n    }\n}\n```\n."}
+  description={"Prefer `assertThat(stream).filteredOn(predicate)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatFilteredOnRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJStreamRules.AssertThatFilteredOn`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatFilteredOn<T> {
-    
-    @BeforeTemplate
-    ListAssert<T> before(Stream<T> stream, Predicate<? super T> predicate) {
-        return assertThat(stream.filter(predicate));
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    ListAssert<T> after(Stream<T> stream, Predicate<? super T> predicate) {
-        return assertThat(stream).filteredOn(predicate);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `assertThat(stream).filteredOn(predicate)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

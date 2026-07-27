@@ -34,6 +34,7 @@ description: Cleanup OpenRewrite recipes.
 * [Remove unused variable bindings](./removeunusedbinding.md)
 * [Replace `.getOrElse(null)` with `.orNull`](./useornull.md)
 * [Replace `JavaConverters` with `CollectionConverters`](./usecollectionconverters.md)
+* [Replace `Option` pattern matching with combinators](./simplifyoptionmatch.md)
 * [Replace unnecessary intermediate collection before `.toSet`](./usedirecttoset.md)
 * [Resolve TODO/FIXME comments](./resolvetodocomment.md)
 * [Review deprecated API declarations](./reviewdeprecatedapi.md)

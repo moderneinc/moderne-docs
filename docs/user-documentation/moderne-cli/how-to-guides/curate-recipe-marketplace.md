@@ -17,7 +17,7 @@ Curating your recipe marketplace is most useful when you want to guide developer
 * You want `mod config recipes search` to surface only the recipes your organization endorses.
 * You want to highlight specific internal recipes over more general ones.
 
-If your developers are recipe authors or power users who benefit from seeing the full catalog, the default behavior of `mod config recipes search` is the right fit, and no curation is needed. Curating your marketplace is also not the right tool if you need to add your own recipe code or apply custom category hierarchies to existing recipes. See [managing recipe categories](../../moderne-platform/how-to-guides/categorize-recipes.md) for those patterns.
+If your developers are recipe authors or power users who benefit from seeing the full catalog, the default behavior of `mod config recipes search` is the right fit, and no curation is needed. Curating your marketplace is also not the right tool if you need to add your own recipe code or apply custom category hierarchies to existing recipes. See [managing recipe categories](../../../administrator-documentation/moderne-platform/how-to-guides/categorize-recipes.md) for those patterns.
 
 ## Workflow overview
 
@@ -36,7 +36,16 @@ The simplest starting point is an existing marketplace that already contains the
 
 If you already have the Moderne or OpenRewrite catalog installed locally, your current marketplace lives at `~/.moderne/cli/recipes-v5.csv`. This is a well-formed CSV following the [recipe marketplace format](../references/recipes-csv.md). You can query it directly with [DuckDB](https://duckdb.org/) or [SQLite](https://www.sqlite.org/index.html), both of which can read CSV files natively.
 
-For example, to extract just the "Migrate to Java 25" row into a new file:
+If you do not have the catalog installed locally, or you want a canonical copy that stays current, download the full published catalog. Moderne rebuilds both variants weekly from the [latest versions of every OpenRewrite module](../../recipes/lists/latest-versions-of-every-openrewrite-module.md):
+
+* [`recipes-v5-released.csv`](https://docs.moderne.io/marketplace/recipes-v5-released.csv) pins each recipe to its newest stable release, best for teams that value reproducibility.
+* [`recipes-v5-snapshot.csv`](https://docs.moderne.io/marketplace/recipes-v5-snapshot.csv) tracks the newest available build, including snapshots, for teams that want the latest fixes as soon as they land.
+
+```bash
+curl -fLo recipes-v5.csv https://docs.moderne.io/marketplace/recipes-v5-released.csv
+```
+
+Point the queries below at whichever file you started from. For example, to extract just the "Migrate to Java 25" row into a new file:
 
 ```bash
 duckdb -c "
@@ -215,10 +224,10 @@ Without `mod config recipes delete`, `import` has no way to know that a recipe w
 ## Tips and caveats
 
 * **Keep `options` and `dataTables` intact.** When copying rows from an existing CSV, leave these columns unchanged. They are generated mechanically by the OpenRewrite build plugins, and hand-editing them reliably breaks recipes.
-* **Platform Marketplace distribution is a separate pattern.** If you publish recipes through the Moderne Platform Marketplace instead of CSV distribution via the CLI, see [managing recipe categories](../../moderne-platform/how-to-guides/categorize-recipes.md) for the wrapper JAR publishing workflow.
+* **Platform Marketplace distribution is a separate pattern.** If you publish recipes through the Moderne Platform Marketplace instead of CSV distribution via the CLI, see [managing recipe categories](../../../administrator-documentation/moderne-platform/how-to-guides/categorize-recipes.md) for the wrapper JAR publishing workflow.
 
 ## Next steps
 
 * [`recipes.csv` reference](../references/recipes-csv.md): full CSV format, column semantics, and validation rules.
-* [Managing recipe categories](../../moderne-platform/how-to-guides/categorize-recipes.md): for re-organizing recipes under custom category hierarchies.
+* [Managing recipe categories](../../../administrator-documentation/moderne-platform/how-to-guides/categorize-recipes.md): for re-organizing recipes under custom category hierarchies.
 * [CLI reference](../cli-reference.md#mod-config-recipes): full command documentation for `mod config recipes`.

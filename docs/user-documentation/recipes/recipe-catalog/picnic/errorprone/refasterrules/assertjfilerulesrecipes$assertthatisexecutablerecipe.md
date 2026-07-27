@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJFileRules.AssertThatIsExecutable`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsExecutable {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(File actual) {\n        return assertThat(actual.canExecute()).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractFileAssert<?> after(File actual) {\n        return assertThat(actual).isExecutable();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractFileAssert#isExecutable()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatIsExecutableRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatIsExecutable`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsExecutable {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(File actual) {
-        return assertThat(actual.canExecute()).isTrue();
-    }
-    
-    @AfterTemplate
-    AbstractFileAssert<?> after(File actual) {
-        return assertThat(actual).isExecutable();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractFileAssert#isExecutable()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

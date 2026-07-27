@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TimeRules.DurationOfMinutes`"}
-  description={"Prefer `Duration#ofMinutes(long)` over alternative representations."}
+  description={"Prefer `Duration#ofMinutes(long)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$DurationOfMinutesRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TimeRules.DurationOfMinutes`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Duration#ofMinutes(long)` over alternative representations.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Duration#ofMinutes(long)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

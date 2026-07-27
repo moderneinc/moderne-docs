@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TimeRules.ClockInstant`"}
-  description={"Prefer `Clock#instant()` over `Instant#now(Clock)`, as it is more concise and more \"OOP-py\"."}
+  description={"Prefer `Clock#instant()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$ClockInstantRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TimeRules.ClockInstant`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Clock#instant()` over `Instant#now(Clock)`, as it is more concise and more "OOP-py".</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Clock#instant()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

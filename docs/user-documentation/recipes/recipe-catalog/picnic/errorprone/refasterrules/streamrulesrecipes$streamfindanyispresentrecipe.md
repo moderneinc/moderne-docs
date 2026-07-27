@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamFindAnyIsPresent`"}
-  description={"Prefer `Stream#findAny()` over `Stream#findFirst()` if one only cares whether the stream is nonempty."}
+  description={"Prefer `Stream#findAny()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFindAnyIsPresentRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamFindAnyIsPresent`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Stream#findAny()` over `Stream#findFirst()` if one only cares whether the stream is nonempty.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#findAny()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

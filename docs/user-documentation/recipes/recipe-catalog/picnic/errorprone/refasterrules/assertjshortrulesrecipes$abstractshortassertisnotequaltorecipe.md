@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJShortRules.AbstractShortAssertIsNotEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractShortAssertIsNotEqualTo {\n    \n    @BeforeTemplate\n    AbstractShortAssert<?> before(AbstractShortAssert<?> shortAssert, short n) {\n        return Refaster.anyOf(shortAssert.isNotCloseTo(n, offset((short)0)), shortAssert.isNotCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractShortAssert<?> after(AbstractShortAssert<?> shortAssert, short n) {\n        return shortAssert.isNotEqualTo(n);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractShortAssert#isNotEqualTo(short)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJShortRulesRecipes$AbstractShortAssertIsNotEqualToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJShortRules.AbstractShortAssertIsNotEqualTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractShortAssertIsNotEqualTo {
-    
-    @BeforeTemplate
-    AbstractShortAssert<?> before(AbstractShortAssert<?> shortAssert, short n) {
-        return Refaster.anyOf(shortAssert.isNotCloseTo(n, offset((short)0)), shortAssert.isNotCloseTo(n, withPercentage(0)));
-    }
-    
-    @AfterTemplate
-    AbstractShortAssert<?> after(AbstractShortAssert<?> shortAssert, short n) {
-        return shortAssert.isNotEqualTo(n);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractShortAssert#isNotEqualTo(short)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSet1`"}
-  description={"Prefer `Sets#immutableEnumSet(Enum, Enum[])` for enum collections to take advantage of the internally used `EnumSet`."}
+  description={"Prefer `Sets#immutableEnumSet(Enum, Enum[])` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSet1Recipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSet1`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Sets#immutableEnumSet(Enum, Enum[])` for enum collections to take advantage of the internally used `EnumSet`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Sets#immutableEnumSet(Enum, Enum[])` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

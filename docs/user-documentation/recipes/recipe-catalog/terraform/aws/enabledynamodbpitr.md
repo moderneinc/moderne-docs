@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["terraform","AWS","CKV_AWS_28"]}
+  tags={["AWS","terraform","CKV_AWS_28"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EnableDynamoDbPITR"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["tapestry","migration"]}
+  tags={["migration","tapestry"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.tapestry.MigrateTapestry4To5"}
   artifact={"io.moderne.recipe:rewrite-tapestry"}

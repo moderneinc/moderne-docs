@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `DoubleStreamRules.DoubleStreamMin`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class DoubleStreamMin {\n    \n    @BeforeTemplate\n    OptionalDouble before(DoubleStream stream) {\n        return stream.sorted().findFirst();\n    }\n    \n    @AfterTemplate\n    OptionalDouble after(DoubleStream stream) {\n        return stream.min();\n    }\n}\n```\n."}
+  description={"Prefer `DoubleStream#min()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamMinRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `DoubleStreamRules.DoubleStreamMin`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class DoubleStreamMin {
-    
-    @BeforeTemplate
-    OptionalDouble before(DoubleStream stream) {
-        return stream.sorted().findFirst();
-    }
-    
-    @AfterTemplate
-    OptionalDouble after(DoubleStream stream) {
-        return stream.min();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `DoubleStream#min()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

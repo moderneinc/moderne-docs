@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["security","testing","wiremock"]}
+  tags={["wiremock","security","testing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.wiremock.UpgradeWiremockDependencyVersion"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

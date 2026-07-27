@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["default-servlet-handler","weblogic","springframework"]}
+  tags={["springframework","weblogic","default-servlet-handler"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.spring.framework.DefaultServletHandler"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

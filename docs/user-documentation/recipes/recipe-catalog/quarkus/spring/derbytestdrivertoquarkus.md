@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","database","test","quarkus","derby"]}
+  tags={["spring","derby","database","test","quarkus"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.DerbyTestDriverToQuarkus"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

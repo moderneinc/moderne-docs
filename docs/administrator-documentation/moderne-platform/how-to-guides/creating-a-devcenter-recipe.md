@@ -69,7 +69,7 @@ description: >-
 
 ### Recipe list
 
-After that, it lists out the recipes that will be run to build the DevCenter dashboard. Each of these recipes will turn into a card in your DevCenter:
+After that, it lists out the recipes that will be run to build the DevCenter dashboard. Most of these recipes will turn into a card in your DevCenter:
 
 ```yaml
 recipeList:
@@ -85,6 +85,8 @@ recipeList:
   - io.moderne.devcenter.JUnitJupiterUpgrade:
       upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
   - io.moderne.devcenter.SecurityStarter
+  - io.moderne.devcenter.FindOrganizationStatistics
+  - org.openrewrite.search.FindCommitters
 ```
 DevCenter recipes have two notable properties worth calling out:
 
@@ -95,6 +97,10 @@ DevCenter recipes have two notable properties worth calling out:
   ![DevCenter card for Move to Java 21 showing a donut chart with repo categories and an Upgrade button](./assets/example-card.png)
   <figcaption>_An example of a DevCenter card._</figcaption>
 </figure>
+
+### Organizational ownership recipes
+
+The last two recipes in the list, `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters`, do not produce cards. They populate the **Lines of code** and **Contributing developers** cards in the DevCenter's Organizational ownership section. Include both in every DevCenter recipe; without them, those two cards remain empty. The canonical recipe list that includes both is the [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml).
 
 ### Security card
 
@@ -166,6 +172,10 @@ recipeList:
   - io.moderne.devcenter.JUnitJupiterUpgrade:
       upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
   - io.moderne.devcenter.SecurityStarter
+  # Required in every DevCenter recipe (they do not produce cards).
+  # See "Organizational ownership recipes" above.
+  - io.moderne.devcenter.FindOrganizationStatistics
+  - org.openrewrite.search.FindCommitters
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: io.moderne.devcenter.UpgradeQuarkus
@@ -211,6 +221,10 @@ recipeList:
   - io.moderne.devcenter.JUnitJupiterUpgrade:
       upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
   - io.moderne.devcenter.SecurityStarter
+  # Required in every DevCenter recipe (they do not produce cards).
+  # See "Organizational ownership recipes" above.
+  - io.moderne.devcenter.FindOrganizationStatistics
+  - org.openrewrite.search.FindCommitters
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: io.moderne.devcenter.UpgradeApacheMavenParent

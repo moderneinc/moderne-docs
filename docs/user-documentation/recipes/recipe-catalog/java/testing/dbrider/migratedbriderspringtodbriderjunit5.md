@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["spring","testing","dbrider"]}
+  tags={["spring","dbrider","testing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.dbrider.MigrateDbRiderSpringToDbRiderJUnit5"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

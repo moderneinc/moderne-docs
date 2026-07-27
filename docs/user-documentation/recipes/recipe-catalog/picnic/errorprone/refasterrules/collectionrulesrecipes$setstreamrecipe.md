@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.SetStream`"}
-  description={"Don't unnecessarily call `Stream#distinct()` on an already-unique stream of elements."}
+  description={"Prefer `Set#stream()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$SetStreamRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.SetStream`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't unnecessarily call `Stream#distinct()` on an already-unique stream of elements.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Set#stream()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

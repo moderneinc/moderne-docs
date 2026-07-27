@@ -11,8 +11,4 @@ _Node.js dependency and package management._
 * [Search](/user-documentation/recipes/recipe-catalog/nodejs/search)
 * [Security](/user-documentation/recipes/recipe-catalog/nodejs/security)
 
-## Recipes
-
-* [Upgrade Node.js dependencies](./upgradedependencyversion.md)
-
 

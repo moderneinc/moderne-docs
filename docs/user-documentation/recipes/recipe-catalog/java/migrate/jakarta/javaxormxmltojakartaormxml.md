@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["persistence","orm","jakarta"]}
+  tags={["persistence","jakarta","orm"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.migrate.jakarta.JavaxOrmXmlToJakartaOrmXml"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJInstantRules.AssertThatIsAfter`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsAfter {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Instant actual, Instant other) {\n        return assertThat(actual.isAfter(other)).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractInstantAssert<?> after(Instant actual, Instant other) {\n        return assertThat(actual).isAfter(other);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractInstantAssert#isAfter(Instant)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJInstantRulesRecipes$AssertThatIsAfterRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJInstantRules.AssertThatIsAfter`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsAfter {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Instant actual, Instant other) {
-        return assertThat(actual.isAfter(other)).isTrue();
-    }
-    
-    @AfterTemplate
-    AbstractInstantAssert<?> after(Instant actual, Instant other) {
-        return assertThat(actual).isAfter(other);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractInstantAssert#isAfter(Instant)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

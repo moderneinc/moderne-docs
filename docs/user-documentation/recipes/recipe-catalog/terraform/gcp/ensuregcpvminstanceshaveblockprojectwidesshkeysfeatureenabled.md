@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_GCP_32","GCP","terraform"]}
+  tags={["GCP","terraform","CKV_GCP_32"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.gcp.EnsureGCPVMInstancesHaveBlockProjectWideSSHKeysFeatureEnabled"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

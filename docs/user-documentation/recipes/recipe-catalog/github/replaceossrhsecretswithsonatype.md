@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["github","secrets"]}
+  tags={["secrets","github"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.github.ReplaceOssrhSecretsWithSonatype"}
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}

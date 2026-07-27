@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJPathRules.AssertThatIsSymbolicLink`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsSymbolicLink {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Path actual) {\n        return assertThat(Files.isSymbolicLink(actual)).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractPathAssert<?> after(Path actual) {\n        return assertThat(actual).isSymbolicLink();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractPathAssert#isSymbolicLink()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatIsSymbolicLinkRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJPathRules.AssertThatIsSymbolicLink`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsSymbolicLink {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Path actual) {
-        return assertThat(Files.isSymbolicLink(actual)).isTrue();
-    }
-    
-    @AfterTemplate
-    AbstractPathAssert<?> after(Path actual) {
-        return assertThat(actual).isSymbolicLink();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractPathAssert#isSymbolicLink()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

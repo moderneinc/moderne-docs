@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `EqualityRules.ObjectsEquals`"}
-  description={"Avoid contrived ways of handling `null` values during equality testing."}
+  description={"Prefer `Objects#equals(Object, Object)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$ObjectsEqualsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `EqualityRules.ObjectsEquals`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid contrived ways of handling `null` values during equality testing.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Objects#equals(Object, Object)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

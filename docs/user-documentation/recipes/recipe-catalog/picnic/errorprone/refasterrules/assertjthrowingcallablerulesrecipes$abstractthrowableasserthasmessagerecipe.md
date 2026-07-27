@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertHasMessage`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractThrowableAssertHasMessage {\n    \n    @BeforeTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated\n    Object parameters) {\n        return abstractThrowableAssert.hasMessage(message.formatted(parameters));\n    }\n    \n    @AfterTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated\n    Object parameters) {\n        return abstractThrowableAssert.hasMessage(message, parameters);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractThrowableAssert#hasMessage(String, Object...)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertHasMessageRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,28 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertHasMessage`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractThrowableAssertHasMessage {
-    
-    @BeforeTemplate
-    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated
-    Object parameters) {
-        return abstractThrowableAssert.hasMessage(message.formatted(parameters));
-    }
-    
-    @AfterTemplate
-    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated
-    Object parameters) {
-        return abstractThrowableAssert.hasMessage(message, parameters);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractThrowableAssert#hasMessage(String, Object...)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

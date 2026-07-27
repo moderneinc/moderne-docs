@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamReduce`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamReduce<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    Optional<T> before(Stream<T> stream, BinaryOperator<T> accumulator) {\n        return stream.collect(reducing(accumulator));\n    }\n    \n    @AfterTemplate\n    Optional<T> after(Stream<T> stream, BinaryOperator<T> accumulator) {\n        return stream.reduce(accumulator);\n    }\n}\n```\n."}
+  description={"Prefer `Stream#reduce(BinaryOperator)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamReduce`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamReduce<T> {
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "java:S4266")
-    Optional<T> before(Stream<T> stream, BinaryOperator<T> accumulator) {
-        return stream.collect(reducing(accumulator));
-    }
-    
-    @AfterTemplate
-    Optional<T> after(Stream<T> stream, BinaryOperator<T> accumulator) {
-        return stream.reduce(accumulator);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#reduce(BinaryOperator)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

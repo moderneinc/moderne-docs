@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find messaging connections"}
-  description={"Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, AWS SQS, and SmallRye Reactive Messaging."}
+  description={"Identify message queue producers and consumers. Detects Kafka (Spring and raw kafka-clients), RabbitMQ, JMS, Spring Cloud Stream, AWS SQS (annotation and raw SDK), Redis pub/sub, EJB message-driven beans, and SmallRye Reactive Messaging."}
   fqName={"io.moderne.prethink.calm.FindMessagingConnections"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find messaging connections</RecipeHeader.Title>
 
-<RecipeHeader.Description>Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, AWS SQS, and SmallRye Reactive Messaging.</RecipeHeader.Description>
+<RecipeHeader.Description>Identify message queue producers and consumers. Detects Kafka (Spring and raw kafka-clients), RabbitMQ, JMS, Spring Cloud Stream, AWS SQS (annotation and raw SDK), Redis pub/sub, EJB message-driven beans, and SmallRye Reactive Messaging.</RecipeHeader.Description>
 
 </RecipeHeader>
 

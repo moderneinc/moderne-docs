@@ -251,6 +251,6 @@ Point all of this at your own repositories and you'll get the same setup with yo
 
 * [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md)
 * [Moderne MCP server overview](../../user-documentation/agent-tools/mcp/overview.md)
-* [Moderne Prethink recipes](../../user-documentation/agent-tools/prethink.md)
+* [Moderne Prethink](../../user-documentation/agent-tools/prethink.md)
 * [Moderne Trigrep](../../user-documentation/agent-tools/trigrep.md)
 * [AI-assisted recipe authoring workshop](../ai-recipes/workshop-overview.md) for using the same skills to build new recipes

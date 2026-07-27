@@ -58,7 +58,7 @@ mod git sync moderne . --organization "Default" --with-sources
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 ● Retrieving organization from Moderne
 
@@ -149,7 +149,7 @@ apache          awslabs         finos           Netflix         openrewrite     
 
 ## Part 3: Building LSTs
 
-If the [Lossless Semantic Trees](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) (LSTs) were available to download from Moderne, then they will have been downloaded with the `mod git sync moderne` command. If the LST(s) were unavailable for some reason, you can generate them locally by running the `mod build .` command.
+If the [Lossless Semantic Trees](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) (LSTs) were available to download from Moderne, then they will have been downloaded with the `mod git sync moderne` command. If the LST(s) were unavailable for some reason, you can generate them locally by running the `mod build .` command.
 
 :::info
 By default, the CLI is able to build LSTs for well-formed projects (i.e. projects that build well with a plain `mvn verify` or `gradle build`). At times, however, you may encounter a project that fails to build. This could be because of a hidden dependency on certain tooling, like NPM, or because specific dependencies or repositories are not available without additional configuration.
@@ -167,7 +167,7 @@ mod build .
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 ● Reading organization
 
@@ -241,7 +241,7 @@ mod run . --recipe org.openrewrite.java.dependencies.DependencyVulnerabilityChec
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 Found 1 organization containing 11 repositories (1s)
 
@@ -352,7 +352,7 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 ⏺ Reading organization
 
@@ -419,7 +419,7 @@ mod run . --recipe CommonStaticAnalysis
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 ● Reading organization
 
@@ -498,7 +498,7 @@ mod git checkout . -b workshop-changes --last-recipe-run
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 ● Reading organization
 

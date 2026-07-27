@@ -29,7 +29,7 @@ Looking for a complete, working example? Check out the [Moderne Connector exampl
 
 The Moderne Connector:
 
-* Encrypts and ships [LST](../../references/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
+* Encrypts and ships [LST](../../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
 * Provides the symmetric key that Moderne needs to decrypt your artifacts
 * Forwards requests from the Moderne SaaS to your SCM(s) (e.g., GitHub)
 * Forwards requests from the Moderne SaaS to the organization service (if configured)
@@ -339,12 +339,13 @@ java -jar connector-{version}.jar \
 
 ### Step 5: Configure the Connector to find your repositories and their LSTs
 
-Before Moderne can run recipes on your code, the Connector needs two things:
+Before Moderne can run recipes on your code, the Connector needs three things:
 
 1. The list of repositories you want Moderne to index.
-2. The [LST](../../references/lossless-semantic-trees.md) artifact location for each repository.
+2. An [organizational hierarchy](./configure-organizations-hierarchy.md) that groups those repositories into organizations (at least one `org` column in the CSV). This doesn't need to be elaborate to start; a single `ALL` organization plus an organization for one team is a perfectly fine starting point that you can expand later.
+3. The [LST](../../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) artifact location for each repository.
 
-Both come from a CSV file that you point the Connector at.
+All of these things can come from a CSV file that you point the Connector to.
 
 #### Configure where your CSV lives
 
@@ -367,7 +368,7 @@ You have two options:
   * **[Artifactory](./configure-a-connector-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing). Recommended for Artifactory users.
   * **[Maven repository](./configure-a-connector-with-maven-repository-access.md)** - works with any Maven-formatted repository (Artifactory, Nexus, etc.) via the [Maven Indexer](https://maven.apache.org/maven-indexer/). There will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process.
 
-The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [agent variables reference](./connector-variables.md) for the full list of values.
+The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [connector variables reference](./connector-variables.md) for the full list of values.
 
 Below is an example of what a Connector run command might look like at the end of this step.
 
@@ -622,8 +623,8 @@ For high availability and increased throughput, you can run multiple Moderne Con
 
 * Each Connector instance must have a unique `MODERNE_CONNECTOR_NICKNAME`
 * Each instance requires its own port mapping (e.g., 8080, 8081, 8082)
-* All instances should use the same `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`
-* All instances should connect to the same `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`
+* All instances must use the same `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`
+* All instances must connect to the same `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`
 
 **Example multi-instance deployment:**
 

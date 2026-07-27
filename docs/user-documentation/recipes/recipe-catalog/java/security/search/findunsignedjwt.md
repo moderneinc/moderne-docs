@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["security","CWE-347","CWE-327"]}
+  tags={["security","CWE-347","RSPEC-S5659"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.search.FindUnsignedJwt"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

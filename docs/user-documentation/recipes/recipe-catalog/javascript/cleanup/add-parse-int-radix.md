@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.javascript.cleanup.add-parse-int-radix"}
-  artifact={"org.openrewrite:rewrite-javascript"}
+  artifact={"@openrewrite/rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.add-parse-int-radix"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/add-parse-int-radix.md"}
   moderneOnly

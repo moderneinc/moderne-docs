@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_AZURE_130","Azure","terraform"]}
+  tags={["CKV_AZURE_130","terraform","Azure"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.azure.EnsurePostgreSQLServerEnablesInfrastructureEncryption"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

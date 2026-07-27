@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["Azure","CKV_AZURE_120","terraform"]}
+  tags={["terraform","Azure","CKV_AZURE_120"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.azure.EnsureAzureApplicationGatewayHasWAFEnabled"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

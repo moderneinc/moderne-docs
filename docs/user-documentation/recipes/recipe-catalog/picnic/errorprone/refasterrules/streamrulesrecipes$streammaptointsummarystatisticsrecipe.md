@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamMapToIntSummaryStatistics`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMapToIntSummaryStatistics<T> {\n    \n    @BeforeTemplate\n    IntSummaryStatistics before(Stream<T> stream, ToIntFunction<T> mapper) {\n        return stream.collect(summarizingInt(mapper));\n    }\n    \n    @AfterTemplate\n    IntSummaryStatistics after(Stream<T> stream, ToIntFunction<T> mapper) {\n        return stream.mapToInt(mapper).summaryStatistics();\n    }\n}\n```\n."}
+  description={"Prefer `stream.mapToInt(mapper).summaryStatistics()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapToIntSummaryStatisticsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamMapToIntSummaryStatistics`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamMapToIntSummaryStatistics<T> {
-    
-    @BeforeTemplate
-    IntSummaryStatistics before(Stream<T> stream, ToIntFunction<T> mapper) {
-        return stream.collect(summarizingInt(mapper));
-    }
-    
-    @AfterTemplate
-    IntSummaryStatistics after(Stream<T> stream, ToIntFunction<T> mapper) {
-        return stream.mapToInt(mapper).summaryStatistics();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `stream.mapToInt(mapper).summaryStatistics()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

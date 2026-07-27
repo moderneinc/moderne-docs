@@ -1,0 +1,122 @@
+# Build the recipe marketplace CSVs (static/marketplace/recipes-v5-{released,snapshot}.csv)
+# by installing every OpenRewrite recipe module with the latest Moderne CLI.
+# All logic lives in .github/scripts/build-recipe-marketplace.sh so it can also be run
+# locally. The two variants build in parallel, then a single job commits both.
+name: Build recipe marketplace
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 3 * * 4 # Weekly on Thursday (after the usual Wednesday release), to pick up new CLI releases
+  push:
+    branches: [main]
+    paths:
+      # Rebuild whenever the module list or the build logic changes.
+      - docs/user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module.md
+      - .github/scripts/build-recipe-marketplace.sh
+      - .github/workflows/build-recipe-marketplace.yml
+
+concurrency:
+  group: build-recipe-marketplace
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build ${{ matrix.versions }} marketplace
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        versions: [released, snapshot]
+    steps:
+      - uses: actions/checkout@v7
+
+      # Toolchains needed by the CLI (Java runs the CLI itself; pip/npm/go back
+      # the non-jar recipe ecosystems). Versions mirror update-docs.yml.
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 25
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - uses: actions/setup-go@v6
+        with:
+          go-version: '1.25'
+      # nuget recipes need the .NET SDK; rewrite-csharp ships as net10.0, so 8/9 won't work.
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      # The CLI restores the C# recipe packages with the classic NuGet CLI (`nuget.exe`),
+      # which runs under Mono on Linux. Install both and expose `nuget` on PATH.
+      - name: Install Mono and the NuGet CLI (for nuget recipes)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends mono-complete
+          sudo curl -fsSL -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+          printf '#!/usr/bin/env bash\nexec mono /usr/local/bin/nuget.exe "$@"\n' | sudo tee /usr/local/bin/nuget >/dev/null
+          sudo chmod +x /usr/local/bin/nuget
+          nuget help | head -1
+
+      - name: Build marketplace CSV
+        id: build
+        env:
+          RECIPE_VERSIONS: ${{ matrix.versions }}
+          # Isolate CLI state to the runner temp dir.
+          MODERNE_CLI_HOME: ${{ runner.temp }}/moderne-cli-home
+          MARKETPLACE_CSV_DEST: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
+        run: .github/scripts/build-recipe-marketplace.sh
+
+      # Surface the CLI recipe logs (the real install error lives here, not stdout).
+      - uses: actions/upload-artifact@v7
+        if: failure() || steps.build.outputs.failed-ecosystems != ''
+        with:
+          name: recipe-logs-${{ matrix.versions }}
+          path: ${{ runner.temp }}/moderne-cli-home/recipes/**/.moderne/recipes.log
+          if-no-files-found: ignore
+
+      # Upload before the gate below so the partial CSV still reaches the commit job.
+      - uses: actions/upload-artifact@v7
+        with:
+          name: recipes-v5-${{ matrix.versions }}
+          path: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
+
+      # Turn the run red when an ecosystem shipped no modules (still committed below).
+      - name: Fail run if any ecosystem was missing
+        if: steps.build.outputs.failed-ecosystems != ''
+        run: |
+          echo "::error title=Marketplace ecosystem missing::${{ matrix.versions }} marketplace built without ecosystem(s): ${{ steps.build.outputs.failed-ecosystems }}. The partial CSV was still committed; check the recipe-logs-${{ matrix.versions }} artifact, fix the install, and re-run."
+          exit 1
+
+  commit:
+    name: Commit marketplace CSVs
+    needs: build
+    # Still commit the partial CSVs when a build job went red over a missing ecosystem.
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Download both variants directly into static/marketplace/ before committing
+      # together, so the two parallel builds never race to push the same branch.
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: recipes-v5-*
+          path: static/marketplace/
+          merge-multiple: true
+
+      - name: Commit and push
+        # Push back to the ref the workflow ran on: main for the scheduled/push
+        # runs, or the selected branch for a manual workflow_dispatch.
+        run: |
+          git config user.email "team@moderne.io"
+          git config user.name "team-moderne[bot]"
+          git add static/marketplace/recipes-v5-released.csv static/marketplace/recipes-v5-snapshot.csv
+          git diff --cached --quiet || (git commit -m "[Auto] Update recipe marketplace CSVs as of $(date +'%Y-%m-%dT%H%M')" && git push origin "HEAD:${{ github.ref_name }}")

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.FloatBytes`"}
-  description={"Prefer `Float#BYTES` over the Guava alternative."}
+  description={"Prefer `Float#BYTES` over non-JDK alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$FloatBytesRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.FloatBytes`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Float#BYTES` over the Guava alternative.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Float#BYTES` over non-JDK alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

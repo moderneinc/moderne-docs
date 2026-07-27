@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["security","CWE-259","CWE-798"]}
+  tags={["security","CWE-259","CWE-798","RSPEC-S2068"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.search.FindHardcodedAuthenticationCredentials"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

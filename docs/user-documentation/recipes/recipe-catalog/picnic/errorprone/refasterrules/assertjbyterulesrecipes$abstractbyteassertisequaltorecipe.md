@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJByteRules.AbstractByteAssertIsEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractByteAssertIsEqualTo {\n    \n    @BeforeTemplate\n    AbstractByteAssert<?> before(AbstractByteAssert<?> byteAssert, byte n) {\n        return Refaster.anyOf(byteAssert.isCloseTo(n, offset((byte)0)), byteAssert.isCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractByteAssert<?> after(AbstractByteAssert<?> byteAssert, byte n) {\n        return byteAssert.isEqualTo(n);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractByteAssert#isEqualTo(byte)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJByteRulesRecipes$AbstractByteAssertIsEqualToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJByteRules.AbstractByteAssertIsEqualTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractByteAssertIsEqualTo {
-    
-    @BeforeTemplate
-    AbstractByteAssert<?> before(AbstractByteAssert<?> byteAssert, byte n) {
-        return Refaster.anyOf(byteAssert.isCloseTo(n, offset((byte)0)), byteAssert.isCloseTo(n, withPercentage(0)));
-    }
-    
-    @AfterTemplate
-    AbstractByteAssert<?> after(AbstractByteAssert<?> byteAssert, byte n) {
-        return byteAssert.isEqualTo(n);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractByteAssert#isEqualTo(byte)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

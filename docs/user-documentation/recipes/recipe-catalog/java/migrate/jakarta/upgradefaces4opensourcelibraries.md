@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["myfaces","primefaces","faces","jsf","omnifaces","jakarta"]}
+  tags={["faces","jsf","omnifaces","jakarta","myfaces","primefaces"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.migrate.jakarta.UpgradeFaces4OpenSourceLibraries"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}

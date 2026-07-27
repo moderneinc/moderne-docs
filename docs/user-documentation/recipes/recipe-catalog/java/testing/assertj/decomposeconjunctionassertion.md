@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass A {\n    void foo(String name, int count) {\n        assertThat(name != null && count > 0).isTrue();\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass A {\n    void foo(String name, int count) {\n        assertThat(name != null).isTrue();\n        assertThat(count > 0).isTrue();\n    }\n}\n","diff":"@@ -5,1 +5,2 @@\nclass A {\n    void foo(String name, int count) {\n-       assertThat(name != null && count > 0).isTrue();\n+       assertThat(name != null).isTrue();\n+       assertThat(count > 0).isTrue();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.DecomposeConjunctionAssertion","displayName":"Decompose `assertThat` on conjunctions into separate assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

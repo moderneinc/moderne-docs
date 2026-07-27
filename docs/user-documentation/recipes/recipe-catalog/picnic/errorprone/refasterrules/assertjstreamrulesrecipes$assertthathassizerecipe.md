@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJStreamRules.AssertThatHasSize`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasSize<T> {\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(Stream<T> stream, int size) {\n        return assertThat(stream.count()).isEqualTo(size);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<T> after(Stream<T> stream, int size) {\n        return assertThat(stream).hasSize(size);\n    }\n}\n```\n."}
+  description={"Prefer `assertThat(stream).hasSize(size)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatHasSizeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJStreamRules.AssertThatHasSize`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasSize<T> {
-    
-    @BeforeTemplate
-    AbstractLongAssert<?> before(Stream<T> stream, int size) {
-        return assertThat(stream.count()).isEqualTo(size);
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    ListAssert<T> after(Stream<T> stream, int size) {
-        return assertThat(stream).hasSize(size);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `assertThat(stream).hasSize(size)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `LongStreamRules.LongStreamMin`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class LongStreamMin {\n    \n    @BeforeTemplate\n    OptionalLong before(LongStream stream) {\n        return stream.sorted().findFirst();\n    }\n    \n    @AfterTemplate\n    OptionalLong after(LongStream stream) {\n        return stream.min();\n    }\n}\n```\n."}
+  description={"Prefer `LongStream#min()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes$LongStreamMinRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `LongStreamRules.LongStreamMin`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class LongStreamMin {
-    
-    @BeforeTemplate
-    OptionalLong before(LongStream stream) {
-        return stream.sorted().findFirst();
-    }
-    
-    @AfterTemplate
-    OptionalLong after(LongStream stream) {
-        return stream.min();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `LongStream#min()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

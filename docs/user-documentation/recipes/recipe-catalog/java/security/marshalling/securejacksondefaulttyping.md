@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["CWE-502","CWE-94"]}
+  tags={["CWE-502","CWE-94","RSPEC-S4544"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.marshalling.SecureJacksonDefaultTyping"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

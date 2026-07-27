@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["springdata","springframework"]}
+  tags={["springframework","springdata"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.spring.data.UpgradeSpringDataJpa"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

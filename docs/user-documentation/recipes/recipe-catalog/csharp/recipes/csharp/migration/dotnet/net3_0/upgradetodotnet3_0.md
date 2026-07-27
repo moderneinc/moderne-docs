@@ -1,0 +1,46 @@
+---
+title: "Migrate to .NET Core 3.0"
+sidebar_label: "Migrate to .NET Core 3.0"
+hide_title: true
+---
+
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
+
+<RecipeMeta
+  displayName={"Migrate to .NET Core 3.0"}
+  description={"Migrate C# projects from .NET Core 2.x to .NET Core 3.0, applying necessary API changes for removed and replaced types. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/3.0."}
+  fqName={"OpenRewrite.Recipes.CSharp.Migration.Dotnet.Net3_0.UpgradeToDotNet3_0"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
+
+<RecipeHeader
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={["csharp","dotnet","migration"]}
+  license={"Moderne Proprietary License"}
+  fqName={"OpenRewrite.Recipes.CSharp.Migration.Dotnet.Net3_0.UpgradeToDotNet3_0"}
+  artifact={"OpenRewrite.Recipes.CSharp.Migration.Dotnet"}
+  appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.Migration.Dotnet.Net3_0.UpgradeToDotNet3_0"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/upgradetodotnet3_0.md"}
+  moderneOnly
+>
+
+<RecipeHeader.Title>Migrate to .NET Core 3.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate C# projects from .NET Core 2.x to .NET Core 3.0, applying necessary API changes for removed and replaced types. See https://learn.microsoft.com/en-us/dotnet/core/compatibility/3.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change .NET target framework","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/changedotnettargetframework/"},{"name":"Change .NET target framework","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/changedotnettargetframework/"},{"name":"Change .NET target framework","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/changedotnettargetframework/"},{"name":"Change .NET target framework","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/changedotnettargetframework/"},{"name":"Change .NET target framework","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/changedotnettargetframework/"},{"name":"Upgrade NuGet package version","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/upgradenugetpackageversion/"},{"name":"Upgrade NuGet package version","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/upgradenugetpackageversion/"},{"name":"Upgrade NuGet package version","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/upgradenugetpackageversion/"},{"name":"Upgrade NuGet package version","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/upgradenugetpackageversion/"},{"name":"Upgrade NuGet package version","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/upgradenugetpackageversion/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/changetype/"},{"name":"Remove NuGet package reference","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/removenugetpackagereference/"},{"name":"Remove NuGet package reference","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/removenugetpackagereference/"},{"name":"Remove NuGet package reference","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/removenugetpackagereference/"},{"name":"Add framework reference","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/addframeworkreference/"},{"name":"Add NuGet package reference when namespace is used","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/addnugetpackagereferenceiftypeused/"},{"name":"Add NuGet package reference when namespace is used","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/addnugetpackagereferenceiftypeused/"},{"name":"Remove MSBuild property","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/removemsbuildproperty/"},{"name":"Remove MSBuild property","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/removemsbuildproperty/"},{"name":"Remove DotNetCliToolReference","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/removedotnetclitoolreference/"},{"name":"Ensure csproj attestation","href":"/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/ensurecsprojattestation/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/changemethodname/"},{"name":"Replace UseIdentity() with UseAuthentication()","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/aspnetcore2/useuseauthentication/"},{"name":"Use HttpContext authentication extensions","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/aspnetcore2/usehttpcontextauthextensions/"},{"name":"Use GetExternalAuthenticationSchemesAsync()","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/aspnetcore2/usegetexternalauthenticationschemesasync/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/removemethodinvocations/"},{"name":"Replace `PlatformServices` with `AppContext`","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/useplatformabstractionsreplacement/"},{"name":"Find Newtonsoft.Json usage","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/findnewtonsoftjson/"},{"name":"Find `HttpContext.Authentication` usage (removed in ASP.NET Core 3.0)","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/findhttpcontextauthentication/"},{"name":"Find synchronous IO usage (disabled in ASP.NET Core 3.0)","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/findsynchronousio/"},{"name":"Find `UseMvc`/`AddMvc` usage (replaced in ASP.NET Core 3.0)","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/findusemvc/"},{"name":"Find `WebHostBuilder`/`WebHost.CreateDefaultBuilder` usage (replaced in ASP.NET Core 3.0)","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/findwebhostbuilder/"},{"name":"Find `CompactOnMemoryPressure` usage (removed in ASP.NET Core 3.0)","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/findcompactonmemorypressure/"},{"name":"Find `IConnectionAdapter` usage (removed in ASP.NET Core 3.0)","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/findconnectionadapter/"},{"name":"Find obsolete localization APIs (ASP.NET Core 3.0)","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/findobsoletelocalizationapis/"},{"name":"Migrate ApiController to ControllerBase","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/useapicontrollerbase/"},{"name":"Find SpaServices/NodeServices usage (obsolete in ASP.NET Core 3.0)","href":"/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/net3_0/findspaservices/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.Migration.Dotnet.Net3_0.UpgradeToDotNet3_0","displayName":"Migrate to .NET Core 3.0","nugetPackage":"OpenRewrite.Recipes.CSharp.Migration.Dotnet"}}>
+
+## Usage
+
+</UsageList>
+

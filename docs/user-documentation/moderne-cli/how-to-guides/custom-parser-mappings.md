@@ -7,7 +7,7 @@ description: How to configure custom parser mappings so non-standard file types 
 
 Some codebases use non-standard file extensions — or no extensions at all — for files that are actually XML, JSON, YAML, or other structured formats. For example, a project might use `.mst` files for XML-based templates, `.cfg` files for JSON configuration, or extensionless files like `config` for structured data. By default, the Moderne CLI parses these as plain text, which means recipes cannot inspect or transform their structure.
 
-The `build.parsers` configuration lets you tell the CLI which parser to use for files matching specific glob patterns. Once configured, these files will be parsed into the appropriate [Lossless Semantic Tree (LST)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) type, enabling recipes to work with their full structure.
+The `build.parsers` configuration lets you tell the CLI which parser to use for files matching specific glob patterns. Once configured, these files will be parsed into the appropriate [Lossless Semantic Tree (LST)](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) type, enabling recipes to work with their full structure.
 
 In this guide, you will learn how to add, view, and remove custom parser mappings using the CLI or `moderne.yml` configuration.
 

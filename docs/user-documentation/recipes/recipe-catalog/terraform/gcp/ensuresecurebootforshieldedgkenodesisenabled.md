@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["GCP","CKV_GCP_68","terraform"]}
+  tags={["GCP","terraform","CKV_GCP_68"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.gcp.EnsureSecureBootForShieldedGKENodesIsEnabled"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

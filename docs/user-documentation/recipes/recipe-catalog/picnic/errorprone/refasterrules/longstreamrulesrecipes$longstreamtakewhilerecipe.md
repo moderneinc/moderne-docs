@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `LongStreamRules.LongStreamTakeWhile`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class LongStreamTakeWhile {\n    \n    @BeforeTemplate\n    LongStream before(LongStream stream, LongPredicate predicate) {\n        return stream.takeWhile(predicate).filter(predicate);\n    }\n    \n    @AfterTemplate\n    LongStream after(LongStream stream, LongPredicate predicate) {\n        return stream.takeWhile(predicate);\n    }\n}\n```\n."}
+  description={"Prefer `LongStream#takeWhile(LongPredicate)` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes$LongStreamTakeWhileRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `LongStreamRules.LongStreamTakeWhile`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class LongStreamTakeWhile {
-    
-    @BeforeTemplate
-    LongStream before(LongStream stream, LongPredicate predicate) {
-        return stream.takeWhile(predicate).filter(predicate);
-    }
-    
-    @AfterTemplate
-    LongStream after(LongStream stream, LongPredicate predicate) {
-        return stream.takeWhile(predicate);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `LongStream#takeWhile(LongPredicate)` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `DoubleStreamRules.DoubleStreamFilterSorted`"}
-  description={"Apply `DoubleStream#filter(DoublePredicate)` before `DoubleStream#sorted()` to reduce the number of elements to sort."}
+  description={"Prefer `DoubleStream#filter(DoublePredicate)` before `DoubleStream#sorted()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamFilterSortedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `DoubleStreamRules.DoubleStreamFilterSorted`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Apply `DoubleStream#filter(DoublePredicate)` before `DoubleStream#sorted()` to reduce the number of elements to sort.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `DoubleStream#filter(DoublePredicate)` before `DoubleStream#sorted()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

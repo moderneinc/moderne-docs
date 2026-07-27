@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S3655"]}
+  tags={[]}
   license={"Apache License Version 2.0"}
   fqName={"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalOrElseThrowRecipe"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

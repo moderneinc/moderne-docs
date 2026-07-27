@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `WebClientRules.WebClientGet`"}
-  description={"Prefer `WebClient#get()` over `WebClient#method(HttpMethod)` with `HttpMethod#GET`."}
+  description={"Prefer `WebClient#get()` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$WebClientGetRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `WebClientRules.WebClientGet`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `WebClient#get()` over `WebClient#method(HttpMethod)` with `HttpMethod#GET`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `WebClient#get()` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

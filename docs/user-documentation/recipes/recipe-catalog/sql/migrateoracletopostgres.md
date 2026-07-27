@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["oracle","postgresql","migration","sql"]}
+  tags={["migration","oracle","postgresql","sql"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.sql.MigrateOracleToPostgres"}
   artifact={"org.openrewrite.recipe:rewrite-sql"}

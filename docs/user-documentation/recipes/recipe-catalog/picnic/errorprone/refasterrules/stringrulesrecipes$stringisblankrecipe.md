@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `StringRules.StringIsBlank`"
-sidebar_label: "Refaster template `StringRules.StringIsBlank`"
+title: "Prefer `String#isBlank()` over less efficient alternatives"
+sidebar_label: "Prefer `String#isBlank()` over less efficient alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `StringRules.StringIsBlank`"}
-  description={"Prefer `String#isBlank()` over less efficient alternatives."}
+  displayName={"Prefer `String#isBlank()` over less efficient alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes the behavior for strings containing\n whitespace characters beyond U+0020, as `String#isBlank()` considers those, while `String#trim()` does not."}
   fqName={"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIsBlankRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/stringrulesrecipes$stringisblankrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `StringRules.StringIsBlank`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `String#isBlank()` over less efficient alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `String#isBlank()` over less efficient alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes the behavior for strings containing  whitespace characters beyond U+0020, as `String#isBlank()` considers those, while `String#trim()` does not.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIsBlankRecipe","displayName":"Refaster template `StringRules.StringIsBlank`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIsBlankRecipe","displayName":"Prefer `String#isBlank()` over less efficient alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

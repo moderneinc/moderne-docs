@@ -1,6 +1,6 @@
 ---
-title: "Prefer `Map#entry(Object, Object)` over alternative ways to create an immutable map entry"
-sidebar_label: "Prefer `Map#entry(Object, Object)` over alternative ways to create an immutable map entry"
+title: "Prefer `Map#entry(Object, Object)` over non-JDK alternatives or the associated constructor"
+sidebar_label: "Prefer `Map#entry(Object, Object)` over non-JDK alternatives or the associated constructor"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `Map#entry(Object, Object)` over alternative ways to create an immutable map entry"}
-  description={"<strong>Warning:</strong> while both `Maps#immutableEntry(Object, Object)` and `AbstractMap.SimpleImmutableEntry` allow `null` keys and values, the preferred @link\n Map#entry(Object, Object)} variant does not. Moreover, the `Map.Entry` instances produced\n by the former approaches is `java.io.Serializable`, while this does not hold for the\n object returned by the preferred approach."}
+  displayName={"Prefer `Map#entry(Object, Object)` over non-JDK alternatives or the associated constructor"}
+  description={"<strong>Warning:</strong> while both `Maps#immutableEntry(Object, Object)` and `AbstractMap.SimpleImmutableEntry` allow `null` keys and values, the preferred `Map#entry(Object, Object)` variant does not. Moreover, the `Map.Entry` instances produced\n by the former approaches are `java.io.Serializable`, while this does not hold for the\n object returned by the preferred approach."}
   fqName={"tech.picnic.errorprone.refasterrules.MapEntryRulesRecipes$MapEntryRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentryrecipe.md"}
 >
 
-<RecipeHeader.Title>Prefer `Map#entry(Object, Object)` over alternative ways to create an immutable map entry</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Map#entry(Object, Object)` over non-JDK alternatives or the associated constructor</RecipeHeader.Title>
 
-<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> while both `Maps#immutableEntry(Object, Object)` and `AbstractMap.SimpleImmutableEntry` allow `null` keys and values, the preferred @link  Map#entry(Object, Object)} variant does not. Moreover, the `Map.Entry` instances produced  by the former approaches is `java.io.Serializable`, while this does not hold for the  object returned by the preferred approach.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> while both `Maps#immutableEntry(Object, Object)` and `AbstractMap.SimpleImmutableEntry` allow `null` keys and values, the preferred `Map#entry(Object, Object)` variant does not. Moreover, the `Map.Entry` instances produced  by the former approaches are `java.io.Serializable`, while this does not hold for the  object returned by the preferred approach.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.MapEntryRulesRecipes$MapEntryRecipe","displayName":"Prefer `Map#entry(Object, Object)` over alternative ways to create an immutable map entry","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.MapEntryRulesRecipes$MapEntryRecipe","displayName":"Prefer `Map#entry(Object, Object)` over non-JDK alternatives or the associated constructor","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

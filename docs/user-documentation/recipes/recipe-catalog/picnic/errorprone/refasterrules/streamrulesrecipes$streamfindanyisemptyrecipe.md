@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamFindAnyIsEmpty`"}
-  description={"In order to test whether a stream has any element, simply try to find one."}
+  description={"Prefer `Stream#findAny()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFindAnyIsEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamFindAnyIsEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>In order to test whether a stream has any element, simply try to find one.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#findAny()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

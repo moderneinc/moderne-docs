@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives"}
-  description={"Additionally, for large bounds, the unnecessary floating point arithmetic prevents some\n `long` values from being generated."}
+  description={"<strong>Warning:</strong> for large bounds, the before-template's floating point arithmetic\n prevents some `long` values from being generated."}
   fqName={"tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextLongRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Additionally, for large bounds, the unnecessary floating point arithmetic prevents some  `long` values from being generated.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> for large bounds, the before-template's floating point arithmetic  prevents some `long` values from being generated.</RecipeHeader.Description>
 
 </RecipeHeader>
 

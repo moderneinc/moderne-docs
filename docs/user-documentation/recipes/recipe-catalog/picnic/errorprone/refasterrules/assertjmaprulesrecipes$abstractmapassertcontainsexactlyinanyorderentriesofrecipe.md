@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyInAnyOrderEntriesOf`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractMapAssertContainsExactlyInAnyOrderEntriesOf<K, V> {\n    \n    @BeforeTemplate\n    AbstractMapAssert<?, ?, K, V> before(AbstractMapAssert<?, ?, K, V> mapAssert, Map<? extends K, ? extends V> map) {\n        return mapAssert.isEqualTo(map);\n    }\n    \n    @AfterTemplate\n    AbstractMapAssert<?, ?, K, V> after(AbstractMapAssert<?, ?, K, V> mapAssert, Map<? extends K, ? extends V> map) {\n        return mapAssert.containsExactlyInAnyOrderEntriesOf(map);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractMapAssert#containsExactlyInAnyOrderEntriesOf(Map)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AbstractMapAssertContainsExactlyInAnyOrderEntriesOfRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyInAnyOrderEntriesOf`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractMapAssertContainsExactlyInAnyOrderEntriesOf<K, V> {
-    
-    @BeforeTemplate
-    AbstractMapAssert<?, ?, K, V> before(AbstractMapAssert<?, ?, K, V> mapAssert, Map<? extends K, ? extends V> map) {
-        return mapAssert.isEqualTo(map);
-    }
-    
-    @AfterTemplate
-    AbstractMapAssert<?, ?, K, V> after(AbstractMapAssert<?, ?, K, V> mapAssert, Map<? extends K, ? extends V> map) {
-        return mapAssert.containsExactlyInAnyOrderEntriesOf(map);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractMapAssert#containsExactlyInAnyOrderEntriesOf(Map)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

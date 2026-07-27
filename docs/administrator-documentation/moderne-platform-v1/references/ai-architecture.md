@@ -80,30 +80,6 @@ Search results are saved on the worker, similar to any recipe run result. No dat
 
 ## OpenRewrite recipes using AI
 
-### Rewrite comprehension
-
-Moderne offers recipes that can read and comprehend your code – and then provide updates to your code or READMEs based on that understanding. 
-
-For instance, if you created or updated a project that didn't have a useful README, you could [run a recipe to generate a useful one](https://github.com/openrewrite/rewrite-docker/pull/10). 
-
-For more details into how to install and run this recipe, check out our [recipe documentation](https://docs.openrewrite.org/recipes/knowledge/docs/updateopenrewritereadme).
-
-#### Deployment
-
-Exists inside of the `rewrite-comprehension` JAR. Only deployed if you deploy this artifact to your tenant alongside the other recipe artifacts.
-
-:::info
-While private tenants can technically deploy this and use our key, we expect most, if not all, external calls to Gemini will be blocked. If you're interested in the feature on your private tenant, please talk to us so we can figure something out.
-:::
-
-#### AI models
-
-Uses a bring-your-own-model (BYOM) configuration. It supports OpenAI, Gemini, Anthropic, and Ollama.
-
-#### State management
-
-No data is saved – all interactions are stateless. Recipe results are ephemeral, like any non-AI recipe.
-
 ### AI recipe recommendations
 
 Moderne has created recipes that can look through your code base and offer suggestions of recipes that you should consider running to help modernize or secure your code base. 

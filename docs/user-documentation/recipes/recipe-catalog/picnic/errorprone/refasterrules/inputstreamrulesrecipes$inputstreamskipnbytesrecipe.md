@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `InputStreamRules.InputStreamSkipNBytes`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class InputStreamSkipNBytes {\n    \n    @BeforeTemplate\n    void before(InputStream in, long n) throws IOException {\n        ByteStreams.skipFully(in, n);\n    }\n    \n    @AfterTemplate\n    void after(InputStream in, long n) throws IOException {\n        in.skipNBytes(n);\n    }\n}\n```\n."}
+  description={"Prefer `InputStream#skipNBytes(long)` over non-JDK alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes$InputStreamSkipNBytesRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `InputStreamRules.InputStreamSkipNBytes`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class InputStreamSkipNBytes {
-    
-    @BeforeTemplate
-    void before(InputStream in, long n) throws IOException {
-        ByteStreams.skipFully(in, n);
-    }
-    
-    @AfterTemplate
-    void after(InputStream in, long n) throws IOException {
-        in.skipNBytes(n);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `InputStream#skipNBytes(long)` over non-JDK alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

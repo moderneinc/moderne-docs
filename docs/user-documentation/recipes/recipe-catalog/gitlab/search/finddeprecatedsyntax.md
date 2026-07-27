@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["search","ci","gitlab"]}
+  tags={["gitlab","ci","search"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.gitlab.search.FindDeprecatedSyntax"}
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}

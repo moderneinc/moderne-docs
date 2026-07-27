@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.CollectionIterator`"}
-  description={"Prefer `Collection#iterator()` over more contrived or less efficient alternatives."}
+  description={"Prefer `Collection#iterator()` over less efficient or more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionIteratorRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.CollectionIterator`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Collection#iterator()` over more contrived or less efficient alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Collection#iterator()` over less efficient or more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

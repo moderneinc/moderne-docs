@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["wsee-clientHandlerChain","schemas","weblogic"]}
+  tags={["weblogic","wsee-clientHandlerChain","schemas"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.WebLogicWseeClientHandlerChainXmlNamespace1412"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

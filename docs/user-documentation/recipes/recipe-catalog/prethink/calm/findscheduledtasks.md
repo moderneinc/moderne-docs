@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find scheduled tasks"}
-  description={"Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations."}
+  description={"Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations, as well as programmatic scheduling through java.util.concurrent.ScheduledExecutorService and Jakarta/Javax EE ManagedScheduledExecutorService."}
   fqName={"io.moderne.prethink.calm.FindScheduledTasks"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find scheduled tasks</RecipeHeader.Title>
 
-<RecipeHeader.Description>Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations.</RecipeHeader.Description>
+<RecipeHeader.Description>Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations, as well as programmatic scheduling through java.util.concurrent.ScheduledExecutorService and Jakarta/Javax EE ManagedScheduledExecutorService.</RecipeHeader.Description>
 
 </RecipeHeader>
 

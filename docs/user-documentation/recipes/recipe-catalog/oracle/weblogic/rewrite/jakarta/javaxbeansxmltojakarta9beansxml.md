@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["beans","cdi","jakarta"]}
+  tags={["cdi","jakarta","beans"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.jakarta.JavaxBeansXmlToJakarta9BeansXml"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

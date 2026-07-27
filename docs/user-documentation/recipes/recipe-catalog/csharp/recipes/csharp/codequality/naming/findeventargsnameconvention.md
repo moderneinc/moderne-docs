@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["csharp","naming","code-quality"]}
   license={"Moderne Proprietary License"}
   fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindEventArgsNameConvention"}
-  artifact={"io.moderne.recipe:recipes-code-quality"}
+  artifact={"OpenRewrite.Recipes.CSharp.CodeQuality"}
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindEventArgsNameConvention"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/findeventargsnameconvention.md"}
   moderneOnly

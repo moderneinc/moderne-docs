@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["Azure","terraform","CKV_AZURE_102"]}
+  tags={["terraform","Azure","CKV_AZURE_102"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.azure.EnableGeoRedundantBackupsOnPostgreSQLServer"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

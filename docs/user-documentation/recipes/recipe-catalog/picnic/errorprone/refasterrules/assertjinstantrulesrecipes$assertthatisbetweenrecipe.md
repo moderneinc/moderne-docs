@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJInstantRules.AssertThatIsBetween`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsBetween {\n    \n    @BeforeTemplate\n    AbstractInstantAssert<?> before(Instant actual, Instant start, Instant end) {\n        return Refaster.anyOf(assertThat(actual).isAfterOrEqualTo(start).isBeforeOrEqualTo(end), assertThat(actual).isBeforeOrEqualTo(end).isAfterOrEqualTo(start));\n    }\n    \n    @AfterTemplate\n    AbstractInstantAssert<?> after(Instant actual, Instant start, Instant end) {\n        return assertThat(actual).isBetween(start, end);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractInstantAssert#isBetween(Instant, Instant)` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJInstantRulesRecipes$AssertThatIsBetweenRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJInstantRules.AssertThatIsBetween`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsBetween {
-    
-    @BeforeTemplate
-    AbstractInstantAssert<?> before(Instant actual, Instant start, Instant end) {
-        return Refaster.anyOf(assertThat(actual).isAfterOrEqualTo(start).isBeforeOrEqualTo(end), assertThat(actual).isBeforeOrEqualTo(end).isAfterOrEqualTo(start));
-    }
-    
-    @AfterTemplate
-    AbstractInstantAssert<?> after(Instant actual, Instant start, Instant end) {
-        return assertThat(actual).isBetween(start, end);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractInstantAssert#isBetween(Instant, Instant)` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

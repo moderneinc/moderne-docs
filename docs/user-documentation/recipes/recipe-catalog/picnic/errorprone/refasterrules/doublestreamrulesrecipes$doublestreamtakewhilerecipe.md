@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `DoubleStreamRules.DoubleStreamTakeWhile`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class DoubleStreamTakeWhile {\n    \n    @BeforeTemplate\n    DoubleStream before(DoubleStream stream, DoublePredicate predicate) {\n        return stream.takeWhile(predicate).filter(predicate);\n    }\n    \n    @AfterTemplate\n    DoubleStream after(DoubleStream stream, DoublePredicate predicate) {\n        return stream.takeWhile(predicate);\n    }\n}\n```\n."}
+  description={"Prefer `DoubleStream#takeWhile(DoublePredicate)` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamTakeWhileRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `DoubleStreamRules.DoubleStreamTakeWhile`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class DoubleStreamTakeWhile {
-    
-    @BeforeTemplate
-    DoubleStream before(DoubleStream stream, DoublePredicate predicate) {
-        return stream.takeWhile(predicate).filter(predicate);
-    }
-    
-    @AfterTemplate
-    DoubleStream after(DoubleStream stream, DoublePredicate predicate) {
-        return stream.takeWhile(predicate);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `DoubleStream#takeWhile(DoublePredicate)` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

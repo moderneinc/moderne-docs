@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ComparatorRules.CollectionsMax`"}
-  description={"Prefer `Collections#max(Collection)` over more verbose alternatives."}
+  description={"Prefer `Collections#max(Collection)` over more verbose or more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CollectionsMaxRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ComparatorRules.CollectionsMax`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Collections#max(Collection)` over more verbose alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Collections#max(Collection)` over more verbose or more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

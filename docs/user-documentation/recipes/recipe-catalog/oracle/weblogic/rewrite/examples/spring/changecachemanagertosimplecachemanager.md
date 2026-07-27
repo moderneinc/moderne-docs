@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["examples","springframework","cacheManager"]}
+  tags={["springframework","examples","cacheManager"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.examples.spring.ChangeCacheManagerToSimpleCacheManager"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

@@ -14,14 +14,11 @@ description: Prethink OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
+* [Update Prethink context](./updateprethinkcontextstarter.md)
 * [Update Prethink context](./updateprethinkcontext.md)
-* [Update Prethink context (no AI)](./updateprethinkcontextnoaistarter.md)
-* [Update Prethink context (with AI)](./updateprethinkcontextstarter.md)
 
 ## Recipes
 
-* [Comprehend code with AI](./comprehendcode.md)
-* [Estimate comprehension token usage](./comprehendcodetokencounter.md)
 * [Export context files](./exportcontext.md)
 * [Extract Go dependencies and usage](./extractgodependencies.md)
 * [Extract coding conventions](./extractcodingconventions.md)
@@ -29,7 +26,9 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Extract error handling patterns](./extracterrorpatterns.md)
 * [Find Go coding conventions](./findgocodingconventions.md)
 * [Find Go error handling patterns](./findgoerrorpatterns.md)
+* [Python dependency report](./pythondependencyreport.md)
 * [Update .gitignore for Prethink context](./updategitignore.md)
+* [Update Prethink context (no AI)](./updateprethinkcontextnoaistarter.md)
 * [Update agent configuration files](./updateagentconfig.md)
 
 

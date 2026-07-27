@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJPathRules.AssertThatStartsWithRaw`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStartsWithRaw {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Path actual, Path other) {\n        return assertThat(actual.startsWith(other)).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractPathAssert<?> after(Path actual, Path other) {\n        return assertThat(actual).startsWithRaw(other);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractPathAssert#startsWithRaw(Path)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatStartsWithRawRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJPathRules.AssertThatStartsWithRaw`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatStartsWithRaw {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Path actual, Path other) {
-        return assertThat(actual.startsWith(other)).isTrue();
-    }
-    
-    @AfterTemplate
-    AbstractPathAssert<?> after(Path actual, Path other) {
-        return assertThat(actual).startsWithRaw(other);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractPathAssert#startsWithRaw(Path)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

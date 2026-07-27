@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.SortedSetFirst`"}
-  description={"Prefer `SortedSet#first()` over more verbose alternatives."}
+  description={"Prefer `SortedSet#first()` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$SortedSetFirstRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.SortedSetFirst`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `SortedSet#first()` over more verbose alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `SortedSet#first()` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.react.migrate.upgrade-to-react-19"}
-  artifact={"io.moderne.recipe:rewrite-react"}
+  artifact={"@openrewrite/recipes-react"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.migrate.upgrade-to-react-19"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-19.md"}
   moderneOnly

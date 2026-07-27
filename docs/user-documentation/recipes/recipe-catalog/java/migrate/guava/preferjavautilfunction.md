@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["RSPEC-S4738","guava"]}
+  tags={["guava","RSPEC-S4738"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.migrate.guava.PreferJavaUtilFunction"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}

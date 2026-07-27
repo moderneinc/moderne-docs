@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["descriptors","java","schemas","weblogic"]}
+  tags={["weblogic","descriptors","java","schemas"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.MigrateWebLogicSchemasTo1412"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

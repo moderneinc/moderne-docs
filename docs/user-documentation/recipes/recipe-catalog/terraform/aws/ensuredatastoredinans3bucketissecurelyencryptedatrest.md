@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["terraform","AWS","CKV_AWS_19"]}
+  tags={["AWS","CKV_AWS_19","terraform"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EnsureDataStoredInAnS3BucketIsSecurelyEncryptedAtRest"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

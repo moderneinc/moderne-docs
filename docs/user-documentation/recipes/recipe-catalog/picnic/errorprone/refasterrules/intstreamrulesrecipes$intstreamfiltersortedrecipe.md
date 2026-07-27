@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `IntStreamRules.IntStreamFilterSorted`"}
-  description={"Apply `IntStream#filter(IntPredicate)` before `IntStream#sorted()` to reduce the number of elements to sort."}
+  description={"Prefer `IntStream#filter(IntPredicate)` before `IntStream#sorted()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes$IntStreamFilterSortedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `IntStreamRules.IntStreamFilterSorted`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Apply `IntStream#filter(IntPredicate)` before `IntStream#sorted()` to reduce the number of elements to sort.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `IntStream#filter(IntPredicate)` before `IntStream#sorted()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

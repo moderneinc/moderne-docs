@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJFileRules.AssertThatHasFileName`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasFileName {\n    \n    @BeforeTemplate\n    AbstractStringAssert<?> before(File actual, String fileName) {\n        return assertThat(actual.getName()).isEqualTo(fileName);\n    }\n    \n    @AfterTemplate\n    AbstractFileAssert<?> after(File actual, String fileName) {\n        return assertThat(actual).hasFileName(fileName);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractFileAssert#hasFileName(String)` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatHasFileNameRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatHasFileName`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasFileName {
-    
-    @BeforeTemplate
-    AbstractStringAssert<?> before(File actual, String fileName) {
-        return assertThat(actual.getName()).isEqualTo(fileName);
-    }
-    
-    @AfterTemplate
-    AbstractFileAssert<?> after(File actual, String fileName) {
-        return assertThat(actual).hasFileName(fileName);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractFileAssert#hasFileName(String)` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

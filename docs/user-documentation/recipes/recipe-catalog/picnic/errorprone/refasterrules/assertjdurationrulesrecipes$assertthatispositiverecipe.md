@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJDurationRules.AssertThatIsPositive`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsPositive {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Duration duration) {\n        return assertThat(duration.isPositive()).isTrue();\n    }\n    \n    @BeforeTemplate\n    AbstractDurationAssert<?> before2(Duration duration) {\n        return assertThat(duration).isGreaterThan(Duration.ZERO);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration) {\n        return assertThat(duration).isPositive();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractDurationAssert#isPositive()` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatIsPositiveRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,31 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatIsPositive`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsPositive {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Duration duration) {
-        return assertThat(duration.isPositive()).isTrue();
-    }
-    
-    @BeforeTemplate
-    AbstractDurationAssert<?> before2(Duration duration) {
-        return assertThat(duration).isGreaterThan(Duration.ZERO);
-    }
-    
-    @AfterTemplate
-    AbstractDurationAssert<?> after(Duration duration) {
-        return assertThat(duration).isPositive();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractDurationAssert#isPositive()` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

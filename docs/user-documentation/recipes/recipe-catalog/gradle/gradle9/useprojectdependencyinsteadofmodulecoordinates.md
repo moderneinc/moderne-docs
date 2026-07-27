@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"groovy","before":"dependencies {\n    implementation 'com.example:my-project:1.0.0'\n}\n","after":"dependencies {\n    implementation project(':my-project')\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -2,1 +2,1 @@\ndependencies {\n-   implementation 'com.example:my-project:1.0.0'\n+   implementation project(':my-project')\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.gradle.gradle9.UseProjectDependencyInsteadOfModuleCoordinates","displayName":"Use `project(...)` dependency notation instead of the current project's module coordinates","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
 
 ## Usage

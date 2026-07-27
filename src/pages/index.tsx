@@ -67,7 +67,7 @@ export const WhatIsModerneSection: FunctionComponent = () => {
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle} id='what-is-moderne'>What is Moderne?</h2>
         <p className={styles.sectionDescription}>
-          Moderne builds the knowledge, discovery, and execution tools coding agents rely on to operate faster, more accurately, and at far lower cost across real-world software systems. Powered by the <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> <Link href="/administrator-documentation/moderne-platform/references/lossless-semantic-trees">Lossless Semantic Tree (LST)</Link>, the industry's most comprehensive context model for understanding and transforming your code at scale.
+          Moderne builds the knowledge, discovery, and execution tools coding agents rely on to operate faster, more accurately, and at far lower cost across real-world software systems. Powered by the <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> <Link href="/user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees">Lossless Semantic Tree (LST)</Link>, the industry's most comprehensive context model for understanding and transforming your code at scale.
         </p>
         <p className={styles.sectionDescription}>  
           With Moderne, organizations can automate framework migrations, remediate security vulnerabilities, perform organization-wide code search, and standardize code quality across thousands of repositories.

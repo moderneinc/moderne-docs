@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["testing","assertj","hamcrest"]}
+  tags={["hamcrest","assertj","testing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.hamcrest.MigrateHamcrestToAssertJ"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamMapToDoubleSummaryStatistics`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMapToDoubleSummaryStatistics<T> {\n    \n    @BeforeTemplate\n    DoubleSummaryStatistics before(Stream<T> stream, ToDoubleFunction<T> mapper) {\n        return stream.collect(summarizingDouble(mapper));\n    }\n    \n    @AfterTemplate\n    DoubleSummaryStatistics after(Stream<T> stream, ToDoubleFunction<T> mapper) {\n        return stream.mapToDouble(mapper).summaryStatistics();\n    }\n}\n```\n."}
+  description={"Prefer `stream.mapToDouble(mapper).summaryStatistics()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapToDoubleSummaryStatisticsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamMapToDoubleSummaryStatistics`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamMapToDoubleSummaryStatistics<T> {
-    
-    @BeforeTemplate
-    DoubleSummaryStatistics before(Stream<T> stream, ToDoubleFunction<T> mapper) {
-        return stream.collect(summarizingDouble(mapper));
-    }
-    
-    @AfterTemplate
-    DoubleSummaryStatistics after(Stream<T> stream, ToDoubleFunction<T> mapper) {
-        return stream.mapToDouble(mapper).summaryStatistics();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `stream.mapToDouble(mapper).summaryStatistics()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

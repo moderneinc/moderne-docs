@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.MathClampFloat`"}
-  description={"Prefer `Math#clamp(float, float, float)` over more verbose alternatives."}
+  description={"Prefer `Math#clamp(float, float, float)` over non-JDK or more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$MathClampFloatRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.MathClampFloat`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Math#clamp(float, float, float)` over more verbose alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Math#clamp(float, float, float)` over non-JDK or more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

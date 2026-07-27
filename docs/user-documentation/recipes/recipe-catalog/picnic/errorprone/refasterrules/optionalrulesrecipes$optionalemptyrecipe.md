@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `OptionalRules.OptionalEmpty`"}
-  description={"Prefer `Optional#empty()` over the more contrived alternative."}
+  description={"Prefer `Optional#empty()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `OptionalRules.OptionalEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Optional#empty()` over the more contrived alternative.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Optional#empty()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

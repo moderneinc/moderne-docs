@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["ci","gitlab","terraform","opentofu"]}
+  tags={["gitlab","terraform","ci","opentofu"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.gitlab.MigrateTerraformTemplateToOpenTofuComponent"}
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}

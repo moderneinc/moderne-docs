@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.angular.UpgradeToAngular20"}
-  artifact={"io.moderne.recipe:rewrite-angular"}
+  artifact={"@openrewrite/recipes-angular"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular20"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular20.md"}
   moderneOnly

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `InputStreamRules.InputStreamTransferTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class InputStreamTransferTo {\n    \n    @BeforeTemplate\n    long before(InputStream in, OutputStream out) throws IOException {\n        return ByteStreams.copy(in, out);\n    }\n    \n    @AfterTemplate\n    long after(InputStream in, OutputStream out) throws IOException {\n        return in.transferTo(out);\n    }\n}\n```\n."}
+  description={"Prefer `InputStream#transferTo(OutputStream)` over non-JDK alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes$InputStreamTransferToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `InputStreamRules.InputStreamTransferTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class InputStreamTransferTo {
-    
-    @BeforeTemplate
-    long before(InputStream in, OutputStream out) throws IOException {
-        return ByteStreams.copy(in, out);
-    }
-    
-    @AfterTemplate
-    long after(InputStream in, OutputStream out) throws IOException {
-        return in.transferTo(out);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `InputStream#transferTo(OutputStream)` over non-JDK alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

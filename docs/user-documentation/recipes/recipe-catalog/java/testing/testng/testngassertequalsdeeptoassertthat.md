@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Map;\n\nimport static org.testng.Assert.assertEqualsDeep;\n\nclass Test {\n    void test(Map<String, Object> actual, Map<String, Object> expected) {\n        assertEqualsDeep(actual, expected);\n        assertEqualsDeep(actual, expected, \"foo\");\n    }\n}\n","after":"import java.util.Map;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass Test {\n    void test(Map<String, Object> actual, Map<String, Object> expected) {\n        assertThat(actual).usingRecursiveComparison().isEqualTo(expected);\n        assertThat(actual).as(\"foo\").usingRecursiveComparison().isEqualTo(expected);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport java.util.Map;\n\n-import static org.testng.Assert.assertEqualsDeep;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -7,2 +7,2 @@\nclass Test {\n    void test(Map<String, Object> actual, Map<String, Object> expected) {\n-       assertEqualsDeep(actual, expected);\n-       assertEqualsDeep(actual, expected, \"foo\");\n+       assertThat(actual).usingRecursiveComparison().isEqualTo(expected);\n+       assertThat(actual).as(\"foo\").usingRecursiveComparison().isEqualTo(expected);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertEqualsDeepToAssertThat","displayName":"TestNG `assertEqualsDeep`/`assertNotEqualsDeep` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

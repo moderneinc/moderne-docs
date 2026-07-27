@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["sdk","aws"]}
+  tags={["aws","sdk"]}
   license={"Apache License Version 2.0"}
   fqName={"software.amazon.awssdk.v2migration.AddTransferManagerDependency"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

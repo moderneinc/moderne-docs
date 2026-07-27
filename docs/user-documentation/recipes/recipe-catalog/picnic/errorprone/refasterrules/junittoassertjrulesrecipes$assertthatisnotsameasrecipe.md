@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `JUnitToAssertJRules.AssertThatIsNotSameAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNotSameAs {\n    \n    @BeforeTemplate\n    void before(Object actual, Object expected) {\n        assertNotSame(expected, actual);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object actual, Object expected) {\n        assertThat(actual).isNotSameAs(expected);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractAssert#isNotSameAs(Object)` over non-AssertJ alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIsNotSameAsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatIsNotSameAs`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsNotSameAs {
-    
-    @BeforeTemplate
-    void before(Object actual, Object expected) {
-        assertNotSame(expected, actual);
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after(Object actual, Object expected) {
-        assertThat(actual).isNotSameAs(expected);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractAssert#isNotSameAs(Object)` over non-AssertJ alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

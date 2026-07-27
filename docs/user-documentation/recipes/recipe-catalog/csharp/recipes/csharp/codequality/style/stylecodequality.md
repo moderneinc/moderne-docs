@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["csharp","style","code-quality"]}
   license={"Moderne Proprietary License"}
   fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Style.StyleCodeQuality"}
-  artifact={"io.moderne.recipe:recipes-code-quality"}
+  artifact={"OpenRewrite.Recipes.CSharp.CodeQuality"}
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.StyleCodeQuality"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/stylecodequality.md"}
   moderneOnly

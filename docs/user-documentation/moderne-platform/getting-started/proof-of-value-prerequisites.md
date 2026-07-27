@@ -36,7 +36,7 @@ You will need two separate environments provisioned and ready:
 
 ### Mass ingest
 
-The mass ingest environment builds all of your repositories and creates the [LST artifacts](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) that recipes run against. It runs as a Docker container. When using a self-hosted SCM, it operates entirely within your network. When using a cloud SCM (github.com, gitlab.com, etc.), it requires outbound HTTPS to that service.
+The mass ingest environment builds all of your repositories and creates the [LST artifacts](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a Docker container. When using a self-hosted SCM, it operates entirely within your network. When using a cloud SCM (github.com, gitlab.com, etc.), it requires outbound HTTPS to that service.
 
 | Resource | Minimum |
 |----------|---------|

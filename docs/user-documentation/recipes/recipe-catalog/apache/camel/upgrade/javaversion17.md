@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["java17","compiler"]}
+  tags={["compiler","java17"]}
   license={"Apache License Version 2.0"}
   fqName={"org.apache.camel.upgrade.JavaVersion17"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

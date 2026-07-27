@@ -7,11 +7,41 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.150.82 |
+| Connector | 0.150.163 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.82/connector-0.150.82.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.150.163/connector-0.150.163.jar)
 
 ## Changelog
+
+## July 2026
+
+### v0.150.163 – 2026-07-15
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.150.163/connector-0.150.163.jar)
+
+* Withhold unreachable customer publishUri from the in-SaaS CLI (#1591)
+
+### v0.150.155 – 2026-07-14
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.155/connector-0.150.155.jar)
+
+* Bound connector metric source tag to Atlas tag-value limit (#1567)
+* Perf(connector): abort non-JAR LST downloads early (#1576)
+
+### v0.150.142 – 2026-07-08
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.142/connector-0.150.142.jar)
+
+* Fix(connector): name the failing tool on connectivity-check failure (#1549)
+
+### v0.150.141 – 2026-07-08
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.141/connector-0.150.141.jar)
+
+* Fix(connector): reject non-JAR payloads on LST download (#1548)
+* Make connector Artifactory connectivity failures self-diagnosing (#1497)
+* Remove legacy remoting servers and switch to rewrite releases (#1449)
+* Fix(connector): stop a null-response WS handshake from wedging gateway reconnect (#1375)
 
 ## June 2026
 

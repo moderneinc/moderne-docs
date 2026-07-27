@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.ChangeImport"}
-  artifact={"org.openrewrite:rewrite-python"}
+  artifact={"openrewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.ChangeImport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/changeimport.md"}
   moderneOnly
@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.python.ChangeImport","displayName":"Change import","pipPackage":"openrewrite"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.ChangeImport","displayName":"Change import","pipPackage":"openrewrite","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}}>
 
 ## Usage
 

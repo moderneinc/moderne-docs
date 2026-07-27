@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.MonoThenMany`"}
-  description={"Avoid vacuous operations prior to invocation of `Mono#thenMany(Publisher)`."}
+  description={"Prefer `Mono#thenMany(Publisher)` over applying vacuous operations first."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoThenManyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.MonoThenMany`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid vacuous operations prior to invocation of `Mono#thenMany(Publisher)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Mono#thenMany(Publisher)` over applying vacuous operations first.</RecipeHeader.Description>
 
 </RecipeHeader>
 

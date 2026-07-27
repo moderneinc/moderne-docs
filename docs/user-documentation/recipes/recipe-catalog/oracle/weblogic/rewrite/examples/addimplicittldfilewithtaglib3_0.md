@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["taglib","examples","weblogic"]}
+  tags={["weblogic","examples","taglib"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.examples.AddImplicitTldFileWithTaglib3_0"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

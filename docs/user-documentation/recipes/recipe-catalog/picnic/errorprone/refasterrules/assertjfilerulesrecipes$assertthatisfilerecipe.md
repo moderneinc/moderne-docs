@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJFileRules.AssertThatIsFile`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsFile {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(File actual) {\n        return assertThat(actual.isFile()).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractFileAssert<?> after(File actual) {\n        return assertThat(actual).isFile();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractFileAssert#isFile()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatIsFileRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatIsFile`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsFile {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(File actual) {
-        return assertThat(actual.isFile()).isTrue();
-    }
-    
-    @AfterTemplate
-    AbstractFileAssert<?> after(File actual) {
-        return assertThat(actual).isFile();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractFileAssert#isFile()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

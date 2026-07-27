@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamMapToLongSummaryStatistics`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMapToLongSummaryStatistics<T> {\n    \n    @BeforeTemplate\n    LongSummaryStatistics before(Stream<T> stream, ToLongFunction<T> mapper) {\n        return stream.collect(summarizingLong(mapper));\n    }\n    \n    @AfterTemplate\n    LongSummaryStatistics after(Stream<T> stream, ToLongFunction<T> mapper) {\n        return stream.mapToLong(mapper).summaryStatistics();\n    }\n}\n```\n."}
+  description={"Prefer `stream.mapToLong(mapper).summaryStatistics()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapToLongSummaryStatisticsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamMapToLongSummaryStatistics`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamMapToLongSummaryStatistics<T> {
-    
-    @BeforeTemplate
-    LongSummaryStatistics before(Stream<T> stream, ToLongFunction<T> mapper) {
-        return stream.collect(summarizingLong(mapper));
-    }
-    
-    @AfterTemplate
-    LongSummaryStatistics after(Stream<T> stream, ToLongFunction<T> mapper) {
-        return stream.mapToLong(mapper).summaryStatistics();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `stream.mapToLong(mapper).summaryStatistics()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

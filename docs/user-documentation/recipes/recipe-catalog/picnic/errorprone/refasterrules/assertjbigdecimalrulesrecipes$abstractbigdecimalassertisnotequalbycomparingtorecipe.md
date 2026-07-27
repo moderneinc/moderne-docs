@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJBigDecimalRules.AbstractBigDecimalAssertIsNotEqualByComparingTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractBigDecimalAssertIsNotEqualByComparingTo {\n    \n    @BeforeTemplate\n    AbstractBigDecimalAssert<?> before(AbstractBigDecimalAssert<?> bigDecimalAssert, BigDecimal n) {\n        return Refaster.anyOf(bigDecimalAssert.isNotCloseTo(n, offset(BigDecimal.ZERO)), bigDecimalAssert.isNotCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractBigDecimalAssert<?> after(AbstractBigDecimalAssert<?> bigDecimalAssert, BigDecimal n) {\n        return bigDecimalAssert.isNotEqualByComparingTo(n);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractBigDecimalAssert#isNotEqualByComparingTo(BigDecimal)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJBigDecimalRulesRecipes$AbstractBigDecimalAssertIsNotEqualByComparingToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJBigDecimalRules.AbstractBigDecimalAssertIsNotEqualByComparingTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractBigDecimalAssertIsNotEqualByComparingTo {
-    
-    @BeforeTemplate
-    AbstractBigDecimalAssert<?> before(AbstractBigDecimalAssert<?> bigDecimalAssert, BigDecimal n) {
-        return Refaster.anyOf(bigDecimalAssert.isNotCloseTo(n, offset(BigDecimal.ZERO)), bigDecimalAssert.isNotCloseTo(n, withPercentage(0)));
-    }
-    
-    @AfterTemplate
-    AbstractBigDecimalAssert<?> after(AbstractBigDecimalAssert<?> bigDecimalAssert, BigDecimal n) {
-        return bigDecimalAssert.isNotEqualByComparingTo(n);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractBigDecimalAssert#isNotEqualByComparingTo(BigDecimal)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

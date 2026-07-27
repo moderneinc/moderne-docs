@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.CollectionIsEmpty`"}
-  description={"Prefer `Collection#isEmpty()` over alternatives that consult the collection's size or are otherwise more contrived."}
+  description={"Prefer `Collection#isEmpty()` over non-JDK, less efficient, or more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionIsEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.CollectionIsEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Collection#isEmpty()` over alternatives that consult the collection's size or are otherwise more contrived.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Collection#isEmpty()` over non-JDK, less efficient, or more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

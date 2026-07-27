@@ -19,6 +19,7 @@
 *.sh text eol=lf
 *.bash text eol=lf
 *.txt text eol=lf
+*.csv text eol=lf
 *.py text eol=lf
 *.java text eol=lf
 *.kt text eol=lf

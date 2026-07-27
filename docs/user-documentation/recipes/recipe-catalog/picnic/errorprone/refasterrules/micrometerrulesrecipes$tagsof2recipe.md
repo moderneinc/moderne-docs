@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `MicrometerRules.TagsOf2`"}
-  description={"Prefer using `Tags` over other immutable collections."}
+  description={"Prefer `Tags#of(Tag...)` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.MicrometerRulesRecipes$TagsOf2Recipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `MicrometerRules.TagsOf2`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer using `Tags` over other immutable collections.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Tags#of(Tag...)` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

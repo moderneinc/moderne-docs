@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJOptionalRules.AbstractOptionalAssertContainsSame`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractOptionalAssertContainsSame<T> {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(AbstractOptionalAssert<?, T> optionalAssert, T value) {\n        return Refaster.anyOf(optionalAssert.get().isSameAs(value), optionalAssert.isPresent().isSameAs(value));\n    }\n    \n    @AfterTemplate\n    AbstractOptionalAssert<?, T> after(AbstractOptionalAssert<?, T> optionalAssert, T value) {\n        return optionalAssert.containsSame(value);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractOptionalAssert#containsSame(Object)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AbstractOptionalAssertContainsSameRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJOptionalRules.AbstractOptionalAssertContainsSame`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractOptionalAssertContainsSame<T> {
-    
-    @BeforeTemplate
-    AbstractAssert<?, ?> before(AbstractOptionalAssert<?, T> optionalAssert, T value) {
-        return Refaster.anyOf(optionalAssert.get().isSameAs(value), optionalAssert.isPresent().isSameAs(value));
-    }
-    
-    @AfterTemplate
-    AbstractOptionalAssert<?, T> after(AbstractOptionalAssert<?, T> optionalAssert, T value) {
-        return optionalAssert.containsSame(value);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractOptionalAssert#containsSame(Object)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

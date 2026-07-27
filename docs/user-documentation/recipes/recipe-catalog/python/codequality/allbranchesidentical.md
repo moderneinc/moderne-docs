@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["python","RSPEC-S3923","code-quality"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.codequality.AllBranchesIdentical"}
-  artifact={"org.openrewrite.recipe:rewrite-migrate-python"}
+  artifact={"openrewrite-migrate-python"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.AllBranchesIdentical"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/allbranchesidentical.md"}
   moderneOnly
@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.AllBranchesIdentical","displayName":"Remove conditional with identical branches","pipPackage":"openrewrite-migrate-python"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.AllBranchesIdentical","displayName":"Remove conditional with identical branches","pipPackage":"openrewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON"}}>
 
 ## Usage
 

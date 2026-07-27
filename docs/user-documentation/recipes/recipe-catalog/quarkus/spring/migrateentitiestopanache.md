@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","quarkus","panache","migration","jpa"]}
+  tags={["spring","migration","jpa","quarkus","panache"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.MigrateEntitiesToPanache"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

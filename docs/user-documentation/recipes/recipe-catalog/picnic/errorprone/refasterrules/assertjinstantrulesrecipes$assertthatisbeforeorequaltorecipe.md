@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJInstantRules.AssertThatIsBeforeOrEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsBeforeOrEqualTo {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Instant actual, Instant other) {\n        return assertThat(actual.isAfter(other)).isFalse();\n    }\n    \n    @AfterTemplate\n    AbstractInstantAssert<?> after(Instant actual, Instant other) {\n        return assertThat(actual).isBeforeOrEqualTo(other);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractInstantAssert#isBeforeOrEqualTo(Instant)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJInstantRulesRecipes$AssertThatIsBeforeOrEqualToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJInstantRules.AssertThatIsBeforeOrEqualTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsBeforeOrEqualTo {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Instant actual, Instant other) {
-        return assertThat(actual.isAfter(other)).isFalse();
-    }
-    
-    @AfterTemplate
-    AbstractInstantAssert<?> after(Instant actual, Instant other) {
-        return assertThat(actual).isBeforeOrEqualTo(other);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractInstantAssert#isBeforeOrEqualTo(Instant)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

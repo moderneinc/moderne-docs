@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["GCP","CKV_GCP_36","terraform"]}
+  tags={["GCP","terraform","CKV_GCP_36"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.gcp.EnsureIPForwardingOnInstancesIsDisabled"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["GCP","CKV_GCP_69","terraform"]}
+  tags={["GCP","terraform","CKV_GCP_69"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.gcp.EnsureTheGKEMetadataServerIsEnabled"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

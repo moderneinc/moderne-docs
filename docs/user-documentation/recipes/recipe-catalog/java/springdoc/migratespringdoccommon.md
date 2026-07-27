@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["openapi","springdoc"]}
+  tags={["springdoc","openapi"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.springdoc.MigrateSpringdocCommon"}
   artifact={"org.openrewrite.recipe:rewrite-spring"}

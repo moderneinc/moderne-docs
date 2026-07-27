@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJOptionalRules.AbstractOptionalAssertIsPresent`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractOptionalAssertIsPresent<T> {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(AbstractOptionalAssert<?, T> optionalAssert) {\n        return Refaster.anyOf(optionalAssert.isNotEmpty(), optionalAssert.isNotEqualTo(Optional.empty()));\n    }\n    \n    @AfterTemplate\n    AbstractOptionalAssert<?, T> after(AbstractOptionalAssert<?, T> optionalAssert) {\n        return optionalAssert.isPresent();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractOptionalAssert#isPresent()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AbstractOptionalAssertIsPresentRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJOptionalRules.AbstractOptionalAssertIsPresent`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractOptionalAssertIsPresent<T> {
-    
-    @BeforeTemplate
-    AbstractAssert<?, ?> before(AbstractOptionalAssert<?, T> optionalAssert) {
-        return Refaster.anyOf(optionalAssert.isNotEmpty(), optionalAssert.isNotEqualTo(Optional.empty()));
-    }
-    
-    @AfterTemplate
-    AbstractOptionalAssert<?, T> after(AbstractOptionalAssert<?, T> optionalAssert) {
-        return optionalAssert.isPresent();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractOptionalAssert#isPresent()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

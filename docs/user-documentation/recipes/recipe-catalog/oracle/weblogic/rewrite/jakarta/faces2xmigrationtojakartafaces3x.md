@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["jakartaee","faces","jsf","jakarta"]}
+  tags={["faces","jsf","jakarta","jakartaee"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.jakarta.Faces2xMigrationToJakartaFaces3x"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

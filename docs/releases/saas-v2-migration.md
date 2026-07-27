@@ -147,6 +147,12 @@ To make this easy to operationalize, Moderne provides a sample [auto-redeploy-re
 For the "pick up the newest version" behavior to work, install your recipe bundles with a moving version selector (for example, `latest.release` or `latest.integration` for Maven, or `LATEST` for pip and Go). Bundles pinned to a concrete version are simply re-resolved to the same version. See the [automation's README](https://github.com/moderneinc/saas-templates/tree/main/auto-redeploy-recipes) for the full list of requirements, configuration variables, and scheduling examples.
 :::
 
+## DevCenter
+
+In SaaS v1, the DevCenter Organizational ownership cards (**Repositories**, **Contributing developers**, and **Lines of code**) were populated automatically from your ingested LSTs each time the DevCenter ran. In SaaS v2, the **Contributing developers** and **Lines of code** cards are produced by two recipes that must be part of your DevCenter recipe: `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters`. See [Organizational ownership recipes](../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md#organizational-ownership-recipes) for the details.
+
+If your DevCenter recipe does not include both, those two cards stay empty in v2, even though the **Repositories** card still works. Add both recipes to the `recipeList` of your DevCenter recipe, redeploy the recipe artifact, and re-run the DevCenter. The default [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) already includes them.
+
 ## What gets migrated and when
 
 Moderne migrates the following automatically, in a single pass scheduled just before your full v1 to v2 cutover:
@@ -178,12 +184,16 @@ There are three opt-in paths through your existing tenant hostnames. You don't n
 | Traffic                                                 | How to land on v2                                                                                             |
 |:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | API requests (`api.<tenant>.moderne.io`)                | Send header `X-Moderne-Platform-Version: v2` on the request.                                                  |
-| Browser / UI sessions (`<tenant>.moderne.io`)           | Set cookie `moderne-version=v2` for the domain. Subsequent apex page loads land on v2 moderneui.              |
+| Browser / UI sessions (`<tenant>.moderne.io`)           | Open the account menu (your avatar, top-right) and select **Try the new platform**.                           |
 | Connector traffic (`api.<tenant>.moderne.io/connector`) | **Automatic.** The `/connector` path always routes to v2 once Moderne wires up coexistence. No header needed. |
 
-Browsers only auto-send cookies (not custom headers), so the cookie is the practical way to pin a human session to v2; without it, the next apex page navigation bounces back to v1.
+Selecting **Try the new platform** pins your browser session to v2 and reloads the platform. The same menu then reads **Switch to the legacy platform** to take you back to v1. The entry appears once Moderne has placed your tenant in coexistence mode.
 
-To pin a session, set the cookie in DevTools (or via a small bookmarklet) for `.<tenant>.moderne.io`, then reload. To leave v2 and go back to v1, clear the cookie.
+![The account menu expanded, showing the "Try the new platform" in the account menu](./assets/try-the-new-platform.png)
+
+When you click on the **Try the new platform** button, a `moderne-version=v2` cookie scoped to `.<tenant>.moderne.io` will be set. This ensure that all calls to `api.<tenant>.moderne.io` carry it, too. Browsers only auto-send cookies (not custom headers), which is why the cookie, rather than a header, is what keeps you on v2.
+
+To pin a scripted or non-UI client, set that cookie directly. Clearing it (or selecting **Switch to the legacy platform**) returns to you v1.
 
 ### How long does the soak phase last?
 
@@ -235,6 +245,7 @@ You can tick items off as you go, but selections are not persisted across page r
 
 See [Configuring organizations hierarchy](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy.md) for setup details.
 
+* [ ] `repos.csv` defines an organizational hierarchy (at least one `org` column). This is required by the Connector; a single `ALL` organization is a fine starting point.
 * [ ] `repos.csv` is uploaded to the **root** of the bucket or repo you publish LSTs to.
 * [ ] `repos-lock.csv` is being produced and updated by your `mod publish` runs.
 * [ ] `MODERNE_ORGANIZATION_SOURCES_S3_0_URI` (or `..._HTTP_0_URI`) points at the `repos-lock.csv` file, not the original `repos.csv` file.
@@ -268,7 +279,7 @@ Run these with v1 still serving as your front door, using the header, cookie, an
 * [ ] Marketplace lists the recipes you expect (including non-Java recipes if applicable).
 * [ ] Repositories view shows the orgs and repos you expect.
 * [ ] Run a small recipe against a small org end-to-end. This single test exercises LST fetch, recipe execution, SCM result presentation, and marketplace resolution. By far the most efficient smoke test.
-* [ ] If you use DevCenter, configure and load it at `/devcenter/configure?organizationId={org}`.
+* [ ] If you use DevCenter, confirm your DevCenter recipe includes the two org-statistics recipes required in v2 (see [DevCenter](#devcenter)) and redeploy it, then configure and load it at `/devcenter/configure?organizationId={org}`.
 * [ ] Update internal bookmarks, runbooks, and any automation that references removed or renamed URLs (`/admin/status`, `/admin/agents`, `/batch-changes`, the bare GraphQL endpoint).
 * [ ] Coordinate the final user-data migration window with your Moderne contact. Tokens, activity, commits, orgs, and audit logs will be migrated then.
 

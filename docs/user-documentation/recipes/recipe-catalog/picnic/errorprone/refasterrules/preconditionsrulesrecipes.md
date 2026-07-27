@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"`PreconditionsRules` Refaster recipes"}
-  description={"Refaster templates related to statements dealing with `Preconditions`.\n[Source](https://error-prone.picnic.tech/refasterrules/PreconditionsRules)."}
+  description={"Refaster rules related to expressions dealing with `Preconditions`.\n[Source](https://error-prone.picnic.tech/refasterrules/PreconditionsRules)."}
   fqName={"tech.picnic.errorprone.refasterrules.PreconditionsRulesRecipes"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>`PreconditionsRules` Refaster recipes</RecipeHeader.Title>
 
-<RecipeHeader.Description>Refaster templates related to statements dealing with `Preconditions`. [Source](https://error-prone.picnic.tech/refasterrules/PreconditionsRules).</RecipeHeader.Description>
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `Preconditions`. [Source](https://error-prone.picnic.tech/refasterrules/PreconditionsRules).</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Refaster template `PreconditionsRules.RequireNonNull`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullrecipe/"},{"name":"Refaster template `PreconditionsRules.RequireNonNullWithMessage`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullwithmessagerecipe/"}]}>
+<RecipeList recipes={[{"name":"Refaster template `PreconditionsRules.RequireNonNullExpression`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullexpressionrecipe/"},{"name":"Refaster template `PreconditionsRules.RequireNonNullWithStringExpression`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullwithstringexpressionrecipe/"}]}>
 
 ## Definition
 

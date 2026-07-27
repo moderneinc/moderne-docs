@@ -145,7 +145,7 @@ mod devcenter $WORKSPACE --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 ⏺ Reading organization
 
@@ -220,7 +220,7 @@ MOD SUCCEEDED in 9s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.3.6
+Moderne CLI 4.4.1
 
 ⏺ Reading organization
 

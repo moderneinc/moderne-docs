@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'java-library'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    implementation 'com.google.guava:guava:30.0-jre', 'org.apache.commons:commons-lang3:3.12.0'\n}\n","after":"plugins {\n    id 'java-library'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    implementation 'com.google.guava:guava:30.0-jre'\n    implementation 'org.apache.commons:commons-lang3:3.12.0'\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -10,1 +10,2 @@\n\ndependencies {\n-   implementation 'com.google.guava:guava:30.0-jre', 'org.apache.commons:commons-lang3:3.12.0'\n+   implementation 'com.google.guava:guava:30.0-jre'\n+   implementation 'org.apache.commons:commons-lang3:3.12.0'\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.gradle.gradle9.OneDependencyDeclarationPerStatement","displayName":"Use one dependency declaration per statement","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
 
 ## Usage

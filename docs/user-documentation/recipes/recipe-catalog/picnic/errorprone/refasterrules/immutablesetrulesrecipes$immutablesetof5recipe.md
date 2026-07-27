@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ImmutableSetRules.ImmutableSetOf5`"}
-  description={"Prefer `ImmutableSet#of(Object, Object, Object, Object, Object)` over alternatives that don't communicate the immutability of the resulting set at the type level."}
+  description={"Prefer `ImmutableSet#of(Object, Object, Object, Object, Object)` over imprecisely typed alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ImmutableSetRulesRecipes$ImmutableSetOf5Recipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ImmutableSetRules.ImmutableSetOf5`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ImmutableSet#of(Object, Object, Object, Object, Object)` over alternatives that don't communicate the immutability of the resulting set at the type level.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ImmutableSet#of(Object, Object, Object, Object, Object)` over imprecisely typed alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

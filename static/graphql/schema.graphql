@@ -2,10 +2,15 @@ schema
   @link(url: "https://specs.apollo.dev/link/v1.0")
   @link(url: "https://specs.apollo.dev/join/v0.5", for: EXECUTION)
   @link(url: "https://specs.apollo.dev/inaccessible/v0.2", import: ["@inaccessible"], for: SECURITY)
+  @link(url: "https://specs.apollo.dev/cost/v0.1", import: ["@cost", "@listSize"])
 {
   query: Query
   mutation: Mutation
 }
+
+directive @cost(weight: Int!) on ARGUMENT_DEFINITION | ENUM | FIELD_DEFINITION | INPUT_FIELD_DEFINITION | OBJECT | SCALAR
+
+directive @cost__listSize(assumedSize: Int, slicingArguments: [String!], sizedFields: [String!], requireOneSlicingArgument: Boolean = true) on FIELD_DEFINITION
 
 directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUMENT_DEFINITION | SCALAR | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
 
@@ -24,6 +29,8 @@ directive @join__type(graph: join__Graph!, key: join__FieldSet, extension: Boole
 directive @join__unionMember(graph: join__Graph!, member: String!) repeatable on UNION
 
 directive @link(url: String, as: String, for: link__Purpose, import: [link__Import]) repeatable on SCHEMA
+
+directive @listSize(assumedSize: Int, slicingArguments: [String!], sizedFields: [String!], requireOneSlicingArgument: Boolean = true) on FIELD_DEFINITION
 
 """Moderne Personal Access Tokens"""
 type AccessToken
@@ -358,7 +365,7 @@ type BatchChange implements OrganizationChangeset
   user: User!
   createdAt: DateTime!
   parent: OrganizationChangeset
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   name: String
   description: String
   sourceTool: ToolInfo
@@ -369,10 +376,10 @@ type BatchChange implements OrganizationChangeset
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this batch change."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -381,10 +388,15 @@ type BatchChange implements OrganizationChangeset
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
   commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 type BatchChangeFileChange implements FileChange
@@ -394,7 +406,7 @@ type BatchChangeFileChange implements FileChange
   path: Path!
   beforeSourcePath: Path
   afterSourcePath: Path
-  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch
+  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch @cost(weight: 100)
 }
 
 type BitbucketCloudConfiguration
@@ -500,10 +512,10 @@ A bulk pull request action (approve, merge, close) that operates on potentially
 multiple repositories. Use `__typename` to determine the current state.
 
 Each `BulkPullRequestAction` contains individual `PullRequestAction` entries
-representing the state of each repository targeted by the bulk operation.
+representing the state of each pull request targeted by the bulk operation.
 """
 interface BulkPullRequestAction
-  @join__type(graph: CHANGELOGREADER, key: "id")
+  @join__type(graph: CHANGESETCOMMITTER, key: "id")
 {
   id: ID!
   actionType: PullRequestActionType!
@@ -512,8 +524,8 @@ interface BulkPullRequestAction
 }
 
 type BulkPullRequestActionCanceled implements BulkPullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "BulkPullRequestAction")
-  @join__type(graph: CHANGELOGREADER, key: "id")
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "BulkPullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER, key: "id")
 {
   id: ID!
   actionType: PullRequestActionType!
@@ -523,7 +535,7 @@ type BulkPullRequestActionCanceled implements BulkPullRequestAction
 }
 
 type BulkPullRequestActionConnection
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   edges: [BulkPullRequestActionEdge!]!
   pageInfo: PageInfo!
@@ -531,15 +543,15 @@ type BulkPullRequestActionConnection
 }
 
 type BulkPullRequestActionEdge
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   node: BulkPullRequestAction!
   cursor: String!
 }
 
 type BulkPullRequestActionError implements BulkPullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "BulkPullRequestAction")
-  @join__type(graph: CHANGELOGREADER, key: "id")
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "BulkPullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER, key: "id")
 {
   id: ID!
   actionType: PullRequestActionType!
@@ -549,8 +561,8 @@ type BulkPullRequestActionError implements BulkPullRequestAction
 }
 
 type BulkPullRequestActionFinished implements BulkPullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "BulkPullRequestAction")
-  @join__type(graph: CHANGELOGREADER, key: "id")
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "BulkPullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER, key: "id")
 {
   id: ID!
   actionType: PullRequestActionType!
@@ -561,24 +573,24 @@ type BulkPullRequestActionFinished implements BulkPullRequestAction
 }
 
 enum BulkPullRequestActionOrderByField
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   """Maps to the persisted `queuedAt` timestamp."""
-  CREATED_AT @join__enumValue(graph: CHANGELOGREADER)
-  STARTED_AT @join__enumValue(graph: CHANGELOGREADER)
-  FINISHED_AT @join__enumValue(graph: CHANGELOGREADER)
+  CREATED_AT @join__enumValue(graph: CHANGESETCOMMITTER)
+  STARTED_AT @join__enumValue(graph: CHANGESETCOMMITTER)
+  FINISHED_AT @join__enumValue(graph: CHANGESETCOMMITTER)
 }
 
 input BulkPullRequestActionOrderByInput
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   field: BulkPullRequestActionOrderByField!
   direction: SortOrder! = DESC
 }
 
 type BulkPullRequestActionQueued implements BulkPullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "BulkPullRequestAction")
-  @join__type(graph: CHANGELOGREADER, key: "id")
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "BulkPullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER, key: "id")
 {
   id: ID!
   actionType: PullRequestActionType!
@@ -588,8 +600,8 @@ type BulkPullRequestActionQueued implements BulkPullRequestAction
 }
 
 type BulkPullRequestActionRunning implements BulkPullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "BulkPullRequestAction")
-  @join__type(graph: CHANGELOGREADER, key: "id")
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "BulkPullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER, key: "id")
 {
   id: ID!
   actionType: PullRequestActionType!
@@ -603,17 +615,17 @@ The lifecycle state of a `BulkPullRequestAction`. Matches the `__typename`
 of the concrete state types (Queued, Running, Finished, Canceled, Error).
 """
 enum BulkPullRequestActionState
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
-  QUEUED @join__enumValue(graph: CHANGELOGREADER)
-  RUNNING @join__enumValue(graph: CHANGELOGREADER)
-  FINISHED @join__enumValue(graph: CHANGELOGREADER)
-  CANCELED @join__enumValue(graph: CHANGELOGREADER)
-  ERROR @join__enumValue(graph: CHANGELOGREADER)
+  QUEUED @join__enumValue(graph: CHANGESETCOMMITTER)
+  RUNNING @join__enumValue(graph: CHANGESETCOMMITTER)
+  FINISHED @join__enumValue(graph: CHANGESETCOMMITTER)
+  CANCELED @join__enumValue(graph: CHANGESETCOMMITTER)
+  ERROR @join__enumValue(graph: CHANGESETCOMMITTER)
 }
 
 input BulkPullRequestActionStateFilter
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   _eq: BulkPullRequestActionState
   _neq: BulkPullRequestActionState
@@ -622,7 +634,7 @@ input BulkPullRequestActionStateFilter
 }
 
 input BulkPullRequestActionWhereInput
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   actionType: PullRequestActionTypeFilter
   state: BulkPullRequestActionStateFilter
@@ -652,6 +664,150 @@ input ChangelogAuthorWhereInput
   _and: [ChangelogAuthorWhereInput!]
   _or: [ChangelogAuthorWhereInput!]
   _not: ChangelogAuthorWhereInput
+}
+
+"""
+A bulk pull request action (approve, merge, close) that operates on potentially
+multiple repositories. Use `__typename` to determine the current state.
+
+Each `ChangelogBulkPullRequestAction` contains individual `ChangelogPullRequestAction` entries
+representing the state of each repository targeted by the bulk operation.
+"""
+interface ChangelogBulkPullRequestAction
+  @join__type(graph: CHANGELOGREADER, key: "id")
+{
+  id: ID!
+  actionType: ChangelogPullRequestActionType!
+  user: User!
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
+}
+
+type ChangelogBulkPullRequestActionCanceled implements ChangelogBulkPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogBulkPullRequestAction")
+  @join__type(graph: CHANGELOGREADER, key: "id")
+{
+  id: ID!
+  actionType: ChangelogPullRequestActionType!
+  user: User!
+  canceledBy: User!
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
+}
+
+type ChangelogBulkPullRequestActionConnection
+  @join__type(graph: CHANGELOGREADER)
+{
+  edges: [ChangelogBulkPullRequestActionEdge!]!
+  pageInfo: PageInfo!
+  count: Int!
+}
+
+type ChangelogBulkPullRequestActionEdge
+  @join__type(graph: CHANGELOGREADER)
+{
+  node: ChangelogBulkPullRequestAction!
+  cursor: String!
+}
+
+type ChangelogBulkPullRequestActionError implements ChangelogBulkPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogBulkPullRequestAction")
+  @join__type(graph: CHANGELOGREADER, key: "id")
+{
+  id: ID!
+  actionType: ChangelogPullRequestActionType!
+  user: User!
+  errorMessage: String!
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
+}
+
+type ChangelogBulkPullRequestActionFinished implements ChangelogBulkPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogBulkPullRequestAction")
+  @join__type(graph: CHANGELOGREADER, key: "id")
+{
+  id: ID!
+  actionType: ChangelogPullRequestActionType!
+  user: User!
+  startedAt: DateTime!
+  finishedAt: DateTime!
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
+}
+
+enum ChangelogBulkPullRequestActionOrderByField
+  @join__type(graph: CHANGELOGREADER)
+{
+  """Maps to the persisted `queuedAt` timestamp."""
+  CREATED_AT @join__enumValue(graph: CHANGELOGREADER)
+  STARTED_AT @join__enumValue(graph: CHANGELOGREADER)
+  FINISHED_AT @join__enumValue(graph: CHANGELOGREADER)
+}
+
+input ChangelogBulkPullRequestActionOrderByInput
+  @join__type(graph: CHANGELOGREADER)
+{
+  field: ChangelogBulkPullRequestActionOrderByField!
+  direction: SortOrder! = DESC
+}
+
+type ChangelogBulkPullRequestActionQueued implements ChangelogBulkPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogBulkPullRequestAction")
+  @join__type(graph: CHANGELOGREADER, key: "id")
+{
+  id: ID!
+  actionType: ChangelogPullRequestActionType!
+  user: User!
+  queuedAt: DateTime!
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
+}
+
+type ChangelogBulkPullRequestActionRunning implements ChangelogBulkPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogBulkPullRequestAction")
+  @join__type(graph: CHANGELOGREADER, key: "id")
+{
+  id: ID!
+  actionType: ChangelogPullRequestActionType!
+  user: User!
+  startedAt: DateTime!
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
+}
+
+"""
+The lifecycle state of a `ChangelogBulkPullRequestAction`. Matches the `__typename`
+of the concrete state types (Queued, Running, Finished, Canceled, Error).
+"""
+enum ChangelogBulkPullRequestActionState
+  @join__type(graph: CHANGELOGREADER)
+{
+  QUEUED @join__enumValue(graph: CHANGELOGREADER)
+  RUNNING @join__enumValue(graph: CHANGELOGREADER)
+  FINISHED @join__enumValue(graph: CHANGELOGREADER)
+  CANCELED @join__enumValue(graph: CHANGELOGREADER)
+  ERROR @join__enumValue(graph: CHANGELOGREADER)
+}
+
+input ChangelogBulkPullRequestActionStateFilter
+  @join__type(graph: CHANGELOGREADER)
+{
+  _eq: ChangelogBulkPullRequestActionState
+  _neq: ChangelogBulkPullRequestActionState
+  _in: [ChangelogBulkPullRequestActionState!]
+  _nin: [ChangelogBulkPullRequestActionState!]
+}
+
+input ChangelogBulkPullRequestActionWhereInput
+  @join__type(graph: CHANGELOGREADER)
+{
+  actionType: ChangelogPullRequestActionTypeFilter
+  state: ChangelogBulkPullRequestActionStateFilter
+
+  """
+  Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that
+  have a startedAt value; QUEUED entries (no startedAt) are excluded when a
+  bound is supplied.
+  """
+  startedAt: DateTimeFilter
+  user: UserWhereInput
+  _and: [ChangelogBulkPullRequestActionWhereInput!]
+  _or: [ChangelogBulkPullRequestActionWhereInput!]
+  _not: ChangelogBulkPullRequestActionWhereInput
 }
 
 """A direct commit to a branch."""
@@ -908,7 +1064,143 @@ type ChangelogPullRequest implements ChangelogEntry
   Actions (approve, merge, close) that have been applied to this pull request.
   Default sort order is descending by startedAt.
   """
-  actions(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection!
+  actions(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @cost(weight: 50)
+}
+
+"""
+The state of an individual repository within a `ChangelogBulkPullRequestAction`.
+Use `__typename` to determine the current state.
+"""
+interface ChangelogPullRequestAction
+  @join__type(graph: CHANGELOGREADER)
+{
+  pullRequest: ChangelogPullRequestRef!
+}
+
+type ChangelogPullRequestActionCanceled implements ChangelogPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogPullRequestAction")
+  @join__type(graph: CHANGELOGREADER)
+{
+  pullRequest: ChangelogPullRequestRef!
+  canceledBy: User!
+}
+
+type ChangelogPullRequestActionConnection
+  @join__type(graph: CHANGELOGREADER)
+{
+  edges: [ChangelogPullRequestActionEdge!]!
+  pageInfo: PageInfo!
+  count: Int!
+}
+
+type ChangelogPullRequestActionEdge
+  @join__type(graph: CHANGELOGREADER)
+{
+  node: ChangelogPullRequestAction!
+  cursor: String!
+}
+
+type ChangelogPullRequestActionFailed implements ChangelogPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogPullRequestAction")
+  @join__type(graph: CHANGELOGREADER)
+{
+  pullRequest: ChangelogPullRequestRef!
+  startedAt: DateTime
+  finishedAt: DateTime!
+  errorMessage: String!
+}
+
+enum ChangelogPullRequestActionOrderByField
+  @join__type(graph: CHANGELOGREADER)
+{
+  REPOSITORY_PATH @join__enumValue(graph: CHANGELOGREADER)
+  STATE @join__enumValue(graph: CHANGELOGREADER)
+  STARTED_AT @join__enumValue(graph: CHANGELOGREADER)
+}
+
+input ChangelogPullRequestActionOrderByInput
+  @join__type(graph: CHANGELOGREADER)
+{
+  field: ChangelogPullRequestActionOrderByField!
+  direction: SortOrder! = DESC
+}
+
+type ChangelogPullRequestActionQueued implements ChangelogPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogPullRequestAction")
+  @join__type(graph: CHANGELOGREADER)
+{
+  pullRequest: ChangelogPullRequestRef!
+}
+
+type ChangelogPullRequestActionRunning implements ChangelogPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogPullRequestAction")
+  @join__type(graph: CHANGELOGREADER)
+{
+  pullRequest: ChangelogPullRequestRef!
+  startedAt: DateTime!
+}
+
+enum ChangelogPullRequestActionState
+  @join__type(graph: CHANGELOGREADER)
+{
+  QUEUED @join__enumValue(graph: CHANGELOGREADER)
+  IN_PROGRESS @join__enumValue(graph: CHANGELOGREADER)
+  SUCCESSFUL @join__enumValue(graph: CHANGELOGREADER)
+  FAILED @join__enumValue(graph: CHANGELOGREADER)
+  CANCELED @join__enumValue(graph: CHANGELOGREADER)
+}
+
+input ChangelogPullRequestActionStateFilter
+  @join__type(graph: CHANGELOGREADER)
+{
+  _eq: ChangelogPullRequestActionState
+  _neq: ChangelogPullRequestActionState
+  _in: [ChangelogPullRequestActionState!]
+  _nin: [ChangelogPullRequestActionState!]
+}
+
+type ChangelogPullRequestActionSucceeded implements ChangelogPullRequestAction
+  @join__implements(graph: CHANGELOGREADER, interface: "ChangelogPullRequestAction")
+  @join__type(graph: CHANGELOGREADER)
+{
+  pullRequest: ChangelogPullRequestRef!
+  startedAt: DateTime!
+  finishedAt: DateTime!
+}
+
+enum ChangelogPullRequestActionType
+  @join__type(graph: CHANGELOGREADER)
+{
+  APPROVE @join__enumValue(graph: CHANGELOGREADER)
+  MERGE @join__enumValue(graph: CHANGELOGREADER)
+  CLOSE @join__enumValue(graph: CHANGELOGREADER)
+}
+
+input ChangelogPullRequestActionTypeFilter
+  @join__type(graph: CHANGELOGREADER)
+{
+  _eq: ChangelogPullRequestActionType
+  _neq: ChangelogPullRequestActionType
+  _in: [ChangelogPullRequestActionType!]
+  _nin: [ChangelogPullRequestActionType!]
+}
+
+input ChangelogPullRequestActionWhereInput
+  @join__type(graph: CHANGELOGREADER)
+{
+  state: ChangelogPullRequestActionStateFilter
+  _and: [ChangelogPullRequestActionWhereInput!]
+  _or: [ChangelogPullRequestActionWhereInput!]
+  _not: ChangelogPullRequestActionWhereInput
+}
+
+type ChangelogPullRequestRef
+  @join__type(graph: CHANGELOGREADER)
+{
+  origin: String!
+  repositoryPath: String!
+  branch: String!
+  number: Int!
 }
 
 """
@@ -981,7 +1273,7 @@ type Column
 input CommitInput
   @join__type(graph: CHANGESETCOMMITTER)
 {
-  """Organization ID for determining available commit options."""
+  """Organization ID context for the changeset."""
   organizationId: ID
 
   """
@@ -1177,7 +1469,7 @@ type Conversation
   id: ID!
   organization: Organization!
   user: User!
-  messages(first: Int = 100, after: String): MessageConnection!
+  messages(first: Int = 100, after: String): MessageConnection! @cost(weight: 50)
 
   """
   Current turn state for this conversation. Carries the server-
@@ -1571,7 +1863,7 @@ type DevCenter
   """
   DevCenter runs for this organization, ordered by start time descending.
   """
-  runs(first: Int = 10, after: String, where: DevCenterRunWhereInput, orderBy: [DevCenterRunOrderByInput!]): DevCenterRunConnection!
+  runs(first: Int = 10, after: String, where: DevCenterRunWhereInput, orderBy: [DevCenterRunOrderByInput!]): DevCenterRunConnection! @cost(weight: 50)
 }
 
 """How DevCenter card results are aggregated across repositories."""
@@ -2647,7 +2939,7 @@ type Moddy
   status to gate the Moddy menu entry.
   """
   adminOnly: Boolean!
-  conversations(first: Int = 50, after: String, where: ConversationWhereInput, orderBy: [ConversationOrderByInput!]): ConversationConnection!
+  conversations(first: Int = 50, after: String, where: ConversationWhereInput, orderBy: [ConversationOrderByInput!]): ConversationConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when
@@ -2768,23 +3060,23 @@ type Mutation
   setProfiling(enabled: Boolean!, event: ProfilingEvent = WALL): Boolean! @join__field(graph: CAPABILITIES)
 
   """Approve pull requests in bulk. Returns the queued action for polling."""
-  approvePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): BulkPullRequestActionQueued! @join__field(graph: CHANGELOGREADER)
+  approveChangelogPullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): ChangelogBulkPullRequestActionQueued! @join__field(graph: CHANGELOGREADER)
 
   """Merge pull requests in bulk. Returns the queued action for polling."""
-  mergePullRequests(
+  mergeChangelogPullRequests(
     organizationId: ID!
     selection: PullRequestSelectionInput!
     mergeMethod: MergeMethod!
 
     """Delete source branch after successful merge."""
     deleteSourceBranch: Boolean! = false
-  ): BulkPullRequestActionQueued! @join__field(graph: CHANGELOGREADER)
+  ): ChangelogBulkPullRequestActionQueued! @join__field(graph: CHANGELOGREADER)
 
   """Close pull requests in bulk. Returns the queued action for polling."""
-  closePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): BulkPullRequestActionQueued! @join__field(graph: CHANGELOGREADER)
+  closeChangelogPullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): ChangelogBulkPullRequestActionQueued! @join__field(graph: CHANGELOGREADER)
 
   """Cancel a pending bulk pull request action."""
-  cancelBulkPullRequestAction(id: ID!): BulkPullRequestActionCanceled! @join__field(graph: CHANGELOGREADER)
+  cancelChangelogBulkPullRequestAction(id: ID!): ChangelogBulkPullRequestActionCanceled! @join__field(graph: CHANGELOGREADER)
 
   """
   Reset poll cursors so the next poll cycle re-fetches and re-enriches
@@ -2813,6 +3105,38 @@ type Mutation
 
   """Create commits from a changeset (recipe run, batch change, etc.)."""
   commit(input: CommitInput!): OrganizationCommitQueued! @join__field(graph: CHANGESETCOMMITTER)
+
+  """
+  Approve, in bulk, the pull requests the committer created from a changeset.
+  Pass `repositories` to limit the action to a subset of the changeset's
+  repositories; omit it to target every pull request in the changeset. Returns
+  the queued action for polling (also surfaces under
+  `OrganizationChangeset.bulkPullRequestActions`).
+  """
+  approvePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued! @join__field(graph: CHANGESETCOMMITTER)
+
+  """
+  Merge, in bulk, the pull requests the committer created from a changeset.
+  Returns the queued action for polling.
+  """
+  mergePullRequests(
+    organizationId: ID!
+    changesetId: ID!
+    repositories: [RepositoryInput!]
+    mergeMethod: MergeMethod!
+
+    """Delete source branch after successful merge."""
+    deleteSourceBranch: Boolean! = false
+  ): BulkPullRequestActionQueued! @join__field(graph: CHANGESETCOMMITTER)
+
+  """
+  Close, in bulk, the pull requests the committer created from a changeset.
+  Returns the queued action for polling.
+  """
+  closePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued! @join__field(graph: CHANGESETCOMMITTER)
+
+  """Cancel a pending bulk pull request action."""
+  cancelBulkPullRequestAction(id: ID!): BulkPullRequestActionCanceled! @join__field(graph: CHANGESETCOMMITTER)
 
   """
   Start or retrieve a data table download.
@@ -3108,17 +3432,17 @@ type Organization
   id: ID!
 
   """PR and commit activity feed for repositories in this organization."""
-  changelog(first: Int = 50, after: String, where: ChangelogEntryWhereInput, orderBy: [ChangelogEntryOrderByInput!]): ChangelogEntryConnection! @join__field(graph: CHANGELOGREADER)
+  changelog(first: Int = 50, after: String, where: ChangelogEntryWhereInput, orderBy: [ChangelogEntryOrderByInput!]): ChangelogEntryConnection! @join__field(graph: CHANGELOGREADER) @cost(weight: 100)
 
   """
   All unique participants across the changelog for this organization,
   aggregated from authors, assignees, closers, and reviewers.
   """
-  participants(first: Int = 50, after: String, where: ChangelogParticipantWhereInput, orderBy: [ChangelogParticipantOrderByInput!]): ChangelogParticipantConnection! @join__field(graph: CHANGELOGREADER)
+  participants(first: Int = 50, after: String, where: ChangelogParticipantWhereInput, orderBy: [ChangelogParticipantOrderByInput!]): ChangelogParticipantConnection! @join__field(graph: CHANGELOGREADER) @cost(weight: 100)
 
-  """Available commit options for this organization."""
+  """Commit options available in this tenant."""
   commitOptions: [CommitOption!]! @join__field(graph: CHANGESETCOMMITTER)
-  changesets(first: Int = 50, after: String, where: OrganizationChangesetWhereInput, orderBy: [OrganizationChangesetOrderByInput!]): OrganizationChangesetConnection! @join__field(graph: CHANGESETREADER)
+  changesets(first: Int = 50, after: String, before: String, where: OrganizationChangesetWhereInput, orderBy: [OrganizationChangesetOrderByInput!]): OrganizationChangesetConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """DevCenter provides organization-wide campaign progress tracking."""
   devCenter: DevCenter @join__field(graph: CHANGESETREADER)
@@ -3180,28 +3504,33 @@ interface OrganizationChangeset
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGELOGREADER)
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field(graph: CHANGELOGREADER)
 
   """Commit operations initiated from this changeset."""
   commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field(graph: CHANGESETCOMMITTER)
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGESETCOMMITTER)
   user: User! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
   createdAt: DateTime! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
   parent: OrganizationChangeset @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Visualizations produced by this changeset.
   Each visualization starts as Available and transitions to Processing/Finished/Error
   when runVisualization mutation is called.
   """
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @cost(weight: 50)
 }
 
 type OrganizationChangesetConnection
@@ -3506,10 +3835,15 @@ interface OrganizationRecipeRun implements OrganizationChangeset
   id: ID!
 
   """Bulk pull request actions for recipe-run changesets."""
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGELOGREADER)
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field(graph: CHANGELOGREADER)
 
   """Commit operations initiated from this recipe run."""
   commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field(graph: CHANGESETCOMMITTER)
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this recipe run.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGESETCOMMITTER)
   recipe: RecipeDescriptor @join__field(graph: CHANGESETREADER)
   user: User! @join__field(graph: CHANGESETREADER)
   options: [RecipeOptionValue!]! @join__field(graph: CHANGESETREADER)
@@ -3524,17 +3858,17 @@ interface OrganizationRecipeRun implements OrganizationChangeset
   lastUpdatedAt: DateTime! @join__field(graph: CHANGESETREADER)
   priority: RecipeRunPriority! @join__field(graph: CHANGESETREADER)
   parent: OrganizationChangeset @join__field(graph: CHANGESETREADER)
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER)
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER)
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER)
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @cost(weight: 50)
 }
 
 type OrganizationRecipeRunCanceled implements OrganizationChangeset & OrganizationRecipeRun
@@ -3562,17 +3896,17 @@ type OrganizationRecipeRunCanceled implements OrganizationChangeset & Organizati
 
   """Alias for finishedAt - when the run was canceled"""
   canceledAt: DateTime!
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -3581,10 +3915,15 @@ type OrganizationRecipeRunCanceled implements OrganizationChangeset & Organizati
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
   commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 type OrganizationRecipeRunConnection
@@ -3625,17 +3964,17 @@ type OrganizationRecipeRunError implements OrganizationChangeset & OrganizationR
   startedAt: DateTime
   finishedAt: DateTime!
   errorMessage: String
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -3644,10 +3983,15 @@ type OrganizationRecipeRunError implements OrganizationChangeset & OrganizationR
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
   commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 type OrganizationRecipeRunFinished implements OrganizationChangeset & OrganizationRecipeRun
@@ -3674,17 +4018,17 @@ type OrganizationRecipeRunFinished implements OrganizationChangeset & Organizati
   finishedAt: DateTime!
   duration: Duration
   totals: RecipeRunTotals!
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -3693,10 +4037,15 @@ type OrganizationRecipeRunFinished implements OrganizationChangeset & Organizati
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
   commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 enum OrganizationRecipeRunOrderByField
@@ -3738,17 +4087,17 @@ type OrganizationRecipeRunQueued implements OrganizationChangeset & Organization
   priority: RecipeRunPriority! @join__field(graph: CHANGESETREADER)
   parent: OrganizationChangeset @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
   queuedAt: DateTime! @join__field(graph: CHANGESETREADER)
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -3757,10 +4106,15 @@ type OrganizationRecipeRunQueued implements OrganizationChangeset & Organization
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
   commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 type OrganizationRecipeRunRunning implements OrganizationChangeset & OrganizationRecipeRun
@@ -3785,17 +4139,17 @@ type OrganizationRecipeRunRunning implements OrganizationChangeset & Organizatio
   parent: OrganizationChangeset
   startedAt: DateTime!
   totals: RecipeRunTotals
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -3804,17 +4158,22 @@ type OrganizationRecipeRunRunning implements OrganizationChangeset & Organizatio
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
   commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 enum OrganizationRecipeRunState
   @join__type(graph: CHANGESETREADER)
 {
   QUEUED @join__enumValue(graph: CHANGESETREADER)
-  SYNCING @join__enumValue(graph: CHANGESETREADER)
+  SYNCING @join__enumValue(graph: CHANGESETREADER) @deprecated(reason: "Runs no longer surface a Syncing state; a sync-and-run starts in RUNNING immediately. Retained for in-flight and historical runs.")
   RUNNING @join__enumValue(graph: CHANGESETREADER)
   FINISHED @join__enumValue(graph: CHANGESETREADER)
   CANCELED @join__enumValue(graph: CHANGESETREADER)
@@ -3830,6 +4189,10 @@ input OrganizationRecipeRunStateFilter
   _nin: [OrganizationRecipeRunState!]
 }
 
+"""
+Deprecated: recipe runs no longer emit a Syncing state. A run that syncs
+intrinsically (`mod run --sync-csv`) starts in Running immediately.
+"""
 type OrganizationRecipeRunSyncing implements OrganizationChangeset & OrganizationRecipeRun
   @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
   @join__implements(graph: CHANGESETREADER, interface: "OrganizationRecipeRun")
@@ -3851,17 +4214,17 @@ type OrganizationRecipeRunSyncing implements OrganizationChangeset & Organizatio
   priority: RecipeRunPriority!
   parent: OrganizationChangeset
   startedAt: DateTime!
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -3870,10 +4233,15 @@ type OrganizationRecipeRunSyncing implements OrganizationChangeset & Organizatio
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
   commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 input OrganizationRecipeRunWhereInput
@@ -4092,25 +4460,25 @@ type Prompt
 }
 
 """
-The state of an individual repository within a `BulkPullRequestAction`.
+The state of an individual pull request within a `BulkPullRequestAction`.
 Use `__typename` to determine the current state.
 """
 interface PullRequestAction
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
 }
 
 type PullRequestActionCanceled implements PullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "PullRequestAction")
-  @join__type(graph: CHANGELOGREADER)
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "PullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
   canceledBy: User!
 }
 
 type PullRequestActionConnection
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   edges: [PullRequestActionEdge!]!
   pageInfo: PageInfo!
@@ -4118,15 +4486,15 @@ type PullRequestActionConnection
 }
 
 type PullRequestActionEdge
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   node: PullRequestAction!
   cursor: String!
 }
 
 type PullRequestActionFailed implements PullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "PullRequestAction")
-  @join__type(graph: CHANGELOGREADER)
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "PullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
   startedAt: DateTime
@@ -4135,47 +4503,47 @@ type PullRequestActionFailed implements PullRequestAction
 }
 
 enum PullRequestActionOrderByField
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
-  REPOSITORY_PATH @join__enumValue(graph: CHANGELOGREADER)
-  STATE @join__enumValue(graph: CHANGELOGREADER)
-  STARTED_AT @join__enumValue(graph: CHANGELOGREADER)
+  REPOSITORY_PATH @join__enumValue(graph: CHANGESETCOMMITTER)
+  STATE @join__enumValue(graph: CHANGESETCOMMITTER)
+  STARTED_AT @join__enumValue(graph: CHANGESETCOMMITTER)
 }
 
 input PullRequestActionOrderByInput
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   field: PullRequestActionOrderByField!
   direction: SortOrder! = DESC
 }
 
 type PullRequestActionQueued implements PullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "PullRequestAction")
-  @join__type(graph: CHANGELOGREADER)
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "PullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
 }
 
 type PullRequestActionRunning implements PullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "PullRequestAction")
-  @join__type(graph: CHANGELOGREADER)
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "PullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
   startedAt: DateTime!
 }
 
 enum PullRequestActionState
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
-  QUEUED @join__enumValue(graph: CHANGELOGREADER)
-  IN_PROGRESS @join__enumValue(graph: CHANGELOGREADER)
-  SUCCESSFUL @join__enumValue(graph: CHANGELOGREADER)
-  FAILED @join__enumValue(graph: CHANGELOGREADER)
-  CANCELED @join__enumValue(graph: CHANGELOGREADER)
+  QUEUED @join__enumValue(graph: CHANGESETCOMMITTER)
+  IN_PROGRESS @join__enumValue(graph: CHANGESETCOMMITTER)
+  SUCCESSFUL @join__enumValue(graph: CHANGESETCOMMITTER)
+  FAILED @join__enumValue(graph: CHANGESETCOMMITTER)
+  CANCELED @join__enumValue(graph: CHANGESETCOMMITTER)
 }
 
 input PullRequestActionStateFilter
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   _eq: PullRequestActionState
   _neq: PullRequestActionState
@@ -4184,8 +4552,8 @@ input PullRequestActionStateFilter
 }
 
 type PullRequestActionSucceeded implements PullRequestAction
-  @join__implements(graph: CHANGELOGREADER, interface: "PullRequestAction")
-  @join__type(graph: CHANGELOGREADER)
+  @join__implements(graph: CHANGESETCOMMITTER, interface: "PullRequestAction")
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
   startedAt: DateTime!
@@ -4193,15 +4561,15 @@ type PullRequestActionSucceeded implements PullRequestAction
 }
 
 enum PullRequestActionType
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
-  APPROVE @join__enumValue(graph: CHANGELOGREADER)
-  MERGE @join__enumValue(graph: CHANGELOGREADER)
-  CLOSE @join__enumValue(graph: CHANGELOGREADER)
+  APPROVE @join__enumValue(graph: CHANGESETCOMMITTER)
+  MERGE @join__enumValue(graph: CHANGESETCOMMITTER)
+  CLOSE @join__enumValue(graph: CHANGESETCOMMITTER)
 }
 
 input PullRequestActionTypeFilter
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   _eq: PullRequestActionType
   _neq: PullRequestActionType
@@ -4210,7 +4578,7 @@ input PullRequestActionTypeFilter
 }
 
 input PullRequestActionWhereInput
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   state: PullRequestActionStateFilter
   _and: [PullRequestActionWhereInput!]
@@ -4286,7 +4654,7 @@ type PullRequestOptions implements CommitOptions
 }
 
 type PullRequestRef
-  @join__type(graph: CHANGELOGREADER)
+  @join__type(graph: CHANGESETCOMMITTER)
 {
   origin: String!
   repositoryPath: String!
@@ -4390,7 +4758,7 @@ type Query
   @join__type(graph: RECIPEWORKER)
 {
   """Query audit log events with pagination and filtering."""
-  auditLogs(first: Int = 100, after: String, where: AuditLogWhereInput, orderBy: [AuditLogOrderByInput!]): AuditLogConnection! @join__field(graph: AUDITREADER)
+  auditLogs(first: Int = 100, after: String, where: AuditLogWhereInput, orderBy: [AuditLogOrderByInput!]): AuditLogConnection! @join__field(graph: AUDITREADER) @cost(weight: 100)
 
   """
   Query audit log downloads with pagination and filtering.
@@ -4402,7 +4770,7 @@ type Query
   currentUser: User! @join__field(graph: AUTHZ)
 
   """Returns users with option to filter by role."""
-  users(first: Int = 100, after: String, where: UserWhereInput, orderBy: [UserOrderByInput!]): UserConnection! @join__field(graph: AUTHZ)
+  users(first: Int = 100, after: String, where: UserWhereInput, orderBy: [UserOrderByInput!]): UserConnection! @join__field(graph: AUTHZ) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Returns connections for all SCM providers."""
   scmConnections: [ScmConnection!]! @join__field(graph: AUTHZ)
@@ -4419,15 +4787,18 @@ type Query
   connectors(first: Int = 100, after: String, where: ConnectorWhereInput, orderBy: [ConnectorOrderByInput!]): ConnectorConnection! @join__field(graph: CAPABILITIES)
 
   """Get a bulk pull request action by ID to poll for progress."""
-  bulkPullRequestAction(id: ID!): BulkPullRequestAction @join__field(graph: CHANGELOGREADER)
+  changelogBulkPullRequestAction(id: ID!): ChangelogBulkPullRequestAction @join__field(graph: CHANGELOGREADER)
   verifyToken(origin: String!, scmType: ScmType!): String @join__field(graph: CHANGESETCOMMITTER)
+
+  """Get a bulk pull request action by ID to poll for progress."""
+  bulkPullRequestAction(id: ID!): BulkPullRequestAction @join__field(graph: CHANGESETCOMMITTER)
 
   """
   Search source code across artifact repositories.
   Searches the given repository and all its descendants in the hierarchy.
   Results are grouped by artifact (groupId:artifactId) with file-level matches.
   """
-  codeSearch(repositoryId: String!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH)
+  codeSearch(repositoryId: String!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH) @cost(weight: 50)
 
   """
   Look up a single conversation by id. Returns null when no conversation
@@ -4531,8 +4902,8 @@ type RecipeCategory
   """
   recipeCount: Int!
   parents: [RecipeCategory!]!
-  recipes(first: Int = 100, after: String, where: RecipeWhereInput, orderBy: [RecipeOrderByInput!]): RecipeDescriptorConnection!
-  categories(first: Int = 100, after: String, where: RecipeCategoryWhereInput, orderBy: [RecipeCategoryOrderByInput!]): RecipeCategoryConnection!
+  recipes(first: Int = 100, after: String, where: RecipeWhereInput, orderBy: [RecipeOrderByInput!]): RecipeDescriptorConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
+  categories(first: Int = 100, after: String, where: RecipeCategoryWhereInput, orderBy: [RecipeCategoryOrderByInput!]): RecipeCategoryConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
 }
 
 type RecipeCategoryConnection
@@ -4612,7 +4983,7 @@ type RecipeDescriptor
   Expensive recipe detail fields that require resolving the full recipe bundle.
   Returns a state machine: query once to trigger resolution, poll until Finished.
   """
-  detail: RecipeDetail! @join__field(graph: RECIPEMARKETPLACE)
+  detail: RecipeDetail! @join__field(graph: RECIPEMARKETPLACE) @cost(weight: 100)
 
   """
   DevCenter card descriptors for this recipe, or null if not a DevCenter recipe.
@@ -4673,7 +5044,7 @@ type RecipeDetailFinished implements RecipeDetail
   The list of recipes that make up this composite recipe.
   Returns an empty connection for non-composite (leaf) recipes.
   """
-  recipeList(first: Int = 100, after: String): RecipeDescriptorConnection!
+  recipeList(first: Int = 100, after: String): RecipeDescriptorConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
 
   """Tags associated with this recipe for categorization and filtering."""
   tags: [String!]!
@@ -4921,6 +5292,27 @@ union RecipeInstallationScope
   @join__unionMember(graph: RECIPEMARKETPLACE, member: "UserInstallScope")
  = UniversalInstallScope | OrganizationInstallScope | UserInstallScope
 
+input RecipeInstallationScopeFilter
+  @join__type(graph: RECIPEMARKETPLACE)
+{
+  _eq: RecipeInstallationScopeType
+  _neq: RecipeInstallationScopeType
+  _in: [RecipeInstallationScopeType!]
+  _nin: [RecipeInstallationScopeType!]
+}
+
+"""
+The kind of scope a `RecipeInstallation` lives in -- the discriminant of the
+`RecipeInstallationScope` union, exposed here for `where` filtering.
+"""
+enum RecipeInstallationScopeType
+  @join__type(graph: RECIPEMARKETPLACE)
+{
+  UNIVERSAL @join__enumValue(graph: RECIPEMARKETPLACE)
+  ORGANIZATION @join__enumValue(graph: RECIPEMARKETPLACE)
+  USER @join__enumValue(graph: RECIPEMARKETPLACE)
+}
+
 enum RecipeInstallationStatus
   @join__type(graph: RECIPEMARKETPLACE)
 {
@@ -4948,6 +5340,14 @@ input RecipeInstallationWhereInput
   user: UserWhereInput
   organization: IDFilter
 
+  """
+  Filter by scope kind (universal, organization, or user). Complements the
+  `organization`/`user` filters, which match a specific id/email; this matches
+  the kind of scope. Can only narrow the set of installations already visible
+  to the caller -- it is not an access-control bypass.
+  """
+  scope: RecipeInstallationScopeFilter
+
   """Filter by bundle properties (packageName, ecosystem, version, etc.)."""
   bundle: RecipeBundleWhereInput
   _and: [RecipeInstallationWhereInput!]
@@ -4958,9 +5358,9 @@ input RecipeInstallationWhereInput
 type RecipeMarketplace
   @join__type(graph: RECIPEMARKETPLACE)
 {
-  categories(first: Int = 100, after: String, where: RecipeCategoryWhereInput, orderBy: [RecipeCategoryOrderByInput!]): RecipeCategoryConnection!
-  recipes(first: Int = 100, after: String, where: RecipeWhereInput, orderBy: [RecipeOrderByInput!]): RecipeDescriptorConnection!
-  installations(first: Int = 50, after: String, where: RecipeInstallationWhereInput, orderBy: [RecipeInstallationOrderByInput!]): RecipeInstallationConnection!
+  categories(first: Int = 100, after: String, where: RecipeCategoryWhereInput, orderBy: [RecipeCategoryOrderByInput!]): RecipeCategoryConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
+  recipes(first: Int = 100, after: String, where: RecipeWhereInput, orderBy: [RecipeOrderByInput!]): RecipeDescriptorConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
+  installations(first: Int = 50, after: String, where: RecipeInstallationWhereInput, orderBy: [RecipeInstallationOrderByInput!]): RecipeInstallationConnection! @cost(weight: 50)
 }
 
 input RecipeOptionInput
@@ -5014,7 +5414,7 @@ type RecipeRunFileChange implements FileChange
   path: Path!
   beforeSourcePath: Path
   afterSourcePath: Path
-  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch
+  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch @cost(weight: 100)
 
   """
   Recipe chains that contributed changes to this file. Each inner list is one
@@ -5222,7 +5622,7 @@ type RepositoryBatchChange implements RepositoryChangeset
 {
   repository: Repository!
   authorization: RepositoryAuthorization!
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 interface RepositoryChangeset
@@ -5240,7 +5640,7 @@ interface RepositoryChangeset
   authorization: RepositoryAuthorization!
 
   """File-level changes within this repository."""
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """
@@ -5253,7 +5653,7 @@ Paginated connection for repository changesets.
   the completion status reached prior to cancellation.
 
 Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`)
-track repository sync progress during the SYNCING phase. Their sum equals `count`.
+track repository sync progress as each repository's LST is synced. Their sum equals `count`.
 """
 type RepositoryChangesetConnection
   @join__type(graph: CHANGESETREADER)
@@ -5608,7 +6008,7 @@ interface RepositoryRecipeRun implements RepositoryChangeset
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 type RepositoryRecipeRunCanceled implements RepositoryRecipeRun & RepositoryChangeset
@@ -5619,7 +6019,7 @@ type RepositoryRecipeRunCanceled implements RepositoryRecipeRun & RepositoryChan
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 type RepositoryRecipeRunConnection
@@ -5645,7 +6045,7 @@ type RepositoryRecipeRunError implements RepositoryRecipeRun & RepositoryChanges
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   startedAt: DateTime
   finishedAt: DateTime
   errorReason: RepositoryErrorReason
@@ -5660,7 +6060,7 @@ type RepositoryRecipeRunFinished implements RepositoryRecipeRun & RepositoryChan
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   startedAt: DateTime
   finishedAt: DateTime
   timeSavings: Duration
@@ -5674,7 +6074,7 @@ type RepositoryRecipeRunNoLst implements RepositoryRecipeRun & RepositoryChanges
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 enum RepositoryRecipeRunOrderByField
@@ -5700,7 +6100,7 @@ type RepositoryRecipeRunQueued implements RepositoryRecipeRun & RepositoryChange
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   queuedAt: DateTime
 }
 
@@ -5712,7 +6112,7 @@ type RepositoryRecipeRunRunning implements RepositoryRecipeRun & RepositoryChang
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   startedAt: DateTime
 }
 
@@ -6054,7 +6454,7 @@ type User
   username: String @join__field(graph: AUTHZ)
   role: UserRole @join__field(graph: AUTHZ)
   lastActive: DateTime @join__field(graph: AUTHZ)
-  tokens(first: Int = 100, after: String, where: AccessTokenWhereInput, orderBy: [AccessTokenOrderByInput!]): AccessTokenConnection! @join__field(graph: AUTHZ)
+  tokens(first: Int = 100, after: String, where: AccessTokenWhereInput, orderBy: [AccessTokenOrderByInput!]): AccessTokenConnection! @join__field(graph: AUTHZ) @cost(weight: 50)
   moddy: Moddy! @join__field(graph: MODDY)
 }
 
@@ -6120,6 +6520,11 @@ input UserWhereInput
   @join__type(graph: RECIPEWORKER)
 {
   email: StringFilter
+
+  """
+  Filter by the number of Moderne access tokens the user holds (e.g. { _gt: 0 } for users with at least one token).
+  """
+  tokenCount: IntFilter
   _and: [UserWhereInput!]
   _or: [UserWhereInput!]
   _not: UserWhereInput
@@ -6342,7 +6747,7 @@ type YamlRecipeBundle implements RecipeBundle
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: RECIPEMARKETPLACE)
 {
-  yaml: Base64!
+  yaml: Base64! @cost(weight: 50)
   requestedVersion: String
   version: String
   recipeCount: Int

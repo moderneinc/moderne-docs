@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.MonoSingle`"}
-  description={"Don't unnecessarily transform a `Mono` to a `Flux` to expect exactly one item."}
+  description={"Prefer using `Mono#single()` or `Mono#singleOptional()` over unnecessarily transforming a `Mono` to a `Flux`."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoSingleRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.MonoSingle`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't unnecessarily transform a `Mono` to a `Flux` to expect exactly one item.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer using `Mono#single()` or `Mono#singleOptional()` over unnecessarily transforming a `Mono` to a `Flux`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

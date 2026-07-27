@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `JUnitToAssertJRules.Fail`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class Fail<T> {\n    \n    @BeforeTemplate\n    T before() {\n        return Assertions.fail();\n    }\n    \n    @AfterTemplate\n    @DoNotCall\n    T after() {\n        return fail();\n    }\n}\n```\n."}
+  description={"Prefer `org.assertj.core.api.Assertions#fail()` over non-AssertJ alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$FailRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `JUnitToAssertJRules.Fail`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class Fail<T> {
-    
-    @BeforeTemplate
-    T before() {
-        return Assertions.fail();
-    }
-    
-    @AfterTemplate
-    @DoNotCall
-    T after() {
-        return fail();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `org.assertj.core.api.Assertions#fail()` over non-AssertJ alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["jakartaee","weblogic","persistence"]}
+  tags={["weblogic","persistence","jakartaee"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPersistenceTo31"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

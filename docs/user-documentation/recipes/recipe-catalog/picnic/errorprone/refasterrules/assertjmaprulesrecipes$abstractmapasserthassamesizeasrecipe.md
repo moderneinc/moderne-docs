@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJMapRules.AbstractMapAssertHasSameSizeAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractMapAssertHasSameSizeAs<K, V> {\n    \n    @BeforeTemplate\n    AbstractMapAssert<?, ?, K, V> before(AbstractMapAssert<?, ?, K, V> mapAssert, Map<?, ?> map) {\n        return mapAssert.hasSize(map.size());\n    }\n    \n    @AfterTemplate\n    AbstractMapAssert<?, ?, K, V> after(AbstractMapAssert<?, ?, K, V> mapAssert, Map<?, ?> map) {\n        return mapAssert.hasSameSizeAs(map);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractMapAssert#hasSameSizeAs(Map)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AbstractMapAssertHasSameSizeAsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJMapRules.AbstractMapAssertHasSameSizeAs`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractMapAssertHasSameSizeAs<K, V> {
-    
-    @BeforeTemplate
-    AbstractMapAssert<?, ?, K, V> before(AbstractMapAssert<?, ?, K, V> mapAssert, Map<?, ?> map) {
-        return mapAssert.hasSize(map.size());
-    }
-    
-    @AfterTemplate
-    AbstractMapAssert<?, ?, K, V> after(AbstractMapAssert<?, ?, K, V> mapAssert, Map<?, ?> map) {
-        return mapAssert.hasSameSizeAs(map);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractMapAssert#hasSameSizeAs(Map)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

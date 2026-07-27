@@ -37,19 +37,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"action","required":true,"description":"Name of the action to update.","example":"actions/setup-java"},{"type":"String","name":"version","required":true,"description":"Version to use.","example":"v4"}]}>
+<OptionsTable options={[{"type":"String","name":"action","required":true,"description":"Name of the action to update.","example":"actions/setup-java"},{"type":"String","name":"version","required":true,"description":"Version to use.","example":"v4"},{"type":"String","name":"oldSha","required":false,"description":"Restricts the change by the existing `uses:` ref. When omitted, the version is changed regardless of how the action is pinned (the default; commit SHA pins are rewritten). When set to an empty string, only references that are **not** pinned to a 40-character commit SHA are changed, preserving deliberate SHA pins. When set to a specific commit SHA, only references pinned to exactly that SHA are changed.","example":"8f4b7f84864484a7bf31766abe9204da3cbe65b3"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"action","value":"actions/setup-java"},{"parameter":"version","value":"v4"}],"variants":[{"language":"yaml","before":"jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-java@main\n","after":"jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-java@v4\n","diff":"--- .github/workflows/ci.yaml\n+++ .github/workflows/ci.yaml\n@@ -6,1 +6,1 @@\n    steps:\n      - uses: actions/checkout@v2\n-     - uses: actions/setup-java@main\n+     - uses: actions/setup-java@v4\n\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"action","value":"actions/setup-java"},{"parameter":"version","value":"v4"},{"parameter":"oldSha","value":"null"}],"variants":[{"language":"yaml","before":"jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-java@main\n","after":"jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-java@v4\n","diff":"--- .github/workflows/ci.yaml\n+++ .github/workflows/ci.yaml\n@@ -6,1 +6,1 @@\n    steps:\n      - uses: actions/checkout@v2\n-     - uses: actions/setup-java@main\n+     - uses: actions/setup-java@v4\n\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.ChangeActionVersion","displayName":"Change GitHub Action version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"action=actions/setup-java\" --recipe-option \"version=v4\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.ChangeActionVersion","displayName":"Change GitHub Action version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"action=actions/setup-java\" --recipe-option \"version=v4\" --recipe-option \"oldSha=8f4b7f84864484a7bf31766abe9204da3cbe65b3\""}}>
 
 ## Usage
 

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Kotlin"]}
-  tags={["gradle","kotlin"]}
+  tags={["kotlin","gradle"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.kotlin.migrate.RemoveRedundantKotlinStdlib"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-kotlin"}

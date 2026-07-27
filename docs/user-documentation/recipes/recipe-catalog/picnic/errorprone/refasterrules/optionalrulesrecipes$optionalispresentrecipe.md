@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `OptionalRules.OptionalIsPresent`"}
-  description={"Prefer `Optional#isPresent()` over the inverted alternative."}
+  description={"Prefer `Optional#isPresent()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalIsPresentRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `OptionalRules.OptionalIsPresent`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Optional#isPresent()` over the inverted alternative.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Optional#isPresent()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

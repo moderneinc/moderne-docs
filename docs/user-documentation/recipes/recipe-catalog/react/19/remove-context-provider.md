@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.react.19.remove-context-provider"}
-  artifact={"io.moderne.recipe:rewrite-react"}
+  artifact={"@openrewrite/recipes-react"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.remove-context-provider"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/remove-context-provider.md"}
   moderneOnly

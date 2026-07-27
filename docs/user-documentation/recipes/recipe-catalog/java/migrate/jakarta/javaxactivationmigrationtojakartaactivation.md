@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["javax","activation","jakarta"]}
+  tags={["activation","javax","jakarta"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.migrate.jakarta.JavaxActivationMigrationToJakartaActivation"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}

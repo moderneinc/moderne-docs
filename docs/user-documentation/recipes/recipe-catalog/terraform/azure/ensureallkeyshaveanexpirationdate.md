@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_AZURE_40","Azure","terraform"]}
+  tags={["CKV_AZURE_40","terraform","Azure"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.azure.EnsureAllKeysHaveAnExpirationDate"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

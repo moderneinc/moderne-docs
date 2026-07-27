@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"packageJson","code":"{\n  \"name\": \"app\",\n  \"version\": \"1.0.0\",\n  \"dependencies\": { \"mongoose\": \"^8.0.0\" }\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindMongooseSchemas","displayName":"Find Mongoose schemas","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

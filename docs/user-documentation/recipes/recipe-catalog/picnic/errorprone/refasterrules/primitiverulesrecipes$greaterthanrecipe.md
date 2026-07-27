@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.GreaterThan`"}
-  description={"Avoid contrived ways of expressing the \"greater than\" relationship."}
+  description={"Prefer `a > b` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$GreaterThanRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.GreaterThan`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid contrived ways of expressing the "greater than" relationship.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `a > b` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

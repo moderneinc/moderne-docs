@@ -1,4 +1,94 @@
 # Platform changelog
+### UI v13.16.0 (2026/07/23)
+
+- Bug fixes and other improvements.
+
+### UI v13.15.0 (2026/07/23)
+
+- migrate error pages and SCM authorization to ERROR_MESSAGES
+- create a user organization from a Find recipe's results
+
+### UI v13.14.0 (2026/07/22)
+
+- restore clickable SCM line-number links in the unified diff
+
+### UI v13.13.1 (2026/07/21)
+
+- Bug fixes and other improvements.
+
+### UI v13.13.0 (2026/07/20)
+
+- select all matching filters for bulk PR actions
+
+### UI v13.12.1 (2026/07/17)
+
+- Bug fixes and other improvements.
+
+### UI v13.12.0 (2026/07/17)
+
+- add ERROR_MESSAGES catalog for engineering review
+
+### UI v13.11.1 (2026/07/16)
+
+- Bug fixes and other improvements.
+
+### UI v13.11.0 (2026/07/15)
+
+- compact filter tabs and search on Results view
+
+### UI v13.10.0 (2026/07/14)
+
+- configure recipe options before adding to the tree
+
+### UI v13.9.0 (2026/07/14)
+
+- update Results view tree component
+
+### UI v13.8.0 (2026/07/10)
+
+- make the Scoped column filterable
+- show estimated time saved while a run is in progress
+
+### UI v13.7.0 (2026/07/08)
+
+- priority-lane status indicators
+- make Name, Organization, and Start time columns resizable
+- weight repo names and center the commit-all button
+
+### UI v13.6.0 (2026/07/08)
+
+- surface repository-level recipe errors on the Results tab
+- use neo-design's filled status icons and animated dots
+
+### UI v13.5.2 (2026/07/07)
+
+- Bug fixes and other improvements.
+
+### UI v13.5.1 (2026/07/06)
+
+- Bug fixes and other improvements.
+
+### UI v13.5.0 (2026/07/06)
+
+- surface LST availability states with current schema
+- show run stats on the progress bar for the Running state
+- migrate raw MUI Alert to NeoAlert across app
+- show error reason on chip label without hover
+- apply status icons + add reduced-motion fallback
+- wire status colors to Neo semantic tokens
+
+### UI v13.4.0 (2026/06/30)
+
+- Bug fixes and other improvements.
+
+### UI v13.3.1 (2026/06/30)
+
+- Bug fixes and other improvements.
+
+### UI v13.3.0 (2026/06/29)
+
+- Neo data tables view — dual card/grid + schema inspector
+
 ### UI v13.2.0 (2026/06/29)
 
 - icon-only collapsible left nav

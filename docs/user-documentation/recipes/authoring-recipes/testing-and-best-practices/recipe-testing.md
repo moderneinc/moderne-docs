@@ -511,3 +511,5 @@ If you want to test multiple versions of the same dependency, you'll want to use
 ## Next steps
 
 Now that you're familiar with writing tests, consider reading over the [best practice guide for making recipes](./recipe-conventions-and-best-practices.md). You could also check out [the guide that expands on JavaTemplates](../advanced-authoring/modifying-methods-with-javatemplate.md) if you'd like to learn even more about creating recipes.
+
+To learn more about testing recipes on real-world code, check out our [validating recipes at scale](./validating-recipes-at-scale.md) doc.

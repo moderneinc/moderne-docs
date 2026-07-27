@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","framework","jsf"]}
+  tags={["spring","jsf","framework"]}
   license={"Moderne Proprietary License"}
   fqName={"io.moderne.java.spring.framework.jsf23.MigrateFacesConfig"}
   artifact={"io.moderne.recipe:rewrite-spring"}

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertCauseIsSameAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractThrowableAssertCauseIsSameAs {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"deprecation\")\n    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> throwableAssert, Throwable expected) {\n        return throwableAssert.hasCauseReference(expected);\n    }\n    \n    @AfterTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> throwableAssert, Throwable expected) {\n        return throwableAssert.cause().isSameAs(expected);\n    }\n}\n```\n."}
+  description={"Prefer `throwableAssert.cause().isSameAs(expected)` over deprecated alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertCauseIsSameAsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertCauseIsSameAs`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractThrowableAssertCauseIsSameAs {
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "deprecation")
-    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> throwableAssert, Throwable expected) {
-        return throwableAssert.hasCauseReference(expected);
-    }
-    
-    @AfterTemplate
-    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> throwableAssert, Throwable expected) {
-        return throwableAssert.cause().isSameAs(expected);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `throwableAssert.cause().isSameAs(expected)` over deprecated alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

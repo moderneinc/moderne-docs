@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","quarkus","migration","validation"]}
+  tags={["spring","migration","validation","quarkus"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.MigrateSpringValidation"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

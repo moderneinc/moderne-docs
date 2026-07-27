@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJPathRules.AssertThatIsExecutable`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsExecutable {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Path actual) {\n        return assertThat(Files.isExecutable(actual)).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractPathAssert<?> after(Path actual) {\n        return assertThat(actual).isExecutable();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractPathAssert#isExecutable()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatIsExecutableRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJPathRules.AssertThatIsExecutable`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsExecutable {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Path actual) {
-        return assertThat(Files.isExecutable(actual)).isTrue();
-    }
-    
-    @AfterTemplate
-    AbstractPathAssert<?> after(Path actual) {
-        return assertThat(actual).isExecutable();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractPathAssert#isExecutable()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

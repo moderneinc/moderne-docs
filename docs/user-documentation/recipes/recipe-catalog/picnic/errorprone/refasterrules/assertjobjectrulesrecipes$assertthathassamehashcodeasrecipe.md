@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJObjectRules.AssertThatHasSameHashCodeAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasSameHashCodeAs<T> {\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(T object1, T object2) {\n        return assertThat(object1.hashCode()).isEqualTo(object2.hashCode());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ObjectAssert<T> after(T object1, T object2) {\n        return assertThat(object1).hasSameHashCodeAs(object2);\n    }\n}\n```\n."}
+  description={"Prefer `ObjectAssert#hasSameHashCodeAs(Object)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatHasSameHashCodeAsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJObjectRules.AssertThatHasSameHashCodeAs`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasSameHashCodeAs<T> {
-    
-    @BeforeTemplate
-    AbstractIntegerAssert<?> before(T object1, T object2) {
-        return assertThat(object1.hashCode()).isEqualTo(object2.hashCode());
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    ObjectAssert<T> after(T object1, T object2) {
-        return assertThat(object1).hasSameHashCodeAs(object2);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ObjectAssert#hasSameHashCodeAs(Object)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

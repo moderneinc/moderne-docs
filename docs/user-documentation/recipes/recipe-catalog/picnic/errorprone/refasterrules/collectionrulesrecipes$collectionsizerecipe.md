@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.CollectionSize`"}
-  description={"Prefer `Collection#size()` over more contrived alternatives."}
+  description={"Prefer `Collection#size()` over non-JDK or more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionSizeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.CollectionSize`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Collection#size()` over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Collection#size()` over non-JDK or more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

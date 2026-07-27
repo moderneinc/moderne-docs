@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `WebClientRules.WebClientPut`"}
-  description={"Prefer `WebClient#put()` over `WebClient#method(HttpMethod)` with `HttpMethod#PUT`."}
+  description={"Prefer `WebClient#put()` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$WebClientPutRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `WebClientRules.WebClientPut`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `WebClient#put()` over `WebClient#method(HttpMethod)` with `HttpMethod#PUT`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `WebClient#put()` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

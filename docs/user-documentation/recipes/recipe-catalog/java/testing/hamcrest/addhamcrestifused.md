@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["junit","testing","hamcrest"]}
+  tags={["hamcrest","junit","testing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.hamcrest.AddHamcrestIfUsed"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `BigDecimalRules.BigDecimalSignumIsNegative`"}
-  description={"Prefer a `BigDecimal#signum()` comparison to -1 over more contrived or less idiomatic alternatives."}
+  description={"Prefer a `BigDecimal#signum()` comparison to 0 over less efficient or less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalSignumIsNegativeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `BigDecimalRules.BigDecimalSignumIsNegative`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer a `BigDecimal#signum()` comparison to -1 over more contrived or less idiomatic alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer a `BigDecimal#signum()` comparison to 0 over less efficient or less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

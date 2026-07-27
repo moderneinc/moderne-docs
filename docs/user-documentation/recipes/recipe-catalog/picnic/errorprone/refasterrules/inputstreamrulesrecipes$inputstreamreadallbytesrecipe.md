@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `InputStreamRules.InputStreamReadAllBytes`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class InputStreamReadAllBytes {\n    \n    @BeforeTemplate\n    byte[] before(InputStream in) throws IOException {\n        return ByteStreams.toByteArray(in);\n    }\n    \n    @AfterTemplate\n    byte[] after(InputStream in) throws IOException {\n        return in.readAllBytes();\n    }\n}\n```\n."}
+  description={"Prefer `InputStream#readAllBytes()` over non-JDK alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes$InputStreamReadAllBytesRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `InputStreamRules.InputStreamReadAllBytes`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class InputStreamReadAllBytes {
-    
-    @BeforeTemplate
-    byte[] before(InputStream in) throws IOException {
-        return ByteStreams.toByteArray(in);
-    }
-    
-    @AfterTemplate
-    byte[] after(InputStream in) throws IOException {
-        return in.readAllBytes();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `InputStream#readAllBytes()` over non-JDK alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

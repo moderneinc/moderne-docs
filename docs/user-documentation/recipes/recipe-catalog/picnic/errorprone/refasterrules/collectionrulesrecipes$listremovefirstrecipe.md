@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `CollectionRules.ListRemoveFirst`"
-sidebar_label: "Refaster template `CollectionRules.ListRemoveFirst`"
+title: "Prefer `List#removeFirst()` over less idiomatic alternatives"
+sidebar_label: "Prefer `List#removeFirst()` over less idiomatic alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `CollectionRules.ListRemoveFirst`"}
-  description={"Prefer `List#removeFirst()`} over less idiomatic alternatives."}
+  displayName={"Prefer `List#removeFirst()` over less idiomatic alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes the exception thrown for empty lists from\n `IndexOutOfBoundsException` to `NoSuchElementException`."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ListRemoveFirstRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/collectionrulesrecipes$listremovefirstrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `CollectionRules.ListRemoveFirst`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `List#removeFirst()` over less idiomatic alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `List#removeFirst()`} over less idiomatic alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes the exception thrown for empty lists from  `IndexOutOfBoundsException` to `NoSuchElementException`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ListRemoveFirstRecipe","displayName":"Refaster template `CollectionRules.ListRemoveFirst`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ListRemoveFirstRecipe","displayName":"Prefer `List#removeFirst()` over less idiomatic alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

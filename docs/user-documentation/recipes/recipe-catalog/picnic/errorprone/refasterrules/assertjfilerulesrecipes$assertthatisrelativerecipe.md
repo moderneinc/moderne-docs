@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJFileRules.AssertThatIsRelative`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsRelative {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(File actual) {\n        return assertThat(actual.isAbsolute()).isFalse();\n    }\n    \n    @AfterTemplate\n    AbstractFileAssert<?> after(File actual) {\n        return assertThat(actual).isRelative();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractFileAssert#isRelative()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatIsRelativeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatIsRelative`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsRelative {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(File actual) {
-        return assertThat(actual.isAbsolute()).isFalse();
-    }
-    
-    @AfterTemplate
-    AbstractFileAssert<?> after(File actual) {
-        return assertThat(actual).isRelative();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractFileAssert#isRelative()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ComparatorRules.CollectionsMin`"}
-  description={"Prefer `Collections#min(Collection)` over more verbose alternatives."}
+  description={"Prefer `Collections#min(Collection)` over more verbose or more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CollectionsMinRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ComparatorRules.CollectionsMin`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Collections#min(Collection)` over more verbose alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Collections#min(Collection)` over more verbose or more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 
