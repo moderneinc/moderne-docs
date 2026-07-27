@@ -12,7 +12,9 @@ This guide walks through installing and configuring the Moderne CLI in environme
 
 By the end of this guide, you'll have the CLI installed from your internal mirror and stocked with the recipe JARs needed to run recipes.
 
-You will work with your internal Artifactory or Nexus team to onboard `https://artifacts.codegenomeproject.org/maven` as a new remote repository.
+You will work with your internal Artifactory or Nexus team to onboard `https://artifacts.codegenomeproject.org/maven` as a new remote repository. See [Accessing the Code Genome Project](../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for the credentials and entitlement your organization needs.
+
+Adding that remote repository is a one-time task for your artifact repository team. Once it is in place, your developers install and run the CLI and recipes exactly as before, resolving everything through your internal artifact repository with no per-developer changes.
 
 ## Prerequisites
 

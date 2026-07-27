@@ -122,8 +122,8 @@ The `moderne-wrapper.properties` file supports these properties:
 | Property                | Description                                                                                                                                                  | Default       |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | `version`               | CLI version to use. `RELEASE` resolves the latest release. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`. | `RELEASE`     |
-| `distributionUrl`       | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders.                                                               | Moderne's distribution repository |
-| `distributionUrlEarlyAccess` | Base URL of the repository used to resolve `LATEST`/snapshot versions. Overrides the default snapshot source — point it at your own snapshot repository in restricted environments. | Moderne's distribution repository |
+| `distributionUrl`       | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders.                                                               | Code Genome Project |
+| `distributionUrlEarlyAccess` | Base URL of the repository used to resolve `LATEST`/snapshot versions. Overrides the default snapshot source; point it at your own snapshot repository in restricted environments. | Code Genome Project |
 | `distributionUsername`  | Username for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
 | `distributionPassword`  | Password for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
 | `distributionToken`     | Bearer token for authentication when downloading the distribution. Takes precedence over username/password if both are set.                                   | _(none)_      |
@@ -163,7 +163,7 @@ jdkUrl=skip
 Setting `jdkUrl=skip` disables the JDK auto-download, which is useful when you know a compatible JDK is already available on the system.
 
 :::warning
-`distributionUrl` controls only where the distribution archive is *downloaded* from, not where a dynamic `version` is *resolved*. Both `RELEASE` and `LATEST`/snapshot resolution query Moderne's distribution repository for `maven-metadata.xml`. If it is not reachable and the version is left dynamic, every `mod` invocation fails at version resolution.
+`distributionUrl` controls only where the distribution archive is *downloaded* from, not where a dynamic `version` is *resolved*. Both `RELEASE` and `LATEST`/snapshot resolution query the Code Genome Project repository for `maven-metadata.xml`. If it is not reachable and the version is left dynamic, every `mod` invocation fails at version resolution.
 
 In an air-gapped environment you therefore have two options:
 
