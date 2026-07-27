@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v13.17.0 (2026/07/27)
+
+- show a partial result instead of a flat failure for commit jobs
+- search repositories server-side, 15 per page
+
 ### UI v13.16.0 (2026/07/23)
 
 - Bug fixes and other improvements.
