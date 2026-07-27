@@ -377,6 +377,8 @@ If your organization installs the CLI from an internal artifact repository (comm
 
 If you also need to point the CLI at other internal tooling (a non-default Maven settings file, an internal Artifactory for recipes, etc.), see our [guide to configuring the CLI to work with internal tools](./cli-internal-tools.md).
 
+New recipe releases are published to the Code Genome Project rather than Maven Central. If you don't resolve recipes through an internal mirror, [point the CLI at the Code Genome Project](./cli-internal-tools.md#pointing-the-cli-at-the-code-genome-project-for-recipes) so you don't install stale releases.
+
 ## Using the CLI
 
 With installation and configuration complete, you're ready to use the CLI. This section will guide you through common workflows and commands.

@@ -30,3 +30,13 @@ mod config recipes artifacts artifactory edit
 ```
 
 The command will prompt you for the connection details interactively.
+
+## Pointing the CLI at the Code Genome Project for recipes
+
+New recipe releases are published to the Code Genome Project rather than Maven Central. Because the CLI resolves recipes from Maven Central by default, if you don't have an internal mirror in front of it you'll resolve stale releases. To pull the latest recipes directly, add the Code Genome Project as a recipe artifact repository, authenticating with your credentials (the token is the password):
+
+```bash
+mod config recipes artifacts maven add https://artifacts.codegenomeproject.org/maven --user <username> --password <token>
+```
+
+See [Accessing the Code Genome Project](../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get credentials. If your organization already mirrors the Code Genome Project in an internal Artifactory or Nexus, you don't need this command; keep resolving through your internal repository.

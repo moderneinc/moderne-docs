@@ -12,7 +12,7 @@ documentation is published.
 
 # Accessing the Code Genome Project
 
-The Moderne CLI and recipe artifacts are hosted in the Code Genome Project Maven repository at `https://artifacts.codegenomeproject.org/maven`. You can reach it by mirroring it in your own Artifactory or Nexus, so the CLI and recipes resolve through your internal repository, exactly as before.
+The Moderne CLI and recipe artifacts are hosted in the Code Genome Project Maven repository at `https://artifacts.codegenomeproject.org/maven`. The recommended setup is to mirror it in your own Artifactory or Nexus, so the CLI and recipes resolve through your internal repository exactly as before. If you don't run an internal mirror, you can also point the CLI or a build directly at it with your credentials.
 
 This guide covers what the repository hosts, how you get credentials, and how to onboard it as a remote repository.
 
@@ -45,6 +45,51 @@ Use the repository URL exactly as shown. Do not append a storage prefix such as 
 :::
 
 Once the remote repository is in place, your developers install and run the CLI and recipes through your internal repository exactly as before, with no per-developer changes. See [Deploying the CLI from an internal artifact repository](../../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) for the CLI-side setup.
+
+## Point the CLI or a build directly at the repository
+
+If you don't run an internal mirror, point the Moderne CLI or your build directly at the repository, authenticating with your token.
+
+For the **Moderne CLI**, add it as a recipe artifact repository. See [pointing the CLI at the Code Genome Project for recipes](../../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md#pointing-the-cli-at-the-code-genome-project-for-recipes).
+
+For a **Maven build**, put your credentials (the token is the password) in `settings.xml`:
+
+```xml
+<settings>
+  <servers>
+    <server>
+      <id>codegenome</id>
+      <username>USERNAME</username>
+      <password>TOKEN</password>
+    </server>
+  </servers>
+</settings>
+```
+
+and declare the repository in `pom.xml`:
+
+```xml
+<repositories>
+  <repository>
+    <id>codegenome</id>
+    <url>https://artifacts.codegenomeproject.org/maven</url>
+  </repository>
+</repositories>
+```
+
+For a **Gradle build**, add the repository to your `build.gradle.kts`:
+
+```kotlin
+repositories {
+    maven {
+        url = uri("https://artifacts.codegenomeproject.org/maven")
+        credentials {
+            username = "USERNAME"
+            password = "TOKEN"
+        }
+    }
+}
+```
 
 ## Troubleshooting
 
