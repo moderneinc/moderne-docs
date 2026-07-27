@@ -12,7 +12,7 @@ documentation is published.
 
 # Accessing the Code Genome Project
 
-The Moderne CLI and recipe artifacts are hosted in the Code Genome Project repository at `https://artifacts.codegenomeproject.org/maven`. You can reach it by mirroring it in your own Artifactory or Nexus, so the CLI and recipes resolve through your internal repository, exactly as before.
+The Moderne CLI and recipe artifacts are hosted in the Code Genome Project Maven repository at `https://artifacts.codegenomeproject.org/maven`. You can reach it by mirroring it in your own Artifactory or Nexus, so the CLI and recipes resolve through your internal repository, exactly as before.
 
 This guide covers what the repository hosts, how you get credentials, and how to onboard it as a remote repository.
 
@@ -20,7 +20,7 @@ This guide covers what the repository hosts, how you get credentials, and how to
 
 Access to each kind of content depends on your entitlement:
 
-* **OpenRewrite open-source recipes** (Apache 2.0) and the **Moderne CLI**: available to any authenticated user.
+* **OpenRewrite open-source recipes** (Apache 2.0), the **Moderne CLI**, and the **Moderne Connector**: available to any authenticated user.
 * **Moderne Source Available License (MSAL) recipes**: available to customers only.
 * **Moderne proprietary recipes**: available to customers only.
 
