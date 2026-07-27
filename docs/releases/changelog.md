@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.17.1 (2026/07/27)
+
+- Bug fixes and other improvements.
+
 ### UI v13.17.0 (2026/07/27)
 
 - show a partial result instead of a flat failure for commit jobs
