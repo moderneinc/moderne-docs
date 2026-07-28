@@ -2392,8 +2392,10 @@ type ForkAndPullRequestCommitSucceeded implements RepositoryCommitSucceeded & Re
   finishedAt: DateTime!
   resultLink: String
 
-  """Pull request status."""
-  pullRequestStatus: PullRequestStatus!
+  """
+  Pull request status, resolved live from the SCM on read (one SCM request per open PR).
+  """
+  pullRequestStatus: PullRequestStatus! @cost(weight: 100)
 }
 
 """Commit to a fork of the origin repository."""
@@ -2752,22 +2754,26 @@ type LstArtifact
 {
   """
   When `mod publish` produced an artifact into the customer's LST artifact
-  repository, or null if no artifact has been published. For a tenant
-  configured for encrypted LSTs, a non-null `published` does NOT mean the
-  encrypted artifact has been received by the tenant - that signal lives
-  on `available`.
+  repository, or null if no artifact has been published. A non-null
+  `published` does NOT mean the artifact is reachable for a recipe run - that
+  signal lives on `available`.
   """
   published: DateTime
 
   """
-  Whether the artifact is reachable for a recipe run.
-  For an organization source with encryption enabled, true once the
-  connector has uploaded the encrypted artifact and the gateway has
-  surfaced an `encrypted://` alternate publish URI. For a source without
-  encryption (pass-through), true when the gateway-projected row has a
-  non-empty `publishUri`, which we assume is reachable from `mod publish`.
+  Whether the artifact is reachable for a recipe run: true when the row has a
+  non-empty `publishUri` and no `enrichFailedReason`. A failed enrichment
+  preserves the publishUri as a diagnostic, so it is not evidence of
+  reachability; and a row whose LST has not been ingested yet arrives here with
+  its publishUri already withheld by the gateway projection.
   """
   available: Boolean!
+
+  """
+  When the connector failed to enrich this row, the free-form reason it
+  recorded; null otherwise.
+  """
+  enrichFailedReason: String
 }
 
 input LstArtifactWhereInput
@@ -3641,7 +3647,7 @@ interface OrganizationCommit
   extendedMessage: Base64
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """Commit was canceled before completion."""
@@ -3661,7 +3667,7 @@ type OrganizationCommitCanceled implements OrganizationCommit
   canceledBy: User!
 
   """Paginated results per repository (partial)."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 type OrganizationCommitConnection
@@ -3696,7 +3702,7 @@ type OrganizationCommitError implements OrganizationCommit
   errorMessage: String!
 
   """Paginated results per repository (partial)."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """Commit completed successfully (all or partial success)."""
@@ -3713,7 +3719,7 @@ type OrganizationCommitFinished implements OrganizationCommit
   finishedAt: DateTime!
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 enum OrganizationCommitOrderByField
@@ -3742,7 +3748,7 @@ type OrganizationCommitQueued implements OrganizationCommit
   startedAt: DateTime!
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """Commit is actively being processed across repositories."""
@@ -3758,7 +3764,7 @@ type OrganizationCommitRunning implements OrganizationCommit
   startedAt: DateTime!
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """Filter input for organization-level commit queries."""
@@ -4620,8 +4626,10 @@ type PullRequestCommitSucceeded implements RepositoryCommitSucceeded & Repositor
   finishedAt: DateTime!
   resultLink: String
 
-  """Pull request status."""
-  pullRequestStatus: PullRequestStatus!
+  """
+  Pull request status, resolved live from the SCM on read (one SCM request per open PR).
+  """
+  pullRequestStatus: PullRequestStatus! @cost(weight: 100)
 }
 
 input PullRequestInput
@@ -5828,9 +5836,21 @@ type RepositoryCommitConnection
   """
   Count of repository commits that have reached a terminal state
   (succeeded, failed, canceled, or no changes). Pair with `count`
-  to show progress: "Completed X / Y".
+  to show progress: "Completed X / Y". This and the three totals
+  below span the whole job (after any `where` filter), not the
+  current page; canceled has no total of its own, so subtract the
+  other three from this.
   """
   completedCount: Int!
+
+  """Terminal with a branch pushed or a pull request opened."""
+  succeededCount: Int!
+
+  """Terminal with an error; the repository carries the message."""
+  failedCount: Int!
+
+  """Terminal with the patch applied but nothing left to commit."""
+  noChangesCount: Int!
 }
 
 type RepositoryCommitEdge
@@ -5941,10 +5961,24 @@ interface RepositoryCommitSucceeded implements RepositoryCommit
   resultLink: String
 }
 
-"""Filter input for repository-level commit queries."""
+"""
+Filter input for repository-level commit queries. Applied across the whole commit worklist
+before pagination, so a search matches repositories that fall on later pages.
+"""
 input RepositoryCommitWhereInput
   @join__type(graph: CHANGESETCOMMITTER)
 {
+  """Filter by repository origin (the SCM host, e.g. github.com)."""
+  origin: StringFilter
+
+  """
+  Filter by repository path (e.g. moderneinc/rewrite). Use `_icontains` to back the commit
+  view's repository search box.
+  """
+  path: StringFilter
+
+  """Filter by branch."""
+  branch: StringFilter
   _and: [RepositoryCommitWhereInput!]
   _or: [RepositoryCommitWhereInput!]
   _not: RepositoryCommitWhereInput
