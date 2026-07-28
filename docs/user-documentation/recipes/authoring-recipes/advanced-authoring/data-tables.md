@@ -279,7 +279,9 @@ By default, OpenRewrite recipes will **not** produce a data table. In order for 
 2. Next, you will either need to update build file or modify your command for running a recipe:
 
 :::info
-OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. The snippets below use `USERNAME` and `TOKEN` as placeholders; replace them with your own credentials, and for Maven put them in your `settings.xml`. See [Accessing the Code Genome Project](../../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
+OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. The snippets below use `USERNAME` and `TOKEN` as placeholders. Replace them with your own credentials.
+
+For Maven, put the credentials in your `settings.xml`. See [Accessing the Code Genome Project](../../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
 :::
 
 <Tabs>
