@@ -278,6 +278,10 @@ By default, OpenRewrite recipes will **not** produce a data table. In order for 
    * [rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin/) version `6.16.5` or higher. 
 2. Next, you will either need to update build file or modify your command for running a recipe:
 
+:::info
+OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. The snippets below use `USERNAME` and `TOKEN` as placeholders; replace them with your own credentials, and for Maven put them in your `settings.xml`. See [Accessing the Code Genome Project](../../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
+:::
+
 <Tabs>
 
 <TabItem value="build.gradle" label="build.gradle">
@@ -295,6 +299,13 @@ rewrite {
 
 repositories {
     mavenCentral()
+    maven {
+        url = "https://artifacts.codegenomeproject.org/maven"
+        credentials {
+            username = "USERNAME"
+            password = "TOKEN"
+        }
+    }
 }
 
 dependencies {
@@ -333,6 +344,23 @@ Add `<exportDatatables>true</exportDatatables>` to your `pom.xml` file such as i
         </dependency>
     </dependencies>
 </plugin>
+```
+
+The recipe modules resolve from the Code Genome Project, so add the repository to your `pom.xml`:
+
+```xml
+<repositories>
+  <repository>
+    <id>codegenome</id>
+    <url>https://artifacts.codegenomeproject.org/maven</url>
+  </repository>
+</repositories>
+<pluginRepositories>
+  <pluginRepository>
+    <id>codegenome</id>
+    <url>https://artifacts.codegenomeproject.org/maven</url>
+  </pluginRepository>
+</pluginRepositories>
 ```
 </TabItem>
 

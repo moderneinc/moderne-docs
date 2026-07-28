@@ -375,6 +375,10 @@ If you want your recipes to appear in your organization's Moderne Platform insta
 
 Once your recipe module is published, either locally for testing or to an external artifact repository for broader distribution, you'll need to configure a separate repository to test with (See the [Getting Started Guide](https://docs.openrewrite.org/running-recipes/getting-started) for more detailed instructions). In the repository you want to test your recipe against, update the build plugins accordingly:
 
+:::info
+OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. The snippets below use `USERNAME` and `TOKEN` as placeholders; replace them with your own credentials, and for Maven put them in your `settings.xml`. See [Accessing the Code Genome Project](../../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
+:::
+
 <Tabs groupId="projectType">
 <TabItem value="gradle" label="Gradle">
 
@@ -387,6 +391,13 @@ plugins {
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        url = "https://artifacts.codegenomeproject.org/maven"
+        credentials {
+            username = "USERNAME"
+            password = "TOKEN"
+        }
+    }
 }
 
 dependencies {
@@ -445,6 +456,18 @@ If you run into errors when trying to publish and read your recipe locally, try 
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>codegenome</id>
+            <url>https://artifacts.codegenomeproject.org/maven</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>codegenome</id>
+            <url>https://artifacts.codegenomeproject.org/maven</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
 ```
 
