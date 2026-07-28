@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.0.0 (2026/07/28)
+
+- adopt Morpheus visual system — Geist, neo 5.1.0-next.288b8b, react-charts next
+
 ### UI v13.17.2 (2026/07/28)
 
 - Bug fixes and other improvements.
