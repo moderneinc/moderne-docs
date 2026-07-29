@@ -5902,7 +5902,17 @@ type RepositoryCommitNoChanges implements RepositoryCommit
 enum RepositoryCommitOrderByField
   @join__type(graph: CHANGESETCOMMITTER)
 {
+  ORIGIN @join__enumValue(graph: CHANGESETCOMMITTER)
+  PATH @join__enumValue(graph: CHANGESETCOMMITTER)
+  BRANCH @join__enumValue(graph: CHANGESETCOMMITTER)
+  STATUS @join__enumValue(graph: CHANGESETCOMMITTER)
   STARTED_AT @join__enumValue(graph: CHANGESETCOMMITTER)
+
+  """
+  Effective last-updated time: `finishedAt` when the repository has reached a terminal
+  state, otherwise `startedAt`.
+  """
+  UPDATED_AT @join__enumValue(graph: CHANGESETCOMMITTER)
 }
 
 input RepositoryCommitOrderByInput
@@ -5945,6 +5955,27 @@ type RepositoryCommitRunning implements RepositoryCommit
   options: CommitOptions!
 }
 
+"""Result status of a single repository within a commit operation."""
+enum RepositoryCommitStatus
+  @join__type(graph: CHANGESETCOMMITTER)
+{
+  QUEUED @join__enumValue(graph: CHANGESETCOMMITTER)
+  RUNNING @join__enumValue(graph: CHANGESETCOMMITTER)
+  SUCCEEDED @join__enumValue(graph: CHANGESETCOMMITTER)
+  FAILED @join__enumValue(graph: CHANGESETCOMMITTER)
+  CANCELED @join__enumValue(graph: CHANGESETCOMMITTER)
+  NO_CHANGES @join__enumValue(graph: CHANGESETCOMMITTER)
+}
+
+input RepositoryCommitStatusFilter
+  @join__type(graph: CHANGESETCOMMITTER)
+{
+  _eq: RepositoryCommitStatus
+  _neq: RepositoryCommitStatus
+  _in: [RepositoryCommitStatus!]
+  _nin: [RepositoryCommitStatus!]
+}
+
 """
 Repository commit completed successfully.
 Use `__typename` to determine the specific commit type.
@@ -5979,6 +6010,9 @@ input RepositoryCommitWhereInput
 
   """Filter by branch."""
   branch: StringFilter
+
+  """Filter by commit result status."""
+  status: RepositoryCommitStatusFilter
   _and: [RepositoryCommitWhereInput!]
   _or: [RepositoryCommitWhereInput!]
   _not: RepositoryCommitWhereInput

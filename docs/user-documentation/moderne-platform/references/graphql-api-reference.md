@@ -4041,7 +4041,23 @@ Result state of a repository within a changeset.
 
 ##### `RepositoryCommitOrderByField`
 
+* `ORIGIN`
+* `PATH`
+* `BRANCH`
+* `STATUS`
 * `STARTED_AT`
+* `UPDATED_AT`
+
+##### `RepositoryCommitStatus`
+
+Result status of a single repository within a commit operation.
+
+* `QUEUED`
+* `RUNNING`
+* `SUCCEEDED`
+* `FAILED`
+* `CANCELED`
+* `NO_CHANGES`
 
 ##### `RepositoryErrorReason`
 
@@ -5065,6 +5081,15 @@ Filter for repository changesets.
 | `field` | [RepositoryCommitOrderByField](#repositorycommitorderbyfield)! |  |
 | `direction` | [SortOrder](#sortorder)! |  |
 
+##### `RepositoryCommitStatusFilter`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [RepositoryCommitStatus](#repositorycommitstatus) |  |
+| `_neq` | [RepositoryCommitStatus](#repositorycommitstatus) |  |
+| `_in` | [[RepositoryCommitStatus](#repositorycommitstatus)!] |  |
+| `_nin` | [[RepositoryCommitStatus](#repositorycommitstatus)!] |  |
+
 ##### `RepositoryCommitWhereInput`
 
 Filter input for repository-level commit queries. Applied across the whole commit worklist
@@ -5075,6 +5100,7 @@ before pagination, so a search matches repositories that fall on later pages.
 | `origin` | [StringFilter](#stringfilter) | Filter by repository origin (the SCM host, e.g. github.com). |
 | `path` | [StringFilter](#stringfilter) | Filter by repository path (e.g. moderneinc/rewrite). Use `_icontains` to back the commit view's repository search box. |
 | `branch` | [StringFilter](#stringfilter) | Filter by branch. |
+| `status` | [RepositoryCommitStatusFilter](#repositorycommitstatusfilter) | Filter by commit result status. |
 | `_and` | [[RepositoryCommitWhereInput](#repositorycommitwhereinput)!] |  |
 | `_or` | [[RepositoryCommitWhereInput](#repositorycommitwhereinput)!] |  |
 | `_not` | [RepositoryCommitWhereInput](#repositorycommitwhereinput) |  |
