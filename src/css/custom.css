@@ -580,6 +580,9 @@ html[data-theme='dark'] .markdown a > code {
 .theme-admonition {
   border: 1px solid;
   border-radius: var(--neo-border-radius-m);
+  /* Flat design: hairline border only, no elevation (Infima's .alert adds a
+     shadow that reads wrong against the cream canvas). */
+  box-shadow: none;
   padding: var(--neo-spacing_2);
   display: flex;
   flex-direction: row;
@@ -639,69 +642,9 @@ html[data-theme='dark'] .markdown a > code {
   margin-bottom: 0;
 }
 
-/* Per-type colors */
-.theme-admonition-info {
-  background-color: var(--neo-digital-blue-50);
-  border-color: var(--neo-digital-blue-200);
-  color: var(--neo-digital-blue-600);
-}
-
-.theme-admonition-tip {
-  background-color: var(--neo-digital-green-50);
-  border-color: var(--neo-digital-green-300);
-  color: var(--neo-digital-green-800);
-}
-
-.theme-admonition-note {
-  background-color: var(--neo-grey-50);
-  border-color: var(--neo-grey-200);
-  color: var(--neo-grey-800);
-}
-
-.theme-admonition-warning,
-.theme-admonition-caution {
-  background-color: var(--neo-orange-50);
-  border-color: var(--neo-gold-200);
-  color: var(--neo-gold-800);
-}
-
-.theme-admonition-danger {
-  background-color: var(--neo-red-50);
-  border-color: var(--neo-red-200);
-  color: var(--neo-red-700);
-}
-
-/* Dark mode */
-html[data-theme='dark'] .theme-admonition-info {
-  background-color: var(--neo-digital-blue-900);
-  border-color: var(--neo-digital-blue-700);
-  color: var(--neo-digital-blue-100);
-}
-
-html[data-theme='dark'] .theme-admonition-tip {
-  background-color: var(--neo-digital-green-900);
-  border-color: var(--neo-digital-green-700);
-  color: var(--neo-digital-green-100);
-}
-
-html[data-theme='dark'] .theme-admonition-note {
-  background-color: var(--neo-grey-900);
-  border-color: var(--neo-grey-700);
-  color: var(--neo-grey-100);
-}
-
-html[data-theme='dark'] .theme-admonition-warning,
-html[data-theme='dark'] .theme-admonition-caution {
-  background-color: var(--neo-gold-900);
-  border-color: var(--neo-gold-700);
-  color: var(--neo-gold-100);
-}
-
-html[data-theme='dark'] .theme-admonition-danger {
-  background-color: var(--neo-red-900);
-  border-color: var(--neo-red-700);
-  color: var(--neo-red-100);
-}
+/* Per-type admonition tints live in morpheus-theme.css — the Morpheus
+   status tokens (--mor-status-*) are mode-aware, so one rule per type covers
+   both light and dark instead of the duplicated blocks that were here. */
 
 /* Colorblind-friendly code highlighting */
 :root {
@@ -723,4 +666,15 @@ html[data-theme='dark'] {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 calc(var(--ifm-pre-padding) - 3px) 0 var(--ifm-pre-padding);
+}
+
+/* With `showLineNumbers`, Docusaurus lays each line out as a CSS table-row so the
+   number gutter aligns. The full-bleed `display: block` + negative-margin
+   treatment above collapses that grid, so scope it out for numbered blocks and
+   keep the row intact — the row's background still highlights the code. */
+[class*='codeBlockLinesWithNumbering'] .theme-code-block-highlighted-line {
+  display: table-row;
+  margin: 0;
+  padding: 0;
+  border-left: none;
 }
