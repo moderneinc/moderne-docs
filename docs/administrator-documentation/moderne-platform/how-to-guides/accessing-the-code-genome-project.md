@@ -40,6 +40,8 @@ These credentials carry your customer entitlement, so they can pull MSAL and pro
 
 Add `https://artifacts.codegenomeproject.org/maven` as a new remote (proxy) repository in your Artifactory or Nexus, using your Code Genome Project credentials. Authenticate with HTTP Basic auth, using the token as the password. The username is not validated for token credentials, so any value works, though your Moderne-provided username keeps things clear.
 
+When ordering your virtual repositories, it's important that you put the Code Genome Project **below your internal repositories and above Maven Central**. If you put CGP _above_ your internal repositories, you will end up with getting a 404 from CGP and added latency in resolving those artifacts. If you put CGP _below_ Maven Central, you'll end up only seeing stale releases rather than the latest one in CGP.
+
 :::info
 Use the repository URL exactly as shown. Do not append a storage prefix such as `/oss`. The gateway adds the correct prefix for you, and an extra one causes the request to be rejected.
 :::
