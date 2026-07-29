@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.golang.codequality.CheckContextError"}
-  artifact={"org.openrewrite.recipe:recipes-go"}
+  artifact={"github.com/moderneinc/recipes-go"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.golang.codequality.CheckContextError"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/golang/codequality/checkcontexterror.md"}
   moderneOnly
@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.golang.codequality.CheckContextError","displayName":"Check context error","groupId":"org.openrewrite.recipe","artifactId":"recipes-go","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_RECIPES_GO","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.golang.codequality.CheckContextError","displayName":"Check context error","goPackage":"github.com/moderneinc/recipes-go","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_RECIPES_GO"}}>
 
 ## Usage
 

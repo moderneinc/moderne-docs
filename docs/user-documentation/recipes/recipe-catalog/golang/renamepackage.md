@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.golang.RenamePackage"}
-  artifact={"org.openrewrite.recipe:recipes-go"}
+  artifact={"github.com/moderneinc/recipes-go"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.golang.RenamePackage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/golang/renamepackage.md"}
   moderneOnly
@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.golang.RenamePackage","displayName":"Rename package","groupId":"org.openrewrite.recipe","artifactId":"recipes-go","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_RECIPES_GO","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPackagePath=github.com/old/foo\" --recipe-option \"newPackagePath=github.com/new/foo\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.golang.RenamePackage","displayName":"Rename package","goPackage":"github.com/moderneinc/recipes-go","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_RECIPES_GO"}}>
 
 ## Usage
 

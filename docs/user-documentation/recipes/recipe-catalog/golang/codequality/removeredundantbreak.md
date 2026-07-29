@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.golang.codequality.RemoveRedundantBreak"}
-  artifact={"org.openrewrite.recipe:recipes-go"}
+  artifact={"github.com/moderneinc/recipes-go"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.golang.codequality.RemoveRedundantBreak"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/golang/codequality/removeredundantbreak.md"}
   moderneOnly
@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.golang.codequality.RemoveRedundantBreak","displayName":"Remove redundant break","groupId":"org.openrewrite.recipe","artifactId":"recipes-go","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_RECIPES_GO","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.golang.codequality.RemoveRedundantBreak","displayName":"Remove redundant break","goPackage":"github.com/moderneinc/recipes-go","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_RECIPES_GO"}}>
 
 ## Usage
 
