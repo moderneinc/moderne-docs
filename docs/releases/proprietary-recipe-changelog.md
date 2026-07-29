@@ -10,6 +10,12 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## July 28, 2026
+
+#### rewrite-program-analysis - 0.13.6
+
+* Skip taint analysis for compilation units that cannot produce a flow
+
 ## July 23, 2026
 
 #### rewrite-devcenter - 1.29.0
