@@ -14,6 +14,7 @@ interface RunRecipeProps {
   npmPackage?: string;
   pipPackage?: string;
   nugetPackage?: string;
+  goPackage?: string;
 }
 
 export default function RunRecipe({
@@ -28,6 +29,7 @@ export default function RunRecipe({
   npmPackage,
   pipPackage,
   nugetPackage,
+  goPackage,
 }: RunRecipeProps) {
   // Replace {{VERSION_...}} placeholders with actual version numbers
   const resolveVersions = (text: string): string => {
@@ -100,6 +102,30 @@ export default function RunRecipe({
         <p>Then, you can run the recipe via:</p>
         <CodeBlock language="shell" title="Run the recipe">
           {`mod run . --recipe ${recipeName}`}
+        </CodeBlock>
+      </>
+    );
+  }
+
+  // Go recipes
+  if (goPackage) {
+    // Go module tags carry a `v` prefix, while the version key resolves to a bare X.Y.Z
+    const goModuleSpec = version ? `${goPackage}@v${version}` : goPackage;
+    return (
+      <>
+        <p>
+          In order to run Go recipes, you will need to use the{' '}
+          <a href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro">Moderne CLI</a>.
+          For Go specific configuration instructions, please see our{' '}
+          <a href="https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/go">configuring Go guide</a>.
+        </p>
+        <p>Once the CLI is installed, you can run the recipe via:</p>
+        <CodeBlock language="shell" title="Run the recipe">
+          {`mod run . --recipe ${cliRecipeName}${cliOptions}`}
+        </CodeBlock>
+        <p>If the recipe is not available locally, then you can install it using:</p>
+        <CodeBlock language="shell" title="Install the recipe module">
+          {`mod config recipes go install ${goModuleSpec}`}
         </CodeBlock>
       </>
     );

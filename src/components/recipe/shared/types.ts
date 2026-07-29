@@ -6,7 +6,7 @@ export interface RecipeExample { name?: string; parameters?: ExampleParameter[];
 export interface UsageProps {
   recipeName: string; displayName: string; groupId?: string; artifactId?: string; versionKey?: string;
   requiresConfiguration?: boolean; cliOptions?: string; useFullyQualifiedCliName?: boolean;
-  npmPackage?: string; pipPackage?: string; nugetPackage?: string;
+  npmPackage?: string; pipPackage?: string; nugetPackage?: string; goPackage?: string;
 }
 export interface RecipeOption { type: string; name: string; required: boolean; description: string; example?: string; }
 export interface RecipeDataTable { name: string; displayName: string; description: string; columns: DataTableColumn[]; }
