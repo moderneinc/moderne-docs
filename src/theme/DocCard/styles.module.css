@@ -46,7 +46,7 @@
 /* Card titles use both module class (cardTitle) and global class (doc-card-title)
    to allow global CSS to exclude them from document heading sizing */
 .cardTitle {
-  font-family: var(--neo-font-family-body), sans-serif;
+  font-family: var(--mor-font-sans), sans-serif;
   font-size: var(--neo-font-size-h6);
   font-weight: var(--neo-font-weight-semi-bold);
   line-height: 1.4;

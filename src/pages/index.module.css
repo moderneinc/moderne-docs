@@ -45,12 +45,36 @@
   margin: 0;
 }
 
-/* Signature Morpheus spectral gradient on the first headline line */
+/* Signature Morpheus spectral gradient on the first headline line.
+   Light mode ends on a dark, high-contrast stop (--mor-link) so the pale
+   green/lime tail of the full spectral run doesn't fall below WCAG contrast on
+   the cream canvas; dark mode keeps the full spectral, which reads fine there. */
 .heroHeadingGrad {
-  background: var(--mor-spectral);
+  background: linear-gradient(
+    92deg,
+    var(--mor-spectral-1),
+    var(--mor-spectral-2),
+    var(--mor-spectral-3),
+    var(--mor-link)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+:global(html[data-theme='dark']) .heroHeadingGrad {
+  background: var(--mor-spectral);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Under forced-colors (e.g. Windows High Contrast) the gradient + transparent
+   text collapses to an invisible headline; fall back to a system color. */
+@media (forced-colors: active) {
+  .heroHeadingGrad {
+    background: none;
+    color: CanvasText;
+  }
 }
 
 .heroHeadingDark {

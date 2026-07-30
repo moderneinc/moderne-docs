@@ -14,7 +14,7 @@
 
 .segment {
   padding: var(--neo-spacing_1_2) var(--neo-spacing_2);
-  font-family: var(--neo-font-family-body);
+  font-family: var(--mor-font-sans);
   font-size: var(--neo-font-size-sm);
   font-weight: var(--neo-font-weight-medium);
   line-height: 1.4;

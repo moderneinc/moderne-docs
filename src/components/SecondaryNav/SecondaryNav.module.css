@@ -9,7 +9,9 @@
   padding: 0 var(--neo-spacing_4);
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #D4D3E4;
+  /* Mode-aware hairline; matches the sidebar container divider
+     (--ifm-toc-border-color -> --brand-dark-lavender -> --mor-line). */
+  border-bottom: 1px solid var(--mor-line);
 }
 
 @media (min-width: 997px) {
@@ -69,7 +71,7 @@
   align-items: center;
   gap: var(--neo-spacing_1_2);
   padding: var(--neo-spacing_1) 0;
-  font-family: var(--neo-font-family-body);
+  font-family: var(--mor-font-sans);
   font-size: var(--neo-font-size-default);
   font-weight: var(--neo-font-weight-medium);
   color: var(--ifm-navbar-link-color);
@@ -127,7 +129,7 @@
   align-items: center;
   gap: var(--neo-spacing_1);
   padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
-  font-family: var(--neo-font-family-body);
+  font-family: var(--mor-font-sans);
   font-size: var(--neo-font-size-sm);
   color: var(--ifm-navbar-link-color);
   text-decoration: none;
@@ -157,7 +159,10 @@
 
 /* Dark mode adjustments */
 :global(html[data-theme='dark']) .dropdown {
-  background: var(--brand-midnight);
+  /* Explicit dark card surface. Previously var(--brand-midnight), but that token
+     is now remapped to --mor-text (a light color in dark mode), which made this
+     panel near-white — light nav text then rendered ~1:1 on it. */
+  background: var(--mor-card);
   border-color: rgba(255, 255, 255, 0.2);
 }
 

@@ -26,7 +26,7 @@
   color: var(--mor-text);
 
   /* Typography */
-  font-family: var(--neo-font-family-body);
+  font-family: var(--mor-font-sans);
 
   /* Transitions */
   transition: all 0.2s ease-in-out;
@@ -113,7 +113,7 @@
 
   /* Title */
   .card__title {
-    font-family: var(--neo-font-family-heading);
+    font-family: var(--mor-font-sans);
     font-size: var(--neo-font-size-h6);
     font-weight: var(--neo-font-weight-semi-bold);
     line-height: 1.4;
@@ -127,7 +127,7 @@
 
   /* Description */
   .card__description {
-    font-family: var(--neo-font-family-body);
+    font-family: var(--mor-font-sans);
     font-size: var(--neo-font-size-xs);
     font-weight: var(--neo-font-weight-regular);
     line-height: 1.5;

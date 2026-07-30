@@ -21,11 +21,7 @@ export default function EditMetaRow({
     <div className={clsx('row', className)}>
       <div className={clsx('col', styles.noPrint, styles.editCol)}>
         {editUrl && <EditThisPage editUrl={editUrl} />}
-        <Link
-          to="mailto:support@moderne.io"
-          className={styles.feedback}
-          aria-label="Give feedback"
-        >
+        <Link href="mailto:support@moderne.io" className={styles.feedback}>
           <MessageCircleIcon size={16} />
           Give feedback
         </Link>

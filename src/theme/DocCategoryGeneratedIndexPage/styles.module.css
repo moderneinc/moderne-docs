@@ -77,7 +77,7 @@
 }
 
 .header .title {
-  font-family: var(--neo-font-family-heading), sans-serif;
+  font-family: var(--mor-font-sans), sans-serif;
   font-size: 36px;
   font-weight: var(--neo-font-weight-semi-bold);
   line-height: 45px;
