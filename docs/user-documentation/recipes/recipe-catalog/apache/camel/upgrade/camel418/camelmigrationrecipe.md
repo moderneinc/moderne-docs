@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate camel-kafka headers","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418/upgradekafkarecipes/"},{"name":"Migrate camel-dns header constants to new naming convention","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418/upgradednsheaders/"},{"name":"Migrate camel-salesforce header constants to new naming convention","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418/upgradesalesforceheaders/"}]}>
 
 ## Definition
 

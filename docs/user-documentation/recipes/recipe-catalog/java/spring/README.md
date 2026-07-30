@@ -11,6 +11,7 @@ _Recipes for upgrading and patching [Spring](https://spring.io/) applications._
 * [AMQP](/user-documentation/recipes/recipe-catalog/java/spring/amqp)
 * [Boot](/user-documentation/recipes/recipe-catalog/java/spring/boot)
 * [Boot4](/user-documentation/recipes/recipe-catalog/java/spring/boot4)
+* [Cloud](/user-documentation/recipes/recipe-catalog/java/spring/cloud)
 * [Cloud2020](/user-documentation/recipes/recipe-catalog/java/spring/cloud2020)
 * [Cloud2021](/user-documentation/recipes/recipe-catalog/java/spring/cloud2021)
 * [Cloud2025](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025)
@@ -39,6 +40,7 @@ _Recipes for upgrading and patching [Spring](https://spring.io/) applications._
 * [Spring Security 5.x](/user-documentation/recipes/recipe-catalog/java/spring/security5)
 * [Spring Security 6.x](/user-documentation/recipes/recipe-catalog/java/spring/security6)
 * [Test](/user-documentation/recipes/recipe-catalog/java/spring/test)
+* [Util](/user-documentation/recipes/recipe-catalog/java/spring/util)
 * [Ws](/user-documentation/recipes/recipe-catalog/java/spring/ws)
 
 ## Composite Recipes

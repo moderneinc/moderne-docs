@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find committers on repositories","href":"/user-documentation/recipes/recipe-catalog/search/findcommitters/"},{"name":"Build tool","href":"/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard/"},{"name":"Build tool","href":"/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard/"},{"name":"Move to a later Java version","href":"/user-documentation/recipes/recipe-catalog/devcenter/javaversionupgrade/"}]}>
+<RecipeList recipes={[{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find active committers on repositories","href":"/user-documentation/recipes/recipe-catalog/devcenter/findactivecommitters/"},{"name":"Build tool","href":"/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard/"},{"name":"Build tool","href":"/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard/"},{"name":"Move to a later Java version","href":"/user-documentation/recipes/recipe-catalog/devcenter/javaversionupgrade/"}]}>
 
 ## Definition
 

@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Camel YML transform changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel417/yamltransform417recipe/"}]}>
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Camel YML transform changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel417/yamltransform417recipe/"}]}>
 
 ## Definition
 

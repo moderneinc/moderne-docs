@@ -1,44 +1,49 @@
 ---
-title: "Migrate Spring Boot properties to 4.1"
-sidebar_label: "Migrate Spring Boot properties to 4.1"
+title: "Remove camel-aws-xray dependency"
+sidebar_label: "Remove camel-aws-xray dependency"
 hide_title: true
 ---
+
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/camel/upgrade/camel421/removecamelawsxraydependency" />
+</head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate Spring Boot properties to 4.1"}
-  description={"Migrate properties found in `application.properties` and `application.yml`."}
-  fqName={"io.moderne.java.spring.boot4.SpringBootProperties_4_1"}
+  displayName={"Remove camel-aws-xray dependency"}
+  description={"Removes the camel-aws-xray dependency which was removed in Camel 4.21 (deprecated since 4.17, AWS X-Ray service in maintenance mode)."}
+  fqName={"org.apache.camel.upgrade.camel421.removeCamelAwsXrayDependency"}
   languages={["OpenRewrite"]}
-  license={"Moderne Proprietary License"}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/search?type=code&q=org.apache.camel.upgrade.camel421.removeCamelAwsXrayDependency"}
 />
 
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","boot"]}
-  license={"Moderne Proprietary License"}
-  fqName={"io.moderne.java.spring.boot4.SpringBootProperties_4_1"}
-  artifact={"io.moderne.recipe:rewrite-spring"}
-  appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.SpringBootProperties_4_1"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_1.md"}
-  moderneOnly
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.apache.camel.upgrade.camel421.removeCamelAwsXrayDependency"}
+  artifact={"org.openrewrite.recipe:rewrite-third-party"}
+  appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel421.removeCamelAwsXrayDependency"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/removecamelawsxraydependency.md"}
 >
 
-<RecipeHeader.Title>Migrate Spring Boot properties to 4.1</RecipeHeader.Title>
+<RecipeHeader.Title>Remove camel-aws-xray dependency</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate properties found in `application.properties` and `application.yml`.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes the camel-aws-xray dependency which was removed in Camel 4.21 (deprecated since 4.17, AWS X-Ray service in maintenance mode).</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Comment out Spring properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey/"},{"name":"Comment out Spring properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey/"},{"name":"Comment out Spring properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey/"},{"name":"Comment out Spring properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.spring.boot4.SpringBootProperties_4_1","displayName":"Migrate Spring Boot properties to 4.1","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel421.removeCamelAwsXrayDependency","displayName":"Remove camel-aws-xray dependency","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Upgrade to React 16","href":"/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-16/"},{"name":"Add `UNSAFE_` prefix to deprecated lifecycle methods","href":"/user-documentation/recipes/recipe-catalog/react/17/rename-unsafe-lifecycles/"},{"name":"Remove unnecessary React imports","href":"/user-documentation/recipes/recipe-catalog/react/17/update-react-imports/"},{"name":"Remove `event.persist()` calls","href":"/user-documentation/recipes/recipe-catalog/react/17/remove-event-persist/"}]}>
+<RecipeList recipes={[{"name":"Upgrade to React 16","href":"/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-16/"},{"name":"Add `UNSAFE_` prefix to deprecated lifecycle methods","href":"/user-documentation/recipes/recipe-catalog/react/17/rename-unsafe-lifecycles/"},{"name":"Remove unnecessary React imports","href":"/user-documentation/recipes/recipe-catalog/react/17/update-react-imports/"},{"name":"Remove `event.persist()` calls","href":"/user-documentation/recipes/recipe-catalog/react/17/remove-event-persist/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"}]}>
 
 ## Definition
 

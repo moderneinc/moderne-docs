@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find committers on repositories","href":"/user-documentation/recipes/recipe-catalog/search/findcommitters/"},{"name":"Vulnerabilities status","href":"/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck/"},{"name":"Vulnerabilities status","href":"/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck/"},{"name":"Vulnerabilities status","href":"/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck/"}]}>
+<RecipeList recipes={[{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find active committers on repositories","href":"/user-documentation/recipes/recipe-catalog/devcenter/findactivecommitters/"},{"name":"Vulnerabilities status","href":"/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck/"},{"name":"Vulnerabilities status","href":"/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck/"},{"name":"Vulnerabilities status","href":"/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck/"}]}>
 
 ## Definition
 
