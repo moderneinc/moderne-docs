@@ -2,6 +2,9 @@ import { defineConfig } from 'vitest/config';
 import path from 'path';
 
 export default defineConfig({
+  // @docusaurus/tsconfig sets jsx: preserve for the editor, which leaves JSX in .tsx test files
+  // untransformed. Vite's own automatic runtime handles it instead.
+  oxc: { jsx: 'automatic' },
   test: {
     environment: 'happy-dom',
     globals: true,

@@ -66,22 +66,36 @@ export default function RunRecipe({
     );
   }
 
-  // Python recipes
+  // Python recipes. A recipe module can publish its recipes across both a pip package and a jar, with
+  // recipes in one half delegating to the other at runtime; when both coordinates are given, installing
+  // only one half leaves the delegated steps unresolvable, so both commands are shown together.
   if (pipPackage) {
     const pipPackageSpec = version ? `${pipPackage}==${version}` : pipPackage;
+    const installCommands = [`mod config recipes pip install ${pipPackageSpec}`];
+    if (hasDependency && version) {
+      installCommands.push(`mod config recipes jar install ${groupId}:${artifactId}:${version}`);
+    }
+    const dualPublished = installCommands.length > 1;
     return (
       <>
         <p>
           In order to run Python recipes, you will need to use the{' '}
           <a href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro">Moderne CLI</a>.
         </p>
-        <p>Once the CLI is installed, you can install this Python recipe package by running the following command:</p>
-        <CodeBlock language="shell" title="Install the recipe package">
-          {`mod config recipes pip install ${pipPackageSpec}`}
+        <p>
+          {dualPublished
+            ? 'This recipe comes from a module that publishes its recipes to both PyPI and Maven Central, and recipes in one package call into the other. Once the CLI is installed, install both packages:'
+            : 'Once the CLI is installed, you can install this Python recipe package by running the following command:'}
+        </p>
+        <CodeBlock
+          language="shell"
+          title={dualPublished ? 'Install the recipe packages' : 'Install the recipe package'}
+        >
+          {installCommands.join('\n')}
         </CodeBlock>
         <p>Then, you can run the recipe via:</p>
         <CodeBlock language="shell" title="Run the recipe">
-          {`mod run . --recipe ${recipeName}`}
+          {`mod run . --recipe ${recipeName}${cliOptions}`}
         </CodeBlock>
       </>
     );

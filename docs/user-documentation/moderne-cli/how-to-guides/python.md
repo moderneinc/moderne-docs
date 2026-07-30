@@ -125,7 +125,7 @@ Presuming everything has been set up correctly, you should see output similar to
 
 ## Step 4: Install recipes
 
-In order to run recipes, you'll need to make sure the recipes are installed on your local machine. For example, you can install recipes from a JAR or a pip package:
+In order to run recipes, you'll need to make sure the recipes are installed on your local machine. Python recipes come from JARs, pip packages, or both:
 
 ```bash
 mod config recipes jar install org.openrewrite:rewrite-python:{{VERSION_ORG_OPENREWRITE_REWRITE_PYTHON}}
@@ -134,6 +134,15 @@ mod config recipes jar install org.openrewrite:rewrite-python:{{VERSION_ORG_OPEN
 ```bash
 mod config recipes pip install openrewrite-migrate-python=={{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON}}
 ```
+
+:::info
+The Python migration recipes are split across two packages that work together. The `openrewrite-migrate-python` pip package holds the source migrations and the `UpgradeToPython3XX` composites, while the `org.openrewrite.recipe:rewrite-migrate-python` JAR holds the project file, Dockerfile, CloudFormation, and Mend `.whitesource` updates that those composites call into. Install both, or the composites will silently skip the steps they delegate:
+
+```bash
+mod config recipes pip install openrewrite-migrate-python=={{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON}}
+mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-python:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON}}
+```
+:::
 
 :::tip
 You can find the specific installation command for any recipe on its page in the [recipe catalog](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/).
