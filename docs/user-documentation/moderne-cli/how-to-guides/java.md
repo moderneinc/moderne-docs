@@ -163,7 +163,7 @@ mod config java options delete
 
 ## Step 3: (Optionally) Configure Gradle
 
-By default, the CLI uses the Gradle wrapper (`gradlew`) included in each repository. If a repository doesn't include a wrapper, the CLI falls back to Gradle installations it discovers on your machine.
+By default, the CLI uses the Gradle wrapper (`gradlew`) included in each repository. If a repository doesn't include a wrapper, the CLI falls back to Gradle installations it discovers on your machine. If you explicitly [select a version](#selecting-a-version), that version is used instead of the wrapper.
 
 ### Discovering installations
 
@@ -203,7 +203,9 @@ mod config build gradle installation delete
 
 ### Selecting a version
 
-When a repository does not include a Gradle wrapper, you can tell the CLI which Gradle version to use. The version must exactly match one of the installations known to the CLI.
+You can tell the CLI which Gradle version to use rather than letting it pick one. The version must exactly match one of the installations known to the CLI. If no installation matches, the build fails with an error rather than falling back to another version.
+
+An explicitly selected version takes precedence over a repository's Gradle wrapper. This is useful when wrappers are stale, point at an unreachable distribution URL, or otherwise can't be used to build.
 
 To set a Gradle version globally:
 
@@ -240,7 +242,7 @@ When cloning using `mod git sync csv`, you can add a `gradleVersion` column to t
 ```
 
 :::tip
-If a repository has a Gradle wrapper, the wrapper always takes precedence regardless of the configured Gradle version. The `gradleVersion` setting only applies to repositories without a wrapper.
+`gradleVersion` takes precedence over a repository's Gradle wrapper. When a repository has a wrapper and a version is configured, the CLI logs `Using configured Gradle version <version> instead of the project's Gradle wrapper` and builds with the configured installation. Leave the column empty (or unset the version) to keep the default behavior of using the wrapper.
 :::
 
 ### Passing Gradle arguments
