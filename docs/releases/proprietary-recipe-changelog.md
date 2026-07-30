@@ -10,6 +10,167 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## July 30, 2026
+
+#### rewrite-react - v0.4.1
+
+* Fix UpgradeDependencyVersion against rewrite 8.88.0
+
+## July 29, 2026
+
+#### rewrite-ai - 0.4.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-ai-search - 0.35.3
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-android - 0.18.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-angular - 1.7.0
+
+* Bump ts-jest from 29.4.11 to 29.4.12 in /recipes-angular[bot]
+
+#### rewrite-circleci - 3.12.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-cobol - 2.20.3
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-codemods - 0.27.2
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-codemods-ng - 0.21.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-compiled-analysis - 0.14.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-concourse - 3.11.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-cryptography - 0.14.10
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-devcenter - 1.30.0
+
+* Bound contributing developers to the last 90 days
+
+#### rewrite-dotnet - 0.17.2
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-dropwizard - 0.5.6
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-elastic - 0.8.2
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-hibernate - 0.26.3
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-jasperreports - 0.6.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-java-application-server - 0.7.9
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-java-security - 3.36.0
+
+* Update dependency vulnerability test expectations for CVE-2026-54515
+* Wire six unreferenced security recipes into their composites
+* Add Owasp2025A08 to reach the software and data integrity recipes
+* Governance-aware Maven dependency vulnerability remediation
+
+#### rewrite-kafka - 0.7.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-kubernetes - 3.17.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-migrate-kotlin - 0.6.3
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-migrate-python - 0.11.0
+
+* Reflect native lock regeneration in UpgradePythonVersion docs
+
+#### rewrite-nodejs - 0.47.3
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-nullability - 0.3.1
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-prethink - 0.11.1
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-program-analysis - 0.13.7
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-react - 0.4.0
+
+* Bump react packages in UpgradeToReact16/17/18/19 composites
+
+#### rewrite-reactive-streams - 0.20.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-release-metromap - 0.4.3
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-spring - 0.39.0
+
+* Migrate @AutoConfigureWireMock to wiremock-spring-boot
+* Relocate `web.embedded.netty` types to `reactor.netty` for Spring Boot 4.0
+* Narrow autoconfigure.web relocations to classes that actually moved in Spring Boot 4
+* Add Kotlin `@Retryable` regression tests for wildcard-typed template parameters
+* Unbreak main: call getVisitor() on ListenableToCompletableFuture in MigrateListenableFuture
+* Remove SB4 post-rename modular starter triggers superseded by OSS additions
+* Update gRPC YAML expectation for corrected ChangePropertyKey indentation
+
+#### rewrite-sql - 2.14.1
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-struts - 0.26.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-tapestry - 0.4.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-terraform - 3.14.6
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-vulncheck - 0.7.6
+
+* Updated repository to use OpenRewrite version v8.88.0
+
 ## July 28, 2026
 
 #### rewrite-program-analysis - 0.13.6
