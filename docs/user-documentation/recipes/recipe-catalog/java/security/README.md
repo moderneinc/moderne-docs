@@ -44,6 +44,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Regular Expression Denial of Service (ReDOS)](./regularexpressiondenialofservice.md)
 * [Remediate OWASP A05:2021 Security misconfiguration](./owaspa05.md)
 * [Remediate OWASP A06:2021 Vulnerable and outdated components](./owaspa06.md)
+* [Remediate OWASP A08:2025 Software or data integrity failures](./owasp2025a08.md)
 * [Remediate server-side request forgery (SSRF)](./fixcwe918.md)
 * [Replace `Runtime.exec(String)` with `Runtime.exec(String[])`](./fixcommandinjectionliteral.md)
 * [Replace SQL string concatenation with a `PreparedStatement`](./fixsqlinjectionconcat.md)

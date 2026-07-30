@@ -1,49 +1,49 @@
 ---
-title: "Simplify AssertJ assertions on `null` reference comparisons"
-sidebar_label: "Simplify AssertJ assertions on `null` reference comparisons"
+title: "Remove camel-stomp dependency"
+sidebar_label: "Remove camel-stomp dependency"
 hide_title: true
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/testing/assertj/simplifyassertjnullrelatedassertion" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/camel/upgrade/camel421/removecamelstompdependency" />
 </head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Simplify AssertJ assertions on `null` reference comparisons"}
-  description={"Replace `assertThat(x == null).isTrue()` and its variants with the dedicated `assertThat(x).isNull()` / `assertThat(x).isNotNull()`. Beyond being more expressive, this avoids the compilation error that results when the `null` literal ends up as the `assertThat` argument (e.g. `assertThat(null == x).isTrue()` becoming `assertThat(null).isSameAs(x)`)."}
-  fqName={"org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion"}
-  languages={["Java"]}
-  license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/assertj/SimplifyAssertJNullRelatedAssertion.java"}
+  displayName={"Remove camel-stomp dependency"}
+  description={"Removes the camel-stomp dependency which was removed in Camel 4.21 (deprecated since 4.17)."}
+  fqName={"org.apache.camel.upgrade.camel421.removeCamelStompDependency"}
+  languages={["OpenRewrite"]}
+  license={"Apache License Version 2.0"}
+  sourceUrl={"https://github.com/search?type=code&q=org.apache.camel.upgrade.camel421.removeCamelStompDependency"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
-  languages={["Java"]}
-  tags={["RSPEC-S5838"]}
-  license={"Moderne Source Available License"}
-  fqName={"org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion"}
-  artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
-  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjnullrelatedassertion.md"}
+  type={"Composite recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Apache License Version 2.0"}
+  fqName={"org.apache.camel.upgrade.camel421.removeCamelStompDependency"}
+  artifact={"org.openrewrite.recipe:rewrite-third-party"}
+  appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel421.removeCamelStompDependency"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/removecamelstompdependency.md"}
 >
 
-<RecipeHeader.Title>Simplify AssertJ assertions on `null` reference comparisons</RecipeHeader.Title>
+<RecipeHeader.Title>Remove camel-stomp dependency</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `assertThat(x == null).isTrue()` and its variants with the dedicated `assertThat(x).isNull()` / `assertThat(x).isNotNull()`. Beyond being more expressive, this avoids the compilation error that results when the `null` literal ends up as the `assertThat` argument (e.g. `assertThat(null == x).isTrue()` becoming `assertThat(null).isSameAs(x)`).</RecipeHeader.Description>
+<RecipeHeader.Description>Removes the camel-stomp dependency which was removed in Camel 4.21 (deprecated since 4.17).</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass A {\n    void foo(Object a) {\n        assertThat(null == a).isTrue();\n        assertThat(a == null).isTrue();\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass A {\n    void foo(Object a) {\n        assertThat(a).isNull();\n        assertThat(a).isNull();\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass A {\n    void foo(Object a) {\n-       assertThat(null == a).isTrue();\n-       assertThat(a == null).isTrue();\n+       assertThat(a).isNull();\n+       assertThat(a).isNull();\n    }\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"}]}>
 
-## Examples
+## Definition
 
-</ExampleList>
+</RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion","displayName":"Simplify AssertJ assertions on `null` reference comparisons","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel421.removeCamelStompDependency","displayName":"Remove camel-stomp dependency","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

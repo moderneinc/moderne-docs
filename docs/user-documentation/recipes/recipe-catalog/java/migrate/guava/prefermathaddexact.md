@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `Math#addExact`"}
-  description={"Prefer `java.lang.Math#addExact` instead of using `com.google.common.math.IntMath#checkedAdd` or `com.google.common.math.IntMath#addExact`."}
+  description={"Prefer `java.lang.Math#addExact` instead of using `com.google.common.math.IntMath#checkedAdd`."}
   fqName={"org.openrewrite.java.migrate.guava.PreferMathAddExact"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `Math#addExact`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `java.lang.Math#addExact` instead of using `com.google.common.math.IntMath#checkedAdd` or `com.google.common.math.IntMath#addExact`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `java.lang.Math#addExact` instead of using `com.google.common.math.IntMath#checkedAdd`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

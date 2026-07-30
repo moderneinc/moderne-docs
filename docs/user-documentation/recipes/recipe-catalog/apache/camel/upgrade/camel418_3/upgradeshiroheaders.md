@@ -1,43 +1,49 @@
 ---
-title: "Camel XML DSL Saga EIP restructuring"
-sidebar_label: "Camel XML DSL Saga EIP restructuring"
+title: "Migrate camel-shiro security header constants to new naming convention"
+sidebar_label: "Migrate camel-shiro security header constants to new naming convention"
 hide_title: true
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/camel/upgrade/camel419/xmldsl419sagarecipe" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/camel/upgrade/camel418_3/upgradeshiroheaders" />
 </head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Camel XML DSL Saga EIP restructuring"}
-  description={"Apache Camel XML DSL migration from version 4.18 to 4.19. Converts saga compensation and completion child elements to attributes."}
-  fqName={"org.apache.camel.upgrade.camel419.XmlDsl419SagaRecipe"}
+  displayName={"Migrate camel-shiro security header constants to new naming convention"}
+  description={"Renames Shiro security header constants from SHIRO_SECURITY_* to CamelShiroSecurity* pattern only if camel-shiro dependency is present."}
+  fqName={"org.apache.camel.upgrade.camel418_3.upgradeShiroHeaders"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
-  sourceUrl={"https://github.com/search?type=code&q=org.apache.camel.upgrade.camel419.XmlDsl419SagaRecipe"}
+  sourceUrl={"https://github.com/search?type=code&q=org.apache.camel.upgrade.camel418_3.upgradeShiroHeaders"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
   license={"Apache License Version 2.0"}
-  fqName={"org.apache.camel.upgrade.camel419.XmlDsl419SagaRecipe"}
+  fqName={"org.apache.camel.upgrade.camel418_3.upgradeShiroHeaders"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
-  appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel419.XmlDsl419SagaRecipe"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/xmldsl419sagarecipe.md"}
+  appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel418_3.upgradeShiroHeaders"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradeshiroheaders.md"}
 >
 
-<RecipeHeader.Title>Camel XML DSL Saga EIP restructuring</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate camel-shiro security header constants to new naming convention</RecipeHeader.Title>
 
-<RecipeHeader.Description>Apache Camel XML DSL migration from version 4.18 to 4.19. Converts saga compensation and completion child elements to attributes.</RecipeHeader.Description>
+<RecipeHeader.Description>Renames Shiro security header constants from SHIRO_SECURITY_* to CamelShiroSecurity* pattern only if camel-shiro dependency is present.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel419.XmlDsl419SagaRecipe","displayName":"Camel XML DSL Saga EIP restructuring","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<RecipeList recipes={[{"name":"Rename Camel header(s) across all DSLs","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaders/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel418_3.upgradeShiroHeaders","displayName":"Migrate camel-shiro security header constants to new naming convention","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

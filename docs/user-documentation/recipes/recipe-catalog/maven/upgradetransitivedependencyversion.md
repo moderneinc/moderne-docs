@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade transitive Maven dependencies"}
-  description={"Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive."}
+  description={"Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. When the transitive dependency's version is already governed by a plain `<dependencyManagement>` entry in the project, that entry is upgraded in place rather than adding a duplicate; otherwise (including a version supplied by an imported BOM) a new managed dependency is added. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive."}
   fqName={"org.openrewrite.maven.UpgradeTransitiveDependencyVersion"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade transitive Maven dependencies</RecipeHeader.Title>
 
-<RecipeHeader.Description>Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.</RecipeHeader.Description>
+<RecipeHeader.Description>Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. When the transitive dependency's version is already governed by a plain `<dependencyManagement>` entry in the project, that entry is upgraded in place rather than adding a duplicate; otherwise (including a version supplied by an imported BOM) a new managed dependency is added. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.</RecipeHeader.Description>
 
 </RecipeHeader>
 

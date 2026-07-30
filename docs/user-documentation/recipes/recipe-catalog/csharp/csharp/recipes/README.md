@@ -9,6 +9,7 @@ description: Recipes OpenRewrite recipes.
 * [Add NuGet package reference](./addnugetpackagereference.md)
 * [Add framework reference](./addframeworkreference.md)
 * [Change .NET target framework](./changedotnettargetframework.md)
+* [Convert `packages.config` to `&lt;PackageReference&gt;`](./convertpackagesconfigtopackagereference.md)
 * [Ensure csproj attestation](./ensurecsprojattestation.md)
 * [Find NuGet package reference](./findnugetpackagereference.md)
 * [List .NET dependencies (SBOM)](./listdependencies.md)

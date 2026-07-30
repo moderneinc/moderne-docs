@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `Math#multiplyExact`"}
-  description={"Prefer `java.lang.Math#multiplyExact` instead of using `com.google.common.primitives.IntMath#checkedMultiply` or `com.google.common.primitives.IntMath#multiplyExact`."}
+  description={"Prefer `java.lang.Math#multiplyExact` instead of using `com.google.common.math.IntMath#checkedMultiply`."}
   fqName={"org.openrewrite.java.migrate.guava.PreferMathMultiplyExact"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `Math#multiplyExact`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `java.lang.Math#multiplyExact` instead of using `com.google.common.primitives.IntMath#checkedMultiply` or `com.google.common.primitives.IntMath#multiplyExact`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `java.lang.Math#multiplyExact` instead of using `com.google.common.math.IntMath#checkedMultiply`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

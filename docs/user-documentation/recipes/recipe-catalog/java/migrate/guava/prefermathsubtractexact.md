@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `Math#subtractExact`"}
-  description={"Prefer `java.lang.Math#subtractExact` instead of using `com.google.common.primitives.IntMath#checkedSubtract` or `com.google.common.primitives.IntMath#subtractExact`."}
+  description={"Prefer `java.lang.Math#subtractExact` instead of using `com.google.common.math.IntMath#checkedSubtract`."}
   fqName={"org.openrewrite.java.migrate.guava.PreferMathSubtractExact"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `Math#subtractExact`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `java.lang.Math#subtractExact` instead of using `com.google.common.primitives.IntMath#checkedSubtract` or `com.google.common.primitives.IntMath#subtractExact`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `java.lang.Math#subtractExact` instead of using `com.google.common.math.IntMath#checkedSubtract`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

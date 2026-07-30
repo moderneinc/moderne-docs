@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.33.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_33_0/"},{"name":"io.quarkus.updates.core.quarkus337.PanacheNextRelocations","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus337/panachenextrelocations/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
+<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.33.1","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_33_1/"},{"name":"io.quarkus.updates.core.quarkus337.PanacheNextRelocations","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus337/panachenextrelocations/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

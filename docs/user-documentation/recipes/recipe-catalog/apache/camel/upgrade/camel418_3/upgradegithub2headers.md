@@ -1,43 +1,49 @@
 ---
-title: "Camel YAML DSL Saga EIP restructuring"
-sidebar_label: "Camel YAML DSL Saga EIP restructuring"
+title: "Migrate camel-github2 producer header constants to new naming convention"
+sidebar_label: "Migrate camel-github2 producer header constants to new naming convention"
 hide_title: true
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/camel/upgrade/camel419/yamldsl419sagarecipe" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/apache/camel/upgrade/camel418_3/upgradegithub2headers" />
 </head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Camel YAML DSL Saga EIP restructuring"}
-  description={"Apache Camel YAML DSL migration from version 4.18 to 4.19. Flattens saga compensation and completion nested uri to direct values."}
-  fqName={"org.apache.camel.upgrade.camel419.YamlDsl419SagaRecipe"}
+  displayName={"Migrate camel-github2 producer header constants to new naming convention"}
+  description={"Renames GitHub2 producer header constants to CamelGitHub* pattern only if camel-github dependency is present."}
+  fqName={"org.apache.camel.upgrade.camel418_3.upgradeGitHub2Headers"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
-  sourceUrl={"https://github.com/search?type=code&q=org.apache.camel.upgrade.camel419.YamlDsl419SagaRecipe"}
+  sourceUrl={"https://github.com/search?type=code&q=org.apache.camel.upgrade.camel418_3.upgradeGitHub2Headers"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
   license={"Apache License Version 2.0"}
-  fqName={"org.apache.camel.upgrade.camel419.YamlDsl419SagaRecipe"}
+  fqName={"org.apache.camel.upgrade.camel418_3.upgradeGitHub2Headers"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
-  appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel419.YamlDsl419SagaRecipe"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/yamldsl419sagarecipe.md"}
+  appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel418_3.upgradeGitHub2Headers"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradegithub2headers.md"}
 >
 
-<RecipeHeader.Title>Camel YAML DSL Saga EIP restructuring</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate camel-github2 producer header constants to new naming convention</RecipeHeader.Title>
 
-<RecipeHeader.Description>Apache Camel YAML DSL migration from version 4.18 to 4.19. Flattens saga compensation and completion nested uri to direct values.</RecipeHeader.Description>
+<RecipeHeader.Description>Renames GitHub2 producer header constants to CamelGitHub* pattern only if camel-github dependency is present.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel419.YamlDsl419SagaRecipe","displayName":"Camel YAML DSL Saga EIP restructuring","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<RecipeList recipes={[{"name":"Rename Camel header(s) across all DSLs","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaders/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel418_3.upgradeGitHub2Headers","displayName":"Migrate camel-github2 producer header constants to new naming convention","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

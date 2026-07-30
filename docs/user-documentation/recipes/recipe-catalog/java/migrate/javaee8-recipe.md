@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Migrate to JavaEE7","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee7-recipe/"},{"name":"Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/servletisrequestedsessionidfromurl/"},{"name":"Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/apachedefaultprovider/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate to JavaEE7","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee7-recipe/"},{"name":"Update Java EE Servlet Dependencies to 3.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/migratetoservlet3x/"},{"name":"Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/servletisrequestedsessionidfromurl/"},{"name":"Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/apachedefaultprovider/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

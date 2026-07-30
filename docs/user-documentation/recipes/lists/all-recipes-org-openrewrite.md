@@ -202,7 +202,7 @@ _1 recipe_
 
 _License: Apache License Version 2.0_
 
-_79 recipes_
+_80 recipes_
 
 * [org.openrewrite.gradle.AddDependency](/user-documentation/recipes/recipe-catalog/gradle/adddependency.md)
   * **Add Gradle dependency**
@@ -288,6 +288,9 @@ _79 recipes_
 * [org.openrewrite.gradle.RemoveDependency](/user-documentation/recipes/recipe-catalog/gradle/removedependency.md)
   * **Remove a Gradle dependency**
   * Removes a single dependency from the dependencies section of the `build.gradle`.
+* [org.openrewrite.gradle.RemoveEmptyBuildscriptBlock](/user-documentation/recipes/recipe-catalog/gradle/removeemptybuildscriptblock.md)
+  * **Remove empty `buildscript` block**
+  * Removes a `buildscript` block from `build.gradle(.kts)` or `settings.gradle(.kts)` when it contributes nothing to the build. A block containing only other empty blocks, such as an empty `dependencies` or `repositories` block, is also considered empty. A block containing a comment is left alone, so that no comment is silently deleted.
 * [org.openrewrite.gradle.RemoveEnableFeaturePreview](/user-documentation/recipes/recipe-catalog/gradle/removeenablefeaturepreview.md)
   * **Remove an enabled Gradle preview feature**
   * Remove an enabled Gradle preview feature from `settings.gradle`.
@@ -1146,7 +1149,7 @@ _92 recipes_
   * Upgrades Maven POMs from model version 4.0.0 to 4.1.0, enabling new Maven 4 features like `&lt;subprojects&gt;`, `bom` packaging, and automatic version inference. This recipe updates the `&lt;modelVersion&gt;` element, `xmlns` namespace, and `xsi:schemaLocation` from 4.0.0 to 4.1.0.
 * [org.openrewrite.maven.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/maven/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Maven dependencies**
-  * Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.
+  * Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. When the transitive dependency's version is already governed by a plain `&lt;dependencyManagement&gt;` entry in the project, that entry is upgraded in place rather than adding a duplicate; otherwise (including a version supplied by an imported BOM) a new managed dependency is added. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.
 * [org.openrewrite.maven.UseMavenCompilerPluginReleaseConfiguration](/user-documentation/recipes/recipe-catalog/maven/usemavencompilerpluginreleaseconfiguration.md)
   * **Use Maven compiler plugin release configuration**
   * Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. When `testSource` or `testTarget` differ from the main version, introduces `testRelease`. Will not downgrade the Java version if the current version is higher. Also removes stale `maven.compiler.source`, `maven.compiler.target`, `maven.compiler.testSource`, and `maven.compiler.testTarget` properties that are no longer referenced.
@@ -1271,13 +1274,13 @@ _16 recipes_
 
 * [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
   * **Add Python dependency**
-  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.AddLiteralMethodArgument](/user-documentation/recipes/recipe-catalog/python/addliteralmethodargument.md)
   * **Add literal method argument**
   * Add a literal argument to method invocations matching a pattern.
 * [org.openrewrite.python.ChangeDependency](/user-documentation/recipes/recipe-catalog/python/changedependency.md)
   * **Change Python dependency**
-  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.ChangeImport](/user-documentation/recipes/recipe-catalog/python/changeimport.md)
   * **Change import**
   * Change a Python import from one module/name to another, updating all type attributions.
@@ -1295,7 +1298,7 @@ _16 recipes_
   * Remove an argument from method invocations matching a pattern.
 * [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
   * **Remove Python dependency**
-  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.RemovePass](/user-documentation/recipes/recipe-catalog/python/removepass.md)
   * **Remove redundant pass statements**
   * Remove redundant `pass` statements from Python code when there are other executable statements in the block.
@@ -1304,10 +1307,10 @@ _16 recipes_
   * Reorder arguments in method invocations matching a pattern.
 * [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
   * **Upgrade Python dependency version**
-  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Python dependency version**
-  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.format.PythonSpaces](/user-documentation/recipes/recipe-catalog/python/format/pythonspaces.md)
   * **Formats spaces in Python code**
   * Standardizes spaces in Python code. Currently limited to formatting method arguments.
