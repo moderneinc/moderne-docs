@@ -29,8 +29,15 @@
 :root {
   --ifm-font-family-base: var(--mor-font-sans);
   --ifm-font-family-monospace: var(--mor-font-mono);
-  --neo-font-family-body: var(--mor-font-sans);
-  --neo-font-family-heading: var(--mor-font-sans);
+  /* !important: Neo's typography.css (injected via a client module) sets these
+     to bare `Inter` at :root. Depending on stylesheet injection order that can
+     win over this customCss :root override, and since Inter is no longer loaded,
+     components reading these vars (cards, buttons, breadcrumbs, pagination,
+     menus) fall back to the browser's serif default. Forcing the override
+     guarantees Geist; --mor-font-sans keeps a system-ui/sans-serif fallback, so
+     it never degrades to serif even if Geist fails to load. */
+  --neo-font-family-body: var(--mor-font-sans) !important;
+  --neo-font-family-heading: var(--mor-font-sans) !important;
 }
 
 /* Light mode. `:root` beats Neo's :root by source order; the paired
