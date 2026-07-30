@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.1.0 (2026/07/30)
+
+- show the enrich-failed reason on the LST availability pill
+- point recipe-error repos to the errored-files data table
+
 ### UI v14.0.0 (2026/07/28)
 
 - adopt Morpheus visual system — Geist, neo 5.1.0-next.288b8b, react-charts next
