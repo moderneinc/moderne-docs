@@ -7,13 +7,19 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.19 |
+| Connector | 0.151.23 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.19/connector-0.151.19.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.23/connector-0.151.23.jar)
 
 ## Changelog
 
 ## July 2026
+
+### v0.151.23 – 2026-07-29
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.23/connector-0.151.23.jar)
+
+* Chore: declare Moderne Proprietary License on customer-shipped jars (#1740)
 
 ### v0.151.19 – 2026-07-28
 
