@@ -34,11 +34,41 @@ describe('RunRecipe', () => {
       artifactId: 'rewrite-migrate-python',
     });
 
-    // The wheel's UpgradeToPython3XX composites delegate their project-file steps back to the jar, so a
-    // reader who follows only the pip command gets a recipe that silently skips those steps.
+    // The wheel's UpgradeToPython3XX composites delegate their project-file steps to the jar. Verified
+    // against the CLI: with only the pip package installed the run fails outright with
+    // "delegatesTo org.openrewrite.python.migrate.UpgradePythonVersionTo314 but no recipe found".
     expect(text()).toContain('mod config recipes pip install openrewrite-migrate-python==');
     expect(text()).toContain('mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-python:');
     expect(text()).toContain('mod run . --recipe org.openrewrite.python.migrate.UpgradeToPython314');
+  });
+
+  it('installs companion jars the recipe delegates into', () => {
+    renderRecipe({
+      ...pythonProps,
+      groupId: 'org.openrewrite.recipe',
+      artifactId: 'rewrite-migrate-python',
+      companionJars: [
+        { groupId: 'org.openrewrite', artifactId: 'rewrite-python', versionKey: 'VERSION_ORG_OPENREWRITE_REWRITE_PYTHON' },
+      ],
+    });
+
+    // The jar recipes in turn delegate into the core language module; without it the CLI fails with
+    // "delegatesTo org.openrewrite.python.UpgradeDependencyVersion but no recipe found".
+    expect(text()).toContain('mod config recipes jar install org.openrewrite:rewrite-python:');
+    expect(text().match(/mod config recipes jar install/g)).toHaveLength(2);
+  });
+
+  it('drops an install command whose version placeholder does not resolve', () => {
+    renderRecipe({
+      ...pythonProps,
+      companionJars: [
+        { groupId: 'org.openrewrite', artifactId: 'rewrite-nonexistent', versionKey: 'VERSION_NOT_A_REAL_KEY' },
+      ],
+    });
+
+    // Better to omit the command than to paste a literal {{VERSION_...}} into the reader's shell.
+    expect(text()).not.toContain('{{VERSION_');
+    expect(text()).not.toContain('rewrite-nonexistent');
   });
 
   it('resolves both install commands to the same version placeholder', () => {

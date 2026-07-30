@@ -136,12 +136,21 @@ mod config recipes pip install openrewrite-migrate-python=={{VERSION_ORG_OPENREW
 ```
 
 :::info
-The Python migration recipes are split across two packages that work together. The `openrewrite-migrate-python` pip package holds the source migrations and the `UpgradeToPython3XX` composites, while the `org.openrewrite.recipe:rewrite-migrate-python` JAR holds the project file, Dockerfile, CloudFormation, and Mend `.whitesource` updates that those composites call into. Install both, or the composites will silently skip the steps they delegate:
+The Python migration recipes are split across packages that call into each other as they run:
+
+* `openrewrite-migrate-python` (pip) holds the source migrations and the `UpgradeToPython3XX` composites.
+* `org.openrewrite.recipe:rewrite-migrate-python` (JAR) holds the project file, Dockerfile, CloudFormation, and Mend `.whitesource` updates that those composites delegate to.
+* `org.openrewrite:rewrite-python` (JAR) is the core language module that both of the above call into for dependency handling.
+
+The CLI resolves these delegates before it runs anything, so a missing package fails the whole run rather than skipping a step. Install all three:
 
 ```bash
 mod config recipes pip install openrewrite-migrate-python=={{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON}}
 mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-python:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON}}
+mod config recipes jar install org.openrewrite:rewrite-python:{{VERSION_ORG_OPENREWRITE_REWRITE_PYTHON}}
 ```
+
+If you keep your marketplace in sync with a [recipe marketplace CSV](./curate-recipe-marketplace.md), these are already installed for you and you can skip this step.
 :::
 
 :::tip
