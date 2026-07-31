@@ -2,6 +2,12 @@ import React from 'react';
 import CodeBlock from '@theme/CodeBlock';
 import latestVersions from '@site/src/plugins/latest-versions';
 
+interface CompanionJar {
+  groupId: string;
+  artifactId: string;
+  versionKey?: string;
+}
+
 interface RunRecipeProps {
   recipeName: string;
   displayName: string;
@@ -15,6 +21,7 @@ interface RunRecipeProps {
   pipPackage?: string;
   nugetPackage?: string;
   goPackage?: string;
+  companionJars?: CompanionJar[];
 }
 
 export default function RunRecipe({
@@ -30,6 +37,7 @@ export default function RunRecipe({
   pipPackage,
   nugetPackage,
   goPackage,
+  companionJars,
 }: RunRecipeProps) {
   // Replace {{VERSION_...}} placeholders with actual version numbers
   const resolveVersions = (text: string): string => {
@@ -38,11 +46,19 @@ export default function RunRecipe({
     });
   };
 
+  // An unknown key resolves to itself, which would otherwise paste a literal {{VERSION_...}} into a
+  // shell command. Treat that as "no version" so the caller can drop the command instead.
+  const resolveVersion = (key?: string): string => {
+    if (!key) return '';
+    const resolved = resolveVersions(`{{${key}}}`);
+    return resolved.startsWith('{{') ? '' : resolved;
+  };
+
   const hasDependency = !!(groupId && artifactId);
   const cliRecipeName = useFullyQualifiedCliName
     ? recipeName
     : recipeName.substring(recipeName.lastIndexOf('.') + 1);
-  const version = versionKey ? resolveVersions(`{{${versionKey}}}`) : '';
+  const version = resolveVersion(versionKey);
 
   // JavaScript recipes
   if (npmPackage) {
@@ -66,22 +82,43 @@ export default function RunRecipe({
     );
   }
 
-  // Python recipes
+  // Python recipes. Python recipes delegate across packages at runtime — a pip composite calls into a
+  // jar recipe, which in turn calls into the core language module — and the CLI resolves those
+  // delegates eagerly, failing the whole run when one is missing rather than skipping a step. So every
+  // package the recipe reaches is listed, not just the one it is published in.
   if (pipPackage) {
     const pipPackageSpec = version ? `${pipPackage}==${version}` : pipPackage;
+    const installCommands = [`mod config recipes pip install ${pipPackageSpec}`];
+    if (hasDependency && version) {
+      installCommands.push(`mod config recipes jar install ${groupId}:${artifactId}:${version}`);
+    }
+    for (const jar of companionJars ?? []) {
+      const jarVersion = resolveVersion(jar.versionKey);
+      if (jarVersion) {
+        installCommands.push(`mod config recipes jar install ${jar.groupId}:${jar.artifactId}:${jarVersion}`);
+      }
+    }
+    const multiplePackages = installCommands.length > 1;
     return (
       <>
         <p>
           In order to run Python recipes, you will need to use the{' '}
           <a href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro">Moderne CLI</a>.
         </p>
-        <p>Once the CLI is installed, you can install this Python recipe package by running the following command:</p>
-        <CodeBlock language="shell" title="Install the recipe package">
-          {`mod config recipes pip install ${pipPackageSpec}`}
+        <p>
+          {multiplePackages
+            ? 'This recipe calls into other OpenRewrite packages as it runs, and the CLI needs every one of them in its marketplace. Once the CLI is installed, install all of the following:'
+            : 'Once the CLI is installed, you can install this Python recipe package by running the following command:'}
+        </p>
+        <CodeBlock
+          language="shell"
+          title={multiplePackages ? 'Install the recipe packages' : 'Install the recipe package'}
+        >
+          {installCommands.join('\n')}
         </CodeBlock>
         <p>Then, you can run the recipe via:</p>
         <CodeBlock language="shell" title="Run the recipe">
-          {`mod run . --recipe ${recipeName}`}
+          {`mod run . --recipe ${recipeName}${cliOptions}`}
         </CodeBlock>
       </>
     );

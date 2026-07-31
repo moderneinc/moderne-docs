@@ -125,7 +125,7 @@ Presuming everything has been set up correctly, you should see output similar to
 
 ## Step 4: Install recipes
 
-In order to run recipes, you'll need to make sure the recipes are installed on your local machine. For example, you can install recipes from a JAR or a pip package:
+In order to run recipes, you'll need to make sure the recipes are installed on your local machine. Python recipes come from JARs, pip packages, or both:
 
 ```bash
 mod config recipes jar install org.openrewrite:rewrite-python:{{VERSION_ORG_OPENREWRITE_REWRITE_PYTHON}}
@@ -134,6 +134,24 @@ mod config recipes jar install org.openrewrite:rewrite-python:{{VERSION_ORG_OPEN
 ```bash
 mod config recipes pip install openrewrite-migrate-python=={{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON}}
 ```
+
+:::info
+The Python migration recipes are split across packages that call into each other as they run:
+
+* `openrewrite-migrate-python` (pip) holds the source migrations and the `UpgradeToPython3XX` composites.
+* `org.openrewrite.recipe:rewrite-migrate-python` (JAR) holds the project file, Dockerfile, CloudFormation, and Mend `.whitesource` updates that those composites delegate to.
+* `org.openrewrite:rewrite-python` (JAR) is the core language module that both of the above call into for dependency handling.
+
+The CLI resolves these delegates before it runs anything, so a missing package fails the whole run rather than skipping a step. Install all three:
+
+```bash
+mod config recipes pip install openrewrite-migrate-python=={{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON}}
+mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-python:{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON}}
+mod config recipes jar install org.openrewrite:rewrite-python:{{VERSION_ORG_OPENREWRITE_REWRITE_PYTHON}}
+```
+
+If you keep your marketplace in sync with a [recipe marketplace CSV](./curate-recipe-marketplace.md), these are already installed for you and you can skip this step.
+:::
 
 :::tip
 You can find the specific installation command for any recipe on its page in the [recipe catalog](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/).
