@@ -52,8 +52,9 @@ html[data-announcement-bar-initially-dismissed='true'] .announcementBar {
 @media (min-width: 997px) {
   :root {
     /* Tall enough for the announcement text to wrap to two lines without
-       colliding with the navbar. Mirror this in the reserve variable
-       (--ifm-announcement-bar-height) in src/css/custom.css. */
+       colliding with the navbar. Single source of truth for the desktop bar
+       height: the layout reserve (--ifm-announcement-bar-height in
+       src/css/custom.css) derives from this, so only this value needs tuning. */
     --docusaurus-announcement-bar-height: 50px;
   }
 
