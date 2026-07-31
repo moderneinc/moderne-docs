@@ -1,7 +1,7 @@
 ---
 title: Accessing the Code Genome Project
 sidebar_label: Accessing the Code Genome Project
-description: How to obtain Code Genome Project credentials and mirror the repository in your Artifactory or Nexus.
+description: How to obtain Code Genome Project credentials and mirror the repository in your artifact repository.
 ---
 
 {/*
@@ -12,9 +12,20 @@ documentation is published.
 
 # Accessing the Code Genome Project
 
-The Moderne CLI and recipe artifacts are hosted in the Code Genome Project Maven repository at `https://artifacts.codegenomeproject.org/maven`. The recommended setup is to mirror it in your own Artifactory or Nexus, so the CLI and recipes resolve through your internal repository exactly as before. If you don't run an internal mirror, you can also point the CLI or a build directly at it with your credentials.
+The Moderne CLI and recipe artifacts are hosted in the Code Genome Project Maven repository at `https://artifacts.codegenomeproject.org/maven`. The recommended setup is to mirror it in your own artifact repository, so the CLI and recipes resolve through your internal repository exactly as before. If you don't run an internal mirror, you can also point the CLI or a build directly at it with your credentials.
 
 This guide covers what the repository hosts, how you get credentials, and how to onboard it as a remote repository.
+
+## Why now
+
+The Code Genome Project is launching now because the way OpenRewrite's recipes have been distributed is changing. Those recipes have historically been published to the Central Repository (Maven Central), operated by Sonatype. Sonatype is introducing limits on public publishing, including a cap on the number of releases per month and a size cap per release.
+
+Those limits do not fit how OpenRewrite is built and shipped:
+
+* A single release of OpenRewrite's primary repository exceeds both the release-count and size limits on its own.
+* OpenRewrite releases frequently, often several times per week.
+
+Rather than let another party's constraints dictate how these tools reach you, Moderne now hosts OpenRewrite's recipes and the Moderne CLI in the Code Genome Project.
 
 ## What the repository hosts
 

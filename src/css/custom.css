@@ -115,6 +115,16 @@ html:has([role="banner"]) {
   --ifm-announcement-bar-height: 30px;
 }
 
+/* On desktop the bar is taller (its min-height is bumped in
+   AnnouncementBar/styles.module.css) so a two-line announcement clears the
+   navbar, so reserve the matching height for the content offset below. Placed
+   before the dismissed rule so dismissal still wins and zeroes the reserve. */
+@media (min-width: 997px) {
+  html:has([role="banner"]) {
+    --ifm-announcement-bar-height: 50px;
+  }
+}
+
 /* Zero it again when the bar is dismissed. Must follow the :has rule above so it
    wins for the SSR flash where the bar is rendered-but-hidden before hydration. */
 html[data-announcement-bar-initially-dismissed='true'] {
