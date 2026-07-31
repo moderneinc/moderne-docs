@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyConstantSum","displayName":"Simplify `sum(1 for x in items if cond)` to `sum(bool(cond) for x in items)`","pipPackage":"openrewrite-static-analysis"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyConstantSum","displayName":"Simplify `sum(1 for x in items if cond)` to `sum(bool(cond) for x in items)`","pipPackage":"openrewrite-static-analysis","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}]}}>
 
 ## Usage
 
