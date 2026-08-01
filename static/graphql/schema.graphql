@@ -376,7 +376,7 @@ type BatchChange implements OrganizationChangeset
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this batch change."""
   visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
@@ -2852,6 +2852,12 @@ type MavenConfiguration
   connectivity: HttpToolConnectivity!
   localRepository: String
   lastIngestedAt: DateTime
+
+  """True when this repo is polled for LST artifacts."""
+  artifactSource: Boolean!
+
+  """True when this repo feeds recipes to the marketplace."""
+  recipeSource: Boolean!
 }
 
 type MavenRecipeBundle implements RecipeBundle
@@ -3529,7 +3535,7 @@ interface OrganizationChangeset
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Visualizations produced by this changeset.
@@ -3871,7 +3877,7 @@ interface OrganizationRecipeRun implements OrganizationChangeset
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
   visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @cost(weight: 50)
@@ -3909,7 +3915,7 @@ type OrganizationRecipeRunCanceled implements OrganizationChangeset & Organizati
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
   visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
@@ -3977,7 +3983,7 @@ type OrganizationRecipeRunError implements OrganizationChangeset & OrganizationR
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
   visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
@@ -4031,7 +4037,7 @@ type OrganizationRecipeRunFinished implements OrganizationChangeset & Organizati
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
   visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
@@ -4100,7 +4106,7 @@ type OrganizationRecipeRunQueued implements OrganizationChangeset & Organization
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
   visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @cost(weight: 50)
@@ -4152,7 +4158,7 @@ type OrganizationRecipeRunRunning implements OrganizationChangeset & Organizatio
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
   visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
@@ -4227,7 +4233,7 @@ type OrganizationRecipeRunSyncing implements OrganizationChangeset & Organizatio
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
   visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)

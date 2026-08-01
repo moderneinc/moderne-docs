@@ -1874,6 +1874,8 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
 | `localRepository` | String |  |
 | `lastIngestedAt` | [DateTime](#datetime) |  |
+| `artifactSource` | Boolean! | True when this repo is polled for LST artifacts. |
+| `recipeSource` | Boolean! | True when this repo feeds recipes to the marketplace. |
 
 ##### `MavenRecipeBundle`
 
