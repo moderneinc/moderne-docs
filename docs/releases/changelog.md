@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.2.0 (2026/08/01)
+
+- dark mode via neo 6.0.0-next CSS-variable tokens
+- add Back control to the Day Zero tour
+- add Back control to the Day Zero tour
+
 ### UI v14.1.0 (2026/07/30)
 
 - show the enrich-failed reason on the LST availability pill
