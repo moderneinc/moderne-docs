@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.2.1 (2026/08/02)
+
+- Bug fixes and other improvements.
+
 ### UI v14.2.0 (2026/08/01)
 
 - dark mode via neo 6.0.0-next CSS-variable tokens
