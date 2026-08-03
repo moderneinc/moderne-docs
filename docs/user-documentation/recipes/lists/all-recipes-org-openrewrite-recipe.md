@@ -5,6 +5,652 @@ description: Recipes in the org.openrewrite.recipe module.
 # org.openrewrite.recipe
 
 
+## recipes-go
+
+_License: Moderne Proprietary License_
+
+_213 recipes_
+
+* [org.openrewrite.golang.AddImport](/user-documentation/recipes/recipe-catalog/golang/addimport.md)
+  * **Add import**
+  * Add an `import` statement to a Go compilation unit. No-op if the import is already present in a compatible form.
+* [org.openrewrite.golang.ChangeMethodName](/user-documentation/recipes/recipe-catalog/golang/changemethodname.md)
+  * **Change method name**
+  * Rename method invocations matching a method pattern.
+* [org.openrewrite.golang.ChangeType](/user-documentation/recipes/recipe-catalog/golang/changetype.md)
+  * **Change type**
+  * Change a Go type reference from one fully qualified name to another.
+* [org.openrewrite.golang.OrderImports](/user-documentation/recipes/recipe-catalog/golang/orderimports.md)
+  * **Order imports**
+  * Sort `import` lines into stdlib / third-party / local groups. Within each group, entries are alphabetized; non-empty groups are separated by a blank line. Mirrors `goimports -w`. Local detection uses the sibling go.mod's module path.
+* [org.openrewrite.golang.RemoveImport](/user-documentation/recipes/recipe-catalog/golang/removeimport.md)
+  * **Remove import**
+  * Remove an `import` statement from a Go compilation unit. Matches by import path; any form (regular, aliased, dot, blank) is removed.
+* [org.openrewrite.golang.RemoveUnusedImports](/user-documentation/recipes/recipe-catalog/golang/removeunusedimports.md)
+  * **Remove unused imports**
+  * Remove imports for packages that are not referenced by any identifier in the file. Blank (`_`) imports are preserved.
+* [org.openrewrite.golang.RenamePackage](/user-documentation/recipes/recipe-catalog/golang/renamepackage.md)
+  * **Rename package**
+  * Rename a Go package across a project — rewrites the `package` declaration in files that own the package, and rewrites import paths in every file that references it.
+* [org.openrewrite.golang.codequality.AddExportedFuncComment](/user-documentation/recipes/recipe-catalog/golang/codequality/addexportedfunccomment.md)
+  * **Add exported func comment**
+  * Add a stub doc comment to exported functions and methods that lack one.
+* [org.openrewrite.golang.codequality.AllBranchesIdentical](/user-documentation/recipes/recipe-catalog/golang/codequality/allbranchesidentical.md)
+  * **Remove if/else with identical branches**
+  * Replace an if/else chain where every branch has the same body with just the body, since the conditions have no effect on the outcome.
+* [org.openrewrite.golang.codequality.AllocateMapOutsideLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/allocatemapoutsideloop.md)
+  * **Allocate map outside loop**
+  * Hoist `make(map[...]...)` calls out of for/range loops and clear the map each iteration.
+* [org.openrewrite.golang.codequality.AllocateOutsideLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/allocateoutsideloop.md)
+  * **Allocate outside loop**
+  * Find `new()` calls inside for/range loops. Repeated heap allocations in loops add GC pressure; consider reusing the object.
+* [org.openrewrite.golang.codequality.AuditChannelClose](/user-documentation/recipes/recipe-catalog/golang/codequality/auditchannelclose.md)
+  * **Audit channel close**
+  * Find calls to the built-in `close()` function. Channels should only be closed by the sender, and double-closing causes a panic.
+* [org.openrewrite.golang.codequality.AuditContextBackground](/user-documentation/recipes/recipe-catalog/golang/codequality/auditcontextbackground.md)
+  * **Audit context.Background**
+  * Find calls to `context.Background()`. Consider using a context passed from the caller instead.
+* [org.openrewrite.golang.codequality.AuditExecCommand](/user-documentation/recipes/recipe-catalog/golang/codequality/auditexeccommand.md)
+  * **Audit exec.Command calls**
+  * Find calls to `exec.Command()`. If arguments come from user input, this is a potential command injection vulnerability.
+* [org.openrewrite.golang.codequality.AuditGoroutineClosure](/user-documentation/recipes/recipe-catalog/golang/codequality/auditgoroutineclosure.md)
+  * **Audit goroutine closure**
+  * Find `go func() \{ ... \}()` patterns. Goroutines with closures can inadvertently capture loop variables.
+* [org.openrewrite.golang.codequality.AuditHttpRedirect](/user-documentation/recipes/recipe-catalog/golang/codequality/audithttpredirect.md)
+  * **Audit HTTP redirect**
+  * Find calls to `http.Redirect`. Review redirect targets to ensure they are validated and status codes are appropriate.
+* [org.openrewrite.golang.codequality.AuditJsonNumber](/user-documentation/recipes/recipe-catalog/golang/codequality/auditjsonnumber.md)
+  * **Audit json.Number**
+  * Find usage of `json.Number`. json.Number should be used carefully as it can lead to unexpected behavior when converting between numeric types.
+* [org.openrewrite.golang.codequality.AuditJsonRawMessage](/user-documentation/recipes/recipe-catalog/golang/codequality/auditjsonrawmessage.md)
+  * **Audit json.RawMessage**
+  * Find usage of `json.RawMessage`. RawMessage defers JSON parsing and should be reviewed to ensure deferred parsing is handled correctly.
+* [org.openrewrite.golang.codequality.AuditMultipleErrorWraps](/user-documentation/recipes/recipe-catalog/golang/codequality/auditmultipleerrorwraps.md)
+  * **Replace extra %w verbs with %v in fmt.Errorf**
+  * Replace all but the first `%w` with `%v` in `fmt.Errorf` format strings. Multiple error wrapping is invalid in Go &lt; 1.20 and rare in later versions.
+* [org.openrewrite.golang.codequality.AuditMustFunction](/user-documentation/recipes/recipe-catalog/golang/codequality/auditmustfunction.md)
+  * **Audit Must* function calls**
+  * Find calls to functions named `Must*` or `must*`, which typically panic on error.
+* [org.openrewrite.golang.codequality.AuditRecover](/user-documentation/recipes/recipe-catalog/golang/codequality/auditrecover.md)
+  * **Audit recover() calls**
+  * Find calls to the built-in `recover()` function, which catches panics and signals unusual control flow.
+* [org.openrewrite.golang.codequality.AuditTestFatal](/user-documentation/recipes/recipe-catalog/golang/codequality/audittestfatal.md)
+  * **Audit test fatal**
+  * Find `t.Fatal()` and `t.Fatalf()` calls. These abort the test immediately and panic when called from a goroutine other than the test function's goroutine.
+* [org.openrewrite.golang.codequality.AuditTestMain](/user-documentation/recipes/recipe-catalog/golang/codequality/audittestmain.md)
+  * **Audit TestMain**
+  * Find `func TestMain(m *testing.M)` declarations. TestMain overrides the default test execution for the entire package.
+* [org.openrewrite.golang.codequality.AuditYamlUnmarshal](/user-documentation/recipes/recipe-catalog/golang/codequality/audityamlunmarshal.md)
+  * **Audit yaml.Unmarshal**
+  * Find calls to `yaml.Unmarshal()`. YAML parsing should validate input carefully to avoid unexpected behavior from untrusted data.
+* [org.openrewrite.golang.codequality.AvoidChannelLenCheck](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidchannellencheck.md)
+  * **Avoid channel length check**
+  * Find comparisons on channel length such as `len(ch) == 0`. These are almost always racy because the length can change between the check and the next operation.
+* [org.openrewrite.golang.codequality.AvoidContextWithValue](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidcontextwithvalue.md)
+  * **Avoid context.WithValue**
+  * Find calls to `context.WithValue()`. Context values are an anti-pattern for passing dependencies; prefer explicit function parameters.
+* [org.openrewrite.golang.codequality.AvoidDeferInLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/avoiddeferinloop.md)
+  * **Avoid defer in loop**
+  * Wrap loop bodies containing `defer` in an immediately-invoked function literal so deferred calls run per iteration.
+* [org.openrewrite.golang.codequality.AvoidDotImport](/user-documentation/recipes/recipe-catalog/golang/codequality/avoiddotimport.md)
+  * **Avoid dot imports**
+  * Remove the dot alias from `import . &quot;pkg&quot;`, converting to a normal import.
+* [org.openrewrite.golang.codequality.AvoidEmptyInterfaceParam](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidemptyinterfaceparam.md)
+  * **Avoid empty interface parameters**
+  * Replace `interface\{\}` parameter types with `any` (Go 1.18+).
+* [org.openrewrite.golang.codequality.AvoidFmtInLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidfmtinloop.md)
+  * **Avoid fmt in loop**
+  * Find `fmt.Sprintf`, `fmt.Sprint`, or `fmt.Fprintf` calls inside for/range loops. These allocate on every call; prefer direct string operations or strconv.
+* [org.openrewrite.golang.codequality.AvoidFormatStringVariable](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidformatstringvariable.md)
+  * **Avoid format string variable**
+  * Find calls like `fmt.Sprintf(variable)` where the format string is not a literal. This is a potential format string vulnerability.
+* [org.openrewrite.golang.codequality.AvoidGlobalVariable](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidglobalvariable.md)
+  * **Avoid global variables**
+  * Find package-level `var` declarations. Mutable global state makes code harder to test and reason about.
+* [org.openrewrite.golang.codequality.AvoidHardcodedCredentials](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidhardcodedcredentials.md)
+  * **Avoid hardcoded credentials**
+  * Replace hardcoded credential string literals with `os.Getenv(&quot;VAR_NAME&quot;)` calls.
+* [org.openrewrite.golang.codequality.AvoidInitFunction](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidinitfunction.md)
+  * **Avoid init functions**
+  * Find `func init()` declarations. Init functions make testing harder and have implicit ordering dependencies.
+* [org.openrewrite.golang.codequality.AvoidLockInLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidlockinloop.md)
+  * **Avoid lock in loop**
+  * Find `Lock()` or `RLock()` calls inside for/range loops. Acquiring locks in tight loops can cause contention; consider locking once outside the loop.
+* [org.openrewrite.golang.codequality.AvoidLogFatal](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidlogfatal.md)
+  * **Avoid log.Fatal**
+  * Replace `log.Fatal`, `log.Fatalf`, and `log.Fatalln` with their non-exiting equivalents (`log.Println`, `log.Printf`, `log.Println`).
+* [org.openrewrite.golang.codequality.AvoidNestedGoroutine](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidnestedgoroutine.md)
+  * **Avoid nested goroutine**
+  * Find goroutines launched inside other goroutines. Nested goroutines create hard-to-track concurrency.
+* [org.openrewrite.golang.codequality.AvoidOsExit](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidosexit.md)
+  * **Avoid os.Exit**
+  * Remove `os.Exit(0)` calls and flag non-zero `os.Exit(n)` which bypass deferred functions and cleanup.
+* [org.openrewrite.golang.codequality.AvoidPanic](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidpanic.md)
+  * **Avoid panic**
+  * Find calls to the built-in `panic()` function, which crashes the program.
+* [org.openrewrite.golang.codequality.AvoidReflection](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidreflection.md)
+  * **Avoid reflection**
+  * Find `reflect.TypeOf()` and `reflect.ValueOf()` calls. Reflection is slow and should be avoided in performance-sensitive code.
+* [org.openrewrite.golang.codequality.AvoidSqlStringConcat](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidsqlstringconcat.md)
+  * **Avoid SQL string concatenation**
+  * Find string concatenation where the left operand contains SQL keywords. Use parameterized queries to avoid SQL injection.
+* [org.openrewrite.golang.codequality.AvoidTimeSleep](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidtimesleep.md)
+  * **Avoid time.Sleep**
+  * Find calls to `time.Sleep()`. In production code, sleeping is often a code smell — consider using tickers, timers, or context-based synchronization.
+* [org.openrewrite.golang.codequality.AvoidUnsafePackage](/user-documentation/recipes/recipe-catalog/golang/codequality/avoidunsafepackage.md)
+  * **Avoid unsafe package**
+  * Find any usage of the `unsafe` package. The unsafe package bypasses Go's type safety guarantees and should be avoided unless absolutely necessary.
+* [org.openrewrite.golang.codequality.CheckCloseError](/user-documentation/recipes/recipe-catalog/golang/codequality/checkcloseerror.md)
+  * **Check Close() error**
+  * Replace bare `f.Close()` with `_ = f.Close()` to explicitly mark the discarded error.
+* [org.openrewrite.golang.codequality.CheckContextError](/user-documentation/recipes/recipe-catalog/golang/codequality/checkcontexterror.md)
+  * **Check context error**
+  * Find `ctx.Err()` calls. The context error should be inspected to distinguish between cancellation and deadline exceeded.
+* [org.openrewrite.golang.codequality.CheckTemplateExecuteError](/user-documentation/recipes/recipe-catalog/golang/codequality/checktemplateexecuteerror.md)
+  * **Check template execute error**
+  * Wrap bare calls to `Execute` and `ExecuteTemplate` on templates in an if-init error check so the returned error is not silently ignored.
+* [org.openrewrite.golang.codequality.CompileRegexOutsideLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/compileregexoutsideloop.md)
+  * **Compile regex outside loop**
+  * Find `regexp.Compile()` or `regexp.MustCompile()` calls inside for/range loops. Compile the regex once outside the loop for better performance.
+* [org.openrewrite.golang.codequality.CreateChannelOutsideLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/createchanneloutsideloop.md)
+  * **Create channel outside loop**
+  * Find `make(chan ...)` calls inside for/range loops. Channel creation in loops suggests the channel should be created once before the loop.
+* [org.openrewrite.golang.codequality.EnsureFileClosed](/user-documentation/recipes/recipe-catalog/golang/codequality/ensurefileclosed.md)
+  * **Ensure file closed**
+  * Find calls to `os.Open`, `os.Create`, and `os.OpenFile`. Ensure the returned file is closed to avoid resource leaks.
+* [org.openrewrite.golang.codequality.EnsureSqlConnectionClosed](/user-documentation/recipes/recipe-catalog/golang/codequality/ensuresqlconnectionclosed.md)
+  * **Ensure SQL connection closed**
+  * Find calls to `sql.Open`. Database connections should be managed carefully and closed when no longer needed.
+* [org.openrewrite.golang.codequality.FindDeprecatedAtomicFunctions](/user-documentation/recipes/recipe-catalog/golang/codequality/finddeprecatedatomicfunctions.md)
+  * **Find deprecated `sync/atomic` functions**
+  * Find deprecated `sync/atomic` free-function calls (e.g. `atomic.AddInt32`) that should be migrated to the type-safe atomic types introduced in Go 1.19 (e.g. `atomic.Int32`).
+* [org.openrewrite.golang.codequality.FindEmptyFmtSprintf](/user-documentation/recipes/recipe-catalog/golang/codequality/findemptyfmtsprintf.md)
+  * **Remove empty fmt.Sprintf**
+  * Replace `fmt.Sprintf(&quot;&quot;)` calls with an empty format string and no args with `&quot;&quot;`.
+* [org.openrewrite.golang.codequality.FindMapRangeClear](/user-documentation/recipes/recipe-catalog/golang/codequality/findmaprangeclear.md)
+  * **Replace map range-delete with clear()**
+  * Replace `for k := range m \{ delete(m, k) \}` with `clear(m)` (Go 1.21+).
+* [org.openrewrite.golang.codequality.HandleCheckedError](/user-documentation/recipes/recipe-catalog/golang/codequality/handlecheckederror.md)
+  * **Handle checked error**
+  * Replace `if err != nil \{ \}` with `if err != nil \{ return err \}` so the error is propagated.
+* [org.openrewrite.golang.codequality.HandleDeferredCloseError](/user-documentation/recipes/recipe-catalog/golang/codequality/handledeferredcloseerror.md)
+  * **Handle deferred Close() error**
+  * Wrap `defer x.Close()` in a closure to explicitly handle the error: `defer func() \{ _ = x.Close() \}()`.
+* [org.openrewrite.golang.codequality.HandleErrorReturn](/user-documentation/recipes/recipe-catalog/golang/codequality/handleerrorreturn.md)
+  * **Handle error return value**
+  * Replace discarded `_` error return values with `err` to capture the error.
+* [org.openrewrite.golang.codequality.HandleSwallowedError](/user-documentation/recipes/recipe-catalog/golang/codequality/handleswallowederror.md)
+  * **Handle swallowed error**
+  * Replace `if err != nil \{ return \}` with `if err != nil \{ return err \}` so the error is propagated.
+* [org.openrewrite.golang.codequality.KeepFunctionsShort](/user-documentation/recipes/recipe-catalog/golang/codequality/keepfunctionsshort.md)
+  * **Keep functions short**
+  * Find functions with more than 20 statements. Long functions are harder to understand and maintain.
+* [org.openrewrite.golang.codequality.KeepInterfacesSmall](/user-documentation/recipes/recipe-catalog/golang/codequality/keepinterfacessmall.md)
+  * **Keep interfaces small**
+  * Find interfaces with more than 5 methods. Large interfaces violate the Interface Segregation Principle.
+* [org.openrewrite.golang.codequality.LimitFunctionParameters](/user-documentation/recipes/recipe-catalog/golang/codequality/limitfunctionparameters.md)
+  * **Limit function parameters**
+  * Find functions with more than 5 parameters. Consider grouping parameters into a struct.
+* [org.openrewrite.golang.codequality.LimitGoroutinesInLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/limitgoroutinesinloop.md)
+  * **Limit goroutines in loop**
+  * Find `go` statements inside for/range loops. Unbounded goroutine creation can cause resource exhaustion; consider using a worker pool.
+* [org.openrewrite.golang.codequality.LimitReturnValues](/user-documentation/recipes/recipe-catalog/golang/codequality/limitreturnvalues.md)
+  * **Limit return values**
+  * Find functions with more than 3 return values. Consider returning a struct instead.
+* [org.openrewrite.golang.codequality.MergeCollapsibleIf](/user-documentation/recipes/recipe-catalog/golang/codequality/mergecollapsibleif.md)
+  * **Merge collapsible if statements**
+  * Merge nested `if` statements into a single `if` with `&amp;&amp;` when neither has an else clause and the outer body contains only the inner `if`.
+* [org.openrewrite.golang.codequality.MergeIdenticalBranches](/user-documentation/recipes/recipe-catalog/golang/codequality/mergeidenticalbranches.md)
+  * **Merge identical branches**
+  * Merge consecutive if/else-if branches that have identical bodies by combining their conditions with `||`.
+* [org.openrewrite.golang.codequality.PreallocateSlice](/user-documentation/recipes/recipe-catalog/golang/codequality/preallocateslice.md)
+  * **Preallocate slice**
+  * Find `append()` calls inside for/range loops where the slice could be preallocated.
+* [org.openrewrite.golang.codequality.PreferBytesBufferString](/user-documentation/recipes/recipe-catalog/golang/codequality/preferbytesbufferstring.md)
+  * **Prefer buf.String() over string(buf.Bytes())**
+  * Replace `string(buf.Bytes())` with `buf.String()` for better performance and readability.
+* [org.openrewrite.golang.codequality.PreferBytesContains](/user-documentation/recipes/recipe-catalog/golang/codequality/preferbytescontains.md)
+  * **Prefer bytes.Contains over bytes.Index comparison**
+  * Replace `bytes.Index(b, sub) != -1` and similar patterns with `bytes.Contains(b, sub)`.
+* [org.openrewrite.golang.codequality.PreferBytesContainsAny](/user-documentation/recipes/recipe-catalog/golang/codequality/preferbytescontainsany.md)
+  * **Prefer bytes.ContainsAny**
+  * Replace `bytes.IndexAny(b, chars) != -1` with `bytes.ContainsAny(b, chars)` and `bytes.IndexAny(b, chars) == -1` with `!bytes.ContainsAny(b, chars)`.
+* [org.openrewrite.golang.codequality.PreferBytesContainsRune](/user-documentation/recipes/recipe-catalog/golang/codequality/preferbytescontainsrune.md)
+  * **Prefer bytes.ContainsRune**
+  * Replace `bytes.IndexRune(b, r) != -1` with `bytes.ContainsRune(b, r)` and `bytes.IndexRune(b, r) == -1` with `!bytes.ContainsRune(b, r)`.
+* [org.openrewrite.golang.codequality.PreferBytesEqual](/user-documentation/recipes/recipe-catalog/golang/codequality/preferbytesequal.md)
+  * **Prefer bytes.Equal**
+  * Replace `bytes.Compare(a, b) == 0` with `bytes.Equal(a, b)` and `bytes.Compare(a, b) != 0` with `!bytes.Equal(a, b)`.
+* [org.openrewrite.golang.codequality.PreferBytesHasPrefix](/user-documentation/recipes/recipe-catalog/golang/codequality/preferbyteshasprefix.md)
+  * **Prefer bytes.HasPrefix**
+  * Replace `bytes.Index(b, prefix) == 0` with `bytes.HasPrefix(b, prefix)` and `bytes.Index(b, prefix) != 0` with `!bytes.HasPrefix(b, prefix)`.
+* [org.openrewrite.golang.codequality.PreferCopyString](/user-documentation/recipes/recipe-catalog/golang/codequality/prefercopystring.md)
+  * **Prefer copy from string**
+  * Replace `copy(dst, []byte(src))` with `copy(dst, src)` since copy accepts a string source.
+* [org.openrewrite.golang.codequality.PreferEmptyStringCheck](/user-documentation/recipes/recipe-catalog/golang/codequality/preferemptystringcheck.md)
+  * **Prefer empty string check**
+  * Replace `len(s) == 0` with `s == &quot;&quot;` and `len(s) != 0` with `s != &quot;&quot;`.
+* [org.openrewrite.golang.codequality.PreferErrorfWrapVerb](/user-documentation/recipes/recipe-catalog/golang/codequality/prefererrorfwrapverb.md)
+  * **Prefer %w over %s in fmt.Errorf for error wrapping**
+  * Replace `%s` with `%w` in `fmt.Errorf` format strings when the corresponding argument is an error, to preserve the error chain.
+* [org.openrewrite.golang.codequality.PreferErrorsIsContext](/user-documentation/recipes/recipe-catalog/golang/codequality/prefererrorsiscontext.md)
+  * **Prefer errors.Is for context error comparison**
+  * Replace `err == context.Canceled` and `err == context.DeadlineExceeded` with `errors.Is` for correct wrapped error handling.
+* [org.openrewrite.golang.codequality.PreferErrorsIsEOF](/user-documentation/recipes/recipe-catalog/golang/codequality/prefererrorsiseof.md)
+  * **Prefer errors.Is for io.EOF comparison**
+  * Replace `err == io.EOF` with `errors.Is(err, io.EOF)` and `err != io.EOF` with `!errors.Is(err, io.EOF)` for correct wrapped error handling.
+* [org.openrewrite.golang.codequality.PreferErrorsIsForFieldAccess](/user-documentation/recipes/recipe-catalog/golang/codequality/prefererrorsisforfieldaccess.md)
+  * **Prefer errors.Is for package-qualified sentinel comparison**
+  * Replace `err == sentinel` with `errors.Is(err, sentinel)` where the sentinel is a package-qualified value (e.g., `sql.ErrNoRows`). Use `errors.Is` for correct wrapped error handling.
+* [org.openrewrite.golang.codequality.PreferErrorsIsForOsCheck](/user-documentation/recipes/recipe-catalog/golang/codequality/prefererrorsisforoscheck.md)
+  * **Prefer errors.Is for os existence checks**
+  * Replace deprecated `os.IsNotExist(err)` with `errors.Is(err, fs.ErrNotExist)` and `os.IsExist(err)` with `errors.Is(err, fs.ErrExist)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferErrorsIsForPermission](/user-documentation/recipes/recipe-catalog/golang/codequality/prefererrorsisforpermission.md)
+  * **Prefer errors.Is for os permission checks**
+  * Replace deprecated `os.IsPermission(err)` with `errors.Is(err, fs.ErrPermission)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferErrorsIsOverEquality](/user-documentation/recipes/recipe-catalog/golang/codequality/prefererrorsisoverequality.md)
+  * **Prefer errors.Is over == for error comparison**
+  * Replace `err == ErrFoo` with `errors.Is(err, ErrFoo)` for correct wrapped error handling.
+* [org.openrewrite.golang.codequality.PreferFilepathClean](/user-documentation/recipes/recipe-catalog/golang/codequality/preferfilepathclean.md)
+  * **Prefer filepath.Clean over redundant filepath.Join**
+  * Replace `filepath.Join(filepath.Clean(p))` with `filepath.Clean(p)` since Join with a single already-cleaned argument is redundant.
+* [org.openrewrite.golang.codequality.PreferHexEncoding](/user-documentation/recipes/recipe-catalog/golang/codequality/preferhexencoding.md)
+  * **Prefer hex.EncodeToString over fmt.Sprintf**
+  * Replace `fmt.Sprintf(&quot;%x&quot;, data)` with `hex.EncodeToString(data)` for clearer intent and better performance.
+* [org.openrewrite.golang.codequality.PreferIoDiscard](/user-documentation/recipes/recipe-catalog/golang/codequality/preferiodiscard.md)
+  * **Prefer io.Discard**
+  * Replace deprecated `ioutil.Discard` with `io.Discard` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferIoNopCloser](/user-documentation/recipes/recipe-catalog/golang/codequality/preferionopcloser.md)
+  * **Prefer io.NopCloser**
+  * Replace deprecated `ioutil.NopCloser(r)` with `io.NopCloser(r)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferIoReadAll](/user-documentation/recipes/recipe-catalog/golang/codequality/preferioreadall.md)
+  * **Prefer io.ReadAll**
+  * Replace deprecated `ioutil.ReadAll(r)` with `io.ReadAll(r)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferIoWriteString](/user-documentation/recipes/recipe-catalog/golang/codequality/preferiowritestring.md)
+  * **Prefer io.WriteString**
+  * Replace `fmt.Fprintf(w, &quot;%s&quot;, s)` with `io.WriteString(w, s)`.
+* [org.openrewrite.golang.codequality.PreferLenCheck](/user-documentation/recipes/recipe-catalog/golang/codequality/preferlencheck.md)
+  * **Prefer canonical len check**
+  * Normalize `len(s) &gt;= 1` to `len(s) &gt; 0` and `len(s) &lt; 1` to `len(s) == 0`.
+* [org.openrewrite.golang.codequality.PreferMakeForEmptyMap](/user-documentation/recipes/recipe-catalog/golang/codequality/prefermakeforemptymap.md)
+  * **Prefer make() for empty maps**
+  * Replace empty map literal `map[K]V\{\}` with `make(map[K]V)` for clarity.
+* [org.openrewrite.golang.codequality.PreferMinMaxBuiltin](/user-documentation/recipes/recipe-catalog/golang/codequality/preferminmaxbuiltin.md)
+  * **Prefer min/max builtins**
+  * Replace `math.Min(a, b)` with `min(a, b)` and `math.Max(a, b)` with `max(a, b)` (Go 1.21+).
+* [org.openrewrite.golang.codequality.PreferOsCreateTemp](/user-documentation/recipes/recipe-catalog/golang/codequality/preferoscreatetemp.md)
+  * **Prefer os.CreateTemp**
+  * Replace deprecated `ioutil.TempFile(dir, pattern)` with `os.CreateTemp(dir, pattern)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferOsIsTimeout](/user-documentation/recipes/recipe-catalog/golang/codequality/preferosistimeout.md)
+  * **Prefer errors.Is for os timeout checks**
+  * Replace deprecated `os.IsTimeout(err)` with `errors.Is(err, os.ErrDeadlineExceeded)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferOsMkdirTemp](/user-documentation/recipes/recipe-catalog/golang/codequality/preferosmkdirtemp.md)
+  * **Prefer os.MkdirTemp**
+  * Replace deprecated `ioutil.TempDir(dir, pattern)` with `os.MkdirTemp(dir, pattern)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferOsReadDir](/user-documentation/recipes/recipe-catalog/golang/codequality/preferosreaddir.md)
+  * **Prefer os.ReadDir**
+  * Replace deprecated `ioutil.ReadDir(name)` with `os.ReadDir(name)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferOsReadFile](/user-documentation/recipes/recipe-catalog/golang/codequality/preferosreadfile.md)
+  * **Prefer os.ReadFile**
+  * Replace deprecated `ioutil.ReadFile(name)` with `os.ReadFile(name)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferOsWriteFile](/user-documentation/recipes/recipe-catalog/golang/codequality/preferoswritefile.md)
+  * **Prefer os.WriteFile**
+  * Replace deprecated `ioutil.WriteFile(name, data, perm)` with `os.WriteFile(name, data, perm)` (Go 1.16+).
+* [org.openrewrite.golang.codequality.PreferRawStringForRegex](/user-documentation/recipes/recipe-catalog/golang/codequality/preferrawstringforregex.md)
+  * **Prefer raw string literals for regex patterns**
+  * Replace interpreted string literals containing backslash escapes with raw string literals in `regexp.Compile` or `regexp.MustCompile` calls.
+* [org.openrewrite.golang.codequality.PreferRegexpMustCompile](/user-documentation/recipes/recipe-catalog/golang/codequality/preferregexpmustcompile.md)
+  * **Prefer regexp.MustCompile for unchecked patterns**
+  * Collapse `x, err := regexp.Compile(p)` followed by an `if err != nil` guard into `x := regexp.MustCompile(p)`.
+* [org.openrewrite.golang.codequality.PreferSlicesSort](/user-documentation/recipes/recipe-catalog/golang/codequality/preferslicessort.md)
+  * **Prefer slices.Sort over sort type helpers**
+  * Replace deprecated `sort.Ints`, `sort.Strings`, and `sort.Float64s` with `slices.Sort` (Go 1.21+).
+* [org.openrewrite.golang.codequality.PreferSortInts](/user-documentation/recipes/recipe-catalog/golang/codequality/prefersortints.md)
+  * **Prefer sort.Ints over sort.Sort(sort.IntSlice)**
+  * Replace `sort.Sort(sort.IntSlice(s))` with `sort.Ints(s)`.
+* [org.openrewrite.golang.codequality.PreferStrconvAtoi](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstrconvatoi.md)
+  * **Prefer strconv.Atoi**
+  * Replace `strconv.ParseInt(s, 10, 0)` with `strconv.Atoi(s)`.
+* [org.openrewrite.golang.codequality.PreferStrconvFormatBool](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstrconvformatbool.md)
+  * **Prefer strconv.FormatBool over fmt.Sprintf**
+  * Replace `fmt.Sprintf(&quot;%t&quot;, b)` with `strconv.FormatBool(b)` for better performance.
+* [org.openrewrite.golang.codequality.PreferStrconvItoa](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstrconvitoa.md)
+  * **Prefer strconv.Itoa over fmt.Sprintf**
+  * Replace `fmt.Sprintf(&quot;%d&quot;, n)` with `strconv.Itoa(n)` for better performance.
+* [org.openrewrite.golang.codequality.PreferStrconvQuote](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstrconvquote.md)
+  * **Prefer strconv.Quote over fmt.Sprintf**
+  * Replace `fmt.Sprintf(&quot;%q&quot;, s)` with `strconv.Quote(s)` for clearer intent when quoting strings.
+* [org.openrewrite.golang.codequality.PreferStringsBuilderWriteString](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstringsbuilderwritestring.md)
+  * **Prefer strings.Builder WriteString**
+  * Replace `fmt.Fprintf(&amp;b, &quot;%s&quot;, s)` with `b.WriteString(s)` for more efficient string building.
+* [org.openrewrite.golang.codequality.PreferStringsContains](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstringscontains.md)
+  * **Prefer strings.Contains over strings.Index comparison**
+  * Replace `strings.Index(s, sub) != -1` and similar patterns with `strings.Contains(s, sub)`.
+* [org.openrewrite.golang.codequality.PreferStringsContainsAny](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstringscontainsany.md)
+  * **Prefer strings.ContainsAny**
+  * Replace `strings.IndexAny(s, chars) != -1` with `strings.ContainsAny(s, chars)` and `strings.IndexAny(s, chars) == -1` with `!strings.ContainsAny(s, chars)`.
+* [org.openrewrite.golang.codequality.PreferStringsContainsOverCount](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstringscontainsovercount.md)
+  * **Prefer strings.Contains over strings.Count**
+  * Replace `strings.Count(s, sub) &gt; 0` with `strings.Contains(s, sub)` and `strings.Count(s, sub) == 0` with `!strings.Contains(s, sub)`.
+* [org.openrewrite.golang.codequality.PreferStringsContainsRune](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstringscontainsrune.md)
+  * **Prefer strings.ContainsRune**
+  * Replace `strings.IndexRune(s, r) != -1` with `strings.ContainsRune(s, r)` and `strings.IndexRune(s, r) == -1` with `!strings.ContainsRune(s, r)`.
+* [org.openrewrite.golang.codequality.PreferStringsEqualFold](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstringsequalfold.md)
+  * **Prefer strings.EqualFold**
+  * Replace `strings.ToLower(s) == strings.ToLower(n)` with `strings.EqualFold(s, n)`.
+* [org.openrewrite.golang.codequality.PreferStringsEqualFoldSingle](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstringsequalfoldsingle.md)
+  * **Prefer strings.EqualFold (single-sided)**
+  * Replace `strings.ToLower(s) == t` and `strings.ToUpper(s) == t` with `strings.EqualFold(s, t)`.
+* [org.openrewrite.golang.codequality.PreferStringsHasPrefix](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstringshasprefix.md)
+  * **Prefer strings.HasPrefix**
+  * Replace `strings.Index(s, prefix) == 0` with `strings.HasPrefix(s, prefix)`.
+* [org.openrewrite.golang.codequality.PreferStringsNewReader](/user-documentation/recipes/recipe-catalog/golang/codequality/preferstringsnewreader.md)
+  * **Prefer strings.NewReader**
+  * Replace `bytes.NewReader([]byte(s))` with `strings.NewReader(s)` to avoid an unnecessary string-to-byte-slice conversion.
+* [org.openrewrite.golang.codequality.ReduceErrorCheckNesting](/user-documentation/recipes/recipe-catalog/golang/codequality/reduceerrorchecknesting.md)
+  * **Reduce error check nesting**
+  * Invert `if err == nil \{ body \}` to `if err != nil \{ return err \}` followed by the body, reducing nesting in error-handling code.
+* [org.openrewrite.golang.codequality.ReduceNestingDepth](/user-documentation/recipes/recipe-catalog/golang/codequality/reducenestingdepth.md)
+  * **Reduce nesting depth**
+  * Invert `if err == nil \{ body \}` to `if err != nil \{ return \}` followed by the body, reducing nesting by one level.
+* [org.openrewrite.golang.codequality.RemoveConstantCondition](/user-documentation/recipes/recipe-catalog/golang/codequality/removeconstantcondition.md)
+  * **Remove constant if condition**
+  * Remove `if true \{ ... \}` (inline body) and `if false \{ ... \}` (remove dead code).
+* [org.openrewrite.golang.codequality.RemoveDebugPrint](/user-documentation/recipes/recipe-catalog/golang/codequality/removedebugprint.md)
+  * **Remove debug print statements**
+  * Remove calls to `fmt.Println`, `fmt.Printf`, `fmt.Print`, `println`, and `print`.
+* [org.openrewrite.golang.codequality.RemoveDoubleDeref](/user-documentation/recipes/recipe-catalog/golang/codequality/removedoublederef.md)
+  * **Remove redundant *&amp; (deref of address-of)**
+  * Remove `*&amp;x` where taking the address and immediately dereferencing is a no-op.
+* [org.openrewrite.golang.codequality.RemoveDuplicateConditions](/user-documentation/recipes/recipe-catalog/golang/codequality/removeduplicateconditions.md)
+  * **Remove duplicate conditions**
+  * Remove else-if branches whose condition duplicates an earlier branch in the same if/else-if chain, since the later branch is dead code.
+* [org.openrewrite.golang.codequality.RemoveEmptyDefault](/user-documentation/recipes/recipe-catalog/golang/codequality/removeemptydefault.md)
+  * **Remove empty default case**
+  * Remove `default:` cases with empty bodies from switch statements.
+* [org.openrewrite.golang.codequality.RemoveEmptyFunction](/user-documentation/recipes/recipe-catalog/golang/codequality/removeemptyfunction.md)
+  * **Remove empty functions**
+  * Remove free functions with empty bodies and no return type. Methods with receivers are preserved because they may implement an interface.
+* [org.openrewrite.golang.codequality.RemoveEmptyGoroutine](/user-documentation/recipes/recipe-catalog/golang/codequality/removeemptygoroutine.md)
+  * **Remove empty goroutine**
+  * Remove `go func() \{\}()` patterns where the goroutine body is empty.
+* [org.openrewrite.golang.codequality.RemoveEmptyLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/removeemptyloop.md)
+  * **Remove empty for loop**
+  * Remove `for` loops with empty bodies that spin without doing useful work.
+* [org.openrewrite.golang.codequality.RemoveEmptySwitch](/user-documentation/recipes/recipe-catalog/golang/codequality/removeemptyswitch.md)
+  * **Remove empty switch**
+  * Remove `switch` statements with no case clauses. An empty switch body is dead code.
+* [org.openrewrite.golang.codequality.RemoveGetterPrefix](/user-documentation/recipes/recipe-catalog/golang/codequality/removegetterprefix.md)
+  * **Remove getter prefix**
+  * Remove the &quot;Get&quot; prefix from method names. Go convention is that getters should not have the &quot;Get&quot; prefix. Callers of this method will need to be updated separately.
+* [org.openrewrite.golang.codequality.RemovePackagePrefixFromName](/user-documentation/recipes/recipe-catalog/golang/codequality/removepackageprefixfromname.md)
+  * **Remove package prefix from name**
+  * Find exported identifiers whose name starts with the package name. Go convention discourages repeating the package name in exported identifiers.
+* [org.openrewrite.golang.codequality.RemoveRedundantBreak](/user-documentation/recipes/recipe-catalog/golang/codequality/removeredundantbreak.md)
+  * **Remove redundant break**
+  * Remove trailing `break` in switch case clauses. Go switch cases do not fall through by default.
+* [org.openrewrite.golang.codequality.RemoveRedundantBreakInSelect](/user-documentation/recipes/recipe-catalog/golang/codequality/removeredundantbreakinselect.md)
+  * **Remove redundant break in select**
+  * Remove trailing `break` in select communication clauses. Go select cases do not fall through.
+* [org.openrewrite.golang.codequality.RemoveRedundantElse](/user-documentation/recipes/recipe-catalog/golang/codequality/removeredundantelse.md)
+  * **Remove redundant else after return**
+  * Remove `if ... \{ return \} else \{ ... \}` where the else is redundant because the if block ends with a return.
+* [org.openrewrite.golang.codequality.RemoveRedundantInterfaceAssertion](/user-documentation/recipes/recipe-catalog/golang/codequality/removeredundantinterfaceassertion.md)
+  * **Remove redundant type assertion to empty interface**
+  * Remove type assertions to `any` or `interface\{\}` which are always true and redundant.
+* [org.openrewrite.golang.codequality.RemoveRedundantRangeBlank](/user-documentation/recipes/recipe-catalog/golang/codequality/removeredundantrangeblank.md)
+  * **Remove redundant range blank**
+  * Remove the blank identifier from `for i, _ := range s` loops. Use `for i := range s` instead.
+* [org.openrewrite.golang.codequality.RemoveRedundantReturn](/user-documentation/recipes/recipe-catalog/golang/codequality/removeredundantreturn.md)
+  * **Remove redundant return**
+  * Remove bare `return` at the end of functions with no return values.
+* [org.openrewrite.golang.codequality.RemoveRedundantSprintf](/user-documentation/recipes/recipe-catalog/golang/codequality/removeredundantsprintf.md)
+  * **Remove redundant fmt.Sprintf**
+  * Replace `fmt.Sprintf(&quot;%s&quot;, s)` with `s` when the format string is a single %s.
+* [org.openrewrite.golang.codequality.RemoveRedundantTypeConversion](/user-documentation/recipes/recipe-catalog/golang/codequality/removeredundanttypeconversion.md)
+  * **Find potentially redundant type conversion**
+  * Find type conversions like `int(x)` that may be redundant if x is already the target type. Requires type attribution for full accuracy.
+* [org.openrewrite.golang.codequality.RemoveSelfAssignment](/user-documentation/recipes/recipe-catalog/golang/codequality/removeselfassignment.md)
+  * **Remove self-assignment**
+  * Remove `x = x` self-assignments which are redundant and may indicate a bug.
+* [org.openrewrite.golang.codequality.RemoveSwitchTrueTag](/user-documentation/recipes/recipe-catalog/golang/codequality/removeswitchtruetag.md)
+  * **Remove switch true tag**
+  * Remove redundant `true` tag from `switch true \{ ... \}` statements. Use a tagless switch instead.
+* [org.openrewrite.golang.codequality.RemoveUnconditionalValueOverwrite](/user-documentation/recipes/recipe-catalog/golang/codequality/removeunconditionalvalueoverwrite.md)
+  * **Remove unconditional value overwrite**
+  * Remove consecutive assignments to the same collection key or index where the first value is immediately overwritten and never read.
+* [org.openrewrite.golang.codequality.RemoveUnreachableCode](/user-documentation/recipes/recipe-catalog/golang/codequality/removeunreachablecode.md)
+  * **Remove unreachable code**
+  * Remove statements after a `return` in the same block which are unreachable.
+* [org.openrewrite.golang.codequality.ReplaceTimeSinceWithSince](/user-documentation/recipes/recipe-catalog/golang/codequality/replacetimesincewithsince.md)
+  * **Replace time.Now().Sub(t) with time.Since(t)**
+  * Replace `time.Now().Sub(t)` with `time.Since(t)` for clarity.
+* [org.openrewrite.golang.codequality.ReplaceTimeUntilWithUntil](/user-documentation/recipes/recipe-catalog/golang/codequality/replacetimeuntilwithuntil.md)
+  * **Replace t.Sub(time.Now()) with time.Until(t)**
+  * Replace `t.Sub(time.Now())` with `time.Until(t)` for clarity.
+* [org.openrewrite.golang.codequality.ResolveContextTodo](/user-documentation/recipes/recipe-catalog/golang/codequality/resolvecontexttodo.md)
+  * **Resolve context.TODO**
+  * Replace `context.TODO()` with `context.Background()`. These are placeholders that should be replaced with a real context.
+* [org.openrewrite.golang.codequality.ReuseJsonCodecInLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/reusejsoncodecinloop.md)
+  * **Reuse JSON codec in loop**
+  * Find `json.Marshal()` or `json.Unmarshal()` calls inside for/range loops. Consider using a pre-allocated encoder/decoder for better performance.
+* [org.openrewrite.golang.codequality.SimplifyBooleanExpression](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifybooleanexpression.md)
+  * **Simplify boolean expression**
+  * Simplify boolean comparisons like `x == true` to `x` and `x == false` to `!x`.
+* [org.openrewrite.golang.codequality.SimplifyBytesBufferRoundtrip](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifybytesbufferroundtrip.md)
+  * **Simplify bytes.NewBuffer roundtrip**
+  * Replace `bytes.NewBuffer(b).Bytes()` with `b` since wrapping a byte slice in a buffer only to extract it is a no-op.
+* [org.openrewrite.golang.codequality.SimplifyBytesEqualNil](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifybytesequalnil.md)
+  * **Simplify bytes.Equal nil check**
+  * Replace `bytes.Equal(b, nil)` and `bytes.Equal(nil, b)` with `len(b) == 0`.
+* [org.openrewrite.golang.codequality.SimplifyBytesSplitN](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifybytessplitn.md)
+  * **Simplify bytes.SplitN with -1**
+  * Replace `bytes.SplitN(b, sep, -1)` with `bytes.Split(b, sep)` since -1 means split all.
+* [org.openrewrite.golang.codequality.SimplifyDoubleNegation](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifydoublenegation.md)
+  * **Simplify double negation**
+  * Replace `!!x` with `x` to remove redundant double boolean negation.
+* [org.openrewrite.golang.codequality.SimplifyErrorsIsNil](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyerrorsisnil.md)
+  * **Simplify errors.Is nil check**
+  * Replace redundant `errors.Is(err, nil)` with `err == nil`.
+* [org.openrewrite.golang.codequality.SimplifyFmtSprintf](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyfmtsprintf.md)
+  * **Simplify fmt.Sprintf with %%v**
+  * Replace `fmt.Sprintf(&quot;%v&quot;, x)` with `fmt.Sprint(x)`.
+* [org.openrewrite.golang.codequality.SimplifyGoroutineClosure](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifygoroutineclosure.md)
+  * **Simplify goroutine closure**
+  * Simplify `go func() \{ f() \}()` to `go f()` where the closure wraps a single function call.
+* [org.openrewrite.golang.codequality.SimplifyIfReturnBool](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyifreturnbool.md)
+  * **Simplify if-return-bool**
+  * Replace `if cond \{ return true \}; return false` with `return cond`, and vice versa.
+* [org.openrewrite.golang.codequality.SimplifyNilCheckBeforeClose](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifynilcheckbeforeclose.md)
+  * **Simplify nil check before Close**
+  * Replace `if x != nil \{ x.Close() \}` with `x.Close()` where the nil check is redundant.
+* [org.openrewrite.golang.codequality.SimplifyRedundantBytesTrimSpace](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyredundantbytestrimspace.md)
+  * **Simplify redundant bytes.TrimSpace**
+  * Replace `bytes.TrimSpace(bytes.TrimSpace(b))` with `bytes.TrimSpace(b)` since TrimSpace is idempotent.
+* [org.openrewrite.golang.codequality.SimplifyRedundantErrorWrap](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyredundanterrorwrap.md)
+  * **Simplify redundant error wrap**
+  * Replace `fmt.Errorf(&quot;%w&quot;, err)` with `err` when wrapping adds no context.
+* [org.openrewrite.golang.codequality.SimplifyRedundantLenBeforeRange](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyredundantlenbeforerange.md)
+  * **Simplify redundant len check before range**
+  * Remove `if len(s) &gt; 0 \{ for ... range s \}` where the len check is redundant because range over nil/empty produces zero iterations.
+* [org.openrewrite.golang.codequality.SimplifyRedundantLogicalExpression](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyredundantlogicalexpression.md)
+  * **Simplify redundant logical expression**
+  * Simplify `x &amp;&amp; x` to `x`, `x || x` to `x`, and similarly for `&amp;` and `|`, where both sides of a logical or bitwise operator are identical.
+* [org.openrewrite.golang.codequality.SimplifyRedundantNilCheck](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyredundantnilcheck.md)
+  * **Simplify redundant nil check**
+  * Simplify `x != nil &amp;&amp; len(x) &gt; 0` to `len(x) &gt; 0` for slices and maps.
+* [org.openrewrite.golang.codequality.SimplifyRedundantTrimSpace](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyredundanttrimspace.md)
+  * **Simplify redundant TrimSpace**
+  * Replace `strings.TrimSpace(strings.TrimSpace(s))` with `strings.TrimSpace(s)`.
+* [org.openrewrite.golang.codequality.SimplifySelectDefaultOnly](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyselectdefaultonly.md)
+  * **Simplify select default only**
+  * Replace `select \{ default: ... \}` with the body statements when the select has only a default case and no communication cases.
+* [org.openrewrite.golang.codequality.SimplifySingleCaseSelect](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifysinglecaseselect.md)
+  * **Simplify single-case select**
+  * Replace `select` statements with a single case and no default with the channel operation directly.
+* [org.openrewrite.golang.codequality.SimplifySliceRange](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyslicerange.md)
+  * **Simplify slice range**
+  * Replace `s[0:len(s)]` with `s[:]`.
+* [org.openrewrite.golang.codequality.SimplifySplitN](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifysplitn.md)
+  * **Simplify strings.SplitN with -1**
+  * Replace `strings.SplitN(s, sep, -1)` with `strings.Split(s, sep)` since -1 means split all.
+* [org.openrewrite.golang.codequality.SimplifySprintfChar](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifysprintfchar.md)
+  * **Simplify fmt.Sprintf %c to string conversion**
+  * Replace `fmt.Sprintf(&quot;%c&quot;, r)` with `string(r)` for better performance.
+* [org.openrewrite.golang.codequality.SimplifySprintfConcat](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifysprintfconcat.md)
+  * **Simplify fmt.Sprintf string concat**
+  * Replace `fmt.Sprintf(&quot;%s%s&quot;, a, b)` with `a + b` for simple string concatenation.
+* [org.openrewrite.golang.codequality.SimplifyTrimLeftNoop](/user-documentation/recipes/recipe-catalog/golang/codequality/simplifytrimleftnoop.md)
+  * **Simplify no-op TrimLeft/TrimRight**
+  * Replace `strings.TrimLeft(s, &quot;&quot;)` and `strings.TrimRight(s, &quot;&quot;)` with `s` since trimming with an empty cutset is a no-op.
+* [org.openrewrite.golang.codequality.UseBufferedChannel](/user-documentation/recipes/recipe-catalog/golang/codequality/usebufferedchannel.md)
+  * **Use buffered channel**
+  * Find `make(chan T)` calls without a buffer size. Unbuffered channels block until both sender and receiver are ready.
+* [org.openrewrite.golang.codequality.UseBytesReplaceAll](/user-documentation/recipes/recipe-catalog/golang/codequality/usebytesreplaceall.md)
+  * **Use bytes.ReplaceAll**
+  * Replace `bytes.Replace(b, old, new, -1)` with `bytes.ReplaceAll(b, old, new)`.
+* [org.openrewrite.golang.codequality.UseCommaOkTypeAssertion](/user-documentation/recipes/recipe-catalog/golang/codequality/usecommaoktypeassertion.md)
+  * **Use comma-ok type assertion**
+  * Transform bare type assertions `v := x.(T)` into `v, ok := x.(T)` with `_ = ok` to avoid panics on assertion failure.
+* [org.openrewrite.golang.codequality.UseCryptoRand](/user-documentation/recipes/recipe-catalog/golang/codequality/usecryptorand.md)
+  * **Use crypto/rand**
+  * Find usage of `math/rand` functions. Consider using `crypto/rand` for security-sensitive randomness.
+* [org.openrewrite.golang.codequality.UseCtxForContextParam](/user-documentation/recipes/recipe-catalog/golang/codequality/usectxforcontextparam.md)
+  * **Use ctx for context.Context parameter**
+  * Rename function parameters of type context.Context that are not named &quot;ctx&quot; to &quot;ctx&quot;, including all usages in the function body.
+* [org.openrewrite.golang.codequality.UseCustomHttpClient](/user-documentation/recipes/recipe-catalog/golang/codequality/usecustomhttpclient.md)
+  * **Use custom HTTP client**
+  * Replace `http.Get`, `http.Post`, `http.Head`, and `http.PostForm` with `http.DefaultClient` equivalents to make the default client explicit.
+* [org.openrewrite.golang.codequality.UseDescriptivePackageName](/user-documentation/recipes/recipe-catalog/golang/codequality/usedescriptivepackagename.md)
+  * **Use descriptive package name**
+  * Find packages named util, utils, common, shared, misc, or helpers which are anti-patterns in Go.
+* [org.openrewrite.golang.codequality.UseDescriptiveVarNames](/user-documentation/recipes/recipe-catalog/golang/codequality/usedescriptivevarnames.md)
+  * **Use descriptive variable names**
+  * Find variable declarations with single-letter names that are not conventional short names (i, j, k, n, x, y, r, w, t, s, b, v).
+* [org.openrewrite.golang.codequality.UseDocumentedBlankImport](/user-documentation/recipes/recipe-catalog/golang/codequality/usedocumentedblankimport.md)
+  * **Use documented blank imports**
+  * Find blank imports (`import _ &quot;pkg&quot;`). Blank imports are used for side effects and should be documented.
+* [org.openrewrite.golang.codequality.UseErrPrefixForErrors](/user-documentation/recipes/recipe-catalog/golang/codequality/useerrprefixforerrors.md)
+  * **Use Err prefix for errors**
+  * Find package-level error variables not following the `ErrFoo` naming convention. Go convention is to prefix sentinel errors with &quot;Err&quot;.
+* [org.openrewrite.golang.codequality.UseErrorMethod](/user-documentation/recipes/recipe-catalog/golang/codequality/useerrormethod.md)
+  * **Use .Error() method**
+  * Replace `fmt.Sprint(err)` with `err.Error()` for clarity.
+* [org.openrewrite.golang.codequality.UseErrorsAs](/user-documentation/recipes/recipe-catalog/golang/codequality/useerrorsas.md)
+  * **Use errors.As**
+  * Replace `if myErr, ok := err.(*MyError); ok \{ ... \}` with `var myErr *MyError; if errors.As(err, &amp;myErr) \{ ... \}` for correct wrapped error handling.
+* [org.openrewrite.golang.codequality.UseErrorsIsOverStringComparison](/user-documentation/recipes/recipe-catalog/golang/codequality/useerrorsisoverstringcomparison.md)
+  * **Use errors.Is over string comparison**
+  * Find `err.Error() == &quot;string&quot;` comparisons. Comparing error messages by string is fragile; use `errors.Is` or `errors.As` instead.
+* [org.openrewrite.golang.codequality.UseErrorsNewForSimpleErrors](/user-documentation/recipes/recipe-catalog/golang/codequality/useerrorsnewforsimpleerrors.md)
+  * **Use errors.New for simple errors**
+  * Replace `fmt.Errorf(&quot;static message&quot;)` with `errors.New(&quot;static message&quot;)` when there are no format verbs.
+* [org.openrewrite.golang.codequality.UseHttpNewRequestWithContext](/user-documentation/recipes/recipe-catalog/golang/codequality/usehttpnewrequestwithcontext.md)
+  * **Use http.NewRequestWithContext**
+  * Replace deprecated `http.NewRequest(method, url, body)` with `http.NewRequestWithContext(context.TODO(), method, url, body)`.
+* [org.openrewrite.golang.codequality.UseHttpServerWithTimeout](/user-documentation/recipes/recipe-catalog/golang/codequality/usehttpserverwithtimeout.md)
+  * **Use http.Server with timeouts**
+  * Replace `http.ListenAndServe(addr, handler)` with an explicit `http.Server` with read/write timeouts.
+* [org.openrewrite.golang.codequality.UseMeaningfulReturnValues](/user-documentation/recipes/recipe-catalog/golang/codequality/usemeaningfulreturnvalues.md)
+  * **Use meaningful return values**
+  * Find `return nil, nil` where all returned values are nil, which may indicate a missing error or result.
+* [org.openrewrite.golang.codequality.UseMixedCaps](/user-documentation/recipes/recipe-catalog/golang/codequality/usemixedcaps.md)
+  * **Use MixedCaps**
+  * Find exported functions using underscores instead of camelCase. Go convention is to use MixedCaps or mixedCaps.
+* [org.openrewrite.golang.codequality.UseMixedCapsForConstants](/user-documentation/recipes/recipe-catalog/golang/codequality/usemixedcapsforconstants.md)
+  * **Use MixedCaps for constants**
+  * Find constant or variable names using ALL_CAPS_WITH_UNDERSCORES. Go convention is to use MixedCaps, not ALL_CAPS.
+* [org.openrewrite.golang.codequality.UseNamedConstant](/user-documentation/recipes/recipe-catalog/golang/codequality/usenamedconstant.md)
+  * **Use named constants**
+  * Find numeric literals (other than 0 and 1) that should be named constants.
+* [org.openrewrite.golang.codequality.UsePackageLevelErrorSentinel](/user-documentation/recipes/recipe-catalog/golang/codequality/usepackagelevelerrorsentinel.md)
+  * **Use package-level error sentinel**
+  * Move inline `errors.New(&quot;...&quot;)` calls to package-level sentinel variables so they can be compared with `errors.Is`.
+* [org.openrewrite.golang.codequality.UseShortReceiverName](/user-documentation/recipes/recipe-catalog/golang/codequality/useshortreceivername.md)
+  * **Use short receiver name**
+  * Rename method receivers longer than 2 characters to the first lowercase letter of the type name.
+* [org.openrewrite.golang.codequality.UseSkipWithReason](/user-documentation/recipes/recipe-catalog/golang/codequality/useskipwithreason.md)
+  * **Use skip with reason**
+  * Add a placeholder reason to bare `t.Skip()` calls. Tests should document why they are skipped.
+* [org.openrewrite.golang.codequality.UseStringsBuilderInLoop](/user-documentation/recipes/recipe-catalog/golang/codequality/usestringsbuilderinloop.md)
+  * **Use strings.Builder in loop**
+  * Find `s += expr` inside for/range loops. Repeated string concatenation in loops is inefficient; rewrite to use strings.Builder.
+* [org.openrewrite.golang.codequality.UseStringsReplaceAll](/user-documentation/recipes/recipe-catalog/golang/codequality/usestringsreplaceall.md)
+  * **Use strings.ReplaceAll**
+  * Replace `strings.Replace(s, old, new, -1)` with `strings.ReplaceAll(s, old, new)`.
+* [org.openrewrite.golang.codequality.UseStructuredLogging](/user-documentation/recipes/recipe-catalog/golang/codequality/usestructuredlogging.md)
+  * **Use structured logging**
+  * Find calls to the standard `log` package (`log.Print*`, `log.Fatal*`). Consider migrating to `log/slog` for structured logging (Go 1.21+).
+* [org.openrewrite.golang.codequality.UseTlsForHttp](/user-documentation/recipes/recipe-catalog/golang/codequality/usetlsforhttp.md)
+  * **Use TLS for HTTP**
+  * Replace `http.ListenAndServe(addr, handler)` with `http.ListenAndServeTLS(addr, &quot;cert.pem&quot;, &quot;key.pem&quot;, handler)` to encrypt traffic in transit.
+* [org.openrewrite.golang.codequality.WrapErrorBeforeReturn](/user-documentation/recipes/recipe-catalog/golang/codequality/wraperrorbeforereturn.md)
+  * **Wrap error before return**
+  * Replace `return nil, err` with `return nil, fmt.Errorf(&quot;funcName: %%w&quot;, err)` using the enclosing function name as context.
+* [org.openrewrite.golang.codequality.WrapErrorWithContext](/user-documentation/recipes/recipe-catalog/golang/codequality/wraperrorwithcontext.md)
+  * **Wrap error with context**
+  * Replace bare `return err` with `return fmt.Errorf(&quot;funcName: %%w&quot;, err)` using the enclosing function name as context.
+* [org.openrewrite.golang.migration.AddMissingGoModRequires](/user-documentation/recipes/recipe-catalog/golang/migration/addmissinggomodrequires.md)
+  * **Add missing go.mod requirements**
+  * Add `require` directives for modules the resolved build list needs but go.mod does not declare, at their resolved versions and with the `// indirect` marker the toolchain assigned. Mirrors what `go mod tidy` adds, using the module graph resolved at parse time.
+* [org.openrewrite.golang.migration.ChangeGoVersion](/user-documentation/recipes/recipe-catalog/golang/migration/changegoversion.md)
+  * **Change the `go` directive version**
+  * Rewrites the `go` directive in go.mod to a new version.
+* [org.openrewrite.golang.migration.FindMissingGoModRequires](/user-documentation/recipes/recipe-catalog/golang/migration/findmissinggomodrequires.md)
+  * **Find missing go.mod requirements**
+  * Find imports of third-party packages that are not covered by any `require` directive in the module's go.mod. These are the requirements `go mod tidy` would add; adding them automatically is not possible offline because it requires resolving module versions over the network.
+* [org.openrewrite.golang.migration.FindUnusedGoModRequires](/user-documentation/recipes/recipe-catalog/golang/migration/findunusedgomodrequires.md)
+  * **Find unused go.mod requirements**
+  * Find direct `require` directives in go.mod that no package in the module imports. A direct requirement is only justified by a direct import, so these are candidates `go mod tidy` would remove or demote to `// indirect`. They are reported rather than removed because deciding whether a module is still needed transitively requires the module graph, which is not available offline.
+* [org.openrewrite.golang.migration.FixGoModIndirectMarkers](/user-documentation/recipes/recipe-catalog/golang/migration/fixgomodindirectmarkers.md)
+  * **Fix go.mod `// indirect` markers**
+  * Correct the `// indirect` markers on `require` directives in go.mod: a requirement is direct when a package in the module imports it and indirect otherwise. Requirements are never removed, so the change is always build-safe; a genuinely unused requirement is marked `// indirect` rather than removed.
+* [org.openrewrite.golang.migration.FormatGoMod](/user-documentation/recipes/recipe-catalog/golang/migration/formatgomod.md)
+  * **Format go.mod**
+  * Sort the entries of each factored `require ( … )` block in go.mod by module path, matching `go mod tidy` ordering. Versions and `// indirect` markers travel with their entry; only the ordering changes.
+* [org.openrewrite.golang.migration.GoModTidy](/user-documentation/recipes/recipe-catalog/golang/migration/gomodtidy.md)
+  * **Tidy go.mod**
+  * Apply `go mod tidy` behavior to go.mod: add missing requirements at their resolved versions, remove unused ones, correct the `// indirect` markers, and sort require blocks. Adding and removing require the module graph resolved at parse time, and are no-ops without it. It does not sync go.sum; the `RegenerateGoSum` recipe covers that.
+* [org.openrewrite.golang.migration.RemoveUnusedGoModRequires](/user-documentation/recipes/recipe-catalog/golang/migration/removeunusedgomodrequires.md)
+  * **Remove unused go.mod requirements**
+  * Remove `require` directives whose module provides no imported package and is unreachable through the module graph from any module that does. Uses the package→module map and module graph resolved at parse time; a no-op when that resolution did not run. Modules that pin a transitive version are kept, so the removal is build-safe.
+* [org.openrewrite.golang.migration.UpgradeGoTo118](/user-documentation/recipes/recipe-catalog/golang/migration/upgradegoto118.md)
+  * **Upgrade Go to 1.18**
+  * Raise the `go` directive in go.mod to Go 1.18, unless it already targets 1.18 or newer.
+* [org.openrewrite.golang.migration.UpgradeGoTo119](/user-documentation/recipes/recipe-catalog/golang/migration/upgradegoto119.md)
+  * **Upgrade Go to 1.19**
+  * Raise the `go` directive in go.mod to Go 1.19, unless it already targets 1.19 or newer.
+* [org.openrewrite.golang.migration.UpgradeGoTo120](/user-documentation/recipes/recipe-catalog/golang/migration/upgradegoto120.md)
+  * **Upgrade Go to 1.20**
+  * Raise the `go` directive in go.mod to Go 1.20, unless it already targets 1.20 or newer.
+* [org.openrewrite.golang.migration.UpgradeGoTo121](/user-documentation/recipes/recipe-catalog/golang/migration/upgradegoto121.md)
+  * **Upgrade Go to 1.21**
+  * Raise the `go` directive in go.mod to Go 1.21, unless it already targets 1.21 or newer.
+* [org.openrewrite.golang.migration.UpgradeGoTo122](/user-documentation/recipes/recipe-catalog/golang/migration/upgradegoto122.md)
+  * **Upgrade Go to 1.22**
+  * Raise the `go` directive in go.mod to Go 1.22, unless it already targets 1.22 or newer.
+* [org.openrewrite.golang.migration.UpgradeGoTo123](/user-documentation/recipes/recipe-catalog/golang/migration/upgradegoto123.md)
+  * **Upgrade Go to 1.23**
+  * Raise the `go` directive in go.mod to Go 1.23, unless it already targets 1.23 or newer.
+* [org.openrewrite.golang.migration.UpgradeGoTo124](/user-documentation/recipes/recipe-catalog/golang/migration/upgradegoto124.md)
+  * **Upgrade Go to 1.24**
+  * Raise the `go` directive in go.mod to Go 1.24, unless it already targets 1.24 or newer.
+* [org.openrewrite.golang.migration.UpgradeGoTo125](/user-documentation/recipes/recipe-catalog/golang/migration/upgradegoto125.md)
+  * **Upgrade Go to 1.25**
+  * Raise the `go` directive in go.mod to Go 1.25, unless it already targets 1.25 or newer.
+* [org.openrewrite.golang.migration.UpgradeGoTo126](/user-documentation/recipes/recipe-catalog/golang/migration/upgradegoto126.md)
+  * **Upgrade Go to 1.26**
+  * Raise the `go` directive in go.mod to Go 1.26, unless it already targets 1.26 or newer.
+* [org.openrewrite.golang.search.FindMethods](/user-documentation/recipes/recipe-catalog/golang/search/findmethods.md)
+  * **Find methods**
+  * Find all method invocations matching a method pattern.
+* [org.openrewrite.golang.search.FindTypes](/user-documentation/recipes/recipe-catalog/golang/search/findtypes.md)
+  * **Find types**
+  * Find all references to a given type.
+* [org.openrewrite.golang.test.RenameXToFlag](/user-documentation/recipes/recipe-catalog/golang/test/renamextoflag.md)
+  * **Rename x to flag (test)**
+  * Test recipe that renames identifier x to flag.
+
 ## rewrite-all
 
 _License: Apache License Version 2.0_
@@ -1220,7 +1866,7 @@ _18 recipes_
   * For Gradle project, removes a single dependency from the dependencies section of the `build.gradle`. For Maven project, removes a single dependency from the `&lt;dependencies&gt;` section of the pom.xml.
 * [org.openrewrite.java.dependencies.RemoveRedundantDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeredundantdependencies.md)
   * **Remove redundant explicit dependencies**
-  * Remove explicit dependencies that are already provided transitively by a specified dependency. This recipe downloads and resolves the parent dependency's POM to determine its true transitive dependencies, allowing it to detect redundancies even when both dependencies are explicitly declared. A direct dependency is only removed when the transitive one provides it at the exact same scope and with the same exclusions, so that removing it does not change the effective classpath.
+  * Remove explicit dependencies that are already provided transitively by a specified dependency. This recipe downloads and resolves the parent dependency's POM to determine its true transitive dependencies, allowing it to detect redundancies even when both dependencies are explicitly declared. A direct dependency is only removed when the transitive one provides it at the exact same scope and with the same declared exclusions, so that removing it does not change the effective classpath.
 * [org.openrewrite.java.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion.md)
   * **Upgrade Gradle or Maven dependency versions**
   * For Gradle projects, upgrade the version of a dependency in a `build.gradle` file. Supports updating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`   * `Map` notation: `group: 'group', name: 'artifact', version: 'version'` It is possible to update version numbers which are defined earlier in the same file in variable declarations.  For Maven projects, upgrade the version of a dependency by specifying a group ID and (optionally) an artifact ID using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases.
@@ -1250,14 +1896,14 @@ _18 recipes_
 
 _License: Moderne Proprietary License_
 
-_131 recipes_
+_132 recipes_
 
 * [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
   * **Dependency insight for C#**
   * Finds dependencies in `*.csproj` and `packages.config`.
 * [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-07-13T1200.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-07-27T1204.
 * [org.openrewrite.csharp.dependencies.FindEndOfLifeDependencies](/user-documentation/recipes/recipe-catalog/csharp/dependencies/findendoflifedependencies.md)
   * **Find end-of-life NuGet dependencies**
   * Find NuGet packages whose upstream release is end-of-life or scheduled for end-of-life soon, using a snapshot of [endoflife.date](https://endoflife.date). Direct package references are marked in source; all matches (direct and transitive) are reported in the data table.
@@ -1296,7 +1942,7 @@ _131 recipes_
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-07-13T1200.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-07-27T1204.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -1351,6 +1997,9 @@ _131 recipes_
 * [org.openrewrite.java.security.Owasp2025A07](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a07.md)
   * **Remediate OWASP A07:2025 Identification and authentication failures**
   * OWASP [A07:2025](https://owasp.org/Top10/2025/A07_2025-Authentication_Failures/) describes failures related to identification and authentication, including weak credential management, missing brute force protections, session fixation, hardcoded credentials, insecure &quot;remember me&quot;, and missing multi-factor authentication. Same position as A07:2021 (no prior aggregator existed).
+* [org.openrewrite.java.security.Owasp2025A08](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a08.md)
+  * **Remediate OWASP A08:2025 Software or data integrity failures**
+  * OWASP [A08:2025](https://owasp.org/Top10/2025/A08_2025-Software_or_Data_Integrity_Failures/) describes failures to verify the integrity of software, code, and data artifacts across a trust boundary, including deserialization of untrusted data. Same position as A08:2021 Software and data integrity failures; the broader supply chain concerns that shared that category moved to A03:2025.
 * [org.openrewrite.java.security.OwaspA01](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
   * **Remediate OWASP A01:2021 Broken access control**
   * OWASP [A01:2021](https://owasp.org/Top10/A01_2021-Broken_Access_Control/) describes failures related to broken access control.
@@ -2494,7 +3143,7 @@ _39 recipes_
 
 _License: Moderne Source Available License_
 
-_468 recipes_
+_470 recipes_
 
 * [com.google.guava.InlineGuavaMethods](/user-documentation/recipes/recipe-catalog/google/guava/inlineguavamethods.md)
   * **Inline `guava` methods annotated with `@InlineMe`**
@@ -2535,6 +3184,9 @@ _468 recipes_
 * [org.openrewrite.java.migrate.AddLombokMapstructBindingMavenDependencyOnly](/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbindingmavendependencyonly.md)
   * **Add `lombok-mapstruct-binding` dependency for Maven when both MapStruct and Lombok are used**
   * Add the `lombok-mapstruct-binding` when both MapStruct and Lombok are used, and the dependency does not already exist. Only to be called from `org.openrewrite.java.migrate.AddLombokMapstructBinding` to reduce redundant checks.
+* [org.openrewrite.java.migrate.AddMapstructAnnotationProcessorPath](/user-documentation/recipes/recipe-catalog/java/migrate/addmapstructannotationprocessorpath.md)
+  * **Add `mapstruct-processor` to the `maven-compiler-plugin` annotation processor paths**
+  * Add the `mapstruct-processor` annotation processor path, matching the version of the `mapstruct` dependency, so that MapStruct mappers are generated when annotation processing is configured explicitly.
 * [org.openrewrite.java.migrate.AddMissingMethodImplementation](/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation.md)
   * **Adds missing method implementations**
   * Check for missing methods required by interfaces and adds them.
@@ -2999,16 +3651,16 @@ _468 recipes_
   * Prefer `java.lang.Integer#compare` instead of using `com.google.common.primitives.Ints#compare`.
 * [org.openrewrite.java.migrate.guava.PreferIntegerCompareUnsigned](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegercompareunsigned.md)
   * **Prefer `Integer#compareUnsigned`**
-  * Prefer `java.lang.Integer#compareUnsigned` instead of using `com.google.common.primitives.UnsignedInts#compare` or `com.google.common.primitives.UnsignedInts#compareUnsigned`.
+  * Prefer `java.lang.Integer#compareUnsigned` instead of using `com.google.common.primitives.UnsignedInts#compare`.
 * [org.openrewrite.java.migrate.guava.PreferIntegerDivideUnsigned](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegerdivideunsigned.md)
   * **Prefer `Integer#divideUnsigned`**
-  * Prefer `java.lang.Integer#divideUnsigned` instead of using `com.google.common.primitives.UnsignedInts#divide` or `com.google.common.primitives.UnsignedInts#divideUnsigned`.
+  * Prefer `java.lang.Integer#divideUnsigned` instead of using `com.google.common.primitives.UnsignedInts#divide`.
 * [org.openrewrite.java.migrate.guava.PreferIntegerParseUnsignedInt](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegerparseunsignedint.md)
   * **Prefer `Integer#parseUnsignedInt`**
   * Prefer `java.lang.Integer#parseUnsignedInt` instead of using `com.google.common.primitives.UnsignedInts#parseUnsignedInt`.
 * [org.openrewrite.java.migrate.guava.PreferIntegerRemainderUnsigned](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferintegerremainderunsigned.md)
   * **Prefer `Integer#remainderUnsigned`**
-  * Prefer `java.lang.Integer#remainderUnsigned` instead of using `com.google.common.primitives.UnsignedInts#remainderUnsigned`.
+  * Prefer `java.lang.Integer#remainderUnsigned` instead of using `com.google.common.primitives.UnsignedInts#remainder`.
 * [org.openrewrite.java.migrate.guava.PreferJavaNioCharsetStandardCharsets](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavaniocharsetstandardcharsets.md)
   * **Prefer `java.nio.charset.StandardCharsets`**
   * Prefer `java.nio.charset.StandardCharsets` instead of using `com.google.common.base.Charsets`.
@@ -3053,28 +3705,28 @@ _468 recipes_
   * Prefer `java.lang.Long#compare` instead of using `com.google.common.primitives.Longs#compare`.
 * [org.openrewrite.java.migrate.guava.PreferLongCompareUnsigned](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferlongcompareunsigned.md)
   * **Prefer `Long#compareUnsigned`**
-  * Prefer `java.lang.Long#compareUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#compare` or `com.google.common.primitives.UnsignedLongs#compareUnsigned`.
+  * Prefer `java.lang.Long#compareUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#compare`.
 * [org.openrewrite.java.migrate.guava.PreferLongDivideUnsigned](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferlongdivideunsigned.md)
   * **Prefer `Long#divideUnsigned`**
-  * Prefer `java.lang.Long#divideUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#divide` or `com.google.common.primitives.UnsignedLongs#divideUnsigned`.
+  * Prefer `java.lang.Long#divideUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#divide`.
 * [org.openrewrite.java.migrate.guava.PreferLongParseUnsignedLong](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferlongparseunsignedlong.md)
-  * **Prefer `Long#parseUnsignedInt`**
-  * Prefer `java.lang.Long#parseUnsignedInt` instead of using `com.google.common.primitives.UnsignedLongs#parseUnsignedInt`.
+  * **Prefer `Long#parseUnsignedLong`**
+  * Prefer `java.lang.Long#parseUnsignedLong` instead of using `com.google.common.primitives.UnsignedLongs#parseUnsignedLong`.
 * [org.openrewrite.java.migrate.guava.PreferLongRemainderUnsigned](/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferlongremainderunsigned.md)
   * **Prefer `Long#remainderUnsigned`**
-  * Prefer `java.lang.Long#remainderUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#remainderUnsigned`.
+  * Prefer `java.lang.Long#remainderUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#remainder`.
 * [org.openrewrite.java.migrate.guava.PreferMathAddExact](/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefermathaddexact.md)
   * **Prefer `Math#addExact`**
-  * Prefer `java.lang.Math#addExact` instead of using `com.google.common.math.IntMath#checkedAdd` or `com.google.common.math.IntMath#addExact`.
+  * Prefer `java.lang.Math#addExact` instead of using `com.google.common.math.IntMath#checkedAdd`.
 * [org.openrewrite.java.migrate.guava.PreferMathClamp](/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefermathclamp.md)
   * **Prefer `Math#clamp`**
   * Prefer `java.lang.Math#clamp` instead of using `com.google.common.primitives.*#constrainToRange`.
 * [org.openrewrite.java.migrate.guava.PreferMathMultiplyExact](/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefermathmultiplyexact.md)
   * **Prefer `Math#multiplyExact`**
-  * Prefer `java.lang.Math#multiplyExact` instead of using `com.google.common.primitives.IntMath#checkedMultiply` or `com.google.common.primitives.IntMath#multiplyExact`.
+  * Prefer `java.lang.Math#multiplyExact` instead of using `com.google.common.math.IntMath#checkedMultiply`.
 * [org.openrewrite.java.migrate.guava.PreferMathSubtractExact](/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefermathsubtractexact.md)
   * **Prefer `Math#subtractExact`**
-  * Prefer `java.lang.Math#subtractExact` instead of using `com.google.common.primitives.IntMath#checkedSubtract` or `com.google.common.primitives.IntMath#subtractExact`.
+  * Prefer `java.lang.Math#subtractExact` instead of using `com.google.common.math.IntMath#checkedSubtract`.
 * [org.openrewrite.java.migrate.guava.PreferShortCompare](/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefershortcompare.md)
   * **Prefer `Short#compare`**
   * Prefer `java.lang.Short#compare` instead of using `com.google.common.primitives.Shorts#compare`.
@@ -3426,6 +4078,9 @@ _468 recipes_
 * [org.openrewrite.java.migrate.javaee8.ApacheDefaultProvider](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/apachedefaultprovider.md)
   * **Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references**
   * This recipe flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references in validation.xml deployment descriptors. Bean Validation 2.0 and later use the Hibernate Validator implementation instead of the Apache BVal implementation which was used for Bean Validation 1.0 and 1.1.
+* [org.openrewrite.java.migrate.javaee8.MigrateToServlet3x](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/migratetoservlet3x.md)
+  * **Update Java EE Servlet Dependencies to 3.x**
+  * Update Java EE Servlet Dependencies to 3.x.
 * [org.openrewrite.java.migrate.javaee8.ServletIsRequestedSessionIdFromURL](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/servletisrequestedsessionidfromurl.md)
   * **Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`**
   * The  method `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` is deprecated in JavaEE8 and is replaced by `HttpServletRequestWrapper.isRequestedSessionIdFromURL()`.
@@ -4321,7 +4976,7 @@ _139 recipes_
   * Update the Python version of Python images in Dockerfiles to a target version: `FROM python:&lt;version&gt;` base images and `COPY --from=&lt;python image&gt;` / `ADD --from=&lt;python image&gt;` stage references (e.g. `COPY --from=registry.example.com/approved-images/python:3.10-ubuntu22.04 /usr /usr`). Tag suffixes such as `-slim` are preserved, any patch component is dropped, and an image already on a newer version is left as-is. `--from` references to named build stages are not image references and are left untouched.
 * [org.openrewrite.python.migrate.UpgradePythonVersion](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversion.md)
   * **Upgrade Python version in project files**
-  * Update the Python version referenced in project metadata and packaging files to a target version. Updates `Pipfile` (`python_version` / `python_full_version`), `pyproject.toml` (`[project] requires-python` and Poetry's `[tool.poetry.dependencies] python`), `setup.cfg` (`python_requires`), and `.python-version` files. When a lock file (`uv.lock` or `Pipfile.lock`) is present and the matching package manager (`uv` or `pipenv`) is available on `PATH`, the lock file is regenerated to match. Only references older than the target are changed; a file already on a newer version is left as-is. `Dockerfile` base images are handled separately by `UpgradePythonDockerImage`, CloudFormation/SAM templates by `UpgradePythonCloudFormationRuntime`, Mend `.whitesource` files by `UpgradePythonWhitesourceConfig`, and `requirements.txt` is not modified because it pins package versions, not the interpreter version.
+  * Update the Python version referenced in project metadata and packaging files to a target version. Updates `Pipfile` (`python_version` / `python_full_version`), `pyproject.toml` (`[project] requires-python` and Poetry's `[tool.poetry.dependencies] python`), `setup.cfg` (`python_requires`), and `.python-version` files. When a lock file (`uv.lock` or `Pipfile.lock`) is present, it is regenerated natively to match, without executing the package manager or requiring one on `PATH`. Only references older than the target are changed; a file already on a newer version is left as-is. `Dockerfile` base images are handled separately by `UpgradePythonDockerImage`, CloudFormation/SAM templates by `UpgradePythonCloudFormationRuntime`, Mend `.whitesource` files by `UpgradePythonWhitesourceConfig`, and `requirements.txt` is not modified because it pins package versions, not the interpreter version.
 * [org.openrewrite.python.migrate.UpgradePythonVersionTo310](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversionto310.md)
   * **Upgrade Python version in project files to 3.10**
   * Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, `Dockerfile` base images, CloudFormation/SAM template runtimes, and Mend `.whitesource` files to 3.10.
@@ -4472,8 +5127,95 @@ _10 recipes_
 
 _License: Moderne Proprietary License_
 
-_14 recipes_
+_43 recipes_
 
+* [org.openrewrite.node.migrate.buffer.replace-deprecated-slice](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-deprecated-slice.md)
+  * **Replace deprecated `Buffer.slice()` with `Buffer.subarray()`**
+  * Replace deprecated `buffer.slice()` calls with `buffer.subarray()` for compatibility with Uint8Array.prototype.slice().
+* [org.openrewrite.node.migrate.buffer.replace-slow-buffer](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-slow-buffer.md)
+  * **Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`**
+  * Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method.
+* [org.openrewrite.node.migrate.crypto.find-create-cipher](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/find-create-cipher.md)
+  * **Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage**
+  * `crypto.createCipher()` and `crypto.createDecipher()` were deprecated in Node.js 10 (DEP0106) and removed in Node.js 22. Use `crypto.createCipheriv()` and `crypto.createDecipheriv()` instead.
+* [org.openrewrite.node.migrate.crypto.replace-crypto-fips](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-crypto-fips.md)
+  * **Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`**
+  * Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes.
+* [org.openrewrite.node.migrate.crypto.replace-hash-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-hash-constructor.md)
+  * **Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods**
+  * Replace deprecated `new crypto.Hash(algorithm)` constructor calls with `crypto.createHash(algorithm)` and `new crypto.Hmac(algorithm, key)` with `crypto.createHmac(algorithm, key)` factory methods.
+* [org.openrewrite.node.migrate.find-process-assert](/user-documentation/recipes/recipe-catalog/node/migrate/find-process-assert.md)
+  * **Find deprecated `process.assert()` usage**
+  * `process.assert()` was deprecated in Node.js 10 (DEP0100) and removed in Node.js 23. Use the `assert` module instead.
+* [org.openrewrite.node.migrate.find-punycode-usage](/user-documentation/recipes/recipe-catalog/node/migrate/find-punycode-usage.md)
+  * **Find deprecated `punycode` module usage**
+  * The `punycode` built-in module was deprecated in Node.js 21 (DEP0040). Use the userland `punycode` package from npm or `url.domainToASCII`/`url.domainToUnicode` instead.
+* [org.openrewrite.node.migrate.fs.replace-dirent-path](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-dirent-path.md)
+  * **Replace `dirent.path` with `dirent.parentPath`**
+  * Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation.
+* [org.openrewrite.node.migrate.fs.replace-fs-access-constants](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-access-constants.md)
+  * **Replace deprecated `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK` with `fs.constants.*`**
+  * Replace deprecated file access constants (`fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK`) with their equivalents from `fs.constants`. These constants were removed in Node.js v24+ and should be accessed through the constants namespace.
+* [org.openrewrite.node.migrate.fs.replace-fs-truncate-fd](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-truncate-fd.md)
+  * **Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`**
+  * Replace deprecated `fs.truncate(fd, ...)` and `fs.truncateSync(fd, ...)` calls with `fs.ftruncate(fd, ...)` and `fs.ftruncateSync(fd, ...)` when the first argument is a file descriptor (number).
+* [org.openrewrite.node.migrate.fs.replace-stats-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-stats-constructor.md)
+  * **Replace deprecated `fs.Stats` constructor with object literal**
+  * Replace deprecated `new fs.Stats()` constructor calls with an object literal containing Stats properties initialized to undefined.
+* [org.openrewrite.node.migrate.http.replace-outgoing-message-headers](/user-documentation/recipes/recipe-catalog/node/migrate/http/replace-outgoing-message-headers.md)
+  * **Replace `OutgoingMessage._headers` and `._headerNames` with public methods**
+  * Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation.
+* [org.openrewrite.node.migrate.increase-node-engine-version](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version.md)
+  * **Increase Node.js engine version**
+  * Raises the lower bound of the `engines.node` version range in package.json to the specified Node.js version, performing a hard cutover that drops support for older, end-of-life versions (`22.x` → `24.x`, `&gt;= 22` → `&gt;= 24`). The original constraint style is preserved where possible and the version is never lowered.
+* [org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version-in-github-actions.md)
+  * **Increase Node.js version in GitHub Actions**
+  * Increases `node-version` in `actions/setup-node` steps in GitHub Actions workflows. Only modifies plain major version values (e.g. `20`) and x-ranges (e.g. `20.x`). Never decreases the version.
+* [org.openrewrite.node.migrate.net.remove-set-simultaneous-accepts](/user-documentation/recipes/recipe-catalog/node/migrate/net/remove-set-simultaneous-accepts.md)
+  * **Remove deprecated `net._setSimultaneousAccepts()`**
+  * Remove calls to deprecated `net._setSimultaneousAccepts()` which was an undocumented internal function that is no longer necessary.
+* [org.openrewrite.node.migrate.process.coerce-process-exit-code](/user-documentation/recipes/recipe-catalog/node/migrate/process/coerce-process-exit-code.md)
+  * **Coerce `process.exit()` and `process.exitCode` to integer**
+  * Wraps non-integer values passed to `process.exit()` or assigned to `process.exitCode` with `Math.trunc()` to avoid the DEP0164 deprecation warning about implicit coercion to integer.
+* [org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants](/user-documentation/recipes/recipe-catalog/node/migrate/process/remove-usage-of-features-tls-underscore_constants.md)
+  * **Remove usage of deprecated `process.features.tls_*` properties**
+  * Remove references to deprecated `process.features.tls_*` properties, replace with `process.features.tls`.
+* [org.openrewrite.node.migrate.stream.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/stream/replace-internal-modules.md)
+  * **Replace deprecated `node:_stream_*` with `node:stream`**
+  * Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module.
+* [org.openrewrite.node.migrate.timers.find-timers-active](/user-documentation/recipes/recipe-catalog/node/migrate/timers/find-timers-active.md)
+  * **Find deprecated `timers.active()` and `timers._unrefActive()` usage**
+  * `timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead.
+* [org.openrewrite.node.migrate.tls.find-tls-secure-pair](/user-documentation/recipes/recipe-catalog/node/migrate/tls/find-tls-secure-pair.md)
+  * **Find deprecated `tls.SecurePair` and `tls.createSecurePair()` usage**
+  * `tls.SecurePair` (DEP0043) and `tls.createSecurePair()` (DEP0064) were deprecated and removed in Node.js 24. Use `tls.TLSSocket` instead.
+* [org.openrewrite.node.migrate.tls.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/tls/replace-internal-modules.md)
+  * **Replace deprecated `node:_tls_common` and `node:_tls_wrap` with `node:tls`**
+  * Replace deprecated internal TLS module imports `require('node:_tls_common')` and `require('node:_tls_wrap')` with the public `node:tls` module.
+* [org.openrewrite.node.migrate.upgrade-node-22](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22.md)
+  * **Upgrade to Node.js 22**
+  * Migrate deprecated APIs for Node.js 22 compatibility. Addresses Node 22 runtime deprecations and deprecations from earlier versions.
+* [org.openrewrite.node.migrate.upgrade-node-24](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24.md)
+  * **Upgrade to Node.js 24**
+  * Migrate deprecated APIs for Node.js 24 compatibility. Includes all migrations from Node.js 22, plus Node 23 and Node 24 deprecations.
+* [org.openrewrite.node.migrate.util.remove-promisify-on-promise](/user-documentation/recipes/recipe-catalog/node/migrate/util/remove-promisify-on-promise.md)
+  * **Remove unnecessary `util.promisify()` on Promise-returning functions**
+  * Removes `util.promisify()` calls on functions that already return a Promise. Since Node.js v17.0.0, calling promisify on a function that returns a Promise emits a runtime deprecation warning (DEP0174).
+* [org.openrewrite.node.migrate.util.replace-is-webassembly-compiled-module](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-is-webassembly-compiled-module.md)
+  * **Replace deprecated `util.types.isWebAssemblyCompiledModule()`**
+  * Replace `util.types.isWebAssemblyCompiledModule(value)` with `value instanceof WebAssembly.Module`.
+* [org.openrewrite.node.migrate.util.replace-util-extend](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-extend.md)
+  * **Replace deprecated `util._extend()` with `Object.assign()`**
+  * Replace deprecated `util._extend(target, source)` calls with `Object.assign(target, source)` which preserves the mutation behavior.
+* [org.openrewrite.node.migrate.util.replace-util-log](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-log.md)
+  * **Replace deprecated `util.log()` with `console.log()`**
+  * Replace deprecated `util.log()` calls with `console.log()`. Note: `util.log()` included timestamps, but `console.log()` does not.
+* [org.openrewrite.node.migrate.util.use-native-type-checking-methods](/user-documentation/recipes/recipe-catalog/node/migrate/util/use-native-type-checking-methods.md)
+  * **Replace deprecated `util.isX()` methods with native JavaScript**
+  * The `util` module's type-checking methods have been removed in Node 22.
+* [org.openrewrite.node.migrate.zlib.replace-bytes-read](/user-documentation/recipes/recipe-catalog/node/migrate/zlib/replace-bytes-read.md)
+  * **Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`**
+  * Replace deprecated `bytesRead` property on zlib streams with `bytesWritten`.
 * [org.openrewrite.nodejs.search.DatabaseInteractionInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/databaseinteractioninsights.md)
   * **Javascript database interaction library insights**
   * Discover which popular javascript database interaction libraries (Sequelize, TypeORM, Mongoose, etc.) are being used in your projects.
@@ -4929,7 +5671,7 @@ _41 recipes_
 
 _License: Moderne Source Available License_
 
-_321 recipes_
+_333 recipes_
 
 * [org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin](/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md)
   * **Add `io.spring.dependency-management` plugin, if in use**
@@ -5183,6 +5925,9 @@ _321 recipes_
 * [org.openrewrite.java.spring.boot2.RemoveObsoleteSpringRunners](/user-documentation/recipes/recipe-catalog/java/spring/boot2/removeobsoletespringrunners.md)
   * **Remove obsolete Spring JUnit runners**
   * Remove obsolete classpath runners.
+* [org.openrewrite.java.spring.boot2.RemoveStaleMockitoVersionProperty](/user-documentation/recipes/recipe-catalog/java/spring/boot2/removestalemockitoversionproperty.md)
+  * **Remove stale `mockito.version` property predating the Mockito BOM**
+  * Spring Boot 2.7 switched to importing `org.mockito:mockito-bom:$\{mockito.version\}`. A stale `mockito.version` override predating the Mockito BOM (before 4.3.0) resolves to a non-existent POM, which breaks dependency resolution and silently stalls later upgrades such as Spring Cloud. Only remove the property when it still points at such an older Mockito version, so that deliberate overrides on newer versions are preserved when this recipe is chained into later Spring Boot upgrades.
 * [org.openrewrite.java.spring.boot2.ReplaceDeprecatedEnvironmentTestUtils](/user-documentation/recipes/recipe-catalog/java/spring/boot2/replacedeprecatedenvironmenttestutils.md)
   * **Replace `EnvironmentTestUtils` with `TestPropertyValues`**
   * Replaces any references to the deprecated `EnvironmentTestUtils` with `TestPropertyValues` and the appropriate functionality.
@@ -5438,15 +6183,33 @@ _321 recipes_
 * [org.openrewrite.java.spring.boot4.AddAutoConfigureWebTestClient](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addautoconfigurewebtestclient.md)
   * **Add `@AutoConfigureWebTestClient` if necessary**
   * Adds `@AutoConfigureWebTestClient` to test classes annotated with `@SpringBootTest` that use `WebTestClient` since this bean is no longer auto-configured as described in the [Spring Boot 4 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide#using-webclient-or-testresttemplate-and-springboottest).
+* [org.openrewrite.java.spring.boot4.AddSpringBootStarterDataMongoDbReactiveTest](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addspringbootstarterdatamongodbreactivetest.md)
+  * **Add `spring-boot-starter-data-mongodb-reactive-test` for reactive MongoDB tests**
+  * Adds the dedicated Spring Boot 4.0 reactive Spring Data MongoDB test starter when the application directly uses the reactive Spring Data MongoDB starter and MongoDB test slices.
+* [org.openrewrite.java.spring.boot4.AddSpringBootStarterDataMongoDbTest](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addspringbootstarterdatamongodbtest.md)
+  * **Add `spring-boot-starter-data-mongodb-test` for imperative MongoDB tests**
+  * Adds the dedicated Spring Boot 4.0 imperative Spring Data MongoDB test starter when the application directly uses the imperative Spring Data MongoDB starter and MongoDB test slices.
 * [org.openrewrite.java.spring.boot4.AddSpringBootStarterFlyway](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addspringbootstarterflyway.md)
   * **Add `spring-boot-starter-flyway` if using Flyway**
   * Adds the necessary Spring Boot 4.0 Flyway starter for autoconfiguration based on dependency usage.
 * [org.openrewrite.java.spring.boot4.MigrateAutoconfigurePackages](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateautoconfigurepackages.md)
   * **Migrate packages to modular starters**
   * Migrate to new packages used for autoconfiguration by Spring Boot 4.0 modules.
+* [org.openrewrite.java.spring.boot4.MigrateJacksonBomProperty](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratejacksonbomproperty.md)
+  * **Migrate a Spring Boot 3 `jackson-bom.version` override to `jackson-2-bom.version`**
+  * In Spring Boot 4 `jackson-bom.version` controls the Jackson 3 (`tools.jackson`) BOM, while the Jackson 2 BOM is controlled by `jackson-2-bom.version`. A Spring Boot 3 override pins a Jackson 2 version, so rename it to keep managing Jackson 2. Gated on a Spring Boot 3 parent so a deliberate Jackson 3 override on an already-Spring-Boot-4 project is left untouched.
+* [org.openrewrite.java.spring.boot4.MigrateJsonschema2PojoToSpringBoot4](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratejsonschema2pojotospringboot4.md)
+  * **Migrate jsonschema2pojo configuration to Spring Boot 4**
+  * Update `jsonschema2pojo-maven-plugin` to generate Jackson 3 and Jakarta Validation annotations compatible with Spring Boot 4. The `jackson3` annotation style was introduced in jsonschema2pojo 1.3.0, so the plugin is upgraded to at least that version first.
+* [org.openrewrite.java.spring.boot4.MigrateOpenApiGeneratorToSpringBoot4](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateopenapigeneratortospringboot4.md)
+  * **Migrate OpenAPI Generator `spring` configuration to Spring Boot 4**
+  * Update `openapi-generator-maven-plugin` executions using the `spring` generator to generate Spring Boot 4 and Jackson 3 sources. Replaces the deprecated `useSpringBoot3` option with `useSpringBoot4` and enables `useJackson3`, matching the Jackson 3 baseline of Spring Boot 4. Enabling `useSpringBoot4` also enables `useJakartaEe`, so it is left implicit. The `useSpringBoot4`/`useJackson3` options were introduced in OpenAPI Generator 7.16.0, so the plugin is upgraded to at least that version first.
 * [org.openrewrite.java.spring.boot4.MigrateToModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-community-edition.md)
   * **Migrate to Spring Boot 4.0 modular starters (Community Edition)**
   * Adds the necessary Spring Boot 4.0 starter dependencies based on package usage. Spring Boot 4.0 has a modular design requiring explicit starters for each feature. This recipe detects feature usage via package imports and adds the appropriate starters. Note: Higher-level starters (like data-jpa) include lower-level ones (like jdbc) transitively, so only the highest-level detected starter is added for each technology.
+* [org.openrewrite.java.spring.boot4.RelocateWebServerClasses](/user-documentation/recipes/recipe-catalog/java/spring/boot4/relocatewebserverclasses.md)
+  * **Relocate Spring Boot web server classes to their Spring Boot 4.0 packages**
+  * Spring Boot 4.0 relocated the embedded web server (Tomcat, Jetty) and web server application context classes into dedicated modular packages. This recipe updates references to the relocated classes' new fully-qualified names, including the servlet and reactive `WebServerFactory` variants, which moved into `servlet` and `reactive` subpackages. Undertow support was removed in Spring Boot 4.0 and is intentionally not handled here.
 * [org.openrewrite.java.spring.boot4.RenameDeprecatedStartersManagedVersions](/user-documentation/recipes/recipe-catalog/java/spring/boot4/renamedeprecatedstartersmanagedversions.md)
   * **Rename Spring Boot 4.0 starters with managed versions**
   * Renames deprecated Spring Boot starters to their new names without adding explicit versions, for use in projects where the `io.spring.dependency-management` plugin manages versions via BOM.
@@ -5455,6 +6218,9 @@ _321 recipes_
   * Replaces `@MockBean` and `@SpyBean` annotations with `@MockitoBean` and `@MockitoSpyBean`.
 * [org.openrewrite.java.spring.boot4.SpringBootProperties_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_0.md)
   * **Migrate Spring Boot properties to 4.0**
+  * Migrate properties found in `application.properties` and `application.yml`.
+* [org.openrewrite.java.spring.boot4.SpringBootProperties_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_1-community-edition.md)
+  * **Migrate Spring Boot properties to 4.1 (Community Edition)**
   * Migrate properties found in `application.properties` and `application.yml`.
 * [org.openrewrite.java.spring.boot4.UnwrapMockAndSpyBeanContainers](/user-documentation/recipes/recipe-catalog/java/spring/boot4/unwrapmockandspybeancontainers.md)
   * **Unwrap `@MockBeans` and `@SpyBeans` container annotations**
@@ -5543,6 +6309,9 @@ _321 recipes_
 * [org.openrewrite.java.spring.data.RefactorSimpleMongoDbFactory](/user-documentation/recipes/recipe-catalog/java/spring/data/refactorsimplemongodbfactory.md)
   * **Use `new SimpleMongoClientDbFactory(String)`**
   * Replace usage of deprecated `new SimpleMongoDbFactory(new MongoClientURI(String))` with `new SimpleMongoClientDbFactory(String)`.
+* [org.openrewrite.java.spring.data.UpgradeSpringDataMongoDb_5_0](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdatamongodb_5_0.md)
+  * **Migrate to Spring Data MongoDB 5.0**
+  * Align explicitly versioned Spring Data MongoDB and supported MongoDB JVM driver dependencies with Spring Data MongoDB 5.0. Managed, versionless dependencies remain managed.
 * [org.openrewrite.java.spring.data.UpgradeSpringData_2_3](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_3.md)
   * **Migrate to Spring Data 2.3**
   * Migrate applications to the latest Spring Data 2.3 release.
@@ -5558,6 +6327,9 @@ _321 recipes_
 * [org.openrewrite.java.spring.data.UpgradeSpringData_3_4](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_3_4.md)
   * **Migrate to Spring Data JPA 3.4**
   * Migrate applications to the latest Spring Data JPA 3.4 release.
+* [org.openrewrite.java.spring.data.UpgradeSpringData_4_0](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_4_0.md)
+  * **Migrate to Spring Data 4.0**
+  * Migrate applications to the Spring Data 2025.1 release train. Datastore-specific migration support is added incrementally.
 * [org.openrewrite.java.spring.data.UseTlsJdbcConnectionString](/user-documentation/recipes/recipe-catalog/java/spring/data/usetlsjdbcconnectionstring.md)
   * **Use TLS for JDBC connection strings**
   * Increasingly, for compliance reasons (e.g. [NACHA](https://www.nacha.org/sites/default/files/2022-06/End_User_Briefing_Supplementing_Data_Security_UPDATED_FINAL.pdf)), JDBC connection strings should be TLS-enabled. This recipe will update the port and optionally add a connection attribute to indicate that the connection is TLS-enabled.
@@ -5687,6 +6459,9 @@ _321 recipes_
 * [org.openrewrite.java.spring.http.SpringWebDependency](/user-documentation/recipes/recipe-catalog/java/spring/http/springwebdependency.md)
   * **Find Spring Web dependency**
   * Find compile scoped Spring Web dependency for Maven and Gradle, both direct and transitive.
+* [org.openrewrite.java.spring.kafka.DefaultErrorHandlerSetBackOffToConstructor](/user-documentation/recipes/recipe-catalog/java/spring/kafka/defaulterrorhandlersetbackofftoconstructor.md)
+  * **Move `DefaultErrorHandler.setBackOff(BackOff)` to the constructor**
+  * `DefaultErrorHandler` does not have a `setBackOff(BackOff)` method; pass the `BackOff` to the constructor instead.
 * [org.openrewrite.java.spring.kafka.KafkaOperationsSendReturnType](/user-documentation/recipes/recipe-catalog/java/spring/kafka/kafkaoperationssendreturntype.md)
   * **Change `KafkaOperations.send*` return type to `CompletableFuture`**
   * Send operations used to return a `ListenableFuture` but as of 3.0 return a `CompletableFuture`. Adjust the usage to use `CompletableFuture` instead.
@@ -5852,6 +6627,9 @@ _321 recipes_
 * [org.openrewrite.java.spring.test.SpringRulesToJUnitExtension](/user-documentation/recipes/recipe-catalog/java/spring/test/springrulestojunitextension.md)
   * **Replace `SpringClassRule` and `SpringMethodRule` with JUnit 5 `SpringExtension`**
   * Replace JUnit 4's `SpringClassRule` and `SpringMethodRule` with JUnit 5's `SpringExtension` or rely on an existing `@SpringBootTest`.
+* [org.openrewrite.java.spring.util.concurrent.ListenableToCompletableFuture](/user-documentation/recipes/recipe-catalog/java/spring/util/concurrent/listenabletocompletablefuture.md)
+  * **Migrate `ListenableFuture` to `CompletableFuture`**
+  * Spring Framework 6.0 removed `org.springframework.util.concurrent.ListenableFuture` in favor of `java.util.concurrent.CompletableFuture`. This recipe migrates `ListenableFuture` types, along with their `addCallback` invocations and `ListenableFutureCallback` implementations, to `CompletableFuture`.
 * [org.openrewrite.java.spring.ws.MigrateAxiomToSaaj](/user-documentation/recipes/recipe-catalog/java/spring/ws/migrateaxiomtosaaj.md)
   * **Migrate Spring WS Axiom to SAAJ**
   * Migrate from Apache Axiom SOAP message handling to SAAJ (SOAP with Attachments API for Java). Spring WS 4.0.x removed support for Apache Axiom because Axiom did not support Jakarta EE at the time. This recipe changes Axiom types to their SAAJ equivalents.
@@ -6216,7 +6994,7 @@ _34 recipes_
 
 _License: Moderne Source Available License_
 
-_190 recipes_
+_196 recipes_
 
 * [org.openrewrite.recipe.rewrite-static-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-static-analysis/inlinedeprecatedmethods.md)
   * **Inline deprecated delegating methods**
@@ -6353,6 +7131,12 @@ _190 recipes_
 * [org.openrewrite.staticanalysis.FinalizePrivateFields](/user-documentation/recipes/recipe-catalog/staticanalysis/finalizeprivatefields.md)
   * **Finalize private fields**
   * Adds the `final` modifier keyword to private instance variables which are not reassigned.
+* [org.openrewrite.staticanalysis.FindMissingJavadocOnPublicMethods](/user-documentation/recipes/recipe-catalog/staticanalysis/findmissingjavadoconpublicmethods.md)
+  * **Find public methods missing Javadoc**
+  * Locates `public` method declarations that are not documented with a Javadoc comment, marks them with a search result, and records them in a data table.
+* [org.openrewrite.staticanalysis.FindNewExceptionWithoutCause](/user-documentation/recipes/recipe-catalog/staticanalysis/findnewexceptionwithoutcause.md)
+  * **Find new exceptions thrown without the caught exception**
+  * Finds `catch` blocks that throw a newly created exception without referencing the caught exception, which discards the original exception's stack trace and message. Data flow (taint) tracking is used to establish whether the caught exception—or any value derived from it—reaches the thrown exception, so indirect references through local variables and string concatenation are not falsely reported. This mirrors PMD's `PreserveStackTrace` rule.
 * [org.openrewrite.staticanalysis.FixStringFormatExpressions](/user-documentation/recipes/recipe-catalog/staticanalysis/fixstringformatexpressions.md)
   * **Fix `String#format` and `String#formatted` expressions**
   * Fix `String#format` and `String#formatted` expressions by replacing `\n` newline characters with `%n` and removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index. Using `%n` ensures the correct platform-specific line separator, and removing unused arguments eliminates dead code that may mask a mismatch between the format string and its parameters.
@@ -6416,6 +7200,9 @@ _190 recipes_
 * [org.openrewrite.staticanalysis.MissingOverrideAnnotation](/user-documentation/recipes/recipe-catalog/staticanalysis/missingoverrideannotation.md)
   * **Add missing `@Override` to overriding and implementing methods**
   * Adds `@Override` to methods overriding superclass methods or implementing interface methods. Annotating methods improves readability by showing the author's intent to override. Additionally, when annotated, the compiler will emit an error when a signature of the overridden method does not match the superclass method.
+* [org.openrewrite.staticanalysis.ModernizeCollections](/user-documentation/recipes/recipe-catalog/staticanalysis/modernizecollections.md)
+  * **Modernize collections**
+  * Replace the legacy synchronized types `Hashtable`, `Vector`, `Stack`, and `StringBuffer` with their modern unsynchronized counterparts `HashMap`, `ArrayList`, `Deque`/`ArrayDeque`, and `StringBuilder`. Each replacement is only applied when data flow analysis can prove the instance is a local variable that never escapes its method, so the synchronization it provided is redundant.
 * [org.openrewrite.staticanalysis.ModifierOrder](/user-documentation/recipes/recipe-catalog/staticanalysis/modifierorder.md)
   * **Modifier order**
   * Modifiers should be declared in the correct order as recommended by the JLS. Ordering modifiers consistently reduces cognitive load for developers who are accustomed to the standard sequence.
@@ -6593,6 +7380,9 @@ _190 recipes_
 * [org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceduplicatestringliterals.md)
   * **Replace duplicate `String` literals**
   * Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Qualified `String` literals include final Strings, method invocations, and new class invocations. Adds a new `private static final String` or uses an existing equivalent class field. A new variable name will be generated based on the literal value if an existing field does not exist. The generated name will append a numeric value to the variable name if a name already exists in the compilation unit. Centralizing repeated string values into constants makes refactoring safer and reduces the risk of inconsistent updates.
+* [org.openrewrite.staticanalysis.ReplaceHashtableWithHashMap](/user-documentation/recipes/recipe-catalog/staticanalysis/replacehashtablewithhashmap.md)
+  * **Replace `java.util.Hashtable` with `java.util.HashMap`**
+  * `Hashtable` synchronizes every operation, which adds overhead in the common single-threaded case. This recipe replaces a local `Hashtable` with a `HashMap` when data flow analysis can prove the `Hashtable` never escapes its method (it is not returned, assigned to a field, or passed as an argument), so no other thread can observe it and the synchronization is redundant. Fields, escaping variables, and `Hashtable`-specific method usages (`contains`, `elements`, `keys`) are left untouched. `HashMap` permits `null` keys and values, so it accepts every input `Hashtable` did.
 * [org.openrewrite.staticanalysis.ReplaceLambdaWithMethodReference](/user-documentation/recipes/recipe-catalog/staticanalysis/replacelambdawithmethodreference.md)
   * **Use method references in lambda**
   * Replaces the single statement lambdas `o -&gt; o instanceOf X`, `o -&gt; (A) o`, `o -&gt; System.out.println(o)`, `o -&gt; o != null`, `o -&gt; o == null` with the equivalent method reference. Method references are often more concise and readable than their lambda equivalents, making the code's intent clearer at a glance.
@@ -6605,6 +7395,9 @@ _190 recipes_
 * [org.openrewrite.staticanalysis.ReplaceStackWithDeque](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestackwithdeque.md)
   * **Replace `java.util.Stack` with `java.util.Deque`**
   * From the Javadoc of `Stack`: &gt; A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class.  `Stack` inherits from `Vector`, which carries unnecessary synchronization overhead in single-threaded contexts and exposes non-stack operations like random index access.
+* [org.openrewrite.staticanalysis.ReplaceStringBufferWithStringBuilder](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringbufferwithstringbuilder.md)
+  * **Replace `java.lang.StringBuffer` with `java.lang.StringBuilder`**
+  * `StringBuffer` synchronizes every operation, which adds overhead in the common single-threaded case. `StringBuilder` exposes the identical API without the synchronization. This recipe replaces a local `StringBuffer` with a `StringBuilder` when data flow analysis can prove the `StringBuffer` never escapes its method (it is not returned, assigned to a field, or passed as an argument), so no other thread can observe it and the synchronization is redundant. Fields and escaping variables are left untouched.
 * [org.openrewrite.staticanalysis.ReplaceStringBuilderWithString](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringbuilderwithstring.md)
   * **Replace `StringBuilder#append` with `String`**
   * Replace `StringBuilder.append()` with String if you are only concatenating a small number of strings and the code is simple and easy to read, as the compiler can optimize simple string concatenation expressions into a single String object, which can be more efficient than using StringBuilder.
@@ -6623,6 +7416,9 @@ _190 recipes_
 * [org.openrewrite.staticanalysis.ReplaceValidateNotNullHavingVarargsWithObjectsRequireNonNull](/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingvarargswithobjectsrequirenonnull.md)
   * **Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`**
   * Replace `org.apache.commons.lang3.Validate.notNull(Object, String, Object[])` with `Objects.requireNonNull(Object, String)`.
+* [org.openrewrite.staticanalysis.ReplaceVectorWithArrayList](/user-documentation/recipes/recipe-catalog/staticanalysis/replacevectorwitharraylist.md)
+  * **Replace `java.util.Vector` with `java.util.ArrayList`**
+  * `Vector` synchronizes every operation, which adds overhead in the common single-threaded case. This recipe replaces a local `Vector` with an `ArrayList` when data flow analysis can prove the `Vector` never escapes its method (it is not returned, assigned to a field, or passed as an argument), so no other thread can observe it and the synchronization is redundant. Fields, escaping variables, `Vector`-specific method usages (like `elementAt` or `addElement`), and the `Vector(int, int)` constructor are left untouched.
 * [org.openrewrite.staticanalysis.ReplaceWeekYearWithYear](/user-documentation/recipes/recipe-catalog/staticanalysis/replaceweekyearwithyear.md)
   * **Week Year (YYYY) should not be used for date formatting**
   * For most dates Week Year (YYYY) and Year (yyyy) yield the same results. However, on the last week of December and the first week of January, Week Year could produce unexpected results. This is a common source of off-by-one-year bugs that typically only manifest around New Year's Eve, making them difficult to catch during development and testing.
@@ -6721,7 +7517,7 @@ _190 recipes_
   * Removes `return` from a `void` method if it's the last statement. A trailing `return` in a void method has no effect on control flow and is just noise that distracts from the meaningful logic.
 * [org.openrewrite.staticanalysis.UnnecessaryThrows](/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarythrows.md)
   * **Unnecessary throws**
-  * Remove unnecessary `throws` declarations. This recipe will only remove unused, checked exceptions if:   - The declaring class or the method declaration is `final`.  - The method declaration is `static` or `private`.  - The method overrides a method declaration in a super class and the super class does not throw the exception.  - The method is `public` or `protected` and the exception is not documented via a JavaDoc as a `@throws` tag.  Declaring exceptions that are never thrown misleads callers into writing unnecessary error-handling code and obscures the method's true behavior.
+  * Remove unnecessary `throws` declarations. This recipe will only remove unused, checked exceptions if:   - The declaring class or the method declaration is `final`.  - The method declaration is `static` or `private`.  - The method overrides a method declaration in a super class and the super class does not throw the exception.  - The method is `public` and the exception is not documented via a JavaDoc as a `@throws` tag.  The `throws` declaration is retained on overridable methods (package-private and `protected` methods on non-`final` classes), and on `public` methods overridden within the same source file, so that a subclass override which does throw the exception keeps compiling. Overrides in other source files cannot be detected without a scanning recipe and are therefore not accounted for.  Declaring exceptions that are never thrown misleads callers into writing unnecessary error-handling code and obscures the method's true behavior.
 * [org.openrewrite.staticanalysis.UnwrapElseAfterReturn](/user-documentation/recipes/recipe-catalog/staticanalysis/unwrapelseafterreturn.md)
   * **Unwrap else block after return or throw statement**
   * Unwraps the else block when the if block ends with a return or throw statement, reducing nesting and improving code readability.
@@ -7546,7 +8342,7 @@ _135 recipes_
 
 _License: Moderne Source Available License_
 
-_273 recipes_
+_275 recipes_
 
 * [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
   * **ArchUnit 0.x upgrade**
@@ -7764,12 +8560,12 @@ _273 recipes_
 * [org.openrewrite.java.testing.assertj.SimplifyAssertJAssertions](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertions.md)
   * **Shorten AssertJ assertions**
   * Replace AssertJ assertions where a dedicated assertion is available for the same actual value.
+* [org.openrewrite.java.testing.assertj.SimplifyAssertJEqualityAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjequalityassertion.md)
+  * **Simplify AssertJ assertions on `==` and `!=` comparisons**
+  * Replace `assertThat(x == y).isTrue()` and its variants with the dedicated assertion for whatever `==` actually compares: `assertThat(x).isNull()` against the `null` literal, `assertThat(x).isEqualTo(y)` when either operand is a primitive and the comparison is therefore by value, and `assertThat(x).isSameAs(y)` when both operands are reference types. Floating point operands are left alone, as `==` and `isEqualTo` disagree on `NaN` and `-0.0`.
 * [org.openrewrite.java.testing.assertj.SimplifyAssertJInstanceOfAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjinstanceofassertion.md)
   * **Simplify AssertJ assertions on `instanceof` expressions**
   * Replace `assertThat(x instanceof Type).isTrue()` with the dedicated `assertThat(x).isInstanceOf(Type.class)`, and the negated and `isFalse()` variants with `isNotInstanceOf`, so failures describe the actual type rather than just `expected true but was false`.
-* [org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjnullrelatedassertion.md)
-  * **Simplify AssertJ assertions on `null` reference comparisons**
-  * Replace `assertThat(x == null).isTrue()` and its variants with the dedicated `assertThat(x).isNull()` / `assertThat(x).isNotNull()`. Beyond being more expressive, this avoids the compilation error that results when the `null` literal ends up as the `assertThat` argument (e.g. `assertThat(null == x).isTrue()` becoming `assertThat(null).isSameAs(x)`).
 * [org.openrewrite.java.testing.assertj.SimplifyChainedAssertJAssertion](/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifychainedassertjassertion.md)
   * **Simplify AssertJ chained assertions**
   * Many AssertJ chained assertions have dedicated assertions that function the same. It is best to use the dedicated assertions.
@@ -8346,6 +9142,12 @@ _273 recipes_
 * [org.openrewrite.java.testing.testng.TestNgAssertThrowsToAssertThat](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertthrowstoassertthat.md)
   * **TestNG `assertThrows`/`expectThrows` to AssertJ**
   * Convert TestNG-style `assertThrows()` and `expectThrows()` to AssertJ's `assertThatExceptionOfType().isThrownBy()` (or `assertThatThrownBy()` when no exception type is given) to allow for chained assertions on the thrown exception.
+* [org.openrewrite.java.testing.testng.TestNgAssertionToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertiontoassertj.md)
+  * **TestNG `Assertion` to AssertJ**
+  * Convert TestNG-style hard assertions on `org.testng.asserts.Assertion` instances to static AssertJ `assertThat(...)`, removing the now-unused local `Assertion` instance.
+* [org.openrewrite.java.testing.testng.TestNgSoftAssertToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngsoftasserttoassertj.md)
+  * **TestNG `SoftAssert` to AssertJ `SoftAssertions`**
+  * Convert TestNG-style soft assertions (`org.testng.asserts.SoftAssert`) to AssertJ soft assertions (`org.assertj.core.api.SoftAssertions`).
 * [org.openrewrite.java.testing.testng.TestNgToAssertj](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngtoassertj.md)
   * **Migrate TestNG assertions to AssertJ**
   * Convert assertions from `org.testng.Assert` to `org.assertj.core.api.Assertions`.
@@ -8372,7 +9174,7 @@ _273 recipes_
 
 _License: Apache License Version 2.0_
 
-_1580 recipes_
+_1639 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -8803,9 +9605,15 @@ _1580 recipes_
 * [io.quarkus.updates.camel.camel418.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel418/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.17` application to `camel 4.18`**
   * Migrates `camel 4.17` Quarkus application to `camel 4.18`.
+* [io.quarkus.updates.camel.camel418_3.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel418_3/camelquarkusmigrationrecipe.md)
+  * **Migrates `camel 4.18` application to `camel 4.18.3`**
+  * Migrates `camel 4.18` Quarkus application to `camel 4.18.3`.
 * [io.quarkus.updates.camel.camel420.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel420/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.18` application to `camel 4.20`**
   * Migrates `camel 4.18` Quarkus application to `camel 4.20`.
+* [io.quarkus.updates.camel.camel421.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel421/camelquarkusmigrationrecipe.md)
+  * **Migrates `camel 4.20` application to `camel 4.21`**
+  * Migrates `camel 4.20` Quarkus application to `camel 4.21`.
 * [io.quarkus.updates.camel.camel44.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel44/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.0` application to `camel 4.4`**
   * Migrates `camel 4.0` quarkus application to `camel 4.4`.
@@ -9133,6 +9941,9 @@ _1580 recipes_
 * [io.quarkus.updates.core.quarkus337.PanacheNextRelocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus337/panachenextrelocations.md)
   * **io.quarkus.updates.core.quarkus337.PanacheNextRelocations**
   * 
+* [io.quarkus.updates.core.quarkus338.ElasticsearchRestClientMigration](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus338/elasticsearchrestclientmigration.md)
+  * **io.quarkus.updates.core.quarkus338.ElasticsearchRestClientMigration**
+  * Migrate Elasticsearch low-level REST client from org.elasticsearch.client to co.elastic.clients.transport.rest5_client.low_level.
 * [io.quarkus.updates.core.quarkus35.MutinyUniAndGroupCombinedWith](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus35/mutinyuniandgroupcombinedwith.md)
   * **io.quarkus.updates.core.quarkus35.MutinyUniAndGroupCombinedWith**
   * 
@@ -9235,9 +10046,12 @@ _1580 recipes_
 * [org.apache.camel.upgrade.Camel410LTSMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410ltsmigrationrecipe.md)
   * **Migrate to 4.10.6**
   * Migrates Apache Camel application to 4.10.6.
+* [org.apache.camel.upgrade.Camel418LTSMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418ltsmigrationrecipe.md)
+  * **Migrate to Camel 4.18LTS**
+  * Migrates Apache Camel application to 4.18 LTS. This recipe aggregates all migration steps from 4.0 to 4.18.3.
 * [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camelmigrationrecipe.md)
-  * **Migrate to 4.20.0**
-  * Migrates Apache Camel application to 4.20.0.
+  * **Migrate to 4.21.0**
+  * Migrates Apache Camel application to 4.21.0.
 * [org.apache.camel.upgrade.JavaVersion17](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/javaversion17.md)
   * **Change Maven Java version property values to 17**
   * Change maven.compiler.source and maven.compiler.target values to 17.
@@ -9412,21 +10226,108 @@ _1580 recipes_
 * [org.apache.camel.upgrade.camel418.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418/camelmigrationrecipe.md)
   * **Migrates `camel 4.17` application to `camel 4.18`**
   * Migrates `camel 4.17` application to `camel 4.18`.
+* [org.apache.camel.upgrade.camel418.upgradeDnsHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418/upgradednsheaders.md)
+  * **Migrate camel-dns header constants to new naming convention**
+  * Renames DNS header constants from dns.* pattern to CamelDns* pattern only if camel-dns dependency is present.
+* [org.apache.camel.upgrade.camel418.upgradeKafkaRecipes](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418/upgradekafkarecipes.md)
+  * **Migrate camel-kafka headers**
+  * Renames Kafka header constants only if camel-kafka dependency is present.
+* [org.apache.camel.upgrade.camel418.upgradeSalesforceHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418/upgradesalesforceheaders.md)
+  * **Migrate camel-salesforce header constants to new naming convention**
+  * Renames Salesforce-specific header constants to CamelSalesforce* pattern when camel-salesforce is present. Only migrates headers with Salesforce-specific terminology (sObject*, apex*, pkChunking*) to minimize false positives. Generic headers like 'limit', 'contentType', 'jobId' are excluded as they could conflict with other components.
+* [org.apache.camel.upgrade.camel418_1.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_1/camelmigrationrecipe.md)
+  * **Migrates `camel 4.18.0` application to `camel 4.18.1`**
+  * Migrates `camel 4.18.0` application to `camel 4.18.1`.
+* [org.apache.camel.upgrade.camel418_1.XmlDsl418_1SagaRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_1/xmldsl418_1sagarecipe.md)
+  * **Camel XML DSL Saga EIP restructuring**
+  * Apache Camel XML DSL migration from version 4.18 to 4.19. Converts saga compensation and completion child elements to attributes.
+* [org.apache.camel.upgrade.camel418_1.YamlDsl418_1SagaRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_1/yamldsl418_1sagarecipe.md)
+  * **Camel YAML DSL Saga EIP restructuring**
+  * Apache Camel YAML DSL migration from version 4.18 to 4.19. Flattens saga compensation and completion nested uri to direct values.
+* [org.apache.camel.upgrade.camel418_1.routePolicy](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_1/routepolicy.md)
+  * **Renamed routePolicy to routePolicyRef on the route node**
+  * Renamed routePolicy to routePolicyRef on the route node.
+* [org.apache.camel.upgrade.camel418_1.saga](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_1/saga.md)
+  * **Migrate camel-sage model configuration**
+  * The Saga EIP has fixed the model for how to configure completion and compensation URIs.
+* [org.apache.camel.upgrade.camel418_3.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/camelmigrationrecipe.md)
+  * **Migrates `camel 4.18.1` application to `camel 4.18.3`**
+  * Migrates `camel 4.18.1` application to `camel 4.18.3`.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaderInJavaMethod](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaderinjavamethod.md)
+  * **Rename header in .setHeader()/.getHeader() calls**
+  * Renames header references in Message.setHeader() and Message.getHeader() method calls. Only migrates string literals in safe contexts. Does NOT migrate dynamic header names or Map.get() calls.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaderInSimpleExpression](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaderinsimpleexpression.md)
+  * **Rename header in Simple expressions**
+  * Renames header references in Simple expressions like $\{header.oldName\} → $\{header.newName\}. Only migrates expressions inside simple() method calls.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaderInXmlDsl](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaderinxmldsl.md)
+  * **Rename header in XML DSL**
+  * Renames header references in XML DSL &lt;setHeader name=&quot;...&quot;&gt;, &lt;header name=&quot;...&quot;&gt;, and &lt;removeHeader name=&quot;...&quot;&gt; elements.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaderInYamlDsl](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaderinyamldsl.md)
+  * **Rename header in YAML DSL**
+  * Renames header references in YAML DSL setHeader.name, header.name, and removeHeader.name entries.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaderPrefixInJavaMethod](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaderprefixinjavamethod.md)
+  * **Rename header prefix in .setHeader()/.getHeader() calls**
+  * Renames header prefixes in Message.setHeader() and Message.getHeader() method calls. Only migrates string literals in safe contexts. Does NOT migrate dynamic header names or Map.get() calls.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaderPrefixInSimpleExpression](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaderprefixinsimpleexpression.md)
+  * **Rename header prefix in Simple expressions**
+  * Renames header prefixes in Simple expressions like $\{header.SolrField.id\} → $\{header.CamelSolrField.id\}. Only migrates expressions inside simple() method calls.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaderPrefixInXmlDsl](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaderprefixinxmldsl.md)
+  * **Rename header prefix in XML DSL**
+  * Renames header prefixes in XML DSL &lt;setHeader name=&quot;...&quot;&gt;, &lt;header name=&quot;...&quot;&gt;, and &lt;removeHeader name=&quot;...&quot;&gt; elements.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaderPrefixInYamlDsl](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaderprefixinyamldsl.md)
+  * **Rename header prefix in YAML DSL**
+  * Renames header prefixes in YAML DSL setHeader.name, header.name, and removeHeader.name entries.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaderPrefixes](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaderprefixes.md)
+  * **Rename Camel header prefixes across all DSLs**
+  * Renames Camel header prefixes across all DSL types: Java method calls (.setHeader, .getHeader), Simple expressions ($\{header.name\}), XML DSL (&lt;setHeader name=&quot;...&quot;&gt;), and YAML DSL (setHeader.name). Any header starting with an old prefix gets that prefix replaced with the new prefix. Only migrates safe contexts to avoid false positives.
+* [org.apache.camel.upgrade.camel418_3.RenameHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/renameheaders.md)
+  * **Rename Camel header(s) across all DSLs**
+  * Renames Camel header(s) from old name(s) to new name(s) across all DSL types: Java method calls (.setHeader, .getHeader), Simple expressions ($\{header.name\}), XML DSL (&lt;setHeader name=&quot;...&quot;&gt;), and YAML DSL (setHeader.name). Supports both single header rename (oldHeaderName/newHeaderName) and bulk rename (headerMappings). Only migrates safe contexts to avoid false positives.
+* [org.apache.camel.upgrade.camel418_3.upgradeGitHub2Headers](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradegithub2headers.md)
+  * **Migrate camel-github2 producer header constants to new naming convention**
+  * Renames GitHub2 producer header constants to CamelGitHub* pattern only if camel-github dependency is present.
+* [org.apache.camel.upgrade.camel418_3.upgradeGoogleCloudHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradegooglecloudheaders.md)
+  * **Migrate camel-google-cloud header constants to new naming convention**
+  * Renames Google Cloud header constants to CamelGoogleCloud* pattern only if camel-google-functions dependency is present.
+* [org.apache.camel.upgrade.camel418_3.upgradeGoogleSecretManagerHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradegooglesecretmanagerheaders.md)
+  * **Migrate camel-google-secret-manager header constants to new naming convention**
+  * Renames Google Secret Manager header constants to CamelGoogleSecretManager* pattern only if camel-google-secret-manager dependency is present.
+* [org.apache.camel.upgrade.camel418_3.upgradeJGroupsHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradejgroupsheaders.md)
+  * **Migrate camel-jgroups header constants to new naming convention**
+  * Renames JGroups header constants from JGROUPS_* to CamelJGroups* pattern only if camel-jgroups dependency is present.
+* [org.apache.camel.upgrade.camel418_3.upgradeJGroupsRaftHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradejgroupsraftheaders.md)
+  * **Migrate camel-jgroups-raft header constants to new naming convention**
+  * Renames JGroups Raft header constants from JGROUPSRAFT_* to CamelJGroupsRaft* pattern only if camel-jgroups-raft dependency is present.
+* [org.apache.camel.upgrade.camel418_3.upgradeJiraHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradejiraheaders.md)
+  * **Migrate camel-jira header constants to new naming convention**
+  * Renames JIRA header constants to CamelJira* pattern only if camel-jira dependency is present.
+* [org.apache.camel.upgrade.camel418_3.upgradeLuceneHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradeluceneheaders.md)
+  * **Migrate camel-lucene header constants to new naming convention**
+  * Renames Lucene-specific header constants to CamelLucene* pattern only if camel-lucene dependency is present. Generic header 'QUERY' is excluded to prevent false positives. Note - DSL accessor methods (returnLuceneDocs() → luceneReturnLuceneDocs()) are NOT migrated and require manual update.
+* [org.apache.camel.upgrade.camel418_3.upgradeMongoDbGridFsHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgrademongodbgridfsheaders.md)
+  * **Migrate camel-mongodb-gridfs header constants to new naming convention**
+  * Renames MongoDB GridFS header constants to CamelGridFs* pattern only if camel-mongodb-gridfs dependency is present.
+* [org.apache.camel.upgrade.camel418_3.upgradeOpenstackHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradeopenstackheaders.md)
+  * **Migrate camel-openstack header constants to new naming convention**
+  * Renames OpenStack-specific header constants to CamelOpenstack* pattern only if camel-openstack dependency is present. Generic headers (*Id, *Name, containerName, objectName, imageRef, interfaceType, ipVersion) are excluded to prevent false positives.
+* [org.apache.camel.upgrade.camel418_3.upgradeShiroHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradeshiroheaders.md)
+  * **Migrate camel-shiro security header constants to new naming convention**
+  * Renames Shiro security header constants from SHIRO_SECURITY_* to CamelShiroSecurity* pattern only if camel-shiro dependency is present.
+* [org.apache.camel.upgrade.camel418_3.upgradeSolrHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradesolrheaders.md)
+  * **Migrate camel-solr header prefixes to new naming convention**
+  * Renames Solr header prefixes SolrField. and SolrParam. to CamelSolrField. and CamelSolrParam. when camel-solr dependency is present. Routes that reference constants symbolically continue to work without changes. Note - Because the renamed prefixes now begin with Camel, they are stripped by HeaderFilterStrategy when crossing transport boundaries. Routes that bridge external transports and want to drive Solr fields/params from headers must carry values in non-Camel-prefixed headers and map them in the route.
+* [org.apache.camel.upgrade.camel418_3.upgradeWeb3jHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418_3/upgradeweb3jheaders.md)
+  * **Migrate camel-web3j header constants to new naming convention**
+  * Renames Web3j-specific header constants to CamelWeb3j* pattern only if camel-web3j dependency is present. Generic headers without clear blockchain context (ADDRESS, ADDRESSES, POSITION, SOURCE_CODE, DATABASE_NAME, KEY_NAME, CLIENT_ID, PRIORITY, TTL, ERROR_CODE, ERROR_DATA, ERROR_MESSAGE, TOPICS, FILTER_ID) are excluded to prevent false positives. Note - DSL accessor renames and operation semantics still require manual review.
 * [org.apache.camel.upgrade.camel419.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/camelmigrationrecipe.md)
   * **Migrates `camel 4.18` application to `camel 4.19`**
   * Migrates `camel 4.18` application to `camel 4.19`.
 * [org.apache.camel.upgrade.camel419.Pom419TestInfraRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/pom419testinfrarecipe.md)
   * **Remove test-jar type from camel-test-infra dependencies**
   * Removes &lt;type&gt;test-jar&lt;/type&gt; from camel-test-infra-* dependencies as they no longer produce separate test-JAR artifacts.
-* [org.apache.camel.upgrade.camel419.XmlDsl419SagaRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/xmldsl419sagarecipe.md)
-  * **Camel XML DSL Saga EIP restructuring**
-  * Apache Camel XML DSL migration from version 4.18 to 4.19. Converts saga compensation and completion child elements to attributes.
 * [org.apache.camel.upgrade.camel419.YamlDsl419RoutePolicyRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/yamldsl419routepolicyrecipe.md)
   * **Camel YAML DSL routePolicy renaming**
   * Apache Camel YAML DSL migration from version 4.18 to 4.19. Renames routePolicy to routePolicyRef.
-* [org.apache.camel.upgrade.camel419.YamlDsl419SagaRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/yamldsl419sagarecipe.md)
-  * **Camel YAML DSL Saga EIP restructuring**
-  * Apache Camel YAML DSL migration from version 4.18 to 4.19. Flattens saga compensation and completion nested uri to direct values.
 * [org.apache.camel.upgrade.camel419.migrateGroovyXml](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/migrategroovyxml.md)
   * **Migrate camel-groovy-xml to camel-groovy**
   * camel-groovy-xml has been removed and moved into camel-groovy. Changes the dependency from camel-groovy-xml to camel-groovy.
@@ -9445,6 +10346,78 @@ _1580 recipes_
 * [org.apache.camel.upgrade.camel420.migratePulsarUris](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel420/migratepulsaruris.md)
   * **Migrate Pulsar component URIs from V1 to V2 format**
   * Apache Pulsar client upgraded from 4.1.3 to 4.2.0. Per PIP-457, V1 topic names are no longer supported. Migrates from V1 format (persistent://tenant/cluster/namespace/topic) to V2 format (persistent://tenant/namespace/topic). Removes the cluster segment. Only transforms URIs where the topic name does NOT contain slashes. URIs with slashes in topic names are left unchanged to avoid ambiguity between V1 and V2 formats. Works across Java, XML DSL, and YAML DSL.
+* [org.apache.camel.upgrade.camel421.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/camelmigrationrecipe.md)
+  * **Migrates `camel 4.20` application to `camel 4.21`**
+  * Migrates `camel 4.20` application to `camel 4.21`.
+* [org.apache.camel.upgrade.camel421.migrateAws2S3ListObjectsApi](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/migrateaws2s3listobjectsapi.md)
+  * **Migrate camel-aws2-s3 listObjects to V2 API**
+  * Migrates ListObjectsRequest/Response to ListObjectsV2Request/Response for the listObjects operation (pojoRequest=true only).
+* [org.apache.camel.upgrade.camel421.migrateErrorRegistryProperties](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/migrateerrorregistryproperties.md)
+  * **Migrate Error Registry configuration properties**
+  * Migrates Error Registry configuration from camel.main.errorRegistryXxx to camel.errorRegistry.* pattern in .properties files. Note - errorRegistryStackTraceEnabled is removed (always captures full exception now). YAML files require manual migration.
+* [org.apache.camel.upgrade.camel421.removeCamelAwsXrayDependency](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/removecamelawsxraydependency.md)
+  * **Remove camel-aws-xray dependency**
+  * Removes the camel-aws-xray dependency which was removed in Camel 4.21 (deprecated since 4.17, AWS X-Ray service in maintenance mode).
+* [org.apache.camel.upgrade.camel421.removeCamelElytronDependency](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/removecamelelytrondependency.md)
+  * **Remove camel-elytron dependency**
+  * Removes the camel-elytron dependency which was removed in Camel 4.21 (deprecated since 4.0).
+* [org.apache.camel.upgrade.camel421.removeCamelGithubDependency](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/removecamelgithubdependency.md)
+  * **Remove camel-github dependency**
+  * Removes the camel-github dependency which was removed in Camel 4.21 (deprecated in 4.18, replaced by camel-github2).
+* [org.apache.camel.upgrade.camel421.removeCamelGrapeDependency](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/removecamelgrapedependency.md)
+  * **Remove camel-grape dependency**
+  * Removes the camel-grape dependency which was removed in Camel 4.21 (deprecated since 4.1).
+* [org.apache.camel.upgrade.camel421.removeCamelGuavaEventbusDependency](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/removecamelguavaeventbusdependency.md)
+  * **Remove camel-guava-eventbus dependency**
+  * Removes the camel-guava-eventbus dependency which was removed in Camel 4.21 (deprecated since 4.6).
+* [org.apache.camel.upgrade.camel421.removeCamelStompDependency](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/removecamelstompdependency.md)
+  * **Remove camel-stomp dependency**
+  * Removes the camel-stomp dependency which was removed in Camel 4.21 (deprecated since 4.17).
+* [org.apache.camel.upgrade.camel421.upgradeArangoDbHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradearangodbheaders.md)
+  * **Migrate camel-arangodb header constants to new naming convention**
+  * Renames ArangoDB header constants to CamelArangoDb* pattern only if camel-arangodb dependency is present. Note - DSL accessor methods (key() → arangoDbKey(), resultClassType() → arangoDbResultClassType()) are NOT migrated and require manual update.
+* [org.apache.camel.upgrade.camel421.upgradeCouchbaseHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradecouchbaseheaders.md)
+  * **Migrate camel-couchbase header constants to new naming convention**
+  * Renames Couchbase header constants to CamelCouchbase* pattern only if camel-couchbase dependency is present.
+* [org.apache.camel.upgrade.camel421.upgradeCouchdbHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradecouchdbheaders.md)
+  * **Migrate camel-couchdb header constants to new naming convention**
+  * Renames CouchDB header constants to CamelCouchDb* pattern only if camel-couchdb dependency is present.
+* [org.apache.camel.upgrade.camel421.upgradeDnsHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradednsheaders.md)
+  * **Migrate camel-dns header constants to new naming convention**
+  * Renames DNS header constants from dns.* pattern to CamelDns* pattern only if camel-dns dependency is present.
+* [org.apache.camel.upgrade.camel421.upgradeGitHub2Headers](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradegithub2headers.md)
+  * **Migrate camel-github2 producer header constants to new naming convention**
+  * Renames GitHub2 producer header constants to CamelGitHub* pattern only if camel-github dependency is present.
+* [org.apache.camel.upgrade.camel421.upgradeGoogleCloudSpeechToTextHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradegooglecloudspeechtotextheaders.md)
+  * **Migrate camel-google-speech-to-text header constants to new naming convention**
+  * Renames Google Vision header constants to CamelGoogleCloud* pattern only if camel-google-functions dependency is present.
+* [org.apache.camel.upgrade.camel421.upgradeGoogleCloudTextToSpeechHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradegooglecloudtexttospeechheaders.md)
+  * **Migrate camel-google-test-to-spech header constants to new naming convention**
+  * Renames Google Vision header constants to CamelGoogleCloud* pattern only if camel-google-functions dependency is present.
+* [org.apache.camel.upgrade.camel421.upgradeGoogleCloudVisionHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradegooglecloudvisionheaders.md)
+  * **Migrate camel-google-vision header constants to new naming convention**
+  * Renames Google Vision header constants to CamelGoogleCloud* pattern only if camel-google-functions dependency is present.
+* [org.apache.camel.upgrade.camel421.upgradeIrcHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradeircheaders.md)
+  * **Migrate camel-irc header constants to new naming convention**
+  * Renames IRC header constants from irc.* to CamelIrc* pattern only if camel-irc dependency is present.
+* [org.apache.camel.upgrade.camel421.upgradeJt400Headers](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradejt400headers.md)
+  * **Migrate camel-jt400 header constants to new naming convention**
+  * Renames JT400 header constants to CamelJt400* pattern only if camel-jt400 dependency is present. Note - DSL accessor methods (kEY() → jt400Key(), senderInformation() → jt400SenderInformation()) are NOT migrated and require manual update.
+* [org.apache.camel.upgrade.camel421.upgradeKafkaRecipes](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradekafkarecipes.md)
+  * **Migrate camel-kafka headers**
+  * Renames Kafka header constants only if camel-kafka dependency is present.
+* [org.apache.camel.upgrade.camel421.upgradeMailHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgrademailheaders.md)
+  * **Migrate camel-mail consumer dispatch header constants to new naming convention**
+  * Renames Mail consumer dispatch header constants to CamelMail* pattern only if camel-mail dependency is present. Note - DSL accessor methods (copyTo() → mailCopyTo(), moveTo() → mailMoveTo(), delete() → mailDelete()) are NOT migrated and require manual update.
+* [org.apache.camel.upgrade.camel421.upgradeMiloHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgrademiloheaders.md)
+  * **Migrate camel-milo header constants to new naming convention**
+  * Renames Milo header constants to CamelMilo* pattern only if camel-milo dependency is present. Note - DSL accessor method (await() → miloAwait()) is NOT migrated and requires manual update.
+* [org.apache.camel.upgrade.camel421.upgradeOpensearchHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradeopensearchheaders.md)
+  * **Migrate camel-opensearch header constants to new naming convention**
+  * Renames OpenSearch header constants to CamelOpensearch* pattern only if camel-opensearch dependency is present. Note - DSL accessor methods (operation() → opensearchOperation(), indexId() → opensearchIndexId(), etc.) are NOT migrated and require manual update.
+* [org.apache.camel.upgrade.camel421.upgradePdfHeaders](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel421/upgradepdfheaders.md)
+  * **Migrate camel-pdf header constants to new naming convention**
+  * Renames PDF header constants to CamelPdf* pattern only if camel-pdf dependency is present. Note - DSL accessor methods (protectionPolicy() → pdfProtectionPolicy(), etc.) are NOT migrated and require manual update.
 * [org.apache.camel.upgrade.camel43.CamelResequenceEIPXmlRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel43/camelresequenceeipxmlrecipe.md)
   * **Camel Resequence DSL changes**
   * Batch and stream attributes were renamed in Resequence EIP XML DSL.
@@ -9664,9 +10637,15 @@ _1580 recipes_
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_33_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_33_0.md)
   * **Quarkus Updates Aggregate 3.33.0**
   * Quarkus update recipes to upgrade your application to 3.33.0.
+* [org.openrewrite.quarkus.MigrateToQuarkus_v3_33_1](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_33_1.md)
+  * **Quarkus Updates Aggregate 3.33.1**
+  * Quarkus update recipes to upgrade your application to 3.33.1.
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_37_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_37_0.md)
   * **Quarkus Updates Aggregate 3.37.0**
   * Quarkus update recipes to upgrade your application to 3.37.0.
+* [org.openrewrite.quarkus.MigrateToQuarkus_v3_38_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_38_0.md)
+  * **Quarkus Updates Aggregate 3.38.0**
+  * Quarkus update recipes to upgrade your application to 3.38.0.
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_3_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_3_0.md)
   * **Quarkus Updates Aggregate 3.3.0**
   * Quarkus update recipes to upgrade your application to 3.3.0.

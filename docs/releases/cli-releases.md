@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.4.0           |
+| CLI version | 4.4.3           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,28 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.4.3 (2026-07-29)
+
+#### What's Changed CLI
+* Incorporates the latest versions of OpenRewrite ([v8.88.0](https://github.com/openrewrite/rewrite/releases/tag/v8.88.0)), the rewrite-gradle-plugin ([v7.38.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.38.0)), and the rewrite-maven-plugin ([v6.45.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.45.0)) to improve code parsing accuracy and recipe execution reliability.
+
+### CLI / DX v4.4.2 (2026-07-27)
+
+#### What's Changed
+* Split oversize V2 LST partitions so they stay under the reader's load cap
+* Bump log4j to 2.26.1 (CVE-2026-49844)
+* Suppress moderne-cli report #1128 findings: msal4j CVE-2024-35255, commons-lang3 CVE-2025-48924, gotemplate4j CVE-2025-68120
+* Renew the Kotlin CVE-2026-53914 suppression to 2026-10-01
+* Fix the CVE-2026-53914 suppression rationale
+* Handle race conditions during harvest
+* Fix MCP server ignoring existing LST in favor of an incremental rebuild.
+
+### CLI / DX v4.4.1 (2026-07-23)
+
+#### What's Changed
+* Validate trust/key store before persisting it to config
+* Represent oversize source files as Quarks in the RPC project parsers
 
 ### CLI / DX v4.4.0 (2026-07-22)
 

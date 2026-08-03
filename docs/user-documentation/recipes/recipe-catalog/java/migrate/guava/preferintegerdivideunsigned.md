@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `Integer#divideUnsigned`"}
-  description={"Prefer `java.lang.Integer#divideUnsigned` instead of using `com.google.common.primitives.UnsignedInts#divide` or `com.google.common.primitives.UnsignedInts#divideUnsigned`."}
+  description={"Prefer `java.lang.Integer#divideUnsigned` instead of using `com.google.common.primitives.UnsignedInts#divide`."}
   fqName={"org.openrewrite.java.migrate.guava.PreferIntegerDivideUnsigned"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `Integer#divideUnsigned`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `java.lang.Integer#divideUnsigned` instead of using `com.google.common.primitives.UnsignedInts#divide` or `com.google.common.primitives.UnsignedInts#divideUnsigned`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `java.lang.Integer#divideUnsigned` instead of using `com.google.common.primitives.UnsignedInts#divide`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -5998,7 +5998,7 @@ mod config moderne login
 
 | Name | Description |
 | ---- | ----------- |
-| `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Can only be used with **--login** Example: P180D for 180 days. |
+| `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Example: P180D for 180 days. |
 | `--with-token` |  The Moderne personal access token to use. |
 
 

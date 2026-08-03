@@ -2,10 +2,15 @@ schema
   @link(url: "https://specs.apollo.dev/link/v1.0")
   @link(url: "https://specs.apollo.dev/join/v0.5", for: EXECUTION)
   @link(url: "https://specs.apollo.dev/inaccessible/v0.2", import: ["@inaccessible"], for: SECURITY)
+  @link(url: "https://specs.apollo.dev/cost/v0.1", import: ["@cost", "@listSize"])
 {
   query: Query
   mutation: Mutation
 }
+
+directive @cost(weight: Int!) on ARGUMENT_DEFINITION | ENUM | FIELD_DEFINITION | INPUT_FIELD_DEFINITION | OBJECT | SCALAR
+
+directive @cost__listSize(assumedSize: Int, slicingArguments: [String!], sizedFields: [String!], requireOneSlicingArgument: Boolean = true) on FIELD_DEFINITION
 
 directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUMENT_DEFINITION | SCALAR | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
 
@@ -24,6 +29,8 @@ directive @join__type(graph: join__Graph!, key: join__FieldSet, extension: Boole
 directive @join__unionMember(graph: join__Graph!, member: String!) repeatable on UNION
 
 directive @link(url: String, as: String, for: link__Purpose, import: [link__Import]) repeatable on SCHEMA
+
+directive @listSize(assumedSize: Int, slicingArguments: [String!], sizedFields: [String!], requireOneSlicingArgument: Boolean = true) on FIELD_DEFINITION
 
 """Moderne Personal Access Tokens"""
 type AccessToken
@@ -358,7 +365,7 @@ type BatchChange implements OrganizationChangeset
   user: User!
   createdAt: DateTime!
   parent: OrganizationChangeset
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   name: String
   description: String
   sourceTool: ToolInfo
@@ -369,10 +376,10 @@ type BatchChange implements OrganizationChangeset
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this batch change."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -399,7 +406,7 @@ type BatchChangeFileChange implements FileChange
   path: Path!
   beforeSourcePath: Path
   afterSourcePath: Path
-  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch
+  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch @cost(weight: 100)
 }
 
 type BitbucketCloudConfiguration
@@ -1057,7 +1064,7 @@ type ChangelogPullRequest implements ChangelogEntry
   Actions (approve, merge, close) that have been applied to this pull request.
   Default sort order is descending by startedAt.
   """
-  actions(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
+  actions(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @cost(weight: 50)
 }
 
 """
@@ -1462,7 +1469,7 @@ type Conversation
   id: ID!
   organization: Organization!
   user: User!
-  messages(first: Int = 100, after: String): MessageConnection!
+  messages(first: Int = 100, after: String): MessageConnection! @cost(weight: 50)
 
   """
   Current turn state for this conversation. Carries the server-
@@ -1856,7 +1863,7 @@ type DevCenter
   """
   DevCenter runs for this organization, ordered by start time descending.
   """
-  runs(first: Int = 10, after: String, where: DevCenterRunWhereInput, orderBy: [DevCenterRunOrderByInput!]): DevCenterRunConnection!
+  runs(first: Int = 10, after: String, where: DevCenterRunWhereInput, orderBy: [DevCenterRunOrderByInput!]): DevCenterRunConnection! @cost(weight: 50)
 }
 
 """How DevCenter card results are aggregated across repositories."""
@@ -2385,8 +2392,10 @@ type ForkAndPullRequestCommitSucceeded implements RepositoryCommitSucceeded & Re
   finishedAt: DateTime!
   resultLink: String
 
-  """Pull request status."""
-  pullRequestStatus: PullRequestStatus!
+  """
+  Pull request status, resolved live from the SCM on read (one SCM request per open PR).
+  """
+  pullRequestStatus: PullRequestStatus! @cost(weight: 100)
 }
 
 """Commit to a fork of the origin repository."""
@@ -2745,22 +2754,26 @@ type LstArtifact
 {
   """
   When `mod publish` produced an artifact into the customer's LST artifact
-  repository, or null if no artifact has been published. For a tenant
-  configured for encrypted LSTs, a non-null `published` does NOT mean the
-  encrypted artifact has been received by the tenant - that signal lives
-  on `available`.
+  repository, or null if no artifact has been published. A non-null
+  `published` does NOT mean the artifact is reachable for a recipe run - that
+  signal lives on `available`.
   """
   published: DateTime
 
   """
-  Whether the artifact is reachable for a recipe run.
-  For an organization source with encryption enabled, true once the
-  connector has uploaded the encrypted artifact and the gateway has
-  surfaced an `encrypted://` alternate publish URI. For a source without
-  encryption (pass-through), true when the gateway-projected row has a
-  non-empty `publishUri`, which we assume is reachable from `mod publish`.
+  Whether the artifact is reachable for a recipe run: true when the row has a
+  non-empty `publishUri` and no `enrichFailedReason`. A failed enrichment
+  preserves the publishUri as a diagnostic, so it is not evidence of
+  reachability; and a row whose LST has not been ingested yet arrives here with
+  its publishUri already withheld by the gateway projection.
   """
   available: Boolean!
+
+  """
+  When the connector failed to enrich this row, the free-form reason it
+  recorded; null otherwise.
+  """
+  enrichFailedReason: String
 }
 
 input LstArtifactWhereInput
@@ -2839,6 +2852,12 @@ type MavenConfiguration
   connectivity: HttpToolConnectivity!
   localRepository: String
   lastIngestedAt: DateTime
+
+  """True when this repo is polled for LST artifacts."""
+  artifactSource: Boolean!
+
+  """True when this repo feeds recipes to the marketplace."""
+  recipeSource: Boolean!
 }
 
 type MavenRecipeBundle implements RecipeBundle
@@ -2932,7 +2951,7 @@ type Moddy
   status to gate the Moddy menu entry.
   """
   adminOnly: Boolean!
-  conversations(first: Int = 50, after: String, where: ConversationWhereInput, orderBy: [ConversationOrderByInput!]): ConversationConnection!
+  conversations(first: Int = 50, after: String, where: ConversationWhereInput, orderBy: [ConversationOrderByInput!]): ConversationConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when
@@ -3425,17 +3444,17 @@ type Organization
   id: ID!
 
   """PR and commit activity feed for repositories in this organization."""
-  changelog(first: Int = 50, after: String, where: ChangelogEntryWhereInput, orderBy: [ChangelogEntryOrderByInput!]): ChangelogEntryConnection! @join__field(graph: CHANGELOGREADER)
+  changelog(first: Int = 50, after: String, where: ChangelogEntryWhereInput, orderBy: [ChangelogEntryOrderByInput!]): ChangelogEntryConnection! @join__field(graph: CHANGELOGREADER) @cost(weight: 100)
 
   """
   All unique participants across the changelog for this organization,
   aggregated from authors, assignees, closers, and reviewers.
   """
-  participants(first: Int = 50, after: String, where: ChangelogParticipantWhereInput, orderBy: [ChangelogParticipantOrderByInput!]): ChangelogParticipantConnection! @join__field(graph: CHANGELOGREADER)
+  participants(first: Int = 50, after: String, where: ChangelogParticipantWhereInput, orderBy: [ChangelogParticipantOrderByInput!]): ChangelogParticipantConnection! @join__field(graph: CHANGELOGREADER) @cost(weight: 100)
 
   """Commit options available in this tenant."""
   commitOptions: [CommitOption!]! @join__field(graph: CHANGESETCOMMITTER)
-  changesets(first: Int = 50, after: String, before: String, where: OrganizationChangesetWhereInput, orderBy: [OrganizationChangesetOrderByInput!]): OrganizationChangesetConnection! @join__field(graph: CHANGESETREADER)
+  changesets(first: Int = 50, after: String, before: String, where: OrganizationChangesetWhereInput, orderBy: [OrganizationChangesetOrderByInput!]): OrganizationChangesetConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """DevCenter provides organization-wide campaign progress tracking."""
   devCenter: DevCenter @join__field(graph: CHANGESETREADER)
@@ -3509,21 +3528,21 @@ interface OrganizationChangeset
   user: User! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
   createdAt: DateTime! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
   parent: OrganizationChangeset @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Visualizations produced by this changeset.
   Each visualization starts as Available and transitions to Processing/Finished/Error
   when runVisualization mutation is called.
   """
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @cost(weight: 50)
 }
 
 type OrganizationChangesetConnection
@@ -3634,7 +3653,7 @@ interface OrganizationCommit
   extendedMessage: Base64
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """Commit was canceled before completion."""
@@ -3654,7 +3673,7 @@ type OrganizationCommitCanceled implements OrganizationCommit
   canceledBy: User!
 
   """Paginated results per repository (partial)."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 type OrganizationCommitConnection
@@ -3689,7 +3708,7 @@ type OrganizationCommitError implements OrganizationCommit
   errorMessage: String!
 
   """Paginated results per repository (partial)."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """Commit completed successfully (all or partial success)."""
@@ -3706,7 +3725,7 @@ type OrganizationCommitFinished implements OrganizationCommit
   finishedAt: DateTime!
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 enum OrganizationCommitOrderByField
@@ -3735,7 +3754,7 @@ type OrganizationCommitQueued implements OrganizationCommit
   startedAt: DateTime!
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """Commit is actively being processed across repositories."""
@@ -3751,7 +3770,7 @@ type OrganizationCommitRunning implements OrganizationCommit
   startedAt: DateTime!
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """Filter input for organization-level commit queries."""
@@ -3851,17 +3870,17 @@ interface OrganizationRecipeRun implements OrganizationChangeset
   lastUpdatedAt: DateTime! @join__field(graph: CHANGESETREADER)
   priority: RecipeRunPriority! @join__field(graph: CHANGESETREADER)
   parent: OrganizationChangeset @join__field(graph: CHANGESETREADER)
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER)
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER)
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER)
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @cost(weight: 50)
 }
 
 type OrganizationRecipeRunCanceled implements OrganizationChangeset & OrganizationRecipeRun
@@ -3889,17 +3908,17 @@ type OrganizationRecipeRunCanceled implements OrganizationChangeset & Organizati
 
   """Alias for finishedAt - when the run was canceled"""
   canceledAt: DateTime!
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -3957,17 +3976,17 @@ type OrganizationRecipeRunError implements OrganizationChangeset & OrganizationR
   startedAt: DateTime
   finishedAt: DateTime!
   errorMessage: String
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -4011,17 +4030,17 @@ type OrganizationRecipeRunFinished implements OrganizationChangeset & Organizati
   finishedAt: DateTime!
   duration: Duration
   totals: RecipeRunTotals!
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -4080,17 +4099,17 @@ type OrganizationRecipeRunQueued implements OrganizationChangeset & Organization
   priority: RecipeRunPriority! @join__field(graph: CHANGESETREADER)
   parent: OrganizationChangeset @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
   queuedAt: DateTime! @join__field(graph: CHANGESETREADER)
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -4132,17 +4151,17 @@ type OrganizationRecipeRunRunning implements OrganizationChangeset & Organizatio
   parent: OrganizationChangeset
   startedAt: DateTime!
   totals: RecipeRunTotals
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -4207,17 +4226,17 @@ type OrganizationRecipeRunSyncing implements OrganizationChangeset & Organizatio
   priority: RecipeRunPriority!
   parent: OrganizationChangeset
   startedAt: DateTime!
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection!
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -4613,8 +4632,10 @@ type PullRequestCommitSucceeded implements RepositoryCommitSucceeded & Repositor
   finishedAt: DateTime!
   resultLink: String
 
-  """Pull request status."""
-  pullRequestStatus: PullRequestStatus!
+  """
+  Pull request status, resolved live from the SCM on read (one SCM request per open PR).
+  """
+  pullRequestStatus: PullRequestStatus! @cost(weight: 100)
 }
 
 input PullRequestInput
@@ -4751,7 +4772,7 @@ type Query
   @join__type(graph: RECIPEWORKER)
 {
   """Query audit log events with pagination and filtering."""
-  auditLogs(first: Int = 100, after: String, where: AuditLogWhereInput, orderBy: [AuditLogOrderByInput!]): AuditLogConnection! @join__field(graph: AUDITREADER)
+  auditLogs(first: Int = 100, after: String, where: AuditLogWhereInput, orderBy: [AuditLogOrderByInput!]): AuditLogConnection! @join__field(graph: AUDITREADER) @cost(weight: 100)
 
   """
   Query audit log downloads with pagination and filtering.
@@ -4763,7 +4784,7 @@ type Query
   currentUser: User! @join__field(graph: AUTHZ)
 
   """Returns users with option to filter by role."""
-  users(first: Int = 100, after: String, where: UserWhereInput, orderBy: [UserOrderByInput!]): UserConnection! @join__field(graph: AUTHZ)
+  users(first: Int = 100, after: String, where: UserWhereInput, orderBy: [UserOrderByInput!]): UserConnection! @join__field(graph: AUTHZ) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Returns connections for all SCM providers."""
   scmConnections: [ScmConnection!]! @join__field(graph: AUTHZ)
@@ -4791,7 +4812,7 @@ type Query
   Searches the given repository and all its descendants in the hierarchy.
   Results are grouped by artifact (groupId:artifactId) with file-level matches.
   """
-  codeSearch(repositoryId: String!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH)
+  codeSearch(repositoryId: String!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH) @cost(weight: 50)
 
   """
   Look up a single conversation by id. Returns null when no conversation
@@ -4895,8 +4916,8 @@ type RecipeCategory
   """
   recipeCount: Int!
   parents: [RecipeCategory!]!
-  recipes(first: Int = 100, after: String, where: RecipeWhereInput, orderBy: [RecipeOrderByInput!]): RecipeDescriptorConnection!
-  categories(first: Int = 100, after: String, where: RecipeCategoryWhereInput, orderBy: [RecipeCategoryOrderByInput!]): RecipeCategoryConnection!
+  recipes(first: Int = 100, after: String, where: RecipeWhereInput, orderBy: [RecipeOrderByInput!]): RecipeDescriptorConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
+  categories(first: Int = 100, after: String, where: RecipeCategoryWhereInput, orderBy: [RecipeCategoryOrderByInput!]): RecipeCategoryConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
 }
 
 type RecipeCategoryConnection
@@ -4976,7 +4997,7 @@ type RecipeDescriptor
   Expensive recipe detail fields that require resolving the full recipe bundle.
   Returns a state machine: query once to trigger resolution, poll until Finished.
   """
-  detail: RecipeDetail! @join__field(graph: RECIPEMARKETPLACE)
+  detail: RecipeDetail! @join__field(graph: RECIPEMARKETPLACE) @cost(weight: 100)
 
   """
   DevCenter card descriptors for this recipe, or null if not a DevCenter recipe.
@@ -5037,7 +5058,7 @@ type RecipeDetailFinished implements RecipeDetail
   The list of recipes that make up this composite recipe.
   Returns an empty connection for non-composite (leaf) recipes.
   """
-  recipeList(first: Int = 100, after: String): RecipeDescriptorConnection!
+  recipeList(first: Int = 100, after: String): RecipeDescriptorConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
 
   """Tags associated with this recipe for categorization and filtering."""
   tags: [String!]!
@@ -5351,9 +5372,9 @@ input RecipeInstallationWhereInput
 type RecipeMarketplace
   @join__type(graph: RECIPEMARKETPLACE)
 {
-  categories(first: Int = 100, after: String, where: RecipeCategoryWhereInput, orderBy: [RecipeCategoryOrderByInput!]): RecipeCategoryConnection!
-  recipes(first: Int = 100, after: String, where: RecipeWhereInput, orderBy: [RecipeOrderByInput!]): RecipeDescriptorConnection!
-  installations(first: Int = 50, after: String, where: RecipeInstallationWhereInput, orderBy: [RecipeInstallationOrderByInput!]): RecipeInstallationConnection!
+  categories(first: Int = 100, after: String, where: RecipeCategoryWhereInput, orderBy: [RecipeCategoryOrderByInput!]): RecipeCategoryConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
+  recipes(first: Int = 100, after: String, where: RecipeWhereInput, orderBy: [RecipeOrderByInput!]): RecipeDescriptorConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
+  installations(first: Int = 50, after: String, where: RecipeInstallationWhereInput, orderBy: [RecipeInstallationOrderByInput!]): RecipeInstallationConnection! @cost(weight: 50)
 }
 
 input RecipeOptionInput
@@ -5407,7 +5428,7 @@ type RecipeRunFileChange implements FileChange
   path: Path!
   beforeSourcePath: Path
   afterSourcePath: Path
-  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch
+  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch @cost(weight: 100)
 
   """
   Recipe chains that contributed changes to this file. Each inner list is one
@@ -5615,7 +5636,7 @@ type RepositoryBatchChange implements RepositoryChangeset
 {
   repository: Repository!
   authorization: RepositoryAuthorization!
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 interface RepositoryChangeset
@@ -5633,7 +5654,7 @@ interface RepositoryChangeset
   authorization: RepositoryAuthorization!
 
   """File-level changes within this repository."""
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 """
@@ -5821,9 +5842,21 @@ type RepositoryCommitConnection
   """
   Count of repository commits that have reached a terminal state
   (succeeded, failed, canceled, or no changes). Pair with `count`
-  to show progress: "Completed X / Y".
+  to show progress: "Completed X / Y". This and the three totals
+  below span the whole job (after any `where` filter), not the
+  current page; canceled has no total of its own, so subtract the
+  other three from this.
   """
   completedCount: Int!
+
+  """Terminal with a branch pushed or a pull request opened."""
+  succeededCount: Int!
+
+  """Terminal with an error; the repository carries the message."""
+  failedCount: Int!
+
+  """Terminal with the patch applied but nothing left to commit."""
+  noChangesCount: Int!
 }
 
 type RepositoryCommitEdge
@@ -5875,7 +5908,17 @@ type RepositoryCommitNoChanges implements RepositoryCommit
 enum RepositoryCommitOrderByField
   @join__type(graph: CHANGESETCOMMITTER)
 {
+  ORIGIN @join__enumValue(graph: CHANGESETCOMMITTER)
+  PATH @join__enumValue(graph: CHANGESETCOMMITTER)
+  BRANCH @join__enumValue(graph: CHANGESETCOMMITTER)
+  STATUS @join__enumValue(graph: CHANGESETCOMMITTER)
   STARTED_AT @join__enumValue(graph: CHANGESETCOMMITTER)
+
+  """
+  Effective last-updated time: `finishedAt` when the repository has reached a terminal
+  state, otherwise `startedAt`.
+  """
+  UPDATED_AT @join__enumValue(graph: CHANGESETCOMMITTER)
 }
 
 input RepositoryCommitOrderByInput
@@ -5918,6 +5961,27 @@ type RepositoryCommitRunning implements RepositoryCommit
   options: CommitOptions!
 }
 
+"""Result status of a single repository within a commit operation."""
+enum RepositoryCommitStatus
+  @join__type(graph: CHANGESETCOMMITTER)
+{
+  QUEUED @join__enumValue(graph: CHANGESETCOMMITTER)
+  RUNNING @join__enumValue(graph: CHANGESETCOMMITTER)
+  SUCCEEDED @join__enumValue(graph: CHANGESETCOMMITTER)
+  FAILED @join__enumValue(graph: CHANGESETCOMMITTER)
+  CANCELED @join__enumValue(graph: CHANGESETCOMMITTER)
+  NO_CHANGES @join__enumValue(graph: CHANGESETCOMMITTER)
+}
+
+input RepositoryCommitStatusFilter
+  @join__type(graph: CHANGESETCOMMITTER)
+{
+  _eq: RepositoryCommitStatus
+  _neq: RepositoryCommitStatus
+  _in: [RepositoryCommitStatus!]
+  _nin: [RepositoryCommitStatus!]
+}
+
 """
 Repository commit completed successfully.
 Use `__typename` to determine the specific commit type.
@@ -5934,10 +5998,27 @@ interface RepositoryCommitSucceeded implements RepositoryCommit
   resultLink: String
 }
 
-"""Filter input for repository-level commit queries."""
+"""
+Filter input for repository-level commit queries. Applied across the whole commit worklist
+before pagination, so a search matches repositories that fall on later pages.
+"""
 input RepositoryCommitWhereInput
   @join__type(graph: CHANGESETCOMMITTER)
 {
+  """Filter by repository origin (the SCM host, e.g. github.com)."""
+  origin: StringFilter
+
+  """
+  Filter by repository path (e.g. moderneinc/rewrite). Use `_icontains` to back the commit
+  view's repository search box.
+  """
+  path: StringFilter
+
+  """Filter by branch."""
+  branch: StringFilter
+
+  """Filter by commit result status."""
+  status: RepositoryCommitStatusFilter
   _and: [RepositoryCommitWhereInput!]
   _or: [RepositoryCommitWhereInput!]
   _not: RepositoryCommitWhereInput
@@ -6001,7 +6082,7 @@ interface RepositoryRecipeRun implements RepositoryChangeset
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 type RepositoryRecipeRunCanceled implements RepositoryRecipeRun & RepositoryChangeset
@@ -6012,7 +6093,7 @@ type RepositoryRecipeRunCanceled implements RepositoryRecipeRun & RepositoryChan
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 type RepositoryRecipeRunConnection
@@ -6038,7 +6119,7 @@ type RepositoryRecipeRunError implements RepositoryRecipeRun & RepositoryChanges
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   startedAt: DateTime
   finishedAt: DateTime
   errorReason: RepositoryErrorReason
@@ -6053,7 +6134,7 @@ type RepositoryRecipeRunFinished implements RepositoryRecipeRun & RepositoryChan
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   startedAt: DateTime
   finishedAt: DateTime
   timeSavings: Duration
@@ -6067,7 +6148,7 @@ type RepositoryRecipeRunNoLst implements RepositoryRecipeRun & RepositoryChanges
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }
 
 enum RepositoryRecipeRunOrderByField
@@ -6093,7 +6174,7 @@ type RepositoryRecipeRunQueued implements RepositoryRecipeRun & RepositoryChange
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   queuedAt: DateTime
 }
 
@@ -6105,7 +6186,7 @@ type RepositoryRecipeRunRunning implements RepositoryRecipeRun & RepositoryChang
   repository: Repository!
   authorization: RepositoryAuthorization!
   syncStatus: RepositorySyncStatus
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   startedAt: DateTime
 }
 
@@ -6447,7 +6528,7 @@ type User
   username: String @join__field(graph: AUTHZ)
   role: UserRole @join__field(graph: AUTHZ)
   lastActive: DateTime @join__field(graph: AUTHZ)
-  tokens(first: Int = 100, after: String, where: AccessTokenWhereInput, orderBy: [AccessTokenOrderByInput!]): AccessTokenConnection! @join__field(graph: AUTHZ)
+  tokens(first: Int = 100, after: String, where: AccessTokenWhereInput, orderBy: [AccessTokenOrderByInput!]): AccessTokenConnection! @join__field(graph: AUTHZ) @cost(weight: 50)
   moddy: Moddy! @join__field(graph: MODDY)
 }
 
@@ -6740,7 +6821,7 @@ type YamlRecipeBundle implements RecipeBundle
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: RECIPEMARKETPLACE)
 {
-  yaml: Base64!
+  yaml: Base64! @cost(weight: 50)
   requestedVersion: String
   version: String
   recipeCount: Int

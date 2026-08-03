@@ -1,6 +1,6 @@
 ---
-title: "Prefer `Long#parseUnsignedInt`"
-sidebar_label: "Prefer `Long#parseUnsignedInt`"
+title: "Prefer `Long#parseUnsignedLong`"
+sidebar_label: "Prefer `Long#parseUnsignedLong`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `Long#parseUnsignedInt`"}
-  description={"Prefer `java.lang.Long#parseUnsignedInt` instead of using `com.google.common.primitives.UnsignedLongs#parseUnsignedInt`."}
+  displayName={"Prefer `Long#parseUnsignedLong`"}
+  description={"Prefer `java.lang.Long#parseUnsignedLong` instead of using `com.google.common.primitives.UnsignedLongs#parseUnsignedLong`."}
   fqName={"org.openrewrite.java.migrate.guava.PreferLongParseUnsignedLong"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferlongparseunsignedlong.md"}
 >
 
-<RecipeHeader.Title>Prefer `Long#parseUnsignedInt`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Long#parseUnsignedLong`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `java.lang.Long#parseUnsignedInt` instead of using `com.google.common.primitives.UnsignedLongs#parseUnsignedInt`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `java.lang.Long#parseUnsignedLong` instead of using `com.google.common.primitives.UnsignedLongs#parseUnsignedLong`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.PreferLongParseUnsignedLong","displayName":"Prefer `Long#parseUnsignedInt`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.PreferLongParseUnsignedLong","displayName":"Prefer `Long#parseUnsignedLong`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

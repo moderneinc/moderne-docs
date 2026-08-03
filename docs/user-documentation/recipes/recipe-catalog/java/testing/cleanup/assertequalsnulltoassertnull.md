@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"kotlin","before":"import org.junit.jupiter.api.Assertions.assertEquals\n\nclass FooTest {\n    fun test(values: List<String?>) {\n        assertEquals(values[0], null)\n        assertEquals(null, values[0])\n        assertEquals(values[0], null, \"message\")\n        assertEquals(null, values[0], \"message\")\n    }\n}\n","after":"import org.junit.jupiter.api.Assertions.assertNull\n\nclass FooTest {\n    fun test(values: List<String?>) {\n        assertNull(values[0])\n        assertNull(values[0])\n        assertNull(values[0], \"message\")\n        assertNull(values[0], \"message\")\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.junit.jupiter.api.Assertions.assertEquals\n+import org.junit.jupiter.api.Assertions.assertNull\n\n@@ -5,4 +5,4 @@\nclass FooTest {\n    fun test(values: List<String?>) {\n-       assertEquals(values[0], null)\n-       assertEquals(null, values[0])\n-       assertEquals(values[0], null, \"message\")\n-       assertEquals(null, values[0], \"message\")\n+       assertNull(values[0])\n+       assertNull(values[0])\n+       assertNull(values[0], \"message\")\n+       assertNull(values[0], \"message\")\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.cleanup.AssertEqualsNullToAssertNull","displayName":"`assertEquals(a, null)` to `assertNull(a)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

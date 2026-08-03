@@ -38,11 +38,21 @@ For example, consider the situation where you want to search for all public meth
 
 ## Getting started
 
-To get started with Moderne Trigrep, you'll first need to sync an organization to your local machine and then build the repositories. The trigram search index is produced inline by `mod build` alongside the LST artifacts. After that, you can search across all of the repositories in the working set:
+To get started with Moderne Trigrep, you'll first need to sync an organization to your local machine. `mod git sync moderne` downloads the LST of each repository, and the trigram search index comes along with it, so you can search right away:
 
 ```bash
 # Sync the Spring organization to the working-set directory
 mod git sync moderne working-set --organization Spring
+
+# Search for the term "KafkaTemplate" across them all
+mod search working-set "KafkaTemplate"
+```
+
+If a repository has no LST in Moderne, or you want to search your own local changes, clone the sources and build them yourself instead. The trigram search index is produced inline by `mod build` alongside the LST artifacts:
+
+```bash
+# Sync the Spring organization, cloning source code as well
+mod git sync moderne working-set --organization Spring --with-sources
 
 # Build LSTs and trigram indexes for every repository in the working-set directory
 mod build working-set

@@ -29,6 +29,7 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Build tool](./buildtoolcard.md)
 * [DevCenter card from a data table column](./bucketedmetriccard.md)
+* [Find active committers on repositories](./findactivecommitters.md)
 * [Find organization statistics](./findorganizationstatistics.md)
 * [Library upgrade](./libraryupgrade.md)
 * [Move to JUnit 6](./junitjupiterupgrade.md)

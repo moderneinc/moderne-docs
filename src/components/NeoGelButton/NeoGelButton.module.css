@@ -7,7 +7,7 @@
 /* Base neo gel button styles */
 .neoGelButton {
   /* Typography - matches Figma: Inter Medium 14px */
-  font-family: var(--neo-font-family-body);
+  font-family: var(--mor-font-sans);
   font-size: var(--neo-font-size-sm);
   font-weight: var(--neo-font-weight-medium);
   line-height: 1;

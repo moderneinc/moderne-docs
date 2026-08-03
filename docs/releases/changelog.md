@@ -1,4 +1,53 @@
 # Platform changelog
+### UI v14.2.2 (2026/08/03)
+
+- Bug fixes and other improvements.
+
+### UI v14.2.1 (2026/08/02)
+
+- Bug fixes and other improvements.
+
+### UI v14.2.0 (2026/08/01)
+
+- dark mode via neo 6.0.0-next CSS-variable tokens
+- add Back control to the Day Zero tour
+- add Back control to the Day Zero tour
+
+### UI v14.1.0 (2026/07/30)
+
+- show the enrich-failed reason on the LST availability pill
+- point recipe-error repos to the errored-files data table
+
+### UI v14.0.0 (2026/07/28)
+
+- adopt Morpheus visual system — Geist, neo 5.1.0-next.288b8b, react-charts next
+
+### UI v13.17.2 (2026/07/28)
+
+- Bug fixes and other improvements.
+
+### UI v13.17.1 (2026/07/27)
+
+- Bug fixes and other improvements.
+
+### UI v13.17.0 (2026/07/27)
+
+- show a partial result instead of a flat failure for commit jobs
+- search repositories server-side, 15 per page
+
+### UI v13.16.0 (2026/07/23)
+
+- Bug fixes and other improvements.
+
+### UI v13.15.0 (2026/07/23)
+
+- migrate error pages and SCM authorization to ERROR_MESSAGES
+- create a user organization from a Find recipe's results
+
+### UI v13.14.0 (2026/07/22)
+
+- restore clickable SCM line-number links in the unified diff
+
 ### UI v13.13.1 (2026/07/21)
 
 - Bug fixes and other improvements.

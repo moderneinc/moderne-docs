@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `Long#compareUnsigned`"}
-  description={"Prefer `java.lang.Long#compareUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#compare` or `com.google.common.primitives.UnsignedLongs#compareUnsigned`."}
+  description={"Prefer `java.lang.Long#compareUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#compare`."}
   fqName={"org.openrewrite.java.migrate.guava.PreferLongCompareUnsigned"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `Long#compareUnsigned`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `java.lang.Long#compareUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#compare` or `com.google.common.primitives.UnsignedLongs#compareUnsigned`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `java.lang.Long#compareUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#compare`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

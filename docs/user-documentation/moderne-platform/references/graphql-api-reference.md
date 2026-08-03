@@ -1693,7 +1693,7 @@ Fork and pull request commit completed successfully.
 | `startedAt` | [DateTime](#datetime)! |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `resultLink` | String |  |
-| `pullRequestStatus` | [PullRequestStatus](#pullrequeststatus)! | Pull request status. |
+| `pullRequestStatus` | [PullRequestStatus](#pullrequeststatus)! | Pull request status, resolved live from the SCM on read (one SCM request per open PR). |
 
 ##### `ForkCommitOptions`
 
@@ -1849,8 +1849,9 @@ that recipe runs consume. Every repository has a conceptual artifact;
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `published` | [DateTime](#datetime) | When `mod publish` produced an artifact into the customer's LST artifact repository, or null if no artifact has been published. For a tenant configured for encrypted LSTs, a non-null `published` does NOT mean the encrypted artifact has been received by the tenant - that signal lives on `available`. |
-| `available` | Boolean! | Whether the artifact is reachable for a recipe run. For an organization source with encryption enabled, true once the connector has uploaded the encrypted artifact and the gateway has surfaced an `encrypted://` alternate publish URI. For a source without encryption (pass-through), true when the gateway-projected row has a non-empty `publishUri`, which we assume is reachable from `mod publish`. |
+| `published` | [DateTime](#datetime) | When `mod publish` produced an artifact into the customer's LST artifact repository, or null if no artifact has been published. A non-null `published` does NOT mean the artifact is reachable for a recipe run - that signal lives on `available`. |
+| `available` | Boolean! | Whether the artifact is reachable for a recipe run: true when the row has a non-empty `publishUri` and no `enrichFailedReason`. A failed enrichment preserves the publishUri as a diagnostic, so it is not evidence of reachability; and a row whose LST has not been ingested yet arrives here with its publishUri already withheld by the gateway projection. |
+| `enrichFailedReason` | String | When the connector failed to enrich this row, the free-form reason it recorded; null otherwise. |
 
 ##### `Markup`
 
@@ -1873,6 +1874,8 @@ that recipe runs consume. Every repository has a conceptual artifact;
 | `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
 | `localRepository` | String |  |
 | `lastIngestedAt` | [DateTime](#datetime) |  |
+| `artifactSource` | Boolean! | True when this repo is polled for LST artifacts. |
+| `recipeSource` | Boolean! | True when this repo feeds recipes to the marketplace. |
 
 ##### `MavenRecipeBundle`
 
@@ -2462,7 +2465,7 @@ Pull request commit completed successfully.
 | `startedAt` | [DateTime](#datetime)! |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `resultLink` | String |  |
-| `pullRequestStatus` | [PullRequestStatus](#pullrequeststatus)! | Pull request status. |
+| `pullRequestStatus` | [PullRequestStatus](#pullrequeststatus)! | Pull request status, resolved live from the SCM on read (one SCM request per open PR). |
 
 ##### `PullRequestOptions`
 
@@ -2909,7 +2912,10 @@ Use `options.__typename` to determine the specific commit type.
 | `edges` | [[RepositoryCommitEdge](#repositorycommitedge)!]! |  |
 | `pageInfo` | [PageInfo](#pageinfo)! |  |
 | `count` | Int! |  |
-| `completedCount` | Int! | Count of repository commits that have reached a terminal state (succeeded, failed, canceled, or no changes). Pair with `count` to show progress: "Completed X / Y". |
+| `completedCount` | Int! | Count of repository commits that have reached a terminal state (succeeded, failed, canceled, or no changes). Pair with `count` to show progress: "Completed X / Y". This and the three totals below span the whole job (after any `where` filter), not the current page; canceled has no total of its own, so subtract the other three from this. |
+| `succeededCount` | Int! | Terminal with a branch pushed or a pull request opened. |
+| `failedCount` | Int! | Terminal with an error; the repository carries the message. |
+| `noChangesCount` | Int! | Terminal with the patch applied but nothing left to commit. |
 
 ##### `RepositoryCommitEdge`
 
@@ -4037,7 +4043,23 @@ Result state of a repository within a changeset.
 
 ##### `RepositoryCommitOrderByField`
 
+* `ORIGIN`
+* `PATH`
+* `BRANCH`
+* `STATUS`
 * `STARTED_AT`
+* `UPDATED_AT`
+
+##### `RepositoryCommitStatus`
+
+Result status of a single repository within a commit operation.
+
+* `QUEUED`
+* `RUNNING`
+* `SUCCEEDED`
+* `FAILED`
+* `CANCELED`
+* `NO_CHANGES`
 
 ##### `RepositoryErrorReason`
 
@@ -5061,12 +5083,26 @@ Filter for repository changesets.
 | `field` | [RepositoryCommitOrderByField](#repositorycommitorderbyfield)! |  |
 | `direction` | [SortOrder](#sortorder)! |  |
 
-##### `RepositoryCommitWhereInput`
-
-Filter input for repository-level commit queries.
+##### `RepositoryCommitStatusFilter`
 
 | Field | Type | Description |
 |-------|------|-------------|
+| `_eq` | [RepositoryCommitStatus](#repositorycommitstatus) |  |
+| `_neq` | [RepositoryCommitStatus](#repositorycommitstatus) |  |
+| `_in` | [[RepositoryCommitStatus](#repositorycommitstatus)!] |  |
+| `_nin` | [[RepositoryCommitStatus](#repositorycommitstatus)!] |  |
+
+##### `RepositoryCommitWhereInput`
+
+Filter input for repository-level commit queries. Applied across the whole commit worklist
+before pagination, so a search matches repositories that fall on later pages.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `origin` | [StringFilter](#stringfilter) | Filter by repository origin (the SCM host, e.g. github.com). |
+| `path` | [StringFilter](#stringfilter) | Filter by repository path (e.g. moderneinc/rewrite). Use `_icontains` to back the commit view's repository search box. |
+| `branch` | [StringFilter](#stringfilter) | Filter by branch. |
+| `status` | [RepositoryCommitStatusFilter](#repositorycommitstatusfilter) | Filter by commit result status. |
 | `_and` | [[RepositoryCommitWhereInput](#repositorycommitwhereinput)!] |  |
 | `_or` | [[RepositoryCommitWhereInput](#repositorycommitwhereinput)!] |  |
 | `_not` | [RepositoryCommitWhereInput](#repositorycommitwhereinput) |  |

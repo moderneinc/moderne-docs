@@ -154,3 +154,9 @@ java -jar connector-{version}.jar \
 ```
 </TabItem>
 </Tabs>
+
+### AWS CodeArtifact
+
+AWS CodeArtifact is not supported as an LST source. Maven poll discovery relies on the [maven-indexer](https://maven.apache.org/maven-indexer/) index, which CodeArtifact does not serve, so a CodeArtifact repository configured as a poll source would never discover any LSTs. CodeArtifact package assets are also immutable, which prevents re-publishing an updated organization CSV in place. The Connector rejects CodeArtifact URLs in LST and organization source configuration at startup with an error explaining this. Host LST sources in cloud object storage instead, such as [S3](./configure-a-connector-with-s3-access.md) or Azure Blob Storage.
+
+CodeArtifact is supported for [recipe marketplace repositories](./configure-recipe-marketplace-repositories.md#aws-codeartifact), including automatic authorization token minting.

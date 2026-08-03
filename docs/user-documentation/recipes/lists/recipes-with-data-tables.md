@@ -259,6 +259,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
   * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
@@ -280,6 +283,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
 
@@ -308,6 +314,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
@@ -326,6 +335,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
   * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
   * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
@@ -417,7 +429,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.DevCenterStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
   * **DevCenter**
-  * This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/).
+  * This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/).
 
 ##### Data tables:
 
@@ -426,6 +438,16 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
   * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
+
+
+#### [io.moderne.devcenter.FindActiveCommitters](/user-documentation/recipes/recipe-catalog/devcenter/findactivecommitters.md)
+  * **Find active committers on repositories**
+  * List the committers on a repository whose most recent commit falls within the last 90 days, for the DevCenter contributing developers statistic.
+
+##### Data tables:
+
   * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
   * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
 
@@ -526,6 +548,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
   * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
@@ -552,7 +577,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.SecurityStarter](/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md)
   * **OWASP top ten**
-  * This recipe is a starter card to reveal common OWASP Top 10 issues in your source code. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/).
+  * This recipe is a starter card to reveal common OWASP Top 10 issues in your source code. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/).
 
 ##### Data tables:
 
@@ -576,6 +601,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
@@ -1394,7 +1422,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
   * **Find messaging connections**
-  * Identify message queue producers and consumers. Detects Kafka (Spring and raw kafka-clients), RabbitMQ, JMS, Spring Cloud Stream, AWS SQS (annotation and raw SDK), Redis pub/sub, EJB message-driven beans, and SmallRye Reactive Messaging.
+  * Identify message queue producers and consumers. Detects Kafka (Spring and raw kafka-clients), RabbitMQ, JMS, Spring Cloud Stream, AWS SQS (annotation and raw SDK), Redis pub/sub (Spring Data Redis, Jedis, and Redisson), EJB message-driven beans, and SmallRye Reactive Messaging.
 
 ##### Data tables:
 
@@ -2992,7 +3020,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.maven.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/maven/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Maven dependencies**
-  * Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.
+  * Upgrades the version of a transitive dependency in a Maven pom file. Leaves direct dependencies unmodified. When the transitive dependency's version is already governed by a plain `&lt;dependencyManagement&gt;` entry in the project, that entry is upgraded in place rather than adding a duplicate; otherwise (including a version supplied by an imported BOM) a new managed dependency is added. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.
 
 ##### Data tables:
 
@@ -3092,6 +3120,51 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 ### rewrite-python
+
+#### [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
+  * **Add Python dependency**
+  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.python.table.PythonLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
+
+#### [org.openrewrite.python.ChangeDependency](/user-documentation/recipes/recipe-catalog/python/changedependency.md)
+  * **Change Python dependency**
+  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.python.table.PythonLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
+
+#### [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
+  * **Remove Python dependency**
+  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.python.table.PythonLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
+
+#### [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
+  * **Upgrade Python dependency version**
+  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.python.table.PythonLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
+
+#### [org.openrewrite.python.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradetransitivedependencyversion.md)
+  * **Upgrade transitive Python dependency version**
+  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.python.table.PythonLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
 
 #### [org.openrewrite.python.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/search/dependencyinsight.md)
   * **Python dependency insight**
@@ -3530,7 +3603,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-07-13T1200.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-07-27T1204.
 
 ##### Data tables:
 
@@ -3631,7 +3704,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-07-13T1200.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-07-27T1204.
 
 ##### Data tables:
 
@@ -3677,6 +3750,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
   * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
+  * **org.openrewrite.java.dependencies.endoflife.table.EndOfLifeDependencyReport**: *Maven and Gradle dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
+  * **org.openrewrite.csharp.dependencies.table.EndOfLifeDependencyReport**: *NuGet packages whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
+  * **org.openrewrite.node.dependencies.table.EndOfLifeDependencyReport**: *npm dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
 
 
@@ -3706,6 +3782,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [org.openrewrite.java.security.Owasp2025A08](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a08.md)
+  * **Remediate OWASP A08:2025 Software or data integrity failures**
+  * OWASP [A08:2025](https://owasp.org/Top10/2025/A08_2025-Software_or_Data_Integrity_Failures/) describes failures to verify the integrity of software, code, and data artifacts across a trust boundary, including deserialization of untrusted data. Same position as A08:2021 Software and data integrity failures; the broader supply chain concerns that shared that category moved to A03:2025.
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
 
 
 #### [org.openrewrite.java.security.OwaspA01](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
@@ -3771,6 +3856,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
   * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
+  * **org.openrewrite.java.dependencies.endoflife.table.EndOfLifeDependencyReport**: *Maven and Gradle dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
+  * **org.openrewrite.csharp.dependencies.table.EndOfLifeDependencyReport**: *NuGet packages whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
+  * **org.openrewrite.node.dependencies.table.EndOfLifeDependencyReport**: *npm dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
   * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
@@ -4841,6 +4929,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.spring.boot4.MigrateJsonschema2PojoToSpringBoot4](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratejsonschema2pojotospringboot4.md)
+  * **Migrate jsonschema2pojo configuration to Spring Boot 4**
+  * Update `jsonschema2pojo-maven-plugin` to generate Jackson 3 and Jakarta Validation annotations compatible with Spring Boot 4. The `jackson3` annotation style was introduced in jsonschema2pojo 1.3.0, so the plugin is upgraded to at least that version first.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot4.MigrateOpenApiGeneratorToSpringBoot4](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateopenapigeneratortospringboot4.md)
+  * **Migrate OpenAPI Generator `spring` configuration to Spring Boot 4**
+  * Update `openapi-generator-maven-plugin` executions using the `spring` generator to generate Spring Boot 4 and Jackson 3 sources. Replaces the deprecated `useSpringBoot3` option with `useSpringBoot4` and enables `useJackson3`, matching the Jackson 3 baseline of Spring Boot 4. Enabling `useSpringBoot4` also enables `useJakartaEe`, so it is left implicit. The `useSpringBoot4`/`useJackson3` options were introduced in OpenAPI Generator 7.16.0, so the plugin is upgraded to at least that version first.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
   * **Migrate to Spring Boot 4.0 (Community Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs.
@@ -5258,6 +5364,63 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.sql.table.StoredProcedureCalls**: *Shows stored procedures invoked from SQL, e.g. via `EXEC`, `EXECUTE`, or `CALL`.*
+
+
+
+### rewrite-static-analysis
+
+#### [org.openrewrite.staticanalysis.FindMissingJavadocOnPublicMethods](/user-documentation/recipes/recipe-catalog/staticanalysis/findmissingjavadoconpublicmethods.md)
+  * **Find public methods missing Javadoc**
+  * Locates `public` method declarations that are not documented with a Javadoc comment, marks them with a search result, and records them in a data table.
+
+##### Data tables:
+
+  * **org.openrewrite.staticanalysis.table.MissingJavadocOnPublicMethods**: *Public method declarations that are not documented with a Javadoc comment.*
+
+
+#### [org.openrewrite.staticanalysis.FindNewExceptionWithoutCause](/user-documentation/recipes/recipe-catalog/staticanalysis/findnewexceptionwithoutcause.md)
+  * **Find new exceptions thrown without the caught exception**
+  * Finds `catch` blocks that throw a newly created exception without referencing the caught exception, which discards the original exception's stack trace and message. Data flow (taint) tracking is used to establish whether the caught exception—or any value derived from it—reaches the thrown exception, so indirect references through local variables and string concatenation are not falsely reported. This mirrors PMD's `PreserveStackTrace` rule.
+
+##### Data tables:
+
+  * **org.openrewrite.staticanalysis.table.ExceptionsWithoutCause**: *New exceptions thrown from a `catch` block that do not reference the caught exception.*
+
+
+#### [org.openrewrite.staticanalysis.ModernizeCollections](/user-documentation/recipes/recipe-catalog/staticanalysis/modernizecollections.md)
+  * **Modernize collections**
+  * Replace the legacy synchronized types `Hashtable`, `Vector`, `Stack`, and `StringBuffer` with their modern unsynchronized counterparts `HashMap`, `ArrayList`, `Deque`/`ArrayDeque`, and `StringBuilder`. Each replacement is only applied when data flow analysis can prove the instance is a local variable that never escapes its method, so the synchronization it provided is redundant.
+
+##### Data tables:
+
+  * **org.openrewrite.staticanalysis.table.LegacySynchronizedTypesNotMigrated**: *Instances of a legacy synchronized type (`Hashtable`, `Vector`, `Stack`, `StringBuffer`) that were found but left unchanged because they could not be proven safe to modernize.*
+
+
+#### [org.openrewrite.staticanalysis.ReplaceHashtableWithHashMap](/user-documentation/recipes/recipe-catalog/staticanalysis/replacehashtablewithhashmap.md)
+  * **Replace `java.util.Hashtable` with `java.util.HashMap`**
+  * `Hashtable` synchronizes every operation, which adds overhead in the common single-threaded case. This recipe replaces a local `Hashtable` with a `HashMap` when data flow analysis can prove the `Hashtable` never escapes its method (it is not returned, assigned to a field, or passed as an argument), so no other thread can observe it and the synchronization is redundant. Fields, escaping variables, and `Hashtable`-specific method usages (`contains`, `elements`, `keys`) are left untouched. `HashMap` permits `null` keys and values, so it accepts every input `Hashtable` did.
+
+##### Data tables:
+
+  * **org.openrewrite.staticanalysis.table.LegacySynchronizedTypesNotMigrated**: *Instances of a legacy synchronized type (`Hashtable`, `Vector`, `Stack`, `StringBuffer`) that were found but left unchanged because they could not be proven safe to modernize.*
+
+
+#### [org.openrewrite.staticanalysis.ReplaceStringBufferWithStringBuilder](/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringbufferwithstringbuilder.md)
+  * **Replace `java.lang.StringBuffer` with `java.lang.StringBuilder`**
+  * `StringBuffer` synchronizes every operation, which adds overhead in the common single-threaded case. `StringBuilder` exposes the identical API without the synchronization. This recipe replaces a local `StringBuffer` with a `StringBuilder` when data flow analysis can prove the `StringBuffer` never escapes its method (it is not returned, assigned to a field, or passed as an argument), so no other thread can observe it and the synchronization is redundant. Fields and escaping variables are left untouched.
+
+##### Data tables:
+
+  * **org.openrewrite.staticanalysis.table.LegacySynchronizedTypesNotMigrated**: *Instances of a legacy synchronized type (`Hashtable`, `Vector`, `Stack`, `StringBuffer`) that were found but left unchanged because they could not be proven safe to modernize.*
+
+
+#### [org.openrewrite.staticanalysis.ReplaceVectorWithArrayList](/user-documentation/recipes/recipe-catalog/staticanalysis/replacevectorwitharraylist.md)
+  * **Replace `java.util.Vector` with `java.util.ArrayList`**
+  * `Vector` synchronizes every operation, which adds overhead in the common single-threaded case. This recipe replaces a local `Vector` with an `ArrayList` when data flow analysis can prove the `Vector` never escapes its method (it is not returned, assigned to a field, or passed as an argument), so no other thread can observe it and the synchronization is redundant. Fields, escaping variables, `Vector`-specific method usages (like `elementAt` or `addElement`), and the `Vector(int, int)` constructor are left untouched.
+
+##### Data tables:
+
+  * **org.openrewrite.staticanalysis.table.LegacySynchronizedTypesNotMigrated**: *Instances of a legacy synchronized type (`Hashtable`, `Vector`, `Stack`, `StringBuffer`) that were found but left unchanged because they could not be proven safe to modernize.*
 
 
 
@@ -6018,9 +6181,18 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.apache.camel.upgrade.Camel418LTSMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel418ltsmigrationrecipe.md)
+  * **Migrate to Camel 4.18LTS**
+  * Migrates Apache Camel application to 4.18 LTS. This recipe aggregates all migration steps from 4.0 to 4.18.3.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camelmigrationrecipe.md)
-  * **Migrate to 4.20.0**
-  * Migrates Apache Camel application to 4.20.0.
+  * **Migrate to 4.21.0**
+  * Migrates Apache Camel application to 4.21.0.
 
 ##### Data tables:
 
@@ -6351,9 +6523,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.quarkus.MigrateToQuarkus_v3_33_1](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_33_1.md)
+  * **Quarkus Updates Aggregate 3.33.1**
+  * Quarkus update recipes to upgrade your application to 3.33.1.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.quarkus.MigrateToQuarkus_v3_37_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_37_0.md)
   * **Quarkus Updates Aggregate 3.37.0**
   * Quarkus update recipes to upgrade your application to 3.37.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.MigrateToQuarkus_v3_38_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_38_0.md)
+  * **Quarkus Updates Aggregate 3.38.0**
+  * Quarkus update recipes to upgrade your application to 3.38.0.
 
 ##### Data tables:
 

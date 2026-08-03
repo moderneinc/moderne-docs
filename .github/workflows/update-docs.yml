@@ -29,17 +29,27 @@ jobs:
           distribution: temurin
           java-version: 21
       - uses: actions/setup-python@v6
+        if: ${{ env.LATEST_VERSIONS_ONLY != 'true' }}
         with:
           python-version: '3.12'
       - uses: actions/setup-dotnet@v5
+        if: ${{ env.LATEST_VERSIONS_ONLY != 'true' }}
         with:
           dotnet-version: '9.0.x'
       - uses: gradle/actions/setup-gradle@v5
       - uses: actions/setup-go@v6
+        if: ${{ env.LATEST_VERSIONS_ONLY != 'true' }}
         with:
           go-version: '1.25'        # recipes-go and rewrite-go both require go 1.25 (their go.mod)
       - name: Build the rewrite-go-rpc server
+        if: ${{ env.LATEST_VERSIONS_ONLY != 'true' }}
         run: |
+          # Pin GOROOT to the toolchain setup-go just put on PATH. Otherwise GoRewriteRpc discovers
+          # GOROOT via GoExecutor.find(), which prefers /usr/bin/go (the runner image's older default
+          # Go) over PATH, and hands the RPC server a GOROOT from a different release than the `go` it
+          # shells out to: `compile: version "go1.24.13" does not match go tool version "go1.25.12"`.
+          echo "GOROOT=$(go env GOROOT)" >> "$GITHUB_ENV"
+
           # The generator's Go loader launches `rewrite-go-rpc` from PATH. It isn't published as a
           # binary, so build it from source. `go install` names the binary after its package dir (`rpc`),
           # so symlink it to the name the loader expects, and expose it to later steps via $GITHUB_PATH.

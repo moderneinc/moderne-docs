@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.ConvertAnyToIn","displayName":"Rewrite `any(v == literal ...)` as `literal in collection`","pipPackage":"openrewrite-static-analysis"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.ConvertAnyToIn","displayName":"Rewrite `any(v == literal ...)` as `literal in collection`","pipPackage":"openrewrite-static-analysis","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}]}}>
 
 ## Usage
 

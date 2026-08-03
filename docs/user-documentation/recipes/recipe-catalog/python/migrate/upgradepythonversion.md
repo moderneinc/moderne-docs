@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade Python version in project files"}
-  description={"Update the Python version referenced in project metadata and packaging files to a target version. Updates `Pipfile` (`python_version` / `python_full_version`), `pyproject.toml` (`[project] requires-python` and Poetry's `[tool.poetry.dependencies] python`), `setup.cfg` (`python_requires`), and `.python-version` files. When a lock file (`uv.lock` or `Pipfile.lock`) is present and the matching package manager (`uv` or `pipenv`) is available on `PATH`, the lock file is regenerated to match. Only references older than the target are changed; a file already on a newer version is left as-is. `Dockerfile` base images are handled separately by `UpgradePythonDockerImage`, CloudFormation/SAM templates by `UpgradePythonCloudFormationRuntime`, Mend `.whitesource` files by `UpgradePythonWhitesourceConfig`, and `requirements.txt` is not modified because it pins package versions, not the interpreter version."}
+  description={"Update the Python version referenced in project metadata and packaging files to a target version. Updates `Pipfile` (`python_version` / `python_full_version`), `pyproject.toml` (`[project] requires-python` and Poetry's `[tool.poetry.dependencies] python`), `setup.cfg` (`python_requires`), and `.python-version` files. When a lock file (`uv.lock` or `Pipfile.lock`) is present, it is regenerated natively to match, without executing the package manager or requiring one on `PATH`. Only references older than the target are changed; a file already on a newer version is left as-is. `Dockerfile` base images are handled separately by `UpgradePythonDockerImage`, CloudFormation/SAM templates by `UpgradePythonCloudFormationRuntime`, Mend `.whitesource` files by `UpgradePythonWhitesourceConfig`, and `requirements.txt` is not modified because it pins package versions, not the interpreter version."}
   fqName={"org.openrewrite.python.migrate.UpgradePythonVersion"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade Python version in project files</RecipeHeader.Title>
 
-<RecipeHeader.Description>Update the Python version referenced in project metadata and packaging files to a target version. Updates `Pipfile` (`python_version` / `python_full_version`), `pyproject.toml` (`[project] requires-python` and Poetry's `[tool.poetry.dependencies] python`), `setup.cfg` (`python_requires`), and `.python-version` files. When a lock file (`uv.lock` or `Pipfile.lock`) is present and the matching package manager (`uv` or `pipenv`) is available on `PATH`, the lock file is regenerated to match. Only references older than the target are changed; a file already on a newer version is left as-is. `Dockerfile` base images are handled separately by `UpgradePythonDockerImage`, CloudFormation/SAM templates by `UpgradePythonCloudFormationRuntime`, Mend `.whitesource` files by `UpgradePythonWhitesourceConfig`, and `requirements.txt` is not modified because it pins package versions, not the interpreter version.</RecipeHeader.Description>
+<RecipeHeader.Description>Update the Python version referenced in project metadata and packaging files to a target version. Updates `Pipfile` (`python_version` / `python_full_version`), `pyproject.toml` (`[project] requires-python` and Poetry's `[tool.poetry.dependencies] python`), `setup.cfg` (`python_requires`), and `.python-version` files. When a lock file (`uv.lock` or `Pipfile.lock`) is present, it is regenerated natively to match, without executing the package manager or requiring one on `PATH`. Only references older than the target are changed; a file already on a newer version is left as-is. `Dockerfile` base images are handled separately by `UpgradePythonDockerImage`, CloudFormation/SAM templates by `UpgradePythonCloudFormationRuntime`, Mend `.whitesource` files by `UpgradePythonWhitesourceConfig`, and `requirements.txt` is not modified because it pins package versions, not the interpreter version.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.python.migrate.UpgradePythonVersion","displayName":"Upgrade Python version in project files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=3.12\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.migrate.UpgradePythonVersion","displayName":"Upgrade Python version in project files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","requiresConfiguration":true,"pipPackage":"openrewrite-migrate-python","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}],"cliOptions":" --recipe-option \"version=3.12\""}}>
 
 ## Usage
 

@@ -1237,7 +1237,7 @@ _407 recipes_
 
 _License: Moderne Proprietary License_
 
-_12 recipes_
+_13 recipes_
 
 * [OpenRewrite.CSharp.Recipes.AddFrameworkReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/addframeworkreference.md)
   * **Add framework reference**
@@ -1248,6 +1248,9 @@ _12 recipes_
 * [OpenRewrite.CSharp.Recipes.ChangeDotNetTargetFramework](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/changedotnettargetframework.md)
   * **Change .NET target framework**
   * Changes the `&lt;TargetFramework&gt;` or `&lt;TargetFrameworks&gt;` value in .csproj files. For multi-TFM projects, replaces the matching framework within the semicolon-delimited list.
+* [OpenRewrite.CSharp.Recipes.ConvertPackagesConfigToPackageReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/convertpackagesconfigtopackagereference.md)
+  * **Convert `packages.config` to `&lt;PackageReference&gt;`**
+  * Moves NuGet dependencies from `packages.config` into `&lt;PackageReference&gt;` items in the sibling project file, classifying top-level vs. transitive packages and reconstructing `IncludeAssets`/`ExcludeAssets`/`PrivateAssets` from the resolved dependency graph. Removes packaged `&lt;Reference&gt;`/`&lt;Import&gt;`/`&lt;Analyzer&gt;` wiring, the `EnsureNuGetPackageBuildImports` target and `NuGetPackageImportStamp` property, rewrites remaining `packages/` folder paths to `$(PkgXxx)` properties, deletes `packages.config`, and flags package behaviors that PackageReference does not support (`install.ps1`, XDT config transforms, legacy `content/` assets) for manual follow-up.
 * [OpenRewrite.CSharp.Recipes.EnsureCsprojAttestation](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/ensurecsprojattestation.md)
   * **Ensure csproj attestation**
   * Re-runs `dotnet restore` against each .csproj whose `MSBuildProject` marker is stale (set by any csproj-mutating recipe in the run) and refreshes the marker from the resulting `project.assets.json`. Use this at the end of a composite recipe whose csproj-mutating sub-recipes have `RegenerateMarker = false`, so reattestation happens once on the final consistent state instead of after every edit. Unmodified .csproj files incur no `dotnet restore` cost.
@@ -5737,7 +5740,7 @@ _3 recipes_
 
 _License: Moderne Source Available License_
 
-_38 recipes_
+_39 recipes_
 
 * [io.moderne.devcenter.AngularVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/angularversionupgrade.md)
   * **Move to a later Angular version**
@@ -5789,7 +5792,10 @@ _38 recipes_
   * A default DevCenter configuration for Python repositories. Track Python version adoption across your organization.
 * [io.moderne.devcenter.DevCenterStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
   * **DevCenter**
-  * This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/).
+  * This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/).
+* [io.moderne.devcenter.FindActiveCommitters](/user-documentation/recipes/recipe-catalog/devcenter/findactivecommitters.md)
+  * **Find active committers on repositories**
+  * List the committers on a repository whose most recent commit falls within the last 90 days, for the DevCenter contributing developers statistic.
 * [io.moderne.devcenter.FindOrganizationStatistics](/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics.md)
   * **Find organization statistics**
   * Counts lines of code per repository for organization-level statistics.
@@ -5831,7 +5837,7 @@ _38 recipes_
   * Determine the current state of a repository relative to a desired Scala version upgrade.
 * [io.moderne.devcenter.SecurityStarter](/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md)
   * **OWASP top ten**
-  * This recipe is a starter card to reveal common OWASP Top 10 issues in your source code. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/).
+  * This recipe is a starter card to reveal common OWASP Top 10 issues in your source code. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/).
 * [io.moderne.devcenter.UpgradeApacheParent](/user-documentation/recipes/recipe-catalog/devcenter/upgradeapacheparent.md)
   * **Upgrade Apache Parent POM**
   * Upgrades the Apache parent POM to the latest version.
@@ -6580,7 +6586,7 @@ _115 recipes_
   * Identify gRPC service implementations in the application. Detects classes extending generated ImplBase classes and @GrpcService annotations.
 * [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
   * **Find messaging connections**
-  * Identify message queue producers and consumers. Detects Kafka (Spring and raw kafka-clients), RabbitMQ, JMS, Spring Cloud Stream, AWS SQS (annotation and raw SDK), Redis pub/sub, EJB message-driven beans, and SmallRye Reactive Messaging.
+  * Identify message queue producers and consumers. Detects Kafka (Spring and raw kafka-clients), RabbitMQ, JMS, Spring Cloud Stream, AWS SQS (annotation and raw SDK), Redis pub/sub (Spring Data Redis, Jedis, and Redisson), EJB message-driven beans, and SmallRye Reactive Messaging.
 * [io.moderne.prethink.calm.FindMongooseSchemas](/user-documentation/recipes/recipe-catalog/prethink/calm/findmongooseschemas.md)
   * **Find Mongoose schemas**
   * Identify Mongoose models and schemas in Node.js applications. Detects mongoose.model() calls and populates the DatabaseConnections table.
@@ -7048,7 +7054,7 @@ _6 recipes_
 
 _License: Moderne Proprietary License_
 
-_204 recipes_
+_206 recipes_
 
 * [io.moderne.java.jsf.MigrateToJsf_2_3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
   * **Migrate to JSF 2.3**
@@ -7392,8 +7398,8 @@ _204 recipes_
 * [io.moderne.java.spring.boot4.SpringBoot4BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springboot4bestpractices.md)
   * **Spring Boot 4.0 best practices**
   * Applies best practices to Spring Boot 4.+ applications.
-* [io.moderne.java.spring.boot4.SpringBootProperties_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_1.md)
-  * **Migrate Spring Boot properties to 4.1**
+* [io.moderne.java.spring.boot4.SpringBootProperties_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_1-moderne-edition.md)
+  * **Migrate Spring Boot properties to 4.1 (Moderne Edition)**
   * Migrate properties found in `application.properties` and `application.yml`.
 * [io.moderne.java.spring.boot4.UpgradeAwspringCloud_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradeawspringcloud_4_0.md)
   * **Migrate Spring Cloud AWS (awspring) to 4.0**
@@ -7416,6 +7422,12 @@ _204 recipes_
 * [io.moderne.java.spring.boot4.UpgradeToJava21WhenUsingJooq](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradetojava21whenusingjooq.md)
   * **Upgrade to Java 21 when using jOOQ**
   * Spring Boot 4 keeps a Java 17 baseline, but the jOOQ version it manages (3.20+) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.0 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619.
+* [io.moderne.java.spring.cloud.contract.MigrateAutoConfigureWireMock](/user-documentation/recipes/recipe-catalog/java/spring/cloud/contract/migrateautoconfigurewiremock.md)
+  * **Migrate `@AutoConfigureWireMock` to `@EnableWireMock`**
+  * Spring Cloud Contract 5.0 removed `@AutoConfigureWireMock` and the rest of the `spring-cloud-contract-wiremock` autoconfig package. Rewrite `@AutoConfigureWireMock` to `@EnableWireMock(@ConfigureWireMock(...))` from the official `wiremock-spring-boot` library, translating `port` and `httpsPort` directly and mapping `stubs`/`files` `classpath:` prefixes to `filesUnderClasspath` and `file:` prefixes to `filesUnderDirectory`. The old `port` default of `8080` is preserved so tests that relied on the fixed port continue to reach WireMock. Shapes that cannot be migrated losslessly (multi-location `stubs`/`files`, divergent `stubs`/`files` values, non-literal expressions) are annotated with a `TODO(migrate-wiremock)` comment.
+* [io.moderne.java.spring.cloud.contract.MigrateWireMockToWireMockSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/cloud/contract/migratewiremocktowiremockspringboot.md)
+  * **Migrate from `spring-cloud-contract-wiremock` to `wiremock-spring-boot`**
+  * Spring Cloud Contract 5.0 removed the entire `spring-cloud-contract-wiremock` autoconfig package (including `@AutoConfigureWireMock`, `WireMockConfiguration`, `WireMockApplicationListener`, and `WireMockTestExecutionListener`). Migrate to the official `wiremock-spring-boot` integration, rewriting `@AutoConfigureWireMock` to `@EnableWireMock(@ConfigureWireMock(...))`, adding the `wiremock-spring-boot` test dependency, and removing configuration properties that no longer have any effect.
 * [io.moderne.java.spring.cloud2020.SpringCloudProperties_2020](/user-documentation/recipes/recipe-catalog/java/spring/cloud2020/springcloudproperties_2020.md)
   * **Migrate Spring Cloud properties to 2020**
   * Migrate properties found in `application.properties` and `application.yml`.

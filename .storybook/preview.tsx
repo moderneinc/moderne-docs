@@ -9,11 +9,10 @@ import {
   NavbarProvider,
 } from '@docusaurus/theme-common/internal';
 
-// Import Inter font (same as Docusaurus)
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/inter/700.css';
+// Import Geist fonts (same as the site — variable weight range + italic axis)
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist/wght-italic.css';
+import '@fontsource-variable/geist-mono';
 
 // Import Infima CSS framework (Docusaurus base styles)
 import 'infima/dist/css/default/default.css';
@@ -26,8 +25,13 @@ import '@moderneinc/neo-design/spacing.css';
 import '@moderneinc/neo-design/shadows.css';
 import '@moderneinc/neo-design/border-radius.css';
 
-// Import Docusaurus custom styles
+// Import the Morpheus token + theme layers around custom.css, mirroring the
+// customCss load order in docusaurus.config.ts. Without the token layer here,
+// var(--mor-*) is undefined in Storybook and every declaration using it (fonts
+// and colors) becomes invalid — components render unstyled / serif.
+import '../src/css/morpheus-tokens.css';
 import '../src/css/custom.css';
+import '../src/css/morpheus-theme.css';
 
 // Mirror the Docusaurus LayoutProvider context tree (see
 // @docusaurus/theme-classic Layout/Provider). Swizzled theme components such as

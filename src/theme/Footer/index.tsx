@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { LinkedinIcon, YoutubeIcon, MessageCircleIcon } from 'lucide-react';
-import { NeoButton } from '@site/src/components/NeoButton';
+import { LinkedinIcon, YoutubeIcon } from 'lucide-react';
 import styles from './styles.module.css';
 
 interface XIconProps {
@@ -55,31 +54,12 @@ const FooterLinks: FunctionComponent = () => {
 
 FooterLinks.displayName = 'FooterLinks';
 
-const FeedbackButton: FunctionComponent = () => {
-  return (
-    <NeoButton
-      variant="primary"
-      size="small"
-      href="mailto:support@moderne.io"
-      icon={<MessageCircleIcon size={16} />}
-      iconPosition="left"
-    >
-      Give feedback
-    </NeoButton>
-  );
-};
-
-FeedbackButton.displayName = 'FeedbackButton';
-
 const Footer: FunctionComponent = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <FooterLinks />
-        <div className={styles.actions}>
-          <FeedbackButton />
-          <SocialLinks />
-        </div>
+        <SocialLinks />
       </div>
     </footer>
   );

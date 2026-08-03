@@ -7,13 +7,32 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.150.163 |
+| Connector | 0.151.23 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.150.163/connector-0.150.163.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.23/connector-0.151.23.jar)
 
 ## Changelog
 
 ## July 2026
+
+### v0.151.23 – 2026-07-29
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.23/connector-0.151.23.jar)
+
+* Chore: declare Moderne Proprietary License on customer-shipped jars (#1740)
+
+### v0.151.19 – 2026-07-28
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.19/connector-0.151.19.jar)
+
+* Preserve %2F encoding for npm tools in scheme filter (#1705)
+* Fix(organization): treat enrich-failed rows as LST-unavailable, surface the reason (#1718)
+* Fix(connector): set customIntegrations on the proxy-authz ConnectorConfig bean (#1709)
+* Feat(custom-integrations): scope org access and rewrite commits via a customer org service (#1659)
+* Align every AWS SDK module on the SDK BOM (#1693)
+* Connector: mint AWS CodeArtifact tokens for Maven repositories (#1536)
+* Publish the Moderne connector to the Code Genome Project (#1662)
+* Fix(committer): serve and enforce connector-configured commit options (#1622)
 
 ### v0.150.163 – 2026-07-15
 

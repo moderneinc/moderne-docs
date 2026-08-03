@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `Long#divideUnsigned`"}
-  description={"Prefer `java.lang.Long#divideUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#divide` or `com.google.common.primitives.UnsignedLongs#divideUnsigned`."}
+  description={"Prefer `java.lang.Long#divideUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#divide`."}
   fqName={"org.openrewrite.java.migrate.guava.PreferLongDivideUnsigned"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `Long#divideUnsigned`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `java.lang.Long#divideUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#divide` or `com.google.common.primitives.UnsignedLongs#divideUnsigned`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `java.lang.Long#divideUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#divide`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

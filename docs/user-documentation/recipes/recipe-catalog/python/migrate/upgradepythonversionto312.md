@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.python.migrate.UpgradePythonVersionTo312","displayName":"Upgrade Python version in project files to 3.12","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.migrate.UpgradePythonVersionTo312","displayName":"Upgrade Python version in project files to 3.12","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","requiresConfiguration":false,"pipPackage":"openrewrite-migrate-python","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}]}}>
 
 ## Usage
 

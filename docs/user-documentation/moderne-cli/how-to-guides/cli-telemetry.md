@@ -138,7 +138,7 @@ The `run` command's `trace.json` includes telemetry for the `clone` and `build` 
 
 ### `trace.json` schema
 
-The following tables describe the `trace.json` schema, including metadata common to all commands and fields specific to each command type. For the equivalent reference of the ingested CSV format (along with ready-made BI table definitions and report templates), see the [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repository and its [trace.csv data dictionary](https://github.com/moderneinc/moderne-bi-templates/blob/main/data-dictionary/trace-csv.md).
+The following tables describe the `trace.json` schema, including metadata common to all commands and fields specific to each command type. For the equivalent reference of the ingested CSV format, see the [trace.csv reference](../references/trace-csv.md). For ready-made BI table definitions and report queries, see the [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repository.
 
 #### Repository and organization metadata
 
