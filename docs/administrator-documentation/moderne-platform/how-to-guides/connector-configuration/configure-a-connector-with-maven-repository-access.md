@@ -57,6 +57,8 @@ Because Maven repositories require every artifact to live at a Maven coordinate 
 
 Each time `mod publish` runs, it looks for the input `repos.csv` at its well-known location. When present, it merges that input with the previous `repos-lock.csv` and the results of the current run, then writes the merged file back. This keeps the central `repos-lock.csv` complete and correctly organized even when ingestion is split across machines or a run only covers a subset of repositories. Without the input `repos.csv` in place, the lock file only accumulates whatever happened to be published, and repositories that failed to build (or have not built yet) are missing from it.
 
+Because the lock file is rewritten at the same coordinate on every run (and you will re-upload `repos.csv` at the same coordinate whenever your repository list changes), the Maven repository must allow republishing an existing coordinate. In Nexus, this is the **Deployment policy** setting on the hosted repository, which must be set to `Allow redeploy` (see the Nexus warning under [Publishing LST artifacts](#publishing-lst-artifacts)). Other Maven repository managers have equivalent release-immutability settings that must be relaxed for this repository.
+
 Upload the input file to its well-known location. For example, with Nexus:
 
 ```bash
@@ -105,9 +107,11 @@ For a repository to be a source of LSTs, it must be included in the list of repo
 <TabItem value="nexus-repository" label="Nexus Repository">
 
 :::warning
-If you are using Nexus 3 for LST storage with [mass ingest](../mass-ingest.md), the repository **must** be created as a **maven2 (hosted)** repository with **layout policy set to Permissive**. Mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these uploads with HTTP 400 if the layout policy is set to Strict.
+If you are using Nexus 3 for LST storage with [mass ingest](../mass-ingest.md), the repository **must** be created as a **maven2 (hosted)** repository with **layout policy set to Permissive** and **deployment policy set to Allow redeploy**.
 
-If the repository already exists with strict layout, you can change this without recreating it: **Repository settings** > **Maven 2** > **Layout policy** > `Permissive`.
+Mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these uploads with HTTP 400 if the layout policy is set to Strict. Mass ingest also republishes existing coordinates: the central `repos-lock.csv` is rewritten at the same coordinate on every run, and LSTs are republished at the same coordinate when a repository is rebuilt at an unchanged version. Nexus rejects these updates with HTTP 400 if the deployment policy is set to `Disable redeploy` (the default for hosted release repositories).
+
+If the repository already exists, you can change both settings without recreating it: **Repository settings** > **Maven 2** > **Layout policy** > `Permissive`, and **Repository settings** > **Hosted** > **Deployment policy** > `Allow redeploy`.
 :::
 
 Under the administration view, select `Settings` --> `System` --> `Tasks` on the left nav:

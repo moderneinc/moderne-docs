@@ -70,7 +70,7 @@ mod publish /path/to/your/repos
 This uploads each LST to the artifact repository and adds the `publishUri` column to your `repos-lock.csv` file, recording where each LST was published. It also uploads a merged, central `repos-lock.csv` to the artifact repository, giving your team a single file to point at. The location depends on the store type:
 
 * **Artifactory, S3, and Azure Blob Storage**: the root of the store (for example, `https://artifactory.company.com/artifactory/moderne-ingest/repos-lock.csv`).
-* **Maven repositories** (for example, Nexus): the synthetic Maven coordinate `io/moderne/organization/sources/repos-lock/1.0.0/repos-lock-1.0.0.csv` under the repository URL, because Maven repositories require every artifact to live at a `groupId/artifactId/version` path.
+* **Maven repositories** (for example, Nexus): the synthetic Maven coordinate `io/moderne/organization/sources/repos-lock/1.0.0/repos-lock-1.0.0.csv` under the repository URL, because Maven repositories require every artifact to live at a `groupId/artifactId/version` path. Since this file is rewritten at the same coordinate on every `mod publish` run, the repository must allow republishing an existing coordinate (in Nexus, a deployment policy of `Allow redeploy`).
 
 :::tip[Publish your input repos.csv too]
 If you upload your input `repos.csv` to the corresponding well-known location in the same store (`repos.csv` at the root, or `io/moderne/organization/sources/repos/1.0.0/repos-1.0.0.csv` for Maven repositories), `mod publish` merges it into the central `repos-lock.csv` on every run. This keeps the lock file complete and correctly organized even when publishing is split across machines or a run only covers a subset of repositories.
