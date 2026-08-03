@@ -1,36 +1,39 @@
 ---
 sidebar_label: Azure replication setup
-description: Set up Azure Storage Object Replication from the Moderne-managed telemetry account into a storage account you own.
+description: Receive a copy of your Moderne telemetry in an Azure storage account you own, using Azure Data Share.
 ---
 
 # Azure replication setup
 
-This guide walks you through receiving telemetry into a blob container in **your** Azure storage account via **Azure Storage Object Replication**. Before starting, read the [overview](./overview.md) for context on what the data looks like and how it flows.
+This guide walks you through receiving telemetry into a blob container in **your** Azure storage account via [Azure Data Share](https://learn.microsoft.com/en-us/azure/data-share/overview). Before starting, read the [overview](./overview.md) for context on what the data looks like and how it flows.
+
+Moderne shares your tenant's telemetry as a copy-based share. You accept an invitation in your own Azure tenant and choose the storage account that receives the data. Moderne never holds a credential into your subscription, and you never hold one into Moderne's. The invitation is the only link between the two.
 
 Here's how the setup works end-to-end:
 
 1. You create a destination storage account and container.
-2. You enable the prerequisites object replication requires (versioning and change feed).
-3. You grant Moderne's source storage account access via a role assignment on your destination container.
-4. You send Moderne the destination resource IDs; Moderne creates the replication policy on the source side.
+2. You send Moderne your tenant name and a recipient email address.
+3. Moderne configures the share and sends a Data Share invitation to that address.
+4. You accept the invitation, point it at your container, and enable the snapshot schedule.
 
 ## Prerequisites
 
 This guide assumes that you have:
 
-* An Azure subscription you can create resources in, with permission to create resource groups, storage accounts, blob containers, and role assignments.
+* An Azure subscription you can create resources in, with permission to create resource groups, storage accounts, and blob containers, and to accept Data Share invitations.
 * The [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) installed, with `az login` completed against the target subscription.
 * Your Moderne tenant name (the subdomain in your tenant's URL, e.g. `acme` for `acme.moderne.io`).
+* A recipient email address (a Microsoft Entra user or group) that can accept the Data Share invitation.
 * A Moderne SaaS v2 tenant. If you are still on v1, see the [Availability note in the overview](./overview.md).
 
 ## What we'll need from you
 
-| Value                                   | Example                                            | How to get it                                         |
-|-----------------------------------------|----------------------------------------------------|-------------------------------------------------------|
-| Tenant name                             | `acme`                                             | Your Moderne tenant subdomain.                        |
-| Destination storage-account resource ID | `/subscriptions/.../storageAccounts/acmemoderntel` | `az storage account show -n <name> --query id -o tsv` |
-| Destination container name              | `moderne-telemetry`                                | After step 1.                                         |
-| Destination region                      | `eastus`                                           | Whatever your BI lives in.                            |
+| Value           | Example                  | How to get it                                                            |
+|-----------------|--------------------------|--------------------------------------------------------------------------|
+| Tenant name     | `acme`                   | Your Moderne tenant subdomain.                                           |
+| Recipient email | `data-platform@acme.com` | An Entra user or group in your directory that can accept the invitation. |
+
+That is all we need. You choose the target storage account and container yourself when you accept the invitation, so Moderne never asks for those details.
 
 ## Step 1: Create the destination storage account and container
 
@@ -59,53 +62,35 @@ az storage container create \
     --auth-mode login
 ```
 
-## Step 2: Enable versioning and change feed
-
-Azure Object Replication requires both on the destination account (versioning is also required on the source side; Moderne has already enabled it):
-
-```bash
-az storage account blob-service-properties update \
-    --account-name "$DEST_ACCOUNT" \
-    --resource-group "$DEST_RG" \
-    --enable-versioning true \
-    --enable-change-feed true
-```
-
-## Step 3: Grant Moderne's source identity write access
-
-Each tenant has a dedicated **user-assigned managed identity** (UAMI) named `moderne-bi-telemetry-replication-uami-<your-tenant>` attached to the shared `modernetelemetry` storage account in Moderne's environment. This mirrors the per-tenant replication role used on AWS, so the customer-side flow is the same on both clouds: scope one tenant-specific write grant to one destination container.
-
-Grant your tenant's UAMI the **Storage Blob Data Contributor** role scoped to **only** your destination container (not the whole account):
-
-```bash
-# Your tenant's UAMI object ID. Ask your CSM for the principalId of
-# moderne-bi-telemetry-replication-uami-<your-tenant>:
-MODERNE_SOURCE_MI_OBJECT_ID=<provided-by-your-csm>
-
-az role assignment create \
-    --assignee-object-id "$MODERNE_SOURCE_MI_OBJECT_ID" \
-    --assignee-principal-type ServicePrincipal \
-    --role "Storage Blob Data Contributor" \
-    --scope "$(az storage account show -n $DEST_ACCOUNT -g $DEST_RG --query id -o tsv)/blobServices/default/containers/$DEST_CONTAINER"
-```
-
 :::note
-The UAMI object ID is a GUID assigned by Azure at creation time, so your CSM will provide the exact value for your tenant. Your RBAC grant is scoped to a single container, so Moderne cannot read or write anything else in your storage account — and because the UAMI is tenant-specific, no other tenant's replication can use this grant either.
+Versioning and change feed are not required on the destination. Data Share copies blobs on a schedule rather than replicating them, so the prerequisites that object replication would need do not apply here.
 :::
 
-## Step 4: Hand off to Moderne
+## Step 2: Send Moderne your details
 
-Send your CSM:
+Send your CSM your tenant name and the recipient email address. Moderne then configures the share and sends a Data Share invitation to that address.
 
-* Tenant name
-* Destination storage-account resource ID
-* Destination container name
+You are not asked to share your storage account details, and Moderne does not request any access to your subscription.
 
-Moderne will create the object-replication policy on the source side, filtered to your tenant's container prefix. Object replication is asynchronous; expect new blobs to land within ~15 minutes.
+## Step 3: Accept the invitation
+
+The recipient receives an Azure Data Share invitation by email. In the Azure portal:
+
+1. Go to **Data Share**, then **Received shares**, and open the invitation.
+2. Create a share subscription.
+3. Choose the target storage account and container you created in step 1.
+
+## Step 4: Enable the snapshot schedule
+
+When creating the share subscription, enable the snapshot schedule. To receive data immediately, trigger a manual snapshot as well.
+
+:::warning
+Data does not flow until you complete this step. Accepting the invitation on its own does not start delivery. Telemetry is retained at the source for only seven days, so a share subscription left without an active schedule misses data permanently. See [Data delivery and retention](#data-delivery-and-retention).
+:::
 
 ## Verification
 
-Confirm objects are landing by listing the container:
+After the first snapshot completes, list your target container:
 
 ```bash
 az storage blob list \
@@ -117,9 +102,22 @@ az storage blob list \
     --output table
 ```
 
-:::tip[Cross-cloud destinations]
-If your Moderne tenant is AWS-backed but your BI stack runs on Azure (or vice versa), native object replication doesn't apply. Reach out to your CSM. Moderne supports cross-cloud delivery via a scheduled sync job (typically 1-hour cadence), and the customer-side setup is the same: create the destination, grant write access, send us the coordinates.
-:::
+Blobs under `tenant=<your-tenant>/source=<saas|cli>/type=<command>/year=.../month=.../day=.../` confirm the share is live. See [Object key layout](./overview.md) for what each partition key means.
+
+## Data delivery and retention
+
+| Property         | Behavior                                                               |
+|------------------|------------------------------------------------------------------------|
+| Cadence          | Snapshots run daily once the schedule is enabled.                      |
+| First delivery   | Up to 24 hours after acceptance, or immediately with a manual snapshot. |
+| Source retention | Telemetry is retained at the source for seven days.                    |
+| Deletions        | Not propagated. Your copy is yours to keep for as long as you choose.  |
+
+Because the source retains telemetry for seven days, your snapshot schedule must run well inside that window. If snapshots stop running, whether from a disabled schedule, a revoked subscription that is not restored, or repeated snapshot failures, data that ages past seven days at the source cannot be recovered through the share. Monitor snapshot success in the Azure portal under your share subscription's snapshot history, and contact your CSM if you need a backfill.
+
+## Opting out
+
+Contact your CSM to stop the share. To stop delivery from your side, revoke your share subscription in the Azure portal (**Data Share**, then **Received shares**, then revoke). Revoking stops further snapshots into your account. Data already delivered remains in your storage account.
 
 ## Next
 
