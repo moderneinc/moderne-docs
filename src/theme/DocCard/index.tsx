@@ -17,17 +17,6 @@ import Heading from "@theme/Heading";
 
 import styles from "./styles.module.css";
 
-/**
- * Extended customProps interface for sidebar items with gem icon support.
- * Used by both category and link items to specify which gem icon to display.
- */
-interface GemIconCustomProps {
-  /** Gem icon filename (without extension) from /img/gems/ */
-  gemIcon?: string;
-  /** Whether this item should appear in the MegaMenu */
-  megaMenu?: boolean;
-}
-
 function useCategoryItemsPlural() {
   const { selectMessage } = usePluralForm();
   return (count: number) =>
@@ -67,20 +56,11 @@ interface CardLayoutProps {
   href: string;
   title: string;
   description?: string;
-  gemIcon?: string;
 }
 
-const CardLayout: FunctionComponent<CardLayoutProps> = ({ href, title, description, gemIcon }) => {
-  // Default to pink gem if no icon specified
-  const iconSrc = gemIcon
-    ? `/img/gems/${gemIcon}.png`
-    : '/img/gems/pink.png';
-
+const CardLayout: FunctionComponent<CardLayoutProps> = ({ href, title, description }) => {
   return (
     <CardContainer href={href}>
-      <div className={styles.cardIcon}>
-        <img src={iconSrc} alt="" role="presentation" />
-      </div>
       <div className={styles.cardContent}>
         <Heading
           as="h2"
@@ -117,16 +97,11 @@ const CardCategory: FunctionComponent<CardCategoryProps> = ({ item }) => {
     return null;
   }
 
-  // Extract gem icon from customProps if available
-  const customProps = item.customProps as GemIconCustomProps | undefined;
-  const gemIcon = customProps?.gemIcon;
-
   return (
     <CardLayout
       href={href}
       title={item.label}
       description={item.description ?? categoryItemsPlural(item.items.length)}
-      gemIcon={gemIcon}
     />
   );
 };
@@ -140,16 +115,11 @@ interface CardLinkProps {
 const CardLink: FunctionComponent<CardLinkProps> = ({ item }) => {
   const doc = useDocById(item.docId ?? undefined);
 
-  // Extract gem icon from customProps only (frontMatter not available on PropVersionDoc)
-  const customProps = item.customProps as GemIconCustomProps | undefined;
-  const gemIcon = customProps?.gemIcon;
-
   return (
     <CardLayout
       href={item.href}
       title={item.label}
       description={item.description ?? doc?.description}
-      gemIcon={gemIcon}
     />
   );
 };
