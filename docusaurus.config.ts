@@ -75,7 +75,7 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,300..700;1,300..700&family=Geist+Mono:ital,wght@0,400;0,500;1,400&display=swap',
       },
     },
     {
@@ -141,7 +141,11 @@ const config: Config = {
           trackingID: "G-Q1CMC219Y5",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [
+            './src/css/morpheus-tokens.css',
+            './src/css/custom.css',
+            './src/css/morpheus-theme.css',
+          ],
         },
       } satisfies Preset.Options,
     ],

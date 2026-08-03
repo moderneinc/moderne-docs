@@ -13,7 +13,7 @@
   border: 1px solid var(--neo-border-primary);
   background: transparent;
   color: var(--neo-typography-input-default);
-  font-family: var(--neo-font-family-body), sans-serif;
+  font-family: var(--mor-font-sans), sans-serif;
   font-size: var(--neo-font-size-xs);
   font-weight: var(--neo-font-weight-medium);
   cursor: pointer;

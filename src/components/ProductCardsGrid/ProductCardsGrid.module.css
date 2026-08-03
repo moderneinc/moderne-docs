@@ -1,5 +1,6 @@
 /**
  * ProductCardsGrid - Displays products in a responsive 4-column grid
+ * Morpheus: flat surface tiles that raise a step on hover.
  */
 
 .browseByProduct {
@@ -11,7 +12,7 @@
 .sectionTitle {
   font-size: var(--neo-font-size-default);
   font-weight: var(--neo-font-weight-medium);
-  color: var(--ifm-heading-color);
+  color: var(--mor-text);
   margin: 0;
 }
 
@@ -36,19 +37,17 @@
 .productCard {
   display: flex;
   padding: var(--neo-spacing_3);
-  background: transparent;
-  border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-x-s);
+  background: var(--mor-surface);
+  border: 1px solid transparent;
+  border-radius: var(--mor-radius-sm);
   text-decoration: none;
   transition: background-color var(--ifm-transition-fast) ease,
-              border-color var(--ifm-transition-fast) ease,
-              box-shadow var(--ifm-transition-fast) ease;
+              border-color var(--ifm-transition-fast) ease;
 }
 
 .productCard:hover {
-  background: var(--neo-surfaces-white);
-  border-color: transparent;
-  box-shadow: var(--neo-shadow-card);
+  background: var(--mor-surface-2);
+  border-color: var(--mor-line);
   text-decoration: none;
 }
 
@@ -62,7 +61,7 @@
 .productCardTitle {
   font-size: var(--neo-font-size-default);
   font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--ifm-heading-color);
+  color: var(--mor-text);
   margin: 0;
   line-height: 1.3;
 }
@@ -70,26 +69,7 @@
 .productCardDescription {
   font-size: var(--neo-font-size-sm);
   font-weight: var(--neo-font-weight-regular);
-  color: var(--neo-typography-body-secondary);
+  color: var(--mor-muted);
   margin: 0;
   line-height: 1.4;
-}
-
-/* Dark mode adjustments */
-:global(html[data-theme='dark']) .productCard {
-  background: transparent;
-  border-color: var(--neo-grey-700);
-}
-
-:global(html[data-theme='dark']) .productCard:hover {
-  background: var(--neo-grey-800);
-  border-color: var(--neo-grey-600);
-}
-
-:global(html[data-theme='dark']) .productCardTitle {
-  color: var(--neo-surfaces-white);
-}
-
-:global(html[data-theme='dark']) .productCardDescription {
-  color: var(--neo-grey-300);
 }

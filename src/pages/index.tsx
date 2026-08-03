@@ -4,7 +4,6 @@ import { NeoButton } from '@site/src/components/NeoButton';
 import { ProductCardsGrid } from '@site/src/components/ProductCardsGrid';
 import { homepageProducts } from '@site/src/config/megaMenuData';
 import Layout from '@theme/Layout';
-import clsx from 'clsx';
 import { ArrowRight } from 'lucide-react';
 import type { FunctionComponent } from 'react';
 import VideoPlayer from '@site/src/components/VideoPlayer';
@@ -15,7 +14,7 @@ export const HeroSection: FunctionComponent = () => {
     <section className={styles.hero}>
       <div className={styles.heroContent}>
         <h1 className={styles.heroHeading}>
-          <span className={styles.heroHeadingBlue}>Explore documentation</span>
+          <span className={styles.heroHeadingGrad}>Explore documentation</span>
           <br />
           <span className={styles.heroHeadingDark}>and tutorials to go further</span>
         </h1>
@@ -124,24 +123,6 @@ export const AboutModerneSection: FunctionComponent = () => {
 }
 
 
-export const GemDecorations: FunctionComponent = () => {
-  return (
-    <div className={styles.gemDecorations}>
-      {/* Large gems on edges */}
-      <img
-        src="/img/gems/pink-large.png"
-        alt=""
-        className={clsx(styles.gem, styles.gemLargeRight)}
-      />
-      <img
-        src="/img/gems/pink.png"
-        alt=""
-        className={clsx(styles.gem, styles.gemLargeLeft)}
-      />
-    </div>
-  );
-}
-
 const Home: FunctionComponent = () => {
   return (
     <>
@@ -154,7 +135,6 @@ const Home: FunctionComponent = () => {
         description="Explore documentation and tutorials for automated code remediation. Fix vulnerabilities, standardize code quality, perform type-aware code searches, and accelerate refactoring at enterprise scale with Moderne Platform, CLI, DX, and more."
       >
         <main className={styles.homePage}>
-          <GemDecorations />
           <div className={styles.pageBody}>
             <HeroSection />
             <ProductCardsGrid products={homepageProducts} />

@@ -1,12 +1,8 @@
 .homePage {
-  background-color: var(--background, #f7f7fe);
+  background-color: var(--mor-bg);
   min-height: calc(100vh - var(--ifm-navbar-height));
   position: relative;
   overflow: hidden;
-}
-
-[data-theme='dark'] .homePage {
-  background-color: var(--brand-midnight);
 }
 
 .pageBody {
@@ -49,20 +45,40 @@
   margin: 0;
 }
 
-.heroHeadingBlue {
-  color: var(--brand-digital-blue);
+/* Signature Morpheus spectral gradient on the first headline line.
+   Light mode ends on a dark, high-contrast stop (--mor-link) so the pale
+   green/lime tail of the full spectral run doesn't fall below WCAG contrast on
+   the cream canvas; dark mode keeps the full spectral, which reads fine there. */
+.heroHeadingGrad {
+  background: linear-gradient(
+    92deg,
+    var(--mor-spectral-1),
+    var(--mor-spectral-2),
+    var(--mor-spectral-3),
+    var(--mor-link)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:global(html[data-theme='dark']) .heroHeadingGrad {
+  background: var(--mor-spectral);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Under forced-colors (e.g. Windows High Contrast) the gradient + transparent
+   text collapses to an invisible headline; fall back to a system color. */
+@media (forced-colors: active) {
+  .heroHeadingGrad {
+    background: none;
+    color: CanvasText;
+  }
 }
 
 .heroHeadingDark {
-  color: var(--brand-midnight);
-}
-
-[data-theme='dark'] .heroHeadingBlue {
-  color: var(--brand-digital-green);
-}
-
-[data-theme='dark'] .heroHeadingDark {
-  color: var(--neo-surfaces-white);
+  color: var(--mor-text);
 }
 
 .heroSubheading {
@@ -70,12 +86,8 @@
   font-size: 28px;
   font-weight: var(--neo-font-weight-medium);
   line-height: 1.4;
-  color: var(--brand-midnight);
+  color: var(--mor-text);
   margin: 0;
-}
-
-[data-theme='dark'] .heroSubheading {
-  color: var(--neo-surfaces-white);
 }
 
 /* Mobile breakpoint */
@@ -113,12 +125,8 @@
   font-size: 24px;
   font-weight: var(--neo-font-weight-semi-bold);
   line-height: 1.4;
-  color: var(--brand-midnight);
+  color: var(--mor-text);
   margin: 0;
-}
-
-[data-theme='dark'] .sectionTitle {
-  color: var(--neo-surfaces-white);
 }
 
 .sectionDescription {
@@ -126,13 +134,9 @@
   font-size: 15px;
   font-weight: var(--neo-font-weight-regular, 400);
   line-height: 1.4;
-  color: var(--brand-midnight);
+  color: var(--mor-text);
   max-width: 700px;
   margin: 0;
-}
-
-[data-theme='dark'] .sectionDescription {
-  color: var(--neo-surfaces-white);
 }
 
 .videoGrid {
@@ -141,22 +145,17 @@
   flex-wrap: wrap;
 }
 
-/* Hairline outer border + 8px padding around home-page video thumbnails */
+/* Hairline outer border + 8px padding around home-page video thumbnails (flat, no shadow) */
 .videoThumbnail {
   padding: var(--neo-spacing_1);
   background-color: transparent;
-  border: 1px solid var(--neo-grey-200);
-  border-radius: var(--neo-border-radius-m);
-  box-shadow: var(--neo-shadow-card);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-card);
   box-sizing: content-box;
 }
 
-[data-theme='dark'] .videoThumbnail {
-  border-color: var(--neo-grey-700);
-}
-
 .videoThumbnail > * {
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: var(--mor-radius-md);
   overflow: hidden;
 }
 
@@ -164,15 +163,13 @@
 .videoThumbnail :global(video),
 .videoThumbnail :global(img) {
   display: block;
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: var(--mor-radius-md);
 }
-
 
 @media (max-width: 996px) {
   .videoGrid {
     gap: var(--neo-spacing_3, 24px);
   }
-
 }
 
 /* Platform Details Section */
@@ -188,12 +185,8 @@
   font-size: 15px;
   font-weight: var(--neo-font-weight-regular, 400);
   line-height: 1.4;
-  color: var(--brand-midnight);
+  color: var(--mor-text);
   max-width: 700px;
-}
-
-[data-theme='dark'] .platformContent {
-  color: var(--neo-surfaces-white);
 }
 
 .platformContent p {
@@ -205,7 +198,7 @@
 }
 
 .platformContent a {
-  color: var(--brand-digital-blue);
+  color: var(--mor-link);
   text-decoration: none;
 }
 
@@ -213,64 +206,9 @@
   text-decoration: underline;
 }
 
-[data-theme='dark'] .platformContent a {
-  color: var(--brand-digital-green);
-}
-
-.gemDecorations {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.gem {
-  position: absolute;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
-
-/* Large edge gems */
-.gemLargeRight {
-  top: -10px;
-  right: -140px;
-  width: 410px;
-  height: auto;
-  opacity: 0.9;
-  transform: rotate(30deg);
-}
-
-.gemLargeLeft {
-  top: 155px;
-  left: -414px;
-  width: 780px;
-  height: auto;
-  opacity: 0.9;
-  transform: rotate(342.44deg);
-}
-
-/* Dark mode: show large gems */
-[data-theme='dark'] .gemLargeRight {
-  opacity: 0.6;
-}
-
-[data-theme='dark'] .gemLargeLeft {
-  opacity: 0.6;
-}
-
 /* Small mobile */
 @media (max-width: 480px) {
   .heroHeading {
     font-size: 28px;
-  }
-}
-
-/* Hide gems on mobile */
-@media (max-width: 996px) {
-  .gemDecorations {
-    display: none;
   }
 }

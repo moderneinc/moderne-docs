@@ -15,6 +15,9 @@ function getAllDefinedVariables() {
   const sources = [
     // Custom variables
     'src/css/custom.css',
+    // Morpheus design system tokens + mapping layer
+    'src/css/morpheus-tokens.css',
+    'src/css/morpheus-theme.css',
     // Neo Design variables
     'node_modules/@moderneinc/neo-design/dist/colors.css',
     'node_modules/@moderneinc/neo-design/dist/semantic-colors.css',
