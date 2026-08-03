@@ -18,6 +18,24 @@ Any of the CSV variants documented in the [repos.csv reference](../../../../user
 
 For background on how the Connector uses CSV sources and how S3 fits into the overall Connector configuration, please see [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts).
 
+## Publish your repos.csv alongside your LSTs
+
+When S3 is also your LST store (configured on the build machine with `mod config lsts artifacts s3 add`), the recommended setup keeps three things in the same bucket location:
+
+* The LST artifacts, uploaded by `mod publish`.
+* Your input `repos.csv` (the repository list and organizational hierarchy that drives [mass ingest](../mass-ingest.md)), uploaded by you to the root of the configured store location.
+* A central `repos-lock.csv`, maintained automatically by `mod publish` at the root of the configured store location.
+
+Each time `mod publish` runs, it looks for `repos.csv` at the root of the store location. When present, it merges that input with the previous `repos-lock.csv` and the results of the current run, then writes the merged file back. This keeps the central `repos-lock.csv` complete and correctly organized even when ingestion is split across machines or a run only covers a subset of repositories. Without the input `repos.csv` in place, the lock file only accumulates whatever happened to be published, and repositories that failed to build (or have not built yet) are missing from it.
+
+Upload the input file next to your LSTs:
+
+```bash
+aws s3 cp repos.csv s3://my-bucket/repos.csv
+```
+
+`mod publish` then maintains the lock file at `s3://my-bucket/repos-lock.csv`. Point the Connector's S3 organization source at that object, as shown in the examples below.
+
 ## Prerequisites
 
 * A repository CSV stored as a single object in an S3 bucket. The `uri` you configure must point at that object (e.g., `s3://my-bucket/repos-lock.csv`), not at a bucket or prefix.
@@ -40,7 +58,7 @@ For background on how the Connector uses CSV sources and how S3 fits into the ov
             ],
             "Resource": [
                 "arn:aws:s3:::my-bucket",
-                "arn:aws:s3:::my-bucket/repos.csv"
+                "arn:aws:s3:::my-bucket/repos-lock.csv"
             ]
         }
     ]

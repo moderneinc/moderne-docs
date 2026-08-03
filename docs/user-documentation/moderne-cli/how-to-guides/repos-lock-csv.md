@@ -59,7 +59,7 @@ To share LSTs, first configure the artifact repository they're **published to an
 mod config lsts artifacts artifactory add https://artifactory.company.com/artifactory/moderne-ingest --user lstuser --password secret1
 ```
 
-S3 and Azure Blob Storage are also supported – see `mod config lsts artifacts s3 add` and `mod config lsts artifacts azure-blob add`.
+Maven repositories (such as Nexus), S3, and Azure Blob Storage are also supported – see `mod config lsts artifacts maven add`, `mod config lsts artifacts s3 add`, and `mod config lsts artifacts azure-blob add`.
 
 Then run `mod publish`:
 
@@ -67,7 +67,14 @@ Then run `mod publish`:
 mod publish /path/to/your/repos
 ```
 
-This uploads each LST to the artifact repository and adds the `publishUri` column to your `repos-lock.csv` file, recording where each LST was published. It also uploads a merged, central `repos-lock.csv` to the root of the artifact repository (for example, `https://artifactory.company.com/artifactory/moderne-ingest/repos-lock.csv`), giving your team a single file to point at.
+This uploads each LST to the artifact repository and adds the `publishUri` column to your `repos-lock.csv` file, recording where each LST was published. It also uploads a merged, central `repos-lock.csv` to the artifact repository, giving your team a single file to point at. The location depends on the store type:
+
+* **Artifactory, S3, and Azure Blob Storage**: the root of the store (for example, `https://artifactory.company.com/artifactory/moderne-ingest/repos-lock.csv`).
+* **Maven repositories** (for example, Nexus): the synthetic Maven coordinate `io/moderne/organization/sources/repos-lock/1.0.0/repos-lock-1.0.0.csv` under the repository URL, because Maven repositories require every artifact to live at a `groupId/artifactId/version` path.
+
+:::tip[Publish your input repos.csv too]
+If you upload your input `repos.csv` to the corresponding well-known location in the same store (`repos.csv` at the root, or `io/moderne/organization/sources/repos/1.0.0/repos-1.0.0.csv` for Maven repositories), `mod publish` merges it into the central `repos-lock.csv` on every run. This keeps the lock file complete and correctly organized even when publishing is split across machines or a run only covers a subset of repositories.
+:::
 
 At this point, your `repos-lock.csv` file contains everything needed to recreate your exact setup – repository locations, exact commits, and LST locations. You should then [share that with your team](#sharing-and-using-the-file).
 

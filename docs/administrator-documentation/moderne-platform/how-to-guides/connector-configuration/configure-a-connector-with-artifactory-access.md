@@ -16,9 +16,36 @@ This guide explains how to configure the Moderne Connector to talk to your Artif
 
 When your [repository CSV](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) does not include `publishUri` values, the Connector uses [Artifactory Query Language](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) (AQL) to discover LST locations in near real-time — within a minute or two of publishing. Even when your CSV already includes `publishUri` values, the credentials you configure here are still used to fetch LSTs from Artifactory.
 
+:::warning[Deprecated]
+AQL-based discovery (`POLLING` mode) is deprecated. Instead, [publish your `repos.csv` alongside your LSTs](#publish-your-reposcsv-alongside-your-lsts) so that `mod publish` maintains a `repos-lock.csv` with `publishUri` values, and point the Connector at that file (`LOCK` mode). The poll configuration on this page is still used in `LOCK` mode, but only to supply the credentials the Connector needs to fetch LSTs from Artifactory.
+:::
+
 :::info
 If you're wanting to configure repositories for recipe artifacts, please see [Recipe marketplace repositories](./configure-recipe-marketplace-repositories.md) instead.
 :::
+
+## Publish your repos.csv alongside your LSTs
+
+The recommended setup keeps three things in the same Artifactory repository:
+
+* The LST artifacts, uploaded by `mod publish`.
+* Your input `repos.csv` (the repository list and organizational hierarchy that drives [mass ingest](../mass-ingest.md)), uploaded by you to the root of the repository.
+* A central `repos-lock.csv`, maintained automatically by `mod publish` at the root of the repository.
+
+Each time `mod publish` runs, it looks for `repos.csv` at the root of the repository configured via `mod config lsts artifacts artifactory`. When present, it merges that input with the previous `repos-lock.csv` and the results of the current run, then writes the merged file back. This keeps the central `repos-lock.csv` complete and correctly organized even when ingestion is split across machines or a run only covers a subset of repositories. Without the input `repos.csv` in place, the lock file only accumulates whatever happened to be published, and repositories that failed to build (or have not built yet) are missing from it.
+
+Upload the input file to the root of the repository:
+
+```bash
+curl -u "$ARTIFACTORY_USER:$ARTIFACTORY_PASSWORD" -T repos.csv \
+  "https://myartifactory.example.com/artifactory/moderne-ingest/repos.csv"
+```
+
+`mod publish` then maintains the lock file at `https://myartifactory.example.com/artifactory/moderne-ingest/repos-lock.csv`. Point the Connector's organization source at that URL:
+
+```bash
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://myartifactory.example.com/artifactory/moderne-ingest/repos-lock.csv \
+```
 
 ## Prerequisites
 

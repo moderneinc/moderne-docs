@@ -16,6 +16,10 @@ This guide explains how to configure the Moderne Connector to talk to a Maven-fo
 
 When your [repository CSV](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) does not include `publishUri` values, the Connector uses the [Maven Indexer](https://maven.apache.org/maven-indexer/) to discover LST locations. Note that there will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process. Even when your CSV already includes `publishUri` values, the credentials you configure here are still used to fetch LSTs from the repository. This connection also allows Moderne to look up dependency versions to determine if a new version is available.
 
+:::warning[Deprecated]
+Maven Indexer-based discovery (`POLLING` mode) is deprecated. Instead, [publish your `repos.csv` alongside your LSTs](#publish-your-reposcsv-alongside-your-lsts) so that `mod publish` maintains a `repos-lock.csv` with `publishUri` values, and point the Connector at that file (`LOCK` mode). The poll configuration on this page is still used in `LOCK` mode, but only to supply the credentials the Connector needs to fetch LSTs from the repository.
+:::
+
 :::note
 This page covers Maven repositories used to serve **LST artifacts** for code analysis. If you're looking to configure repositories for **recipe artifacts** (Maven, NPM, NuGet, or PyPI), see [Recipe marketplace repositories](./configure-recipe-marketplace-repositories.md) instead.
 :::
@@ -24,6 +28,7 @@ There are a variety of services that support Maven-formatted artifact repositori
 
 This guide will explain how to:
 
+* [Publish your `repos.csv` alongside your LSTs](#publish-your-reposcsv-alongside-your-lsts)
 * [Configure your artifact service to support LST artifacts](#publishing-lst-artifacts)
 * [Configure the Moderne Connector to connect to any service that supports Maven-formatted repositories](#configuring-the-moderne-connector)
 
@@ -35,7 +40,45 @@ This guide will explain how to:
 In many organizations, artifact resolution is unauthenticated while artifact publishing is authenticated. If artifact resolution is unauthenticated, you may omit the username/password configuration in the [Configuration step](#configuring-the-moderne-connector).
 :::
 
+## Publish your repos.csv alongside your LSTs
+
+The recommended setup keeps three things in the same Maven repository:
+
+* The LST artifacts, uploaded by `mod publish`.
+* Your input `repos.csv` (the repository list and organizational hierarchy that drives [mass ingest](../mass-ingest.md)), uploaded by you.
+* A central `repos-lock.csv`, maintained automatically by `mod publish`.
+
+Because Maven repositories require every artifact to live at a Maven coordinate (`groupId/artifactId/version`), these CSVs live at synthetic Maven coordinates rather than at the repository root. When the LST store is configured with `mod config lsts artifacts maven add`, the well-known locations under the repository URL are:
+
+| File             | Path within the repository                                              |
+|------------------|-------------------------------------------------------------------------|
+| `repos.csv`      | `io/moderne/organization/sources/repos/1.0.0/repos-1.0.0.csv`           |
+| `repos-lock.csv` | `io/moderne/organization/sources/repos-lock/1.0.0/repos-lock-1.0.0.csv` |
+
+Each time `mod publish` runs, it looks for the input `repos.csv` at its well-known location. When present, it merges that input with the previous `repos-lock.csv` and the results of the current run, then writes the merged file back. This keeps the central `repos-lock.csv` complete and correctly organized even when ingestion is split across machines or a run only covers a subset of repositories. Without the input `repos.csv` in place, the lock file only accumulates whatever happened to be published, and repositories that failed to build (or have not built yet) are missing from it.
+
+Upload the input file to its well-known location. For example, with Nexus:
+
+```bash
+curl -u "$NEXUS_USER:$NEXUS_PASSWORD" -T repos.csv \
+  "https://nexus.example.com/repository/moderne-ingest/io/moderne/organization/sources/repos/1.0.0/repos-1.0.0.csv"
+```
+
+`mod publish` then maintains the lock file at `https://nexus.example.com/repository/moderne-ingest/io/moderne/organization/sources/repos-lock/1.0.0/repos-lock-1.0.0.csv`. Point the Connector's organization source at that URL:
+
+```bash
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://nexus.example.com/repository/moderne-ingest/io/moderne/organization/sources/repos-lock/1.0.0/repos-lock-1.0.0.csv \
+```
+
+:::info
+These synthetic coordinates only apply to LST stores configured as Maven repositories (`mod config lsts artifacts maven`). Artifactory, S3, and Azure Blob Storage stores place `repos.csv` and `repos-lock.csv` at the root of the store instead; see the [Artifactory](./configure-a-connector-with-artifactory-access.md#publish-your-reposcsv-alongside-your-lsts) and [S3](./configure-a-connector-with-s3-access.md#publish-your-reposcsv-alongside-your-lsts) guides.
+:::
+
 ## Publishing LST artifacts
+
+:::warning[Deprecated]
+The Maven Indexer setup below is only required for the deprecated `POLLING` discovery mode. If your Connector reads a `repos-lock.csv` with `publishUri` values (`LOCK` mode), you do not need to configure the indexer.
+:::
 
 ### Configure the Maven Indexer
 
