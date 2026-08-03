@@ -38,7 +38,9 @@
   display: flex;
   padding: var(--neo-spacing_3);
   background: var(--mor-surface);
-  border: 1px solid transparent;
+  /* Resting hairline so the tile stays perceptible against the page (the
+     surface/bg fill delta alone is ~1.05:1, well under WCAG 1.4.11's 3:1). */
+  border: 1px solid var(--mor-line-strong);
   border-radius: var(--mor-radius-sm);
   text-decoration: none;
   transition: background-color var(--ifm-transition-fast) ease,
@@ -47,7 +49,7 @@
 
 .productCard:hover {
   background: var(--mor-surface-2);
-  border-color: var(--mor-line);
+  border-color: var(--mor-link);
   text-decoration: none;
 }
 
