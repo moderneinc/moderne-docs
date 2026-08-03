@@ -25,8 +25,8 @@ const LogoWrapper: FunctionComponent = () => {
     <div className={styles.container}>
       <div className={styles.logoWrapper}>
         <Link to={baseUrl} className={styles.logoLink} aria-label="Moderne Documentation">
-          <img src={lightLockup} alt="" className={`${styles.lockup} ${styles.lockupLight}`} />
-          <img src={darkLockup} alt="" className={`${styles.lockup} ${styles.lockupDark}`} />
+          <img src={lightLockup} alt="" width={1280} height={77} className={`${styles.lockup} ${styles.lockupLight}`} />
+          <img src={darkLockup} alt="" width={1280} height={75} className={`${styles.lockup} ${styles.lockupDark}`} />
         </Link>
       </div>
     </div>

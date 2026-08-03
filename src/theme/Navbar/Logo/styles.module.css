@@ -26,18 +26,20 @@
   outline: none;
 }
 
-/* Lockup sized by height (width auto); the light/dark assets have slightly
-   different intrinsic widths, which is fine. */
+/* Both lockups are exported on the same 1280px-wide canvas (tight-cropped), so
+   they're sized by WIDTH to render identically — no box jump on theme toggle.
+   The ~2px intrinsic-height difference between the colored and white wordmarks
+   is absorbed by the navbar's vertical centering. */
 .lockup {
-  height: 24px;
-  width: auto;
+  width: 300px;
+  height: auto;
   display: block;
   flex-shrink: 0;
 }
 
 @media (min-width: 1280px) {
   .lockup {
-    height: 26px;
+    width: 340px;
   }
 }
 
