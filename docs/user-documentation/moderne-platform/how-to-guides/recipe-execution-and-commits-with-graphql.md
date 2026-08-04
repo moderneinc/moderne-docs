@@ -440,7 +440,7 @@ The data table moves through states you can read from its `__typename`: `DataTab
 The Moderne API exposes a single `commit` mutation for delivering a changeset's results back to your repositories. You choose how the changes are delivered through the `strategy` field, which accepts exactly one of `direct` (push to the origin remote), `fork`, `pullRequest`, or `forkAndPullRequest`. To open pull requests, use the `pullRequest` strategy.
 
 :::info
-The `scmAccessTokens` field inside `input` is required for programmatic pull request creation. If you don't provide this token, the API will initiate an OAuth browser flow, which is not suitable for automation or scripting. Make sure you've [created an SCM access token](../references/create-scm-access-tokens.md) and include it in your request as shown in the mutation variables example.
+You should provide the `scmAccessTokens` field inside `input` when creating pull requests programmatically. If you omit it, Moderne falls back to the SCM account you connected in the Platform UI, which means the request will fail for any origin you haven't connected or whose connection has lapsed. Make sure you've [created an SCM access token](../references/create-scm-access-tokens.md) and include it in your request as shown in the mutation variables example.
 :::
 
 1. Perform the `commit` mutation using the run `id` as the `changesetId` and the repositories from the previous step. The `repositories` field is a list of filters: each entry matches repositories in the changeset (for example, by `path`). Omit `repositories` entirely to commit to every repository with results in the run.
