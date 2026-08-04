@@ -58,10 +58,18 @@ export const RecipeList: FunctionComponent<{ recipes: SubRecipe[]; preconditions
   const [query, setQuery] = useState('');
   const bounded = recipes.length > BOUNDED_THRESHOLD;
 
+  // Stable per-recipe key: the original index disambiguates duplicate hrefs and,
+  // unlike a filtered-array index, stays fixed as the search reorders the visible
+  // subset — so RecipeLinks are reused rather than remounted on each keystroke.
+  const keyed = useMemo(
+    () => recipes.map((recipe, i) => ({ recipe, key: `${recipe.href}-${i}` })),
+    [recipes],
+  );
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return q ? recipes.filter((r) => r.name.toLowerCase().includes(q)) : recipes;
-  }, [recipes, query]);
+    return q ? keyed.filter(({ recipe }) => recipe.name.toLowerCase().includes(q)) : keyed;
+  }, [keyed, query]);
 
   if (!recipes.length && !preconditions?.length) return null;
 
@@ -107,7 +115,7 @@ export const RecipeList: FunctionComponent<{ recipes: SubRecipe[]; preconditions
           </div>
           <ul className={styles.recipeListWindow} aria-label="Recipe list" tabIndex={0}>
             {filtered.length ? (
-              filtered.map((r, i) => <RecipeLink key={`${r.href}-${i}`} recipe={r} />)
+              filtered.map(({ recipe, key }) => <RecipeLink key={key} recipe={recipe} />)
             ) : (
               <li className={styles.recipeListEmpty}>No recipes match “{query}”.</li>
             )}

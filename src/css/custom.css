@@ -544,8 +544,8 @@ h1, .markdown h3, .markdown h4 {
   vertical-align: baseline;
 }
 
-/* Inline code chrome uses the mode-aware --mor-surface / --mor-line / --mor-text,
-   so no dark override is needed. */
+/* Inline code chrome uses mode-aware tokens (--mor-field, --mor-line,
+   --brand-midnight), so no dark override is needed. */
 
 /* Inline code used as link text should inherit the link color so it reads as clickable. */
 .markdown a > code,
