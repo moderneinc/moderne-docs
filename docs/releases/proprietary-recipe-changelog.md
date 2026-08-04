@@ -10,6 +10,14 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 4, 2026
+
+#### rewrite-prethink - 0.11.2
+
+* Forward CGP artifact repository credentials to CI and publish workflows
+* Forward Code Genome Project secrets to the CI and publish workflows
+* Key scanning accumulators by member signature instead of JavaType
+
 ## July 30, 2026
 
 #### rewrite-react - v0.4.1
@@ -1747,6 +1755,11 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## April 23, 2026
 
+#### rewrite-cve-2026-22732 - 0.3.0
+
+* Let CVE-2026-22732 finders gate build-level recipes
+* Suppress findings on fixed Spring Security versions
+
 #### rewrite-java-security - 3.29.2
 
 * Add OWASP A07:2025 Identification and Authentication Failures aggregator
@@ -1801,6 +1814,10 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-cryptography - 0.13.1
 
 * Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-cve-2026-22732 - 0.2.0
+
+* Remove false positives, add missing addIntHeader sink
 
 #### rewrite-devcenter - 1.22.1
 
