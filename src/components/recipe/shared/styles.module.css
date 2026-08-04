@@ -4,7 +4,7 @@
 .chip {
 padding: var(--mor-space-1) var(--mor-space-3);
   border-radius: var(--mor-radius-full);
-  background-color: var(--mor-field);
+  background-color: var(--mor-neutral);
   color: var(--mor-status-note-accent);
   font-size: var(--mor-font-size-sm);
   font-weight: var(--mor-font-weight-medium);

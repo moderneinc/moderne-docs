@@ -136,6 +136,7 @@
   --mor-surface-2: #e4e1d6; /* highest surface / chips */
   --mor-row-hover: #edebe2; /* hover fill for rows */
   --mor-panel: #ffffff; /* white chrome: dropdowns, popovers, segmented controls, breadcrumb chips */
+  --mor-neutral: #f3f4f6; /* cool light-grey chips/tags/kbd/badges (matches production grey-100) */
 
   /* Lines / borders */
   --mor-line: rgba(35, 35, 66, 0.12);
@@ -188,6 +189,7 @@
   --mor-surface-2: #33333d;
   --mor-row-hover: #2e2e38;
   --mor-panel: #26262e; /* white chrome: dropdowns, popovers, segmented controls, breadcrumb chips */
+  --mor-neutral: #2a2a32; /* cool neutral chip surface (dark) */
 
   /* Lines / borders */
   --mor-line: rgba(240, 240, 246, 0.12);
