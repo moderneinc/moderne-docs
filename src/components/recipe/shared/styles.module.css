@@ -156,27 +156,10 @@ border-bottom: none;
 }
 
 html[data-theme='dark'] {
-.inlineCode {
-color: var(--mor-on-accent);
-}
-
-.sectionHeader h2 {
-color: var(--mor-on-accent);
-}
-
-.th,
-.td {
-color: var(--mor-on-accent);
-}
-
 .chip {
 background-color: var(--mor-surface-2);
     color: var(--mor-muted);
 }
-}
-
-html[data-theme='dark'] .recipe :global(.tabs__item:hover) {
-color: var(--mor-on-accent);
 }
 
 html[data-theme='dark'] .recipe :global(.tabs__item--active), html[data-theme='dark'] .recipe :global(.tabs__item--active:hover) {

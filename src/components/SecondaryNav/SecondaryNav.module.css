@@ -159,7 +159,7 @@
 
 /* Dark mode adjustments */
 :global(html[data-theme='dark']) .dropdown {
-  /* --mor-field is mode-aware (dark #222229), so it stays an elevated panel in
+  /* --mor-panel is mode-aware (dark #26262e), so it stays an elevated panel in
      dark without an explicit background override. */
   border-color: rgba(255, 255, 255, 0.2);
 }

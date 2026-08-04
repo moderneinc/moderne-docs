@@ -143,24 +143,3 @@ font-size: var(--mor-font-size-sm);
   color: var(--mor-muted);
 }
 
-html[data-theme='dark'] {
-.optionsSummaryDot_req {
-background-color: var(--mor-on-accent);
-}
-
-.optionDesc {
-color: var(--mor-on-accent);
-}
-
-.headCell {
-color: var(--mor-on-accent);
-}
-
-.cell {
-color: var(--mor-on-accent);
-}
-
-.optionRequired {
-color: var(--mor-on-accent);
-}
-}

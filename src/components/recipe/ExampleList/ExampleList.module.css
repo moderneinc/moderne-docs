@@ -35,9 +35,3 @@
 .unchangedBlock {
   margin-bottom: var(--mor-space-4);
 }
-
-html[data-theme='dark'] {
-  .exampleName {
-    color: var(--mor-on-accent);
-  }
-}

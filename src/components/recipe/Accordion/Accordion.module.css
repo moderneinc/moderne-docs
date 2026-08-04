@@ -54,10 +54,6 @@ padding: 0 var(--mor-space-4) var(--mor-space-4);
 }
 
 html[data-theme='dark'] {
-.accordionSummary {
-color: var(--mor-on-accent);
-}
-
 .accordionChevron {
 color: var(--mor-muted);
 }

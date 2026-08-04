@@ -213,17 +213,6 @@ opacity: 1;
 }
 
 html[data-theme='dark'] {
-.titleCode {
-color: var(--mor-on-accent);
-}
-
-.title,
-.description,
-.idCode,
-.descCode {
-color: var(--mor-on-accent);
-}
-
 .accessBadge_oss {
 background-color: var(--mor-surface-2);
 }
@@ -231,10 +220,5 @@ background-color: var(--mor-surface-2);
 .accessBadge_moderne {
 background-color: var(--mor-surface-2);
     color: var(--mor-link);
-}
-
-.actionButtons :global(.mod-button--outline) {
-color: var(--mor-on-accent);
-    border-color: var(--mor-line-strong);
 }
 }

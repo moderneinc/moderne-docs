@@ -123,14 +123,6 @@ color: var(--mor-link-deep);
 }
 
 html[data-theme='dark'] {
-.recipeListItem {
-color: var(--mor-on-accent);
-}
-
-.recipeListInput {
-color: var(--mor-on-accent);
-}
-
 .recipeLink {
 color: var(--mor-green);
 }
