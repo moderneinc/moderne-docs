@@ -30,7 +30,7 @@ flowchart LR
   run --> commit
 ```
 
-The build step is optional. `mod git sync` can download prebuilt LSTs rather than source, and `mod run` then follows sync directly. That is what happens when a central team runs [mass ingest](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) and everyone else runs recipes against the published LSTs, as in the [mass run example](https://github.com/moderneinc/mass-run-example). Those traces have empty build columns, which is expected rather than missing data. See [when the build columns are empty](../references/trace-csv.md#when-the-build-columns-are-empty).
+The build step is optional. `mod git sync` can download prebuilt LSTs rather than source, and `mod run` then follows sync directly. That is what happens when a central team runs [mass ingest](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) and everyone else runs recipes against the published LSTs, as in [mass run](../../../administrator-documentation/moderne-dx/how-to-guides/mass-run-dx.md). Those traces have empty build columns, which is expected rather than missing data. See [when the build columns are empty](../references/trace-csv.md#when-the-build-columns-are-empty).
 
 ## Repository-level telemetry
 

@@ -39,7 +39,7 @@ The CSV schema is hierarchical: each command embeds rows from prior stages of th
 * **Recipe workflow**: sync → *build (optional)* → run → apply → add → commit → push.
 * **Publish workflow**: sync → build → publish (the LST publication path used by [mass ingest](../mass-ingest.md)).
 
-Build is optional because `mod git sync` can download a prebuilt LST instead of source, in which case `mod run` follows sync directly and the build columns are empty. Expect this wherever a central team runs [mass ingest](../mass-ingest.md) and everyone else runs recipes against the published LSTs, as in the [mass run example](https://github.com/moderneinc/mass-run-example). You will still see local builds alongside it, since developers build branches the central team doesn't ingest. See [when the build columns are empty](../../../../user-documentation/moderne-cli/references/trace-csv.md#when-the-build-columns-are-empty).
+Build is optional because `mod git sync` can download a prebuilt LST instead of source, in which case `mod run` follows sync directly and the build columns are empty. Expect this wherever a central team runs [mass ingest](../mass-ingest.md) and everyone else runs recipes against the published LSTs, as in [mass run](../../../moderne-dx/how-to-guides/mass-run-dx.md). You will still see local builds alongside it, since developers build branches the central team doesn't ingest. See [when the build columns are empty](../../../../user-documentation/moderne-cli/references/trace-csv.md#when-the-build-columns-are-empty).
 
 In addition, `mod exec` (`type=exec`) and MCP server tool calls (`type=mcp`) emit standalone traces that are not part of either workflow chain.
 
