@@ -31,6 +31,15 @@
   --ifm-font-family-monospace: var(--mor-font-mono);
 }
 
+/* Antialiased rendering (as in the Morpheus prototype's `body`). Without this,
+   WebKit renders light-on-dark vs dark-on-light text at different apparent
+   weights, so Geist headings look heavier/inconsistent between light and dark.
+   Grayscale AA normalizes the weight across modes (and reads crisper). */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Light mode. `:root` beats Neo's :root by source order; the paired
    [data-theme='light'] selector matches custom.css's own light overrides so we
    win those too. */
