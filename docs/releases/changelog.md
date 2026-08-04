@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.2.3 (2026/08/04)
+
+- Bug fixes and other improvements.
+
 ### UI v14.2.2 (2026/08/03)
 
 - Bug fixes and other improvements.
