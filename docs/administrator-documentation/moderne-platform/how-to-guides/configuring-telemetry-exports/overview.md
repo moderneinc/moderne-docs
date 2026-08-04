@@ -11,10 +11,6 @@ Moderne emits structured usage telemetry for every recipe run, build, and commit
 2. How to receive a continuous copy of *your tenant's* telemetry in a bucket or storage account you own, with separate setup paths for [AWS](./aws-replication.md) and [Azure](./azure-replication.md).
 3. How to [query that data and build reports](./querying-and-bi.md).
 
-:::info[Availability]
-The platform-native telemetry described here ships with **Moderne SaaS v2 tenants**. If you are still on v1, the [CLI wrapper-script approach](../../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export.md) remains supported in parallel and stays the right path for CLI-only deployments not connected to a Moderne tenant.
-:::
-
 ## What gets collected
 
 Moderne produces a single, uniform trace schema regardless of where the command ran. Each completed command writes one row to a `trace.csv`. Rows include only command metadata: repository identifiers, timings, tool versions, outcomes, and the user's git email. No source code, no recipe output, and no LST contents are emitted.
@@ -30,18 +26,29 @@ There are two **sources** that produce this telemetry:
 
 Both sources land in the same place, with the same partition layout, so queries can analyze them together or filter to one source as needed.
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 ### How and when CLI telemetry is pushed
 
 A signed-in CLI queues each trace locally and auto-pushes queued telemetry to your tenant gateway when it refreshes its license lease, which happens at most once every three days.
 
+<<<<<<< Updated upstream
 If the default cadence isn't frequent enough for your reporting, add `mod telemetry publish` to your customized [`modw` wrapper](../../../../user-documentation/moderne-cli/how-to-guides/cli-wrapper.md) or a CI job so it runs on a schedule you control, with no change to how the CLI is used.
 
+=======
+If the default cadence isn't frequent enough for your reporting, add `mod telemetry publish` to your customized [`modw` wrapper](../../../../user-documentation/moderne-cli/how-to-guides/cli-wrapper.md) with no other change to how the CLI is used.
+
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 ### Schema reference
 
 The CSV schema is hierarchical: each command embeds rows from prior pipeline stages. There are two pipelines, sharing the early stages:
 
-* **Recipe pipeline**: sync → build → run → apply → add → commit → push.
-* **Publish pipeline**: sync → build → publish (the LST publication path used by [mass ingest](../mass-ingest.md) and CI).
+* **Recipe pipeline**: sync → run → apply → add → commit → push.
+* **Publish pipeline**: sync → build → publish (the LST publication path used by [mass ingest](../mass-ingest.md)).
 
 In addition, `mod exec` (`type=exec`) and MCP server tool calls (`type=mcp`) emit standalone traces that are not part of either pipeline chain. `mod git checkout` writes a trace too, but only into the repository it touched; it is never exported.
 
