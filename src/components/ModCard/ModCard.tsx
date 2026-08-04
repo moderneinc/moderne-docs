@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import styles from './NeoCard.module.css';
+import styles from './ModCard.module.css';
 
-export type NeoCardProps = {
+export type ModCardProps = {
   /**
    * Card title text
    */
@@ -93,15 +93,15 @@ type InteractiveProps =
     };
 
 /**
- * NeoCard - Large Card Component
+ * ModCard - Large Card Component
  *
- * A flexible card component based on the Neo Design System.
+ * A flexible card component based on the Morpheus design system.
  * Supports multiple states (default, active, focused, disabled) and
  * automatic dark mode theming.
  *
  * @example
  * ```tsx
- * <NeoCard
+ * <ModCard
  *   title="Code Remix"
  *   description="Weekly live sessions covering updates and key topics"
  *   icon={<Icon />}
@@ -111,7 +111,7 @@ type InteractiveProps =
  * />
  * ```
  */
-export const NeoCard: FunctionComponent<NeoCardProps> = ({
+export const ModCard: FunctionComponent<ModCardProps> = ({
   title,
   description,
   icon,
@@ -212,4 +212,4 @@ export const NeoCard: FunctionComponent<NeoCardProps> = ({
   );
 };
 
-NeoCard.displayName = 'NeoCard';
+ModCard.displayName = 'ModCard';

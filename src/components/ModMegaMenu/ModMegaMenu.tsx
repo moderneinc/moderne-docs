@@ -2,12 +2,12 @@ import React, { useEffect, useCallback, FunctionComponent } from 'react';
 import ProductDocsSection from './ProductDocsSection';
 import ForBusinessSection from './ForBusinessSection';
 import LearningSection from './LearningSection';
-import NeoMegaMenuFooter from './NeoMegaMenuFooter';
-import type { NeoMegaMenuProps } from './types';
-import styles from './NeoMegaMenu.module.css';
+import ModMegaMenuFooter from './ModMegaMenuFooter';
+import type { ModMegaMenuProps } from './types';
+import styles from './ModMegaMenu.module.css';
 
 /**
- * NeoMegaMenu - Dropdown navigation menu
+ * ModMegaMenu - Dropdown navigation menu
  *
  * Displays a two-column mega menu with:
  * - Left: Product documentation links with icons and descriptions
@@ -22,7 +22,7 @@ import styles from './NeoMegaMenu.module.css';
  * @param props.isOpen - Whether the mega menu is currently visible
  * @param props.onClose - Callback to close the mega menu
  */
-const NeoMegaMenu: FunctionComponent<NeoMegaMenuProps> = ({ isOpen, onClose }) => {
+const ModMegaMenu: FunctionComponent<ModMegaMenuProps> = ({ isOpen, onClose }) => {
   // Memoize the Escape key handler to prevent recreation on every render
   const handleEscapeKey = useCallback((event: KeyboardEvent) => {
     if (event.key === 'Escape') {
@@ -57,7 +57,7 @@ const NeoMegaMenu: FunctionComponent<NeoMegaMenuProps> = ({ isOpen, onClose }) =
             <LearningSection onClose={onClose} />
           </div>
         </div>
-        <NeoMegaMenuFooter onClose={onClose} />
+        <ModMegaMenuFooter onClose={onClose} />
       </div>
     </>
   );
@@ -67,6 +67,6 @@ const NeoMegaMenu: FunctionComponent<NeoMegaMenuProps> = ({ isOpen, onClose }) =
   return menuContent;
 };
 
-NeoMegaMenu.displayName = 'NeoMegaMenu';
+ModMegaMenu.displayName = 'ModMegaMenu';
 
-export { NeoMegaMenu };
+export { ModMegaMenu };

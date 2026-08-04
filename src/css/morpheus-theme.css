@@ -17,7 +17,7 @@
  */
 
 /* Typography family — Geist for both body and headings (mode-invariant).
-   Overriding the Neo font tokens here retints every component that reads them
+   Overriding the base font family here retints every component that reads them
    (h1, admonition titles, DocSearch keys, …) in one place. */
 :root {
   --ifm-font-family-base: var(--mor-font-sans);
@@ -33,7 +33,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Light mode. `:root` beats Neo's :root by source order; the paired
+/* Light mode. `:root` beats custom.css's :root by source order; the paired
    [data-theme='light'] selector matches custom.css's own light overrides so we
    win those too. */
 :root,

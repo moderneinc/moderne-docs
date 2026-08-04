@@ -1,6 +1,6 @@
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
-import { NeoButton } from '@site/src/components/NeoButton';
+import { ModButton } from '@site/src/components/ModButton';
 import { ProductCardsGrid } from '@site/src/components/ProductCardsGrid';
 import { homepageProducts } from '@site/src/config/megaMenuData';
 import Layout from '@theme/Layout';
@@ -23,7 +23,7 @@ export const HeroSection: FunctionComponent = () => {
           perform type-aware code searches, and accelerate refactoring at enterprise scale.
         </p>
         <div>
-          <NeoButton
+          <ModButton
             variant="primary"
             size="medium"
             href="/user-documentation/moderne-platform/getting-started/running-your-first-recipe"
@@ -31,7 +31,7 @@ export const HeroSection: FunctionComponent = () => {
             iconPosition="right"
           >
             Get started
-          </NeoButton>
+          </ModButton>
         </div>
       </div>
     </section>

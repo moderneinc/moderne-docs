@@ -1,6 +1,6 @@
 import React, { useState, type FunctionComponent, type ReactNode, type SyntheticEvent } from 'react';
 import { ChevronRight } from 'lucide-react';
-import { NeoButton } from '@site/src/components/NeoButton';
+import { ModButton } from '@site/src/components/ModButton';
 import styles from './Accordion.module.css';
 import shared from '../shared/styles.module.css';
 
@@ -40,9 +40,9 @@ export const Accordion: FunctionComponent<{
 
   const toggle =
     items.length > 1 ? (
-      <NeoButton variant="text" size="small" onClick={toggleAll}>
+      <ModButton variant="text" size="small" onClick={toggleAll}>
         {allOpen ? 'Collapse all' : 'Expand all'}
-      </NeoButton>
+      </ModButton>
     ) : null;
 
   return (

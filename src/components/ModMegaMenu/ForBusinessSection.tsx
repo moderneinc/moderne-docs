@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { NeoCard } from '../NeoCard';
+import { ModCard } from '../ModCard';
 import { businessItems } from '../../config/megaMenuData';
 import type { SectionProps } from './types';
-import styles from './NeoMegaMenu.module.css';
+import styles from './ModMegaMenu.module.css';
 
 /**
  * ForBusinessSection - Part of right column in mega menu
@@ -14,7 +14,7 @@ const ForBusinessSection: FunctionComponent<SectionProps> = ({ onClose }) => {
       <h3 className={styles.sectionHeader}>For Business</h3>
       <div className={styles.productList}>
         {businessItems.map((item) => (
-          <NeoCard
+          <ModCard
             key={item.name}
             title={item.name}
             description={item.description}

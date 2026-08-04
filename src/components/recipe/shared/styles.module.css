@@ -1,5 +1,5 @@
 /* Shared recipe primitives: chips, tables, inline code, scroll wrapper, and the
-   `.recipe` page scope (Neo segmented tabs + table-chrome resets). Light + dark. */
+   `.recipe` page scope (Morpheus segmented tabs + table-chrome resets). Light + dark. */
 
 .chip {
 padding: var(--mor-space-1) var(--mor-space-3);

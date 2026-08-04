@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { ArrowRight } from 'lucide-react';
-import { NeoButton } from '../NeoButton';
+import { ModButton } from '../ModButton';
 import { learningItems } from '../../config/megaMenuData';
 import type { SectionProps } from './types';
-import styles from './NeoMegaMenu.module.css';
+import styles from './ModMegaMenu.module.css';
 
 /**
  * LearningSection - Part of right column in mega menu
@@ -15,7 +15,7 @@ const LearningSection: FunctionComponent<SectionProps> = ({ onClose }) => {
       <h3 className={styles.sectionHeader}>Learning & resources</h3>
       <div className={styles.learningList}>
         {learningItems.map((item) => (
-          <NeoButton
+          <ModButton
             key={item.name}
             variant="secondary"
             size="small"
@@ -27,7 +27,7 @@ const LearningSection: FunctionComponent<SectionProps> = ({ onClose }) => {
             iconPosition="right"
           >
             {item.name}
-          </NeoButton>
+          </ModButton>
         ))}
       </div>
     </div>

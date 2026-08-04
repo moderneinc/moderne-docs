@@ -1,18 +1,18 @@
 import React, { FunctionComponent } from 'react';
 import { Home, ChevronRight } from 'lucide-react';
-import styles from './NeoBreadcrumbs.module.css';
+import styles from './ModBreadcrumbs.module.css';
 
-export type NeoBreadcrumbItem = {
+export type ModBreadcrumbItem = {
   label: string;
   href?: string;
 };
 
-export type NeoBreadcrumbsProps = {
-  items: NeoBreadcrumbItem[];
+export type ModBreadcrumbsProps = {
+  items: ModBreadcrumbItem[];
   showHomeIcon?: boolean;
 };
 
-export const NeoBreadcrumbs: FunctionComponent<NeoBreadcrumbsProps> = ({ items, showHomeIcon = true }) => {
+export const ModBreadcrumbs: FunctionComponent<ModBreadcrumbsProps> = ({ items, showHomeIcon = true }) => {
   return (
     <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
       <ol className={styles.list}>
@@ -61,4 +61,4 @@ export const NeoBreadcrumbs: FunctionComponent<NeoBreadcrumbsProps> = ({ items, 
   );
 };
 
-NeoBreadcrumbs.displayName = 'NeoBreadcrumbs';
+ModBreadcrumbs.displayName = 'ModBreadcrumbs';

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { NeoBreadcrumbs } from '@site/src/components/NeoBreadcrumbs';
+import { ModBreadcrumbs } from '@site/src/components/ModBreadcrumbs';
 
 /**
  * BreadcrumbsLayout Component
@@ -16,7 +16,7 @@ function BreadcrumbsLayout({
   items: Array<{ label: string; href?: string }>;
   showHomeIcon?: boolean;
 }): JSX.Element {
-  return <NeoBreadcrumbs items={items} showHomeIcon={showHomeIcon} />;
+  return <ModBreadcrumbs items={items} showHomeIcon={showHomeIcon} />;
 }
 
 /**
@@ -26,7 +26,7 @@ function BreadcrumbsLayout({
  * - Home icon with link to homepage
  * - Hierarchical path display
  * - Current page highlighting (digital green in dark mode, blue in light mode)
- * - Dark mode support with Neo Design system integration
+ * - Dark mode support with Morpheus design system integration
  * - Chevron separators between items
  * - Responsive text handling
  * - Accessible navigation with ARIA labels
@@ -35,7 +35,7 @@ function BreadcrumbsLayout({
  * - Integrates with Docusaurus sidebar structure
  * - Last item is always the current page (no link)
  * - Structured data for SEO (via StructuredData component)
- * - Consistent with Neo Design typography and color tokens
+ * - Consistent with Morpheus typography and color tokens
  * - Optional home icon display
  */
 const meta: Meta<typeof BreadcrumbsLayout> = {
@@ -46,7 +46,7 @@ const meta: Meta<typeof BreadcrumbsLayout> = {
     docs: {
       description: {
         component:
-          'Swizzled Docusaurus DocBreadcrumbs component with Neo Design styling and contextual navigation.',
+          'Swizzled Docusaurus DocBreadcrumbs component with Morpheus styling and contextual navigation.',
       },
     },
   },

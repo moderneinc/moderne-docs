@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import styles from './NeoButton.module.css';
+import styles from './ModButton.module.css';
 import clsx from 'clsx';
 
-export type NeoButtonProps = {
+export type ModButtonProps = {
   /** Button text content */
   children?: React.ReactNode;
 
@@ -44,10 +44,10 @@ export type NeoButtonProps = {
 };
 
 /**
- * NeoButton component following Moderne's Neo Design system
+ * ModButton component following Moderne's Morpheus design system
  * Uses Morpheus design tokens
  */
-export const NeoButton: FunctionComponent<NeoButtonProps> = ({
+export const ModButton: FunctionComponent<ModButtonProps> = ({
   children,
   variant = 'primary',
   size = 'medium',
@@ -123,4 +123,4 @@ export const NeoButton: FunctionComponent<NeoButtonProps> = ({
   );
 };
 
-NeoButton.displayName = 'NeoButton';
+ModButton.displayName = 'ModButton';

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NeoCard } from './NeoCard';
+import { ModCard } from './ModCard';
 import React from 'react';
-import { NeoButton } from '../NeoButton/NeoButton';
+import { ModButton } from '../ModButton/ModButton';
 
-const meta: Meta<typeof NeoCard> = {
-  title: 'Components/NeoCard',
-  component: NeoCard,
+const meta: Meta<typeof ModCard> = {
+  title: 'Components/ModCard',
+  component: ModCard,
   parameters: {
     layout: 'centered',
   },
@@ -109,7 +109,7 @@ export const Interactive: Story = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'center' }}>
-        <NeoCard
+        <ModCard
           {...args}
           state={currentState}
           onClick={handleClick}
@@ -161,7 +161,7 @@ export const AllVariations: Story = {
                 <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Default
                 </div>
-                <NeoCard
+                <ModCard
                   title="Code Remix"
                   description="Weekly live sessions to cover updates and key topics"
                   state="default"
@@ -173,7 +173,7 @@ export const AllVariations: Story = {
                 <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Active
                 </div>
-                <NeoCard
+                <ModCard
                   title="Code Remix"
                   description="Weekly live sessions to cover updates and key topics"
                   state="active"
@@ -185,7 +185,7 @@ export const AllVariations: Story = {
                 <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Focused
                 </div>
-                <NeoCard
+                <ModCard
                   title="Code Remix"
                   description="Weekly live sessions to cover updates and key topics"
                   state="focused"
@@ -197,7 +197,7 @@ export const AllVariations: Story = {
                 <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Disabled
                 </div>
-                <NeoCard
+                <ModCard
                   title="Code Remix"
                   description="Weekly live sessions to cover updates and key topics"
                   disabled
@@ -218,7 +218,7 @@ export const AllVariations: Story = {
                 <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Default
                 </div>
-                <NeoCard
+                <ModCard
                   title="Code Remix"
                   description="Weekly live sessions to cover updates and key topics"
                   state="default"
@@ -230,7 +230,7 @@ export const AllVariations: Story = {
                 <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Active
                 </div>
-                <NeoCard
+                <ModCard
                   title="Code Remix"
                   description="Weekly live sessions to cover updates and key topics"
                   state="active"
@@ -242,7 +242,7 @@ export const AllVariations: Story = {
                 <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Focused
                 </div>
-                <NeoCard
+                <ModCard
                   title="Code Remix"
                   description="Weekly live sessions to cover updates and key topics"
                   state="focused"
@@ -254,7 +254,7 @@ export const AllVariations: Story = {
                 <div style={{ fontSize: '11px', color: '#999', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                   Disabled
                 </div>
-                <NeoCard
+                <ModCard
                   title="Code Remix"
                   description="Weekly live sessions to cover updates and key topics"
                   disabled
@@ -277,19 +277,19 @@ export const AllVariations: Story = {
             <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Full: Icon + Gem + Buttons
             </div>
-            <NeoCard
+            <ModCard
               title="Code Remix"
               description="Weekly live sessions to cover updates and key topics"
               icon={<DemoIcon />}
               gem={<DemoGem />}
               buttons={
                 <>
-                  <NeoButton variant="primary" size="small">
+                  <ModButton variant="primary" size="small">
                     Join
-                  </NeoButton>
-                  <NeoButton variant="secondary" size="small">
+                  </ModButton>
+                  <ModButton variant="secondary" size="small">
                     Learn
-                  </NeoButton>
+                  </ModButton>
                 </>
               }
             />
@@ -299,7 +299,7 @@ export const AllVariations: Story = {
             <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Icon + Gem
             </div>
-            <NeoCard
+            <ModCard
               title="Code Remix"
               description="Weekly live sessions to cover updates and key topics"
               icon={<DemoIcon />}
@@ -311,7 +311,7 @@ export const AllVariations: Story = {
             <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Icon Only
             </div>
-            <NeoCard
+            <ModCard
               title="Code Remix"
               description="Weekly live sessions to cover updates and key topics"
               icon={<DemoIcon />}
@@ -322,7 +322,7 @@ export const AllVariations: Story = {
             <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Gem Only
             </div>
-            <NeoCard
+            <ModCard
               title="Code Remix"
               description="Weekly live sessions to cover updates and key topics"
               gem={<DemoGem />}
@@ -333,17 +333,17 @@ export const AllVariations: Story = {
             <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Buttons Only
             </div>
-            <NeoCard
+            <ModCard
               title="Code Remix"
               description="Weekly live sessions to cover updates and key topics"
               buttons={
                 <>
-                  <NeoButton variant="primary" size="small">
+                  <ModButton variant="primary" size="small">
                     Primary
-                  </NeoButton>
-                  <NeoButton variant="outline" size="small">
+                  </ModButton>
+                  <ModButton variant="outline" size="small">
                     Secondary
-                  </NeoButton>
+                  </ModButton>
                 </>
               }
             />
@@ -353,7 +353,7 @@ export const AllVariations: Story = {
             <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Text Only (Minimal)
             </div>
-            <NeoCard
+            <ModCard
               title="Code Remix"
               description="Weekly live sessions to cover updates and key topics"
             />

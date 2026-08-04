@@ -28,9 +28,9 @@ export type FooterLink = {
 };
 
 /**
- * Props for the NeoMegaMenu component
+ * Props for the ModMegaMenu component
  */
-export type NeoMegaMenuProps = {
+export type ModMegaMenuProps = {
   /** Whether the mega menu is currently open */
   isOpen: boolean;
   /** Callback to close the mega menu */

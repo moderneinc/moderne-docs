@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { NeoCard } from '../NeoCard';
+import { ModCard } from '../ModCard';
 import { products } from '../../config/megaMenuData';
 import type { SectionProps } from './types';
-import styles from './NeoMegaMenu.module.css';
+import styles from './ModMegaMenu.module.css';
 
 /**
  * ProductDocsSection - Left column of the mega menu
@@ -14,7 +14,7 @@ const ProductDocsSection: FunctionComponent<SectionProps> = ({ onClose }) => {
       <h3 className={styles.sectionHeader}>Product Docs</h3>
       <div className={styles.productList}>
         {products.map((product) => (
-          <NeoCard
+          <ModCard
             key={product.name}
             title={product.name}
             description={product.description}

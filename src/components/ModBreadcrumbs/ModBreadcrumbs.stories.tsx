@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NeoBreadcrumbs } from './NeoBreadcrumbs';
+import { ModBreadcrumbs } from './ModBreadcrumbs';
 
-const meta: Meta<typeof NeoBreadcrumbs> = {
-  title: 'Components/NeoBreadcrumbs',
-  component: NeoBreadcrumbs,
+const meta: Meta<typeof ModBreadcrumbs> = {
+  title: 'Components/ModBreadcrumbs',
+  component: ModBreadcrumbs,
   parameters: {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Breadcrumb navigation component with home icon and customizable path items. Supports light and dark modes with Neo Design system integration.',
+        component: 'Breadcrumb navigation component with home icon and customizable path items. Supports light and dark modes with Morpheus design system integration.',
       },
     },
   },
@@ -60,7 +60,7 @@ export const AllVariations: Story = {
             <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
               Simple Path (2-3 items)
             </h3>
-            <NeoBreadcrumbs
+            <ModBreadcrumbs
               items={[
                 { label: 'Documentation', href: '/docs' },
                 { label: 'User Guide', href: '/docs/user-guide' },
@@ -75,7 +75,7 @@ export const AllVariations: Story = {
             <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
               Long Path (Deep Hierarchy)
             </h3>
-            <NeoBreadcrumbs
+            <ModBreadcrumbs
               items={[
                 { label: 'Documentation', href: '/docs' },
                 { label: 'Administrator Documentation', href: '/docs/admin' },
@@ -94,7 +94,7 @@ export const AllVariations: Story = {
             <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
               Single Item (Minimal)
             </h3>
-            <NeoBreadcrumbs
+            <ModBreadcrumbs
               items={[{ label: 'Introduction' }]}
               showHomeIcon={true}
             />
@@ -113,7 +113,7 @@ export const AllVariations: Story = {
             <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
               With Home Icon
             </h3>
-            <NeoBreadcrumbs
+            <ModBreadcrumbs
               items={[
                 { label: 'User Documentation', href: '/user-docs' },
                 { label: 'CLI', href: '/user-docs/cli' },
@@ -128,7 +128,7 @@ export const AllVariations: Story = {
             <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
               Without Home Icon
             </h3>
-            <NeoBreadcrumbs
+            <ModBreadcrumbs
               items={[
                 { label: 'User Documentation', href: '/user-docs' },
                 { label: 'CLI', href: '/user-docs/cli' },
@@ -151,7 +151,7 @@ export const AllVariations: Story = {
             <h3 style={{ marginBottom: '12px', fontSize: '14px', fontWeight: 600, color: '#666' }}>
               Long Labels (Text Wrapping)
             </h3>
-            <NeoBreadcrumbs
+            <ModBreadcrumbs
               items={[
                 {
                   label: 'Advanced Program Analysis and Control Flow Documentation',

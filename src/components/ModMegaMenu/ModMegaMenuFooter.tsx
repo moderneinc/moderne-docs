@@ -2,13 +2,13 @@ import React, { FunctionComponent } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { footerLinks } from '../../config/megaMenuData';
 import type { SectionProps } from './types';
-import styles from './NeoMegaMenu.module.css';
+import styles from './ModMegaMenu.module.css';
 
 /**
- * NeoMegaMenuFooter - Footer section of the mega menu
+ * ModMegaMenuFooter - Footer section of the mega menu
  * Displays bottom row of links (Moderne Website, Go to App, OpenRewrite Docs)
  */
-const NeoMegaMenuFooter: FunctionComponent<SectionProps> = ({ onClose }) => {
+const ModMegaMenuFooter: FunctionComponent<SectionProps> = ({ onClose }) => {
   return (
     <div className={styles.footer}>
       <div className={styles.footerLinks}>
@@ -30,6 +30,6 @@ const NeoMegaMenuFooter: FunctionComponent<SectionProps> = ({ onClose }) => {
   );
 };
 
-NeoMegaMenuFooter.displayName = 'NeoMegaMenuFooter';
+ModMegaMenuFooter.displayName = 'ModMegaMenuFooter';
 
-export default NeoMegaMenuFooter;
+export default ModMegaMenuFooter;

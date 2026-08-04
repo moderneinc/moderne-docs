@@ -50,7 +50,7 @@
   line-height: 1.4;
 }
 
-/* Hover states - brand lavender tint (not in NeoDesign) + selected color */
+/* Hover states - brand lavender tint (not in Morpheus) + selected color */
 :global(.theme-doc-sidebar-menu .menu__link:hover) {
   background-color: rgba(212, 211, 228, 0.2);
   color: var(--brand-digital-blue);

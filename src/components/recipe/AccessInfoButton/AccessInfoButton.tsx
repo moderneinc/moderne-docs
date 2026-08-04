@@ -1,6 +1,6 @@
 import React, { type FunctionComponent } from 'react';
 import { Info } from 'lucide-react';
-import { NeoButton } from '@site/src/components/NeoButton';
+import { ModButton } from '@site/src/components/ModButton';
 import styles from './AccessInfoButton.module.css';
 
 /** Info icon-button beside the "Moderne Only" badge; popover opens on hover and focus. */
@@ -14,9 +14,9 @@ export const AccessInfoButton: FunctionComponent = () => (
         This recipe is proprietary to Moderne and runs on the Moderne platform or CLI — it isn’t part of the
         open-source catalog. Available with a Moderne subscription.
       </span>
-      <NeoButton variant="primary" size="small" href="https://www.moderne.io/contact-us" target="_blank" rel="noopener noreferrer">
+      <ModButton variant="primary" size="small" href="https://www.moderne.io/contact-us" target="_blank" rel="noopener noreferrer">
         Contact Sales
-      </NeoButton>
+      </ModButton>
     </span>
   </span>
 );

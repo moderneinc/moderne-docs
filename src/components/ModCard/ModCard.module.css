@@ -1,5 +1,5 @@
 /**
- * NeoCard Component Styles
+ * ModCard component styles
  * Morpheus reskin: bound to --mor-* tokens. Because the tokens are mode-aware
  * (light/dark values resolve via [data-theme]), no separate dark-mode block is
  * needed — one set of rules covers both themes.

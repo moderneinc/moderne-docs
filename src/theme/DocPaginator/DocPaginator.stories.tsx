@@ -54,7 +54,7 @@ function PaginatorLayout({
  * Features:
  * - Handles three scenarios: both links, only previous, only next
  * - Text truncation for very long page titles
- * - Dark mode support with Neo Design system integration
+ * - Dark mode support with Morpheus design system integration
  * - Consistent with the design spec
  */
 const meta: Meta<typeof PaginatorLayout> = {
@@ -65,7 +65,7 @@ const meta: Meta<typeof PaginatorLayout> = {
     docs: {
       description: {
         component:
-          'Swizzled Docusaurus DocPaginator component with Neo Design styling for previous/next page navigation.',
+          'Swizzled Docusaurus DocPaginator component with Morpheus styling for previous/next page navigation.',
       },
     },
   },

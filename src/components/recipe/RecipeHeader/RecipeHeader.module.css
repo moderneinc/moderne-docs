@@ -233,7 +233,7 @@ background-color: var(--mor-surface-2);
     color: var(--mor-link);
 }
 
-.actionButtons :global(.neo-button--outline) {
+.actionButtons :global(.mod-button--outline) {
 color: var(--mor-on-accent);
     border-color: var(--mor-line-strong);
 }

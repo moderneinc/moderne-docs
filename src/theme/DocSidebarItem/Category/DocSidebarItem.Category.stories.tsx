@@ -157,12 +157,12 @@ function CategoryContainer({ children }: { children: React.ReactNode }) {
  * - Lucide React icons (ChevronRight/ChevronDown) instead of CSS pseudo-elements
  * - Updated typography (16px font size)
  * - Brand digital blue for active states
- * - Proper Neo Design CSS variables
+ * - Proper Morpheus design tokens
  *
  * Key changes from default Docusaurus:
  * - Font size: 14px → 16px for navigation items
  * - Padding: 16px/10px → 12px uniform
- * - Active color: Neo primary blue → Brand digital blue (#283af7)
+ * - Active color: brand digital blue (#283af7)
  * - Caret icons: SVG data URIs → Lucide React components
  * - Sub-item font weight: Semi-bold (600) → Regular (400)
  */

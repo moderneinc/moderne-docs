@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { NeoMegaMenu } from './index';
+import { ModMegaMenu } from './index';
 
 /**
- * NeoMegaMenu - Dropdown navigation menu
+ * ModMegaMenu - Dropdown navigation menu
  *
  * A comprehensive mega menu component that displays:
  * - Product documentation links with icons and descriptions (left column)
@@ -21,9 +21,9 @@ import { NeoMegaMenu } from './index';
  * - Learning items: config/megaMenuData.ts
  * - Footer links: config/megaMenuData.ts
  */
-const meta: Meta<typeof NeoMegaMenu> = {
-  title: 'Components/NeoMegaMenu',
-  component: NeoMegaMenu,
+const meta: Meta<typeof ModMegaMenu> = {
+  title: 'Components/ModMegaMenu',
+  component: ModMegaMenu,
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -59,7 +59,7 @@ export const FullMenuWithPopover: Story = {
         </p>
       </div>
       <div style={{ position: 'relative' }}>
-        <NeoMegaMenu {...args} />
+        <ModMegaMenu {...args} />
       </div>
     </div>
   ),

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NeoButton } from './NeoButton';
+import { ModButton } from './ModButton';
 import React from 'react';
 
-const meta: Meta<typeof NeoButton> = {
-  title: 'Components/NeoButton',
-  component: NeoButton,
+const meta: Meta<typeof ModButton> = {
+  title: 'Components/ModButton',
+  component: ModButton,
   parameters: {
     layout: 'centered',
   },
@@ -76,18 +76,18 @@ export const AllVariations: Story = {
           Primary Variant
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <NeoButton variant="primary" size="small">
+          <ModButton variant="primary" size="small">
             Small
-          </NeoButton>
-          <NeoButton variant="primary" size="medium">
+          </ModButton>
+          <ModButton variant="primary" size="medium">
             Medium
-          </NeoButton>
-          <NeoButton variant="primary" size="large">
+          </ModButton>
+          <ModButton variant="primary" size="large">
             Large
-          </NeoButton>
-          <NeoButton variant="primary" size="medium" disabled>
+          </ModButton>
+          <ModButton variant="primary" size="medium" disabled>
             Disabled
-          </NeoButton>
+          </ModButton>
         </div>
       </div>
 
@@ -97,18 +97,18 @@ export const AllVariations: Story = {
           Secondary Variant
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <NeoButton variant="secondary" size="small">
+          <ModButton variant="secondary" size="small">
             Small
-          </NeoButton>
-          <NeoButton variant="secondary" size="medium">
+          </ModButton>
+          <ModButton variant="secondary" size="medium">
             Medium
-          </NeoButton>
-          <NeoButton variant="secondary" size="large">
+          </ModButton>
+          <ModButton variant="secondary" size="large">
             Large
-          </NeoButton>
-          <NeoButton variant="secondary" size="medium" disabled>
+          </ModButton>
+          <ModButton variant="secondary" size="medium" disabled>
             Disabled
-          </NeoButton>
+          </ModButton>
         </div>
       </div>
 
@@ -118,18 +118,18 @@ export const AllVariations: Story = {
           Outline Variant
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <NeoButton variant="outline" size="small">
+          <ModButton variant="outline" size="small">
             Small
-          </NeoButton>
-          <NeoButton variant="outline" size="medium">
+          </ModButton>
+          <ModButton variant="outline" size="medium">
             Medium
-          </NeoButton>
-          <NeoButton variant="outline" size="large">
+          </ModButton>
+          <ModButton variant="outline" size="large">
             Large
-          </NeoButton>
-          <NeoButton variant="outline" size="medium" disabled>
+          </ModButton>
+          <ModButton variant="outline" size="medium" disabled>
             Disabled
-          </NeoButton>
+          </ModButton>
         </div>
       </div>
 
@@ -139,18 +139,18 @@ export const AllVariations: Story = {
           With Icons
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-          <NeoButton variant="primary" icon={<DemoIcon />} iconPosition="left">
+          <ModButton variant="primary" icon={<DemoIcon />} iconPosition="left">
             Icon Left
-          </NeoButton>
-          <NeoButton variant="primary" icon={<DemoIcon />} iconPosition="right">
+          </ModButton>
+          <ModButton variant="primary" icon={<DemoIcon />} iconPosition="right">
             Icon Right
-          </NeoButton>
-          <NeoButton variant="secondary" icon={<DemoIcon />}>
+          </ModButton>
+          <ModButton variant="secondary" icon={<DemoIcon />}>
             Icon Left
-          </NeoButton>
-          <NeoButton variant="outline" icon={<DemoIcon />} iconPosition="right">
+          </ModButton>
+          <ModButton variant="outline" icon={<DemoIcon />} iconPosition="right">
             Icon Right
-          </NeoButton>
+          </ModButton>
         </div>
       </div>
 
@@ -160,10 +160,10 @@ export const AllVariations: Story = {
           Icon Only
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <NeoButton variant="primary" icon={<DemoIcon />} aria-label="Star" size="small" />
-          <NeoButton variant="primary" icon={<DemoIcon />} aria-label="Star" />
-          <NeoButton variant="secondary" icon={<DemoIcon />} aria-label="Star" />
-          <NeoButton variant="outline" icon={<DemoIcon />} aria-label="Star" />
+          <ModButton variant="primary" icon={<DemoIcon />} aria-label="Star" size="small" />
+          <ModButton variant="primary" icon={<DemoIcon />} aria-label="Star" />
+          <ModButton variant="secondary" icon={<DemoIcon />} aria-label="Star" />
+          <ModButton variant="outline" icon={<DemoIcon />} aria-label="Star" />
         </div>
       </div>
 
@@ -173,20 +173,20 @@ export const AllVariations: Story = {
           As Link (with href)
         </h3>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <NeoButton variant="primary" href="https://moderne.io" target="_blank" rel="noopener noreferrer">
+          <ModButton variant="primary" href="https://moderne.io" target="_blank" rel="noopener noreferrer">
             External Link
-          </NeoButton>
-          <NeoButton variant="secondary" href="/docs">
+          </ModButton>
+          <ModButton variant="secondary" href="/docs">
             Internal Link
-          </NeoButton>
-          <NeoButton
+          </ModButton>
+          <ModButton
             variant="outline"
             href="https://moderne.io"
             icon={<DemoIcon />}
             iconPosition="right"
           >
             Link with Icon
-          </NeoButton>
+          </ModButton>
         </div>
       </div>
     </div>
@@ -219,7 +219,7 @@ export const Interactive: Story = {
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
-        <NeoButton {...args} onClick={handleClick} />
+        <ModButton {...args} onClick={handleClick} />
         <div style={{ fontSize: '12px', color: '#666' }}>
           Button clicked {clickCount} times
         </div>
