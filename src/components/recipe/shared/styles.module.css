@@ -4,7 +4,7 @@
 .chip {
 padding: var(--mor-space-1) var(--mor-space-3);
   border-radius: var(--mor-radius-full);
-  background-color: var(--mor-status-note-bg);
+  background-color: var(--mor-field);
   color: var(--mor-status-note-accent);
   font-size: var(--mor-font-size-sm);
   font-weight: var(--mor-font-weight-medium);
@@ -71,7 +71,7 @@ border: none;
 .inlineCode {
 font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
   font-size: var(--mor-font-size-base);
-  background-color: var(--mor-surface);
+  background-color: var(--mor-field);
   color: var(--mor-text);
   padding: var(--mor-space-2px) var(--mor-space-1);
   border: none;
@@ -116,7 +116,7 @@ background: var(--mor-row-hover);
 .recipe :global(.tabs__item--active),
 .recipe :global(.tabs__item--active:hover) {
 color: var(--mor-link);
-  background: var(--mor-card);
+  background: var(--mor-panel);
 }
 
 /* A recipe section: a heading row stacked above the section body. All spacing is owned by flex gap
