@@ -88,7 +88,7 @@ display: inline-flex;
   border: 1px solid var(--mor-line);
   border-radius: var(--mor-radius-full);
   overflow: hidden;
-  background: var(--mor-card);
+  background: var(--mor-panel);
 }
 
 .recipe :global(.tabs__item) {

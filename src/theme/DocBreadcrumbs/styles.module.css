@@ -56,7 +56,7 @@
   display: inline-flex;
   align-items: center;
   padding: var(--mor-space-1) var(--mor-space-3);
-  background-color: var(--mor-card);
+  background-color: var(--mor-panel);
   border: 1px solid var(--mor-line);
   border-radius: var(--mor-radius-full);
   font-weight: var(--mor-font-weight-regular);

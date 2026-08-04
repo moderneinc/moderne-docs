@@ -111,7 +111,7 @@
   min-width: 220px;
   margin-top: var(--mor-space-2);
   padding: var(--mor-space-2);
-  background: var(--mor-card);
+  background: var(--mor-panel);
   border: 1px solid var(--mor-line);
   border-radius: var(--mor-radius-sm);
   box-shadow: var(--mor-shadow-dropdown);
@@ -159,10 +159,8 @@
 
 /* Dark mode adjustments */
 :global(html[data-theme='dark']) .dropdown {
-  /* Explicit dark card surface. Previously var(--brand-midnight), but that token
-     is now remapped to --mor-text (a light color in dark mode), which made this
-     panel near-white — light nav text then rendered ~1:1 on it. */
-  background: var(--mor-card);
+  /* --mor-field is mode-aware (dark #222229), so it stays an elevated panel in
+     dark without an explicit background override. */
   border-color: rgba(255, 255, 255, 0.2);
 }
 

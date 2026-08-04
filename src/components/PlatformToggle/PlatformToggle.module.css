@@ -9,7 +9,7 @@
   border: 1px solid var(--mor-line);
   border-radius: var(--mor-radius-full);
   overflow: hidden;
-  background: var(--mor-card);
+  background: var(--mor-panel);
 }
 
 .segment {
@@ -42,7 +42,7 @@
 }
 
 .active {
-  background: var(--mor-card);
+  background: var(--mor-panel);
   color: var(--mor-link);
   cursor: default;
 }

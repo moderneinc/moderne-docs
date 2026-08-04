@@ -532,7 +532,7 @@ h1, .markdown h3, .markdown h4 {
 
 /* Inline code: SFMono pill. Relative em sizing so it scales correctly inside headers. */
 .markdown :not(pre) > code {
-  background-color: var(--mor-surface);
+  background-color: var(--mor-field);
   border: 1px solid var(--mor-line);
   border-radius: var(--mor-radius-sm);
   color: var(--brand-midnight);
