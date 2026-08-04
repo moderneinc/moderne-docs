@@ -124,7 +124,7 @@ aws s3 sync \
 Two things to get right as you copy:
 
 * **Keep the key layout.** The `tenant=`/`source=`/`type=`/`year=`/`month=`/`day=` structure is what lets query engines prune partitions. Flattening it means every query scans everything.
-* **Poll often enough.** Objects in the source bucket are subject to a retention lifecycle, so a pull that runs less frequently than that window misses data permanently. Confirm the current retention period with your CSM and schedule well inside it.
+* **Run it on a schedule.** A pull only captures what is in the source bucket when it runs, so schedule it regularly rather than on demand.
 
 ### Push versus pull
 
@@ -134,7 +134,7 @@ Two things to get right as you copy:
 | Lands in your account | Automatically, within ~15 minutes | When your job next runs |
 | Your KMS key | Moderne's role must be able to use it | Never shared |
 | Inbound access to your account | Required | None |
-| Missed data if your side breaks | Replication retries | Objects can age out before capture |
+| Missed data if your side breaks | Replication retries | Your job has to catch up on its next run |
 
 Replication is the better default wherever it's permitted. Use pull when it isn't.
 
