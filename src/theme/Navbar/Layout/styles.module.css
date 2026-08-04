@@ -41,25 +41,6 @@
   }
 }
 
-/* Navbar logo sizing to match Figma design */
-.navbar :global(.navbar__brand) {
-  margin-right: 0;
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  /* Prevent clipping of logo text */
-  overflow: visible;
-}
-
-.navbar :global(.navbar__logo) {
-  height: 24px;
-}
-
-.navbar :global(.navbar__logo img) {
-  height: 24px;
-  width: auto;
-}
-
 .navbar :global(.navbar__link) {
   font-weight: 400;
   color: var(--ifm-heading-color);
@@ -85,11 +66,6 @@
 /* Mobile sidebar header (logo + close button) */
 .navbar :global(.navbar-sidebar__brand) {
   padding-top: var(--neo-spacing_2);
-}
-
-/* Show "Docs" label next to logo in mobile sidebar */
-.navbar :global(.navbar-sidebar__brand) :global([class*="docsLabel"]) {
-  display: inline;
 }
 
 /* Mobile sidebar content area */

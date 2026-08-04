@@ -22,8 +22,9 @@
   flex-shrink: 0;
 }
 
-.logoLink:focus {
-  outline: none;
+.logoLink:focus-visible {
+  outline: 2px solid var(--neo-buttons-primary-focus);
+  outline-offset: 2px;
 }
 
 /* Both lockups are exported on the same 1280px-wide canvas (tight-cropped), so
