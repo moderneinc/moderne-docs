@@ -17,14 +17,7 @@ function getAllDefinedVariables() {
     'src/css/custom.css',
     // Morpheus design system tokens + mapping layer
     'src/css/morpheus-tokens.css',
-    'src/css/morpheus-theme.css',
-    // Neo Design variables
-    'node_modules/@moderneinc/neo-design/dist/colors.css',
-    'node_modules/@moderneinc/neo-design/dist/semantic-colors.css',
-    'node_modules/@moderneinc/neo-design/dist/typography.css',
-    'node_modules/@moderneinc/neo-design/dist/spacing.css',
-    'node_modules/@moderneinc/neo-design/dist/shadows.css',
-    'node_modules/@moderneinc/neo-design/dist/border-radius.css'
+    'src/css/morpheus-theme.css'
   ];
 
   const allVariables = new Set();

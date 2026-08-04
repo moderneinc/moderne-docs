@@ -12,10 +12,10 @@
 .paginationNav {
   display: flex;
   justify-content: space-between;
-  gap: var(--neo-spacing_4);
+  gap: var(--mor-space-32px);
   padding: 0;
   margin: 0;
-  margin-top: var(--neo-spacing_4); /* Add spacing above pagination nav */
+  margin-top: var(--mor-space-32px); /* Add spacing above pagination nav */
 }
 
 .paginationLink {
@@ -23,10 +23,10 @@
   border: none;
   padding: 0;
   font-family: var(--mor-font-sans), sans-serif;
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-medium);
+  font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-medium);
   line-height: 1;
-  color: var(--neo-grey-500);
+  color: var(--mor-muted);
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
@@ -34,7 +34,7 @@
 .paginationLink:hover {
   opacity: 0.7;
   text-decoration: none;
-  color: var(--neo-grey-500);
+  color: var(--mor-muted);
 }
 
 .paginationLinkPrev {
@@ -46,20 +46,7 @@
 }
 
 .arrow {
-  color: var(--neo-grey-500);
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-medium);
-}
-
-/* Dark mode - lighter gray for visibility */
-html[data-theme='dark'] .paginationLink {
-  color: var(--neo-grey-400);
-}
-
-html[data-theme='dark'] .paginationLink:hover {
-  color: var(--neo-grey-400);
-}
-
-html[data-theme='dark'] .arrow {
-  color: var(--neo-grey-400);
+  color: var(--mor-muted);
+  font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-medium);
 }

@@ -26,15 +26,15 @@
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: var(--neo-spacing_1);
+  margin-top: var(--mor-space-2);
   width: 750px;
   max-width: calc(100vw - 2 * var(--ifm-navbar-padding-horizontal, 2.5rem));
-  max-height: calc(100vh - var(--ifm-navbar-height, 92px) - var(--neo-spacing_3));
+  max-height: calc(100vh - var(--ifm-navbar-height, 92px) - var(--mor-space-6));
   overflow-y: auto;
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-color-border);
-  border-radius: var(--neo-border-radius-x-s);
-  box-shadow: var(--neo-shadow-dropdown);
+  border-radius: var(--mor-radius-sm);
+  box-shadow: var(--mor-shadow-dropdown);
   z-index: 401;
 }
 
@@ -42,46 +42,46 @@
 .content {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  gap: var(--neo-spacing_4);
-  padding: var(--neo-spacing_4) var(--neo-spacing_4) var(--neo-spacing_3);
+  gap: var(--mor-space-32px);
+  padding: var(--mor-space-32px) var(--mor-space-32px) var(--mor-space-6);
 
   /* Tablet: Adjust spacing */
   @media (min-width: 768px) and (max-width: 1023px) {
-    gap: var(--neo-spacing_3);
-    padding: var(--neo-spacing_3_1_2) var(--neo-spacing_3) var(--neo-spacing_2_1_2);
+    gap: var(--mor-space-6);
+    padding: var(--mor-space-28px) var(--mor-space-6) var(--mor-space-5);
   }
 
   /* Mobile: Single column layout */
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
-    gap: var(--neo-spacing_3);
-    padding: var(--neo-spacing_3) var(--neo-spacing_2_1_2) var(--neo-spacing_2_1_2);
+    gap: var(--mor-space-6);
+    padding: var(--mor-space-6) var(--mor-space-5) var(--mor-space-5);
   }
 
   /* Section headers within content */
   .sectionHeader {
-    font-size: var(--neo-font-size-sm);
-    font-weight: var(--neo-font-weight-regular);
+    font-size: var(--mor-font-size-base);
+    font-weight: var(--mor-font-weight-regular);
     letter-spacing: 0.5px;
-    color: var(--neo-grey-700);
+    color: var(--mor-text);
   }
 
   /* Right column - contains For Business and Learning sections */
   .rightColumn {
     display: flex;
     flex-direction: column;
-    gap: var(--neo-spacing_4);
+    gap: var(--mor-space-32px);
   }
 }
 
 /* Footer section */
 .footer {
   border-top: 1px solid var(--ifm-color-border);
-  padding: var(--neo-spacing_2) var(--neo-spacing_4);
+  padding: var(--mor-space-4) var(--mor-space-32px);
 
   /* Mobile: Adjust padding */
   @media (max-width: 767px) {
-    padding: var(--neo-spacing_2) var(--neo-spacing_2_1_2);
+    padding: var(--mor-space-4) var(--mor-space-5);
   }
 
   .footerLinks {
@@ -93,16 +93,16 @@
     @media (max-width: 767px) {
       flex-direction: column;
       align-items: flex-start;
-      gap: var(--neo-spacing_2);
+      gap: var(--mor-space-4);
     }
   }
 
   .footerLink {
     display: inline-flex;
     align-items: center;
-    gap: var(--neo-spacing_3_4);
-    font-size: var(--neo-font-size-sm);
-    font-weight: var(--neo-font-weight-medium);
+    gap: var(--mor-space-6px);
+    font-size: var(--mor-font-size-base);
+    font-weight: var(--mor-font-weight-medium);
     color: var(--ifm-heading-color);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -114,8 +114,8 @@
   }
 
   .externalIcon {
-    width: var(--neo-spacing_1_1_2);
-    height: var(--neo-spacing_1_1_2);
+    width: var(--mor-space-3);
+    height: var(--mor-space-3);
     flex-shrink: 0;
   }
 }
@@ -124,15 +124,15 @@
 .productList {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
 }
 
 .productItem {
   display: flex;
   align-items: flex-start;
-  gap: var(--neo-spacing_1_1_2);
-  padding: var(--neo-spacing_1_1_2);
-  border-radius: var(--neo-border-radius-x-s);
+  gap: var(--mor-space-3);
+  padding: var(--mor-space-3);
+  border-radius: var(--mor-radius-sm);
   text-decoration: none;
   color: inherit;
   transition: background-color 0.2s ease;
@@ -143,8 +143,8 @@
   }
 
   .productIcon {
-    width: var(--neo-spacing_4);
-    height: var(--neo-spacing_4);
+    width: var(--mor-space-32px);
+    height: var(--mor-space-32px);
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -154,19 +154,19 @@
   .productContent {
     display: flex;
     flex-direction: column;
-    gap: var(--neo-spacing_1_2);
+    gap: var(--mor-space-1);
   }
 
   .productName {
-    font-weight: var(--neo-font-weight-semi-bold);
-    font-size: var(--neo-font-size-h6);
+    font-weight: var(--mor-font-weight-semibold);
+    font-size: var(--mor-font-size-lg);
     color: var(--ifm-heading-color);
   }
 
   .productDescription {
-    font-size: var(--neo-font-size-xs);
+    font-size: var(--mor-font-size-sm);
     line-height: 1.5;
-    color: var(--neo-typography-input-default);
+    color: var(--mor-text);
   }
 }
 
@@ -178,19 +178,19 @@
   .learningList {
     display: flex;
     flex-direction: column;
-    gap: var(--neo-spacing_1);
+    gap: var(--mor-space-2);
     align-items: flex-start;
   }
 
   .learningItem {
     display: flex;
     align-items: center;
-    gap: var(--neo-spacing_1);
-    padding: var(--neo-spacing_1) var(--neo-spacing_1_1_2);
-    border-radius: var(--neo-border-radius-x-s);
+    gap: var(--mor-space-2);
+    padding: var(--mor-space-2) var(--mor-space-3);
+    border-radius: var(--mor-radius-sm);
     text-decoration: none;
     color: var(--ifm-heading-color);
-    font-size: var(--neo-font-size-sm);
+    font-size: var(--mor-font-size-base);
     transition: background-color 0.2s ease;
 
     &:hover {
@@ -225,7 +225,6 @@
 
   .content {
     .sectionHeader {
-      color: var(--neo-surfaces-snackbar-dark-mode);
       opacity: 0.7;
     }
   }
@@ -234,7 +233,7 @@
     border-top-color: rgba(255, 255, 255, 0.2);
 
     .footerLink {
-      color: var(--neo-surfaces-white);
+      color: var(--mor-text);
 
       &:hover {
         color: var(--brand-digital-green);
@@ -248,18 +247,17 @@
     }
 
     .productName {
-      color: var(--neo-surfaces-white);
+      color: var(--mor-text);
     }
 
     .productDescription {
-      color: var(--neo-surfaces-snackbar-dark-mode);
       opacity: 0.7;
     }
   }
 
   .learningSection {
     .learningItem {
-      color: var(--neo-surfaces-white);
+      color: var(--mor-text);
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.05);

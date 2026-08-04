@@ -2894,11 +2894,6 @@
   dependencies:
     "@chevrotain/types" "~11.1.1"
 
-"@moderneinc/neo-design@1.6.1-next.5990cd":
-  version "1.6.1-next.5990cd"
-  resolved "https://registry.yarnpkg.com/@moderneinc/neo-design/-/neo-design-1.6.1-next.5990cd.tgz#786a99ed6a49a040e75bebd9925012961d083394"
-  integrity sha512-LlB4ITzCne8+D/yv2qKy6b+A1NTtENc/1IaMb0c3HjshMOGbsLT+A5bKdevsiC4J86Q62LaC7NBsJzpq6l7Fpw==
-
 "@module-federation/error-codes@0.22.0":
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/@module-federation/error-codes/-/error-codes-0.22.0.tgz#31ccc990dc240d73912ba7bd001f7e35ac751992"

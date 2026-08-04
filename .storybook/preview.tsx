@@ -17,14 +17,6 @@ import '@fontsource-variable/geist-mono';
 // Import Infima CSS framework (Docusaurus base styles)
 import 'infima/dist/css/default/default.css';
 
-// Import Neo Design CSS variables
-import '@moderneinc/neo-design/colors.css';
-import '@moderneinc/neo-design/semantic-colors.css';
-import '@moderneinc/neo-design/typography.css';
-import '@moderneinc/neo-design/spacing.css';
-import '@moderneinc/neo-design/shadows.css';
-import '@moderneinc/neo-design/border-radius.css';
-
 // Import the Morpheus token + theme layers around custom.css, mirroring the
 // customCss load order in docusaurus.config.ts. Without the token layer here,
 // var(--mor-*) is undefined in Storybook and every declaration using it (fonts

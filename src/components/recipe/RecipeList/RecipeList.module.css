@@ -6,7 +6,7 @@
 .itemLabel {
 display: inline-flex;
   align-items: center;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
 }
 
 .countBadge {
@@ -15,21 +15,24 @@ display: inline-flex;
   justify-content: center;
   min-width: 20px;
   height: 20px;
-  padding: 0 var(--neo-spacing_1_2);
-  border-radius: var(--neo-border-radius-full);
-  font-size: var(--neo-font-size-xs);
-  font-weight: var(--neo-font-weight-semi-bold);
+  padding: 0 var(--mor-space-1);
+  border-radius: var(--mor-radius-full);
+  font-size: var(--mor-font-size-sm);
+  font-weight: var(--mor-font-weight-semibold);
   line-height: 1;
 }
 
+/* Morpheus has one violet spectral stop, not a violet ramp: the tint background is a literal
+   derived from --mor-spectral-2 (no separate light-tint token exists) so badge text stays legible
+   against it while the accent color itself stays token-driven. */
 .countBadge_violet {
-background-color: var(--neo-violet-200);
-  color: var(--neo-violet-700);
+background-color: rgba(157, 91, 232, 0.16);
+  color: var(--mor-spectral-2);
 }
 
 .countBadge_neutral {
-background-color: var(--neo-status-neutral-light);
-  color: var(--neo-status-neutral-dark);
+background-color: var(--mor-status-note-bg);
+  color: var(--mor-status-note-accent);
 }
 
 /* Borderless, inset list of links. The accordion body's horizontal padding does the insetting, so the
@@ -41,33 +44,33 @@ margin: 0;
 }
 
 .recipeListItem {
-padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2);
-  font-size: var(--neo-font-size-sm);
-  color: var(--neo-typography-input-default);
+padding: var(--mor-space-3) var(--mor-space-3);
+  font-size: var(--mor-font-size-base);
+  color: var(--mor-text);
 }
 
 .recipeListItem + .recipeListItem {
-border-top: 1px solid var(--neo-border-secondary);
+border-top: 1px solid var(--mor-line);
 }
 
 .recipeListBounded {
 display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
 }
 
 .recipeListSearch {
 display: flex;
   align-items: center;
-  gap: var(--neo-spacing_1);
-  padding: var(--neo-spacing_1_2) var(--neo-spacing_1);
-  border: 1px solid var(--neo-border-input);
-  border-radius: var(--neo-border-radius-input);
-  background-color: var(--neo-surfaces-card);
+  gap: var(--mor-space-2);
+  padding: var(--mor-space-1) var(--mor-space-2);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-lg);
+  background-color: var(--mor-card);
 }
 
 .recipeListSearchIcon {
-color: var(--neo-typography-body-secondary);
+color: var(--mor-muted);
   flex-shrink: 0;
 }
 
@@ -78,18 +81,18 @@ flex: 1;
   background-color: transparent;
   outline: none;
   font-family: var(--mor-font-sans);
-  font-size: var(--neo-font-size-sm);
-  color: var(--neo-typography-input-default);
+  font-size: var(--mor-font-size-base);
+  color: var(--mor-text);
 }
 
 .recipeListInput::placeholder {
-color: var(--neo-typography-input-placeholder);
+color: var(--mor-muted);
 }
 
 .recipeListCount {
 flex-shrink: 0;
-  font-size: var(--neo-font-size-xs);
-  color: var(--neo-typography-body-secondary);
+  font-size: var(--mor-font-size-sm);
+  color: var(--mor-muted);
   white-space: nowrap;
 }
 
@@ -104,63 +107,45 @@ margin: 0;
 }
 
 .recipeListEmpty {
-padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2);
-  font-size: var(--neo-font-size-sm);
-  color: var(--neo-typography-body-secondary);
+padding: var(--mor-space-3) var(--mor-space-3);
+  font-size: var(--mor-font-size-base);
+  color: var(--mor-muted);
 }
 
 .recipeLink {
-color: var(--neo-typography-link-primary);
+color: var(--mor-link);
   text-decoration: none;
 }
 
 .recipeLink:hover {
-color: var(--neo-digital-blue-700);
+color: var(--mor-link-deep);
   text-decoration: underline;
 }
 
 html[data-theme='dark'] {
-.recipeListItem + .recipeListItem {
-border-top-color: var(--neo-grey-800);
-}
-
 .recipeListItem {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.recipeListCount,
-.recipeListEmpty {
-color: var(--neo-grey-400);
-}
-
-.recipeListSearch {
-background-color: var(--neo-icons-default);
-    border-color: var(--neo-grey-700);
+color: var(--mor-on-accent);
 }
 
 .recipeListInput {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.recipeListInput::placeholder {
-color: var(--neo-grey-500);
+color: var(--mor-on-accent);
 }
 
 .recipeLink {
-color: var(--neo-digital-green-300);
+color: var(--mor-green);
 }
 
 .recipeLink:hover {
-color: var(--neo-digital-green-200);
+color: var(--mor-green);
 }
 
 .countBadge_violet {
-background-color: var(--neo-violet-800);
-    color: var(--neo-violet-200);
+background-color: rgba(157, 91, 232, 0.28);
+    color: var(--mor-spectral-2);
 }
 
 .countBadge_neutral {
-background-color: var(--neo-grey-800);
-    color: var(--neo-grey-300);
+background-color: var(--mor-surface-2);
+    color: var(--mor-muted);
 }
 }

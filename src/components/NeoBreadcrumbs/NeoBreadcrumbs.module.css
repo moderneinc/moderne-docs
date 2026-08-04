@@ -2,37 +2,37 @@
  * Breadcrumbs Component - Design System Integration
  * Refactored with CSS nesting for improved specificity and maintainability
  *
- * This component uses @moderneinc/neo-design and Infima (Docusaurus) CSS variables
- * with fallbacks to ensure consistent theming across light and dark modes.
+ * This component uses Morpheus (--mor-*) and Infima (Docusaurus) CSS variables.
  *
  * Variable Mappings:
  *
  * LIGHT MODE:
- * - Icons/Chevrons: --neo-icons-utility (#9CA3AF / grey-400)
- * - Link text: --neo-typography-link-primary (#2F42FF / blue-500)
- * - Body text: --neo-typography-body-secondary (#6B7280 / grey-500)
- * - Current page: --neo-typography-link-primary (#2F42FF / blue-500)
+ * - Icons/Chevrons: --mor-muted
+ * - Link text: --mor-link
+ * - Body text: --mor-muted
+ * - Current page: --mor-link
  *
  * DARK MODE:
- * - Icons/Links: --neo-grey-400 (#9CA3AF)
+ * - Icons/Body text: --mor-muted (mode-aware, inherited)
+ * - Links: --mor-muted
  * - Current page: --brand-digital-green (#85fe98 / mint green)
  *
  * TYPOGRAPHY:
- * - Font family: --ifm-font-family-base → --neo-font-family-body (Inter)
- * - Font size: --neo-font-size-sm (14px)
- * - Font weight: --neo-font-weight-medium (500)
+ * - Font family: --ifm-font-family-base
+ * - Font size: --mor-font-size-base (14px)
+ * - Font weight: --mor-font-weight-medium (500)
  */
 .breadcrumbs {
-  /* Light mode tokens - mapped to neo-design */
-  --breadcrumb-icon-color: var(--neo-icons-utility);
-  --breadcrumb-text-color: var(--neo-typography-body-secondary);
-  --breadcrumb-link-color: var(--neo-typography-link-primary);
-  --breadcrumb-current-color: var(--neo-typography-link-primary);
+  /* Light mode tokens - mapped to Morpheus */
+  --breadcrumb-icon-color: var(--mor-muted);
+  --breadcrumb-text-color: var(--mor-muted);
+  --breadcrumb-link-color: var(--mor-link);
+  --breadcrumb-current-color: var(--mor-link);
 
-  /* Typography - using neo-design variables */
+  /* Typography - using Morpheus variables */
   --breadcrumb-font-family: var(--ifm-font-family-base);
-  --breadcrumb-font-size: var(--neo-font-size-sm);
-  --breadcrumb-font-weight: var(--neo-font-weight-medium);
+  --breadcrumb-font-size: var(--mor-font-size-base);
+  --breadcrumb-font-weight: var(--mor-font-weight-medium);
   --breadcrumb-line-height: 1;
 
   display: inline-flex;
@@ -41,9 +41,7 @@
 
 /* Dark mode tokens - using brand variables from custom.css */
 [data-theme='dark'] .breadcrumbs {
-  --breadcrumb-icon-color: var(--neo-grey-400);
-  --breadcrumb-text-color: var(--neo-grey-400);
-  --breadcrumb-link-color: var(--neo-grey-400);
+  --breadcrumb-link-color: var(--mor-muted);
   --breadcrumb-current-color: var(--brand-digital-green);
 }
 
@@ -51,7 +49,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -84,8 +82,8 @@
 
   &:focus-visible {
     outline: 2px solid var(--breadcrumb-link-color);
-    outline-offset: var(--neo-spacing_1_4);
-    border-radius: var(--neo-border-radius-x-xs);
+    outline-offset: var(--mor-space-2px);
+    border-radius: var(--mor-radius-xs);
   }
 }
 

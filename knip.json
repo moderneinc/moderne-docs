@@ -2,7 +2,6 @@
   "$schema": "https://unpkg.com/knip@latest/schema.json",
   "entry": [
     "src/pages/**/*.tsx",
-    "src/client/loadNeoDesign.js",
     "sidebars.ts",
     "docs/**/*.{md,mdx}"
   ],

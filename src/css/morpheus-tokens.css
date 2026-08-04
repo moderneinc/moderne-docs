@@ -10,9 +10,8 @@
  * tokens are verbatim. Radii, shadows, type scale, and spacing are promoted from
  * the prototype's inlined literals into named tokens so the system is addressable.
  *
- * Namespace: --mor-* (distinct from --neo-* and --ifm-*). When Morpheus tokens
- * are folded upstream into @moderneinc/neo-design, this file becomes a thin
- * alias layer (--mor-* -> --neo-*) and nothing downstream needs to change.
+ * Namespace: --mor-* (distinct from --ifm-*). This is the sole design-token
+ * source for the site.
  *
  * Dual-mode: brand-invariant tokens live in :root; every color and shadow token
  * has a light and dark value keyed on [data-theme], matching how Docusaurus
@@ -57,6 +56,11 @@
   /* Mint accent — brand-invariant (identical in both modes) */
   --mor-green: #30f284;
 
+  /* White foreground for text/icons on saturated fills (blue chips, accent
+     badges). Brand-invariant on purpose: unlike --mor-btn-primary-fg it must NOT
+     flip in dark mode, since the fill it sits on stays saturated. */
+  --mor-on-accent: #ffffff;
+
   /* Border radius scale (px values observed across prototype components) */
   --mor-radius-xs: 2px; /* area/category tiles */
   --mor-radius-sm: 4px; /* buttons, chips, kbd */
@@ -81,6 +85,12 @@
   --mor-font-size-lg: 16px; /* lede */
   --mor-font-size-h2: 18px;
 
+  /* Article heading sizes — docs content, above the UI type scale (which tops
+     out at 18px). */
+  --mor-font-size-doc-h3: 21px;
+  --mor-font-size-doc-h2: 24px;
+  --mor-font-size-doc-h1: 28px;
+
   --mor-font-weight-regular: 400;
   --mor-font-weight-medium: 500;
   --mor-font-weight-semibold: 600;
@@ -98,6 +108,18 @@
   --mor-space-6: 24px;
   --mor-space-7: 30px;
   --mor-space-8: 40px;
+
+  /* Extended raw steps — cover spacing values the ordinal scale lacks, kept
+     pixel-exact so the neo→mor migration doesn't shift layout. The px suffix
+     avoids collision with the ordinal names above. 26/28px are off-grid one-offs
+     carried over verbatim; candidates for later cleanup. */
+  --mor-space-2px: 2px;
+  --mor-space-6px: 6px;
+  --mor-space-26px: 26px;
+  --mor-space-28px: 28px;
+  --mor-space-32px: 32px;
+  --mor-space-48px: 48px;
+  --mor-space-56px: 56px;
 }
 
 /*
@@ -139,6 +161,7 @@
   --mor-ill-accent: #3e5be8;
 
   /* Elevation */
+  --mor-shadow-card: 0 2px 4px rgba(35, 35, 66, 0.1);
   --mor-shadow-dropdown: 0 12px 28px rgba(35, 35, 66, 0.14);
   --mor-shadow-modal: 0 24px 64px rgba(35, 35, 66, 0.25);
 
@@ -190,6 +213,7 @@
   --mor-ill-accent: #8ca0f5;
 
   /* Elevation */
+  --mor-shadow-card: 0 2px 4px rgba(0, 0, 0, 0.4);
   --mor-shadow-dropdown: 0 12px 28px rgba(0, 0, 0, 0.5);
   --mor-shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.6);
 

@@ -1,23 +1,16 @@
 /*
- * Morpheus Theme — Mapping Layer (Phase 1)
+ * Morpheus Theme — Mapping Layer
  *
- * Re-points the bridge variables the site already funnels through at the
+ * Re-points the Infima bridge variables the site funnels through at the
  * Morpheus tokens defined in `morpheus-tokens.css`. Loaded LAST in the
  * `customCss` array (after `custom.css`), so these :root / [data-theme] rules
  * win by source order at equal specificity.
  *
- * Scope (Phase 1 — foundation reskin, no component rewrites):
+ * Scope:
  * - Typography family (Geist), body/heading/link/background colors, primary
- *   accent, borders, and the --brand-* vars that swizzled components read
- *   directly (--brand-midnight drives headings, code text, search icon, etc.).
- *
- * Deliberately NOT touched here (Phase 3 — component polish):
- * - Admonition per-type tints, code-block chrome, and other rules in
- *   custom.css that reference --neo-* palette scales directly. Those keep their
- *   Neo values until each component is reskinned against Morpheus tokens.
- *
- * To disable Morpheus and fall back to Neo: remove this file from the
- * `customCss` array in docusaurus.config.ts. Nothing else depends on it.
+ *   accent, borders, the --brand-* vars that swizzled components read directly
+ *   (--brand-midnight drives headings, code text, search icon, etc.), and the
+ *   admonition per-type tints (mode-aware --mor-status-* tokens).
  *
  * Guidelines: reference var(--mor-*) without fallbacks so missing tokens fail
  * visibly (consistent with the rest of the codebase).
@@ -59,8 +52,8 @@ html[data-theme='light'] {
   --ifm-link-color: var(--mor-link);
   --ifm-link-hover-color: var(--mor-link-deep);
 
-  /* Primary accent (buttons, active states). Full tint scale is Phase 3; the
-     base + one step keep Infima's derived states coherent for now. */
+  /* Primary accent (buttons, active states). Morpheus has no blue ramp, so the
+     derived Infima tiers collapse to link / link-deep. */
   --ifm-color-primary: var(--mor-link);
   --ifm-color-primary-dark: var(--mor-link-deep);
   --ifm-color-primary-darker: var(--mor-link-deep);
@@ -80,9 +73,7 @@ html[data-theme='light'] {
 }
 
 /* Dark mode. Matches custom.css's html[data-theme='dark'] specificity and loads
-   later, so these win. Note: custom.css forces dark h1/h2 to --neo-surfaces-white
-   via !important — that near-white (#FFF) is close enough to Morpheus --mor-text
-   (#F1F0EA) to leave for Phase 3. */
+   later, so these win. */
 html[data-theme='dark'] {
   /* Surfaces */
   --ifm-background-color: var(--mor-bg);

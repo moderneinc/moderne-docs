@@ -6,12 +6,12 @@
 .browseByProduct {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_3);
+  gap: var(--mor-space-6);
 }
 
 .sectionTitle {
-  font-size: var(--neo-font-size-default);
-  font-weight: var(--neo-font-weight-medium);
+  font-size: var(--mor-font-size-lg);
+  font-weight: var(--mor-font-weight-medium);
   color: var(--mor-text);
   margin: 0;
 }
@@ -19,7 +19,7 @@
 .productGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--neo-spacing_3);
+  gap: var(--mor-space-6);
 }
 
 @media (max-width: 996px) {
@@ -36,7 +36,7 @@
 
 .productCard {
   display: flex;
-  padding: var(--neo-spacing_3);
+  padding: var(--mor-space-6);
   background: var(--mor-surface);
   /* Resting hairline so the tile stays perceptible against the page (the
      surface/bg fill delta alone is ~1.05:1, well under WCAG 1.4.11's 3:1). */
@@ -56,21 +56,21 @@
 .productCardContent {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_1_2);
+  gap: var(--mor-space-1);
   min-width: 0;
 }
 
 .productCardTitle {
-  font-size: var(--neo-font-size-default);
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-size: var(--mor-font-size-lg);
+  font-weight: var(--mor-font-weight-semibold);
   color: var(--mor-text);
   margin: 0;
   line-height: 1.3;
 }
 
 .productCardDescription {
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-regular);
+  font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-regular);
   color: var(--mor-muted);
   margin: 0;
   line-height: 1.4;

@@ -5,26 +5,21 @@ display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: var(--neo-spacing_1_2);
+  padding: var(--mor-space-1);
   border: none;
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: var(--mor-radius-sm);
   background-color: transparent;
-  color: var(--neo-typography-body-secondary);
+  color: var(--mor-muted);
   cursor: pointer;
 }
 
 .copyId:hover {
-background-color: var(--neo-surfaces-card);
-  color: var(--neo-typography-link-primary);
+background-color: var(--mor-card);
+  color: var(--mor-link);
 }
 
 html[data-theme='dark'] {
-.copyId {
-color: var(--neo-grey-400);
-}
-
 .copyId:hover {
-background-color: var(--neo-grey-800);
-    color: var(--neo-digital-green-300);
+color: var(--mor-green);
 }
 }

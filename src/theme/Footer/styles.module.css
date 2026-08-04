@@ -21,7 +21,7 @@
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 var(--neo-spacing_3_1_4);
+  padding: 0 var(--mor-space-26px);
 }
 
 .social {

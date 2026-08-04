@@ -11,13 +11,13 @@
   width: 100%;
   max-width: 375px;
   min-height: 106px;
-  padding: var(--neo-spacing_2);
+  padding: var(--mor-space-4);
   border-radius: var(--mor-radius-lg);
 
   /* Flexbox Layout */
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_2);
+  gap: var(--mor-space-4);
   justify-content: space-between;
 
   /* Colors */
@@ -80,14 +80,14 @@
   .card__content {
     display: flex;
     flex-direction: column;
-    gap: var(--neo-spacing_2);
+    gap: var(--mor-space-4);
   }
 
   /* Header with Icon, Gem, and Title */
   .card__header {
     display: flex;
     align-items: center;
-    gap: var(--neo-spacing_1);
+    gap: var(--mor-space-2);
   }
 
   /* Icon Container */
@@ -95,8 +95,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--neo-spacing_2_1_2);
-    height: var(--neo-spacing_2_1_2);
+    width: var(--mor-space-5);
+    height: var(--mor-space-5);
     flex-shrink: 0;
     color: var(--mor-muted);
   }
@@ -106,16 +106,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--neo-spacing_2_1_2);
-    height: var(--neo-spacing_2_1_2);
+    width: var(--mor-space-5);
+    height: var(--mor-space-5);
     flex-shrink: 0;
   }
 
   /* Title */
   .card__title {
     font-family: var(--mor-font-sans);
-    font-size: var(--neo-font-size-h6);
-    font-weight: var(--neo-font-weight-semi-bold);
+    font-size: var(--mor-font-size-lg);
+    font-weight: var(--mor-font-weight-semibold);
     line-height: 1.4;
     color: var(--mor-text);
     margin: 0;
@@ -128,8 +128,8 @@
   /* Description */
   .card__description {
     font-family: var(--mor-font-sans);
-    font-size: var(--neo-font-size-xs);
-    font-weight: var(--neo-font-weight-regular);
+    font-size: var(--mor-font-size-sm);
+    font-weight: var(--mor-font-weight-regular);
     line-height: 1.5;
     color: var(--mor-muted);
     margin: 0;
@@ -139,7 +139,7 @@
   /* Action Buttons Container */
   .card__buttons {
     display: flex;
-    gap: var(--neo-spacing_3);
+    gap: var(--mor-space-6);
     align-items: center;
   }
 }

@@ -3,17 +3,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--neo-spacing_2);
+  gap: var(--mor-space-4);
 }
 
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--neo-spacing_1);
-  margin: var(--neo-spacing_1) 0 var(--neo-spacing_2) 0;
+  gap: var(--mor-space-2);
+  margin: var(--mor-space-2) 0 var(--mor-space-4) 0;
   padding: 0;
-  font-size: var(--neo-font-size-sm);
+  font-size: var(--mor-font-size-base);
   color: var(--brand-midnight);
 }
 
@@ -33,13 +33,13 @@
 .crumb {
   display: inline-flex;
   align-items: center;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
 }
 
 .link {
   color: var(--brand-midnight);
   text-decoration: none;
-  font-weight: var(--neo-font-weight-regular);
+  font-weight: var(--mor-font-weight-regular);
 }
 
 .link:hover {
@@ -48,25 +48,25 @@
 }
 
 .separator {
-  color: var(--neo-grey-400);
+  color: var(--mor-muted);
   flex-shrink: 0;
 }
 
 .current {
   display: inline-flex;
   align-items: center;
-  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
-  background-color: var(--neo-surfaces-white);
-  border: 1px solid var(--neo-grey-200);
-  border-radius: var(--neo-border-radius-button);
-  font-weight: var(--neo-font-weight-regular);
+  padding: var(--mor-space-1) var(--mor-space-3);
+  background-color: var(--mor-card);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-full);
+  font-weight: var(--mor-font-weight-regular);
   color: var(--brand-midnight);
 }
 
 html[data-theme='dark'] .breadcrumbs,
 html[data-theme='dark'] .homeLink,
 html[data-theme='dark'] .link {
-  color: var(--neo-surfaces-white);
+  color: var(--mor-text);
 }
 
 html[data-theme='dark'] .homeLink:hover,
@@ -74,12 +74,6 @@ html[data-theme='dark'] .link:hover {
   color: var(--brand-digital-green);
 }
 
-html[data-theme='dark'] .separator {
-  color: var(--neo-grey-600);
-}
-
 html[data-theme='dark'] .current {
-  background-color: var(--neo-grey-800);
-  border-color: var(--neo-grey-700);
-  color: var(--neo-surfaces-white);
+  color: var(--mor-text);
 }

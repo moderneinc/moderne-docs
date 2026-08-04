@@ -1,21 +1,21 @@
 .tabsContainer {
   display: flex;
-  gap: var(--neo-spacing_1);
-  padding: var(--neo-spacing_1) var(--neo-spacing_2);
-  border-bottom: 1px solid var(--neo-border-primary);
+  gap: var(--mor-space-2);
+  padding: var(--mor-space-2) var(--mor-space-4);
+  border-bottom: 1px solid var(--mor-line);
 }
 
 .tab {
   display: inline-flex;
   align-items: center;
-  padding: var(--neo-spacing_3_4) var(--neo-spacing_1_1_2);
+  padding: var(--mor-space-6px) var(--mor-space-3);
   border-radius: 999px;
-  border: 1px solid var(--neo-border-primary);
+  border: 1px solid var(--mor-line);
   background: transparent;
-  color: var(--neo-typography-input-default);
+  color: var(--mor-text);
   font-family: var(--mor-font-sans), sans-serif;
-  font-size: var(--neo-font-size-xs);
-  font-weight: var(--neo-font-weight-medium);
+  font-size: var(--mor-font-size-sm);
+  font-weight: var(--mor-font-weight-medium);
   cursor: pointer;
   transition: all 0.15s ease;
   white-space: nowrap;
@@ -23,18 +23,18 @@
 }
 
 .tab:hover {
-  background: var(--neo-surfaces-list-hover);
+  background: var(--mor-row-hover);
 }
 
 .tabActive {
-  background: var(--neo-digital-blue-500);
-  border-color: var(--neo-digital-blue-500);
-  color: var(--neo-surfaces-white);
+  background: var(--mor-link);
+  border-color: var(--mor-link);
+  color: var(--mor-on-accent);
 }
 
 .tabActive:hover {
-  background: var(--neo-digital-blue-600);
-  border-color: var(--neo-digital-blue-600);
+  background: var(--mor-link-deep);
+  border-color: var(--mor-link-deep);
 }
 
 html[data-theme='dark'] .tab {
@@ -46,25 +46,14 @@ html[data-theme='dark'] .tab:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-html[data-theme='dark'] .tabActive {
-  background: var(--neo-digital-blue-400);
-  border-color: var(--neo-digital-blue-400);
-  color: var(--neo-surfaces-white);
-}
-
-html[data-theme='dark'] .tabActive:hover {
-  background: var(--neo-digital-blue-500);
-  border-color: var(--neo-digital-blue-500);
-}
-
 @media (max-width: 768px) {
   .tabsContainer {
-    padding: var(--neo-spacing_1) var(--neo-spacing_1_1_2);
-    gap: var(--neo-spacing_3_4);
+    padding: var(--mor-space-2) var(--mor-space-3);
+    gap: var(--mor-space-6px);
   }
 
   .tab {
-    font-size: var(--neo-font-size-xxs);
-    padding: var(--neo-spacing_1_2) var(--neo-spacing_1);
+    font-size: var(--mor-font-size-overline);
+    padding: var(--mor-space-1) var(--mor-space-2);
   }
 }
