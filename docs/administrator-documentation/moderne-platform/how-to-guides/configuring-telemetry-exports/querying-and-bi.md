@@ -17,6 +17,8 @@ The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) r
 
 Each row records one repository's run of one command, keyed by command `type` (`run`, `commit`, `build`, …). Rows are **hierarchical**: a command carries its own stage plus every earlier stage in the workflow, with `organization` always the last column. For the full field list, see the [trace.csv reference](../../../../user-documentation/moderne-cli/references/trace-csv.md).
 
+Build columns are empty on rows where sync downloaded a prebuilt LST instead of source, which is expected rather than missing data. Scope build reporting to rows where a build was actually attempted with `WHERE buildoutcome IS NOT NULL`. See [when the build columns are empty](../../../../user-documentation/moderne-cli/references/trace-csv.md#when-the-build-columns-are-empty).
+
 Telemetry lands in a Hive-partitioned layout, which every engine below prunes on:
 
 ```
@@ -65,7 +67,7 @@ Please confirm that:
 
 ### Some `mod` commands are missing traces
 
-Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit exported telemetry: sync, build, run, apply, add, commit, push, publish, exec, and mcp. `mod config`, `mod license`, and similar admin commands do not. `mod git checkout` writes a trace only into the repository it touched and never queues it for upload, so there is no `type=checkout` partition to query. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
+Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit exported telemetry: sync, build, run, apply, add, commit, push, publish, exec, and mcp. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
 
 ### Replication lag is too high
 

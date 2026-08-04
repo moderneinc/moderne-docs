@@ -38,7 +38,15 @@ Each command produces a trace that includes its own stage plus all prior stages.
 
 `mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec` and MCP tool calls are standalone: they carry the common columns plus their own stage, with no earlier workflow stages.
 
-`mod git checkout` also writes a trace, but only into the `.moderne/` directory of the repository it touched. It is never queued for upload, so there is no `type=checkout` partition to query.
+## When the build columns are empty
+
+Empty `build*` columns mean no build ran, not that data is missing. `mod git sync` can download a prebuilt LST instead of source, and `mod run` then follows sync directly.
+
+When reporting on builds, scope to rows where a build was actually attempted, or rows that never tried one will look like failures:
+
+```sql
+WHERE buildoutcome IS NOT NULL
+```
 
 ## Common fields
 
