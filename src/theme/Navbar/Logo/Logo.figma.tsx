@@ -13,7 +13,10 @@ import DocsLogo from './index';
 
 /**
  * Connect the Figma component to the React component
- * This component renders the Moderne logo with "Docs" dropdown button
+ * This component renders the Moderne "Documentation" lockup, linked to the site root.
+ *
+ * TODO: the node ID below still points at the pre-rebrand "Docs Logo" component.
+ * Repoint it at the Morpheus "Documentation" lockup node.
  */
 figma.connect(
   DocsLogo,
@@ -30,20 +33,14 @@ figma.connect(
  *
  * 1. This is a swizzled Docusaurus theme component that replaces the default navbar logo.
  *
- * 2. The component includes:
- *    - Moderne logo symbol (SVG)
- *    - "Moderne®" wordmark with registered trademark
- *    - "Docs" button with dropdown chevron
- *    - MegaMenu dropdown (opens when button is clicked)
+ * 2. The component renders the Moderne "Documentation" lockup as two <img> tags,
+ *    one light and one dark. Both are always in the DOM; CSS toggles them on
+ *    [data-theme] so the logo does not flash on hydration.
  *
- * 3. The "Property 1=Standard" variant from Figma represents the default state.
- *    The component handles its own state for menu open/closed.
+ * 3. The component is stateless. The link wrapping the lockup carries the
+ *    accessible name ("Moderne Documentation"); the images themselves are
+ *    decorative and have empty alt text.
  *
- * 4. Features:
- *    - Toggles MegaMenu on click
- *    - Chevron rotates when menu is open
- *    - Accessible with ARIA labels and expanded state
- *
- * 5. This component is automatically used in the Docusaurus navbar via theme swizzling.
+ * 4. This component is automatically used in the Docusaurus navbar via theme swizzling.
  *    Location: src/theme/Navbar/Logo/index.tsx
  */

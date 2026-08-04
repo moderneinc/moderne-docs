@@ -5,18 +5,11 @@ import LogoWrapper from './index';
 /**
  * Navbar Logo - Swizzled Docusaurus component
  *
- * Custom logo with:
- * - Moderne symbol (with spin animation on click)
- * - Moderne wordmark
- * - "Docs" text label
- * - Chevron dropdown button
- * - Integrated MegaMenu
- * - Dark mode support
+ * Renders the Moderne "Documentation" lockup, linked to the site root.
  *
- * Features:
- * - Click chevron to open/close mega menu
- * - Logo spins on menu toggle
- * - Click outside or press Escape to close menu
+ * Both the light and dark lockups are always in the DOM and toggled via
+ * [data-theme] in CSS rather than swapped in JS, so the logo does not flash on
+ * hydration. Toggle Storybook's theme to see the dark treatment.
  */
 const meta: Meta<typeof LogoWrapper> = {
   title: 'Theme/Navbar/Logo',
@@ -26,7 +19,7 @@ const meta: Meta<typeof LogoWrapper> = {
     docs: {
       description: {
         component:
-          'Swizzled Docusaurus Navbar Logo component with MegaMenu integration and spin animation.',
+          'Swizzled Docusaurus Navbar Logo component rendering the Moderne "Documentation" lockup.',
       },
     },
   },
@@ -37,49 +30,36 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 /**
- * Interactive
+ * Default
  *
- * Interactive logo with MegaMenu integration.
- * Click the chevron to open the menu and see the logo spin animation.
+ * The lockup as it appears in the navbar.
  */
-export const Interactive: Story = {
+export const Default: Story = {
   render: () => (
-    <div style={{ position: 'relative', minHeight: '800px' }}>
-      <div
-        style={{
-          background: 'var(--ifm-navbar-background-color)',
-          borderBottom: '1px solid var(--ifm-color-border)',
-          padding: '0 var(--ifm-navbar-padding-horizontal)',
-        }}
-      >
-        <LogoWrapper />
-      </div>
-      <div style={{ padding: '20px' }}>
-        <p style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          Click the chevron next to "Docs" to open the MegaMenu.
-        </p>
-        <ul style={{ color: 'var(--ifm-color-emphasis-600)' }}>
-          <li>Click chevron → menu opens, logo spins</li>
-          <li>Click outside or press Escape → menu closes</li>
-          <li>Click chevron again → menu closes</li>
-        </ul>
-      </div>
+    <div
+      style={{
+        background: 'var(--ifm-navbar-background-color)',
+        borderBottom: '1px solid var(--ifm-color-border)',
+        padding: '0 var(--ifm-navbar-padding-horizontal)',
+      }}
+    >
+      <LogoWrapper />
     </div>
   ),
 };
 
 /**
- * All Variations
+ * On different surfaces
  *
- * Shows the logo in different contexts and states.
- * Toggle dark mode to see color scheme adaptation.
+ * The lockup over the navbar background and over a card surface.
+ * Toggle dark mode to see the light/dark lockups swap.
  */
-export const AllVariations: Story = {
+export const OnDifferentSurfaces: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
       <div>
         <h3 style={{ fontSize: '14px', marginBottom: '12px', color: 'var(--ifm-color-emphasis-600)' }}>
-          Default State (Closed MegaMenu)
+          Navbar background
         </h3>
         <div
           style={{
@@ -93,7 +73,7 @@ export const AllVariations: Story = {
       </div>
       <div>
         <h3 style={{ fontSize: '14px', marginBottom: '12px', color: 'var(--ifm-color-emphasis-600)' }}>
-          With Different Background
+          Card surface
         </h3>
         <div
           style={{
