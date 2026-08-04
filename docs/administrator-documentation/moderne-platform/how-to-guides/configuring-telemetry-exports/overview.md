@@ -26,23 +26,12 @@ There are two **sources** that produce this telemetry:
 
 Both sources land in the same place, with the same partition layout, so queries can analyze them together or filter to one source as needed.
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 ### How and when CLI telemetry is pushed
 
 A signed-in CLI queues each trace locally and auto-pushes queued telemetry to your tenant gateway when it refreshes its license lease, which happens at most once every three days.
 
-<<<<<<< Updated upstream
-If the default cadence isn't frequent enough for your reporting, add `mod telemetry publish` to your customized [`modw` wrapper](../../../../user-documentation/moderne-cli/how-to-guides/cli-wrapper.md) or a CI job so it runs on a schedule you control, with no change to how the CLI is used.
-
-=======
 If the default cadence isn't frequent enough for your reporting, add `mod telemetry publish` to your customized [`modw` wrapper](../../../../user-documentation/moderne-cli/how-to-guides/cli-wrapper.md) with no other change to how the CLI is used.
 
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 ### Schema reference
 
 The CSV schema is hierarchical: each command embeds rows from prior pipeline stages. There are two pipelines, sharing the early stages:
