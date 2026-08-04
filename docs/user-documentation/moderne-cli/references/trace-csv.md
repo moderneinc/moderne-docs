@@ -23,18 +23,20 @@ This page is the field reference for those rows.
 
 Each command produces a trace that includes its own stage plus all prior stages. The `type` value identifies the command.
 
-| Command              | `type`    | Stages included                                  |
-|----------------------|-----------|--------------------------------------------------|
-| `mod git sync`       | `sync`    | Sync                                             |
-| `mod build`          | `build`   | Sync + Build                                     |
-| `mod run`            | `run`     | Sync + Build + Run                               |
-| `mod git apply`      | `apply`   | Sync + Build + Run + Apply                       |
-| `mod git add`        | `add`     | Sync + Build + Run + Apply + Add                 |
-| `mod git commit`     | `commit`  | Sync + Build + Run + Apply + Add + Commit        |
-| `mod git push`       | `push`    | Sync + Build + Run + Apply + Add + Commit + Push |
-| `mod publish`        | `publish` | Sync + Build + Publish                           |
-| `mod exec`           | `exec`    | Exec (standalone)                                |
-| MCP server tool call | `mcp`     | MCP (standalone)                                 |
+| Command              | `type`    | Stages included                                    |
+|----------------------|-----------|----------------------------------------------------|
+| `mod git sync`       | `sync`    | Sync                                               |
+| `mod build`          | `build`   | Sync + Build                                       |
+| `mod run`            | `run`     | Sync + Build\* + Run                               |
+| `mod git apply`      | `apply`   | Sync + Build\* + Run + Apply                       |
+| `mod git add`        | `add`     | Sync + Build\* + Run + Apply + Add                 |
+| `mod git commit`     | `commit`  | Sync + Build\* + Run + Apply + Add + Commit        |
+| `mod git push`       | `push`    | Sync + Build\* + Run + Apply + Add + Commit + Push |
+| `mod publish`        | `publish` | Sync + Build + Publish                             |
+| `mod exec`           | `exec`    | Exec (standalone)                                  |
+| MCP server tool call | `mcp`     | MCP (standalone)                                   |
+
+\* Build is skipped when `mod git sync` downloads a prebuilt LST. See [when the build columns are empty](#when-the-build-columns-are-empty).
 
 `mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec` and MCP tool calls are standalone: they carry the common columns plus their own stage, with no earlier workflow stages.
 
