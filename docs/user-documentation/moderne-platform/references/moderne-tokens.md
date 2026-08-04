@@ -93,7 +93,3 @@ If an SCM token is currently valid, a user can use their [Personal Access Token]
 ### Permissions
 
 SCM tokens will have different permissions depending on the source code manager used and what the user has allowed or not.
-
-### Expiration
-
-SCM tokens expire after 8 hours.
