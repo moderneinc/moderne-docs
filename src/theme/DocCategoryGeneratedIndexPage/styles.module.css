@@ -1,9 +1,6 @@
 /* Base layout for generated index pages */
 .generatedIndexPage {
   --ifm-spacing-horizontal: var(--neo-spacing_3_1_4);
-  /* Fallbacks if the per-page inline style isn't set */
-  --header-wave-image: url('/img/waves/wave-14.png');
-  --header-wave-transform: none;
   position: relative;
 }
 
@@ -44,36 +41,32 @@
   flex-direction: column;
 }
 
-/* Header group (title + description) — wave image only, no fill */
+/* Section hero — flat Morpheus card with a spectral bar across the top edge. */
 .header {
   display: flex;
   flex-direction: column;
   gap: var(--neo-spacing_1);
   margin-bottom: var(--neo-spacing_4);
   padding: var(--neo-spacing_5) var(--neo-spacing_4);
-  border: 1.5px solid var(--neo-surfaces-white);
-  border-radius: var(--neo-border-radius-m);
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.4);
+  background: var(--mor-card);
+  border: 1px solid var(--mor-line-strong);
+  border-radius: var(--mor-radius-card);
   position: relative;
   overflow: hidden;
-  isolation: isolate;
-  background: transparent;
 }
 
+/* Spectral bar across the top edge; the card's overflow:hidden clips it to the
+   rounded corners. */
 .header::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image: var(--header-wave-image);
-  background-size: 100% auto;
-  background-position: center center;
-  background-repeat: no-repeat;
-  transform: var(--header-wave-transform, none);
-  transform-origin: center;
-  filter: blur(24px);
-  opacity: 0.3;
-  border-radius: inherit;
-  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--mor-spectral);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .header .title {
@@ -81,7 +74,7 @@
   font-size: 36px;
   font-weight: var(--neo-font-weight-semi-bold);
   line-height: 45px;
-  color: var(--brand-midnight);
+  color: var(--mor-text);
   margin: 0;
 }
 
@@ -89,21 +82,8 @@
   font-size: var(--neo-font-size-sm);
   font-weight: var(--neo-font-weight-regular);
   line-height: 1.4;
-  color: var(--brand-midnight);
+  color: var(--mor-muted);
   margin: 0;
-}
-
-[data-theme='dark'] .header {
-  border-color: var(--brand-digital-blue);
-  box-shadow: none;
-
-  .title {
-    color: var(--neo-surfaces-white);
-  }
-
-  p {
-    color: #d4d3e4;
-  }
 }
 
 /* Force single-column layout for card list to match Figma design */
