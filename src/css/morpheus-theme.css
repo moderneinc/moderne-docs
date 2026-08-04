@@ -112,9 +112,8 @@ html[data-theme='dark'] {
  *
  * The --mor-status-* tokens are mode-aware (defined per [data-theme] in
  * morpheus-tokens.css), so a single rule per type covers light AND dark,
- * superseding the duplicated Neo light/dark blocks in custom.css. Accent drives
+ * superseding the duplicated light/dark blocks in custom.css. Accent drives
  * the border, icon (stroke: currentColor), and heading; body copy stays neutral.
- * Mirrors the Admonition component in the Morpheus Docs Design System Figma file.
  * Caution shares the warning tint; Summary shares info.
  */
 .theme-admonition-note {

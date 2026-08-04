@@ -29,7 +29,7 @@
 /**
  * Global sidebar typography and link styles
  * Applied via global selectors targeting the theme class
- * Aligned with Figma design specifications
+ * Aligned with the Morpheus design system
  */
 :global(.theme-doc-sidebar-menu) {
   font-size: var(--mor-font-size-lg);

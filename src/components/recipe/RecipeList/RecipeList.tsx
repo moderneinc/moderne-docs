@@ -36,7 +36,7 @@ const BOUNDED_THRESHOLD = 15;
 /** Borderless, inset list of recipe links — matches the data table sitting in an accordion body. */
 const RecipeRows: FunctionComponent<{ recipes: SubRecipe[] }> = ({ recipes }) => (
   <ul className={styles.recipeRows}>
-    {recipes.map((r) => (<RecipeLink key={r.href} recipe={r} />))}
+    {recipes.map((r, i) => (<RecipeLink key={`${r.href}-${i}`} recipe={r} />))}
   </ul>
 );
 
@@ -107,7 +107,7 @@ export const RecipeList: FunctionComponent<{ recipes: SubRecipe[]; preconditions
           </div>
           <ul className={styles.recipeListWindow} aria-label="Recipe list" tabIndex={0}>
             {filtered.length ? (
-              filtered.map((r) => <RecipeLink key={r.href} recipe={r} />)
+              filtered.map((r, i) => <RecipeLink key={`${r.href}-${i}`} recipe={r} />)
             ) : (
               <li className={styles.recipeListEmpty}>No recipes match “{query}”.</li>
             )}

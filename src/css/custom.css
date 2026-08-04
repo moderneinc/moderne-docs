@@ -20,16 +20,16 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* BRAND: Custom light blue/lavender background from Figma */
+  /* BRAND: Custom light blue/lavender background */
   --ifm-background-color: #fafaff;
-  --background: #fafaff; /* Figma design token */
+  --background: #fafaff; /* brand background token */
 
   /* BRAND: Preserve mint accent - no Morpheus mapping */
   --ifm-color-mint: #85FE99;
-  --brand-digital-green: #85fe98; /* Primary green from Figma design */
+  --brand-digital-green: #85fe98; /* Primary green */
   --brand-digital-blue: var(--mor-link); /* Primary blue */
-  --brand-midnight: #041834; /* Midnight color from Figma design */
-  --brand-dark-lavender: #d4d3e4; /* Dark lavender border color from Figma design */
+  --brand-midnight: #041834; /* Midnight color */
+  --brand-dark-lavender: #d4d3e4; /* Dark lavender border color */
 
   /* Primary accent — Morpheus link blue. Morpheus has no blue ramp, so the
      derived Infima tiers collapse to link / link-deep. */

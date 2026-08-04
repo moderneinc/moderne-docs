@@ -22,8 +22,7 @@
  *   visibly rather than silently degrading.
  * - Add new brand values here, never as one-off hex literals in components.
  *
- * Scope note: this file defines the COMPLETE Morpheus token set (mirrored in the
- * "Morpheus Docs Design System" Figma library), so some tokens — parts of the
+ * Scope note: this file defines the COMPLETE Morpheus token set, so some tokens — parts of the
  * spacing/type scales, --mor-field, --mor-ill-*, --mor-shadow-modal, and several
  * radii — are intentionally staged ahead of their first consumer and land with
  * the components that adopt them in later phases. `validate:css` only flags
@@ -166,8 +165,7 @@
   --mor-shadow-modal: 0 24px 64px rgba(35, 35, 66, 0.25);
 
   /* Status — admonition tints (bg + accent per type). Accent drives border,
-     icon, and heading; body copy uses --mor-text. Mirrors the Semantic/status
-     variables in the Morpheus Docs Design System Figma file. */
+     icon, and heading; body copy uses --mor-text. */
   --mor-status-info-bg: #eef3fc;
   --mor-status-info-accent: #1245ae;
   --mor-status-tip-bg: #eaf7ef;

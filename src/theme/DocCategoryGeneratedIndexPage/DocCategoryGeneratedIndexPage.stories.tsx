@@ -112,7 +112,7 @@ function CategoryPageLayout({
  * DocCategoryGeneratedIndexPage - Swizzled Docusaurus component
  *
  * Custom category index page component for documentation sections with:
- * - Category title and description (matching Figma design node 478:5567)
+ * - Category title and description
  * - Full-width card list with single-column layout
  * - Cards display title and optional description
  * - Gem icons are hidden on auto-generated category index pages via CSS

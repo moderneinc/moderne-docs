@@ -45,7 +45,7 @@ export type NeoButtonProps = {
 
 /**
  * NeoButton component following Moderne's Neo Design system
- * Based on Figma design with Neo Design CSS variables
+ * Uses Morpheus design tokens
  */
 export const NeoButton: FunctionComponent<NeoButtonProps> = ({
   children,

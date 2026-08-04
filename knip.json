@@ -11,11 +11,10 @@
     ".docusaurus/**",
     "src/theme/**",
   ],
-  "ignoreFiles": ["**/*.stories.tsx", "**/*.figma.tsx"],
+  "ignoreFiles": ["**/*.stories.tsx"],
   "ignoreDependencies": [
     "@docusaurus/faster",
     "@docusaurus/plugin-content-docs",
-    "@figma/code-connect",
     "@storybook/react",
     "@svgr/webpack",
     "@testing-library/jest-dom",

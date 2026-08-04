@@ -155,7 +155,7 @@ function CategoryContainer({ children }: { children: React.ReactNode }) {
  *
  * This component renders collapsible sidebar categories with:
  * - Lucide React icons (ChevronRight/ChevronDown) instead of CSS pseudo-elements
- * - Updated typography aligned with Figma design (16px font size)
+ * - Updated typography (16px font size)
  * - Brand digital blue for active states
  * - Proper Neo Design CSS variables
  *

@@ -86,7 +86,7 @@
   margin: 0;
 }
 
-/* Force single-column layout for card list to match Figma design */
+/* Force single-column layout for card list */
 .list {
   display: flex;
   flex-direction: column;

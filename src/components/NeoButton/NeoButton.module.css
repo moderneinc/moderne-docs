@@ -1,12 +1,12 @@
 /**
  * Button Component Styles
- * Based on Figma design using Morpheus design tokens
+ * Uses Morpheus design tokens
  * Refactored with CSS nesting for improved specificity and maintainability
  */
 
 /* Base button styles */
 .button {
-  /* Typography - matches Figma: Inter Medium 14px */
+  /* Typography */
   font-family: var(--mor-font-sans);
   font-size: var(--mor-font-size-base);
   font-weight: var(--mor-font-weight-medium);
@@ -48,7 +48,7 @@
   }
 }
 
-/* Primary variant - blue button from Figma */
+/* Primary variant */
 .button--primary {
   background-color: var(--mor-btn-primary-bg);
   color: var(--mor-btn-primary-fg);
