@@ -12,7 +12,11 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 The Moderne Platform records a structured audit log of every user-initiated and system-initiated action. All audit events are persisted to a dedicated PostgreSQL database with a retention period of one year. Events are categorized by a CRUD action type (Create, Read, Update, Delete), tagged with the acting user's identity (or identified as a system-initiated action when performed automatically by the platform), timestamped in UTC, and marked with an outcome of Success or Failed.
 
-Tenant administrators (users in your organization that have been granted the `admin` role) can query audit logs through the Moderne UI, a paginated GraphQL API, or export them in CEF (Common Event Format) or CSV for ingestion into a SIEM or other log aggregation system. Access to the audit log is itself audited.
+Tenant administrators (users in your organization that have been granted the `admin` role) can query audit logs through a paginated GraphQL API, or export them in CEF (Common Event Format) or CSV for ingestion into a SIEM or other log aggregation system. Access to the audit log is itself audited.
+
+:::note
+There is no audit log UI in the Moderne Platform. Audit logs are available through the GraphQL API and as CEF or CSV downloads only.
+:::
 
 ## Centralized audit framework
 
@@ -64,7 +68,7 @@ All timestamps are recorded in UTC (RFC 3339 / ISO-8601 format: `YYYY-MM-DDTHH:M
 
 ## Access control
 
-Audit log access (both UI and API) is restricted to users with the `admin` role. Attempts to access audit logs without the `admin` role are denied. Access to the audit log itself is also logged.
+Audit log access is restricted to users with the `admin` role. Attempts to access audit logs without the `admin` role are denied. Access to the audit log itself is also logged.
 
 For more on roles, see the [user roles](./user-roles.md) reference documentation.
 
