@@ -112,8 +112,7 @@ Both have been removed. Status information now lives at `https://status.<tenant>
 
 **Removed:**
 
-* `/admin/status`: moved to `status.<tenant>.moderne.io`
-* `/status`: no direct replacement
+* `/admin/status` and `/status`: status information now lives at `status.<tenant>.moderne.io`. See [Atlas status pages](./saas-v2-changes.md#atlas-status-pages).
 * `/admin/reports`: the recipe run, commit, and usage report downloads (and their `downloadRecipeRunReport`-style GraphQL mutations) are gone. The same data is now delivered as telemetry replicated continuously into a bucket or storage account you own, which you query with your own BI stack. See [Configuring telemetry exports and reports](../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/overview.md). Audit logs are unaffected and remain available as a CEF or CSV download.
 * `/batch-changes`: folded into the Activity view
 

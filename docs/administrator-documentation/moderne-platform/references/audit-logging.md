@@ -15,7 +15,7 @@ The Moderne Platform records a structured audit log of every user-initiated and 
 Tenant administrators (users in your organization that have been granted the `admin` role) can query audit logs through a paginated GraphQL API, or export them in CEF (Common Event Format) or CSV for ingestion into a SIEM or other log aggregation system. Access to the audit log is itself audited.
 
 :::note
-There is no audit log UI in the Moderne Platform. Audit logs are available through the GraphQL API and as CEF or CSV downloads only.
+There is no audit log UI in the Moderne Platform. Audit logs are available through the [GraphQL API](../../../user-documentation/moderne-platform/references/graphql-api-reference.md) (`auditLogs`, `auditLogsDownloads`, and the `downloadAuditLogs` mutation) and as CEF or CSV downloads only.
 :::
 
 ## Centralized audit framework
