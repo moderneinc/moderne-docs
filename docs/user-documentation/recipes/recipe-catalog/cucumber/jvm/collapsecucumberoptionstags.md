@@ -1,17 +1,23 @@
 ---
-title: "Regenerate `go.sum`"
-sidebar_label: "Regenerate `go.sum`"
+title: "Collapse `@CucumberOptions` tags into a single tag expression"
+sidebar_label: "Collapse `@CucumberOptions` tags into a single tag expression"
 hide_title: true
 ---
+
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/cucumber/jvm/collapsecucumberoptionstags" />
+</head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Regenerate `go.sum`"}
-  description={"Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged."}
-  fqName={"org.openrewrite.golang.RegenerateGoSum"}
+  displayName={"Collapse `@CucumberOptions` tags into a single tag expression"}
+  description={"Cucumber-JVM 6.0.0 narrowed `@CucumberOptions#tags` from `String[]` to a single `String`. The elements of the array were combined with `and`, such that `tags = {\"@a\", \"@b\"}` becomes `tags = \"(@a) and (@b)\"`."}
+  fqName={"org.openrewrite.cucumber.jvm.CollapseCucumberOptionsTags"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-cucumber-jvm/blob/main/src/main/java/org/openrewrite/cucumber/jvm/CollapseCucumberOptionsTags.java"}
 />
 
 <RecipeHeader
@@ -19,20 +25,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   languages={["OpenRewrite"]}
   tags={[]}
   license={"Moderne Source Available License"}
-  fqName={"org.openrewrite.golang.RegenerateGoSum"}
-  artifact={"org.openrewrite:rewrite-go"}
-  appLink={"https://app.moderne.io/recipes/org.openrewrite.golang.RegenerateGoSum"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/golang/regenerategosum.md"}
-  moderneOnly
+  fqName={"org.openrewrite.cucumber.jvm.CollapseCucumberOptionsTags"}
+  artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.CollapseCucumberOptionsTags"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/collapsecucumberoptionstags.md"}
 >
 
-<RecipeHeader.Title>Regenerate `go.sum`</RecipeHeader.Title>
+<RecipeHeader.Title>Collapse `@CucumberOptions` tags into a single tag expression</RecipeHeader.Title>
 
-<RecipeHeader.Description>Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged.</RecipeHeader.Description>
+<RecipeHeader.Description>Cucumber-JVM 6.0.0 narrowed `@CucumberOptions#tags` from `String[]` to a single `String`. The elements of the array were combined with `and`, such that `tags = {"@a", "@b"}` becomes `tags = "(@a) and (@b)"`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.golang.RegenerateGoSum","displayName":"Regenerate `go.sum`","groupId":"org.openrewrite","artifactId":"rewrite-go","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GO","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.CollapseCucumberOptionsTags","displayName":"Collapse `@CucumberOptions` tags into a single tag expression","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage
 

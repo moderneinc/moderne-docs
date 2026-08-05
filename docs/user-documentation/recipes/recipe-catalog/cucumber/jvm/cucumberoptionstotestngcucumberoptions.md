@@ -1,38 +1,49 @@
 ---
-title: "Regenerate `go.sum`"
-sidebar_label: "Regenerate `go.sum`"
+title: "Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`"
+sidebar_label: "Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`"
 hide_title: true
 ---
+
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/cucumber/jvm/cucumberoptionstotestngcucumberoptions" />
+</head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Regenerate `go.sum`"}
-  description={"Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged."}
-  fqName={"org.openrewrite.golang.RegenerateGoSum"}
+  displayName={"Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`"}
+  description={"Replace `cucumber.api.CucumberOptions` with the TestNG variant in source files that run through a TestNG runner."}
+  fqName={"org.openrewrite.cucumber.jvm.CucumberOptionsToTestNgCucumberOptions"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-cucumber-jvm/blob/main/src/main/resources/META-INF/rewrite/cucumber.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["cucumber","testing"]}
   license={"Moderne Source Available License"}
-  fqName={"org.openrewrite.golang.RegenerateGoSum"}
-  artifact={"org.openrewrite:rewrite-go"}
-  appLink={"https://app.moderne.io/recipes/org.openrewrite.golang.RegenerateGoSum"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/golang/regenerategosum.md"}
-  moderneOnly
+  fqName={"org.openrewrite.cucumber.jvm.CucumberOptionsToTestNgCucumberOptions"}
+  artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.CucumberOptionsToTestNgCucumberOptions"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberoptionstotestngcucumberoptions.md"}
 >
 
-<RecipeHeader.Title>Regenerate `go.sum`</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `cucumber.api.CucumberOptions` with the TestNG variant in source files that run through a TestNG runner.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.golang.RegenerateGoSum","displayName":"Regenerate `go.sum`","groupId":"org.openrewrite","artifactId":"rewrite-go","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GO","requiresConfiguration":false}}>
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Find types","href":"/user-documentation/recipes/recipe-catalog/java/search/findtypes/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.CucumberOptionsToTestNgCucumberOptions","displayName":"Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage
 

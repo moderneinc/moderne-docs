@@ -1,38 +1,49 @@
 ---
-title: "Regenerate `go.sum`"
-sidebar_label: "Regenerate `go.sum`"
+title: "Migrate `Scenario.write` and `Scenario.embed`"
+sidebar_label: "Migrate `Scenario.write` and `Scenario.embed`"
 hide_title: true
 ---
+
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/cucumber/jvm/migratescenariowriteandembed" />
+</head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Regenerate `go.sum`"}
-  description={"Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged."}
-  fqName={"org.openrewrite.golang.RegenerateGoSum"}
+  displayName={"Migrate `Scenario.write` and `Scenario.embed`"}
+  description={"Cucumber-JVM 6.0.0 removed `Scenario.write(String)` and `Scenario.embed(byte[], String)` along with `Scenario.embed(byte[], String, String)`, in favor of `Scenario.log(String)` and `Scenario.attach(byte[], String, String)`. The two argument `embed` emitted an attachment without a name, which `attach` expresses as a `null` name."}
+  fqName={"org.openrewrite.cucumber.jvm.MigrateScenarioWriteAndEmbed"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-cucumber-jvm/blob/main/src/main/resources/META-INF/rewrite/cucumber.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["cucumber","testing"]}
   license={"Moderne Source Available License"}
-  fqName={"org.openrewrite.golang.RegenerateGoSum"}
-  artifact={"org.openrewrite:rewrite-go"}
-  appLink={"https://app.moderne.io/recipes/org.openrewrite.golang.RegenerateGoSum"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/golang/regenerategosum.md"}
-  moderneOnly
+  fqName={"org.openrewrite.cucumber.jvm.MigrateScenarioWriteAndEmbed"}
+  artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.MigrateScenarioWriteAndEmbed"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/migratescenariowriteandembed.md"}
 >
 
-<RecipeHeader.Title>Regenerate `go.sum`</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate `Scenario.write` and `Scenario.embed`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged.</RecipeHeader.Description>
+<RecipeHeader.Description>Cucumber-JVM 6.0.0 removed `Scenario.write(String)` and `Scenario.embed(byte[], String)` along with `Scenario.embed(byte[], String, String)`, in favor of `Scenario.log(String)` and `Scenario.attach(byte[], String, String)`. The two argument `embed` emitted an attachment without a name, which `attach` expresses as a `null` name.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.golang.RegenerateGoSum","displayName":"Regenerate `go.sum`","groupId":"org.openrewrite","artifactId":"rewrite-go","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GO","requiresConfiguration":false}}>
+<RecipeList recipes={[{"name":"Add a `null` method argument","href":"/user-documentation/recipes/recipe-catalog/java/addnullmethodargument/"},{"name":"Add a `null` method argument","href":"/user-documentation/recipes/recipe-catalog/java/addnullmethodargument/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.MigrateScenarioWriteAndEmbed","displayName":"Migrate `Scenario.write` and `Scenario.embed`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -5688,20 +5688,41 @@ _6 recipes_
 
 ## cucumber
 
-_5 recipes_
+_12 recipes_
 
+* [org.openrewrite.cucumber.jvm.CucumberApiToIoCucumber](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberapitoiocucumber.md)
+  * **Migrate `cucumber.api` to `io.cucumber`**
+  * Cucumber-JVM 5.0.0 moved the `cucumber.api` types to `io.cucumber`, but not as a single package rename: types were spread over `io.cucumber.java`, `io.cucumber.junit`, `io.cucumber.testng`, `io.cucumber.plugin` and `io.cucumber.core`. This recipe maps each `cucumber.api` type onto the package it actually moved to.
 * [org.openrewrite.cucumber.jvm.CucumberJava8ToJava](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md)
   * **Migrate `cucumber-java8` to `cucumber-java`**
   * Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods.
+* [org.openrewrite.cucumber.jvm.CucumberOptionsToTestNgCucumberOptions](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberoptionstotestngcucumberoptions.md)
+  * **Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`**
+  * Replace `cucumber.api.CucumberOptions` with the TestNG variant in source files that run through a TestNG runner.
 * [org.openrewrite.cucumber.jvm.CucumberToJunitPlatformSuite](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumbertojunitplatformsuite.md)
   * **Cucumber to JUnit test `@Suite`**
   * Migrates Cucumber tests to JUnit test `@Suite`.
+* [org.openrewrite.cucumber.jvm.DropStrictOption](/user-documentation/recipes/recipe-catalog/cucumber/jvm/dropstrictoption.md)
+  * **Drop the `strict` option**
+  * Cucumber-JVM 7.0.0 removed the `strict` option, as scenarios are now always executed in strict mode.
+* [org.openrewrite.cucumber.jvm.DropTimeoutAttribute](/user-documentation/recipes/recipe-catalog/cucumber/jvm/droptimeoutattribute.md)
+  * **Drop the `timeout` attribute**
+  * Cucumber-JVM 5.0.0 removed the `timeout` attribute from step definition and hook annotations, in favor of asserting on the duration from within the step definition itself.
+* [org.openrewrite.cucumber.jvm.FixTeluguLanguageCode](/user-documentation/recipes/recipe-catalog/cucumber/jvm/fixtelugulanguagecode.md)
+  * **Fix the Telugu language code**
+  * Cucumber-JVM 7.0.0 removed the incorrect ISO 639-1 code `tl` for Telugu, which is now consistently `te`.
+* [org.openrewrite.cucumber.jvm.MigrateScenarioWriteAndEmbed](/user-documentation/recipes/recipe-catalog/cucumber/jvm/migratescenariowriteandembed.md)
+  * **Migrate `Scenario.write` and `Scenario.embed`**
+  * Cucumber-JVM 6.0.0 removed `Scenario.write(String)` and `Scenario.embed(byte[], String)` along with `Scenario.embed(byte[], String, String)`, in favor of `Scenario.log(String)` and `Scenario.attach(byte[], String, String)`. The two argument `embed` emitted an attachment without a name, which `attach` expresses as a `null` name.
 * [org.openrewrite.cucumber.jvm.UpgradeCucumber2x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber2x.md)
   * **Upgrade to Cucumber-JVM 2.x**
   * Upgrade to Cucumber-JVM 2.x from any previous version.
 * [org.openrewrite.cucumber.jvm.UpgradeCucumber5x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber5x.md)
   * **Upgrade to Cucumber-JVM 5.x**
   * Upgrade to Cucumber-JVM 5.x from any previous version.
+* [org.openrewrite.cucumber.jvm.UpgradeCucumber6x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber6x.md)
+  * **Upgrade to Cucumber-JVM 6.x**
+  * Upgrade to Cucumber-JVM 6.x from any previous version.
 * [org.openrewrite.cucumber.jvm.UpgradeCucumber7x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber7x.md)
   * **Upgrade to Cucumber-JVM 7.x**
   * Upgrade to Cucumber-JVM 7.x from any previous version.
@@ -16660,7 +16681,7 @@ _5 recipes_
 
 ## testing
 
-_76 recipes_
+_83 recipes_
 
 * [OpenRewrite.Recipes.CSharp.Migration.TUnit.FromXUnit.AddAsyncToTestMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/tunit/fromxunit/addasynctotestmethods.md)
   * **Add `async Task` to methods containing `await`**
@@ -16731,18 +16752,39 @@ _76 recipes_
 * [io.moderne.java.spring.cloud.contract.MigrateWireMockToWireMockSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/cloud/contract/migratewiremocktowiremockspringboot.md)
   * **Migrate from `spring-cloud-contract-wiremock` to `wiremock-spring-boot`**
   * Spring Cloud Contract 5.0 removed the entire `spring-cloud-contract-wiremock` autoconfig package (including `@AutoConfigureWireMock`, `WireMockConfiguration`, `WireMockApplicationListener`, and `WireMockTestExecutionListener`). Migrate to the official `wiremock-spring-boot` integration, rewriting `@AutoConfigureWireMock` to `@EnableWireMock(@ConfigureWireMock(...))`, adding the `wiremock-spring-boot` test dependency, and removing configuration properties that no longer have any effect.
+* [org.openrewrite.cucumber.jvm.CucumberApiToIoCucumber](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberapitoiocucumber.md)
+  * **Migrate `cucumber.api` to `io.cucumber`**
+  * Cucumber-JVM 5.0.0 moved the `cucumber.api` types to `io.cucumber`, but not as a single package rename: types were spread over `io.cucumber.java`, `io.cucumber.junit`, `io.cucumber.testng`, `io.cucumber.plugin` and `io.cucumber.core`. This recipe maps each `cucumber.api` type onto the package it actually moved to.
 * [org.openrewrite.cucumber.jvm.CucumberJava8ToJava](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md)
   * **Migrate `cucumber-java8` to `cucumber-java`**
   * Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods.
+* [org.openrewrite.cucumber.jvm.CucumberOptionsToTestNgCucumberOptions](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberoptionstotestngcucumberoptions.md)
+  * **Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`**
+  * Replace `cucumber.api.CucumberOptions` with the TestNG variant in source files that run through a TestNG runner.
 * [org.openrewrite.cucumber.jvm.CucumberToJunitPlatformSuite](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumbertojunitplatformsuite.md)
   * **Cucumber to JUnit test `@Suite`**
   * Migrates Cucumber tests to JUnit test `@Suite`.
+* [org.openrewrite.cucumber.jvm.DropStrictOption](/user-documentation/recipes/recipe-catalog/cucumber/jvm/dropstrictoption.md)
+  * **Drop the `strict` option**
+  * Cucumber-JVM 7.0.0 removed the `strict` option, as scenarios are now always executed in strict mode.
+* [org.openrewrite.cucumber.jvm.DropTimeoutAttribute](/user-documentation/recipes/recipe-catalog/cucumber/jvm/droptimeoutattribute.md)
+  * **Drop the `timeout` attribute**
+  * Cucumber-JVM 5.0.0 removed the `timeout` attribute from step definition and hook annotations, in favor of asserting on the duration from within the step definition itself.
+* [org.openrewrite.cucumber.jvm.FixTeluguLanguageCode](/user-documentation/recipes/recipe-catalog/cucumber/jvm/fixtelugulanguagecode.md)
+  * **Fix the Telugu language code**
+  * Cucumber-JVM 7.0.0 removed the incorrect ISO 639-1 code `tl` for Telugu, which is now consistently `te`.
+* [org.openrewrite.cucumber.jvm.MigrateScenarioWriteAndEmbed](/user-documentation/recipes/recipe-catalog/cucumber/jvm/migratescenariowriteandembed.md)
+  * **Migrate `Scenario.write` and `Scenario.embed`**
+  * Cucumber-JVM 6.0.0 removed `Scenario.write(String)` and `Scenario.embed(byte[], String)` along with `Scenario.embed(byte[], String, String)`, in favor of `Scenario.log(String)` and `Scenario.attach(byte[], String, String)`. The two argument `embed` emitted an attachment without a name, which `attach` expresses as a `null` name.
 * [org.openrewrite.cucumber.jvm.UpgradeCucumber2x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber2x.md)
   * **Upgrade to Cucumber-JVM 2.x**
   * Upgrade to Cucumber-JVM 2.x from any previous version.
 * [org.openrewrite.cucumber.jvm.UpgradeCucumber5x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber5x.md)
   * **Upgrade to Cucumber-JVM 5.x**
   * Upgrade to Cucumber-JVM 5.x from any previous version.
+* [org.openrewrite.cucumber.jvm.UpgradeCucumber6x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber6x.md)
+  * **Upgrade to Cucumber-JVM 6.x**
+  * Upgrade to Cucumber-JVM 6.x from any previous version.
 * [org.openrewrite.cucumber.jvm.UpgradeCucumber7x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber7x.md)
   * **Upgrade to Cucumber-JVM 7.x**
   * Upgrade to Cucumber-JVM 7.x from any previous version.

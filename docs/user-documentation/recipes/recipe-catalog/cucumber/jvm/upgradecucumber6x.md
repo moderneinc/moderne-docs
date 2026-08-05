@@ -1,38 +1,49 @@
 ---
-title: "Regenerate `go.sum`"
-sidebar_label: "Regenerate `go.sum`"
+title: "Upgrade to Cucumber-JVM 6.x"
+sidebar_label: "Upgrade to Cucumber-JVM 6.x"
 hide_title: true
 ---
+
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/cucumber/jvm/upgradecucumber6x" />
+</head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Regenerate `go.sum`"}
-  description={"Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged."}
-  fqName={"org.openrewrite.golang.RegenerateGoSum"}
+  displayName={"Upgrade to Cucumber-JVM 6.x"}
+  description={"Upgrade to Cucumber-JVM 6.x from any previous version."}
+  fqName={"org.openrewrite.cucumber.jvm.UpgradeCucumber6x"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-cucumber-jvm/blob/main/src/main/resources/META-INF/rewrite/cucumber.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["cucumber","testing"]}
   license={"Moderne Source Available License"}
-  fqName={"org.openrewrite.golang.RegenerateGoSum"}
-  artifact={"org.openrewrite:rewrite-go"}
-  appLink={"https://app.moderne.io/recipes/org.openrewrite.golang.RegenerateGoSum"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/golang/regenerategosum.md"}
-  moderneOnly
+  fqName={"org.openrewrite.cucumber.jvm.UpgradeCucumber6x"}
+  artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.UpgradeCucumber6x"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber6x.md"}
 >
 
-<RecipeHeader.Title>Regenerate `go.sum`</RecipeHeader.Title>
+<RecipeHeader.Title>Upgrade to Cucumber-JVM 6.x</RecipeHeader.Title>
 
-<RecipeHeader.Description>Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged.</RecipeHeader.Description>
+<RecipeHeader.Description>Upgrade to Cucumber-JVM 6.x from any previous version.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.golang.RegenerateGoSum","displayName":"Regenerate `go.sum`","groupId":"org.openrewrite","artifactId":"rewrite-go","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GO","requiresConfiguration":false}}>
+<RecipeList recipes={[{"name":"Upgrade to Cucumber-JVM 5.x","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber5x/"},{"name":"Migrate `Scenario.write` and `Scenario.embed`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/migratescenariowriteandembed/"},{"name":"Collapse `@CucumberOptions` tags into a single tag expression","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/collapsecucumberoptionstags/"},{"name":"Migrate the `cucumber.options` property","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberoptionspropertytoindividualproperties/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.UpgradeCucumber6x","displayName":"Upgrade to Cucumber-JVM 6.x","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage
 

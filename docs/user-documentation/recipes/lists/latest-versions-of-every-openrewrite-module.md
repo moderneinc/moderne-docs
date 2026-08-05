@@ -7,7 +7,9 @@ import TabItem from '@theme/TabItem';
 
 # Latest versions of every OpenRewrite module
 
-OpenRewrite's modules are published to [Maven Central](https://search.maven.org/search?q=org.openrewrite).
+OpenRewrite's modules are distributed through the [Code Genome Project](https://artifacts.codegenomeproject.org/maven/org/openrewrite/).
+Downloads require authentication, so add the repository and credentials to your build to resolve them. See [Configure the Code Genome Project repository](#configure-the-code-genome-project-repository) below.
+Keep Maven Central configured alongside it, since OpenRewrite's transitive dependencies still resolve from there.
 Each time a release is made, a bill of materials artifact is also published to correctly align and manage the versions of all published artifacts.
 The Gradle plugin is published to the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.openrewrite.rewrite).
 
@@ -112,9 +114,91 @@ The use of the "bill of materials" means that a developer will only need to spec
 | [OpenRewrite.Recipes.CSharp.Migration.TUnit](https://github.com/moderneinc/recipes-csharp/blob/main/)                 | [0.4.0](https://github.com/moderneinc/recipes-csharp/releases/tag/0.4.0)                   | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [OpenRewrite.Recipes.CSharp.Core](https://github.com/moderneinc/recipes-csharp/blob/main/)                            | [0.4.0](https://github.com/moderneinc/recipes-csharp/releases/tag/0.4.0)                   | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 
+## Configure the Code Genome Project repository
+
+Every download from the Code Genome Project requires authentication. Use the token as the
+password in your build, and the email or username you signed in with as the username. See
+[Accessing the Code Genome Project](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project)
+for how to obtain credentials.
+
+If your organization mirrors the Code Genome Project in an internal artifact repository such as
+Artifactory or Nexus, point your build at that mirror instead and skip the credentials below.
+That same guide covers onboarding it as a remote repository in Artifactory or Nexus.
+
+<Tabs groupId="codegenomeRepository">
+<TabItem value="maven" label="Maven">
+
+Declare the repository in your `pom.xml`:
+
+```xml title="pom.xml"
+<repositories>
+  <repository>
+    <id>codegenome</id>
+    <url>https://artifacts.codegenomeproject.org/maven</url>
+  </repository>
+</repositories>
+```
+
+Keep the credentials out of the POM by putting them in your `settings.xml`, matched to the
+repository by `id`:
+
+```xml title="settings.xml"
+<settings>
+  <servers>
+    <server>
+      <id>codegenome</id>
+      <username>USERNAME</username>
+      <password>TOKEN</password>
+    </server>
+  </servers>
+</settings>
+```
+
+</TabItem>
+<TabItem value="gradle" label="Gradle">
+
+Keep Maven Central alongside it. The Code Genome Project hosts only `org/openrewrite` and
+`io/moderne`, so OpenRewrite's own transitive dependencies still resolve from Maven Central.
+
+```kotlin title="build.gradle.kts"
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://artifacts.codegenomeproject.org/maven")
+        credentials {
+            username = "USERNAME"
+            password = "TOKEN"
+        }
+    }
+}
+```
+
+```groovy title="build.gradle"
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://artifacts.codegenomeproject.org/maven'
+        credentials {
+            username = 'USERNAME'
+            password = 'TOKEN'
+        }
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 ## CLI Installation
 
-Install the latest versions of all the OpenRewrite recipe modules into the Moderne CLI:
+Point the CLI at the Code Genome Project so it can resolve recipe artifacts. Skip this if you
+resolve through an internal artifact repository that already mirrors it.
+
+```bash
+mod config recipes artifacts maven add https://artifacts.codegenomeproject.org/maven --user USERNAME --password TOKEN
+```
+
+Then install the latest versions of all the OpenRewrite recipe modules into the Moderne CLI:
 
 <Tabs groupId="cliInstall">
 <TabItem value="pinned" label="Pinned versions">

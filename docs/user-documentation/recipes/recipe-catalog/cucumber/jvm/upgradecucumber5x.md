@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Upgrade to Cucumber-JVM 2.x","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber2x/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
+<RecipeList recipes={[{"name":"Upgrade to Cucumber-JVM 2.x","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber2x/"},{"name":"Migrate `cucumber.api` to `io.cucumber`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberapitoiocucumber/"},{"name":"Drop the `timeout` attribute","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/droptimeoutattribute/"}]}>
 
 ## Definition
 
