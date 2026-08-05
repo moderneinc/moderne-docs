@@ -148,22 +148,34 @@ html[data-theme=light] {
   max-height: calc(var(--docsearch-modal-height) - var(--docsearch-spacing) - var(--docsearch-footer-height) - 48px);
 }
 
-/* Algolia DocSearch - Pill Shape Styling */
+/* Algolia DocSearch — Morpheus search field */
 .DocSearch-Button {
   width: 232px;
   height: 40px;
-  border-radius: 999px;
-  background: var(--neo-surfaces-white);
-  border: 1px solid var(--neo-grey-200);
+  border-radius: var(--mor-radius-input);
+  background: var(--mor-field);
+  border: 1px solid var(--mor-line-strong);
   padding: 0 14px;
   margin: 0;
   box-shadow: none;
 }
 
+/* --mor-line-strong lands at ~2.8:1 against the cream navbar in light mode; a
+   slightly stronger navy hairline lifts the field border to ~3.15:1 (WCAG
+   1.4.11). Dark's --mor-line-strong is already ~3.7:1, so it needs no override. */
+html[data-theme='light'] .DocSearch-Button {
+  border-color: rgba(35, 35, 66, 0.54);
+}
+
 .DocSearch-Button:hover {
-  background: var(--neo-surfaces-white);
-  border-color: var(--neo-grey-300);
+  background: var(--mor-surface);
   box-shadow: none;
+}
+
+.DocSearch-Button:focus-visible {
+  border-color: var(--mor-link);
+  outline: 2px solid var(--mor-link);
+  outline-offset: 2px;
 }
 
 .DocSearch-Button-Container {
@@ -175,14 +187,14 @@ html[data-theme=light] {
 .DocSearch-Search-Icon {
   width: 18px;
   height: 18px;
-  color: var(--brand-midnight);
+  color: var(--mor-muted);
   stroke-width: 2;
 }
 
 .DocSearch-Button-Placeholder {
   font-size: 14px;
   font-weight: 400;
-  color: var(--brand-midnight);
+  color: var(--mor-muted);
   padding: 0;
 }
 
@@ -194,14 +206,23 @@ html[data-theme=light] {
 }
 
 .DocSearch-Button-Key {
-  background: var(--neo-grey-100);
-  border: none;
+  background: var(--mor-surface-2);
+  /* --mor-line-strong, not --mor-line: at 0.12 alpha the chip outline only
+     reaches ~1.8:1 against the field, so the keys read as smudges rather than
+     keycaps. --mor-line-strong lands at ~3.7:1 (dark) / ~3.6:1 (light). */
+  border: 1px solid var(--mor-line-strong);
   border-radius: 4px;
   padding: 2px 6px;
+  /* Sans, not --mor-font-mono: no Geist subset on Google Fonts covers U+2318
+     (the "⌘" glyph), so it always falls back. Falling back through a mono stack
+     lands on SF Mono, which draws "⌘" inside a narrow monospace advance and
+     renders it at 77% of the adjacent "K" cap height. The sans stack falls back
+     to the system UI face, which draws it full size. */
   font-family: var(--mor-font-sans), system-ui, -apple-system, sans-serif;
   font-size: 12px;
   font-weight: 500;
-  color: var(--brand-midnight);
+  /* Full text color, not --mor-muted: --mor-text is ~11:1 on the chip surface. */
+  color: var(--mor-text);
   box-shadow: none;
   min-width: auto;
   width: auto;
@@ -273,38 +294,8 @@ html[data-theme='dark'] {
   .theme-code-block {
     border: 1.5px solid var(--ifm-color-border);
   }
-
-  /* Algolia DocSearch - Dark Mode Pill Styling */
-  .DocSearch-Button {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  @media (max-width: 996px) {
-    .DocSearch-Button {
-      background: transparent;
-      border: none;
-    }
-  }
-
-  .DocSearch-Button:hover {
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
-  }
-
-  .DocSearch-Search-Icon {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .DocSearch-Button-Placeholder {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .DocSearch-Button-Key {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: rgba(255, 255, 255, 0.9);
-  }
+  /* DocSearch button dark styling removed — the reskin above uses mode-aware
+     --mor-* tokens, so a single set of rules covers light and dark. */
 }
 
 figure img {
