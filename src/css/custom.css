@@ -196,14 +196,21 @@ html[data-theme='light'] .DocSearch-Button {
 
 .DocSearch-Button-Key {
   background: var(--mor-surface-2);
-  border: 1px solid var(--mor-line);
+  /* --mor-line-strong, not --mor-line: at 0.12 alpha the chip outline only
+     reaches ~1.8:1 against the field, so the keys read as smudges rather than
+     keycaps. --mor-line-strong lands at ~3.7:1 (dark) / ~3.6:1 (light). */
+  border: 1px solid var(--mor-line-strong);
   border-radius: 4px;
   padding: 2px 6px;
-  font-family: var(--mor-font-mono), monospace;
+  /* Sans, not --mor-font-mono: no Geist subset on Google Fonts covers U+2318
+     (the "⌘" glyph), so it always falls back. Falling back through a mono stack
+     lands on SF Mono, which draws "⌘" inside a narrow monospace advance and
+     renders it at 77% of the adjacent "K" cap height. The sans stack falls back
+     to the system UI face, which draws it full size. */
+  font-family: var(--mor-font-sans), system-ui, -apple-system, sans-serif;
   font-size: 12px;
   font-weight: 500;
-  /* Full text color, not --mor-muted — the thin ⌘ glyph is hard to read at the
-     muted 4.5:1; --mor-text is ~11:1 on the chip surface. */
+  /* Full text color, not --mor-muted: --mor-text is ~11:1 on the chip surface. */
   color: var(--mor-text);
   box-shadow: none;
   min-width: auto;
