@@ -12,6 +12,15 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## August 4, 2026
 
+#### rewrite-angular - v1.8.0
+
+* Forward CGP artifact repository credentials in CI and publish workflows
+* Bump @openrewrite/rewrite from 8.84.9 to 8.87.7 in /recipes-angular[bot]
+* Bump js-yaml from 3.14.2 to 3.15.0 in /recipes-angular[bot]
+* Bump @babel/core from 7.28.5 to 7.29.7 in /recipes-angular[bot]
+* Bump brace-expansion in /recipes-angular[bot]
+* Use the correct @angular-devkit version scheme per package
+
 #### rewrite-prethink - 0.11.2
 
 * Forward CGP artifact repository credentials to CI and publish workflows
