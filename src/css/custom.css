@@ -52,8 +52,11 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-color-announcement-bar-bg: var(--ifm-color-mint);
 
-  /* Morpheus:Announcement bar text */
-  --ifm-color-announcement-bar-text: var(--mor-text);
+  /* Announcement bar text — static dark: the bar background is always the mint
+     green (--ifm-color-mint), independent of theme, so the text must not follow
+     the color mode. A mode-aware token (--mor-text) flips to near-white in dark
+     mode, leaving unreadable light-on-light text on the green bar. */
+  --ifm-color-announcement-bar-text: #232342;
 
   --ifm-navbar-background-color: transparent;
   --ifm-navbar-padding-vertical: 0;
