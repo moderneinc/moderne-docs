@@ -38,48 +38,48 @@ Use your language processing capabilities to identify and fix:
 * Inconsistent terminology
 * Style guide violations
 
-## Working with CSS Modules and Neo Design Variables
+## Working with CSS Modules and Morpheus Design Tokens
 
-When modifying any CSS module (`.module.css` files), you MUST follow this workflow:
+The design system is Morpheus (`--mor-*` tokens). It is self-contained — there is
+no external design-system package. When modifying any CSS module (`.module.css`),
+follow this workflow:
 
-1. **Search for available variables** before using any Neo Design CSS variable:
-   * Use `yarn neo:search <keyword>` to find variables (e.g., `yarn neo:search spacing`, `yarn neo:search button`)
-   * Use `yarn neo:list <category>` to browse all variables in a category (e.g., `yarn neo:list buttons`)
-   * Add `--json` flag for JSON output that's easier to parse programmatically (e.g., `yarn neo:search spacing --json`)
+1. **Find the right token** in `src/css/morpheus-tokens.css` — the single source of
+   truth. It defines the complete token set (spacing, type, radii, surfaces, lines,
+   text, links, buttons, status, shadows, spectral), mode-aware where relevant.
+   Add new brand values there, never as one-off literals in components.
 
-2. **Never use fallback values** with Neo Design variables:
-   * ❌ Bad: `var(--neo-spacing_1, 8px)`
-   * ✅ Good: `var(--neo-spacing_1)`
-   * Rationale: We want missing variables to surface immediately, not fail silently with fallback values
+2. **Never use fallback values** with Morpheus tokens:
+   * ❌ Bad: `var(--mor-space-2, 8px)`
+   * ✅ Good: `var(--mor-space-2)`
+   * Rationale: missing tokens should surface immediately, not fail silently.
 
-3. **Use class selectors, not element selectors**:
+3. **Prefer mode-aware tokens over `[data-theme='dark']` overrides.** Color, surface,
+   line, and shadow tokens already carry both light and dark values, so a single
+   rule usually covers both modes — reach for a dark override only when the change
+   is more than a light↔dark value swap.
+
+4. **Use class selectors, not element selectors**:
    * ❌ Bad: `.content h3 { ... }` or `.menu p { ... }`
    * ✅ Good: `.sectionHeader { ... }` or `.description { ... }`
-   * Rationale: Element selectors create implicit coupling between CSS and HTML structure. Class selectors are explicit, more maintainable, and provide clearer specificity control.
+   * Rationale: element selectors couple CSS to HTML structure; class selectors are
+     explicit and give clearer specificity control.
 
-4. **Validate before committing**:
-   * Run `yarn validate:css` to verify no undefined variables are used
-   * Fix any issues before proceeding with the commit
+5. **Validate before committing**:
+   * Run `yarn validate:css` to verify no undefined variables are used.
+   * Fix any issues before proceeding with the commit.
 
-**Available Neo Design Categories:**
+**Token groups (see `morpheus-tokens.css` for the full list):**
 
-* `colors` - Primitive color scales (blue, green, gold, grey, orange, red, teal, violet)
-* `buttons` - Button state colors (primary, secondary, tertiary, navigation)
-* `icons` - Icon colors (default, hover, pressed, active, disabled)
-* `surfaces` - Surface colors (page, card, table, tooltip, snackbar, shadows)
-* `status` - Status colors (success, warning, error, info)
-* `borders` - Border colors (primary, secondary, input, card)
-* `typography` - Typography colors (input, link, code, tab, body, navigation)
-* `spacing` - Spacing scale using fractional notation (_1_4, _1_2, _1, _1_1_2, etc.)
-* `shadows` - Shadow variants (card, dropdown, modal, neutral, primary)
-* `border-radius` - Border radius presets (button, card, input)
-
-**Common Variable Naming Patterns:**
-
-* Colors: `--neo-{color}-{shade}` (e.g., `--neo-digital-blue-500`)
-* Buttons: `--neo-buttons-{variant}-{state}` (e.g., `--neo-buttons-primary-hover`)
-* Spacing: `--neo-spacing_{number}` (e.g., `--neo-spacing_1` = 8px, `--neo-spacing_1_1_2` = 12px)
-* Typography: `--neo-font-{property}-{value}` (e.g., `--neo-font-size-sm`, `--neo-font-weight-medium`)
+* Spacing: `--mor-space-*` (ordinal `-1..-8`; raw `-2px/-6px/-26px/-28px/-32px/-48px/-56px`)
+* Type: `--mor-font-sans`, `--mor-font-mono`, `--mor-font-size-*`, `--mor-font-weight-*`
+* Radii: `--mor-radius-*` (`xs/sm/md/lg/xl/2xl/full` + role aliases)
+* Surfaces: `--mor-bg`, `--mor-field`, `--mor-card`, `--mor-surface`, `--mor-surface-2`, `--mor-row-hover`
+* Lines: `--mor-line`, `--mor-line-2`, `--mor-line-strong`
+* Text/links: `--mor-text`, `--mor-muted`, `--mor-link`, `--mor-link-deep`
+* Buttons: `--mor-btn-primary-*`; on-fill text: `--mor-on-accent`
+* Status (mode-aware): `--mor-status-{info,tip,note,warning,danger}-{bg,accent}`
+* Shadows: `--mor-shadow-{card,dropdown,modal}`; brand: `--mor-green`, `--mor-spectral*`
 
 ## Important Context
 
@@ -151,7 +151,7 @@ This project uses **Docusaurus 3.9.1** and has customized several theme componen
 
 **Swizzled components:**
 
-* `DocBreadcrumbs` - Custom breadcrumb component using Neo Design system
+* `DocBreadcrumbs` - Custom breadcrumb component using the Morpheus design system
 * `DocCard` - Enhanced with gem icon support via `customProps.gemIcon`
 * `DocCategoryGeneratedIndexPage` - Custom layout for category index pages
 * `DocPaginator` - Styled pagination for documentation pages

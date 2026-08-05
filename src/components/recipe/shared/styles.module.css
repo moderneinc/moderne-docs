@@ -1,13 +1,13 @@
 /* Shared recipe primitives: chips, tables, inline code, scroll wrapper, and the
-   `.recipe` page scope (Neo segmented tabs + table-chrome resets). Light + dark. */
+   `.recipe` page scope (Morpheus segmented tabs + table-chrome resets). Light + dark. */
 
 .chip {
-padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
-  border-radius: var(--neo-border-radius-full);
-  background-color: var(--neo-status-neutral-light);
-  color: var(--neo-status-neutral-dark);
-  font-size: var(--neo-font-size-xs);
-  font-weight: var(--neo-font-weight-medium);
+padding: var(--mor-space-1) var(--mor-space-3);
+  border-radius: var(--mor-radius-full);
+  background-color: var(--mor-neutral);
+  color: var(--mor-status-note-accent);
+  font-size: var(--mor-font-size-sm);
+  font-weight: var(--mor-font-weight-medium);
 }
 
 .chipLink {
@@ -34,27 +34,27 @@ overflow-x: auto;
 text-align: left;
   /* Modern table header: sentence-case, full-size, bold — not a tiny uppercase
      eyebrow — with one faint rule under the header row. */
-  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2);
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--neo-typography-input-default);
+  padding: var(--mor-space-3) var(--mor-space-3);
+  font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-semibold);
+  color: var(--mor-text);
   background-color: transparent;
   /* Reset Infima's four-sided cell border, then keep only the header rule. */
   border: none;
-  border-bottom: 1px solid var(--neo-border-card);
+  border-bottom: 1px solid var(--mor-line);
 }
 
 .td {
-padding: var(--neo-spacing_2) var(--neo-spacing_1_1_2);
-  font-size: var(--neo-font-size-sm);
-  color: var(--neo-typography-input-default);
+padding: var(--mor-space-4) var(--mor-space-3);
+  font-size: var(--mor-font-size-base);
+  color: var(--mor-text);
   vertical-align: top;
   /* Reset Infima's four-sided cell border; the row divider below adds just a top. */
   border: none;
 }
 
 tbody tr + tr .td {
-border-top: 1px solid var(--neo-border-secondary);
+border-top: 1px solid var(--mor-line);
 }
 
 .recipe :global(table thead),
@@ -69,13 +69,13 @@ border: none;
 }
 
 .inlineCode {
-font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
-  font-size: var(--neo-font-size-code);
-  background-color: var(--neo-surfaces-card-header);
-  color: var(--neo-typography-code-primary);
-  padding: var(--neo-spacing_1_4) var(--neo-spacing_1_2);
+font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
+  font-size: var(--mor-font-size-base);
+  background-color: var(--mor-field);
+  color: var(--mor-text);
+  padding: var(--mor-space-2px) var(--mor-space-1);
   border: none;
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: var(--mor-radius-sm);
 }
 
 .recipe :global(.tabs) {
@@ -84,23 +84,23 @@ display: inline-flex;
   width: fit-content;
   max-width: 100%;
   padding: 0;
-  margin-bottom: var(--neo-spacing_2);
-  border: 1px solid var(--neo-border-input);
-  border-radius: var(--neo-border-radius-button);
+  margin-bottom: var(--mor-space-4);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-full);
   overflow: hidden;
-  background: var(--neo-surfaces-white);
+  background: var(--mor-panel);
 }
 
 .recipe :global(.tabs__item) {
 margin: 0;
-  padding: var(--neo-spacing_1_2) var(--neo-spacing_2);
+  padding: var(--mor-space-1) var(--mor-space-4);
   border: none;
-  border-right: 1px solid var(--neo-border-input);
+  border-right: 1px solid var(--mor-line);
   border-radius: 0;
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-medium);
+  font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-medium);
   line-height: 1.4;
-  color: var(--neo-typography-tab-inactive);
+  color: var(--mor-muted);
   background: transparent;
 }
 
@@ -109,14 +109,14 @@ border-right: none;
 }
 
 .recipe :global(.tabs__item:hover) {
-background: var(--neo-surfaces-list-hover);
-  color: var(--neo-typography-input-default);
+background: var(--mor-row-hover);
+  color: var(--mor-text);
 }
 
 .recipe :global(.tabs__item--active),
 .recipe :global(.tabs__item--active:hover) {
-color: var(--neo-typography-tab-active);
-  background: var(--neo-surfaces-card);
+color: var(--mor-link);
+  background: var(--mor-panel);
 }
 
 /* A recipe section: a heading row stacked above the section body. All spacing is owned by flex gap
@@ -125,7 +125,7 @@ color: var(--neo-typography-tab-active);
 .section {
 display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_2);
+  gap: var(--mor-space-4);
 }
 
 /* Heading row: the markdown `## ` heading on the left, optional meta/toggle on the right. */
@@ -134,17 +134,17 @@ display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--neo-spacing_2);
+  gap: var(--mor-space-4);
 }
 
 /* The heading arrives as a bare markdown `## ` <h2> (it can't carry a class), so it's matched as a
    descendant — the one element selector we accept, kept tightly scoped under .sectionHeader. */
 .sectionHeader h2 {
 margin: 0;
-  font-size: var(--neo-font-size-h2);
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-size: var(--mor-font-size-doc-h2);
+  font-weight: var(--mor-font-weight-semibold);
   letter-spacing: -0.01em;
-  color: var(--neo-typography-input-default);
+  color: var(--mor-text);
 }
 
 /* The global `[docMainContainer] h2` rule (src/css/custom.css) underlines every doc h2. In the flex
@@ -156,51 +156,12 @@ border-bottom: none;
 }
 
 html[data-theme='dark'] {
-.inlineCode {
-background-color: var(--neo-grey-900);
-    color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.sectionHeader h2 {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.th,
-.td {
-border-bottom-color: var(--neo-grey-700);
-}
-
-tbody tr + tr .td {
-border-top-color: var(--neo-grey-800);
-}
-
-.th,
-.td {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
 .chip {
-background-color: var(--neo-grey-800);
-    color: var(--neo-grey-300);
+background-color: var(--mor-surface-2);
+    color: var(--mor-muted);
 }
-}
-
-html[data-theme='dark'] .recipe :global(.tabs) {
-background: var(--neo-grey-900);
-  border-color: var(--neo-grey-700);
-}
-
-html[data-theme='dark'] .recipe :global(.tabs__item) {
-color: var(--neo-grey-400);
-  border-right-color: var(--neo-grey-700);
-}
-
-html[data-theme='dark'] .recipe :global(.tabs__item:hover) {
-background: var(--neo-grey-800);
-  color: var(--neo-surfaces-snackbar-dark-mode);
 }
 
 html[data-theme='dark'] .recipe :global(.tabs__item--active), html[data-theme='dark'] .recipe :global(.tabs__item--active:hover) {
-background: var(--neo-grey-800);
-  color: var(--neo-digital-green-300);
+color: var(--mor-green);
 }

@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: var(--neo-spacing_2) 0;
+  padding: var(--mor-space-4) 0;
 }
 
 .menuList {
@@ -20,12 +20,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--neo-spacing_2) var(--neo-spacing_2);
+  padding: var(--mor-space-4) var(--mor-space-4);
   text-decoration: none;
   color: var(--ifm-font-color-base);
-  font-size: var(--neo-font-size-default);
-  font-weight: var(--neo-font-weight-medium);
-  border-radius: var(--neo-border-radius-x-s);
+  font-size: var(--mor-font-size-lg);
+  font-weight: var(--mor-font-weight-medium);
+  border-radius: var(--mor-radius-sm);
   transition: background-color 0.15s ease;
 }
 
@@ -57,19 +57,19 @@
 .footerSection {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_1);
-  padding: var(--neo-spacing_3) var(--neo-spacing_2);
+  gap: var(--mor-space-2);
+  padding: var(--mor-space-6) var(--mor-space-4);
   margin-top: auto;
 }
 
 .footerLink {
   display: inline-flex;
   align-items: center;
-  gap: var(--neo-spacing_1_2);
+  gap: var(--mor-space-1);
   color: var(--ifm-link-color);
-  font-size: var(--neo-font-size-sm);
+  font-size: var(--mor-font-size-base);
   text-decoration: none;
-  padding: var(--neo-spacing_1_2) 0;
+  padding: var(--mor-space-1) 0;
 }
 
 .footerLink:hover {

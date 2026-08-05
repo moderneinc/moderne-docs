@@ -41,7 +41,7 @@ function SimplifiedCategoryItem({
             alignItems: 'center',
             padding: 'var(--sidebar-item-padding, 12px)',
             fontSize: 'var(--sidebar-item-font-size, 16px)',
-            fontWeight: 'var(--neo-font-weight-semi-bold, 600)',
+            fontWeight: 'var(--mor-font-weight-semibold)',
             lineHeight: 'var(--sidebar-item-line-height, 1.5)',
             color: isActive
               ? 'var(--sidebar-link-active-color, #283af7)'
@@ -71,7 +71,7 @@ function SimplifiedCategoryItem({
             border: 'none',
             cursor: 'pointer',
             padding: '8px',
-            color: isActive ? 'var(--sidebar-link-active-color, #283af7)' : 'var(--neo-grey-800, #1f2937)',
+            color: isActive ? 'var(--sidebar-link-active-color, #283af7)' : 'var(--mor-text)',
             transition: 'color 0.2s',
           }}
           aria-label={isCollapsed ? `Expand ${label}` : `Collapse ${label}`}
@@ -107,7 +107,7 @@ function SimplifiedSidebarLink({
           display: 'block',
           padding: 'var(--sidebar-item-padding, 12px)',
           fontSize: 'var(--sidebar-item-font-size, 16px)',
-          fontWeight: 'var(--neo-font-weight-regular, 400)',
+          fontWeight: 'var(--mor-font-weight-regular)',
           lineHeight: 'var(--sidebar-item-line-height, 1.5)',
           color: isActive
             ? 'var(--sidebar-link-active-color, #283af7)'
@@ -155,14 +155,14 @@ function CategoryContainer({ children }: { children: React.ReactNode }) {
  *
  * This component renders collapsible sidebar categories with:
  * - Lucide React icons (ChevronRight/ChevronDown) instead of CSS pseudo-elements
- * - Updated typography aligned with Figma design (16px font size)
+ * - Updated typography (16px font size)
  * - Brand digital blue for active states
- * - Proper Neo Design CSS variables
+ * - Proper Morpheus design tokens
  *
  * Key changes from default Docusaurus:
  * - Font size: 14px → 16px for navigation items
  * - Padding: 16px/10px → 12px uniform
- * - Active color: Neo primary blue → Brand digital blue (#283af7)
+ * - Active color: brand digital blue (#283af7)
  * - Caret icons: SVG data URIs → Lucide React components
  * - Sub-item font weight: Semi-bold (600) → Regular (400)
  */

@@ -1,7 +1,7 @@
 import React, { isValidElement, type FunctionComponent, type ReactElement, type ReactNode } from 'react';
 import clsx from 'clsx';
 import { ArrowRight } from 'lucide-react';
-import { NeoButton } from '@site/src/components/NeoButton';
+import { ModButton } from '@site/src/components/ModButton';
 import { CopyButton } from '../CopyButton';
 import { AccessInfoButton } from '../AccessInfoButton';
 import { renderWithCode } from '../shared/renderWithCode';
@@ -126,7 +126,7 @@ const RecipeHeaderRoot: FunctionComponent<RecipeHeaderProps> = ({
         {/* Tooltip sets expectations: the platform is the hosted product and needs a Moderne
             account — so prospects aren't surprised by a sign-in. Button itself is unchanged. */}
         <span className={styles.tryWrap}>
-          <NeoButton
+          <ModButton
             variant="primary"
             size="small"
             href={appLink}
@@ -136,7 +136,7 @@ const RecipeHeaderRoot: FunctionComponent<RecipeHeaderProps> = ({
             iconPosition="right"
           >
             Try in Platform
-          </NeoButton>
+          </ModButton>
           <span className={styles.tryTooltip} role="tooltip">
             Try this recipe in the Moderne platform. Not a user yet? You’ll get a no-setup demo
             environment, with nothing to install or configure.

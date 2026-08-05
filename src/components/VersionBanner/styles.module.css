@@ -1,18 +1,22 @@
 .banner {
-  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
-  margin-bottom: var(--neo-spacing_2);
-  background-color: var(--neo-digital-blue-100);
-  border: 1px solid var(--neo-digital-blue-500);
-  border-radius: var(--neo-border-radius-card);
-  font-size: var(--neo-font-size-sm);
-  color: var(--neo-typography-input-default);
+  padding: var(--mor-space-3) var(--mor-space-4);
+  margin-bottom: var(--mor-space-4);
+  /* Colors preserved from the pre-Morpheus (neo) banner per PR review: a static
+     blue callout that stays a light-blue box with dark text in both light and
+     dark so it reads as a prominent version notice. These blues sit outside the
+     Morpheus semantic palette, so they're intentionally literal. */
+  background-color: #dce0ff;
+  border: 1px solid #2f42ff;
+  border-radius: var(--mor-radius-card);
+  font-size: var(--mor-font-size-base);
+  color: #1f2937;
 }
 
 .bannerLink {
-  color: var(--neo-typography-link-primary);
+  color: #2f42ff;
   text-decoration: underline;
 }
 
 .bannerLink:hover {
-  color: var(--neo-digital-blue-700);
+  color: #1e2ec2;
 }

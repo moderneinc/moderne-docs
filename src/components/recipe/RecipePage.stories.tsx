@@ -30,7 +30,7 @@ type Story = StoryObj;
 /** Page body stand-in: on real pages, Docusaurus `.markdown > *` margins space the sections; in
  *  Storybook there's no `.markdown`, so a flex column with the same rhythm stands in for it. */
 const Page = ({ children }: { children: ReactNode }) => (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--neo-spacing_5)' }}>{children}</div>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--mor-space-8)' }}>{children}</div>
 );
 
 const singleHeader = {

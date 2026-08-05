@@ -1,12 +1,12 @@
 /*
- * Neo-Design Integration
+ * Morpheus Integration
  *
- * Maps @moderneinc/neo-design tokens to Docusaurus/Infima variables.
- * Neo variables loaded via docusaurus.config.ts stylesheets.
+ * Maps Morpheus tokens (--mor-*, from morpheus-tokens.css) to Docusaurus/Infima
+ * variables. morpheus-theme.css loads after this file and wins where they overlap.
  *
  * Guidelines:
- * - Use var(--neo-*) without fallbacks so missing tokens fail visibly
- * - Brand overrides (--brand-*) for colors not in Neo: mint green, midnight, lavender
+ * - Use var(--mor-*) without fallbacks so missing tokens fail visibly
+ * - Brand overrides (--brand-*) for colors not in Morpheus: mint green, midnight, lavender
  * - Avoid !important; document exceptions inline when unavoidable
  */
 
@@ -20,42 +20,40 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* BRAND: Custom light blue/lavender background from Figma */
+  /* BRAND: Custom light blue/lavender background */
   --ifm-background-color: #fafaff;
-  --background: #fafaff; /* Figma design token */
+  --background: #fafaff; /* brand background token */
 
-  /* BRAND: Preserve mint accent - no Neo-Design mapping */
+  /* BRAND: Preserve mint accent - no Morpheus mapping */
   --ifm-color-mint: #85FE99;
-  --brand-digital-green: #85fe98; /* Primary green from Figma design */
-  --brand-digital-blue: var(--neo-brand); /* Primary blue from Neo Design */
-  --brand-midnight: #041834; /* Midnight color from Figma design */
-  --brand-dark-lavender: #d4d3e4; /* Dark lavender border color from Figma design */
+  --brand-digital-green: #85fe98; /* Primary green */
+  --brand-digital-blue: var(--mor-link); /* Primary blue */
+  --brand-midnight: #041834; /* Midnight color */
+  --brand-dark-lavender: #d4d3e4; /* Dark lavender border color */
 
-  /* Neo-design: Primary blue scale */
-  --ifm-color-primary: var(--neo-digital-blue-500);
-  --ifm-color-primary-dark: var(--neo-digital-blue-700);
-  --ifm-color-primary-darker: var(--neo-digital-blue-800);
-  --ifm-color-primary-darkest: var(--neo-digital-blue-900);
-  --ifm-color-primary-light: var(--neo-digital-blue-300);
-  --ifm-color-primary-lighter: var(--neo-digital-blue-200);
-  --ifm-color-primary-lightest: var(--neo-digital-blue-100);
+  /* Primary accent — Morpheus link blue. Morpheus has no blue ramp, so the
+     derived Infima tiers collapse to link / link-deep. */
+  --ifm-color-primary: var(--mor-link);
+  --ifm-color-primary-dark: var(--mor-link-deep);
+  --ifm-color-primary-darker: var(--mor-link-deep);
+  --ifm-color-primary-darkest: var(--mor-link-deep);
+  --ifm-color-primary-light: var(--mor-link);
+  --ifm-color-primary-lighter: var(--mor-link);
+  --ifm-color-primary-lightest: var(--mor-link);
 
-  /* Neo-design: Border colors */
-  --ifm-color-border: var(--neo-border-primary);
-
-  /* !important: Neo package default differs from production design */
-  --neo-border-secondary: rgba(4, 24, 52, 0.3) !important;
+  /* Borders */
+  --ifm-color-border: var(--mor-line);
 
   --ifm-code-font-size: 95%;
 
-  /* Neo-design: Typography colors */
-  --ifm-color-base: var(--neo-typography-input-default);
+  /* Morpheus: Typography colors */
+  --ifm-color-base: var(--mor-text);
   --ifm-color-content: var(--ifm-color-base);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-color-announcement-bar-bg: var(--ifm-color-mint);
 
-  /* Neo-Design: Announcement bar text */
-  --ifm-color-announcement-bar-text: var(--neo-typography-input-default);
+  /* Morpheus:Announcement bar text */
+  --ifm-color-announcement-bar-text: var(--mor-text);
 
   --ifm-navbar-background-color: transparent;
   --ifm-navbar-padding-vertical: 0;
@@ -68,38 +66,38 @@
      the layout offsets don't reserve phantom space when no bar is configured. */
   --ifm-announcement-bar-height: 0px;
 
-  /* Neo-Design: Typography family and weights */
+  /* Morpheus:Typography family and weights */
   --ifm-font-family-base: var(--mor-font-sans), sans-serif;
-  --ifm-heading-font-weight: var(--neo-font-weight-regular);
+  --ifm-heading-font-weight: var(--mor-font-weight-regular);
   --ifm-heading-line-height: 1.25;
 
-  /* Neo-Design: Heading color */
-  --ifm-heading-color: var(--neo-typography-input-default);
+  /* Morpheus:Heading color */
+  --ifm-heading-color: var(--mor-text);
 
-  --ifm-font-weight-bold: var(--neo-font-weight-semi-bold);
+  --ifm-font-weight-bold: var(--mor-font-weight-semibold);
   --ifm-footer-padding-vertical: 2.375rem;
   --ifm-footer-background-color: transparent;
 
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
 
-  /* Neo-Design: Link color */
-  --ifm-link-color: var(--neo-typography-link-primary);
+  /* Morpheus:Link color */
+  --ifm-link-color: var(--mor-link);
 
   --ifm-link-hover-color: var(--ifm-color-content);
 
-  /* Neo-Design: Menu/navigation text */
-  --ifm-menu-color: var(--neo-typography-navigation-default);
+  /* Morpheus:Menu/navigation text */
+  --ifm-menu-color: var(--mor-muted);
 
-  /* Neo-design: Active menu items */
+  /* Morpheus: Active menu items */
   --ifm-menu-color-active: var(--ifm-link-color);
 
   --ifm-navbar-link-color: var(--ifm-heading-color);
   --ifm-navbar-shadow: none;
   --ifm-toc-border-color: transparent;
 
-  /* Neo-design: Section dividers */
-  --ifm-section-divider-color: var(--neo-border-secondary);
+  /* Section dividers */
+  --ifm-section-divider-color: var(--mor-line);
 
   /* Emphasis colors for light mode */
   --ifm-color-emphasis-600: rgba(4, 24, 52, 0.6);
@@ -139,7 +137,7 @@ html.docs-wrapper {
 
 /* Use selector for specificity */
 html[data-theme=light] {
-  --docsearch-searchbox-background: var(--neo-surfaces-white);
+  --docsearch-searchbox-background: var(--mor-field);
   --docsearch-muted-color: rgba(4, 24, 52, 0.75);
 }
 
@@ -260,28 +258,18 @@ html[data-theme='dark'] {
   /* BRAND: Custom dark background */
   --ifm-background-color: #041834;
 
-  /* Neo-Design: Primary colors for dark mode */
-  --ifm-color-primary: var(--neo-digital-blue-300);
-  --ifm-color-primary-dark: var(--neo-digital-blue-400);
-  --ifm-color-primary-darker: var(--neo-digital-blue-500);
-  --ifm-color-primary-darkest: var(--neo-digital-blue-600);
-  --ifm-color-primary-light: var(--neo-digital-blue-200);
-  --ifm-color-primary-lighter: var(--neo-digital-blue-100);
-  --ifm-color-primary-lightest: var(--neo-digital-blue-50);
-
+  /* Primary accent and base/heading/menu text resolve from the mode-aware
+     --mor-* tokens on :root, so dark needs no override here. */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-  --ifm-color-base: var(--neo-surfaces-white);
-  --ifm-heading-color: var(--neo-surfaces-white);
-  --ifm-menu-color: var(--neo-surfaces-white);
 
   /* BRAND: Preserve mint accent for dark mode links */
   --ifm-link-color: #85fe99;
 
   --ifm-toc-border-color: transparent;
 
-  /* Neo-Design: Dark mode borders */
+  /* Dark mode borders (section divider comes from the mode-aware --mor-line
+     on :root). */
   --ifm-color-border: rgba(255, 255, 255, 0.2);
-  --ifm-section-divider-color: var(--neo-border-primary);
 
   /* Emphasis colors for dark mode */
   --ifm-color-emphasis-600: rgba(255, 255, 255, 0.7);
@@ -289,7 +277,7 @@ html[data-theme='dark'] {
   /* Hover overlay for dark mode */
   --ifm-hover-overlay: rgba(255, 255, 255, 0.05);
 
-  --ifm-card-background-color: var(--neo-surfaces-white);
+  --ifm-card-background-color: var(--mor-card);
   --ifm-heading-line-height: 1.25;
   .theme-code-block {
     border: 1.5px solid var(--ifm-color-border);
@@ -306,41 +294,41 @@ figure img {
 
 figure figcaption {
   text-align: center;
-  margin-top: var(--neo-spacing_1_1_2);
+  margin-top: var(--mor-space-3);
 }
 
 .reactPlayer {
   margin: auto;
-  padding: var(--neo-spacing_1);
+  padding: var(--mor-space-2);
   background-color: transparent;
-  border: 1px solid var(--neo-grey-200);
-  border-radius: var(--neo-border-radius-m);
-  box-shadow: var(--neo-shadow-card);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-2xl);
+  box-shadow: var(--mor-shadow-card);
 }
 
 .reactPlayer > *,
 .reactPlayer iframe,
 .reactPlayer video {
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: var(--mor-radius-sm);
   overflow: hidden;
 }
 
 /* Video session summary: spacing between player and admonition */
 .reactPlayer {
-  margin-bottom: var(--neo-spacing_2);
+  margin-bottom: var(--mor-space-4);
 }
 
 /* Hairline outer border + 8px padding around media; inner element keeps its own rounding */
 .markdown img,
 .markdown figure {
-  padding: var(--neo-spacing_1);
+  padding: var(--mor-space-2);
   background-color: transparent;
-  border: 1px solid var(--neo-grey-200);
-  border-radius: var(--neo-border-radius-m);
-  box-shadow: var(--neo-shadow-card);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-2xl);
+  box-shadow: var(--mor-shadow-card);
   box-sizing: border-box;
-  margin-top: var(--neo-spacing_5);
-  margin-bottom: var(--neo-spacing_5);
+  margin-top: var(--mor-space-8);
+  margin-bottom: var(--mor-space-8);
 }
 
 .markdown figure {
@@ -354,21 +342,17 @@ figure figcaption {
   padding: 0;
   background-color: transparent;
   border: none;
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: var(--mor-radius-sm);
   box-shadow: none;
   display: block;
   margin: 0 auto;
 }
 
-html[data-theme='dark'] .markdown img,
-html[data-theme='dark'] .markdown figure,
-html[data-theme='dark'] .reactPlayer {
-  border-color: var(--neo-grey-700);
-}
+/* Media borders use the mode-aware --mor-line, so no dark override is needed. */
 
 /* Zoomed image background */
 [data-rmiz-modal-content] {
-  background-color: var(--neo-surfaces-black);
+  background-color: #000;
 }
 
 #__docusaurus {
@@ -377,7 +361,7 @@ html[data-theme='dark'] .reactPlayer {
 
 /* Offset anchor targets so they land below the fixed navbar */
 html {
-  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_2));
+  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height) + var(--mor-space-4));
 }
 
 /* Push main content below fixed navbar */
@@ -427,7 +411,7 @@ html {
 }
 
 [class^=docMainContainer_] {
-  font-size: var(--neo-font-size-default);
+  font-size: var(--mor-font-size-lg);
 }
 
 [class*="docItemContainer"] article {
@@ -438,7 +422,7 @@ html {
 h1 {
   font-family: var(--mor-font-sans), sans-serif;
   font-size: 36px;
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-weight: var(--mor-font-weight-semibold);
   line-height: 45px;
   color: var(--brand-midnight);
   margin-top: 0;
@@ -446,17 +430,13 @@ h1 {
 
 [class^=docMainContainer_] h2:not(.doc-card-title) {
   font-family: var(--mor-font-sans), sans-serif;
-  font-size: var(--neo-font-size-h2);
-  font-weight: var(--neo-font-weight-medium);
-  line-height: calc(var(--neo-line-height-xl) * 1px); /* neo is in pixels */
-  color: var(--neo-typography-input-default);
-  margin-top: var(--neo-spacing_5);
-  padding-bottom: var(--neo-spacing_1);
-  border-bottom: 1px solid var(--neo-grey-200);
-}
-
-html[data-theme='dark'] [class^=docMainContainer_] h2:not(.doc-card-title) {
-  border-bottom-color: var(--neo-grey-700);
+  font-size: var(--mor-font-size-doc-h2);
+  font-weight: var(--mor-font-weight-medium);
+  line-height: 32px;
+  color: var(--mor-text);
+  margin-top: var(--mor-space-8);
+  padding-bottom: var(--mor-space-2);
+  border-bottom: 1px solid var(--mor-line);
 }
 
 /* Changelog month-year section headers — heavier weight so dates anchor reading */
@@ -474,7 +454,7 @@ html[data-theme='dark'] [class^=docMainContainer_] h2:not(.doc-card-title) {
 .markdown h2[id^="december-"],
 .markdown h2[id="earlier-releases"] {
   font-family: var(--mor-font-sans), sans-serif;
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-weight: var(--mor-font-weight-semibold);
 }
 
 /* Indent release entries under each month header so months read as anchors */
@@ -494,17 +474,17 @@ html[data-theme='dark'] [class^=docMainContainer_] h2:not(.doc-card-title) {
   margin-left: 10px;
 }
 [class^=docMainContainer_] h3:not(.doc-card-title) {
-  font-size: var(--neo-font-size-h3);
+  font-size: var(--mor-font-size-doc-h3);
 
 }
 
 /* !important: --ifm-heading-color inheritance doesn't update for dynamic content */
 html[data-theme='dark'] [class^=docMainContainer_] h1 {
-  color: var(--neo-surfaces-white) !important;
+  color: var(--mor-text) !important;
 }
 
 html[data-theme='dark'] [class^=docMainContainer_] h2:not(.doc-card-title) {
-  color: var(--neo-surfaces-white);
+  color: var(--mor-text);
 }
 
 html[data-theme='dark'] [class^=docMainContainer_] .card {
@@ -528,7 +508,7 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 
 /* TOC position - below full navbar wrapper */
 [class*="tableOfContents"] {
-  top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--neo-spacing_7));
+  top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--mor-space-56px));
   max-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-announcement-bar-height) - 128px);
   overflow-y: auto;
 }
@@ -547,14 +527,14 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 }
 
 h1, .markdown h3, .markdown h4 {
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-weight: var(--mor-font-weight-semibold);
 }
 
 /* Inline code: SFMono pill. Relative em sizing so it scales correctly inside headers. */
 .markdown :not(pre) > code {
-  background-color: var(--neo-grey-50);
-  border: 1px solid var(--neo-grey-200);
-  border-radius: var(--neo-border-radius-x-s);
+  background-color: var(--mor-field);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-sm);
   color: var(--brand-midnight);
   font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   font-size: 0.9em;
@@ -564,11 +544,8 @@ h1, .markdown h3, .markdown h4 {
   vertical-align: baseline;
 }
 
-html[data-theme='dark'] .markdown :not(pre) > code {
-  background-color: var(--neo-grey-900);
-  border-color: var(--neo-grey-700);
-  color: var(--neo-grey-100);
-}
+/* Inline code chrome uses mode-aware tokens (--mor-field, --mor-line,
+   --brand-midnight), so no dark override is needed. */
 
 /* Inline code used as link text should inherit the link color so it reads as clickable. */
 .markdown a > code,
@@ -581,22 +558,22 @@ html[data-theme='dark'] .markdown a > code {
    so the heading row sits above the content. */
 .theme-admonition {
   border: 1px solid;
-  border-radius: var(--neo-border-radius-m);
+  border-radius: var(--mor-radius-2xl);
   /* Flat design: hairline border only, no elevation (Infima's .alert adds a
      shadow that reads wrong against the cream canvas). */
   box-shadow: none;
-  padding: var(--neo-spacing_2);
+  padding: var(--mor-space-4);
   display: flex;
   flex-direction: row;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
   align-items: flex-start;
-  margin-top: var(--neo-spacing_3);
-  margin-bottom: var(--neo-spacing_3);
+  margin-top: var(--mor-space-6);
+  margin-bottom: var(--mor-space-6);
 }
 
 .theme-admonition:has([class*='admonitionTitle_']) {
   flex-direction: column;
-  gap: var(--neo-spacing_1_2);
+  gap: var(--mor-space-1);
 }
 
 .theme-admonition [class*='admonitionHeading_'] {
@@ -605,7 +582,7 @@ html[data-theme='dark'] .markdown a > code {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
   text-transform: none;
 }
 
@@ -622,8 +599,8 @@ html[data-theme='dark'] .markdown a > code {
 
 .theme-admonition [class*='admonitionTitle_'] {
   font-family: var(--mor-font-sans);
-  font-weight: var(--neo-font-weight-semi-bold);
-  font-size: var(--neo-font-size-h5);
+  font-weight: var(--mor-font-weight-semibold);
+  font-size: var(--mor-font-size-h2);
   line-height: 1.3;
 }
 

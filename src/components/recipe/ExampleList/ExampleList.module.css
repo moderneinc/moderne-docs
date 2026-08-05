@@ -2,7 +2,7 @@
    parameter values) uses shared `.inlineCode`. */
 
 .paramTable {
-  margin-bottom: var(--neo-spacing_2);
+  margin-bottom: var(--mor-space-4);
 }
 
 /* Eyebrow labels: Unchanged / Before / After. */
@@ -11,39 +11,27 @@
 .afterLabel {
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  font-size: var(--neo-font-size-xs);
-  font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--neo-typography-body-secondary);
+  font-size: var(--mor-font-size-sm);
+  font-weight: var(--mor-font-weight-semibold);
+  color: var(--mor-muted);
 }
 
 .beforeLabel,
 .afterLabel {
-  margin-bottom: var(--neo-spacing_1_2);
+  margin-bottom: var(--mor-space-1);
 }
 
 .exampleName {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--neo-spacing_1);
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-medium);
-  color: var(--neo-typography-input-default);
-  margin-bottom: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
+  font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-medium);
+  color: var(--mor-text);
+  margin-bottom: var(--mor-space-2);
 }
 
 .unchangedBlock {
-  margin-bottom: var(--neo-spacing_2);
-}
-
-html[data-theme='dark'] {
-  .exampleLabel,
-  .beforeLabel,
-  .afterLabel {
-    color: var(--neo-grey-400);
-  }
-
-  .exampleName {
-    color: var(--neo-surfaces-snackbar-dark-mode);
-  }
+  margin-bottom: var(--mor-space-4);
 }

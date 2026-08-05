@@ -6,7 +6,7 @@
 .secondaryNav {
   display: none;
   height: 48px;
-  padding: 0 var(--neo-spacing_4);
+  padding: 0 var(--mor-space-32px);
   align-items: center;
   justify-content: space-between;
   /* Mode-aware hairline; matches the sidebar container divider
@@ -24,7 +24,7 @@
 .leftSection {
   display: flex;
   align-items: center;
-  gap: var(--neo-spacing_3);
+  gap: var(--mor-space-6);
 }
 
 /* Right section: releases */
@@ -37,12 +37,12 @@
 .productLinks {
   display: flex;
   align-items: center;
-  gap: var(--neo-spacing_3);
+  gap: var(--mor-space-6);
 }
 
 .productLink {
-  font-size: var(--neo-font-size-default);
-  font-weight: var(--neo-font-weight-medium);
+  font-size: var(--mor-font-size-lg);
+  font-weight: var(--mor-font-weight-medium);
   color: var(--ifm-navbar-link-color);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -54,11 +54,11 @@
 }
 
 .productLinkActive {
-  color: var(--neo-buttons-primary-default);
+  color: var(--mor-link);
 }
 
 .productLinkActive:hover {
-  color: var(--neo-buttons-primary-default);
+  color: var(--mor-link);
 }
 
 /* Dropdown wrapper (shared by Training and Releases) */
@@ -69,11 +69,11 @@
 .dropdownButton {
   display: flex;
   align-items: center;
-  gap: var(--neo-spacing_1_2);
-  padding: var(--neo-spacing_1) 0;
+  gap: var(--mor-space-1);
+  padding: var(--mor-space-2) 0;
   font-family: var(--mor-font-sans);
-  font-size: var(--neo-font-size-default);
-  font-weight: var(--neo-font-weight-medium);
+  font-size: var(--mor-font-size-lg);
+  font-weight: var(--mor-font-weight-medium);
   color: var(--ifm-navbar-link-color);
   background: transparent;
   border: none;
@@ -91,7 +91,7 @@
 
 /* Highlight the dropdown trigger when the current page lives under one of its items. */
 .dropdownButtonActive {
-  color: var(--neo-buttons-primary-default);
+  color: var(--mor-link);
 }
 
 /* Chevron icon animation */
@@ -109,12 +109,12 @@
   top: 100%;
   left: 0;
   min-width: 220px;
-  margin-top: var(--neo-spacing_1);
-  padding: var(--neo-spacing_1);
-  background: var(--neo-surfaces-card);
-  border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-x-s);
-  box-shadow: var(--neo-shadow-dropdown);
+  margin-top: var(--mor-space-2);
+  padding: var(--mor-space-2);
+  background: var(--mor-panel);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-sm);
+  box-shadow: var(--mor-shadow-dropdown);
   z-index: 100;
 }
 
@@ -127,13 +127,13 @@
 .dropdownLink {
   display: flex;
   align-items: center;
-  gap: var(--neo-spacing_1);
-  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+  gap: var(--mor-space-2);
+  padding: var(--mor-space-3) var(--mor-space-4);
   font-family: var(--mor-font-sans);
-  font-size: var(--neo-font-size-sm);
+  font-size: var(--mor-font-size-base);
   color: var(--ifm-navbar-link-color);
   text-decoration: none;
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: var(--mor-radius-sm);
   transition: background-color 0.15s ease;
 }
 
@@ -143,26 +143,24 @@
 }
 
 .dropdownLink:hover {
-  background-color: var(--neo-surfaces-list-hover);
+  background-color: var(--mor-row-hover);
   color: var(--ifm-navbar-link-hover-color);
   text-decoration: none;
 }
 
 /* Active dropdown link styling */
 .dropdownLinkActive {
-  color: var(--neo-buttons-primary-default);
+  color: var(--mor-link);
 }
 
 .dropdownLinkActive:hover {
-  color: var(--neo-buttons-primary-default);
+  color: var(--mor-link);
 }
 
 /* Dark mode adjustments */
 :global(html[data-theme='dark']) .dropdown {
-  /* Explicit dark card surface. Previously var(--brand-midnight), but that token
-     is now remapped to --mor-text (a light color in dark mode), which made this
-     panel near-white — light nav text then rendered ~1:1 on it. */
-  background: var(--mor-card);
+  /* --mor-panel is mode-aware (dark #26262e), so it stays an elevated panel in
+     dark without an explicit background override. */
   border-color: rgba(255, 255, 255, 0.2);
 }
 

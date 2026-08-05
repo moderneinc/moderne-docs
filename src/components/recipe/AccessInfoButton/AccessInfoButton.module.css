@@ -9,16 +9,16 @@ position: relative;
 display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--neo-spacing_1_4);
+  padding: var(--mor-space-2px);
   border: none;
-  border-radius: var(--neo-border-radius-full);
+  border-radius: var(--mor-radius-full);
   background-color: transparent;
-  color: var(--neo-typography-body-secondary);
+  color: var(--mor-muted);
   cursor: pointer;
 }
 
 .accessInfoIcon:hover {
-color: var(--neo-typography-input-default);
+color: var(--mor-text);
 }
 
 .accessInfoPopover {
@@ -29,13 +29,13 @@ position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--neo-spacing_1_1_2);
+  gap: var(--mor-space-3);
   width: 260px;
-  padding: var(--neo-spacing_2);
-  background-color: var(--neo-surfaces-card);
-  border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-input);
-  box-shadow: var(--neo-shadow-dropdown);
+  padding: var(--mor-space-4);
+  background-color: var(--mor-panel);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-lg);
+  box-shadow: var(--mor-shadow-dropdown);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -50,19 +50,7 @@ opacity: 1;
 }
 
 .accessInfoText {
-font-size: var(--neo-font-size-sm);
+font-size: var(--mor-font-size-base);
   line-height: 1.5;
-  color: var(--neo-typography-body-secondary);
-}
-
-html[data-theme='dark'] {
-.accessInfoPopover {
-background-color: var(--neo-icons-default);
-  border-color: var(--neo-grey-700);
-}
-
-.accessInfoText,
-.accessInfoIcon {
-color: var(--neo-grey-400);
-}
+  color: var(--mor-muted);
 }

@@ -6,28 +6,28 @@
 display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--neo-spacing_2);
+  gap: var(--mor-space-4);
 }
 
 .optionsCount {
-font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-regular);
-  color: var(--neo-typography-body-secondary);
+font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-regular);
+  color: var(--mor-muted);
 }
 
 .optionsSummary {
 display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--neo-spacing_2);
-  font-size: var(--neo-font-size-sm);
+  gap: var(--mor-space-4);
+  font-size: var(--mor-font-size-base);
 }
 
 .optionsSummaryItem {
 display: inline-flex;
   align-items: center;
-  gap: var(--neo-spacing_1_2);
-  color: var(--neo-typography-body-secondary);
+  gap: var(--mor-space-1);
+  color: var(--mor-muted);
 }
 
 .optionsSummaryDot {
@@ -38,21 +38,21 @@ width: 6px;
 }
 
 .optionsSummaryDot_req {
-background-color: var(--neo-typography-input-default);
+background-color: var(--mor-text);
 }
 
 .optionsSummaryDot_opt {
-background-color: var(--neo-grey-400);
+background-color: var(--mor-muted);
 }
 
 /* Horizontal padding insets the header rule + row dividers from the card border, so they don't run
    edge-to-edge — matching the data table (a `shared.table` inside the accordion body's `spacing_2`
    padding). Keeps row treatments consistent across the page. */
 .optionsCard {
-border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-card);
+border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-card);
   overflow: hidden;
-  padding: 0 var(--neo-spacing_2);
+  padding: 0 var(--mor-space-4);
 }
 
 /* Two-line option table. Line 1 (`.paramRow`) holds the scannable fields; line 2 (`.descRow`) holds
@@ -67,23 +67,23 @@ width: 100%;
 
 .headCell {
 text-align: left;
-  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2);
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--neo-typography-input-default);
+  padding: var(--mor-space-3) var(--mor-space-3);
+  font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-semibold);
+  color: var(--mor-text);
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid var(--neo-border-card);
+  border-bottom: 1px solid var(--mor-line);
   white-space: nowrap;
 }
 
 /* Line 1: a touch of top room, tight to the description that follows. */
 .cell {
 text-align: left;
-  padding: var(--neo-spacing_2) var(--neo-spacing_1_1_2) var(--neo-spacing_1);
-  font-size: var(--neo-font-size-sm);
-  color: var(--neo-typography-input-default);
-  font-weight: var(--neo-font-weight-regular);
+  padding: var(--mor-space-4) var(--mor-space-3) var(--mor-space-2);
+  font-size: var(--mor-font-size-base);
+  color: var(--mor-text);
+  font-weight: var(--mor-font-weight-regular);
   vertical-align: baseline;
   border: none;
 }
@@ -94,21 +94,20 @@ white-space: nowrap;
 
 /* Line 2: no top padding (hugs line 1), bottom room before the next option. */
 .descCell {
-padding: 0 var(--neo-spacing_1_1_2) var(--neo-spacing_2);
+padding: 0 var(--mor-space-3) var(--mor-space-4);
   border: none;
 }
 
 /* The one divider: a hairline above each option's line 1, except the first. Matches the header rule
-   and card edge (`--neo-border-card`) so every line in the card is one uniform weight — `--neo-border-secondary`
-   resolves to a semi-transparent navy that renders darker/cooler than the neutral borders. */
+   and card edge (`--mor-line`) so every line in the card is one uniform weight. */
 .optionDivider .cell {
-border-top: 1px solid var(--neo-border-card);
+border-top: 1px solid var(--mor-line);
 }
 
 /* `.optionName` / `.optionExample` compose shared `.inlineCode` (chrome + dark mode); these only
    add the per-cell deltas. */
 .optionName {
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-weight: var(--mor-font-weight-semibold);
 }
 
 .optionExample {
@@ -117,66 +116,30 @@ border-top: 1px solid var(--neo-border-card);
 }
 
 .optionExampleNone {
-color: var(--neo-typography-body-secondary);
+color: var(--mor-muted);
 }
 
 .optionDesc {
-font-size: var(--neo-font-size-sm);
-  color: var(--neo-typography-input-default);
+font-size: var(--mor-font-size-base);
+  color: var(--mor-text);
 }
 
 /* Required marker: the same dot vocabulary as the section-header tally, paired with its label. */
 .requiredMarker {
 display: inline-flex;
   align-items: center;
-  gap: var(--neo-spacing_1_2);
+  gap: var(--mor-space-1);
   white-space: nowrap;
 }
 
 .optionRequired {
-font-size: var(--neo-font-size-xs);
-  font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--neo-typography-input-default);
+font-size: var(--mor-font-size-sm);
+  font-weight: var(--mor-font-weight-semibold);
+  color: var(--mor-text);
 }
 
 .optionOptional {
-font-size: var(--neo-font-size-xs);
-  color: var(--neo-typography-body-secondary);
+font-size: var(--mor-font-size-sm);
+  color: var(--mor-muted);
 }
 
-html[data-theme='dark'] {
-.optionsSummaryDot_req {
-background-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.optionDesc {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.optionsCount,
-.optionExampleNone,
-.optionOptional {
-color: var(--neo-grey-400);
-}
-
-.optionsCard {
-border-color: var(--neo-grey-700);
-}
-
-.headCell {
-color: var(--neo-surfaces-snackbar-dark-mode);
-    border-bottom-color: var(--neo-grey-700);
-}
-
-.cell {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.optionDivider .cell {
-border-top-color: var(--neo-grey-700);
-}
-
-.optionRequired {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-}

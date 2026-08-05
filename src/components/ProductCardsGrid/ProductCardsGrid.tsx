@@ -1,5 +1,5 @@
 import Link from '@docusaurus/Link';
-import type { ProductItem } from '@site/src/components/NeoMegaMenu/types';
+import type { ProductItem } from '@site/src/components/ModMegaMenu/types';
 import type { FunctionComponent } from 'react';
 import styles from './ProductCardsGrid.module.css';
 

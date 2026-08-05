@@ -64,7 +64,7 @@ const meta: Meta<typeof CardLayout> = {
     docs: {
       description: {
         component:
-          'Swizzled Docusaurus DocCard component with Neo Design styling.',
+          'Swizzled Docusaurus DocCard component with Morpheus styling.',
       },
     },
   },

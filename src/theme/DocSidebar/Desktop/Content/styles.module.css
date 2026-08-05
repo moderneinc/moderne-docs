@@ -3,14 +3,14 @@
  * Migrated from custom.css lines 333-416
  *
  * Note: This CSS module extends the default Docusaurus sidebar styles
- * with NeoDesign tokens for typography, spacing, and colors.
+ * with Morpheus tokens for typography, spacing, and colors.
  */
 
 @media (min-width: 997px) {
-  /* Override default menu padding with NeoDesign spacing */
+  /* Override default menu padding with Morpheus spacing */
   .menu {
     flex-grow: 1;
-    padding: var(--neo-spacing_1) var(--neo-spacing_4) 8rem var(--neo-spacing_4);
+    padding: var(--mor-space-2) var(--mor-space-32px) 8rem var(--mor-space-32px);
     overflow-y: auto;
     scroll-padding-top: 12rem;
   }
@@ -29,11 +29,11 @@
 /**
  * Global sidebar typography and link styles
  * Applied via global selectors targeting the theme class
- * Aligned with Figma design specifications
+ * Aligned with the Morpheus design system
  */
 :global(.theme-doc-sidebar-menu) {
-  font-size: var(--neo-font-size-default);
-  font-weight: var(--neo-font-weight-regular);
+  font-size: var(--mor-font-size-lg);
+  font-weight: var(--mor-font-weight-regular);
   line-height: 1.5;
 }
 
@@ -41,16 +41,16 @@
 :global(.theme-doc-sidebar-menu > .menu__list-item > .menu__link-wrapper > .menu__link),
 :global(.theme-doc-sidebar-menu > .menu__list-item > .menu__link),
 :global(.theme-doc-sidebar-menu > .menu__list-item > .menu__list-item-collapsible > .menu__link) {
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-weight: var(--mor-font-weight-semibold);
 }
 
 /* Sidebar link spacing */
 :global(.theme-doc-sidebar-menu .menu__link) {
-  padding: var(--neo-spacing_3_4) var(--neo-spacing_1_1_2);
+  padding: var(--mor-space-6px) var(--mor-space-3);
   line-height: 1.4;
 }
 
-/* Hover states - brand lavender tint (not in NeoDesign) + selected color */
+/* Hover states - brand lavender tint (not in Morpheus) + selected color */
 :global(.theme-doc-sidebar-menu .menu__link:hover) {
   background-color: rgba(212, 211, 228, 0.2);
   color: var(--brand-digital-blue);
@@ -102,10 +102,10 @@
 /* Sidebar section headers (HTML dividers in sidebar) */
 :global(.theme-doc-sidebar-item-link > strong) {
   text-transform: uppercase;
-  color: var(--neo-grey-700);
-  font-size: var(--neo-font-size-sm);
+  color: var(--mor-text);
+  font-size: var(--mor-font-size-base);
   line-height: 1.4;
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-weight: var(--mor-font-weight-semibold);
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-item-link > strong) {

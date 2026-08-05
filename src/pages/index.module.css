@@ -11,7 +11,7 @@
   padding: 80px 100px 100px;
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_5, 40px);
+  gap: var(--mor-space-8);
   position: relative;
   z-index: 1;
 }
@@ -19,8 +19,8 @@
 /* Tablet breakpoint */
 @media (max-width: 996px) {
   .pageBody {
-    padding: var(--neo-spacing_4, 32px) var(--neo-spacing_3, 24px);
-    gap: var(--neo-spacing_4, 32px);
+    padding: var(--mor-space-32px) var(--mor-space-6);
+    gap: var(--mor-space-32px);
   }
 }
 
@@ -33,14 +33,14 @@
 .heroContent {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_3, 24px);
+  gap: var(--mor-space-6);
   max-width: 600px;
 }
 
 .heroHeading {
   font-family: var(--ifm-font-family-base);
   font-size: 54px;
-  font-weight: var(--neo-font-weight-medium);
+  font-weight: var(--mor-font-weight-medium);
   line-height: 1.1;
   margin: 0;
 }
@@ -84,7 +84,7 @@
 .heroSubheading {
   font-family: var(--ifm-font-family-base);
   font-size: 28px;
-  font-weight: var(--neo-font-weight-medium);
+  font-weight: var(--mor-font-weight-medium);
   line-height: 1.4;
   color: var(--mor-text);
   margin: 0;
@@ -97,11 +97,11 @@
   }
 
   .heroSubheading {
-    font-size: var(--neo-font-size-default, 16px);
+    font-size: var(--mor-font-size-lg);
   }
 
   .pageBody {
-    padding: var(--neo-spacing_3, 24px) var(--neo-spacing_2, 16px);
+    padding: var(--mor-space-6) var(--mor-space-4);
   }
 }
 
@@ -109,21 +109,21 @@
 .whatIsSection {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_5, 40px);
+  gap: var(--mor-space-8);
   width: 100%;
 }
 
 .sectionHeader {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_3, 24px);
+  gap: var(--mor-space-6);
   width: 100%;
 }
 
 .sectionTitle {
   font-family: var(--ifm-font-family-base);
   font-size: 24px;
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-weight: var(--mor-font-weight-semibold);
   line-height: 1.4;
   color: var(--mor-text);
   margin: 0;
@@ -132,7 +132,7 @@
 .sectionDescription {
   font-family: var(--ifm-font-family-base);
   font-size: 15px;
-  font-weight: var(--neo-font-weight-regular, 400);
+  font-weight: var(--mor-font-weight-regular);
   line-height: 1.4;
   color: var(--mor-text);
   max-width: 700px;
@@ -141,13 +141,13 @@
 
 .videoGrid {
   display: flex;
-  gap: var(--neo-spacing_5, 40px);
+  gap: var(--mor-space-8);
   flex-wrap: wrap;
 }
 
 /* Hairline outer border + 8px padding around home-page video thumbnails (flat, no shadow) */
 .videoThumbnail {
-  padding: var(--neo-spacing_1);
+  padding: var(--mor-space-2);
   background-color: transparent;
   border: 1px solid var(--mor-line);
   border-radius: var(--mor-radius-card);
@@ -168,7 +168,7 @@
 
 @media (max-width: 996px) {
   .videoGrid {
-    gap: var(--neo-spacing_3, 24px);
+    gap: var(--mor-space-6);
   }
 }
 
@@ -176,21 +176,21 @@
 .platformSection {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_3, 24px);
+  gap: var(--mor-space-6);
   width: 100%;
 }
 
 .platformContent {
   font-family: var(--ifm-font-family-base);
   font-size: 15px;
-  font-weight: var(--neo-font-weight-regular, 400);
+  font-weight: var(--mor-font-weight-regular);
   line-height: 1.4;
   color: var(--mor-text);
   max-width: 700px;
 }
 
 .platformContent p {
-  margin: 0 0 var(--neo-spacing_2, 16px) 0;
+  margin: 0 0 var(--mor-space-4) 0;
 }
 
 .platformContent p:last-child {

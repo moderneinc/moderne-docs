@@ -45,7 +45,7 @@ function PaginatorLayout({
  * Custom pagination navigation component for documentation pages with:
  * - Previous/Next page links with inline arrows
  * - Simple text-only design (no backgrounds or borders)
- * - Typography: Inter Medium, 14px (Misc/button style from Figma)
+ * - Typography: Inter Medium, 14px
  * - Color: Grey-500 in light mode, Grey-400 in dark mode
  * - Hover effect: Opacity transition to 0.7
  * - Responsive layout with justify-between spacing
@@ -54,8 +54,8 @@ function PaginatorLayout({
  * Features:
  * - Handles three scenarios: both links, only previous, only next
  * - Text truncation for very long page titles
- * - Dark mode support with Neo Design system integration
- * - Consistent with Figma design spec (node-id=752:3329, 752:3330, 752:3331)
+ * - Dark mode support with Morpheus design system integration
+ * - Consistent with the design spec
  */
 const meta: Meta<typeof PaginatorLayout> = {
   title: 'Theme/DocPaginator',
@@ -65,7 +65,7 @@ const meta: Meta<typeof PaginatorLayout> = {
     docs: {
       description: {
         component:
-          'Swizzled Docusaurus DocPaginator component with Neo Design styling for previous/next page navigation.',
+          'Swizzled Docusaurus DocPaginator component with Morpheus styling for previous/next page navigation.',
       },
     },
   },

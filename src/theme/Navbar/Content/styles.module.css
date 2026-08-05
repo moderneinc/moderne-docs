@@ -25,11 +25,11 @@
   justify-content: center;
   background: none;
   border: none;
-  padding: var(--neo-spacing_1_2);
-  margin-right: var(--neo-spacing_1);
+  padding: var(--mor-space-1);
+  margin-right: var(--mor-space-2);
   cursor: pointer;
   color: var(--ifm-navbar-link-color);
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: var(--mor-radius-sm);
   transition: background-color 0.2s ease;
 }
 
@@ -48,7 +48,7 @@
 }
 
 :global(html[data-theme='dark']) .mobileMenuButton {
-  color: var(--neo-surfaces-white);
+  color: var(--mor-text);
 }
 
 :global(html[data-theme='dark']) .mobileMenuButton:hover {
@@ -88,7 +88,7 @@
   .mobileControls {
     display: flex;
     align-items: center;
-    gap: var(--neo-spacing_2);
+    gap: var(--mor-space-4);
   }
 }
 
@@ -114,24 +114,24 @@
   .externalLinks {
     display: flex;
     align-items: center;
-    gap: var(--neo-spacing_3);
-    margin-left: var(--neo-spacing_2);
+    gap: var(--mor-space-6);
+    margin-left: var(--mor-space-4);
   }
 }
 
 /* Prevent collision with centered search at narrow desktop widths */
 @media (min-width: 997px) and (max-width: 1050px) {
   .externalLinks {
-    margin-left: var(--neo-spacing_6);
+    margin-left: var(--mor-space-48px);
   }
 }
 
 .externalLink {
   display: flex;
   align-items: center;
-  gap: var(--neo-spacing_1_2);
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-medium);
+  gap: var(--mor-space-1);
+  font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-medium);
   color: var(--ifm-navbar-link-color);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -173,7 +173,7 @@
 }
 
 .navbarCenter :global([class*='navbarSearchContainer']) {
-  padding: 0 var(--neo-spacing_1_2);
+  padding: 0 var(--mor-space-1);
 }
 
 .navbarCenter :global(.DocSearch-Button) {

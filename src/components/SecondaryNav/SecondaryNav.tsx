@@ -1,6 +1,6 @@
 import Link from '@docusaurus/Link';
 import { useLocation } from '@docusaurus/router';
-import type { ProductItem } from '@site/src/components/NeoMegaMenu/types';
+import type { ProductItem } from '@site/src/components/ModMegaMenu/types';
 import type { NavLink } from '@site/src/config/megaMenuData';
 import clsx from 'clsx';
 import { ChevronDown, ExternalLink } from 'lucide-react';

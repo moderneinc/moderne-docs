@@ -1,0 +1,110 @@
+/**
+ * Breadcrumbs Component - Design System Integration
+ * Refactored with CSS nesting for improved specificity and maintainability
+ *
+ * This component uses Morpheus (--mor-*) and Infima (Docusaurus) CSS variables.
+ *
+ * Variable Mappings:
+ *
+ * LIGHT MODE:
+ * - Icons/Chevrons: --mor-muted
+ * - Link text: --mor-link
+ * - Body text: --mor-muted
+ * - Current page: --mor-link
+ *
+ * DARK MODE:
+ * - Icons/Body text: --mor-muted (mode-aware, inherited)
+ * - Links: --mor-muted
+ * - Current page: --brand-digital-green (#85fe98 / mint green)
+ *
+ * TYPOGRAPHY:
+ * - Font family: --ifm-font-family-base
+ * - Font size: --mor-font-size-base (14px)
+ * - Font weight: --mor-font-weight-medium (500)
+ */
+.breadcrumbs {
+  /* Light mode tokens - mapped to Morpheus */
+  --breadcrumb-icon-color: var(--mor-muted);
+  --breadcrumb-text-color: var(--mor-muted);
+  --breadcrumb-link-color: var(--mor-link);
+  --breadcrumb-current-color: var(--mor-link);
+
+  /* Typography - using Morpheus variables */
+  --breadcrumb-font-family: var(--ifm-font-family-base);
+  --breadcrumb-font-size: var(--mor-font-size-base);
+  --breadcrumb-font-weight: var(--mor-font-weight-medium);
+  --breadcrumb-line-height: 1;
+
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Dark mode tokens - using brand variables from custom.css */
+[data-theme='dark'] .breadcrumbs {
+  --breadcrumb-link-color: var(--mor-muted);
+  --breadcrumb-current-color: var(--brand-digital-green);
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--mor-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  font-family: var(--breadcrumb-font-family);
+  font-size: var(--breadcrumb-font-size);
+  font-weight: var(--breadcrumb-font-weight);
+  line-height: var(--breadcrumb-line-height);
+  color: var(--breadcrumb-link-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--breadcrumb-link-color);
+    outline-offset: var(--mor-space-2px);
+    border-radius: var(--mor-radius-xs);
+  }
+}
+
+.current {
+  font-family: var(--breadcrumb-font-family);
+  font-size: var(--breadcrumb-font-size);
+  font-weight: var(--breadcrumb-font-weight);
+  line-height: var(--breadcrumb-line-height);
+  color: var(--breadcrumb-current-color);
+  white-space: nowrap;
+}
+
+.separator {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  color: var(--breadcrumb-icon-color);
+  user-select: none;
+}
+
+.homeIcon {
+  color: var(--breadcrumb-icon-color);
+  display: block;
+}

@@ -6,19 +6,19 @@
 position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_5);
+  gap: var(--mor-space-8);
   /* Subtle containment: a faint outline (no fill, no shadow) so the title block
      reads as a contained card instead of floating on the page. */
-  padding: var(--neo-spacing_4);
-  border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-card);
+  padding: var(--mor-space-32px);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-card);
 }
 
 /* Identity block: access badge → title → code chips. */
 .titleGroup {
 display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_1_1_2);
+  gap: var(--mor-space-3);
 }
 
 /* Summary block: description → tags. One step tighter than the title group to offset the
@@ -26,57 +26,57 @@ display: flex;
 .metaGroup {
 display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
 }
 
 .accessRow {
 display: flex;
   align-items: center;
-  gap: var(--neo-spacing_1_4);
+  gap: var(--mor-space-2px);
 }
 
 .accessBadge {
 display: flex;
   align-items: center;
-  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
-  border-radius: var(--neo-border-radius-full);
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-semi-bold);
+  padding: var(--mor-space-1) var(--mor-space-3);
+  border-radius: var(--mor-radius-full);
+  font-size: var(--mor-font-size-base);
+  font-weight: var(--mor-font-weight-semibold);
 }
 
 .accessBadge_oss {
-background-color: var(--neo-status-success-light);
-  color: var(--neo-status-success-dark);
+background-color: var(--mor-status-tip-bg);
+  color: var(--mor-status-tip-accent);
 }
 
 .accessBadge_moderne {
-background-color: var(--neo-digital-blue-50);
-  color: var(--neo-digital-blue-700);
+background-color: var(--mor-status-info-bg);
+  color: var(--mor-link-deep);
 }
 
 .title {
-font-size: var(--neo-font-size-h1);
-  font-weight: var(--neo-font-weight-semi-bold);
+font-size: var(--mor-font-size-doc-h1);
+  font-weight: var(--mor-font-weight-semibold);
   letter-spacing: -0.02em;
-  color: var(--neo-typography-input-default);
+  color: var(--mor-text);
   margin: 0;
   line-height: 1.2;
 }
 
 .title .titleCode {
-font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
   font-size: 0.9em;
-  font-weight: var(--neo-font-weight-bold);
-  color: var(--neo-typography-code-primary);
+  font-weight: var(--mor-font-weight-bold);
+  color: var(--mor-text);
   background: transparent;
   border: none;
   padding: 0;
 }
 
 .descCode {
-font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
   font-size: 0.9em;
-  color: var(--neo-typography-code-primary);
+  color: var(--mor-text);
   background: transparent;
   border: none;
   padding: 0;
@@ -87,19 +87,19 @@ font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
    these mirror .titleCode/.descCode so the markdown path matches the prop fallback. The doubled class
    raises specificity above Docusaurus's global inline-code styling (the pill background/border). */
 .title.title code {
-  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
   font-size: 0.9em;
-  font-weight: var(--neo-font-weight-bold);
-  color: var(--neo-typography-code-primary);
+  font-weight: var(--mor-font-weight-bold);
+  color: var(--mor-text);
   background: transparent;
   border: none;
   padding: 0;
 }
 
 .description.description code {
-  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
   font-size: 0.9em;
-  color: var(--neo-typography-code-primary);
+  color: var(--mor-text);
   background: transparent;
   border: none;
   padding: 0;
@@ -108,7 +108,7 @@ font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
 .idArtifactRow {
 display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
 }
 
 .codeChip {
@@ -120,19 +120,19 @@ min-width: 0;
   max-width: 100%;
   display: inline-flex;
   align-items: center;
-  gap: var(--neo-spacing_1);
-  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_2) var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
-  background-color: var(--neo-surfaces-card-header);
-  border-radius: var(--neo-border-radius-input);
+  gap: var(--mor-space-2);
+  padding: var(--mor-space-1) var(--mor-space-1) var(--mor-space-1) var(--mor-space-3);
+  background-color: var(--mor-neutral);
+  border-radius: var(--mor-radius-lg);
 }
 
 .codeChipLabel {
 flex-shrink: 0;
-  font-size: var(--neo-font-size-xxs);
-  font-weight: var(--neo-font-weight-semi-bold);
+  font-size: var(--mor-font-size-overline);
+  font-weight: var(--mor-font-weight-semibold);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--neo-typography-body-secondary);
+  color: var(--mor-muted);
 }
 
 .codeChip .idCode {
@@ -141,9 +141,9 @@ flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
-  font-size: var(--neo-font-size-code);
-  color: var(--neo-typography-code-primary);
+  font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
+  font-size: var(--mor-font-size-base);
+  color: var(--mor-text);
   background-color: transparent;
   border: none;
   padding: 0;
@@ -151,8 +151,8 @@ flex: 1;
 
 .description {
 max-width: 64ch;
-  font-size: var(--neo-font-size-default);
-  color: var(--neo-grey-700);
+  font-size: var(--mor-font-size-lg);
+  color: var(--mor-text);
   line-height: 1.65;
   margin: 0;
 }
@@ -160,7 +160,7 @@ max-width: 64ch;
 .tagRow {
 display: flex;
   flex-wrap: wrap;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
 }
 
 .actions {
@@ -168,14 +168,14 @@ display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--neo-spacing_2);
+  gap: var(--mor-space-4);
 }
 
 .actionButtons {
 display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--neo-spacing_1);
+  gap: var(--mor-space-2);
 }
 
 /* Lightweight expectation-setting tooltip on the "Try in Platform" CTA. Reveal + card chrome echo
@@ -187,19 +187,19 @@ position: relative;
 
 .tryTooltip {
 position: absolute;
-  top: calc(100% + var(--neo-spacing_1));
+  top: calc(100% + var(--mor-space-2));
   left: 0;
   z-index: 40;
   width: 280px;
   max-width: 80vw;
-  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_2);
-  font-size: var(--neo-font-size-sm);
+  padding: var(--mor-space-3) var(--mor-space-4);
+  font-size: var(--mor-font-size-base);
   line-height: 1.5;
-  color: var(--neo-typography-body-secondary);
-  background-color: var(--neo-surfaces-card);
-  border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-input);
-  box-shadow: var(--neo-shadow-dropdown);
+  color: var(--mor-muted);
+  background-color: var(--mor-panel);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-lg);
+  box-shadow: var(--mor-shadow-dropdown);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -212,48 +212,13 @@ opacity: 1;
   visibility: visible;
 }
 
-html[data-theme='dark'] .tryTooltip {
-color: var(--neo-grey-400);
-  background-color: var(--neo-icons-default);
-  border-color: var(--neo-grey-700);
-}
-
 html[data-theme='dark'] {
-.codeChip {
-background-color: var(--neo-grey-900);
-}
-
-.titleCode {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.header {
-border-color: var(--neo-grey-700);
-}
-
-.title,
-.description,
-.idCode,
-.descCode {
-color: var(--neo-surfaces-snackbar-dark-mode);
-}
-
-.codeChipLabel {
-color: var(--neo-grey-400);
-}
-
 .accessBadge_oss {
-background-color: var(--neo-grey-800);
-    color: var(--neo-status-success-medium);
+background-color: var(--mor-surface-2);
 }
 
 .accessBadge_moderne {
-background-color: var(--neo-grey-800);
-    color: var(--neo-digital-blue-300);
-}
-
-.actionButtons :global(.neo-button--outline) {
-color: var(--neo-surfaces-snackbar-dark-mode);
-    border-color: var(--neo-grey-600);
+background-color: var(--mor-surface-2);
+    color: var(--mor-link);
 }
 }

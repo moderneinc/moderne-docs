@@ -12,7 +12,7 @@
  */
 
 import sidebars from '../../sidebars';
-import type { ProductItem } from '../components/NeoMegaMenu/types';
+import type { ProductItem } from '../components/ModMegaMenu/types';
 import type { PropSidebarItem } from '@docusaurus/plugin-content-docs';
 
 /**

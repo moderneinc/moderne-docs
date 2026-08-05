@@ -112,19 +112,19 @@ function CategoryPageLayout({
  * DocCategoryGeneratedIndexPage - Swizzled Docusaurus component
  *
  * Custom category index page component for documentation sections with:
- * - Category title and description (matching Figma design node 478:5567)
+ * - Category title and description
  * - Full-width card list with single-column layout
  * - Cards display title and optional description
  * - Gem icons are hidden on auto-generated category index pages via CSS
  * - 32px vertical spacing between sections (header, cards, paginator)
  * - 8px gap within header group (title + description)
- * - Dark mode support with Neo Design system integration
+ * - Dark mode support with Morpheus design system integration
  * - Optional previous/next pagination
  *
  * Features:
  * - Typography: H3/21px Medium for title, 14px Regular for description
  * - Single-column card list (not grid) for better readability
- * - Consistent spacing using Neo Design tokens
+ * - Consistent spacing using Morpheus tokens
  * - Accessible with semantic HTML structure
  * - Integrates with Docusaurus sidebar structure
  *
@@ -141,7 +141,7 @@ const meta: Meta<typeof CategoryPageLayout> = {
     docs: {
       description: {
         component:
-          'Swizzled Docusaurus DocCategoryGeneratedIndexPage component with Neo Design styling for category index pages.',
+          'Swizzled Docusaurus DocCategoryGeneratedIndexPage component with Morpheus styling for category index pages.',
       },
     },
   },
