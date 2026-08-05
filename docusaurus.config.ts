@@ -256,10 +256,11 @@ const config: Config = {
         clickAnalytics: true,
       },
     },
-    // announcementBar: {
-    //   id: "code_remix_26",
-    //   content: '<strong><a href="https://coderemix.ai/?utm_source=docs&utm_medium=referral&utm_campaign=26_crs_banner">Code Remix Summit is back</a></strong> ✦ May 11–13',
-    // },
+    announcementBar: {
+      id: "code_genome_project",
+      content: 'Recipes are moving from Maven Central to the <a href="https://codegenomeproject.org/" target="_blank" rel="noopener noreferrer">Code Genome Project</a>. <a href="/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project">Configure access</a> to keep releases resolving.',
+      isCloseable: true,
+    },
     colorMode: {
       respectPrefersColorScheme: true,
     },

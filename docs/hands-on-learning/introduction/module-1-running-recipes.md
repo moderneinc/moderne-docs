@@ -269,7 +269,7 @@ MOD SUCCEEDED in 52s
 </details>
 
 :::note
-If you are on a corporate network that blocks access to Maven Central, this step may fail. See [Deploying the CLI from an internal Maven Central mirror](../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) for how to install the CLI from your organization's internal mirror (Artifactory/Nexus/etc.).
+If you are on a corporate network that blocks the CLI download, this step may fail. See [Deploying the CLI from an internal artifact repository](../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) for how to install the CLI from your organization's internal artifact repository (Artifactory/Nexus/etc.).
 :::
 
 Each JAR includes a collection of related recipes, so these four artifacts cover everything you need for now.

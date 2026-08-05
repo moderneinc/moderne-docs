@@ -5,7 +5,11 @@
 .announcementBar {
   display: flex;
   align-items: center;
-  height: var(--docusaurus-announcement-bar-height);
+  /* min-height (not height) so if the announcement wraps, the bar grows instead
+     of overflowing into the navbar below; line-height is tightened from the
+     inherited 1.65 to keep any wrapped lines compact. */
+  min-height: var(--docusaurus-announcement-bar-height);
+  line-height: 1.4;
   background-color: var(--ifm-color-announcement-bar-bg);
   color: var(--ifm-color-announcement-bar-text);
 
@@ -45,7 +49,11 @@ html[data-announcement-bar-initially-dismissed='true'] .announcementBar {
 
 @media (min-width: 997px) {
   :root {
-    --docusaurus-announcement-bar-height: 30px;
+    /* Sized for one comfortable line: the current copy fits a single line at all
+       desktop widths (a much longer message would need a bump). Single source of
+       truth for the desktop bar height: the reserve in src/css/custom.css
+       derives from this. */
+    --docusaurus-announcement-bar-height: 40px;
   }
 
   .announcementBarPlaceholder,

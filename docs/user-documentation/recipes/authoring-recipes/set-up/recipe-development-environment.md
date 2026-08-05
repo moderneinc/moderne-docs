@@ -356,7 +356,7 @@ mvn install
 
 ### Publishing to artifact repositories
 
-The [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project is configured to publish to Moderne's open artifact repository (via the `publishing` task at the bottom of the `build.gradle.kts` file). If you want to publish elsewhere, you'll want to update that task. [app.moderne.io](https://app.moderne.io) can draw recipes from the provided repository, as well as from [Maven Central](https://search.maven.org).
+The [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project is configured to publish to Moderne's open artifact repository (via the `publishing` task at the bottom of the `build.gradle.kts` file). If you want to publish elsewhere, you'll want to update that task. [app.moderne.io](https://app.moderne.io) can draw recipes from the provided repository, as well as from the [Code Genome Project repository](https://artifacts.codegenomeproject.org/maven).
 
 :::info
 Running the publish task _will not_ update [app.moderne.io](https://app.moderne.io), as only Moderne employees can add new recipes. If you want to add your recipe to [app.moderne.io](https://app.moderne.io), please ask the team in [Slack](https://join.slack.com/t/rewriteoss/shared\_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) or in [Discord](https://discord.gg/xk3ZKrhWAb).
@@ -375,6 +375,12 @@ If you want your recipes to appear in your organization's Moderne Platform insta
 
 Once your recipe module is published, either locally for testing or to an external artifact repository for broader distribution, you'll need to configure a separate repository to test with (See the [Getting Started Guide](https://docs.openrewrite.org/running-recipes/getting-started) for more detailed instructions). In the repository you want to test your recipe against, update the build plugins accordingly:
 
+:::info
+OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. The snippets below use `USERNAME` and `TOKEN` as placeholders. Replace them with your own credentials.
+
+For Maven, put the credentials in your `settings.xml`. See [Accessing the Code Genome Project](../../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
+:::
+
 <Tabs groupId="projectType">
 <TabItem value="gradle" label="Gradle">
 
@@ -387,6 +393,13 @@ plugins {
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        url = "https://artifacts.codegenomeproject.org/maven"
+        credentials {
+            username = "USERNAME"
+            password = "TOKEN"
+        }
+    }
 }
 
 dependencies {
@@ -445,6 +458,18 @@ If you run into errors when trying to publish and read your recipe locally, try 
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>codegenome</id>
+            <url>https://artifacts.codegenomeproject.org/maven</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>codegenome</id>
+            <url>https://artifacts.codegenomeproject.org/maven</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
 ```
 

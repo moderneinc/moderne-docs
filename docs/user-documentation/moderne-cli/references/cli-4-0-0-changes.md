@@ -18,13 +18,11 @@ The only removed command is `mod afterburner`, whose functionality has been fold
 
 ## Distribution formats
 
-The CLI ships in three platform-specific distributions, all of which are available on [Maven Central](https://repo1.maven.org/maven2/io/moderne/):
+The CLI ships in three platform-specific distributions:
 
-| Distribution | Maven Central artifact                                                                | File pattern                        | Use case                    |
-|--------------|---------------------------------------------------------------------------------------|-------------------------------------|-----------------------------|
-| Linux        | [moderne-cli-linux](https://repo1.maven.org/maven2/io/moderne/moderne-cli-linux/)     | `moderne-cli-linux-{version}.sh`    | Linux workstations and CI   |
-| macOS        | [moderne-cli-osx](https://repo1.maven.org/maven2/io/moderne/moderne-cli-osx/)         | `moderne-cli-osx-{version}.sh`      | macOS workstations          |
-| Windows      | [moderne-cli-windows](https://repo1.maven.org/maven2/io/moderne/moderne-cli-windows/) | `moderne-cli-windows-{version}.zip` | Windows workstations and CI |
+* **Linux**: `moderne-cli-linux-{version}.sh` (Linux workstations and CI)
+* **macOS**: `moderne-cli-osx-{version}.sh` (macOS workstations)
+* **Windows**: `moderne-cli-windows-{version}.zip` (Windows workstations and CI)
 
 The Linux and macOS distributions are self-extracting shell scripts. Run them to install the CLI. The Windows distribution is a zip archive containing an `install.cmd` script.
 
@@ -64,7 +62,7 @@ There are several installation paths, each with different tradeoffs. The right c
 | Package manager       | `brew install moderneinc/moderne/mod` / `choco install mod --prerelease`                                | Internet at install time                       | Individual workstations                     |
 | Platform distribution | Download `.sh` or `.zip`, run it                                                                        | Internet at download time                      | Teams without Java, controlled environments |
 | Standalone wrapper    | Check `modw` + properties file into your repo                                                           | Internet on first run (downloads distribution) | CI pipelines, per-project version pinning   |
-| Standalone JAR        | Download [`moderne-cli.jar`](https://repo1.maven.org/maven2/io/moderne/moderne-cli/) from Maven Central | Java 25+ already installed                     | Custom environments, advanced users         |
+| Standalone JAR        | Download the standalone `moderne-cli.jar`                                                               | Java 25+ already installed                     | Custom environments, advanced users         |
 
 The first four paths all provide a bundled JRE — no separate Java installation is required. The standalone JAR is platform-neutral and requires you to supply your own Java 25+ installation (any distribution except GraalVM — see [AOT cache](#startup-performance-and-the-aot-cache)).
 
@@ -77,14 +75,16 @@ You can install the CLI with a single command:
 curl -fsSL https://app.moderne.io/cli | bash
 
 # Windows (PowerShell)
-iwr https://app.moderne.io/cli | iex
+irm https://app.moderne.io/cli/windows | iex
 ```
 
 This downloads the `modw` wrapper, places it on your `PATH`, and configures it to connect to the Moderne Platform. On first run, `modw` will download the full platform distribution (JAR + bundled JRE) automatically.
 
+If your organization has a private Moderne tenant, install from your tenant's URL instead of `app.moderne.io`. For example: `curl https://<your-tenant>.moderne.io/cli | bash` (or `irm https://<your-tenant>.moderne.io/cli/windows | iex` on Windows).
+
 ### Platform distribution
 
-Download the distribution for your platform from Maven Central (see [distribution formats](#distribution-formats) for links) and run it. The installer places the CLI in `~/.moderne/cli/` and adds it to your `PATH`:
+Download the installer for your platform from your Moderne tenant, or from [app.moderne.io](https://app.moderne.io) if you don't have a tenant, and run it. If you don't have access to a private SaaS tenant or `app.moderne.io`, work with your internal artifact repository team to onboard the Code Genome Project repository to your Artifactory or Nexus and install from there (see [Deploying the CLI from an internal artifact repository](../getting-started/cli-internal-mirror.md)). The installer places the CLI in `~/.moderne/cli/` and adds it to your `PATH`:
 
 ```bash
 # Linux (self-extracting installer)
@@ -119,7 +119,7 @@ On the first run, `modw` will automatically download the correct platform distri
 
 Set `version=4.0.0` in the `moderne-wrapper.properties` file to pin a specific version. You can also use these special tokens:
 
-* `version=RELEASE` (the default): Resolves the latest stable release from Maven Central.
+* `version=RELEASE` (the default): Resolves the latest stable release.
 * `version=LATEST`: Resolves the newest early access build. This is useful in environments where distinguished engineers need access to new versions before they are rolled out to the general population.
 
 The installed version is tracked in `~/.moderne/cli/dist/version.txt`.
@@ -174,7 +174,7 @@ Custom scripts that set `JAVA_HOME` or other environment variables should be upd
 
 ## Air-gapped and enterprise environments
 
-By default, `modw` downloads the CLI distribution (including the bundled JRE) from Maven Central. In enterprise environments that restrict outbound internet access, you can point it to an internal mirror instead.
+By default, `modw` downloads the CLI distribution (including the bundled JRE) automatically. In enterprise environments that restrict outbound internet access, you can point it to an internal mirror instead.
 
 ### JDK resolution order
 
@@ -202,7 +202,7 @@ The wrapper will replace `${version}`, `${platform}`, and `${extension}` automat
 
 Setting `jdkUrl=skip` tells the wrapper not to download a JDK on its own. In this case, you will need Java 25+ available via `MODERNE_JAVA_HOME` or your `PATH`.
 
-`distributionUrl` controls where the distribution archive is downloaded from, but not where a dynamic `version` is *resolved*. `RELEASE` resolution queries Maven Central and `LATEST`/snapshot resolution queries Sonatype (Maven Central Snapshots). If you track `LATEST` from an internal snapshot repository, set `distributionUrlEarlyAccess` to that repository's base URL so the snapshot lookup is redirected away from Sonatype:
+`distributionUrl` controls where the distribution archive is downloaded from, but not where a dynamic `version` is *resolved*. Both `RELEASE` and `LATEST`/snapshot resolution query Moderne's distribution repository for the version metadata. If you track `LATEST` from an internal snapshot repository, set `distributionUrlEarlyAccess` to that repository's base URL so the snapshot lookup is redirected there:
 
 ```properties
 version=LATEST
