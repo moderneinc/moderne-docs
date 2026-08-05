@@ -17,7 +17,7 @@ The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) r
 
 Each row records one repository's run of one command, keyed by command `type` (`run`, `commit`, `build`, …). Rows are **hierarchical**: a command carries its own stage plus every earlier stage in the workflow, with `organization` always the last column. For the full field list, see the [trace.csv reference](../../../../user-documentation/moderne-cli/references/trace-csv.md).
 
-Build columns are empty on rows where sync downloaded a prebuilt LST instead of source, which is expected rather than missing data. Scope build reporting to rows where a build was actually attempted with `WHERE buildoutcome IS NOT NULL`. See [when the build columns are empty](../../../../user-documentation/moderne-cli/references/trace-csv.md#when-the-build-columns-are-empty).
+Build columns describe the build that produced the LST, which is not always a build that ran on the machine issuing the command. A downloaded LST carries its own build record into the trace, so filter on `syncLstDownloadUri` if you need to separate local builds from prebuilt ones. See [build columns and prebuilt LSTs](../../../../user-documentation/moderne-cli/references/trace-csv.md#build-columns-and-prebuilt-lsts).
 
 Telemetry lands in a Hive-partitioned layout, which every engine below prunes on:
 

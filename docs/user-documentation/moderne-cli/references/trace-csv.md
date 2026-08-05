@@ -23,32 +23,28 @@ This page is the field reference for those rows.
 
 Each command produces a trace that includes its own stage plus all prior stages. The `type` value identifies the command.
 
-| Command              | `type`    | Stages included                                    |
-|----------------------|-----------|----------------------------------------------------|
-| `mod git sync`       | `sync`    | Sync                                               |
-| `mod build`          | `build`   | Sync + Build                                       |
-| `mod run`            | `run`     | Sync + Build\* + Run                               |
-| `mod git apply`      | `apply`   | Sync + Build\* + Run + Apply                       |
-| `mod git add`        | `add`     | Sync + Build\* + Run + Apply + Add                 |
-| `mod git commit`     | `commit`  | Sync + Build\* + Run + Apply + Add + Commit        |
-| `mod git push`       | `push`    | Sync + Build\* + Run + Apply + Add + Commit + Push |
-| `mod publish`        | `publish` | Sync + Build + Publish                             |
-| `mod exec`           | `exec`    | Exec (standalone)                                  |
-| MCP server tool call | `mcp`     | MCP (standalone)                                   |
-
-\* Build is skipped when `mod git sync` downloads a prebuilt LST. See [when the build columns are empty](#when-the-build-columns-are-empty).
+| Command              | `type`    | Stages included                                  |
+|----------------------|-----------|--------------------------------------------------|
+| `mod git sync`       | `sync`    | Sync                                             |
+| `mod build`          | `build`   | Sync + Build                                     |
+| `mod run`            | `run`     | Sync + Build + Run                               |
+| `mod git apply`      | `apply`   | Sync + Build + Run + Apply                       |
+| `mod git add`        | `add`     | Sync + Build + Run + Apply + Add                 |
+| `mod git commit`     | `commit`  | Sync + Build + Run + Apply + Add + Commit        |
+| `mod git push`       | `push`    | Sync + Build + Run + Apply + Add + Commit + Push |
+| `mod publish`        | `publish` | Sync + Build + Publish                           |
+| `mod exec`           | `exec`    | Exec (standalone)                                |
+| MCP server tool call | `mcp`     | MCP (standalone)                                 |
 
 `mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec` and MCP tool calls are standalone: they carry the common columns plus their own stage, with no earlier workflow stages.
 
-## When the build columns are empty
+## Build columns and prebuilt LSTs
 
-Empty `build*` columns mean no build ran, not that data is missing. `mod git sync` can download a prebuilt LST instead of source, and `mod run` then follows sync directly.
+Populated build columns do not mean a build ran on the machine that issued the command. Every LST carries a `trace.json` describing the build that produced it, so when `mod git sync` downloads a prebuilt LST, the CLI reads that file and carries its build stage into the trace. The build columns then describe the original build, wherever and whenever it happened.
 
-When reporting on builds, scope to rows where a build was actually attempted, or rows that never tried one will look like failures:
+To tell the two apart, check `syncLstDownloadUri`: populated means the LST was downloaded, empty means it was built locally.
 
-```sql
-WHERE buildoutcome IS NOT NULL
-```
+LSTs produced before CLI 3.45.0 have no embedded `trace.json`. Their build columns are empty apart from an identifier.
 
 ## Common fields
 

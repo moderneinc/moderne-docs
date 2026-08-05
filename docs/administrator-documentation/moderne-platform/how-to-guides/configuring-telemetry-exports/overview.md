@@ -39,7 +39,9 @@ The CSV schema is hierarchical: each command embeds rows from prior stages of th
 * **Recipe workflow**: sync → *build (optional)* → run → apply → add → commit → push.
 * **Publish workflow**: sync → build → publish (the LST publication path used by [mass ingest](../mass-ingest.md)).
 
-Build is optional because `mod git sync` can download a prebuilt LST instead of source, in which case `mod run` follows sync directly and the build columns are empty. Expect this wherever a central team runs [mass ingest](../mass-ingest.md) and everyone else runs recipes against the published LSTs, as in [mass run](../../../moderne-dx/how-to-guides/mass-run-dx.md). You will still see local builds alongside it, since developers build branches the central team doesn't ingest. See [when the build columns are empty](../../../../user-documentation/moderne-cli/references/trace-csv.md#when-the-build-columns-are-empty).
+Build is optional because `mod git sync` can download a prebuilt LST instead of source, in which case `mod run` follows sync directly without a local build. Expect this wherever a central team runs [mass ingest](../mass-ingest.md) and everyone else runs recipes against the published LSTs, as in [mass run](../../../moderne-dx/how-to-guides/mass-run-dx.md). You will still see local builds alongside it, since developers build branches the central team doesn't ingest.
+
+The build columns are populated either way. Each LST carries a record of the build that produced it, so a downloaded LST contributes that original build's values to the trace. See [build columns and prebuilt LSTs](../../../../user-documentation/moderne-cli/references/trace-csv.md#build-columns-and-prebuilt-lsts).
 
 In addition, `mod exec` (`type=exec`) and MCP server tool calls (`type=mcp`) emit standalone traces that are not part of either workflow chain.
 
@@ -51,7 +53,7 @@ A quick orientation:
 |-----------------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------|
 | Common                      | `origin`, `path`, `branch`, `developer`                                           | always                                                         |
 | Sync                        | `syncOutcome`, `syncChangeset`, `syncElapsedTimeMs`                               | `mod git sync`                                                 |
-| Build *(optional)*          | `buildOutcome`, `buildCliVersion`, `buildLineCount`, build-tool versions          | `mod build`; empty when sync downloaded a prebuilt LST         |
+| Build                       | `buildOutcome`, `buildCliVersion`, `buildLineCount`, build-tool versions          | `mod build`, or carried from a downloaded LST's own record     |
 | Run                         | `runRecipeId`, `runOutcome`, `runFilesWithFixResults`, `runElapsedTimeMs`         | `mod run`                                                      |
 | Apply / Add / Commit / Push | per-stage outcomes and identifiers                                                | corresponding `mod git ...`                                    |
 | Publish                     | `publishOutcome`, `publishStartTime`, `publishEndTime`, `publishId`, `publishUri` | `mod publish` (LST publication; used by mass-ingest pipelines) |
