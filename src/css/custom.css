@@ -200,9 +200,11 @@ html[data-theme='light'] .DocSearch-Button {
   border-radius: 4px;
   padding: 2px 6px;
   font-family: var(--mor-font-mono), monospace;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
-  color: var(--mor-muted);
+  /* Full text color, not --mor-muted — the thin ⌘ glyph is hard to read at the
+     muted 4.5:1; --mor-text is ~11:1 on the chip surface. */
+  color: var(--mor-text);
   box-shadow: none;
   min-width: auto;
   width: auto;
