@@ -10,6 +10,16 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 5, 2026
+
+#### rewrite-spring - v0.39.1
+
+* Move Spring WS 4.0 recipes to the io.moderne package
+* Use KotlinTemplate for RestTemplate constructor migration on Kotlin
+* Make RestTemplate to RestClient migration Kotlin-aware
+* Make subpackage recursion explicit in the Hazelcast session package rename
+* Make subpackage recursion explicit in three Boot 4 relocations
+
 ## August 4, 2026
 
 #### rewrite-angular - v1.8.0
