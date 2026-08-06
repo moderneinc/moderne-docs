@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.4.3           |
+| CLI version | 4.5.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,24 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.5.0 (2026-08-05)
+
+#### What's Changed
+* Fail `mod publish` when every repos-lock.csv update attempt loses the race
+* Fail loudly when a V2 edit page cannot be read
+* Skip maven animal sniffer plugin by default.
+* Fix content search dropping matches after a non-ASCII rune in stitched shards
+* Suppress jna/jna-jpms 2009 JDK CPE false positives
+* Give V3 marker serialization the same Jackson limits as V2
+* Keep LST paths repository-relative in V3 marker storage
+* Fix offline jOOQ codegen gaps reported by bol.com against embedded pglite
+* build: stop restating BOM-managed versions in the version catalog
+* Index V2LstReader.findByPath by source path (fixes O(N*S) stall on file-generating recipes)
+* Fix Bazel LST builds on Bazel 9 (JavaInfo/java_common no longer autoloaded)
+* Kill wedged rewrite-rpc peer descendants when the CLI is terminated
+* Pin npm to the repository's existing lockfileVersion
+* Per-coordinate V3 type tables for C#, JavaScript, Go, and Python
 
 ### CLI / DX v4.4.3 (2026-07-29)
 
