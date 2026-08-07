@@ -71,11 +71,11 @@ As each component becomes ready, additional tools are registered and the client 
 | Tray client        | HTTP client that pushes session metadata to the macOS tray app over loopback (disabled by default)                           |
 | Transcript watcher | Reads the AI client's local conversation transcript files; writes a local CSV of search-tool usage observations              |
 | Recipe marketplace | Read-only view of local CSV files containing OpenRewrite recipe metadata; no network access                                  |
-| Refaster transformer | Applies Refaster-style statement transformations for precise, deterministic edits without AI inference                      |
+| Recipe-DSL engine  | Compiles and runs a Kotlin recipe-DSL source (`pattern_replace`) for deterministic structural edits; no AI inference         |
 
 ## Tools and resources exposed
 
-All 18 tools perform deterministic code analysis or transformation against local data. None contact external services or perform AI inference.
+All 19 tools perform deterministic code analysis or transformation against local data. None contact external services or perform AI inference.
 
 ### Available immediately (or once the search index is built)
 
@@ -97,13 +97,14 @@ All 18 tools perform deterministic code analysis or transformation against local
 | `find_annotations`     | Finds all usages of a specified annotation across the codebase.                                                                |
 | `find_implementations` | Finds all classes implementing or extending a given type, including indirect implementations.                                  |
 | `symbols_overview`     | Returns the symbol structure (classes, methods, fields) of a specific source file.                                             |
-| `search_recipes`       | Searches the local recipe marketplace CSV for OpenRewrite recipes by keyword.                                                  |
+| `edit_code`            | Searches the local recipe marketplace CSV for a recipe that transforms code across the repository.                             |
+| `analyze_code`         | Searches the local recipe marketplace CSV for a recipe that analyzes code without modifying it.                                |
 | `learn_recipe`         | Returns full metadata for a specific recipe from the local marketplace.                                                        |
 | `run_recipe`           | Executes an OpenRewrite recipe against the LST. May trigger a Maven artifact download if the recipe JAR is not locally cached. |
 | `query_datatable`      | SQL interface (DuckDB, in-process) over `.csv.gz` DataTable files produced by a prior `run_recipe` call.                       |
 | `change_type`          | Atomically renames or moves a Java type across the entire codebase.                                                            |
 | `change_method_name`   | Atomically renames a method across the entire codebase.                                                                        |
-| `pattern_replace`      | Applies a Refaster-style code pattern replacement across many files.                                                           |
+| `pattern_replace`      | Applies a Kotlin recipe-DSL (`rewrite { } to { }`) structural replacement across many files.                                   |
 
 ### Resources
 
@@ -160,7 +161,7 @@ Recipes may make outbound HTTPS connections as part of their normal behavior. Th
 
 In its default configuration, `mod mcp` transmits no telemetry, analytics, crash reports, or usage data. The transcript watcher writes search-tool usage observations to a local CSV at `~/.moderne/mcp/tool-observations.csv`. This file is never transmitted anywhere. There is no phone-home mechanism.
 
-`mod mcp` does not contact the Moderne SaaS platform API by default. The recipe marketplace used by `search_recipes`, `learn_recipe`, and `run_recipe` is read entirely from local CSV files installed by `mod config recipes` commands.
+`mod mcp` does not contact the Moderne SaaS platform API by default. The recipe marketplace used by `edit_code`, `analyze_code`, `learn_recipe`, and `run_recipe` is read entirely from local CSV files installed by `mod config recipes` commands.
 
 :::info
 In a future release, the Moderne CLI will provide an opt-in feature to connect to your Moderne platform for centralized telemetry collection and audit/governance data. This will require explicit configuration and will not be enabled by default.

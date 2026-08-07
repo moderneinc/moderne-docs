@@ -18,13 +18,14 @@ In this module, you'll learn about the Moderne skills workflow for AI-assisted r
 
 The Moderne CLI ships with AI skills that teach your coding agent how to work with OpenRewrite recipes effectively. Instead of starting from scratch, these skills give your agent procedural knowledge about recipe development.
 
-The three skills you'll use today:
+The two skills you'll use today:
 
 | Skill                   | What it does                                                                                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
 | **create-recipe**       | Guides the agent through recipe type selection, project scaffolding, writing tests, and implementing recipes following OpenRewrite best practices |
-| **run-recipe**          | Handles compiling the recipe, setting up a working set of real repositories, running the recipe, and diagnosing results                           |
 | **create-organization** | Helps find and assemble a curated set of repositories to test against                                                                             |
+
+In Module 3 you'll run the recipe against those repositories with the `mod` CLI directly.
 
 These skills are supported across multiple agents. See [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) for details on supported agents and how to invoke skills in each one.
 
@@ -44,18 +45,14 @@ mod config agent-tools install
 
 #### Step 2: Verify the skills are available
 
-In Claude Code, type `/` and you should see the Moderne skills listed (e.g., `/moderne:create-recipe`). (For other agents, see the [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) docs for how to verify installation and invoke the skills.)
+In Claude Code, type `/` and you should see the Moderne skills listed (e.g., `/moderne:create-recipe`). (For other agents, see the [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) docs for how to verify installation.)
 
 #### Step 3: Try it out
 
-Invoke the `create-recipe` skill with a simple, throwaway request to see what it does. In Claude Code:
-
-```
-/moderne:create-recipe
-```
+Skills trigger from what you ask for — describe a recipe task and the agent loads `create-recipe` on its own.
 
 :::tip
-If you're using a different agent, invoke the skill using the method described in [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md). For example, in Cursor use `@moderne-create-recipe`, or in Windsurf reference the skill by name in your prompt.
+If the agent doesn't pick up the skill, you can force it in Claude Code with `/moderne:create-recipe`.
 :::
 
 When prompted, give it a simple task:
@@ -91,7 +88,7 @@ When you've seen enough, you can stop the agent since you won't be using this ou
 
 ### How this maps to the workshop
 
-The skills you tried in Exercise 1-1 form an iterative development loop: identify the transformation, choose the recipe type, write tests, implement the recipe, and test with `run-recipe`. Each module in this workshop maps to a phase of that loop:
+The skills you tried in Exercise 1-1 form an iterative development loop: identify the transformation, choose the recipe type, write tests, implement the recipe, and test it against real repositories. Each module in this workshop maps to a phase of that loop:
 
 * **This exercise:** Plan what the recipe should do, scope it down, and confirm recipe type(s)
 * **Module 2:** Build the recipe with AI assistance, writing tests first to validate output
@@ -137,8 +134,6 @@ Throughout this workshop, you'll find **suggested prompts** in collapsible secti
 <details>
 <summary>Suggested prompt</summary>
 
-> `/moderne:create-recipe`
->
 > I want to create an OpenRewrite recipe to help migrate Java projects from Jackson 2.x to Jackson 3.x. Please read the official migration guide at https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md and propose a comprehensive list of code changes that could be automated with OpenRewrite recipes. Don't reference or copy from any existing OpenRewrite Jackson recipes. Build the plan from the migration guide itself.
 >
 > For each change, note:

@@ -80,7 +80,7 @@ Use AI as a co-author to build an OpenRewrite migration recipe from scratch. Lea
 
 **What you'll learn:**
 
-* The Moderne skills workflow for AI-assisted recipe development (`create-recipe` → `run-recipe` → `create-organization` → iterate)
+* The Moderne skills workflow for AI-assisted recipe development (`create-recipe` → `create-organization` → run with the CLI → iterate)
 * How to guide AI to choose the right recipe type (declarative YAML, imperative Java, Refaster templates)
 * Why test-driven development is a natural fit for AI-generated recipes
 * How to validate AI-generated recipes against real-world repositories

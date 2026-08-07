@@ -45,8 +45,6 @@ The `create-organization` skill helps find repos by technology. It uses `gh sear
 <details>
 <summary>Suggested prompt</summary>
 
-> /moderne:create-organization
->
 > Find 5-10 small-to-medium Java repositories on GitHub that use Jackson 2.x (com.fasterxml.jackson). I need a mix of Maven and Gradle projects. Create a repos.csv for testing a Jackson 2→3 migration recipe.
 
 </details>
@@ -64,7 +62,7 @@ This takes a few minutes. The skill's workflow includes syncing the working set 
 
 ### Goals for this exercise
 
-* Run your recipe against real repositories using the `run-recipe` skill
+* Run your recipe against real repositories with the Moderne CLI
 * Use the agent to perform pre-analysis and set expectations
 * Compare predictions to actual results
 
@@ -72,23 +70,35 @@ This takes a few minutes. The skill's workflow includes syncing the working set 
 
 #### Step 1: Run the recipe
 
-Use the `run-recipe` skill to run your recipe against the working set.
+Have the agent drive the CLI through the full loop. The `create-recipe` skill documents these commands, so the agent should know the sequence.
 
 <details>
 <summary>Suggested prompt</summary>
 
-> /moderne:run-recipe
->
-> Run my Jackson 2→3 migration recipe against the working set. The recipe is in this project (development mode). Before running, analyze the source code in the working set to predict which files should be affected.
+> Run my Jackson 2→3 migration recipe against the working set. The recipe is in this project, so publish it to Maven local, install the JAR, and set it as the active recipe. Before running, search the source code in the working set to predict which files should be affected. Then build the LSTs and run the recipe, and compare the results to your predictions.
 
 </details>
 
-The skill handles the full workflow: compiling your recipe, searching the working set for target patterns (pre-analysis), running the recipe, comparing results to predictions, and reporting findings. This will take several minutes. Watch as it goes.
+For reference, the underlying commands are:
+
+```bash
+./gradlew publishToMavenLocal
+mod config recipes jar install <groupId>:<artifactId>:<version>
+mod config recipes active set <RECIPE_PATH>
+mod build working-set --no-download --streaming
+mod run working-set --active-recipe --streaming --parallel 2
+```
+
+This will take several minutes. Watch as it goes.
+
+:::note
+LSTs must be built before the run. If every repo reports `runOutcome=Skipped`, the `mod build` step didn't complete.
+:::
 
 #### Step 2: Review the results
 
-Once the skill finishes, review its output. The skill should have reported:
-* Which repos it predicted would be affected (from pre-analysis)
+Once the run finishes, review the output. You want to know:
+* Which repos the agent predicted would be affected (from pre-analysis)
 * Which repos actually had changes
 * Any mismatches between predictions and results
 
@@ -159,4 +169,4 @@ You've now been through the full workflow: plan with AI, build with AI, and test
 
 * **Close the gaps**: Pick one or two gaps from the comparison and add them to your recipe. Each one follows the same loop: write a test, add the transformation, rebuild, re-run, verify.
 * **Test against more repositories**: Use the `create-organization` skill to find additional Jackson 2.x repositories and run your recipe against a broader set. More repos means more edge cases and a more complete recipe.
-* **Try it on your own migration**: Apply the same workflow to a migration that matters to you. Pick a library upgrade or API change relevant to your codebase, use `create-recipe` to plan and build it, and `run-recipe` to validate against your own repositories.
+* **Try it on your own migration**: Apply the same workflow to a migration that matters to you. Pick a library upgrade or API change relevant to your codebase, use `create-recipe` to plan and build it, then validate it against your own repositories with `mod build` and `mod run`.
