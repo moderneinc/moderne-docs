@@ -482,6 +482,10 @@ java -jar connector-{version}.jar \
 
 ## Maven repository variables
 
+:::warning[Deprecated]
+Maven poll repositories drive the deprecated `POLLING` discovery mode. Prefer pointing the Connector at a `repos-lock.csv` with `publishUri` values (`LOCK` mode); see [Maven repository configuration](./configure-a-connector-with-maven-repository-access.md#publish-your-reposcsv-alongside-your-lsts). In `LOCK` mode, these entries only supply the credentials used to fetch LSTs.
+:::
+
 You can configure multiple Maven repositories by including multiple entries, each with a different `{index}`.
 
 <Tabs groupId="agent-type">
@@ -549,6 +553,10 @@ java -jar connector-{version}.jar \
 </Tabs>
 
 ## Artifactory repository variables
+
+:::warning[Deprecated]
+Artifactory poll repositories drive the deprecated `POLLING` discovery mode. Prefer pointing the Connector at a `repos-lock.csv` with `publishUri` values (`LOCK` mode); see [Artifactory LST configuration](./configure-a-connector-with-artifactory-access.md#publish-your-reposcsv-alongside-your-lsts). In `LOCK` mode, these entries only supply the credentials used to fetch LSTs.
+:::
 
 You can configure multiple Artifactory servers by including multiple entries, each with a different `{index}`. Within a given Artifactory server configuration, you can configure multiple LST query filters by including multiple entries, each with a different `{index}`.
 
