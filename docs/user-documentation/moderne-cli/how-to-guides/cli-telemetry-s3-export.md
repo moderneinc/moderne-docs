@@ -73,9 +73,6 @@ The upload won't interfere with your workflow. If it fails for any reason, the o
 * `mod git push`
 
 </details>
-
-`mod git checkout` also writes a trace, but only into the repository it touched. It is never queued for upload, so the wrapper has nothing to publish for it.
-
 :::note
 The wrapper (`modw` and `modw.cmd`) ships as part of the CLI distribution, so an upgrade that changes the wrapper scripts replaces your customized copy. Keep your customized wrapper in source control and re-apply it after upgrading. The scripts change rarely, so this is infrequent, and [pinning the CLI version](./cli-wrapper.md#controlling-auto-updates) puts you in control of when it can happen at all.
 :::
