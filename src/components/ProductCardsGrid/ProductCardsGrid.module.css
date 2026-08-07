@@ -44,22 +44,21 @@
   gap: var(--mor-space-4);
 }
 
+/* Flat, borderless surface tile (matches the prototype's .area). It raises one
+   surface step on hover; the "Explore" affordance and the gap between tiles carry
+   the boundary rather than a stroke. */
 .productCard {
   display: flex;
   padding: var(--mor-space-5);
   background: var(--mor-surface);
-  /* Resting hairline so the tile stays perceptible against the page (the
-     surface/bg fill delta alone is ~1.05:1, well under WCAG 1.4.11's 3:1). */
-  border: 1px solid var(--mor-line-strong);
+  border: none;
   border-radius: var(--mor-radius-xs);
   text-decoration: none;
-  transition: background-color var(--ifm-transition-fast) ease,
-              border-color var(--ifm-transition-fast) ease;
+  transition: background-color var(--ifm-transition-fast) ease;
 }
 
 .productCard:hover {
   background: var(--mor-surface-2);
-  border-color: var(--mor-link);
   text-decoration: none;
 }
 
