@@ -105,12 +105,25 @@
   }
 }
 
-/* What is Moderne Section */
+/* What is Moderne Section — flat Morpheus prose card */
 .whatIsSection {
   display: flex;
   flex-direction: column;
   gap: var(--mor-space-8);
   width: 100%;
+  padding: var(--mor-space-32px);
+  background: var(--mor-card);
+  border: 1px solid var(--mor-line-strong);
+  border-radius: var(--mor-radius-card);
+}
+
+/* Short green accent bar anchoring each section header. */
+.accentBar {
+  align-self: flex-start;
+  width: 64px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--mor-green);
 }
 
 .sectionHeader {
@@ -172,12 +185,16 @@
   }
 }
 
-/* Platform Details Section */
+/* Platform Details Section — flat Morpheus prose card */
 .platformSection {
   display: flex;
   flex-direction: column;
   gap: var(--mor-space-6);
   width: 100%;
+  padding: var(--mor-space-32px);
+  background: var(--mor-card);
+  border: 1px solid var(--mor-line-strong);
+  border-radius: var(--mor-radius-card);
 }
 
 .platformContent {
