@@ -1,47 +1,57 @@
 /**
- * ProductCardsGrid - Displays products in a responsive 4-column grid
- * Morpheus: flat surface tiles that raise a step on hover.
+ * ProductCardsGrid — "Browse by area" grid.
+ * Morpheus: a bordered section header with an area count, and flat surface tiles
+ * that raise a step on hover. Mirrors the prototype's .sec-head / .grid / .area.
  */
 
 .browseByProduct {
   display: flex;
   flex-direction: column;
-  gap: var(--mor-space-6);
+  gap: var(--mor-space-5);
+}
+
+/* Section header: title on the left, right-aligned area count, divided from the
+   grid by a hairline rule. */
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  gap: var(--mor-space-4);
+  border-bottom: 1px solid var(--mor-line);
+  padding-bottom: var(--mor-space-3);
 }
 
 .sectionTitle {
-  font-size: var(--mor-font-size-lg);
-  font-weight: var(--mor-font-weight-medium);
+  font-size: 22px;
+  font-weight: var(--mor-font-weight-semibold);
+  letter-spacing: -0.02em;
   color: var(--mor-text);
   margin: 0;
 }
 
+.sectionCount {
+  font-family: var(--mor-font-mono);
+  font-size: var(--mor-font-size-xs);
+  color: var(--mor-muted);
+  margin-left: auto;
+}
+
+/* Auto-fill at a 320px minimum → three columns on desktop, reflowing down to one
+   on narrow screens. min(100%, 320px) keeps a single card from overflowing on
+   very small viewports. */
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--mor-space-6);
-}
-
-@media (max-width: 996px) {
-  .productGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .productGrid {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: var(--mor-space-4);
 }
 
 .productCard {
   display: flex;
-  padding: var(--mor-space-6);
+  padding: var(--mor-space-5);
   background: var(--mor-surface);
   /* Resting hairline so the tile stays perceptible against the page (the
      surface/bg fill delta alone is ~1.05:1, well under WCAG 1.4.11's 3:1). */
   border: 1px solid var(--mor-line-strong);
-  border-radius: var(--mor-radius-sm);
+  border-radius: var(--mor-radius-xs);
   text-decoration: none;
   transition: background-color var(--ifm-transition-fast) ease,
               border-color var(--ifm-transition-fast) ease;
@@ -56,7 +66,6 @@
 .productCardContent {
   display: flex;
   flex-direction: column;
-  gap: var(--mor-space-1);
   min-width: 0;
 }
 
@@ -69,9 +78,17 @@
 }
 
 .productCardDescription {
-  font-size: var(--mor-font-size-base);
+  font-size: var(--mor-font-size-md);
   font-weight: var(--mor-font-weight-regular);
   color: var(--mor-muted);
-  margin: 0;
-  line-height: 1.4;
+  margin: var(--mor-space-6px) 0 0;
+  line-height: 1.5;
+}
+
+/* "Explore →" affordance — link-colored, sits below the description. */
+.explore {
+  margin-top: var(--mor-space-3);
+  font-size: var(--mor-font-size-sm);
+  font-weight: var(--mor-font-weight-semibold);
+  color: var(--mor-link);
 }
