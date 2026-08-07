@@ -10,6 +10,15 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 7, 2026
+
+#### rewrite-prethink - 0.11.3
+
+* Scan ExtractDependencyUsage once per source set, across all four JVM languages
+* Export SQL anti-patterns as a SQL quality context
+* Populate library usage, import conventions and logging framework for JS/TS
+* Fix the Go scanning recipes: cursor misuse, scan-order dependence, and a dead go.mod match
+
 ## August 5, 2026
 
 #### rewrite-spring - v0.39.1
