@@ -48,7 +48,7 @@ Your custom recipe JARs are stored in your Artifactory. In order to load them in
 
 If your organization wants to reduce dependency on external repositories like the Code Genome Project repository, all recipe JARs (including OpenRewrite recipes) and their dependencies can be served from your artifact repository (for example, Artifactory or Nexus).
 
-**How to limit Artifactory usage**: Enable the in-memory POM cache on the Connector. The Moderne Platform also maintains a POM cache on the service that manages recipes.
+**How to limit Artifactory usage**: Enable the [POM cache on the Connector](./how-to-guides/connector-configuration/configure-the-pom-cache.md). The Moderne Platform also maintains a POM cache on the service that manages recipes.
 
 ### 3. Recipe execution
 
@@ -56,7 +56,7 @@ When running Maven or Gradle upgrade recipes, Moderne uses the POM or Gradle fil
 
 For example, if a recipe fixes a vulnerability in Spring Web `4.2.6` that's resolved in version `4.2.9`, but your Artifactory doesn't have `4.2.9`, Moderne won't perform the upgrade. Following the "do no harm" principle of OpenRewrite recipes, upgrades are skipped when the target version isn't available in your repositories.
 
-**How to limit Artifactory usage**: Enable the in-memory POM cache on the Connector.
+**How to limit Artifactory usage**: Enable the [POM cache on the Connector](./how-to-guides/connector-configuration/configure-the-pom-cache.md), which caches the `maven-metadata.xml` lookups these recipes make.
 
 ## Why are Artifactory requests slow?
 
