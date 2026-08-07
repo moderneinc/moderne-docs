@@ -67,9 +67,43 @@ Then run `mod publish`:
 mod publish /path/to/your/repos
 ```
 
-This uploads each LST to the artifact repository and adds the `publishUri` column to your `repos-lock.csv` file, recording where each LST was published. It also uploads a merged, central `repos-lock.csv` to the root of the artifact repository (for example, `https://artifactory.company.com/artifactory/moderne-ingest/repos-lock.csv`), giving your team a single file to point at.
+This uploads each LST to the artifact repository and adds the `publishUri` column to your `repos-lock.csv` file, recording where each LST was published. It also uploads a merged, central `repos-lock.csv` to the root of the artifact repository (for example, `https://artifactory.company.com/artifactory/moderne-ingest/repos-lock.csv`), giving your team a single file to point at. See [the central repos-lock.csv file](#the-central-repos-lockcsv-file) for how this file is maintained.
 
 At this point, your `repos-lock.csv` file contains everything needed to recreate your exact setup – repository locations, exact commits, and LST locations. You should then [share that with your team](#sharing-and-using-the-file).
+
+## The central repos-lock.csv file
+
+Beyond the local file in your `.moderne` folder, `mod publish` also maintains a single, merged `repos-lock.csv` hosted in the artifact repository itself. At the end of every publish that uploads at least one LST, the Moderne CLI downloads the current central file, merges in the results of that publish, and uploads the result back. The central file therefore always reflects the latest published state of every repository, even when different machines (such as parallel mass ingest workers) each publish only a subset of your repositories.
+
+### Where the files live
+
+The location of both the central `repos-lock.csv` and the optional `repos.csv` (described below) depends on which artifact store type you configured with `mod config lsts artifacts`:
+
+| Artifact store type                                            | `repos.csv` location                                           | `repos-lock.csv` location                                                |
+|----------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
+| `artifactory`, `s3`, or `azure-blob`                           | `/repos.csv`                                                   | `/repos-lock.csv`                                                        |
+| `maven` (Nexus, GitLab Maven, or any strict Maven 2 layout)    | `/io/moderne/organization/sources/repos/1.0.0/repos-1.0.0.csv` | `/io/moderne/organization/sources/repos-lock/1.0.0/repos-lock-1.0.0.csv` |
+
+All paths are relative to the artifact repository you configured (for example, `https://artifactory.company.com/artifactory/moderne-ingest/repos-lock.csv` or `s3://my-bucket/repos-lock.csv`). Maven repositories enforce a strict `groupId/artifactId/version` layout and reject uploads to arbitrary paths, so the Moderne CLI publishes both files under synthetic Maven coordinates instead of at the root.
+
+### Controlling the organizational hierarchy with a repos.csv file
+
+If you upload a [`repos.csv` file](../references/repos-csv.md) to your artifact repository (at the location shown in the table above), `mod publish` treats it as the source of truth for both the list of repositories and their [organizational hierarchy](../references/repos-csv.md#defining-an-organizational-hierarchy). On every publish, the central `repos-lock.csv` is rebuilt to contain exactly the rows and `org` columns from your `repos.csv`, with each row matched to published LSTs by its `origin`, `path`, and `branch` values and filled in with the most recent publish information:
+
+* Repositories published during this run get their new `changeset` and `publishUri`.
+* Repositories not published during this run keep the `changeset` and `publishUri` from the previous central `repos-lock.csv`.
+* Repositories that have never been published appear with empty `changeset` and `publishUri` columns.
+* Repositories present in the previous central `repos-lock.csv` but absent from your `repos.csv` are dropped.
+
+This gives you a simple way to manage your organizational hierarchy: edit the `repos.csv` in your artifact repository (for example, to move a repository to a different organization or add a new level to the hierarchy), and the next `mod publish` propagates the change to the central `repos-lock.csv`. Anything consuming that file, whether teammates running `mod git sync csv` or the [Moderne Connector](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy.md), picks up the new hierarchy automatically.
+
+### Merging without a repos.csv file
+
+If there is no `repos.csv` in your artifact repository, the central `repos-lock.csv` keeps whatever structure it already has. Rows for repositories published during this run are updated with their new `changeset` and `publishUri`, and repositories that don't yet exist in the central file are added. If neither file exists yet, the first publish uploads the local `repos-lock.csv` as the new central file.
+
+### Publishing from multiple machines at once
+
+Updates to the central file are safe under concurrency. The Moderne CLI uploads the merged file conditionally (using ETags where the artifact repository provides them, or an MD5 comparison where it doesn't), so an upload only succeeds if the central file hasn't changed since it was downloaded. If another publisher updated the file first, the CLI downloads the file again, redoes the merge, and tries once more (making up to five attempts in total). This makes it safe to run many mass ingest workers publishing in parallel against the same artifact repository.
 
 ## Sharing and using the file
 
