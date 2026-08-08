@@ -8,10 +8,6 @@ import PrethinkQuestionDeck from '@site/src/components/PrethinkQuestionDeck';
 
 # Proof of value (POV) process for agent tools
 
-:::warning[Draft]
-This guide is an early draft. Sections marked **To be completed** are still being built out, and the scenario menus will grow as we validate more material against real engagements.
-:::
-
 :::info
 Before starting the PoV process, make sure your team has completed the [prerequisites checklist](./proof-of-value-prerequisites.md).
 :::
@@ -71,23 +67,19 @@ A recipe that compiles is not the same as a recipe that does what was asked. Che
 
 The output of an agent tools PoV is **a plan**, not a savings number.
 
-Over three weeks we exercise a set of capabilities against your own code. What comes out the other side is a prioritized picture of your estate that only your codebase could produce: where test coverage is thin, which packages are structurally decaying, which vulnerabilities generalize beyond the one your scanner found, and what to tackle first.
+Over roughly three weeks you exercise a set of capabilities against your own code. What comes out the other side is a prioritized picture of your estate that only your codebase could produce: where test coverage is thin, which packages are structurally decaying, which vulnerabilities generalize beyond the one your scanner found, and what to tackle first.
 
-That readout is the deliverable. It is a body of work you can take to planning, and it is very difficult to deliver without the capabilities you just spent three weeks exercising.
-
-:::info[To be completed]
-Readout collateral — the report template and the evidence each phase is expected to generate — is still being built. It should be clear to stakeholders up front what artifacts they will be handed at the end.
-:::
+That readout is the deliverable. It is a body of work you can take straight into planning.
 
 ## Setting expectations
 
-Agent tooling is not something a customer finishes in three weeks. The talk track mirrors how we handle large framework migrations: here is what we can demonstrate in three weeks, and here is what realizing it fully in your environment actually takes.
+You will not finish rolling out agent tooling in three weeks, and it is worth being clear about that up front. A proof of value shows you what the tooling can do against your own code and leaves you with a plan. Realizing it fully — ingesting every repository, keeping context current as code changes, integrating with each agent your teams use — is a longer piece of work.
 
-Be explicit about that split from the scoping call onward. The PoV is designed to show potential and produce a plan. Rolling agent tooling out across an estate — ingesting every repository, keeping context current, integrating with your agents of choice — is a longer engagement.
+Scoping the PoV around that split keeps the exercise honest and keeps the readout useful.
 
-### How we talk about cost
+### Measuring token savings
 
-Customers frequently ask whether agent tooling will reduce their token spend, particularly where an executive has already signed a large coding assistant deal. It is a fair question, and the honest answer is that token cost is not reliably measurable in a way that transfers from one setup to another.
+You may be asked whether agent tooling will reduce your token spend, particularly if your organization has already signed a large coding assistant deal. It is a fair question, and the honest answer is that token cost is not reliably measurable in a way that transfers from one setup to another.
 
 The most immediate obstacle is practical rather than theoretical: **most agents do not give you the numbers.** Few expose client-side token accounting that a developer can read transparently while they work — per-request input and output counts, cache hit rates, or the overhead a tool call adds. Where the figures exist at all they usually live in a vendor dashboard, aggregated across users and delayed by hours, which is the wrong granularity and the wrong latency for a three-week evaluation. You cannot attribute a saving to a tool you cannot meter.
 
@@ -99,7 +91,7 @@ Even where the numbers are available, too many variables have to be held constan
 * Whether context propagates across tools or is rebuilt on every call
 * How long conversations run, since token consumption grows with conversation length
 
-Enumerating that list is itself the argument. It shows how much has to be pinned down before a measurement means anything.
+That list is the point. It shows how much has to be pinned down before two measurements can be compared at all.
 
 <details>
 <summary>A worked example of why the numbers move</summary>
@@ -114,23 +106,17 @@ Because token count grows with conversation length and caching is what normally 
 
 Bake-offs do not resolve this either. Two teams running in parallel for three weeks is a sample size too small to draw conclusions from, and as noted above there is no real counterfactual to compare against.
 
-Instead, we orient the value conversation around **accuracy, completeness, and speed** — the [three signals above](#what-to-look-for), which you can observe directly in transcripts and results rather than having to model.
+A more durable way to judge the tooling is **accuracy, completeness, and speed** — the [three signals above](#what-to-look-for), which you can observe directly in transcripts and results rather than having to model.
 
-:::info[To be completed]
-A standalone explainer on token cost measurement is planned so that this answer is consistent across engagements rather than improvised per deal.
-:::
+### Who should take part
 
-### Who should be in the room
-
-Because the return on investment story here is about capability rather than hard cost data, it matters more than usual who participates.
-
-Ask your sponsor to include:
+Because the case for this tooling rests on capability rather than a cost figure, it matters more than usual who participates. Aim to include:
 
 * **At least one architect** who understands blast radius across the estate — someone who can look at a Prethink finding and immediately know which teams it touches
 * **Developers who use AI coding agents daily**, so that the agent side of the evaluation reflects real habits rather than a demo script
 * **A security or platform representative** if [vulnerability remediation](#phase-3-remediating-vulnerabilities-with-an-agent) is in scope
 
-The single most important person is the one who can judge whether an answer that spans three thousand repositories is correct and complete. Without them in the room, the scale story lands as a demo rather than as evidence.
+The most important person is whoever can judge whether an answer spanning thousands of repositories is correct and complete. Without them, a result that should be evidence only ever looks like a demo.
 
 ## Before you start
 
@@ -176,14 +162,14 @@ For the full breakdown of what gets generated, see the [Prethink documentation](
 
 ### Evaluating the context
 
-Asking a customer what they usually talk to their agent about produces analysis paralysis. We hand them a curated menu instead.
+Being asked "what do you usually talk to your agent about?" tends to produce analysis paralysis. Work from a curated menu instead.
 
 Work through the scenarios below with your own agent, against your own code. Each one names the Prethink context files the agent should be reaching for, which gives you two things to evaluate:
 
 * **Did the agent reach for the context at all?** This is visible in the transcript and is a meaningful result on its own. It demonstrates that the context is discoverable and that agents will use it unprompted.
 * **Was the answer accurate and complete?** Your architects are the judges here. An answer that is confidently wrong is worse than no answer, and Prethink exists specifically to prevent that.
 
-Note that value does not depend on Moderne having a recipe that performs the fix. Supplying the data is the point — the agent can act on facts we surface even where no recipe exists.
+Note that the value here does not depend on a recipe existing for the fix. Supplying the data is the point: your agent can act on facts Prethink surfaces even where no recipe performs the change for you.
 
 :::note
 The context files listed below are the ones each scenario should draw on. The exact set generated depends on which languages and frameworks Prethink detects in your repositories, so check the `ContextRegistry` data table for what your run actually produced.
@@ -191,7 +177,7 @@ The context files listed below are the ones each scenario should draw on. The ex
 
 #### Drawing a scenario
 
-If you would rather not pick from a list, draw one at random. Click the deck to turn over a question, then put it to your agent against your own repositories. Each card is a question we have verified Prethink context can actually answer.
+If you would rather not pick from a list, draw one at random. Click the deck to turn over a question, then put it to your agent against your own repositories. Every card is a question that Prethink context has been verified to answer.
 
 <PrethinkQuestionDeck />
 
@@ -393,11 +379,11 @@ ORDER BY g.riskScore DESC LIMIT 25
 
 An agent started at the organization root can now answer questions no single-repository agent can. On a 27-repository sample this produced 22 tables and roughly 55,000 rows — a few megabytes of structured facts standing in for millions of lines of source.
 
-That is the motion that brings architects into the room. "Which of our services have untested complex code in classes that are already falling apart, ranked by repository" is a question worth a planning cycle, and it is answerable in one query.
+This is what brings architects into the conversation. "Which of our services have untested complex code in classes that are already falling apart, ranked by repository" is a question worth a planning cycle, and here it is answerable in a single query.
 
 ## Phase 2: Running existing PoV use cases through an agent
 
-Moderne's recipe catalog is the use case list. Rather than treating recipes and agents as separate stories, this phase has the agent drive the recipes.
+Moderne's recipe catalog doubles as the use case list. Rather than treating recipes and agents as separate exercises, this phase puts the agent in the driver's seat.
 
 The [standard proof of value guide](./proof-of-value.md) covers roughly twenty recommended recipes across code quality, search and impact analysis, dependency management, security, test modernization, and major migrations. Each of those is a scenario an agent can run end to end.
 
@@ -422,10 +408,10 @@ What to look for:
 
 ### Choosing scenarios
 
-Lean on the recipe catalog harder than you might expect. Running these use cases through an agent counters the perception that Moderne is only useful for migrations — the catalog covers security, code quality, testing, dependency hygiene, and impact analysis.
+Draw on the recipe catalog more widely than you might expect. It covers security, code quality, testing, dependency hygiene, and impact analysis, not just framework migrations — and the breadth is easy to miss if every scenario you try is an upgrade.
 
 :::warning
-A Spring Boot upgrade is the easiest scenario to run and the easiest to misread. It demonstrates the mechanics well, but it reinforces exactly the framework-migration pigeonhole this phase is meant to counter. If you run it, pair it with at least two non-migration scenarios.
+A Spring Boot upgrade is the easiest scenario to run and the easiest to misread. It demonstrates the mechanics well, but it will leave you with an impression of the tooling that is narrower than what it does. If you run one, pair it with at least two non-migration scenarios.
 :::
 
 Good non-migration starting points:
@@ -441,15 +427,15 @@ The strongest demonstration in this phase combines it with phase 1. Have the age
 
 ## Phase 3: Remediating vulnerabilities with an agent
 
-This is the phase that most reliably changes how a customer thinks about the problem.
+This phase tends to be the one that changes how teams think about the problem.
 
 ### The core idea
 
 A scanner finds one instance of a vulnerability. That is the beginning of the work, not the end.
 
-The message that lands: **your scanner is an attacker, not a defender**. It tells you about one place a pattern appears. The disclosures keep coming, and each time you face the same choice — generalize the pattern and find every occurrence, or throw inference at the entire estate and hope.
+Put bluntly: **your scanner behaves more like an attacker than a defender**. It tells you about one place a pattern appears. The disclosures keep coming, and each time you face the same choice — generalize the pattern and find every occurrence, or throw inference at the whole estate and hope.
 
-The loop we demonstrate is:
+The loop looks like this:
 
 1. **Start from a finding.** A scanner such as Mythos reports a vulnerability in one repository.
 2. **Generalize the pattern.** The agent turns that single finding into [Trigrep](../../agent-tools/trigrep.md) queries that describe the shape of the problem rather than the one instance of it.
@@ -466,44 +452,40 @@ Every step of that loop gets harder as the estate grows, and every step is where
 * **How do you fix it everywhere once you know?** A recipe applies the same transformation across every match, with a reviewable diff per repository.
 
 :::note
-The scale argument is not hypothetical. When this scenario was tested, `StringSubstitutor.replace` was present in 114 of the artifacts ingested into the Code Genome Project. That distribution was not manufactured for a demo.
+This is not hypothetical. In one analysis of open-source artifacts, `StringSubstitutor.replace` — the method behind the Text4Shell disclosure — appeared in 114 of them. A single advisory routinely reaches far more code than the one repository your scanner flagged.
 :::
 
 ### Practicing safely
 
-Customers should not practice remediation against their own production vulnerabilities on day one. We use a deliberately vulnerable "goat" repository with a curated menu of CVEs instead.
+Do not practice this loop against your own production vulnerabilities on day one. Use a deliberately vulnerable "goat" repository instead, so a mistake costs nothing and you can repeat the exercise as often as you like.
 
-Candidate practice targets under evaluation:
+Commonly used practice targets:
 
 | Project | Repository | License | Notes |
 |---------|------------|---------|-------|
-| OWASP VulnerableApp | [SasanLabs/VulnerableApp](https://github.com/SasanLabs/VulnerableApp) | Apache-2.0 | Java/Gradle, explicitly designed for scanner benchmarking. Best legal and technical combination for vendor-facing use. |
-| CWE-Bench-Java | [iris-sast/cwe-bench-java](https://github.com/iris-sast/cwe-bench-java) | MIT | 120 Java CVEs with build information. Cleanest license of the set. No proof-of-vulnerability tests. |
-| SAP Project KB | [SAP/project-kb](https://github.com/SAP/project-kb) | Apache-2.0 | The CVE-to-fix-commit knowledge base. Statements only, not runnable code. |
-| OWASP Juice Shop | [juice-shop/juice-shop](https://github.com/juice-shop/juice-shop) | MIT | Node/TypeScript. Safest option for anything customer-facing. |
-| Snyk goof / nodejs-goof | [snyk-labs/goof](https://github.com/snyk-labs/goof) | Apache-2.0 | Node. Widely recognized. |
-| WebGoat | [WebGoat/WebGoat](https://github.com/WebGoat/WebGoat) | GPL-2.0-or-later | Runnable Java app, but the most restrictive license here. Review before customer-facing use. |
-| Vul4J | [tuhh-softsec/vul4j](https://github.com/tuhh-softsec/vul4j) | GPL-3.0 | Framework only, and GPL-3.0 nesting needs review before use. |
+| OWASP VulnerableApp | [SasanLabs/VulnerableApp](https://github.com/SasanLabs/VulnerableApp) | Apache-2.0 | Java/Gradle, purpose-built for scanner benchmarking. A good default if you work in the JVM ecosystem. |
+| CWE-Bench-Java | [iris-sast/cwe-bench-java](https://github.com/iris-sast/cwe-bench-java) | MIT | 120 real Java CVEs with build information, though no proof-of-vulnerability tests. |
+| SAP Project KB | [SAP/project-kb](https://github.com/SAP/project-kb) | Apache-2.0 | A CVE-to-fix-commit knowledge base. Statements only, not runnable code. |
+| OWASP Juice Shop | [juice-shop/juice-shop](https://github.com/juice-shop/juice-shop) | MIT | Node/TypeScript, widely used for security training. |
+| Snyk goof / nodejs-goof | [snyk-labs/goof](https://github.com/snyk-labs/goof) | Apache-2.0 | Node. Small and quick to stand up. |
+| WebGoat | [WebGoat/WebGoat](https://github.com/WebGoat/WebGoat) | GPL-2.0-or-later | A runnable Java application, but carries the most restrictive license here. |
+| Vul4J | [tuhh-softsec/vul4j](https://github.com/tuhh-softsec/vul4j) | GPL-3.0 | A benchmarking framework rather than an application. |
 
 :::warning
-Licenses vary considerably across these projects, and some are copyleft. Confirm which are approved for customer-facing use before including one in an engagement. `snyk-labs/java-goof` declares MIT in its `pom.xml` file only, with no `LICENSE` file at the repository root.
+Licenses vary across these projects and several are copyleft. Have whoever handles open-source licensing at your organization confirm a project is acceptable before you pull it in. Note that `snyk-labs/java-goof` declares MIT in its `pom.xml` file only, with no `LICENSE` file at the repository root.
 :::
 
-Some customers block cloning from GitHub, or block pulling intentionally vulnerable code through their artifact repository or procurement process. The fallback is a prompt that has the agent reproduce the vulnerable code inside the customer's own environment, so no external clone is required.
-
-:::info[To be completed]
-The curated CVE list and the goat repository (or repositories) are still being assembled, along with the fallback reproduction prompt for environments where cloning is blocked.
-:::
+If your organization blocks cloning from GitHub, or blocks intentionally vulnerable code from passing through your artifact repository, you do not need an external clone at all. Ask your agent to reproduce a known-vulnerable pattern inside a scratch project in your own environment and practice against that.
 
 ## Phase 4: Writing new recipes with an agent
 
-In a standard proof of value, we run a custom recipe authoring workshop. In an agent tools PoV, we spend that hour differently: **the customer's own agent writes the recipe.**
+A standard proof of value usually includes a recipe authoring workshop. Here you spend that hour differently: **your own agent writes the recipe, and one of your developers drives it.**
 
 ### Why this replaces the workshop
 
-The strongest proof point available in this entire process is one of your own developers — with no OpenRewrite training whatsoever — producing a sophisticated, working recipe in a single sitting.
+The most convincing result available in this entire process is one of your own developers — with no OpenRewrite training — producing a sophisticated, working recipe in a single sitting.
 
-That is a claim about capability, and it is verifiable in the room. It is also the natural conclusion of phase 3, where the recipe is the fix for a pattern the agent just generalized.
+You can verify that claim on the spot rather than taking it on trust. It is also the natural conclusion of phase 3, where the recipe is the fix for a pattern your agent has just generalized.
 
 ### How it works
 
@@ -512,20 +494,20 @@ The [Moderne skills](../../agent-tools/skills.md) teach agents the parts of reci
 * **`create-recipe`** – Choosing between declarative YAML, Refaster templates, and imperative Java, then following OpenRewrite conventions
 * **`create-organization`** – Building a working set of real repositories to test against
 * **`run-recipe`** – Running the recipe, comparing predicted matches against actual results, and diagnosing why something did not match
-* **`analyze-impact`** – Turning the run data into a report your sponsor can read
+* **`analyze-impact`** – Turning the run data into a report your stakeholders can read
 
 The `run-recipe` skill is the one that makes this work in an hour. It gives the agent an iterative loop: predict which files should change, run the recipe, compare predictions against results, diagnose the gap, fix, and repeat.
 
 ### Choosing a target
 
-Pick a recipe target from the customer's own backlog rather than a synthetic exercise. Good candidates:
+Pick a target from your own backlog rather than a synthetic exercise. Good candidates:
 
 * An internal API that was deprecated and never fully migrated off
 * A logging or error-handling convention the team keeps failing to enforce in review
 * The vulnerability pattern generalized in [phase 3](#phase-3-remediating-vulnerabilities-with-an-agent)
 * A pattern surfaced by the Prethink code health scenarios in [phase 1](#phase-1-building-and-evaluating-prethink-context)
 
-The last two are the strongest, because they close the loop on work the customer already watched the agent do.
+The last two are the strongest, because they close the loop on work you have already watched the agent do.
 
 ### What to look for
 
@@ -536,13 +518,9 @@ The last two are the strongest, because they close the loop on work the customer
 
 ## Looking beyond the proof of value
 
-Once your team has carried a scenario through all four phases by hand, the natural next step is to hand the entire sequence to an autonomous agent and watch it run end to end.
+Once your team has carried a scenario through all four phases by hand, the natural next step is to hand the whole sequence to an agent and let it run end to end without supervision.
 
-This is deliberately not part of the initial engagement. The value of doing the work by hand first is that your team knows what each step should produce, which is exactly what makes an autonomous run legible rather than magical.
-
-:::info[To be completed]
-An autonomous harness — a cloud agent that executes the full sequence unattended — is a future consideration and is not in scope for this version of the guide.
-:::
+Doing the work by hand first is what makes that worthwhile. Because your team knows what each step should produce, an unattended run becomes something you can check rather than something you have to trust.
 
 ## Next steps
 
