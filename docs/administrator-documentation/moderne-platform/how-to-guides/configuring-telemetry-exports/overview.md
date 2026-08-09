@@ -87,7 +87,7 @@ tenant=<your-tenant>/source={saas|cli}/type=<command>/year=YYYY/month=MM/day=DD/
 
 The Hive-style partition keys (`tenant=`, `source=`, `type=`, `year=`, `month=`, `day=`) are recognized by every major query engine for partition pruning. A query that filters on, say, `day = '15' AND month = '03'` will read only those keys, not the full bucket.
 
-Telemetry is isolated by storage account rather than by prefix: each tenant writes to its own Moderne-managed bucket or container, and the delivery described in the cloud-specific guides reads from that one. No tenant's data passes through a store another tenant can reach.
+The `tenant=` key is part of that layout everywhere the data lands, but it is not what isolates you. Each tenant writes to its own Moderne-managed bucket or container, and the delivery described in the cloud-specific guides reads from that one, so no tenant's data passes through a store another tenant can reach.
 
 ## Customer checklist
 
