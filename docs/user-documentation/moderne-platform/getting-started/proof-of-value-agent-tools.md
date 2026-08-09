@@ -122,25 +122,43 @@ The most important person is whoever can judge whether an answer spanning thousa
 
 Scale still matters. Agents tend to work one repository at a time, and that is exactly the constraint these tools remove — but only if there is something at scale for them to work against.
 
-The foundation is unchanged from the standard proof of value:
+The foundation is largely the same as the standard proof of value, with one addition — turn on LST format version 3 before anything gets built:
 
-1. **Mass ingest** – Your team [sets up an ingestion pipeline](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) to build and publish LST artifacts. Bring as many repositories as you can. A hundred is enough to start; the story gets stronger with every additional repository.
-
-2. **Build LSTs** – Recipes, Trigrep indexes, and Prethink context are all derived from [LSTs](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md), so this step gates everything that follows.
-
-3. **Install the CLI and agent tools** – Install the [Moderne CLI](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration), then install skills and the MCP server for every coding agent your developers use:
+1. **Install the CLI and agent tools** – Install the [Moderne CLI](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration), then install skills and the MCP server for every coding agent your developers use:
 
     ```bash
     mod config agent-tools install
     ```
 
-4. **Sync an organization locally** – Give the agent a working set to reason over:
+2. **Enable LST format version 3** – Do this before you build anything, so every LST is produced in the right format the first time:
+
+    ```bash
+    mod config features lst --version=3
+    ```
+
+3. **Mass ingest** – Your team [sets up an ingestion pipeline](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) to build and publish LST artifacts. Bring as many repositories as you can. A hundred is enough to start; the story gets stronger with every additional repository.
+
+4. **Build LSTs** – Recipes, Trigrep indexes, and Prethink context are all derived from [LSTs](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md), so this step gates everything that follows.
+
+5. **Sync an organization locally** – Give the agent a working set to reason over:
 
     ```bash
     mod git sync moderne working-set --organization <your-org>
     ```
 
 What changes in an agent tools PoV is that **the agent is the user experience from day one**. Developers should be talking to their agent, not clicking through the Platform, for most of the three weeks.
+
+### Why version 3 matters for agents
+
+Version 3 is a partition-backed binary format with lazy deserialization and Zstd compression. JDK and library types are pre-built into shared partitions rather than repeated inside every LST, which cuts both parse time and artifact size.
+
+That efficiency matters more in an agentic workflow than in a scripted recipe run. An agent works in a conversational loop, issuing many small tool calls and waiting on each one, so a slow read is felt on every turn rather than once per batch. Sharing type partitions across repositories also keeps the cost of sweeping an entire organization closer to linear.
+
+The bigger reason is capability rather than speed. `mod build` produces the [Trigrep](../../agent-tools/trigrep.md) trigram index inline with a version 3 LST, so the indexed search tools your agent reaches for through the [MCP server](../../agent-tools/mcp/overview.md) — `trigrep_search` and `trigrep_structural_search` — only exist if the LST is version 3. Semantic filters like `sym:`, `extends:`, and `implements:` resolve through version 3 type tables, letting a query narrow the candidate file set before reading a single byte. On a legacy version 2 LST there are no trigram shards at all, and the agent falls back to linear grep.
+
+:::tip
+If you already have version 2 LSTs, you do not have to start over. With the flag set, `mod git sync` converts downloaded version 2 LSTs before recipe runs. Repositories still need a `mod build` to gain their trigram shards, though, so rebuild anything your developers will search against.
+:::
 
 ## Phase 1: Building and evaluating Prethink context
 
