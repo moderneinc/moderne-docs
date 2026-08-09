@@ -640,6 +640,126 @@ Licenses vary across these projects and several are copyleft. Have whoever handl
 
 If your organization blocks cloning from GitHub, or blocks intentionally vulnerable code from passing through your artifact repository, you do not need an external clone at all. Ask your agent to reproduce a known-vulnerable pattern inside a scratch project in your own environment and practice against that.
 
+### Exercise: triage Text4Shell on a practice working set
+
+Goat apps alone are too small to rehearse the part that actually matters, which is separating real exposure from noise across many repositories. Mix them with ordinary open source instead.
+
+#### Building the working set
+
+Save this as `repos.csv`. The three goat apps give you deliberately vulnerable code; the Java projects give you a realistic haystack, and the first five are there because they genuinely use Apache Commons Text.
+
+```csv
+cloneUrl,origin,path,org1
+https://github.com/WebGoat/WebGoat,github.com,WebGoat/WebGoat,goat-apps
+https://github.com/SasanLabs/VulnerableApp,github.com,SasanLabs/VulnerableApp,goat-apps
+https://github.com/snyk-labs/java-goof,github.com,snyk-labs/java-goof,goat-apps
+https://github.com/apache/commons-text,github.com,apache/commons-text,java-oss
+https://github.com/apache/commons-configuration,github.com,apache/commons-configuration,java-oss
+https://github.com/apache/struts,github.com,apache/struts,java-oss
+https://github.com/dropwizard/dropwizard,github.com,dropwizard/dropwizard,java-oss
+https://github.com/jdbi/jdbi,github.com,jdbi/jdbi,java-oss
+https://github.com/apache/commons-lang,github.com,apache/commons-lang,java-oss
+https://github.com/apache/commons-io,github.com,apache/commons-io,java-oss
+https://github.com/apache/commons-collections,github.com,apache/commons-collections,java-oss
+https://github.com/apache/commons-codec,github.com,apache/commons-codec,java-oss
+https://github.com/apache/commons-csv,github.com,apache/commons-csv,java-oss
+https://github.com/apache/commons-compress,github.com,apache/commons-compress,java-oss
+https://github.com/apache/commons-net,github.com,apache/commons-net,java-oss
+https://github.com/apache/commons-validator,github.com,apache/commons-validator,java-oss
+https://github.com/apache/commons-beanutils,github.com,apache/commons-beanutils,java-oss
+https://github.com/apache/commons-jexl,github.com,apache/commons-jexl,java-oss
+https://github.com/apache/commons-vfs,github.com,apache/commons-vfs,java-oss
+https://github.com/apache/commons-imaging,github.com,apache/commons-imaging,java-oss
+```
+
+Then clone and build. Leaving the branch column out lets the CLI use each remote's default:
+
+```bash
+mod config features lst --version=3
+mod git sync csv . repos.csv --with-sources --single-branch --depth=1 --parallel=0
+mod build . --parallel=4
+```
+
+The clone is quick. Building is the slow part, and a couple of repositories will fail or run long — that is normal and does not spoil the exercise. Searches simply skip anything without an index, and the CLI tells you when that happens: `2 repositories have no trigram shards`.
+
+#### Part 1: triage by hand
+
+Work the funnel yourself first, so you know what good looks like before you ask an agent for it. The counts below come from a real run of this working set; yours will differ as these projects change.
+
+**Start where a text search would.**
+
+```bash
+mod search . StringSubstitutor.replace
+```
+
+*27 matches in 3 files.* Look at what they are: the declaration inside Commons Text and a couple of references. Almost none of this is code that calls the method.
+
+**Now ask the type graph for call sites.**
+
+```bash
+mod search . calls:org.apache.commons.text.StringSubstitutor.replace
+```
+
+*228 matches in 24 files.* Nearly ten times as many, because the receiver is usually a variable and the literal method name never appears. This is your candidate set, not your vulnerability list.
+
+**Separate the library from its consumers.** Point the same query at individual repositories:
+
+```bash
+mod search ./java-oss/apache/commons-text  calls:org.apache.commons.text.StringSubstitutor.replace
+mod search ./java-oss/dropwizard           calls:org.apache.commons.text.StringSubstitutor.replace
+mod search ./java-oss/apache/commons-configuration calls:org.apache.commons.text.StringSubstitutor.replace
+```
+
+Commons Text accounts for 204 of those matches in its own source and tests. The actual consumers are far smaller: Dropwizard 17, Commons Configuration 4, Struts 2, JDBI 1. Roughly a tenth of the candidate set is downstream code.
+
+**Finally, ask the question that decides exposure.** Text4Shell needs the interpolator factory, not just any substitutor:
+
+```bash
+mod search . calls:org.apache.commons.text.StringSubstitutor.createInterpolator
+```
+
+*52 matches in 12 files* — and every one is inside Commons Text's own test suite, in files like `StringSubstitutorWithInterpolatorStringLookupTest.java` and `OssFuzzTest.java`. Confirm it by running the same query against each consumer: Dropwizard, JDBI, Struts, Commons Configuration and all three goat apps return nothing.
+
+So the finding is: **no consumer in this working set is exposed.** You went from 228 candidate call sites to a defensible negative in four queries, and you can name exactly which condition rules each one out.
+
+That negative is the point. A grep that finds nothing tells you a string was absent. A resolved type graph that finds nothing tells you the dangerous entry point is not reachable — which is what an auditor is actually asking.
+
+#### Part 2: hand the same job to your agent
+
+Now open your agent in the same directory and give it the goal rather than the queries:
+
+```
+This working set has 20 Java repositories. Apache Commons Text had a remote
+code execution vulnerability, CVE-2022-42889 (Text4Shell). Work out whether
+any repository here is genuinely exposed, and show your reasoning. Do not
+report a call site as a vulnerability unless the conditions for exploitation
+are actually met.
+```
+
+Watch for the behaviors from [what to look for](#what-to-look-for):
+
+* **Does it reach for indexed search at all,** or start grepping and reading files? Check the transcript for `trigrep_search`, `find_methods`, or `mod search`.
+* **Does it distinguish call sites from exposure?** An agent that reports "found 228 usages, you are vulnerable" has failed the exercise, and failed it in the way real scanners do.
+* **Does it find the interpolator condition on its own,** or does it need to be told that `createInterpolator` is what matters?
+* **Does it notice the hits are the library's own tests** rather than downstream code?
+* **Does it check versions too?** Only Commons Text 1.5 through 1.9 are affected. A complete answer cross-references the dependency inventory as well as the call graph.
+
+Run it more than once, and ideally with more than one agent. [Agents are nondeterministic](#why-evaluating-agent-tooling-is-hard), so a single clean transcript is an anecdote. What you want to know is whether the tooling makes the correct reasoning reachable often enough to trust.
+
+#### Extending the exercise
+
+The goat apps are seeded with plenty more to find. These return results on the three goat repositories alone:
+
+```bash
+mod search ./goat-apps calls:java.lang.Runtime.exec
+mod search ./goat-apps calls:java.sql.Statement.executeQuery
+mod search . '/MessageDigest\.getInstance\("(MD5|SHA-1)"\)/'
+```
+
+:::tip[Parentheses need care in queries]
+The CLI parses some punctuation, so a bare `mod search . e.printStackTrace()` fails. Drop the parentheses (`mod search . printStackTrace`) or wrap the pattern as a regex (`mod search . '/printStackTrace\(\)/'`).
+:::
+
 ## Phase 4: Writing new recipes with an agent
 
 A standard proof of value usually includes a recipe authoring workshop. Here you spend that hour differently: **your own agent writes the recipe, and one of your developers drives it.**
