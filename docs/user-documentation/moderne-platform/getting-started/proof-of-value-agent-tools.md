@@ -35,6 +35,53 @@ If what you want to assess is the output of recipes — the diffs, the data tabl
 
 **Bring your own agent.** The CLI installs skills and an MCP server into Claude Code, Cursor, Windsurf, GitHub Copilot, Sourcegraph Amp, and OpenAI Codex, and [detects which of them are present](../../agent-tools/skills.md#supported-agents). Do not adopt a new agent for the evaluation. The entire point is to prove the tools meet your developers where they already are, so a PoV run against an agent nobody uses afterward proves nothing.
 
+## What you will actually do
+
+Concretely, here is the work. Each activity produces something you can look at, and most of them are things your developers do rather than watch.
+
+**Setting up**
+
+| Activity | What it gives you |
+|----------|-------------------|
+| [Install the CLI and agent tools](#before-you-start) into every agent your teams already use | Skills and a local MCP server in each developer's existing workflow |
+| Turn on [LST format version 3](#why-version-3-matters-for-agents) before building anything | Trigram indexes, without which the indexed search tools do not exist |
+| [Connect the remote MCP servers](#connecting-the-remote-mcp-servers) | Reach beyond checked-out code, to your estate and to public open source |
+| Mass ingest, build LSTs, and sync an organization locally | A working set at a scale worth reasoning about |
+
+**Phase 1 — context**
+
+| Activity | What it gives you |
+|----------|-------------------|
+| Run Prethink across your organization and apply the results | `.moderne/context/` in every repository |
+| Work through [curated questions](#drawing-a-scenario) with your agent, against your own code | Transcripts showing whether the agent reaches for context unprompted |
+| [Aggregate context to the organization root](#aggregating-context-across-an-organization) and write an org-level agent config | One directory an agent can query to answer estate-wide questions |
+
+**Phase 2 — recipes through an agent**
+
+| Activity | What it gives you |
+|----------|-------------------|
+| Ask your agent in plain language to find, configure, and run [catalog recipes](#phase-2-running-existing-pov-use-cases-through-an-agent) | Evidence of whether it picks the right recipe and reads the results |
+| Have it regenerate Prethink context after a change and refactor on what it finds | A closed feedback loop rather than a one-shot run |
+
+**Phase 3 — vulnerability triage**
+
+| Activity | What it gives you |
+|----------|-------------------|
+| Rehearse on the public corpus with the [Code Genome Project queries](#seeing-it-on-real-code) | A feel for type-aware search before touching your own code |
+| Build a practice working set and [triage Text4Shell by hand](#exercise-triage-text4shell-on-a-practice-working-set) | A worked funnel from candidate call sites to a defensible answer |
+| Hand the same investigation to your agent and compare | Whether it distinguishes exposure from mere usage |
+| Repeat the loop against a real finding in your own estate | The same reasoning on code you actually own |
+
+**Phase 4 — recipes and readout**
+
+| Activity | What it gives you |
+|----------|-------------------|
+| Have a developer with no OpenRewrite experience [write a recipe with their agent](#phase-4-writing-new-recipes-with-an-agent) | A tested recipe, and a time from prompt to passing test |
+| Run that recipe across the organization | Proof it holds up beyond the repository it was written against |
+| Assemble the [readout](#what-this-proof-of-value-produces) | A prioritized plan drawn from your own codebase |
+
+Phases build on one another, so run them in order. Everything before phase 1 is setup and can be done in a day once accounts and access are in place.
+
 ## Why evaluating agent tooling is hard
 
 This is worth naming at the start, because it changes what evidence is worth collecting.
@@ -145,6 +192,55 @@ The foundation is largely the same as the standard proof of value, with one addi
     ```bash
     mod git sync moderne working-set --organization <your-org>
     ```
+
+6. **Connect the remote MCP servers** – See below. The local tools from step 1 cover code your developers have checked out; these two reach code they do not.
+
+### Connecting the remote MCP servers
+
+`mod config agent-tools install` gives your agents a local MCP server that operates on repositories checked out on the workstation. Two remote servers extend that reach, and both are worth wiring up before the PoV starts.
+
+#### The Code Genome Project server
+
+The [Code Genome Project](https://codegenomeproject.org) indexes public open source into LSTs and exposes them over a remote MCP server. Connecting it gives your agents type-resolved search across essentially all provably used open-source code, which is useful in two ways during a PoV: your developers can rehearse the [vulnerability triage exercise](#exercise-triage-text4shell-on-a-practice-working-set) against the public corpus before pointing it at your own code, and an agent can check how a library is actually used in the wild rather than guessing from its documentation.
+
+There is no token to provision. Clients run an OAuth flow on first call:
+
+```bash
+claude mcp add --transport http codegenome https://api.codegenomeproject.org/mcp
+```
+
+Or add it to `.mcp.json` in your project root, which is the better option if you want everyone on the team to pick it up from the repository:
+
+```json
+{
+  "mcpServers": {
+    "codegenome": {
+      "type": "http",
+      "url": "https://api.codegenomeproject.org/mcp"
+    }
+  }
+}
+```
+
+The server provides `search`, `find_types`, `find_methods`, `find_implementations`, `usage_examples`, `similar_code`, `fetch_file`, `compare_versions`, and `get_context`. The `find_*` and `usage_examples` tools resolve through the corpus type tables, so they find what a text search cannot — the same distinction the [Text4Shell walkthrough](#seeing-it-on-real-code) turns on.
+
+#### Your own tenant's remote server
+
+If you are a Moderne SaaS customer, also connect the [remote MCP server](../../agent-tools/mcp/remote-server.md) for your tenant. It runs on the Platform and operates on repositories already ingested there, scoped by organization, so your agents can run recipes and interrogate results across the whole estate without anything being checked out locally.
+
+This one does need a [Moderne personal access token](../how-to-guides/create-api-access-tokens.md), which carries your own permissions — an agent using it can only reach organizations you can already reach.
+
+```bash
+claude mcp add --scope user --transport http modernesaasv2 https://api.<tenant>.moderne.io/mcp \
+  --header "Authorization: Bearer <your-moderne-access-token>" \
+  --header "X-Moderne-Platform-Version: v2"
+```
+
+Replace `<tenant>` with your subdomain. If you are evaluating against the public Moderne instance rather than your own tenant, use `https://api.app.moderne.io/mcp`.
+
+:::tip[Which server answers which question]
+Roughly: the **local** server for the repository in front of you, **your tenant's** server for your estate, and **Code Genome Project** for the open source your code depends on. An agent with all three can trace a pattern from a public library, through your ingested repositories, down to the file a developer has open.
+:::
 
 What changes in an agent tools PoV is that **the agent is the user experience from day one**. Developers should be talking to their agent, not clicking through the Platform, for most of the three weeks.
 
