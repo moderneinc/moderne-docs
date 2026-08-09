@@ -121,8 +121,6 @@ aws s3 sync \
     s3://<your-bucket>/<your-prefix>/
 ```
 
-Two things to get right as you copy:
-
 * **Keep the key layout.** The `tenant=`/`source=`/`type=`/`year=`/`month=`/`day=` structure is what lets query engines prune partitions. Flattening it means every query scans everything.
 * **Run it on a schedule.** A pull only captures what is in the source bucket when it runs, so schedule it regularly rather than on demand.
 
@@ -136,7 +134,7 @@ Two things to get right as you copy:
 | Inbound access to your account | Required | None |
 | Missed data if your side breaks | Replication retries | Your job has to catch up on its next run |
 
-Replication is the better default wherever it's permitted. Use pull when it isn't.
+Use replication where your policy allows it, and pull where it doesn't.
 
 ## Next
 
