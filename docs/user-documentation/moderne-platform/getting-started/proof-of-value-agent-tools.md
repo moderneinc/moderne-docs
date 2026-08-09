@@ -891,6 +891,92 @@ Pick a target from your own backlog rather than a synthetic exercise. Good candi
 
 The last two are the strongest, because they close the loop on work you have already watched the agent do.
 
+### Exercise: write the recipe phase 3 stopped short of
+
+[Phase 3](#exercise-triage-text4shell-on-a-practice-working-set) got you to a defensible answer about Text4Shell using search alone. It also ran into search's ceiling. `calls:` told you 229 places call `StringSubstitutor.replace`, and separately that 52 places call `createInterpolator`. What it could not tell you is **which `replace()` calls happen on an interpolating substitutor** — because that depends on how the object reaching the call was constructed, and search matches occurrences rather than following values.
+
+Look again at the call site phase 3 turned up:
+
+```java
+if (/* ... */) {
+    substitutor = new StringSubstitutor(StringLookupFactory.INSTANCE.interpolatorStringLookup());
+} else {
+    substitutor = new StringSubstitutor(new PropertyLookup(properties));
+}
+return substitutor.replace(text);
+```
+
+One `replace()` call, two possible constructions, and only one of them is dangerous. Deciding between them means tracing the variable back through the branch. That is a recipe, not a query.
+
+:::info[Nothing in the catalog does this]
+Check before you build: there is no OpenRewrite recipe for CVE-2022-42889, and nothing in the catalog matches on `StringSubstitutor`. This is genuinely unwritten, which is what makes it a test of authoring rather than of recall. Have your agent confirm that for itself before it starts.
+:::
+
+#### Step 1: Clone the starter
+
+```bash
+git clone https://github.com/moderneinc/rewrite-recipe-starter
+cd rewrite-recipe-starter
+```
+
+The starter carries a worked data table example — `ClassHierarchy.java`, its `ClassHierarchyReport`, and a test asserting on emitted rows. Point your agent at those three files first; they are the shape it needs to copy.
+
+#### Step 2: Have the agent write the impact analysis
+
+Ask for the analysis on its own, before any fixing:
+
+```
+Using this rewrite-recipe-starter project, write an OpenRewrite recipe that
+finds calls to org.apache.commons.text.StringSubstitutor.replace and
+determines, for each one, how the substitutor it is called on was
+constructed: via createInterpolator or interpolatorStringLookup (unsafe), or
+with an explicit restricted lookup (safe), or unknown if you cannot tell.
+
+Emit a data table with one row per call site: source file, enclosing method,
+construction kind, and confidence. Follow the ClassHierarchy example for the
+data table. Write tests for a substitutor built inline, one assigned to a
+local and used later, one assigned in an if/else with a different lookup on
+each branch, and one passed in as a method parameter.
+```
+
+The four test cases are the exercise. Inline construction is easy. A local variable requires the recipe to remember an assignment. The if/else is the case from real code above. A parameter is the one that should come back `unknown` — and an agent that reports it as safe has written a recipe that will quietly under-report on your estate.
+
+Run it across the organization once the tests pass:
+
+```bash
+mod run . --recipe com.yourorg.FindUnsafeStringSubstitutorUse
+mod study . --last-recipe-run --data-table com.yourorg.table.SubstitutorReport --csv -o text4shell.csv
+```
+
+This is the thing search could not produce: 229 call sites reduced to a per-repository list of the ones whose construction is actually unsafe, with the undecidable cases named rather than hidden.
+
+#### Step 3: Turn the analysis into a fix
+
+Now extend it:
+
+```
+Extend the recipe so that, where the construction is unsafe and in the same
+compilation unit, it rewrites the substitutor to use a restricted lookup set
+that excludes script, dns, and url. Leave the unknown cases untouched and
+keep reporting them in the data table. Add before-and-after tests, including
+one asserting that a safe construction is left alone.
+```
+
+That last constraint matters more than the transformation. A recipe that rewrites the cases it understands and leaves the rest for a human is a recipe someone will actually run. One that guesses at ambiguous code is one they will revert after the first bad diff.
+
+#### What to look for
+
+* **Does the recipe handle the if/else case?** This is the line between tracking a value and matching a statement, and it is the case that exists in real code.
+* **Does it report `unknown` honestly** rather than defaulting ambiguous constructions to safe?
+* **Did the agent write the tests first,** or claim success and then produce tests that pass?
+* **Is the data table actionable** — could you hand it to a team as-is?
+* **Does the fix leave safe and ambiguous code alone?** Check the diff on repositories you know are fine.
+* **Does it run clean across every repository,** not just the one it was iterated against?
+
+:::note
+As in phase 3, rows here are candidates. An unsafe construction is only exploitable if untrusted input reaches `replace()`, and only on Commons Text 1.5 through 1.9. The recipe's job is to shrink 229 call sites to the few worth a human's attention, not to declare them vulnerable.
+:::
+
 ### What to look for
 
 * **How long did it take from prompt to passing test?** This is the number worth recording.
