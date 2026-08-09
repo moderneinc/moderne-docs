@@ -16,7 +16,7 @@ Here's how the setup works end-to-end:
 1. You create a destination bucket in your AWS account.
 2. You send Moderne your tenant name and the destination bucket ARN.
 3. Moderne sends back a bucket policy scoped to your tenant's replication role, which you apply to the bucket.
-4. Moderne configures a replication rule on `moderne-bi-telemetry` filtered to your tenant's prefix, and confirms when objects start landing.
+4. Moderne configures a replication rule on your tenant's source bucket and confirms when objects start landing.
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ The policy grants Moderne's per-tenant replication role only the permissions it 
 Once your bucket policy is in place, Moderne will:
 
 * Confirm the bucket policy is correct.
-* Create the replication rule on `moderne-bi-telemetry`, scoped to `tenant=<your-tenant>/` so only your data is replicated.
+* Create the replication rule on your tenant's source bucket, `moderne-bi-telemetry-<your-tenant>`, so only your data is replicated.
 * Trigger a backfill (S3 Batch Replication) for objects already in the bucket, so your destination starts populated, not empty.
 * Send back a confirmation with a sample object path and a timestamp of the first replicated key.
 
@@ -118,21 +118,22 @@ The usual reason to need this is encryption policy. If your destination bucket r
 ```bash
 aws s3 sync \
     s3://moderne-bi-telemetry-<your-tenant>/tenant=<your-tenant>/ \
-    s3://<your-bucket>/<your-prefix>/
+    s3://<your-bucket>/<your-prefix>/tenant=<your-tenant>/
 ```
 
-* **Keep the key layout.** The `tenant=`/`source=`/`type=`/`year=`/`month=`/`day=` structure is what lets query engines prune partitions. Flattening it means every query scans everything.
-* **Run it on a schedule.** A pull only captures what is in the source bucket when it runs, so schedule it regularly rather than on demand.
+Note the `tenant=<your-tenant>/` on the destination. `aws s3 sync` copies keys relative to the source prefix, so without it the `tenant=` level is dropped and the partition layout no longer matches what the queries in [Querying and BI](./querying-and-bi.md) expect.
+
+Run the sync on a schedule rather than on demand, since a pull only captures what is in the source bucket at the moment it runs.
 
 ### Push versus pull
 
-| | Replication (push) | Pull |
-|---|---|---|
-| Who moves the data | Moderne, continuously | You, on your schedule |
-| Lands in your account | Automatically, within ~15 minutes | When your job next runs |
-| Your KMS key | Moderne's role must be able to use it | Never shared |
-| Inbound access to your account | Required | None |
-| Missed data if your side breaks | Replication retries | Your job has to catch up on its next run |
+|                                 | Replication (push)                    | Pull                                     |
+|---------------------------------|---------------------------------------|------------------------------------------|
+| Who moves the data              | Moderne, continuously                 | You, on your schedule                    |
+| Lands in your account           | Automatically, within ~15 minutes     | When your job next runs                  |
+| Your KMS key                    | Moderne's role must be able to use it | Never shared                             |
+| Inbound access to your account  | Required                              | None                                     |
+| Missed data if your side breaks | Replication retries                   | Your job has to catch up on its next run |
 
 Use replication where your policy allows it, and pull where it doesn't.
 

@@ -19,10 +19,10 @@ One exception is worth knowing about: `mod exec` records the command line it ran
 
 There are two **sources** that produce this telemetry:
 
-| Source        | What it represents                                                                                                                                                                                                   | When you'll see rows                                                                |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| `source=saas` | Recipe runs, builds, and commits originated from the Moderne web UI. The recipe worker fleet invokes the same CLI server-side and uploads the resulting `trace.csv`.                                                 | Any user clicking "Run recipe" or "Commit changes" in the UI.                       |
-| `source=cli`  | Commands run by developers on their own machines using `mod`, signed into your tenant. The CLI queues each trace locally and pushes it to your tenant gateway when it next refreshes its license lease. | Anyone running `mod build`, `mod run`, `mod git commit`, etc., against your tenant. |
+| Source        | What it represents                                                                                                                                                                                                                                                                             | When you'll see rows                                                                      |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| `source=saas` | Recipe runs, builds, and commits originated from the Moderne web UI. The recipe worker fleet invokes the same CLI server-side and uploads the resulting `trace.csv`.                                                                                                                           | Any user clicking "Run recipe" or "Commit changes" in the UI.                             |
+| `source=cli`  | Everything run with `mod` outside the web UI, signed into your tenant. That covers developer machines and any automation you run, including [mass ingest](../mass-ingest.md). The CLI queues each trace locally and pushes it to your tenant gateway when it next refreshes its license lease. | Anyone running `mod build`, `mod run`, `mod git commit`, etc., and every mass-ingest run. |
 
 Both sources land in the same place, with the same partition layout, so queries can analyze them together or filter to one source as needed.
 
@@ -66,8 +66,8 @@ A quick orientation:
 ```mermaid
 flowchart LR
     UI["Moderne UI<br/>(recipe worker invokes<br/>mod server-side)<br/><b>source=saas</b>"]
-    CLI["mod CLI on developer<br/>machines<br/><b>source=cli</b>"]
-    Store["Moderne-managed object store<br/><br/>AWS: s3://moderne-bi-telemetry<br/>Azure: az://modernetelemetry<br/><br/>Partitioned by:<br/>tenant=&lt;you&gt;/source={saas,cli}/<br/>type=.../year=.../month=.../day=..."]
+    CLI["mod CLI on developer<br/>machines and automation<br/>such as mass ingest<br/><b>source=cli</b>"]
+    Store["Moderne-managed store,<br/>one per tenant<br/><br/>AWS: s3://moderne-bi-telemetry-&lt;you&gt;<br/>Azure: az://modbi&lt;you&gt;v2/bi-telemetry<br/><br/>Partitioned by:<br/>tenant=&lt;you&gt;/source={saas,cli}/<br/>type=.../year=.../month=.../day=..."]
     Dest["YOUR destination<br/>bucket or container<br/><br/>AWS: S3 bucket in your account<br/>Azure: blob container in<br/>your storage account"]
     BI["Your BI stack<br/><br/>Athena, Snowflake, BigQuery,<br/>Databricks, Fabric, DuckDB, ..."]
 
@@ -87,7 +87,7 @@ tenant=<your-tenant>/source={saas|cli}/type=<command>/year=YYYY/month=MM/day=DD/
 
 The Hive-style partition keys (`tenant=`, `source=`, `type=`, `year=`, `month=`, `day=`) are recognized by every major query engine for partition pruning. A query that filters on, say, `day = '15' AND month = '03'` will read only those keys, not the full bucket.
 
-Object access inside the Moderne-managed bucket is scoped per-tenant: your tenant's IAM/RBAC only grants access to the `tenant=<your-tenant>/` prefix. The replication rules described in the cloud-specific guides preserve that scoping by only replicating keys under your tenant's prefix into your destination.
+Telemetry is isolated by storage account rather than by prefix: each tenant writes to its own Moderne-managed bucket or container, and the delivery described in the cloud-specific guides reads from that one. No tenant's data passes through a store another tenant can reach.
 
 ## Customer checklist
 

@@ -106,13 +106,14 @@ Blobs under `tenant=<your-tenant>/source=<saas|cli>/type=<command>/year=.../mont
 
 ## Data delivery
 
-| Property       | Behavior                                                               |
-|----------------|------------------------------------------------------------------------|
-| Cadence        | Snapshots run daily once the schedule is enabled.                      |
-| First delivery | Up to 24 hours after acceptance, or immediately with a manual snapshot. |
-| Deletions      | Not propagated. Your copy is yours to keep for as long as you choose.  |
+| Property         | Behavior                                                                |
+|------------------|-------------------------------------------------------------------------|
+| Cadence          | Snapshots run daily once the schedule is enabled.                       |
+| First delivery   | Up to 24 hours after acceptance, or immediately with a manual snapshot. |
+| Source retention | Telemetry is retained at the source for a limited window.               |
+| Deletions        | Not propagated. Your copy is yours to keep for as long as you choose.   |
 
-Keep the snapshot schedule running. If snapshots stop, whether from a disabled schedule, a revoked subscription that is not restored, or repeated snapshot failures, your copy falls behind until they resume. Monitor snapshot success in the Azure portal under your share subscription's snapshot history, and contact your CSM if you need a backfill.
+Keep the snapshot schedule running. Because the source retains telemetry for a limited window, a schedule that stops for long enough will miss data rather than catch up when it resumes. That can happen through a disabled schedule, a revoked subscription that is not restored, or repeated snapshot failures. Monitor snapshot success in the Azure portal under your share subscription's snapshot history, and contact your CSM to confirm the current retention window or to request a backfill.
 
 ## Opting out
 
