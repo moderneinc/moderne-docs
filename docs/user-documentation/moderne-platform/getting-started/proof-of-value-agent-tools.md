@@ -646,7 +646,7 @@ Goat apps alone are too small to rehearse the part that actually matters, which 
 
 #### Building the working set
 
-Save this as `repos.csv`. The three goat apps give you deliberately vulnerable code; the Java projects give you a realistic haystack, and the first five are there because they genuinely use Apache Commons Text.
+Save this as `repos.csv`. The three goat apps give you deliberately vulnerable code; the Java projects give you a realistic haystack, and the first six are there because they genuinely use Apache Commons Text.
 
 ```csv
 cloneUrl,origin,path,org1
@@ -658,6 +658,7 @@ https://github.com/apache/commons-configuration,github.com,apache/commons-config
 https://github.com/apache/struts,github.com,apache/struts,java-oss
 https://github.com/dropwizard/dropwizard,github.com,dropwizard/dropwizard,java-oss
 https://github.com/jdbi/jdbi,github.com,jdbi/jdbi,java-oss
+https://github.com/jeremylong/DependencyCheck,github.com,jeremylong/DependencyCheck,java-oss
 https://github.com/apache/commons-lang,github.com,apache/commons-lang,java-oss
 https://github.com/apache/commons-io,github.com,apache/commons-io,java-oss
 https://github.com/apache/commons-collections,github.com,apache/commons-collections,java-oss
@@ -700,17 +701,19 @@ mod search . StringSubstitutor.replace
 mod search . calls:org.apache.commons.text.StringSubstitutor.replace
 ```
 
-*228 matches in 24 files.* Nearly ten times as many, because the receiver is usually a variable and the literal method name never appears. This is your candidate set, not your vulnerability list.
+*229 matches in 25 files.* Nearly ten times as many, because the receiver is usually a variable and the literal method name never appears. This is your candidate set, not your vulnerability list.
 
 **Separate the library from its consumers.** Point the same query at individual repositories:
 
 ```bash
 mod search ./java-oss/apache/commons-text  calls:org.apache.commons.text.StringSubstitutor.replace
 mod search ./java-oss/dropwizard           calls:org.apache.commons.text.StringSubstitutor.replace
-mod search ./java-oss/apache/commons-configuration calls:org.apache.commons.text.StringSubstitutor.replace
+mod search ./java-oss/jeremylong/DependencyCheck calls:org.apache.commons.text.StringSubstitutor.replace
 ```
 
-Commons Text accounts for 204 of those matches in its own source and tests. The actual consumers are far smaller: Dropwizard 17, Commons Configuration 4, Struts 2, JDBI 1. Roughly a tenth of the candidate set is downstream code.
+Commons Text accounts for 204 of those matches in its own source and tests. The actual consumers are far smaller: Dropwizard 17, Commons Configuration 4, Struts 2, JDBI 1, and DependencyCheck 1. Roughly a tenth of the candidate set is downstream code.
+
+DependencyCheck is worth pausing on. Its single call site is in `InterpolationUtil.java`, and a literal search for `StringSubstitutor.replace` inside that repository returns **nothing at all** — the code reads `substitutor.replace(text)`. One consumer, invisible to grep, found only because the type graph resolved the receiver.
 
 **Finally, ask the question that decides exposure.** Text4Shell needs the interpolator factory, not just any substitutor:
 
@@ -729,7 +732,7 @@ That negative is the point. A grep that finds nothing tells you a string was abs
 Now open your agent in the same directory and give it the goal rather than the queries:
 
 ```
-This working set has 20 Java repositories. Apache Commons Text had a remote
+This working set has 21 Java repositories. Apache Commons Text had a remote
 code execution vulnerability, CVE-2022-42889 (Text4Shell). Work out whether
 any repository here is genuinely exposed, and show your reasoning. Do not
 report a call site as a vulnerability unless the conditions for exploitation
