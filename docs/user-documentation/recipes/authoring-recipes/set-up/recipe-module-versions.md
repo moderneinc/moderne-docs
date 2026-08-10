@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 When you maintain your own recipe library, you depend on OpenRewrite and Moderne recipe modules – `rewrite-java`, `rewrite-static-analysis`, `rewrite-spring`, and so on. Each of these modules is individually versioned, and any of them may put out a new patch release in between Moderne's biweekly releases, so it is not obvious which combination of versions you should be building against. It is also not obvious which versions are used once your recipes run from the recipe marketplace in the Moderne CLI or the Moderne Platform.
 
-In this guide, we will walk you through using a bill of materials (BOM) to align the modules your recipe library depends on, how the marketplace isolates recipe modules from one another at run time, and the one case where that isolation does not apply.
+In this guide, we will walk you through using a bill of materials (BOM) to align the modules your recipe library depends on, how the marketplace isolates recipe modules from one another at run time, and where that isolation stops.
 
 ## Aligning your dependencies with a bill of materials
 
@@ -83,6 +83,14 @@ If your recipe library only depends on open source OpenRewrite modules, import `
 `moderne-recipe-bom` and the Moderne recipe modules it manages are distributed through the Code Genome Project, which requires authentication. See [configuring the Code Genome Project repository](../../lists/latest-versions-of-every-openrewrite-module.md#configure-the-code-genome-project-repository) for the repository and credential setup.
 :::
 
+### Matching versions across language ecosystems
+
+Some recipe modules have a counterpart published to another package ecosystem. Recipes that target languages such as JavaScript, TypeScript, C#, Go, and Python are split between a Maven module and an equivalent npm, NuGet, or PyPI package, and both halves need to be on the same version.
+
+The BOM manages only the Maven side, so install the counterpart at the version the BOM resolved for its matching module. For example, `io.moderne.recipe:rewrite-angular` pairs with the npm package `@openrewrite/recipes-angular`, and `org.openrewrite:rewrite-python` pairs with the PyPI package `openrewrite`.
+
+The [latest versions of every OpenRewrite module](../../lists/latest-versions-of-every-openrewrite-module.md#cli-installation) page publishes ready-made `mod config recipes npm install`, `pip install`, and `nuget install` commands, with each counterpart already pinned to the version of its matching Maven module.
+
 ## How recipe modules are isolated in the marketplace
 
 The recipe marketplace does not resolve every installed recipe module against one shared set of dependency versions. Each recipe artifact is loaded together with the dependencies it was published with, isolated from the other artifacts in the marketplace.
@@ -90,6 +98,12 @@ The recipe marketplace does not resolve every installed recipe module against on
 This isolation is what allows recipe modules to coexist even when they depend on different versions of other recipe modules. Moderne releases most recipe modules on a biweekly cadence, but not every module follows it. The Quarkus recipe modules, for example, release independently and are often behind the current biweekly release, so they may still be built against an older version of a shared module. Isolation means they run against the version they were built for, while the modules from the current release run against theirs.
 
 For your own recipe library, the practical consequence is that you do not need to match your dependency versions to whatever else happens to be deployed in your marketplace. Your recipes run against the versions you published them with, in both the CLI and the Platform.
+
+### What the CLI loads for itself
+
+Isolation is not total. The [`RecipeClassLoader`](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/src/main/java/org/openrewrite/marketplace/RecipeClassLoader.java) gives each recipe artifact maximum isolation for its own implementation classes, but delegates the core OpenRewrite API types to its parent classloader so that the CLI and your recipe agree on them. `Recipe`, `ExecutionContext`, `SourceFile`, `Tree`, `JavaParser`, `MethodMatcher`, and the `org.openrewrite.rpc` types that back cross-language recipes are all loaded this way.
+
+Those classes come from the CLI itself rather than from your recipe artifact, which couples your recipe to the CLI release it runs on. To keep the two in step, run your recipes with a CLI version that was released together with the recipe modules in the BOM you built against. Each BOM manages the matching CLI release as `io.moderne:moderne-cli` for exactly this reason.
 
 ## How standalone YAML recipes resolve
 
