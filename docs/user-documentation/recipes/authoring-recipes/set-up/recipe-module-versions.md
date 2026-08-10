@@ -107,8 +107,8 @@ A recipe customized in the recipe builder is not pinned to the versions of the r
 
 Because the recipe builder resolves against what is deployed, it is worth knowing how deployed versions change:
 
-* **Moderne CLI**: `mod config recipes upgrade` re-resolves `LATEST` for each installed artifact and reinstalls it. See [curating the recipe marketplace](../../../moderne-cli/how-to-guides/curate-recipe-marketplace.md) for how to control which recipes your developers see and which versions they get.
-* **Moderne Platform**: an administrator re-deploys the recipe artifact, as described in [importing external recipes](../../../../administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes.md). Deploying with a version of `LATEST` re-resolves to the newest published version.
+* **Moderne CLI**: `mod config recipes upgrade` re-resolves either `LATEST` or `RELEASE` for each installed artifact and reinstalls it. See [curating the recipe marketplace](../../../moderne-cli/how-to-guides/curate-recipe-marketplace.md) for how to control which recipes your developers see and which versions they get.
+* **Moderne Platform**: an administrator re-deploys the recipe artifact, as described in [importing external recipes](../../../../administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes.md). Deploying with a version of `RELEASE` re-resolves to the newest stable release, while `LATEST` re-resolves to the newest available build, including snapshots.
 
 ## Next steps
 
