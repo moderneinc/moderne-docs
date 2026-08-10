@@ -229,5 +229,6 @@ Without `mod config recipes delete`, `import` has no way to know that a recipe w
 ## Next steps
 
 * [`recipes.csv` reference](../references/recipes-csv.md): full CSV format, column semantics, and validation rules.
+* [Aligning recipe module versions](../../recipes/authoring-recipes/set-up/recipe-module-versions.md): how versions in your own recipe library relate to the versions loaded from the marketplace.
 * [Managing recipe categories](../../../administrator-documentation/moderne-platform/how-to-guides/categorize-recipes.md): for re-organizing recipes under custom category hierarchies.
 * [CLI reference](../cli-reference.md#mod-config-recipes): full command documentation for `mod config recipes`.

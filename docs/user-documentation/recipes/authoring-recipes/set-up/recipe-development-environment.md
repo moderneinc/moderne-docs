@@ -71,6 +71,10 @@ Rewrite provides a bill of materials (BOM) that, when imported into your build, 
 
 You can import the bill of materials into either Gradle or Maven and then include concrete dependencies on the various rewrite libraries without specifying their version.
 
+:::tip
+If your recipe library also depends on Moderne's recipe modules, import `moderne-recipe-bom` instead – it manages those modules and imports `rewrite-recipe-bom` for you. See [aligning recipe module versions](./recipe-module-versions.md) for details.
+:::
+
 <Tabs groupId="projectType">
 <TabItem value="gradle" label="Gradle">
 
