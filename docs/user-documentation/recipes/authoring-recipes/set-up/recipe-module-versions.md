@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Aligning recipe module versions
 
-When you maintain your own recipe library, you depend on OpenRewrite and Moderne recipe modules – `rewrite-java`, `rewrite-static-analysis`, `rewrite-spring`, and so on. Those modules release on different schedules, so it is not obvious which combination of versions you should be building against. It is also not obvious which versions are used once your recipes run from the recipe marketplace in the Moderne CLI or the Moderne Platform.
+When you maintain your own recipe library, you depend on OpenRewrite and Moderne recipe modules – `rewrite-java`, `rewrite-static-analysis`, `rewrite-spring`, and so on. Each of these modules is individually versioned, and any of them may put out a new patch release in between Moderne's biweekly releases, so it is not obvious which combination of versions you should be building against. It is also not obvious which versions are used once your recipes run from the recipe marketplace in the Moderne CLI or the Moderne Platform.
 
 In this guide, we will walk you through using a bill of materials (BOM) to align the modules your recipe library depends on, how the marketplace isolates recipe modules from one another at run time, and the one case where that isolation does not apply.
 
