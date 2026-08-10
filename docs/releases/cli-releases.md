@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.5.0           |
+| CLI version | 4.5.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,23 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.5.1 (2026-08-10)
+
+#### What's Changed
+* Restore type attribution on Gradle build scripts
+* Build bazel type tables exactly once per dependency
+* C#: in-process NuGet restore + fix V3 literal round-trip RPC desync
+* Remove vestigial nebula integtest-standalone plugin
+* Raise the CLI's thread stack size to 6 MB
+* Don't harvest Bazel mini-builds from another workspace sharing the output base
+* Skip git-commit-id-plugin during the Maven prebuild
+* Stop injecting hardcoded NuGet sources during .NET LST builds
+* Emit plain progress bar lines in claim order, with the values they were queued at
+* Lock @moderne_cli repo staging against concurrent builds
+* Revalidate SNAPSHOT dependency graphs even when resolved to a dated version
+* Attach MavenResolutionResult markers to sub-module poms not parented to the reactor root
+* Tag Gradle wrapper files with BuildTool(Gradle), matching the Maven handling
 
 ### CLI / DX v4.5.0 (2026-08-05)
 
