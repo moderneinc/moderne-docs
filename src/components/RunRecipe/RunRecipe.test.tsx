@@ -12,6 +12,10 @@ const pythonProps = {
 
 const text = () => screen.getByRole('main').textContent ?? '';
 
+/** Text of one version tab. The Tabs mock renders every tab, so `text()` alone spans all of them. */
+const tabText = (label: string) =>
+  screen.getByRole('main').querySelector(`[data-label="${label}"]`)?.textContent ?? '';
+
 const renderRecipe = (props: React.ComponentProps<typeof RunRecipe>) =>
   render(
     <main>
@@ -55,7 +59,7 @@ describe('RunRecipe', () => {
     // The jar recipes in turn delegate into the core language module; without it the CLI fails with
     // "delegatesTo org.openrewrite.python.UpgradeDependencyVersion but no recipe found".
     expect(text()).toContain('mod config recipes jar install org.openrewrite:rewrite-python:');
-    expect(text().match(/mod config recipes jar install/g)).toHaveLength(2);
+    expect(tabText('Pinned version').match(/mod config recipes jar install/g)).toHaveLength(2);
   });
 
   it('drops an install command whose version placeholder does not resolve', () => {
@@ -79,7 +83,8 @@ describe('RunRecipe', () => {
     });
 
     expect(text()).not.toContain('{{VERSION_');
-    const versions = [...text().matchAll(/rewrite-migrate-python[=:]=?([\d.]+)/g)].map((m) => m[1]);
+    const pinned = tabText('Pinned version');
+    const versions = [...pinned.matchAll(/rewrite-migrate-python[=:]=?([\d.]+)/g)].map((m) => m[1]);
     expect(versions).toHaveLength(2);
     expect(versions[0]).toEqual(versions[1]);
   });
@@ -97,5 +102,53 @@ describe('RunRecipe', () => {
     });
 
     expect(text()).toContain('mod run . --recipe org.openrewrite.python.migrate.FindMethods --recipe-option "methodPattern=dumps(..)"');
+  });
+
+  it('offers RELEASE and LATEST alongside the pinned version for a jar recipe', () => {
+    renderRecipe({
+      recipeName: 'org.openrewrite.java.format.AutoFormat',
+      displayName: 'Format Java code',
+      groupId: 'org.openrewrite',
+      artifactId: 'rewrite-java',
+      versionKey: 'VERSION_ORG_OPENREWRITE_REWRITE_JAVA',
+    });
+
+    // A pinned version is skipped by `mod config recipes upgrade`, which only re-resolves artifacts
+    // installed with a dynamic requested version, so the dynamic forms lead.
+    expect(tabText('RELEASE')).toContain('mod config recipes jar install org.openrewrite:rewrite-java:RELEASE');
+    expect(tabText('LATEST')).toContain('mod config recipes jar install org.openrewrite:rewrite-java:LATEST');
+    expect(tabText('Pinned version')).toMatch(/jar install org\.openrewrite:rewrite-java:[\d.]+/);
+    expect(text()).toContain('mod config recipes upgrade');
+  });
+
+  it('applies the same version mode to every jar a Python recipe delegates into', () => {
+    renderRecipe({
+      ...pythonProps,
+      groupId: 'org.openrewrite.recipe',
+      artifactId: 'rewrite-migrate-python',
+      companionJars: [
+        { groupId: 'org.openrewrite', artifactId: 'rewrite-python', versionKey: 'VERSION_ORG_OPENREWRITE_REWRITE_PYTHON' },
+      ],
+    });
+
+    // pip has no RELEASE/LATEST spelling; dropping the `==` pin is its dynamic form.
+    expect(tabText('RELEASE')).toContain('mod config recipes pip install openrewrite-migrate-python\n');
+    expect(tabText('RELEASE').match(/:RELEASE/g)).toHaveLength(2);
+    expect(tabText('LATEST').match(/:LATEST/g)).toHaveLength(2);
+  });
+
+  it('drops the pinned tab when a Go module has no resolvable version', () => {
+    renderRecipe({
+      recipeName: 'org.openrewrite.go.search.FindTypes',
+      displayName: 'Find Go types',
+      goPackage: 'github.com/moderneinc/recipes-go',
+      versionKey: 'VERSION_NOT_A_REAL_KEY',
+    });
+
+    // Go modules have no RELEASE/LATEST literal either, so the bare module path is the only command
+    // left once there is no version to pin — a lone tab renders as a plain code block.
+    expect(text()).toContain('mod config recipes go install github.com/moderneinc/recipes-go');
+    expect(text()).not.toContain('@v');
+    expect(tabText('Pinned version')).toEqual('');
   });
 });

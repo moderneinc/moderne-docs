@@ -1,11 +1,85 @@
 import React from 'react';
 import CodeBlock from '@theme/CodeBlock';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import latestVersions from '@site/src/plugins/latest-versions';
 
 interface CompanionJar {
   groupId: string;
   artifactId: string;
   versionKey?: string;
+}
+
+/**
+ * `RELEASE` and `LATEST` are the version literals `mod config recipes jar install` accepts in place of
+ * a fixed version. Installing with one of them records a dynamic requested version, which is what
+ * `mod config recipes upgrade` looks for when it re-resolves artifacts, so readers who copy these
+ * commands don't pin their marketplace to whatever version this page was built with.
+ */
+type VersionMode = 'RELEASE' | 'LATEST' | 'pinned';
+
+const jarSpec = (groupId: string, artifactId: string, version: string, mode: VersionMode): string =>
+  `${groupId}:${artifactId}:${mode === 'pinned' ? version : mode}`;
+
+/**
+ * Install commands, one tab per version mode. Modes that would produce the same commands collapse
+ * into a single tab — package managers other than Maven have no `RELEASE`/`LATEST` spelling, so their
+ * dynamic form is simply the package name — and a lone tab renders as a plain code block.
+ */
+function InstallCommands({
+  title,
+  commandsFor,
+  hasPinnedVersion,
+}: {
+  title?: string;
+  commandsFor: (mode: VersionMode) => string[];
+  hasPinnedVersion: boolean;
+}) {
+  const codeFor = (mode: VersionMode) => commandsFor(mode).join('\n');
+  const release = codeFor('RELEASE');
+  const latest = codeFor('LATEST');
+  const pinned = hasPinnedVersion ? codeFor('pinned') : release;
+
+  const tabs =
+    release === latest
+      ? [{ value: 'dynamic', label: 'Latest version', code: release }]
+      : [
+          { value: 'release', label: 'RELEASE', code: release },
+          { value: 'latest', label: 'LATEST', code: latest },
+        ];
+  if (pinned !== release) {
+    tabs.push({ value: 'pinned', label: 'Pinned version', code: pinned });
+  }
+
+  if (tabs.length === 1) {
+    return <CodeBlock language="shell" title={title}>{tabs[0].code}</CodeBlock>;
+  }
+
+  return (
+    <>
+      <p>
+        {release === latest ? (
+          <>Installing without a pinned version lets </>
+        ) : (
+          <>
+            <code>RELEASE</code> resolves to the newest release and <code>LATEST</code> to the newest
+            build of any kind, including snapshots. Either one lets{' '}
+          </>
+        )}
+        <a href="https://docs.moderne.io/user-documentation/moderne-cli/cli-reference#mod-config-recipes-upgrade">
+          <code>mod config recipes upgrade</code>
+        </a>{' '}
+        pull in later versions without editing this command; a pinned version stays where you put it.
+      </p>
+      <Tabs groupId="recipeVersion">
+        {tabs.map((tab) => (
+          <TabItem key={tab.value} value={tab.value} label={tab.label}>
+            <CodeBlock language="shell" title={title}>{tab.code}</CodeBlock>
+          </TabItem>
+        ))}
+      </Tabs>
+    </>
+  );
 }
 
 interface RunRecipeProps {
@@ -87,18 +161,21 @@ export default function RunRecipe({
   // delegates eagerly, failing the whole run when one is missing rather than skipping a step. So every
   // package the recipe reaches is listed, not just the one it is published in.
   if (pipPackage) {
-    const pipPackageSpec = version ? `${pipPackage}==${version}` : pipPackage;
-    const installCommands = [`mod config recipes pip install ${pipPackageSpec}`];
-    if (hasDependency && version) {
-      installCommands.push(`mod config recipes jar install ${groupId}:${artifactId}:${version}`);
-    }
-    for (const jar of companionJars ?? []) {
-      const jarVersion = resolveVersion(jar.versionKey);
-      if (jarVersion) {
-        installCommands.push(`mod config recipes jar install ${jar.groupId}:${jar.artifactId}:${jarVersion}`);
+    const resolvedCompanionJars = (companionJars ?? [])
+      .map((jar) => ({ ...jar, version: resolveVersion(jar.versionKey) }))
+      .filter((jar) => jar.version);
+    const installCommandsFor = (mode: VersionMode): string[] => {
+      const pipPackageSpec = version && mode === 'pinned' ? `${pipPackage}==${version}` : pipPackage;
+      const commands = [`mod config recipes pip install ${pipPackageSpec}`];
+      if (hasDependency && version) {
+        commands.push(`mod config recipes jar install ${jarSpec(groupId, artifactId, version, mode)}`);
       }
-    }
-    const multiplePackages = installCommands.length > 1;
+      for (const jar of resolvedCompanionJars) {
+        commands.push(`mod config recipes jar install ${jarSpec(jar.groupId, jar.artifactId, jar.version, mode)}`);
+      }
+      return commands;
+    };
+    const multiplePackages = installCommandsFor('RELEASE').length > 1;
     return (
       <>
         <p>
@@ -110,12 +187,11 @@ export default function RunRecipe({
             ? 'This recipe calls into other OpenRewrite packages as it runs, and the CLI needs every one of them in its marketplace. Once the CLI is installed, install all of the following:'
             : 'Once the CLI is installed, you can install this Python recipe package by running the following command:'}
         </p>
-        <CodeBlock
-          language="shell"
+        <InstallCommands
           title={multiplePackages ? 'Install the recipe packages' : 'Install the recipe package'}
-        >
-          {installCommands.join('\n')}
-        </CodeBlock>
+          commandsFor={installCommandsFor}
+          hasPinnedVersion={!!version || resolvedCompanionJars.length > 0}
+        />
         <p>Then, you can run the recipe via:</p>
         <CodeBlock language="shell" title="Run the recipe">
           {`mod run . --recipe ${recipeName}${cliOptions}`}
@@ -147,7 +223,8 @@ export default function RunRecipe({
   // Go recipes
   if (goPackage) {
     // Go module tags carry a `v` prefix, while the version key resolves to a bare X.Y.Z
-    const goModuleSpec = version ? `${goPackage}@v${version}` : goPackage;
+    const goModuleSpecFor = (mode: VersionMode) =>
+      version && mode === 'pinned' ? `${goPackage}@v${version}` : goPackage;
     return (
       <>
         <p>
@@ -161,9 +238,11 @@ export default function RunRecipe({
           {`mod run . --recipe ${cliRecipeName}${cliOptions}`}
         </CodeBlock>
         <p>If the recipe is not available locally, then you can install it using:</p>
-        <CodeBlock language="shell" title="Install the recipe module">
-          {`mod config recipes go install ${goModuleSpec}`}
-        </CodeBlock>
+        <InstallCommands
+          title="Install the recipe module"
+          commandsFor={(mode) => [`mod config recipes go install ${goModuleSpecFor(mode)}`]}
+          hasPinnedVersion={!!version}
+        />
       </>
     );
   }
@@ -186,9 +265,10 @@ export default function RunRecipe({
       {hasDependency && (
         <>
           <p>If the recipe is not available locally, then you can install it using:</p>
-          <CodeBlock language="shell">
-            {`mod config recipes jar install ${groupId}:${artifactId}:${version}`}
-          </CodeBlock>
+          <InstallCommands
+            commandsFor={(mode) => [`mod config recipes jar install ${jarSpec(groupId, artifactId, version, mode)}`]}
+            hasPinnedVersion={!!version}
+          />
         </>
       )}
     </>
