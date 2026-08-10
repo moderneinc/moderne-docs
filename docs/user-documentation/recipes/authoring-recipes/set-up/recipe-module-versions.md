@@ -91,13 +91,13 @@ This isolation is what allows recipe modules to coexist even when they depend on
 
 For your own recipe library, the practical consequence is that you do not need to match your dependency versions to whatever else happens to be deployed in your marketplace. Your recipes run against the versions you published them with, in both the CLI and the Platform.
 
-## How declarative YAML recipes resolve
+## How standalone YAML recipes resolve
 
-The exception to this isolation is declarative YAML recipes.
+The exception to this isolation is a declarative YAML recipe that is installed on its own, rather than packaged inside a recipe artifact.
 
-A YAML recipe references the recipes it includes by name, not by artifact version. When the YAML is installed on its own, rather than packaged inside a recipe artifact, it carries no dependencies of its own to be isolated with. Its references are resolved when the recipe runs, against whatever versions your marketplace currently has installed.
+A YAML recipe references the recipes it includes by name, not by artifact version. YAML that is packaged inside a recipe JAR resolves those names against that JAR's classpath, so it stays isolated like any other recipe artifact. A standalone YAML recipe has no classpath of its own, so its references are resolved when the recipe runs, against whatever versions your marketplace currently has installed.
 
-You will run into this in two common places:
+You will run into this in two places:
 
 * **The [recipe builder](../../../moderne-platform/how-to-guides/new-recipe-builder.md)**: composing a new recipe, or customizing an existing one, produces a YAML recipe. Its sub-recipes are resolved against the versions deployed in your marketplace, which can be newer or older than the versions the original recipe was compiled against.
 * **YAML you copied from somewhere else**: a recipe pasted from a chat message, a docs page, or a colleague carries no version information either. Installing it with `mod config recipes yaml install` adds its recipes to your marketplace, where they resolve against the recipe modules you already have installed.
@@ -105,12 +105,12 @@ You will run into this in two common places:
 In both cases the recipe can pick up different – newer or older – versions of recipe modules than the ones it was originally written or compiled against.
 
 :::warning
-A YAML recipe is not pinned to the recipe module versions it was written against. Re-test YAML recipes after you update the recipe modules in your marketplace, since the sub-recipes they resolve to can change.
+A standalone YAML recipe is not pinned to the recipe module versions it was written against. Re-test these recipes after you update the recipe modules in your marketplace, since the sub-recipes they resolve to can change. Packaging the YAML into a recipe JAR instead gives it the same version isolation as any other recipe artifact.
 :::
 
 ## Keeping your marketplace up to date
 
-Because YAML recipes resolve against what is deployed, it is worth knowing how deployed versions change:
+Because standalone YAML recipes resolve against what is deployed, it is worth knowing how deployed versions change:
 
 * **Moderne CLI**: `mod config recipes upgrade` re-resolves and reinstalls each installed artifact that was requested at a dynamic version. See [curating the recipe marketplace](../../../moderne-cli/how-to-guides/curate-recipe-marketplace.md) for how to control which recipes your developers see and which versions they get.
 * **Moderne Platform**: an administrator re-deploys the recipe artifact, as described in [importing external recipes](../../../../administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes.md). Deploying with a version of `RELEASE` re-resolves to the newest stable release, while `LATEST` re-resolves to the newest available build, including snapshots.
