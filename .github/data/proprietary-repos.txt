@@ -6,8 +6,6 @@ rewrite-astgrep
 rewrite-bazel
 rewrite-circleci
 rewrite-cobol
-rewrite-codemods
-rewrite-codemods-ng
 rewrite-compiled-analysis
 rewrite-concourse
 rewrite-containerized-logging
