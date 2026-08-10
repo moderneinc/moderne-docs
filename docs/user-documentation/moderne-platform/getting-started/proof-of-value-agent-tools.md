@@ -891,25 +891,35 @@ Pick a target from your own backlog rather than a synthetic exercise. Good candi
 
 The last two are the strongest, because they close the loop on work you have already watched the agent do.
 
-### Exercise: write the recipe phase 3 stopped short of
+### Exercise: find a vulnerability search cannot express, then fix it
 
-[Phase 3](#exercise-triage-text4shell-on-a-practice-working-set) got you to a defensible answer about Text4Shell using search alone. It also ran into search's ceiling. `calls:` told you 229 places call `StringSubstitutor.replace`, and separately that 52 places call `createInterpolator`. What it could not tell you is **which `replace()` calls happen on an interpolating substitutor** — because that depends on how the object reaching the call was constructed, and search matches occurrences rather than following values.
+Phase 3 showed what type-aware search can do. This exercise starts where it runs out.
 
-Look again at the call site phase 3 turned up:
+Java deserialization is dangerous when an application reads an object stream it does not control and places no restriction on which classes may be reconstructed. The trouble is that the vulnerability is an **absence**. There is no method call to match, no type to look for, and the missing guard may sit in a different method from the read. Search can tell you where `readObject` is called; it cannot tell you whether anything is protecting it.
+
+Here is the shape, from WebGoat's `InsecureDeserializationTask`:
 
 ```java
-if (/* ... */) {
-    substitutor = new StringSubstitutor(StringLookupFactory.INSTANCE.interpolatorStringLookup());
-} else {
-    substitutor = new StringSubstitutor(new PropertyLookup(properties));
+public AttackResult completed(@RequestParam String token) throws IOException {
+    b64token = token.replace('-', '+').replace('_', '/');
+    try (ObjectInputStream ois =
+            new ObjectInputStream(new ByteArrayInputStream(Base64.getDecoder().decode(b64token)))) {
+        Object o = ois.readObject();
+        if (!(o instanceof VulnerableTaskHolder)) {
+            // ...
+        }
+    }
 }
-return substitutor.replace(text);
 ```
 
-One `replace()` call, two possible constructions, and only one of them is dangerous. Deciding between them means tracing the variable back through the branch. That is a recipe, not a query.
+Three things defeat a cheap check here:
+
+* **The input is transformed on the way in.** A request parameter goes through two `replace` calls and a Base64 decode before it reaches the stream. Nothing in the deserialization statement mentions a request.
+* **The protection that is missing could be anywhere in the class.** `setObjectInputFilter` or a `resolveClass` override would make this safe, and neither has to be near the read.
+* **There is a decoy.** The `instanceof` check reads like validation, but it runs *after* `readObject` has already reconstructed the object graph and any gadget chain in it. A reviewer scanning for "is the result type-checked?" marks this file safe.
 
 :::info[Nothing in the catalog does this]
-Check before you build: there is no OpenRewrite recipe for CVE-2022-42889, and nothing in the catalog matches on `StringSubstitutor`. This is genuinely unwritten, which is what makes it a test of authoring rather than of recall. Have your agent confirm that for itself before it starts.
+OpenRewrite ships taint-based detectors for fourteen vulnerability classes, but nothing for unvalidated deserialization: no recipe matches on `setObjectInputFilter` or `resolveClass`. Have your agent confirm that before it starts. This is a genuine gap, which is what makes it a test of authoring rather than recall.
 :::
 
 #### Step 1: Clone the starter
@@ -919,70 +929,419 @@ git clone https://github.com/moderneinc/rewrite-recipe-starter
 cd rewrite-recipe-starter
 ```
 
-The starter carries a worked data table example — `ClassHierarchy.java`, its `ClassHierarchyReport`, and a test asserting on emitted rows. Point your agent at those three files first; they are the shape it needs to copy.
+Point your agent at `ClassHierarchy.java`, `table/ClassHierarchyReport.java`, and `ClassHierarchyTest.java` first. That trio is the data table pattern it needs.
 
-#### Step 2: Have the agent write the impact analysis
-
-Ask for the analysis on its own, before any fixing:
+#### Step 2: Have the agent write the detection
 
 ```
 Using this rewrite-recipe-starter project, write an OpenRewrite recipe that
-finds calls to org.apache.commons.text.StringSubstitutor.replace and
-determines, for each one, how the substitutor it is called on was
-constructed: via createInterpolator or interpolatorStringLookup (unsafe), or
-with an explicit restricted lookup (safe), or unknown if you cannot tell.
+finds calls to ObjectInputStream.readObject and readUnshared, and reports
+those whose enclosing class does nothing to constrain deserialization —
+meaning the class neither calls setObjectInputFilter anywhere nor overrides
+resolveClass or resolveProxyClass.
 
-Emit a data table with one row per call site: source file, enclosing method,
-construction kind, and confidence. Follow the ClassHierarchy example for the
-data table. Write tests for a substitutor built inline, one assigned to a
-local and used later, one assigned in an if/else with a different lookup on
-each branch, and one passed in as a method parameter.
+Emit a data table with one row per unguarded read: source path, enclosing
+class, enclosing method, which guard was found, and whether the enclosing
+method takes a parameter bound to an HTTP request (@RequestParam,
+@PathVariable, @RequestBody, @QueryParam and similar), since that makes the
+read directly reachable by an attacker.
+
+Write tests for: an unguarded read where a type check happens after
+readObject; a class where the filter is installed in a different method from
+the read; a class that overrides resolveClass; a request-bound method; and
+an internal method with no request binding.
 ```
 
-The four test cases are the exercise. Inline construction is easy. A local variable requires the recipe to remember an assignment. The if/else is the case from real code above. A parameter is the one that should come back `unknown` — and an agent that reports it as safe has written a recipe that will quietly under-report on your estate.
+The second and third tests are the ones that matter. A recipe that only inspects the enclosing method will flag a properly guarded class, and false positives on safe code are how a security recipe loses its audience.
 
-Run it across the organization once the tests pass:
+Two pieces of friction to expect. `./gradlew build` fails until new recipes are registered, which `./gradlew recipeCsvGenerate` fixes — run it as its own invocation, since combining it with a publish trips a Gradle task-ordering check. And publishing for the CLI works most reliably through the local Maven repository:
 
 ```bash
-mod run . --recipe com.yourorg.FindUnsafeStringSubstitutorUse
-mod study . --last-recipe-run --data-table com.yourorg.table.SubstitutorReport --csv -o text4shell.csv
+./gradlew recipeCsvGenerate
+./gradlew publishToMavenLocal
+mod config recipes jar install com.yourorg:rewrite-recipe-starter:0.1.0-SNAPSHOT
 ```
 
-This is the thing search could not produce: 229 call sites reduced to a per-repository list of the ones whose construction is actually unsafe, with the undecidable cases named rather than hidden.
+Then run it:
 
-#### Step 3: Turn the analysis into a fix
-
-Now extend it:
-
-```
-Extend the recipe so that, where the construction is unsafe and in the same
-compilation unit, it rewrites the substitutor to use a restricted lookup set
-that excludes script, dns, and url. Leave the unknown cases untouched and
-keep reporting them in the data table. Add before-and-after tests, including
-one asserting that a safe construction is left alone.
+```bash
+mod run . --recipe com.yourorg.FindUnvalidatedObjectDeserialization
+mod study . --last-recipe-run --data-table com.yourorg.table.DeserializationReport --csv -o deser.csv
 ```
 
-That last constraint matters more than the transformation. A recipe that rewrites the cases it understands and leaves the rest for a human is a recipe someone will actually run. One that guesses at ambiguous code is one they will revert after the first bad diff.
+#### What this produces
+
+On the working set from phase 3, the recipe found **136 unguarded reads across 32 repositories**:
+
+| Repository | Unguarded reads |
+|------------|-----------------|
+| apache/commons-collections | 53 |
+| apache/commons-math | 20 |
+| apache/commons-io | 17 |
+| apache/struts | 10 |
+| apache/commons-lang | 9 |
+| others | 27 |
+
+Taken alone that number is close to useless. It is an attack-surface census, and a library implementing `Serializable` is supposed to call `readObject`. Reporting 136 vulnerabilities would be exactly the false-positive flood that makes teams stop reading security output.
+
+The request-facing column is what makes it actionable. Of those 136 reads, **one** sits in a method bound to an HTTP request:
+
+```
+WebGoat/WebGoat | InsecureDeserializationTask.java | completed
+```
+
+That is the planted vulnerability, found on its own, from 136 candidates down to one, without anybody knowing in advance which file to look at.
+
+#### Step 3: Turn it into a fix
+
+```
+Now write a second recipe that adds a deny-all ObjectInputFilter to
+ObjectInputStream instances declared in a try-with-resources, where the
+enclosing class has no existing guard. Insert the setObjectInputFilter call
+as the first statement in the try block.
+
+Deny everything rather than guessing an allowlist, and leave a TODO for a
+human to widen it. Do not modify streams that arrive as parameters or are
+built elsewhere — report those instead. Add before-and-after tests plus a
+test that a class with an existing filter is left alone.
+
+Note that inserting a statement that references an existing variable needs a
+typed template placeholder, not string substitution.
+```
+
+That last line saves a debugging cycle. Substituting the variable name as a string produces `LST contains missing or invalid type information`, because the inserted identifier carries no type. The template needs `#{any(java.io.ObjectInputStream)}` with the actual identifier node passed as the argument.
+
+Run against WebGoat, the fix changes exactly one file:
+
+```java
+ try (ObjectInputStream ois =
+         new ObjectInputStream(new ByteArrayInputStream(Base64.getDecoder().decode(b64token)))) {
++    ois.setObjectInputFilter(ObjectInputFilter.Config.createFilter("!*"));
+     before = System.currentTimeMillis();
+     Object o = ois.readObject();
+```
+
+Denying everything will break the lesson, which is correct behavior. The recipe cannot know which classes this application legitimately accepts, so it fails closed and asks a human. A recipe that invented an allowlist would be more convenient and considerably worse.
 
 #### What to look for
 
-* **Does the recipe handle the if/else case?** This is the line between tracking a value and matching a statement, and it is the case that exists in real code.
-* **Does it report `unknown` honestly** rather than defaulting ambiguous constructions to safe?
-* **Did the agent write the tests first,** or claim success and then produce tests that pass?
-* **Is the data table actionable** — could you hand it to a team as-is?
-* **Does the fix leave safe and ambiguous code alone?** Check the diff on repositories you know are fine.
-* **Does it run clean across every repository,** not just the one it was iterated against?
+* **Does it find the guard in another method?** This is the difference between reasoning about a class and pattern-matching a statement.
+* **Does it avoid flagging guarded classes?** Check the `resolveClass` case specifically.
+* **Did the agent separate census from finding,** or hand you 136 rows and call them vulnerabilities?
+* **Does the fix fail closed?** An agent that generates a permissive filter to keep tests passing has missed the point.
+* **Did it write tests first,** and do the negative cases genuinely assert nothing was reported?
+* **Does it run clean across every repository,** not just the one it iterated against?
 
 :::note
-As in phase 3, rows here are candidates. An unsafe construction is only exploitable if untrusted input reaches `replace()`, and only on Commons Text 1.5 through 1.9. The recipe's job is to shrink 229 call sites to the few worth a human's attention, not to declare them vulnerable.
+The 136 reads are candidates. Being unguarded is necessary for exploitation but not sufficient — the stream also has to be attacker-influenced, which is why the request-facing column exists and why a human still reviews the shortlist.
 :::
 
-### What to look for
+<details>
+<summary>The two recipes, as actually written and tested</summary>
 
-* **How long did it take from prompt to passing test?** This is the number worth recording.
-* **Did the agent write tests?** The `RewriteTest` framework is part of what the skills teach, and a recipe without tests is not a deliverable.
-* **Did the developer need to know OpenRewrite?** If the answer is no, that is the proof point.
-* **Does the recipe run cleanly across the whole organization?** A recipe that works on one repository and fails on fifty is a different result.
+Produced by following the prompts above against `rewrite-recipe-starter`. Both pass their tests — five for the detection, three for the fix — and run clean across a 32-repository working set. Included so you can compare what your agent writes against something known to work.
+
+**`table/DeserializationReport.java`**
+
+```java
+package com.yourorg.table;
+
+import lombok.Value;
+import org.openrewrite.Column;
+import org.openrewrite.DataTable;
+import org.openrewrite.Recipe;
+
+public class DeserializationReport extends DataTable<DeserializationReport.Row> {
+
+    public DeserializationReport(Recipe recipe) {
+        super(recipe,
+                "Java deserialization call sites",
+                "Every ObjectInputStream read, and whether the enclosing class guards it.");
+    }
+
+    public enum Guard { NONE, INPUT_FILTER, RESOLVE_CLASS_OVERRIDE }
+
+    @Value
+    public static class Row {
+        @Column(displayName = "Source path", description = "File containing the read.")
+        String sourcePath;
+
+        @Column(displayName = "Enclosing class", description = "Class containing the read.")
+        String enclosingClass;
+
+        @Column(displayName = "Enclosing method", description = "Method containing the read.")
+        String enclosingMethod;
+
+        @Column(displayName = "Guard", description = "Protection found on the enclosing class.")
+        Guard guard;
+
+        @Column(displayName = "Request facing",
+                description = "True when the enclosing method takes a web request parameter.")
+        boolean requestFacing;
+    }
+}
+```
+
+**`FindUnvalidatedObjectDeserialization.java`** — the detection. `guardOn` is the part that cannot be a search: it scans the whole class for a guard that may be nowhere near the read.
+
+```java
+package com.yourorg;
+
+import com.yourorg.table.DeserializationReport;
+import lombok.EqualsAndHashCode;
+import lombok.Value;
+import org.openrewrite.ExecutionContext;
+import org.openrewrite.Preconditions;
+import org.openrewrite.Recipe;
+import org.openrewrite.TreeVisitor;
+import org.openrewrite.java.JavaIsoVisitor;
+import org.openrewrite.java.MethodMatcher;
+import org.openrewrite.java.search.UsesMethod;
+import org.openrewrite.java.tree.J;
+import org.openrewrite.java.tree.JavaSourceFile;
+import org.openrewrite.java.tree.Statement;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
+@Value
+@EqualsAndHashCode(callSuper = false)
+public class FindUnvalidatedObjectDeserialization extends Recipe {
+
+    private static final MethodMatcher READ_OBJECT =
+            new MethodMatcher("java.io.ObjectInputStream readObject()", true);
+    private static final MethodMatcher READ_UNSHARED =
+            new MethodMatcher("java.io.ObjectInputStream readUnshared()", true);
+    private static final MethodMatcher SET_FILTER =
+            new MethodMatcher("java.io.ObjectInputStream setObjectInputFilter(..)", true);
+
+    private static final String[] REQUEST_ANNOTATIONS = {
+            "RequestParam", "PathVariable", "RequestBody", "RequestHeader",
+            "QueryParam", "FormParam", "PathParam", "HeaderParam", "CookieParam"
+    };
+
+    transient DeserializationReport report = new DeserializationReport(this);
+
+    String displayName = "Find unvalidated object deserialization";
+
+    String description = "Reports `ObjectInputStream.readObject` and `readUnshared` calls whose enclosing " +
+                         "class installs no `ObjectInputFilter` and does not override `resolveClass`, and " +
+                         "notes whether the enclosing method is reachable from a web request.";
+
+    @Override
+    public TreeVisitor<?, ExecutionContext> getVisitor() {
+        return Preconditions.check(
+                Preconditions.or(new UsesMethod<>(READ_OBJECT), new UsesMethod<>(READ_UNSHARED)),
+                new JavaIsoVisitor<ExecutionContext>() {
+
+                    @Override
+                    public J.MethodInvocation visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {
+                        J.MethodInvocation m = super.visitMethodInvocation(method, ctx);
+                        if (!READ_OBJECT.matches(m) && !READ_UNSHARED.matches(m)) {
+                            return m;
+                        }
+
+                        J.ClassDeclaration clazz = getCursor().firstEnclosing(J.ClassDeclaration.class);
+                        J.MethodDeclaration enclosing = getCursor().firstEnclosing(J.MethodDeclaration.class);
+                        JavaSourceFile cu = getCursor().firstEnclosing(JavaSourceFile.class);
+
+                        DeserializationReport.Guard guard = guardOn(clazz);
+                        if (guard != DeserializationReport.Guard.NONE) {
+                            return m;   // the class constrains what it will accept
+                        }
+
+                        report.insertRow(ctx, new DeserializationReport.Row(
+                                cu == null ? "unknown" : cu.getSourcePath().toString(),
+                                clazz == null ? "unknown" : clazz.getSimpleName(),
+                                enclosing == null ? "unknown" : enclosing.getSimpleName(),
+                                guard,
+                                isRequestFacing(enclosing)));
+                        return m;
+                    }
+                });
+    }
+
+    private static DeserializationReport.Guard guardOn(J.ClassDeclaration clazz) {
+        if (clazz == null) {
+            return DeserializationReport.Guard.NONE;
+        }
+        AtomicBoolean filter = new AtomicBoolean(false);
+        AtomicBoolean resolve = new AtomicBoolean(false);
+
+        new JavaIsoVisitor<Integer>() {
+            @Override
+            public J.MethodInvocation visitMethodInvocation(J.MethodInvocation mi, Integer p) {
+                if (SET_FILTER.matches(mi)) {
+                    filter.set(true);
+                }
+                return super.visitMethodInvocation(mi, p);
+            }
+
+            @Override
+            public J.MethodDeclaration visitMethodDeclaration(J.MethodDeclaration md, Integer p) {
+                String n = md.getSimpleName();
+                if ("resolveClass".equals(n) || "resolveProxyClass".equals(n)) {
+                    resolve.set(true);
+                }
+                return super.visitMethodDeclaration(md, p);
+            }
+        }.visit(clazz, 0);
+
+        if (filter.get()) {
+            return DeserializationReport.Guard.INPUT_FILTER;
+        }
+        if (resolve.get()) {
+            return DeserializationReport.Guard.RESOLVE_CLASS_OVERRIDE;
+        }
+        return DeserializationReport.Guard.NONE;
+    }
+
+    private static boolean isRequestFacing(J.MethodDeclaration method) {
+        if (method == null) {
+            return false;
+        }
+        for (Statement p : method.getParameters()) {
+            if (!(p instanceof J.VariableDeclarations)) {
+                continue;
+            }
+            for (J.Annotation a : ((J.VariableDeclarations) p).getLeadingAnnotations()) {
+                for (String req : REQUEST_ANNOTATIONS) {
+                    if (req.equals(a.getSimpleName())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+}
+```
+
+**`AddObjectInputFilter.java`** — the fix. Note the typed `#{any(...)}` placeholder.
+
+```java
+package com.yourorg;
+
+import lombok.EqualsAndHashCode;
+import lombok.Value;
+import org.openrewrite.ExecutionContext;
+import org.openrewrite.Preconditions;
+import org.openrewrite.Recipe;
+import org.openrewrite.TreeVisitor;
+import org.openrewrite.java.JavaIsoVisitor;
+import org.openrewrite.java.JavaParser;
+import org.openrewrite.java.JavaTemplate;
+import org.openrewrite.java.MethodMatcher;
+import org.openrewrite.java.search.UsesMethod;
+import org.openrewrite.java.tree.J;
+import org.openrewrite.java.tree.Statement;
+
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+@Value
+@EqualsAndHashCode(callSuper = false)
+public class AddObjectInputFilter extends Recipe {
+
+    private static final MethodMatcher READ_OBJECT =
+            new MethodMatcher("java.io.ObjectInputStream readObject()", true);
+    private static final MethodMatcher SET_FILTER =
+            new MethodMatcher("java.io.ObjectInputStream setObjectInputFilter(..)", true);
+
+    String displayName = "Add an `ObjectInputFilter` to unguarded deserialization";
+
+    String description = "Adds a deny-all `ObjectInputFilter` to `ObjectInputStream` instances declared in a " +
+                         "try-with-resources whose enclosing class installs no filter and does not override " +
+                         "`resolveClass`. The filter denies everything, because the set of classes an " +
+                         "application should accept cannot be inferred.";
+
+    @Override
+    public TreeVisitor<?, ExecutionContext> getVisitor() {
+        return Preconditions.check(new UsesMethod<>(READ_OBJECT), new JavaIsoVisitor<ExecutionContext>() {
+
+            @Override
+            public J.ClassDeclaration visitClassDeclaration(J.ClassDeclaration classDecl, ExecutionContext ctx) {
+                if (hasGuard(classDecl)) {
+                    return classDecl;   // already constrained; leave it alone
+                }
+                return super.visitClassDeclaration(classDecl, ctx);
+            }
+
+            @Override
+            public J.Try visitTry(J.Try tryable, ExecutionContext ctx) {
+                J.Try t = super.visitTry(tryable, ctx);
+                if (t.getResources() == null || t.getResources().isEmpty() || t.getBody() == null) {
+                    return t;
+                }
+
+                J.Identifier stream = objectInputStreamResource(t.getResources());
+                if (stream == null) {
+                    return t;
+                }
+
+                List<Statement> stmts = t.getBody().getStatements();
+                if (!stmts.isEmpty() && stmts.get(0).printTrimmed(getCursor()).contains("setObjectInputFilter")) {
+                    return t;
+                }
+
+                maybeAddImport("java.io.ObjectInputFilter");
+
+                return JavaTemplate.builder(
+                                "#{any(java.io.ObjectInputStream)}" +
+                                ".setObjectInputFilter(ObjectInputFilter.Config.createFilter(\"!*\"));")
+                        .imports("java.io.ObjectInputFilter")
+                        .javaParser(JavaParser.fromJavaVersion())
+                        .build()
+                        .apply(updateCursor(t), t.getBody().getCoordinates().firstStatement(), stream);
+            }
+        });
+    }
+
+    private static J.Identifier objectInputStreamResource(List<J.Try.Resource> resources) {
+        for (J.Try.Resource r : resources) {
+            if (r.getVariableDeclarations() instanceof J.VariableDeclarations) {
+                J.VariableDeclarations vd = (J.VariableDeclarations) r.getVariableDeclarations();
+                if (vd.getTypeExpression() != null
+                    && vd.getTypeExpression().printTrimmed().endsWith("ObjectInputStream")
+                    && !vd.getVariables().isEmpty()) {
+                    return vd.getVariables().get(0).getName();
+                }
+            }
+        }
+        return null;
+    }
+
+    private static boolean hasGuard(J.ClassDeclaration clazz) {
+        AtomicBoolean guarded = new AtomicBoolean(false);
+        new JavaIsoVisitor<Integer>() {
+            @Override
+            public J.MethodInvocation visitMethodInvocation(J.MethodInvocation mi, Integer p) {
+                if (SET_FILTER.matches(mi)) {
+                    guarded.set(true);
+                }
+                return super.visitMethodInvocation(mi, p);
+            }
+
+            @Override
+            public J.MethodDeclaration visitMethodDeclaration(J.MethodDeclaration md, Integer p) {
+                if ("resolveClass".equals(md.getSimpleName()) || "resolveProxyClass".equals(md.getSimpleName())) {
+                    guarded.set(true);
+                }
+                return super.visitMethodDeclaration(md, p);
+            }
+        }.visit(clazz, 0);
+        return guarded.get();
+    }
+}
+```
+
+**A testing note.** Asserting that a recipe reported *nothing* cannot be done with `spec.dataTable(...)`, which throws when the table was never created. Use `afterRecipe` instead:
+
+```java
+spec -> spec.afterRecipe(run ->
+  assertThat(run.getDataTableRows(DeserializationReport.class)).isEmpty())
+```
+
+</details>
 
 ## Looking beyond the proof of value
 
