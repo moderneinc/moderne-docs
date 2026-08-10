@@ -10,6 +10,15 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 10, 2026
+
+#### rewrite-cryptography - v0.14.11
+
+* agilesec: cipher inventory recipes for Keyfactor AgileSec
+* agilesec: exact source offsets and Keyfactor AgileSec category
+* pqc: post-quantum TLS readiness recipes
+* pqc: align discovery tables with AgileSec schema and inventory cipher suites
+
 ## August 7, 2026
 
 #### rewrite-prethink - 0.11.3
