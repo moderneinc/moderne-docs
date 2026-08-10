@@ -736,6 +736,7 @@ const recipes = {
           items: [
             'user-documentation/recipes/authoring-recipes/set-up/recipe-development-environment',
             'user-documentation/recipes/authoring-recipes/set-up/javascript-recipe-development-environment',
+            'user-documentation/recipes/authoring-recipes/set-up/recipe-module-versions',
           ],
         },
         {

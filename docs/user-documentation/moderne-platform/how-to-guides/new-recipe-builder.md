@@ -94,6 +94,10 @@ The category a recipe appears under comes from the package structure of its ID. 
 
 If you'd rather organize your recipes differently, you can set the ID yourself when you create the recipe. The package segments you choose determine the category, and any nested subcategories, that your recipe appears under.
 
+:::info
+Recipes you compose or customize in the builder are declarative YAML recipes, which reference the recipes they include by name rather than by version. Those references are resolved against the recipe module versions currently deployed in your marketplace, which can differ from the versions the original recipe was compiled against. See [aligning recipe module versions](../../recipes/authoring-recipes/set-up/recipe-module-versions.md) for what that means in practice.
+:::
+
 ## How to create or add recipes from the marketplace
 
 From any recipe in the marketplace, you can click on the `Add to builder` button:
