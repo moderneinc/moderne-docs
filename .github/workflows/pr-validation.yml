@@ -20,9 +20,21 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: yarn
+
+      # Restore only: a cache saved on a pull request ref cannot be read by any
+      # other pull request, so writing here would just fill the quota. The entry
+      # this restores is published by the lint job of pages-sharded.yml on main.
+      - name: Restore node_modules
+        id: node-modules
+        uses: actions/cache/restore@v6
+        with:
+          path: |
+            node_modules
+            !node_modules/.cache
+          key: node-modules-${{ runner.os }}-${{ runner.arch }}-node24-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
+        if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
       - name: Check file types
@@ -48,9 +60,18 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: yarn
+
+      - name: Restore node_modules
+        id: node-modules
+        uses: actions/cache/restore@v6
+        with:
+          path: |
+            node_modules
+            !node_modules/.cache
+          key: node-modules-${{ runner.os }}-${{ runner.arch }}-node24-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
+        if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
       # Separate namespace: this build sets SKIP_RECIPE_CATALOG.
