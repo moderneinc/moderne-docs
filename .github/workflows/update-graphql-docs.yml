@@ -20,9 +20,18 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: yarn
 
-      - run: yarn install --frozen-lockfile
+      - name: Restore node_modules
+        id: node-modules
+        uses: actions/cache/restore@v6
+        with:
+          path: |
+            node_modules
+            !node_modules/.cache
+          key: node-modules-${{ runner.os }}-${{ runner.arch }}-node24-${{ hashFiles('yarn.lock') }}
+
+      - if: steps.node-modules.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
 
       - name: Install Rover
         run: |

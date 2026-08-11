@@ -116,9 +116,21 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: yarn
-          cache-dependency-path: moderne-docs/yarn.lock
+
+      # Own key: this job checks the repository out under moderne-docs/, and a
+      # cache restores to the path it was saved from, so it cannot share the
+      # root-layout entry the other workflows use.
+      - name: Cache node_modules
+        id: node-modules
+        uses: actions/cache@v6
+        with:
+          path: |
+            moderne-docs/node_modules
+            !moderne-docs/node_modules/.cache
+          key: node-modules-updatedocs-${{ runner.os }}-${{ runner.arch }}-node24-${{ hashFiles('moderne-docs/yarn.lock') }}
+
       - name: Install dependencies
+        if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
         working-directory: moderne-docs
       - name: Lint generated markdown

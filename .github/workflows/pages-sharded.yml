@@ -29,7 +29,6 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: yarn
 
       # This job gates every other one, so it populates the cache they restore.
       - name: Cache node_modules
