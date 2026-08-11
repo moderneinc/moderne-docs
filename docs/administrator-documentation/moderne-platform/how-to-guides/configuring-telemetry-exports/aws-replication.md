@@ -8,7 +8,7 @@ description: Set up cross-account S3 replication from the Moderne-managed teleme
 This guide walks you through receiving telemetry into an S3 bucket in **your** AWS account via S3 Cross-Region Replication (also works same-region). Before starting, read the [overview](./overview.md) for context on what the data looks like and how it flows.
 
 :::tip
-If your policy forbids external principals from writing into your account, or from using the KMS key your bucket requires, replication cannot be configured. See [Alternative: pull instead of push](#alternative-pull-instead-of-push) below.
+If your policy forbids external principals from writing into your account, or from using the customer-managed KMS key your destination bucket requires, replication cannot be configured. See [Alternative: pull instead of push](#alternative-pull-instead-of-push) below.
 :::
 
 Here's how the setup works end-to-end:
