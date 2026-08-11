@@ -25,9 +25,9 @@ const { flattenRoutes } = require('@docusaurus/utils');
 
 const originalExecuteSSG = ssgExecutor.executeSSG;
 
-// Routes matched here are pulled out of the normal modulo pool and rendered
-// exclusively by the last shard, giving them an isolated memory budget.
-// All auto-generated lists/ pages are large and prone to OOM in normal shards.
+// Routes matched here are pulled out of the normal modulo pool and pinned to
+// the last shard, so no more than one shard ever holds a memory spike from
+// them. All auto-generated lists/ pages are large and prone to OOM.
 const HEAVY_ROUTE_PATTERNS = [
   '/user-documentation/recipes/lists',
 ];
@@ -42,18 +42,17 @@ ssgExecutor.executeSSG = async function shardedExecuteSSG(opts) {
   const heavyPaths = allPaths.filter(isHeavy);
   const normalPaths = allPaths.filter((p) => !isHeavy(p));
 
-  let mine;
+  // Every shard takes an equal slice of the normal pool; the dedicated shard
+  // additionally renders the heavy routes, which cost seconds rather than
+  // minutes and so barely affect its share.
+  const mine = normalPaths.filter((_, i) => i % SHARD_TOTAL === SHARD_INDEX);
   if (SHARD_INDEX === DEDICATED_SHARD) {
-    // Last shard: only the heavy routes
-    mine = heavyPaths;
-  } else {
-    // All other shards: split normal routes across SHARD_TOTAL - 1 buckets
-    mine = normalPaths.filter((_, i) => i % (SHARD_TOTAL - 1) === SHARD_INDEX);
+    mine.push(...heavyPaths);
   }
 
   console.log(
     `[shard ${SHARD_INDEX}/${SHARD_TOTAL}] rendering ${mine.length} of ${allPaths.length} routes` +
-    (SHARD_INDEX === DEDICATED_SHARD ? ' (dedicated heavy shard)' : ''),
+    (SHARD_INDEX === DEDICATED_SHARD ? ` (incl. ${heavyPaths.length} heavy)` : ''),
   );
   opts.props.routesPaths = mine;
 

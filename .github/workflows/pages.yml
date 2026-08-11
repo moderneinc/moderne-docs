@@ -20,6 +20,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          filter: blob:none
       - uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -32,9 +33,9 @@ jobs:
         uses: actions/cache@v6
         with:
           path: node_modules/.cache
-          key: docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: docusaurus-ssg-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'src/theme/**') }}
           restore-keys: |
-            docusaurus-${{ runner.os }}-
+            docusaurus-ssg-${{ runner.os }}-
 
       - name: Build website
         run: |

@@ -30,8 +30,21 @@ jobs:
         with:
           node-version: 24
           cache: yarn
+
+      # This job gates every other one, so it populates the cache they restore.
+      - name: Cache node_modules
+        id: node-modules
+        uses: actions/cache@v6
+        with:
+          path: |
+            node_modules
+            !node_modules/.cache
+          key: node-modules-${{ runner.os }}-${{ runner.arch }}-node24-${{ hashFiles('yarn.lock') }}
+
       - name: Install dependencies
+        if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
+
       - name: Lint markdown
         run: yarn lint:markdown
 
@@ -45,25 +58,39 @@ jobs:
       matrix:
         shard: [0, 1, 2, 3]
     steps:
+      # fetch-depth: 0 is required by showLastUpdateTime, whose `git log` reads
+      # only commits and trees — hence blob:none.
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
+          filter: blob:none
+
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: yarn
+
+      - name: Restore node_modules
+        id: node-modules
+        uses: actions/cache/restore@v6
+        with:
+          path: |
+            node_modules
+            !node_modules/.cache
+          key: node-modules-${{ runner.os }}-${{ runner.arch }}-node24-${{ hashFiles('yarn.lock') }}
 
       - name: Install dependencies
+        if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
-      - name: Cache bundler artifacts (per shard)
-        uses: actions/cache@v6
+      # Shards diverge only at SSG time, so they compile identical bundles.
+      - name: Restore bundler artifacts
+        id: bundler-cache
+        uses: actions/cache/restore@v6
         with:
           path: node_modules/.cache
-          key: docusaurus-shard-${{ matrix.shard }}-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'src/theme/**') }}
+          key: docusaurus-ssg-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'src/theme/**') }}
           restore-keys: |
-            docusaurus-shard-${{ matrix.shard }}-${{ runner.os }}-
-            docusaurus-${{ runner.os }}-
+            docusaurus-ssg-${{ runner.os }}-
 
       - name: Debug — disk and memory before build
         run: |
@@ -92,6 +119,13 @@ jobs:
           echo "=== free -h ==="
           free -h
 
+      - name: Save bundler artifacts
+        if: matrix.shard == 0 && steps.bundler-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: node_modules/.cache
+          key: docusaurus-ssg-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'src/theme/**') }}
+
       - name: Upload shard artifact
         uses: actions/upload-artifact@v7
         with:
@@ -110,7 +144,15 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: yarn
+
+      - name: Restore node_modules
+        id: node-modules
+        uses: actions/cache/restore@v6
+        with:
+          path: |
+            node_modules
+            !node_modules/.cache
+          key: node-modules-${{ runner.os }}-${{ runner.arch }}-node24-${{ hashFiles('yarn.lock') }}
 
       - name: Download all shard artifacts
         uses: actions/download-artifact@v8
@@ -130,6 +172,7 @@ jobs:
           ls -la
 
       - name: Install dependencies (for broken-links aggregator)
+        if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
       - name: Merge shards
