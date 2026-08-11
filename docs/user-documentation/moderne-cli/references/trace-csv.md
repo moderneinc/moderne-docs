@@ -38,7 +38,13 @@ Each command produces a trace that includes its own stage plus all prior stages.
 
 `mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec` and MCP tool calls are standalone: they carry the common columns plus their own stage, with no earlier workflow stages.
 
-`mod git checkout` also writes a trace, but only into the `.moderne/` directory of the repository it touched. It is never queued for upload, so there is no `type=checkout` partition to query.
+## Build columns and prebuilt LSTs
+
+Populated build columns do not mean a build ran on the machine that issued the command. Every LST carries a `trace.json` describing the build that produced it, so when `mod git sync` downloads a prebuilt LST, the CLI reads that file and carries its build stage into the trace. The build columns then describe the original build, wherever and whenever it happened.
+
+To tell the two apart, check `syncLstDownloadUri`: populated means the LST was downloaded, empty means it was built locally.
+
+LSTs produced before CLI 3.45.0 have no embedded `trace.json`. Their build columns are empty apart from an identifier.
 
 ## Common fields
 

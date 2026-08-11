@@ -19,10 +19,10 @@ One exception is worth knowing about: `mod exec` records the command line it ran
 
 There are two **sources** that produce this telemetry:
 
-| Source        | What it represents                                                                                                                                                                                                   | When you'll see rows                                                                |
-|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| `source=saas` | Recipe runs, builds, and commits originated from the Moderne web UI. The recipe worker fleet invokes the same CLI server-side and uploads the resulting `trace.csv`.                                                 | Any user clicking "Run recipe" or "Commit changes" in the UI.                       |
-| `source=cli`  | Commands run by developers (or CI jobs) on their own machines using `mod`, signed into your tenant. The CLI queues each trace locally and pushes it to your tenant gateway when it next refreshes its license lease. | Anyone running `mod build`, `mod run`, `mod git commit`, etc., against your tenant. |
+| Source        | What it represents                                                                                                                                                                                                                                                                             | When you'll see rows                                                                      |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| `source=saas` | Recipe runs, builds, and commits originated from the Moderne web UI. The recipe worker fleet invokes the same CLI server-side and uploads the resulting `trace.csv`.                                                                                                                           | Any user clicking "Run recipe" or "Commit changes" in the UI.                             |
+| `source=cli`  | Everything run with `mod` outside the web UI, signed into your tenant. That covers developer machines and any automation you run, including [mass ingest](../mass-ingest.md). The CLI queues each trace locally and pushes it to your tenant gateway when it next refreshes its license lease. | Anyone running `mod build`, `mod run`, `mod git commit`, etc., and every mass-ingest run. |
 
 Both sources land in the same place, with the same partition layout, so queries can analyze them together or filter to one source as needed.
 
@@ -34,12 +34,16 @@ If the default cadence isn't frequent enough for your reporting, add `mod teleme
 
 ### Schema reference
 
-The CSV schema is hierarchical: each command embeds rows from prior pipeline stages. There are two pipelines, sharing the early stages:
+The CSV schema is hierarchical: each command embeds rows from prior stages of the workflow it belongs to.
 
-* **Recipe pipeline**: sync → run → apply → add → commit → push.
-* **Publish pipeline**: sync → build → publish (the LST publication path used by [mass ingest](../mass-ingest.md)).
+* **Recipe workflow**: sync → *build (optional)* → run → apply → add → commit → push.
+* **Publish workflow**: sync → build → publish (the LST publication path used by [mass ingest](../mass-ingest.md)).
 
-In addition, `mod exec` (`type=exec`) and MCP server tool calls (`type=mcp`) emit standalone traces that are not part of either pipeline chain. `mod git checkout` writes a trace too, but only into the repository it touched; it is never exported.
+Build is optional because `mod git sync` can download a prebuilt LST instead of source, in which case `mod run` follows sync directly without a local build. Expect this wherever a central team runs [mass ingest](../mass-ingest.md) and everyone else runs recipes against the published LSTs, as in [mass run](../../../moderne-dx/how-to-guides/mass-run-dx.md). You will still see local builds alongside it, since developers build branches the central team doesn't ingest.
+
+The build columns are populated either way. Each LST carries a record of the build that produced it, so a downloaded LST contributes that original build's values to the trace. See [build columns and prebuilt LSTs](../../../../user-documentation/moderne-cli/references/trace-csv.md#build-columns-and-prebuilt-lsts).
+
+In addition, `mod exec` (`type=exec`) and MCP server tool calls (`type=mcp`) emit standalone traces that are not part of either workflow chain.
 
 The full column-by-column reference is the [trace.csv reference](../../../../user-documentation/moderne-cli/references/trace-csv.md).
 
@@ -49,7 +53,7 @@ A quick orientation:
 |-----------------------------|-----------------------------------------------------------------------------------|----------------------------------------------------------------|
 | Common                      | `origin`, `path`, `branch`, `developer`                                           | always                                                         |
 | Sync                        | `syncOutcome`, `syncChangeset`, `syncElapsedTimeMs`                               | `mod git sync`                                                 |
-| Build                       | `buildOutcome`, `buildCliVersion`, `buildLineCount`, build-tool versions          | `mod build`                                                    |
+| Build                       | `buildOutcome`, `buildCliVersion`, `buildLineCount`, build-tool versions          | `mod build`, or carried from a downloaded LST's own record     |
 | Run                         | `runRecipeId`, `runOutcome`, `runFilesWithFixResults`, `runElapsedTimeMs`         | `mod run`                                                      |
 | Apply / Add / Commit / Push | per-stage outcomes and identifiers                                                | corresponding `mod git ...`                                    |
 | Publish                     | `publishOutcome`, `publishStartTime`, `publishEndTime`, `publishId`, `publishUri` | `mod publish` (LST publication; used by mass-ingest pipelines) |
@@ -62,8 +66,8 @@ A quick orientation:
 ```mermaid
 flowchart LR
     UI["Moderne UI<br/>(recipe worker invokes<br/>mod server-side)<br/><b>source=saas</b>"]
-    CLI["mod CLI on dev<br/>laptops and CI<br/><b>source=cli</b>"]
-    Store["Moderne-managed object store<br/><br/>AWS: s3://moderne-bi-telemetry<br/>Azure: az://modernetelemetry<br/><br/>Partitioned by:<br/>tenant=&lt;you&gt;/source={saas,cli}/<br/>type=.../year=.../month=.../day=..."]
+    CLI["mod CLI on developer<br/>machines and automation<br/>such as mass ingest<br/><b>source=cli</b>"]
+    Store["Moderne-managed store,<br/>one per tenant<br/><br/>AWS: s3://moderne-bi-telemetry-&lt;you&gt;<br/>Azure: az://modbi&lt;you&gt;v2/bi-telemetry<br/><br/>Partitioned by:<br/>tenant=&lt;you&gt;/source={saas,cli}/<br/>type=.../year=.../month=.../day=..."]
     Dest["YOUR destination<br/>bucket or container<br/><br/>AWS: S3 bucket in your account<br/>Azure: blob container in<br/>your storage account"]
     BI["Your BI stack<br/><br/>Athena, Snowflake, BigQuery,<br/>Databricks, Fabric, DuckDB, ..."]
 
@@ -83,7 +87,7 @@ tenant=<your-tenant>/source={saas|cli}/type=<command>/year=YYYY/month=MM/day=DD/
 
 The Hive-style partition keys (`tenant=`, `source=`, `type=`, `year=`, `month=`, `day=`) are recognized by every major query engine for partition pruning. A query that filters on, say, `day = '15' AND month = '03'` will read only those keys, not the full bucket.
 
-Object access inside the Moderne-managed bucket is scoped per-tenant: your tenant's IAM/RBAC only grants access to the `tenant=<your-tenant>/` prefix. The replication rules described in the cloud-specific guides preserve that scoping by only replicating keys under your tenant's prefix into your destination.
+The `tenant=` key is part of that layout everywhere the data lands, but it is not what isolates you. Each tenant writes to its own Moderne-managed bucket or container, and the delivery described in the cloud-specific guides reads from that one, so no tenant's data passes through a store another tenant can reach.
 
 ## Customer checklist
 

@@ -73,9 +73,6 @@ The upload won't interfere with your workflow. If it fails for any reason, the o
 * `mod git push`
 
 </details>
-
-`mod git checkout` also writes a trace, but only into the repository it touched. It is never queued for upload, so the wrapper has nothing to publish for it.
-
 :::note
 The wrapper (`modw` and `modw.cmd`) ships as part of the CLI distribution, so an upgrade that changes the wrapper scripts replaces your customized copy. Keep your customized wrapper in source control and re-apply it after upgrading. The scripts change rarely, so this is infrequent, and [pinning the CLI version](./cli-wrapper.md#controlling-auto-updates) puts you in control of when it can happen at all.
 :::
@@ -283,13 +280,13 @@ BI_ORG=my-company
 
 Those two variables are all you need to get started. That being said, there are other variables you can set (in the config file or the environment) based on your needs:
 
-| Variable                    | Default                        | Description                                             |
-|-----------------------------|--------------------------------|---------------------------------------------------------|
-| `BI_ENDPOINT`               | *(none)*                       | S3 bucket URI (e.g., `s3://my-telemetry-bucket`).       |
-| `BI_ORG`                    | *(none)*                       | Organization identifier written as the `tenant` partition key.  |
-| `MODERNE_TELEMETRY_CONFIG`  | `telemetry.env` in CLI home    | Path to the configuration file.                         |
-| `MODERNE_CLI_HOME`          | `$HOME/.moderne/cli`           | CLI home directory.                                     |
-| `MODERNE_CLI_TELEMETRY_DIR` | `$MODERNE_CLI_HOME/trace`      | Directory where the CLI writes trace CSV files.         |
+| Variable                    | Default                     | Description                                                    |
+|-----------------------------|-----------------------------|----------------------------------------------------------------|
+| `BI_ENDPOINT`               | *(none)*                    | S3 bucket URI (e.g., `s3://my-telemetry-bucket`).              |
+| `BI_ORG`                    | *(none)*                    | Organization identifier written as the `tenant` partition key. |
+| `MODERNE_TELEMETRY_CONFIG`  | `telemetry.env` in CLI home | Path to the configuration file.                                |
+| `MODERNE_CLI_HOME`          | `$HOME/.moderne/cli`        | CLI home directory.                                            |
+| `MODERNE_CLI_TELEMETRY_DIR` | `$MODERNE_CLI_HOME/trace`   | Directory where the CLI writes trace CSV files.                |
 
 ### Running commands
 
@@ -311,12 +308,12 @@ s3://{bucket}/tenant={tenant}/source=cli/type={type}/year={YYYY}/month={MM}/day=
 
 Here’s what each key means:
 
-| Partition key          | Source                        | Example                    | Purpose                                       |
-|------------------------|-------------------------------|----------------------------|-----------------------------------------------|
-| `tenant`               | `BI_ORG` environment variable | `my-company`               | Isolates data by organization.                |
+| Partition key          | Source                        | Example                    | Purpose                                                                                                          |
+|------------------------|-------------------------------|----------------------------|------------------------------------------------------------------------------------------------------------------|
+| `tenant`               | `BI_ORG` environment variable | `my-company`               | Isolates data by organization.                                                                                   |
 | `source`               | Fixed value `cli`             | `cli`                      | Marks the data as CLI-generated, matching the `source` dimension in replicated data (which also carries `saas`). |
-| `type`                 | CLI command name              | `build`, `sync`, `publish` | Separates command types for targeted queries. |
-| `year`, `month`, `day` | Date at upload time           | `2026`, `02`, `24`         | Date-based filtering.                         |
+| `type`                 | CLI command name              | `build`, `sync`, `publish` | Separates command types for targeted queries.                                                                    |
+| `year`, `month`, `day` | Date at upload time           | `2026`, `02`, `24`         | Date-based filtering.                                                                                            |
 
 For example, a build trace uploaded on February 24, 2026 for the `my-company` organization would land at:
 

@@ -85,7 +85,7 @@ The recipient receives an Azure Data Share invitation by email. In the Azure por
 When creating the share subscription, enable the snapshot schedule. To receive data immediately, trigger a manual snapshot as well.
 
 :::warning
-Data does not flow until you complete this step. Accepting the invitation on its own does not start delivery. Telemetry is retained at the source for only seven days, so a share subscription left without an active schedule misses data permanently. See [Data delivery and retention](#data-delivery-and-retention).
+Data does not flow until you complete this step. Accepting the invitation on its own does not start delivery, so a share subscription left without an active schedule receives nothing. See [Data delivery](#data-delivery).
 :::
 
 ## Verification
@@ -104,16 +104,15 @@ az storage blob list \
 
 Blobs under `tenant=<your-tenant>/source=<saas|cli>/type=<command>/year=.../month=.../day=.../` confirm the share is live. See [Object key layout](./overview.md) for what each partition key means.
 
-## Data delivery and retention
+## Data delivery
 
-| Property         | Behavior                                                               |
-|------------------|------------------------------------------------------------------------|
-| Cadence          | Snapshots run daily once the schedule is enabled.                      |
-| First delivery   | Up to 24 hours after acceptance, or immediately with a manual snapshot. |
-| Source retention | Telemetry is retained at the source for seven days.                    |
-| Deletions        | Not propagated. Your copy is yours to keep for as long as you choose.  |
+| Property       | Behavior                                                               |
+|----------------|------------------------------------------------------------------------|
+| Cadence        | Snapshots run daily once the schedule is enabled.                      |
+| First delivery | Up to 24 hours after acceptance, or immediately with a manual snapshot. |
+| Deletions      | Not propagated. Your copy is yours to keep for as long as you choose.  |
 
-Because the source retains telemetry for seven days, your snapshot schedule must run well inside that window. If snapshots stop running, whether from a disabled schedule, a revoked subscription that is not restored, or repeated snapshot failures, data that ages past seven days at the source cannot be recovered through the share. Monitor snapshot success in the Azure portal under your share subscription's snapshot history, and contact your CSM if you need a backfill.
+Keep the snapshot schedule running. If snapshots stop, whether from a disabled schedule, a revoked subscription that is not restored, or repeated snapshot failures, your copy stops updating until they resume. Monitor snapshot success in the Azure portal under your share subscription's snapshot history, and contact your CSM if you need a backfill to close the gap.
 
 ## Opting out
 

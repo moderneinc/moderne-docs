@@ -22,13 +22,17 @@ Here's a typical workflow where each step will generate telemetry data:
 ```mermaid
 flowchart LR
   sync["`Sync your organization's repositories to your local environment<br/><br/>(**mod git sync**)`"]
-  build["`Download the latest prebuilt LSTs<br/>_or_<br/>Build LSTs from your local source<br/><br/>(**mod build**)`"]
+  build["`Build LSTs from your local source<br/>_(skipped when sync downloads prebuilt LSTs)_<br/><br/>(**mod build**)`"]
   run["`Run a recipe on your repositories<br/><br/>(**mod run**)`"]
   commit["`Commit suggested changes to your repositories<br/><br/>(**mod git apply/commit/push**)`"]
   sync --> build
   build --> run
   run --> commit
 ```
+
+The build step is optional. `mod git sync` can download prebuilt LSTs rather than source, and `mod run` then follows sync directly. That is what happens when a central team runs [mass ingest](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) and everyone else runs recipes against the published LSTs, as in [mass run](../../../administrator-documentation/moderne-dx/how-to-guides/mass-run-dx.md).
+
+Those traces still carry build columns. Each LST records the build that produced it, and a downloaded LST contributes that record to the trace, so populated build columns don't necessarily mean a build ran locally. See [build columns and prebuilt LSTs](../references/trace-csv.md#build-columns-and-prebuilt-lsts).
 
 ## Repository-level telemetry
 

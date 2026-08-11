@@ -7,12 +7,16 @@ description: Set up cross-account S3 replication from the Moderne-managed teleme
 
 This guide walks you through receiving telemetry into an S3 bucket in **your** AWS account via S3 Cross-Region Replication (also works same-region). Before starting, read the [overview](./overview.md) for context on what the data looks like and how it flows.
 
+:::tip
+If your policy forbids external principals from writing into your account, or from using the customer-managed KMS key your destination bucket requires, replication cannot be configured. See [Alternative: pull instead of push](#alternative-pull-instead-of-push) below.
+:::
+
 Here's how the setup works end-to-end:
 
 1. You create a destination bucket in your AWS account.
 2. You send Moderne your tenant name and the destination bucket ARN.
 3. Moderne sends back a bucket policy scoped to your tenant's replication role, which you apply to the bucket.
-4. Moderne configures a replication rule on `moderne-bi-telemetry` filtered to your tenant's prefix, and confirms when objects start landing.
+4. Moderne configures a replication rule on your tenant's source bucket and confirms when objects start landing.
 
 ## Prerequisites
 
@@ -77,7 +81,7 @@ The policy grants Moderne's per-tenant replication role only the permissions it 
 Once your bucket policy is in place, Moderne will:
 
 * Confirm the bucket policy is correct.
-* Create the replication rule on `moderne-bi-telemetry`, scoped to `tenant=<your-tenant>/` so only your data is replicated.
+* Create the replication rule on your tenant's source bucket, `moderne-bi-telemetry-<your-tenant>`, so only your data is replicated.
 * Trigger a backfill (S3 Batch Replication) for objects already in the bucket, so your destination starts populated, not empty.
 * Send back a confirmation with a sample object path and a timestamp of the first replicated key.
 
@@ -98,6 +102,41 @@ tenant=acme/source=saas/type=run/year=2026/month=05/day=20/abc123.csv
 tenant=acme/source=cli/type=commit/year=2026/month=05/day=20/def456.csv
 ```
 
+## Alternative: pull instead of push
+
+Replication requires Moderne to write into your bucket. If your policy forbids that, you can pull instead: an IAM principal you own assumes a read-only role in Moderne's account and reads your tenant's telemetry on your own schedule. **No KMS key is shared in either direction**, and nothing external ever writes into your account.
+
+The usual reason to need this is encryption policy. If your destination bucket requires a customer-managed SSE-KMS key and your security policy forbids external principals from using your keys, Moderne's replication role can never write an encrypted object, so replication cannot be configured at all.
+
+### Setting up a pull
+
+1. **Create the reading principal.** Make an IAM role in your account that will assume Moderne's pull role. Moderne's role ARN follows a fixed pattern, so you can reference it before it exists: `arn:aws:iam::<moderne-account-id>:role/moderne-bi-telemetry-pull-role-<your-tenant>`. Ask your CSM for the account ID if change control needs the full ARN up front.
+2. **Send your CSM the principal ARN** along with your tenant name. Send more than one if different environments read separately.
+3. **Moderne provisions the role** and sends back the role ARN to assume, the source bucket (`moderne-bi-telemetry-<your-tenant>`), and the key prefix (`tenant=<your-tenant>/`). The role grants `s3:ListBucket`, `s3:GetObject`, and `s3:GetBucketLocation` on that bucket only. It cannot write, delete, or reach another tenant's data.
+4. **Verify and schedule.** Assume the role, confirm you can list objects, then run a sync on a schedule:
+
+```bash
+aws s3 sync \
+    s3://moderne-bi-telemetry-<your-tenant>/tenant=<your-tenant>/ \
+    s3://<your-bucket>/<your-prefix>/tenant=<your-tenant>/
+```
+
+Note the `tenant=<your-tenant>/` on the destination. `aws s3 sync` copies keys relative to the source prefix, so without it the `tenant=` level is dropped and the partition layout no longer matches what the queries in [Querying and BI](./querying-and-bi.md) expect.
+
+Run the sync on a schedule rather than on demand, since a pull only captures what is in the source bucket at the moment it runs.
+
+### Push versus pull
+
+|                                 | Replication (push)                    | Pull                                     |
+|---------------------------------|---------------------------------------|------------------------------------------|
+| Who moves the data              | Moderne, continuously                 | You, on your schedule                    |
+| Lands in your account           | Automatically, within ~15 minutes     | When your job next runs                  |
+| Your KMS key                    | Moderne's role must be able to use it | Never shared                             |
+| Inbound access to your account  | Required                              | None                                     |
+| Missed data if your side breaks | Replication retries                   | Your job has to catch up on its next run |
+
+Use replication where your policy allows it, and pull where it doesn't.
+
 ## Next
 
-With data landing in your bucket, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there use an AWS-native query path that requires no additional infrastructure beyond what you've just set up.
+With data landing in your storage, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there use an AWS-native query path that requires no additional infrastructure beyond what you've just set up.
