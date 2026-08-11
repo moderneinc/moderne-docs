@@ -87,14 +87,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.88.0
 
-#### rewrite-codemods - 0.27.2
-
-* Updated repository to use OpenRewrite version v8.88.0
-
-#### rewrite-codemods-ng - 0.21.4
-
-* Updated repository to use OpenRewrite version v8.88.0
-
 #### rewrite-compiled-analysis - 0.14.4
 
 * Updated repository to use OpenRewrite version v8.88.0
@@ -320,14 +312,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.87.0
 
-#### rewrite-codemods - 0.27.1
-
-* Updated repository to use OpenRewrite version v8.87.0
-
-#### rewrite-codemods-ng - 0.21.3
-
-* Updated repository to use OpenRewrite version v8.87.0
-
 #### rewrite-compiled-analysis - 0.14.3
 
 * Updated repository to use OpenRewrite version v8.87.0
@@ -526,14 +510,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Stop exposing the ANTLR4 codegen tool as a runtime dependency
 * Expand external SYSIN/SYSTSIN .prm members into the JCL LST
-
-#### rewrite-codemods - 0.27.0
-
-* chore: update @ui5/linter from 1.20.7 to 1.23.0
-
-#### rewrite-codemods-ng - 0.21.2
-
-* Updated repository to use OpenRewrite version v8.86.0
 
 #### rewrite-compiled-analysis - 0.14.2
 
@@ -813,14 +789,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Recognize .dcl (DCLGEN) files as copybooks for EXEC SQL INCLUDE
 * Increase default Cobol parser timeout to 10 minutes
 
-#### rewrite-codemods - 0.26.1
-
-* Updated repository to use OpenRewrite version v8.85.0
-
-#### rewrite-codemods-ng - 0.21.1
-
-* Updated repository to use OpenRewrite version v8.85.0
-
 #### rewrite-compiled-analysis - 0.14.1
 
 * Updated repository to use OpenRewrite version v8.85.0
@@ -1019,14 +987,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Regenerate recipes.csv
 
-#### rewrite-codemods - 0.26.0
-
-* Regenerate recipes.csv
-
-#### rewrite-codemods-ng - 0.21.0
-
-* Regenerate recipes.csv
-
 #### rewrite-compiled-analysis - 0.14.0
 
 * Regenerate recipes.csv
@@ -1217,18 +1177,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Use rewriteRecipe.rewriteVersion convention
 
 #### rewrite-cobol - 2.17.5
-
-* Updated repository to use OpenRewrite version v8.83.0
-
-#### rewrite-codemods - 0.25.5
-
-* Updated repository to use OpenRewrite version v8.83.0
-
-#### rewrite-codemods-ng - v0.20.6
-
-* Use
-
-#### rewrite-codemods-ng - 0.20.5
 
 * Updated repository to use OpenRewrite version v8.83.0
 
@@ -1458,10 +1406,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * OpenRewrite v8.81.6
 
-#### rewrite-codemods-ng - v0.20.4
-
-* OpenRewrite v8.81.6
-
 #### rewrite-compiled-analysis - v0.13.3
 
 * OpenRewrite v8.81.6
@@ -1622,10 +1566,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 - OpenRewrite v8.81.6
 
-#### rewrite-codemods - v0.25.4
-
-- OpenRewrite v8.81.6
-
 ## April 28, 2026
 
 #### rewrite-cryptography - 0.13.4
@@ -1666,14 +1606,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.81.0
 
 #### rewrite-cobol - 2.17.3
-
-* Updated repository to use OpenRewrite version v8.81.0
-
-#### rewrite-codemods - 0.25.3
-
-* Updated repository to use OpenRewrite version v8.81.0
-
-#### rewrite-codemods-ng - 0.20.3
 
 * Updated repository to use OpenRewrite version v8.81.0
 
@@ -1829,14 +1761,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.80.0
 
 #### rewrite-cobol - 2.17.2
-
-* Updated repository to use OpenRewrite version v8.80.0
-
-#### rewrite-codemods - 0.25.2
-
-* Updated repository to use OpenRewrite version v8.80.0
-
-#### rewrite-codemods-ng - 0.20.2
 
 * Updated repository to use OpenRewrite version v8.80.0
 
@@ -2030,29 +1954,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-cobol - 2.17.1
 
 * Updated repository to use OpenRewrite version v8.79.0
-
-#### rewrite-codemods - v0.25.1
-
-* Upgrade lodash to 4.18.0+ (CVE-2026-4800)
-
-#### rewrite-codemods - 0.25.0
-
-* Update Prethink context
-
-#### rewrite-codemods-ng - v0.20.1
-
-* chore(deps): bump hono from 4.11.4 to 4.12.12 in /src/main/resources/codemods[bot]
-* chore(deps): bump @hono/node-server from 1.19.9 to 1.19.13 in /src/main/resources/codemods[bot]
-* chore(deps): bump tar from 7.5.2 to 7.5.11 in /src/main/resources/codemods[bot]
-* chore(deps): bump path-to-regexp from 8.3.0 to 8.4.0 in /src/main/resources/codemods[bot]
-* chore(deps): bump qs from 6.14.1 to 6.14.2 in /src/main/resources/codemods[bot]
-* chore(deps): bump @isaacs/brace-expansion from 5.0.0 to 5.0.1 in /src/main/resources/codemods[bot]
-* chore(deps): bump picomatch and @angular/cli in /src/main/resources/codemods[bot]
-* chore(deps): bump minimatch from 10.1.1 to 10.2.4 in /src/main/resources/codemods[bot]
-
-#### rewrite-codemods-ng - 0.20.0
-
-* Update Prethink context
 
 #### rewrite-compiled-analysis - 0.13.0
 
@@ -2308,21 +2209,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Add JCL FindWord search recipe
 
-#### rewrite-codemods - 0.24.6
-
-* Updated repository to use OpenRewrite version v8.77.0
-
-#### rewrite-codemods-ng - 0.19.0
-
-* Fix MarkerPrinter RPC serialization for JS/TS files
-* Upgrade Angular
-* chore(ci): bump actions/setup-node from 4 to 6[bot]
-* chore(ci): bump actions/checkout from 4 to 6[bot]
-* chore(ci): bump gradle/actions from 4 to 6[bot]
-* chore(ci): bump actions/upload-artifact from 4 to 7[bot]
-* chore(ci): bump actions/download-artifact from 4 to 8[bot]
-* chore(ci): bump actions/setup-java from 4 to 5[bot]
-
 #### rewrite-compiled-analysis - 0.12.3
 
 * Updated repository to use OpenRewrite version v8.77.0
@@ -2557,14 +2443,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Lombok Best Practices
 
-#### rewrite-codemods - 0.24.5
-
-* Updated repository to use OpenRewrite version v8.75.5
-
-#### rewrite-codemods-ng - 0.18.2
-
-* Updated repository to use OpenRewrite version v8.75.5
-
 #### rewrite-compiled-analysis - 0.12.2
 
 * Updated repository to use OpenRewrite version v8.75.5
@@ -2699,14 +2577,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.75.0
 
 #### rewrite-cobol - 2.15.1
-
-* Updated repository to use OpenRewrite version v8.75.0
-
-#### rewrite-codemods - 0.24.4
-
-* Updated repository to use OpenRewrite version v8.75.0
-
-#### rewrite-codemods-ng - 0.18.1
 
 * Updated repository to use OpenRewrite version v8.75.0
 
@@ -2864,14 +2734,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-cobol - 2.15.0
 
 * Update Prethink context
-
-#### rewrite-codemods - 0.24.3
-
-* Updated repository to use OpenRewrite version v8.74.1
-
-#### rewrite-codemods-ng - 0.18.0
-
-* Remove trailing whitespace
 
 #### rewrite-compiled-analysis - 0.12.0
 
@@ -3121,14 +2983,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Bypass the adapt() method call to prevent ClassCastException
 * Drop `model`, which appears unused
 
-#### rewrite-codemods - 0.24.2
-
-* Updated repository to use OpenRewrite version v8.73.0
-
-#### rewrite-codemods-ng - 0.17.1
-
-* Updated repository to use OpenRewrite version v8.73.0
-
 #### rewrite-compiled-analysis - 0.11.5
 
 * Updated repository to use OpenRewrite version v8.73.0
@@ -3339,15 +3193,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Upgrading Antlr to 4.13.2
 * Regenerate Antlr sources with Antlr 4.13.2
 
-#### rewrite-codemods - 0.24.1
-
-* Updated repository to use OpenRewrite version v8.72.0
-
-#### rewrite-codemods-ng - 0.17.0
-
-* chore(deps): bump tmp and @angular/cli in /src/main/resources/codemods[bot]
-* Add Angular v20 and v21 upgrade recipes
-
 #### rewrite-compiled-analysis - 0.11.4
 
 * Updated repository to use OpenRewrite version v8.72.0
@@ -3491,15 +3336,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.71.0
 
-#### rewrite-codemods - 0.24.0
-
-* chore: update @ui5/linter from 1.20.5 to 1.20.7
-* Fix recipes.csv validation issues
-
-#### rewrite-codemods-ng - 0.16.2
-
-* Updated repository to use OpenRewrite version v8.71.0
-
 #### rewrite-compiled-analysis - 0.11.3
 
 * Updated repository to use OpenRewrite version v8.71.0
@@ -3618,14 +3454,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.69.0
 
-#### rewrite-codemods - 0.23.1
-
-* Updated repository to use OpenRewrite version v8.69.0
-
-#### rewrite-codemods-ng - 0.16.1
-
-* Updated repository to use OpenRewrite version v8.69.0
-
 #### rewrite-compiled-analysis - 0.11.2
 
 * Updated repository to use OpenRewrite version v8.69.0
@@ -3736,14 +3564,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-circleci - 3.9.2
 
 * Updated repository to use OpenRewrite version v8.68.1
-
-#### rewrite-codemods - 0.23.0
-
-* chore: update @ui5/linter from 1.19.0 to 1.20.2
-
-#### rewrite-codemods-ng - 0.16.0
-
-* chore(deps): bump glob from 10.3.10 to 10.5.0 in /src/main/resources/codemods[bot]
 
 #### rewrite-compiled-analysis - 0.11.1
 
@@ -3873,16 +3693,6 @@ Republishing to update dependencies
 * Change group ID to `io.moderne.recipe`
 
 #### rewrite-circleci - 3.9.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-codemods - 0.22.0
-
-* Use `PrintOutputCapture.MarkerPrinter.SANITIZED`
-* chore(deps): bump js-yaml from 4.1.0 to 4.1.1 in /src/main/resources/codemods[bot]
-* Link to ESLint docs
-
-#### rewrite-codemods-ng - 0.15.1
 
 * Updated repository to use OpenRewrite version v8.67.0
 
@@ -4048,15 +3858,6 @@ Republishing to update dependencies
 
 * Gradle 9.2.0
 
-#### rewrite-codemods - 0.21.0
-
-* OpenRewrite recipe best practices
-* Gradle 9.2.0
-
-#### rewrite-codemods-ng - 0.15.0
-
-* Gradle 9.2.0
-
 #### rewrite-compiled-analysis - 0.10.0
 
 * Gradle 9.2.0
@@ -4134,14 +3935,6 @@ Republishing to update dependencies
 * Updated repository to use OpenRewrite version v8.64.0
 
 #### rewrite-circleci - 3.8.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-codemods - 0.20.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-codemods-ng - 0.14.4
 
 * Updated repository to use OpenRewrite version v8.64.0
 
@@ -4242,14 +4035,6 @@ Republishing to update dependencies
 #### rewrite-circleci - 3.8.0
 
 * Update recipe documentation examples
-
-#### rewrite-codemods - 0.20.0
-
-* feat: add ReactI18Next recipe for jscodeshift-react-i18next integration
-
-#### rewrite-codemods-ng - 0.14.3
-
-* Updated repository to use OpenRewrite version v8.63.0
 
 #### rewrite-compiled-analysis - 0.9.0
 
@@ -4372,14 +4157,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.62.4
 
-#### rewrite-codemods - 0.19.0
-
-* chore: update @ui5/linter from 1.12.0 to 1.19.0
-
-#### rewrite-codemods-ng - 0.14.2
-
-* Updated repository to use OpenRewrite version v8.62.4
-
 #### rewrite-compiled-analysis - 0.8.3
 
 * Updated repository to use OpenRewrite version v8.62.4
@@ -4488,14 +4265,6 @@ Republishing to update dependencies
 * Updated repository to use OpenRewrite version v8.62.0
 
 #### rewrite-circleci - 3.7.4
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-codemods - 0.18.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-codemods-ng - 0.14.1
 
 * Updated repository to use OpenRewrite version v8.62.0
 
@@ -4616,14 +4385,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.61.1
 
-#### rewrite-codemods - 0.18.0
-
-* chore(deps): bump brace-expansion from 1.1.11 to 1.1.12 in /src/main/resources/codemods[bot]
-
-#### rewrite-codemods-ng - 0.14.0
-
-* chore(deps): bump brace-expansion from 2.0.1 to 2.0.2 in /src/main/resources/codemods[bot]
-
 #### rewrite-compiled-analysis - 0.8.1
 
 * Updated repository to use OpenRewrite version v8.61.1
@@ -4700,10 +4461,6 @@ Republishing to update dependencies
 #### rewrite-circleci - 3.7.2
 
 * Updated repository to use OpenRewrite version v8.60.0
-
-#### rewrite-codemods - 0.17.0
-
-* Refactor RewriteTest to use defaults method
 
 #### rewrite-hibernate - 0.9.0
 
