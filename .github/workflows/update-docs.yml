@@ -21,6 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       LATEST_VERSIONS_ONLY: ${{ github.event_name != 'workflow_dispatch' || inputs.latest-versions-only }}
+      # The generator resolves org.openrewrite and io.moderne artifacts from the Code
+      # Genome Project when these are set; without them it documents whatever stale
+      # releases have made it to Maven Central.
+      ORG_GRADLE_PROJECT_codegenomeUsername: ${{ secrets.CGP_ARTIFACTS_MAVEN_USERNAME }}
+      ORG_GRADLE_PROJECT_codegenomePassword: ${{ secrets.CGP_ARTIFACTS_MAVEN_TOKEN }}
     timeout-minutes: 30
     steps:
       # Shared setup
@@ -44,15 +49,13 @@ jobs:
       - name: Build the rewrite-go-rpc server
         if: ${{ env.LATEST_VERSIONS_ONLY != 'true' }}
         run: |
-          # Pin GOROOT to the toolchain setup-go just put on PATH. Otherwise GoRewriteRpc discovers
-          # GOROOT via GoExecutor.find(), which prefers /usr/bin/go (the runner image's older default
-          # Go) over PATH, and hands the RPC server a GOROOT from a different release than the `go` it
-          # shells out to: `compile: version "go1.24.13" does not match go tool version "go1.25.12"`.
+          # Pin GOROOT to the `go` setup-go put on PATH, so the RPC server isn't handed a GOROOT from
+          # a different release than the `go` it builds with. Drop once openrewrite/rewrite#8337 is
+          # released; it isn't in v8.88.4.
           echo "GOROOT=$(go env GOROOT)" >> "$GITHUB_ENV"
 
-          # The generator's Go loader launches `rewrite-go-rpc` from PATH. It isn't published as a
-          # binary, so build it from source. `go install` names the binary after its package dir (`rpc`),
-          # so symlink it to the name the loader expects, and expose it to later steps via $GITHUB_PATH.
+          # rewrite-go-rpc isn't published as a binary and the loader launches it from PATH, so build
+          # it from source; `go install` names the binary after its package dir (`rpc`).
           go install github.com/openrewrite/rewrite/rewrite-go/cmd/rpc@latest
           ln -sf "$(go env GOPATH)/bin/rpc" "$(go env GOPATH)/bin/rewrite-go-rpc"
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
@@ -122,8 +125,10 @@ jobs:
         run: yarn lint:markdown:recipes
         working-directory: moderne-docs
 
-      # Commit and push changes
+      # Push back to the ref the workflow ran on: main for the scheduled runs, or the
+      # selected branch for a manual workflow_dispatch. `main` was hardcoded here, which
+      # doesn't resolve on a dispatch against any other branch.
       - name: Commit and push
         working-directory: moderne-docs
         run: |
-          git diff --quiet HEAD || (git commit -m "[Auto] Update docs as of $(date +'%Y-%m-%dT%H%M')" && git push origin main)
+          git diff --quiet HEAD || (git commit -m "[Auto] Update docs as of $(date +'%Y-%m-%dT%H%M')" && git push origin "HEAD:${{ github.ref_name }}")

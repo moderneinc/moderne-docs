@@ -71,15 +71,31 @@ jobs:
           RECIPE_VERSIONS: ${{ matrix.versions }}
           # Isolate CLI state to the runner temp dir.
           MODERNE_CLI_HOME: ${{ runner.temp }}/moderne-cli-home
+          # The CLI and the recipe jars come from the Code Genome Project, not Maven Central.
+          CODEGENOME_USERNAME: ${{ secrets.CGP_ARTIFACTS_MAVEN_USERNAME }}
+          CODEGENOME_TOKEN: ${{ secrets.CGP_ARTIFACTS_MAVEN_TOKEN }}
           MARKETPLACE_CSV_DEST: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
         run: .github/scripts/build-recipe-marketplace.sh
 
-      # Surface the CLI recipe logs (the real install error lives here, not stdout).
+      # Surface the CLI recipe logs (the real install error lives here, not stdout). They sit in
+      # hidden .moderne directories that upload-artifact skips, so copy them somewhere visible,
+      # redacting the `username:` line the CLI writes for each authenticated repository. This
+      # repository is public, so its artifacts are too, and secrets are only masked in logs.
+      - name: Collect CLI recipe logs
+        if: failure() || steps.build.outputs.failed-ecosystems != ''
+        run: |
+          mkdir -p "$RUNNER_TEMP/recipe-logs"
+          find "$RUNNER_TEMP/moderne-cli-home/recipes" -name recipes.log -print0 2>/dev/null |
+            while IFS= read -r -d '' log; do
+              sed -E 's/^([[:space:]]*username:).*/\1 ***/' "$log" \
+                > "$RUNNER_TEMP/recipe-logs/$(basename "$(dirname "$(dirname "$log")")").log"
+            done
+
       - uses: actions/upload-artifact@v7
         if: failure() || steps.build.outputs.failed-ecosystems != ''
         with:
           name: recipe-logs-${{ matrix.versions }}
-          path: ${{ runner.temp }}/moderne-cli-home/recipes/**/.moderne/recipes.log
+          path: ${{ runner.temp }}/recipe-logs
           if-no-files-found: ignore
 
       # Upload before the gate below so the partial CSV still reaches the commit job.
