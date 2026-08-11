@@ -178,7 +178,7 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-llm-for-moddy',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-generic-http-tools-for-use-in-recipes',
-              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-strict-recipe-sources',
+              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-the-pom-cache',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-client-ssl-certificates',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-a-moderne-tenant-ssl-certificate',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-to-connect-to-moderne-via-an-http-proxy',
