@@ -16,7 +16,13 @@
 # pip/npm/go modules are installed unversioned (newest published) in both.
 #
 # Uses the `mod` CLI already on your PATH if present; otherwise downloads the
-# latest moderne-cli jar from Maven Central and runs it with `java`.
+# latest moderne-cli jar from the Code Genome Project and runs it with `java`.
+#
+# The CLI and the recipe jars are published to the Code Genome Project, which
+# requires credentials, so set CODEGENOME_USERNAME/CODEGENOME_TOKEN before
+# running. Without them this falls back to Maven Central, which only carries
+# older releases; see
+# https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project
 #
 # All of the logic lives here (rather than in the workflow) so it can run both in
 # CI (.github/workflows/build-recipe-marketplace.yml) and locally.
@@ -39,6 +45,11 @@
 #                         (default: <repo>/static/marketplace/<variant>.csv).
 #   MODULES_DOC           Markdown doc to read the module install commands from
 #                         (default: the generated latest-versions doc in this repo).
+#   CODEGENOME_USERNAME   Code Genome Project username; any value works alongside
+#                         a token, but your Moderne-provided one keeps logs clear.
+#   CODEGENOME_TOKEN      Code Genome Project token, used as the password.
+#   CODEGENOME_MAVEN_URL  Code Genome Project Maven repository, or an internal
+#                         mirror of it (default: https://artifacts.codegenomeproject.org/maven).
 #
 set -euo pipefail
 
@@ -57,6 +68,16 @@ case "$RECIPE_VERSIONS" in
   *) die "RECIPE_VERSIONS must be 'snapshot' or 'released', got '$RECIPE_VERSIONS'" ;;
 esac
 MARKETPLACE_CSV_DEST="${MARKETPLACE_CSV_DEST:-$REPO_ROOT/static/marketplace/$DEFAULT_CSV}"
+
+CODEGENOME_MAVEN_URL="${CODEGENOME_MAVEN_URL:-https://artifacts.codegenomeproject.org/maven}"
+CODEGENOME_USERNAME="${CODEGENOME_USERNAME:-}"
+CODEGENOME_TOKEN="${CODEGENOME_TOKEN:-}"
+if [ -n "$CODEGENOME_USERNAME" ] && [ -n "$CODEGENOME_TOKEN" ]; then
+  HAVE_CODEGENOME=true
+else
+  HAVE_CODEGENOME=false
+  warn "CODEGENOME_USERNAME/CODEGENOME_TOKEN not set; falling back to Maven Central, which only carries older releases"
+fi
 
 [ -f "$MODULES_DOC" ] || die "Modules doc not found: $MODULES_DOC"
 
@@ -84,14 +105,22 @@ if command -v mod >/dev/null 2>&1 && command mod --version 2>/dev/null | grep -q
   # `command mod` bypasses the mod() wrapper defined below.
   MOD_BIN=(command mod)
 else
-  MAVEN_BASE="https://repo1.maven.org/maven2/io/moderne/moderne-cli"
-  log "No 'mod' on PATH; resolving latest moderne-cli from Maven Central"
-  VERSION="$(curl -fsSL "$MAVEN_BASE/maven-metadata.xml" \
+  CURL_AUTH=()
+  if [ "$HAVE_CODEGENOME" = true ]; then
+    MAVEN_BASE="$CODEGENOME_MAVEN_URL/io/moderne/moderne-cli"
+    CURL_AUTH=(--user "$CODEGENOME_USERNAME:$CODEGENOME_TOKEN")
+    log "No 'mod' on PATH; resolving latest moderne-cli from the Code Genome Project"
+  else
+    MAVEN_BASE="https://repo1.maven.org/maven2/io/moderne/moderne-cli"
+    log "No 'mod' on PATH; resolving latest moderne-cli from Maven Central"
+  fi
+  # Empty arrays expand unset under `set -u` on bash 3.2, hence the +"" guard.
+  VERSION="$(curl -fsSL ${CURL_AUTH[@]+"${CURL_AUTH[@]}"} "$MAVEN_BASE/maven-metadata.xml" \
     | grep -o '<release>[^<]*</release>' | sed -e 's/<release>//' -e 's|</release>||' | head -1)"
   [ -n "$VERSION" ] || die "Could not resolve latest moderne-cli version"
   JAR="$WORK_DIR/moderne-cli-$VERSION.jar"
   log "Downloading moderne-cli $VERSION"
-  curl -fsSL -o "$JAR" "$MAVEN_BASE/$VERSION/moderne-cli-$VERSION.jar"
+  curl -fsSL ${CURL_AUTH[@]+"${CURL_AUTH[@]}"} -o "$JAR" "$MAVEN_BASE/$VERSION/moderne-cli-$VERSION.jar"
   # MODERNE_OPTS is intentionally unquoted so multiple JVM flags word-split.
   # shellcheck disable=SC2206
   MOD_BIN=(java ${MODERNE_OPTS:-} -jar "$JAR")
@@ -100,7 +129,20 @@ fi
 mod() { "${MOD_BIN[@]}" "$@"; }
 
 # ---------------------------------------------------------------------------
-# 2. Install every recipe module from the "Latest versions" tab of the doc.
+# 2. Resolve jar recipes from the Code Genome Project.
+# ---------------------------------------------------------------------------
+# The CLI resolves recipes from Maven Central by default, which now only receives
+# older releases, so point it at the Code Genome Project that jar recipes are
+# published to. Maven Central stays in the list as a fallback for anything the
+# Code Genome Project doesn't host.
+if [ "$HAVE_CODEGENOME" = true ]; then
+  log "Adding $CODEGENOME_MAVEN_URL as a recipe artifact repository"
+  mod config recipes artifacts maven add "$CODEGENOME_MAVEN_URL" \
+    --user "$CODEGENOME_USERNAME" --password "$CODEGENOME_TOKEN"
+fi
+
+# ---------------------------------------------------------------------------
+# 3. Install every recipe module from the "Latest versions" tab of the doc.
 # ---------------------------------------------------------------------------
 # The doc is generated daily and is the single source of truth for the module
 # list. Extract the `mod config recipes <ecosystem> install ...` command lines
@@ -164,7 +206,7 @@ for cmd in "${INSTALL_CMDS[@]}"; do
 done
 
 # ---------------------------------------------------------------------------
-# 3. Copy the resulting marketplace CSV into the repository.
+# 4. Copy the resulting marketplace CSV into the repository.
 # ---------------------------------------------------------------------------
 CSV_SRC="$MODERNE_CLI_HOME/recipes-v5.csv"
 [ -f "$CSV_SRC" ] || die "Expected marketplace CSV not found at $CSV_SRC"

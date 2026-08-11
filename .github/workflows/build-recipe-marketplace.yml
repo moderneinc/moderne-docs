@@ -71,6 +71,9 @@ jobs:
           RECIPE_VERSIONS: ${{ matrix.versions }}
           # Isolate CLI state to the runner temp dir.
           MODERNE_CLI_HOME: ${{ runner.temp }}/moderne-cli-home
+          # The CLI and the recipe jars come from the Code Genome Project, not Maven Central.
+          CODEGENOME_USERNAME: ${{ secrets.CGP_ARTIFACTS_MAVEN_USERNAME }}
+          CODEGENOME_TOKEN: ${{ secrets.CGP_ARTIFACTS_MAVEN_TOKEN }}
           MARKETPLACE_CSV_DEST: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
         run: .github/scripts/build-recipe-marketplace.sh
 
