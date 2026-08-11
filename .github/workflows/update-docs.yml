@@ -125,8 +125,10 @@ jobs:
         run: yarn lint:markdown:recipes
         working-directory: moderne-docs
 
-      # Commit and push changes
+      # Push back to the ref the workflow ran on: main for the scheduled runs, or the
+      # selected branch for a manual workflow_dispatch. `main` was hardcoded here, which
+      # doesn't resolve on a dispatch against any other branch.
       - name: Commit and push
         working-directory: moderne-docs
         run: |
-          git diff --quiet HEAD || (git commit -m "[Auto] Update docs as of $(date +'%Y-%m-%dT%H%M')" && git push origin main)
+          git diff --quiet HEAD || (git commit -m "[Auto] Update docs as of $(date +'%Y-%m-%dT%H%M')" && git push origin "HEAD:${{ github.ref_name }}")
