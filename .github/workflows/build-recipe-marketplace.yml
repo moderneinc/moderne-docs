@@ -83,6 +83,9 @@ jobs:
         with:
           name: recipe-logs-${{ matrix.versions }}
           path: ${{ runner.temp }}/moderne-cli-home/recipes/**/.moderne/recipes.log
+          # The log sits in a hidden .moderne directory, which the action skips by default,
+          # so this artifact silently uploaded nothing on every failure until now.
+          include-hidden-files: true
           if-no-files-found: ignore
 
       # Upload before the gate below so the partial CSV still reaches the commit job.
