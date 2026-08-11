@@ -53,13 +53,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      # Separate namespace: this build sets SKIP_RECIPE_CATALOG.
       - name: Cache build compilation artifacts
         uses: actions/cache@v6
         with:
           path: node_modules/.cache
-          key: docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: docusaurus-pr-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'src/theme/**') }}
           restore-keys: |
-            docusaurus-${{ runner.os }}-
+            docusaurus-pr-${{ runner.os }}-
 
       - name: Build site
         run: |
