@@ -898,8 +898,8 @@ java -jar connector-{version}.jar \
 </TabItem>
 </Tabs>
 
-:::info[Bearer token authentication is not supported for Go]
-A `..._BEARERTOKEN` field (`MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_BEARERTOKEN` or `--moderne.recipe.marketplace.repositories.go[{index}].bearerToken`) may still bind, but it is ignored. Authenticate with `USERNAME`/`PASSWORD` as described above.
+:::info[Go authenticates with basic auth, not native bearer tokens]
+Go does not support native bearer authentication for dependency resolution, so a bearer or access token must be supplied as the `PASSWORD` (for Artifactory, the identity token) rather than as a bearer token. A `..._BEARERTOKEN` field (`MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_BEARERTOKEN` or `--moderne.recipe.marketplace.repositories.go[{index}].bearerToken`) may still bind, but it is ignored. Authenticate with `USERNAME`/`PASSWORD` as described above.
 :::
 
 ## S3 bucket variables
