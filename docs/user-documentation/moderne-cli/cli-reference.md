@@ -6493,7 +6493,7 @@ mod config recipes active set src/main/java/com/example/MyRecipe.java
 Sets a recipe source file as the active recipe.
 
 
-Accepts a Java source file (.java) or a YAML recipe file (.yml/.yaml). Detects the build tool (Gradle or Maven), extracts the classpath, and configures the recipe to be run with `mod run --active-recipe`.
+Accepts a Java source file (.java), a Kotlin source file (.kt), or a YAML recipe file (.yml/.yaml). Detects the build tool (Gradle or Maven), extracts the classpath, and configures the recipe to be run with `mod run --active-recipe`.
 
 ### Usage
 
@@ -6511,13 +6511,13 @@ mod config recipes active set src/main/java/com/example/MyRecipe.java
 
 | Name | Description |
 | ---- | ----------- |
-| `recipeSourceFile` |  Path to a recipe source file (.java, .yml, or .yaml) |
+| `recipeSourceFile` |  Path to a recipe source file (.java, .kt, .yml, or .yaml) |
 
 ### Options
 
 | Name | Description |
 | ---- | ----------- |
-| `--recipe` |  Recipe name to select (useful for multi-document YAML files or nested Java classes) |
+| `--recipe` |  Recipe name to select (useful for source files or multi-document YAML files declaring several recipes) |
 
 
 ## mod config recipes active show

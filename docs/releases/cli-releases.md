@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.5.1           |
+| CLI version | 4.5.2           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,18 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.5.2 (2026-08-12)
+
+#### What's Changed
+* Drop the BouncyCastle exclusion now that jgit-gpg-bc 1.5.0 ships jdk18on
+* Add Go to the build trace analyzer
+* Resolve org.openrewrite and io.moderne artifacts from the Code Genome Project
+* Upgrade pip packages through the resolver, not a --target install
+* Parse WSAD/RAD projects that have no build tool at all
+* Write JavaType flag bitmaps as 64-bit varints so high flags survive
+* Accept Kotlin recipe sources in `mod config recipes active set`
+* Take recipe bundle identity from the resolver
 
 ### CLI / DX v4.5.1 (2026-08-10)
 
