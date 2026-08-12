@@ -1,7 +1,7 @@
 ---
 title: Configure a Connector with recipe marketplace repositories
 sidebar_label: Recipe marketplace repositories
-description: How to configure the Moderne Connector to retrieve recipe artifacts from Maven, NPM, NuGet, and PyPI repositories.
+description: How to configure the Moderne Connector to retrieve recipe artifacts from Maven, NPM, NuGet, PyPI, and Go repositories.
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,7 +12,7 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 # Configure a Connector with recipe marketplace repositories
 
-This guide explains how to point the Moderne Connector at one or more package registries (Maven, NPM, NuGet, and PyPI) so that recipe artifacts published to those registries become available for [deployment to Moderne](../importing-external-recipes.md).
+This guide explains how to point the Moderne Connector at one or more package registries (Maven, NPM, NuGet, PyPI, and Go) so that recipe artifacts published to those registries become available for [deployment to Moderne](../importing-external-recipes.md).
 
 ## Configuring the Moderne Connector
 
@@ -21,7 +21,7 @@ Recipe marketplace repositories are configured under the `moderne.recipe.marketp
 The variables/arguments in the tables below must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
 :::info[At least one Maven repository is required]
-The Moderne Platform does not fall back to Maven Central or any other public registry. You must explicitly configure at least one Maven repository below that hosts every recipe artifact (and its transitive dependencies) you intend to deploy. PyPI, NuGet, and NPM have no defaults either: each ecosystem must be explicitly configured.
+The Moderne Platform does not fall back to Maven Central or any other public registry. You must explicitly configure at least one Maven repository below that hosts every recipe artifact (and its transitive dependencies) you intend to deploy. PyPI, NuGet, NPM, and Go have no defaults either: each ecosystem must be explicitly configured.
 
 If you are using OpenRewrite recipes, that typically means configuring Maven Central (`https://repo.maven.apache.org/maven2/`, releases), Sonatype snapshots (`https://central.sonatype.com/repository/maven-snapshots/`, snapshots), and the Gradle release repository (`https://repo.gradle.org/gradle/libs-releases/`, releases), or an internal Nexus or Artifactory that mirrors them. The Gradle release repository is required for recipes that operate on Gradle build files: `org.openrewrite:rewrite-gradle` and the recipes that depend on it resolve `org.gradle:*` artifacts that are published only there, not to Maven Central, so a Maven Central mirror on its own is not sufficient.
 :::
@@ -349,3 +349,73 @@ java -jar connector-{version}.jar \
 
 </TabItem>
 </Tabs>
+
+## Go
+
+Go recipe modules are resolved through a Go module proxy, such as an [Artifactory Go repository](https://jfrog.com/help/r/jfrog-artifactory-documentation/go-registry). Go does not support native bearer authentication for dependency resolution, so a proxy authenticates with basic auth only. Supply your credentials as `username` + `password` (for Artifactory, use your username and identity token as the password). If your proxy issues a bearer or access token rather than a username and password, supply the token as the `password` and set `username` to any non-empty placeholder that your proxy ignores (for example, `__token__`).
+
+The configured feeds are authoritative. There is no `direct` fallback and no external egress: modules that are not served by a configured feed will not resolve.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                 | Required | Default | Description                                                                                                                                                                 |
+|---------------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_URI`      | `true`   |         | The URL of your Go module proxy.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_USERNAME` | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_PASSWORD` | `false`  | `null`  | The password used to resolve artifacts. For Artifactory, use your identity token as the password.                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_SKIPSSL`  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Go module proxy. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_0_URI=https://myartifactory.example.com/artifactory/api/go/go-local \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_0_USERNAME=admin \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_0_PASSWORD=identityToken \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                    | Required | Default | Description                                                                                                                                                                 |
+|------------------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.go[{index}].uri`      | `true`   |         | The URL of your Go module proxy.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.go[{index}].username` | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.go[{index}].password` | `false`  | `null`  | The password used to resolve artifacts. For Artifactory, use your identity token as the password.                                                                          |
+| `--moderne.recipe.marketplace.repositories.go[{index}].skipSsl`  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Go module proxy. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.recipe.marketplace.repositories.go[0].uri=https://myartifactory.example.com/artifactory/api/go/go-local \
+--moderne.recipe.marketplace.repositories.go[0].username=admin \
+--moderne.recipe.marketplace.repositories.go[0].password=identityToken \
+# ... Additional arguments
+```
+
+</TabItem>
+</Tabs>
+
+:::info[Connector-only transport settings]
+`proxy`, `connectTimeout`, and `readTimeout` bind on the Connector but do not propagate to the recipe-service CLI artifact store that resolves Go modules, so they have no effect on Go recipe resolution.
+:::
+
+Once a feed is configured, install a recipe module with:
+
+```bash
+mod config recipes go install github.com/<org>/<repo>
+```
+
+### Private GitHub modules
+
+Direct git and VCS resolution of private GitHub modules is not yet supported ([moderne-cli#2985](https://github.com/moderneinc/moderne-cli/issues/2985)). In the meantime, publish the internal recipe module into an Artifactory Go repository (a local repository, or a virtual repository backed by a VCS remote), then point `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_0_URI` at it.

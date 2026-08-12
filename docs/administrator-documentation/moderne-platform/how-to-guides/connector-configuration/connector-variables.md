@@ -846,6 +846,62 @@ java -jar connector-{version}.jar \
 </TabItem>
 </Tabs>
 
+## Recipe marketplace Go variables
+
+Go recipe modules are resolved through a Go module proxy. Go module proxies authenticate with basic auth only; there is no separate bearer-token field. Supply your credentials as `USERNAME` + `PASSWORD` (for Artifactory, use your username and identity token as the password). If your proxy authenticates with a token alone, put the token in `PASSWORD` and set `USERNAME` to any non-empty placeholder that your proxy ignores (for example, `__token__`). You can configure multiple Go module proxies by including multiple entries, each with a different `{index}`.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                  | Required | Default | Description                                                                                                                                                                 |
+|----------------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_URI`       | `true`   |         | The URL of your Go module proxy.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_USERNAME`  | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_PASSWORD`  | `false`  | `null`  | The password used to resolve artifacts. For Artifactory, use your identity token as the password.                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_SKIPSSL`   | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Go module proxy. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_0_URI=https://myartifactory.example.com/artifactory/api/go/go-local \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_0_USERNAME=admin \
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_0_PASSWORD=identityToken \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                     | Required | Default | Description                                                                                                                                                                 |
+|-------------------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.go[{index}].uri`       | `true`   |         | The URL of your Go module proxy.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.go[{index}].username`  | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.go[{index}].password`  | `false`  | `null`  | The password used to resolve artifacts. For Artifactory, use your identity token as the password.                                                                          |
+| `--moderne.recipe.marketplace.repositories.go[{index}].skipSsl`   | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Go module proxy. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.recipe.marketplace.repositories.go[0].uri=https://myartifactory.example.com/artifactory/api/go/go-local \
+--moderne.recipe.marketplace.repositories.go[0].username=admin \
+--moderne.recipe.marketplace.repositories.go[0].password=identityToken \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+:::info[Go authenticates with basic auth, not native bearer tokens]
+Go does not support native bearer authentication for dependency resolution, so a bearer or access token must be supplied as the `PASSWORD` (for Artifactory, the identity token) rather than as a bearer token. A `..._BEARERTOKEN` field (`MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_BEARERTOKEN` or `--moderne.recipe.marketplace.repositories.go[{index}].bearerToken`) may still bind, but it is ignored. Authenticate with `USERNAME`/`PASSWORD` as described above.
+:::
+
 ## S3 bucket variables
 
 You can configure multiple S3 buckets by including multiple entries, each with a different `{index}`.
