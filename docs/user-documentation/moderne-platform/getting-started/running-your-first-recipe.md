@@ -86,7 +86,7 @@ After pressing _Dry run_, you will be taken to a page that shows a summary of th
 If you want to learn more about why a change was made, you can click on the three dots (`...`) at the top-right of any file and select `Why did this change?`. For instance, in the below example, we can see that the `final` keyword was added to the class because it only has private constructors:
 
 <figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![Animated demo of viewing why a specific code change was made](./assets/why-did-this-change.gif)
+  ![Animated demo of viewing why a specific code change was made](./assets/WhyDidThisChange.gif)
   <figcaption>_Understanding why the code was changed_</figcaption>
 </figure>
 
