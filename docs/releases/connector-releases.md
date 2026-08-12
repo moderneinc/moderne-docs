@@ -7,11 +7,20 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.23 |
+| Connector | 0.151.45 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.23/connector-0.151.23.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.45/connector-0.151.45.jar)
 
 ## Changelog
+
+## August 2026
+
+### v0.151.45 – 2026-08-12
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.45/connector-0.151.45.jar)
+
+* Fix(connector): stop checkpointing past LST artifacts we never read (#1797)
+* Bound the recipeworker cgroup, and make container memory observable (#1813)
 
 ## July 2026
 
