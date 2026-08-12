@@ -151,13 +151,13 @@
   --mor-link: #1245ae;
   --mor-link-deep: #16306b;
 
-  /* Primary button — brand digital blue, matching production (docs.moderne.io),
-     deliberately overriding the design kit's navy. #2f42ff / #1e2ec2 are the old
-     brand blue, outside the Morpheus palette, so they're literals; static in both
-     modes like production's button. */
-  --mor-btn-primary-bg: #2f42ff;
+  /* Primary button — Morpheus high-contrast neutral. Light mode: midnight navy
+     fill (matches --mor-text) with near-white text. It inverts in dark mode (see
+     the [data-theme='dark'] override) so the primary action stays the highest-
+     contrast element in either theme. */
+  --mor-btn-primary-bg: #232342;
   --mor-btn-primary-fg: #fbfaf6;
-  --mor-btn-primary-hover: #1e2ec2;
+  --mor-btn-primary-hover: #2c2c50;
 
   /* Illustration tiles */
   --mor-ill-panel: #fbfaf6;
@@ -207,8 +207,11 @@
   --mor-link: #7fa9f9;
   --mor-link-deep: #7fa9f9;
 
-  /* Primary button is a static brand blue with white fg (set on :root); no dark
-     override needed. */
+  /* Primary button inverts in dark mode: near-white fill with near-black text,
+     keeping it the highest-contrast element against the dark canvas. */
+  --mor-btn-primary-bg: #f1f0ea;
+  --mor-btn-primary-fg: #17171c;
+  --mor-btn-primary-hover: #ffffff;
 
   /* Illustration tiles */
   --mor-ill-panel: #26262e;

@@ -4,7 +4,6 @@ import { ModButton } from '@site/src/components/ModButton';
 import { ProductCardsGrid } from '@site/src/components/ProductCardsGrid';
 import { homepageProducts } from '@site/src/config/megaMenuData';
 import Layout from '@theme/Layout';
-import { ArrowRight } from 'lucide-react';
 import type { FunctionComponent } from 'react';
 import VideoPlayer from '@site/src/components/VideoPlayer';
 import styles from './index.module.css';
@@ -14,23 +13,30 @@ export const HeroSection: FunctionComponent = () => {
     <section className={styles.hero}>
       <div className={styles.heroContent}>
         <h1 className={styles.heroHeading}>
-          <span className={styles.heroHeadingGrad}>Explore documentation</span>
+          Explore documentation
           <br />
-          <span className={styles.heroHeadingDark}>and tutorials to go further</span>
+          and tutorials to <span className={styles.heroHeadingGrad}>go further</span>
         </h1>
         <p className={styles.heroSubheading}>
-          Discover how to fix vulnerabilities, standardize code quality, 
+          Discover how to fix vulnerabilities, standardize code quality,
           perform type-aware code searches, and accelerate refactoring at enterprise scale.
         </p>
-        <div>
+        <div className={styles.heroActions}>
           <ModButton
             variant="primary"
             size="medium"
+            className={styles.heroButton}
             href="/user-documentation/moderne-platform/getting-started/running-your-first-recipe"
-            icon={<ArrowRight size={16} />}
-            iconPosition="right"
           >
             Get started
+          </ModButton>
+          <ModButton
+            variant="secondary"
+            size="medium"
+            className={`${styles.heroButton} ${styles.heroButtonSecondary}`}
+            href="#what-is-moderne"
+          >
+            What is Moderne?
           </ModButton>
         </div>
       </div>
