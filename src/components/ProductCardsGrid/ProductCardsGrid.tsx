@@ -10,15 +10,19 @@ export type ProductCardsGridProps = {
 
 /**
  * ProductCardsGrid displays product documentation links in a responsive grid.
- * Shows 3 columns on desktop, 2 on tablet, 1 on mobile.
- * Each card includes an icon, title, and description.
+ * Auto-fills columns at a 320px minimum (three across on desktop, reflowing to
+ * one on mobile). Each card is a flat Morpheus surface tile with a title,
+ * description, and an "Explore" affordance.
  */
 export const ProductCardsGrid: FunctionComponent<ProductCardsGridProps> = ({
   products,
 }) => {
   return (
     <section className={styles.browseByProduct}>
-      <h2 className={styles.sectionTitle}>Browse by area</h2>
+      <div className={styles.sectionHead}>
+        <h2 className={styles.sectionTitle}>Browse by area</h2>
+        <span className={styles.sectionCount}>{products.length} areas</span>
+      </div>
       <div className={styles.productGrid}>
         {products.map((product) => (
           <Link
@@ -29,6 +33,9 @@ export const ProductCardsGrid: FunctionComponent<ProductCardsGridProps> = ({
             <div className={styles.productCardContent}>
               <h3 className={styles.productCardTitle}>{product.name}</h3>
               <p className={styles.productCardDescription}>{product.description}</p>
+              <span className={styles.explore}>
+                Explore <span aria-hidden="true">→</span>
+              </span>
             </div>
           </Link>
         ))}
