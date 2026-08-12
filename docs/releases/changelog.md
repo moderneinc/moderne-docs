@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.4.0 (2026/08/12)
+
+- fetch the dark tenant logo when dark mode is active
+
 ### UI v14.3.1 (2026/08/07)
 
 - Bug fixes and other improvements.
