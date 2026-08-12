@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"withinDays","value":"180"},{"parameter":"asOf","value":"2026-04-30"}],"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>1.0.0</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot</artifactId>\n            <version>2.7.18</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>1.0.0</version>\n    <dependencies>\n        <!--~~(EOL: spring-boot 2.7 reached EOL on 2023-06-30)~~>--><dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot</artifactId>\n            <version>2.7.18</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -7,1 +7,1 @@\n    <version>1.0.0</version>\n    <dependencies>\n-       <dependency>\n+       <!--~~(EOL: spring-boot 2.7 reached EOL on 2023-06-30)~~>--><dependency>\n            <groupId>org.springframework.boot</groupId>\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.endoflife.FindEndOfLifeDependencies","displayName":"Find end-of-life dependencies","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
 
 ## Usage

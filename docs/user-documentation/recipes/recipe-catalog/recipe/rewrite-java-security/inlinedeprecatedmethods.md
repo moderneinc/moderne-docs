@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"}]}>
+<RecipeList recipes={[{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"}]}>
 
 ## Definition
 

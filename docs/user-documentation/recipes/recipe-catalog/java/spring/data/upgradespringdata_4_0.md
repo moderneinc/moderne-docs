@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.data.jpa.repository.Query;\n\ninterface Repository {\n\n    @Query(value = \"select * from foo\", nativeQuery = true)\n    void customQuery();\n}\n","after":"import org.springframework.data.jpa.repository.NativeQuery;\n\ninterface Repository {\n\n    @NativeQuery(\"select * from foo\")\n    void customQuery();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.data.jpa.repository.Query;\n+import org.springframework.data.jpa.repository.NativeQuery;\n\n@@ -5,1 +5,1 @@\ninterface Repository {\n\n-   @Query(value = \"select * from foo\", nativeQuery = true)\n+   @NativeQuery(\"select * from foo\")\n    void customQuery();\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.springframework.data.jpa.repository.Query;\n\ninterface Repository {\n\n    @Query(value = \"select * from foo\", nativeQuery = true)\n    void customQuery();\n}\n","after":"import org.springframework.data.jpa.repository.NativeQuery;\n\ninterface Repository {\n\n    @NativeQuery(\"select * from foo\")\n    void customQuery();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.data.jpa.repository.Query;\n+import org.springframework.data.jpa.repository.NativeQuery;\n\n@@ -5,1 +5,1 @@\ninterface Repository {\n\n-   @Query(value = \"select * from foo\", nativeQuery = true)\n+   @NativeQuery(\"select * from foo\")\n    void customQuery();\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.data.UpgradeSpringData_4_0","displayName":"Migrate to Spring Data 4.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

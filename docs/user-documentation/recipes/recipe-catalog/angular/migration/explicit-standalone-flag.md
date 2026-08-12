@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Make standalone flag explicit"}
-  description={"Adds `standalone: false` to non-standalone Angular components, directives, and pipes, and removes redundant `standalone: true` since it became the default in Angular 19."}
+  description={"Adds `standalone: false` to Angular components, directives, and pipes that are declared in an `@NgModule`, and removes redundant `standalone: true` from the rest, since standalone became the default in Angular 19. Classes that are not declared in any `@NgModule` are left alone, because they are already standalone under the new default."}
   fqName={"org.openrewrite.angular.migration.explicit-standalone-flag"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Make standalone flag explicit</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adds `standalone: false` to non-standalone Angular components, directives, and pipes, and removes redundant `standalone: true` since it became the default in Angular 19.</RecipeHeader.Description>
+<RecipeHeader.Description>Adds `standalone: false` to Angular components, directives, and pipes that are declared in an `@NgModule`, and removes redundant `standalone: true` from the rest, since standalone became the default in Angular 19. Classes that are not declared in any `@NgModule` are left alone, because they are already standalone under the new default.</RecipeHeader.Description>
 
 </RecipeHeader>
 

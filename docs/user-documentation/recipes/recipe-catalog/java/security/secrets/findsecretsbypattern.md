@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"secretName","value":"AWS access key"},{"parameter":"keyPattern","value":"null"},{"parameter":"valuePattern","value":"AKIA[0-9A-Z]{16}"}],"variants":[{"language":"go","before":"package main\n\nfunc main() {\n\tkey := \"AKIAIOSFODNN7EXAMPLE\"\n\t_ = key\n}\n","after":"package main\n\nfunc main() {\n\tkey := /*~~(AWS access key)~~>*/\"AKIAIOSFODNN7EXAMPLE\"\n\t_ = key\n}\n","diff":"@@ -4,1 +4,1 @@\n\nfunc main() {\n-\tkey := \"AKIAIOSFODNN7EXAMPLE\"\n+\tkey := /*~~(AWS access key)~~>*/\"AKIAIOSFODNN7EXAMPLE\"\n\t_ = key\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.security.secrets.FindSecretsByPattern","displayName":"Find secrets with regular expressions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"secretName=AWS Access Key\" --recipe-option \"keyPattern='[a-zA-Z0-9+\\/=]{88}'\" --recipe-option \"valuePattern='[a-zA-Z0-9+\\/=]{88}'\""}}>
 
 ## Usage

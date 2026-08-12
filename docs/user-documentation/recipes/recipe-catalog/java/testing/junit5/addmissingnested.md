@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"JUnit 5 inner test classes should be annotated with `@Nested`"}
-  description={"Adds `@Nested` to inner classes that contain JUnit 5 tests."}
+  description={"Adds `@Nested` to inner classes that contain JUnit 5 tests and removes `static` from them. Before Java 16 an inner class may not declare static members other than constant variables, so a static nested class that declares any other static member is marked as needing manual migration instead; sources without a known Java version are assumed to support static members."}
   fqName={"org.openrewrite.java.testing.junit5.AddMissingNested"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>JUnit 5 inner test classes should be annotated with `@Nested`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adds `@Nested` to inner classes that contain JUnit 5 tests.</RecipeHeader.Description>
+<RecipeHeader.Description>Adds `@Nested` to inner classes that contain JUnit 5 tests and removes `static` from them. Before Java 16 an inner class may not declare static members other than constant variables, so a static nested class that declares any other static member is marked as needing manual migration instead; sources without a known Java version are assumed to support static members.</RecipeHeader.Description>
 
 </RecipeHeader>
 

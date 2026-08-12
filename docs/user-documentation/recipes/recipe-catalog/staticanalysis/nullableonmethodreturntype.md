@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Move `@Nullable` method annotations to the return type"}
-  description={"This is the way the cool kids do it."}
+  description={"This is the way the cool kids do it. Only annotations declared with `@Target(ElementType.TYPE_USE)` are moved, as the return type is a type context; declaration annotations such as `javax.annotation.Nullable` are left on the method."}
   fqName={"org.openrewrite.staticanalysis.NullableOnMethodReturnType"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Move `@Nullable` method annotations to the return type</RecipeHeader.Title>
 
-<RecipeHeader.Description>This is the way the cool kids do it.</RecipeHeader.Description>
+<RecipeHeader.Description>This is the way the cool kids do it. Only annotations declared with `@Target(ElementType.TYPE_USE)` are moved, as the return type is a type context; declaration annotations such as `javax.annotation.Nullable` are left on the method.</RecipeHeader.Description>
 
 </RecipeHeader>
 

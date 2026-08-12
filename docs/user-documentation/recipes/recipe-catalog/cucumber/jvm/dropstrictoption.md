@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.junit.CucumberOptions;\n\n@CucumberOptions(strict = true, features = \"src/test/resources/features\")\npublic class RunCucumberTest {\n}\n","after":"package com.example.app;\n\nimport io.cucumber.junit.CucumberOptions;\n\n@CucumberOptions(features = \"src/test/resources/features\")\npublic class RunCucumberTest {\n}\n","diff":"@@ -5,1 +5,1 @@\nimport io.cucumber.junit.CucumberOptions;\n\n-@CucumberOptions(strict = true, features = \"src/test/resources/features\")\n+@CucumberOptions(features = \"src/test/resources/features\")\npublic class RunCucumberTest {\n","newFile":false}]},{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.junit.CucumberOptions;\n\n@CucumberOptions(strict = true, features = \"src/test/resources/features\")\npublic class RunCucumberTest {\n}\n","after":"package com.example.app;\n\nimport io.cucumber.junit.CucumberOptions;\n\n@CucumberOptions(features = \"src/test/resources/features\")\npublic class RunCucumberTest {\n}\n","diff":"@@ -5,1 +5,1 @@\nimport io.cucumber.junit.CucumberOptions;\n\n-@CucumberOptions(strict = true, features = \"src/test/resources/features\")\n+@CucumberOptions(features = \"src/test/resources/features\")\npublic class RunCucumberTest {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.DropStrictOption","displayName":"Drop the `strict` option","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage

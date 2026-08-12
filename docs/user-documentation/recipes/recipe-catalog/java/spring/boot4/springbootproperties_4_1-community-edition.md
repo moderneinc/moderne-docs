@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"properties","before":"logging.file.clean-history-on-start=true\nlogging.file.max-history=7\nlogging.file.max-size=10MB\nlogging.file.total-size-cap=1GB\nlogging.pattern.rolling-file-name=app-%d.log\n","after":"logging.logback.rollingpolicy.clean-history-on-start=true\nlogging.logback.rollingpolicy.max-history=7\nlogging.logback.rollingpolicy.max-file-size=10MB\nlogging.logback.rollingpolicy.total-size-cap=1GB\nlogging.logback.rollingpolicy.file-name-pattern=app-%d.log\n","diff":"@@ -1,5 +1,5 @@\n-logging.file.clean-history-on-start=true\n-logging.file.max-history=7\n-logging.file.max-size=10MB\n-logging.file.total-size-cap=1GB\n-logging.pattern.rolling-file-name=app-%d.log\n+logging.logback.rollingpolicy.clean-history-on-start=true\n+logging.logback.rollingpolicy.max-history=7\n+logging.logback.rollingpolicy.max-file-size=10MB\n+logging.logback.rollingpolicy.total-size-cap=1GB\n+logging.logback.rollingpolicy.file-name-pattern=app-%d.log\n\n","newFile":false}]},{"variants":[{"language":"properties","before":"logging.file.clean-history-on-start=true\nlogging.file.max-history=7\nlogging.file.max-size=10MB\nlogging.file.total-size-cap=1GB\nlogging.pattern.rolling-file-name=app-%d.log\n","after":"logging.logback.rollingpolicy.clean-history-on-start=true\nlogging.logback.rollingpolicy.max-history=7\nlogging.logback.rollingpolicy.max-file-size=10MB\nlogging.logback.rollingpolicy.total-size-cap=1GB\nlogging.logback.rollingpolicy.file-name-pattern=app-%d.log\n","diff":"@@ -1,5 +1,5 @@\n-logging.file.clean-history-on-start=true\n-logging.file.max-history=7\n-logging.file.max-size=10MB\n-logging.file.total-size-cap=1GB\n-logging.pattern.rolling-file-name=app-%d.log\n+logging.logback.rollingpolicy.clean-history-on-start=true\n+logging.logback.rollingpolicy.max-history=7\n+logging.logback.rollingpolicy.max-file-size=10MB\n+logging.logback.rollingpolicy.total-size-cap=1GB\n+logging.logback.rollingpolicy.file-name-pattern=app-%d.log\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot4.SpringBootProperties_4_1","displayName":"Migrate Spring Boot properties to 4.1","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false,"useFullyQualifiedCliName":true}}>
 
 ## Usage

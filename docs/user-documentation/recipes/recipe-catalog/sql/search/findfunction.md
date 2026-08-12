@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"functionName","required":true,"description":"The name of the function to find, case insensitive. Supports glob.","example":"nvl"}]}>
+<OptionsTable options={[{"type":"String","name":"functionName","required":true,"description":"The name of the function to find, case insensitive. Supports glob.","example":"nvl"},{"type":"Boolean","name":"markSource","required":false,"description":"Whether to mark each occurrence in source with a search marker. Defaults to `true`; set to `false` to leave source untouched and report only to the data tables, as an analysis-only pipeline requires."}]}>
 
 ## Options
 

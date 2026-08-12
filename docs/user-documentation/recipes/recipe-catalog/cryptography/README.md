@@ -4,6 +4,11 @@ description: Cryptography OpenRewrite recipes.
 
 # Cryptography
 
+## Categories
+
+* [Agilesec](/user-documentation/recipes/recipe-catalog/cryptography/agilesec)
+* [Pqc](/user-documentation/recipes/recipe-catalog/cryptography/pqc)
+
 ## Composite Recipes
 
 _Recipes that include further recipes, often including the individual recipes below._

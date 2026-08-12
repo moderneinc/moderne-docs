@@ -15,7 +15,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Python"]}
   tags={["python","collections","migration","3.10"]}
   license={"Moderne Proprietary License"}
@@ -31,6 +31,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader.Description>Migrate deprecated abstract base class imports from `collections` to `collections.abc`. These imports were deprecated in Python 3.3 and removed in Python 3.10.</RecipeHeader.Description>
 
 </RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Trim blank lines before a leading import","href":""}]}>
+
+## Definition
+
+</RecipeList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.migrate.ReplaceCollectionsAbcImports","displayName":"Replace `collections` ABC imports with `collections.abc`","pipPackage":"openrewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}]}}>
 

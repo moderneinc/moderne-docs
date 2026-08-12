@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Hashtable;\n\nclass Test {\n    int test() {\n        Hashtable<String, Integer> table = new Hashtable<>();\n        table.put(\"a\", 1);\n        return table.size();\n    }\n}\n","after":"import java.util.HashMap;\n\nclass Test {\n    int test() {\n        HashMap<String, Integer> table = new HashMap<>();\n        table.put(\"a\", 1);\n        return table.size();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import java.util.Hashtable;\n+import java.util.HashMap;\n\n@@ -5,1 +5,1 @@\nclass Test {\n    int test() {\n-       Hashtable<String, Integer> table = new Hashtable<>();\n+       HashMap<String, Integer> table = new HashMap<>();\n        table.put(\"a\", 1);\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceHashtableWithHashMap","displayName":"Replace `java.util.Hashtable` with `java.util.HashMap`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

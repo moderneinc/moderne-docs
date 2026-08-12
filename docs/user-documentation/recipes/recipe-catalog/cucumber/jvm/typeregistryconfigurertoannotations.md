@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `TypeRegistryConfigurer` with cucumber-java annotations"}
-  description={"Cucumber-JVM 7.0.0 removed `TypeRegistryConfigurer`; replace implementations with `@ParameterType`, `@DataTableType` and `@DocStringType` annotated glue methods. Classes whose `configureTypeRegistry` method cannot be converted in full are left untouched."}
+  description={"Cucumber-JVM 7.0.0 removed `TypeRegistryConfigurer`; replace implementations with `@ParameterType`, `@DataTableType`, `@DocStringType` and `@Default*Transformer` annotated glue methods. Classes whose `configureTypeRegistry` method cannot be converted in full are left untouched, with a `TODO` comment added above the registration that could not be converted."}
   fqName={"org.openrewrite.cucumber.jvm.TypeRegistryConfigurerToAnnotations"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,9 +33,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `TypeRegistryConfigurer` with cucumber-java annotations</RecipeHeader.Title>
 
-<RecipeHeader.Description>Cucumber-JVM 7.0.0 removed `TypeRegistryConfigurer`; replace implementations with `@ParameterType`, `@DataTableType` and `@DocStringType` annotated glue methods. Classes whose `configureTypeRegistry` method cannot be converted in full are left untouched.</RecipeHeader.Description>
+<RecipeHeader.Description>Cucumber-JVM 7.0.0 removed `TypeRegistryConfigurer`; replace implementations with `@ParameterType`, `@DataTableType`, `@DocStringType` and `@Default*Transformer` annotated glue methods. Classes whose `configureTypeRegistry` method cannot be converted in full are left untouched, with a `TODO` comment added above the registration that could not be converted.</RecipeHeader.Description>
 
 </RecipeHeader>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.core.api.TypeRegistry;\nimport io.cucumber.core.api.TypeRegistryConfigurer;\nimport io.cucumber.cucumberexpressions.ParameterType;\nimport io.cucumber.datatable.DataTableType;\n\nimport java.util.Locale;\nimport java.util.Map;\n\npublic class DataTableConfigurer implements TypeRegistryConfigurer {\n    @Override\n    public Locale locale() {\n        return Locale.ENGLISH;\n    }\n\n    @Override\n    public void configureTypeRegistry(TypeRegistry typeRegistry) {\n        typeRegistry.defineParameterType(new ParameterType<>(\n                \"author\", \"[A-Z][a-z]+\", Author.class, (String name) -> new Author(name)));\n        typeRegistry.defineDataTableType(new DataTableType(\n                Author.class, (Map<String, String> entry) -> new Author(entry.get(\"name\"))));\n    }\n}\n","after":"package com.example.app;\n\nimport io.cucumber.java.DataTableType;\nimport io.cucumber.java.ParameterType;\n\nimport java.util.Map;\n\npublic class DataTableConfigurer {\n    @ParameterType(\"[A-Z][a-z]+\")\n    public Author author(String name) {\n        return new Author(name);\n    }\n\n    @DataTableType\n    public Author author2(Map<String, String> entry) {\n        return new Author(entry.get(\"name\"));\n    }\n}\n","diff":"@@ -3,4 +3,2 @@\npackage com.example.app;\n\n-import io.cucumber.core.api.TypeRegistry;\n-import io.cucumber.core.api.TypeRegistryConfigurer;\n-import io.cucumber.cucumberexpressions.ParameterType;\n-import io.cucumber.datatable.DataTableType;\n+import io.cucumber.java.DataTableType;\n+import io.cucumber.java.ParameterType;\n\n@@ -8,1 +6,0 @@\nimport io.cucumber.datatable.DataTableType;\n\n-import java.util.Locale;\nimport java.util.Map;\n@@ -11,4 +8,4 @@\nimport java.util.Map;\n\n-public class DataTableConfigurer implements TypeRegistryConfigurer {\n-   @Override\n-   public Locale locale() {\n-       return Locale.ENGLISH;\n+public class DataTableConfigurer {\n+   @ParameterType(\"[A-Z][a-z]+\")\n+   public Author author(String name) {\n+       return new Author(name);\n    }\n@@ -17,6 +14,3 @@\n    }\n\n-   @Override\n-   public void configureTypeRegistry(TypeRegistry typeRegistry) {\n-       typeRegistry.defineParameterType(new ParameterType<>(\n-               \"author\", \"[A-Z][a-z]+\", Author.class, (String name) -> new Author(name)));\n-       typeRegistry.defineDataTableType(new DataTableType(\n-               Author.class, (Map<String, String> entry) -> new Author(entry.get(\"name\"))));\n+   @DataTableType\n+   public Author author2(Map<String, String> entry) {\n+       return new Author(entry.get(\"name\"));\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.TypeRegistryConfigurerToAnnotations","displayName":"Replace `TypeRegistryConfigurer` with cucumber-java annotations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 

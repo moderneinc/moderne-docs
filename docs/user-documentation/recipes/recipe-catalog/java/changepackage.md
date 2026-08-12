@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"oldPackageName","required":true,"description":"The package name to replace.","example":"com.yourorg.foo"},{"type":"String","name":"newPackageName","required":true,"description":"New package name to replace the old package name with.","example":"com.yourorg.bar"},{"type":"Boolean","name":"recursive","required":false,"description":"Recursively change subpackage names"}]}>
+<OptionsTable options={[{"type":"String","name":"oldPackageName","required":true,"description":"The package name to replace.","example":"com.yourorg.foo"},{"type":"String","name":"newPackageName","required":true,"description":"New package name to replace the old package name with.","example":"com.yourorg.bar"},{"type":"Boolean","name":"recursive","required":false,"description":"Recursively change subpackage names. Defaults to `false`, renaming only types directly in `oldPackageName`; set to `true` to also rename types in its subpackages."}]}>
 
 ## Options
 

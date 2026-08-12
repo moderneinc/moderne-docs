@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.junit.CucumberOptions;\n\n@CucumberOptions(features = \"src/test/resources/features\", tags = {\"@smoke\", \"not @wip\"})\npublic class RunCucumberTest {\n}\n","after":"package com.example.app;\n\nimport io.cucumber.junit.CucumberOptions;\n\n@CucumberOptions(features = \"src/test/resources/features\", tags = \"(@smoke) and (not @wip)\")\npublic class RunCucumberTest {\n}\n","diff":"@@ -5,1 +5,1 @@\nimport io.cucumber.junit.CucumberOptions;\n\n-@CucumberOptions(features = \"src/test/resources/features\", tags = {\"@smoke\", \"not @wip\"})\n+@CucumberOptions(features = \"src/test/resources/features\", tags = \"(@smoke) and (not @wip)\")\npublic class RunCucumberTest {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.CollapseCucumberOptionsTags","displayName":"Collapse `@CucumberOptions` tags into a single tag expression","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage

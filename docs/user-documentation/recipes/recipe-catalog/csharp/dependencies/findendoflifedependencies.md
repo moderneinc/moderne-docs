@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"withinDays","value":"180"},{"parameter":"asOf","value":"2026-04-30"}],"variants":[{"language":"csproj","before":"<Project Sdk=\"Microsoft.NET.Sdk\">\n    <PropertyGroup>\n        <TargetFramework>net6.0</TargetFramework>\n    </PropertyGroup>\n    <ItemGroup>\n        <PackageReference Include=\"bootstrap\" Version=\"4.6.2\" />\n    </ItemGroup>\n</Project>\n","after":"<Project Sdk=\"Microsoft.NET.Sdk\">\n    <PropertyGroup>\n        <TargetFramework>net6.0</TargetFramework>\n    </PropertyGroup>\n    <ItemGroup>\n        <!--~~(EOL: bootstrap 4 reached EOL on 2023-01-01)~~>--><PackageReference Include=\"bootstrap\" Version=\"4.6.2\" />\n    </ItemGroup>\n</Project>\n","diff":"@@ -6,1 +6,1 @@\n    </PropertyGroup>\n    <ItemGroup>\n-       <PackageReference Include=\"bootstrap\" Version=\"4.6.2\" />\n+       <!--~~(EOL: bootstrap 4 reached EOL on 2023-01-01)~~>--><PackageReference Include=\"bootstrap\" Version=\"4.6.2\" />\n    </ItemGroup>\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.csharp.dependencies.FindEndOfLifeDependencies","displayName":"Find end-of-life NuGet dependencies","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
 
 ## Usage

@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc indexes per-module recipe lists. Click a groupId to see its recipes._
 
-Total recipes: 7587
+Total recipes: 7729
 
 
 ## io.moderne.recipe

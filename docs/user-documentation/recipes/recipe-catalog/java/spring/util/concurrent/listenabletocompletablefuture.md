@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.util.concurrent.ListenableFuture;\nimport org.springframework.util.concurrent.ListenableFutureCallback;\nclass A {\n    void test(ListenableFuture<String> future) {\n        future.addCallback(new ListenableFutureCallback<String>() {\n            @Override\n            public void onSuccess(String result) {\n                System.out.println(result);\n            }\n\n            @Override\n            public void onFailure(Throwable ex) {\n                System.err.println(ex.getMessage());\n            }\n        });\n    }\n}\n","after":"import java.util.concurrent.CompletableFuture;\n\nclass A {\n    void test(CompletableFuture<String> future) {\n        future.whenComplete((String result, Throwable ex) -> {\n            if (ex == null) {\n                System.out.println(result);\n            } else {\n                System.err.println(ex.getMessage());\n            }\n        });\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.springframework.util.concurrent.ListenableFuture;\n-import org.springframework.util.concurrent.ListenableFutureCallback;\n+import java.util.concurrent.CompletableFuture;\n+\nclass A {\n@@ -4,4 +4,3 @@\nimport org.springframework.util.concurrent.ListenableFutureCallback;\nclass A {\n-   void test(ListenableFuture<String> future) {\n-       future.addCallback(new ListenableFutureCallback<String>() {\n-           @Override\n-           public void onSuccess(String result) {\n+   void test(CompletableFuture<String> future) {\n+       future.whenComplete((String result, Throwable ex) -> {\n+           if (ex == null) {\n                System.out.println(result);\n@@ -9,4 +8,1 @@\n            public void onSuccess(String result) {\n                System.out.println(result);\n-           }\n-\n-           @Override\n-           public void onFailure(Throwable ex) {\n+           } else {\n                System.err.println(ex.getMessage());\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.util.concurrent.ListenableToCompletableFuture","displayName":"Migrate `ListenableFuture` to `CompletableFuture`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

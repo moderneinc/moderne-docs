@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Enable AOT compilation in `angular.json`"}
-  description={"Adds `\"aot\": true` to build options in `angular.json`. Angular 9 made AOT compilation the default, and projects upgrading from Angular 8 should enable it explicitly."}
+  description={"Adds `\"aot\": true` to build options in `angular.json`. Angular 9 made AOT compilation the default, and projects upgrading from Angular 8 should enable it explicitly. Build targets using a builder that already defaults `aot` to `true` (`@angular/build:application`, `@angular-devkit/build-angular:application`, `@angular-devkit/build-angular:browser-esbuild`) are left untouched."}
   fqName={"org.openrewrite.angular.migration.enable-aot-build"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Enable AOT compilation in `angular.json`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adds `"aot": true` to build options in `angular.json`. Angular 9 made AOT compilation the default, and projects upgrading from Angular 8 should enable it explicitly.</RecipeHeader.Description>
+<RecipeHeader.Description>Adds `"aot": true` to build options in `angular.json`. Angular 9 made AOT compilation the default, and projects upgrading from Angular 8 should enable it explicitly. Build targets using a builder that already defaults `aot` to `true` (`@angular/build:application`, `@angular-devkit/build-angular:application`, `@angular-devkit/build-angular:browser-esbuild`) are left untouched.</RecipeHeader.Description>
 
 </RecipeHeader>
 

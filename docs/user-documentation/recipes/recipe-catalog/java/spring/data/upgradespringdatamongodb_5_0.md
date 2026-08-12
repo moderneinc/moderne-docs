@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"unchanged":{"language":"java","code":"class Application {}"},"variants":[]},{"unchanged":{"language":"java","code":"class Application {}"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.data.UpgradeSpringDataMongoDb_5_0","displayName":"Migrate to Spring Data MongoDB 5.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

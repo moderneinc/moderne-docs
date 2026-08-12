@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove obsolete `__future__` imports"}
-  description={"Remove `from __future__ import ...` statements for features that are enabled by default in Python 3."}
+  description={"Remove `from __future__ import ...` statements for features that are enabled by default in Python 3. The search-only `FindFutureImports` recipe reports all `__future__` imports, including `annotations`, which this recipe keeps."}
   fqName={"org.openrewrite.python.migrate.RemoveFutureImports"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove obsolete `__future__` imports</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove `from __future__ import ...` statements for features that are enabled by default in Python 3.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove `from __future__ import ...` statements for features that are enabled by default in Python 3. The search-only `FindFutureImports` recipe reports all `__future__` imports, including `annotations`, which this recipe keeps.</RecipeHeader.Description>
 
 </RecipeHeader>
 

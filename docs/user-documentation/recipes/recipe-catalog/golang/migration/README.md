@@ -8,6 +8,7 @@ description: Migration OpenRewrite recipes.
 
 * [Add missing go.mod requirements](./addmissinggomodrequires.md)
 * [Change the `go` directive version](./changegoversion.md)
+* [Find `encoding/json` usage for the v2 migration](./findencodingjsonusage.md)
 * [Find missing go.mod requirements](./findmissinggomodrequires.md)
 * [Find unused go.mod requirements](./findunusedgomodrequires.md)
 * [Fix go.mod `// indirect` markers](./fixgomodindirectmarkers.md)

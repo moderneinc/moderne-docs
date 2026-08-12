@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Framework 6.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Spring Framework 6.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Add `-parameters` compiler flag for Spring in Maven","href":"/user-documentation/recipes/recipe-catalog/maven/spring/addparameterscompilerflagtomaven/"},{"name":"Add `-parameters` compiler flag for Spring in Gradle","href":"/user-documentation/recipes/recipe-catalog/gradle/spring/addparameterscompilerflagtogradle/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

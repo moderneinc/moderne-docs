@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;\n\nclass A {\n    Class<?> type = TomcatWebServer.class;\n}\n","after":"import org.springframework.boot.tomcat.TomcatWebServer;\n\nclass A {\n    Class<?> type = TomcatWebServer.class;\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;\n+import org.springframework.boot.tomcat.TomcatWebServer;\n\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;\n\nclass A {\n    Class<?> type = TomcatWebServer.class;\n}\n","after":"import org.springframework.boot.tomcat.TomcatWebServer;\n\nclass A {\n    Class<?> type = TomcatWebServer.class;\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;\n+import org.springframework.boot.tomcat.TomcatWebServer;\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot4.RelocateWebServerClasses","displayName":"Relocate Spring Boot web server classes to their Spring Boot 4.0 packages","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

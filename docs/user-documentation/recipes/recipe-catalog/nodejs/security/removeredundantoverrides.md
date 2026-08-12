@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove redundant dependency overrides"}
-  description={"Removes overrides/resolutions from `package.json` that are redundant because the dependency tree already resolves to the overridden version (or higher) without the override. For each project, the recipe re-runs the package manager's lock-file generation with all overrides stripped and compares the resolved versions against the original override pins. Overrides matching or below the natural resolution are dropped along with any parallel `//overrides`, `//resolutions`, or `//pnpm.overrides` comment entries."}
+  description={"Removes overrides/resolutions from `package.json` that are redundant because the dependency tree already resolves to the overridden version (or higher) without the override. For each project, the recipe resolves the dependency closure with all overrides stripped and compares the resolved versions against the original override pins. Overrides matching or below the natural resolution are dropped along with any parallel `//overrides`, `//resolutions`, or `//pnpm.overrides` comment entries."}
   fqName={"org.openrewrite.nodejs.security.RemoveRedundantOverrides"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove redundant dependency overrides</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes overrides/resolutions from `package.json` that are redundant because the dependency tree already resolves to the overridden version (or higher) without the override. For each project, the recipe re-runs the package manager's lock-file generation with all overrides stripped and compares the resolved versions against the original override pins. Overrides matching or below the natural resolution are dropped along with any parallel `//overrides`, `//resolutions`, or `//pnpm.overrides` comment entries.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes overrides/resolutions from `package.json` that are redundant because the dependency tree already resolves to the overridden version (or higher) without the override. For each project, the recipe resolves the dependency closure with all overrides stripped and compares the resolved versions against the original override pins. Overrides matching or below the natural resolution are dropped along with any parallel `//overrides`, `//resolutions`, or `//pnpm.overrides` comment entries.</RecipeHeader.Description>
 
 </RecipeHeader>
 

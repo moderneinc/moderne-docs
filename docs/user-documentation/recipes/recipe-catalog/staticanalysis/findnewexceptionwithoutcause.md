@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.IOException;\nclass A {\n    void risky() throws IOException {}\n    void foo() {\n        try {\n            risky();\n        } catch (IOException e) {\n            throw new RuntimeException(\"Failed\");\n        }\n    }\n}\n","after":"import java.io.IOException;\nclass A {\n    void risky() throws IOException {}\n    void foo() {\n        try {\n            risky();\n        } catch (IOException e) {\n            throw /*~~>*/new RuntimeException(\"Failed\");\n        }\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\n            risky();\n        } catch (IOException e) {\n-           throw new RuntimeException(\"Failed\");\n+           throw /*~~>*/new RuntimeException(\"Failed\");\n        }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.FindNewExceptionWithoutCause","displayName":"Find new exceptions thrown without the caught exception","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

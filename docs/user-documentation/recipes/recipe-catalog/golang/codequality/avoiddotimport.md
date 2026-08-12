@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Avoid dot imports"}
-  description={"Remove the dot alias from `import . \"pkg\"`, converting to a normal import."}
+  description={"Remove the dot alias from `import . \"pkg\"`, converting to a normal import and re-qualifying references (e.g. `Println` to `fmt.Println`)."}
   fqName={"org.openrewrite.golang.codequality.AvoidDotImport"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Avoid dot imports</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove the dot alias from `import . "pkg"`, converting to a normal import.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove the dot alias from `import . "pkg"`, converting to a normal import and re-qualifying references (e.g. `Println` to `fmt.Println`).</RecipeHeader.Description>
 
 </RecipeHeader>
 

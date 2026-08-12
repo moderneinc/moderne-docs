@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"procedureName","required":false,"description":"The name of the stored procedure to find, case insensitive. Supports glob. Leave empty to match every stored procedure call.","example":"sp_get_customer"}]}>
+<OptionsTable options={[{"type":"String","name":"procedureName","required":false,"description":"The name of the stored procedure to find, case insensitive. Supports glob. Leave empty to match every stored procedure call.","example":"sp_get_customer"},{"type":"Boolean","name":"markSource","required":false,"description":"Whether to mark each occurrence in source with a search marker. Defaults to `true`; set to `false` to leave source untouched and report only to the data table, as an analysis-only pipeline requires."}]}>
 
 ## Options
 

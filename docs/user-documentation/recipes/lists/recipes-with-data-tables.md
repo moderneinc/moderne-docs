@@ -209,6 +209,200 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
 
 
+#### [io.moderne.cryptography.agilesec.BuildCipherInventory](/user-documentation/recipes/recipe-catalog/cryptography/agilesec/buildcipherinventory.md)
+  * **Build cryptographic cipher inventory**
+  * Builds a cipher inventory for Keyfactor AgileSec by detecting insecure cryptographic algorithm usages across Java (JCA/JCE and BouncyCastle), C# (.NET) and C/C++ (OpenSSL) sources. Every detection is recorded in the shared cipher inventory data table with the algorithm, its function, the library and language, the precise source location, and repository provenance. Phase 1 covers DES, 3DES, RC2, RC4, Blowfish, MD2, MD4, MD5, SHA1 and HMAC-SHA1.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.agilesec.table.CipherInventoryTable**: *Cryptographic algorithm usages detected in source code, including the algorithm, its function, the library and language, the precise source location, and repository provenance.*
+
+
+#### [io.moderne.cryptography.agilesec.FindInsecureCSharpCryptography](/user-documentation/recipes/recipe-catalog/cryptography/agilesec/findinsecurecsharpcryptography.md)
+  * **Find insecure C# cryptography**
+  * Detects insecure .NET (System.Security.Cryptography) algorithm usages and records them in a cipher inventory data table.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.agilesec.table.CipherInventoryTable**: *Cryptographic algorithm usages detected in source code, including the algorithm, its function, the library and language, the precise source location, and repository provenance.*
+
+
+#### [io.moderne.cryptography.agilesec.FindInsecureJavaCryptography](/user-documentation/recipes/recipe-catalog/cryptography/agilesec/findinsecurejavacryptography.md)
+  * **Find insecure Java cryptography**
+  * Detects insecure JCA/JCE and BouncyCastle cryptographic algorithm usages and records them in a cipher inventory data table.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.agilesec.table.CipherInventoryTable**: *Cryptographic algorithm usages detected in source code, including the algorithm, its function, the library and language, the precise source location, and repository provenance.*
+
+
+#### [io.moderne.cryptography.agilesec.FindInsecureNativeCryptography](/user-documentation/recipes/recipe-catalog/cryptography/agilesec/findinsecurenativecryptography.md)
+  * **Find insecure C/C++ cryptography**
+  * Detects insecure OpenSSL EVP_* algorithm usages in C/C++ source (scanned as plain text) and records them in a cipher inventory data table.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.agilesec.table.CipherInventoryTable**: *Cryptographic algorithm usages detected in source code, including the algorithm, its function, the library and language, the precise source location, and repository provenance.*
+
+
+#### [io.moderne.cryptography.pqc.AddHybridTlsNamedGroup](/user-documentation/recipes/recipe-catalog/cryptography/pqc/addhybridtlsnamedgroup.md)
+  * **Offer a hybrid ML-KEM key exchange group first**
+  * Prepends an ML-KEM hybrid key-exchange group to explicitly configured named-group lists, so that a connection whose groups are pinned can still negotiate post-quantum key exchange. Covers `SSLParameters.setNamedGroups` and `BCSSLParameters.setNamedGroups` with a literal array or a same-class private array constant, and `System.setProperty(&quot;jdk.tls.namedGroups&quot;, ...)` with a literal value. The group goes first because first means most preferred, which is where JDK 27 puts it by default and where BouncyCastle 1.81 does not — BCJSSE enables the hybrid last, so an explicit hybrid-first list still changes the key share that is offered. Sites that already name any ML-KEM group are left alone silently and produce no row: `setNamedGroups` throws on a duplicate element, so re-running this recipe has to be a no-op rather than a reordering. Code that configures no named groups at all is deliberately not touched — on JDK 27 that absence is the good state, and inserting a literal list would freeze today's defaults forever. `-D` flags in shell scripts, Dockerfiles and orchestration manifests are outside a source scan and need a manual audit.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.HybridKexEnforcementTable**: *Named-group configuration rewritten to offer an ML-KEM hybrid group first, and sites flagged as needing manual review because the value is not statically resolvable or the transformation would need a BouncyCastle upgrade to compile. `-D` flags outside the scanned repository are invisible, so an unchanged repository is not evidence of a hybrid-ready runtime.*
+
+
+#### [io.moderne.cryptography.pqc.AddHybridTlsNamedGroupToProperties](/user-documentation/recipes/recipe-catalog/cryptography/pqc/addhybridtlsnamedgrouptoproperties.md)
+  * **Offer a hybrid ML-KEM key exchange group first in properties files**
+  * Prepends an ML-KEM hybrid key-exchange group to a `jdk.tls.namedGroups` value in a `.properties` file, under either the bare key or Gradle's `systemProp.` prefix. The group goes first because first means most preferred. An entry that already names any ML-KEM group is left alone silently and produces no row: the JSSE API throws on a duplicate group, so re-running this recipe has to be a no-op. A repository with no such entry is deliberately not given one — on JDK 27 the absence of a pin is the good state.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.HybridKexEnforcementTable**: *Named-group configuration rewritten to offer an ML-KEM hybrid group first, and sites flagged as needing manual review because the value is not statically resolvable or the transformation would need a BouncyCastle upgrade to compile. `-D` flags outside the scanned repository are invisible, so an unchanged repository is not evidence of a hybrid-ready runtime.*
+
+
+#### [io.moderne.cryptography.pqc.BuildPqcReadinessInventory](/user-documentation/recipes/recipe-catalog/cryptography/pqc/buildpqcreadinessinventory.md)
+  * **Build post-quantum TLS readiness inventory**
+  * The single discovery entry point for post-quantum TLS readiness. Answers the three questions that decide whether a connection can negotiate a hybrid ML-KEM key exchange: does the module run on a runtime that offers one (JDK 27, or BouncyCastle 1.81 and later), can it still negotiate TLS 1.3 at all, and does it pin its key-exchange groups to classical curves. Changes nothing; every finding lands in one of four data tables.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.PqcReadinessTable**: *Per-module post-quantum TLS readiness derived from the resolved Maven and Gradle dependency models and the `JavaVersion` markers of the module's Java sources. Modules built by tools OpenRewrite does not parse (Bazel, Ant) and BouncyCastle shaded into fat jars are invisible here, so an absent row is not evidence of health.*
+  * **io.moderne.cryptography.pqc.table.TlsConfigurationInventoryTable**: *TLS protocol version and cipher suite configuration detected in Java sources and in Spring Boot `.properties`/`.yaml` files, classified by whether TLS 1.3 — and therefore JEP 527 / BouncyCastle 1.81 hybrid key exchange — remains reachable. Non-JSSE TLS stacks (Netty, OkHttp, Tomcat and Jetty server configuration, `-D` flags in build files and launch scripts) are out of scope, so an absent row is not evidence that a module has no legacy TLS floor.*
+  * **io.moderne.cryptography.pqc.table.TlsNamedGroupsInventoryTable**: *TLS key-exchange group configuration detected in Java sources, configuration files and checked-in JVM-options values, classified by whether an ML-KEM hybrid group is offered. `-D` flags in shell scripts, Dockerfiles and orchestration manifests outside the scanned repository are invisible, so an absent row is not evidence that no group pin exists.*
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
+#### [io.moderne.cryptography.pqc.BuildTlsConfigurationInventory](/user-documentation/recipes/recipe-catalog/cryptography/pqc/buildtlsconfigurationinventory.md)
+  * **Build TLS protocol configuration inventory**
+  * Inventories every place a codebase decides which TLS protocol versions and cipher suites may be negotiated — Java sources and Spring Boot `.properties`/`.yaml` files — and classifies each by whether TLS 1.3, the only version JEP 527 hybrid key exchange exists for, remains reachable. A pinned cipher list with no RFC 8446 suite blocks TLS 1.3 even when the protocol floor allows it. Deliberately excludes the taint-tracking discovery recipes that overlap this surface (`FindHardcodedProtocolChoice`, `FindDirectSSLConfigurationEditing`, `FindSSLContextSetDefault`): they answer &quot;is this value hardcoded?&quot;, this answers &quot;is TLS 1.3 still reachable?&quot;, and running both doubles every finding.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.TlsConfigurationInventoryTable**: *TLS protocol version and cipher suite configuration detected in Java sources and in Spring Boot `.properties`/`.yaml` files, classified by whether TLS 1.3 — and therefore JEP 527 / BouncyCastle 1.81 hybrid key exchange — remains reachable. Non-JSSE TLS stacks (Netty, OkHttp, Tomcat and Jetty server configuration, `-D` flags in build files and launch scripts) are out of scope, so an absent row is not evidence that a module has no legacy TLS floor.*
+
+
+#### [io.moderne.cryptography.pqc.BuildTlsKeyExchangeInventory](/user-documentation/recipes/recipe-catalog/cryptography/pqc/buildtlskeyexchangeinventory.md)
+  * **Build TLS key exchange inventory**
+  * Inventories every place a codebase decides which TLS key-exchange groups it offers, and classifies each by whether an ML-KEM hybrid group is among them. Where a repository configures named groups nowhere, each TLS-using file is reported as ready-on-upgrade rather than left silent.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.TlsNamedGroupsInventoryTable**: *TLS key-exchange group configuration detected in Java sources, configuration files and checked-in JVM-options values, classified by whether an ML-KEM hybrid group is offered. `-D` flags in shell scripts, Dockerfiles and orchestration manifests outside the scanned repository are invisible, so an absent row is not evidence that no group pin exists.*
+
+
+#### [io.moderne.cryptography.pqc.EnableHybridTlsKeyExchange](/user-documentation/recipes/recipe-catalog/cryptography/pqc/enablehybridtlskeyexchange.md)
+  * **Enable hybrid TLS key exchange**
+  * Prepends an ML-KEM hybrid key-exchange group to explicitly configured named-group lists in Java and `.properties` sources, and reports the sites that cannot be rewritten safely. Code that configures no named groups is deliberately left alone: on JDK 27 and BouncyCastle 1.81 the provider default already offers a hybrid group, so inserting a literal list there would freeze today's defaults forever.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.HybridKexEnforcementTable**: *Named-group configuration rewritten to offer an ML-KEM hybrid group first, and sites flagged as needing manual review because the value is not statically resolvable or the transformation would need a BouncyCastle upgrade to compile. `-D` flags outside the scanned repository are invisible, so an unchanged repository is not evidence of a hybrid-ready runtime.*
+
+
+#### [io.moderne.cryptography.pqc.EnforceTls13](/user-documentation/recipes/recipe-catalog/cryptography/pqc/enforcetls13.md)
+  * **Enforce a TLS 1.3 floor**
+  * Rewrites JSSE, BouncyCastle and Spring Boot protocol configuration to a TLS 1.3 floor across Java, `.properties` and YAML sources, so that JEP 527 hybrid key exchange — which exists for TLS 1.3 only — can negotiate. Surfaces that cannot be rewritten safely are recorded as `Report only` rows rather than changed.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.ProtocolEnforcementTable**: *Protocol configuration surfaces rewritten to a TLS 1.3 floor, and surfaces flagged as needing manual review because rewriting them would change behaviour in a way a source scan cannot justify. Rows describe declared configuration only: a JVM's `java.security` file, container `-D` flags and environment variables are invisible here, so an enforced source does not prove an enforced runtime.*
+
+
+#### [io.moderne.cryptography.pqc.EnforceTls13Java](/user-documentation/recipes/recipe-catalog/cryptography/pqc/enforcetls13java.md)
+  * **Enforce a TLS 1.3 floor in Java sources**
+  * Rewrites JSSE and BouncyCastle protocol configuration to a TLS 1.3 floor, so that JEP 527 hybrid key exchange — which exists for TLS 1.3 only — can negotiate. Covers `SSLContext.getInstance` algorithm literals, the `setEnabledProtocols`/`setProtocols` sinks including `BCSSLParameters`, same-file protocol array constants whose only readers are those sinks, the `jdk.tls.client.protocols`, `jdk.tls.server.protocols` and `https.protocols` system properties, and `getSupportedVersions` overrides on BouncyCastle `TlsPeer` subclasses. Surfaces that cannot be rewritten safely — an array constant shared with non-TLS code, or a `Security.setProperty(&quot;jdk.tls.disabledAlgorithms&quot;, ...)` call that replaces rather than extends the JDK default list — are marked and recorded as `Report only` rows instead of being changed. Protocol values that are not statically resolvable are left alone without a row: finding those is the discovery recipes' job, and reporting them here would duplicate their findings. Test sources are skipped by default, because a protocol test usually enables a legacy version on purpose in order to assert that it is refused. One shape deserves review before the diff is merged: a protocol list that was deliberately *widened* to work around a handshake failure against a legacy peer looks exactly like an unmaintained legacy floor, and narrowing it will re-break that peer. Every rewrite is recorded in the enforcement data table with its before and after protocols, and `retainTls12In` scopes the exception once such a site is identified.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.ProtocolEnforcementTable**: *Protocol configuration surfaces rewritten to a TLS 1.3 floor, and surfaces flagged as needing manual review because rewriting them would change behaviour in a way a source scan cannot justify. Rows describe declared configuration only: a JVM's `java.security` file, container `-D` flags and environment variables are invisible here, so an enforced source does not prove an enforced runtime.*
+
+
+#### [io.moderne.cryptography.pqc.EnforceTls13Properties](/user-documentation/recipes/recipe-catalog/cryptography/pqc/enforcetls13properties.md)
+  * **Enforce a TLS 1.3 floor in properties files**
+  * Rewrites TLS protocol configuration in `.properties` files to a TLS 1.3 floor, so that JEP 527 hybrid key exchange — which exists for TLS 1.3 only — can negotiate. Covers `server.ssl.enabled-protocols`, the `jdk.tls.client.protocols`, `jdk.tls.server.protocols` and `https.protocols` keys, `server.ssl.protocol` under `strictAlgorithmName`, and any key named in `additionalPropertyKeys`. Keys are matched with Spring relaxed binding, so `enabled-protocols`, `enabledProtocols` and `ENABLED_PROTOCOLS` all match. Configuration a source scan cannot see — config servers, `ConfigMap` overlays, environment variables — is out of scope, so an unchanged repository is not evidence of an enforced floor.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.ProtocolEnforcementTable**: *Protocol configuration surfaces rewritten to a TLS 1.3 floor, and surfaces flagged as needing manual review because rewriting them would change behaviour in a way a source scan cannot justify. Rows describe declared configuration only: a JVM's `java.security` file, container `-D` flags and environment variables are invisible here, so an enforced source does not prove an enforced runtime.*
+
+
+#### [io.moderne.cryptography.pqc.EnforceTls13Yaml](/user-documentation/recipes/recipe-catalog/cryptography/pqc/enforcetls13yaml.md)
+  * **Enforce a TLS 1.3 floor in YAML files**
+  * Rewrites TLS protocol configuration in YAML files to a TLS 1.3 floor, so that JEP 527 hybrid key exchange — which exists for TLS 1.3 only — can negotiate. Covers `server.ssl.enabled-protocols`, the `jdk.tls.client.protocols`, `jdk.tls.server.protocols` and `https.protocols` keys, `server.ssl.protocol` under `strictAlgorithmName`, and any key named in `additionalPropertyKeys`. Values may be a single scalar, a comma-separated scalar, or a sequence in flow or block style; a sequence is rewritten in place, reusing its existing entries so indentation and comments survive. Configuration a source scan cannot see — config servers, `ConfigMap` overlays, environment variables — is out of scope, so an unchanged repository is not evidence of an enforced floor.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.ProtocolEnforcementTable**: *Protocol configuration surfaces rewritten to a TLS 1.3 floor, and surfaces flagged as needing manual review because rewriting them would change behaviour in a way a source scan cannot justify. Rows describe declared configuration only: a JVM's `java.security` file, container `-D` flags and environment variables are invisible here, so an enforced source does not prove an enforced runtime.*
+
+
+#### [io.moderne.cryptography.pqc.FindMissingHybridTlsNamedGroups](/user-documentation/recipes/recipe-catalog/cryptography/pqc/findmissinghybridtlsnamedgroups.md)
+  * **Find TLS key exchange sites that cannot be made hybrid automatically**
+  * Reports the named-group sites a transformation recipe deliberately leaves alone, so that an empty diff is not mistaken for an empty problem. Three kinds: a `setNamedGroups` call whose argument is a runtime value, which no source rewrite can reach; a `getSupportedGroups` override on a BouncyCastle `AbstractTlsClient` subclass naming no ML-KEM group, where generated code referencing `NamedGroup.X25519MLKEM768` would only compile against bctls 1.81 or later and so must ride with a dependency upgrade; and optionally SSL parameters applied without any named-groups configuration, whose remediation is a JDK 27 or BouncyCastle 1.81 upgrade rather than an edit.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.HybridKexEnforcementTable**: *Named-group configuration rewritten to offer an ML-KEM hybrid group first, and sites flagged as needing manual review because the value is not statically resolvable or the transformation would need a BouncyCastle upgrade to compile. `-D` flags outside the scanned repository are invisible, so an unchanged repository is not evidence of a hybrid-ready runtime.*
+
+
+#### [io.moderne.cryptography.pqc.FindTlsNamedGroupsConfiguration](/user-documentation/recipes/recipe-catalog/cryptography/pqc/findtlsnamedgroupsconfiguration.md)
+  * **Find TLS key exchange (named groups) configuration**
+  * Inventories every place a codebase decides which TLS key-exchange groups it offers, and classifies each by whether an ML-KEM hybrid group — the thing JEP 527 and BouncyCastle 1.81 add — is among them. Covers `SSLParameters.setNamedGroups` and `BCSSLParameters.setNamedGroups`, the `jdk.tls.namedGroups` system property set in code or embedded as a `-D` flag in checked-in YAML and `.properties` files, `getSupportedGroups` overrides on BouncyCastle `AbstractTlsClient` subclasses, BCJSSE provider registration, and `jdk.tls.disabledAlgorithms` values that disable a hybrid group. When the repository configures named groups nowhere, each TLS-using file gets one `A` row: that code is post-quantum ready as soon as it runs on JDK 27 or BouncyCastle 1.81, with no source change. `-D` flags in shell scripts, Dockerfiles and orchestration manifests outside the repository are invisible, so an absent row is not proof that no group pin exists.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.TlsNamedGroupsInventoryTable**: *TLS key-exchange group configuration detected in Java sources, configuration files and checked-in JVM-options values, classified by whether an ML-KEM hybrid group is offered. `-D` flags in shell scripts, Dockerfiles and orchestration manifests outside the scanned repository are invisible, so an absent row is not evidence that no group pin exists.*
+
+
+#### [io.moderne.cryptography.pqc.FindTlsPropertyConfiguration](/user-documentation/recipes/recipe-catalog/cryptography/pqc/findtlspropertyconfiguration.md)
+  * **Find TLS protocol configuration in properties and YAML**
+  * Inventories Spring Boot configuration files that set an embedded server's TLS protocol floor or cipher suites — `server.ssl.enabled-protocols`, `server.ssl.protocol` and `server.ssl.ciphers`, plus any key named in `additionalPropertyKeys` — and classifies each value by whether TLS 1.3, and therefore JEP 527 hybrid key exchange, remains reachable. A pinned `server.ssl.ciphers` list with no RFC 8446 suite blocks TLS 1.3 even when the protocol floor allows it. Rows land in the same TLS configuration inventory data table as the Java surface. Keys are matched with relaxed binding, so `enabled-protocols`, `enabledProtocols` and `ENABLED_PROTOCOLS` all match; values may be a single token, a comma-separated string, or a YAML sequence in either flow or block style. Configuration a source scan cannot see — config servers, `ConfigMap` overlays, environment variables — is out of scope, so an absent row is not evidence of a modern floor.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.TlsConfigurationInventoryTable**: *TLS protocol version and cipher suite configuration detected in Java sources and in Spring Boot `.properties`/`.yaml` files, classified by whether TLS 1.3 — and therefore JEP 527 / BouncyCastle 1.81 hybrid key exchange — remains reachable. Non-JSSE TLS stacks (Netty, OkHttp, Tomcat and Jetty server configuration, `-D` flags in build files and launch scripts) are out of scope, so an absent row is not evidence that a module has no legacy TLS floor.*
+
+
+#### [io.moderne.cryptography.pqc.FindTlsProtocolConfiguration](/user-documentation/recipes/recipe-catalog/cryptography/pqc/findtlsprotocolconfiguration.md)
+  * **Find TLS protocol configuration**
+  * Inventories every place a Java source decides which TLS protocol versions and cipher suites may be negotiated, and classifies each by whether TLS 1.3 — the only version JEP 527 hybrid key exchange exists for — remains reachable. Covers `SSLContext.getInstance` (whose algorithm name is a *ceiling*, never a floor), the `setProtocols`/`setEnabledProtocols` and `setCipherSuites`/`setEnabledCipherSuites` sinks, the `jdk.tls.client.protocols`, `jdk.tls.server.protocols`, `https.protocols`, `jdk.tls.client.cipherSuites` and `jdk.tls.server.cipherSuites` system properties, BouncyCastle `getSupportedVersions` and `getSupportedCipherSuites` overrides, and default-acquisition sites that configure no floor at all. A pinned cipher list with no RFC 8446 suite blocks TLS 1.3 even when the protocol floor allows it. Findings land in the TLS configuration inventory data table. Scope is JSSE and BouncyCastle: Netty, OkHttp, Apache HttpClient and servlet-container configuration are not scanned, and `-D` flags in build files and launch scripts are invisible, so an absent row is not evidence of a modern floor.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.TlsConfigurationInventoryTable**: *TLS protocol version and cipher suite configuration detected in Java sources and in Spring Boot `.properties`/`.yaml` files, classified by whether TLS 1.3 — and therefore JEP 527 / BouncyCastle 1.81 hybrid key exchange — remains reachable. Non-JSSE TLS stacks (Netty, OkHttp, Tomcat and Jetty server configuration, `-D` flags in build files and launch scripts) are out of scope, so an absent row is not evidence that a module has no legacy TLS floor.*
+
+
+#### [io.moderne.cryptography.pqc.PqcReadinessAudit](/user-documentation/recipes/recipe-catalog/cryptography/pqc/pqcreadinessaudit.md)
+  * **Audit post-quantum TLS readiness of build files**
+  * Reports how far each Maven and Gradle module is from post-quantum TLS by joining its JDK level with the BouncyCastle artifacts it resolves. Modules with no BouncyCastle get a row too, so absence is reported rather than inferred from an empty table.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.PqcReadinessTable**: *Per-module post-quantum TLS readiness derived from the resolved Maven and Gradle dependency models and the `JavaVersion` markers of the module's Java sources. Modules built by tools OpenRewrite does not parse (Bazel, Ant) and BouncyCastle shaded into fat jars are invisible here, so an absent row is not evidence of health.*
+
+
+#### [io.moderne.cryptography.pqc.PqcReadinessReport](/user-documentation/recipes/recipe-catalog/cryptography/pqc/pqcreadinessreport.md)
+  * **Post-quantum TLS readiness report**
+  * Classifies every Maven and Gradle module by how far it is from post-quantum TLS, joining the module's JDK level with the BouncyCastle artifacts it resolves, and records one row per module per BouncyCastle artifact in a data table. Modules with no BouncyCastle at all get exactly one row, so absence is reported rather than inferred from silence. Direct `org.bouncycastle` declarations in modules that have a gap are marked. `bcutil` and everything reachable only through it is pruned from the graph walk: it is an internal support artifact that declares BouncyCastle with version ranges, which would otherwise make the reported versions drift with every patch release. Only BouncyCastle that appears in a resolved dependency graph is seen: jars vendored into the repository and wired up with Gradle `fileTree`/`flatDir` or Maven `system` scope, and BouncyCastle shaded into a fat jar, carry no coordinates and therefore report as `no-bc`. Modules whose build tool did not run are reported as `build-file-not-resolved` rather than being dropped, so that gap is visible instead of silent.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.pqc.table.PqcReadinessTable**: *Per-module post-quantum TLS readiness derived from the resolved Maven and Gradle dependency models and the `JavaVersion` markers of the module's Java sources. Modules built by tools OpenRewrite does not parse (Bazel, Ant) and BouncyCastle shaded into fat jars are invisible here, so an absent row is not evidence of health.*
+
+
+#### [io.moderne.cryptography.pqc.UpgradeToPqcReadyTls](/user-documentation/recipes/recipe-catalog/cryptography/pqc/upgradetopqcreadytls.md)
+  * **Upgrade to post-quantum ready TLS**
+  * The single transformation entry point for post-quantum TLS readiness. Moves a repository off the end-of-life `jdk15on` BouncyCastle artifacts onto a hybrid-capable `bctls`, raises the protocol floor to TLS 1.3, and offers an ML-KEM hybrid key-exchange group first wherever groups are pinned. Run `BuildPqcReadinessInventory` first: this recipe cannot reach configuration held outside the repository, and the sites it deliberately skips are visible only in its data tables. It also cannot upgrade the runtime, which is the other half of the job — JEP 527 hybrid key exchange exists on JDK 27 and later only.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **io.moderne.cryptography.pqc.table.ProtocolEnforcementTable**: *Protocol configuration surfaces rewritten to a TLS 1.3 floor, and surfaces flagged as needing manual review because rewriting them would change behaviour in a way a source scan cannot justify. Rows describe declared configuration only: a JVM's `java.security` file, container `-D` flags and environment variables are invisible here, so an enforced source does not prove an enforced runtime.*
+  * **io.moderne.cryptography.pqc.table.HybridKexEnforcementTable**: *Named-group configuration rewritten to offer an ML-KEM hybrid group first, and sites flagged as needing manual review because the value is not statically resolvable or the transformation would need a BouncyCastle upgrade to compile. `-D` flags outside the scanned repository are invisible, so an unchanged repository is not evidence of a hybrid-ready runtime.*
+
+
 
 ### rewrite-cve-2026-22732
 
@@ -942,6 +1136,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.DependencyUsage**: *External library dependencies and how they are used in the codebase.*
 
 
+#### [io.moderne.prethink.ExtractNodeDependencies](/user-documentation/recipes/recipe-catalog/prethink/extractnodedependencies.md)
+  * **Extract Node.js dependencies and usage**
+  * Scan package.json and JavaScript/TypeScript imports to produce a DependencyUsage entry per actually-imported npm package, including the symbols imported from it, the import styles in use, and how many files import it.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.DependencyUsage**: *External library dependencies and how they are used in the codebase.*
+
+
 #### [io.moderne.prethink.FindGoCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findgocodingconventions.md)
   * **Find Go coding conventions**
   * Detect Go naming patterns (package names, exported vs unexported, interface -er suffix, error variable prefix, test prefix).
@@ -958,6 +1161,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
+
+
+#### [io.moderne.prethink.FindNodeCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findnodecodingconventions.md)
+  * **Find JavaScript and TypeScript coding conventions**
+  * Detect JavaScript/TypeScript conventions the Java convention extractor cannot see: import styles (default, named, namespace, type-only, side-effect, path-alias), React hook and component naming, the Props suffix for prop types, UPPER_SNAKE_CASE constants, and JSDoc comments.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
 
 
 #### [io.moderne.prethink.PythonDependencyReport](/user-documentation/recipes/recipe-catalog/prethink/pythondependencyreport.md)
@@ -1000,6 +1212,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
   * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
   * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
+  * **io.moderne.prethink.table.SqlUsage**: *Physical tables and columns each SQL statement touches, attributed to the class and method that issues it.*
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
   * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
   * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
   * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
@@ -1040,6 +1254,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
   * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
   * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
+  * **io.moderne.prethink.table.SqlUsage**: *Physical tables and columns each SQL statement touches, attributed to the class and method that issues it.*
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
   * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
   * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
   * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
@@ -1339,6 +1555,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
 
 
+#### [io.moderne.prethink.calm.FindGoDataAssets](/user-documentation/recipes/recipe-catalog/prethink/calm/findgodataassets.md)
+  * **Find Go data assets**
+  * Identify Go structs that carry the data model, classified as entities, documents, or DTOs based on their struct tags (`gorm:`, `db:`, `bson:`, `json:`) and naming.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.DataAssets**: *Data entities, DTOs, and records that represent the application's data model.*
+
+
 #### [io.moderne.prethink.calm.FindGoDatabaseConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findgodatabaseconnections.md)
   * **Find Go database connections**
   * Detect database/sql, GORM, sqlx, pgx, and ent usage in Go source.
@@ -1382,6 +1607,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
+
+
+#### [io.moderne.prethink.calm.FindGoScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/findgoscheduledtasks.md)
+  * **Find Go scheduled tasks**
+  * Detect background work scheduled through robfig/cron, go-co-op/gocron, `time.NewTicker`/`time.Tick`, and `time.AfterFunc` in Go source.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
 
 
 #### [io.moderne.prethink.calm.FindGoServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgoserviceendpoints.md)
@@ -1449,7 +1683,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindNodeErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodeerrorpatterns.md)
   * **Find Node.js error patterns**
-  * Identify error handling patterns in Node.js applications. Detects try/catch blocks and identifies logging frameworks used.
+  * Identify error handling patterns in Node.js applications. Detects try/catch blocks, infers the handling strategy and log level, and identifies the logging framework from ES imports and require() bindings, reporting console when a catch logs through it.
 
 ##### Data tables:
 
@@ -1607,6 +1841,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
+#### [io.moderne.prethink.calm.FindSqlUsage](/user-documentation/recipes/recipe-catalog/prethink/calm/findsqlusage.md)
+  * **Find SQL usage**
+  * Locate SQL statements in code and resources, and attribute the physical tables and columns each touches to the class and method that issues it. Emits one row per statement per table, joining `sql-anti-patterns.csv` on source path and line number, and `method-quality-metrics.csv` and `test-gaps.csv` on class name and method signature.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.SqlUsage**: *Physical tables and columns each SQL statement touches, attributed to the class and method that issues it.*
 
 
 #### [io.moderne.prethink.calm.FindTypeORMEntities](/user-documentation/recipes/recipe-catalog/prethink/calm/findtypeormentities.md)
@@ -2895,6 +3138,51 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-javascript
 
+#### [org.openrewrite.javascript.AddDependency](/user-documentation/recipes/recipe-catalog/javascript/adddependency.md)
+  * **Add npm dependency**
+  * Add an npm dependency to `package.json` and regenerate the lock file by running the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
+
+#### [org.openrewrite.javascript.ChangeDependency](/user-documentation/recipes/recipe-catalog/javascript/changedependency.md)
+  * **Change npm dependency**
+  * Renames an npm dependency in `package.json` and optionally updates its version constraint. After modifying the package.json, the lock file is regenerated by running the package manager. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
+
+#### [org.openrewrite.javascript.RemoveDependency](/user-documentation/recipes/recipe-catalog/javascript/removedependency.md)
+  * **Remove npm dependency**
+  * Remove an npm dependency from `package.json` and regenerate the lock file. If the dependency does not exist in any scope, the recipe is a no-op.
+
+##### Data tables:
+
+  * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
+
+#### [org.openrewrite.javascript.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion.md)
+  * **Upgrade npm dependency version**
+  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file by running the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
+
+#### [org.openrewrite.javascript.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradetransitivedependencyversion.md)
+  * **Upgrade transitive npm dependency**
+  * Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+
+
 #### [org.openrewrite.javascript.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/javascript/search/dependencyinsight.md)
   * **Node.js dependency insight**
   * Find direct and transitive npm dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency.
@@ -2991,6 +3279,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.maven.MigrateToMaven4](/user-documentation/recipes/recipe-catalog/maven/migratetomaven4.md)
+  * **Migrate to Maven 4**
+  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, lifecycle phases, removes duplicate plugin and dependency declarations, upgrades plugins known to fail under Maven 4, switches repository URLs to HTTPS, and replaces removed properties to ensure compatibility with Maven 4.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.maven.ReproducibleBuilds](/user-documentation/recipes/recipe-catalog/maven/reproduciblebuilds.md)
   * **Apache Maven reproducible builds**
   * Configure a Maven project for [reproducible builds](https://maven.apache.org/guides/mini/guide-reproducible-builds.html): pin dependency and plugin versions, set `project.build.outputTimestamp`, set explicit UTF-8 source encoding, and upgrade core plugins to versions that honor the output timestamp.
@@ -3012,6 +3309,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.maven.UpgradePluginVersion](/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion.md)
   * **Upgrade Maven plugin version**
   * Upgrade the version of a plugin using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.maven.UpgradePluginsForMaven4](/user-documentation/recipes/recipe-catalog/maven/upgradepluginsformaven4.md)
+  * **Upgrade plugins that are incompatible with Maven 4**
+  * Upgrades plugins that are known to fail under Maven 4, using the minimum working versions applied by Apache's own [`mvnup upgrade --plugins`](https://maven.apache.org/tools/mvnup.html) as a floor while accepting any newer release within the same major version. Plugins already at or above that floor are upgraded to the latest such release; plugins that declare no version are left alone. `quarkus-maven-plugin` is held at its floor, as its version is coupled to the Quarkus platform BOM. Plugin dependencies known to break Maven 4 are upgraded as well.
 
 ##### Data tables:
 
@@ -3477,15 +3783,17 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.compiled.table.ABITraces**: *ASM trace of the ABI of types needed to perform compile verification.*
+  * **io.moderne.compiled.table.CompilationFailures**: *Elements that no longer compile after a preceding recipe made changes to the file.*
 
 
 #### [io.moderne.compiled.verification.VerifyCompilation](/user-documentation/recipes/recipe-catalog/compiled/verification/verifycompilation.md)
-  * **Verify compilation**
-  * This is a task that runs after another recipe to verify that the changes made by that recipe would result in a successful compilation.
+  * **Verify compilation of changes made earlier in the same run**
+  * Recompile the source files that **earlier recipes in this same recipe run** changed, and mark the elements that no longer compile. This recipe examines only files carrying a `RecipesThatMadeChanges` marker, so running it on its own reports nothing at all, no matter how badly broken the code in the repository is. It is a verification step for a migration, not a standalone compiler. Compose it after the recipe whose output you want to verify: ```yaml type: specs.openrewrite.org/v1beta/recipe name: com.yourorg.MigrateAndVerify displayName: Migrate and verify description: Rename a method and verify that the result still compiles. recipeList:   - org.openrewrite.java.ChangeMethodName:       methodPattern: java.util.List add(..)       newMethodName: plus   - io.moderne.compiled.verification.VerifyCompilation ``` Failures appear as inline warnings on the offending elements, so a run that produces no warnings either verified everything successfully or had nothing to verify.
 
 ##### Data tables:
 
   * **io.moderne.compiled.table.ABITraces**: *ASM trace of the ABI of types needed to perform compile verification.*
+  * **io.moderne.compiled.table.CompilationFailures**: *Elements that no longer compile after a preceding recipe made changes to the file.*
 
 
 
@@ -3603,7 +3911,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-07-27T1204.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-08-10T1122.
 
 ##### Data tables:
 
@@ -3704,7 +4012,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-07-27T1204.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-08-10T1122.
 
 ##### Data tables:
 
@@ -4507,7 +4815,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.python.migrate.FindFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/findfutureimports.md)
   * **Find `__future__` imports**
-  * Find `__future__` imports and add a search marker.
+  * Find `__future__` imports and add a search marker. The `RemoveFutureImports` recipe automatically removes the imports that are obsolete in Python 3.
 
 ##### Data tables:
 
@@ -5421,6 +5729,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.staticanalysis.table.LegacySynchronizedTypesNotMigrated**: *Instances of a legacy synchronized type (`Hashtable`, `Vector`, `Stack`, `StringBuffer`) that were found but left unchanged because they could not be proven safe to modernize.*
+
+
+#### [org.openrewrite.staticanalysis.UseLambdaForFunctionalInterface](/user-documentation/recipes/recipe-catalog/staticanalysis/uselambdaforfunctionalinterface.md)
+  * **Use lambda expressions instead of anonymous classes**
+  * Instead of anonymous class declarations, use a lambda where possible. Using lambdas to replace anonymous classes can lead to more expressive and maintainable code, improve code readability, reduce code duplication, and achieve better performance in some cases.
+
+##### Data tables:
+
+  * **org.openrewrite.staticanalysis.table.AnonymousFunctionalInterfaceImplementations**: *Every anonymous class that implements a functional interface, whether or not it could be rewritten to a lambda, plus the sites that could not be decided either way because the supertype carries incomplete type attribution. Sites that were not rewritten carry the reason why.*
 
 
 

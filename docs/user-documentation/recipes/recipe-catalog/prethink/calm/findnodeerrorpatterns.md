@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find Node.js error patterns"}
-  description={"Identify error handling patterns in Node.js applications. Detects try/catch blocks and identifies logging frameworks used."}
+  description={"Identify error handling patterns in Node.js applications. Detects try/catch blocks, infers the handling strategy and log level, and identifies the logging framework from ES imports and require() bindings, reporting console when a catch logs through it."}
   fqName={"io.moderne.prethink.calm.FindNodeErrorPatterns"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find Node.js error patterns</RecipeHeader.Title>
 
-<RecipeHeader.Description>Identify error handling patterns in Node.js applications. Detects try/catch blocks and identifies logging frameworks used.</RecipeHeader.Description>
+<RecipeHeader.Description>Identify error handling patterns in Node.js applications. Detects try/catch blocks, infers the handling strategy and log level, and identifies the logging framework from ES imports and require() bindings, reporting console when a catch logs through it.</RecipeHeader.Description>
 
 </RecipeHeader>
 

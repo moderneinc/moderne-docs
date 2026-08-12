@@ -32,13 +32,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"int","name":"majorVersion","required":true,"description":"The major version of Groovy to upgrade to.","example":"4"},{"type":"String","name":"upgradeRecipe","required":false,"description":"The recipe to use to upgrade.","example":"TODO Provide a usage example for the docs"}]}>
+<OptionsTable options={[{"type":"int","name":"majorVersion","required":true,"description":"The major version of Groovy to upgrade to.","example":"4"},{"type":"String","name":"upgradeRecipe","required":false,"description":"The recipe to use to upgrade.","example":"org.openrewrite.groovy.migrate.UpgradeToGroovy4"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.GroovyVersionUpgrade","displayName":"Move to a later Groovy version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=4\" --recipe-option \"upgradeRecipe=TODO Provide a usage example for the docs\""}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.GroovyVersionUpgrade","displayName":"Move to a later Groovy version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=4\" --recipe-option \"upgradeRecipe=org.openrewrite.groovy.migrate.UpgradeToGroovy4\""}}>
 
 ## Usage
 

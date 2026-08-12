@@ -1533,14 +1533,20 @@ _93 recipes_
 
 ## bouncycastle
 
-_2 recipes_
+_4 recipes_
 
 * [org.openrewrite.java.migrate.BounceCastleFromJdk15OntoJdk18On](/user-documentation/recipes/recipe-catalog/java/migrate/bouncecastlefromjdk15ontojdk18on.md)
   * **Migrate Bouncy Castle to `jdk18on`**
-  * This recipe will upgrade Bouncy Castle dependencies from `-jdk15on` or `-jdk15to18` to `-jdk18on`.
+  * This recipe will upgrade Bouncy Castle dependencies from any of the legacy artifact suffixes `-jdk12`, `-jdk14`, `-jdk15`, `-jdk15+`, `-jdk16`, `-jdk15on` or `-jdk15to18` to `-jdk18on`. The `bctsp` artifacts map onto `bcpkix`, which absorbed the time stamp protocol support in 1.47.
+* [org.openrewrite.java.migrate.BouncyCastleDerStringGetInstanceReturnType](/user-documentation/recipes/recipe-catalog/java/migrate/bouncycastlederstringgetinstancereturntype.md)
+  * **Use `ASN1*String` for the result of `DER*String.getInstance(..)`**
+  * In Bouncy Castle 1.71 the `getInstance(..)` methods on the `DER*String` ASN.1 types were pulled up to their `ASN1*String` supertypes, widening their return type. The call itself still compiles, as static methods are inherited, but assigning the result to a `DER*String` variable or field no longer does. This recipe widens those declared types to the matching `ASN1*String`, which compiles against both the `-jdk15on` and `-jdk18on` artifacts, and can therefore safely be applied ahead of the upgrade.
 * [org.openrewrite.java.migrate.BouncyCastleFromJdk15OnToJdk15to18](/user-documentation/recipes/recipe-catalog/java/migrate/bouncycastlefromjdk15ontojdk15to18.md)
-  * **Migrate Bouncy Castle from `jdk15on` to `jdk15to18` for Java &lt; 8**
-  * This recipe replaces the Bouncy Castle artifacts from `jdk15on` to `jdk15to18`. `jdk15on` isn't maintained anymore and `jdk18on` is only for Java 8 and above. The `jdk15to18` artifact is the up-to-date replacement of the unmaintained `jdk15on` for Java &lt; 8.
+  * **Migrate Bouncy Castle to `jdk15to18` for Java &lt; 8**
+  * This recipe replaces the Bouncy Castle artifacts from any of the legacy artifact suffixes `-jdk12`, `-jdk14`, `-jdk15`, `-jdk15+`, `-jdk16` or `-jdk15on` to `-jdk15to18`. Those artifacts aren't maintained anymore and `jdk18on` is only for Java 8 and above. The `jdk15to18` artifact is the up-to-date replacement for Java &lt; 8. The `bctsp` artifacts map onto `bcpkix`, which absorbed the time stamp protocol support in 1.47.
+* [org.openrewrite.java.migrate.BouncyCastleSphincsPlusToPqcLegacy](/user-documentation/recipes/recipe-catalog/java/migrate/bouncycastlesphincsplustopqclegacy.md)
+  * **Move Bouncy Castle SPHINCS+ classes to `pqc.legacy`**
+  * Bouncy Castle 1.78 moved the pre-standardization SPHINCS+ implementation from `org.bouncycastle.pqc.crypto.sphincsplus` to `org.bouncycastle.pqc.legacy.sphincsplus`, to free up the original package for the FIPS 205 SLH-DSA implementation. All types moved unchanged, so this is a straight package rename.
 
 ## brave
 
@@ -2240,7 +2246,7 @@ _1 recipe_
 
 ## code
 
-_418 recipes_
+_504 recipes_
 
 * [OpenRewrite.Recipes.CSharp.CodeQuality.CodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/codequality-recipe.md)
   * **Code quality**
@@ -3870,6 +3876,350 @@ _418 recipes_
   * **Value type is never equal to null**
   * Replace null with default in comparisons of value types.
   * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddAttachedPropertyBrowsableForTypeAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addattachedpropertybrowsablefortypeattribute.md)
+  * **Add [AttachedPropertyBrowsableForType]**
+  * The static `Get` accessor of an attached property should be annotated with `[AttachedPropertyBrowsableForType(typeof(T))]` so the XAML designer offers the property on elements of type `T`. Adds the attribute naming the accessor's parameter type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddConstructorArgumentAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addconstructorargumentattribute.md)
+  * **Add [ConstructorArgument]**
+  * A `MarkupExtension` property assigned from a constructor parameter should be annotated with `[ConstructorArgument(&quot;parameterName&quot;)]` so XAML can round-trip the positional and the named form of the extension. Adds the missing attribute.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddDefaultFieldToValueConverter](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/adddefaultfieldtovalueconverter.md)
+  * **Add default field to converter**
+  * A stateless `IValueConverter` or `IMultiValueConverter` should expose a `Default` instance rather than being constructed per binding. Adds `static readonly T Default = new T();` and seals the converter.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddMarkupExtensionReturnTypeAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addmarkupextensionreturntypeattribute.md)
+  * **Add MarkupExtensionReturnType attribute**
+  * A `MarkupExtension` that overrides `ProvideValue` should be annotated with `[MarkupExtensionReturnType(typeof(T))]` so XAML tooling knows what the extension yields. Adds the attribute when the returned type can be determined from `ProvideValue`.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddTemplatePartAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addtemplatepartattribute.md)
+  * **Add [TemplatePart] for a looked-up template part**
+  * A `GetTemplateChild(&quot;PART_X&quot;)` call in `OnApplyTemplate` is an undeclared dependency on the control template. Adds `[TemplatePart(Name = ..., Type = ...)]` to the control for every part it looks up but neither it nor a base control declares.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddValueConversionAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addvalueconversionattribute.md)
+  * **Add ValueConversion attribute**
+  * An `IValueConverter` should be annotated with `[ValueConversion(typeof(source), typeof(target))]` so XAML tooling knows the types it converts between. Adds the attribute when both types can be determined from `Convert`.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddXmlnsDefinitionForUnmappedNamespaces](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addxmlnsdefinitionforunmappednamespaces.md)
+  * **XmlnsDefinitions should map all namespaces with public types**
+  * Adds an `[assembly: XmlnsDefinition]` for every namespace that declares a public type but is not exported to XAML, copying the XAML namespace URL from the existing mappings.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.CastSenderToContainingType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/castsendertocontainingtype.md)
+  * **Cast the sender of a dependency property callback to the containing type**
+  * A direct cast of the sender in a `PropertyChangedCallback` or `CoerceValueCallback` should name the type that registered the property rather than a base type, so that the cast documents what the sender really is.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.CastSenderToCorrectType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/castsendertocorrecttype.md)
+  * **Cast the sender of a dependency property callback to the correct type**
+  * The `DependencyObject` passed to a `PropertyChangedCallback` or `CoerceValueCallback` is the type that registered the property. Replaces a cast, `as`, `is` or `case` conversion naming a type the sender can never be with the registering type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.CastValueToCorrectType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/castvaluetocorrecttype.md)
+  * **Cast the value of a dependency property callback to the correct type**
+  * The value a `PropertyChangedCallback`, `CoerceValueCallback` or `ValidateValueCallback` receives is the type the property was registered with. Replaces a cast, `as`, `is` or `case` conversion naming a type the value can never be with the registered type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.CastValueToExactType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/castvaluetoexacttype.md)
+  * **Cast the value of a dependency property callback to the exact type**
+  * A direct cast of the value in a dependency property callback should name the type the property was registered with rather than a base type, so that the cast documents what the value really is.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.ConvertAutoPropertyToDependencyProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/convertautopropertytodependencyproperty.md)
+  * **Convert an auto-property to a dependency property**
+  * An auto-property on a `DependencyObject` cannot be bound, styled or animated. Registers a `DependencyProperty` for it and rewrites the property to `get =&gt; (T)GetValue(XProperty);` / `set =&gt; SetValue(XProperty, value);`, keeping any initializer as the metadata default. A setter that is not public — or a get-only property — produces the read-only `DependencyPropertyKey` pattern instead.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.ConvertDependencyPropertyToReadOnly](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/convertdependencypropertytoreadonly.md)
+  * **Convert a dependency property to a read-only dependency property**
+  * Rewrites `DependencyProperty.Register` to `RegisterReadOnly`, holding the result in a private `DependencyPropertyKey` and exposing `&lt;key&gt;.DependencyProperty` under the original name. Every `SetValue` on the property inside the declaring type is moved onto the key, which is the only way a read-only dependency property can be written.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.ConvertEventToRoutedEvent](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/converteventtoroutedevent.md)
+  * **Convert a CLR event to a routed event**
+  * A CLR event on an element cannot be routed through the element tree or handled by a parent. Registers a `RoutedEvent` for it with `EventManager.RegisterRoutedEvent` and rewrites the event to `add`/`remove` accessors calling `AddHandler`/`RemoveHandler`.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.ConvertTrivialCallbackToLambda](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/converttrivialcallbacktolambda.md)
+  * **Convert a trivial dependency property callback to a lambda**
+  * A `PropertyChangedCallback`, `CoerceValueCallback` or `ValidateValueCallback` whose body is a single expression is inlined as a lambda at the registration, so the callback sits next to the property it belongs to. The method is removed when nothing else used it.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DeclareDependencyPropertyKeyBeforeProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/declaredependencypropertykeybeforeproperty.md)
+  * **DependencyPropertyKey member must be declared before DependencyProperty member**
+  * A `DependencyProperty` initialized from `&lt;key&gt;.DependencyProperty` must be declared after that `DependencyPropertyKey`, because static initializers run in declaration order and the key would otherwise still be null. Moves the key above the property.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DocumentAttachedPropertyAccessor](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/documentattachedpropertyaccessor.md)
+  * **Accessor method for attached property should have standard documentation text**
+  * The static `GetBar`/`SetBar` accessors of an attached property should be documented with the standard summary, `&lt;param&gt;` and `&lt;returns&gt;` text naming the backing member and the registered name. Adds the documentation when it is missing and corrects it when it says something else.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DocumentDependencyPropertyBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/documentdependencypropertybackingmember.md)
+  * **Backing member for DependencyProperty should have standard documentation text**
+  * The member backing a `DependencyProperty` should be documented with `&lt;summary&gt;Identifies the &lt;see cref=&quot;Bar&quot;/&gt; dependency property.&lt;/summary&gt;`, citing the registered name. Adds the summary when it is missing and corrects it when it says something else.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DocumentPropertyChangedCallback](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/documentpropertychangedcallback.md)
+  * **Property changed callback should have standard documentation text**
+  * The virtual method invoked from a dependency property's `PropertyChangedCallback` should be documented with `&lt;summary&gt;This method is invoked when the &lt;see cref=&quot;BarProperty&quot;/&gt; changes.&lt;/summary&gt;` and a `&lt;param&gt;` describing each of its old- and new-value parameters. Adds the documentation when it is missing and corrects it when it says something else.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DocumentRoutedEventBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/documentroutedeventbackingmember.md)
+  * **Backing member for RoutedEvent should have standard documentation text**
+  * The member backing a `RoutedEvent` should be documented with `&lt;summary&gt;Identifies the &lt;see cref=&quot;ValueChanged&quot;/&gt; routed event.&lt;/summary&gt;`, citing the registered name. Adds the summary when it is missing and corrects it when it says something else.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindDefaultStyleKeyOverrideMetadataArgument](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/finddefaultstylekeyoverridemetadataargument.md)
+  * **Use containing type**
+  * `DefaultStyleKeyProperty.OverrideMetadata` must be given the containing type as the default style key, or the control picks up another type's default template. Flags a `FrameworkPropertyMetadata` constructed with a different type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindDefaultValueTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/finddefaultvaluetypemismatch.md)
+  * **Default value type must match registered type**
+  * A `DependencyProperty` is registered with a type and its metadata carries a default value typed `object`, so the compiler cannot check one against the other. Flags a default value whose type does not fit the registered type, which throws at run time.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindDependsOnTargetMissing](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/finddependsontargetmissing.md)
+  * **Target of [DependsOn] should exist**
+  * `[DependsOn(name)]` names its target as a string, so a missing property is only discovered when XAML is loaded — and then only as an ordering that quietly does not happen. Flags the attribute when no property of that name is reachable on the type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindEventAddAccessorNotCallingAddHandler](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findeventaddaccessornotcallingaddhandler.md)
+  * **Call AddHandler in add**
+  * The `add` accessor of an event backed by a `RoutedEvent` must call `AddHandler`. Flags an accessor that calls `RemoveHandler` instead, which would silently discard subscriptions.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindEventDeclarationAddRemoveMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findeventdeclarationaddremovemismatch.md)
+  * **Use same event in add and remove**
+  * The `add` and `remove` accessors of an event must pass the same `RoutedEvent` to `AddHandler` and `RemoveHandler`. Flags a declaration whose accessors disagree, which leaves subscribers attached after they unsubscribe.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindEventDeclarationHandlerTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findeventdeclarationhandlertypemismatch.md)
+  * **Use the registered handler type**
+  * An event backed by a `RoutedEvent` must be declared with the handler type passed to `EventManager.RegisterRoutedEvent`. Flags a declaration whose type differs, which throws when a handler is added.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindEventRemoveAccessorNotCallingRemoveHandler](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findeventremoveaccessornotcallingremovehandler.md)
+  * **Call RemoveHandler in remove**
+  * The `remove` accessor of an event backed by a `RoutedEvent` must call `RemoveHandler`. Flags an accessor that calls `AddHandler` instead, which subscribes a second time rather than unsubscribing.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindMissingContentPropertyTarget](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findmissingcontentpropertytarget.md)
+  * **ContentProperty should name an existing property**
+  * Flags a `[ContentProperty(&quot;X&quot;)]` whose target property the attributed type does not declare, which XAML only discovers when the content is parsed.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindMissingStyleTypedProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findmissingstyletypedproperty.md)
+  * **StyleTypedProperty should be specified for a Style property**
+  * A `DependencyProperty` registered as `typeof(Style)` needs a matching `[StyleTypedProperty]` on its owning type for the designer to know what the style targets. Flags the backing member; the target type has to be chosen by hand.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindOverrideMetadataTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findoverridemetadatatypemismatch.md)
+  * **Metadata must be of the same type or a super type**
+  * `OverrideMetadata` merges the new metadata into what the `DependencyProperty` was registered with, and throws when the override cannot represent it. Flags an override whose metadata type is not assignable to the registered metadata type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindRegisteredOwnerNotDependencyObject](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findregisteredownernotdependencyobject.md)
+  * **Registered owner type must inherit DependencyObject**
+  * `DependencyProperty.Register` stores the owner type for run-time lookups and requires it to be a `DependencyObject`. Flags a registration whose owner is not, which throws when the property is used; an attached property should use `RegisterAttached` instead.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindSetValueTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findsetvaluetypemismatch.md)
+  * **SetValue must use the registered type**
+  * `SetValue` and `SetCurrentValue` take the value as `object`, so the compiler cannot check it against the type the `DependencyProperty` was registered with. Flags a call whose value does not fit the registered type, which throws at run time.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindSharedReferenceTypeDefaultValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findsharedreferencetypedefaultvalue.md)
+  * **Default value is a shared reference type**
+  * A reference type constructed as a `DependencyProperty` default value is shared by every instance of the owner, so a mutation through one instance is seen by all of them. Flags such a default value.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindSideEffectsInAttachedPropertyAccessor](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findsideeffectsinattachedpropertyaccessor.md)
+  * **Avoid side effects in attached property CLR accessors**
+  * XAML bypasses the CLR `Get`/`Set` methods of an attached property and calls `GetValue`/`SetValue` directly, so any other work an accessor does runs only when the property is set from code. Flags the offending statement.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindSideEffectsInClrAccessors](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findsideeffectsinclraccessors.md)
+  * **Avoid side effects in CLR accessors**
+  * The `get` and `set` accessors of a CLR property wrapping a dependency property must only call `GetValue`/`SetValue`, because the property system bypasses them entirely. Flags any other statement in an accessor body.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindValueConverterWithUnknownConversionTypes](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findvalueconverterwithunknownconversiontypes.md)
+  * **Add ValueConversion attribute (unknown types)**
+  * An `IValueConverter` should be annotated with `[ValueConversion]`. Flags a converter that needs one but whose source and target types cannot be read off its `Convert` method.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindXmlnsDefinitionForMissingNamespace](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findxmlnsdefinitionformissingnamespace.md)
+  * **XmlnsDefinition must map to an existing namespace**
+  * Flags an `[assembly: XmlnsDefinition]` whose `clrNamespace` argument names a namespace that no source file declares, so the mapping exports nothing.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindXmlnsPrefixDefinitionMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findxmlnsprefixdefinitionmismatch.md)
+  * **XmlnsPrefix must map to the same url as XmlnsDefinition**
+  * Flags an `[assembly: XmlnsPrefix]` with no `[assembly: XmlnsDefinition]` for the same XAML namespace URL, and the other way round. The two attributes are correlated across the whole assembly rather than within a single file.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.MakeCallbackParameterNullable](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/makecallbackparameternullable.md)
+  * **Declare the coerce and validate callback value parameter nullable**
+  * WPF calls a `CoerceValueCallback` and a `ValidateValueCallback` with a null value, so the value parameter should be declared `object?`. Only applies where nullable reference types are enabled, whether by a `#nullable` directive or by `&lt;Nullable&gt;` in the project.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.MakeDependencyPropertyBackingMemberStaticReadonly](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/makedependencypropertybackingmemberstaticreadonly.md)
+  * **Backing member for a DependencyProperty should be static and readonly**
+  * A `DependencyProperty` or `DependencyPropertyKey` is registered once per owner type, so its backing field or property must be `static readonly`. Adds the missing modifiers.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.MakeRoutedCommandBackingMemberStaticReadonly](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/makeroutedcommandbackingmemberstaticreadonly.md)
+  * **Backing member for a RoutedCommand should be static and readonly**
+  * A `RoutedCommand` is a shared singleton, so its backing field or property must be `static readonly`. Adds the missing modifiers.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.MakeRoutedEventBackingMemberStaticReadonly](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/makeroutedeventbackingmemberstaticreadonly.md)
+  * **Backing member for a RoutedEvent should be static and readonly**
+  * A `RoutedEvent` is registered once per owner type, so its backing field or property must be `static readonly`. Adds the missing modifiers.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RegisterContainingTypeAsRoutedEventOwner](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/registercontainingtypeasroutedeventowner.md)
+  * **Containing type should be used as registered owner**
+  * A `RoutedEvent` must name the type that declares it as owner in its `EventManager.RegisterRoutedEvent` call. Replaces the `typeof(...)` owner argument with the containing type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RegisterRoutedCommandNameAndOwner](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/registerroutedcommandnameandowner.md)
+  * **Register a name and an owning type for a RoutedCommand**
+  * A `RoutedCommand` or `RoutedUICommand` created with the parameterless constructor has no name and no owner type. Registers the containing member and the containing type; for a `RoutedUICommand` the display text is filled in with `&quot;PLACEHOLDER TEXT&quot;`, matching WpfAnalyzers, because the source contains nothing to derive it from.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameAddRemoveHandlerCallbackToMatchEvent](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameaddremovehandlercallbacktomatchevent.md)
+  * **Name the AddHandler/RemoveHandler callback OnEventName**
+  * The callback passed to `AddHandler` or `RemoveHandler` should be named after the routed event it handles — `OnSizeChanged` for `SizeChangedEvent`. Renames the method and all references to it.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameClrAccessorMethodToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameclraccessormethodtomatchregisteredname.md)
+  * **CLR method for a DependencyProperty must match registered name**
+  * The static accessor methods for an attached property must be named `Get&lt;RegisteredName&gt;` and `Set&lt;RegisteredName&gt;`, which is how the XAML designer pairs them with the registration. Renames the methods and all calls to them.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameClrPropertyToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameclrpropertytomatchregisteredname.md)
+  * **CLR property for a DependencyProperty should match registered name**
+  * The CLR property wrapping a `DependencyProperty` must be named after the name the property was registered with, because XAML resolves it by that name. Renames the property and all references to it.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameCoerceValueCallbackToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamecoercevaluecallbacktomatchregisteredname.md)
+  * **Name the CoerceValueCallback CoerceName**
+  * The `CoerceValueCallback` passed to a dependency property's `PropertyMetadata` should be named after the registered property — `CoerceValue` for a property registered as `Value`. Renames the method and all references to it, in every file.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameDependencyPropertyBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamedependencypropertybackingmember.md)
+  * **Backing member for a DependencyProperty should match registered name**
+  * A `DependencyProperty` backing member must be named `&lt;RegisteredName&gt;Property` so that the registration and the member agree. Renames the member and all references to it.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameDependencyPropertyKeyBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamedependencypropertykeybackingmember.md)
+  * **Backing member for a DependencyPropertyKey should match registered name**
+  * A `DependencyPropertyKey` backing member must be named `&lt;RegisteredName&gt;PropertyKey`. Renames the member and all references to it.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameEventDeclarationToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameeventdeclarationtomatchregisteredname.md)
+  * **Name of the event should match registered name**
+  * An event backed by a `RoutedEvent` must be named exactly as the event was registered with `EventManager.RegisterRoutedEvent`. Renames the event and all references to it.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenamePropertyChangedCallbackToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamepropertychangedcallbacktomatchregisteredname.md)
+  * **Name the PropertyChangedCallback OnNameChanged**
+  * The `PropertyChangedCallback` passed to a dependency property's `PropertyMetadata` should be named after the registered property — `OnValueChanged` for a property registered as `Value`. Renames the method and all references to it, in every file.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameRegisterClassHandlerCallbackToMatchEvent](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameregisterclasshandlercallbacktomatchevent.md)
+  * **Name the RegisterClassHandler callback OnEventName**
+  * The callback registered with `EventManager.RegisterClassHandler` should be named after the routed event it handles — `OnSizeChanged` for `SizeChangedEvent`. Renames the method and all references to it.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameRoutedEventBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameroutedeventbackingmember.md)
+  * **Backing member for a RoutedEvent should match registered name**
+  * A `RoutedEvent` backing member must be named `&lt;RegisteredName&gt;Event`. Renames the member and all references to it.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameValidateValueCallbackToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamevalidatevaluecallbacktomatchregisteredname.md)
+  * **Name the ValidateValueCallback ValidateName**
+  * The `ValidateValueCallback` passed to `DependencyProperty.Register` should be named after the registered property — `ValidateValue` for a property registered as `Value`. Renames the method and all references to it, in every file.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireCorrectTemplatePartType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirecorrecttemplateparttype.md)
+  * **Use the declared [TemplatePart] type**
+  * Flags a `GetTemplateChild` result cast to a type that contradicts the `Type` of the `[TemplatePart]` declaring that part, including the case where the attribute declares no type at all.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireExistingStyleTypedProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requireexistingstyletypedproperty.md)
+  * **StyleTypedProperty.Property must exist**
+  * `[StyleTypedProperty(Property = ...)]` names the `Style`-typed property it describes. Flags an attribute whose `Property` matches no member of the attributed type or its bases.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequirePartPrefixInTemplatePartName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirepartprefixintemplatepartname.md)
+  * **Use the PART_ prefix for template part names**
+  * Flags a `[TemplatePart(Name = ...)]` whose name does not start with `PART_`, the WPF convention for elements a control looks up in its template.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireSameDependencyPropertyInGetAndSet](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requiresamedependencypropertyingetandset.md)
+  * **Use same dependency property in get and set**
+  * The `get` and `set` accessors of a CLR property wrapping a dependency property must pass the same dependency property to `GetValue` and `SetValue`. Flags a property whose accessors disagree, including the read-only case where the setter must use the `DependencyPropertyKey` paired with the getter's `DependencyProperty`.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireStyleTypedPropertyOfStyleType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirestyletypedpropertyofstyletype.md)
+  * **StyleTypedProperty.Property should name a Style property**
+  * `[StyleTypedProperty(Property = ...)]` describes the target type of a `Style`-typed property. Flags an attribute whose `Property` names a member of some other type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireStyleTypedPropertyProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirestyletypedpropertyproperty.md)
+  * **StyleTypedProperty.Property should be specified**
+  * `[StyleTypedProperty]` is meaningless without a `Property` argument naming the `Style`-typed property it describes.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireStyleTypedPropertyStyleTargetType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirestyletypedpropertystyletargettype.md)
+  * **StyleTypedProperty.StyleTargetType should be specified**
+  * `[StyleTypedProperty]` without a `StyleTargetType` argument tells the designer nothing about which type the style is applied to.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireStyleTypedPropertyStyleTargetTypeToSupportStyle](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirestyletypedpropertystyletargettypetosupportstyle.md)
+  * **StyleTypedProperty.StyleTargetType should support styling**
+  * `StyleTargetType` names the type the style is applied to, so it must be a type that has a `Style` property — a `FrameworkElement` or `FrameworkContentElement`.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireUniqueStyleTypedProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requireuniquestyletypedproperty.md)
+  * **StyleTypedProperty.Property should be specified only once**
+  * Two `[StyleTypedProperty]` attributes naming the same `Property` contradict each other. Flags every attribute in such a group.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingMemberAsRoutedCommandName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingmemberasroutedcommandname.md)
+  * **Register the containing member as the name for a RoutedCommand**
+  * A `RoutedCommand` or `RoutedUICommand` should be registered with the name of the member that holds it. Replaces a name that does not match with `nameof(&lt;member&gt;)`.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingMemberForComponentResourceKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingmemberforcomponentresourcekey.md)
+  * **Use the containing member as the key when creating a ComponentResourceKey**
+  * The `resourceId` of a `ComponentResourceKey` should identify the member that holds the key. Replaces an id that names something else with `nameof(&lt;member&gt;)`.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingTypeAsRegisteredOwner](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingtypeasregisteredowner.md)
+  * **Containing type should be used as registered owner**
+  * A `DependencyProperty` must name the type that declares it as owner, otherwise WPF cannot resolve it for that type. Replaces the `typeof(...)` owner argument with the containing type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingTypeAsRoutedCommandOwner](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingtypeasroutedcommandowner.md)
+  * **Register the containing type as the owner for a RoutedCommand**
+  * A `RoutedCommand` or `RoutedUICommand` should be registered with the type that declares it as its owner type. Replaces a mismatched `typeof(...)` with the containing type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingTypeForComponentResourceKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingtypeforcomponentresourcekey.md)
+  * **Use the containing type when creating a ComponentResourceKey**
+  * A `ComponentResourceKey` should name the type that declares it as its `typeInTargetAssembly`, because that is what tells WPF which assembly holds the resource. Corrects a mismatched `typeof(...)`, and supplies the containing type and member when the key is created with no arguments at all.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingTypeForConverterDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingtypeforconverterdefault.md)
+  * **Use containing type**
+  * A value converter's shared `Default` member should hold an instance of the converter that declares it. Flags an initializer that constructs a different converter.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseCorrectAttachedPropertyBrowsableForType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecorrectattachedpropertybrowsablefortype.md)
+  * **Use correct argument for [AttachedPropertyBrowsableForType]**
+  * `[AttachedPropertyBrowsableForType(typeof(T))]` on the CLR getter of an attached property must name a type assignable to the getter's parameter. Replaces a type the parameter cannot accept with the parameter's own type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseCorrectConstructorArgumentName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecorrectconstructorargumentname.md)
+  * **[ConstructorArgument] must match**
+  * `[ConstructorArgument]` must name the constructor parameter assigned to the property. Replaces a mismatched name with the parameter's actual name.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseCorrectMarkupExtensionReturnType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecorrectmarkupextensionreturntype.md)
+  * **MarkupExtensionReturnType must use correct return type**
+  * `[MarkupExtensionReturnType]` must name a type that `ProvideValue` actually returns, or a base of it. Replaces a type the returned value is not assignable to.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseCorrectValueConversionTypes](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecorrectvalueconversiontypes.md)
+  * **ValueConversion must use correct types**
+  * `[ValueConversion(typeof(source), typeof(target))]` must name the types the converter's `Convert` method reads and produces. Replaces an argument that names a different type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseDependencyPropertyKeyToSetValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usedependencypropertykeytosetvalue.md)
+  * **Set a readonly DependencyProperty using its DependencyPropertyKey**
+  * A read-only `DependencyProperty` can only be written through the `DependencyPropertyKey` it was registered with; passing the exposed `DependencyProperty` to `SetValue` or `SetCurrentValue` throws at run time. Replaces the call with `SetValue(&lt;Name&gt;PropertyKey, ...)`.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseNameofInsteadOfConstant](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usenameofinsteadofconstant.md)
+  * **Use nameof() instead of a constant**
+  * Registering a `DependencyProperty`, `RoutedEvent` or `RoutedCommand` with a `const string` silently breaks when the corresponding member is renamed. Replaces the constant with `nameof(...)` when the constant's value names a member of the containing type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseNameofInsteadOfLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usenameofinsteadofliteral.md)
+  * **Use nameof() instead of a string literal**
+  * Registering a `DependencyProperty`, `RoutedEvent` or `RoutedCommand` with a string literal silently breaks when the corresponding member is renamed. Replaces the literal with `nameof(...)` when a member of that name exists on the containing type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseRegisteredRoutedEventHandlerType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/useregisteredroutedeventhandlertype.md)
+  * **Use the registered routed event handler type**
+  * A handler passed to `EventManager.RegisterClassHandler`, `AddHandler` or `RemoveHandler` must be constructed with the delegate type the `RoutedEvent` was registered with; WPF rejects any other at run time. Replaces the wrong delegate type with the registered one.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseRegisteredTypeForClrAccessorMethod](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/useregisteredtypeforclraccessormethod.md)
+  * **CLR accessor for attached property must match registered type**
+  * The static `Get`/`Set` accessors of an attached property must use the type the property was registered with, otherwise reading or writing it throws at run time. Corrects the return type, the value parameter type and the cast in the getter.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseRegisteredTypeForClrProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/useregisteredtypeforclrproperty.md)
+  * **CLR property type should match registered type**
+  * The CLR property wrapping a `DependencyProperty` must be declared with the type the property was registered with, otherwise reading it throws at run time. Corrects the property type and the cast in its getter.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseSetCurrentValueForMutableProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usesetcurrentvalueformutableproperty.md)
+  * **Set a mutable dependency property using SetCurrentValue**
+  * Assigning a dependency property's CLR property, or calling `SetValue`, writes the local value and permanently outranks any binding, style, trigger or animation on that property. Replaces both with `SetCurrentValue`, which sets the effective value without changing the value source.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseSetValueForDataContextAndStyle](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usesetvaluefordatacontextandstyle.md)
+  * **Do not set DataContext or Style using SetCurrentValue**
+  * `DataContext` and `Style` are inherited through the visual tree, so a value written with `SetCurrentValue` is discarded as soon as the inherited value changes. Replaces the call with `SetValue`.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseSetValueInClrPropertySetter](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usesetvalueinclrpropertysetter.md)
+  * **Use SetValue in setter**
+  * The `set` accessor of a CLR property wrapping a dependency property must call `SetValue` so the assignment becomes a local value. Replaces `SetCurrentValue`, substituting the `DependencyPropertyKey` when the dependency property is read-only.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.WpfCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/wpfcodequality.md)
+  * **WPF code quality**
+  * Correctness rules for WPF dependency properties, routed events, routed commands, value converters, markup extensions, template parts, styles and XML documentation, ported from the WpfAnalyzers Roslyn analyzers.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.XamlSetMarkupExtensionTargetShouldExist](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/xamlsetmarkupextensiontargetshouldexist.md)
+  * **Target of [XamlSetMarkupExtension] should exist and have correct signature**
+  * `[XamlSetMarkupExtension]` names its handler as a string, so a missing method or a wrong signature is only discovered when XAML is loaded. Flags the attribute when no `void Handler(object, XamlSetMarkupExtensionEventArgs)` is reachable on the type.
+  * Tags: code-quality
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.XamlSetTypeConverterTargetShouldExist](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/xamlsettypeconvertertargetshouldexist.md)
+  * **Target of [XamlSetTypeConverter] should exist and have correct signature**
+  * `[XamlSetTypeConverter]` names its handler as a string, so a missing method or a wrong signature is only discovered when XAML is loaded. Flags the attribute when no `void Handler(object, XamlSetTypeConverterEventArgs)` is reachable on the type.
+  * Tags: code-quality
 * [org.openrewrite.python.codequality.AllBranchesIdentical](/user-documentation/recipes/recipe-catalog/python/codequality/allbranchesidentical.md)
   * **Remove conditional with identical branches**
   * Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes.
@@ -4130,7 +4480,7 @@ _10 recipes_
 
 ## csharp
 
-_510 recipes_
+_596 recipes_
 
 * [OpenRewrite.CSharp.Recipes.ConvertPackagesConfigToPackageReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/convertpackagesconfigtopackagereference.md)
   * **Convert `packages.config` to `&lt;PackageReference&gt;`**
@@ -5356,6 +5706,264 @@ _510 recipes_
 * [OpenRewrite.Recipes.CSharp.CodeQuality.Style.ValueTypeIsNeverEqualToNull](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/valuetypeisneverequaltonull.md)
   * **Value type is never equal to null**
   * Replace null with default in comparisons of value types.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddAttachedPropertyBrowsableForTypeAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addattachedpropertybrowsablefortypeattribute.md)
+  * **Add [AttachedPropertyBrowsableForType]**
+  * The static `Get` accessor of an attached property should be annotated with `[AttachedPropertyBrowsableForType(typeof(T))]` so the XAML designer offers the property on elements of type `T`. Adds the attribute naming the accessor's parameter type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddConstructorArgumentAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addconstructorargumentattribute.md)
+  * **Add [ConstructorArgument]**
+  * A `MarkupExtension` property assigned from a constructor parameter should be annotated with `[ConstructorArgument(&quot;parameterName&quot;)]` so XAML can round-trip the positional and the named form of the extension. Adds the missing attribute.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddDefaultFieldToValueConverter](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/adddefaultfieldtovalueconverter.md)
+  * **Add default field to converter**
+  * A stateless `IValueConverter` or `IMultiValueConverter` should expose a `Default` instance rather than being constructed per binding. Adds `static readonly T Default = new T();` and seals the converter.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddMarkupExtensionReturnTypeAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addmarkupextensionreturntypeattribute.md)
+  * **Add MarkupExtensionReturnType attribute**
+  * A `MarkupExtension` that overrides `ProvideValue` should be annotated with `[MarkupExtensionReturnType(typeof(T))]` so XAML tooling knows what the extension yields. Adds the attribute when the returned type can be determined from `ProvideValue`.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddTemplatePartAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addtemplatepartattribute.md)
+  * **Add [TemplatePart] for a looked-up template part**
+  * A `GetTemplateChild(&quot;PART_X&quot;)` call in `OnApplyTemplate` is an undeclared dependency on the control template. Adds `[TemplatePart(Name = ..., Type = ...)]` to the control for every part it looks up but neither it nor a base control declares.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddValueConversionAttribute](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addvalueconversionattribute.md)
+  * **Add ValueConversion attribute**
+  * An `IValueConverter` should be annotated with `[ValueConversion(typeof(source), typeof(target))]` so XAML tooling knows the types it converts between. Adds the attribute when both types can be determined from `Convert`.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.AddXmlnsDefinitionForUnmappedNamespaces](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/addxmlnsdefinitionforunmappednamespaces.md)
+  * **XmlnsDefinitions should map all namespaces with public types**
+  * Adds an `[assembly: XmlnsDefinition]` for every namespace that declares a public type but is not exported to XAML, copying the XAML namespace URL from the existing mappings.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.CastSenderToContainingType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/castsendertocontainingtype.md)
+  * **Cast the sender of a dependency property callback to the containing type**
+  * A direct cast of the sender in a `PropertyChangedCallback` or `CoerceValueCallback` should name the type that registered the property rather than a base type, so that the cast documents what the sender really is.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.CastSenderToCorrectType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/castsendertocorrecttype.md)
+  * **Cast the sender of a dependency property callback to the correct type**
+  * The `DependencyObject` passed to a `PropertyChangedCallback` or `CoerceValueCallback` is the type that registered the property. Replaces a cast, `as`, `is` or `case` conversion naming a type the sender can never be with the registering type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.CastValueToCorrectType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/castvaluetocorrecttype.md)
+  * **Cast the value of a dependency property callback to the correct type**
+  * The value a `PropertyChangedCallback`, `CoerceValueCallback` or `ValidateValueCallback` receives is the type the property was registered with. Replaces a cast, `as`, `is` or `case` conversion naming a type the value can never be with the registered type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.CastValueToExactType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/castvaluetoexacttype.md)
+  * **Cast the value of a dependency property callback to the exact type**
+  * A direct cast of the value in a dependency property callback should name the type the property was registered with rather than a base type, so that the cast documents what the value really is.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.ConvertAutoPropertyToDependencyProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/convertautopropertytodependencyproperty.md)
+  * **Convert an auto-property to a dependency property**
+  * An auto-property on a `DependencyObject` cannot be bound, styled or animated. Registers a `DependencyProperty` for it and rewrites the property to `get =&gt; (T)GetValue(XProperty);` / `set =&gt; SetValue(XProperty, value);`, keeping any initializer as the metadata default. A setter that is not public — or a get-only property — produces the read-only `DependencyPropertyKey` pattern instead.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.ConvertDependencyPropertyToReadOnly](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/convertdependencypropertytoreadonly.md)
+  * **Convert a dependency property to a read-only dependency property**
+  * Rewrites `DependencyProperty.Register` to `RegisterReadOnly`, holding the result in a private `DependencyPropertyKey` and exposing `&lt;key&gt;.DependencyProperty` under the original name. Every `SetValue` on the property inside the declaring type is moved onto the key, which is the only way a read-only dependency property can be written.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.ConvertEventToRoutedEvent](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/converteventtoroutedevent.md)
+  * **Convert a CLR event to a routed event**
+  * A CLR event on an element cannot be routed through the element tree or handled by a parent. Registers a `RoutedEvent` for it with `EventManager.RegisterRoutedEvent` and rewrites the event to `add`/`remove` accessors calling `AddHandler`/`RemoveHandler`.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.ConvertTrivialCallbackToLambda](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/converttrivialcallbacktolambda.md)
+  * **Convert a trivial dependency property callback to a lambda**
+  * A `PropertyChangedCallback`, `CoerceValueCallback` or `ValidateValueCallback` whose body is a single expression is inlined as a lambda at the registration, so the callback sits next to the property it belongs to. The method is removed when nothing else used it.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DeclareDependencyPropertyKeyBeforeProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/declaredependencypropertykeybeforeproperty.md)
+  * **DependencyPropertyKey member must be declared before DependencyProperty member**
+  * A `DependencyProperty` initialized from `&lt;key&gt;.DependencyProperty` must be declared after that `DependencyPropertyKey`, because static initializers run in declaration order and the key would otherwise still be null. Moves the key above the property.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DocumentAttachedPropertyAccessor](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/documentattachedpropertyaccessor.md)
+  * **Accessor method for attached property should have standard documentation text**
+  * The static `GetBar`/`SetBar` accessors of an attached property should be documented with the standard summary, `&lt;param&gt;` and `&lt;returns&gt;` text naming the backing member and the registered name. Adds the documentation when it is missing and corrects it when it says something else.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DocumentDependencyPropertyBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/documentdependencypropertybackingmember.md)
+  * **Backing member for DependencyProperty should have standard documentation text**
+  * The member backing a `DependencyProperty` should be documented with `&lt;summary&gt;Identifies the &lt;see cref=&quot;Bar&quot;/&gt; dependency property.&lt;/summary&gt;`, citing the registered name. Adds the summary when it is missing and corrects it when it says something else.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DocumentPropertyChangedCallback](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/documentpropertychangedcallback.md)
+  * **Property changed callback should have standard documentation text**
+  * The virtual method invoked from a dependency property's `PropertyChangedCallback` should be documented with `&lt;summary&gt;This method is invoked when the &lt;see cref=&quot;BarProperty&quot;/&gt; changes.&lt;/summary&gt;` and a `&lt;param&gt;` describing each of its old- and new-value parameters. Adds the documentation when it is missing and corrects it when it says something else.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.DocumentRoutedEventBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/documentroutedeventbackingmember.md)
+  * **Backing member for RoutedEvent should have standard documentation text**
+  * The member backing a `RoutedEvent` should be documented with `&lt;summary&gt;Identifies the &lt;see cref=&quot;ValueChanged&quot;/&gt; routed event.&lt;/summary&gt;`, citing the registered name. Adds the summary when it is missing and corrects it when it says something else.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindDefaultStyleKeyOverrideMetadataArgument](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/finddefaultstylekeyoverridemetadataargument.md)
+  * **Use containing type**
+  * `DefaultStyleKeyProperty.OverrideMetadata` must be given the containing type as the default style key, or the control picks up another type's default template. Flags a `FrameworkPropertyMetadata` constructed with a different type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindDefaultValueTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/finddefaultvaluetypemismatch.md)
+  * **Default value type must match registered type**
+  * A `DependencyProperty` is registered with a type and its metadata carries a default value typed `object`, so the compiler cannot check one against the other. Flags a default value whose type does not fit the registered type, which throws at run time.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindDependsOnTargetMissing](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/finddependsontargetmissing.md)
+  * **Target of [DependsOn] should exist**
+  * `[DependsOn(name)]` names its target as a string, so a missing property is only discovered when XAML is loaded — and then only as an ordering that quietly does not happen. Flags the attribute when no property of that name is reachable on the type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindEventAddAccessorNotCallingAddHandler](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findeventaddaccessornotcallingaddhandler.md)
+  * **Call AddHandler in add**
+  * The `add` accessor of an event backed by a `RoutedEvent` must call `AddHandler`. Flags an accessor that calls `RemoveHandler` instead, which would silently discard subscriptions.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindEventDeclarationAddRemoveMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findeventdeclarationaddremovemismatch.md)
+  * **Use same event in add and remove**
+  * The `add` and `remove` accessors of an event must pass the same `RoutedEvent` to `AddHandler` and `RemoveHandler`. Flags a declaration whose accessors disagree, which leaves subscribers attached after they unsubscribe.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindEventDeclarationHandlerTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findeventdeclarationhandlertypemismatch.md)
+  * **Use the registered handler type**
+  * An event backed by a `RoutedEvent` must be declared with the handler type passed to `EventManager.RegisterRoutedEvent`. Flags a declaration whose type differs, which throws when a handler is added.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindEventRemoveAccessorNotCallingRemoveHandler](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findeventremoveaccessornotcallingremovehandler.md)
+  * **Call RemoveHandler in remove**
+  * The `remove` accessor of an event backed by a `RoutedEvent` must call `RemoveHandler`. Flags an accessor that calls `AddHandler` instead, which subscribes a second time rather than unsubscribing.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindMissingContentPropertyTarget](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findmissingcontentpropertytarget.md)
+  * **ContentProperty should name an existing property**
+  * Flags a `[ContentProperty(&quot;X&quot;)]` whose target property the attributed type does not declare, which XAML only discovers when the content is parsed.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindMissingStyleTypedProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findmissingstyletypedproperty.md)
+  * **StyleTypedProperty should be specified for a Style property**
+  * A `DependencyProperty` registered as `typeof(Style)` needs a matching `[StyleTypedProperty]` on its owning type for the designer to know what the style targets. Flags the backing member; the target type has to be chosen by hand.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindOverrideMetadataTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findoverridemetadatatypemismatch.md)
+  * **Metadata must be of the same type or a super type**
+  * `OverrideMetadata` merges the new metadata into what the `DependencyProperty` was registered with, and throws when the override cannot represent it. Flags an override whose metadata type is not assignable to the registered metadata type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindRegisteredOwnerNotDependencyObject](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findregisteredownernotdependencyobject.md)
+  * **Registered owner type must inherit DependencyObject**
+  * `DependencyProperty.Register` stores the owner type for run-time lookups and requires it to be a `DependencyObject`. Flags a registration whose owner is not, which throws when the property is used; an attached property should use `RegisterAttached` instead.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindSetValueTypeMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findsetvaluetypemismatch.md)
+  * **SetValue must use the registered type**
+  * `SetValue` and `SetCurrentValue` take the value as `object`, so the compiler cannot check it against the type the `DependencyProperty` was registered with. Flags a call whose value does not fit the registered type, which throws at run time.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindSharedReferenceTypeDefaultValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findsharedreferencetypedefaultvalue.md)
+  * **Default value is a shared reference type**
+  * A reference type constructed as a `DependencyProperty` default value is shared by every instance of the owner, so a mutation through one instance is seen by all of them. Flags such a default value.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindSideEffectsInAttachedPropertyAccessor](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findsideeffectsinattachedpropertyaccessor.md)
+  * **Avoid side effects in attached property CLR accessors**
+  * XAML bypasses the CLR `Get`/`Set` methods of an attached property and calls `GetValue`/`SetValue` directly, so any other work an accessor does runs only when the property is set from code. Flags the offending statement.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindSideEffectsInClrAccessors](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findsideeffectsinclraccessors.md)
+  * **Avoid side effects in CLR accessors**
+  * The `get` and `set` accessors of a CLR property wrapping a dependency property must only call `GetValue`/`SetValue`, because the property system bypasses them entirely. Flags any other statement in an accessor body.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindValueConverterWithUnknownConversionTypes](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findvalueconverterwithunknownconversiontypes.md)
+  * **Add ValueConversion attribute (unknown types)**
+  * An `IValueConverter` should be annotated with `[ValueConversion]`. Flags a converter that needs one but whose source and target types cannot be read off its `Convert` method.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindXmlnsDefinitionForMissingNamespace](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findxmlnsdefinitionformissingnamespace.md)
+  * **XmlnsDefinition must map to an existing namespace**
+  * Flags an `[assembly: XmlnsDefinition]` whose `clrNamespace` argument names a namespace that no source file declares, so the mapping exports nothing.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.FindXmlnsPrefixDefinitionMismatch](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/findxmlnsprefixdefinitionmismatch.md)
+  * **XmlnsPrefix must map to the same url as XmlnsDefinition**
+  * Flags an `[assembly: XmlnsPrefix]` with no `[assembly: XmlnsDefinition]` for the same XAML namespace URL, and the other way round. The two attributes are correlated across the whole assembly rather than within a single file.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.MakeCallbackParameterNullable](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/makecallbackparameternullable.md)
+  * **Declare the coerce and validate callback value parameter nullable**
+  * WPF calls a `CoerceValueCallback` and a `ValidateValueCallback` with a null value, so the value parameter should be declared `object?`. Only applies where nullable reference types are enabled, whether by a `#nullable` directive or by `&lt;Nullable&gt;` in the project.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.MakeDependencyPropertyBackingMemberStaticReadonly](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/makedependencypropertybackingmemberstaticreadonly.md)
+  * **Backing member for a DependencyProperty should be static and readonly**
+  * A `DependencyProperty` or `DependencyPropertyKey` is registered once per owner type, so its backing field or property must be `static readonly`. Adds the missing modifiers.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.MakeRoutedCommandBackingMemberStaticReadonly](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/makeroutedcommandbackingmemberstaticreadonly.md)
+  * **Backing member for a RoutedCommand should be static and readonly**
+  * A `RoutedCommand` is a shared singleton, so its backing field or property must be `static readonly`. Adds the missing modifiers.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.MakeRoutedEventBackingMemberStaticReadonly](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/makeroutedeventbackingmemberstaticreadonly.md)
+  * **Backing member for a RoutedEvent should be static and readonly**
+  * A `RoutedEvent` is registered once per owner type, so its backing field or property must be `static readonly`. Adds the missing modifiers.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RegisterContainingTypeAsRoutedEventOwner](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/registercontainingtypeasroutedeventowner.md)
+  * **Containing type should be used as registered owner**
+  * A `RoutedEvent` must name the type that declares it as owner in its `EventManager.RegisterRoutedEvent` call. Replaces the `typeof(...)` owner argument with the containing type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RegisterRoutedCommandNameAndOwner](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/registerroutedcommandnameandowner.md)
+  * **Register a name and an owning type for a RoutedCommand**
+  * A `RoutedCommand` or `RoutedUICommand` created with the parameterless constructor has no name and no owner type. Registers the containing member and the containing type; for a `RoutedUICommand` the display text is filled in with `&quot;PLACEHOLDER TEXT&quot;`, matching WpfAnalyzers, because the source contains nothing to derive it from.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameAddRemoveHandlerCallbackToMatchEvent](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameaddremovehandlercallbacktomatchevent.md)
+  * **Name the AddHandler/RemoveHandler callback OnEventName**
+  * The callback passed to `AddHandler` or `RemoveHandler` should be named after the routed event it handles — `OnSizeChanged` for `SizeChangedEvent`. Renames the method and all references to it.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameClrAccessorMethodToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameclraccessormethodtomatchregisteredname.md)
+  * **CLR method for a DependencyProperty must match registered name**
+  * The static accessor methods for an attached property must be named `Get&lt;RegisteredName&gt;` and `Set&lt;RegisteredName&gt;`, which is how the XAML designer pairs them with the registration. Renames the methods and all calls to them.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameClrPropertyToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameclrpropertytomatchregisteredname.md)
+  * **CLR property for a DependencyProperty should match registered name**
+  * The CLR property wrapping a `DependencyProperty` must be named after the name the property was registered with, because XAML resolves it by that name. Renames the property and all references to it.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameCoerceValueCallbackToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamecoercevaluecallbacktomatchregisteredname.md)
+  * **Name the CoerceValueCallback CoerceName**
+  * The `CoerceValueCallback` passed to a dependency property's `PropertyMetadata` should be named after the registered property — `CoerceValue` for a property registered as `Value`. Renames the method and all references to it, in every file.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameDependencyPropertyBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamedependencypropertybackingmember.md)
+  * **Backing member for a DependencyProperty should match registered name**
+  * A `DependencyProperty` backing member must be named `&lt;RegisteredName&gt;Property` so that the registration and the member agree. Renames the member and all references to it.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameDependencyPropertyKeyBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamedependencypropertykeybackingmember.md)
+  * **Backing member for a DependencyPropertyKey should match registered name**
+  * A `DependencyPropertyKey` backing member must be named `&lt;RegisteredName&gt;PropertyKey`. Renames the member and all references to it.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameEventDeclarationToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameeventdeclarationtomatchregisteredname.md)
+  * **Name of the event should match registered name**
+  * An event backed by a `RoutedEvent` must be named exactly as the event was registered with `EventManager.RegisterRoutedEvent`. Renames the event and all references to it.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenamePropertyChangedCallbackToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamepropertychangedcallbacktomatchregisteredname.md)
+  * **Name the PropertyChangedCallback OnNameChanged**
+  * The `PropertyChangedCallback` passed to a dependency property's `PropertyMetadata` should be named after the registered property — `OnValueChanged` for a property registered as `Value`. Renames the method and all references to it, in every file.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameRegisterClassHandlerCallbackToMatchEvent](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameregisterclasshandlercallbacktomatchevent.md)
+  * **Name the RegisterClassHandler callback OnEventName**
+  * The callback registered with `EventManager.RegisterClassHandler` should be named after the routed event it handles — `OnSizeChanged` for `SizeChangedEvent`. Renames the method and all references to it.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameRoutedEventBackingMember](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renameroutedeventbackingmember.md)
+  * **Backing member for a RoutedEvent should match registered name**
+  * A `RoutedEvent` backing member must be named `&lt;RegisteredName&gt;Event`. Renames the member and all references to it.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RenameValidateValueCallbackToMatchRegisteredName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/renamevalidatevaluecallbacktomatchregisteredname.md)
+  * **Name the ValidateValueCallback ValidateName**
+  * The `ValidateValueCallback` passed to `DependencyProperty.Register` should be named after the registered property — `ValidateValue` for a property registered as `Value`. Renames the method and all references to it, in every file.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireCorrectTemplatePartType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirecorrecttemplateparttype.md)
+  * **Use the declared [TemplatePart] type**
+  * Flags a `GetTemplateChild` result cast to a type that contradicts the `Type` of the `[TemplatePart]` declaring that part, including the case where the attribute declares no type at all.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireExistingStyleTypedProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requireexistingstyletypedproperty.md)
+  * **StyleTypedProperty.Property must exist**
+  * `[StyleTypedProperty(Property = ...)]` names the `Style`-typed property it describes. Flags an attribute whose `Property` matches no member of the attributed type or its bases.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequirePartPrefixInTemplatePartName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirepartprefixintemplatepartname.md)
+  * **Use the PART_ prefix for template part names**
+  * Flags a `[TemplatePart(Name = ...)]` whose name does not start with `PART_`, the WPF convention for elements a control looks up in its template.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireSameDependencyPropertyInGetAndSet](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requiresamedependencypropertyingetandset.md)
+  * **Use same dependency property in get and set**
+  * The `get` and `set` accessors of a CLR property wrapping a dependency property must pass the same dependency property to `GetValue` and `SetValue`. Flags a property whose accessors disagree, including the read-only case where the setter must use the `DependencyPropertyKey` paired with the getter's `DependencyProperty`.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireStyleTypedPropertyOfStyleType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirestyletypedpropertyofstyletype.md)
+  * **StyleTypedProperty.Property should name a Style property**
+  * `[StyleTypedProperty(Property = ...)]` describes the target type of a `Style`-typed property. Flags an attribute whose `Property` names a member of some other type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireStyleTypedPropertyProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirestyletypedpropertyproperty.md)
+  * **StyleTypedProperty.Property should be specified**
+  * `[StyleTypedProperty]` is meaningless without a `Property` argument naming the `Style`-typed property it describes.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireStyleTypedPropertyStyleTargetType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirestyletypedpropertystyletargettype.md)
+  * **StyleTypedProperty.StyleTargetType should be specified**
+  * `[StyleTypedProperty]` without a `StyleTargetType` argument tells the designer nothing about which type the style is applied to.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireStyleTypedPropertyStyleTargetTypeToSupportStyle](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requirestyletypedpropertystyletargettypetosupportstyle.md)
+  * **StyleTypedProperty.StyleTargetType should support styling**
+  * `StyleTargetType` names the type the style is applied to, so it must be a type that has a `Style` property — a `FrameworkElement` or `FrameworkContentElement`.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.RequireUniqueStyleTypedProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/requireuniquestyletypedproperty.md)
+  * **StyleTypedProperty.Property should be specified only once**
+  * Two `[StyleTypedProperty]` attributes naming the same `Property` contradict each other. Flags every attribute in such a group.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingMemberAsRoutedCommandName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingmemberasroutedcommandname.md)
+  * **Register the containing member as the name for a RoutedCommand**
+  * A `RoutedCommand` or `RoutedUICommand` should be registered with the name of the member that holds it. Replaces a name that does not match with `nameof(&lt;member&gt;)`.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingMemberForComponentResourceKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingmemberforcomponentresourcekey.md)
+  * **Use the containing member as the key when creating a ComponentResourceKey**
+  * The `resourceId` of a `ComponentResourceKey` should identify the member that holds the key. Replaces an id that names something else with `nameof(&lt;member&gt;)`.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingTypeAsRegisteredOwner](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingtypeasregisteredowner.md)
+  * **Containing type should be used as registered owner**
+  * A `DependencyProperty` must name the type that declares it as owner, otherwise WPF cannot resolve it for that type. Replaces the `typeof(...)` owner argument with the containing type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingTypeAsRoutedCommandOwner](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingtypeasroutedcommandowner.md)
+  * **Register the containing type as the owner for a RoutedCommand**
+  * A `RoutedCommand` or `RoutedUICommand` should be registered with the type that declares it as its owner type. Replaces a mismatched `typeof(...)` with the containing type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingTypeForComponentResourceKey](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingtypeforcomponentresourcekey.md)
+  * **Use the containing type when creating a ComponentResourceKey**
+  * A `ComponentResourceKey` should name the type that declares it as its `typeInTargetAssembly`, because that is what tells WPF which assembly holds the resource. Corrects a mismatched `typeof(...)`, and supplies the containing type and member when the key is created with no arguments at all.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseContainingTypeForConverterDefault](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecontainingtypeforconverterdefault.md)
+  * **Use containing type**
+  * A value converter's shared `Default` member should hold an instance of the converter that declares it. Flags an initializer that constructs a different converter.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseCorrectAttachedPropertyBrowsableForType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecorrectattachedpropertybrowsablefortype.md)
+  * **Use correct argument for [AttachedPropertyBrowsableForType]**
+  * `[AttachedPropertyBrowsableForType(typeof(T))]` on the CLR getter of an attached property must name a type assignable to the getter's parameter. Replaces a type the parameter cannot accept with the parameter's own type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseCorrectConstructorArgumentName](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecorrectconstructorargumentname.md)
+  * **[ConstructorArgument] must match**
+  * `[ConstructorArgument]` must name the constructor parameter assigned to the property. Replaces a mismatched name with the parameter's actual name.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseCorrectMarkupExtensionReturnType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecorrectmarkupextensionreturntype.md)
+  * **MarkupExtensionReturnType must use correct return type**
+  * `[MarkupExtensionReturnType]` must name a type that `ProvideValue` actually returns, or a base of it. Replaces a type the returned value is not assignable to.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseCorrectValueConversionTypes](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usecorrectvalueconversiontypes.md)
+  * **ValueConversion must use correct types**
+  * `[ValueConversion(typeof(source), typeof(target))]` must name the types the converter's `Convert` method reads and produces. Replaces an argument that names a different type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseDependencyPropertyKeyToSetValue](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usedependencypropertykeytosetvalue.md)
+  * **Set a readonly DependencyProperty using its DependencyPropertyKey**
+  * A read-only `DependencyProperty` can only be written through the `DependencyPropertyKey` it was registered with; passing the exposed `DependencyProperty` to `SetValue` or `SetCurrentValue` throws at run time. Replaces the call with `SetValue(&lt;Name&gt;PropertyKey, ...)`.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseNameofInsteadOfConstant](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usenameofinsteadofconstant.md)
+  * **Use nameof() instead of a constant**
+  * Registering a `DependencyProperty`, `RoutedEvent` or `RoutedCommand` with a `const string` silently breaks when the corresponding member is renamed. Replaces the constant with `nameof(...)` when the constant's value names a member of the containing type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseNameofInsteadOfLiteral](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usenameofinsteadofliteral.md)
+  * **Use nameof() instead of a string literal**
+  * Registering a `DependencyProperty`, `RoutedEvent` or `RoutedCommand` with a string literal silently breaks when the corresponding member is renamed. Replaces the literal with `nameof(...)` when a member of that name exists on the containing type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseRegisteredRoutedEventHandlerType](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/useregisteredroutedeventhandlertype.md)
+  * **Use the registered routed event handler type**
+  * A handler passed to `EventManager.RegisterClassHandler`, `AddHandler` or `RemoveHandler` must be constructed with the delegate type the `RoutedEvent` was registered with; WPF rejects any other at run time. Replaces the wrong delegate type with the registered one.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseRegisteredTypeForClrAccessorMethod](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/useregisteredtypeforclraccessormethod.md)
+  * **CLR accessor for attached property must match registered type**
+  * The static `Get`/`Set` accessors of an attached property must use the type the property was registered with, otherwise reading or writing it throws at run time. Corrects the return type, the value parameter type and the cast in the getter.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseRegisteredTypeForClrProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/useregisteredtypeforclrproperty.md)
+  * **CLR property type should match registered type**
+  * The CLR property wrapping a `DependencyProperty` must be declared with the type the property was registered with, otherwise reading it throws at run time. Corrects the property type and the cast in its getter.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseSetCurrentValueForMutableProperty](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usesetcurrentvalueformutableproperty.md)
+  * **Set a mutable dependency property using SetCurrentValue**
+  * Assigning a dependency property's CLR property, or calling `SetValue`, writes the local value and permanently outranks any binding, style, trigger or animation on that property. Replaces both with `SetCurrentValue`, which sets the effective value without changing the value source.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseSetValueForDataContextAndStyle](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usesetvaluefordatacontextandstyle.md)
+  * **Do not set DataContext or Style using SetCurrentValue**
+  * `DataContext` and `Style` are inherited through the visual tree, so a value written with `SetCurrentValue` is discarded as soon as the inherited value changes. Replaces the call with `SetValue`.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.UseSetValueInClrPropertySetter](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/usesetvalueinclrpropertysetter.md)
+  * **Use SetValue in setter**
+  * The `set` accessor of a CLR property wrapping a dependency property must call `SetValue` so the assignment becomes a local value. Replaces `SetCurrentValue`, substituting the `DependencyPropertyKey` when the dependency property is read-only.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.WpfCodeQuality](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/wpfcodequality.md)
+  * **WPF code quality**
+  * Correctness rules for WPF dependency properties, routed events, routed commands, value converters, markup extensions, template parts, styles and XML documentation, ported from the WpfAnalyzers Roslyn analyzers.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.XamlSetMarkupExtensionTargetShouldExist](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/xamlsetmarkupextensiontargetshouldexist.md)
+  * **Target of [XamlSetMarkupExtension] should exist and have correct signature**
+  * `[XamlSetMarkupExtension]` names its handler as a string, so a missing method or a wrong signature is only discovered when XAML is loaded. Flags the attribute when no `void Handler(object, XamlSetMarkupExtensionEventArgs)` is reachable on the type.
+* [OpenRewrite.Recipes.CSharp.CodeQuality.Wpf.XamlSetTypeConverterTargetShouldExist](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf/xamlsettypeconvertertargetshouldexist.md)
+  * **Target of [XamlSetTypeConverter] should exist and have correct signature**
+  * `[XamlSetTypeConverter]` names its handler as a string, so a missing method or a wrong signature is only discovered when XAML is loaded. Flags the attribute when no `void Handler(object, XamlSetTypeConverterEventArgs)` is reachable on the type.
 * [OpenRewrite.Recipes.CSharp.Migration.Dotnet.AddNuGetPackageReferenceIfTypeUsed](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/addnugetpackagereferenceiftypeused.md)
   * **Add NuGet package reference when namespace is used**
   * Adds a `&lt;PackageReference&gt;` to a .csproj only when a C# source file in the same project directory has a `using` directive that starts with the trigger namespace prefix. Useful for paired add-package-when-type-is-used migrations.
@@ -5688,14 +6296,14 @@ _6 recipes_
 
 ## cucumber
 
-_12 recipes_
+_14 recipes_
 
 * [org.openrewrite.cucumber.jvm.CucumberApiToIoCucumber](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberapitoiocucumber.md)
   * **Migrate `cucumber.api` to `io.cucumber`**
   * Cucumber-JVM 5.0.0 moved the `cucumber.api` types to `io.cucumber`, but not as a single package rename: types were spread over `io.cucumber.java`, `io.cucumber.junit`, `io.cucumber.testng`, `io.cucumber.plugin` and `io.cucumber.core`. This recipe maps each `cucumber.api` type onto the package it actually moved to.
 * [org.openrewrite.cucumber.jvm.CucumberJava8ToJava](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md)
   * **Migrate `cucumber-java8` to `cucumber-java`**
-  * Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods.
+  * Migrates `cucumber-java8` step definitions, `LambdaGlue` hooks and `LambdaGlue` type registrations to `cucumber-java` annotated methods.
 * [org.openrewrite.cucumber.jvm.CucumberOptionsToTestNgCucumberOptions](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberoptionstotestngcucumberoptions.md)
   * **Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`**
   * Replace `cucumber.api.CucumberOptions` with the TestNG variant in source files that run through a TestNG runner.
@@ -5711,6 +6319,12 @@ _12 recipes_
 * [org.openrewrite.cucumber.jvm.FixTeluguLanguageCode](/user-documentation/recipes/recipe-catalog/cucumber/jvm/fixtelugulanguagecode.md)
   * **Fix the Telugu language code**
   * Cucumber-JVM 7.0.0 removed the incorrect ISO 639-1 code `tl` for Telugu, which is now consistently `te`.
+* [org.openrewrite.cucumber.jvm.MigrateCucumberJava8ScenarioAndStatus](/user-documentation/recipes/recipe-catalog/cucumber/jvm/migratecucumberjava8scenarioandstatus.md)
+  * **Migrate `io.cucumber.java8.Scenario` and `io.cucumber.java8.Status`**
+  * `Scenario` and `Status` are the only `io.cucumber.java8` types with an `io.cucumber.java` counterpart; the language interfaces such as `En` and the `LambdaGlue` body types have none, so renaming the package wholesale would point whatever the migration could not convert at a type that does not exist. Where such a body type does survive it also still expects the `cucumber-java8` `Scenario`, as in an anonymous `HookBody`, so leave both types be until the last of the lambda glue is gone.
+* [org.openrewrite.cucumber.jvm.MigrateRuntimeOptionsBuilder](/user-documentation/recipes/recipe-catalog/cucumber/jvm/migrateruntimeoptionsbuilder.md)
+  * **Migrate `RuntimeOptionsBuilder`**
+  * Cucumber-JVM 7.0.0 dropped `RuntimeOptionsBuilder.addDefaultFormatterIfAbsent()`, as no formatter is added implicitly any more, and renamed `addDefaultSummaryPrinterIfAbsent()` to `addDefaultSummaryPrinterIfNotDisabled()`, which defers to the new `setNoSummary()`. Mirrors the change Cucumber-JVM made to its own `io.cucumber.core.cli.Main`, which projects that run Cucumber programmatically tend to have copied.
 * [org.openrewrite.cucumber.jvm.MigrateScenarioWriteAndEmbed](/user-documentation/recipes/recipe-catalog/cucumber/jvm/migratescenariowriteandembed.md)
   * **Migrate `Scenario.write` and `Scenario.embed`**
   * Cucumber-JVM 6.0.0 removed `Scenario.write(String)` and `Scenario.embed(byte[], String)` along with `Scenario.embed(byte[], String, String)`, in favor of `Scenario.log(String)` and `Scenario.attach(byte[], String, String)`. The two argument `embed` emitted an attachment without a name, which `attach` expresses as a `null` name.
@@ -7599,7 +8213,7 @@ _1 recipe_
 
 * [org.openrewrite.python.migrate.RemoveFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/removefutureimports.md)
   * **Remove obsolete `__future__` imports**
-  * Remove `from __future__ import ...` statements for features that are enabled by default in Python 3.
+  * Remove `from __future__ import ...` statements for features that are enabled by default in Python 3. The search-only `FindFutureImports` recipe reports all `__future__` imports, including `annotations`, which this recipe keeps.
 
 ## GCP
 
@@ -8167,7 +8781,7 @@ _4 recipes_
 
 ## jackson
 
-_35 recipes_
+_36 recipes_
 
 * [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
   * **Add `@JsonCreator` to non-public constructors**
@@ -8189,6 +8803,10 @@ _35 recipes_
   * **Add comment to SimpleModule method calls on modules that no longer extend SimpleModule**
   * In Jackson 3, some modules (e.g. `JodaModule`) no longer extend `SimpleModule` and instead extend `JacksonModule` directly. This means methods like `addSerializer()` and `addDeserializer()` are no longer available on these types. This recipe adds a TODO comment to flag these call sites for manual migration.
   * Tags: jackson-3
+* [org.openrewrite.java.jackson.FindJsonSetterNullsAsEmptyCollections](/user-documentation/recipes/recipe-catalog/java/jackson/findjsonsetternullsasemptycollections.md)
+  * **Find `@JsonSetter(nulls = Nulls.AS_EMPTY)` on empty collection fields**
+  * Find `Map` and `Collection` fields that carry `@JsonSetter(nulls = Nulls.AS_EMPTY)`, are initialized with an empty collection, and are no longer hidden by `@JsonIgnore` on the field or its getter, or by a class level `@JsonIgnoreProperties`. In rewrite-jackson 1.17.0 through 1.28.0 the Jackson 2 to 3 migration replaced `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on exactly these fields, which starts serializing properties that were deliberately hidden wherever the field is otherwise visible, such as through a getter. Run this recipe to audit repositories migrated with those versions; every match that should stay out of the JSON output needs `@JsonIgnore` restored, which the `addJsonIgnore` option does for you.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.IOExceptionToJacksonException](/user-documentation/recipes/recipe-catalog/java/jackson/ioexceptiontojacksonexception.md)
   * **Replace `IOException` with `JacksonException` in catch clauses**
   * In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`.
@@ -8209,6 +8827,10 @@ _35 recipes_
   * **Remove registrations of modules built-in to Jackson 3**
   * In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules.
   * Tags: jackson-3
+* [org.openrewrite.java.jackson.RemoveDeadJacksonThrows](/user-documentation/recipes/recipe-catalog/java/jackson/removedeadjacksonthrows.md)
+  * **Remove dead `throws` declarations for unchecked Jackson exceptions**
+  * In Jackson 3 the exception hierarchy is rerooted under `JacksonException`, which extends `RuntimeException`. Any surviving `throws` for a Jackson exception type is dead: callers are not required to handle it, and the declaration misleads readers into thinking checked-exception handling is needed. Removes `throws` for `JacksonException` and its subtypes (e.g. `DatabindException`) from both methods and constructors. Assumes the Jackson 2 to 3 package changes have already run, so all Jackson exception types live under `tools.jackson`. Does not touch `throws IOException` (still a checked exception) or non-Jackson exception types.
+  * Tags: jackson-3
 * [org.openrewrite.java.jackson.RemoveRedundantFeatureFlags](/user-documentation/recipes/recipe-catalog/java/jackson/removeredundantfeatureflags.md)
   * **Remove redundant Jackson 3 feature flag configurations**
   * Remove `ObjectMapper` feature flag configurations that set values to their new Jackson 3 defaults. For example, `disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)` and `configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)` are redundant since this is now disabled by default in Jackson 3.
@@ -8220,10 +8842,6 @@ _35 recipes_
 * [org.openrewrite.java.jackson.ReplaceIOExceptionThrowInJacksonOverrides](/user-documentation/recipes/recipe-catalog/java/jackson/replaceioexceptionthrowinjacksonoverrides.md)
   * **Replace `throw new IOException(..)` inside Jackson serializer / deserializer overrides**
   * In Jackson 3, `serialize()` and `deserialize()` methods no longer declare `throws IOException`. This recipe removes the `throws IOException` declaration from overrides of `JsonSerializer.serialize`, `JsonSerializer.serializeWithType`, `JsonDeserializer.deserialize`, and `JsonDeserializer.deserializeWithType`, and rewrites `throw new IOException(msg[, cause])` inside those overrides to `JsonMappingException.from(&lt;generator|parser&gt;, msg[, cause])`. A companion type change later migrates `JsonMappingException` to `tools.jackson.databind.DatabindException`.
-  * Tags: jackson-3
-* [org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter](/user-documentation/recipes/recipe-catalog/java/jackson/replacejsonignorewithjsonsetter.md)
-  * **Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields**
-  * In Jackson 3, `@JsonIgnore` on fields initialized with empty collections causes the field value to become `null` instead of maintaining the empty collection. This recipe replaces `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on `Map` and `Collection` fields that have an empty collection initializer.
   * Tags: jackson-3
 * [org.openrewrite.java.jackson.ReplaceObjectMapperCopy](/user-documentation/recipes/recipe-catalog/java/jackson/replaceobjectmappercopy.md)
   * **Replace `ObjectMapper.copy()` with `rebuild().build()`**
@@ -10582,7 +11200,7 @@ _195 recipes_
   * Replace the deprecated `avro-python3` distribution with its maintained successor, Apache `avro`. Both install the same top-level `avro` import package, so module imports are unchanged, but `avro-python3`'s `avro.schema.Parse` was renamed to the lowercase `avro.schema.parse` (and `Parse` removed) in `avro` 1.11+, so that reference is rewritten. The dependency swap is applied by `org.openrewrite.python.ChangeDependency`.
 * [org.openrewrite.python.migrate.RemoveFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/removefutureimports.md)
   * **Remove obsolete `__future__` imports**
-  * Remove `from __future__ import ...` statements for features that are enabled by default in Python 3.
+  * Remove `from __future__ import ...` statements for features that are enabled by default in Python 3. The search-only `FindFutureImports` recipe reports all `__future__` imports, including `annotations`, which this recipe keeps.
 * [org.openrewrite.python.migrate.ReplaceArrayFromstring](/user-documentation/recipes/recipe-catalog/python/migrate/replacearrayfromstring.md)
   * **Replace `array.fromstring()` with `array.frombytes()`**
   * Replace `fromstring()` with `frombytes()` on array objects. The fromstring() method was deprecated in Python 3.2 and removed in 3.14.
@@ -12353,7 +12971,7 @@ _99 recipes_
   * Replace the deprecated `avro-python3` distribution with its maintained successor, Apache `avro`. Both install the same top-level `avro` import package, so module imports are unchanged, but `avro-python3`'s `avro.schema.Parse` was renamed to the lowercase `avro.schema.parse` (and `Parse` removed) in `avro` 1.11+, so that reference is rewritten. The dependency swap is applied by `org.openrewrite.python.ChangeDependency`.
 * [org.openrewrite.python.migrate.RemoveFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/removefutureimports.md)
   * **Remove obsolete `__future__` imports**
-  * Remove `from __future__ import ...` statements for features that are enabled by default in Python 3.
+  * Remove `from __future__ import ...` statements for features that are enabled by default in Python 3. The search-only `FindFutureImports` recipe reports all `__future__` imports, including `annotations`, which this recipe keeps.
 * [org.openrewrite.python.migrate.ReplaceArrayFromstring](/user-documentation/recipes/recipe-catalog/python/migrate/replacearrayfromstring.md)
   * **Replace `array.fromstring()` with `array.frombytes()`**
   * Replace `fromstring()` with `frombytes()` on array objects. The fromstring() method was deprecated in Python 3.2 and removed in 3.14.
@@ -13136,7 +13754,7 @@ _269 recipes_
   * Tags: RSPEC-S5786
 * [org.openrewrite.java.testing.junit5.AddMissingNested](/user-documentation/recipes/recipe-catalog/java/testing/junit5/addmissingnested.md)
   * **JUnit 5 inner test classes should be annotated with `@Nested`**
-  * Adds `@Nested` to inner classes that contain JUnit 5 tests.
+  * Adds `@Nested` to inner classes that contain JUnit 5 tests and removes `static` from them. Before Java 16 an inner class may not declare static members other than constant variables, so a static nested class that declares any other static member is marked as needing manual migration instead; sources without a known Java version are assumed to support static members.
   * Tags: RSPEC-S5790
 * [org.openrewrite.java.testing.junit5.RemoveTryCatchFailBlocks](/user-documentation/recipes/recipe-catalog/java/testing/junit5/removetrycatchfailblocks.md)
   * **Replace `fail()` in `try-catch` blocks with `Assertions.assertDoesNotThrow(() -&gt; \{ ... \})`**
@@ -15227,6 +15845,14 @@ _221 recipes_
 * [io.moderne.java.spring.security7.ModularizeSpringSecurity7](/user-documentation/recipes/recipe-catalog/java/spring/security7/modularizespringsecurity7.md)
   * **Spring Security 7 modularization**
   * Spring Security Core was modularized in version 7, deprecated classes that are still a crucial part of some applications are moved to `spring-security-access`.
+* [io.moderne.java.spring.ws.MigrateAxiomToSaaj](/user-documentation/recipes/recipe-catalog/java/spring/ws/migrateaxiomtosaaj.md)
+  * **Migrate Spring WS Axiom to SAAJ**
+  * Migrate from Apache Axiom SOAP message handling to SAAJ (SOAP with Attachments API for Java). Spring WS 4.0.x removed support for Apache Axiom because Axiom did not support Jakarta EE at the time. This recipe changes Axiom types to their SAAJ equivalents.
+  * Tags: spring-ws
+* [io.moderne.java.spring.ws.UpgradeSpringWs_4_0](/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0.md)
+  * **Migrate to Spring WS 4.0**
+  * Migrate applications to Spring WS 4.0. This recipe handles the removal of Apache Axiom support in Spring WS 4.0.x by migrating Axiom-based SOAP message handling to SAAJ (SOAP with Attachments API for Java). Note that Spring WS 4.1+ restores Axiom support if upgrading to that version is preferred.
+  * Tags: spring-ws
 * [org.openrewrite.java.spring.batch.SpringBatch4To5Migration](/user-documentation/recipes/recipe-catalog/java/spring/batch/springbatch4to5migration.md)
   * **Migrate to Spring Batch 5.0 from 4.3**
   * Migrate applications built on Spring Batch 4.3 to the latest Spring Batch 5.0 release.
@@ -15491,14 +16117,6 @@ _221 recipes_
 * [org.openrewrite.java.spring.security7.UpgradeSpringSecurity_7_0](/user-documentation/recipes/recipe-catalog/java/spring/security7/upgradespringsecurity_7_0.md)
   * **Migrate to Spring Security 7.0**
   * Migrate applications to the latest Spring Security 7.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
-* [org.openrewrite.java.spring.ws.MigrateAxiomToSaaj](/user-documentation/recipes/recipe-catalog/java/spring/ws/migrateaxiomtosaaj.md)
-  * **Migrate Spring WS Axiom to SAAJ**
-  * Migrate from Apache Axiom SOAP message handling to SAAJ (SOAP with Attachments API for Java). Spring WS 4.0.x removed support for Apache Axiom because Axiom did not support Jakarta EE at the time. This recipe changes Axiom types to their SAAJ equivalents.
-  * Tags: spring-ws
-* [org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0](/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0.md)
-  * **Migrate to Spring WS 4.0**
-  * Migrate applications to Spring WS 4.0. This recipe handles the removal of Apache Axiom support in Spring WS 4.0.x by migrating Axiom-based SOAP message handling to SAAJ (SOAP with Attachments API for Java). Note that Spring WS 4.1+ restores Axiom support if upgrading to that version is preferred.
-  * Tags: spring-ws
 * [org.openrewrite.java.testing.dbrider.MigrateDbRiderSpringToDbRiderJUnit5](/user-documentation/recipes/recipe-catalog/java/testing/dbrider/migratedbriderspringtodbriderjunit5.md)
   * **Migrate rider-spring (JUnit4) to rider-junit5 (JUnit5)**
   * This recipe will migrate the necessary dependencies and annotations from DbRider with JUnit4 to JUnit5 in a Spring application.
@@ -16681,7 +17299,7 @@ _5 recipes_
 
 ## testing
 
-_83 recipes_
+_85 recipes_
 
 * [OpenRewrite.Recipes.CSharp.Migration.TUnit.FromXUnit.AddAsyncToTestMethods](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/tunit/fromxunit/addasynctotestmethods.md)
   * **Add `async Task` to methods containing `await`**
@@ -16757,7 +17375,7 @@ _83 recipes_
   * Cucumber-JVM 5.0.0 moved the `cucumber.api` types to `io.cucumber`, but not as a single package rename: types were spread over `io.cucumber.java`, `io.cucumber.junit`, `io.cucumber.testng`, `io.cucumber.plugin` and `io.cucumber.core`. This recipe maps each `cucumber.api` type onto the package it actually moved to.
 * [org.openrewrite.cucumber.jvm.CucumberJava8ToJava](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md)
   * **Migrate `cucumber-java8` to `cucumber-java`**
-  * Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods.
+  * Migrates `cucumber-java8` step definitions, `LambdaGlue` hooks and `LambdaGlue` type registrations to `cucumber-java` annotated methods.
 * [org.openrewrite.cucumber.jvm.CucumberOptionsToTestNgCucumberOptions](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberoptionstotestngcucumberoptions.md)
   * **Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`**
   * Replace `cucumber.api.CucumberOptions` with the TestNG variant in source files that run through a TestNG runner.
@@ -16773,6 +17391,12 @@ _83 recipes_
 * [org.openrewrite.cucumber.jvm.FixTeluguLanguageCode](/user-documentation/recipes/recipe-catalog/cucumber/jvm/fixtelugulanguagecode.md)
   * **Fix the Telugu language code**
   * Cucumber-JVM 7.0.0 removed the incorrect ISO 639-1 code `tl` for Telugu, which is now consistently `te`.
+* [org.openrewrite.cucumber.jvm.MigrateCucumberJava8ScenarioAndStatus](/user-documentation/recipes/recipe-catalog/cucumber/jvm/migratecucumberjava8scenarioandstatus.md)
+  * **Migrate `io.cucumber.java8.Scenario` and `io.cucumber.java8.Status`**
+  * `Scenario` and `Status` are the only `io.cucumber.java8` types with an `io.cucumber.java` counterpart; the language interfaces such as `En` and the `LambdaGlue` body types have none, so renaming the package wholesale would point whatever the migration could not convert at a type that does not exist. Where such a body type does survive it also still expects the `cucumber-java8` `Scenario`, as in an anonymous `HookBody`, so leave both types be until the last of the lambda glue is gone.
+* [org.openrewrite.cucumber.jvm.MigrateRuntimeOptionsBuilder](/user-documentation/recipes/recipe-catalog/cucumber/jvm/migrateruntimeoptionsbuilder.md)
+  * **Migrate `RuntimeOptionsBuilder`**
+  * Cucumber-JVM 7.0.0 dropped `RuntimeOptionsBuilder.addDefaultFormatterIfAbsent()`, as no formatter is added implicitly any more, and renamed `addDefaultSummaryPrinterIfAbsent()` to `addDefaultSummaryPrinterIfNotDisabled()`, which defers to the new `setNoSummary()`. Mirrors the change Cucumber-JVM made to its own `io.cucumber.core.cli.Main`, which projects that run Cucumber programmatically tend to have copied.
 * [org.openrewrite.cucumber.jvm.MigrateScenarioWriteAndEmbed](/user-documentation/recipes/recipe-catalog/cucumber/jvm/migratescenariowriteandembed.md)
   * **Migrate `Scenario.write` and `Scenario.embed`**
   * Cucumber-JVM 6.0.0 removed `Scenario.write(String)` and `Scenario.embed(byte[], String)` along with `Scenario.embed(byte[], String, String)`, in favor of `Scenario.log(String)` and `Scenario.attach(byte[], String, String)`. The two argument `embed` emitted an attachment without a name, which `attach` expresses as a `null` name.

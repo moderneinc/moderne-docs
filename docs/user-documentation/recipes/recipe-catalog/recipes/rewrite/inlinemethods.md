@@ -1,6 +1,6 @@
 ---
-title: "Inline methods annotated with `@InlineMe`"
-sidebar_label: "Inline methods annotated with `@InlineMe`"
+title: "Inline calls to deprecated OpenRewrite methods"
+sidebar_label: "Inline calls to deprecated OpenRewrite methods"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Inline methods annotated with `@InlineMe`"}
-  description={"Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table."}
+  displayName={"Inline calls to deprecated OpenRewrite methods"}
+  description={"Inline calls to deprecated OpenRewrite methods that delegate to their replacement, composing the `InlineDeprecatedMethods` recipes that individual recipe modules generate and publish themselves."}
   fqName={"org.openrewrite.recipes.rewrite.InlineMethods"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,25 +31,25 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/recipes/rewrite/inlinemethods.md"}
 >
 
-<RecipeHeader.Title>Inline methods annotated with `@InlineMe`</RecipeHeader.Title>
+<RecipeHeader.Title>Inline calls to deprecated OpenRewrite methods</RecipeHeader.Title>
 
-<RecipeHeader.Description>Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table.</RecipeHeader.Description>
+<RecipeHeader.Description>Inline calls to deprecated OpenRewrite methods that delegate to their replacement, composing the `InlineDeprecatedMethods` recipes that individual recipe modules generate and publish themselves.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"}]}>
+<RecipeList recipes={[{"name":"Inline deprecated delegating methods","href":"/user-documentation/recipes/recipe-catalog/recipe/rewrite-static-analysis/inlinedeprecatedmethods/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.java.trait.Literal;\nimport org.openrewrite.java.trait.Traits;\nimport org.openrewrite.marker.SearchResult;\n\nclass Test {\n    void test() {\n        Literal.Matcher literal = Traits.literal();\n    }\n}\n","after":"import org.openrewrite.java.trait.Literal;\nimport org.openrewrite.marker.SearchResult;\n\nclass Test {\n    void test() {\n        Literal.Matcher literal = new Literal.Matcher();\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.openrewrite.java.trait.Literal;\n-import org.openrewrite.java.trait.Traits;\nimport org.openrewrite.marker.SearchResult;\n@@ -7,1 +6,1 @@\nclass Test {\n    void test() {\n-       Literal.Matcher literal = Traits.literal();\n+       Literal.Matcher literal = new Literal.Matcher();\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.openrewrite.java.trait.Literal;\nimport org.openrewrite.java.trait.Traits;\nimport org.openrewrite.marker.SearchResult;\n\nclass Test {\n    void test() {\n        Literal.Matcher literal = Traits.literal();\n    }\n}\n","after":"import org.openrewrite.java.trait.Literal;\nimport org.openrewrite.marker.SearchResult;\n\nclass Test {\n    void test() {\n        Literal.Matcher literal = new Literal.Matcher();\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.openrewrite.java.trait.Literal;\n-import org.openrewrite.java.trait.Traits;\nimport org.openrewrite.marker.SearchResult;\n@@ -7,1 +6,1 @@\nclass Test {\n    void test() {\n-       Literal.Matcher literal = Traits.literal();\n+       Literal.Matcher literal = new Literal.Matcher();\n    }\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.staticanalysis.RemoveUnusedLocalVariables;\n\nclass Test {\n    void test() {\n        RemoveUnusedLocalVariables recipe = new RemoveUnusedLocalVariables(new String[]{\"foo\"}, true);\n    }\n}\n","after":"import org.openrewrite.staticanalysis.RemoveUnusedLocalVariables;\n\nclass Test {\n    void test() {\n        RemoveUnusedLocalVariables recipe = new RemoveUnusedLocalVariables(new String[]{\"foo\"}, null, true);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test() {\n-       RemoveUnusedLocalVariables recipe = new RemoveUnusedLocalVariables(new String[]{\"foo\"}, true);\n+       RemoveUnusedLocalVariables recipe = new RemoveUnusedLocalVariables(new String[]{\"foo\"}, null, true);\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.openrewrite.staticanalysis.RemoveUnusedLocalVariables;\n\nclass Test {\n    void test() {\n        RemoveUnusedLocalVariables recipe = new RemoveUnusedLocalVariables(new String[]{\"foo\"}, true);\n    }\n}\n","after":"import org.openrewrite.staticanalysis.RemoveUnusedLocalVariables;\n\nclass Test {\n    void test() {\n        RemoveUnusedLocalVariables recipe = new RemoveUnusedLocalVariables(new String[]{\"foo\"}, null, true);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test() {\n-       RemoveUnusedLocalVariables recipe = new RemoveUnusedLocalVariables(new String[]{\"foo\"}, true);\n+       RemoveUnusedLocalVariables recipe = new RemoveUnusedLocalVariables(new String[]{\"foo\"}, null, true);\n    }\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.recipes.rewrite.InlineMethods","displayName":"Inline methods annotated with `@InlineMe`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.recipes.rewrite.InlineMethods","displayName":"Inline calls to deprecated OpenRewrite methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
 
 ## Usage
 

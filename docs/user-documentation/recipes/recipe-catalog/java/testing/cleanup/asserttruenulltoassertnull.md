@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"kotlin","before":"import org.junit.jupiter.api.Assertions.assertTrue\n\nclass FooTest {\n    fun test(foundCreditLine: Any?) {\n        assertTrue(foundCreditLine == null)\n        assertTrue(foundCreditLine == null, \"message\")\n        assertTrue(null == foundCreditLine)\n    }\n}\n","after":"import org.junit.jupiter.api.Assertions.assertNull\n\nclass FooTest {\n    fun test(foundCreditLine: Any?) {\n        assertNull(foundCreditLine)\n        assertNull(foundCreditLine, \"message\")\n        assertNull(foundCreditLine)\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.junit.jupiter.api.Assertions.assertTrue\n+import org.junit.jupiter.api.Assertions.assertNull\n\n@@ -5,3 +5,3 @@\nclass FooTest {\n    fun test(foundCreditLine: Any?) {\n-       assertTrue(foundCreditLine == null)\n-       assertTrue(foundCreditLine == null, \"message\")\n-       assertTrue(null == foundCreditLine)\n+       assertNull(foundCreditLine)\n+       assertNull(foundCreditLine, \"message\")\n+       assertNull(foundCreditLine)\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull","displayName":"Replace JUnit `assertTrue(a == null)` to `assertNull(a)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

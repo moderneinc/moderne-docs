@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"properties","before":"cucumber.options=--glue com.example.app --plugin pretty --tags \"@integration and not @wip\"\n","after":"cucumber.filter.tags=@integration and not @wip\ncucumber.glue=com.example.app\ncucumber.plugin=pretty\n","diff":"--- src/test/resources/cucumber.properties\n+++ src/test/resources/cucumber.properties\n@@ -1,1 +1,3 @@\n-cucumber.options=--glue com.example.app --plugin pretty --tags \"@integration and not @wip\"\n+cucumber.filter.tags=@integration and not @wip\n+cucumber.glue=com.example.app\n+cucumber.plugin=pretty\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.CucumberOptionsPropertyToIndividualProperties","displayName":"Migrate the `cucumber.options` property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage

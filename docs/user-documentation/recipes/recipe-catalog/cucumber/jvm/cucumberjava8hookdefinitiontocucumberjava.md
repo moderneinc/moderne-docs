@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `cucumber-java8` hook definition with `cucumber-java`"}
-  description={"Replace `LambdaGlue` hook definitions with new annotated methods with the same body."}
+  description={"Replace `LambdaGlue` hook definitions with new annotated methods with the same body, or, for a method reference, with a body calling the method it refers to."}
   fqName={"org.openrewrite.cucumber.jvm.CucumberJava8HookDefinitionToCucumberJava"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `cucumber-java8` hook definition with `cucumber-java`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `LambdaGlue` hook definitions with new annotated methods with the same body.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `LambdaGlue` hook definitions with new annotated methods with the same body, or, for a method reference, with a body calling the method it refers to.</RecipeHeader.Description>
 
 </RecipeHeader>
 

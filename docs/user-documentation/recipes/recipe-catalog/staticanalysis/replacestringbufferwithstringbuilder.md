@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    String test() {\n        StringBuffer sb = new StringBuffer();\n        sb.append(\"a\").append(\"b\");\n        return sb.toString();\n    }\n}\n","after":"class Test {\n    String test() {\n        StringBuilder sb = new StringBuilder();\n        sb.append(\"a\").append(\"b\");\n        return sb.toString();\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    String test() {\n-       StringBuffer sb = new StringBuffer();\n+       StringBuilder sb = new StringBuilder();\n        sb.append(\"a\").append(\"b\");\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceStringBufferWithStringBuilder","displayName":"Replace `java.lang.StringBuffer` with `java.lang.StringBuilder`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

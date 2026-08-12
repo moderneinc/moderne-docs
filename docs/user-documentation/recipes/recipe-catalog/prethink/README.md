@@ -21,11 +21,13 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Export context files](./exportcontext.md)
 * [Extract Go dependencies and usage](./extractgodependencies.md)
+* [Extract Node.js dependencies and usage](./extractnodedependencies.md)
 * [Extract coding conventions](./extractcodingconventions.md)
 * [Extract dependency usage patterns](./extractdependencyusage.md)
 * [Extract error handling patterns](./extracterrorpatterns.md)
 * [Find Go coding conventions](./findgocodingconventions.md)
 * [Find Go error handling patterns](./findgoerrorpatterns.md)
+* [Find JavaScript and TypeScript coding conventions](./findnodecodingconventions.md)
 * [Python dependency report](./pythondependencyreport.md)
 * [Update .gitignore for Prethink context](./updategitignore.md)
 * [Update Prethink context (no AI)](./updateprethinkcontextnoaistarter.md)

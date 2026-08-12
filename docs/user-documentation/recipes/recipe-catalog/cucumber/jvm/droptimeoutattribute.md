@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.java.en.Given;\n\nclass StepDefinitions {\n    @Given(value = \"a step\", timeout = 1000)\n    void aStep() {\n    }\n}\n","after":"package com.example.app;\n\nimport io.cucumber.java.en.Given;\n\nclass StepDefinitions {\n    @Given(\"a step\")\n    void aStep() {\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n\nclass StepDefinitions {\n-   @Given(value = \"a step\", timeout = 1000)\n+   @Given(\"a step\")\n    void aStep() {\n","newFile":false}]},{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.java.en.Given;\n\nclass StepDefinitions {\n    @Given(value = \"a step\", timeout = 1000)\n    void aStep() {\n    }\n}\n","after":"package com.example.app;\n\nimport io.cucumber.java.en.Given;\n\nclass StepDefinitions {\n    @Given(\"a step\")\n    void aStep() {\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n\nclass StepDefinitions {\n-   @Given(value = \"a step\", timeout = 1000)\n+   @Given(\"a step\")\n    void aStep() {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.DropTimeoutAttribute","displayName":"Drop the `timeout` attribute","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage

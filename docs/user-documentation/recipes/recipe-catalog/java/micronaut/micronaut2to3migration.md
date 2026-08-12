@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import io.micronaut.configuration.security.ldap.LdapAuthenticationProvider;\n\nclass A {\n    LdapAuthenticationProvider provider;\n}\n","after":"import io.micronaut.security.ldap.LdapAuthenticationProvider;\n\nclass A {\n    LdapAuthenticationProvider provider;\n}\n","diff":"@@ -1,1 +1,1 @@\n-import io.micronaut.configuration.security.ldap.LdapAuthenticationProvider;\n+import io.micronaut.security.ldap.LdapAuthenticationProvider;\n\n","newFile":false}]},{"variants":[{"language":"java","before":"import io.micronaut.configuration.security.ldap.LdapAuthenticationProvider;\n\nclass A {\n    LdapAuthenticationProvider provider;\n}\n","after":"import io.micronaut.security.ldap.LdapAuthenticationProvider;\n\nclass A {\n    LdapAuthenticationProvider provider;\n}\n","diff":"@@ -1,1 +1,1 @@\n-import io.micronaut.configuration.security.ldap.LdapAuthenticationProvider;\n+import io.micronaut.security.ldap.LdapAuthenticationProvider;\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.Micronaut2to3Migration","displayName":"Migrate from Micronaut 2.x to 3.x","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":false}}>
 
 ## Usage

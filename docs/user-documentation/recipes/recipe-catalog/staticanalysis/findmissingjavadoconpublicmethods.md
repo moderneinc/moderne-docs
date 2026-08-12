@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\nclass A {\n    public void foo(String s, int i) {\n    }\n}\n","after":"package com.example;\nclass A {\n    public void /*~~>*/foo(String s, int i) {\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.example;\nclass A {\n-   public void foo(String s, int i) {\n+   public void /*~~>*/foo(String s, int i) {\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.FindMissingJavadocOnPublicMethods","displayName":"Find public methods missing Javadoc","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

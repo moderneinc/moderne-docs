@@ -56,7 +56,8 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
-* [Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`](./addautoconfiguremockmvc.md)
+* [Add `@AutoConfigureMockMvc` if necessary (Community Edition)](./addautoconfiguremockmvc-community-edition.md)
+* [Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc` (Moderne Edition)](./addautoconfiguremockmvc-moderne-edition.md)
 * [Add `@AutoConfigureTestRestTemplate` if necessary](./addautoconfiguretestresttemplate.md)
 * [Add `@AutoConfigureWebTestClient` if necessary](./addautoconfigurewebtestclient.md)
 * [Add `@MockitoSettings(strictness = Strictness.LENIENT)` for `@MockitoBean` tests](./addlenientmockitosettings.md)

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find missing `@Option` `example` values"}
-  description={"Find `@Option` annotations that are missing `example` values for documentation."}
+  description={"Find `@Option` annotations that are missing `example` values for documentation, and add a TODO comment."}
   fqName={"org.openrewrite.java.recipes.MissingOptionExample"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find missing `@Option` `example` values</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find `@Option` annotations that are missing `example` values for documentation.</RecipeHeader.Description>
+<RecipeHeader.Description>Find `@Option` annotations that are missing `example` values for documentation, and add a TODO comment.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.Option;\nimport org.openrewrite.Recipe;\n\nclass SomeRecipe extends Recipe {\n    @Option(displayName = \"Test\", description = \"Test\")\n    private String test;\n\n    @Override\n    public String getDisplayName() {\n        return \"Find missing `@Option` `example` values\";\n    }\n    @Override\n    public String getDescription() {\n        return \"Find `@Option` annotations that are missing `example` values.\";\n    }\n}\n","after":"import org.openrewrite.Option;\nimport org.openrewrite.Recipe;\n\nclass SomeRecipe extends Recipe {\n    @Option(example = \"TODO Provide a usage example for the docs\", displayName = \"Test\", description = \"Test\")\n    private String test;\n\n    @Override\n    public String getDisplayName() {\n        return \"Find missing `@Option` `example` values\";\n    }\n    @Override\n    public String getDescription() {\n        return \"Find `@Option` annotations that are missing `example` values.\";\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n\nclass SomeRecipe extends Recipe {\n-   @Option(displayName = \"Test\", description = \"Test\")\n+   @Option(example = \"TODO Provide a usage example for the docs\", displayName = \"Test\", description = \"Test\")\n    private String test;\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.Option;\nimport org.openrewrite.Recipe;\n\nclass SomeRecipe extends Recipe {\n    @Option(displayName = \"Test\", description = \"Test\")\n    private String test;\n\n    @Override\n    public String getDisplayName() {\n        return \"Find missing `@Option` `example` values\";\n    }\n    @Override\n    public String getDescription() {\n        return \"Find `@Option` annotations that are missing `example` values.\";\n    }\n}\n","after":"import org.openrewrite.Option;\nimport org.openrewrite.Recipe;\n\nclass SomeRecipe extends Recipe {\n    // TODO Provide a usage example for the docs\n    @Option(displayName = \"Test\", description = \"Test\")\n    private String test;\n\n    @Override\n    public String getDisplayName() {\n        return \"Find missing `@Option` `example` values\";\n    }\n    @Override\n    public String getDescription() {\n        return \"Find `@Option` annotations that are missing `example` values.\";\n    }\n}\n","diff":"@@ -5,0 +5,1 @@\n\nclass SomeRecipe extends Recipe {\n+   // TODO Provide a usage example for the docs\n    @Option(displayName = \"Test\", description = \"Test\")\n","newFile":false}]}]}>
 
 ## Examples
 

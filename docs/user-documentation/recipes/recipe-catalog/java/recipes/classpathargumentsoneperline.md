@@ -1,44 +1,49 @@
 ---
-title: "Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`"
-sidebar_label: "Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`"
+title: "One classpath argument per line"
+sidebar_label: "One classpath argument per line"
 hide_title: true
 ---
+
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/recipes/classpathargumentsoneperline" />
+</head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`"}
-  description={"Adds `@AutoConfigureMockMvc` annotation to classes annotated with `@SpringBootTest` that use `MockMvc`."}
-  fqName={"io.moderne.java.spring.boot4.AddAutoConfigureMockMvc"}
-  languages={["OpenRewrite"]}
-  license={"Moderne Proprietary License"}
+  displayName={"One classpath argument per line"}
+  description={"Put each argument of `classpath` and `classpathFromResources` on its own line when there are four or more arguments, such that classpath entries are easier to read, and adding or removing an entry shows up as a single line change."}
+  fqName={"org.openrewrite.java.recipes.ClasspathArgumentsOnePerLine"}
+  languages={["Java"]}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-rewrite/blob/main/src/main/java/org/openrewrite/java/recipes/ClasspathArgumentsOnePerLine.java"}
 />
 
 <RecipeHeader
   type={"Single recipe"}
-  languages={["OpenRewrite"]}
+  languages={["Java"]}
   tags={[]}
-  license={"Moderne Proprietary License"}
-  fqName={"io.moderne.java.spring.boot4.AddAutoConfigureMockMvc"}
-  artifact={"io.moderne.recipe:rewrite-spring"}
-  appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.AddAutoConfigureMockMvc"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addautoconfiguremockmvc.md"}
-  moderneOnly
+  license={"Moderne Source Available License"}
+  fqName={"org.openrewrite.java.recipes.ClasspathArgumentsOnePerLine"}
+  artifact={"org.openrewrite.recipe:rewrite-rewrite"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.ClasspathArgumentsOnePerLine"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/classpathargumentsoneperline.md"}
 >
 
-<RecipeHeader.Title>Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`</RecipeHeader.Title>
+<RecipeHeader.Title>One classpath argument per line</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adds `@AutoConfigureMockMvc` annotation to classes annotated with `@SpringBootTest` that use `MockMvc`.</RecipeHeader.Description>
+<RecipeHeader.Description>Put each argument of `classpath` and `classpathFromResources` on its own line when there are four or more arguments, such that classpath entries are easier to read, and adding or removing an entry shows up as a single line change.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.test.web.servlet.MockMvc;\n\n@SpringBootTest\nclass MyTest {\n    @Autowired\n    private MockMvc mockMvc;\n}\n","after":"import org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\nimport org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.test.web.servlet.MockMvc;\n\n@AutoConfigureMockMvc\n@SpringBootTest\nclass MyTest {\n    @Autowired\n    private MockMvc mockMvc;\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.beans.factory.annotation.Autowired;\n+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\nimport org.springframework.boot.test.context.SpringBootTest;\n@@ -5,0 +6,1 @@\nimport org.springframework.test.web.servlet.MockMvc;\n\n+@AutoConfigureMockMvc\n@SpringBootTest\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.InMemoryExecutionContext;\nimport org.openrewrite.java.JavaParser;\nimport org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\nclass MyRecipeTest implements RewriteTest {\n    @Override\n    public void defaults(RecipeSpec spec) {\n        spec.parser(JavaParser.fromJavaVersion()\n          .classpathFromResources(new InMemoryExecutionContext(), \"junit-jupiter-api-5\", \"assertj-core-3\", \"mockito-core-5\"));\n    }\n}\n","after":"import org.openrewrite.InMemoryExecutionContext;\nimport org.openrewrite.java.JavaParser;\nimport org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\nclass MyRecipeTest implements RewriteTest {\n    @Override\n    public void defaults(RecipeSpec spec) {\n        spec.parser(JavaParser.fromJavaVersion()\n          .classpathFromResources(new InMemoryExecutionContext(),\n            \"junit-jupiter-api-5\",\n            \"assertj-core-3\",\n            \"mockito-core-5\"));\n    }\n}\n","diff":"@@ -10,1 +10,4 @@\n    public void defaults(RecipeSpec spec) {\n        spec.parser(JavaParser.fromJavaVersion()\n-         .classpathFromResources(new InMemoryExecutionContext(), \"junit-jupiter-api-5\", \"assertj-core-3\", \"mockito-core-5\"));\n+         .classpathFromResources(new InMemoryExecutionContext(),\n+           \"junit-jupiter-api-5\",\n+           \"assertj-core-3\",\n+           \"mockito-core-5\"));\n    }\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.spring.boot4.AddAutoConfigureMockMvc","displayName":"Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.recipes.ClasspathArgumentsOnePerLine","displayName":"One classpath argument per line","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.time.Duration;\nimport org.springframework.data.redis.cache.RedisCacheConfiguration;\n\nclass Test {\n    Duration ttl() {\n        RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig();\n        return cacheConfig.getTtl();\n    }\n}\n","after":"import java.time.Duration;\nimport org.springframework.data.redis.cache.RedisCacheConfiguration;\n\nclass Test {\n    Duration ttl() {\n        RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig();\n        return cacheConfig.getTtlFunction().getTimeToLive(null, null);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    Duration ttl() {\n        RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig();\n-       return cacheConfig.getTtl();\n+       return cacheConfig.getTtlFunction().getTimeToLive(null, null);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.boot4.ReplaceRedisCacheConfigurationGetTtl","displayName":"Replace removed `RedisCacheConfiguration.getTtl()`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

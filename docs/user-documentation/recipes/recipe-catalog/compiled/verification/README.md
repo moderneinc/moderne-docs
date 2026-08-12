@@ -12,6 +12,6 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
-* [Verify compilation](./verifycompilation.md)
+* [Verify compilation of changes made earlier in the same run](./verifycompilation.md)
 
 

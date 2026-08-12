@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Vector;\n\nclass Test {\n    int test() {\n        Vector<Integer> v = new Vector<>();\n        v.add(1);\n        v.add(2);\n        return v.size();\n    }\n}\n","after":"import java.util.ArrayList;\n\nclass Test {\n    int test() {\n        ArrayList<Integer> v = new ArrayList<>();\n        v.add(1);\n        v.add(2);\n        return v.size();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import java.util.Vector;\n+import java.util.ArrayList;\n\n@@ -5,1 +5,1 @@\nclass Test {\n    int test() {\n-       Vector<Integer> v = new Vector<>();\n+       ArrayList<Integer> v = new ArrayList<>();\n        v.add(1);\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceVectorWithArrayList","displayName":"Replace `java.util.Vector` with `java.util.ArrayList`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

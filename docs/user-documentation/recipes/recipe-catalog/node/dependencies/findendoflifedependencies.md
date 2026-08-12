@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"withinDays","value":"180"},{"parameter":"asOf","value":"2026-04-30"}],"variants":[{"language":"json","before":"{\n  \"name\": \"demo\",\n  \"dependencies\": {\n    \"@angular/core\": \"^15.2.0\"\n  }\n}\n","after":"{\n  \"name\": \"demo\",\n  \"dependencies\": {\n    /*~~(EOL: angular 15 reached EOL on 2024-05-18)~~>*/\"@angular/core\": \"^15.2.0\"\n  }\n}\n","diff":"@@ -4,1 +4,1 @@\n  \"name\": \"demo\",\n  \"dependencies\": {\n-   \"@angular/core\": \"^15.2.0\"\n+   /*~~(EOL: angular 15 reached EOL on 2024-05-18)~~>*/\"@angular/core\": \"^15.2.0\"\n  }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.node.dependencies.FindEndOfLifeDependencies","displayName":"Find end-of-life npm dependencies","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
 
 ## Usage

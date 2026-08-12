@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"kotlin","before":"import org.junit.jupiter.api.Assertions.assertTrue\n\nclass FooTest {\n    fun test(values: List<String?>) {\n        assertTrue(!values[0].isNullOrEmpty())\n        assertTrue(!values[0].isNullOrEmpty(), \"message\")\n    }\n}\n","after":"import org.junit.jupiter.api.Assertions.assertFalse\n\nclass FooTest {\n    fun test(values: List<String?>) {\n        assertFalse(values[0].isNullOrEmpty())\n        assertFalse(values[0].isNullOrEmpty(), \"message\")\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.junit.jupiter.api.Assertions.assertTrue\n+import org.junit.jupiter.api.Assertions.assertFalse\n\n@@ -5,2 +5,2 @@\nclass FooTest {\n    fun test(values: List<String?>) {\n-       assertTrue(!values[0].isNullOrEmpty())\n-       assertTrue(!values[0].isNullOrEmpty(), \"message\")\n+       assertFalse(values[0].isNullOrEmpty())\n+       assertFalse(values[0].isNullOrEmpty(), \"message\")\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.cleanup.AssertTrueNegationToAssertFalse","displayName":"Replace JUnit `assertTrue(!<boolean>)` to `assertFalse(<boolean>)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

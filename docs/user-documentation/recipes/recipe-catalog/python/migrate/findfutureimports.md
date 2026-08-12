@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find `__future__` imports"}
-  description={"Find `__future__` imports and add a search marker."}
+  description={"Find `__future__` imports and add a search marker. The `RemoveFutureImports` recipe automatically removes the imports that are obsolete in Python 3."}
   fqName={"org.openrewrite.python.migrate.FindFutureImports"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find `__future__` imports</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find `__future__` imports and add a search marker.</RecipeHeader.Description>
+<RecipeHeader.Description>Find `__future__` imports and add a search marker. The `RemoveFutureImports` recipe automatically removes the imports that are obsolete in Python 3.</RecipeHeader.Description>
 
 </RecipeHeader>
 

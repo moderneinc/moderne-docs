@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;\n\n@AutoConfigureWireMock(port = 0, stubs = \"classpath:/stubs\")\nclass MyTest {\n}\n","after":"import org.wiremock.spring.ConfigureWireMock;\nimport org.wiremock.spring.EnableWireMock;\n\n@EnableWireMock(@ConfigureWireMock(port = 0, filesUnderClasspath = \"/stubs\"))\nclass MyTest {\n}\n","diff":"@@ -1,1 +1,2 @@\n-import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;\n+import org.wiremock.spring.ConfigureWireMock;\n+import org.wiremock.spring.EnableWireMock;\n\n@@ -3,1 +4,1 @@\nimport org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;\n\n-@AutoConfigureWireMock(port = 0, stubs = \"classpath:/stubs\")\n+@EnableWireMock(@ConfigureWireMock(port = 0, filesUnderClasspath = \"/stubs\"))\nclass MyTest {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.cloud.contract.MigrateAutoConfigureWireMock","displayName":"Migrate `@AutoConfigureWireMock` to `@EnableWireMock`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

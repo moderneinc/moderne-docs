@@ -13,6 +13,7 @@ description: Codequality OpenRewrite recipes.
 * [Redundancy](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy)
 * [Simplification](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification)
 * [Style](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style)
+* [Wpf](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/wpf)
 
 ## Composite Recipes
 

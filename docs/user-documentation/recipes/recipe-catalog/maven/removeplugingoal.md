@@ -1,49 +1,49 @@
 ---
-title: "Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields"
-sidebar_label: "Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields"
+title: "Remove Maven plugin goal"
+sidebar_label: "Remove Maven plugin goal"
 hide_title: true
 ---
 
 
 <head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/jackson/replacejsonignorewithjsonsetter" />
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/maven/removeplugingoal" />
 </head>
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields"}
-  description={"In Jackson 3, `@JsonIgnore` on fields initialized with empty collections causes the field value to become `null` instead of maintaining the empty collection. This recipe replaces `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on `Map` and `Collection` fields that have an empty collection initializer."}
-  fqName={"org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter"}
-  languages={["Java"]}
+  displayName={"Remove Maven plugin goal"}
+  description={"Removes a goal from a Maven plugin wherever it is declared: directly under a `<plugin>`, inside `<executions>`, and within `<build>`, `<pluginManagement>`, or `<profiles>`. If removing the goal leaves an `<execution>` with no remaining goals, the execution is removed. If all executions are removed, the `<executions>` element is also removed."}
+  fqName={"org.openrewrite.maven.RemovePluginGoal"}
+  languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-jackson/blob/main/src/main/java/org/openrewrite/java/jackson/ReplaceJsonIgnoreWithJsonSetter.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite/blob/main/rewrite-maven/src/main/java/org/openrewrite/maven/RemovePluginGoal.java"}
 />
 
 <RecipeHeader
   type={"Single recipe"}
-  languages={["Java"]}
-  tags={["jackson-3"]}
+  languages={["OpenRewrite"]}
+  tags={[]}
   license={"Apache License Version 2.0"}
-  fqName={"org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter"}
-  artifact={"org.openrewrite.recipe:rewrite-jackson"}
-  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter"}
-  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/replacejsonignorewithjsonsetter.md"}
+  fqName={"org.openrewrite.maven.RemovePluginGoal"}
+  artifact={"org.openrewrite:rewrite-maven"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.RemovePluginGoal"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/removeplugingoal.md"}
 >
 
-<RecipeHeader.Title>Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields</RecipeHeader.Title>
+<RecipeHeader.Title>Remove Maven plugin goal</RecipeHeader.Title>
 
-<RecipeHeader.Description>In Jackson 3, `@JsonIgnore` on fields initialized with empty collections causes the field value to become `null` instead of maintaining the empty collection. This recipe replaces `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on `Map` and `Collection` fields that have an empty collection initializer.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes a goal from a Maven plugin wherever it is declared: directly under a `<plugin>`, inside `<executions>`, and within `<build>`, `<pluginManagement>`, or `<profiles>`. If removing the goal leaves an `<execution>` with no remaining goals, the execution is removed. If all executions are removed, the `<executions>` element is also removed.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.annotation.JsonIgnore;\nimport java.util.LinkedHashMap;\nimport java.util.Map;\n\nclass Model {\n    @JsonIgnore\n    private Map<String, Object> additionalProperties = new LinkedHashMap<>();\n}\n","after":"import com.fasterxml.jackson.annotation.JsonSetter;\nimport com.fasterxml.jackson.annotation.Nulls;\n\nimport java.util.LinkedHashMap;\nimport java.util.Map;\n\nclass Model {\n    @JsonSetter(nulls = Nulls.AS_EMPTY)\n    private Map<String, Object> additionalProperties = new LinkedHashMap<>();\n}\n","diff":"@@ -1,1 +1,3 @@\n-import com.fasterxml.jackson.annotation.JsonIgnore;\n+import com.fasterxml.jackson.annotation.JsonSetter;\n+import com.fasterxml.jackson.annotation.Nulls;\n+\nimport java.util.LinkedHashMap;\n@@ -6,1 +8,1 @@\n\nclass Model {\n-   @JsonIgnore\n+   @JsonSetter(nulls = Nulls.AS_EMPTY)\n    private Map<String, Object> additionalProperties = new LinkedHashMap<>();\n","newFile":false}]}]}>
+<OptionsTable options={[{"type":"String","name":"pluginGroupId","required":true,"description":"Group ID of the plugin from which the goal will be removed. Supports glob. A Group ID is the first part of a plugin coordinate 'org.apache.maven.plugins:maven-compiler-plugin:VERSION'.","example":"org.apache.maven.plugins"},{"type":"String","name":"pluginArtifactId","required":true,"description":"Artifact ID of the plugin from which the goal will be removed. Supports glob. The second part of a plugin coordinate 'org.apache.maven.plugins:maven-compiler-plugin:VERSION'.","example":"maven-compiler-plugin"},{"type":"String","name":"goal","required":true,"description":"The goal to remove. Matching is case-insensitive and supports glob.","example":"compile"}]}>
 
-## Examples
+## Options
 
-</ExampleList>
+</OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter","displayName":"Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.RemovePluginGoal","displayName":"Remove Maven plugin goal","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"pluginGroupId=org.apache.maven.plugins\" --recipe-option \"pluginArtifactId=maven-compiler-plugin\" --recipe-option \"goal=compile\""}}>
 
 ## Usage
 

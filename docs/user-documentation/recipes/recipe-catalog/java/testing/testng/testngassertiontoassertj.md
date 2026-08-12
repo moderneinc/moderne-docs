@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.testng.asserts.Assertion;\n\nclass Test {\n    void test(Assertion assertion) {\n        assertion.assertEquals(\"a\", \"b\");\n        assertion.assertEquals(\"a\", \"b\", \"msg\");\n        assertion.assertEquals(1.0, 2.0, 0.1);\n        assertion.assertEquals(1.0, 2.0, 0.1, \"msg\");\n        assertion.assertNotEquals(3, 4);\n        assertion.assertNotEquals(1.0, 2.0, 0.1);\n    }\n}\n","after":"import org.testng.asserts.Assertion;\n\nimport static org.assertj.core.api.Assertions.assertThat;\nimport static org.assertj.core.api.Assertions.within;\n\nclass Test {\n    void test(Assertion assertion) {\n        assertThat(\"a\").isEqualTo(\"b\");\n        assertThat(\"a\").as(\"msg\").isEqualTo(\"b\");\n        assertThat(1.0).isCloseTo(2.0, within(0.1));\n        assertThat(1.0).as(\"msg\").isCloseTo(2.0, within(0.1));\n        assertThat(3).isNotEqualTo(4);\n        assertThat(1.0).isNotCloseTo(2.0, within(0.1));\n    }\n}\n","diff":"@@ -3,0 +3,3 @@\nimport org.testng.asserts.Assertion;\n\n+import static org.assertj.core.api.Assertions.assertThat;\n+import static org.assertj.core.api.Assertions.within;\n+\nclass Test {\n@@ -5,6 +8,6 @@\nclass Test {\n    void test(Assertion assertion) {\n-       assertion.assertEquals(\"a\", \"b\");\n-       assertion.assertEquals(\"a\", \"b\", \"msg\");\n-       assertion.assertEquals(1.0, 2.0, 0.1);\n-       assertion.assertEquals(1.0, 2.0, 0.1, \"msg\");\n-       assertion.assertNotEquals(3, 4);\n-       assertion.assertNotEquals(1.0, 2.0, 0.1);\n+       assertThat(\"a\").isEqualTo(\"b\");\n+       assertThat(\"a\").as(\"msg\").isEqualTo(\"b\");\n+       assertThat(1.0).isCloseTo(2.0, within(0.1));\n+       assertThat(1.0).as(\"msg\").isCloseTo(2.0, within(0.1));\n+       assertThat(3).isNotEqualTo(4);\n+       assertThat(1.0).isNotCloseTo(2.0, within(0.1));\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertionToAssertJ","displayName":"TestNG `Assertion` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

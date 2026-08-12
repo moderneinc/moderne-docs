@@ -4,31 +4,26 @@ sidebar_label: "Migrate to Spring WS 4.0"
 hide_title: true
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/ws/upgradespringws_4_0" />
-</head>
-
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
   displayName={"Migrate to Spring WS 4.0"}
   description={"Migrate applications to Spring WS 4.0. This recipe handles the removal of Apache Axiom support in Spring WS 4.0.x by migrating Axiom-based SOAP message handling to SAAJ (SOAP with Attachments API for Java). Note that Spring WS 4.1+ restores Axiom support if upgrading to that version is preferred."}
-  fqName={"org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0"}
-  languages={["Java"]}
-  license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/spring-ws-4.yml"}
+  fqName={"io.moderne.java.spring.ws.UpgradeSpringWs_4_0"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
 />
 
 <RecipeHeader
   type={"Composite recipe"}
-  languages={["Java"]}
+  languages={["OpenRewrite"]}
   tags={["spring","spring-ws"]}
-  license={"Moderne Source Available License"}
-  fqName={"org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0"}
-  artifact={"org.openrewrite.recipe:rewrite-spring"}
-  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0"}
+  license={"Moderne Proprietary License"}
+  fqName={"io.moderne.java.spring.ws.UpgradeSpringWs_4_0"}
+  artifact={"io.moderne.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.ws.UpgradeSpringWs_4_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0.md"}
+  moderneOnly
 >
 
 <RecipeHeader.Title>Migrate to Spring WS 4.0</RecipeHeader.Title>
@@ -43,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0","displayName":"Migrate to Spring WS 4.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.java.spring.ws.UpgradeSpringWs_4_0","displayName":"Migrate to Spring WS 4.0","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

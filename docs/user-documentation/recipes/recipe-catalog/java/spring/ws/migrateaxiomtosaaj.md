@@ -4,31 +4,26 @@ sidebar_label: "Migrate Spring WS Axiom to SAAJ"
 hide_title: true
 ---
 
-
-<head>
-  <link rel="canonical" href="https://docs.openrewrite.org/recipes/java/spring/ws/migrateaxiomtosaaj" />
-</head>
-
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
   displayName={"Migrate Spring WS Axiom to SAAJ"}
   description={"Migrate from Apache Axiom SOAP message handling to SAAJ (SOAP with Attachments API for Java). Spring WS 4.0.x removed support for Apache Axiom because Axiom did not support Jakarta EE at the time. This recipe changes Axiom types to their SAAJ equivalents."}
-  fqName={"org.openrewrite.java.spring.ws.MigrateAxiomToSaaj"}
-  languages={["Java"]}
-  license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/spring-ws-4.yml"}
+  fqName={"io.moderne.java.spring.ws.MigrateAxiomToSaaj"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
 />
 
 <RecipeHeader
   type={"Composite recipe"}
-  languages={["Java"]}
+  languages={["OpenRewrite"]}
   tags={["spring","spring-ws"]}
-  license={"Moderne Source Available License"}
-  fqName={"org.openrewrite.java.spring.ws.MigrateAxiomToSaaj"}
-  artifact={"org.openrewrite.recipe:rewrite-spring"}
-  appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.ws.MigrateAxiomToSaaj"}
+  license={"Moderne Proprietary License"}
+  fqName={"io.moderne.java.spring.ws.MigrateAxiomToSaaj"}
+  artifact={"io.moderne.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.ws.MigrateAxiomToSaaj"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/ws/migrateaxiomtosaaj.md"}
+  moderneOnly
 >
 
 <RecipeHeader.Title>Migrate Spring WS Axiom to SAAJ</RecipeHeader.Title>
@@ -49,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.ws.MigrateAxiomToSaaj","displayName":"Migrate Spring WS Axiom to SAAJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.java.spring.ws.MigrateAxiomToSaaj","displayName":"Migrate Spring WS Axiom to SAAJ","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

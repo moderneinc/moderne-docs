@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `cucumber-java8` step definitions with `cucumber-java`"}
-  description={"Replace `StepDefinitionBody` methods with `StepDefinitionAnnotations` on new methods with the same body."}
+  description={"Replace `StepDefinitionBody` methods with `StepDefinitionAnnotations` on new methods with the same body, or, for a method reference, with a body calling the method it refers to."}
   fqName={"org.openrewrite.cucumber.jvm.CucumberJava8StepDefinitionToCucumberJava"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `cucumber-java8` step definitions with `cucumber-java`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `StepDefinitionBody` methods with `StepDefinitionAnnotations` on new methods with the same body.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `StepDefinitionBody` methods with `StepDefinitionAnnotations` on new methods with the same body, or, for a method reference, with a body calling the method it refers to.</RecipeHeader.Description>
 
 </RecipeHeader>
 
