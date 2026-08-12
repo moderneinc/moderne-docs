@@ -148,8 +148,8 @@ This changelog is automatically generated from GitHub releases and only contains
       escapedBody = escapedBody.replace(/^###? (.+)$/gm, '**$1**');
 
       // Remove references to private GitHub content:
-      // 1. Remove "by @username" mentions
-      escapedBody = escapedBody.replace(/\s+by @[\w-]+/g, '');
+      // 1. Remove "by @username" mentions, including the [bot] suffix on app accounts
+      escapedBody = escapedBody.replace(/\s+by @[\w-]+(?:\[bot\])?/g, '');
 
       // 2. Remove "in https://github.com/.../pull/..." references
       escapedBody = escapedBody.replace(/\s+in https:\/\/github\.com\/[^\s]+/g, '');
