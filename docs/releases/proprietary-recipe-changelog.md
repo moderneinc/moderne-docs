@@ -10,6 +10,180 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 12, 2026
+
+#### rewrite-ai - 0.4.5
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-ai-search - 0.35.4
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-android - 0.18.5
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-angular - 1.9.0
+
+* Export the UpgradeToAngularNCodeChanges recipes from the package entry point
+* Dump the SourcesFileErrors data table when the smoke test fails
+* Don't misfire the standalone and AOT migrations on Angular 19+ projects
+* Bump jest from 30.3.0 to 30.4.2 in /recipes-angular
+* Bump @openrewrite/rewrite from 8.87.7 to 8.88.2 in /recipes-angular
+
+#### rewrite-circleci - 3.12.5
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-cobol - v2.21.1
+
+* Move CI and publishing onto the openrewrite gh-automation workflows
+
+#### rewrite-cobol - 2.21.0
+
+* Pass Code Genome Project artifact credentials to the shared workflows
+
+#### rewrite-compiled-analysis - 0.15.0
+
+* Fix one-pass supertype walk in VerifyCompilation
+* Make JavaTypeClassWriterTest insensitive to member order
+* Report compile verification failures in a data table
+* Document that `VerifyCompilation` only verifies same-run changes
+* Report parse failures and preserve missing type diagnostics in VerifyCompilation
+
+#### rewrite-concourse - 3.11.5
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-cryptography - 0.14.12
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-devcenter - 1.31.0
+
+* Provide a usage example for the Groovy `upgradeRecipe` option
+
+#### rewrite-dotnet - 0.17.3
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-dropwizard - 0.6.0
+
+* Forward Code Genome Project secrets to the CI and publish workflows
+
+#### rewrite-elastic - 0.8.3
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-hibernate - 0.26.4
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-jasperreports - 0.6.5
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-java-application-server - 0.8.0
+
+* Forward Code Genome Project secrets to the CI and publish workflows
+
+#### rewrite-java-security - 3.37.0
+
+* Align CI and publish workflows with other OpenRewrite recipe modules
+* Derive EOL status from eolFrom relative to asOf in node and C# recipes
+* OpenRewrite recipe best practices
+* Provide a usage example for the `addMarkers` options
+* Update minorTransitiveUpgrade expectations for new micrometer advisories
+
+#### rewrite-kafka - 0.7.5
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-kubernetes - 3.17.5
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-migrate-kotlin - 0.7.0
+
+* Forward Code Genome Project secrets to the CI and publish workflows
+
+#### rewrite-migrate-python - 0.12.0
+
+* Forward Code Genome Project secrets to the CI and publish workflows
+* Complete PEP 585 coverage and fix typing/collections migration corner cases
+
+#### rewrite-nodejs - 0.48.0
+
+* Track upstream's native lock file regeneration
+
+#### rewrite-nullability - 0.4.0
+
+* ci: use gh-automation reusable workflows and forward Code Genome Project secrets
+* fix: depend on released rewrite-program-analysis so the publish build passes
+
+#### rewrite-prethink - 0.12.0
+
+* Refine the Node context recipes and exclude tooling configs from dependency usage
+* Inventory SQL usage, attributed to the class and method that issues it
+* Exclude tooling configs from Go dependency usage
+* Report Go test gaps
+* Name every architecture row at the producer
+* Warm the npx cache before the JavaScript tests spawn the RPC
+* Fix publish: resolve rewrite-prethink through rewriteVersion instead of latest.integration
+* Run the Go integration tests as their own parallel CI job
+* Re-enable FindGoTypeMetricsIntegTest
+* Drop the type validation suppressions from the Go integration tests
+* Inventory Go structs as data assets
+* Detect Go background work in the scheduled tasks context
+* Derive Go module roots from the go.mod's source path
+* Standardize assertion detection across test-quality checks
+* Point the CLAUDE.md DuckDB examples at artifacts we still emit
+* Ignore Kotlin incremental compilation caches
+
+#### rewrite-program-analysis - 0.13.8
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-react - 0.5.0
+
+* Forward Code Genome Project secrets to the CI and publish workflows
+
+#### rewrite-reactive-streams - 0.20.5
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-release-metromap - 0.5.0
+
+* Forward Code Genome Project secrets to the CI and publish workflows
+
+#### rewrite-spring - 0.40.0
+
+* Resolve compiler and javadoc warnings in MigrateAwspringSqsMessageConverter
+* OpenRewrite recipe best practices
+* Broaden `MigrateJackson2ObjectMapperBuilder` — imperative form and cross-method producers
+* Make `ReplaceMockitoBeanWithBeanMethod` Kotlin-aware
+
+#### rewrite-sql - 2.15.0
+
+* Guard against a null TRIM operand in SqlDetector
+
+#### rewrite-struts - 0.27.0
+
+* Forward Code Genome Project secrets to the CI and publish workflows
+
+#### rewrite-tapestry - 0.5.0
+
+* Forward Code Genome Project secrets to the CI and publish workflows
+
+#### rewrite-terraform - 3.14.7
+
+* Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-vulncheck - 0.8.0
+
+* Forward Code Genome Project credentials to GHA workflows
+
 ## August 10, 2026
 
 #### rewrite-cryptography - v0.14.11
@@ -43,10 +217,10 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-angular - v1.8.0
 
 * Forward CGP artifact repository credentials in CI and publish workflows
-* Bump @openrewrite/rewrite from 8.84.9 to 8.87.7 in /recipes-angular[bot]
-* Bump js-yaml from 3.14.2 to 3.15.0 in /recipes-angular[bot]
-* Bump @babel/core from 7.28.5 to 7.29.7 in /recipes-angular[bot]
-* Bump brace-expansion in /recipes-angular[bot]
+* Bump @openrewrite/rewrite from 8.84.9 to 8.87.7 in /recipes-angular
+* Bump js-yaml from 3.14.2 to 3.15.0 in /recipes-angular
+* Bump @babel/core from 7.28.5 to 7.29.7 in /recipes-angular
+* Bump brace-expansion in /recipes-angular
 * Use the correct @angular-devkit version scheme per package
 
 #### rewrite-prethink - 0.11.2
@@ -77,7 +251,7 @@ This changelog is automatically generated from GitHub releases and only contains
 
 #### rewrite-angular - 1.7.0
 
-* Bump ts-jest from 29.4.11 to 29.4.12 in /recipes-angular[bot]
+* Bump ts-jest from 29.4.11 to 29.4.12 in /recipes-angular
 
 #### rewrite-circleci - 3.12.4
 
@@ -777,7 +951,7 @@ This changelog is automatically generated from GitHub releases and only contains
 * Print out logs in CI in case of failure
 * OpenRewrite 8.84.1
 * MSG_MINIMAL in Slack notifications
-* Bump @openrewrite/rewrite from 8.84.1 to 8.84.9 in /recipes-angular[bot]
+* Bump @openrewrite/rewrite from 8.84.1 to 8.84.9 in /recipes-angular
 * Migrate npm publishing to Trusted Publishing (OIDC)
 
 #### rewrite-circleci - 3.12.1
@@ -975,8 +1149,8 @@ This changelog is automatically generated from GitHub releases and only contains
 
 #### rewrite-angular - 1.3.0
 
-* Bump ts-jest from 29.4.9 to 29.4.11 in /recipes-angular[bot]
-* Bump tmp from 0.2.5 to 0.2.7 in /recipes-angular[bot]
+* Bump ts-jest from 29.4.9 to 29.4.11 in /recipes-angular
+* Bump tmp from 0.2.5 to 0.2.7 in /recipes-angular
 * Upgrading to OpenRewrite 8.84.0
 
 #### rewrite-circleci - 3.12.0
@@ -1485,7 +1659,7 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-nodejs - v0.44.1
 
 * OpenRewrite v8.81.6
-* Bump uuid and jest-junit in /recipes-nodejs[bot]
+* Bump uuid and jest-junit in /recipes-nodejs
 * Remove Java recipe of `DependencyVulnerabilityCheck`
 
 #### rewrite-prethink - v0.5.10
@@ -1595,7 +1769,7 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-angular - 1.1.4
 
 * Do not add `standalone:false` when there are imports
-* Bump @openrewrite/rewrite from 8.78.3 to 8.80.1 in /recipes-angular[bot]
+* Bump @openrewrite/rewrite from 8.78.3 to 8.80.1 in /recipes-angular
 
 #### rewrite-angular - 1.1.3
 
@@ -1673,9 +1847,9 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-nodejs - 0.44.0
 
 * Re-generate recipes.csv
-* Bump yaml from 2.8.2 to 2.8.3 in /recipes-nodejs[bot]
-* Bump handlebars from 4.7.8 to 4.7.9 in /recipes-nodejs[bot]
-* Bump picomatch from 2.3.1 to 2.3.2 in /recipes-nodejs[bot]
+* Bump yaml from 2.8.2 to 2.8.3 in /recipes-nodejs
+* Bump handlebars from 4.7.8 to 4.7.9 in /recipes-nodejs
+* Bump picomatch from 2.3.1 to 2.3.2 in /recipes-nodejs
 * Adding project icon
 
 #### rewrite-prethink - 0.5.8
@@ -1943,8 +2117,8 @@ This changelog is automatically generated from GitHub releases and only contains
 
 #### rewrite-angular - 1.1.0
 
-* Bump @openrewrite/rewrite from 8.78.2 to 8.78.3 in /recipes-angular[bot]
-* Bump ts-jest from 29.4.6 to 29.4.9 in /recipes-angular[bot]
+* Bump @openrewrite/rewrite from 8.78.2 to 8.78.3 in /recipes-angular
+* Bump ts-jest from 29.4.6 to 29.4.9 in /recipes-angular
 * Update Prethink context
 
 #### rewrite-circleci - 3.10.0
@@ -2121,10 +2295,10 @@ This changelog is automatically generated from GitHub releases and only contains
 
 #### rewrite-angular - 1.0.5
 
-* Bump brace-expansion in /recipes-angular[bot]
-* Bump handlebars from 4.7.8 to 4.7.9 in /recipes-angular[bot]
-* Bump yaml from 2.8.2 to 2.8.3 in /recipes-angular[bot]
-* Bump picomatch from 2.3.1 to 2.3.2 in /recipes-angular[bot]
+* Bump brace-expansion in /recipes-angular
+* Bump handlebars from 4.7.8 to 4.7.9 in /recipes-angular
+* Bump yaml from 2.8.2 to 2.8.3 in /recipes-angular
+* Bump picomatch from 2.3.1 to 2.3.2 in /recipes-angular
 * Add workflow to auto-merge Dependabot patch updates
 * OpenRewrite 8.77.2
 * Use `packagePattern` in @angular version changes
@@ -2357,19 +2531,19 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-angular - 1.0.0
 
 * Upgrading to OpenRewrite 8.75.5
-* Bump minimatch from 3.1.2 to 3.1.5 in /recipes-angular[bot]
+* Bump minimatch from 3.1.2 to 3.1.5 in /recipes-angular
 * Angular 11 migration
 * Angular 10 migration
 * Angular favicon
 * Limit resources in tests
 * Angular 9 migration
-* Bump jest and @types/jest in /recipes-angular[bot]
+* Bump jest and @types/jest in /recipes-angular
 * Angular 8 migration
 * Angular 21 migration
 * Re-implement RenameFile
 * NPM publish setup
-* Bump @openrewrite/rewrite from 8.75.5 to 8.75.10 in /recipes-angular[bot]
-* Bump diff from 4.0.2 to 4.0.4 in /recipes-angular[bot]
+* Bump @openrewrite/rewrite from 8.75.5 to 8.75.10 in /recipes-angular
+* Bump diff from 4.0.2 to 4.0.4 in /recipes-angular
 
 #### rewrite-prethink - 0.4.1
 
@@ -3409,7 +3583,7 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Modularize Spring Securtiy 7
 * Migrate `HibernateDaoSupport#getSession(boolean)`
-* Migrate Spring Cloud `webflux.metrics.tags.path.enabled` property[bot]
+* Migrate Spring Cloud `webflux.metrics.tags.path.enabled` property
 * Spring Framework to Spring Boot should add modular starters
 * Add or update recipe category descriptors
 * Ensure `spring-boot-jackson` is added to Maven submodules too
@@ -3654,7 +3828,7 @@ This changelog is automatically generated from GitHub releases and only contains
 * Recipes to upgrade to `org.springframework.orm.hibernate5`
 * Add additional guards
 * Add MongoDB representation properties
-* Use separate properties workflows for Spring Boot vs Spring Cloud[bot]
+* Use separate properties workflows for Spring Boot vs Spring Cloud
 * Migrate spring-retry to Spring Framework's Resilience where possible
 * Remove Classic Uber-Jar class loader
 * Add `@SpringBootApplication` to projects that do not have one yet
@@ -3751,7 +3925,7 @@ Republishing to update dependencies
 * `RemoveUsageOfProcessFeaturesTlsConstants` recipe
 * Adding ReplaceCryptoHashConstructor recipe
 * Amend the `ReplaceCryptoConstructors` recipe to handle DEP0181 too.
-* Bump js-yaml from 3.14.1 to 3.14.2 in /recipes-nodejs[bot]
+* Bump js-yaml from 3.14.1 to 3.14.2 in /recipes-nodejs
 * Add tags to the `UseNativeTypeCheckingMethods` recipe
 * `ReplaceUtilLog` recipe
 * `ReplaceUtilExtend` recipe
@@ -4340,7 +4514,7 @@ Republishing to update dependencies
 
 #### rewrite-spring - 0.13.0
 
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-09-02T1110[bot]
+* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-09-02T1110
 * Leverage the OSS Spring Boot 3.5 migration recipes
 * Migrate `AntPathRequestMatcher`
 
@@ -4413,7 +4587,7 @@ Republishing to update dependencies
 
 #### rewrite-java-security - 3.17.0
 
-* chore(ci): bump actions/setup-java from 4 to 5[bot]
+* chore(ci): bump actions/setup-java from 4 to 5
 
 #### rewrite-program-analysis - 0.4.1
 
@@ -4425,10 +4599,10 @@ Republishing to update dependencies
 
 #### rewrite-spring - 0.12.0
 
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-08-19T1107[bot]
+* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-08-19T1107
 * Use the property migrations from OSS rewrite-spring
 * Remove duplicate UpgradeSpringKafka_3_0 recipe
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-08-26T1110[bot]
+* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-08-26T1110
 * Add Spring Boot 3.5 deprecation recipes
 * Enabled test after upstream fix
 
