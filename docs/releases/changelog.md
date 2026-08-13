@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.6.0 (2026/08/13)
+
+- badge the Data tables tab with the produced table count
+
 ### UI v14.5.0 (2026/08/13)
 
 - rebuild the category marks — current artwork, dark mode, keyline grid
