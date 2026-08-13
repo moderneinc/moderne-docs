@@ -1,7 +1,15 @@
+recipes-backpatch
+recipes-csharp
+recipes-go
+recipes-javascript
+recipes-kotlin
+recipes-scala
 rewrite-ai
 rewrite-ai-search
 rewrite-android
+rewrite-android-studio
 rewrite-angular
+rewrite-apollo-client
 rewrite-astgrep
 rewrite-bazel
 rewrite-circleci

@@ -12,6 +12,29 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## August 12, 2026
 
+#### recipes-csharp - v0.5.0
+
+* WPF code quality: port all 82 WpfAnalyzers diagnostics as OpenRewrite C# recipes
+* Detect TODO comments outside declaration prefixes in FindFixTodoComment
+* Drop explicit io.moderne:jsonrpc dependency so release publishing verification passes
+
+#### recipes-go - 0.6.0
+
+* Adding two Audit recipes
+* Add encoding/json/v2 migration usage finder recipe
+* Fix AvoidChannelLenCheck false match on non-channel len() calls
+* AvoidDotImport: re-qualify references instead of leaving them dangling
+* Guard code-quality recipes against emitting invalid Go
+* Drop explicit io.moderne:jsonrpc dependency
+
+#### recipes-kotlin - 0.3.0
+
+* Update release automation
+
+#### recipes-scala - 0.4.0
+
+* Update release automation
+
 #### rewrite-ai - 0.4.5
 
 * Updated repository to use OpenRewrite version v8.89.0
@@ -202,6 +225,21 @@ This changelog is automatically generated from GitHub releases and only contains
 * Populate library usage, import conventions and logging framework for JS/TS
 * Fix the Go scanning recipes: cursor misuse, scan-order dependence, and a dead go.mod match
 
+#### rewrite-sql - 2.14.2
+
+* Add a `markSource` option for analysis-only SQL search runs
+* Promote `ConcatenatedSql` out of `internal` into the trait package
+* Pair each SQL verb with its clause in the prefilter
+* Detect SQL in `FindSql` through the `SqlStatement` trait
+* Record the line each SQL anti-pattern finding begins on
+* Record joined tables, derived sources and DDL in `DatabaseColumnsUsed`
+* Parse each SQL statement once rather than once per anti-pattern rule
+* Read a `NOT` around a constant predicate as the negation it is
+* Count source lines, not values, when locating SQL
+* Write a rewritten literal back in the shape it was written in
+* Detect SQL in interpolated and template strings, for reading only
+* OpenRewrite recipe best practices
+
 ## August 5, 2026
 
 #### rewrite-spring - v0.39.1
@@ -236,6 +274,20 @@ This changelog is automatically generated from GitHub releases and only contains
 * Fix UpgradeDependencyVersion against rewrite 8.88.0
 
 ## July 29, 2026
+
+#### recipes-csharp - 0.4.0
+
+* Use structured CsDocComment LST for doc-comment code-quality recipes
+* Add ConvertPackagesConfigToPackageReference recipe
+
+#### recipes-kotlin - 0.2.0
+
+* Drop type validation suppressions enabled by rewrite 8.88.0-SNAPSHOT
+* Drop / narrow the remaining type validation suppressions
+
+#### recipes-scala - 0.3.1
+
+* Updated repository to use OpenRewrite version v8.88.0
 
 #### rewrite-ai - 0.4.4
 
@@ -444,6 +496,14 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## July 16, 2026
 
+#### recipes-go - 0.5.3
+
+* Upgrade rewrite-go to 0.0.28
+
+#### recipes-go - 0.5.2
+
+* Upgrade rewrite-go to 0.0.27
+
 #### rewrite-migrate-python - v0.10.0
 
 * Update CloudFormation, .whitesource, and COPY --from images in Python upgrades
@@ -460,6 +520,43 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add a Python dependency report to the shared dependency-list-report
 
 ## July 14, 2026
+
+#### recipes-csharp - 0.3.0
+
+* Add README modeled on sibling moderneinc recipes repos
+* Remove FindWebApiCompatShim recipe
+* Adapt to the new dimensionsAfterName constructor in MethodDeclaration
+* Exclude J.Empty in UseReadOnlyAutoProperty
+* Add UsesType/UsesMethod preconditions to .NET migration recipes
+* Make 15 .NET migration recipes type-safe (#89)
+* Extract shared csproj/XML recipes into Core project
+* Migrate ASP.NET Core logging recipes to transforms; fix RPC desyncs
+* Add SLN-to-SLNX converter and pack the recipe solution as a whole
+* Make .NET 10 search recipes type-safe; stop upgrading netstandard TFMs
+* Fully-qualify System.Threading.Lock and bump Polly to avoid downgrade
+* Add .NET Framework 4.x retargeting recipes (4.0 through 4.8.1)
+* Add .NET Framework legacy-tech search recipes and dependency SBOM
+
+#### recipes-go - 0.5.1
+
+* Upgrade rewrite-go to 0.0.26
+
+#### recipes-go - 0.5.0
+
+* Add more Go upgrade versions fixed recipes
+* Bump to rewrite-go v0.0.19
+* Upgrade to rewrite-go/v0.0.23
+* go tidy composite recipe
+* Upgrade rewrite-go to 0.0.25
+
+#### recipes-kotlin - 0.1.4
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### recipes-scala - 0.3.0
+
+* Favicon for Scala
+* Add SimplifyOptionMatch recipe
 
 #### rewrite-ai - 0.4.3
 
@@ -658,7 +755,21 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Read and tokenize JCL .prm members once by path, not per source
 
+## July 6, 2026
+
+#### rewrite-migrate-python - v0.9.3
+
+* Upgrade Python project files and Dockerfiles during version upgrades
+
 ## July 1, 2026
+
+#### recipes-kotlin - 0.1.3
+
+* Updated repository to use OpenRewrite version v8.86.0
+
+#### recipes-scala - 0.2.2
+
+* Updated repository to use OpenRewrite version v8.86.0
 
 #### rewrite-ai - 0.4.2
 
@@ -912,6 +1023,13 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * perf(dataflow): converge path-sensitive loops instead of churning to the iteration cap
 
+## June 24, 2026
+
+#### recipes-go - 0.4.1
+
+* Rename migration recipe ids
+* rewrite-go/v0.0.18
+
 ## June 23, 2026
 
 #### rewrite-migrate-python - v0.9.1
@@ -933,6 +1051,14 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add GitHub Actions
 
 ## June 17, 2026
+
+#### recipes-kotlin - 0.1.2
+
+* Updated repository to use OpenRewrite version v8.85.0
+
+#### recipes-scala - 0.2.1
+
+* Updated repository to use OpenRewrite version v8.85.0
 
 #### rewrite-ai - 0.4.1
 
@@ -1123,6 +1249,34 @@ This changelog is automatically generated from GitHub releases and only contains
 * Detect Python BDD step definitions (behave, pytest-bdd, lettuce)
 * Upgrade to langchain4j:1.16.3
 
+## June 11, 2026
+
+#### recipes-go - 0.4.0
+
+* rewrite-go/v0.0.17
+* Flatten the project structure
+
+## June 10, 2026
+
+#### recipes-go - 0.3.2
+
+* Upgrade to rewrite-go/v0.0.15
+* Use preconditions for the go version recipes
+
+## June 9, 2026
+
+#### recipes-go - 0.3.1
+
+* Fix wrong types in recipes
+* `UseAtomicTypes` -&gt; `FindDeprecatedAtomicFunctions`
+* Make the Go update recipes not visit the .go source files
+* Upgrade to 0.0.11, handle golang.Return multi-return
+* Fix PreferRegexpMustCompile to handle a different arity of regexp.Mus…
+* Adapt to rewrite-go changes in 0.0.12
+* Fix `AvoidHardcodedCredentials` recipe to add missing import
+* Fix recipes to remove unused imports
+* Upgrade rewrite-go to 0.0.14
+
 ## June 5, 2026
 
 #### rewrite-nodejs - 0.46.1
@@ -1130,6 +1284,14 @@ This changelog is automatically generated from GitHub releases and only contains
 * OpenRewrite 8.84.1
 
 ## June 3, 2026
+
+#### recipes-kotlin - 0.1.1
+
+* Updated repository to use OpenRewrite version v8.84.0
+
+#### recipes-scala - 0.2.0
+
+* Add UpgradeSbtVersion recipe
 
 #### rewrite-ai - 0.4.0
 
@@ -1305,6 +1467,23 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Regenerate recipes.csv
 
+## June 2, 2026
+
+#### recipes-go - 0.3.0
+
+* Update README
+* Add markers to test expectations (after)
+* Adapt to the java/golang package split
+* Upgrade rewrite-go to 0.0.5
+* Update to rewrite-go/v0.0.7
+* rewrite-go/v0.0.8, fix audit_recover
+* Fix `SimplifyIfReturnBool`
+* Add missing test for `SimplifySliceRange`
+* Add missing imports to prefer errors recipes
+* Fix recipes to add missing imports
+* Fix tests with invalid code in the before section
+* Add the ChangeGoVersion and UpgradeGoTo126 recipes
+
 ## June 1, 2026
 
 #### rewrite-program-analysis - 0.12.6
@@ -1328,6 +1507,40 @@ This changelog is automatically generated from GitHub releases and only contains
 * Avoid duplicate UpgradesAndMigrations rows per repo and card
 
 ## May 21, 2026
+
+#### recipes-csharp - 0.2.0
+
+* Improve .NET 10 upgrade recipes
+* Adapt recipes to SDK changes: CompilationUnit fields, NullSafe relocation
+* Migrate `[CollectionDefinition]` and `ICollectionFixture&lt;T&gt;` for xUnit→TUnit
+* Add MaybeAutoFormat to MemberDataToMethodDataSource
+* Fix TUnit migration gaps found during Terminal.Gui migration
+* Adapt recipes to CompilationUnit.Usings type change and fix false positives
+* Fix MigrateFromXUnit formatting, compile errors, and add assertion rules
+* Fix CodeQuality recipes that break compilation or change behavior
+* Fix recipe errors found by running CodeQuality against real repos
+* TUnit: Handle `Assert.Equal` generic, tolerance, and precision overloads
+* Fix CI: use upstream RpcFixture and XmlDocComment type
+* Fix build errors: use SDK types and fix Gradle classpath task
+* Add 6 cross-language code quality recipes
+* Add crypto factory recipe, char escaping, and SDK recipe registrations
+* Net3+ Startup migrations, conditional NuGet adds, Swashbuckle TFM gate, njsproj cleanup
+* Adding preconditions to ThrowIf* recipes
+* Add UsesType preconditions to Find* recipes
+* Replace imperative recipe registration with [Category] attributes
+* Add .NET Framework 4.8 SDK migration recipes; batch csproj reattestation
+
+#### recipes-go - 0.2.0
+
+* Relicense the repository under the Moderne Proprietary license
+
+#### recipes-kotlin - v0.1.0
+
+* Initial release
+
+#### recipes-scala - v0.1.0
+
+* Initial release
 
 #### rewrite-ai - 0.3.4
 
@@ -1513,6 +1726,20 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-vulncheck - 0.6.10
 
 * Updated repository to use OpenRewrite version v8.83.0
+
+## May 19, 2026
+
+#### recipes-go - 0.1.2
+
+* Add activate function at the root
+
+#### recipes-go - 0.1.1
+
+* Rename module to recipes-code-quality
+
+#### recipes-go - 0.1.0
+
+First release.
 
 ## May 12, 2026
 
@@ -2358,6 +2585,59 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add test quality detection recipes
 
 ## March 25, 2026
+
+#### recipes-csharp - 0.1.0
+
+* Add C# migration recipes: Find*, modernization, and ThrowIf* guard clauses
+* Replace C# required keyword with Option(Required=true)
+* Rename recipes-csharp to recipes-migrate-dotnet and add recipes-code-quality module
+* Fix RPC test failures by using JavaRewriteRpc with empty marketplace CSV
+* Fix 6 bugs and add test coverage for code quality recipes
+* Use RewriteRpcServer.ResetAll() instead of reflective JSON-RPC Reset call
+* Convert `RemoveArgumentListFromAttribute` to transforming recipe
+* Convert 5 search-only recipes to transforming recipes
+* Fix 4 pre-existing code quality test failures
+* Exclude out/ref parameters from FindDoNotOverwriteParameterValue
+* Fix 25 recipe bugs, implement 8 stub recipes, add ~100 tests
+* Use `Expression.Type` and `NameTree.Type` instead of `TypeUtils.GetType()`
+* Optimize Roslyn comparison harness (24x speedup)
+* Fix 30 code quality recipes based on Roslyn harness comparison
+* Use scoped Roslyn analyzer in harness fix loop
+* Fix recipe discrepancies found by expanded harness comparison
+* Fix 8 RCS recipes + optimize comparison runner
+* Fix 5 RCS recipes, remove 2 disabled-by-default from composites
+* Code quality cleanup + adopt new SDK utilities
+* Fix RCS recipes (batch 4) + harness improvements
+* Fix RCS recipes (batch 5): SimplifyCodeBranching rewrite + RemoveUnnecessarySemicolon
+* Add ASP.NET Core 2.x and 3.0 migration recipes
+* Extend migration chain to cover .NET Core 2.x → 6.0
+* Fix RCS recipes (batch 6) + harness ParseError detection
+* Fix RCS recipes (batch 7) + code review fixes
+* Use project references for local cross-repo development
+* Adapt to Cursor API changes in rewrite-csharp
+* Fix RCS recipes (batch 8) + disabled-by-default cleanup
+* Replace ToString() heuristics with proper AST APIs in recipes
+* Fix flaky tests: use RpcRewriteTest for UsesType recipes
+* Use AutoFormat for block-wrapping recipes, Space.SingleSpace cleanup
+* Refactor recipes to use CSharpPattern/CSharpTemplate
+* Use Capture.Expression() with type attribution
+* Add xUnit to TUnit migration recipes
+* Use CSharpTemplate.Attribute() for attribute construction
+* Update recipe writing skill and simplify recipes with new SDK APIs
+* Add csproj migration recipes and register Net3-5 composites
+* Add TFM and package version upgrades to all .NET migration composites
+* Fix P0 compilation failures and add P1 auto-fix recipes
+* Fix migration recipe bugs and add ApiController transform
+* Add modernization recipes and ModernizeToDotNet9 composite
+* Convert 6 recipes from manual SimpleName checks to CSharpPattern
+* Fix code quality recipes based on Roslyn harness comparison
+* Use CSharpTemplate for negation and conjunction in recipes
+* Add 9 modernization recipes to ModernizeToDotNet9 composite
+* Use CSharpTemplate for null-coalescing and ApiController attribute
+* Fix code quality recipes based on multi-repo harness comparison (round 2)
+* Adapt to OpenRewrite.CSharp SDK API changes
+* Adopt `CSharpTemplate.Rewrite` API, typed captures, and `ToFindVisitor`
+* Prefer unnamed and typed captures
 
 #### rewrite-ai - 0.2.6
 
@@ -4625,36 +4905,4 @@ Republishing to update dependencies
 * Fix `DependencyVulnerabilityCheckTest` after new vulnerabilities were added
 * Fix password detection regex to handle dots and special characters in URLs
 * Remove private IP addresses from comments
-
-## August 12, 2025
-
-#### rewrite-android - 0.11.2
-
-* Updated repository to use OpenRewrite version v8.60.0
-
-#### rewrite-circleci - 3.7.2
-
-* Updated repository to use OpenRewrite version v8.60.0
-
-#### rewrite-hibernate - 0.9.0
-
-* Add `cascade=PERSIST` for @Id and @MapsId Attributes
-* Replace `@Target` to `@TargetEmbeddable`
-
-#### rewrite-java-security - 3.16.0
-
-* Remove jackson from the fixesVulnerableDependenciesDeclaredInBaseAndS…
-* Apply code suggestions
-
-#### rewrite-kubernetes - 3.9.0
-
-* Refactor RewriteTest to use defaults method
-
-#### rewrite-sql - 2.6.2
-
-* Updated repository to use OpenRewrite version v8.60.0
-
-#### rewrite-struts - 0.19.0
-
-* rename settings.local.json to settings.json
 
