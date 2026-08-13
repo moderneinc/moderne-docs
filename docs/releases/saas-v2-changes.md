@@ -134,7 +134,7 @@ By default the table lists only repositories whose LST is available. The **Show 
 
 Because this information is now per repository, the `lostAndFound` GraphQL query has been removed. Lost and Found had itself replaced the Orphaned organization, which was removed back in v1, so neither is available in v2. To find repositories in an organization that have no usable LST, filter `repositories` on `lstArtifact` instead, as described in [Troubleshooting LST issues](../administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues.md#finding-repositories-without-a-usable-lst).
 
-One capability does not carry over. Lost and Found could list repositories that had been ingested but were missing from `repos.csv`. In v2 your organization hierarchy defines the set of repositories the platform knows about, so there is no separate pool of ingested-but-unrecognized repositories left to report.
+Lost and Found also worked in the reverse direction, listing repositories that had been ingested but weren't named in `repos.csv`. In v2 the organization hierarchy is the source of truth for which repositories the platform tracks, so that check happens against the hierarchy itself: turn on **Show all repositories** and compare what the organization contains against what you expect it to.
 
 ### Global org
 
