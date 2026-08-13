@@ -119,10 +119,6 @@ Every repository this query returns lacks a usable LST, and the `published` fiel
 
 The `enrichFailedReason` field records why the Connector failed to enrich a repository, which usually explains an `Unavailable` LST directly. The repositories table surfaces the same reason on the `Unavailable` pill, so what the API adds is the ability to collect it for every affected repository at once instead of inspecting them one by one. For the most common reason, see [Failed to enrich RepoKey after LST purge](#failed-to-enrich-repokey-after-lst-purge).
 
-:::info[Coming from v1 and looking for Lost and Found?]
-The v1 `lostAndFound` query has been removed, and this query is not a replacement for it. Lost and Found answered the opposite question: which repositories had been ingested into the platform that your `repos.csv` file did not mention. SaaS v2 has no equivalent, because your organization hierarchy now defines the set of repositories the platform knows about. There is no separate pool of ingested-but-unrecognized repositories left to report on, so LST problems are found per repository, within the organization the repository belongs to.
-:::
-
 ## LSTs not being ingested after upgrading from Nexus 2 to 3
 
 When migrating from Nexus 2 to 3, the default URL path changes and that may result in errors ingesting. Please double-check that the [URLs have been configured correctly](https://support.sonatype.com/hc/en-us/articles/39325029843219-Repository-How-to-enable-Nexus-2-URL-paths-in-Nexus-3).
