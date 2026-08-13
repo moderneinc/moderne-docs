@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -1 /Volumes/ModerneExt/workspaces/pov-agent-tools/working-set)",
+      "Read(//Volumes/ModerneExt/workspaces/pov-agent-tools/working-set/**)"
+    ]
+  }
+}

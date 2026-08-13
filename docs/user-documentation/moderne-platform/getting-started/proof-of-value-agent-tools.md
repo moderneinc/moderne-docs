@@ -37,15 +37,15 @@ You'll work with a set of open-source repositories throughout this process to ex
 
 **Setting up**
 
-* [Install the CLI and agent tools](#before-you-start) into every agent your teams already use
-* Turn on [LST format version 3](#why-version-3-matters-for-agents) before building anything
+* [Install the CLI and agent tools](#install-the-tools-youll-use) into every agent your teams already use
+* Turn on [LST format version 3](#why-lst-version-3-matters-for-agents) before building anything
 * [Connect the remote MCP servers](#connecting-the-remote-mcp-servers)
 * Build your working set of repositories
 
 **Phase 1 - Build context for your agents**
 
 * Run Prethink across your organization and apply the results
-* Work through [curated questions](#drawing-a-scenario) with your agent, against your own code
+* Work through [curated questions](#more-scenarios-to-try) with your agent, against your own code
 * [Aggregate context to the organization root](#aggregating-context-across-an-organization) and write an org-level agent config
 
 **Phase 2 - Your agent as your interface to Moderne**
@@ -382,7 +382,110 @@ Work through the scenarios with your own agent. Watch the agent transcripts to s
 
 If you would rather not pick from a list, draw one at random. Click the deck to turn over a question, then put it to your agent.
 
-<PrethinkQuestionDeck />
+<PrethinkQuestionDeck>
+
+* **Architecture** — Are there package-level dependency cycles? Which packages sit furthest from the main sequence, and what would it take to break the worst cycle?
+* **Architecture** — Which packages are the architectural core — the ones with the highest afferent coupling — and what is the risk profile of changing any of them?
+* **Architecture** — Which packages sit furthest from the main sequence, and what single refactor moves the needle most?
+* **Architecture** — What are the ground rules for contributing to this repository?
+* **Architecture** — Where should a new external integration live in this codebase?
+* **Architecture** — I have been away for six months. What changed architecturally that I should know about?
+* **Architecture** — Draw me the module dependency graph and point out the three edges most worth deleting.
+* **Architecture** — Which modules are the safest candidates to extract into a separate service, and why?
+* **Architecture** — What is the blast radius of deleting or restructuring the most-depended-on package?
+* **Code health** — If I could only read ten files in this repository, which ten and in what order?
+* **Architecture** — What is this project actually called, what modules does it ship, and what are their build coordinates?
+* **Architecture** — Is the layering respected, or do lower layers call upward into higher ones?
+* **Dependencies** — Which architectural layer carries the most third-party surface area?
+* **Error handling** — What is the dominant error-handling strategy in each module, and which module is the outlier?
+* **Architecture** — Something is failing at 3am. Given this codebase, where do I look first?
+* **Architecture** — Summarize what this system does in one page, written for a non-engineer stakeholder.
+* **Conventions** — Where does this codebase disagree with its own documentation?
+* **Architecture** — Draw the system context diagram: what lives inside this system and what does it talk to outside?
+* **Architecture** — Which packages concentrate the most complexity per class?
+* **Architecture** — Give me a 10-minute orientation to this system: what are the modules, what does each own, and how do they depend on each other? Where are the layer boundaries, and where are they violated?
+* **Architecture** — If a new engineer joined tomorrow, what should they read first, in what order, to become productive?
+* **Architecture** — Trace the end-to-end data flows through this system.
+* **Error handling** — Propose an exception hierarchy that fits how this codebase already works.
+* **Conventions** — What would you fix before onboarding five new engineers onto this codebase?
+* **Code health** — Which methods breach every complexity threshold at once — cyclomatic, cognitive, nesting, and parameter count?
+* **Code health** — Which methods have high Halstead volume relative to their line count — dense logic hiding in small functions?
+* **Code health** — Which methods have the deepest nesting and the longest parameter lists?
+* **Code health** — Is complexity concentrated in a few hotspots or spread evenly across the codebase? Show me the distribution, not just the top offenders.
+* **Code health** — Which classes are large but simple (safe to leave alone) versus small but complex (genuinely dangerous)?
+* **Runtime** — How is this service configured to run?
+* **Runtime** — What runs on a schedule here, and what does each job touch?
+* **Runtime** — How does this codebase get deployed?
+* **Architecture** — How big is this codebase really — how many modules, classes, and how much complexity?
+* **Architecture** — What is the full tech stack here, top to bottom?
+* **Code health** — Do the most complex methods also violate naming conventions — is bad code bad in more than one way?
+* **Conventions** — How much code would a codebase-wide style migration actually touch?
+* **Code health** — Which methods are long enough that they almost certainly do more than one thing?
+* **Dependencies** — Which libraries are used by exactly one package — good candidates for isolation?
+* **Architecture** — Do the most unstable packages also depend on the most third-party code?
+* **Conventions** — I need to add a new feature. Where does it belong, and what conventions — naming, package layout, error handling, test structure — will reviewers expect me to follow?
+* **Conventions** — What naming conventions does this codebase follow, and where is it inconsistent with itself?
+* **Conventions** — Are imports organized consistently, and is documentation coverage uniform across the codebase?
+* **Error handling** — Is error handling consistent across architectural layers, or does each layer do its own thing?
+* **Code health** — Which files are outliers — unlike anything else in this codebase?
+* **Code health** — Estimate the refactoring effort, in developer-days, for the top ten technical-debt items.
+* **Code health** — Give me a three-phase refactoring roadmap for this codebase.
+* **Code health** — What are the cheapest high-impact cleanups available to us this sprint?
+* **Testing** — Is test coverage correlated with complexity here, or inversely correlated?
+* **Code health** — What is the single most surprising thing about this codebase?
+* **Error handling** — Do the most complex methods also have the messiest error handling?
+* **Code health** — If I had one week to reduce maintenance risk, which five files should I touch and what should I do to each?
+* **Code health** — Express our technical debt as a single number, and spell out every caveat that number hides.
+* **Code health** — Where do the metrics disagree about the same class — one says healthy, another says trouble?
+* **Code health** — Where is this codebase healthiest — what should I not touch?
+* **Code health** — How does complexity in the test code compare to complexity in production code?
+* **Code health** — Which code is complex, untested, and architecturally central all at once?
+* **Code health** — What would it cost to get this codebase to meaningful test coverage?
+* **Domain & data** — What is the core vocabulary of this domain, judging by its data assets?
+* **Conventions** — Generate a lint configuration that matches the conventions this codebase already follows.
+* **Error handling** — How many distinct logging frameworks are in use here, and what would consolidating onto one cost?
+* **Dependencies** — What blocks this codebase from moving to a newer language version?
+* **Code health** — Which methods are genuinely hard to maintain — high cyclomatic and cognitive complexity, deep nesting, long parameter lists? Which would you refactor first for the best risk-adjusted payoff?
+* **Testing** — Which classes have tests that only exercise trivial methods while the complex ones go untested?
+* **Testing** — Which untested methods are also complex and architecturally central — the ones where a bug would hurt most?
+* **Code health** — Which complex methods should I write tests for before I dare refactor them?
+* **Error handling** — Show me every catch block that neither logs nor rethrows — where are we silently swallowing failures?
+* **Error handling** — What exception types does this codebase throw, and is the hierarchy coherent or ad hoc?
+* **Code health** — What should reviewers look for in this repository specifically, as opposed to generic review advice?
+* **Code health** — Write me a quarterly engineering health report for this codebase.
+* **Architecture** — What is the minimum set of dependency edges I would need to cut to break every package cycle?
+* **Dependencies** — Which classes would break if we removed a given library?
+* **Architecture** — Which packages fall into the zone of pain (stable and concrete) or the zone of uselessness (unstable and abstract)?
+* **Dependencies** — How deeply is this codebase coupled to a given framework or library? How many import sites, which packages, what usage patterns — and what would migrating off it realistically cost?
+* **Dependencies** — How hard would it realistically be to upgrade our main framework a major version?
+* **Testing** — What is the shape of our coverage gap by complexity band? Are we missing tests on the simple code or the hard code?
+* **Conventions** — Which conventions are followed in name only — honored in the letter but not the spirit?
+* **Code health** — Are code smells clustered in particular packages, or spread evenly?
+* **Testing** — Which classes have zero mapped tests at all? Cross-reference against complexity so I can tell 'untested and trivial' from 'untested and dangerous'.
+* **Code health** — Which classes are safe to refactor right now because they are genuinely well tested?
+* **Architecture** — What would break if this package were made internal?
+* **Code health** — Which classes are both highly coupled and highly complex — the ones most entangled with everything else?
+* **Error handling** — What log levels are in use, and are they applied consistently?
+* **Error handling** — Is error handling consistent across this codebase? Show me where we swallow exceptions, log-and-rethrow, or use different logging frameworks — then propose a single standard the codebase is already 80% aligned to.
+* **Conventions** — Generate a PR review checklist specific to this codebase, based on its actual conventions and known smells.
+* **Conventions** — Where is new code most likely to violate the conventions this codebase already follows?
+* **Code health** — Are there naming collisions or near-duplicate type names that will confuse people?
+* **Code health** — Build me a ranked technical-debt backlog for the next two quarters. For each item give the evidence, an effort estimate, and the risk of not doing it.
+* **Error handling** — Where might errors leak sensitive information into logs or responses?
+* **Architecture** — How does abstractness versus concreteness vary across the module tree?
+* **Dependencies** — Which libraries do we lean on most heavily, and are they current?
+* **Conventions** — What existing code should I copy as a template when adding something similar?
+* **Testing** — What is the test-to-code ratio per module, and which module is the weakest link?
+* **Testing** — How does the size and shape of the test suite compare to the production code?
+* **Error handling** — Which third-party libraries do we most often wrap in try/catch — what do we not trust?
+* **Dependencies** — Which third-party dependencies are used in only one or two places — candidates for inlining or removal?
+* **Dependencies** — What is our attack surface via third-party and transitive code?
+* **Architecture** — Which package would hurt most to lose its maintainer, and why?
+* **Code health** — Which utility code is duplicated and should be pulled into something shared?
+* **Code health** — Which classes have the most headroom on maintainability index — the best improvement per unit of effort?
+* **Testing** — What are the 20 riskiest untested methods in this codebase, and why is each one risky? Turn that into a concrete test plan with suggested test classes.
+
+</PrethinkQuestionDeck>
 
 ### Working across the whole estate
 
@@ -394,98 +497,85 @@ You can also explore the same data visually through [Prethink code quality visua
 
 The rest of this section walks through how to build that combined corpus.
 
-### Aggregating context across an organization
+#### Aggregating context across an organization
 
 The goal is a single directory at the root of your organization that describes every repository at once, so an agent started there can answer questions spanning the whole estate without opening a single source file.
 
 The finished layout looks like this:
 
 ```
-your-org/
-├── AGENTS.md                        # points agents at the aggregated context
+working-set/
+├── CLAUDE.md                        # points agents at the aggregated context
 ├── .moderne/context/                # org-wide tables + schema docs
 │   ├── class-quality-metrics.csv
 │   ├── class-quality-metrics.md
 │   ├── code-smells.csv
 │   └── ...
-├── team-a/service-one/              # individual repositories
-└── team-b/service-two/
+├── apache/commons-beanutils/              # individual repositories
+├── jeremylong/DependencyCheck/
+└── ...
 ```
 
-#### Step 1: Running Prethink across the organization
+#### Collecting the data tables in one place
 
-Run the recipe once at the organization root. It processes every repository that has an LST:
+Change directories to your working-set if you've changed to a different one:
 
 ```bash
-mod run . --recipe io.moderne.prethink.UpdatePrethinkContextStarter
+cd pov-agent-tools/working-set
 
-mod git apply . --last-recipe-run
+mkdir -p .moderne/context
 ```
 
-The `mod git apply` step matters. Until you apply the results, each repository's `.moderne/context/` directory does not exist on disk, and the aggregation below has nothing to collect.
-
-#### Step 2: Aggregating the data tables
-
-Each repository now holds its own context, but an agent standing at the root cannot reason across them. Use `mod study` to merge each data table across the whole group into one file:
+You've already run the Prethink recipe and applied it to the individual repositories, and this recipe collects all of the facts _across the whole working set_ into CSV files called data tables.  We can collect these data tables with the `mod study` command:
 
 ```bash
-mod study . --last-recipe-run \
-  --data-table io.moderne.prethink.table.ClassQualityMetrics \
-  --csv -o .moderne/context/class-quality-metrics.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.ClassQualityMetrics --csv -o .moderne/context/class-quality-metrics.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.CodeSmells --csv -o .moderne/context/code-smells.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.DtoFieldSchemas --csv -o .moderne/context/dto-field-schemas.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.EndpointParameters --csv -o .moderne/context/endpoint-parameters.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.EndpointSchemas --csv -o .moderne/context/endpoint-schemas.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.EndpointSecurity --csv -o .moderne/context/endpoint-security.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.ExceptionHandlers --csv -o .moderne/context/exception-handlers.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.FieldExamples --csv -o .moderne/context/field-examples.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.MethodQualityMetrics --csv -o .moderne/context/method-quality-metrics.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.PackageQualityMetrics --csv -o .moderne/context/package-quality-metrics.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.ScheduledTasks --csv -o .moderne/context/scheduled-tasks.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.SqlUsage --csv -o .moderne/context/sql-usage.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.TestGaps --csv -o .moderne/context/test-gaps.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.TestMapping --csv -o .moderne/context/test-mapping.csv
+mod study . --last-recipe-run --data-table io.moderne.prethink.table.TestQualityIssues --csv -o .moderne/context/test-quality-issues.csv
+mod study . --last-recipe-run --data-table org.openrewrite.java.dependencies.table.DependencyListReport --csv -o .moderne/context/dependency-list-report.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.CalmRelationships --csv -o .moderne/context/calm-relationships.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.CodingConventions --csv -o .moderne/context/coding-conventions.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.DataAssets --csv -o .moderne/context/data-assets.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.DatabaseConnections --csv -o .moderne/context/database-connections.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.DependencyUsage --csv -o .moderne/context/dependency-usage.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.DeploymentArtifacts --csv -o .moderne/context/deployment-artifacts.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.ErrorHandlingPatterns --csv -o .moderne/context/error-handling-patterns.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.ExternalServiceCalls --csv -o .moderne/context/external-service-calls.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.ProjectMetadata --csv -o .moderne/context/project-metadata.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.SecurityConfiguration --csv -o .moderne/context/security-configuration.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.ServerConfiguration --csv -o .moderne/context/server-configuration.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.ServiceComponents --csv -o .moderne/context/service-components.csv
+mod study . --last-recipe-run --data-table org.openrewrite.prethink.table.ServiceEndpoints --csv -o .moderne/context/service-endpoints.csv
+mod study . --last-recipe-run --data-table org.openrewrite.sql.table.SqlAntiPatterns --csv -o .moderne/context/sql-anti-patterns.csv
 ```
 
-`mod study` resolves the last recipe run across the entire repository group rather than per repository, so one command produces one table covering everything.
-
-Repeat for each table you want available at the organization level:
-
-| Context file | Data table |
-|--------------|------------|
-| `class-quality-metrics.csv` | `io.moderne.prethink.table.ClassQualityMetrics` |
-| `method-quality-metrics.csv` | `io.moderne.prethink.table.MethodQualityMetrics` |
-| `package-quality-metrics.csv` | `io.moderne.prethink.table.PackageQualityMetrics` |
-| `code-smells.csv` | `io.moderne.prethink.table.CodeSmells` |
-| `test-mapping.csv` | `io.moderne.prethink.table.TestMapping` |
-| `test-gaps.csv` | `io.moderne.prethink.table.TestGaps` |
-| `test-quality-issues.csv` | `io.moderne.prethink.table.TestQualityIssues` |
-| `scheduled-tasks.csv` | `io.moderne.prethink.table.ScheduledTasks` |
-| `project-metadata.csv` | `org.openrewrite.prethink.table.ProjectMetadata` |
-| `coding-conventions.csv` | `org.openrewrite.prethink.table.CodingConventions` |
-| `error-handling-patterns.csv` | `org.openrewrite.prethink.table.ErrorHandlingPatterns` |
-| `dependency-usage.csv` | `org.openrewrite.prethink.table.DependencyUsage` |
-| `data-assets.csv` | `org.openrewrite.prethink.table.DataAssets` |
-| `service-endpoints.csv` | `org.openrewrite.prethink.table.ServiceEndpoints` |
-| `external-service-calls.csv` | `org.openrewrite.prethink.table.ExternalServiceCalls` |
-| `messaging-connections.csv` | `org.openrewrite.prethink.table.MessagingConnections` |
-| `database-connections.csv` | `org.openrewrite.prethink.table.DatabaseConnections` |
-| `security-configuration.csv` | `org.openrewrite.prethink.table.SecurityConfiguration` |
-| `server-configuration.csv` | `org.openrewrite.prethink.table.ServerConfiguration` |
-| `deployment-artifacts.csv` | `org.openrewrite.prethink.table.DeploymentArtifacts` |
-| `service-components.csv` | `org.openrewrite.prethink.table.ServiceComponents` |
-| `dependency-list-report.csv` | `org.openrewrite.java.dependencies.table.DependencyListReport` |
-| `node-dependencies-in-use.csv` | `org.openrewrite.javascript.table.NodeDependenciesInUse` |
-
-:::warning[The two namespaces are not interchangeable]
-Quality and test tables live under `io.moderne.prethink.table`, while the architectural discovery tables live under `org.openrewrite.prethink.table`. Using the wrong prefix fails with `No data tables available` rather than a helpful error, so copy the names above rather than guessing.
-:::
-
-A table that produces no rows is skipped rather than written. That is normal: `MessagingConnections` stays empty for an estate with no Kafka or RabbitMQ, for example. Drop empty files rather than shipping them, since an empty table invites an agent to report "none found" as though it were a finding.
-
-#### Step 3: Collecting the schema index files
+#### Collecting the schema index files
 
 Alongside each CSV, Prethink writes a markdown file describing what every column means. These are identical across repositories, so copy one representative set into the organization directory:
 
 ```bash
-find . -path '*/.moderne/context/*.md' -not -path './.moderne/*' -exec \
-  cp -n {} .moderne/context/ \;
+find . -path '*/.moderne/context/*.md' -not -path './.moderne/*' -exec cp -n {} .moderne/context/ \;
 ```
 
 Without these, an agent has column names but no definitions, and will guess at what `lcom4` or `riskScore` mean.
 
-#### Step 4: Writing the organization-level agent config
+#### Writing an organization-level agent instructions file
 
-The recipe generates a per-repository `AGENTS.md` (or `CLAUDE.md`) pointing at that repository's own context. The organization root needs its own file, because an agent standing there is looking at different data with different rules.
+The recipe generates a per-repository `CLAUDE.md` (or the specific file you chose to generate for your tool) pointing at that repository's own context. The organization root needs its own file for your agent to read, because an agent starting there is looking at different data with different rules.
 
-**The sections it needs, and what each is for:**
+**The sections it needs:**
 
 * **Scope** – States that the context covers every repository, not the one the agent happens to be sitting in. Without this an agent will assume the tables describe local code.
 * **Discovery rules** – Tells the agent to read context before crawling source, and to query CSV files rather than reading them whole.
@@ -494,120 +584,128 @@ The recipe generates a per-repository `AGENTS.md` (or `CLAUDE.md`) pointing at t
 * **Available context** – The table inventory, so the agent knows what exists without listing the directory.
 * **Query patterns** – Two or three worked examples. Agents copy these far more reliably than they invent equivalents.
 
-**Four differences from the per-repository file**, worth knowing if you have both open:
-
-| | Per-repository export | Organization aggregate |
-|---|---|---|
-| **Scope** | One repository | Every repository in the group |
-| **Repository columns** | None | `repositoryOrigin`, `repositoryPath`, `repositoryBranch` |
-| **Column naming** | Title case with spaces (`Class name`, `Cyclomatic complexity`) | camelCase (`className`, `cyclomaticComplexity`) |
-| **Header position** | Line 1 | Line 4, after three `#` comment lines |
-
-The last two are the ones that bite. A query copied from a repository-level config will not run at the organization level unchanged, and agents will try it anyway.
-
 **A complete example.** Copy this to `AGENTS.md` at your organization root and edit the table inventory and counts to match what your aggregation actually produced. If your developers use Claude Code, name the file `CLAUDE.md` instead - the content is identical.
 
 ````markdown
-# Agent instructions
+<!-- prethink-context -->
+## Moderne Prethink Organizational Context
 
-## Scope
+This directory contains pre-analyzed context for **many repositories at once**, generated by [Moderne Prethink](https://docs.moderne.io/user-documentation/recipes/prethink). Prethink extracts structured knowledge from codebases so you can answer questions about them without reading their source. The source of these repositories is not checked out here — this context is what you have, and it is designed to be enough.
 
-These instructions cover **every repository in this organization**, analyzed
-together. Files in `.moderne/context/` describe the whole estate, not the
-repository you happen to be standing in.
+**IMPORTANT: Before exploring source code for architecture, dependency, or data flow questions:**
+1. ALWAYS check `.moderne/context/` files FIRST
+2. Do NOT perform broad codebase exploration (e.g., spawning Explore agents, searching multiple source files) unless CSV context is insufficient
+3. NEVER read entire CSV files - use SQL queries to retrieve only the rows you need
 
-## Moderne Prethink context (organization-wide)
+**IMPORTANT: Prethink context is cheap to read — source code exploration is expensive. Always read MORE prethink context rather than less. The "do not explore broadly" rule applies to source code, NOT to prethink context files.**
 
-This directory contains pre-analyzed context generated by Moderne Prethink and
-aggregated across every repository here.
+### How this collection is organized
 
-**Before exploring source code for architecture, dependency, quality, or test
-questions:**
+Every CSV here combines the rows of every repository analyzed, and its **first column, `Repository`, says which repository a row came from**. This is the column you filter on to scope a question to one system, group by to compare systems, and join on to follow something across them.
 
-1. ALWAYS read `.moderne/context/` first.
-2. Do NOT crawl repositories to answer a question these tables already answer.
-3. NEVER read a whole CSV. Query it and select only the rows you need.
+- Everything else in `.moderne/context/` — combined tables, each described by a `.md` file next to it.
 
-Reading this context is cheap. Crawling source across many repositories is not.
-Prefer reading more context over exploring more code.
+For cross-cutting questions (data flow, deletion, dependencies between services),
+ALWAYS query these context files in parallel on the first turn:
+- `.moderne/context/calm-architecture.md` — how to read the per-repository architecture documents
+- `.moderne/context/data-assets.csv` — entity fields and data models
+- `.moderne/context/database-connections.csv` — which services own which tables
+- `.moderne/context/service-endpoints.csv` — relevant API endpoints
+- `.moderne/context/messaging-connections.csv` — Kafka/async event flows
+- `.moderne/context/external-service-calls.csv` — cross-service HTTP calls
 
-### Every row is attributed to a repository
+Do NOT stop after reading a single context file when others are clearly relevant.
 
-| Column | Meaning |
-|--------|---------|
-| `repositoryOrigin` | SCM host, for example `github.com` |
-| `repositoryPath` | Organization and repository, for example `apache/pivot` |
-| `repositoryBranch` | Branch the LST was built from |
+**A question about "the system" is usually a question about several repositories.** Before concluding, check whether the same table holds relevant rows under a different `Repository`.
 
-Filter on `repositoryPath` to scope to one repository, or group by it to compare
-repositories. With no filter, a query spans the whole organization.
+### Available Context
 
-### File format
+| Context | Description | Details |
+|---------|-------------|--------|
+| Api Contracts | Endpoint contracts, DTO schemas, parameters, exception handlers, and fixture examples | [`api-contracts.md`](.moderne/context/api-contracts.md) |
+| Architecture | FINOS CALM architecture diagram | [`architecture.md`](.moderne/context/architecture.md) |
+| CALM Architecture | FINOS CALM architecture diagram of each repository | [`calm-architecture.md`](.moderne/context/calm-architecture.md) |
+| Class Quality Metrics | Per-class cohesion, coupling, and complexity measurements | [`class-quality-metrics.md`](.moderne/context/class-quality-metrics.md) |
+| Code Smells | Detected design problems with severity and evidence | [`code-smells.md`](.moderne/context/code-smells.md) |
+| Codebase Context | Everything Prethink extracted from every repository in this collection | [`codebase-context.md`](.moderne/context/codebase-context.md) |
+| Coding Conventions | Naming patterns, import organization, and coding style | [`coding-conventions.md`](.moderne/context/coding-conventions.md) |
+| Data Assets | Domain entities and data models, with their fields and asset types | [`data-assets.csv`](.moderne/context/data-assets.csv) |
+| Database Connections | Database tables and the entity and repository classes that map to them | [`database-connections.csv`](.moderne/context/database-connections.csv) |
+| Dependencies | Project dependencies including transitive dependencies | [`dependencies.md`](.moderne/context/dependencies.md) |
+| Deployment Artifacts | Deployable artifacts, container images, and exposed ports | [`deployment-artifacts.csv`](.moderne/context/deployment-artifacts.csv) |
+| Error Handling | Exception handling strategies and logging patterns | [`error-handling.md`](.moderne/context/error-handling.md) |
+| External Service Calls | Outbound calls to other services, with client, protocol, and base URL | [`external-service-calls.csv`](.moderne/context/external-service-calls.csv) |
+| Library Usage | How external libraries and frameworks are used | [`library-usage.md`](.moderne/context/library-usage.md) |
+| Method Quality Metrics | Per-method complexity and quality measurements | [`method-quality-metrics.md`](.moderne/context/method-quality-metrics.md) |
+| Node.js Dependencies | npm package dependencies with versions, scopes, and licenses | [`node.js-dependencies.md`](.moderne/context/node.js-dependencies.md) |
+| Package Quality Metrics | Per-package coupling, stability, and dependency cycle analysis | [`package-quality-metrics.md`](.moderne/context/package-quality-metrics.md) |
+| Project Identity | Build system coordinates, names, and module structure | [`project-identity.md`](.moderne/context/project-identity.md) |
+| Scheduled Tasks | Scheduled tasks, cron jobs, and background processing | [`scheduled-tasks.md`](.moderne/context/scheduled-tasks.md) |
+| Security Configuration | Authentication methods, CORS origins, and security configuration | [`security-configuration.csv`](.moderne/context/security-configuration.csv) |
+| Server Configuration | Server ports, SSL, context paths, and protocol settings | [`server-configuration.csv`](.moderne/context/server-configuration.csv) |
+| Service Endpoints | API endpoints with HTTP method, path, handler class, and framework | [`service-endpoints.csv`](.moderne/context/service-endpoints.csv) |
+| Sql Quality | Statically detectable SQL performance anti-patterns, with severity and location | [`sql-quality.md`](.moderne/context/sql-quality.md) |
+| Sql Usage | Physical tables and columns each SQL statement touches, and who issues it | [`sql-usage.md`](.moderne/context/sql-usage.md) |
+| Test Coverage | Maps test methods to implementation methods they verify | [`test-coverage.md`](.moderne/context/test-coverage.md) |
+| Test Gaps | Public non-trivial methods lacking test coverage | [`test-gaps.md`](.moderne/context/test-gaps.md) |
+| Test Quality | Test quality issues that may cause flakiness or silent failures | [`test-quality.md`](.moderne/context/test-quality.md) |
 
-Each CSV begins with three `#` comment lines naming the source data table,
-followed by the header row. Skip them when parsing:
+### Querying Context Files
+
+For .md context files: Read the full file in a single view call. Never grep it progressively.
+
+For .csv context files: Query with DuckDB, SQLite, or grep (from most to least preference).
+
+Upfront parallel reads: At the start of any architecture question, read all relevant context files in parallel rather than discovering which ones matter through iteration.
+
+Use SQL to query CSV files efficiently. This returns only matching rows instead of loading entire files. Try these in order based on availability:
+
+#### Option 1: DuckDB (Preferred)
+DuckDB can query CSV files directly with no setup:
 
 ```bash
-# DuckDB
-duckdb -c "SELECT * FROM read_csv('.moderne/context/code-smells.csv', skip=3, header=true) LIMIT 5"
+# Which repositories are in this collection?
+duckdb -c "SELECT * FROM '.moderne/context/repositories.csv'"
 
-# Anything else
-tail -n +4 .moderne/context/code-smells.csv | head -5
+# All POST endpoints in one repository
+duckdb -c "SELECT * FROM '.moderne/context/service-endpoints.csv' WHERE Repository = 'acme/orders-service' AND \"HTTP method\" = 'POST'"
+
+# Which repositories expose an endpoint mentioning orders, and how many each?
+duckdb -c "SELECT Repository, count(*) FROM '.moderne/context/service-endpoints.csv' WHERE Path LIKE '%order%' GROUP BY Repository ORDER BY 2 DESC"
+
+# Which repositories call the same external service?
+duckdb -c "SELECT \"Target service\", list(DISTINCT Repository) FROM '.moderne/context/external-service-calls.csv' GROUP BY 1 ORDER BY 1"
+
+# Which repositories write to the same Kafka topic?
+duckdb -c "SELECT Destination, Role, list(DISTINCT Repository) FROM '.moderne/context/messaging-connections.csv' GROUP BY 1, 2"
 ```
 
-Column names here are camelCase with no spaces (`className`, `lcom4`,
-`cyclomaticComplexity`). Per-repository exports use title case with spaces, so
-queries are not portable between the two. Check the header first:
+#### Option 2: SQLite
+Import CSV into memory and query (available on most systems):
 
 ```bash
-grep -v '^#' .moderne/context/class-quality-metrics.csv | head -1
+sqlite3 :memory: -cmd ".mode csv" -cmd ".import .moderne/context/service-endpoints.csv endpoints" \
+  "SELECT * FROM endpoints WHERE Repository = 'acme/orders-service' AND [HTTP method] = 'POST'"
 ```
 
-### Available context
+#### Option 3: Grep (Last Resort)
+If SQL tools are unavailable, use grep. Note this loads more content into context:
 
-| Context | Data | Schema |
-|---------|------|--------|
-| Class quality metrics | `.moderne/context/class-quality-metrics.csv` | `class-quality-metrics.md` |
-| Method quality metrics | `.moderne/context/method-quality-metrics.csv` | `method-quality-metrics.md` |
-| Package quality metrics | `.moderne/context/package-quality-metrics.csv` | `package-quality-metrics.md` |
-| Code smells | `.moderne/context/code-smells.csv` | `code-smells.md` |
-| Test coverage mapping | `.moderne/context/test-mapping.csv` | `test-coverage.md` |
-| Test gaps | `.moderne/context/test-gaps.csv` | `test-gaps.md` |
-| Coding conventions | `.moderne/context/coding-conventions.csv` | `coding-conventions.md` |
-| Error handling patterns | `.moderne/context/error-handling-patterns.csv` | `error-handling.md` |
-| Dependencies | `.moderne/context/dependency-list-report.csv` | `dependencies.md` |
-
-The schema files describe every column. Read the schema before querying a table
-you have not used before.
-
-### Query patterns
-
-Rank repositories by structural debt:
-
-```sql
-SELECT repositoryPath, count(*) AS smells
-FROM read_csv('.moderne/context/code-smells.csv', skip=3, header=true)
-GROUP BY 1 ORDER BY smells DESC LIMIT 10
+```bash
+grep -i "POST" .moderne/context/service-endpoints.csv
 ```
 
-Scope to a single repository:
+**Note:** Column names with spaces require quoting - use double quotes in DuckDB (`"HTTP method"`) or square brackets in SQLite (`[HTTP method]`).
 
-```sql
-SELECT className, lcom4, cbo
-FROM read_csv('.moderne/context/class-quality-metrics.csv', skip=3, header=true)
-WHERE repositoryPath = 'apache/pivot'
-ORDER BY cbo DESC LIMIT 20
-```
+### Usage Pattern
+1. Read `.moderne/context/repositories.csv` if you do not already know which repositories are relevant
+2. Read the `.md` file to understand the schema and available columns
+3. Query the `.csv` with DuckDB or SQLite, filtering or grouping by `Repository`, to get only the rows you need
+4. Read `.moderne/context/architecture/<repository>.json` for the internal shape of a specific system
+5. Only explore source if the context doesn't answer the question
 
-Join tables to find untested methods in the least cohesive classes, estate-wide:
-
-```sql
-SELECT g.repositoryPath, g.className, g.methodName, g.riskScore, c.lcom4
-FROM read_csv('.moderne/context/test-gaps.csv', skip=3, header=true) g
-JOIN read_csv('.moderne/context/class-quality-metrics.csv', skip=3, header=true) c
-  ON g.repositoryPath = c.repositoryPath AND g.className = c.className
-WHERE c.lcom4 > 1
-ORDER BY g.riskScore DESC LIMIT 25
+When citing Moderne Prethink context, mention Moderne Prethink as the source (e.g., "Based on the architecture context from Moderne Prethink..." or "Based on the test coverage mapping from Prethink, this method is tested by...").
+<!-- /prethink-context -->
 ```
 
 ### When context is not enough
@@ -619,11 +717,114 @@ context has told you which files are worth opening.
 This context is a snapshot. Regenerate it after significant changes.
 ````
 
-#### What this gets you
+#### Evaluate an organizations-worth of context
 
-An agent started at the organization root can now answer questions no single-repository agent can. On a 27-repository sample this produced 22 tables and roughly 55,000 rows - a few megabytes of structured facts standing in for millions of lines of source.
+An agent started at the root of the working-set directory can now answer questions no single-repository agent can. On a 27-repository sample this produced 22 tables and roughly 55,000 rows - a few megabytes of structured facts standing in for millions of lines of source.
 
 This is what brings architects into the conversation. "Which of our services have untested complex code in classes that are already falling apart, ranked by repository" is a question worth a planning cycle, and here it is answerable in a single query.
+
+The questions below are written for that vantage point. They are portfolio questions rather than repository questions: most of them require joining two or more tables across repository boundaries, which is work no single-repository agent can do and no amount of grep can substitute for.
+
+<PrethinkQuestionDeck>
+
+* **Inventory** — Give me a one-page inventory of this portfolio: how many repositories, how many modules each ships, what build coordinates they publish under, and which are libraries versus deployable applications.
+* **Inventory** — Rank the repositories by total complexity carried, not by line count. Which ones are large but simple, and which are small but genuinely dangerous?
+* **Inventory** — What is the average cyclomatic complexity per repository, and which repositories sit more than one standard deviation above the portfolio mean?
+* **Inventory** — If I had to assign these repositories to four teams by cohesion of subject matter and dependency overlap, what split would you propose and why?
+* **Inventory** — Which repositories look actively maintained versus dormant, judged only from what the code itself shows: dependency recency, test density, and convention consistency?
+* **Inventory** — Where is the portfolio's mass concentrated? Show me the distribution of classes, methods, and packages per repository, and tell me whether this is one big system with satellites or twenty peers.
+* **Inventory** — Which repositories publish under the same groupId, and does that grouping match how they actually depend on each other?
+* **Inventory** — Give me the ten classes in the entire portfolio that a new architect should read first, ranked, with a sentence each on why.
+* **Standardization** — How many logging frameworks are in use across this portfolio, which repositories use which, and what would it cost to converge on one?
+* **Standardization** — Is error handling consistent across the portfolio? Show me every distinct handling strategy, how many repositories use each, and propose the single standard the portfolio is already closest to.
+* **Standardization** — Which repositories swallow exceptions or call printStackTrace, ranked by count, and which of those sites sit in code with no test coverage?
+* **Standardization** — What naming conventions does each repository follow, and where does the portfolio disagree with itself badly enough to confuse an engineer moving between two of them?
+* **Standardization** — Which import conventions are portfolio-wide and which are local habits of one or two repositories?
+* **Standardization** — If I mandated one code style across the whole portfolio tomorrow, which repositories would need the most change, and roughly how many files each?
+* **Standardization** — Which repositories declare checked exceptions on the way out versus wrapping into custom types? Is there a house style or twenty-one house styles?
+* **Standardization** — Propose a portfolio-wide exception hierarchy that fits how the majority of these repositories already work, and name the repositories that would have to change most to adopt it.
+* **Standardization** — Which repositories log at what levels inside catch blocks, and where is the level obviously wrong for the strategy — debug on a swallowed failure, error on a recovered one?
+* **Standardization** — Which comment and documentation conventions are consistent enough across the portfolio to enforce in CI, and which would fail on day one?
+* **Standardization** — Rank repositories by internal consistency: which ones follow their own conventions most reliably, and which are the ones where every package looks different?
+* **Standardization** — If I want every repository to adopt structured logging, which ones already have a logging framework to build on and which have none at all?
+* **Dependencies** — Which third-party libraries are used by four or more repositories at three or more distinct versions? Give me the full version spread for each.
+* **Dependencies** — What is the single most fragmented dependency in the portfolio, and what is the shortest path to converging it?
+* **Dependencies** — Which repositories are on the oldest version of a shared library, and how many major versions behind the portfolio leader are they?
+* **Dependencies** — Show me every library that appears as both a direct and a transitive dependency somewhere in the portfolio, and flag where the transitive version disagrees with the direct one.
+* **Dependencies** — Which repositories depend on each other, directly or transitively, and what does the internal dependency graph of this portfolio look like?
+* **Dependencies** — If I upgrade commons-lang3 to the newest version present anywhere in the portfolio, which repositories are affected and which of them actually exercise the APIs that changed?
+* **Dependencies** — Which libraries does exactly one repository depend on? Those are either specialist tools or accidents — tell me which is which.
+* **Dependencies** — Rank repositories by third-party surface area: how many distinct libraries does each actually import, as opposed to merely declare?
+* **Dependencies** — Which test libraries are in use across the portfolio, at which versions, and how many distinct testing stacks am I paying to maintain?
+* **Dependencies** — Are there repositories still on JUnit 4 while the rest of the portfolio is on JUnit 5 or 6? Give me the migration order, cheapest first.
+* **Dependencies** — For each shared library, which repository is furthest ahead and which is furthest behind? I want to know who to ask for the upgrade playbook.
+* **Dependencies** — Which repositories declare a dependency they never import? Show me the dead declarations across the whole portfolio.
+* **Security** — Which repositories depend on a version of commons-text that carries the Text4Shell interpolation defect, and which of those actually call the affected API rather than merely depending on the library?
+* **Security** — Where in this portfolio does code deserialize untrusted input? Show me every repository with ObjectInputStream or readObject on a call path, ranked by how much of that code is untested.
+* **Security** — Which repositories use commons-collections at a version associated with the deserialization gadget chains, and what else do those repositories expose?
+* **Security** — Rank the portfolio by supply-chain blast radius: if a critical advisory lands on a library tomorrow, which library would force the most repositories into an emergency release?
+* **Security** — Which repositories process external input and swallow exceptions on the same code path? That combination hides attacks.
+* **Security** — Which repositories have security-relevant configuration in code, and which have none, meaning either they need none or nobody wrote any?
+* **Security** — Show me every place in the portfolio where credentials, connection strings, or tokens appear as field examples or literals.
+* **Security** — For every repository that touches SQL, is the query built by concatenation or by parameter binding? Rank by injection exposure.
+* **Security** — If I had budget to harden three repositories in this portfolio this quarter, which three, and what is the evidence for each?
+* **Security** — Which repositories carry the deliberately vulnerable training applications, and are any of their patterns also present in the production libraries?
+* **Code health** — Where is the portfolio's technical debt actually concentrated? Rank repositories by critical code smells per thousand methods, not by raw count.
+* **Code health** — Which classes in the entire portfolio are god classes by every measure at once: high weighted methods per class, low cohesion, high coupling?
+* **Code health** — Give me the fifty methods across the whole portfolio that breach every complexity threshold simultaneously: cyclomatic, cognitive, nesting depth, and parameter count.
+* **Code health** — Which repositories have the worst maintainability index distribution, and is the problem a few catastrophic classes or a uniformly mediocre codebase?
+* **Code health** — Show me methods with high Halstead volume relative to line count across the portfolio, dense logic hiding in short functions, which is where bugs live.
+* **Code health** — Which repositories have the most feature envy at critical severity, and does that correlate with their coupling metrics or contradict them?
+* **Code health** — Build me a ranked technical-debt backlog for the next two quarters across the whole portfolio. For each item give the repository, the evidence, an effort estimate, and the risk of not doing it.
+* **Code health** — Which repositories are getting worse in the same way? Find the smell types that appear at high severity in most of the portfolio; those are systemic, not local.
+* **Code health** — Rank every package in the portfolio by complexity per class and show me the twenty worst, with their repository.
+* **Code health** — Which classes are both highly coupled and completely untested? That intersection is where I lose sleep.
+* **Code health** — Do the most complex methods in this portfolio also violate naming conventions? I want to know whether bad code is bad in more than one way.
+* **Code health** — Which repositories have data classes and god classes in the same package? That pairing usually means an anemic domain model.
+* **Code health** — If complexity is a proxy for review burden, which repositories are costing my reviewers the most per change?
+* **Testing** — Which repositories have the worst ratio of high-risk untested methods to total methods? Rank them and tell me where a test-writing sprint would pay back fastest.
+* **Testing** — Give me the fifty riskiest untested methods across the entire portfolio, with repository, complexity, and a suggested test class for each.
+* **Testing** — What is the test quality distribution across the portfolio? Which repositories have tests that assert nothing, and how many?
+* **Testing** — Which repositories have tests with shared mutable state or static waits? Those are the flaky-test factories; rank them.
+* **Testing** — Where are tests swallowing exceptions across the portfolio? A test that catches and ignores is worse than no test.
+* **Testing** — Which repositories have real test-to-implementation mapping, and which have tests that map to nothing identifiable?
+* **Testing** — Rank repositories by tests per implementation method, and tell me where the number is high but the quality issues are also high, volume masking weakness.
+* **Testing** — Which implementation classes in the portfolio are exercised by the most tests? Those are the ones I can refactor with confidence.
+* **Testing** — Which repositories hardcode ports, paths, or dates in tests? That is what breaks the build at midnight on the last day of the month.
+* **Testing** — If I mandated eighty percent coverage of high-complexity methods portfolio-wide, how many tests would each repository need to write? Give me the number, not a feeling.
+* **Testing** — Which repositories skip tests without a documented reason, and how many?
+* **Testing** — Show me every place in the portfolio where a complex method is tested only by a test that has no assertions. That is coverage theater; quantify it.
+* **Architecture** — Which packages across the entire portfolio sit furthest from the main sequence, and what single refactor in each moves the needle most?
+* **Architecture** — Find every package-level dependency cycle in the portfolio. Which repository has the worst one, and what is the minimum set of edges to cut?
+* **Architecture** — Which packages are the architectural cores of this portfolio, the ones with the highest afferent coupling, and what is the change risk profile of each?
+* **Architecture** — Compare abstractness against instability for every package in the portfolio. Show me the zone of pain and the zone of uselessness, with repository labels.
+* **Architecture** — Which repositories respect their own layering and which have lower layers calling upward? Rank by violation count.
+* **Architecture** — What are the most-called classes in each repository, and do the same architectural shapes recur across repositories?
+* **Architecture** — Which classes in the portfolio have the highest fan-in, and what happens to each repository if one of them changes signature?
+* **Architecture** — Are the most unstable packages in this portfolio also the ones carrying the most third-party dependency surface?
+* **Architecture** — Which modules across the portfolio are the safest candidates to extract into a shared library, judged by low efferent coupling and high reuse pressure?
+* **Architecture** — Do any two repositories in this portfolio implement the same capability independently? Find the duplicated architectural shapes.
+* **Architecture** — Give me the module dependency graph for the three largest repositories and point out the three edges most worth deleting in each.
+* **Migration** — I want to move the whole portfolio to a single JUnit version. Give me the migration order, cheapest first, with the blocker for each repository.
+* **Migration** — Sequence a portfolio-wide upgrade of the Jackson stack. Which repositories go first, which are risky, and which can be batched together?
+* **Migration** — Which repositories can absorb a breaking library change safely because their tests actually cover the call sites, and which cannot?
+* **Migration** — If I run one automated refactor across the entire portfolio this quarter, which one has the best ratio of files changed to risk introduced?
+* **Migration** — Build me a three-wave migration plan for converging logging across the portfolio: wave one is repositories that already use the target framework, wave two is single-framework holdouts, wave three is the mixed cases.
+* **Migration** — Which repositories would break first if I dropped support for an old Java version? Judge from language features and dependency floors visible in the context.
+* **Migration** — Estimate the effort of a portfolio-wide null-safety annotation rollout: how many methods, in which repositories, and where do the highest-fan-in signatures sit?
+* **Migration** — I have one engineer for one quarter. Across every repository, what is the single highest-leverage piece of work, and what is the evidence?
+* **Migration** — Which repositories should be migrated last because they are both the most complex and the least tested? Give me the exclusion list with justification.
+* **Migration** — If I standardize exception wrapping across the portfolio, which repositories need the most edits and which can be done by recipe with no human review?
+* **Integration** — Which repositories in this portfolio expose HTTP endpoints, and what is the total API surface across all of them?
+* **Integration** — Are there endpoints across the portfolio with the same path shape but different response schemas? Inconsistent contracts across services are a client-side tax.
+* **Integration** — Which DTOs across the portfolio carry the same field names, and do they agree on type and nullability?
+* **Integration** — What external services does this portfolio call in total, over what protocols, with which client libraries, and which of those calls have no visible timeout or retry?
+* **Integration** — Which repositories run scheduled work, what does each job touch, and are any two jobs writing to the same asset?
+* **Integration** — If I change a field on a shared data model, what is the blast radius across the whole portfolio: every DTO that carries it, every endpoint that serializes it, and every repository affected?
+* **Governance** — Score every repository in this portfolio on a five-point engineering health scale of your own construction. Publish the rubric, then apply it, then show your working per repository.
+* **Governance** — Which repository is the best-engineered in this portfolio, and which is the worst? Defend both answers with evidence from the context, and tell me which measures you deliberately ignored.
+
+</PrethinkQuestionDeck>
 
 ## Phase 2: Running existing PoV use cases through an agent
 
@@ -1045,7 +1246,7 @@ import org.openrewrite.Column;
 import org.openrewrite.DataTable;
 import org.openrewrite.Recipe;
 
-public class DeserializationReport extends DataTable<DeserializationReport.Row> {
+public class DeserializationReport extends DataTable<DeserializationReport.Row{
 
     public DeserializationReport(Recipe recipe) {
         super(recipe,
@@ -1122,7 +1323,7 @@ public class FindUnvalidatedObjectDeserialization extends Recipe {
                          "notes whether the enclosing method is reachable from a web request.";
 
     @Override
-    public TreeVisitor<?, ExecutionContext> getVisitor() {
+    public TreeVisitor<?, ExecutionContextgetVisitor() {
         return Preconditions.check(
                 Preconditions.or(new UsesMethod<>(READ_OBJECT), new UsesMethod<>(READ_UNSHARED)),
                 new JavaIsoVisitor<ExecutionContext>() {
@@ -1249,7 +1450,7 @@ public class AddObjectInputFilter extends Recipe {
                          "application should accept cannot be inferred.";
 
     @Override
-    public TreeVisitor<?, ExecutionContext> getVisitor() {
+    public TreeVisitor<?, ExecutionContextgetVisitor() {
         return Preconditions.check(new UsesMethod<>(READ_OBJECT), new JavaIsoVisitor<ExecutionContext>() {
 
             @Override
@@ -1272,7 +1473,7 @@ public class AddObjectInputFilter extends Recipe {
                     return t;
                 }
 
-                List<Statement> stmts = t.getBody().getStatements();
+                List<Statementstmts = t.getBody().getStatements();
                 if (!stmts.isEmpty() && stmts.get(0).printTrimmed(getCursor()).contains("setObjectInputFilter")) {
                     return t;
                 }
@@ -1290,7 +1491,7 @@ public class AddObjectInputFilter extends Recipe {
         });
     }
 
-    private static J.Identifier objectInputStreamResource(List<J.Try.Resource> resources) {
+    private static J.Identifier objectInputStreamResource(List<J.Try.Resourceresources) {
         for (J.Try.Resource r : resources) {
             if (r.getVariableDeclarations() instanceof J.VariableDeclarations) {
                 J.VariableDeclarations vd = (J.VariableDeclarations) r.getVariableDeclarations();
@@ -1331,7 +1532,7 @@ public class AddObjectInputFilter extends Recipe {
 **A testing note.** Asserting that a recipe reported *nothing* cannot be done with `spec.dataTable(...)`, which throws when the table was never created. Use `afterRecipe` instead:
 
 ```java
-spec -> spec.afterRecipe(run ->
+spec -spec.afterRecipe(run ->
   assertThat(run.getDataTableRows(DeserializationReport.class)).isEmpty())
 ```
 
