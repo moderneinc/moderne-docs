@@ -137,6 +137,67 @@ describe('RunRecipe', () => {
     expect(tabText('LATEST').match(/:LATEST/g)).toHaveLength(2);
   });
 
+  it('installs only the NuGet package when a C# recipe has no companion jar', () => {
+    renderRecipe({
+      recipeName: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet.FindCsprojMarker',
+      displayName: 'Find csproj marker',
+      nugetPackage: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet',
+    });
+
+    expect(text()).toContain('mod config recipes nuget install OpenRewrite.Recipes.CSharp.Migration.Dotnet');
+    expect(text()).not.toContain('jar install');
+    // Nothing here has a version, so there is no second tab to choose between.
+    expect(tabText('Pinned version')).toEqual('');
+  });
+
+  it('installs the jar a C# recipe delegates into alongside its NuGet package', () => {
+    renderRecipe({
+      recipeName: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet.ChangeType',
+      displayName: 'Change type',
+      nugetPackage: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet',
+      companionJars: [
+        { groupId: 'org.openrewrite', artifactId: 'rewrite-java', versionKey: 'VERSION_ORG_OPENREWRITE_REWRITE_JAVA' },
+      ],
+    });
+
+    // The wrapper delegates to org.openrewrite.java.ChangeType, and NuGet cannot pull a Maven artifact,
+    // so the CLI has nothing to resolve the delegate against unless the reader installs the jar too.
+    expect(text()).toContain('mod config recipes nuget install OpenRewrite.Recipes.CSharp.Migration.Dotnet');
+    expect(tabText('RELEASE')).toContain('mod config recipes jar install org.openrewrite:rewrite-java:RELEASE');
+    expect(tabText('LATEST')).toContain('mod config recipes jar install org.openrewrite:rewrite-java:LATEST');
+    expect(text()).toContain('mod run . --recipe OpenRewrite.Recipes.CSharp.Migration.Dotnet.ChangeType');
+  });
+
+  it('leaves the NuGet package unpinned in the pinned tab of a C# recipe', () => {
+    renderRecipe({
+      recipeName: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet.ChangeType',
+      displayName: 'Change type',
+      nugetPackage: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet',
+      companionJars: [
+        { groupId: 'org.openrewrite', artifactId: 'rewrite-java', versionKey: 'VERSION_ORG_OPENREWRITE_REWRITE_JAVA' },
+      ],
+    });
+
+    // C# usage props carry no version for the NuGet package itself, so only the jar can be pinned.
+    const pinned = tabText('Pinned version');
+    expect(pinned).toContain('mod config recipes nuget install OpenRewrite.Recipes.CSharp.Migration.Dotnet\n');
+    expect(pinned).toMatch(/jar install org\.openrewrite:rewrite-java:[\d.]+/);
+  });
+
+  it('drops an unresolvable companion jar from a C# recipe rather than pasting a placeholder', () => {
+    renderRecipe({
+      recipeName: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet.ChangeType',
+      displayName: 'Change type',
+      nugetPackage: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet',
+      companionJars: [
+        { groupId: 'org.openrewrite', artifactId: 'rewrite-nonexistent', versionKey: 'VERSION_NOT_A_REAL_KEY' },
+      ],
+    });
+
+    expect(text()).not.toContain('{{VERSION_');
+    expect(text()).not.toContain('rewrite-nonexistent');
+  });
+
   it('drops the pinned tab when a Go module has no resolvable version', () => {
     renderRecipe({
       recipeName: 'org.openrewrite.go.search.FindTypes',
