@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.5.0 (2026/08/13)
+
+- rebuild the category marks — current artwork, dark mode, keyline grid
+- add confirmation + cancel for bulk copy organization
+
 ### UI v14.4.0 (2026/08/12)
 
 - fetch the dark tenant logo when dark mode is active
