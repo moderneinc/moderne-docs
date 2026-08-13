@@ -18,27 +18,25 @@ For background on how the Connector uses CSV sources, please see [how the Connec
 ## Prerequisites
 
 * A repository CSV stored as a single object in a Cloud Storage bucket. The `uri` you configure must point at that object (e.g., `gs://my-bucket/repos-lock.csv`), not at a bucket or prefix.
-* One of the following authentication methods:
-  * Application Default Credentials — a service account attached to the workload (GKE Workload Identity, a Compute Engine service account, or `GOOGLE_APPLICATION_CREDENTIALS` pointing at a key file)
-  * A service account key, supplied inline as JSON
-* The principal used must be able to read the CSV object and the LST objects alongside it. The predefined **Storage Object Viewer** (`roles/storage.objectViewer`) role on the bucket is sufficient. A custom role needs `storage.objects.get`.
-
-Unlike the S3 source, the Connector performs no bucket-level startup connectivity check, so no bucket listing permission is required.
+* A way for the Connector to authenticate, which will be either Application Default Credentials or a service account key. Both are covered in [authentication options](#authentication-options) below.
+* A service account that can read the CSV object and the LST objects alongside it. The Connector only ever reads individual objects, so `storage.objects.get` is the only permission it needs. You can grant it through the predefined **Storage Object Viewer** (`roles/storage.objectViewer`) role, or through a custom role if you'd prefer. It never needs permission to list the bucket.
 
 ## Authentication options
 
-* **Application Default Credentials** (recommended): attach a service account to the workload and configure only the `uri`. On GKE this means [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity); no key material ever reaches the Connector's configuration.
-* **Service account key**: set `credentialsJson` to the contents of the key file. Treat it as a secret — use your platform's secret mechanism rather than an inline environment variable where possible.
+You have two options here, and we'd recommend the first:
 
-## Where the Connector will and will not fetch from
+* **Application Default Credentials (ADC)**: attach a service account to the workload and configure only the `uri`. On GKE, that means [Workload Identity](https://cloud.google.com/kubernetes-engine/docs/concepts/workload-identity), while on Compute Engine the attached service account is picked up for you. You can also point `GOOGLE_APPLICATION_CREDENTIALS` at a key file. Whichever you choose, no key material ends up in the Connector's configuration.
+* **Service account key**: set `credentialsJson` to the contents of the key file. You should treat that value as a secret and supply it through your platform's secret mechanism rather than an inline environment variable wherever you can.
 
-The Connector fetches LST artifacts only from the object prefix the CSV itself lives under. A CSV at `gs://my-bucket/lsts/repos-lock.csv` may reference artifacts under `gs://my-bucket/lsts/...`, but a row pointing at `gs://my-bucket/elsewhere/...` or at a different bucket is refused. A bucket is often a boundary between unrelated teams, so the source's credentials are not used to reach outside the prefix it was configured with.
+## Which artifacts the Connector will fetch
 
-## Encryption is required
+The Connector only fetches LST artifacts that live under the same prefix as the CSV itself. If you publish with the Moderne CLI, your CSV sits at the root of the bucket (`gs://my-bucket/repos-lock.csv`), so the Connector can reach anything in that bucket. If you place the CSV yourself at, say, `gs://my-bucket/lsts/repos-lock.csv`, then the Connector is limited to objects under `lsts/`.
 
-Cloud Storage sources must run with `encrypt: true`, which is the default. The Connector fetches each LST, encrypts it, and uploads it to Moderne.
+Either way, a row that points outside that prefix, or at a different bucket, is refused. A bucket is often shared by unrelated teams, so the Connector won't use one source's credentials to reach into another's.
 
-Pass-through mode (`encrypt: false` with no `poll:` block) is not supported for Cloud Storage sources, and the Connector will refuse to start if one is configured that way. Pass-through relies on the Connector tunneling the source to Moderne on the platform's behalf, which is not yet implemented for Cloud Storage.
+## Encrypting LSTs before they reach Moderne
+
+By default, the Connector fetches each LST from the bucket, encrypts it, and uploads it to Moderne. For Cloud Storage sources it's also the only supported arrangement: if you turn encryption off without configuring a `poll` block, the Connector will refuse to start.
 
 ## Configuring the Moderne Connector
 
@@ -56,7 +54,7 @@ You can configure multiple Cloud Storage sources by including multiple entries, 
 | `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_URI`            | `true`                                           |         | The Cloud Storage URI of the CSV object. Must start with `gs://` and include the object name (e.g., `gs://my-bucket/repos-lock.csv`). |
 | `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_CREDENTIALSJSON`| `false` (Required if not using ADC)              |         | The contents of a service account key file. Omit to use Application Default Credentials.                                             |
 | `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_PROJECT`        | `false`                                          |         | The project to bill requests to. Only needed for requester-pays buckets.                                                             |
-| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_ENDPOINTURL`    | `false`                                          |         | Overrides the default `storage.googleapis.com` endpoint, e.g. a Private Service Connect endpoint.                                    |
+| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_ENDPOINTURL`    | `false`                                          |         | Overrides the default `storage.googleapis.com` endpoint (e.g., a Private Service Connect endpoint).                                  |
 
 **Example using Application Default Credentials:**
 
@@ -88,7 +86,7 @@ docker run \
 | `--moderne.organization.sources.gcs[{index}].uri`              | `true`                              |         | The Cloud Storage URI of the CSV object. Must start with `gs://` and include the object name (e.g., `gs://my-bucket/repos-lock.csv`). |
 | `--moderne.organization.sources.gcs[{index}].credentialsJson`  | `false` (Required if not using ADC) |         | The contents of a service account key file. Omit to use Application Default Credentials.                                             |
 | `--moderne.organization.sources.gcs[{index}].project`          | `false`                             |         | The project to bill requests to. Only needed for requester-pays buckets.                                                             |
-| `--moderne.organization.sources.gcs[{index}].endpointUrl`      | `false`                             |         | Overrides the default `storage.googleapis.com` endpoint, e.g. a Private Service Connect endpoint.                                    |
+| `--moderne.organization.sources.gcs[{index}].endpointUrl`      | `false`                             |         | Overrides the default `storage.googleapis.com` endpoint (e.g., a Private Service Connect endpoint).                                  |
 
 **Example using Application Default Credentials:**
 
@@ -114,7 +112,7 @@ java -jar connector-{version}.jar \
 
 ## Publishing LSTs to the bucket
 
-The CSV and the LSTs it points at are produced by the Moderne CLI. Configure the CLI to publish to the same bucket:
+The CSV and the LSTs it points at are produced by the Moderne CLI, so you'll want to configure the CLI to publish to the same bucket:
 
 ```bash
 mod config lsts artifacts gcs edit gs://my-bucket
@@ -122,6 +120,8 @@ mod build /path/to/your/repos
 mod publish /path/to/your/repos
 ```
 
-`mod publish` uploads each LST under a `yyyy/MM/dd/HH/` prefix and maintains a merged `repos-lock.csv` at the root of the bucket, which is the object to point the Connector at. Concurrent publishers are safe: each update to `repos-lock.csv` is applied only if the object has not changed since it was read, so a machine that loses the race retries rather than overwriting another machine's rows.
+`mod publish` uploads each LST under a `yyyy/MM/dd/HH/` prefix and maintains a merged `repos-lock.csv` at the root of the bucket. That merged file is the object you'll want to point the Connector at.
+
+You can safely publish from several machines at once. Each update to `repos-lock.csv` only lands if the file hasn't changed since it was read, so a machine that loses the race will retry. If it keeps losing, `mod publish` fails rather than overwriting another machine's rows.
 
 See the [repos-lock.csv guide](../../../../user-documentation/moderne-cli/how-to-guides/repos-lock-csv.md) for the full publishing workflow.
