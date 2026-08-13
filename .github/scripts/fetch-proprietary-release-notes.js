@@ -47,7 +47,22 @@ async function fetchReleases(repo) {
       repo,
       releases: [],
       mostRecentDate: new Date(0),
+      inaccessible: true,
     };
+  }
+}
+
+function reportInaccessibleRepos(repos) {
+  if (repos.length === 0) {
+    return;
+  }
+
+  for (const repo of repos) {
+    console.log(`::warning::Could not read releases from ${GITHUB_ORG}/${repo}; the release notes GitHub App likely needs to be installed on that repository`);
+  }
+
+  if (process.env.GITHUB_OUTPUT) {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `inaccessible-repos=${repos.join(', ')}\n`);
   }
 }
 
@@ -218,6 +233,8 @@ This changelog is automatically generated from GitHub releases and only contains
   } else {
     console.log(`No changes detected, skipping write to ${outputPath}`);
   }
+
+  reportInaccessibleRepos(repoReleases.filter(r => r.inaccessible).map(r => r.repo));
 }
 
 generateChangelog().catch(error => {
