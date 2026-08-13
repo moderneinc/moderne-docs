@@ -65,7 +65,7 @@ Object storage is also supported – see `mod config lsts artifacts s3 edit`, `m
 mod config lsts artifacts gcs edit gs://your-bucket
 ```
 
-Cloud Storage uses Application Default Credentials by default, so a workload with an attached service account needs no further configuration. Pass `--credentials-file` to use a service account key file instead.
+Cloud Storage uses Application Default Credentials by default, so if the machine you're publishing from already has a service account attached, you won't need to configure anything else. If you'd rather authenticate with a service account key file, pass `--credentials-file`.
 
 Then run `mod publish`:
 
