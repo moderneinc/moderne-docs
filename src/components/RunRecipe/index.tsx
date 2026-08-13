@@ -200,18 +200,36 @@ export default function RunRecipe({
     );
   }
 
-  // C# recipes
+  // C# recipes. A NuGet recipe package can delegate into a jar recipe, and NuGet has no way to express a
+  // Maven dependency, so — as with Python — every package the recipe reaches is listed. The NuGet install
+  // itself is never pinned: only the jars carry a version here, so the pinned tab pins those alone.
   if (nugetPackage) {
+    const resolvedCompanionJars = (companionJars ?? [])
+      .map((jar) => ({ ...jar, version: resolveVersion(jar.versionKey) }))
+      .filter((jar) => jar.version);
+    const installCommandsFor = (mode: VersionMode): string[] => [
+      `mod config recipes nuget install ${nugetPackage}`,
+      ...resolvedCompanionJars.map(
+        (jar) => `mod config recipes jar install ${jarSpec(jar.groupId, jar.artifactId, jar.version, mode)}`
+      ),
+    ];
+    const multiplePackages = resolvedCompanionJars.length > 0;
     return (
       <>
         <p>
           In order to run C# recipes, you will need to use the{' '}
           <a href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro">Moderne CLI</a>.
         </p>
-        <p>Once the CLI is installed, you can install this C# recipe package by running the following command:</p>
-        <CodeBlock language="shell" title="Install the recipe package">
-          {`mod config recipes nuget install ${nugetPackage}`}
-        </CodeBlock>
+        <p>
+          {multiplePackages
+            ? 'This recipe calls into other OpenRewrite packages as it runs, and the CLI needs every one of them in its marketplace. Once the CLI is installed, install all of the following:'
+            : 'Once the CLI is installed, you can install this C# recipe package by running the following command:'}
+        </p>
+        <InstallCommands
+          title={multiplePackages ? 'Install the recipe packages' : 'Install the recipe package'}
+          commandsFor={installCommandsFor}
+          hasPinnedVersion={multiplePackages}
+        />
         <p>Then, you can run the recipe via:</p>
         <CodeBlock language="shell" title="Run the recipe">
           {`mod run . --recipe ${recipeName}`}
