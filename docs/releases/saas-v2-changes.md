@@ -122,7 +122,7 @@ The org viewer has been redesigned based on customer feedback:
 The repositories table now reports LST status for each repository, rather than collecting problem repositories into a separate view. An **LST available** column shows one of three states, alongside a **Last published** column recording when an LST was last produced:
 
 * `Available`: an LST has been published and is reachable for recipe runs.
-* `Unavailable`: an LST was published previously, but it can't be reached now.
+* `Unavailable`: an LST was published previously, but it can't be reached now. Where the Connector recorded a reason for the failure, the pill carries it.
 * `Not ingested`: no LST has ever been published for the repository.
 
 <figure>
@@ -130,7 +130,7 @@ The repositories table now reports LST status for each repository, rather than c
   <figcaption>_The repositories table reports LST status for each repository._</figcaption>
 </figure>
 
-By default the table lists only repositories whose LST is available. The **Include not ingested** toggle in the toolbar widens it to every repository in the organization, which includes those in the `Unavailable` state as well as those that were never ingested.
+By default the table lists only repositories whose LST is available. The **Show all repositories** toggle in the toolbar widens it to every repository in the organization, which includes those in the `Unavailable` state as well as those that were never ingested.
 
 Because this information is now per repository, the `lostAndFound` GraphQL query has been removed. Lost and Found had itself replaced the Orphaned organization, which was removed back in v1, so neither is available in v2. To find repositories in an organization that have no usable LST, filter `repositories` on `lstArtifact` instead, as described in [Troubleshooting LST issues](../administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues.md#finding-repositories-without-a-usable-lst).
 

@@ -34,16 +34,16 @@ Every repository carries its own LST status, which you can read from the reposit
   <figcaption>_Selecting an organization_</figcaption>
 </figure>
 
-3. Turn on the **Include not ingested** toggle in the toolbar
+3. Turn on the **Show all repositories** toggle in the toolbar
 4. Search for the repository in question and read its **LST available** column
 
 <figure>
-  ![Repositories table showing the LST available column with Unavailable and Not ingested states, and Unknown badges in the Changeset and Last published columns](./assets/lst-available-column.png)
-  <figcaption>_Repositories whose LSTs are unavailable or were never ingested_</figcaption>
+  ![Repositories table with Show all repositories turned on, showing Available and Not ingested states in the LST available column and Unknown badges in the Changeset and Last published columns](./assets/lst-available-column.png)
+  <figcaption>_Repositories that were never ingested appear once **Show all repositories** is turned on_</figcaption>
 </figure>
 
 :::warning
-Turning on **Include not ingested** matters more than its name suggests, and skipping it is misleading. With the toggle off, which is the default, the table shows only repositories whose LST is available. Turning it on reveals repositories in the `Unavailable` state as well as those that were never ingested, so the repository you are troubleshooting will usually be hidden until you do.
+The table is filtered by default. With **Show all repositories** turned off, it lists only repositories whose LST is available, which hides the `Unavailable` state as well as repositories that were never ingested. The count above the toolbar reports how many repositories are currently displayed rather than how many the organization contains, so the repository you are troubleshooting can be absent from both the table and that count until you turn the toggle on.
 :::
 
 The **LST available** column reports one of three states:
@@ -51,10 +51,10 @@ The **LST available** column reports one of three states:
 | State          | What it means                                                                                                        | Where to go next                                                                                                                                                                         |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `Available`    | An LST has been published and is reachable for recipe runs.                                                          | The LST itself is fine. If the repository isn't appearing in the organization you expected, check that your organization hierarchy places it there.                                      |
-| `Unavailable`  | An LST was published previously, and the **Last published** column shows when, but it can't be reached now.          | Most often the LST was purged from storage and the repository hasn't been re-published since. See [Failed to enrich RepoKey after LST purge](#failed-to-enrich-repokey-after-lst-purge). |
+| `Unavailable`  | An LST was published previously, and the **Last published** column shows when, but it can't be reached now. If the Connector recorded why, the pill carries that reason. | Most often the LST was purged from storage and the repository hasn't been re-published since. See [Failed to enrich RepoKey after LST purge](#failed-to-enrich-repokey-after-lst-purge). |
 | `Not ingested` | No LST has ever been published for this repository. The **Changeset** and **Last published** columns show `Unknown`. | Check whether the repository is building and publishing at all. See [Analyzing build failures](./analyzing-build-failures.md).                                                           |
 
-If the repository doesn't appear in the table at all, even with **Include not ingested** turned on, then it isn't in your organization hierarchy. Update your `repos.csv` file so that the `origin`, `path`, and `branch` values match your repository _exactly_, then check for an [`origin` mismatch](#checking-for-an-origin-mismatch).
+If the repository doesn't appear in the table at all, even with **Show all repositories** turned on, then it isn't in your organization hierarchy. Update your `repos.csv` file so that the `origin`, `path`, and `branch` values match your repository _exactly_, then check for an [`origin` mismatch](#checking-for-an-origin-mismatch).
 
 ### Checking for an `origin` mismatch
 
@@ -117,7 +117,7 @@ Every repository this query returns lacks a usable LST, and the `published` fiel
 * `published` is `null`: no LST has ever been published, matching the `Not ingested` state in the table.
 * `published` has a timestamp: an LST was published at that time, but `available` is `false`, matching the `Unavailable` state.
 
-The `enrichFailedReason` field is worth requesting even though the repositories table doesn't display it. When the Connector fails to enrich a repository, it records the reason here, which usually explains an `Unavailable` LST directly. For the most common reason, see [Failed to enrich RepoKey after LST purge](#failed-to-enrich-repokey-after-lst-purge).
+The `enrichFailedReason` field records why the Connector failed to enrich a repository, which usually explains an `Unavailable` LST directly. The repositories table surfaces the same reason on the `Unavailable` pill, so what the API adds is the ability to collect it for every affected repository at once instead of inspecting them one by one. For the most common reason, see [Failed to enrich RepoKey after LST purge](#failed-to-enrich-repokey-after-lst-purge).
 
 :::info[Coming from v1 and looking for Lost and Found?]
 The v1 `lostAndFound` query has been removed, and this query is not a replacement for it. Lost and Found answered the opposite question: which repositories had been ingested into the platform that your `repos.csv` file did not mention. SaaS v2 has no equivalent, because your organization hierarchy now defines the set of repositories the platform knows about. There is no separate pool of ingested-but-unrecognized repositories left to report on, so LST problems are found per repository, within the organization the repository belongs to.
