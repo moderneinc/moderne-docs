@@ -2,26 +2,34 @@
 set -euo pipefail
 
 ORG="${GITHUB_ORG:-moderneinc}"
-PREFIX="rewrite-"
+PREFIXES="rewrite- recipes-"
 DATA_FILE=".github/data/proprietary-repos.txt"
 
 # Repos to exclude (space-separated exact names)
-EXCLUDE_REPOS="rewrite-recipe-starter rewrite-module-template"
+EXCLUDE_REPOS="rewrite-recipe-starter rewrite-module-template rewrite-kyndryl"
 # Substrings that mark a repo for exclusion (any match excludes the repo)
 EXCLUDE_SUBSTRINGS="workshop"
 
-echo "Discovering ${PREFIX}* repos in ${ORG}..."
+echo "Discovering repos in ${ORG} matching: ${PREFIXES// /* }*"
 
-# Use gh to list all non-archived repos matching the prefix
+prefix_pattern="^($(echo "$PREFIXES" | tr ' ' '|'))"
+
+# Use gh to list all non-archived repos matching any of the prefixes
 discovered=$(gh repo list "$ORG" \
-  --limit 200 \
+  --limit 500 \
   --no-archived \
   --json name \
-  --jq ".[].name | select(startswith(\"${PREFIX}\"))" \
+  --jq '.[].name' \
+  | { grep -E "$prefix_pattern" || true; } \
   | sort)
 
-discovered_count=$(echo "$discovered" | wc -l | tr -d ' ')
-echo "Found ${discovered_count} repos matching ${PREFIX}*"
+if [ -z "$discovered" ]; then
+  echo "No repos discovered; refusing to overwrite ${DATA_FILE}." >&2
+  exit 1
+fi
+
+discovered_count=$(echo "$discovered" | grep -c '')
+echo "Found ${discovered_count} matching repos"
 
 # Apply exact-name exclusions
 if [ -n "$EXCLUDE_REPOS" ]; then
