@@ -20,12 +20,16 @@ In this module, you'll install the Moderne skills and the Moderne MCP server int
 
 The Moderne CLI bundles two complementary kinds of agent tooling:
 
-| Component       | What it provides                                                                                              |
-|-----------------|---------------------------------------------------------------------------------------------------------------|
-| **Skills**      | Procedural instructions that teach an agent how to create recipes, run them, and analyze code                 |
-| **MCP server**  | A live process that exposes tools for semantic search, navigation, refactoring, and recipe execution          |
+| Component                          | What it provides                                                                                              |
+|------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| **Skills**                         | Procedural instructions that teach an agent how to create recipes, run them, and analyze code                 |
+| **MCP server** *(experimental)*    | A live process that exposes tools for semantic search, navigation, refactoring, and recipe execution          |
 
 The install command auto-detects which coding agents are present on your machine and installs both components for each one. See [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) and the [MCP overview](../../user-documentation/agent-tools/mcp/overview.md) for full reference docs.
+
+:::warning[Experimental]
+The local MCP server is experimental; skills are not. See the [MCP server overview](../../user-documentation/agent-tools/mcp/overview.md) for what may change.
+:::
 
 ### Steps
 
@@ -35,7 +39,7 @@ The install command auto-detects which coding agents are present on your machine
 mod config agent-tools install
 ```
 
-The CLI scans for installed coding agents (Claude Code, Cursor, GitHub Copilot, Windsurf, Sourcegraph Amp, OpenAI Codex, opencode), then installs skills and registers the MCP server for each one it finds. If no agents are detected, the CLI prints a message listing the supported agents and where it looked.
+The CLI scans for installed coding agents (Claude Code, Cursor, GitHub Copilot, Windsurf, Sourcegraph Amp, OpenAI Codex, OpenCode), then installs skills and registers the MCP server for each one it finds. If no agents are detected, the CLI prints a message listing the supported agents and where it looked.
 
 To remove everything later, run:
 
@@ -64,7 +68,7 @@ Cursor and GitHub Copilot install skills *per project* (into `.cursor/rules/` or
 
 How you check depends on your agent. Restart the agent first if it was already running — most agents pick up new skills/MCP servers at startup.
 
-**Claude Code** - Open Claude Code in your workshop directory and type `/`. You should see entries like `/moderne:create-recipe`, `/moderne:create-organization`, and `/moderne:edit-code`.
+**Claude Code** - Open Claude Code in your workshop directory and type `/`. You should see entries like `/moderne:create-recipe`, `/moderne:edit-code`, and `/moderne:find-symbols`.
 
 **Cursor / GitHub Copilot** - Skills are loaded automatically as rules/instructions. Open the project in your editor and check that `.cursor/rules/moderne-*.mdc` or `.github/instructions/moderne-*.instructions.md` exist.
 
@@ -141,24 +145,7 @@ For Cursor, look at `.cursor/rules/moderne-create-recipe.mdc` in the current pro
 
 The file is plain markdown describing the recipe development workflow: when to choose declarative YAML vs Refaster vs imperative recipes, how to scaffold a project, how to write tests with `RewriteTest`, and how to handle imports correctly. This is what the agent reads before responding.
 
-The skills you now have available differ in what they need. These three work with the CLI alone:
-
-| Skill                     | What it does                                                                              |
-|---------------------------|-------------------------------------------------------------------------------------------|
-| **create-recipe**         | Guides the agent through recipe type selection, scaffolding, and writing tests            |
-| **create-organization**   | Helps the agent assemble a curated set of repositories to test recipes against            |
-| **prethink**              | Gives the agent pre-resolved architecture and risk context for a repository               |
-
-The rest teach the agent when to reach for a [Moderne MCP server tool](../../user-documentation/agent-tools/mcp/overview.md#available-tools), and need that server registered:
-
-| Skill                                        | What it does                                                          |
-|----------------------------------------------|------------------------------------------------------------------------|
-| **edit-code**                                | Applies a recipe across many files instead of hand-editing each one     |
-| **analyze-code**, **search-code**, **find-symbols** | Repo-wide analysis and type-aware search                        |
-| **change-symbols**, **pattern-replace**      | Atomic renames and one-shot structural rewrites                        |
-| **inspect-status**, **query-datatable**      | Readiness checks and SQL over recipe run data                          |
-
-See [Available skills](../../user-documentation/agent-tools/skills.md#available-skills) for the longer descriptions.
+The install put several more skills alongside this one. Most of them front a [Moderne MCP server tool](../../user-documentation/agent-tools/mcp/overview.md#available-tools) and need that server registered; a couple work with the CLI alone. See [Available skills](../../user-documentation/agent-tools/skills.md#available-skills) for the full list and what each one covers.
 
 #### Step 2 (optional): Try a skill with a throwaway prompt
 

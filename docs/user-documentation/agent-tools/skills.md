@@ -12,7 +12,7 @@ The Moderne CLI can install agent tools (skills and MCP servers) that teach AI c
 Skills differ in what they need to do their job:
 
 * Most explain how and when to reach for a [Moderne MCP server](./mcp/overview.md) tool, so they need that server registered.
-* A few carry workflow knowledge that stands on its own and drive the `mod` CLI directly, so they work whether or not you use the MCP server.
+* A couple call no MCP tool at all: one carries recipe-authoring knowledge and drives the `mod` CLI directly, and one points the agent at context files already generated for the repository.
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
 
@@ -23,8 +23,8 @@ Building OpenRewrite recipes requires understanding [visitor patterns](https://d
 Moderne skills teach agents about:
 
 * **Recipe creation** - choosing the right type of recipe ([Declarative](https://docs.openrewrite.org/concepts-and-explanations/recipes#declarative-recipes), [Refaster](https://docs.openrewrite.org/concepts-and-explanations/recipes#refaster-template-recipes), or [Imperative](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes)) and following [OpenRewrite conventions](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices)
-* **Repository discovery** - assembling a working set of real repositories to test against
 * **Tool routing** - reaching for a recipe or a type-aware search instead of text search when a change spans many files
+* **Codebase context** - pre-resolved architecture, dependency, and risk information about a repository before the agent starts editing
 
 The skills are bundled with the CLI and stay current when you update.
 
@@ -38,7 +38,7 @@ The CLI auto-detects installed coding agents and installs skills to each one:
 | Windsurf        | `~/.codeium/`                                    | `~/.codeium/windsurf/skills/<skill>/SKILL.md`                    |
 | Sourcegraph Amp | `~/.config/agents/`                              | `~/.config/agents/skills/<skill>/SKILL.md`                       |
 | OpenAI Codex    | `~/.agents/`                                     | `~/.agents/skills/<skill>/SKILL.md`                              |
-| opencode        | `~/.config/opencode/`                            | `~/.config/opencode/skills/<skill>/SKILL.md`                     |
+| OpenCode        | `~/.config/opencode/`                            | `~/.config/opencode/skills/<skill>/SKILL.md`                     |
 | Cursor          | `~/.cursor/`                                     | `.cursor/rules/moderne-<skill>.mdc`                              |
 | GitHub Copilot  | `.github/` in current directory or `~/.copilot/` | `.github/instructions/moderne-<skill>.instructions.md`           |
 
@@ -91,7 +91,7 @@ mod config agent-tools skills uninstall
 ```
 
 :::note
-This installs every skill, including the ones that call the Moderne MCP server and do nothing without it. It is most useful for refreshing skills when the MCP server is already registered. If you have not set up the MCP server, only `create-recipe`, `create-organization`, and `prethink` will function.
+This installs every skill, including the ones that call the Moderne MCP server and do nothing without it. It is most useful for refreshing skills when the MCP server is already registered. If you have not set up the MCP server, `create-recipe` still works, and `prethink` works as long as you have generated [Prethink context](./prethink.md) some other way.
 :::
 
 ## Invoking skills
@@ -103,7 +103,7 @@ Write a recipe that replaces all calls to Logger.info() with Logger.debug()
 ```
 
 ```
-Find every repository in my GitHub org that uses Spring Boot and set up a working set
+Rename getItems() to items() on com.example.ShoppingCart everywhere it is used
 ```
 
 In Claude Code you can also invoke a skill explicitly with the `/moderne:` prefix, which is useful when you want to force a particular workflow:
@@ -116,15 +116,18 @@ Create a recipe that migrates deprecated API calls.
 
 ## Available skills
 
-### Skills that work with the CLI alone
+### Skills that call no MCP tool
 
-These need no MCP server.
+Neither of these reaches for a Moderne MCP server tool, so both work without that server registered.
 
-| Skill                   | What it covers                                                                                             |
-|-------------------------|------------------------------------------------------------------------------------------------------------|
-| **create-recipe**       | Writing, fixing, and debugging recipes — declarative YAML, Refaster templates, Java visitors, scanning recipes, and `RewriteTest` coverage |
-| **create-organization** | Finding repositories across GitHub/GitLab/Bitbucket and assembling them into an organization or `repos.csv` |
-| **prethink**            | Pre-resolved codebase context — architecture, dependencies, and risk-ranked untested methods                |
+| Skill             | What it covers                                                                                             |
+|-------------------|------------------------------------------------------------------------------------------------------------|
+| **create-recipe** | Writing, fixing, and debugging recipes — declarative YAML, Refaster templates, Java visitors, scanning recipes, and `RewriteTest` coverage |
+| **prethink**      | Reading pre-resolved codebase context — architecture, dependencies, and risk-ranked untested methods         |
+
+:::note
+`create-recipe` is self-contained. `prethink` is not: it tells the agent to read `.moderne/context/`, which only exists once you have generated [Prethink context](./prethink.md) by running the `UpdatePrethinkContextStarter` recipe. If you run the [MCP server](./mcp/overview.md), `mod mcp` refreshes that context in the background as you work.
+:::
 
 ### Skills that use the MCP server
 
@@ -147,6 +150,10 @@ These skills operate on the repository the agent is currently working in — the
 
 ### create-recipe
 
+:::note
+`create-recipe` requires Moderne CLI 4.5.3 or later. On earlier versions, `mod config agent-tools install` installs the other nine skills.
+:::
+
 Use this skill when you want to create a new OpenRewrite recipe or modify an existing one.
 
 **When not to use**: general Java programming unrelated to OpenRewrite, or running an existing recipe across a working set (use `mod build` and `mod run`).
@@ -158,27 +165,6 @@ This skill helps you with:
 * **Testing** - Writing tests with the `RewriteTest` framework, including before/after assertions and no-change cases
 * **Data tables** - Emitting structured data for analysis
 * **Validating against real code** - Publishing the recipe, installing it, and running it across a working set with the CLI
-
-### create-organization
-
-Use this skill when you want to create a custom set of repositories to run recipes against.
-
-This skill helps you:
-
-* **Find repositories** by language, technology (Spring Boot, JPA, Kafka, etc.), or by listing all accessible repos
-* **Search across platforms** - GitHub, GitLab, Bitbucket, and other sources like Sourcegraph and Libraries.io
-* **Generate repos.csv** files with proper format and organizational hierarchy
-* **Sync repositories** using `mod git sync csv`
-* **Organize repositories** by team, technology, or business domain for focused testing
-
-## Workflow example
-
-The skills work together to support the full recipe lifecycle:
-
-1. **Create a working set** with `create-organization` to find Spring Boot repositories
-2. **Write a recipe** with `create-recipe` to migrate a deprecated API
-3. **Test iteratively** by publishing the recipe and running it with `mod build` and `mod run` until it matches the files you expect
-4. **Apply it at scale** by running it across the whole working set with `mod run`, then dig into the results with `query-datatable`
 
 ## Keeping skills up to date
 

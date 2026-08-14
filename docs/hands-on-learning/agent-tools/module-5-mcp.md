@@ -6,6 +6,10 @@ draft: true
 
 # Module 5: MCP server
 
+:::warning[Experimental]
+This module uses the local MCP server, which is experimental. See the [MCP server overview](../../user-documentation/agent-tools/mcp/overview.md) for what may change, including why some steps here may drift from what your CLI does.
+:::
+
 In this final module, you'll see how the Moderne MCP server gives your AI coding agent direct access to indexed search, semantic navigation, codebase-wide refactoring, and recipe execution. You already installed it in [Module 2](./module-2-install-agent-tools.md) (it ships alongside skills via `mod config agent-tools install`). Now you'll exercise the tools.
 
 For the full tool catalog and architecture details, see the [MCP server overview](../../user-documentation/agent-tools/mcp/overview.md). This module is hands-on practice.
@@ -35,7 +39,7 @@ Each agent has its own configuration mechanism. The CLI handles the differences 
 | GitHub Copilot  | `.vscode/mcp.json` and `~/.copilot/mcp-config.json` |
 | Sourcegraph Amp | Registered via `amp mcp add`                        |
 | OpenAI Codex    | Registered via `codex mcp add`                      |
-| opencode        | `~/.config/opencode/opencode.json`                  |
+| OpenCode        | `~/.config/opencode/opencode.json`                  |
 
 For Claude Code, list registered MCP servers:
 

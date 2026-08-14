@@ -11,6 +11,10 @@ The Moderne CLI includes a local [Model Context Protocol (MCP)](https://modelcon
 This page describes the **local** MCP server (`mod mcp`), which runs on a developer workstation through the CLI. Moderne also offers a [remote MCP server](./remote-server.md) hosted on the Moderne Platform that runs recipes against the repositories already ingested into your tenant.
 :::
 
+:::warning[Experimental]
+The local MCP server is experimental. Its tools and the commands that configure them may change significantly between CLI releases, and the tool descriptions are continually tuned for each supported agent. An agent decides for itself when to call a tool, so it may not always reach for a Moderne one, even where it would help.
+:::
+
 ## Why use the Moderne MCP server
 
 AI coding agents are limited to the tools bundled with them (typically just text search and file reading). These tools work at the text level and miss the **semantic** structure of code.

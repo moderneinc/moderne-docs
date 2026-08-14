@@ -1,80 +1,75 @@
 ---
 sidebar_label: "Module 1: Plan"
-description: Install the Moderne skills, try them out, and plan a Jackson 2→3 migration recipe with AI assistance.
+description: Set up your coding agent, see the recipe development loop, and plan a Jackson 2→3 migration recipe with AI assistance.
 ---
 
 # Module 1: Plan
 
-In this module, you'll learn about the Moderne skills workflow for AI-assisted recipe development. After that, you'll learn how to use AI to research and plan a Jackson 2.x → 3.x migration recipe. The key takeaway: **start with a plan, not with code.**
+In this module, you'll see the development loop this workshop follows for AI-assisted recipe authoring. After that, you'll learn how to use AI to research and plan a Jackson 2.x → 3.x migration recipe. The key takeaway: **start with a plan, not with code.**
 
-## Exercise 1-1: Try the Moderne skills
+## Exercise 1-1: Set up your agent and see the loop
 
 ### Goals for this exercise
 
-* Install the Moderne skills and verify they work
-* See firsthand how skills change the agent's behavior
+* Get your agent ready to work on recipes
+* See the development loop the rest of this workshop follows
 
 ### Key concepts
 
-The Moderne CLI ships with AI skills that teach your coding agent how to work with OpenRewrite recipes effectively. Instead of starting from scratch, these skills give your agent procedural knowledge about recipe development.
+Building a recipe with an agent is a loop, not a single prompt:
 
-The two skills you'll use today:
+1. Tell the agent what kind of recipe you want.
+2. Have it find repositories to test against, and discover test cases from what it finds in real code.
+3. Implement the recipe until it passes those test cases.
+4. Run it against the real repositories and check they still compile and pass their own tests.
+5. If the results fall short, go back to step 2 and iterate. If they're clean, decide whether you're done or whether the test set should be wider.
 
-| Skill                   | What it does                                                                                                                                      |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| **create-recipe**       | Guides the agent through recipe type selection, project scaffolding, writing tests, and implementing recipes following OpenRewrite best practices |
-| **create-organization** | Helps find and assemble a curated set of repositories to test against                                                                             |
+Each module in this workshop is one part of that loop: plan here, build in Module 2, test and iterate in Module 3.
 
-In Module 3 you'll run the recipe against those repositories with the `mod` CLI directly.
+Coding models already know OpenRewrite reasonably well — the framework and its recipes are open source and well represented in training data — so you can work this loop with your agent and the `mod` CLI alone.
 
-These skills are supported across multiple agents. See [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) for details on supported agents and how to invoke skills in each one.
+The CLI can also install a `create-recipe` skill that encodes recipe type selection, project layout, and `RewriteTest` conventions, so the agent doesn't have to rediscover them each session. It's an accelerator, not a prerequisite.
 
 :::note
-This workshop demos with **Claude Code**, but skills are also supported for Windsurf, Sourcegraph Amp, Cursor, GitHub Copilot, and Codex. Results may vary across agents, but the workflow and principles are the same.
+This workshop demos with **Claude Code**, but the same workflow applies to Windsurf, Sourcegraph Amp, Cursor, GitHub Copilot, OpenAI Codex, and OpenCode. Results may vary across agents, but the loop and the principles are the same.
 :::
 
 ### Steps
 
-#### Step 1: Install the Moderne skills
-
-If you haven't already, install the Moderne skills for all detected coding agents using the CLI:
+#### Step 1 (optional): Install the Moderne skills
 
 ```bash
 mod config agent-tools install
 ```
 
-#### Step 2: Verify the skills are available
+In Claude Code, type `/` afterward and you should see entries like `/moderne:create-recipe`. For other agents, see [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) for install locations and how to verify.
 
-In Claude Code, type `/` and you should see the Moderne skills listed (e.g., `/moderne:create-recipe`). (For other agents, see the [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) docs for how to verify installation.)
-
-#### Step 3: Try it out
-
-Skills trigger from what you ask for — describe a recipe task and the agent loads `create-recipe` on its own.
-
-:::tip
-If the agent doesn't pick up the skill, you can force it in Claude Code with `/moderne:create-recipe`.
+:::note
+`create-recipe` requires Moderne CLI 4.5.3 or later. On an earlier version, skip this step — everything below works without it.
 :::
 
-When prompted, give it a simple task:
+#### Step 2: Try a throwaway request
+
+Open your agent and give it a small, self-contained task:
 
 > I want to create an OpenRewrite recipe that renames the method `getItems()` to `items()` on `com.example.ShoppingCart`.
 
-Watch how the agent responds. Don't worry about the output. Just notice how the skill shapes the agent's approach:
+Don't worry about the output. Watch the shape of the response instead:
 
-* The agent should choose a [recipe type](../../user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md) *before* writing any code (declarative vs Refaster vs imperative)
-* The skill writes **tests** using OpenRewrite's `RewriteTest` framework with before/after code snippets
-* It follows a structured project layout rather than just dumping code (or YAML) in a single file
+* Does it choose a [recipe type](../../user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md) *before* writing code (declarative vs Refaster vs imperative)?
+* Does it write **tests** with OpenRewrite's `RewriteTest` framework, using before/after code snippets?
+* Does it lay out a project, rather than dumping everything in one file?
 
-Without the skill, you may have only gotten a single YAML recipe file with no tests.
+If your agent skips these, say so directly — "choose the recipe type first" or "write the tests before the implementation." That kind of correction is the whole job in Module 2, and it's worth seeing now on something disposable.
 
 :::tip
-When you've seen enough, you can stop the agent since you won't be using this output.
+When you've seen enough, stop the agent. You won't be using this output.
 :::
 
 ### Takeaways
 
-* The Moderne skills give your AI coding agent specialized, procedural knowledge about OpenRewrite recipe development and usage.
-* Human judgment is still essential at every step (the agent proposes, you guide it).
+* Recipe development with an agent is an iterative loop, and the test repositories are what tell you whether you're done.
+* Human judgment is essential at every step. The agent proposes, you guide it.
 
 ---
 
@@ -88,15 +83,13 @@ When you've seen enough, you can stop the agent since you won't be using this ou
 
 ### How this maps to the workshop
 
-The skills you tried in Exercise 1-1 form an iterative development loop: identify the transformation, choose the recipe type, write tests, implement the recipe, and test it against real repositories. Each module in this workshop maps to a phase of that loop:
+Here is where each module lands in the loop from Exercise 1-1:
 
 * **This exercise:** Plan what the recipe should do, scope it down, and confirm recipe type(s)
 * **Module 2:** Build the recipe with AI assistance, writing tests first to validate output
 * **Module 3:** Run the recipe against real repos, compare to desired results, and iterate
 
-:::tip
-You can open the `create-recipe` skill file on your machine to see the full workflow. See [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md#supported-agents) for install locations.
-:::
+The loop rarely runs cleanly end to end on the first pass. Module 3 sends you back to Module 2 more than once, and that's the normal shape of the work rather than a sign something went wrong.
 
 ### About the Jackson 2→3 migration
 
@@ -121,7 +114,7 @@ This is where your recipe project will live for the rest of the workshop.
 
 #### Step 2: Research the migration
 
-Invoke the `create-recipe` skill, then ask your agent to research the migration. Point it at the [source documentation](https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md) and ask it to propose automatable changes. A few tips for crafting your prompt:
+Ask your agent to research the migration. Point it at the [source documentation](https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md) and ask it to propose automatable changes. A few tips for crafting your prompt:
 
 * **Give it a primary source.** Point the agent at the [migration guide URL](https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md) so it works from authoritative documentation, not its own training data.
 * **Ask for structured output.** Request a list with specific information that you can use to validate the plan and guide the process (e.g. what changed, recipe type, priority) so the output is easy to review and scope in Step 3.
@@ -160,7 +153,7 @@ If the agent already proposed phases, review the first phase and refine it. If n
 
 #### Step 4: Review the subset
 
-Your results will vary, and that's expected. Most of the first phase will likely be declarative recipes, which is a good sign. The skill encourages using the simplest recipe type possible. But there is often the need for a transformation that requires something more, so one or two Refaster and/or imperative recipes will likely be proposed as well (especially since you asked for it to). Review the agent's proposed subset and recipe type suggestions. Key things to check:
+Your results will vary, and that's expected. Most of the first phase will likely be declarative recipes, which is a good sign — the simplest recipe type that does the job is the right one. But there is often the need for a transformation that requires something more, so one or two Refaster and/or imperative recipes will likely be proposed as well (especially since you asked for it to). Review the agent's proposed subset and recipe type suggestions. Key things to check:
 
 * Package renames, type renames, method renames, and dependency changes should all be **declarative YAML** using existing OpenRewrite primitives
 * Expression-level replacements (e.g., replacing one method chain with another) are a good fit for **Refaster templates**

@@ -11,6 +11,10 @@ This page describes the security architecture of the Moderne MCP server (`mod mc
 This page covers the **local** MCP server that runs on developer workstations. The [remote MCP server](./remote-server.md) is a separate, hosted service on the Moderne Platform with the same security posture as the [Moderne API](../../moderne-platform/how-to-guides/accessing-the-moderne-api.md).
 :::
 
+:::warning[Experimental]
+The local MCP server is experimental. See the [MCP server overview](./overview.md) for what may change. Re-check this page against the CLI version you are approving rather than treating the tool list as fixed.
+:::
+
 ## Summary for security reviewers
 
 | Question                                               | Answer                                                                                                                                                                                                    |
