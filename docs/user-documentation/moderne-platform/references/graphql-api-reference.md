@@ -3007,6 +3007,7 @@ Use `options.__typename` to determine the specific commit type.
 | `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
 | `syncStatus` | [RepositorySyncStatus](#repositorysyncstatus) |  |
 | `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `message` | String | Why this repository stopped, when there is more to say than "the run was canceled". Null for the ordinary case, where a repository simply had not run yet. Set when the CLI had to leave the repository behind because it never stopped when asked, in which case this carries the stack it was wedged in and the source file it was on. That is the only account of such a wedge that leaves the host running the CLI. |
 
 ##### `RepositoryRecipeRunConnection`
 
