@@ -88,13 +88,13 @@ Download the installer for your platform from your Moderne tenant, or from [app.
 
 ```bash
 # Linux (self-extracting installer)
-bash moderne-cli-linux-4.5.2.sh
+bash moderne-cli-linux-4.6.0.sh
 
 # macOS (self-extracting installer)
-bash moderne-cli-osx-4.5.2.sh
+bash moderne-cli-osx-4.6.0.sh
 
 # Windows (PowerShell)
-Expand-Archive moderne-cli-windows-4.5.2.zip -DestinationPath . ; .\install.cmd
+Expand-Archive moderne-cli-windows-4.6.0.zip -DestinationPath . ; .\install.cmd
 ```
 
 After installation, the CLI binary lives in `~/.moderne/cli/bin/` (on your `PATH`), and everything the CLI needs to run (JAR, JRE, startup cache) lives in `~/.moderne/cli/dist/`.

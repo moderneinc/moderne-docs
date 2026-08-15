@@ -242,6 +242,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config lsts artifacts azure-blob edit**](#mod-config-lsts-artifacts-azure-blob-edit)
 * [**mod config lsts artifacts azure-blob delete**](#mod-config-lsts-artifacts-azure-blob-delete)
 * [**mod config lsts artifacts azure-blob show**](#mod-config-lsts-artifacts-azure-blob-show)
+* [**mod config lsts artifacts gcs**](#mod-config-lsts-artifacts-gcs)
+* [**mod config lsts artifacts gcs edit**](#mod-config-lsts-artifacts-gcs-edit)
+* [**mod config lsts artifacts gcs delete**](#mod-config-lsts-artifacts-gcs-delete)
+* [**mod config lsts artifacts gcs show**](#mod-config-lsts-artifacts-gcs-show)
 * [**mod config lsts artifacts maven**](#mod-config-lsts-artifacts-maven)
 * [**mod config lsts artifacts maven add**](#mod-config-lsts-artifacts-maven-add)
 * ~~[**mod config lsts artifacts maven edit**](#mod-config-lsts-artifacts-maven-edit-deprecated)~~ (deprecated)
@@ -356,6 +360,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config run polyglot-parallel delete**](#mod-config-run-polyglot-parallel-delete)
 * [**mod config run polyglot-parallel edit**](#mod-config-run-polyglot-parallel-edit)
 * [**mod config run polyglot-parallel show**](#mod-config-run-polyglot-parallel-show)
+* [**mod config run stall-threshold**](#mod-config-run-stall-threshold)
+* [**mod config run stall-threshold delete**](#mod-config-run-stall-threshold-delete)
+* [**mod config run stall-threshold edit**](#mod-config-run-stall-threshold-edit)
+* [**mod config run stall-threshold show**](#mod-config-run-stall-threshold-show)
 * [**mod config run timeout**](#mod-config-run-timeout)
 * [**mod config run timeout delete**](#mod-config-run-timeout-delete)
 * [**mod config run timeout edit**](#mod-config-run-timeout-edit)
@@ -879,7 +887,7 @@ mod config agent-tools install
 Creates or updates Moderne agent tools for coding agents.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex). Safe to run multiple times — existing installations are updated in place.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex). Safe to run multiple times — existing installations are updated in place.
 
 ### Usage
 
@@ -921,7 +929,7 @@ mod config agent-tools uninstall
 Manage Moderne skills for coding agents.
 
 
-Install or remove only the Moderne skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) for all detected coding agents, without modifying MCP server registrations. Use 'mod config agent-tools install' to install both skills and the MCP server together.
+Install or remove only the Moderne skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) for all detected coding agents, without modifying MCP server registrations. Use 'mod config agent-tools install' to install both skills and the MCP server together.
 
 ### Usage
 
@@ -946,7 +954,7 @@ mod config agent-tools skills install
 Install Moderne skills to all detected coding agents.
 
 
-Installs only the skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) to all detected coding agents without registering the MCP server. Use 'mod config agent-tools install' to install both skills and the MCP server together.
+Installs only the skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) to all detected coding agents without registering the MCP server. Use 'mod config agent-tools install' to install both skills and the MCP server together.
 
 ### Usage
 
@@ -1013,7 +1021,7 @@ mod config agent-tools claude install
 Install Moderne agent tools for Claude Code.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) as a Claude Code plugin and registers the Moderne MCP server via the 'claude' CLI. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) as a Claude Code plugin and registers the Moderne MCP server via the 'claude' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -1080,7 +1088,7 @@ mod config agent-tools windsurf install
 Install Moderne agent tools for Windsurf.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under ~/.codeium/windsurf/skills/ and registers the Moderne MCP server in ~/.codeium/windsurf/mcp_config.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under ~/.codeium/windsurf/skills/ and registers the Moderne MCP server in ~/.codeium/windsurf/mcp_config.json. Safe to run multiple times.
 
 ### Usage
 
@@ -1147,7 +1155,7 @@ mod config agent-tools cursor install
 Install Moderne agent tools for Cursor.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) as .mdc rule files in .cursor/rules/ and registers the Moderne MCP server in ~/.cursor/mcp.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) as .mdc rule files in .cursor/rules/ and registers the Moderne MCP server in ~/.cursor/mcp.json. Safe to run multiple times.
 
 ### Usage
 
@@ -1214,7 +1222,7 @@ mod config agent-tools copilot install
 Install Moderne agent tools for GitHub Copilot.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) as instruction files in .github/instructions/ and registers the Moderne MCP server in both .vscode/mcp.json and ~/.copilot/mcp-config.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) as instruction files in .github/instructions/ and registers the Moderne MCP server in both .vscode/mcp.json and ~/.copilot/mcp-config.json. Safe to run multiple times.
 
 ### Usage
 
@@ -1281,7 +1289,7 @@ mod config agent-tools amp install
 Install Moderne agent tools for Sourcegraph Amp.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under ~/.config/agents/skills/ and registers the Moderne MCP server via the 'amp' CLI. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under ~/.config/agents/skills/ and registers the Moderne MCP server via the 'amp' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -1348,7 +1356,7 @@ mod config agent-tools codex install
 Install Moderne agent tools for OpenAI Codex.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under ~/.agents/skills/ and registers the Moderne MCP server via the 'codex' CLI. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under ~/.agents/skills/ and registers the Moderne MCP server via the 'codex' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -1415,7 +1423,7 @@ mod config agent-tools opencode install
 Install Moderne agent tools for opencode.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under ~/.config/opencode/skills/ and registers the Moderne MCP server in ~/.config/opencode/opencode.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under ~/.config/opencode/skills/ and registers the Moderne MCP server in ~/.config/opencode/opencode.json. Safe to run multiple times.
 
 ### Usage
 
@@ -5262,6 +5270,7 @@ mod config lsts artifacts [subcommands]
 * `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
 * `show`: Displays the LST artifacts repository configuration.
 * `azure-blob`: Configures the Azure Blob Storage container that LSTs will be published to and downloaded from.
+* `gcs`: Configures the Google Cloud Storage bucket that LSTs will be published to and downloaded from.
 * `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
 * `s3`: Configures the S3 repository that LSTs will be published to and downloaded from.
 
@@ -5488,6 +5497,90 @@ Displays the Azure Blob LST repository configuration.
 
 ```
 mod config lsts artifacts azure-blob show
+```
+
+
+
+## mod config lsts artifacts gcs
+
+Configures the Google Cloud Storage bucket that LSTs will be published to and downloaded from.
+
+
+All subsequent publish and download commands will use this Cloud Storage bucket. If --credentials-file is not provided, Application Default Credentials are used (workload identity, the GCE/GKE metadata server, GOOGLE_APPLICATION_CREDENTIALS, or `gcloud auth application-default login`).
+
+### Usage
+
+```
+mod config lsts artifacts gcs [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the Cloud Storage bucket that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+* `delete`: Removes the Google Cloud Storage LST repository configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the Google Cloud Storage LST repository configuration.
+
+## mod config lsts artifacts gcs edit
+
+Configures the Cloud Storage bucket that LSTs will be published to and downloaded from. Must be configured before you can run the publish command.
+
+
+All subsequent publish and download commands will use this Cloud Storage bucket.
+
+### Usage
+
+```
+mod config lsts artifacts gcs edit [parameters]
+```
+
+### Examples
+
+```
+mod config lsts artifacts gcs edit gs://bucket
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `uri` |  The Cloud Storage bucket that LSTs will be published to. Must be of the form `gs://{bucket}`. | `gs://bucket` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--credentials-file` |  Path to a service account JSON key file. Defaults to Application Default Credentials. |
+| `--endpoint-url` |  Override the default storage.googleapis.com endpoint, e.g. a Private Service Connect endpoint. An http (not https) endpoint is treated as an emulator and is called without credentials. |
+| `--project` |  The project to bill requests to. Only needed for requester-pays buckets. |
+
+
+## mod config lsts artifacts gcs delete
+
+Removes the Google Cloud Storage LST repository configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts gcs delete
+```
+
+
+
+## mod config lsts artifacts gcs show
+
+Displays the Google Cloud Storage LST repository configuration.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts gcs show
 ```
 
 
@@ -7987,6 +8080,7 @@ mod config run [subcommands]
 ### Subcommands
 
 * `polyglot-parallel`: Configure how many polyglot rewrite-rpc requests may run concurrently.
+* `stall-threshold`: Configure how long a run may go without any repository finishing.
 * `timeout`: Configure the run timeout.
 
 ## mod config run polyglot-parallel
@@ -8052,6 +8146,89 @@ Display the configured polyglot rewrite-rpc concurrency cap.
 mod config run polyglot-parallel show
 ```
 
+
+
+## mod config run stall-threshold
+
+Configure how long a run may go without any repository finishing.
+
+
+When no repository in a run has finished for this long, the CLI gives up on the repository that has been running the longest and lets the rest of the run continue, rather than the whole run being killed with nothing to show for it. The clock is relative to the run as a whole, so a legitimately slow repository is never given up on while other repositories are still finishing. Set to PT0S to disable.
+
+### Usage
+
+```
+mod config run stall-threshold [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Restores the configured run stall threshold to the default value.
+* `edit`: Configure how long a run may go without any repository finishing.
+* `show`: Displays the configured run stall threshold.
+
+## mod config run stall-threshold delete
+
+Restores the configured run stall threshold to the default value.
+
+
+### Usage
+
+```
+mod config run stall-threshold delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config run stall-threshold edit
+
+Configure how long a run may go without any repository finishing.
+
+
+### Usage
+
+```
+mod config run stall-threshold edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `duration` |  The duration expressed as an ISO-8601 duration. For example: 'PT15M' for fifteen minutes, 'PT1H' for one hour. 'PT0S' disables giving up on a repository entirely. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config run stall-threshold show
+
+Displays the configured run stall threshold.
+
+
+### Usage
+
+```
+mod config run stall-threshold show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config run timeout

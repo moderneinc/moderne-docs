@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.5.2           |
+| CLI version | 4.6.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,21 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.6.0 (2026-08-14)
+
+#### What's Changed
+* Restore the create-recipe and create-organization skills
+* Add Google Cloud Storage as an LST artifact source
+* Include anonymous class type information in zoekt index
+* Fail the repository that wedged a run instead of losing the whole run
+* Add Ruby language support with RubyBuildStep
+* Resolve recipes and their native packages through the connected Moderne tenant
+* Delete the flaky RunStallSupervisor tests
+* Detect the CSV line separator so npm recipe scopes resolve on Windows
+* Resolve Windows subst drives when rebasing build tool paths onto the repository root
+* Remove stale NpmExecutor parent-delegated package entry
+* Pin nebula.release to 21.0.0 to unbreak tag releases
 
 ### CLI / DX v4.5.2 (2026-08-12)
 
