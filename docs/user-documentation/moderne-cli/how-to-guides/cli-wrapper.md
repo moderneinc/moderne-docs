@@ -119,18 +119,18 @@ You can control both of these with properties (see below).
 
 The `moderne-wrapper.properties` file supports these properties:
 
-| Property                | Description                                                                                                                                                  | Default       |
-|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| `version`               | CLI version to use. `RELEASE` resolves the latest release. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`. | `RELEASE`     |
-| `distributionUrl`       | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders.                                                               | Code Genome Project |
-| `distributionUrlEarlyAccess` | Base URL of the repository used to resolve `LATEST`/snapshot versions. Overrides the default snapshot source; point it at your own snapshot repository in restricted environments. | Code Genome Project |
-| `distributionUsername`  | Username for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
-| `distributionPassword`  | Password for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
-| `distributionToken`     | Bearer token for authentication when downloading the distribution. Takes precedence over username/password if both are set.                                   | _(none)_      |
-| `distributionSha256Sum` | Expected SHA-256 of the downloaded archive. Verified if set.                                                                                                 | _(none)_      |
-| `distributionUrlCacheTtl` | How long to cache the resolved `RELEASE` version before re-checking the distribution repository, as an ISO-8601 duration (e.g. `PT1H`, `PT10M`). `PT0S` disables caching. | `PT1H` |
-| `distributionUrlEarlyAccessCacheTtl` | How long to cache the resolved `LATEST`/snapshot version before re-checking the early-access repository, as an ISO-8601 duration. `PT0S` disables caching. | `PT1H` |
-| `jdkUrl`                | URL to a JDK archive for auto-download. Set to `skip` to disable JDK auto-download entirely.                                                                 | Adoptium API  |
+| Property                             | Description                                                                                                                                                                        | Default             |
+|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| `version`                            | CLI version to use. `RELEASE` resolves the latest release. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`.                                          | `RELEASE`           |
+| `distributionUrl`                    | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders.                                                                                     | Code Genome Project |
+| `distributionUrlEarlyAccess`         | Base URL of the repository used to resolve `LATEST`/snapshot versions. Overrides the default snapshot source; point it at your own snapshot repository in restricted environments. | Code Genome Project |
+| `distributionUsername`               | Username for basic authentication when downloading the distribution.                                                                                                               | _(none)_            |
+| `distributionPassword`               | Password for basic authentication when downloading the distribution.                                                                                                               | _(none)_            |
+| `distributionToken`                  | Bearer token for authentication when downloading the distribution. Takes precedence over username/password if both are set.                                                        | _(none)_            |
+| `distributionSha256Sum`              | Expected SHA-256 of the downloaded archive. Verified if set.                                                                                                                       | _(none)_            |
+| `distributionUrlCacheTtl`            | How long to cache the resolved `RELEASE` version before re-checking the distribution repository, as an ISO-8601 duration (e.g. `PT1H`, `PT10M`). `PT0S` disables caching.          | `PT1H`              |
+| `distributionUrlEarlyAccessCacheTtl` | How long to cache the resolved `LATEST`/snapshot version before re-checking the early-access repository, as an ISO-8601 duration. `PT0S` disables caching.                         | `PT1H`              |
+| `jdkUrl`                             | URL to a JDK archive for auto-download. Set to `skip` to disable JDK auto-download entirely.                                                                                       | Adoptium API        |
 
 ### Caching the version lookup
 
@@ -167,8 +167,8 @@ Setting `jdkUrl=skip` disables the JDK auto-download, which is useful when you k
 
 In an air-gapped environment you therefore have two options:
 
-- **Pin a concrete `version`** (such as `4.x.x`), which skips the metadata lookup entirely — the simplest choice.
-- **Redirect the snapshot lookup** with `distributionUrlEarlyAccess`, pointing it at your own snapshot repository, if you need to keep tracking `LATEST` from an internal mirror.
+* **Pin a concrete `version`** (such as `4.x.x`), which skips the metadata lookup entirely — the simplest choice.
+* **Redirect the snapshot lookup** with `distributionUrlEarlyAccess`, pointing it at your own snapshot repository, if you need to keep tracking `LATEST` from an internal mirror.
 :::
 
 :::note
@@ -210,13 +210,13 @@ Omitting the value after `--distribution-password` will prompt you interactively
 
 Environment variables take precedence over properties file values. This is especially important for first-time installs where no properties file exists yet.
 
-| Variable                                  | Description                           |
-|-------------------------------------------|---------------------------------------|
-| `MODERNE_WRAPPER_DISTRIBUTION_USERNAME`   | Basic auth username                   |
-| `MODERNE_WRAPPER_DISTRIBUTION_PASSWORD`   | Basic auth password                   |
-| `MODERNE_WRAPPER_DISTRIBUTION_TOKEN`      | Bearer token (overrides user/pass)    |
-| `MODERNE_WRAPPER_DISTRIBUTION_URL`        | Override distribution URL             |
-| `MODERNE_WRAPPER_VERSION`                 | Override CLI version                  |
+| Variable                                | Description                        |
+|-----------------------------------------|------------------------------------|
+| `MODERNE_WRAPPER_DISTRIBUTION_USERNAME` | Basic auth username                |
+| `MODERNE_WRAPPER_DISTRIBUTION_PASSWORD` | Basic auth password                |
+| `MODERNE_WRAPPER_DISTRIBUTION_TOKEN`    | Bearer token (overrides user/pass) |
+| `MODERNE_WRAPPER_DISTRIBUTION_URL`      | Override distribution URL          |
+| `MODERNE_WRAPPER_VERSION`               | Override CLI version               |
 
 Example first-time install with authentication:
 
@@ -255,18 +255,18 @@ GraalVM distributions are **not compatible** with the CLI's AOT cache. The wrapp
 
 ## Environment variables
 
-| Variable                                | Description                                                        |
-|-----------------------------------------|--------------------------------------------------------------------|
-| `MODERNE_JAVA_HOME`                     | Override the JDK used to run the CLI                               |
-| `MODERNE_JAR`                           | Override the CLI JAR location (skips distribution download)        |
-| `MODERNE_OPTS`                          | Additional JVM options passed to the CLI (e.g., `-Xmx4g`)         |
-| `MODERNE_CLI_HOME`                      | Base CLI directory (default: `~/.moderne/cli`)                     |
-| `MODERNE_WRAPPER_DISTRIBUTION_USERNAME` | Basic auth username for distribution downloads                     |
-| `MODERNE_WRAPPER_DISTRIBUTION_PASSWORD` | Basic auth password for distribution downloads                     |
-| `MODERNE_WRAPPER_DISTRIBUTION_TOKEN`    | Bearer token for distribution downloads (overrides user/pass)      |
-| `MODERNE_WRAPPER_DISTRIBUTION_URL`      | Override `distributionUrl` without a properties file               |
-| `MODERNE_WRAPPER_VERSION`               | Override `version` without a properties file                       |
-| `MODERNE_WRAPPER_REFRESH`               | Force a fresh version lookup this run, bypassing the TTL cache      |
+| Variable                                | Description                                                    |
+|-----------------------------------------|----------------------------------------------------------------|
+| `MODERNE_JAVA_HOME`                     | Override the JDK used to run the CLI                           |
+| `MODERNE_JAR`                           | Override the CLI JAR location (skips distribution download)    |
+| `MODERNE_OPTS`                          | Additional JVM options passed to the CLI (e.g., `-Xmx4g`)      |
+| `MODERNE_CLI_HOME`                      | Base CLI directory (default: `~/.moderne/cli`)                 |
+| `MODERNE_WRAPPER_DISTRIBUTION_USERNAME` | Basic auth username for distribution downloads                 |
+| `MODERNE_WRAPPER_DISTRIBUTION_PASSWORD` | Basic auth password for distribution downloads                 |
+| `MODERNE_WRAPPER_DISTRIBUTION_TOKEN`    | Bearer token for distribution downloads (overrides user/pass)  |
+| `MODERNE_WRAPPER_DISTRIBUTION_URL`      | Override `distributionUrl` without a properties file           |
+| `MODERNE_WRAPPER_VERSION`               | Override `version` without a properties file                   |
+| `MODERNE_WRAPPER_REFRESH`               | Force a fresh version lookup this run, bypassing the TTL cache |
 
 ## Directory layout
 
