@@ -17,44 +17,6 @@ In this guide, we will explain everything you need to know to find, use, and cre
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=ez1i1g7z6MM' controls="true" />
 
-## Where visualizations exist
-
-While you will see a visualization button on every recipe run, it will be disabled for most recipes.
-
-This is because only a handful of recipes currently offer visualizations. You can see the list of visualizations in the [moderne-visualizations-misc repository](https://github.com/moderneinc/moderne-visualizations-misc/tree/main/moderne_visualizations_misc/specs) or you can use the following GraphQL query to find all visualizations:
-
-```graphql
-query {
-  visualizationCategories {
-    visualizations {
-      id
-      name
-      description
-      recipe {
-        id
-      }
-    }
-  }
-}
-```
-
-Below you can find some of the most popular recipes that currently produce visualizations:
-
-```
-org.openrewrite.sql.FindSql
-org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
-org.openrewrite.cobol.search.FindRelationships
-org.openrewrite.gradle.search.FindGradleWrapper
-org.openrewrite.cobol.search.FindCopybook
-org.openrewrite.cobol.search.FindRelationships
-org.openrewrite.FindSourceFiles
-org.openrewrite.LanguageComposition
-org.openrewrite.FindLstProvenance
-org.openrewrite.LanguageComposition
-org.openrewrite.java.search.FindMethods
-io.moderne.prethink.UpdatePrethinkContextStarter
-```
-
 ## How to view visualizations
 
 If a recipe produces a visualization, you can find them in the `Visualizations` tab:
@@ -67,9 +29,7 @@ Visualization options serve two main purposes: they can change the rendering of 
 
 ![Visualizations list](./assets/visualizations-list.png)
 
-Once you've selected the options you want, click the `Run Visualization` button at the bottom:
-
-![Run visualization](./assets/run-visualization.png)
+Once you've selected the options you want, click the `Run` button.
 
 This will trigger the process for building the visualization. Once it's done building, you should see a visualization appear:
 
