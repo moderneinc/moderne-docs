@@ -24,34 +24,23 @@ This doc assumes that you are familiar with [finding and running recipes in the 
 
 ## Prethink recipes
 
-The Moderne Platform provides the **Update Prethink context** recipe:
+The Moderne Platform provides the [Update Prethink context recipe](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter). This recipe discovers architectural patterns, maps tests to implementation methods, generates a dependency inventory, and creates CALM architecture diagrams.
 
 <figure>
   ![The Update Prethink context recipe listed in the Moderne Platform recipe catalog](./assets/prethink-recipes.png)
   <figcaption>_The Prethink recipe in the Moderne Platform_</figcaption>
 </figure>
 
-### Update Prethink context
-
-_[Link to the recipe](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter)_
-
-This recipe discovers architectural patterns, maps tests to implementation methods, generates a dependency inventory, and creates CALM architecture diagrams.
-
 ## Example results
 
 <figure>
-  ![Generated CLAUDE.md file diff showing Prethink context with repository summary](./assets/prethink-claude.png)
-  <figcaption>_A CLAUDE.md file summarizing the repo._</figcaption>
+  ![API contractos](./assets/prethink-api-contracts.png)
+  <figcaption>_A markdown file summarizing the APIs._</figcaption>
 </figure>
 
 <figure>
   ![Diff of a generated CALM architecture JSON file describing service nodes and endpoints](./assets/prethink-calm-architecture.png)
   <figcaption>_A CALM architecture file to describe the service._</figcaption>
-</figure>
-
-<figure>
-  ![Generated deployment artifacts CSV and server configuration files in the diff view](./assets/prethink-artifacts.png)
-  <figcaption>_Artifact and server configuration files._</figcaption>
 </figure>
 
 ## Visualizations
