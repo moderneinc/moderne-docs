@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.6.0           |
+| CLI version | 4.6.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.6.1 (2026-08-16)
+
+#### What's Changed
+* Resolve COPY in a mainframe build, and stop routing the step through OmniParser
+* Read back a COBOL LST: recurse into a composite that holds another composite
+* Point pip at the PEP 503 index rather than the repository root
+* Parent-load every mainframe LST type, not just the four visitors
 
 ### CLI / DX v4.6.0 (2026-08-14)
 
