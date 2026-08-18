@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.6.1           |
+| CLI version | 4.6.2           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.6.2 (2026-08-17)
+
+#### What's Changed
+* Merge npm packuments across the configured registry chain
+* correct comments claiming MODERNE_JAVA_HOME rescues Intel macs
+* Constrain the MCP grep tool's path argument to the repository root
+* Fix recipe-generated classes failing to be written
 
 ### CLI / DX v4.6.1 (2026-08-16)
 
