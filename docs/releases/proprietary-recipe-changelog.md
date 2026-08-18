@@ -10,6 +10,35 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 17, 2026
+
+#### rewrite-cobol - 2.22.0
+
+* Fix three COBOL parse gaps: EXEC DLI, EXIT paragraphs, and RD PAGE
+* Stop PICTURE strings from consuming the entry that follows them
+* Parse four more constructs found in real CICS and IMS COBOL
+* Stop silently skipping a COPY REPLACING rule, and refuse partial words
+* Model JCL statements in the LST, and stop losing statements to column 73
+* Give every COBOL node an identity of its own
+
+#### rewrite-devcenter - 1.31.1
+
+Pick up latest rewrite-java-security.
+
+#### rewrite-java-security - 3.38.1
+
+* Fix ConcurrentModificationException in an initializer block
+
+#### rewrite-java-security - 3.38.0
+
+* Fix FindSensitiveApiEndpoints not working on record types
+* Classify Go recipes as go, not golang
+* Migrate off the end-of-life rewrite-analysis
+
+#### rewrite-program-analysis - 0.13.9
+
+* Fix external model lookups and add path-injection sink models
+
 ## August 12, 2026
 
 #### recipes-csharp - v0.5.0
