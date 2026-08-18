@@ -27,12 +27,13 @@ Let's walk through how to find and use this recipe so you can be more confident 
 
 * Once there, you'll want to come up with a list of field names that represent PII or secrets for your company. For the purposes of this guide, let's go with [these options](https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints?defaults=W3sibmFtZSI6ImZpZWxkTmFtZXMiLCJ2YWx1ZSI6WyJiaXJ0aGRhdGUiLCJzc24iLCJkb2IiLCJkYXRlT2ZCaXJ0aCIsInN0cmVldEFkZHJlc3MiLCJmaXJzdE5hbWUiLCJsYXN0TmFtZSJdfSx7Im5hbWUiOiJ0cmFuc2l0aXZlIiwidmFsdWUiOiJUcnVlIn1d):
 
-<figure>
+<figure style={{maxWidth: '600px', margin: '0 auto'}}>
   ![Find sensitive API endpoints recipe with PII field names configured](./assets/find-sensitive-recipe.png)
   <figcaption>_Sensitive recipe options_</figcaption>
 </figure>
 
-* After you've come up with the list of field names to search for, you can select whether or not you want the recipe to perform a transitive search. Setting this field to `true` (**recommended**) will recursively check through objects for sensitive data. For instance, if this field is `true` and an `Owner` object has a `getPet` method that returns a `Pet` object that contains PII or secrets (for example, `birthDate` from the options we chose), then the recipe would flag any methods that return an `Owner` because it could then return a `Pet`. If this field is set to `false`, then the recipe would only check the `Owner` class and any objects the `Owner` class extends (such as a `Person` class).
+* After you've come up with the list of field names to search for, you can select whether or not you want the recipe to perform a transitive search. Setting this field to `true` (**recommended**) will recursively check through objects for sensitive data.
+  * For instance, if this field is `true` and an `Owner` object has a `getPet` method that returns a `Pet` object that contains PII or secrets (for example, `birthDate` from the options we chose), then the recipe would flag any methods that return an `Owner` because it could then return a `Pet`. If this field is set to `false`, then the recipe would only check the `Owner` class and any objects the `Owner` class extends (such as a `Person` class).
 
 * Once you've configured the recipe as you want, press the `Dry run` button and Moderne will begin searching for sensitive APIs. You'll be redirected to a page that looks like this. On the right side of the page, you'll see what APIs returned sensitive information.
 
@@ -48,7 +49,7 @@ Let's walk through how to find and use this recipe so you can be more confident 
   <figcaption>_Example context_</figcaption>
 </figure>
 
-* If you enabled a transitive search, you may find results that step through multiple classes such as in the `Owner` -> `Pet` example we discussed above:
+* If you enabled a transitive search, you may find results that step through multiple classes:
 
 <figure>
   ![Transitive search result tracing Owner to Pet to sensitive field path](./assets/owner-transitive-example.png)
