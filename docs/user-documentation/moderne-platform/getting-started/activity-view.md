@@ -52,6 +52,6 @@ If you want to get more information about a recipe, commit, or a visualization, 
 
 If you want more specific times for when things happened rather than "about 2 hours ago" or "1 day ago", you can click on any of the times in the `Start time` column to cycle through various date time formats:
 
-<figure>
+<figure style={{maxWidth: '300px', margin: '0 auto'}}>
   ![Start time column showing relative timestamps that can be clicked to cycle formats](./assets/activity-time.gif)
 </figure>
