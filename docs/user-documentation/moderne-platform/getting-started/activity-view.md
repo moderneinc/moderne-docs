@@ -48,15 +48,6 @@ If you want to get more information about a recipe, commit, or a visualization, 
   <figcaption></figcaption>
 </figure>
 
-### Recipe information
-
-If you want to see what recipe was run, get a link to said recipe, or see what options the recipe was run with, you can click on the information icon. A modal will pop up with more details about the recipe along with a link to the recipe itself:
-
-<figure>
-  ![Hovering over the info icon to reveal recipe details and a link to the recipe](./assets/activity-info.gif)
-  <figcaption></figcaption>
-</figure>
-
 ### More detailed time tracking
 
 If you want more specific times for when things happened rather than "about 2 hours ago" or "1 day ago", you can click on any of the times in the `Start time` column to cycle through various date time formats:
