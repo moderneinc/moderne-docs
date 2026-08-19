@@ -76,6 +76,22 @@ Marketplaces can now be configured differently for different organizations, allo
   <figcaption>_The redesigned marketplace can be tailored per organization for sandboxed recipe testing._</figcaption>
 </figure>
 
+### Fast and slow lanes for recipe runs
+
+Recipe runs are now split across two queues so that a short run doesn't have to wait behind a long one. When you start a run, Moderne counts the repositories in the organization you're running against and assigns the run to a lane:
+
+* **Fast lane**: organizations with 100 or fewer repositories.
+* **Slow lane**: organizations with more than 100 repositories.
+
+Part of the recipe worker fleet is reserved for the fast lane, so small runs keep moving even while a large organization works its way through the slow lane. The remaining workers take slow lane work first and pick up fast lane runs as capacity frees up.
+
+There's nothing to choose or configure. When a run takes the slow lane, an indicator appears next to its status in the [activity view](../user-documentation/moderne-platform/getting-started/activity-view.md#slow-lane-indicator), and hovering over it explains why.
+
+<figure>
+  ![The activity view showing a running recipe run with a slow lane indicator beside its Running status](../user-documentation/moderne-platform/getting-started/assets/slow-lane-indicator.png)
+  <figcaption>_Runs against large organizations take the slow lane so that smaller runs keep moving._</figcaption>
+</figure>
+
 ## Performance improvements
 
 ### Recipe scalability

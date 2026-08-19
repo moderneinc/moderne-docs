@@ -74,6 +74,10 @@ Running a recipe _does not_ automatically update the code in the selected reposi
   <figcaption>_Click on the dry run button to run the recipe._</figcaption>
 </figure>
 
+:::tip
+Runs against organizations with more than 100 repositories take a slower queue so that smaller runs aren't stuck behind them. These runs are marked with a slow lane indicator in the [activity view](./activity-view.md#slow-lane-indicator). For more on how the lanes work, see [fast and slow lanes for recipe runs](../../../releases/saas-v2-changes.md#fast-and-slow-lanes-for-recipe-runs).
+:::
+
 ## Step 6: View the results
 
 After pressing _Dry run_, you will be taken to a page that shows a summary of the recipe status, a list of all of the repositories where results were found, and a code block section that shows some of the changes that were made by the recipe:
