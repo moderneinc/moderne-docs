@@ -10,6 +10,26 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 19, 2026
+
+#### rewrite-spring - v0.40.1
+
+* Remove dead post-rename webmvc starter triggers superseded by OSS coverage
+* Name the categories the marketplace was guessing
+* Regenerate recipes.csv so the new category descriptions land
+* Read servlet web server factory settings through `getSettings()`
+* Migrate CookieLocaleResolver cookie name and max age for Spring Framework 7
+* Remove `@Bean` methods for modules built into Jackson 3
+* Gate `-test` starters on test usage, and add them before relocations
+* Stop Spring Boot 4 silently re-enabling excluded auto-configuration
+
+## August 18, 2026
+
+#### rewrite-hibernate - v0.27.0
+
+* Name the Hibernate version categories in the marketplace
+* Change `Hibernate6Module` types alongside the `jackson-datatype-hibernate7` dependency
+
 ## August 17, 2026
 
 #### rewrite-cobol - 2.22.0
