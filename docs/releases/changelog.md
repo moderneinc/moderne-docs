@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.7.0 (2026/08/19)
+
+- consume the marks from @moderneinc/design-system-logos
+
 ### UI v14.6.0 (2026/08/13)
 
 - badge the Data tables tab with the produced table count
