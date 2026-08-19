@@ -24,8 +24,8 @@ jobs:
       # The generator resolves org.openrewrite and io.moderne artifacts from the Code
       # Genome Project when these are set; without them it documents whatever stale
       # releases have made it to Maven Central.
-      ORG_GRADLE_PROJECT_codegenomeUsername: ${{ secrets.CGP_ARTIFACTS_MAVEN_USERNAME }}
-      ORG_GRADLE_PROJECT_codegenomePassword: ${{ secrets.CGP_ARTIFACTS_MAVEN_TOKEN }}
+      ORG_GRADLE_PROJECT_codegenomeUsername: ${{ secrets.CODEGENOME_USERNAME }}
+      ORG_GRADLE_PROJECT_codegenomePassword: ${{ secrets.CODEGENOME_TOKEN }}
     timeout-minutes: 30
     steps:
       # Shared setup
