@@ -90,7 +90,7 @@ For reference, the underlying commands are:
 ./gradlew publishToMavenLocal
 mod config recipes jar install <groupId>:<artifactId>:<version>
 mod config recipes active set <RECIPE_PATH>
-mod build working-set --no-download --streaming
+mod build working-set --streaming
 mod run working-set --active-recipe --streaming --parallel 2
 ```
 
