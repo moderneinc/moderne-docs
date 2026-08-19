@@ -5,6 +5,10 @@ description: Monitor LST builds and test MCP tools with the Moderne tool browser
 
 # Tool browser
 
+:::warning[Experimental]
+The tool browser is part of the local MCP server, which is experimental. See the [MCP server overview](./overview.md) for what may change.
+:::
+
 The Moderne CLI includes an optional tool browser, a browser-based dashboard for monitoring LST builds and exploring available tools. To enable it:
 
 ```bash

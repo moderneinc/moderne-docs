@@ -11,6 +11,10 @@ The Moderne CLI includes a local [Model Context Protocol (MCP)](https://modelcon
 This page describes the **local** MCP server (`mod mcp`), which runs on a developer workstation through the CLI. Moderne also offers a [remote MCP server](./remote-server.md) hosted on the Moderne Platform that runs recipes against the repositories already ingested into your tenant.
 :::
 
+:::warning[Experimental]
+The local MCP server is experimental. Its tools and the commands that configure them may change significantly between CLI releases, and the tool descriptions are continually tuned for each supported agent. An agent decides for itself when to call a tool, so it may not always reach for a Moderne one, even where it would help.
+:::
+
 ## Why use the Moderne MCP server
 
 AI coding agents are limited to the tools bundled with them (typically just text search and file reading). These tools work at the text level and miss the **semantic** structure of code.
@@ -64,13 +68,14 @@ The MCP server exposes the following tools:
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `change_type`        | Renames or moves a type across the entire codebase. Updates all imports, references, declarations, and usages, equivalent to an IDE's "rename type" refactoring applied across the whole repository.                                                                    |
 | `change_method_name` | Renames a method across the entire codebase. Updates all call sites, declarations, and references, equivalent to an IDE's "rename method" refactoring applied across the whole repository.                                                                              |
-| `pattern_replace`    | Compiles and runs a [Refaster template](https://docs.openrewrite.org/concepts-and-explanations/recipes#refaster-template-recipes) to make mechanical code changes across the entire codebase. Provide a Java class with `@BeforeTemplate` and `@AfterTemplate` methods. |
+| `pattern_replace`    | Compiles and runs a Kotlin recipe-DSL source (the `rewrite { } to { }` shape) to make structural code changes across the codebase. Use when `edit_code` finds no fitting marketplace recipe.                                                                            |
 
 ### Working with recipes
 
 | Tool              | Description                                                                                                                              |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| `search_recipes`  | Searches available OpenRewrite recipes by natural-language query. Returns a paginated list of matching recipe names ranked by relevance. |
+| `edit_code`       | Finds a curated marketplace recipe that transforms code across the repository. First step, before `learn_recipe` and `run_recipe`.       |
+| `analyze_code`    | Finds a curated recipe that analyzes code across the repository without modifying it. Feeds `query_datatable` for structured results.    |
 | `learn_recipe`    | Retrieves full details for a specific recipe, including its description, configurable options, and data table schemas.                   |
 | `run_recipe`      | Runs an OpenRewrite recipe on the repository. Recipes perform automated code analysis, refactoring, migration, and formatting.           |
 | `query_datatable` | Executes SQL against data table results from a recipe run. Lazily loads results into DuckDB for querying.                                |
@@ -96,7 +101,7 @@ Skills and the MCP server are complementary:
 |-------------------------|-----------------------------------------------------------|---------------------------------------------------------|
 | **What they provide**   | Workflow guidance and domain knowledge                    | Semantic code search, navigation, and refactoring tools |
 | **How agents use them** | Read as instructions/prompts                              | Call as tools during conversation                       |
-| **When they help**      | Creating recipes, analyzing impact, building working sets | Searching, navigating, and refactoring code             |
+| **When they help**      | Creating recipes, building working sets, mapping context  | Searching, navigating, and refactoring code             |
 | **Requires LST build**  | No                                                        | Yes (for semantic tools)                                |
 
 For the best experience, install both. Skills teach agents the recipe development workflow, while the MCP server gives them the tools to execute that workflow effectively.

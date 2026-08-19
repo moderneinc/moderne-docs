@@ -11,7 +11,7 @@ In this module, you'll run your recipe against real-world repositories, compare 
 
 ### Goals for this exercise
 
-* Understand how the `create-organization` skill assembles a working set of repos
+* Assemble a working set of repositories from a `repos.csv`
 * Get ready to run your recipe against real Jackson 2.x codebases
 
 ### Steps
@@ -38,25 +38,28 @@ mod git sync csv working-set working-set/repos.csv --with-sources
 
 The sync clones the repositories and downloads their LSTs. This may take a few minutes. The `--with-sources` flag downloads source code so the agent can perform pre-analysis in the next exercise.
 
-**Option B: Build your own with the `create-organization` skill**
+**Option B: Have your agent find them**
 
-The `create-organization` skill helps find repos by technology. It uses `gh search code` and `gh search repos` to find relevant repositories, then generates a `repos.csv` file. If you'd like to try it:
+Agents are good at this with surprisingly little direction — they reach for the [`gh` CLI](https://cli.github.com/) on their own, so a broad instruction usually works better than a prescriptive one. Make sure `gh` is installed and authenticated first (`gh auth status`).
 
 <details>
 <summary>Suggested prompt</summary>
 
-> /moderne:create-organization
->
-> Find 5-10 small-to-medium Java repositories on GitHub that use Jackson 2.x (com.fasterxml.jackson). I need a mix of Maven and Gradle projects. Create a repos.csv for testing a Jackson 2→3 migration recipe.
+> Find 5-10 relevant Java repositories to test a Jackson 2.x → 3.x migration recipe on, and write them to `working-set/repos.csv`. Make sure their builds and tests are passing before including them in the test set.
 
 </details>
 
-This takes a few minutes. The skill's workflow includes syncing the working set after generating the repos.csv. If it doesn't sync automatically, run the sync command from Option A yourself. If you'd rather move on, use Option A and try the skill on your own time.
+The "builds and tests are passing" part matters more than it looks. In Module 3 you judge your recipe by whether the repositories still compile after it runs, and that signal is worthless if they were already broken beforehand.
+
+This takes a few minutes. Nothing syncs on its own, so run the sync command from Option A yourself once the file is written. If you'd rather move on, use Option A and try this on your own time.
+
+The four required columns are `cloneUrl`, `branch`, `origin`, and `path`. See [Creating a repos.csv file](../../user-documentation/moderne-cli/references/repos-csv.md) if you want to check the agent's output or write one by hand.
 
 ### Takeaways
 
-* The `create-organization` skill automates finding relevant test repositories.
-* For workshops, a pre-built repos.csv saves time. Try the skill on your own to learn the full workflow.
+* A working set is just a directory of cloned repositories described by a `repos.csv`, synced with `mod git sync csv`.
+* Only four columns are required: `cloneUrl`, `branch`, `origin`, and `path`. That's little enough that an agent can assemble one from a GitHub search.
+* For workshops, a pre-built repos.csv saves time. Building your own is how you'd test a recipe against the codebases you actually care about.
 
 ---
 
@@ -64,7 +67,7 @@ This takes a few minutes. The skill's workflow includes syncing the working set 
 
 ### Goals for this exercise
 
-* Run your recipe against real repositories using the `run-recipe` skill
+* Run your recipe against real repositories with the Moderne CLI
 * Use the agent to perform pre-analysis and set expectations
 * Compare predictions to actual results
 
@@ -72,27 +75,39 @@ This takes a few minutes. The skill's workflow includes syncing the working set 
 
 #### Step 1: Run the recipe
 
-Use the `run-recipe` skill to run your recipe against the working set.
+Have the agent drive the CLI through the full loop.
 
 <details>
 <summary>Suggested prompt</summary>
 
-> /moderne:run-recipe
->
-> Run my Jackson 2→3 migration recipe against the working set. The recipe is in this project (development mode). Before running, analyze the source code in the working set to predict which files should be affected.
+> Run my Jackson 2→3 migration recipe against the working set. The recipe is in this project, so publish it to Maven local, install the JAR, and set it as the active recipe. Before running, search the source code in the working set to predict which files should be affected. Then build the LSTs and run the recipe, and compare the results to your predictions.
 
 </details>
 
-The skill handles the full workflow: compiling your recipe, searching the working set for target patterns (pre-analysis), running the recipe, comparing results to predictions, and reporting findings. This will take several minutes. Watch as it goes.
+For reference, the underlying commands are:
+
+```bash
+./gradlew publishToMavenLocal
+mod config recipes jar install <groupId>:<artifactId>:<version>
+mod config recipes active set <RECIPE_PATH>
+mod build working-set --streaming
+mod run working-set --active-recipe --streaming --parallel 2
+```
+
+This will take several minutes. Watch as it goes.
+
+:::note
+LSTs must be built before the run. If every repo reports `runOutcome=Skipped`, the `mod build` step didn't complete.
+:::
 
 #### Step 2: Review the results
 
-Once the skill finishes, review its output. The skill should have reported:
-* Which repos it predicted would be affected (from pre-analysis)
+Once the run finishes, review the output. You want to know:
+* Which repos the agent predicted would be affected (from pre-analysis)
 * Which repos actually had changes
 * Any mismatches between predictions and results
 
-If the skill finds mismatches or gaps, it may iterate on its own: fixing the recipe, recompiling, and re-running. This is the core workflow for recipe development against real code. Let it run and review the changes it makes.
+If the agent finds mismatches or gaps, it may iterate on its own: fixing the recipe, recompiling, and re-running. This is the core workflow for recipe development against real code. Let it run and review the changes it makes.
 
 ### Takeaways
 
@@ -158,5 +173,5 @@ You may also find that your results are closer to the production recipe than you
 You've now been through the full workflow: plan with AI, build with AI, and test against real code. Here are some ways to keep going:
 
 * **Close the gaps**: Pick one or two gaps from the comparison and add them to your recipe. Each one follows the same loop: write a test, add the transformation, rebuild, re-run, verify.
-* **Test against more repositories**: Use the `create-organization` skill to find additional Jackson 2.x repositories and run your recipe against a broader set. More repos means more edge cases and a more complete recipe.
-* **Try it on your own migration**: Apply the same workflow to a migration that matters to you. Pick a library upgrade or API change relevant to your codebase, use `create-recipe` to plan and build it, and `run-recipe` to validate against your own repositories.
+* **Test against more repositories**: Add more Jackson 2.x repositories to your `repos.csv`, re-sync, and run your recipe against the broader set. More repos means more edge cases and a more complete recipe.
+* **Try it on your own migration**: Apply the same workflow to a migration that matters to you. Pick a library upgrade or API change relevant to your codebase, plan and build it with your agent, then validate it against your own repositories with `mod build` and `mod run`.

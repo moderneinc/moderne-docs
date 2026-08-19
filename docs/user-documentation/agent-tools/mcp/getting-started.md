@@ -9,6 +9,10 @@ description: Install the Moderne MCP server for Claude Code, Cursor, Windsurf, a
 This guide installs the **local** MCP server, which runs on your workstation through the Moderne CLI. To connect an agent to the hosted platform server instead, see [the remote MCP server doc](./remote-server.md).
 :::
 
+:::warning[Experimental]
+The local MCP server is experimental. See the [MCP server overview](./overview.md) for what may change.
+:::
+
 ## Installation
 
 The following command installs both skills and the MCP server configuration for all detected coding agents:
@@ -37,7 +41,7 @@ mod config agent-tools copilot install
 
 Each per-agent command installs both skills and the MCP server for that agent only. If the agent is not detected on your system, the command displays a message and exits without making changes.
 
-The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, and `codex`.
+The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, `codex`, and `opencode`.
 
 To install only skills (without the MCP server) for all detected agents:
 
@@ -55,6 +59,7 @@ mod config agent-tools skills install
 | GitHub Copilot  | Yes         | Yes            | `.vscode/mcp.json` and `~/.copilot/mcp-config.json` |
 | Sourcegraph Amp | Yes         | Yes            | Registered via `amp mcp add`                        |
 | OpenAI Codex    | Yes         | Yes            | Registered via `codex mcp add`                      |
+| OpenCode        | Yes         | Yes            | `~/.config/opencode/opencode.json`                  |
 
 ## Next steps
 
