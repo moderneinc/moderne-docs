@@ -55,3 +55,14 @@ If you want more specific times for when things happened rather than "about 2 ho
 <figure style={{maxWidth: '300px', margin: '0 auto'}}>
   ![Start time column showing relative timestamps that can be clicked to cycle formats](./assets/activity-time.gif)
 </figure>
+
+### Slow lane indicator
+
+Recipe runs are queued, and runs against organizations with more than 100 repositories take a slower queue so that smaller runs aren't stuck behind them. When a run takes that queue, a slow lane indicator appears next to its status in the `Status` column. Hover over it to see why the run was placed there:
+
+<figure>
+  ![The activity view showing a running recipe run with a slow lane indicator beside its Running status](./assets/slow-lane-indicator.png)
+  <figcaption>_A slow lane run, with the tooltip explaining why it's queued behind smaller runs._</figcaption>
+</figure>
+
+The indicator is informational. You don't pick a lane, and a slow lane run isn't limited in any way beyond when it starts.
