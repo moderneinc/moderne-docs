@@ -5,8 +5,6 @@ description: How to create your own recipe categories in the Moderne Platform.
 noIndex: true
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import VersionBanner from '@site/src/components/VersionBanner';
 
 <VersionBanner version="v1" linkPath="/user-documentation/moderne-platform/how-to-guides/categorize-recipes" />
@@ -53,24 +51,11 @@ For a real-world example, see the [category.yml from rewrite-spring](https://git
 
 ### Generating and validating the `recipes.csv` file
 
-Once the `category.yml` file is ready, you will need to generate the CSV file using the build plugin for your build tool:
-
-<Tabs groupId="build-tool">
-<TabItem value="gradle" label="Gradle">
+Once the `category.yml` file is ready, you will need to generate the CSV file using the [rewrite-build-gradle-plugin](https://github.com/openrewrite/rewrite-build-gradle-plugin):
 
 ```bash
 ./gradlew recipeCsvGenerate
 ```
-
-</TabItem>
-<TabItem value="maven" label="Maven">
-
-```bash
-./mvnw rewrite:recipeCsvGenerate
-```
-
-</TabItem>
-</Tabs>
 
 This will scan your compiled recipe classes and resources and generate a `recipes.csv` file with `category1`, `category2`, ... `categoryN` columns derived from your `category.yml` file. Any manual adjustments you've made to the CSV file beforehand will be retained.
 
@@ -78,12 +63,18 @@ This will scan your compiled recipe classes and resources and generate a `recipe
 CSV generation only scans your own project — recipes from dependencies are not included.
 :::
 
-For Gradle projects, validation will run automatically as part of `./gradlew check`. It will verify that the CSV file is synchronized with the JAR content and that formatting conventions are followed (e.g., display names should begin with a capital letter and descriptions should end with a period).
+:::note
+CSV generation is only available for Gradle projects. The [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin) does not offer an equivalent goal.
+
+Maven recipe modules do not need an embedded `recipes.csv` file. When a JAR does not contain one, the categories from your `category.yml` file are picked up by scanning the classpath instead — this is slower to parse, but the resulting category hierarchy is the same.
+:::
+
+Validation will run automatically as part of `./gradlew check`. It will verify that the CSV file is synchronized with the JAR content and that formatting conventions are followed (e.g., display names should begin with a capital letter and descriptions should end with a period).
 
 If any recipes appear in the CSV file but do not exist in the JAR ("phantom recipes"), the build will fail.
 
 :::info
-For more details, see the [recipes.csv reference](../../moderne-cli/references/recipes-csv.md), which covers both [CSV generation](../../moderne-cli/references/recipes-csv.md#generating-the-csv) and [automatic validation](../../moderne-cli/references/recipes-csv.md#automatic-validation-gradle-only).
+For more details, see the [recipes.csv reference](../../moderne-cli/references/recipes-csv.md), which covers both [CSV generation](../../moderne-cli/references/recipes-csv.md#generating-the-csv) and [automatic validation](../../moderne-cli/references/recipes-csv.md#automatic-validation).
 :::
 
 Once validation passes, you can [publish and deploy the artifact to the Moderne Platform](#deploying-recipe-artifacts-to-the-moderne-platform).
@@ -126,7 +117,7 @@ dependencies {
 ### Creating the `recipes.csv` file manually
 
 :::warning
-You **cannot** use `./gradlew recipeCsvGenerate` or `./mvnw rewrite:recipeCsvGenerate` for the wrapper artifact. These only scan the project's own classes, and since your wrapper does not define any recipes of its own, they would generate an empty CSV file.
+You **cannot** use `./gradlew recipeCsvGenerate` for the wrapper artifact. It only scans the project's own classes, and since your wrapper does not define any recipes of its own, it would generate an empty CSV file.
 
 In addition, the Gradle build validation (`./gradlew check`) would reject any entry for a recipe from a dependency as a "phantom recipe".
 :::
