@@ -12,8 +12,7 @@
 
 .DocSearch-Button {
   margin: 0;
-  transition: all var(--ifm-transition-fast)
-    var(--ifm-transition-timing-default);
+  transition: all var(--ifm-transition-fast) var(--ifm-transition-timing-default);
 }
 
 .DocSearch-Container {
@@ -22,4 +21,10 @@
 
 .DocSearch-Button-Key {
   padding: 0;
+}
+
+/* With no "Powered by Algolia" logo to balance against, `row-reverse` +
+   `space-between` would slide the keyboard hints over to take its place. */
+.DocSearch-Footer {
+  justify-content: flex-end;
 }
