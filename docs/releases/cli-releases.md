@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.6.2           |
+| CLI version | 4.6.3           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,20 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.6.3 (2026-08-19)
+
+#### What's Changed
+* (V3) Never fail a recipe run because edit scratch could not be deleted
+* Gate the MCP tray side channel on macOS, matching the tray app
+* Skip NFS tombstones when clearing a source set's edit directory
+* Build BMS map sets alongside COBOL and JCL
+* Fix silently wrong trigrep results when two threads read one shard
+* Resolve a type-table slot without holding the reader's monitor
+* Benchmark the trigrep query path, and fix what it found
+* MavenJavaVersionDetector now takes active proflies from maven config into account. Remove failed pom requests from SqlitePomCache
+* Bump Jackson to 2.21.6
+* Lease the MCP search index, and fix two defects found reviewing #4532
 
 ### CLI / DX v4.6.2 (2026-08-17)
 
