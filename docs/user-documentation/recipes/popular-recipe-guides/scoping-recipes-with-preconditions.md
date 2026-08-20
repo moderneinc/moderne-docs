@@ -36,8 +36,8 @@ The second group marks **individual files**. Use it for recipes that work file b
 | ----- | -------- | ---------------- |
 | Repository | `IsInRepository`, `RepositoryContainsFile`, `RepositoryHasDependency` | Every file in the repository, including build files and non-Java sources |
 | Module | `ModuleHasDependency`, `ModuleHasPlugin`, `ModuleUsesType`, `ModuleContainsFile`, `HasBuildToolVersion` | Every file in each matching Gradle or Maven module |
-| Single file, Java sources | `HasJavaVersion`, `HasMinimumJavaVersion`, `HasType`, `HasMethod`, `FindTypes`, `DoesNotUseType`, `IsLikelyTest`, `HasSourceSet` | Only the Java source files that match |
-| Single file, any type | `FindSourceFiles`, `text.Find`, `IsLikelyNotTest`, `FindDependency`, `FindPlugins` | Only the individual files that match |
+| Single file, Java source set | `HasJavaVersion`, `HasMinimumJavaVersion`, `HasSourceSet`, `HasType`, `HasMethod`, `FindTypes`, `IsLikelyTest` | Only matching files inside a Java source set, which covers `src/main/resources` as well as `.java` files, but never `pom.xml` |
+| Single file, any type | `FindSourceFiles`, `text.Find`, `IsLikelyNotTest`, `DoesNotUseType`, `FindDependency`, `FindPlugins` | Only the individual files that match |
 
 :::tip
 When you are unsure what a recipe marks, run it on its own against a representative repository and look at the results. If it puts a search marker on every file you want changed, it is usable as a precondition for your recipe. If it only lights up the build file, it is not.
@@ -112,7 +112,7 @@ recipeList:
   - org.openrewrite.java.migrate.UpgradeToJava25
 ```
 
-Note that because the check is per _module_, a multi-module repository where only one module depends on Databricks will still have its other modules upgraded. Also, because files that do not belong to any module - top-level configuration, CI definitions, documentation - are marked as not having the dependency, so they remain eligible.
+Note that because the check is per _module_, a multi-module repository where only one module depends on Databricks will still have its other modules upgraded. Files that belong to no module are also marked as not having the dependency, so they remain eligible. That covers repository-root files such as CI definitions and documentation, and it covers a file sitting loose in the pinned module's own directory too, since only the build file and the contents of the source and resource directories are attributed to a module.
 
 :::warning
 [`DoesNotIncludeDependency`](../recipe-catalog/java/dependencies/search/doesnotincludedependency.md) sounds like it does the same thing, but it marks only the `pom.xml` or `build.gradle` file it visits. Use it when the recipe you are wrapping edits the build file, and use `ModuleHasDependency` with `invertMarking: true` when the recipe edits source code.
@@ -132,10 +132,15 @@ displayName: Upgrade shadowed applications to Java 25
 description: Runs the Java 25 migration only in Gradle modules that build a shadow JAR.
 preconditions:
   - org.openrewrite.gradle.search.ModuleHasPlugin:
-      pluginId: com.github.johnrengelman.shadow
+      pluginId: com.gradleup.shadow
+      pluginClass: com.github.jengelman.gradle.plugins.shadow.ShadowPlugin
 recipeList:
   - org.openrewrite.java.migrate.UpgradeToJava25
 ```
+
+:::warning
+Always supply `pluginClass` as well as `pluginId`. `pluginClass` is optional, but when it is left out the recipe matches any module that applies any plugin at all, which silently widens your migration to the whole repository. Supplying both narrows it to the modules you meant.
+:::
 
 Do not substitute [`FindPlugins`](../recipe-catalog/gradle/search/findplugins.md) here. It marks the `build.gradle` file that applies the plugin and nothing else, so the migration would only touch that one file.
 
@@ -163,24 +168,28 @@ recipeList:
 
 [`ModuleContainsFile`](../recipe-catalog/java/search/modulecontainsfile.md) marks every file in modules that contain a file matching a pattern. It is the module-scoped counterpart to `RepositoryContainsFile`, and it lets you turn a filesystem convention into a policy.
 
-The recipe below encodes the convention "a module with a `Dockerfile` is a deployable service," and migrates only those modules - libraries in the same repository are left on their current Java version.
+The recipe below encodes the convention "a module with a Spring Boot `application.yml` is a deployable service," and migrates only those modules. Libraries in the same repository are left on their current Java version.
 
 ```yaml
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: com.yourorg.UpgradeDeployableModulesToJava25
 displayName: Upgrade deployable modules to Java 25
-description: Runs the Java 25 migration only in modules that ship a container image.
+description: Runs the Java 25 migration only in modules that ship a deployable application.
 preconditions:
   - org.openrewrite.java.search.ModuleContainsFile:
-      filePattern: "**/Dockerfile"
+      filePattern: "**/src/main/resources/application.yml"
 recipeList:
   - org.openrewrite.java.migrate.UpgradeToJava25
 ```
 
+:::warning
+The matching file has to belong to the module itself, which means the build file or something under its source and resource directories. A `Dockerfile` at the repository root, or one sitting loose next to a module's `pom.xml`, is not attributed to any module, so `filePattern: "**/Dockerfile"` matches nothing at all. Use `RepositoryContainsFile` for conventions based on files that live outside the build.
+:::
+
 ### Gating on the build tool version
 
-[`HasBuildToolVersion`](../recipe-catalog/java/search/hasbuildtoolversion.md) marks files built by a given build tool at a version in the range you specify. Because the build tool is recorded on every file in a module, this behaves as a module-wide gate.
+[`HasBuildToolVersion`](../recipe-catalog/java/search/hasbuildtoolversion.md) marks files built by a given build tool at a version in the range you specify. The build tool is recorded on the build file and on everything in the module's source sets, so this reaches the files a migration needs. It does not reach files that sit outside the build, such as a repository-root `Dockerfile` or a CI workflow.
 
 Use it when the migration depends on build tooling that older versions cannot provide. The recipe below runs the Java 25 migration only where Maven is already at 3.9 or newer, so that the plugin upgrades it performs will actually resolve.
 
