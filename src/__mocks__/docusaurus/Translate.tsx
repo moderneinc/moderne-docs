@@ -7,3 +7,5 @@ export function translate({ message }: { message: string; id?: string; descripti
 export function Translate({ children }: { children: React.ReactNode }): JSX.Element {
   return <>{children}</>;
 }
+
+export default Translate;
