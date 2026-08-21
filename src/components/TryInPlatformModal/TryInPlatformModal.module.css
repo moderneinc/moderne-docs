@@ -15,7 +15,7 @@
   z-index: 501;
   width: 420px;
   max-width: calc(100vw - var(--mor-space-8));
-  padding: var(--mor-space-32px);
+  padding: var(--mor-space-6) var(--mor-space-32px) var(--mor-space-32px);
   background-color: var(--mor-panel);
   border: 1px solid var(--mor-line);
   border-radius: var(--mor-radius-card);
