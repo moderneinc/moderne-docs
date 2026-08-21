@@ -10,6 +10,14 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 21, 2026
+
+#### rewrite-migrate-python - 0.13.0
+
+* Mirror the PyPI wheel to the Code Genome Project
+* Decide typing-alias shadowing by scope instead of `field_type`
+* FindSuspiciousChainedComparison recipe
+
 ## August 19, 2026
 
 #### rewrite-spring - v0.40.1
