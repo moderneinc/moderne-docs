@@ -120,9 +120,9 @@
 /* Short green accent bar anchoring each section header. */
 .accentBar {
   align-self: flex-start;
-  width: 64px;
-  height: 4px;
-  border-radius: 2px;
+  width: var(--mor-space-64px);
+  height: var(--mor-space-1);
+  border-radius: var(--mor-radius-xs);
   background: var(--mor-green);
 }
 
