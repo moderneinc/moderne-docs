@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, type FunctionComponent } from 'react';
+import React, { useEffect, useCallback, useRef, type FunctionComponent } from 'react';
 import { ModButton } from '@site/src/components/ModButton';
 import styles from './TryInPlatformModal.module.css';
 
@@ -15,6 +15,9 @@ const TryInPlatformModal: FunctionComponent<TryInPlatformModalProps> = ({
   onConfirm,
   recipeName,
 }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
   const handleEscapeKey = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -32,12 +35,23 @@ const TryInPlatformModal: FunctionComponent<TryInPlatformModalProps> = ({
     };
   }, [isOpen, handleEscapeKey]);
 
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    previousFocusRef.current = document.activeElement as HTMLElement | null;
+    modalRef.current?.focus();
+    return () => {
+      previousFocusRef.current?.focus();
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
     <>
       <div className={styles.overlay} onClick={onClose} />
       <div
+        ref={modalRef}
+        tabIndex={-1}
         className={styles.modal}
         role="dialog"
         aria-modal="true"
