@@ -988,7 +988,7 @@ const handsOnLearning = {
         'hands-on-learning/fundamentals/workshop-overview',
         'hands-on-learning/fundamentals/module-1-recipe-development-environment',
         'hands-on-learning/fundamentals/module-2-declarative-yaml-recipes',
-        'hands-on-learning/fundamentals/module-3-refaster-recipes',
+        'hands-on-learning/fundamentals/module-3-kotlin-dsl-recipes',
         'hands-on-learning/fundamentals/module-4-imperative-recipes',
       ],
     },
