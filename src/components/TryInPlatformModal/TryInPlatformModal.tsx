@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, useRef, type FunctionComponent } from 'react';
+import { createPortal } from 'react-dom';
 import { ModButton } from '@site/src/components/ModButton';
 import styles from './TryInPlatformModal.module.css';
 
@@ -46,7 +47,7 @@ const TryInPlatformModal: FunctionComponent<TryInPlatformModalProps> = ({
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <>
       <div className={styles.overlay} onClick={onClose} />
       <div
@@ -77,7 +78,8 @@ const TryInPlatformModal: FunctionComponent<TryInPlatformModalProps> = ({
           </ModButton>
         </div>
       </div>
-    </>
+    </>,
+    document.body,
   );
 };
 
