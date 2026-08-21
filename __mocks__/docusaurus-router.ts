@@ -5,3 +5,8 @@ export const useLocation = () => ({
   state: null,
   key: 'default',
 });
+
+export const useHistory = () => ({
+  push: () => undefined,
+  replace: () => undefined,
+});

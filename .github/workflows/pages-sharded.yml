@@ -178,6 +178,10 @@ jobs:
       - name: Merge shards
         run: node scripts/merge-shards.js
 
+      # Pagefind has to see the whole site, so the shards skip it and the merged output is indexed here.
+      - name: Build search index
+        run: yarn index:search
+
       - name: Aggregate broken-links report
         run: |
           node scripts/broken-links-report.js \

@@ -145,6 +145,53 @@ Sections are automatically detected using HTML divider elements in `sidebars.ts`
 * Filtering is automatic based on URL path
 * Cache clearing (`rm -rf .docusaurus`) required after swizzle changes
 
+### Search
+
+Search runs entirely in the browser on a [Pagefind](https://pagefind.app/) index built from the
+rendered HTML. There is no search service, API key, or crawler.
+
+**How it works:**
+
+* `src/theme/DocItem/Content/index.tsx` marks the doc body with `data-pagefind-body` and attaches
+  the metadata search needs: `section` (the group heading results are listed under) and a
+  `category` filter (`documentation` or `recipes`, backing the tabs in the modal)
+* `src/components/recipe/RecipeHeader` tags the recipe id with `data-pagefind-meta="recipeId"`.
+  Recipes share display names across languages — three unrelated recipes are all called "Module has
+  dependency" — so results show the id instead of the generated excerpt, which is identical across
+  all three
+* `src/components/recipe/OptionsTable` carries `data-pagefind-weight="10"` on each option name, so
+  searching an option surfaces the recipes that actually take it ahead of ones that only mention it
+  in prose or a usage snippet
+* `scripts/pagefind-index.mjs` builds the index into `build/pagefind/` after the site is rendered
+* `src/plugins/pagefind.ts` runs that script from `postBuild`, so `yarn build` produces a
+  searchable site on its own
+* `src/theme/SearchBar/` renders the modal, and `src/theme/SearchBar/pagefind.ts` maps Pagefind's
+  page-shaped results onto the rows it displays
+* `src/pages/search.tsx` is the full results page behind "See all N results"
+
+**The modal is DocSearch's, the engine is not:**
+
+The markup, class names, and `src/theme/SearchBar/docsearch.css` are all vendored from
+`@docsearch/react@4.6.3` so the search UI looks and behaves exactly as it did on Algolia. Only the
+results underneath changed. Do not hand-edit `docsearch.css` — put overrides in
+`src/theme/SearchBar/styles.css` (loaded with the modal) or `src/css/custom.css` (loaded on every
+page, and where the navbar button is styled).
+
+**Searching in development:**
+
+Pagefind indexes rendered HTML, so `yarn start` has no index of its own. The dev server serves
+whatever the last `yarn build` left in `build/pagefind/`, which means:
+
+* Run `yarn build` once to make search work in `yarn start`
+* Those results reflect the last build, not the page you are currently editing
+* With no previous build, the modal says the index has not been built
+
+**Sharded CI builds:**
+
+Each shard renders only a slice of the routes, so the plugin stands down when `SHARD_INDEX` is set.
+The `combine` job in `.github/workflows/pages-sharded.yml` runs `yarn index:search` against the
+merged output instead. Anything that changes where the build lands has to keep that ordering.
+
 ### Swizzled Components and Docusaurus Compatibility
 
 This project uses **Docusaurus 3.9.1** and has customized several theme components through swizzling. When upgrading Docusaurus, carefully review the migration guide for potential breaking changes to these components.
@@ -154,18 +201,21 @@ This project uses **Docusaurus 3.9.1** and has customized several theme componen
 * `DocBreadcrumbs` - Custom breadcrumb component using the Morpheus design system
 * `DocCard` - Enhanced with gem icon support via `customProps.gemIcon`
 * `DocCategoryGeneratedIndexPage` - Custom layout for category index pages
+* `DocItem/Content` - Ejected to mark the doc body for the search index (see above)
 * `DocPaginator` - Styled pagination for documentation pages
 * `DocSidebar/Desktop/Content` - Custom sidebar layout and styling
 * `DocSidebarItems` - Implements contextual filtering (see above)
 * `Footer` - Custom footer with Moderne branding
 * `Navbar/Layout` - Custom navbar layout with MegaMenu integration
 * `Navbar/Logo` - Custom logo component with dark mode support
+* `SearchBar` - Pagefind-backed search modal using DocSearch's markup (see above)
 
 **Important upgrade considerations:**
 
 * Before upgrading Docusaurus, check the [Docusaurus migration guide](https://docusaurus.io/docs/migration) for changes to swizzled components
 * Test all swizzled components thoroughly after upgrade, especially:
   * Sidebar filtering logic (`DocSidebarItems`)
+  * Doc body markers in `DocItem/Content`, without which the search index is empty
   * Navbar and MegaMenu functionality
   * Gem icon display on DocCards
 * Clear the Docusaurus cache after any swizzle changes: `rm -rf .docusaurus`

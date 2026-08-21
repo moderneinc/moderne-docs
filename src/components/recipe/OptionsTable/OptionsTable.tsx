@@ -64,7 +64,12 @@ export const OptionsTable: FunctionComponent<{ options: RecipeOption[]; children
                 <React.Fragment key={opt.name}>
                   <tr className={clsx(styles.paramRow, i > 0 && styles.optionDivider)}>
                     <th scope="row" className={clsx(styles.cell, styles.paramCell)}>
-                      <code className={clsx(shared.inlineCode, styles.optionName)}>{opt.name}</code>
+                      {/* Weighted so recipes that take the option outrank ones that only mention it. */}
+                      <code
+                        className={clsx(shared.inlineCode, styles.optionName)}
+                        data-pagefind-weight="10">
+                        {opt.name}
+                      </code>
                     </th>
                     <td className={styles.cell}>
                       {opt.example ? (
