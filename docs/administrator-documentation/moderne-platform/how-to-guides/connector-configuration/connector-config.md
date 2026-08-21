@@ -323,10 +323,14 @@ For `file` and `http` sources, please see the [organizational hierarchy configur
 
 You have two options:
 
-* **(Recommended) Include publish URIs in the CSV.** When each row has a `publishUri` column, the Connector trusts those values and fetches LSTs directly. You can generate such a CSV by setting up a [Mass Ingest](../mass-ingest.md) pipeline; its `mod publish` step produces a `repos-lock.csv` with `publishUri` values for every repository.
-* **Let the Connector discover them.** If your CSV does not have `publishUri` values, point the Connector at the artifact repository (or repositories) where your LSTs are published. The Connector will query it to look up each LST's location at runtime:
-  * **[Artifactory](./configure-a-connector-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing). Recommended for Artifactory users.
+* **(Recommended) Include publish URIs in the CSV.** When each row has a `publishUri` column, the Connector trusts those values and fetches LSTs directly. You can generate such a CSV by setting up a [Mass Ingest](../mass-ingest.md) pipeline; its `mod publish` step produces a `repos-lock.csv` with `publishUri` values for every repository. To keep that file complete and correctly organized, publish your input `repos.csv` to the same artifact repository or bucket that receives the LSTs. Each store type has a well-known location for these files; see the [Artifactory](./configure-a-connector-with-artifactory-access.md#publish-your-reposcsv-alongside-your-lsts), [Maven repository](./configure-a-connector-with-maven-repository-access.md#publish-your-reposcsv-alongside-your-lsts), and [S3](./configure-a-connector-with-s3-access.md#publish-your-reposcsv-alongside-your-lsts) guides for the store-specific paths.
+* **(Deprecated) Let the Connector discover them.** If your CSV does not have `publishUri` values, point the Connector at the artifact repository (or repositories) where your LSTs are published. The Connector will query it to look up each LST's location at runtime:
+  * **[Artifactory](./configure-a-connector-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing).
   * **[Maven repository](./configure-a-connector-with-maven-repository-access.md)** - works with any Maven-formatted repository (Artifactory, Nexus, etc.) via the [Maven Indexer](https://maven.apache.org/maven-indexer/). There will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process.
+
+:::warning[Deprecated]
+Runtime discovery via poll repositories (`POLLING` mode) is deprecated. Prefer a `repos-lock.csv` with `publishUri` values maintained by `mod publish` (`LOCK` mode). Note that poll repository entries may still be configured in `LOCK` mode: they then serve only to supply the credentials the Connector uses to fetch LSTs from your artifact repository.
+:::
 
 The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [connector variables reference](./connector-variables.md) for the full list of values.
 
@@ -356,7 +360,8 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 # Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
 -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos-lock.csv \
-# (Optional) Enrichment pollers — only needed if your CSV lacks publishUri values.
+# (Deprecated) Discovery pollers: only needed if your CSV lacks publishUri values.
+# In LOCK mode, poll entries only supply credentials for fetching LSTs.
 # -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
 # -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_USERNAME=... \
 # -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_PASSWORD=... \
@@ -386,7 +391,8 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].oauth.includePrivateRepos=true \
 # Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
 --moderne.organization.sources.http[0].uri=https://internal.example.com/repos-lock.csv \
-# (Optional) Enrichment pollers — only needed if your CSV lacks publishUri values.
+# (Deprecated) Discovery pollers: only needed if your CSV lacks publishUri values.
+# In LOCK mode, poll entries only supply credentials for fetching LSTs.
 # --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
 # --moderne.organization.sources.http[0].poll.artifactory[0].username=... \
 # --moderne.organization.sources.http[0].poll.artifactory[0].password=... \
