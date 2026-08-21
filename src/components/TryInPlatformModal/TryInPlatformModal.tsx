@@ -1,4 +1,5 @@
 import React, { useEffect, useCallback, type FunctionComponent } from 'react';
+import { ModButton } from '@site/src/components/ModButton';
 import styles from './TryInPlatformModal.module.css';
 
 export type TryInPlatformModalProps = {
@@ -54,12 +55,12 @@ const TryInPlatformModal: FunctionComponent<TryInPlatformModalProps> = ({
           <li>Explore the results with a quick guided tour</li>
         </ol>
         <div className={styles.actions}>
-          <button type="button" className={styles.secondaryButton} onClick={onClose}>
+          <ModButton variant="secondary" onClick={onClose}>
             Not now
-          </button>
-          <button type="button" className={styles.primaryButton} onClick={onConfirm}>
+          </ModButton>
+          <ModButton variant="primary" onClick={onConfirm}>
             Continue to sign in
-          </button>
+          </ModButton>
         </div>
       </div>
     </>

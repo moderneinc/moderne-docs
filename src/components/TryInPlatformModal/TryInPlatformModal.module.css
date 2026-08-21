@@ -46,28 +46,3 @@
   justify-content: flex-end;
   gap: var(--mor-space-2);
 }
-
-.primaryButton,
-.secondaryButton {
-  padding: var(--mor-space-2) var(--mor-space-4);
-  border-radius: var(--mor-radius-full);
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-semibold);
-  cursor: pointer;
-}
-
-.primaryButton {
-  color: white;
-  background-color: var(--mor-link-deep);
-  border: none;
-}
-
-.secondaryButton {
-  color: var(--mor-text);
-  background-color: transparent;
-  border: 1px solid var(--mor-line);
-}
-
-html[data-theme='dark'] .primaryButton {
-  background-color: var(--mor-link);
-}
