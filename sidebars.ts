@@ -710,6 +710,7 @@ const recipes = {
         'user-documentation/recipes/popular-recipe-guides/migrate-to-spring-boot',
         'user-documentation/recipes/popular-recipe-guides/migrate-to-jakarta-ee-10',
         'user-documentation/recipes/popular-recipe-guides/coordinating-parent-pom-migrations',
+        'user-documentation/recipes/popular-recipe-guides/scoping-recipes-with-preconditions',
       ],
     },
     {
