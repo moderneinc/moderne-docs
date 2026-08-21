@@ -84,6 +84,7 @@ const redirects: RedirectRule[] = [
   { from: '/user-documentation/moderne-platform/how-to-guides/categorize-recipes', to: '/administrator-documentation/moderne-platform/how-to-guides/categorize-recipes' },
   { from: '/user-documentation/recipes/moderne-trigrep', to: '/user-documentation/agent-tools/trigrep' },
   { from: '/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-strict-recipe-sources', to: '/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-the-pom-cache' },
+  { from: '/hands-on-learning/fundamentals/module-3-refaster-recipes', to: '/hands-on-learning/fundamentals/module-3-kotlin-dsl-recipes' },
 ];
 
 export default redirects;

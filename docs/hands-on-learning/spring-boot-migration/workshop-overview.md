@@ -64,7 +64,7 @@ Modules 4 and 5 produce the recipes that Module 6 composes into the freight-trai
 
 The two recipe-authoring activities you encounter in Module 5 — writing OpenRewrite recipes by hand and using AI agents to explore an organization and produce recipes — are each topics in their own right. Both are delivered as separate, regular-cadence workshops:
 
-* [Fundamentals of recipe development](../fundamentals/workshop-overview.md) - Author OpenRewrite recipes yourself: declarative YAML, Refaster templates, and imperative visitors
+* [Fundamentals of recipe development](../fundamentals/workshop-overview.md) - Author OpenRewrite recipes yourself: declarative YAML, the Kotlin recipe DSL, and imperative visitors
 * [Teaching AI to write better OpenRewrite recipes](../ai-recipes/workshop-overview.md) - Drive an AI agent through a plan-build-test workflow to scaffold, generate, and validate recipes
 
 Ask your facilitator about the next scheduled session for either workshop.
