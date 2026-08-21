@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.7.1 (2026/08/21)
+
+- Bug fixes and other improvements.
+
 ### UI v14.7.0 (2026/08/19)
 
 - consume the marks from @moderneinc/design-system-logos
