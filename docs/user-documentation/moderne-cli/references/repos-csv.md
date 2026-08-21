@@ -171,6 +171,12 @@ Comma-separated files (CSV) are best manipulated using a dedicated editor such a
 </figure>
 :::
 
+### Hosting this file in your artifact repository
+
+If you publish LSTs with `mod publish` (for example, through a [mass ingest](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) pipeline), you can upload your `repos.csv` to the root of the artifact repository the LSTs are published to. When this file is present, `mod publish` treats it as the source of truth for your organizational hierarchy: on every publish, the Moderne CLI rebuilds the central [`repos-lock.csv` file](../how-to-guides/repos-lock-csv.md#the-central-repos-lockcsv-file) it maintains alongside your LSTs so that every row carries the hierarchy from your `repos.csv` plus the latest `changeset` and `publishUri`.
+
+This means you can change your hierarchy just by editing the `repos.csv` in your artifact repository. See [controlling the organizational hierarchy with a repos.csv file](../how-to-guides/repos-lock-csv.md#controlling-the-organizational-hierarchy-with-a-reposcsv-file) for the full merge behavior and the exact file locations for each artifact repository type.
+
 ## Formatting details
 
 * A single row may not have more columns than what is defined in the first row.
