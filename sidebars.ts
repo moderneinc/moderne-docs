@@ -174,6 +174,7 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-artifactory-access',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-s3-access',
+              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-gcs-access',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-pypi-access-visualizations',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-llm-for-moddy',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy',
