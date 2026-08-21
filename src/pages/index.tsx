@@ -60,9 +60,9 @@ export const WhatIsModerneSection: FunctionComponent = () => {
       title: 'OpenRewrite vs. Moderne',
     },
     {
-      id: 'KRXDMGt7DRE',
-      url: 'https://www.youtube.com/watch?v=KRXDMGt7DRE',
-      thumbnail: 'https://img.youtube.com/vi/KRXDMGt7DRE/hqdefault.jpg',
+      id: 'FQs048JKXVw',
+      url: 'https://www.youtube.com/watch?v=FQs048JKXVw',
+      thumbnail: 'https://img.youtube.com/vi/FQs048JKXVw/hqdefault.jpg',
       title: 'Moderne DevCenter',
     },
   ];
