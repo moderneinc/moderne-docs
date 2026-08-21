@@ -1,7 +1,10 @@
-import React, { isValidElement, type FunctionComponent, type ReactElement, type ReactNode } from 'react';
+import React, { isValidElement, useState, type FunctionComponent, type ReactElement, type ReactNode } from 'react';
 import clsx from 'clsx';
 import { ArrowRight } from 'lucide-react';
 import { ModButton } from '@site/src/components/ModButton';
+import { TryInPlatformModal } from '@site/src/components/TryInPlatformModal';
+import { DEFAULT_ORG_ID_B64 } from '@site/src/constants';
+import { hasTrySeenCookie } from '@site/src/helpers/cookie.helper';
 import { CopyButton } from '../CopyButton';
 import { AccessInfoButton } from '../AccessInfoButton';
 import { renderWithCode } from '../shared/renderWithCode';
@@ -60,6 +63,23 @@ const RecipeHeaderRoot: FunctionComponent<RecipeHeaderProps> = ({
   const descriptionSlot = slotChildren(children, Description);
   const title = titleSlot ?? (displayName != null ? renderWithCode(displayName, styles.titleCode) : null);
   const summary = descriptionSlot ?? (description != null ? renderWithCode(description, styles.descCode) : null);
+
+  const [isTryModalOpen, setIsTryModalOpen] = useState(false);
+  const trialAppLink = `${appLink}?organizationId=${DEFAULT_ORG_ID_B64}&trial=1`;
+
+  const handleTryClick = (
+    event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ): void => {
+    if (hasTrySeenCookie()) {
+      return;
+    }
+    event.preventDefault();
+    setIsTryModalOpen(true);
+  };
+
+  const handleConfirmTry = (): void => {
+    window.location.href = trialAppLink;
+  };
 
   return (
   <header className={styles.header}>
@@ -129,11 +149,10 @@ const RecipeHeaderRoot: FunctionComponent<RecipeHeaderProps> = ({
           <ModButton
             variant="primary"
             size="small"
-            href={appLink}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={trialAppLink}
             icon={<ArrowRight size={14} />}
             iconPosition="right"
+            onClick={handleTryClick}
           >
             Try in Platform
           </ModButton>
@@ -142,6 +161,12 @@ const RecipeHeaderRoot: FunctionComponent<RecipeHeaderProps> = ({
             environment, with nothing to install or configure.
           </span>
         </span>
+        <TryInPlatformModal
+          isOpen={isTryModalOpen}
+          onClose={() => setIsTryModalOpen(false)}
+          onConfirm={handleConfirmTry}
+          recipeName={typeof title === 'string' ? title : fqName}
+        />
       </div>
     </div>
   </header>
