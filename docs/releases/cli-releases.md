@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.6.3           |
+| CLI version | 4.6.4           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.6.4 (2026-08-23)
+
+#### What's Changed
+* Resolve io.moderne and org.openrewrite only from Code Genome
+* Stop symbol narrowing once it stops paying, and decode the rest against a local cursor
+* Reclaim superseded LST cache slots whatever the artifact is named
+* Create repository directories lazily in mod run --sync-csv
 
 ### CLI / DX v4.6.3 (2026-08-19)
 
