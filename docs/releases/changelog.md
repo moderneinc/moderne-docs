@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.8.0 (2026/08/24)
+
+- add Profiling link to the Pyroscope profiler
+
 ### UI v14.7.1 (2026/08/21)
 
 - Bug fixes and other improvements.
