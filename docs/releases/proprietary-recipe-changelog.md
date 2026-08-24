@@ -4955,11 +4955,3 @@ Republishing to update dependencies
 
 * Find required providers
 
-## August 22, 2025
-
-#### rewrite-java-security - v3.16.1
-
-* Fix `DependencyVulnerabilityCheckTest` after new vulnerabilities were added
-* Fix password detection regex to handle dots and special characters in URLs
-* Remove private IP addresses from comments
-
