@@ -88,7 +88,7 @@ Part of the recipe worker fleet is reserved for the fast lane, so small runs kee
 There's nothing to choose or configure. When a run takes the slow lane, an indicator appears next to its status in the [activity view](../user-documentation/moderne-platform/getting-started/activity-view.md#slow-lane-indicator), and hovering over it explains why.
 
 <figure>
-  ![The activity view showing a running recipe run with a slow lane indicator beside its Running status](../user-documentation/moderne-platform/getting-started/assets/slow-lane-indicator.png)
+  ![The activity view showing a running recipe run with a slow lane indicator beside its Running status](./assets/slow-lane-indicator.png)
   <figcaption>_Runs against large organizations take the slow lane so that smaller runs keep moving._</figcaption>
 </figure>
 
