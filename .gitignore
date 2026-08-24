@@ -44,3 +44,5 @@ docs/plans/
 storybook-static
 .env
 .env*.local
+
+.cursor/rules/*.local.mdc
