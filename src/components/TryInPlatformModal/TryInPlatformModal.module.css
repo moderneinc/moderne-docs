@@ -1,0 +1,48 @@
+/* src/components/TryInPlatformModal/TryInPlatformModal.module.css */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 501;
+  width: 420px;
+  max-width: calc(100vw - var(--mor-space-8));
+  padding: var(--mor-space-5) var(--mor-space-6) var(--mor-space-6);
+  background-color: var(--mor-panel);
+  border: 1px solid var(--mor-line);
+  border-radius: var(--mor-radius-card);
+  box-shadow: var(--mor-shadow-dropdown);
+}
+
+.title {
+  font-size: var(--mor-font-size-doc-h1);
+  font-weight: var(--mor-font-weight-semibold);
+  color: var(--mor-text);
+  margin: 0 0 var(--mor-space-4) 0;
+}
+
+.steps {
+  margin: 0 0 var(--mor-space-6) 0;
+  padding-left: var(--mor-space-4);
+  color: var(--mor-text);
+  font-size: var(--mor-font-size-base);
+  line-height: 1.65;
+}
+
+.steps li {
+  margin-bottom: var(--mor-space-2);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--mor-space-2);
+}
