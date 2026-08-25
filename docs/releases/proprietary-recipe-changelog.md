@@ -10,6 +10,35 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 25, 2026
+
+#### recipes-go - 0.6.1
+
+* Bump to rewrite-go/v0.0.29
+* Add encoding/json/v2 mechanical migration recipes
+* Add AddV1FormatTags recipe to preserve v1 JSON encoding via field tags
+* Describe the `Go` category so it reads the same in every install order
+* Add `AdoptTestify` recipe
+* Register 18 recipes that were declared but missing from the catalog
+* Register the last four recipes and qualify the Ensure* family by type
+* Map recipes to the diagnostics their analyzers define
+* Rewrite what three reporting recipes only reported
+* Revive TestParseRealRepos and run it over all 252 recipes
+* Give PreferMakeForEmptyMap the rewrite its description promised
+* Adapt the type-assertion recipes to `Go.TypeAssertion`
+* Re-attribute the calls hand-built recipes emit
+* rewrite-go/v0.0.31
+* Use MaybeAddImport in UseStringsBuilderInLoop
+* Keep `main`, `init`, and exported functions in RemoveEmptyFunction
+* Defer the body close where the response is known to be non-nil
+* Skip receiver rename when the short name is already bound
+* Drop the cross-file flag in UseErrorsNewForSimpleErrors
+* Keep the conversion that types a qualified untyped constant
+* Read `resource == nil` guards when placing an inserted cleanup
+* Take indentation only when copying a statement's prefix
+* Declare each error sentinel once per package
+* Build rewritten nodes from templates instead of hand-attribution
+
 ## August 21, 2026
 
 #### rewrite-migrate-python - 0.13.0
