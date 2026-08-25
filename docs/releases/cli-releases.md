@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.6.4           |
+| CLI version | 4.6.5           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,20 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.6.5 (2026-08-25)
+
+#### What's Changed
+* Warning when configuring Go environment with bearer token
+* Read a deferred tree from its root manifest
+* Stamp the stat cache once a deferred run settles
+* Resolve mod exec build tool variables for Maven and Gradle again
+* Constrain log4j-api to 2.26.+ for CVE-2026-49844
+* Pin the Go RPC engine to a toolchain that can decode what it reads
+* Count a line match's offset instead of decoding up to it
+* Compile a pattern once for a search, and compare a simple name in place
+* Read a sym: glob as a glob, not as a regex
+* Let ref: see a symbol whose name the shard stored inline
 
 ### CLI / DX v4.6.4 (2026-08-23)
 
