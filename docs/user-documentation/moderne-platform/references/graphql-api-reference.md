@@ -2327,7 +2327,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | ID! | Stable id unique within its Connector: "<connectorId>:<sha-256 of the source URI>". |
+| `id` | ID! | Stable id unique within its Connector: "&lt;connectorId&gt;:&lt;sha-256 of the source URI&gt;". |
 | `kind` | [OrganizationSourceKind](#organizationsourcekind)! |  |
 | `location` | String! | The source URI (http/s3/gcs) or permanent-dir-relative path (file). |
 | `download` | [OrganizationSourceDownload](#organizationsourcedownload) | The downloadable structure-only repos.csv for this source; null only in the rare empty-slot case. |
