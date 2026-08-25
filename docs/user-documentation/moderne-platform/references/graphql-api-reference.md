@@ -1293,6 +1293,7 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `tools` | [[ConnectorTool](#connectortool)!]! |  |
 | `uiConfiguration` | [UiConfiguration](#uiconfiguration) |  |
 | `personalAccessTokenConfiguration` | [PersonalAccessTokenConfiguration](#personalaccesstokenconfiguration) |  |
+| `organizationSources` | [[OrganizationSource](#organizationsource)!]! | Organization CSV sources this connector is configured to pull. Admin only. |
 
 ##### `ConnectorConnection`
 
@@ -2321,6 +2322,23 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
+
+##### `OrganizationSource`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! | Stable id unique within its Connector: "<connectorId>:<sha-256 of the source URI>". |
+| `kind` | [OrganizationSourceKind](#organizationsourcekind)! |  |
+| `location` | String! | The source URI (http/s3/gcs) or permanent-dir-relative path (file). |
+| `download` | [OrganizationSourceDownload](#organizationsourcedownload) | The downloadable structure-only repos.csv for this source; null only in the rare empty-slot case. |
+
+##### `OrganizationSourceDownload`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `url` | String! | Admin-gated URL serving the structure-only repos.csv for this source. |
+| `sizeBytes` | Int! |  |
+| `lastUpdatedAt` | [DateTime](#datetime) |  |
 
 ##### `PageInfo`
 
@@ -3909,6 +3927,13 @@ Execution state of a DevCenter run.
 * `FINISHED`
 * `CANCELED`
 * `ERROR`
+
+##### `OrganizationSourceKind`
+
+* `HTTP`
+* `S3`
+* `GCS`
+* `FILE`
 
 ##### `ProfilingEvent`
 

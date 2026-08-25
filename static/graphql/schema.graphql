@@ -1364,6 +1364,11 @@ type Connector
   tools: [ConnectorTool!]!
   uiConfiguration: UiConfiguration
   personalAccessTokenConfiguration: PersonalAccessTokenConfiguration
+
+  """
+  Organization CSV sources this connector is configured to pull. Admin only.
+  """
+  organizationSources: [OrganizationSource!]!
 }
 
 type ConnectorConnection
@@ -4266,6 +4271,42 @@ input OrganizationRecipeRunWhereInput
   _and: [OrganizationRecipeRunWhereInput!]
   _or: [OrganizationRecipeRunWhereInput!]
   _not: OrganizationRecipeRunWhereInput
+}
+
+type OrganizationSource
+  @join__type(graph: CAPABILITIES)
+{
+  """
+  Stable id unique within its Connector: "<connectorId>:<sha-256 of the source URI>".
+  """
+  id: ID!
+  kind: OrganizationSourceKind!
+
+  """The source URI (http/s3/gcs) or permanent-dir-relative path (file)."""
+  location: String!
+
+  """
+  The downloadable structure-only repos.csv for this source; null only in the rare empty-slot case.
+  """
+  download: OrganizationSourceDownload
+}
+
+type OrganizationSourceDownload
+  @join__type(graph: CAPABILITIES)
+{
+  """Admin-gated URL serving the structure-only repos.csv for this source."""
+  url: String!
+  sizeBytes: Int!
+  lastUpdatedAt: DateTime
+}
+
+enum OrganizationSourceKind
+  @join__type(graph: CAPABILITIES)
+{
+  HTTP @join__enumValue(graph: CAPABILITIES)
+  S3 @join__enumValue(graph: CAPABILITIES)
+  GCS @join__enumValue(graph: CAPABILITIES)
+  FILE @join__enumValue(graph: CAPABILITIES)
 }
 
 input OrganizationWhereInput
