@@ -89,6 +89,10 @@ The Hive-style partition keys (`tenant=`, `source=`, `type=`, `year=`, `month=`,
 
 The `tenant=` key is part of that layout everywhere the data lands, but it is not what isolates you. Each tenant writes to its own Moderne-managed bucket or container, and the delivery described in the cloud-specific guides reads from that one, so no tenant's data passes through a store another tenant can reach.
 
+## Retention
+
+Moderne retains telemetry in the Moderne-managed store **indefinitely**. Customers are responsible for applying their own lifecycle or expiration rules to the destination bucket or container to meet their retention or compliance requirements.
+
 ## Customer checklist
 
 The cloud-specific guides below walk through each step in detail. At a glance, you'll need to:
