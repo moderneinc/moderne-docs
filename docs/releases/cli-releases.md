@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.6.5           |
+| CLI version | 4.7.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.7.0 (2026-08-26)
+
+#### What's Changed
+* Dependency type tables for V2 to V3 LST conversion
+* Index V2 object ids by the id instead of two hash maps
+* Search COBOL, JCL and BMS with trigrep
+* Make the CLI usable by an agent that cannot answer a prompt
 
 ### CLI / DX v4.6.5 (2026-08-25)
 

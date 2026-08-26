@@ -351,6 +351,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes delete**](#mod-config-recipes-delete)
 * [**mod config recipes list**](#mod-config-recipes-list)
 * [**mod config recipes search**](#mod-config-recipes-search)
+* [**mod config recipes tree**](#mod-config-recipes-tree)
 * [**mod config recipes upgrade**](#mod-config-recipes-upgrade)
 * [**mod config recipes yaml**](#mod-config-recipes-yaml)
 * [**mod config recipes yaml install**](#mod-config-recipes-yaml-install)
@@ -6552,6 +6553,7 @@ mod config recipes moderne sync
 * `delete`: Clear the whole recipe marketplace.
 * `list`: List the artifacts that are contributing recipes to the marketplace.
 * `search`: Finds recipes based on free form text search.
+* `tree`: Show what a composite recipe is made of.
 * `upgrade`: Upgrades all installed recipe artifacts to the latest available version.
 * `yaml`: Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
 
@@ -7955,7 +7957,41 @@ mod config recipes search owasp
 
 | Name | Description |
 | ---- | ----------- |
+| `--json` |  Print the results as JSON rather than asking which one you want. Defaults to **displayName**, **id** and **recipeCount**; any of **id**, **displayName**, **description**, **recipeCount**, **ecosystem**, **package**, **version**, **options** and **dataTables** may be named instead. |
 | `--limit` |  The maximum total number of results that will be returned. |
+
+
+## mod config recipes tree
+
+Show what a composite recipe is made of.
+
+
+A migration recipe composes hundreds or thousands of others, and its description cannot say what all of them do. This expands one level at a time so that the size of the answer does not depend on the size of the recipe. Drill in by running this again on the ID of any line that shows a child count.
+
+### Usage
+
+```
+mod config recipes tree [parameters]
+```
+
+### Examples
+
+```
+mod config recipes tree org.openrewrite.java.migrate.UpgradeToJava25
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `recipe` |  The recipe ID to expand. A trailing portion of the ID is accepted when it matches only one recipe. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--depth` |  How many levels below the recipe to expand. |
+| `--json` |  Print the tree as JSON rather than for reading. Defaults to **id** and **instanceName**; any of **id**, **instanceName**, **displayName**, **description**, **distinctRecipes**, **ecosystem**, **package** and **version** may be named instead. |
 
 
 ## mod config recipes upgrade
