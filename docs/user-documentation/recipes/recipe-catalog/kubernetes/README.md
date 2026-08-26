@@ -8,11 +8,18 @@ _Recipes to perform [Kubernetes](https://kubernetes.io/) hygiene and migration t
 
 ## Categories
 
+* [CRD](/user-documentation/recipes/recipe-catalog/kubernetes/crd)
+* [Cluster API](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi)
+* [Helm](/user-documentation/recipes/recipe-catalog/kubernetes/helm)
+* [Kustomize](/user-documentation/recipes/recipe-catalog/kubernetes/kustomize)
+* [MetalLB](/user-documentation/recipes/recipe-catalog/kubernetes/metallb)
 * [Migrate](/user-documentation/recipes/recipe-catalog/kubernetes/migrate)
 * [RBAC](/user-documentation/recipes/recipe-catalog/kubernetes/rbac)
 * [Resource](/user-documentation/recipes/recipe-catalog/kubernetes/resource)
 * [Search](/user-documentation/recipes/recipe-catalog/kubernetes/search)
 * [Services](/user-documentation/recipes/recipe-catalog/kubernetes/services)
+* [Sylva](/user-documentation/recipes/recipe-catalog/kubernetes/sylva)
+* [k0rdent](/user-documentation/recipes/recipe-catalog/kubernetes/k0rdent)
 
 ## Composite Recipes
 
@@ -23,6 +30,7 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Add Kubernetes configuration](./addconfiguration.md)
+* [Add Kubernetes pod spec configuration](./addpodspecconfiguration.md)
 * [Change Kubernetes API version](./changeapiversion.md)
 * [Ensure CPU limits are set](./missingcpulimits.md)
 * [Ensure CPU request is set](./missingcpurequest.md)

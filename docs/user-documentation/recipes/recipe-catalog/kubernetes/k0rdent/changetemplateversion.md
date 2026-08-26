@@ -1,0 +1,58 @@
+---
+title: "Change k0rdent template version"
+sidebar_label: "Change k0rdent template version"
+hide_title: true
+---
+
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
+
+<RecipeMeta
+  displayName={"Change k0rdent template version"}
+  description={"Move a k0rdent `ClusterTemplate`, `ProviderTemplate` or `ServiceTemplate` to a new chart version, taking its name and everything that points at that name along with it.\n\nk0rdent encodes the chart version in the template's `metadata.name`, so a version bump renames the resource: `aws-standalone-cp-1-0-42` becomes `aws-standalone-cp-1-0-43`. That name is referenced from `ClusterDeployment.spec.template`, from `services[].template` on a `ClusterDeployment` or `MultiClusterService`, from `Release.spec.kcm.template`, `spec.regional.template`, `spec.capi.template` and `spec.providers[].template`, from `spec.core.kcm.template`, `spec.core.capi.template` and `spec.providers[].template` on a `Management` or `Region`, and from the `supportedTemplates` of a `ClusterTemplateChain` or `ServiceTemplateChain`. All of them move together here, along with any file whose name encodes the template name, because a rename that misses one of them leaves a reference the controller cannot resolve.\n\nA template in a file that renders through a template engine is reported and left alone, and so are its referrers: its name is whatever the engine produces, so nothing can be moved without stranding the rest.\n\nThis changes the template's own `spec.helm.chartSpec.version` too, but not the chart it points at. Run `org.openrewrite.kubernetes.helm.ChangeChartVersion` alongside it to move the chart's own `Chart.yaml`, the charts that depend on it, and any Flux `HelmRelease`."}
+  fqName={"org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
+
+<RecipeHeader
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion"}
+  artifact={"org.openrewrite.recipe:rewrite-kubernetes"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/k0rdent/changetemplateversion.md"}
+  moderneOnly
+>
+
+<RecipeHeader.Title>Change k0rdent template version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move a k0rdent `ClusterTemplate`, `ProviderTemplate` or `ServiceTemplate` to a new chart version, taking its name and everything that points at that name along with it.  k0rdent encodes the chart version in the template's `metadata.name`, so a version bump renames the resource: `aws-standalone-cp-1-0-42` becomes `aws-standalone-cp-1-0-43`. That name is referenced from `ClusterDeployment.spec.template`, from `services[].template` on a `ClusterDeployment` or `MultiClusterService`, from `Release.spec.kcm.template`, `spec.regional.template`, `spec.capi.template` and `spec.providers[].template`, from `spec.core.kcm.template`, `spec.core.capi.template` and `spec.providers[].template` on a `Management` or `Region`, and from the `supportedTemplates` of a `ClusterTemplateChain` or `ServiceTemplateChain`. All of them move together here, along with any file whose name encodes the template name, because a rename that misses one of them leaves a reference the controller cannot resolve.  A template in a file that renders through a template engine is reported and left alone, and so are its referrers: its name is whatever the engine produces, so nothing can be moved without stranding the rest.  This changes the template's own `spec.helm.chartSpec.version` too, but not the chart it points at. Run `org.openrewrite.kubernetes.helm.ChangeChartVersion` alongside it to move the chart's own `Chart.yaml`, the charts that depend on it, and any Flux `HelmRelease`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<OptionsTable options={[{"type":"String","name":"chart","required":true,"description":"The chart the template wraps, as written in its `spec.helm.chartSpec.chart`.","example":"aws-standalone-cp"},{"type":"String","name":"oldVersion","required":false,"description":"The version being replaced. When omitted, whatever version the template currently declares is used.","example":"1.0.42"},{"type":"String","name":"newVersion","required":true,"description":"The new chart version. Must be an exact semantic version.","example":"1.0.43"}]}>
+
+## Options
+
+</OptionsTable>
+
+<ExampleList examples={[{"parameters":[{"parameter":"chart","value":"aws-standalone-cp"},{"parameter":"oldVersion","value":"null"},{"parameter":"newVersion","value":"1.0.43"}],"variants":[{"language":"yaml","before":"apiVersion: k0rdent.mirantis.com/v1beta1\nkind: ClusterDeployment\nmetadata:\n  name: aws-dev\nspec:\n  template: aws-standalone-cp-1-0-42\n  credential: aws-cluster-identity-cred\n---\napiVersion: k0rdent.mirantis.com/v1beta1\nkind: ClusterDeployment\nmetadata:\n  name: azure-dev\nspec:\n  template: azure-standalone-cp-1-0-44\n  credential: azure-cluster-identity-cred\n","after":"apiVersion: k0rdent.mirantis.com/v1beta1\nkind: ClusterDeployment\nmetadata:\n  name: aws-dev\nspec:\n  template: aws-standalone-cp-1-0-43\n  credential: aws-cluster-identity-cred\n---\napiVersion: k0rdent.mirantis.com/v1beta1\nkind: ClusterDeployment\nmetadata:\n  name: azure-dev\nspec:\n  template: azure-standalone-cp-1-0-44\n  credential: azure-cluster-identity-cred\n","diff":"--- config/dev/clusterdeployments.yaml\n+++ config/dev/clusterdeployments.yaml\n@@ -6,1 +6,1 @@\n  name: aws-dev\nspec:\n- template: aws-standalone-cp-1-0-42\n+ template: aws-standalone-cp-1-0-43\n  credential: aws-cluster-identity-cred\n","newFile":false},{"language":"yaml","before":"apiVersion: k0rdent.mirantis.com/v1beta1\nkind: ClusterTemplate\nmetadata:\n  name: aws-standalone-cp-1-0-42\n  annotations:\n    helm.sh/resource-policy: keep\nspec:\n  helm:\n    chartSpec:\n      chart: aws-standalone-cp\n      version: 1.0.42\n      interval: 10m0s\n","after":"apiVersion: k0rdent.mirantis.com/v1beta1\nkind: ClusterTemplate\nmetadata:\n  name: aws-standalone-cp-1-0-43\n  annotations:\n    helm.sh/resource-policy: keep\nspec:\n  helm:\n    chartSpec:\n      chart: aws-standalone-cp\n      version: 1.0.43\n      interval: 10m0s\n","diff":"@@ -4,1 +4,1 @@\nkind: ClusterTemplate\nmetadata:\n- name: aws-standalone-cp-1-0-42\n+ name: aws-standalone-cp-1-0-43\n  annotations:\n@@ -11,1 +11,1 @@\n    chartSpec:\n      chart: aws-standalone-cp\n-     version: 1.0.42\n+     version: 1.0.43\n      interval: 10m0s\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion","displayName":"Change k0rdent template version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"chart=aws-standalone-cp\" --recipe-option \"oldVersion=1.0.42\" --recipe-option \"newVersion=1.0.43\""}}>
+
+## Usage
+
+</UsageList>
+
+<DataTableList tables={[{"name":"org.openrewrite.kubernetes.table.TemplateNameChanges","displayName":"k0rdent template name changes","description":"The template resource that was renamed, every reference that moved with it, and the templates that were left alone.","columns":[{"name":"Source path","description":"The path of the manifest that was changed, or would have been."},{"name":"Kind","description":"The `kind` of the resource holding the name or the reference to it."},{"name":"Field","description":"The field the name was found in, relative to the document root."},{"name":"Old value","description":"The value before the change."},{"name":"New value","description":"The value after the change, or the unchanged value when nothing was changed."},{"name":"Outcome","description":"`Renamed` for the template itself, `Reference` for a resource that points at it, `Renamed file` for a file whose name encodes it, `Templated` when the file renders through Helm, which pins the template's referrers as well as the template, or `Name does not encode the version` when the template's own name holds no version to substitute into."}]},{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
+
+## Data tables
+
+</DataTableList>
+

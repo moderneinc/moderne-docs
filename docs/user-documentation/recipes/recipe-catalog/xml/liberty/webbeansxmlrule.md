@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["XML"]}
-  tags={[]}
+  tags={["liberty"]}
   license={"Apache License Version 2.0"}
   fqName={"org.openrewrite.xml.liberty.WebBeansXmlRule"}
   artifact={"org.openrewrite.recipe:rewrite-liberty"}

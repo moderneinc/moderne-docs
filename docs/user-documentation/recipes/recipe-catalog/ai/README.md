@@ -1,8 +1,14 @@
 ---
-description: Ai OpenRewrite recipes.
+description: AI OpenRewrite recipes.
 ---
 
 # AI
+
+_Recipes for codebases that integrate large language models._
+
+## Categories
+
+* [Security](/user-documentation/recipes/recipe-catalog/ai/security)
 
 ## Composite Recipes
 

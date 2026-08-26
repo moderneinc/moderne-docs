@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["XML"]}
-  tags={[]}
+  tags={["liberty"]}
   license={"Apache License Version 2.0"}
   fqName={"org.openrewrite.xml.liberty.AppDDNamespaceRule"}
   artifact={"org.openrewrite.recipe:rewrite-liberty"}

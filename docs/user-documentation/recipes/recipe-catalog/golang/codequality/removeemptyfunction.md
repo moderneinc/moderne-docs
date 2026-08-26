@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove empty functions"}
-  description={"Remove free functions with empty bodies and no return type. Methods with receivers are preserved because they may implement an interface."}
+  description={"Remove unexported free functions with empty bodies and no return type. `main` in `package main` and `init` are preserved because the runtime invokes them rather than other code. Methods with receivers are preserved because they may implement an interface. Exported functions are preserved because removing one breaks importers."}
   fqName={"org.openrewrite.golang.codequality.RemoveEmptyFunction"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove empty functions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove free functions with empty bodies and no return type. Methods with receivers are preserved because they may implement an interface.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove unexported free functions with empty bodies and no return type. `main` in `package main` and `init` are preserved because the runtime invokes them rather than other code. Methods with receivers are preserved because they may implement an interface. Exported functions are preserved because removing one breaks importers.</RecipeHeader.Description>
 
 </RecipeHeader>
 

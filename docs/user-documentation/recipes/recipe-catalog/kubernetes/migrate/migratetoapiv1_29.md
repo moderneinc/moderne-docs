@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Kubernetes API v1.27","href":"/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_27/"},{"name":"Change Kubernetes API version","href":"/user-documentation/recipes/recipe-catalog/kubernetes/changeapiversion/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/yaml/changepropertykey/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Kubernetes API v1.28","href":"/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_28/"},{"name":"Change Kubernetes API version","href":"/user-documentation/recipes/recipe-catalog/kubernetes/changeapiversion/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/yaml/changepropertykey/"}]}>
 
 ## Definition
 

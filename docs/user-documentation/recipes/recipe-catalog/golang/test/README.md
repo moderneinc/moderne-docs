@@ -7,5 +7,6 @@ description: Test OpenRewrite recipes.
 ## Recipes
 
 * [Rename x to flag (test)](./renamextoflag.md)
+* [Wrap error with context (test)](./wraperrorwithcontext.md)
 
 

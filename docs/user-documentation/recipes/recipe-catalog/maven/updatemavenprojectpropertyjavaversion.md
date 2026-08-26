@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Update Maven Java project properties"}
-  description={"The Java version is determined by several project properties, including:\n\n * `java.version`\n * `jdk.version`\n * `javaVersion`\n * `jdkVersion`\n * `maven.compiler.source`\n * `maven.compiler.target`\n * `maven.compiler.release`\n * `release.version`\n\nIf none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property."}
+  description={"The Java version is determined by several project properties, including:\n\n * `java.version`\n * `jdk.version`\n * `javaVersion`\n * `jdkVersion`\n * `maven.compiler.source`\n * `maven.compiler.target`\n * `maven.compiler.release`\n * `release.version`\n\nProperties of any other name are updated too when the `maven-compiler-plugin` `source`, `target` or `release` configuration of this pom, or of a pom it inherits from, resolves to them.\n\nIf none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property."}
   fqName={"org.openrewrite.maven.UpdateMavenProjectPropertyJavaVersion"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -45,6 +45,8 @@ The Java version is determined by several project properties, including:
  * `maven.compiler.target`
  * `maven.compiler.release`
  * `release.version`
+
+Properties of any other name are updated too when the `maven-compiler-plugin` `source`, `target` or `release` configuration of this pom, or of a pom it inherits from, resolves to them.
 
 If none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property.
 

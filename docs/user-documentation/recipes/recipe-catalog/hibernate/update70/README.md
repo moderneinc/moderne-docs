@@ -8,6 +8,7 @@ description: Update70 OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
+* [Migrate `jackson-datatype-hibernate6` to `jackson-datatype-hibernate7`](./migratejacksondatatypehibernate6to7.md)
 * [Migrate to Hibernate 7 JFR APIs](./migratetohibernate7jfr.md)
 
 ## Recipes

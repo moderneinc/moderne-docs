@@ -43,13 +43,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<OptionsTable options={[{"type":"String","name":"timestamp","required":false,"description":"ISO 8601 timestamp, integer seconds since the epoch, or property reference such as `${git.commit.author.time}`. Defaults to `1980-01-01T00:00:00Z`, the earliest value the ZIP format can represent.","example":"2024-01-01T00:00:00Z"}]}>
+<OptionsTable options={[{"type":"String","name":"timestamp","required":false,"description":"ISO 8601 timestamp, integer seconds since the epoch, or property reference such as `${git.commit.author.time}`. Defaults to `1980-01-01T00:00:02Z`, the earliest value accepted by Maven's ZIP-producing toolchain.","example":"2024-01-01T00:00:00Z"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"timestamp","value":"null"}],"variants":[{"language":"xml","before":"<project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n</project>\n","after":"<project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <properties>\n    <project.build.outputTimestamp>1980-01-01T00:00:00Z</project.build.outputTimestamp>\n  </properties>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -5,0 +5,3 @@\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n+ <properties>\n+   <project.build.outputTimestamp>1980-01-01T00:00:00Z</project.build.outputTimestamp>\n+ </properties>\n</project>\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"timestamp","value":"null"}],"variants":[{"language":"xml","before":"<project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n</project>\n","after":"<project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <properties>\n    <project.build.outputTimestamp>1980-01-01T00:00:02Z</project.build.outputTimestamp>\n  </properties>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -5,0 +5,3 @@\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n+ <properties>\n+   <project.build.outputTimestamp>1980-01-01T00:00:02Z</project.build.outputTimestamp>\n+ </properties>\n</project>\n","newFile":false}]}]}>
 
 ## Examples
 

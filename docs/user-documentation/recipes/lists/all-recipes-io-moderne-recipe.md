@@ -5166,295 +5166,295 @@ _License: Moderne Proprietary License_
 
 _97 recipes_
 
-* [org.openrewrite.scala.recipes.cleanup.AvoidEmptyCatchBlock](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/avoidemptycatchblock.md)
+* [org.openrewrite.scala.cleanup.AvoidEmptyCatchBlock](/user-documentation/recipes/recipe-catalog/scala/cleanup/avoidemptycatchblock.md)
   * **Avoid empty catch blocks**
   * Finds catch blocks that contain no statements, which silently swallow exceptions.
-* [org.openrewrite.scala.recipes.cleanup.AvoidSystemExit](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/avoidsystemexit.md)
+* [org.openrewrite.scala.cleanup.AvoidSystemExit](/user-documentation/recipes/recipe-catalog/scala/cleanup/avoidsystemexit.md)
   * **Avoid `System.exit` in library code**
   * Finds `System.exit` and `sys.exit` calls which terminate the JVM. Avoid using these in library code; prefer exceptions or controlled shutdown.
-* [org.openrewrite.scala.recipes.cleanup.EncapsulateField](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/encapsulatefield.md)
+* [org.openrewrite.scala.cleanup.EncapsulateField](/user-documentation/recipes/recipe-catalog/scala/cleanup/encapsulatefield.md)
   * **Encapsulate public mutable fields**
   * Finds public `var` fields in classes. Public mutable fields break encapsulation; consider using a private var with accessor methods.
-* [org.openrewrite.scala.recipes.cleanup.ExternalizeCredentials](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/externalizecredentials.md)
+* [org.openrewrite.scala.cleanup.ExternalizeCredentials](/user-documentation/recipes/recipe-catalog/scala/cleanup/externalizecredentials.md)
   * **Externalize hardcoded credentials**
   * Finds variable declarations whose name contains credential-related keywords (password, secret, token, apikey, api_key) with a non-empty string literal initializer. Hardcoded credentials are a security risk.
-* [org.openrewrite.scala.recipes.cleanup.ExternalizeTimeout](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/externalizetimeout.md)
+* [org.openrewrite.scala.cleanup.ExternalizeTimeout](/user-documentation/recipes/recipe-catalog/scala/cleanup/externalizetimeout.md)
   * **Externalize hardcoded timeouts**
   * Finds hardcoded timeout values such as `Duration(5, ...)`, `5.seconds`, or `Timeout(...)` with numeric literals. Consider making timeouts configurable.
-* [org.openrewrite.scala.recipes.cleanup.ExtractMagicNumber](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/extractmagicnumber.md)
+* [org.openrewrite.scala.cleanup.ExtractMagicNumber](/user-documentation/recipes/recipe-catalog/scala/cleanup/extractmagicnumber.md)
   * **Extract magic numbers to named constants**
   * Finds magic numbers (literal integers other than -1, 0, 1, 2) used in expressions or method arguments. Consider extracting them to named constants.
-* [org.openrewrite.scala.recipes.cleanup.InventoryScalaLogging](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/inventoryscalalogging.md)
+* [org.openrewrite.scala.cleanup.InventoryScalaLogging](/user-documentation/recipes/recipe-catalog/scala/cleanup/inventoryscalalogging.md)
   * **Inventory scala-logging usage**
   * Finds imports of the Typesafe scala-logging library (`com.typesafe.scalalogging`). Use this recipe to inventory logging framework usage across a codebase.
-* [org.openrewrite.scala.recipes.cleanup.InventoryTypesafeConfig](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/inventorytypesafeconfig.md)
+* [org.openrewrite.scala.cleanup.InventoryTypesafeConfig](/user-documentation/recipes/recipe-catalog/scala/cleanup/inventorytypesafeconfig.md)
   * **Inventory Typesafe Config usage**
   * Finds imports of the Typesafe Config library (`com.typesafe.config`). Use this recipe to inventory configuration library usage across a codebase.
-* [org.openrewrite.scala.recipes.cleanup.KeepClassesSmall](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/keepclassessmall.md)
+* [org.openrewrite.scala.cleanup.KeepClassesSmall](/user-documentation/recipes/recipe-catalog/scala/cleanup/keepclassessmall.md)
   * **Keep classes small (max 30 members)**
   * Finds classes with more than 30 members. Large classes are harder to maintain; consider splitting into smaller classes.
-* [org.openrewrite.scala.recipes.cleanup.KeepMethodsShort](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/keepmethodsshort.md)
+* [org.openrewrite.scala.cleanup.KeepMethodsShort](/user-documentation/recipes/recipe-catalog/scala/cleanup/keepmethodsshort.md)
   * **Keep methods short (max 20 statements)**
   * Finds methods with more than 20 statements. Long methods are harder to understand and maintain; consider refactoring.
-* [org.openrewrite.scala.recipes.cleanup.PatchLog4j](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/patchlog4j.md)
+* [org.openrewrite.scala.cleanup.PatchLog4j](/user-documentation/recipes/recipe-catalog/scala/cleanup/patchlog4j.md)
   * **Ensure Log4j is patched against CVE-2021-44228**
   * Finds imports of Log4j 1.x (`org.apache.log4j`) or Log4j 2.x (`org.apache.logging.log4j`). Ensure your Log4j version is patched against CVE-2021-44228.
-* [org.openrewrite.scala.recipes.cleanup.PreferExplicitImports](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferexplicitimports.md)
+* [org.openrewrite.scala.cleanup.PreferExplicitImports](/user-documentation/recipes/recipe-catalog/scala/cleanup/preferexplicitimports.md)
   * **Prefer explicit imports over wildcards**
   * Finds wildcard imports (`import foo._` or `import foo.*`). Explicit imports are generally preferred for clarity.
-* [org.openrewrite.scala.recipes.cleanup.PreferImmutableCollections](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferimmutablecollections.md)
+* [org.openrewrite.scala.cleanup.PreferImmutableCollections](/user-documentation/recipes/recipe-catalog/scala/cleanup/preferimmutablecollections.md)
   * **Prefer immutable collections**
   * Replaces imports of `scala.collection.mutable.*` with `scala.collection.immutable.*`. Idiomatic Scala prefers immutable collections.
-* [org.openrewrite.scala.recipes.cleanup.PreferImmutableVal](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferimmutableval.md)
+* [org.openrewrite.scala.cleanup.PreferImmutableVal](/user-documentation/recipes/recipe-catalog/scala/cleanup/preferimmutableval.md)
   * **Prefer `val` over `var`**
   * Finds mutable `var` declarations in Scala code. Idiomatic Scala prefers immutable `val` over mutable `var`.
-* [org.openrewrite.scala.recipes.cleanup.PreferOption](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferoption.md)
+* [org.openrewrite.scala.cleanup.PreferOption](/user-documentation/recipes/recipe-catalog/scala/cleanup/preferoption.md)
   * **Prefer `Option` over `null`**
   * Replaces `null` literal with `None`. Idiomatic Scala uses `Option` instead of null.
-* [org.openrewrite.scala.recipes.cleanup.PreferPatternMatch](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferpatternmatch.md)
+* [org.openrewrite.scala.cleanup.PreferPatternMatch](/user-documentation/recipes/recipe-catalog/scala/cleanup/preferpatternmatch.md)
   * **Prefer pattern matching over `asInstanceOf` casts**
   * Finds `.asInstanceOf[T]` type casts that should be replaced with pattern matching. Idiomatic Scala prefers pattern matching over explicit casts.
-* [org.openrewrite.scala.recipes.cleanup.PreferPatternMatchOverInstanceOf](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferpatternmatchoverinstanceof.md)
+* [org.openrewrite.scala.cleanup.PreferPatternMatchOverInstanceOf](/user-documentation/recipes/recipe-catalog/scala/cleanup/preferpatternmatchoverinstanceof.md)
   * **Prefer pattern matching over `isInstanceOf`/`asInstanceOf` chains**
   * Finds `if` statements that check `isInstanceOf` in the condition and use `asInstanceOf` in the then-part. Replace with pattern matching for idiomatic Scala.
-* [org.openrewrite.scala.recipes.cleanup.PreferScalaPropertyAccess](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferscalapropertyaccess.md)
+* [org.openrewrite.scala.cleanup.PreferScalaPropertyAccess](/user-documentation/recipes/recipe-catalog/scala/cleanup/preferscalapropertyaccess.md)
   * **Prefer Scala-style property access over Java getters**
   * Finds Java-style getter methods (`getName`, `getValue`, etc.) that could be replaced with Scala-style property access.
-* [org.openrewrite.scala.recipes.cleanup.PreferSpecificTypes](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferspecifictypes.md)
+* [org.openrewrite.scala.cleanup.PreferSpecificTypes](/user-documentation/recipes/recipe-catalog/scala/cleanup/preferspecifictypes.md)
   * **Prefer specific types over `Any`**
   * Finds variable declarations whose type expression contains `Any`. Type `Any` is the Scala equivalent of `Object` and is usually too broad.
-* [org.openrewrite.scala.recipes.cleanup.PreferStringInterpolation](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferstringinterpolation.md)
+* [org.openrewrite.scala.cleanup.PreferStringInterpolation](/user-documentation/recipes/recipe-catalog/scala/cleanup/preferstringinterpolation.md)
   * **Prefer string interpolation over concatenation**
   * Finds string concatenation using the `+` operator. Idiomatic Scala prefers string interpolation (e.g., `s&quot;hello $name&quot;`) over concatenation with `+`.
-* [org.openrewrite.scala.recipes.cleanup.ReduceNesting](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/reducenesting.md)
+* [org.openrewrite.scala.cleanup.ReduceNesting](/user-documentation/recipes/recipe-catalog/scala/cleanup/reducenesting.md)
   * **Reduce deep nesting by extracting methods**
   * Finds `def` methods with deeply nested code (5+ indentation levels). Deeply nested code is hard to follow; consider extracting methods.
-* [org.openrewrite.scala.recipes.cleanup.ReduceParameterCount](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/reduceparametercount.md)
+* [org.openrewrite.scala.cleanup.ReduceParameterCount](/user-documentation/recipes/recipe-catalog/scala/cleanup/reduceparametercount.md)
   * **Reduce parameter count (max 5 parameters)**
   * Finds `def` methods with more than 5 parameters. Long parameter lists hurt readability; consider using a case class.
-* [org.openrewrite.scala.recipes.cleanup.RemoveExplicitReturn](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeexplicitreturn.md)
+* [org.openrewrite.scala.cleanup.RemoveExplicitReturn](/user-documentation/recipes/recipe-catalog/scala/cleanup/removeexplicitreturn.md)
   * **Remove explicit `return` statements**
   * Removes explicit `return` statements in Scala code. In Scala, the last expression in a method is automatically the return value, so explicit `return` is not idiomatic.
-* [org.openrewrite.scala.recipes.cleanup.RemoveRedundantToString](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeredundanttostring.md)
+* [org.openrewrite.scala.cleanup.RemoveRedundantToString](/user-documentation/recipes/recipe-catalog/scala/cleanup/removeredundanttostring.md)
   * **Remove redundant `toString` on `String`**
   * Removes calls to `.toString` on expressions that are already of type `String`. Such calls are redundant.
-* [org.openrewrite.scala.recipes.cleanup.RemoveUnitReturnType](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeunitreturntype.md)
+* [org.openrewrite.scala.cleanup.RemoveUnitReturnType](/user-documentation/recipes/recipe-catalog/scala/cleanup/removeunitreturntype.md)
   * **Remove unnecessary `: Unit` return type**
   * Removes the explicit `Unit` return type annotation from Scala methods. In Scala, methods returning `Unit` do not need the `: Unit` annotation.
-* [org.openrewrite.scala.recipes.cleanup.RemoveUnusedBinding](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeunusedbinding.md)
+* [org.openrewrite.scala.cleanup.RemoveUnusedBinding](/user-documentation/recipes/recipe-catalog/scala/cleanup/removeunusedbinding.md)
   * **Remove unused variable bindings**
   * Removes variable declarations whose name starts with `_` (underscore-prefixed binding). This removes unused variables that represent dead code.
-* [org.openrewrite.scala.recipes.cleanup.ResolveTodoComment](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/resolvetodocomment.md)
+* [org.openrewrite.scala.cleanup.ResolveTodoComment](/user-documentation/recipes/recipe-catalog/scala/cleanup/resolvetodocomment.md)
   * **Resolve TODO/FIXME comments**
   * Finds comments containing TODO, FIXME, HACK, or XXX. These indicate incomplete work that should be tracked and resolved.
-* [org.openrewrite.scala.recipes.cleanup.ReviewDeprecatedApi](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/reviewdeprecatedapi.md)
+* [org.openrewrite.scala.cleanup.ReviewDeprecatedApi](/user-documentation/recipes/recipe-catalog/scala/cleanup/reviewdeprecatedapi.md)
   * **Review deprecated API declarations**
   * Finds declarations annotated with `@deprecated` in Scala code. Deprecated APIs should be reviewed for removal or migration.
-* [org.openrewrite.scala.recipes.cleanup.SimplifyBooleanExpression](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/simplifybooleanexpression.md)
+* [org.openrewrite.scala.cleanup.SimplifyBooleanExpression](/user-documentation/recipes/recipe-catalog/scala/cleanup/simplifybooleanexpression.md)
   * **Simplify boolean expression**
   * Simplifies redundant boolean comparisons such as `x == true` to `x` and `x == false` to `!x`.
-* [org.openrewrite.scala.recipes.cleanup.SimplifyOptionMatch](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/simplifyoptionmatch.md)
+* [org.openrewrite.scala.cleanup.SimplifyOptionMatch](/user-documentation/recipes/recipe-catalog/scala/cleanup/simplifyoptionmatch.md)
   * **Replace `Option` pattern matching with combinators**
   * Rewrites `option match \{ case Some(x) =&gt; ...; case None =&gt; ... \}` into the equivalent `map`, `flatMap`, or `getOrElse` combinator. Matches whose `None` branch yields `None` become `map` (when the `Some` branch wraps its result in `Some`) or `flatMap`; matches whose `Some` branch returns the bound value unchanged become `getOrElse`, which also covers a `None` branch that throws (its by-name argument keeps the throw lazy).
-* [org.openrewrite.scala.recipes.cleanup.UseCollectionConverters](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/usecollectionconverters.md)
+* [org.openrewrite.scala.cleanup.UseCollectionConverters](/user-documentation/recipes/recipe-catalog/scala/cleanup/usecollectionconverters.md)
   * **Replace `JavaConverters` with `CollectionConverters`**
   * `scala.collection.JavaConverters` was deprecated in Scala 2.13 in favor of `scala.jdk.CollectionConverters`. This recipe replaces the import automatically.
-* [org.openrewrite.scala.recipes.cleanup.UseDirectToSet](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/usedirecttoset.md)
+* [org.openrewrite.scala.cleanup.UseDirectToSet](/user-documentation/recipes/recipe-catalog/scala/cleanup/usedirecttoset.md)
   * **Replace unnecessary intermediate collection before `.toSet`**
   * Replaces patterns like `.toList.toSet` or `.toSeq.toSet` with `.toSet` to avoid creating an unnecessary intermediate collection.
-* [org.openrewrite.scala.recipes.cleanup.UseLogger](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/uselogger.md)
+* [org.openrewrite.scala.cleanup.UseLogger](/user-documentation/recipes/recipe-catalog/scala/cleanup/uselogger.md)
   * **Use logging framework instead of `println`**
   * Finds `println` calls in Scala code. Using `println` directly is not suitable for production; use a logging framework instead.
-* [org.openrewrite.scala.recipes.cleanup.UseLoggerForExceptions](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/useloggerforexceptions.md)
+* [org.openrewrite.scala.cleanup.UseLoggerForExceptions](/user-documentation/recipes/recipe-catalog/scala/cleanup/useloggerforexceptions.md)
   * **Use logging framework instead of `printStackTrace`**
   * Finds `.printStackTrace` calls. Use a logging framework instead of writing directly to `System.err`.
-* [org.openrewrite.scala.recipes.cleanup.UseOptionSafely](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/useoptionsafely.md)
+* [org.openrewrite.scala.cleanup.UseOptionSafely](/user-documentation/recipes/recipe-catalog/scala/cleanup/useoptionsafely.md)
   * **Use `Option` safely**
   * Finds calls to `.get` on `Option` values. Calling `.get` on `Option` can throw `NoSuchElementException`; prefer `getOrElse`, `map`, `fold`, or pattern matching.
-* [org.openrewrite.scala.recipes.cleanup.UseOrNull](/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/useornull.md)
+* [org.openrewrite.scala.cleanup.UseOrNull](/user-documentation/recipes/recipe-catalog/scala/cleanup/useornull.md)
   * **Replace `.getOrElse(null)` with `.orNull`**
   * Replaces `.getOrElse(null)` on `Option` values with `.orNull` for a cleaner, idiomatic alternative.
-* [org.openrewrite.scala.recipes.concurrency.AvoidBlockingCalls](/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/avoidblockingcalls.md)
+* [org.openrewrite.scala.concurrency.AvoidBlockingCalls](/user-documentation/recipes/recipe-catalog/scala/concurrency/avoidblockingcalls.md)
   * **Avoid blocking calls (`Await.result`/`Await.ready`)**
   * Finds `Await.result` and `Await.ready` calls which block the current thread. Consider using non-blocking Future composition with map, flatMap, or for-comprehensions.
-* [org.openrewrite.scala.recipes.concurrency.AvoidThreadSleep](/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/avoidthreadsleep.md)
+* [org.openrewrite.scala.concurrency.AvoidThreadSleep](/user-documentation/recipes/recipe-catalog/scala/concurrency/avoidthreadsleep.md)
   * **Avoid `Thread.sleep`**
   * Finds `Thread.sleep` calls which block the current thread. Consider using scheduled executors or akka scheduler instead.
-* [org.openrewrite.scala.recipes.concurrency.PreferCustomExecutionContext](/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/prefercustomexecutioncontext.md)
+* [org.openrewrite.scala.concurrency.PreferCustomExecutionContext](/user-documentation/recipes/recipe-catalog/scala/concurrency/prefercustomexecutioncontext.md)
   * **Prefer custom `ExecutionContext` over global**
   * Finds imports of `scala.concurrent.ExecutionContext.Implicits.global`. The global ExecutionContext may not be appropriate for blocking I/O operations; prefer a custom ExecutionContext backed by a dedicated thread pool.
-* [org.openrewrite.scala.recipes.concurrency.SynchronizeMutableState](/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/synchronizemutablestate.md)
+* [org.openrewrite.scala.concurrency.SynchronizeMutableState](/user-documentation/recipes/recipe-catalog/scala/concurrency/synchronizemutablestate.md)
   * **Synchronize mutable shared state**
   * Finds `var` declarations at class level that lack `@volatile` or other synchronization annotations. Mutable shared state without synchronization is a common source of concurrency bugs.
-* [org.openrewrite.scala.recipes.errorhandling.PreferDirectEitherOps](/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/preferdirecteitherops.md)
+* [org.openrewrite.scala.errorhandling.PreferDirectEitherOps](/user-documentation/recipes/recipe-catalog/scala/errorhandling/preferdirecteitherops.md)
   * **Prefer direct `Either` operations over projections**
   * Finds usages of `.left` and `.right` projections on `Either`. Since Scala 2.13, `Either` is right-biased so `map`/`flatMap` work directly. Use `swap` to operate on the `Left` side instead of `.left`.
-* [org.openrewrite.scala.recipes.errorhandling.PreferFunctionalErrorHandling](/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/preferfunctionalerrorhandling.md)
+* [org.openrewrite.scala.errorhandling.PreferFunctionalErrorHandling](/user-documentation/recipes/recipe-catalog/scala/errorhandling/preferfunctionalerrorhandling.md)
   * **Prefer functional error handling over `throw` expressions**
   * Finds `throw` expressions inside method bodies that should use functional error handling. Throwing exceptions breaks referential transparency; prefer returning `Try`, `Either`, or `Option`.
-* [org.openrewrite.scala.recipes.errorhandling.UseNonFatalMatcher](/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/usenonfatalmatcher.md)
+* [org.openrewrite.scala.errorhandling.UseNonFatalMatcher](/user-documentation/recipes/recipe-catalog/scala/errorhandling/usenonfatalmatcher.md)
   * **Use `NonFatal` matcher for broad catch patterns**
   * Finds catch blocks using broad patterns like `case e: Exception =&gt;` or `case _ =&gt;` that should use `scala.util.control.NonFatal` to catch all non-fatal exceptions while allowing fatal errors to propagate.
-* [org.openrewrite.scala.recipes.errorhandling.UseTrySafely](/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/usetrysafely.md)
+* [org.openrewrite.scala.errorhandling.UseTrySafely](/user-documentation/recipes/recipe-catalog/scala/errorhandling/usetrysafely.md)
   * **Use `Try` safely without calling `.get`**
   * Finds calls to `.get` on `scala.util.Try` values that should use safer alternatives. Calling `.get` on a `Failure` throws the contained exception; prefer `getOrElse`, `map`, or pattern matching.
-* [org.openrewrite.scala.recipes.migrate.MigrateImplicitToGivenUsing](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/migrateimplicittogivenusing.md)
+* [org.openrewrite.scala.migrate.MigrateImplicitToGivenUsing](/user-documentation/recipes/recipe-catalog/scala/migrate/migrateimplicittogivenusing.md)
   * **Migrate `implicit` to `given`/`using` (Scala 3)**
   * Finds `implicit` keyword usage on methods and parameters. In Scala 3, `implicit` is replaced with `given`/`using`.
-* [org.openrewrite.scala.recipes.migrate.MigrateProcedureSyntax](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/migrateproceduresyntax.md)
+* [org.openrewrite.scala.migrate.MigrateProcedureSyntax](/user-documentation/recipes/recipe-catalog/scala/migrate/migrateproceduresyntax.md)
   * **Migrate deprecated procedure syntax**
   * Finds method declarations that use deprecated Scala procedure syntax (methods with a body block but no explicit return type or `=` sign). Procedure syntax was deprecated in Scala 2.13 and removed in Scala 3.
-* [org.openrewrite.scala.recipes.migrate.RemoveAny2StringAdd](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/removeany2stringadd.md)
+* [org.openrewrite.scala.migrate.RemoveAny2StringAdd](/user-documentation/recipes/recipe-catalog/scala/migrate/removeany2stringadd.md)
   * **Remove deprecated `any2stringadd` usage**
   * Finds expressions like `1 + &quot;string&quot;` that rely on the deprecated `any2stringadd` implicit conversion. This was deprecated in Scala 2.13 and removed in Scala 3. Use string interpolation or `.toString` instead.
-* [org.openrewrite.scala.recipes.migrate.RemoveExistentialTypes](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/removeexistentialtypes.md)
+* [org.openrewrite.scala.migrate.RemoveExistentialTypes](/user-documentation/recipes/recipe-catalog/scala/migrate/removeexistentialtypes.md)
   * **Remove existential types (removed in Scala 3)**
   * Finds existential types using `forSome` syntax. Existential types were removed in Scala 3 and must be rewritten.
-* [org.openrewrite.scala.recipes.migrate.RemoveSymbolLiterals](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/removesymbolliterals.md)
+* [org.openrewrite.scala.migrate.RemoveSymbolLiterals](/user-documentation/recipes/recipe-catalog/scala/migrate/removesymbolliterals.md)
   * **Remove deprecated symbol literals**
   * Finds symbol literals like `'foo` which were deprecated in Scala 2.13 and removed in Scala 3. Use `Symbol(&quot;foo&quot;)` instead.
-* [org.openrewrite.scala.recipes.migrate.ReviewAbstractOverride](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/reviewabstractoverride.md)
+* [org.openrewrite.scala.migrate.ReviewAbstractOverride](/user-documentation/recipes/recipe-catalog/scala/migrate/reviewabstractoverride.md)
   * **Review abstract override for Scala 3**
   * Finds methods or fields with both `abstract` and `override` modifiers. The stackable trait pattern using `abstract override` may need review for Scala 3.
-* [org.openrewrite.scala.recipes.migrate.ReviewTraitVarInit](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/reviewtraitvarinit.md)
+* [org.openrewrite.scala.migrate.ReviewTraitVarInit](/user-documentation/recipes/recipe-catalog/scala/migrate/reviewtraitvarinit.md)
   * **Review trait var initialization for Scala 3**
   * Finds traits that have initialized `var` fields. In Scala 3, trait initialization semantics changed and these may need review.
-* [org.openrewrite.scala.recipes.migrate.UpgradeSbtVersion](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/upgradesbtversion.md)
+* [org.openrewrite.scala.migrate.UpgradeSbtVersion](/user-documentation/recipes/recipe-catalog/scala/migrate/upgradesbtversion.md)
   * **Upgrade sbt version**
   * Update the `sbt.version` property in `project/build.properties` to the specified version. Only modifies files at `**/project/build.properties`.
-* [org.openrewrite.scala.recipes.migrate.UseQuestionMarkWildcard](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/usequestionmarkwildcard.md)
+* [org.openrewrite.scala.migrate.UseQuestionMarkWildcard](/user-documentation/recipes/recipe-catalog/scala/migrate/usequestionmarkwildcard.md)
   * **Use `?` instead of `_` for wildcard types (Scala 3)**
   * Finds usage of `_` as a wildcard type in type parameters (e.g., `List[_]`). In Scala 3, the wildcard type syntax changed from `_` to `?`.
-* [org.openrewrite.scala.recipes.migrate.akka.MigrateActorRefTell](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/migrateactorreftell.md)
+* [org.openrewrite.scala.migrate.akka.MigrateActorRefTell](/user-documentation/recipes/recipe-catalog/scala/migrate/akka/migrateactorreftell.md)
   * **Migrate classic actor tell to typed ActorRef**
   * Finds classic Akka actor messaging patterns (`actorRef ! msg` or `actorRef.tell(msg)`). Consider migrating to typed `ActorRef` messaging.
-* [org.openrewrite.scala.recipes.migrate.akka.MigrateToTypedActor](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/migratetotypedactor.md)
+* [org.openrewrite.scala.migrate.akka.MigrateToTypedActor](/user-documentation/recipes/recipe-catalog/scala/migrate/akka/migratetotypedactor.md)
   * **Migrate classic Actor to Akka Typed Behavior**
   * Removes `akka.actor.Actor` imports and marks classes extending `Actor` or `UntypedActor` from classic Akka for migration to Akka Typed `Behavior`.
-* [org.openrewrite.scala.recipes.migrate.akka.MigrateToTypedActorSystem](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/migratetotypedactorsystem.md)
+* [org.openrewrite.scala.migrate.akka.MigrateToTypedActorSystem](/user-documentation/recipes/recipe-catalog/scala/migrate/akka/migratetotypedactorsystem.md)
   * **Migrate `akka.actor.ActorSystem` to `akka.actor.typed.ActorSystem`**
   * Replaces the import `akka.actor.ActorSystem` with `akka.actor.typed.ActorSystem` to migrate from the classic untyped actor system to Akka Typed.
-* [org.openrewrite.scala.recipes.migrate.akka.RemoveDeprecatedAkkaImports](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/removedeprecatedakkaimports.md)
+* [org.openrewrite.scala.migrate.akka.RemoveDeprecatedAkkaImports](/user-documentation/recipes/recipe-catalog/scala/migrate/akka/removedeprecatedakkaimports.md)
   * **Remove deprecated Akka imports**
   * Removes imports of deprecated Akka APIs such as `akka.pattern.ask` (old ask pattern) and `akka.actor.PoisonPill`. These have no direct drop-in replacement and should be replaced with their modern Akka Typed equivalents.
-* [org.openrewrite.scala.recipes.migrate.database.MigrateAnorm](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/migrateanorm.md)
+* [org.openrewrite.scala.migrate.database.MigrateAnorm](/user-documentation/recipes/recipe-catalog/scala/migrate/database/migrateanorm.md)
   * **Migrate Anorm to Doobie, Quill, or Skunk**
   * Removes imports of the Anorm SQL library (`anorm.*`). Consider evaluating modern alternatives such as Doobie, Quill, or Skunk.
-* [org.openrewrite.scala.recipes.migrate.database.MigratePhantomDsl](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/migratephantomdsl.md)
+* [org.openrewrite.scala.migrate.database.MigratePhantomDsl](/user-documentation/recipes/recipe-catalog/scala/migrate/database/migratephantomdsl.md)
   * **Migrate Phantom DSL to Datastax driver or quill-cassandra**
   * Removes imports of the Phantom DSL library (`com.outworkers.phantom.*`). Consider migrating to the direct Datastax driver or quill-cassandra.
-* [org.openrewrite.scala.recipes.migrate.database.MigrateScalikeJdbc](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/migratescalikejdbc.md)
+* [org.openrewrite.scala.migrate.database.MigrateScalikeJdbc](/user-documentation/recipes/recipe-catalog/scala/migrate/database/migratescalikejdbc.md)
   * **Migrate ScalikeJDBC to Doobie or Quill**
   * Removes imports of the ScalikeJDBC library (`scalikejdbc.*`). Consider evaluating modern alternatives such as Doobie or Quill.
-* [org.openrewrite.scala.recipes.migrate.database.SecureSqlQueries](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/securesqlqueries.md)
+* [org.openrewrite.scala.migrate.database.SecureSqlQueries](/user-documentation/recipes/recipe-catalog/scala/migrate/database/securesqlqueries.md)
   * **Ensure parameterized SQL queries**
   * Finds raw SQL string patterns such as `sql&quot;...&quot;`, `SQL(...)`, or `s&quot;SELECT...&quot;`. Ensure parameterized queries are used to prevent SQL injection.
-* [org.openrewrite.scala.recipes.migrate.ecosystem.AvoidBlockingSlick](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/avoidblockingslick.md)
+* [org.openrewrite.scala.migrate.ecosystem.AvoidBlockingSlick](/user-documentation/recipes/recipe-catalog/scala/migrate/ecosystem/avoidblockingslick.md)
   * **Avoid blocking Slick database calls**
   * Finds methods that combine `Await.result` with `db.run`, indicating a blocking Slick database call. Use streaming or async patterns instead.
-* [org.openrewrite.scala.recipes.migrate.ecosystem.MigrateCatsEffect2To3](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/migratecatseffect2to3.md)
+* [org.openrewrite.scala.migrate.ecosystem.MigrateCatsEffect2To3](/user-documentation/recipes/recipe-catalog/scala/migrate/ecosystem/migratecatseffect2to3.md)
   * **Migrate Cats Effect 2 to Cats Effect 3**
   * Finds Cats Effect 2 imports by detecting `cats.effect.IO` without `cats.effect.unsafe`, or CE2-specific types like `ContextShift` and `Timer`. Consider migrating to Cats Effect 3.
-* [org.openrewrite.scala.recipes.migrate.ecosystem.MigrateScalazToCats](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/migratescalaztocats.md)
+* [org.openrewrite.scala.migrate.ecosystem.MigrateScalazToCats](/user-documentation/recipes/recipe-catalog/scala/migrate/ecosystem/migratescalaztocats.md)
   * **Migrate Scalaz to Cats**
   * Removes imports of `scalaz.` packages. Scalaz is a legacy FP library; consider migrating to Cats or ZIO.
-* [org.openrewrite.scala.recipes.migrate.ecosystem.UseCirceDerivation](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/usecircederivation.md)
+* [org.openrewrite.scala.migrate.ecosystem.UseCirceDerivation](/user-documentation/recipes/recipe-catalog/scala/migrate/ecosystem/usecircederivation.md)
   * **Use circe `derives` for Scala 3**
   * Finds imports of `io.circe.generic.auto` which uses Shapeless-based automatic derivation. In Scala 3, consider using `derives` syntax for codec derivation instead.
-* [org.openrewrite.scala.recipes.migrate.http.MigrateAkkaHttpToPekko](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migrateakkahttptopekko.md)
+* [org.openrewrite.scala.migrate.http.MigrateAkkaHttpToPekko](/user-documentation/recipes/recipe-catalog/scala/migrate/http/migrateakkahttptopekko.md)
   * **Find Akka HTTP imports to migrate to Apache Pekko**
   * Finds imports starting with `akka.http`. Akka HTTP should be migrated to Apache Pekko HTTP (`org.apache.pekko.http`), the community-maintained fork.
-* [org.openrewrite.scala.recipes.migrate.http.MigrateDispatch](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migratedispatch.md)
+* [org.openrewrite.scala.migrate.http.MigrateDispatch](/user-documentation/recipes/recipe-catalog/scala/migrate/http/migratedispatch.md)
   * **Migrate Dispatch to sttp or http4s-client**
   * Removes imports starting with `dispatch.`. Dispatch is an unmaintained HTTP client library; consider using sttp, http4s-client, or requests-scala.
-* [org.openrewrite.scala.recipes.migrate.http.MigrateFinagle](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migratefinagle.md)
+* [org.openrewrite.scala.migrate.http.MigrateFinagle](/user-documentation/recipes/recipe-catalog/scala/migrate/http/migratefinagle.md)
   * **Migrate Finagle to http4s, tapir, or pekko-http**
   * Removes imports starting with `com.twitter.finagle`. Finagle is a legacy RPC framework; consider evaluating http4s, tapir, or pekko-http as alternatives.
-* [org.openrewrite.scala.recipes.migrate.http.MigrateScalatra](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migratescalatra.md)
+* [org.openrewrite.scala.migrate.http.MigrateScalatra](/user-documentation/recipes/recipe-catalog/scala/migrate/http/migratescalatra.md)
   * **Migrate Scalatra to http4s, tapir, or Play**
   * Removes imports starting with `org.scalatra`. Scalatra is a servlet-based framework with declining activity; consider migrating to http4s, tapir, or Play Framework.
-* [org.openrewrite.scala.recipes.migrate.json.MigrateJacksonScala](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migratejacksonscala.md)
+* [org.openrewrite.scala.migrate.json.MigrateJacksonScala](/user-documentation/recipes/recipe-catalog/scala/migrate/json/migratejacksonscala.md)
   * **Remove Jackson Scala module imports**
   * Removes imports of the Jackson Scala module (`com.fasterxml.jackson.module.scala.*`). Jackson is a Java-centric library and its Scala module can cause issues with Scala types. Consider using a Scala-native JSON library such as circe or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating.
-* [org.openrewrite.scala.recipes.migrate.json.MigrateJson4s](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migratejson4s.md)
+* [org.openrewrite.scala.migrate.json.MigrateJson4s](/user-documentation/recipes/recipe-catalog/scala/migrate/json/migratejson4s.md)
   * **Remove json4s imports**
   * Removes imports of the json4s library (`org.json4s.*`). json4s has known performance and maintenance concerns and should be replaced with a modern Scala JSON library such as circe or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating.
-* [org.openrewrite.scala.recipes.migrate.json.MigrateLiftJson](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migrateliftjson.md)
+* [org.openrewrite.scala.migrate.json.MigrateLiftJson](/user-documentation/recipes/recipe-catalog/scala/migrate/json/migrateliftjson.md)
   * **Remove lift-json imports**
   * Removes imports of the lift-json library (`net.liftweb.json.*`). lift-json is tightly coupled to the Lift framework and should be replaced with a standalone Scala JSON library such as circe or play-json. Removing the imports causes the compiler to highlight all usage sites that need updating.
-* [org.openrewrite.scala.recipes.migrate.json.MigrateSprayJson](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migratesprayjson.md)
+* [org.openrewrite.scala.migrate.json.MigrateSprayJson](/user-documentation/recipes/recipe-catalog/scala/migrate/json/migratesprayjson.md)
   * **Remove spray-json imports**
   * Removes imports of the spray-json library (`spray.json.*`). spray-json is no longer actively maintained and should be replaced with a modern Scala JSON library such as circe, play-json, or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating.
-* [org.openrewrite.scala.recipes.migrate.play.InjectWsClient](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/injectwsclient.md)
+* [org.openrewrite.scala.migrate.play.InjectWsClient](/user-documentation/recipes/recipe-catalog/scala/migrate/play/injectwsclient.md)
   * **Inject `WSClient` instead of using deprecated `WS`**
   * Finds imports of the deprecated `play.api.libs.ws.WS` object. In Play 2.6+, `WS` was deprecated; inject `WSClient` instead.
-* [org.openrewrite.scala.recipes.migrate.play.MigratePlayGlobalSettings](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/migrateplayglobalsettings.md)
+* [org.openrewrite.scala.migrate.play.MigratePlayGlobalSettings](/user-documentation/recipes/recipe-catalog/scala/migrate/play/migrateplayglobalsettings.md)
   * **Migrate `GlobalSettings` to dependency injection (Play 2.6+)**
   * Finds classes extending `GlobalSettings` and imports of `play.api.GlobalSettings`. GlobalSettings is deprecated in Play 2.6+; use dependency injection instead.
-* [org.openrewrite.scala.recipes.migrate.play.UseAsyncPlayAction](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/useasyncplayaction.md)
+* [org.openrewrite.scala.migrate.play.UseAsyncPlayAction](/user-documentation/recipes/recipe-catalog/scala/migrate/play/useasyncplayaction.md)
   * **Use `Action.async` with `Future` instead of blocking**
   * Finds Play controller actions (`Action \{` or `Action.async \{`) that contain `Await.result` blocking calls. Blocking inside Play Actions can exhaust the thread pool; use `Action.async` with `Future` instead.
-* [org.openrewrite.scala.recipes.migrate.play.UsePlayJsonDirectly](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/useplayjsondirectly.md)
+* [org.openrewrite.scala.migrate.play.UsePlayJsonDirectly](/user-documentation/recipes/recipe-catalog/scala/migrate/play/useplayjsondirectly.md)
   * **Use Play JSON `JsValue` directly**
   * Finds imports of `play.api.libs.json.Json` and usages of `Json.parse` or `Json.toJson` that may rely on deprecated implicit conversions. Consider using `play.api.libs.json.JsValue` directly.
-* [org.openrewrite.scala.recipes.migrate.scala3.MigrateDelayedInit](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/migratedelayedinit.md)
+* [org.openrewrite.scala.migrate.scala3.MigrateDelayedInit](/user-documentation/recipes/recipe-catalog/scala/migrate/scala3/migratedelayedinit.md)
   * **Migrate from `DelayedInit`/`App` to `@main`**
   * Finds classes or objects extending `DelayedInit` or `App`. The `DelayedInit` trait was deprecated in Scala 2.13 and removed in Scala 3. Use `@main` annotation instead.
-* [org.openrewrite.scala.recipes.migrate.scala3.MigrateXmlLiterals](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/migratexmlliterals.md)
+* [org.openrewrite.scala.migrate.scala3.MigrateXmlLiterals](/user-documentation/recipes/recipe-catalog/scala/migrate/scala3/migratexmlliterals.md)
   * **Migrate XML literals to scala-xml interpolation**
   * Finds XML literal usage in Scala code. XML literals were removed in Scala 3; use scala-xml library string interpolation instead.
-* [org.openrewrite.scala.recipes.migrate.scala3.RemoveAutoTupling](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/removeautotupling.md)
+* [org.openrewrite.scala.migrate.scala3.RemoveAutoTupling](/user-documentation/recipes/recipe-catalog/scala/migrate/scala3/removeautotupling.md)
   * **Remove auto-tupling (not available in Scala 3)**
   * Finds imports of `scala.language.autoTupling`. Auto-tupling is not available in Scala 3 and code relying on it must be rewritten.
-* [org.openrewrite.scala.recipes.migrate.scala3.ReplaceDoWhileLoop](/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/replacedowhileloop.md)
+* [org.openrewrite.scala.migrate.scala3.ReplaceDoWhileLoop](/user-documentation/recipes/recipe-catalog/scala/migrate/scala3/replacedowhileloop.md)
   * **Replace do-while loops (removed in Scala 3)**
   * Finds `do-while` loops which were removed in Scala 3. Rewrite using a `while` loop with initial execution of the loop body.
-* [org.openrewrite.scala.recipes.performance.PreferVectorOrPrepend](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/prefervectororprepend.md)
+* [org.openrewrite.scala.performance.PreferVectorOrPrepend](/user-documentation/recipes/recipe-catalog/scala/performance/prefervectororprepend.md)
   * **Prefer Vector or prepend for append-heavy workloads**
   * Finds usage of the `:+` operator to append to a List, which is O(n). Prefer Vector for append-heavy workloads or prepend with `::` instead.
-* [org.openrewrite.scala.recipes.performance.PreferViewMapValues](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/preferviewmapvalues.md)
+* [org.openrewrite.scala.performance.PreferViewMapValues](/user-documentation/recipes/recipe-catalog/scala/performance/preferviewmapvalues.md)
   * **Prefer `.view.mapValues` for Scala 2.13+**
   * Finds calls to `.mapValues` which is deprecated in Scala 2.13+ and returns a lazy view instead of a strict Map. Use `.view.mapValues(...).toMap` instead.
-* [org.openrewrite.scala.recipes.performance.UseCount](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/usecount.md)
+* [org.openrewrite.scala.performance.UseCount](/user-documentation/recipes/recipe-catalog/scala/performance/usecount.md)
   * **Replace `filter` then `size` with `count`**
   * Replaces `.filter(f).size` or `.filter(f).length` chains with `.count(f)` to avoid creating an unnecessary intermediate collection.
-* [org.openrewrite.scala.recipes.performance.UseFlatMap](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/useflatmap.md)
+* [org.openrewrite.scala.performance.UseFlatMap](/user-documentation/recipes/recipe-catalog/scala/performance/useflatmap.md)
   * **Replace `map` then `flatten` with `flatMap`**
   * Replaces `.map(f).flatten` chains with `.flatMap(f)` for clarity and to avoid creating an unnecessary intermediate collection.
-* [org.openrewrite.scala.recipes.performance.UseHeadOption](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/useheadoption.md)
+* [org.openrewrite.scala.performance.UseHeadOption](/user-documentation/recipes/recipe-catalog/scala/performance/useheadoption.md)
   * **Replace `.head` with `.headOption`**
   * Replaces `.head` calls on collections with `.headOption` to avoid `NoSuchElementException` on empty collections.
-* [org.openrewrite.scala.recipes.performance.UseIsEmpty](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/useisempty.md)
+* [org.openrewrite.scala.performance.UseIsEmpty](/user-documentation/recipes/recipe-catalog/scala/performance/useisempty.md)
   * **Use `isEmpty` instead of `size == 0`**
   * Replaces `collection.size == 0` with `collection.isEmpty` for clarity and potential performance benefits.
-* [org.openrewrite.scala.recipes.performance.UseLastOption](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/uselastoption.md)
+* [org.openrewrite.scala.performance.UseLastOption](/user-documentation/recipes/recipe-catalog/scala/performance/uselastoption.md)
   * **Replace `.last` with `.lastOption`**
   * Replaces `.last` calls on collections with `.lastOption` to avoid `NoSuchElementException` on empty collections.
-* [org.openrewrite.scala.recipes.performance.UseNonEmpty](/user-documentation/recipes/recipe-catalog/scala/recipes/performance/usenonempty.md)
+* [org.openrewrite.scala.performance.UseNonEmpty](/user-documentation/recipes/recipe-catalog/scala/performance/usenonempty.md)
   * **Use `nonEmpty` instead of `size &gt; 0`**
   * Replaces `collection.size &gt; 0` with `collection.nonEmpty` for clarity and potential performance benefits.
-* [org.openrewrite.scala.recipes.safety.AvoidThrowInFinally](/user-documentation/recipes/recipe-catalog/scala/recipes/safety/avoidthrowinfinally.md)
+* [org.openrewrite.scala.safety.AvoidThrowInFinally](/user-documentation/recipes/recipe-catalog/scala/safety/avoidthrowinfinally.md)
   * **Avoid throwing in finally blocks**
   * Finds `throw` statements inside `finally` blocks. Throwing in a `finally` block can mask the original exception, making debugging harder.
-* [org.openrewrite.scala.recipes.safety.NarrowCatchClause](/user-documentation/recipes/recipe-catalog/scala/recipes/safety/narrowcatchclause.md)
+* [org.openrewrite.scala.safety.NarrowCatchClause](/user-documentation/recipes/recipe-catalog/scala/safety/narrowcatchclause.md)
   * **Narrow catch clauses that catch `Throwable`**
   * Finds catch blocks that catch `Throwable` and should be narrowed to specific exception types. Catching `Throwable` also catches fatal errors like `OutOfMemoryError` and `StackOverflowError`. Prefer catching specific exception types.
-* [org.openrewrite.scala.recipes.safety.PreferConcurrentUtils](/user-documentation/recipes/recipe-catalog/scala/recipes/safety/preferconcurrentutils.md)
+* [org.openrewrite.scala.safety.PreferConcurrentUtils](/user-documentation/recipes/recipe-catalog/scala/safety/preferconcurrentutils.md)
   * **Prefer `java.util.concurrent` over `synchronized`**
   * Finds `synchronized` blocks in Scala code. Consider using `java.util.concurrent` alternatives for better performance and composability.
-* [org.openrewrite.scala.recipes.safety.RemoveUnusedImport](/user-documentation/recipes/recipe-catalog/scala/recipes/safety/removeunusedimport.md)
+* [org.openrewrite.scala.safety.RemoveUnusedImport](/user-documentation/recipes/recipe-catalog/scala/safety/removeunusedimport.md)
   * **Remove potentially unused imports (heuristic)**
   * Removes imports where the imported simple name does not appear in the rest of the file. This is an approximate heuristic and may produce false positives.
-* [org.openrewrite.scala.recipes.testing.MigrateSpecs2](/user-documentation/recipes/recipe-catalog/scala/recipes/testing/migratespecs2.md)
+* [org.openrewrite.scala.testing.MigrateSpecs2](/user-documentation/recipes/recipe-catalog/scala/testing/migratespecs2.md)
   * **Migrate specs2 to ScalaTest or MUnit**
   * Finds imports of `org.specs2`. Consider migrating to ScalaTest or MUnit.
-* [org.openrewrite.scala.recipes.testing.MigrateToAnyFlatSpec](/user-documentation/recipes/recipe-catalog/scala/recipes/testing/migratetoanyflatspec.md)
+* [org.openrewrite.scala.testing.MigrateToAnyFlatSpec](/user-documentation/recipes/recipe-catalog/scala/testing/migratetoanyflatspec.md)
   * **Migrate from `FlatSpec` to `AnyFlatSpec`**
   * Renames `FlatSpec` to `AnyFlatSpec` in extends clauses and updates the import from `org.scalatest.FlatSpec` to `org.scalatest.flatspec.AnyFlatSpec` (ScalaTest 3.x).
-* [org.openrewrite.scala.recipes.testing.UseNewScalaTestMatchers](/user-documentation/recipes/recipe-catalog/scala/recipes/testing/usenewscalatestmatchers.md)
+* [org.openrewrite.scala.testing.UseNewScalaTestMatchers](/user-documentation/recipes/recipe-catalog/scala/testing/usenewscalatestmatchers.md)
   * **Migrate to `org.scalatest.matchers.should.Matchers`**
   * Replaces imports of `org.scalatest.Matchers` or `org.scalatest.ShouldMatchers` with `org.scalatest.matchers.should.Matchers`.
-* [org.openrewrite.scala.recipes.testing.UseScalaTestMatchers](/user-documentation/recipes/recipe-catalog/scala/recipes/testing/usescalatestmatchers.md)
+* [org.openrewrite.scala.testing.UseScalaTestMatchers](/user-documentation/recipes/recipe-catalog/scala/testing/usescalatestmatchers.md)
   * **Use ScalaTest matchers instead of `assert(x == y)`**
   * Finds `assert(x == y)` patterns and `assertEquals` calls. Consider using ScalaTest matchers: `x shouldBe y`.
 
@@ -5548,7 +5548,7 @@ _3 recipes_
 
 _License: Moderne Proprietary License_
 
-_123 recipes_
+_143 recipes_
 
 * [org.openrewrite.angular.UpgradeToAngular10](/user-documentation/recipes/recipe-catalog/angular/upgradetoangular10.md)
   * **Upgrade to Angular 10**
@@ -5586,6 +5586,9 @@ _123 recipes_
 * [org.openrewrite.angular.UpgradeToAngular21](/user-documentation/recipes/recipe-catalog/angular/upgradetoangular21.md)
   * **Upgrade to Angular 21**
   * Migrates Angular 20.x applications to Angular 21. This includes running the Angular 20 migration first, flagging Karma test runner usage for Vitest migration, deprecated NgClass, zone.js-dependent test helpers, and upgrading TypeScript to 5.9.x.
+* [org.openrewrite.angular.UpgradeToAngular22](/user-documentation/recipes/recipe-catalog/angular/upgradetoangular22.md)
+  * **Upgrade to Angular 22**
+  * Migrates Angular 21.x applications to Angular 22. This includes running the Angular 21 migration first, making the pre-existing change detection, `HttpClient` backend, incremental hydration, strict template, and safe navigation diagnostic defaults explicit, replacing APIs removed in Angular 22, flagging the router behavior changes for review, and upgrading TypeScript to 6.0.x.
 * [org.openrewrite.angular.UpgradeToAngular8](/user-documentation/recipes/recipe-catalog/angular/upgradetoangular8.md)
   * **Upgrade to Angular 8**
   * Migrates Angular 7.x applications to Angular 8. This includes adding the now-required `static: false` to `@ViewChild` and `@ContentChild` decorators, moving the `DOCUMENT` import from `@angular/platform-browser` to `@angular/common`, removing `rxjs-compat` and flagging any remaining RxJS 5-style imports, flagging removed `@angular/http` imports, converting deprecated string-based `loadChildren` to dynamic imports, and upgrading Angular, TypeScript, and related dependency versions.
@@ -5595,18 +5598,36 @@ _123 recipes_
 * [org.openrewrite.angular.migration.add-default-configuration](/user-documentation/recipes/recipe-catalog/angular/migration/add-default-configuration.md)
   * **Add `defaultConfiguration` to build targets**
   * Adds `&quot;defaultConfiguration&quot;: &quot;production&quot;` to build architect targets in `angular.json`. Angular 12 changed `ng build` to produce production bundles by default.
+* [org.openrewrite.angular.migration.add-eager-change-detection](/user-documentation/recipes/recipe-catalog/angular/migration/add-eager-change-detection.md)
+  * **Add `ChangeDetectionStrategy.Eager` to components**
+  * Adds `changeDetection: ChangeDetectionStrategy.Eager` to `@Component` decorators that do not specify a change detection strategy. Angular 22 changed the default for such components to `ChangeDetectionStrategy.OnPush`; making the previous check-always behavior explicit keeps them working unchanged.
+* [org.openrewrite.angular.migration.add-istanbul-instrumenter](/user-documentation/recipes/recipe-catalog/angular/migration/add-istanbul-instrumenter.md)
+  * **Add `istanbul-lib-instrument` for Karma code coverage**
+  * Adds `istanbul-lib-instrument` to `devDependencies` of projects that still depend on Karma. Angular 22 stopped bundling the instrumenter, so Karma code coverage fails without it. Run an install afterwards to refresh the lock file.
 * [org.openrewrite.angular.migration.add-localize-polyfill](/user-documentation/recipes/recipe-catalog/angular/migration/add-localize-polyfill.md)
   * **Add `@angular/localize/init` polyfill import**
   * Adds `import '@angular/localize/init'` to `polyfills.ts`. Angular 9 introduced the `$localize` runtime API for i18n. Projects using internationalization must import this polyfill or the application will fail at runtime with `$localize is not defined`. The `@angular/localize` package must also be added as a dependency.
 * [org.openrewrite.angular.migration.add-module-with-providers-generic](/user-documentation/recipes/recipe-catalog/angular/migration/add-module-with-providers-generic.md)
   * **Add generic type to `ModuleWithProviders`**
   * Adds the required generic type parameter to bare `ModuleWithProviders` return types. Angular 10 requires `ModuleWithProviders&lt;T&gt;` where `T` is the NgModule type. The module type is inferred from the `ngModule` property in the return statement.
+* [org.openrewrite.angular.migration.add-no-incremental-hydration](/user-documentation/recipes/recipe-catalog/angular/migration/add-no-incremental-hydration.md)
+  * **Add `withNoIncrementalHydration()` to `provideClientHydration()`**
+  * Adds the `withNoIncrementalHydration()` opt out to `provideClientHydration()` calls that do not already configure incremental hydration. Angular 22 enables incremental hydration by default; the opt out retains the previous behavior.
 * [org.openrewrite.angular.migration.add-static-false-to-view-queries](/user-documentation/recipes/recipe-catalog/angular/migration/add-static-false-to-view-queries.md)
   * **Add `static: false` to view queries**
   * Adds `static: false` to `@ViewChild` and `@ContentChild` decorators that don't have the `static` property. Angular 8 requires an explicit `static` flag for view query decorators. Using `static: false` preserves the Angular 7 default behavior (queries resolved after change detection).
+* [org.openrewrite.angular.migration.add-strict-templates-false](/user-documentation/recipes/recipe-catalog/angular/migration/add-strict-templates-false.md)
+  * **Add `strictTemplates: false` to `tsconfig.json`**
+  * Adds `&quot;strictTemplates&quot;: false` to `angularCompilerOptions` in `tsconfig.json` when the option is not set. Angular 22 turned strict template type checking on by default; setting it explicitly avoids new compilation errors.
 * [org.openrewrite.angular.migration.add-testbed-teardown](/user-documentation/recipes/recipe-catalog/angular/migration/add-testbed-teardown.md)
   * **Add TestBed module teardown**
   * Adds `\{ teardown: \{ destroyAfterEach: true \} \}` as the third argument to `TestBed.initTestEnvironment()` calls. Angular 13 changed the default teardown behavior, and this ensures explicit opt-in for module teardown after each test.
+* [org.openrewrite.angular.migration.add-trust-proxy-headers](/user-documentation/recipes/recipe-catalog/angular/migration/add-trust-proxy-headers.md)
+  * **Add `trustProxyHeaders` to the Angular app engine**
+  * Adds `trustProxyHeaders: ['x-forwarded-host', 'x-forwarded-proto']` to `new AngularNodeAppEngine()` and `new AngularAppEngine()`. Angular 22 stopped trusting forwarded headers by default; the option restores the previous behavior and carries a TODO to remove it when the server does not sit behind a trusted proxy.
+* [org.openrewrite.angular.migration.add-with-xhr](/user-documentation/recipes/recipe-catalog/angular/migration/add-with-xhr.md)
+  * **Add `withXhr()` to `provideHttpClient()`**
+  * Adds `withXhr()` to `provideHttpClient()` calls that select neither a `withFetch()` nor a `withXhr()` backend. Angular 22 made `FetchBackend` the default `HttpBackend`; `withXhr()` keeps the previous `XMLHttpRequest` based backend, which is also the only one that reports upload progress.
 * [org.openrewrite.angular.migration.enable-aot-build](/user-documentation/recipes/recipe-catalog/angular/migration/enable-aot-build.md)
   * **Enable AOT compilation in `angular.json`**
   * Adds `&quot;aot&quot;: true` to build options in `angular.json`. Angular 9 made AOT compilation the default, and projects upgrading from Angular 8 should enable it explicitly. Build targets using a builder that already defaults `aot` to `true` (`@angular/build:application`, `@angular-devkit/build-angular:application`, `@angular-devkit/build-angular:browser-esbuild`) are left untouched.
@@ -5619,6 +5640,9 @@ _123 recipes_
 * [org.openrewrite.angular.migration.migrate-input-to-signal](/user-documentation/recipes/recipe-catalog/angular/migration/migrate-input-to-signal.md)
   * **Migrate `@Input()` to signal-based `input()`**
   * Converts `@Input()` decorated properties in Angular classes to signal-based `input()` declarations. For example, `@Input() name: string` becomes `name = input&lt;string&gt;()`, and `@Input(\{ required: true \}) name!: string` becomes `name = input.required&lt;string&gt;()`.
+* [org.openrewrite.angular.migration.migrate-model-with-output](/user-documentation/recipes/recipe-catalog/angular/migration/migrate-model-with-output.md)
+  * **Split a `model()` that has a matching explicit output**
+  * Rewrites `foo = model()` to `fooInput = input(\{alias: 'foo'\})` plus `foo = linkedSignal(this.fooInput)` when the same class also declares a `fooChange` output. `model()` already contributes a `fooChange` output, and Angular 22 rejects the resulting duplicate.
 * [org.openrewrite.angular.migration.migrate-output-to-signal](/user-documentation/recipes/recipe-catalog/angular/migration/migrate-output-to-signal.md)
   * **Migrate `@Output()` to signal-based `output()`**
   * Converts `@Output()` decorated properties using `EventEmitter` in Angular classes to signal-based `output()` declarations. For example, `@Output() clicked = new EventEmitter&lt;void&gt;()` becomes `clicked = output&lt;void&gt;()`.
@@ -5673,27 +5697,42 @@ _123 recipes_
 * [org.openrewrite.angular.migration.remove-static-false](/user-documentation/recipes/recipe-catalog/angular/migration/remove-static-false.md)
   * **Remove `static: false` from view queries**
   * Removes `static: false` from `@ViewChild`, `@ContentChild`, `@ViewChildren`, and `@ContentChildren` decorators. In Angular 9 with Ivy, `static: false` became the default behavior, making the explicit option unnecessary.
+* [org.openrewrite.angular.migration.remove-with-fetch](/user-documentation/recipes/recipe-catalog/angular/migration/remove-with-fetch.md)
+  * **Remove `withFetch()` from `provideHttpClient()`**
+  * Removes the `withFetch()` feature from `provideHttpClient()` calls. Angular 22 uses the Fetch API by default and deprecated `withFetch()`, which can be safely removed.
 * [org.openrewrite.angular.migration.remove-zone-js-polyfill](/user-documentation/recipes/recipe-catalog/angular/migration/remove-zone-js-polyfill.md)
   * **Remove zone.js polyfill from angular.json**
   * Removes zone.js entries from the `polyfills` array in `angular.json`. Angular 20 supports zoneless change detection via `provideZonelessChangeDetection()`, making the zone.js polyfill unnecessary.
 * [org.openrewrite.angular.migration.rename-after-render](/user-documentation/recipes/recipe-catalog/angular/migration/rename-after-render.md)
   * **Rename `afterRender` to `afterEveryRender`**
   * Renames `afterRender` to `afterEveryRender` in imports and usages. The `afterRender` function was renamed to `afterEveryRender` in Angular 20, and Angular provides no migration schematic for this change.
+* [org.openrewrite.angular.migration.rename-angular-js-globals](/user-documentation/recipes/recipe-catalog/angular/migration/rename-angular-js-globals.md)
+  * **Rename `getAngularLib`/`setAngularLib` to `getAngularJSGlobal`/`setAngularJSGlobal`**
+  * Renames the `getAngularLib` and `setAngularLib` functions from `@angular/upgrade` to `getAngularJSGlobal` and `setAngularJSGlobal`. The deprecated aliases were removed in Angular 22.
 * [org.openrewrite.angular.migration.rename-check-no-changes](/user-documentation/recipes/recipe-catalog/angular/migration/rename-check-no-changes.md)
   * **Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`**
   * Renames `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug` in imports and usages. The experimental API was promoted to developer preview in Angular 20.
+* [org.openrewrite.angular.migration.rename-default-change-detection](/user-documentation/recipes/recipe-catalog/angular/migration/rename-default-change-detection.md)
+  * **Rename `ChangeDetectionStrategy.Default` to `ChangeDetectionStrategy.Eager`**
+  * Renames the deprecated `ChangeDetectionStrategy.Default` enum member to its Angular 22 replacement `ChangeDetectionStrategy.Eager`. Both members have the same value, so the change is behavior preserving.
 * [org.openrewrite.angular.migration.rename-file](/user-documentation/recipes/recipe-catalog/angular/migration/rename-file.md)
   * **Rename file**
   * Renames files matching a glob pattern to a new file name, preserving the directory.
 * [org.openrewrite.angular.migration.rename-pending-tasks](/user-documentation/recipes/recipe-catalog/angular/migration/rename-pending-tasks.md)
   * **Rename `ExperimentalPendingTasks` to `PendingTasks`**
   * Renames `ExperimentalPendingTasks` to `PendingTasks` in imports and usages. `ExperimentalPendingTasks` was renamed in Angular 19.
+* [org.openrewrite.angular.migration.rename-ssr-experimental-platform](/user-documentation/recipes/recipe-catalog/angular/migration/rename-ssr-experimental-platform.md)
+  * **Rename `ssr.experimentalPlatform` to `ssr.platform` in `angular.json`**
+  * Angular 22 renamed the `ssr.experimentalPlatform` builder option to `ssr.platform` on the `application` and `build-application` builders. Matches the `update-workspace-config` schematic.
 * [org.openrewrite.angular.migration.rename-zoneless-provider](/user-documentation/recipes/recipe-catalog/angular/migration/rename-zoneless-provider.md)
   * **Rename `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection`**
   * Renames `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection` in imports and usages. The experimental API was promoted to developer preview in Angular 20.
 * [org.openrewrite.angular.migration.replace-async-with-wait-for-async](/user-documentation/recipes/recipe-catalog/angular/migration/replace-async-with-wait-for-async.md)
   * **Replace `async` with `waitForAsync`**
   * Replaces the removed `async` test helper from `@angular/core/testing` with `waitForAsync`. The `async` function was deprecated in Angular 11 and removed in Angular 18.
+* [org.openrewrite.angular.migration.replace-create-ng-module-ref](/user-documentation/recipes/recipe-catalog/angular/migration/replace-create-ng-module-ref.md)
+  * **Replace `createNgModuleRef` with `createNgModule`**
+  * Renames `createNgModuleRef` to `createNgModule` in imports and usages. The deprecated `createNgModuleRef` alias was removed in Angular 22.
 * [org.openrewrite.angular.migration.replace-deep-zone-js-imports](/user-documentation/recipes/recipe-catalog/angular/migration/replace-deep-zone-js-imports.md)
   * **Replace deep `zone.js` imports**
   * Replaces legacy deep imports from `zone.js` such as `zone.js/dist/zone` or `zone.js/bundles/zone-testing.js` with the standard `zone.js` or `zone.js/testing` imports, in both TypeScript files and `angular.json` polyfills. Deep imports are no longer allowed in Angular 17.
@@ -5727,6 +5766,9 @@ _123 recipes_
 * [org.openrewrite.angular.migration.replace-view-encapsulation-native](/user-documentation/recipes/recipe-catalog/angular/migration/replace-view-encapsulation-native.md)
   * **Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`**
   * Replaces `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`. `ViewEncapsulation.Native` was deprecated in Angular 6 and removed in Angular 11.
+* [org.openrewrite.angular.migration.suppress-safe-navigation-diagnostics](/user-documentation/recipes/recipe-catalog/angular/migration/suppress-safe-navigation-diagnostics.md)
+  * **Suppress the safe navigation extended diagnostics**
+  * Sets the `nullishCoalescingNotNullable` and `optionalChainNotNullable` extended diagnostics to `suppress` in `angularCompilerOptions` in `tsconfig.json`. Angular 22 narrows types across safe navigation and nullish coalescing in templates, which makes both diagnostics fire on templates that previously compiled cleanly.
 * [org.openrewrite.angular.migration.update-component-template-url](/user-documentation/recipes/recipe-catalog/angular/migration/update-component-template-url.md)
   * **Update component `templateUrl`**
   * Updates the `templateUrl` property value in Angular `@Component` decorators. Useful for refactoring template file paths or standardizing path conventions.
@@ -5760,6 +5802,12 @@ _123 recipes_
 * [org.openrewrite.angular.search.find-browser-transfer-state-module-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-browser-transfer-state-module-usage.md)
   * **Find `BrowserTransferStateModule` usage**
   * Finds usages of `BrowserTransferStateModule` from `@angular/platform-browser` which was removed in Angular 16. `TransferState` can be used directly without this module.
+* [org.openrewrite.angular.search.find-can-match-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-can-match-usage.md)
+  * **Find two argument `canMatch` guard calls**
+  * Finds calls to a `canMatch` guard that pass only a route and its segments. Angular 22 made the `currentSnapshot` parameter of `CanMatch` and `CanMatchFn` required, so those calls no longer compile. Guards that declare fewer parameters keep working and are not reported.
+* [org.openrewrite.angular.search.find-check-no-changes-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-check-no-changes-usage.md)
+  * **Find `ChangeDetectorRef.checkNoChanges` usage**
+  * Finds calls to `checkNoChanges()`, which was removed from `ChangeDetectorRef` in Angular 22. In tests, use `fixture.detectChanges()` instead.
 * [org.openrewrite.angular.search.find-common-module-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-common-module-usage.md)
   * **Find `CommonModule` usage**
   * Finds imports of `CommonModule` from `@angular/common`. Since Angular 19, standalone components are the default and `CommonModule` is no longer needed in component `imports` arrays. Built-in directives and pipes are available automatically.
@@ -5781,9 +5829,15 @@ _123 recipes_
 * [org.openrewrite.angular.search.find-hammer-js-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-hammer-js-usage.md)
   * **Find HammerJS usage**
   * Finds `HammerModule` imports and HammerJS references. Angular has deprecated HammerJS support and it will be removed in Angular 21.
+* [org.openrewrite.angular.search.find-http-xhr-backend-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-http-xhr-backend-usage.md)
+  * **Find `HttpXhrBackend` usage**
+  * Finds imports of `HttpXhrBackend` from `@angular/common/http`. Angular 22 uses the Fetch API by default; add `withXhr()` to `provideHttpClient()` to keep using `XMLHttpRequest`, which is also required for upload progress reports.
 * [org.openrewrite.angular.search.find-i18n-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-i18n-usage.md)
   * **Find i18n usage**
   * Finds i18n usage indicators: legacy i18n configuration in `angular.json` (`i18nLocale`, `i18nFile`, `i18nFormat`, `i18nMissingTranslation`), `$localize` tagged template literals, and `@angular/localize` imports. Projects with these markers need `@angular/localize` installed and `import '@angular/localize/init'` in `polyfills.ts` for Angular 9+.
+* [org.openrewrite.angular.search.find-implicit-params-inheritance](/user-documentation/recipes/recipe-catalog/angular/search/find-implicit-params-inheritance.md)
+  * **Find router configuration relying on the default `paramsInheritanceStrategy`**
+  * Finds `provideRouter()` and `RouterModule.forRoot()` calls that do not set `paramsInheritanceStrategy`. Angular 22 changed the default from `emptyOnly` to `always`, so route parameters and data are now inherited from all parent routes.
 * [org.openrewrite.angular.search.find-karma-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-karma-usage.md)
   * **Find Karma test runner usage**
   * Finds Karma test runner configuration in package.json dependencies and angular.json test builder. Angular 21 replaces Karma with Vitest as the default test runner.
@@ -5817,6 +5871,9 @@ _123 recipes_
 * [org.openrewrite.angular.search.find-preserve-query-params-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-preserve-query-params-usage.md)
   * **Find deprecated `preserveQueryParams` usage**
   * Finds usages of the deprecated `preserveQueryParams` navigation option. `preserveQueryParams` was deprecated in Angular 4 and removed in Angular 11. Use `queryParamsHandling: 'preserve'` instead.
+* [org.openrewrite.angular.search.find-provide-routes-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-provide-routes-usage.md)
+  * **Find `provideRoutes` usage**
+  * Finds imports of `provideRoutes` from `@angular/router`, which was removed in Angular 22. Use `provideRouter()`, or provide the `ROUTES` multi token directly.
 * [org.openrewrite.angular.search.find-provided-in-deprecated-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-provided-in-deprecated-usage.md)
   * **Find deprecated `providedIn` values**
   * Finds usages of `providedIn: 'any'` and `providedIn: NgModule` in `@Injectable` and `InjectionToken` declarations. These were deprecated in Angular 15. Use `providedIn: 'root'` or add the service to `NgModule.providers` instead.
@@ -5850,6 +5907,9 @@ _123 recipes_
 * [org.openrewrite.angular.search.find-setup-testing-router-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-setup-testing-router-usage.md)
   * **Find `setupTestingRouter` usage**
   * Finds usages of the removed `setupTestingRouter` function from `@angular/router/testing`. This function was removed in Angular 17. Use `RouterModule.forRoot` or `provideRouter` to set up the Router for tests instead.
+* [org.openrewrite.angular.search.find-template-safe-navigation](/user-documentation/recipes/recipe-catalog/angular/search/find-template-safe-navigation.md)
+  * **Find safe navigation in Angular templates**
+  * Finds `?.` in HTML templates and in inline `template` metadata. Angular 22 changed safe navigation in templates to return `undefined` instead of `null`, which changes bindings that tell the two apart. Angular ships a `$safeNavigationMigration()` wrapper for this; this recipe reports the templates to review rather than rewriting the expressions.
 * [org.openrewrite.angular.search.find-testability-pending-request-usage](/user-documentation/recipes/recipe-catalog/angular/search/find-testability-pending-request-usage.md)
   * **Find removed Testability pending request methods**
   * Finds imports of `Testability` from `@angular/core`, which had `increasePendingRequestCount`, `decreasePendingRequestCount`, and `getPendingRequestCount` removed in Angular 18. These are now tracked with zones.
@@ -6316,7 +6376,7 @@ _13 recipes_
 
 _License: Moderne Proprietary License_
 
-_38 recipes_
+_39 recipes_
 
 * [io.moderne.hibernate.MigrateToHibernate40](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40.md)
   * **Migrate to Hibernate 4.0.x**
@@ -6378,6 +6438,9 @@ _38 recipes_
 * [io.moderne.hibernate.update70.MigrateIntegratorMethod](/user-documentation/recipes/recipe-catalog/hibernate/update70/migrateintegratormethod.md)
   * **Migrate Hibernate `Integrator#integrate` method**
   * Migrate Hibernate `Integrator#integrate` method from deprecated signature to Hibernate 7 compatible signature. Changes `integrate(Metadata, SessionFactoryImplementor, SessionFactoryServiceRegistry)` to `integrate(Metadata, BootstrapContext, SessionFactoryImplementor)`.
+* [io.moderne.hibernate.update70.MigrateJacksonDatatypeHibernate6To7](/user-documentation/recipes/recipe-catalog/hibernate/update70/migratejacksondatatypehibernate6to7.md)
+  * **Migrate `jackson-datatype-hibernate6` to `jackson-datatype-hibernate7`**
+  * Swaps the `jackson-datatype-hibernate6` dependency for `jackson-datatype-hibernate7`, along with the types it provides. Both the Jackson 2 (`com.fasterxml.jackson.datatype`) and Jackson 3 (`tools.jackson.datatype`) coordinates are handled, such that this recipe is applicable both before and after a migration to Jackson 3.
 * [io.moderne.hibernate.update70.MigrateJdbcTypeToJdbcTypeCode](/user-documentation/recipes/recipe-catalog/hibernate/update70/migratejdbctypetojdbctypecode.md)
   * **Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`**
   * In Hibernate 7.0, various JDBC types were moved to internal packages. Use `@JdbcTypeCode` with `SqlTypes` constants instead of `@JdbcType` with specific classes. Also rewrites `@Type(LegacyType.class)` references to deprecated Hibernate basic types (e.g. `MaterializedBlobType`, `ImageType`) into the equivalent `@JdbcTypeCode(SqlTypes.X)`.
@@ -6753,7 +6816,7 @@ _41 recipes_
 
 _License: Moderne Proprietary License_
 
-_120 recipes_
+_137 recipes_
 
 * [io.moderne.prethink.ExtractCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/extractcodingconventions.md)
   * **Extract coding conventions**
@@ -6770,6 +6833,9 @@ _120 recipes_
 * [io.moderne.prethink.ExtractNodeDependencies](/user-documentation/recipes/recipe-catalog/prethink/extractnodedependencies.md)
   * **Extract Node.js dependencies and usage**
   * Scan package.json and JavaScript/TypeScript imports to produce a DependencyUsage entry per actually-imported npm package, including the symbols imported from it, the import styles in use, and how many files import it.
+* [io.moderne.prethink.ExtractRubyDependencies](/user-documentation/recipes/recipe-catalog/prethink/extractrubydependencies.md)
+  * **Extract Ruby dependencies**
+  * Read Gemfile, gemspec and Gemfile.lock manifests and emit rows into the shared dependency-list-report table, mirroring the JVM dependency inventory. Records the Bundler group a gem was declared in and whether it comes from a git or path source rather than RubyGems, and joins the resolved versions in Gemfile.lock, including transitive gems, onto the gems the Gemfile and gemspec declare.
 * [io.moderne.prethink.FindGoCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findgocodingconventions.md)
   * **Find Go coding conventions**
   * Detect Go naming patterns (package names, exported vs unexported, interface -er suffix, error variable prefix, test prefix).
@@ -6779,6 +6845,12 @@ _120 recipes_
 * [io.moderne.prethink.FindNodeCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findnodecodingconventions.md)
   * **Find JavaScript and TypeScript coding conventions**
   * Detect JavaScript/TypeScript conventions the Java convention extractor cannot see: import styles (default, named, namespace, type-only, side-effect, path-alias), React hook and component naming, the Props suffix for prop types, UPPER_SNAKE_CASE constants, and JSDoc comments.
+* [io.moderne.prethink.FindRubyCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findrubycodingconventions.md)
+  * **Find Ruby coding conventions**
+  * Detect Ruby conventions the Java convention extractor cannot see: snake_case method names, the `?` and `!` method suffixes, the `frozen_string_literal` magic comment, `require` versus `require_relative`, module namespacing depth, and whether visibility is declared as a section or per method.
+* [io.moderne.prethink.FindRubyErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/findrubyerrorpatterns.md)
+  * **Find Ruby error handling patterns**
+  * Detect Ruby error-handling idioms: bare, bound and typed `rescue` clauses, the `rescue` modifier, `ensure`, `retry`, `raise` with a class versus a string, custom error classes, and whether rescues log through `Rails.logger` or a bare `logger`.
 * [io.moderne.prethink.PythonDependencyReport](/user-documentation/recipes/recipe-catalog/prethink/pythondependencyreport.md)
   * **Python dependency report**
   * Read the dependency graph attached to Python manifests (pyproject.toml, Pipfile, requirements.txt, setup.cfg) by the parser and emit rows into the shared dependency-list-report table, mirroring the JVM dependency inventory. Includes declared (direct) dependencies and, when a lock file resolved them, transitive dependencies with concrete versions.
@@ -6788,6 +6860,9 @@ _120 recipes_
 * [io.moderne.prethink.UpdatePrethinkContextStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
   * **Update Prethink context**
   * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams.
+* [io.moderne.prethink.calm.FindActiveRecordModels](/user-documentation/recipes/recipe-catalog/prethink/calm/findactiverecordmodels.md)
+  * **Find ActiveRecord models**
+  * Identify ActiveRecord model classes in Ruby on Rails applications. Detects classes whose superclass chain reaches `ApplicationRecord` or `ActiveRecord::Base`, taking the table name from an explicit `self.table_name`, from the single-table inheritance parent that owns the table, or by pluralizing the class name, and skipping abstract classes. Also detects `connects_to` and `establish_connection` connections and Mongoid documents, and joins the database type from the `adapter:` of `config/database.yml`.
 * [io.moderne.prethink.calm.FindAspNetCoreEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findaspnetcoreendpoints.md)
   * **Find ASP.NET Core endpoints**
   * Identify HTTP endpoints declared via ASP.NET Core controllers ([ApiController], [Route], [HttpGet/Post/...]) and Minimal APIs (app.MapGet/MapPost/MapPut/MapDelete/MapPatch).
@@ -6905,6 +6980,9 @@ _120 recipes_
 * [io.moderne.prethink.calm.FindGoScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/findgoscheduledtasks.md)
   * **Find Go scheduled tasks**
   * Detect background work scheduled through robfig/cron, go-co-op/gocron, `time.NewTicker`/`time.Tick`, and `time.AfterFunc` in Go source.
+* [io.moderne.prethink.calm.FindGoSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findgosecurityconfiguration.md)
+  * **Find Go security configuration**
+  * Identify security configuration in Go applications: CORS middleware, JWT / basic / OAuth2 authentication, CSRF protection, security headers, rate limiting, and TLS termination.
 * [io.moderne.prethink.calm.FindGoServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgoserviceendpoints.md)
   * **Find Go service endpoints**
   * Detect HTTP endpoints registered via net/http, gin, echo, chi, gorilla/mux, and fiber routers.
@@ -6959,6 +7037,33 @@ _120 recipes_
 * [io.moderne.prethink.calm.FindPythonTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findpythontestcoverage.md)
   * **Find Python test coverage**
   * Identify test methods in Python test files. Detects pytest test functions/classes, unittest.TestCase subclasses, and behave/pytest-bdd/lettuce BDD step definitions, and populates the TestMapping table.
+* [io.moderne.prethink.calm.FindRailsDataAssets](/user-documentation/recipes/recipe-catalog/prethink/calm/findrailsdataassets.md)
+  * **Find Rails data assets**
+  * Identify ActiveRecord entities and their columns from `db/schema.rb`, or from `db/migrate/*.rb` when no schema dump is checked in. Association macros declared in `app/models` enrich the entity they belong to.
+* [io.moderne.prethink.calm.FindRailsEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findrailsendpoints.md)
+  * **Find Rails endpoints**
+  * Identify HTTP endpoints declared in a Rails router. Expands `resources` and `resource` into their canonical actions, composes paths through `namespace`, `scope`, `member`, `collection` and `concern` nesting, expands `devise_for`, and reconciles every route against the controllers under `app/controllers`.
+* [io.moderne.prethink.calm.FindRubyHttpClients](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubyhttpclients.md)
+  * **Find Ruby HTTP clients**
+  * Detect outbound HTTP calls made through Net::HTTP, Faraday, HTTParty, RestClient, http.rb, Typhoeus, or ActiveResource.
+* [io.moderne.prethink.calm.FindRubyMessaging](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubymessaging.md)
+  * **Find Ruby messaging**
+  * Identify messaging patterns in Ruby applications. Detects Sidekiq, ActiveJob, Resque, ActionCable, Karafka, Racecar, and Shoryuken consumers, including those that reach their framework through a base class of the application's own, along with the call sites that enqueue to them.
+* [io.moderne.prethink.calm.FindRubyMicroframeworkEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubymicroframeworkendpoints.md)
+  * **Find Sinatra and Grape endpoints**
+  * Detect HTTP endpoints declared as verb calls with a block in Sinatra and Grape applications, composing Grape paths through `namespace`, `resource` and `route_param` nesting.
+* [io.moderne.prethink.calm.FindRubyProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubyprojectmetadata.md)
+  * **Find Ruby project metadata**
+  * Extract project metadata (name, version, summary) from Ruby gemspecs, from the Rails application module declared in config/application.rb, or failing both from the directory holding a Gemfile. Only the most specific of the three sources present contributes rows, so a repository resolves to one identity.
+* [io.moderne.prethink.calm.FindRubyScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubyscheduledtasks.md)
+  * **Find Ruby scheduled tasks**
+  * Identify recurring background work in Ruby applications. Detects whenever schedules in `config/schedule.rb`, sidekiq-cron jobs created through `Sidekiq::Cron::Job.create` or declared under `:schedule:` in `config/sidekiq.yml`, clockwork `every` declarations in `clock.rb`, and rufus-scheduler `cron`/`every`/`in`/`at` calls.
+* [io.moderne.prethink.calm.FindRubySecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubysecurityconfiguration.md)
+  * **Find Ruby security configuration**
+  * Detect Rails authentication, authorization, CSRF, and transport security mechanisms: `before_action`/`skip_before_action` authentication filters, `protect_from_forgery`, Devise model configuration, Pundit, CanCanCan, `config.force_ssl`, and `has_secure_password`.
+* [io.moderne.prethink.calm.FindRubyTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubytestcoverage.md)
+  * **Find Ruby test coverage**
+  * Identify RSpec examples and Minitest tests in Ruby test files and record them in the test mapping table. Joins each test to the class it exercises by Rails naming convention: the constant its `describe` names, its own class name minus the `Test` suffix, or the path of the spec, accepted only when a Ruby file declaring that class was scanned.
 * [io.moderne.prethink.calm.FindSQLAlchemyModels](/user-documentation/recipes/recipe-catalog/prethink/calm/findsqlalchemymodels.md)
   * **Find SQLAlchemy and Django ORM models**
   * Identify ORM model classes in Python applications. Detects SQLAlchemy models with DeclarativeBase inheritance, Flask-SQLAlchemy models with db.Model, and Django ORM models extending models.Model.
@@ -7025,6 +7130,15 @@ _120 recipes_
 * [io.moderne.prethink.quality.FindPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findpackagemetrics.md)
   * **Find package quality metrics**
   * Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm.
+* [io.moderne.prethink.quality.FindRubyMethodComplexity](/user-documentation/recipes/recipe-catalog/prethink/quality/findrubymethodcomplexity.md)
+  * **Find Ruby method complexity**
+  * Compute per-method code quality metrics for Ruby including cyclomatic complexity, cognitive complexity, max nesting depth, line count, parameter count, ABC metric, and Halstead measures.
+* [io.moderne.prethink.quality.FindRubyPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findrubypackagemetrics.md)
+  * **Find Ruby package quality metrics**
+  * Per-directory architectural metrics for Ruby: afferent/efferent coupling, instability, abstractness (module ratio), distance from main sequence, and cycle detection.
+* [io.moderne.prethink.quality.FindRubyTypeMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findrubytypemetrics.md)
+  * **Find Ruby type quality metrics**
+  * Compute per-class code quality metrics for Ruby including WMC, LCOM4, TCC, CBO, and maintainability index. Aggregates classes and modules of the same name across files.
 * [io.moderne.prethink.quality.FindSimilarCode](/user-documentation/recipes/recipe-catalog/prethink/quality/findsimilarcode.md)
   * **Find similar code**
   * Detect structurally similar (but not identical) methods with MinHash/LSH near-duplicate matching over their AST shingles (zero AI), reporting an approximate similarity percentage. Complements exact duplicate detection by surfacing restructured near-duplicates worth consolidating.
@@ -7390,7 +7504,7 @@ _6 recipes_
 
 _License: Moderne Proprietary License_
 
-_208 recipes_
+_213 recipes_
 
 * [io.moderne.java.jsf.MigrateToJsf_2_3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
   * **Migrate to JSF 2.3**
@@ -7565,7 +7679,7 @@ _208 recipes_
   * Adds `@AutoConfigureMockMvc` annotation to classes annotated with `@SpringBootTest` that use `MockMvc`.
 * [io.moderne.java.spring.boot4.AddFlywayStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addflywaystarters.md)
   * **Add Flyway starters**
-  * Adds spring-boot-starter-flyway and spring-boot-starter-flyway-test dependencies when Flyway usage is detected in the module.
+  * Adds the spring-boot-starter-flyway dependency when Flyway usage is detected in the module.
 * [io.moderne.java.spring.boot4.AddJackson2ForJerseyJson](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addjackson2forjerseyjson.md)
   * **Add Jackson2 for Jersey using JSON**
   * Check whether a module uses Jersey on combination with JSON and adds the needed `spring-boot-jackson` dependency and conditionally `spring-boot-jackson2` dependency.
@@ -7574,10 +7688,10 @@ _208 recipes_
   * When migrating from `@MockBean` to `@MockitoBean`, the implicit LENIENT Mockito strictness from Spring Boot's `MockitoPostProcessor` is lost. If `@ExtendWith(MockitoExtension.class)` is present, Mockito enforces STRICT_STUBS by default, causing `UnnecessaryStubbingException` for tests with unused stubs. This recipe adds `@MockitoSettings(strictness = Strictness.LENIENT)` to preserve the original behavior.
 * [io.moderne.java.spring.boot4.AddLiquibaseStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addliquibasestarters.md)
   * **Add Liquibase starters**
-  * Adds spring-boot-starter-liquibase and spring-boot-starter-liquibase-test dependencies when Liquibase usage is detected in the module.
+  * Adds the spring-boot-starter-liquibase dependency when Liquibase usage is detected in the module.
 * [io.moderne.java.spring.boot4.AddModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarters.md)
   * **Add Spring Boot 4.0 modular starters**
-  * Add Spring Boot 4.0 starter dependencies based on package usage. Note: Higher-level starters (like data-jpa) include lower-level ones (like jdbc) transitively, so only the highest-level detected starter is added for each technology.
+  * Add Spring Boot 4.0 starter dependencies based on package usage. Note: Higher-level starters (like data-jpa) include lower-level ones (like jdbc) transitively, so only the highest-level detected starter is added for each technology. A `-test` starter is only added when the module actually uses the test support it provides, such as a test slice annotation like `@DataJpaTest`. Production usage alone does not pull one in, so `-test` starters without a matching test-side trigger are skipped.
 * [io.moderne.java.spring.boot4.AddMongoDbRepresentationProperties](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmongodbrepresentationproperties.md)
   * **Add MongoDB representation properties for UUID and BigDecimal**
   * Adds the 'spring.mongodb.representation.uuid' property with value 'standard' and the 'spring.data.mongodb.representation.big-decimal' property with the value 'decimal128' to Spring configuration files when a MongoDB dependency is detected.
@@ -7680,6 +7794,9 @@ _208 recipes_
 * [io.moderne.java.spring.boot4.PreserveReactorHttpClientDefaults_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/preservereactorhttpclientdefaults_4_1.md)
   * **Preserve system-proxy defaults on Reactor HTTP client builders**
   * Spring Boot 4.1 no longer applies `proxyWithSystemProperties()` by default on `ReactorClientHttpRequestFactoryBuilder` and `ReactorClientHttpConnectorBuilder`. This recipe appends `.withHttpClientDefaults()` to affected builder chains to restore the previous behavior, but only while the module is still on a Spring Boot older than 4.1. Gating on the current version keeps the method from being reintroduced when a developer deliberately removes it after upgrading and later runs an upgrade to a newer 4.2+ release.
+* [io.moderne.java.spring.boot4.RelocateAutoConfigurationExcludes](/user-documentation/recipes/recipe-catalog/java/spring/boot4/relocateautoconfigurationexcludes.md)
+  * **Expand split `spring.autoconfigure.exclude` entries for Spring Boot 4.0**
+  * Spring Boot 4.0 split several auto-configurations across per-technology modules, so that what one class configured in 3.5 is now configured by two or more independently activating classes. An application excluding the old class keeps only part of it disabled after the upgrade. One-to-one relocations need no recipe of their own: `ChangeType` and `ChangePackage` already rewrite fully qualified names in `application.properties` and `application.yaml` through `org.openrewrite.trait.Reference`. A `Reference` renames to a single name, however, so one-to-many splits are out of its reach. This recipe expands them into all of their successors, as derived from the `AutoConfiguration.imports` files of Spring Boot 3.5 and 4.0. Excluding a class that is not on the classpath is ignored by Spring Boot, so successors that an application does not use are harmless.
 * [io.moderne.java.spring.boot4.RemoveContentNegotiationFavorPathExtension](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removecontentnegotiationfavorpathextension.md)
   * **Remove `ContentNegotiationConfigurer.favorPathExtension()` calls**
   * Spring Framework 7 removed `favorPathExtension()` from `ContentNegotiationConfigurer`. Path extension content negotiation is no longer supported. This recipe removes calls to `favorPathExtension()`.
@@ -7692,6 +7809,9 @@ _208 recipes_
 * [io.moderne.java.spring.boot4.RemoveHttpMessageConvertersAutoConfigurationReferences](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removehttpmessageconvertersautoconfigurationreferences.md)
   * **Remove `HttpMessageConvertersAutoConfiguration` references**
   * Removes references to the deprecated `HttpMessageConvertersAutoConfiguration` class which was removed in Spring Boot 4.0. For `@AutoConfigureAfter` and `@AutoConfigureBefore` annotations, the reference is removed. For `@Import` annotations, a TODO comment is added since manual migration may be required.
+* [io.moderne.java.spring.boot4.RemoveJacksonBuiltInModuleBeans](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removejacksonbuiltinmodulebeans.md)
+  * **Remove `@Bean` methods for modules built-in to Jackson 3**
+  * In Jackson 3 `ParameterNamesModule`, `Jdk8Module` and `JavaTimeModule` are built into `jackson-databind`, and the classes themselves are gone, so a `@Bean` method producing one fails to compile after the Jackson 2 to 3 package migration. Removes `@Bean` methods that merely instantiate such a module, and flags those that customize one. Run this before the Jackson 2 to 3 package migration, while the module types still resolve.
 * [io.moderne.java.spring.boot4.RemoveKafkaPropertiesSslBundlesParameter](/user-documentation/recipes/recipe-catalog/java/spring/boot4/removekafkapropertiessslbundlesparameter.md)
   * **Remove `SslBundles` parameter from `KafkaProperties` build methods**
   * In Spring Boot 4.0, the `SslBundles` parameter was removed from `KafkaProperties.buildProducerProperties`, `buildConsumerProperties`, `buildAdminProperties`, and `buildStreamsProperties`. This recipe removes the argument from method calls.
@@ -7719,6 +7839,9 @@ _208 recipes_
 * [io.moderne.java.spring.boot4.ReplaceRedisCacheConfigurationGetTtl](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacerediscacheconfigurationgetttl.md)
   * **Replace removed `RedisCacheConfiguration.getTtl()`**
   * Spring Data Redis 4.0 removes `RedisCacheConfiguration.getTtl()`. Replaces calls with `getTtlFunction().getTimeToLive(null, null)`, which returns the same `Duration`.
+* [io.moderne.java.spring.boot4.ReplaceServletWebServerFactoryGetters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/replaceservletwebserverfactorygetters.md)
+  * **Read servlet web server factory settings through `getSettings()`**
+  * Spring Boot 4.0 moved the servlet web server factory getters onto `ServletWebServerSettings`, reachable through `ConfigurableServletWebServerFactory.getSettings()`. Calls such as `factory.getMimeMappings()` become `factory.getSettings().getMimeMappings()`. The setters and `getContextPath()` remain on the factory, and are left alone.
 * [io.moderne.java.spring.boot4.SimplifyOptionalConfigurationPropertiesNullChecks](/user-documentation/recipes/recipe-catalog/java/spring/boot4/simplifyoptionalconfigurationpropertiesnullchecks.md)
   * **Simplify null checks on `Optional` `@ConfigurationProperties` parameters**
   * Spring Boot 4.1 changes constructor-bound `@ConfigurationProperties` so that `Optional&lt;T&gt;` parameters bind to `Optional.empty()` rather than `null`. This recipe replaces `== null` / `!= null` checks against such parameters (or same-named fields in the binding constructor's class) with the constant they will always evaluate to, then runs `SimplifyConstantIfBranchExecution` to remove the dead branches.
@@ -7902,9 +8025,15 @@ _208 recipes_
 * [io.moderne.java.spring.framework7.MigrateAbstractClientHttpResponse](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateabstractclienthttpresponse.md)
   * **Migrate `AbstractClientHttpResponse` to `ClientHttpResponse`**
   * Spring Framework 6.0 removed `org.springframework.http.client.AbstractClientHttpResponse`. This recipe rewrites `extends AbstractClientHttpResponse` to `implements ClientHttpResponse`, flags any `super.*()` calls inside the converted class with a TODO comment (those calls no longer compile), and renames remaining type references (variables, parameters, fields, casts, generics, return types) to the `ClientHttpResponse` interface.
+* [io.moderne.java.spring.framework7.MigrateCookieLocaleResolverCookieMaxAge](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratecookielocaleresolvercookiemaxage.md)
+  * **Migrate `CookieLocaleResolver#setCookieMaxAge(Integer)` to `Duration`**
+  * `CookieLocaleResolver#setCookieMaxAge(Integer)` was deprecated in Spring Framework 6.0 and removed in Spring Framework 7.0, leaving only the `Duration` overload. This recipe wraps the seconds argument in `Duration.ofSeconds(..)`.
+* [io.moderne.java.spring.framework7.MigrateCookieLocaleResolverCookieName](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratecookielocaleresolvercookiename.md)
+  * **Migrate `CookieLocaleResolver#setCookieName(String)` to the constructor**
+  * `CookieLocaleResolver#setCookieName(String)` was deprecated in Spring Framework 6.0 and removed in Spring Framework 7.0. This recipe moves the cookie name into the `CookieLocaleResolver(String)` constructor and removes the setter call.
 * [io.moderne.java.spring.framework7.MigrateDeprecatedAPIs](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratedeprecatedapis.md)
   * **Migrate deprecated APIs removed in Spring Framework 7.0**
-  * Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, and NestedServletException to ServletException type migration.
+  * Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, CookieLocaleResolver cookie name and max age configuration, and NestedServletException to ServletException type migration.
 * [io.moderne.java.spring.framework7.MigrateHttpStatusToRfc9110](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratehttpstatustorfc9110.md)
   * **Migrate `HttpStatus` enum values to RFC 9110 names**
   * Spring Framework 7.0 aligns HttpStatus enum values with RFC 9110. This recipe replaces deprecated status code constants with their RFC 9110 equivalents: `PAYLOAD_TOO_LARGE` becomes `CONTENT_TOO_LARGE` and `UNPROCESSABLE_ENTITY` becomes `UNPROCESSABLE_CONTENT`.

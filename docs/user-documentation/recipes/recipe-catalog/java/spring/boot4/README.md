@@ -1,17 +1,18 @@
 ---
-description: Boot4 OpenRewrite recipes.
+description: Spring Boot 4.x OpenRewrite recipes.
 ---
 
-# Boot4
+# Spring Boot 4.x
+
+_Recipes for migrating to [Spring Boot 4](https://spring.io/projects/spring-boot)._
 
 ## Composite Recipes
 
 _Recipes that include further recipes, often including the individual recipes below._
 
-* [Add Flyway starters](./addflywaystarters.md)
 * [Add Jackson2 for Jersey using JSON](./addjackson2forjerseyjson.md)
-* [Add Liquibase starters](./addliquibasestarters.md)
 * [Add MongoDB representation properties for UUID and BigDecimal](./addmongodbrepresentationproperties.md)
+* [Add Spring Boot 4.0 modular starter dependencies](./addmodularstarterdependencies.md)
 * [Add Spring Boot 4.0 modular starters](./addmodularstarters.md)
 * [Add `spring-boot-starter-data-mongodb-reactive-test` for reactive MongoDB tests](./addspringbootstarterdatamongodbreactivetest.md)
 * [Add `spring-boot-starter-data-mongodb-test` for imperative MongoDB tests](./addspringbootstarterdatamongodbtest.md)
@@ -61,10 +62,13 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Add `@AutoConfigureTestRestTemplate` if necessary](./addautoconfiguretestresttemplate.md)
 * [Add `@AutoConfigureWebTestClient` if necessary](./addautoconfigurewebtestclient.md)
 * [Add `@MockitoSettings(strictness = Strictness.LENIENT)` for `@MockitoBean` tests](./addlenientmockitosettings.md)
+* [Add Flyway starters](./addflywaystarters.md)
+* [Add Liquibase starters](./addliquibasestarters.md)
 * [Add explicit version for REST Assured](./migraterestassured.md)
 * [Add `spring-boot-starter-flyway` if using Flyway](./addspringbootstarterflyway.md)
 * [Add `useDefaultJaasConfig=true` to MSSQL Kerberos JDBC URLs](./addmssqlkerberosjaasconfig.md)
 * [Co-exclude `UserDetailsServiceAutoConfiguration` on auto-configuration exclusion annotations](./adduserdetailsserviceautoconfigurationexclusiontoannotations.md)
+* [Expand split `spring.autoconfigure.exclude` entries for Spring Boot 4.0](./relocateautoconfigurationexcludes.md)
 * [Flag deprecated ReactorNettyHttpClientMapper for migration](./flagdeprecatedreactornettyhttpclientmapper.md)
 * [Flag gRPC client stub injections that need `@ImportGrpcClients`](./flaggrpcclientstubsforimportgrpcclients.md)
 * [Migrate `@AutoConfigureMockMvc` HtmlUnit attributes to nested `@HtmlUnit`](./migrateautoconfiguremockmvchtmlunit.md)
@@ -83,6 +87,8 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Preserve `PropertyMapper` null-passing behavior](./insertpropertymapperalwaysmethodinvocation.md)
 * [Preserve system-proxy defaults on Reactor HTTP client builders](./addwithhttpclientdefaultstoreactorbuilders.md)
 * [Preserve system-proxy defaults on Reactor HTTP client builders](./preservereactorhttpclientdefaults_4_1.md)
+* [Read servlet web server factory settings through `getSettings()`](./replaceservletwebserverfactorygetters.md)
+* [Remove `@Bean` methods for modules built-in to Jackson 3](./removejacksonbuiltinmodulebeans.md)
 * [Remove `ContentNegotiationConfigurer.favorPathExtension()` calls](./removecontentnegotiationfavorpathextension.md)
 * [Remove `HttpMessageConvertersAutoConfiguration` references](./removehttpmessageconvertersautoconfigurationreferences.md)
 * [Remove `ZipkinAutoConfiguration`](./removezipkinautoconfigurationexclude.md)

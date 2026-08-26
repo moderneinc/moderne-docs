@@ -23,6 +23,8 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find Spring Theme support usage](./findthemesupportusage.md)
 * [Find removed Spring servlet view classes](./findservletviewsupportusage.md)
 * [Migrate `AbstractClientHttpResponse` to `ClientHttpResponse`](./migrateabstractclienthttpresponse.md)
+* [Migrate `CookieLocaleResolver#setCookieMaxAge(Integer)` to `Duration`](./migratecookielocaleresolvercookiemaxage.md)
+* [Migrate `CookieLocaleResolver#setCookieName(String)` to the constructor](./migratecookielocaleresolvercookiename.md)
 * [Migrate `Jackson2ObjectMapperBuilder` to mapper builder pattern](./migratejackson2objectmapperbuilder.md)
 * [Migrate `ListenableFuture` to `CompletableFuture`](./migratelistenablefuture.md)
 * [Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`](./migrateresponseentitygetstatuscodevaluemethod.md)

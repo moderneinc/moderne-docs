@@ -1,14 +1,14 @@
 ---
-title: "Find potentially redundant type conversion"
-sidebar_label: "Find potentially redundant type conversion"
+title: "Remove redundant type conversion"
+sidebar_label: "Remove redundant type conversion"
 hide_title: true
 ---
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Find potentially redundant type conversion"}
-  description={"Find type conversions like `int(x)` that may be redundant if x is already the target type. Requires type attribution for full accuracy."}
+  displayName={"Remove redundant type conversion"}
+  description={"Remove a conversion whose operand already has the target type, such as `string(s)` where `s` is a `string`. `byte` and `uint8` name one type, as do `rune` and `int32`, so a conversion between either pair is removed too. A conversion of an untyped constant is what gives the constant its type, so it stays."}
   fqName={"org.openrewrite.golang.codequality.RemoveRedundantTypeConversion"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -26,13 +26,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   moderneOnly
 >
 
-<RecipeHeader.Title>Find potentially redundant type conversion</RecipeHeader.Title>
+<RecipeHeader.Title>Remove redundant type conversion</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find type conversions like `int(x)` that may be redundant if x is already the target type. Requires type attribution for full accuracy.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove a conversion whose operand already has the target type, such as `string(s)` where `s` is a `string`. `byte` and `uint8` name one type, as do `rune` and `int32`, so a conversion between either pair is removed too. A conversion of an untyped constant is what gives the constant its type, so it stays.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.golang.codequality.RemoveRedundantTypeConversion","displayName":"Find potentially redundant type conversion","goPackage":"github.com/moderneinc/recipes-go","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_RECIPES_GO"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.golang.codequality.RemoveRedundantTypeConversion","displayName":"Remove redundant type conversion","goPackage":"github.com/moderneinc/recipes-go","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_RECIPES_GO"}}>
 
 ## Usage
 

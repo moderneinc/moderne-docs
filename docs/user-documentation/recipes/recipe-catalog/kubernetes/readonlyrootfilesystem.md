@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addconfiguration/"}]}>
+<RecipeList recipes={[{"name":"Add Kubernetes pod spec configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addpodspecconfiguration/"}]}>
 
 ## Definition
 

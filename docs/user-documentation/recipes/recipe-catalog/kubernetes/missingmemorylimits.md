@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Find missing configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/search/findresourcemissingconfiguration/"}]}>
+<RecipeList recipes={[{"name":"Find containers with missing configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/search/findcontainermissingconfiguration/"}]}>
 
 ## Definition
 

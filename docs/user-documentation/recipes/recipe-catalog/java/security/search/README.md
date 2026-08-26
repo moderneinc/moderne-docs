@@ -18,6 +18,7 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Find Apache Commons BeanUtils property assignments](./findbeanpropertyassignment.md)
+* [Find JDBC connections with empty passwords](./findjdbcemptypassword.md)
 * [Find Jackson default type mapping enablement](./findjacksondefaulttypemapping.md)
 * [Find OS command injection vectors](./findcommandinjection.md)
 * [Find RSA encryption without OAEP padding](./findrsawithoutoaep.md)
@@ -37,6 +38,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find sensitive API endpoints](./findsensitiveapiendpoints.md)
 * [Find unsafe reflection vectors](./findunsafereflection.md)
 * [Find unsigned JWT usage](./findunsignedjwt.md)
+* [Find `wait`/`notify`/`notifyAll` called on a Thread instance](./findwaitnotifyonthread.md)
 * [Find weak Spring Security password encoders](./findweakspringpasswordencoder.md)
 * [Find weak cryptographic algorithms](./findweakcryptoalgorithm.md)
 * [Find weak message digests used inside custom `PasswordEncoder` implementations](./findweakdigestinpasswordencoder.md)

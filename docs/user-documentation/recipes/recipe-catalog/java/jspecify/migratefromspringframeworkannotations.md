@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Move annotation to array type","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jspecify/moveannotationtoarraytype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Move annotation to type instead of field","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/java/movefieldannotationtotype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Move annotation to array type","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jspecify/moveannotationtoarraytype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Move annotation to type instead of field","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/java/movefieldannotationtotype/"},{"name":"Remove duplicate annotations","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/removeduplicateannotations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
