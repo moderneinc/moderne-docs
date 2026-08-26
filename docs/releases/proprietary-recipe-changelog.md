@@ -12,6 +12,115 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## August 26, 2026
 
+#### recipes-csharp - 0.6.0
+
+* Mirror the NuGet packages to the Code Genome Project
+
+#### recipes-go - 0.6.2
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### recipes-kotlin - 0.4.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+* Bump Kotlin to 2.4.10 to match rewrite-kotlin's compiler plugin
+
+#### recipes-scala - 0.5.0
+
+* Name the marketplace categories instead of capitalizing packages
+* Drop the redundant `recipes` package segment
+
+#### rewrite-ai - 0.4.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-ai-search - 0.35.5
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-android - 0.18.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-angular - 1.10.0
+
+* Add UpgradeToAngular22 recipe
+* Bump @openrewrite/rewrite from 8.88.2 to 8.88.4 in /recipes-angular
+* Bump @openrewrite/rewrite from 8.88.4 to 8.90.0 in /recipes-angular
+* Always publish snapshots
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+* Set moduleResolution to bundler in tsconfig files for Angular 21
+* Bump @openrewrite/rewrite from 8.90.0 to 8.90.1 in /recipes-angular
+* Avoid redundant traversal in JsonVisitor recipes
+
+#### rewrite-circleci - 3.12.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-cobol - 2.24.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+* Record every BIND on a card, and delete the dead markers package
+* Read the DB2 DDL a program's columns come from
+
+#### rewrite-compiled-analysis - 0.15.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-concourse - 3.11.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-cryptography - 0.15.0
+
+* Remove rewrite-analysis dependency from build.gradle.kts
+* Apply the dependency-check plugin at the root project
+* Expect the taint-tracking recipes to settle on the first cycle
+
+#### rewrite-devcenter - 1.31.5
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-devcenter - 1.31.4
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-dotnet - 0.17.4
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-dropwizard - 0.7.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-elastic - 0.8.4
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-hibernate - 0.28.0
+
+* Drop the nexusPublishing block
+
+#### rewrite-jasperreports - 0.6.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-java-application-server - 0.9.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-java-application-server - 0.9.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-java-security - 3.39.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-java-security - 3.39.0
+
+* Let the CLI smoke test resolve snapshots from the Code Genome Project
+
 #### rewrite-java-security - 3.38.3
 
 * Add FindJdbcEmptyPassword (Sonar S2115)
@@ -19,9 +128,111 @@ This changelog is automatically generated from GitHub releases and only contains
 * Remove duplicate org.openrewrite.golang category descriptor
 * Add OWASP LLM01 prompt-injection recipes
 
+#### rewrite-kafka - 0.7.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-kubernetes - 3.18.0
+
+* Fix latent defects across recipes: silent manifest corruption, crashes, and false positives
+* Preserve PodDisruptionBudget selector semantics across the policy/v1 move
+* Stop publishing to Maven Central
+* Structured output, cross-file analysis, and the Sylva migration recipes
+* Migrate Ingress and HorizontalPodAutoscaler bodies, not just their versions
+* Fix the blockers found by review and by running the recipes against customer repositories
+* Right-size the recipe descriptions, and split the Cluster API core migration per kind
+* Extend the das-schiff to Sylva migration: mirrors, export-range classification, and static drift
+* Write Das Schiff as the proper noun it is
+* OpenRewrite recipe best practices
+
+#### rewrite-migrate-kotlin - 0.8.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-migrate-python - 0.13.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-nodejs - v0.48.2
+
+* Adapt util type-checking recipe to template parenthesizing in @openrewrite/rewrite 8.91.0
+
+#### rewrite-nodejs - 0.48.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-nullability - 0.5.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-nullability - 0.5.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-prethink - 0.13.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-prethink - 0.13.0
+
+* Add Ruby/Rails support across the prethink recipe set
+* Stop two polyglot prethink recipes from failing on non-Java sources
+* Fix NPE in Go prethink recipes on grouped type declarations
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+* Detect Go security configuration and stop two Go recipes duplicating every row
+
+#### rewrite-program-analysis - 0.15.0
+
+* Stop building a source cursor over a null tree
+
+#### rewrite-program-analysis - 0.14.2
+
+* Updated repository to use OpenRewrite version v8.91.0
+
 #### rewrite-program-analysis - 0.14.1
 
 * Share interprocedural taint-analysis state across a compilation unit
+
+#### rewrite-react - 0.6.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-reactive-streams - 0.20.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-release-metromap - 0.6.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-spring - 0.41.0
+
+* Stop pinning the latest Spring Cloud patch in release-tracking tests
+* Drop the nexusPublishing block
+
+#### rewrite-sql - 2.16.0
+
+* Support data-modifying Common Table Expression (CTE) bodies in SqlDetector
+
+#### rewrite-struts - 0.28.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-tapestry - 0.6.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-terraform - 3.14.8
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-vulncheck - 0.8.2
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-vulncheck - 0.8.1
+
+* Updated repository to use OpenRewrite version v8.91.0
 
 ## August 25, 2026
 
