@@ -10,6 +10,19 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 26, 2026
+
+#### rewrite-java-security - 3.38.3
+
+* Add FindJdbcEmptyPassword (Sonar S2115)
+* Add FindWaitNotifyOnThread (Sonar S2236)
+* Remove duplicate org.openrewrite.golang category descriptor
+* Add OWASP LLM01 prompt-injection recipes
+
+#### rewrite-program-analysis - 0.14.1
+
+* Share interprocedural taint-analysis state across a compilation unit
+
 ## August 25, 2026
 
 #### recipes-go - 0.6.1
@@ -38,6 +51,17 @@ This changelog is automatically generated from GitHub releases and only contains
 * Take indentation only when copying a statement's prefix
 * Declare each error sentinel once per package
 * Build rewritten nodes from templates instead of hand-attribution
+
+#### rewrite-java-security - 3.38.2
+
+* Add FindJdbcEmptyPassword (Sonar S2115)
+* Add FindWaitNotifyOnThread (Sonar S2236)
+* Remove duplicate org.openrewrite.golang category descriptor
+* Add OWASP LLM01 prompt-injection recipes
+
+#### rewrite-program-analysis - 0.14.0
+
+* Match taint sinks by id, and stop retaining cursors in the accumulator
 
 ## August 21, 2026
 
