@@ -1916,7 +1916,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `systemPrompt` | [Prompt](#prompt)! | The effective system prompt for this context. Cascades: user > organization > universal > built-in default. |
+| `systemPrompt` | [Prompt](#prompt)! | The effective system prompt for this context. Cascades: user &gt; organization &gt; universal &gt; built-in default. |
 | `adminOnly` | Boolean! | When true, only administrators can create conversations or send messages. Install-level policy flag; the UI uses this together with the viewer's admin status to gate the Moddy menu entry. |
 | `conversations` | (first: Int = 50, after: String, where: [ConversationWhereInput](#conversationwhereinput), orderBy: [[ConversationOrderByInput](#conversationorderbyinput)!]): [ConversationConnection](#conversationconnection)! |  |
 | `providerName` | String | Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when no LLM provider is configured (in which case `capabilities.moddy` is also false — clients should gate the chat composer on the capability, not on this field). |
@@ -4034,7 +4034,7 @@ The kind of scope a `RecipeInstallation` lives in -- the discriminant of the
 
 Priority level for recipe runs.
 HIGH priority runs target small organizations (≤100 repositories).
-LOW priority runs target large organizations (>100 repositories).
+LOW priority runs target large organizations (&gt;100 repositories).
 
 * `HIGH`
 * `LOW`
@@ -4649,7 +4649,7 @@ Commit to a fork of the origin repository.
 | Field | Type | Description |
 |-------|------|-------------|
 | `organization` | String | Organization to create the fork in. If unset, creates in user's personal account. |
-| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions. Example: openrewrite/rewrite -> myuser/openrewrite__rewrite |
+| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions. Example: openrewrite/rewrite -&gt; myuser/openrewrite__rewrite |
 
 ##### `GoRecipeBundleInput`
 
@@ -5096,7 +5096,7 @@ Filter for repository changesets.
 | `origin` | [StringFilter](#stringfilter) | Filter by repository origin. |
 | `branch` | [StringFilter](#stringfilter) | Filter by repository branch. |
 | `files` | [FileChangeWhereInput](#filechangewhereinput) | Filter files within matching repositories. Useful for filtering to specific file patterns (e.g., all build.gradle.kts files). |
-| `onlyWithResults` | Boolean | Only return repositories with results (filesWithResults > 0). |
+| `onlyWithResults` | Boolean | Only return repositories with results (filesWithResults &gt; 0). |
 | `state` | [RepositoryChangesetStateFilter](#repositorychangesetstatefilter) | Filter by repository result state. |
 | `_and` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Logical AND - all conditions must match. |
 | `_or` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Logical OR - at least one condition must match. |
