@@ -11,7 +11,7 @@ You can also re-categorize existing recipes from other modules (e.g., OpenRewrit
 
 In this guide, we will walk you through how to define categories for your own recipes, how to re-categorize existing recipes under a custom structure, and how to deploy these categories to the Moderne Platform.
 
-## Defining categories for your own recipes
+## Defining categories for JVM recipes
 
 To create your own categories, you will need to create a `category.yml` file that maps your Java package structure to human-readable category names. After that, you will need to generate a `recipes.csv` file that the Moderne Platform will read when displaying recipes in the Marketplace.
 
@@ -72,6 +72,87 @@ For more details, see the [recipes.csv reference](../../../user-documentation/mo
 :::
 
 Once validation passes, you can [publish and deploy the artifact to the Moderne Platform](#deploying-recipe-artifacts-to-the-moderne-platform).
+
+## Defining categories for Python, JavaScript, Go, and C# recipes
+
+Recipes in these languages declare their categories in code rather than in a configuration file. Each package has an activation entry point that installs its recipes, and the category path is an argument to that call.
+
+There is no `category.yml` file to write and no `recipes.csv` file to generate and ship inside your package. Your tenant's Marketplace is still stored as a CSV, but the Moderne Platform builds that file for you when you install the package.
+
+In every language the path runs from shallowest to deepest, and levels that do not exist yet are created on install.
+
+For the full authoring workflow in each language, check out the guides for [writing Python recipes](../../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-python-recipes.md), [writing a JavaScript refactoring recipe](../../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-javascript-refactoring-recipe.md), and [writing a C# refactoring recipe](../../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-csharp-refactoring-recipe.md).
+
+### Python
+
+The path is a list passed to `marketplace.install()`:
+
+```python
+from rewrite import CategoryDescriptor
+from rewrite.marketplace import RecipeMarketplace
+
+ExamplePython = [
+    CategoryDescriptor(display_name="Example"),
+    CategoryDescriptor(display_name="Python"),
+]
+
+
+def activate(marketplace: RecipeMarketplace) -> None:
+    marketplace.install(MyRecipe, ExamplePython)
+```
+
+### JavaScript and TypeScript
+
+The path is an array passed to `marketplace.install()`:
+
+```typescript
+import { RecipeMarketplace, CategoryDescriptor } from '@openrewrite/rewrite';
+
+export const ExampleCleanup: CategoryDescriptor[] = [
+    {displayName: "Example"},
+    {displayName: "Cleanup"},
+];
+
+export async function activate(marketplace: RecipeMarketplace): Promise<void> {
+    await marketplace.install(MyRecipe, ExampleCleanup);
+}
+```
+
+### Go
+
+The levels are variadic arguments to `Register`:
+
+```go
+func Activate(r *recipe.Registry) {
+    r.Register(&MyRecipe{},
+        recipe.CategoryDescriptor{DisplayName: "Example"},
+        recipe.CategoryDescriptor{DisplayName: "Cleanup"})
+}
+```
+
+### C#
+
+The path is expressed as attributes on the recipe class. `[Category]` opens the path and the attributes after it form the levels, which you declare as `CategoryDescriptorAttribute` subclasses:
+
+```csharp
+[Category, Example, Cleanup]
+public class MyRecipe : Recipe
+{
+    // ...
+}
+```
+
+### Understanding how categories are matched
+
+Whatever language a recipe is written in, a category is keyed by its display name. The Marketplace stores only the display name of each level in a path, so package names, module paths, and namespaces play no part in matching.
+
+That is what lets recipes from different languages share a category. If your organization publishes Java recipes named `com.example.recipes.*`, those appear under a top-level **Example** category, since `com` is a root category that gets skipped and the next segment is capitalized into a display name. Declaring `CategoryDescriptor(display_name="Example")` in a Python package files its recipes under that same category.
+
+There is no shared registry to import from, so every package that uses a category declares its own descriptor for it. If several of your packages file into the same category, publish the descriptors in a small shared library and depend on it from each one, rather than copying them by hand.
+
+:::tip
+Copy the display name and description of an existing category exactly. No ecosystem takes precedence. Whichever bundle is installed first owns the node, and a later one can only fill in a description that was left blank. Copying both is what keeps the result the same no matter which order things are installed in.
+:::
 
 ## Sorting existing recipes into your own categories
 

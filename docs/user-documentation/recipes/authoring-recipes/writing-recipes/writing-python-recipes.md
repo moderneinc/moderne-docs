@@ -299,6 +299,8 @@ def activate(marketplace: RecipeMarketplace) -> None:
 #highlight-end
 ```
 
+That second argument is the recipe's category path, which decides where it shows up in the marketplace. `Python` files it under the top-level **Python** category. To group your recipes under your own organization instead, check out [categorizing your recipe](#categorizing-your-recipe) below.
+
 We also will need to describe the package in a `pyproject.toml` file:
 
 ```toml title="pyproject.toml"
@@ -309,10 +311,19 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "rename-function-call"
 version = "0.1.0"
+dependencies = ["openrewrite"]
 
 [tool.setuptools]
 py-modules = ["rename_function_call"]
+
+[project.entry-points."openrewrite.recipes"]
+rename-function-call = "rename_function_call:activate"
 ```
+
+Two parts of that file are what make your recipe discoverable, and the install fails quietly without either one:
+
+* `dependencies = ["openrewrite"]` is required because the CLI installs each recipe package into its own virtual environment. A package that does not declare `openrewrite` cannot import `rewrite` when `activate()` runs.
+* The `openrewrite.recipes` entry point is how the CLI finds your `activate()` function. It points at `module:function`, so keep it in step with your module name if you rename either one.
 
 With the `activate()` function and `pyproject.toml` file in place, the package is ready to install into the Moderne CLI.
 
@@ -326,7 +337,11 @@ mod config recipes pip install /path/to/your/recipe-project
 
 You should see `Found 1 recipes` if everything worked correctly - which confirms that your recipe was registered.
 
-When you install from a local path, the CLI reads the `name` from your `pyproject.toml` file, imports the module of that name (with dashes converted to underscores), and calls its `activate()` function. That is why the distribution is named `rename-function-call`: it resolves to the `rename_function_call` module, where `activate()` lives. Make sure to keep those two names aligned.
+:::warning
+`Found 0 recipes` means the CLI installed your package but could not activate it. The install still reports success and writes nothing to its log, so the recipe count is the only signal you get.
+
+The two usual causes are a missing `openrewrite.recipes` entry point and a missing `openrewrite` dependency. Check both in your `pyproject.toml` file before looking anywhere else.
+:::
 
 Now run it against a repository whose Python LSTs you've already built, passing each option as a `-P` parameter:
 
@@ -334,26 +349,118 @@ Now run it against a repository whose Python LSTs you've already built, passing 
 mod run . --recipe=com.yourorg.RenameFunctionCall -Pold_name=assertEquals -Pnew_name=assertEqual
 ```
 
-When you are done, you can remove the recipe from your local marketplace:
+When you are done, you can remove the recipe from your local marketplace. A package installed from a local path is keyed by that path, so pass the same path you installed:
 
 ```bash
-mod config recipes pip delete rename-function-call
+mod config recipes pip delete /path/to/your/recipe-project
 ```
+
+:::tip
+Deleting by distribution name reports success without removing anything when the package was installed from a path. If your recipes are still in the marketplace afterwards, you passed the wrong key.
+:::
 
 ### Publishing your recipe
 
-To share your recipe so others can install it by name, declare an `openrewrite.recipes` entry point in your `pyproject.toml` file. This is how the CLI discovers recipes inside a published package:
-
-```toml
-[project.entry-points."openrewrite.recipes"]
-rename-function-call = "rename_function_call:activate"
-```
-
-Once your package is published to a package index, anyone can install it by name and run it exactly as you did locally:
+The `openrewrite.recipes` entry point you already declared is what lets anyone who installs your package pick up its recipes. Once the package is published to a package index, others can install it by name and run it exactly as you did locally:
 
 ```bash
 mod config recipes pip install rename-function-call
 ```
+
+## Categorizing your recipe
+
+The marketplace organizes recipes into a tree of categories, and every recipe has to say where in that tree it belongs. In Python you declare that placement in `activate()`, as the category path you hand to `marketplace.install()`.
+
+### Building a category path
+
+A category path is a list of `CategoryDescriptor` objects ordered from shallowest to deepest. The `Python` constant you imported is a one-element list, so you can splice it into a longer path:
+
+```python
+from rewrite import CategoryDescriptor
+from rewrite.marketplace import Python
+
+Cleanup = [*Python, CategoryDescriptor(display_name="Cleanup")]
+```
+
+Installing a recipe with that path files it under **Python > Cleanup**:
+
+```python
+def activate(marketplace: RecipeMarketplace) -> None:
+    marketplace.install(RemoveRedundantPass, Cleanup)
+```
+
+Levels that don't exist yet are created on install. You can also install the same recipe twice to have it show up under two different paths.
+
+### Nesting under an existing category
+
+A category has no identifier of its own. It's keyed by its display name, so any two bundles that install recipes under the same name land in the same node of the tree, whatever language they were written in. There's no shared registry to import from. Each package declares its own descriptor, and matching ones merge.
+
+Say your organization already publishes Java recipes named `com.example.recipes.*`. Those show up under a top-level **Example** category, since `com` is a root category that gets skipped and the next segment is capitalized into a display name. To file your Python recipes there too:
+
+```python title="rename_function_call.py"
+from rewrite import CategoryDescriptor
+from rewrite.marketplace import RecipeMarketplace
+
+Example = [CategoryDescriptor(
+    display_name="Example",
+    description="Recipes maintained by the Example platform team.",
+)]
+ExamplePython = [*Example, CategoryDescriptor(display_name="Python")]
+
+
+def activate(marketplace: RecipeMarketplace) -> None:
+    marketplace.install(RenameFunctionCall, ExamplePython)
+```
+
+Your recipes now show up under **Example > Python**, alongside the Java ones under **Example**.
+
+:::warning
+Copy the existing display name and description exactly, capitalization included. Whichever bundle is installed first owns the node. A later one can fill in a description that was left blank, but it can never change a display name or overwrite a description. Copying both is what makes the result the same no matter which order things are installed in.
+:::
+
+If several of your own packages file recipes into the same category, you can publish the descriptors in a small shared package and depend on it from each one rather than copying them by hand. Give that package no `openrewrite.recipes` entry point, so the CLI treats it as a plain dependency instead of a recipe bundle.
+
+### Declaring the category on the recipe class
+
+Repeating the path in every `install()` call gets old once you have more than a few recipes. The `@categorize` decorator lets each recipe carry its own:
+
+```python title="rename_function_call.py"
+from dataclasses import dataclass
+
+from rewrite import CategoryDescriptor, Recipe, categorize
+
+ExamplePython = [
+    CategoryDescriptor(display_name="Example"),
+    CategoryDescriptor(display_name="Python"),
+]
+
+
+@categorize(ExamplePython)
+@dataclass
+class RenameFunctionCall(Recipe):
+    """Rename calls to a function from one name to another."""
+
+    # ... the options, properties, and editor() from the previous step ...
+```
+
+Your `activate()` function can then read those paths back instead of hard-coding them:
+
+```python title="__init__.py"
+import sys
+
+from rewrite import RecipeMarketplace, discover_decorated_recipes_in_module
+
+
+def activate(marketplace: RecipeMarketplace) -> None:
+    for recipe_class, category in discover_decorated_recipes_in_module(sys.modules[__name__]):
+        marketplace.install(recipe_class, category)
+```
+
+`discover_decorated_recipes_in_module()` finds every decorated `Recipe` subclass in a module and returns it paired with its path. Called from your `__init__.py`, it picks up everything that file imports, so a new recipe needs nothing but an import and a decorator. It looks at a single module, so recipes that live in subpackages have to be imported into `__init__.py` before it will find them.
+
+:::warning
+`@categorize` records a path on the class. It doesn't install anything. If you decorate a recipe but leave a hard-coded path in its `install()` call, the decorator is ignored and `activate()` wins.
+:::
 
 ## Next steps
 
