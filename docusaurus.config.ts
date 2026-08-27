@@ -146,7 +146,6 @@ const config: Config = {
             require.resolve('@moderneinc/design-system-tokens/moderne.css'),
             './src/css/tokens-supplement.css',
             './src/css/custom.css',
-            './src/css/morpheus-theme.css',
           ],
         },
       } satisfies Preset.Options,

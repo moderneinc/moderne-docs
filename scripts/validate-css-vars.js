@@ -16,7 +16,6 @@ function getAllDefinedVariables() {
     // Custom variables
     'src/css/custom.css',
     // Morpheus mapping layer + design-system token supplement
-    'src/css/morpheus-theme.css',
     'src/css/tokens-supplement.css',
   ];
 
