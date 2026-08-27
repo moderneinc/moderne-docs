@@ -5152,51 +5152,13 @@ Republishing to update dependencies
 
 ## August 27, 2025
 
-#### rewrite-ai-search - 0.30.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-circleci - 3.7.3
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-compiled-analysis - 0.8.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-concourse - 3.7.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
 #### rewrite-devcenter - 1.7.0
 
 * DevCenter for Apache Maven org in app.moderne.io
 
-#### rewrite-dotnet - 0.13.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-hibernate - 0.10.0
-
-* Replace annotation for Hibernate 7.0
-* Migrate Session load, get and refresh to getReference, find and refresh
-* Migrate Hibernate CascadeType constants
-* NaturalIdLoadAccess#using(Object...) and NaturalIdMultiLoadAccess#compoundValue(Object...) removed in favor of (Map) variants
-* Hibernate7: LockRequest to new LockOptions implementation
-* Remove Unnecessary Cast to Session from createEntityManager
-* Hibernate7 - Remove deprecated LockOptions
-
 #### rewrite-java-security - 3.17.0
 
 * chore(ci): bump actions/setup-java from 4 to 5
-
-#### rewrite-program-analysis - 0.4.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-reactive-streams - 0.16.0
-
-* Use classpath from resource for Refaster
 
 #### rewrite-spring - 0.12.0
 
@@ -5206,16 +5168,4 @@ Republishing to update dependencies
 * [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-08-26T1110
 * Add Spring Boot 3.5 deprecation recipes
 * Enabled test after upstream fix
-
-#### rewrite-sql - 2.6.3
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-struts - 0.19.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-terraform - 3.8.0
-
-* Find required providers
 
