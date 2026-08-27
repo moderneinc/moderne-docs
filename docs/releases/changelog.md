@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.9.0 (2026/08/27)
+
+- try-in-app first-time-user guided tour
+- add /dependabot-triage command
+
 ### UI v14.8.0 (2026/08/24)
 
 - add Profiling link to the Pyroscope profiler
