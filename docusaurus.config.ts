@@ -143,7 +143,7 @@ const config: Config = {
         },
         theme: {
           customCss: [
-            '@moderneinc/design-system-tokens/moderne.css',
+            require.resolve('@moderneinc/design-system-tokens/moderne.css'),
             './src/css/tokens-supplement.css',
             './src/css/custom.css',
             './src/css/morpheus-theme.css',

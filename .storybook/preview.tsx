@@ -9,7 +9,7 @@ import {
   NavbarProvider,
 } from '@docusaurus/theme-common/internal';
 
-// Geist is loaded from Google Fonts via .storybook/preview-head.html,
+// Geist is loaded from Google Fonts via the previewHead in .storybook/main.ts,
 // matching how the site loads it (see docusaurus.config.ts headTags).
 
 // Import Infima CSS framework (Docusaurus base styles)
