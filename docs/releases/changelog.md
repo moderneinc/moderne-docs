@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.10.0 (2026/08/27)
+
+- add API examples to the data tables tab
+
 ### UI v14.9.0 (2026/08/27)
 
 - try-in-app first-time-user guided tour
