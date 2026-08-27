@@ -20,8 +20,8 @@
    Overriding the base font family here retints every component that reads them
    (h1, admonition titles, DocSearch keys, …) in one place. */
 :root {
-  --ifm-font-family-base: var(--mod-font-family-body);
-  --ifm-font-family-monospace: var(--mod-font-family-code);
+  --ifm-font-family-base: var(--mod-font-family-body), system-ui, sans-serif;
+  --ifm-font-family-monospace: var(--mod-font-family-code), ui-monospace, monospace;
 }
 
 /* Antialiased rendering (as in the Morpheus prototype's `body`). Without this,

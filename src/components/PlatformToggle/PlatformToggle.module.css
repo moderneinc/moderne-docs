@@ -14,7 +14,7 @@
 
 .segment {
   padding: var(--mod-spacing_1_2) var(--mod-spacing_2);
-  font-family: var(--mod-font-family-body);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: var(--mod-font-size-sm);
   font-weight: var(--mod-font-weight-medium);
   line-height: 1.4;

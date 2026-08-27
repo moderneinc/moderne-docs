@@ -29,7 +29,7 @@
 }
 
 .sectionCount {
-  font-family: var(--mod-font-family-code);
+  font-family: var(--mod-font-family-code), ui-monospace, monospace;
   font-size: var(--mod-font-size-xs);
   color: var(--mod-color-text-tertiary);
   margin-left: auto;

@@ -71,7 +71,7 @@
   align-items: center;
   gap: var(--mod-spacing_1_2);
   padding: var(--mod-spacing_1) 0;
-  font-family: var(--mod-font-family-body);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: var(--mod-font-size-default);
   font-weight: var(--mod-font-weight-medium);
   color: var(--ifm-navbar-link-color);
@@ -129,7 +129,7 @@
   align-items: center;
   gap: var(--mod-spacing_1);
   padding: var(--mod-spacing_1_1_2) var(--mod-spacing_2);
-  font-family: var(--mod-font-family-body);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: var(--mod-font-size-sm);
   color: var(--ifm-navbar-link-color);
   text-decoration: none;

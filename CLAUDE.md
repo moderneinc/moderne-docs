@@ -54,8 +54,8 @@ namespace. When modifying any CSS module (`.module.css`), follow this workflow:
    in the package instead.
 
 2. **Never use fallback values** with `--mod-*` tokens:
-   * ❌ Bad: `var(--mod-space-2, 8px)`
-   * ✅ Good: `var(--mod-space-2)`
+   * ❌ Bad: `var(--mod-spacing_1, 8px)`
+   * ✅ Good: `var(--mod-spacing_1)`
    * Rationale: missing tokens should surface immediately, not fail silently.
 
 3. **Prefer mode-aware tokens over `[data-theme='dark']` overrides.** Color, surface,

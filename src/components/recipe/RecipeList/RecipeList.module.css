@@ -80,7 +80,7 @@ flex: 1;
   border: none;
   background-color: transparent;
   outline: none;
-  font-family: var(--mod-font-family-body);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: var(--mod-font-size-sm);
   color: var(--mod-color-text-primary);
 }

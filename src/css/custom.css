@@ -602,7 +602,7 @@ html[data-theme='dark'] .markdown a > code {
 }
 
 .theme-admonition [class*='admonitionTitle_'] {
-  font-family: var(--mod-font-family-body);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-weight: var(--mod-font-weight-semi-bold);
   font-size: var(--mod-font-size-h5);
   line-height: 1.3;
