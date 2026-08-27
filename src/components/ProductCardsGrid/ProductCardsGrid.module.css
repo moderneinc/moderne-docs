@@ -7,7 +7,7 @@
 .browseByProduct {
   display: flex;
   flex-direction: column;
-  gap: var(--mor-space-5);
+  gap: var(--mod-spacing_2_1_2);
 }
 
 /* Section header: title on the left, right-aligned area count, divided from the
@@ -15,23 +15,23 @@
 .sectionHead {
   display: flex;
   align-items: baseline;
-  gap: var(--mor-space-4);
-  border-bottom: 1px solid var(--mor-line);
-  padding-bottom: var(--mor-space-3);
+  gap: var(--mod-spacing_2);
+  border-bottom: 1px solid var(--mod-color-border-primary);
+  padding-bottom: var(--mod-spacing_1_1_2);
 }
 
 .sectionTitle {
   font-size: 22px;
-  font-weight: var(--mor-font-weight-semibold);
+  font-weight: var(--mod-font-weight-semi-bold);
   letter-spacing: -0.02em;
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   margin: 0;
 }
 
 .sectionCount {
-  font-family: var(--mor-font-mono);
-  font-size: var(--mor-font-size-xs);
-  color: var(--mor-muted);
+  font-family: var(--mod-font-family-code);
+  font-size: var(--mod-font-size-xs);
+  color: var(--mod-color-text-tertiary);
   margin-left: auto;
 }
 
@@ -41,7 +41,7 @@
 .productGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-  gap: var(--mor-space-4);
+  gap: var(--mod-spacing_2);
 }
 
 /* Flat, borderless surface tile (matches the prototype's .area). It raises one
@@ -49,16 +49,16 @@
    the boundary rather than a stroke. */
 .productCard {
   display: flex;
-  padding: var(--mor-space-5);
-  background: var(--mor-surface);
+  padding: var(--mod-spacing_2_1_2);
+  background: var(--mod-color-surface-sunken);
   border: none;
-  border-radius: var(--mor-radius-xs);
+  border-radius: var(--mod-border-radius-x-xs);
   text-decoration: none;
   transition: background-color var(--ifm-transition-fast) ease;
 }
 
 .productCard:hover {
-  background: var(--mor-surface-2);
+  background: var(--mod-color-surface-sunken-deep);
   text-decoration: none;
 }
 
@@ -69,25 +69,25 @@
 }
 
 .productCardTitle {
-  font-size: var(--mor-font-size-lg);
-  font-weight: var(--mor-font-weight-semibold);
-  color: var(--mor-text);
+  font-size: var(--mod-font-size-default);
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-primary);
   margin: 0;
   line-height: 1.3;
 }
 
 .productCardDescription {
-  font-size: var(--mor-font-size-md);
-  font-weight: var(--mor-font-weight-regular);
-  color: var(--mor-muted);
-  margin: var(--mor-space-6px) 0 0;
+  font-size: var(--mod-font-size-caption);
+  font-weight: var(--mod-font-weight-regular);
+  color: var(--mod-color-text-tertiary);
+  margin: var(--mod-spacing_3_4) 0 0;
   line-height: 1.5;
 }
 
 /* "Explore →" affordance — link-colored, sits below the description. */
 .explore {
-  margin-top: var(--mor-space-3);
-  font-size: var(--mor-font-size-sm);
-  font-weight: var(--mor-font-weight-semibold);
-  color: var(--mor-link);
+  margin-top: var(--mod-spacing_1_1_2);
+  font-size: var(--mod-font-size-xs);
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-action-default);
 }

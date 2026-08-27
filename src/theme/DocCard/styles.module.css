@@ -1,18 +1,18 @@
 .cardContainer {
-  --ifm-link-color: var(--mor-text);
-  --ifm-link-hover-color: var(--mor-text);
+  --ifm-link-color: var(--mod-color-text-primary);
+  --ifm-link-hover-color: var(--mod-color-text-primary);
   --ifm-link-hover-decoration: none;
 
-  padding: var(--mor-space-6);
-  border-radius: var(--mor-radius-sm);
-  background-color: var(--mor-surface);
+  padding: var(--mod-spacing_3);
+  border-radius: var(--mod-border-radius-x-s);
+  background-color: var(--mod-color-surface-sunken);
   /* Resting hairline so the tile stays perceptible against the page (the
      surface/bg fill delta alone is ~1.05:1, well under WCAG 1.4.11's 3:1). */
-  border: 1px solid var(--mor-line-strong);
+  border: 1px solid var(--mod-color-border-strong);
   box-shadow: none;
   display: flex;
   flex-direction: row;
-  gap: var(--mor-space-4);
+  gap: var(--mod-spacing_2);
   transition: background-color var(--ifm-transition-fast) ease,
               border-color var(--ifm-transition-fast) ease;
   width: 100%;
@@ -23,8 +23,8 @@
    hover (mode-aware tokens, so no separate dark-mode rules needed). Matches the
    ProductCardsGrid treatment. */
 .cardContainer:hover {
-  background-color: var(--mor-surface-2);
-  border-color: var(--mor-link);
+  background-color: var(--mod-color-surface-sunken-deep);
+  border-color: var(--mod-color-action-default);
 }
 
 .cardContent {
@@ -33,25 +33,25 @@
   justify-content: flex-start;
   flex: 1;
   min-width: 0;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 }
 
 /* Card titles use both module class (cardTitle) and global class (doc-card-title)
    to allow global CSS to exclude them from document heading sizing */
 .cardTitle {
-  font-family: var(--mor-font-sans), sans-serif;
-  font-size: var(--mor-font-size-lg);
-  font-weight: var(--mor-font-weight-semibold);
+  font-family: var(--mod-font-family-body), sans-serif;
+  font-size: var(--mod-font-size-default);
+  font-weight: var(--mod-font-weight-semi-bold);
   line-height: 1.4;
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   margin: 0;
 }
 
 .cardDescription {
   font-family: var(--ifm-font-family-base);
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-regular);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-regular);
   line-height: 1.5;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
   margin: 0;
 }

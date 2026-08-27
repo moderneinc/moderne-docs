@@ -10,9 +10,9 @@
  * - Typography family (Geist), body/heading/link/background colors, primary
  *   accent, borders, the --brand-* vars that swizzled components read directly
  *   (--brand-midnight drives headings, code text, search icon, etc.), and the
- *   admonition per-type tints (mode-aware --mor-status-* tokens).
+ *   admonition per-type tints (mode-aware status tokens).
  *
- * Guidelines: reference var(--mor-*) without fallbacks so missing tokens fail
+ * Guidelines: reference var(--mod-*) without fallbacks so missing tokens fail
  * visibly (consistent with the rest of the codebase).
  */
 
@@ -20,8 +20,8 @@
    Overriding the base font family here retints every component that reads them
    (h1, admonition titles, DocSearch keys, …) in one place. */
 :root {
-  --ifm-font-family-base: var(--mor-font-sans);
-  --ifm-font-family-monospace: var(--mor-font-mono);
+  --ifm-font-family-base: var(--mod-font-family-body);
+  --ifm-font-family-monospace: var(--mod-font-family-code);
 }
 
 /* Antialiased rendering (as in the Morpheus prototype's `body`). Without this,
@@ -39,112 +39,112 @@ body {
 :root,
 html[data-theme='light'] {
   /* Surfaces */
-  --ifm-background-color: var(--mor-bg);
-  --ifm-hover-overlay: var(--mor-row-hover);
+  --ifm-background-color: var(--mod-color-surface-page);
+  --ifm-hover-overlay: var(--mod-color-surface-row-hover);
 
   /* Text */
-  --ifm-color-content: var(--mor-text);
-  --ifm-color-base: var(--mor-text);
-  --ifm-heading-color: var(--mor-text);
-  --ifm-color-emphasis-600: var(--mor-muted);
+  --ifm-color-content: var(--mod-color-text-primary);
+  --ifm-color-base: var(--mod-color-text-primary);
+  --ifm-heading-color: var(--mod-color-text-primary);
+  --ifm-color-emphasis-600: var(--mod-color-text-tertiary);
 
   /* Links */
-  --ifm-link-color: var(--mor-link);
-  --ifm-link-hover-color: var(--mor-link-deep);
+  --ifm-link-color: var(--mod-color-action-default);
+  --ifm-link-hover-color: var(--mod-color-action-navy);
 
   /* Primary accent (buttons, active states). Morpheus has no blue ramp, so the
      derived Infima tiers collapse to link / link-deep. */
-  --ifm-color-primary: var(--mor-link);
-  --ifm-color-primary-dark: var(--mor-link-deep);
-  --ifm-color-primary-darker: var(--mor-link-deep);
-  --ifm-color-primary-darkest: var(--mor-link-deep);
+  --ifm-color-primary: var(--mod-color-action-default);
+  --ifm-color-primary-dark: var(--mod-color-action-navy);
+  --ifm-color-primary-darker: var(--mod-color-action-navy);
+  --ifm-color-primary-darkest: var(--mod-color-action-navy);
 
   /* Navigation + chrome */
-  --ifm-navbar-link-color: var(--mor-text);
-  --ifm-menu-color: var(--mor-muted);
-  --ifm-menu-color-active: var(--mor-link);
-  --ifm-toc-border-color: var(--mor-line);
+  --ifm-navbar-link-color: var(--mod-color-text-primary);
+  --ifm-menu-color: var(--mod-color-text-tertiary);
+  --ifm-menu-color-active: var(--mod-color-action-default);
+  --ifm-toc-border-color: var(--mod-color-border-primary);
 
   /* Brand bridge vars read directly by swizzled components */
-  --brand-midnight: var(--mor-text);
-  --brand-digital-green: var(--mor-green);
-  --brand-digital-blue: var(--mor-link);
-  --brand-dark-lavender: var(--mor-line);
+  --brand-midnight: var(--mod-color-text-primary);
+  --brand-digital-green: var(--mod-mint-400);
+  --brand-digital-blue: var(--mod-color-action-default);
+  --brand-dark-lavender: var(--mod-color-border-primary);
 }
 
 /* Dark mode. Matches custom.css's html[data-theme='dark'] specificity and loads
    later, so these win. */
 html[data-theme='dark'] {
   /* Surfaces */
-  --ifm-background-color: var(--mor-bg);
-  --ifm-hover-overlay: var(--mor-row-hover);
+  --ifm-background-color: var(--mod-color-surface-page);
+  --ifm-hover-overlay: var(--mod-color-surface-row-hover);
 
   /* Text */
-  --ifm-color-content: var(--mor-text);
-  --ifm-color-base: var(--mor-text);
-  --ifm-heading-color: var(--mor-text);
-  --ifm-color-emphasis-600: var(--mor-muted);
+  --ifm-color-content: var(--mod-color-text-primary);
+  --ifm-color-base: var(--mod-color-text-primary);
+  --ifm-heading-color: var(--mod-color-text-primary);
+  --ifm-color-emphasis-600: var(--mod-color-text-tertiary);
 
   /* Links */
-  --ifm-link-color: var(--mor-link);
-  --ifm-link-hover-color: var(--mor-link-deep);
+  --ifm-link-color: var(--mod-color-action-default);
+  --ifm-link-hover-color: var(--mod-color-action-navy);
 
   /* Primary accent */
-  --ifm-color-primary: var(--mor-link);
-  --ifm-color-primary-dark: var(--mor-link-deep);
-  --ifm-color-primary-darker: var(--mor-link-deep);
-  --ifm-color-primary-darkest: var(--mor-link-deep);
+  --ifm-color-primary: var(--mod-color-action-default);
+  --ifm-color-primary-dark: var(--mod-color-action-navy);
+  --ifm-color-primary-darker: var(--mod-color-action-navy);
+  --ifm-color-primary-darkest: var(--mod-color-action-navy);
 
   /* Navigation + chrome */
-  --ifm-navbar-link-color: var(--mor-text);
-  --ifm-menu-color: var(--mor-text);
-  --ifm-menu-color-active: var(--mor-link);
-  --ifm-toc-border-color: var(--mor-line);
+  --ifm-navbar-link-color: var(--mod-color-text-primary);
+  --ifm-menu-color: var(--mod-color-text-primary);
+  --ifm-menu-color-active: var(--mod-color-action-default);
+  --ifm-toc-border-color: var(--mod-color-border-primary);
 
   /* Brand bridge vars */
-  --brand-midnight: var(--mor-text);
-  --brand-digital-green: var(--mor-green);
-  --brand-digital-blue: var(--mor-link);
+  --brand-midnight: var(--mod-color-text-primary);
+  --brand-digital-green: var(--mod-mint-400);
+  --brand-digital-blue: var(--mod-color-action-default);
 }
 
 /*
  * Admonition tints — Morpheus status tokens.
  *
- * The --mor-status-* tokens are mode-aware (defined per [data-theme] in
+ * The status tokens are mode-aware (defined per [data-theme] in
  * morpheus-tokens.css), so a single rule per type covers light AND dark,
  * superseding the duplicated light/dark blocks in custom.css. Accent drives
  * the border, icon (stroke: currentColor), and heading; body copy stays neutral.
  * Caution shares the warning tint; Summary shares info.
  */
 .theme-admonition-note {
-  background-color: var(--mor-status-note-bg);
-  border-color: var(--mor-status-note-accent);
-  color: var(--mor-status-note-accent);
+  background-color: var(--mod-color-status-neutral-bg);
+  border-color: var(--mod-color-text-tertiary);
+  color: var(--mod-color-text-tertiary);
 }
 .theme-admonition-tip {
-  background-color: var(--mor-status-tip-bg);
-  border-color: var(--mor-status-tip-accent);
-  color: var(--mor-status-tip-accent);
+  background-color: var(--mod-color-feedback-success-bg);
+  border-color: var(--mod-color-feedback-success-fg);
+  color: var(--mod-color-feedback-success-fg);
 }
 .theme-admonition-info,
 .theme-admonition-summary {
-  background-color: var(--mor-status-info-bg);
-  border-color: var(--mor-status-info-accent);
-  color: var(--mor-status-info-accent);
+  background-color: var(--mod-color-feedback-info-bg);
+  border-color: var(--mod-toast-info-fg);
+  color: var(--mod-toast-info-fg);
 }
 .theme-admonition-warning,
 .theme-admonition-caution {
-  background-color: var(--mor-status-warning-bg);
-  border-color: var(--mor-status-warning-accent);
-  color: var(--mor-status-warning-accent);
+  background-color: var(--mod-color-feedback-warning-bg);
+  border-color: var(--mod-color-feedback-warning-fg);
+  color: var(--mod-color-feedback-warning-fg);
 }
 .theme-admonition-danger {
-  background-color: var(--mor-status-danger-bg);
-  border-color: var(--mor-status-danger-accent);
-  color: var(--mor-status-danger-accent);
+  background-color: var(--mod-color-feedback-error-bg);
+  border-color: var(--mod-color-text-error);
+  color: var(--mod-color-text-error);
 }
 
 /* Body copy stays neutral; only the heading/icon carry the accent. */
 .theme-admonition [class*='admonitionContent_'] {
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
 }

@@ -1,25 +1,25 @@
 /* DataTableList styles (light + dark). */
 
 .dataTableDesc {
-font-size: var(--mor-font-size-base);
-  color: var(--mor-muted);
+font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-tertiary);
 }
 
 .dataTableBody {
 display: flex;
   flex-direction: column;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 }
 
 .dataTableIdRow {
 display: inline-flex;
   align-items: center;
-  gap: var(--mor-space-1);
+  gap: var(--mod-spacing_1_2);
 }
 
 .dataTableId {
 align-self: flex-start;
-  font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
-  font-size: var(--mor-font-size-base);
-  color: var(--mor-muted);
+  font-family: var(--mod-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-tertiary);
 }

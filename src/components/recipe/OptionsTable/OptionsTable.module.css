@@ -6,28 +6,28 @@
 display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--mor-space-4);
+  gap: var(--mod-spacing_2);
 }
 
 .optionsCount {
-font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-regular);
-  color: var(--mor-muted);
+font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-regular);
+  color: var(--mod-color-text-tertiary);
 }
 
 .optionsSummary {
 display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--mor-space-4);
-  font-size: var(--mor-font-size-base);
+  gap: var(--mod-spacing_2);
+  font-size: var(--mod-font-size-sm);
 }
 
 .optionsSummaryItem {
 display: inline-flex;
   align-items: center;
-  gap: var(--mor-space-1);
-  color: var(--mor-muted);
+  gap: var(--mod-spacing_1_2);
+  color: var(--mod-color-text-tertiary);
 }
 
 .optionsSummaryDot {
@@ -38,21 +38,21 @@ width: 6px;
 }
 
 .optionsSummaryDot_req {
-background-color: var(--mor-text);
+background-color: var(--mod-color-text-primary);
 }
 
 .optionsSummaryDot_opt {
-background-color: var(--mor-muted);
+background-color: var(--mod-color-text-tertiary);
 }
 
 /* Horizontal padding insets the header rule + row dividers from the card border, so they don't run
    edge-to-edge — matching the data table (a `shared.table` inside the accordion body's `spacing_2`
    padding). Keeps row treatments consistent across the page. */
 .optionsCard {
-border: 1px solid var(--mor-line);
-  border-radius: var(--mor-radius-card);
+border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-card);
   overflow: hidden;
-  padding: 0 var(--mor-space-4);
+  padding: 0 var(--mod-spacing_2);
 }
 
 /* Two-line option table. Line 1 (`.paramRow`) holds the scannable fields; line 2 (`.descRow`) holds
@@ -67,23 +67,23 @@ width: 100%;
 
 .headCell {
 text-align: left;
-  padding: var(--mor-space-3) var(--mor-space-3);
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-semibold);
-  color: var(--mor-text);
+  padding: var(--mod-spacing_1_1_2) var(--mod-spacing_1_1_2);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-primary);
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid var(--mor-line);
+  border-bottom: 1px solid var(--mod-color-border-primary);
   white-space: nowrap;
 }
 
 /* Line 1: a touch of top room, tight to the description that follows. */
 .cell {
 text-align: left;
-  padding: var(--mor-space-4) var(--mor-space-3) var(--mor-space-2);
-  font-size: var(--mor-font-size-base);
-  color: var(--mor-text);
-  font-weight: var(--mor-font-weight-regular);
+  padding: var(--mod-spacing_2) var(--mod-spacing_1_1_2) var(--mod-spacing_1);
+  font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-primary);
+  font-weight: var(--mod-font-weight-regular);
   vertical-align: baseline;
   border: none;
 }
@@ -94,20 +94,20 @@ white-space: nowrap;
 
 /* Line 2: no top padding (hugs line 1), bottom room before the next option. */
 .descCell {
-padding: 0 var(--mor-space-3) var(--mor-space-4);
+padding: 0 var(--mod-spacing_1_1_2) var(--mod-spacing_2);
   border: none;
 }
 
 /* The one divider: a hairline above each option's line 1, except the first. Matches the header rule
-   and card edge (`--mor-line`) so every line in the card is one uniform weight. */
+   and card edge (`--mod-color-border-primary`) so every line in the card is one uniform weight. */
 .optionDivider .cell {
-border-top: 1px solid var(--mor-line);
+border-top: 1px solid var(--mod-color-border-primary);
 }
 
 /* `.optionName` / `.optionExample` compose shared `.inlineCode` (chrome + dark mode); these only
    add the per-cell deltas. */
 .optionName {
-  font-weight: var(--mor-font-weight-semibold);
+  font-weight: var(--mod-font-weight-semi-bold);
 }
 
 .optionExample {
@@ -116,30 +116,30 @@ border-top: 1px solid var(--mor-line);
 }
 
 .optionExampleNone {
-color: var(--mor-muted);
+color: var(--mod-color-text-tertiary);
 }
 
 .optionDesc {
-font-size: var(--mor-font-size-base);
-  color: var(--mor-text);
+font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-primary);
 }
 
 /* Required marker: the same dot vocabulary as the section-header tally, paired with its label. */
 .requiredMarker {
 display: inline-flex;
   align-items: center;
-  gap: var(--mor-space-1);
+  gap: var(--mod-spacing_1_2);
   white-space: nowrap;
 }
 
 .optionRequired {
-font-size: var(--mor-font-size-sm);
-  font-weight: var(--mor-font-weight-semibold);
-  color: var(--mor-text);
+font-size: var(--mod-font-size-xs);
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-primary);
 }
 
 .optionOptional {
-font-size: var(--mor-font-size-sm);
-  color: var(--mor-muted);
+font-size: var(--mod-font-size-xs);
+  color: var(--mod-color-text-tertiary);
 }
 

@@ -1,11 +1,12 @@
 /*
  * Morpheus Integration
  *
- * Maps Morpheus tokens (--mor-*, from morpheus-tokens.css) to Docusaurus/Infima
- * variables. morpheus-theme.css loads after this file and wins where they overlap.
+ * Maps design-system tokens (--mod-*, from @moderneinc/design-system-tokens) to
+ * Docusaurus/Infima variables. morpheus-theme.css loads after this file and wins
+ * where they overlap.
  *
  * Guidelines:
- * - Use var(--mor-*) without fallbacks so missing tokens fail visibly
+ * - Use var(--mod-*) without fallbacks so missing tokens fail visibly
  * - Brand overrides (--brand-*) for colors not in Morpheus: mint green, midnight, lavender
  * - Avoid !important; document exceptions inline when unavoidable
  */
@@ -27,34 +28,34 @@
   /* BRAND: Preserve mint accent - no Morpheus mapping */
   --ifm-color-mint: #85FE99;
   --brand-digital-green: #85fe98; /* Primary green */
-  --brand-digital-blue: var(--mor-link); /* Primary blue */
+  --brand-digital-blue: var(--mod-color-action-default); /* Primary blue */
   --brand-midnight: #041834; /* Midnight color */
   --brand-dark-lavender: #d4d3e4; /* Dark lavender border color */
 
   /* Primary accent — Morpheus link blue. Morpheus has no blue ramp, so the
      derived Infima tiers collapse to link / link-deep. */
-  --ifm-color-primary: var(--mor-link);
-  --ifm-color-primary-dark: var(--mor-link-deep);
-  --ifm-color-primary-darker: var(--mor-link-deep);
-  --ifm-color-primary-darkest: var(--mor-link-deep);
-  --ifm-color-primary-light: var(--mor-link);
-  --ifm-color-primary-lighter: var(--mor-link);
-  --ifm-color-primary-lightest: var(--mor-link);
+  --ifm-color-primary: var(--mod-color-action-default);
+  --ifm-color-primary-dark: var(--mod-color-action-navy);
+  --ifm-color-primary-darker: var(--mod-color-action-navy);
+  --ifm-color-primary-darkest: var(--mod-color-action-navy);
+  --ifm-color-primary-light: var(--mod-color-action-default);
+  --ifm-color-primary-lighter: var(--mod-color-action-default);
+  --ifm-color-primary-lightest: var(--mod-color-action-default);
 
   /* Borders */
-  --ifm-color-border: var(--mor-line);
+  --ifm-color-border: var(--mod-color-border-primary);
 
   --ifm-code-font-size: 95%;
 
   /* Morpheus: Typography colors */
-  --ifm-color-base: var(--mor-text);
+  --ifm-color-base: var(--mod-color-text-primary);
   --ifm-color-content: var(--ifm-color-base);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-color-announcement-bar-bg: var(--ifm-color-mint);
 
   /* Announcement bar text — static dark: the bar background is always the mint
      green (--ifm-color-mint), independent of theme, so the text must not follow
-     the color mode. A mode-aware token (--mor-text) flips to near-white in dark
+     the color mode. A mode-aware token (--mod-color-text-primary) flips to near-white in dark
      mode, leaving unreadable light-on-light text on the green bar. */
   --ifm-color-announcement-bar-text: #232342;
 
@@ -70,14 +71,14 @@
   --ifm-announcement-bar-height: 0px;
 
   /* Morpheus:Typography family and weights */
-  --ifm-font-family-base: var(--mor-font-sans), sans-serif;
-  --ifm-heading-font-weight: var(--mor-font-weight-regular);
+  --ifm-font-family-base: var(--mod-font-family-body), sans-serif;
+  --ifm-heading-font-weight: var(--mod-font-weight-regular);
   --ifm-heading-line-height: 1.25;
 
   /* Morpheus:Heading color */
-  --ifm-heading-color: var(--mor-text);
+  --ifm-heading-color: var(--mod-color-text-primary);
 
-  --ifm-font-weight-bold: var(--mor-font-weight-semibold);
+  --ifm-font-weight-bold: var(--mod-font-weight-semi-bold);
   --ifm-footer-padding-vertical: 2.375rem;
   --ifm-footer-background-color: transparent;
 
@@ -85,12 +86,12 @@
   --ifm-menu-color-background-active: transparent;
 
   /* Morpheus:Link color */
-  --ifm-link-color: var(--mor-link);
+  --ifm-link-color: var(--mod-color-action-default);
 
   --ifm-link-hover-color: var(--ifm-color-content);
 
   /* Morpheus:Menu/navigation text */
-  --ifm-menu-color: var(--mor-muted);
+  --ifm-menu-color: var(--mod-color-text-tertiary);
 
   /* Morpheus: Active menu items */
   --ifm-menu-color-active: var(--ifm-link-color);
@@ -100,7 +101,7 @@
   --ifm-toc-border-color: transparent;
 
   /* Section dividers */
-  --ifm-section-divider-color: var(--mor-line);
+  --ifm-section-divider-color: var(--mod-color-border-primary);
 
   /* Emphasis colors for light mode */
   --ifm-color-emphasis-600: rgba(4, 24, 52, 0.6);
@@ -140,7 +141,7 @@ html.docs-wrapper {
 
 /* Use selector for specificity */
 html[data-theme=light] {
-  --docsearch-searchbox-background: var(--mor-field);
+  --docsearch-searchbox-background: var(--mod-color-surface-field);
   --docsearch-muted-color: rgba(4, 24, 52, 0.75);
 }
 
@@ -153,29 +154,29 @@ html[data-theme=light] {
 .DocSearch-Button {
   width: 232px;
   height: 40px;
-  border-radius: var(--mor-radius-input);
-  background: var(--mor-field);
-  border: 1px solid var(--mor-line-strong);
+  border-radius: var(--mod-border-radius-input);
+  background: var(--mod-color-surface-field);
+  border: 1px solid var(--mod-color-border-strong);
   padding: 0 14px;
   margin: 0;
   box-shadow: none;
 }
 
-/* --mor-line-strong lands at ~2.8:1 against the cream navbar in light mode; a
+/* --mod-color-border-strong lands at ~2.8:1 against the cream navbar in light mode; a
    slightly stronger navy hairline lifts the field border to ~3.15:1 (WCAG
-   1.4.11). Dark's --mor-line-strong is already ~3.7:1, so it needs no override. */
+   1.4.11). Dark's --mod-color-border-strong is already ~3.7:1, so it needs no override. */
 html[data-theme='light'] .DocSearch-Button {
   border-color: rgba(35, 35, 66, 0.54);
 }
 
 .DocSearch-Button:hover {
-  background: var(--mor-surface);
+  background: var(--mod-color-surface-sunken);
   box-shadow: none;
 }
 
 .DocSearch-Button:focus-visible {
-  border-color: var(--mor-link);
-  outline: 2px solid var(--mor-link);
+  border-color: var(--mod-color-action-default);
+  outline: 2px solid var(--mod-color-action-default);
   outline-offset: 2px;
 }
 
@@ -188,14 +189,14 @@ html[data-theme='light'] .DocSearch-Button {
 .DocSearch-Search-Icon {
   width: 18px;
   height: 18px;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
   stroke-width: 2;
 }
 
 .DocSearch-Button-Placeholder {
   font-size: 14px;
   font-weight: 400;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
   padding: 0;
 }
 
@@ -207,23 +208,23 @@ html[data-theme='light'] .DocSearch-Button {
 }
 
 .DocSearch-Button-Key {
-  background: var(--mor-surface-2);
-  /* --mor-line-strong, not --mor-line: at 0.12 alpha the chip outline only
+  background: var(--mod-color-surface-sunken-deep);
+  /* --mod-color-border-strong, not --mod-color-border-primary: at 0.12 alpha the chip outline only
      reaches ~1.8:1 against the field, so the keys read as smudges rather than
-     keycaps. --mor-line-strong lands at ~3.7:1 (dark) / ~3.6:1 (light). */
-  border: 1px solid var(--mor-line-strong);
+     keycaps. --mod-color-border-strong lands at ~3.7:1 (dark) / ~3.6:1 (light). */
+  border: 1px solid var(--mod-color-border-strong);
   border-radius: 4px;
   padding: 2px 6px;
-  /* Sans, not --mor-font-mono: no Geist subset on Google Fonts covers U+2318
+  /* Sans, not --mod-font-family-code: no Geist subset on Google Fonts covers U+2318
      (the "⌘" glyph), so it always falls back. Falling back through a mono stack
      lands on SF Mono, which draws "⌘" inside a narrow monospace advance and
      renders it at 77% of the adjacent "K" cap height. The sans stack falls back
      to the system UI face, which draws it full size. */
-  font-family: var(--mor-font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--mod-font-family-body), system-ui, -apple-system, sans-serif;
   font-size: 12px;
   font-weight: 500;
-  /* Full text color, not --mor-muted: --mor-text is ~11:1 on the chip surface. */
-  color: var(--mor-text);
+  /* Full text color, not --mod-color-text-tertiary: --mod-color-text-primary is ~11:1 on the chip surface. */
+  color: var(--mod-color-text-primary);
   box-shadow: none;
   min-width: auto;
   width: auto;
@@ -262,7 +263,7 @@ html[data-theme='dark'] {
   --ifm-background-color: #041834;
 
   /* Primary accent and base/heading/menu text resolve from the mode-aware
-     --mor-* tokens on :root, so dark needs no override here. */
+     tokens on :root, so dark needs no override here. */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   /* BRAND: Preserve mint accent for dark mode links */
@@ -270,7 +271,7 @@ html[data-theme='dark'] {
 
   --ifm-toc-border-color: transparent;
 
-  /* Dark mode borders (section divider comes from the mode-aware --mor-line
+  /* Dark mode borders (section divider comes from the mode-aware --mod-color-border-primary
      on :root). */
   --ifm-color-border: rgba(255, 255, 255, 0.2);
 
@@ -280,13 +281,13 @@ html[data-theme='dark'] {
   /* Hover overlay for dark mode */
   --ifm-hover-overlay: rgba(255, 255, 255, 0.05);
 
-  --ifm-card-background-color: var(--mor-card);
+  --ifm-card-background-color: var(--mod-color-surface-data-grid-hover);
   --ifm-heading-line-height: 1.25;
   .theme-code-block {
     border: 1.5px solid var(--ifm-color-border);
   }
   /* DocSearch button dark styling removed — the reskin above uses mode-aware
-     --mor-* tokens, so a single set of rules covers light and dark. */
+     tokens, so a single set of rules covers light and dark. */
 }
 
 figure img {
@@ -297,41 +298,41 @@ figure img {
 
 figure figcaption {
   text-align: center;
-  margin-top: var(--mor-space-3);
+  margin-top: var(--mod-spacing_1_1_2);
 }
 
 .reactPlayer {
   margin: auto;
-  padding: var(--mor-space-2);
+  padding: var(--mod-spacing_1);
   background-color: transparent;
-  border: 1px solid var(--mor-line);
-  border-radius: var(--mor-radius-2xl);
-  box-shadow: var(--mor-shadow-card);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-card);
+  box-shadow: var(--mod-docs-shadow-card);
 }
 
 .reactPlayer > *,
 .reactPlayer iframe,
 .reactPlayer video {
-  border-radius: var(--mor-radius-sm);
+  border-radius: var(--mod-border-radius-x-s);
   overflow: hidden;
 }
 
 /* Video session summary: spacing between player and admonition */
 .reactPlayer {
-  margin-bottom: var(--mor-space-4);
+  margin-bottom: var(--mod-spacing_2);
 }
 
 /* Hairline outer border + 8px padding around media; inner element keeps its own rounding */
 .markdown img,
 .markdown figure {
-  padding: var(--mor-space-2);
+  padding: var(--mod-spacing_1);
   background-color: transparent;
-  border: 1px solid var(--mor-line);
-  border-radius: var(--mor-radius-2xl);
-  box-shadow: var(--mor-shadow-card);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-card);
+  box-shadow: var(--mod-docs-shadow-card);
   box-sizing: border-box;
-  margin-top: var(--mor-space-8);
-  margin-bottom: var(--mor-space-8);
+  margin-top: var(--mod-spacing_5);
+  margin-bottom: var(--mod-spacing_5);
 }
 
 .markdown figure {
@@ -345,13 +346,13 @@ figure figcaption {
   padding: 0;
   background-color: transparent;
   border: none;
-  border-radius: var(--mor-radius-sm);
+  border-radius: var(--mod-border-radius-x-s);
   box-shadow: none;
   display: block;
   margin: 0 auto;
 }
 
-/* Media borders use the mode-aware --mor-line, so no dark override is needed. */
+/* Media borders use the mode-aware --mod-color-border-primary, so no dark override is needed. */
 
 /* Zoomed image background */
 [data-rmiz-modal-content] {
@@ -364,7 +365,7 @@ figure figcaption {
 
 /* Offset anchor targets so they land below the fixed navbar */
 html {
-  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height) + var(--mor-space-4));
+  scroll-padding-top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height) + var(--mod-spacing_2));
 }
 
 /* Push main content below fixed navbar */
@@ -414,7 +415,7 @@ html {
 }
 
 [class^=docMainContainer_] {
-  font-size: var(--mor-font-size-lg);
+  font-size: var(--mod-font-size-default);
 }
 
 [class*="docItemContainer"] article {
@@ -423,23 +424,23 @@ html {
 }
 
 h1 {
-  font-family: var(--mor-font-sans), sans-serif;
+  font-family: var(--mod-font-family-body), sans-serif;
   font-size: 36px;
-  font-weight: var(--mor-font-weight-semibold);
+  font-weight: var(--mod-font-weight-semi-bold);
   line-height: 45px;
   color: var(--brand-midnight);
   margin-top: 0;
 }
 
 [class^=docMainContainer_] h2:not(.doc-card-title) {
-  font-family: var(--mor-font-sans), sans-serif;
-  font-size: var(--mor-font-size-doc-h2);
-  font-weight: var(--mor-font-weight-medium);
+  font-family: var(--mod-font-family-body), sans-serif;
+  font-size: var(--mod-font-size-h2);
+  font-weight: var(--mod-font-weight-medium);
   line-height: 32px;
-  color: var(--mor-text);
-  margin-top: var(--mor-space-8);
-  padding-bottom: var(--mor-space-2);
-  border-bottom: 1px solid var(--mor-line);
+  color: var(--mod-color-text-primary);
+  margin-top: var(--mod-spacing_5);
+  padding-bottom: var(--mod-spacing_1);
+  border-bottom: 1px solid var(--mod-color-border-primary);
 }
 
 /* Changelog month-year section headers — heavier weight so dates anchor reading */
@@ -456,8 +457,8 @@ h1 {
 .markdown h2[id^="november-"],
 .markdown h2[id^="december-"],
 .markdown h2[id="earlier-releases"] {
-  font-family: var(--mor-font-sans), sans-serif;
-  font-weight: var(--mor-font-weight-semibold);
+  font-family: var(--mod-font-family-body), sans-serif;
+  font-weight: var(--mod-font-weight-semi-bold);
 }
 
 /* Indent release entries under each month header so months read as anchors */
@@ -477,17 +478,17 @@ h1 {
   margin-left: 10px;
 }
 [class^=docMainContainer_] h3:not(.doc-card-title) {
-  font-size: var(--mor-font-size-doc-h3);
+  font-size: var(--mod-font-size-h4);
 
 }
 
 /* !important: --ifm-heading-color inheritance doesn't update for dynamic content */
 html[data-theme='dark'] [class^=docMainContainer_] h1 {
-  color: var(--mor-text) !important;
+  color: var(--mod-color-text-primary) !important;
 }
 
 html[data-theme='dark'] [class^=docMainContainer_] h2:not(.doc-card-title) {
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
 }
 
 html[data-theme='dark'] [class^=docMainContainer_] .card {
@@ -495,7 +496,7 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 }
 
 .markdown {
-  --ifm-heading-font-family: var(--mor-font-sans), sans-serif;
+  --ifm-heading-font-family: var(--mod-font-family-body), sans-serif;
   --ifm-heading-font-weight: 300;
   --ifm-link-decoration: underline;
 }
@@ -511,7 +512,7 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 
 /* TOC position - below full navbar wrapper */
 [class*="tableOfContents"] {
-  top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--mor-space-56px));
+  top: calc(var(--ifm-navbar-height) + var(--ifm-announcement-bar-height) + var(--mod-spacing_7));
   max-height: calc(100vh - var(--ifm-navbar-height) - var(--ifm-announcement-bar-height) - 128px);
   overflow-y: auto;
 }
@@ -530,14 +531,14 @@ html[data-theme='dark'] [class^=docMainContainer_] .card {
 }
 
 h1, .markdown h3, .markdown h4 {
-  font-weight: var(--mor-font-weight-semibold);
+  font-weight: var(--mod-font-weight-semi-bold);
 }
 
 /* Inline code: SFMono pill. Relative em sizing so it scales correctly inside headers. */
 .markdown :not(pre) > code {
-  background-color: var(--mor-field);
-  border: 1px solid var(--mor-line);
-  border-radius: var(--mor-radius-sm);
+  background-color: var(--mod-color-surface-field);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-x-s);
   color: var(--brand-midnight);
   font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   font-size: 0.9em;
@@ -547,7 +548,7 @@ h1, .markdown h3, .markdown h4 {
   vertical-align: baseline;
 }
 
-/* Inline code chrome uses mode-aware tokens (--mor-field, --mor-line,
+/* Inline code chrome uses mode-aware tokens (--mod-color-surface-field, --mod-color-border-primary,
    --brand-midnight), so no dark override is needed. */
 
 /* Inline code used as link text should inherit the link color so it reads as clickable. */
@@ -561,22 +562,22 @@ html[data-theme='dark'] .markdown a > code {
    so the heading row sits above the content. */
 .theme-admonition {
   border: 1px solid;
-  border-radius: var(--mor-radius-2xl);
+  border-radius: var(--mod-border-radius-card);
   /* Flat design: hairline border only, no elevation (Infima's .alert adds a
      shadow that reads wrong against the cream canvas). */
   box-shadow: none;
-  padding: var(--mor-space-4);
+  padding: var(--mod-spacing_2);
   display: flex;
   flex-direction: row;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
   align-items: flex-start;
-  margin-top: var(--mor-space-6);
-  margin-bottom: var(--mor-space-6);
+  margin-top: var(--mod-spacing_3);
+  margin-bottom: var(--mod-spacing_3);
 }
 
 .theme-admonition:has([class*='admonitionTitle_']) {
   flex-direction: column;
-  gap: var(--mor-space-1);
+  gap: var(--mod-spacing_1_2);
 }
 
 .theme-admonition [class*='admonitionHeading_'] {
@@ -585,7 +586,7 @@ html[data-theme='dark'] .markdown a > code {
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
   text-transform: none;
 }
 
@@ -601,9 +602,9 @@ html[data-theme='dark'] .markdown a > code {
 }
 
 .theme-admonition [class*='admonitionTitle_'] {
-  font-family: var(--mor-font-sans);
-  font-weight: var(--mor-font-weight-semibold);
-  font-size: var(--mor-font-size-h2);
+  font-family: var(--mod-font-family-body);
+  font-weight: var(--mod-font-weight-semi-bold);
+  font-size: var(--mod-font-size-h5);
   line-height: 1.3;
 }
 
@@ -624,9 +625,9 @@ html[data-theme='dark'] .markdown a > code {
   margin-bottom: 0;
 }
 
-/* Per-type admonition tints live in morpheus-theme.css — the Morpheus
-   status tokens (--mor-status-*) are mode-aware, so one rule per type covers
-   both light and dark instead of the duplicated blocks that were here. */
+/* Per-type admonition tints live in morpheus-theme.css — the status tokens
+   are mode-aware, so one rule per type covers both light and dark instead of
+   the duplicated blocks that were here. */
 
 /* Colorblind-friendly code highlighting */
 :root {
