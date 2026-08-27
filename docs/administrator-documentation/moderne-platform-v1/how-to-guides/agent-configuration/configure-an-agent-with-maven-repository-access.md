@@ -61,9 +61,11 @@ For a repository to be a source of LSTs, it must be included in the list of repo
 <TabItem value="nexus-repository" label="Nexus Repository">
 
 :::warning
-If you are using Nexus 3 for LST storage with [mass ingest](../mass-ingest.md), the repository **must** be created as a **maven2 (hosted)** repository with **layout policy set to Permissive**. Mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these uploads with HTTP 400 if the layout policy is set to Strict.
+If you are using Nexus 3 for LST storage with [mass ingest](../mass-ingest.md), the repository **must** be created as a **maven2 (hosted)** repository with **layout policy set to Permissive** and **deployment policy set to Allow redeploy**.
 
-If the repository already exists with strict layout, you can change this without recreating it: **Repository settings** > **Maven 2** > **Layout policy** > `Permissive`.
+Mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these uploads with HTTP 400 if the layout policy is set to Strict. Mass ingest also republishes existing coordinates: the central `repos-lock.csv` is rewritten at the same coordinate on every run, and LSTs are republished at the same coordinate when a repository is rebuilt at an unchanged version. Nexus rejects these updates with HTTP 400 if the deployment policy is set to `Disable redeploy` (the default for hosted release repositories).
+
+If the repository already exists, you can change both settings without recreating it: **Repository settings** > **Maven 2** > **Layout policy** > `Permissive`, and **Repository settings** > **Hosted** > **Deployment policy** > `Allow redeploy`.
 :::
 
 Under the administration view, select `Settings` --> `System` --> `Tasks` on the left nav:
