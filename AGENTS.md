@@ -156,7 +156,7 @@ This project uses **Docusaurus 3.9.1** and has customized several theme componen
 
 **Swizzled components:**
 
-* `DocBreadcrumbs` - Custom breadcrumb component using the Morpheus design system
+* `DocBreadcrumbs` - Custom breadcrumb component using the design system tokens
 * `DocCard` - Enhanced with gem icon support via `customProps.gemIcon`
 * `DocCategoryGeneratedIndexPage` - Custom layout for category index pages
 * `DocPaginator` - Styled pagination for documentation pages
