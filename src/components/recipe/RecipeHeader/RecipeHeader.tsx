@@ -104,7 +104,8 @@ const RecipeHeaderRoot: FunctionComponent<RecipeHeaderProps> = ({
       <div className={styles.idArtifactRow}>
         <div className={styles.codeChip}>
           <span className={styles.codeChipLabel}>Recipe ID</span>
-          <code className={styles.idCode}>{fqName}</code>
+          {/* Lifted into the search index, where it tells identically-titled recipes apart. */}
+          <code className={styles.idCode} data-pagefind-meta="recipeId">{fqName}</code>
           <CopyButton value={fqName} label="Copy recipe ID" />
         </div>
         {artifact && (

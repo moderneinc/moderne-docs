@@ -4,6 +4,12 @@ const fs = require('fs');
 const path = require('path');
 const { glob } = require('glob');
 
+// Assigned only from JavaScript, so they never appear as a `--name:` declaration.
+const RUNTIME_DEFINED_VARS = new Set([
+  // Set on .DocSearch-Modal by src/theme/SearchBar/SearchModal.tsx.
+  '--docsearch-vh',
+]);
+
 // Extract all CSS variables from a CSS file
 function extractVariables(cssContent) {
   const regex = /--[\w-]+/g;
@@ -95,7 +101,11 @@ async function validateCSSVariables() {
 
     usages.forEach(({ variable, fullMatch }) => {
       const isFrameworkVar = variable.startsWith('--ifm-') || variable.startsWith('--docusaurus-');
-      const isDefined = definedVars.has(variable) || isFrameworkVar || locallyDefined.has(variable);
+      const isDefined =
+        definedVars.has(variable) ||
+        isFrameworkVar ||
+        locallyDefined.has(variable) ||
+        RUNTIME_DEFINED_VARS.has(variable);
 
       if (!isDefined) {
         undefinedVars.push({ file, variable, fullMatch });

@@ -3,6 +3,7 @@ import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
 import { readdirSync } from 'node:fs';
 import latestVersions from "./src/plugins/latest-versions";
+import pagefind from "./src/plugins/pagefind";
 import remarkTokenReplacer from "./src/plugins/replace-tokens";
 import redirects from "./redirects";
 
@@ -49,7 +50,6 @@ const config: Config = {
 
   clientModules: [
     require.resolve('./src/client/gtagGuard.js'),
-    require.resolve('./src/client/algoliaInsights.js'),
   ],
 
   headTags: [
@@ -140,10 +140,14 @@ const config: Config = {
           trackingID: "G-Q1CMC219Y5",
         },
         theme: {
+          // Order is load-bearing: DocSearch's `.DocSearch-Button { all: unset }`
+          // would wipe out custom.css's Morpheus restyle if it landed later.
           customCss: [
+            './src/theme/SearchBar/docsearch.css',
             './src/css/morpheus-tokens.css',
             './src/css/custom.css',
             './src/css/morpheus-theme.css',
+            './src/theme/SearchBar/styles.css',
           ],
         },
       } satisfies Preset.Options,
@@ -220,6 +224,8 @@ const config: Config = {
       '@docusaurus/plugin-client-redirects',
       { redirects },
     ],
+    // Generates the search index; the UI that queries it is in src/theme/SearchBar.
+    pagefind,
   ],
 
   future: {
@@ -245,16 +251,6 @@ const config: Config = {
   },
 
   themeConfig: {
-    algolia: {
-      appId: "MEFFK0HGO6",
-      apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
-      indexName: "moderne",
-      // Search filtering is handled by SearchFacetTabs (src/theme/SearchBar)
-      insights: true,
-      searchParameters: {
-        clickAnalytics: true,
-      },
-    },
     announcementBar: {
       id: "code_genome_project",
       content: 'Recipes are moving from Maven Central to the <a href="https://codegenomeproject.org/" target="_blank" rel="noopener noreferrer">Code Genome Project</a>. <a href="/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project">Configure access</a> to keep releases resolving.',

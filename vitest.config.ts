@@ -18,6 +18,9 @@ export default defineConfig({
       '@theme': path.resolve(__dirname, 'src/theme'),
       '@docusaurus/plugin-content-docs/client': path.resolve(__dirname, '__mocks__/docusaurus-client.ts'),
       '@docusaurus/router': path.resolve(__dirname, '__mocks__/docusaurus-router.ts'),
+      '@docusaurus/Link': path.resolve(__dirname, '__mocks__/docusaurus-link.tsx'),
+      '@docusaurus/Translate': path.resolve(__dirname, '__mocks__/docusaurus-translate.tsx'),
+      '@docusaurus/useBaseUrl': path.resolve(__dirname, '__mocks__/docusaurus-use-base-url.ts'),
     },
   },
 });
