@@ -17,13 +17,12 @@ import '@fontsource-variable/geist-mono';
 // Import Infima CSS framework (Docusaurus base styles)
 import 'infima/dist/css/default/default.css';
 
-// Import the Morpheus token + theme layers around custom.css, mirroring the
+// Import the token + theme layers around custom.css, mirroring the
 // customCss load order in docusaurus.config.ts. Without the token layer here,
-// var(--mor-*) is undefined in Storybook and every declaration using it (fonts
+// var(--mod-*) is undefined in Storybook and every declaration using it (fonts
 // and colors) becomes invalid — components render unstyled / serif.
 import '@moderneinc/design-system-tokens/moderne.css';
 import '../src/css/tokens-supplement.css';
-import '../src/css/morpheus-tokens.css';
 import '../src/css/custom.css';
 import '../src/css/morpheus-theme.css';
 

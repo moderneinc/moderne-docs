@@ -15,8 +15,7 @@ function getAllDefinedVariables() {
   const sources = [
     // Custom variables
     'src/css/custom.css',
-    // Morpheus design system tokens + mapping layer
-    'src/css/morpheus-tokens.css',
+    // Morpheus mapping layer + design-system token supplement
     'src/css/morpheus-theme.css',
     'src/css/tokens-supplement.css',
   ];
