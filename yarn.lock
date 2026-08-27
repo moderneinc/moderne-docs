@@ -2825,6 +2825,11 @@
   dependencies:
     "@chevrotain/types" "~11.1.2"
 
+"@moderneinc/design-system-tokens@7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@moderneinc/design-system-tokens/-/design-system-tokens-7.3.0.tgz#bf20c0a0344724d212cad591c6a250b371584510"
+  integrity sha512-iapUz2bRivt/cno/amWmRDqABsQXlk5AgL0zLTyd7KbowkMpC/nndjpZMvixBw03SDoPg9HsVBFUNtCTUTRSwA==
+
 "@module-federation/error-codes@0.22.0":
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/@module-federation/error-codes/-/error-codes-0.22.0.tgz#31ccc990dc240d73912ba7bd001f7e35ac751992"

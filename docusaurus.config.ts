@@ -114,6 +114,8 @@ const config: Config = {
           showLastUpdateTime: !process.env.VERCEL,
           // showLastUpdateAuthor: true,
           exclude: [
+            'superpowers/**',
+            'plans/**',
             '**/*.stories.tsx',
             '**/*.stories.ts',
             '**/*.stories.jsx',
@@ -141,6 +143,8 @@ const config: Config = {
         },
         theme: {
           customCss: [
+            '@moderneinc/design-system-tokens/moderne.css',
+            './src/css/tokens-supplement.css',
             './src/css/morpheus-tokens.css',
             './src/css/custom.css',
             './src/css/morpheus-theme.css',

@@ -39,6 +39,7 @@
     "@docusaurus/theme-mermaid": "^3.10.2",
     "@mdx-js/react": "^3.0.0",
     "@mermaid-js/layout-elk": "^0.1.9",
+    "@moderneinc/design-system-tokens": "7.3.0",
     "@octokit/rest": "^22.0.1",
     "clsx": "^2.0.0",
     "docusaurus-plugin-copy-page-button": "0.8.3",

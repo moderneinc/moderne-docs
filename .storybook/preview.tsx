@@ -21,6 +21,8 @@ import 'infima/dist/css/default/default.css';
 // customCss load order in docusaurus.config.ts. Without the token layer here,
 // var(--mor-*) is undefined in Storybook and every declaration using it (fonts
 // and colors) becomes invalid — components render unstyled / serif.
+import '@moderneinc/design-system-tokens/moderne.css';
+import '../src/css/tokens-supplement.css';
 import '../src/css/morpheus-tokens.css';
 import '../src/css/custom.css';
 import '../src/css/morpheus-theme.css';
