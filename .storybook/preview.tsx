@@ -9,10 +9,8 @@ import {
   NavbarProvider,
 } from '@docusaurus/theme-common/internal';
 
-// Import Geist fonts (same as the site — variable weight range + italic axis)
-import '@fontsource-variable/geist';
-import '@fontsource-variable/geist/wght-italic.css';
-import '@fontsource-variable/geist-mono';
+// Geist is loaded from Google Fonts via .storybook/preview-head.html,
+// matching how the site loads it (see docusaurus.config.ts headTags).
 
 // Import Infima CSS framework (Docusaurus base styles)
 import 'infima/dist/css/default/default.css';
