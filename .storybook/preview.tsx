@@ -22,7 +22,6 @@ import 'infima/dist/css/default/default.css';
 import '@moderneinc/design-system-tokens/moderne.css';
 import '../src/css/tokens-supplement.css';
 import '../src/css/custom.css';
-import '../src/css/morpheus-theme.css';
 
 // Mirror the Docusaurus LayoutProvider context tree (see
 // @docusaurus/theme-classic Layout/Provider). Swizzled theme components such as

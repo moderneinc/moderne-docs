@@ -1,13 +1,16 @@
 /*
- * Morpheus Integration
+ * Design-system Infima bridge
  *
- * Maps design-system tokens (--mod-*, from @moderneinc/design-system-tokens) to
- * Docusaurus/Infima variables. morpheus-theme.css loads after this file and wins
- * where they overlap.
+ * The single mapping layer from design-system tokens (--mod-*, from
+ * @moderneinc/design-system-tokens) onto Docusaurus/Infima variables (--ifm-*)
+ * and the --brand-* vars read directly by swizzled components. Most --ifm-*
+ * bind to mode-aware --mod-* tokens, so one :root declaration covers light and
+ * dark; the [data-theme='dark'] block only holds vars that need a different
+ * token per mode (e.g. --ifm-menu-color) or have no mode-aware equivalent.
  *
  * Guidelines:
  * - Use var(--mod-*) without fallbacks so missing tokens fail visibly
- * - Brand overrides (--brand-*) for colors not in Morpheus: mint green, midnight, lavender
+ * - Add brand values (--brand-*) here, never as one-off literals in components
  * - Avoid !important; document exceptions inline when unavoidable
  */
 
@@ -21,16 +24,20 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* BRAND: Custom light blue/lavender background */
-  --ifm-background-color: #fafaff;
+  /* Page background — mode-aware design-system surface. */
+  --ifm-background-color: var(--mod-color-surface-page);
   --background: #fafaff; /* brand background token */
 
-  /* BRAND: Preserve mint accent - no Morpheus mapping */
+  /* Announcement-bar mint accent — no design-system token; kept as a brand literal. */
   --ifm-color-mint: #85FE99;
-  --brand-digital-green: #85fe98; /* Primary green */
-  --brand-digital-blue: var(--mod-color-action-default); /* Primary blue */
-  --brand-midnight: #041834; /* Midnight color */
-  --brand-dark-lavender: #d4d3e4; /* Dark lavender border color */
+
+  /* Brand bridge vars read directly by swizzled components (--brand-midnight
+     drives headings, code text, search icon, etc.). Mapped to mode-aware
+     design-system tokens so a single declaration covers light and dark. */
+  --brand-digital-green: var(--mod-mint-400);
+  --brand-digital-blue: var(--mod-color-action-default);
+  --brand-midnight: var(--mod-color-text-primary);
+  --brand-dark-lavender: var(--mod-color-border-primary);
 
   /* Primary accent — Morpheus link blue. Morpheus has no blue ramp, so the
      derived Infima tiers collapse to link / link-deep. */
@@ -70,8 +77,9 @@
      the layout offsets don't reserve phantom space when no bar is configured. */
   --ifm-announcement-bar-height: 0px;
 
-  /* Morpheus:Typography family and weights */
-  --ifm-font-family-base: var(--mod-font-family-body), sans-serif;
+  /* Typography families — Geist, with system fallbacks in case the webfont fails. */
+  --ifm-font-family-base: var(--mod-font-family-body), system-ui, sans-serif;
+  --ifm-font-family-monospace: var(--mod-font-family-code), ui-monospace, monospace;
   --ifm-heading-font-weight: var(--mod-font-weight-regular);
   --ifm-heading-line-height: 1.25;
 
@@ -85,12 +93,12 @@
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
 
-  /* Morpheus:Link color */
+  /* Links — mode-aware accent and hover. */
   --ifm-link-color: var(--mod-color-action-default);
+  --ifm-link-hover-color: var(--mod-color-action-navy);
 
-  --ifm-link-hover-color: var(--ifm-color-content);
-
-  /* Morpheus:Menu/navigation text */
+  /* Menu/navigation text. Light uses muted tertiary; dark bumps to primary
+     for contrast (see the [data-theme='dark'] override below). */
   --ifm-menu-color: var(--mod-color-text-tertiary);
 
   /* Morpheus: Active menu items */
@@ -98,16 +106,14 @@
 
   --ifm-navbar-link-color: var(--ifm-heading-color);
   --ifm-navbar-shadow: none;
-  --ifm-toc-border-color: transparent;
+  --ifm-toc-border-color: var(--mod-color-border-primary);
 
   /* Section dividers */
   --ifm-section-divider-color: var(--mod-color-border-primary);
 
-  /* Emphasis colors for light mode */
-  --ifm-color-emphasis-600: rgba(4, 24, 52, 0.6);
-
-  /* Hover overlay for light mode */
-  --ifm-hover-overlay: rgba(0, 0, 0, 0.05);
+  /* Muted emphasis + row hover — mode-aware, so no dark override needed. */
+  --ifm-color-emphasis-600: var(--mod-color-text-tertiary);
+  --ifm-hover-overlay: var(--mod-color-surface-row-hover);
 }
 
 /* Reserve the announcement bar's height only when one is actually rendered.
@@ -259,27 +265,26 @@ html[data-theme='light'] .DocSearch-Button {
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme='dark'] {
-  /* BRAND: Custom dark background */
-  --ifm-background-color: #041834;
-
-  /* Primary accent and base/heading/menu text resolve from the mode-aware
-     tokens on :root, so dark needs no override here. */
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
-  /* BRAND: Preserve mint accent for dark mode links */
-  --ifm-link-color: #85fe99;
+  /* Re-assert the bridge vars that Infima also defines in its own
+     [data-theme='dark'] block: that selector out-specifies :root, so the
+     mode-aware tokens must be restated here at matching specificity to win.
+     (Vars Infima does not override in dark — links, primary, headings — resolve
+     correctly from :root and are intentionally omitted.) */
+  --ifm-background-color: var(--mod-color-surface-page);
+  --ifm-color-base: var(--mod-color-text-primary);
+  --ifm-color-content: var(--mod-color-text-primary);
+  --ifm-color-emphasis-600: var(--mod-color-text-tertiary);
+  --ifm-hover-overlay: var(--mod-color-surface-row-hover);
+  --ifm-toc-border-color: var(--mod-color-border-primary);
 
-  --ifm-toc-border-color: transparent;
+  /* Menu text is the one bridge var that maps to a different token per mode:
+     muted tertiary in light, primary in dark for contrast. */
+  --ifm-menu-color: var(--mod-color-text-primary);
 
-  /* Dark mode borders (section divider comes from the mode-aware --mod-color-border-primary
-     on :root). */
+  /* Dark mode borders — no mode-aware token maps to this Infima-specific value. */
   --ifm-color-border: rgba(255, 255, 255, 0.2);
-
-  /* Emphasis colors for dark mode */
-  --ifm-color-emphasis-600: rgba(255, 255, 255, 0.7);
-
-  /* Hover overlay for dark mode */
-  --ifm-hover-overlay: rgba(255, 255, 255, 0.05);
 
   --ifm-card-background-color: var(--mod-color-surface-data-grid-hover);
   --ifm-heading-line-height: 1.25;
@@ -625,9 +630,50 @@ html[data-theme='dark'] .markdown a > code {
   margin-bottom: 0;
 }
 
-/* Per-type admonition tints live in morpheus-theme.css — the status tokens
-   are mode-aware, so one rule per type covers both light and dark instead of
-   the duplicated blocks that were here. */
+/* Antialiased rendering. Without this, WebKit renders light-on-dark vs
+   dark-on-light text at different apparent weights, so Geist headings look
+   heavier/inconsistent between modes. Grayscale AA normalizes the weight. */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Per-type admonition tints. The status tokens are mode-aware, so one rule per
+   type covers both light and dark. Accent drives the border, icon
+   (stroke: currentColor), and heading; body copy stays neutral. Caution shares
+   the warning tint; Summary shares info. */
+.theme-admonition-note {
+  background-color: var(--mod-color-status-neutral-bg);
+  border-color: var(--mod-color-text-tertiary);
+  color: var(--mod-color-text-tertiary);
+}
+.theme-admonition-tip {
+  background-color: var(--mod-color-feedback-success-bg);
+  border-color: var(--mod-color-feedback-success-fg);
+  color: var(--mod-color-feedback-success-fg);
+}
+.theme-admonition-info,
+.theme-admonition-summary {
+  background-color: var(--mod-color-feedback-info-bg);
+  border-color: var(--mod-toast-info-fg);
+  color: var(--mod-toast-info-fg);
+}
+.theme-admonition-warning,
+.theme-admonition-caution {
+  background-color: var(--mod-color-feedback-warning-bg);
+  border-color: var(--mod-color-feedback-warning-fg);
+  color: var(--mod-color-feedback-warning-fg);
+}
+.theme-admonition-danger {
+  background-color: var(--mod-color-feedback-error-bg);
+  border-color: var(--mod-color-text-error);
+  color: var(--mod-color-text-error);
+}
+
+/* Body copy stays neutral; only the heading/icon carry the accent. */
+.theme-admonition [class*='admonitionContent_'] {
+  color: var(--mod-color-text-primary);
+}
 
 /* Colorblind-friendly code highlighting */
 :root {
