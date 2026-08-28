@@ -15,6 +15,12 @@ One more thing worth knowing up front: a Kotlin DSL recipe is not limited to rew
 
 If you get stuck, the [`kotlin-recipe-starter`](https://github.com/moderneinc/kotlin-recipe-starter) repository contains complete, runnable versions of the recipes referenced in this module (and you'll also see code embedded inline throughout the steps).
 
+This module builds a different starter project than the previous ones, so not everything set up in [Module 1](./module-1-recipe-development-environment.md) carries over. You'll also want:
+
+* A JDK 21 that Gradle can find. The build pins a Java 21 toolchain, so a JDK 21 has to be installed even when your default JDK is newer. The starter ships an `.sdkmanrc` pinning `21.0.5-tem`.
+* Gradle. The `kotlin-recipe-starter` has no Maven build, so the Maven commands from the earlier modules do not apply here. Step 1 explains why the DSL needs Gradle.
+* Code Genome Project credentials, to resolve the most recent OpenRewrite artifacts. Step 1 covers where to get them and where to put them.
+
 ## Exercise 3-1: Explore and run Kotlin DSL recipes
 
 In this exercise, you will set up a Kotlin recipe project, read through the recipes it ships with, and run their tests to validate them.
