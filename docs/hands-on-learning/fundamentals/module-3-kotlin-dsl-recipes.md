@@ -51,7 +51,16 @@ Without `kotlinCompilerPluginClasspath("org.openrewrite:rewrite-kotlin")`, your 
 :::
 
 :::note
-The starter's `README.md` describes the [Code Genome Project](https://artifacts.codegenomeproject.org/maven) credentials needed to resolve current OpenRewrite artifacts. Set `codegenomeUsername` and `codegenomePassword` in `~/.gradle/gradle.properties` before building, or Gradle will silently resolve older versions from Maven Central that may not include the DSL.
+OpenRewrite artifacts are published to the [Code Genome Project](https://artifacts.codegenomeproject.org/maven), which requires authentication. Moderne customers receive a username, password, and download token directly from Moderne; see [Accessing the Code Genome Project](../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get them and what each one covers.
+
+Add them to `~/.gradle/gradle.properties` before building, using the token as the password:
+
+```properties
+codegenomeUsername=<your username>
+codegenomePassword=<your token>
+```
+
+Without them the build still works, but Gradle resolves from Maven Central instead, which lags the Code Genome Project by a release or two. The starter's `README.md` covers the same credentials as environment variables for CI.
 :::
 
 #### Step 2: Read a pattern-shaped recipe
