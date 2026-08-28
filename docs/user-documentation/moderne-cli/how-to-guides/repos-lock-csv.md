@@ -67,7 +67,10 @@ Then run `mod publish`:
 mod publish /path/to/your/repos
 ```
 
-This uploads each LST to the artifact repository and adds the `publishUri` column to your `repos-lock.csv` file, recording where each LST was published. It also uploads a merged, central `repos-lock.csv` to the root of the artifact repository (for example, `https://artifactory.company.com/artifactory/moderne-ingest/repos-lock.csv`), giving your team a single file to point at.
+This uploads each LST to the artifact repository and adds the `publishUri` column to your `repos-lock.csv` file, recording where each LST was published. It also uploads a merged, central `repos-lock.csv` to the artifact repository, giving your team a single file to point at. Its location depends on the configured repository type:
+
+* For Artifactory, S3, Google Cloud Storage, and Azure Blob Storage configurations, it lives at the root of the repository (for example, `https://artifactory.company.com/artifactory/moderne-ingest/repos-lock.csv`).
+* For Maven repository configurations (`mod config lsts artifacts maven`, such as Nexus or GitLab), it is published under the Maven coordinate `io/moderne/organization/sources/repos-lock/1.0.0/repos-lock-1.0.0.csv`, since strict Maven layouts reject paths that are not valid Maven coordinates. A central `repos.csv`, when you maintain one, is read from `io/moderne/organization/sources/repos/1.0.0/repos-1.0.0.csv` on these repositories rather than from the root.
 
 At this point, your `repos-lock.csv` file contains everything needed to recreate your exact setup – repository locations, exact commits, and LST locations. You should then [share that with your team](#sharing-and-using-the-file).
 
