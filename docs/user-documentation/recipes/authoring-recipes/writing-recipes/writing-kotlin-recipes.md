@@ -422,7 +422,7 @@ mod config recipes active set src/main/kotlin/com/yourorg/UseModernKotlinApis.kt
 [`mod config recipes active set`](../../../moderne-cli/cli-reference.md#mod-config-recipes-active-set) detects your build tool, extracts the Kotlin compile classpath, and records the recipe as the active one. When the file declares several recipes, the CLI reports which one it selected, along with the alternatives you can pick from instead.
 
 :::info
-Kotlin sources are accepted by `mod config recipes active set` as of Moderne CLI 4.4.2. Earlier versions take only `.java`, `.yml`, and `.yaml` files.
+Kotlin sources are accepted by `mod config recipes active set` as of Moderne CLI 4.5.2. Earlier versions take only `.java`, `.yml`, and `.yaml` files.
 :::
 
 Then build the LSTs for the repositories you want to try the recipe on, and run the active recipe against them:

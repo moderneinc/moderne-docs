@@ -358,7 +358,7 @@ mod config recipes active set src/main/kotlin/com/yourorg/UseKotlinMath.kt
 From there, `mod run <path> --active-recipe` runs it, and each edit to your recipe costs one `./gradlew classes` rather than a publish. When the file declares several recipes, the CLI reports which one it selected, along with the alternatives you can pick from instead.
 
 :::info
-Kotlin sources are accepted by [`mod config recipes active set`](../../user-documentation/moderne-cli/cli-reference.md#mod-config-recipes-active-set) as of Moderne CLI 4.4.2. Earlier versions take only `.java`, `.yml`, and `.yaml` files.
+Kotlin sources are accepted by [`mod config recipes active set`](../../user-documentation/moderne-cli/cli-reference.md#mod-config-recipes-active-set) as of Moderne CLI 4.5.2. Earlier versions take only `.java`, `.yml`, and `.yaml` files.
 :::
 
 :::warning
