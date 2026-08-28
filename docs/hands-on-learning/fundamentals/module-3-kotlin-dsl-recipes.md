@@ -352,17 +352,20 @@ Once your tests pass, you can point the [Moderne CLI](../../user-documentation/m
 
 ```bash
 ./gradlew classes
-mod config recipes active set src/main/kotlin/com/yourorg/UseKotlinMath.kt
+mod config recipes active set src/main/kotlin/com/yourorg/UseKotlinMath.kt \
+  --recipe='com.yourorg.UseKotlinMath$KtRecipe'
 ```
 
-From there, `mod run <path> --active-recipe` runs it, and each edit to your recipe costs one `./gradlew classes` rather than a publish. When the file declares several recipes, the CLI reports which one it selected, along with the alternatives you can pick from instead.
+From there, `mod run <path> --active-recipe` runs it, and each edit to your recipe costs one `./gradlew classes` rather than a publish.
 
 :::info
 Kotlin sources are accepted by [`mod config recipes active set`](../../user-documentation/moderne-cli/cli-reference.md#mod-config-recipes-active-set) as of Moderne CLI 4.5.2. Earlier versions take only `.java`, `.yml`, and `.yaml` files.
 :::
 
 :::warning
-The compiler plugin synthesizes a class for each recipe declared with the DSL, and that class name - not the property name - is the recipe ID. `val UseKotlinMath: Recipe = recipes(…)` compiles to `com.yourorg.UseKotlinMath$KtRecipe`. Wrap any recipe ID containing `$` in single quotes, as in `mod run . --recipe='com.yourorg.UseKotlinMath$KtRecipe'`. An unquoted `$KtRecipe` is expanded to an empty string by most shells, and the CLI then reports the recipe as not found.
+Pass `--recipe` whenever a file declares more than one recipe. Without it the CLI selects the first declaration in the file - here `UseKotlinMathAbs`, not the `UseKotlinMath` composite you just built - and prints the alternatives you could have chosen instead, which is easy to scroll past.
+
+The compiler plugin synthesizes a class for each recipe declared with the DSL, and that class name - not the property name - is the recipe ID, so `val UseKotlinMath: Recipe = recipes(…)` compiles to `com.yourorg.UseKotlinMath$KtRecipe`. Wrap any recipe ID containing `$` in single quotes. An unquoted `$KtRecipe` is expanded to an empty string by most shells, and the CLI then reports the recipe as not found.
 :::
 
 ### Takeaways
