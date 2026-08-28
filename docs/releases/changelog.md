@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.10.1 (2026/08/28)
+
+- Bug fixes and other improvements.
+
 ### UI v14.10.0 (2026/08/27)
 
 - add API examples to the data tables tab
