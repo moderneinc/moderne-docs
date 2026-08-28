@@ -113,7 +113,7 @@ public void search(HttpServletRequest request, HttpServletResponse response)
 
 ### Attribute injection
 
-HTML attributes present a special challenge because attackers can break out of the attribute context even when developers think they're being careful. Quotes alone won't save you—attackers know how to escape them.
+HTML attributes present a special challenge because attackers can break out of the attribute context even when developers think they're being careful. Quotes alone won't save you - attackers know how to escape them.
 
 ```java
 // VULNERABLE - Unquoted attributes
