@@ -40,14 +40,14 @@ For background on how the Connector uses CSV sources and how S3 fits into the ov
             ],
             "Resource": [
                 "arn:aws:s3:::my-bucket",
-                "arn:aws:s3:::my-bucket/repos.csv"
+                "arn:aws:s3:::my-bucket/repos-lock.csv"
             ]
         }
     ]
 }
 ```
 
-The `s3:GetObject` permission applies to the CSV object and lets the Connector read it. The `s3:ListBucket` permission applies to the bucket itself and is required because the Connector verifies that it can reach the bucket as a startup connectivity check before it reads the object. The Connector fails to start if this check does not pass.
+The `s3:GetObject` permission applies to the CSV object and lets the Connector read it. Its resource ARN must match the object your `uri` points at (`repos-lock.csv` in the examples on this page). The `s3:ListBucket` permission applies to the bucket itself and is required because the Connector verifies that it can reach the bucket as a startup connectivity check before it reads the object. The Connector fails to start if this check does not pass.
 
 ## Authentication options
 
