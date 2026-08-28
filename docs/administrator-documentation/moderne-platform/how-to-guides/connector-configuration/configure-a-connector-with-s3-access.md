@@ -47,7 +47,9 @@ For background on how the Connector uses CSV sources and how S3 fits into the ov
 }
 ```
 
-The `s3:GetObject` permission lets the Connector read the CSV object and the LST artifacts it references: when the CSV carries `publishUri` values pointing into the same bucket, the Connector downloads those LSTs with these same credentials. It only ever fetches objects under the parent prefix of the configured `uri`, so you can scope the object ARN to that prefix (`my-bucket/*` for the examples on this page, where the `uri` sits at the bucket root). The `s3:ListBucket` permission applies to the bucket itself and is required because the Connector verifies that it can reach the bucket as a startup connectivity check before it reads the object. The Connector fails to start if this check does not pass.
+The `s3:GetObject` permission lets the Connector read the CSV object. It also lets the Connector read the LST artifacts that the CSV references. When the CSV carries `publishUri` values that point into the same bucket, the Connector downloads those LSTs with the same credentials. Because the Connector only fetches objects under the parent prefix of the configured `uri`, you can scope the object ARN to that prefix. The examples on this page use `my-bucket/*`, since the `uri` sits at the bucket root.
+
+The `s3:ListBucket` permission applies to the bucket itself. The Connector requires it because it runs a startup connectivity check to confirm that it can reach the bucket before it reads the object. If that check does not pass, the Connector fails to start.
 
 ## Authentication options
 
