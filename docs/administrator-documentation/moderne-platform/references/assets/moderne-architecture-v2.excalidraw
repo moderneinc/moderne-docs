@@ -1,5 +1,7 @@
 {
-  "type": "excalidraw/clipboard",
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
   "elements": [
     {
       "type": "rectangle",
@@ -3374,5 +3376,9 @@
       "index": "b3J"
     }
   ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
   "files": {}
 }

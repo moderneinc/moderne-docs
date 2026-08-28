@@ -30,7 +30,7 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 <figure>
   ![Moderne architecture diagram](./assets/moderne-architecture-v2.png)
-  <figcaption>_Moderne architecture diagram_</figcaption>
+  <figcaption>_Moderne architecture diagram_ ([editable version](./assets/moderne-architecture-v2.excalidraw))</figcaption>
 </figure>
 
 ## Key components
