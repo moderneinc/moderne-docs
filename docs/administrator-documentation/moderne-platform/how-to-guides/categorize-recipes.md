@@ -37,10 +37,38 @@ Recipes are assigned to categories based on their package names. When generating
 
 For example, a recipe at `com.myorg.recipe.modernization.upgrades.UpgradeFramework` would match the `com.myorg.recipe.modernization.upgrades` entry above and appear under **Framework Upgrades**.
 
-Any package segments without an explicit entry will automatically generate a fallback category from the capitalized package name.
+Any package segments without an explicit entry will automatically generate a fallback category from the capitalized package name, unless they are marked as [root categories](#skipping-prefixes-with-root-categories).
 
 :::tip
 For a real-world example, see the [category.yml from rewrite-spring](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/category.yml), which shows how the Spring recipes build their category hierarchy.
+:::
+
+### Skipping prefixes with root categories
+
+The reverse DNS prefix at the front of a recipe name means nothing to someone browsing the Marketplace. Left alone it would become a category of its own, so recipes named `com.myorg.recipe.*` would sit under **Com** > **Myorg** > **Recipe**.
+
+Root categories exist to prevent that. A category marked `root: true` is never displayed as a node itself — everything underneath it is hoisted up to the level where it sits. Because `com` is a root category, `com.myorg.recipe.*` recipes appear under **Myorg** > **Recipe** instead.
+
+OpenRewrite ships root categories for the prefixes recipe authors commonly use in [`core-categories.yml`](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/src/main/resources/META-INF/rewrite/core-categories.yml). That covers the generic top-level domains (`com`, `org`, `io`, `net`, `dev`, `app`, `cloud`, and others), the country code top-level domains (`uk`, `de`, `nl`, `jp`, and others), and the second-level domains that go with them (`uk.co`, `jp.co`, `au.com`, and others).
+
+If your prefix is not on that list, add root entries for it to your own `category.yml`. A `root: true` entry needs no `name`, since the category is never displayed:
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/category
+packageName: uk
+root: true
+
+---
+type: specs.openrewrite.org/v1beta/category
+packageName: uk.co
+root: true
+```
+
+Entries are matched against the whole package prefix rather than against individual segments, so every level of a multi-segment prefix needs its own entry. Without the `uk.co` entry above, skipping `uk` would only promote **Co** to the top level. With both entries, `uk.co.acme.recipes.MyRecipe` lands under **Acme** > **Recipes**.
+
+:::note
+Root categories are one of the few cases where a `category.yml` entry affects packages you do not own. Descriptors are read from the whole classpath, so a root entry you publish applies to every recipe whose package starts with that prefix.
 :::
 
 ### Generating and validating the `recipes.csv` file
@@ -146,7 +174,7 @@ public class MyRecipe : Recipe
 
 Whatever language a recipe is written in, a category is keyed by its display name. The Marketplace stores only the display name of each level in a path, so package names, module paths, and namespaces play no part in matching.
 
-That is what lets recipes from different languages share a category. If your organization publishes Java recipes named `com.example.recipes.*`, those appear under a top-level **Example** category, since `com` is a root category that gets skipped and the next segment is capitalized into a display name. Declaring `CategoryDescriptor(display_name="Example")` in a Python package files its recipes under that same category.
+That is what lets recipes from different languages share a category. If your organization publishes Java recipes named `com.example.recipes.*`, those appear under a top-level **Example** category, since `com` is a [root category](#skipping-prefixes-with-root-categories) that gets skipped and the next segment is capitalized into a display name. Declaring `CategoryDescriptor(display_name="Example")` in a Python package files its recipes under that same category.
 
 There is no shared registry to import from, so every package that uses a category declares its own descriptor for it. If several of your packages file into the same category, publish the descriptors in a small shared library and depend on it from each one, rather than copying them by hand.
 

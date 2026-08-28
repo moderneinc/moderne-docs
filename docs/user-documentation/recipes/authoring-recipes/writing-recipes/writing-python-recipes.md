@@ -395,7 +395,7 @@ Levels that don't exist yet are created on install. You can also install the sam
 
 A category has no identifier of its own. It's keyed by its display name, so any two bundles that install recipes under the same name land in the same node of the tree, whatever language they were written in. There's no shared registry to import from. Each package declares its own descriptor, and matching ones merge.
 
-Say your organization already publishes Java recipes named `com.example.recipes.*`. Those show up under a top-level **Example** category, since `com` is a root category that gets skipped and the next segment is capitalized into a display name. To file your Python recipes there too:
+Say your organization already publishes Java recipes named `com.example.recipes.*`. Those show up under a top-level **Example** category, since `com` is a [root category](../../../../administrator-documentation/moderne-platform/how-to-guides/categorize-recipes.md#skipping-prefixes-with-root-categories) that gets skipped and the next segment is capitalized into a display name. To file your Python recipes there too:
 
 ```python title="rename_function_call.py"
 from rewrite import CategoryDescriptor
