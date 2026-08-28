@@ -193,4 +193,4 @@ Previously, if a repository failed during a recipe run, it did not appear in the
 
 ### Recipe results persist between deployments
 
-Recipe results, data tables, and visualizations now persist between deployments. Previously, they were wiped on every deployment; now they stick around, giving you context into what happened over a longer period of time.
+Recipe results, data tables, and visualizations now persist between deployments. Previously, they were wiped on every deployment. Now, they stick around - giving you context into what happened over a longer period of time.

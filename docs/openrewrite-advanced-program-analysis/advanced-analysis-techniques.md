@@ -351,7 +351,7 @@ try {
 
 ## Combining analyses
 
-The real power comes from combining different analyses. Each analysis provides a piece of the puzzle; together they reveal the complete picture.
+The real power comes from combining different analyses. Each analysis provides a piece of the puzzle. Together, they reveal the complete picture.
 
 ### Taint + call graph
 

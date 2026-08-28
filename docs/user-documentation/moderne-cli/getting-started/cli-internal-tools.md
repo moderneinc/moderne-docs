@@ -39,4 +39,4 @@ New recipe releases are published to the Code Genome Project rather than Maven C
 mod config recipes artifacts maven add https://artifacts.codegenomeproject.org/maven --user <username> --password <token>
 ```
 
-See [Accessing the Code Genome Project](../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get credentials. If your organization already mirrors the Code Genome Project in an internal Artifactory or Nexus, you don't need this command; keep resolving through your internal repository.
+See [Accessing the Code Genome Project](../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get credentials. If your organization already mirrors the Code Genome Project in an internal Artifactory or Nexus, you don't need this command - keep resolving through your internal repository.

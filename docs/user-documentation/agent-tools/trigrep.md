@@ -288,7 +288,7 @@ This section provides a quick reference for all query operators, filters, and st
 
 ### Boolean operators
 
-Terms separated by space are implicitly ANDed. The `or` keyword creates disjunction. Parentheses group terms. A leading `-` negates a term (requires `--` between the path and the query; see the [NOT example above](#literal-and-sourcegraph-style-queries)).
+Terms separated by space are implicitly ANDed. The `or` keyword creates disjunction. Parentheses group terms. A leading `-` negates a term (requires `--` between the path and the query, as in the [NOT example above](#literal-and-sourcegraph-style-queries)).
 
 ### Filters
 
@@ -324,18 +324,18 @@ The symbol-aware filters read from LST symbol metadata rather than raw text, whi
 * **Declaration filters** (`sym:`, `select:`, `type:symbol`, `visibility:`, `static:`, `final:`, `abstract:`) read a symbol's name, kind, and modifiers off the parse tree, so they work across all supported source languages: Java, Kotlin, Groovy, Scala, Python, JavaScript, TypeScript, Go, and C#.
 * **Type-reference filters** (`extends:`, `implements:`, `annotated:`, `returns:`, `throws:`, `ref:`, `call:`) resolve types through the LST, so how much they find depends on the language's type attribution, which is most complete for Java.
 
-Configuration and data files (XML, JSON, YAML, and the like) are indexed for text only. Literal search, regex, and the text-oriented filters (`file:`, `repo:`, `branch:`, `rev:`, `lang:`, `case:`, `content:`, `count:`, `patternType:`) work everywhere; the symbol-aware filters above do not apply to text-only files.
+Configuration and data files (XML, JSON, YAML, and the like) are indexed for text only. Literal search, regex, and the text-oriented filters (`file:`, `repo:`, `branch:`, `rev:`, `lang:`, `case:`, `content:`, `count:`, `patternType:`) work everywhere, but the symbol-aware filters above do not apply to text-only files.
 :::
 
 :::info
-The Sourcegraph filters `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect on local indexes; they emit a warning and are dropped from the query.
+The Sourcegraph filters `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect on local indexes - they emit a warning and are dropped from the query.
 :::
 
 :::info[type:symbol vs sym:]
 `type:symbol` and `sym:` are not synonyms:
 
-* `type:symbol Person` matches `Person` at symbol *declaration sites* only: class headers, method/constructor signatures, and field declarations. So `class PersonRepository`, `Person currentPerson;`, and `void savePerson(Person p)` all match, but uses inside method bodies, imports, and comments do not. This restriction applies to literal terms; regex patterns (`type:symbol /Person/`) currently bypass it and search the full file.
-* `sym:Person` matches every symbol whose fully qualified name contains `Person`. That covers `Person`, `PersonRepository`, etc., plus every method and field inside them (`Person.getFirstName`, `PersonRepository.findByLastName`, ...) because each member's FQN inherits the containing class name. The match is still constrained to symbols; it won't surface string literals, comments, or other non-symbol text.
+* `type:symbol Person` matches `Person` at symbol *declaration sites* only: class headers, method/constructor signatures, and field declarations. So `class PersonRepository`, `Person currentPerson;`, and `void savePerson(Person p)` all match, but uses inside method bodies, imports, and comments do not. This restriction applies to literal terms. Regex patterns (`type:symbol /Person/`) currently bypass it and search the full file.
+* `sym:Person` matches every symbol whose fully qualified name contains `Person`. That covers `Person`, `PersonRepository`, etc., plus every method and field inside them (`Person.getFirstName`, `PersonRepository.findByLastName`, ...) because each member's FQN inherits the containing class name. The match is still constrained to symbols - it won't surface string literals, comments, or other non-symbol text.
 
 Bare `Person` is broader still: every textual occurrence including imports, comments, and string literals.
 :::
@@ -382,7 +382,7 @@ Quoting a single token to protect it from the shell (e.g. `"file:**/*Test.java"`
 | `ref.[type,call]:T`| a union of the listed kinds                                                                      |
 | `ref.any:T`        | every reference kind, no filtering                                                               |
 
-**`call:Type.method`, where a method is called.** `call:` matches method and constructor **call sites** by the called method's declaring type and name: `call:java.util.List.add` finds every site that calls `List.add`, and `call:java.util.ArrayList.<init>` finds every `new ArrayList<>()`. Because the type closure is subclass-aware, a query against a supertype's method (`call:java.util.Collection.add`) also matches calls made through a subtype receiver. Values take the same forms as the type filters (FQN, AspectJ glob, or `/regex/`). The index records only the declaring type and method name, not argument types, so `call:` can't disambiguate overloads by parameter types; full method-signature matching belongs in a recipe's `MethodMatcher`.
+**`call:Type.method`, where a method is called.** `call:` matches method and constructor **call sites** by the called method's declaring type and name: `call:java.util.List.add` finds every site that calls `List.add`, and `call:java.util.ArrayList.<init>` finds every `new ArrayList<>()`. Because the type closure is subclass-aware, a query against a supertype's method (`call:java.util.Collection.add`) also matches calls made through a subtype receiver. Values take the same forms as the type filters (FQN, AspectJ glob, or `/regex/`). The index records only the declaring type and method name, not argument types, so `call:` can't disambiguate overloads by parameter types. Full method-signature matching belongs in a recipe's `MethodMatcher`.
 
 ### Structural holes
 
@@ -409,7 +409,7 @@ Moderne Trigrep is fast, but because it operates on text and indexed metadata ra
 
 ### Method reference searches
 
-`sym:` matches by substring on the symbol's FQN, not by full method signature. Bare names (`sym:add`) match every symbol whose FQN contains the substring, so there's no way to distinguish `java.util.List.add(Object)` from your own `ShoppingCart.add(Item)`. The `call:` filter is more precise for call sites (`call:java.util.List.add` targets calls to that method by declaring type and name, subclass-aware), but it, too, records no argument types, so overloads still can't be pinned by parameter types. An AspectJ-style pattern like `java.util.List add(..)` isn't expressible; full method-signature matching belongs in a recipe's `MethodMatcher`.
+`sym:` matches by substring on the symbol's FQN, not by full method signature. Bare names (`sym:add`) match every symbol whose FQN contains the substring, so there's no way to distinguish `java.util.List.add(Object)` from your own `ShoppingCart.add(Item)`. The `call:` filter is more precise for call sites (`call:java.util.List.add` targets calls to that method by declaring type and name, subclass-aware), but it, too, records no argument types, so overloads still can't be pinned by parameter types. An AspectJ-style pattern like `java.util.List add(..)` isn't expressible. Full method-signature matching belongs in a recipe's `MethodMatcher`.
 
 ### Type hierarchy awareness
 
@@ -464,7 +464,7 @@ Even in a codebase with millions of files, the intersection of posting lists typ
 
 Moderne Trigrep generates its indexes from LSTs rather than raw source code, which gives the index access to symbol information, type data, and other semantic details that wouldn't be available from text alone. This is what powers semantic filters like `sym:`, `extends:`, and `visibility:`. Each symbol's related types are stored as compact V3 type-table slots (resolved at search time through the source set's type tables) rather than duplicated inline strings, so a query like `sym:`, `extends:`, or `implements:` narrows the candidate file set before any byte reads.
 
-The index is produced inline by `mod build` as `.zoekt` shards. Each source set writes its own shard under `.moderne/build/{buildId}/sources/{sourceSet}/shard-*.zoekt`, and `mod build` then assembles them into a single repo-level index at `.moderne/build/{buildId}/index/merged-*.zoekt` (split into size-bounded chunks) with a sidecar `assembly.csv` recording per-part content digests. A `.complete` sentinel is written last, so a search racing a build sees a complete index or none, never a partial one. Each shard stores the document's content as the LST's printed form (`SourceFile.printAll()`), with a checksum to catch any drift between the printer and the index. Source code gets structured symbol extraction; configuration and data files (XML, JSON, YAML, and the like) get a content-only document where full-text trigram search works but the symbol-aware filters don't apply. To regenerate the index after significant code changes, simply re-run `mod build`.
+The index is produced inline by `mod build` as `.zoekt` shards. Each source set writes its own shard under `.moderne/build/{buildId}/sources/{sourceSet}/shard-*.zoekt`, and `mod build` then assembles them into a single repo-level index at `.moderne/build/{buildId}/index/merged-*.zoekt` (split into size-bounded chunks) with a sidecar `assembly.csv` recording per-part content digests. A `.complete` sentinel is written last, so a search racing a build sees a complete index or none, never a partial one. Each shard stores the document's content as the LST's printed form (`SourceFile.printAll()`), with a checksum to catch any drift between the printer and the index. Source code gets structured symbol extraction. Configuration and data files (XML, JSON, YAML, and the like) get a content-only document where full-text trigram search works but the symbol-aware filters don't apply. To regenerate the index after significant code changes, simply re-run `mod build`.
 
 </details>
 

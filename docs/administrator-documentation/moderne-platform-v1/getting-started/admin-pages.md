@@ -75,7 +75,7 @@ For information about how to add/remove columns or how to add custom filters on 
 
 ## Reports page
 
-The reports page is exactly as it sounds; it contains a list of detailed reports that you can download. These reports contain more information than you would obtain in the audit log. 
+The reports page is exactly as it sounds - it contains a list of detailed reports that you can download. These reports contain more information than you would obtain in the audit log. 
 
 ## Access tokens page
 

@@ -121,7 +121,7 @@ Ask your agent to research the migration. Point it at the [source documentation]
 * **Tell it what *not* to do.** In this case, explicitly say not to reference existing OpenRewrite Jackson recipes so it reasons from the migration guide itself. (Since a production Jackson 2→3 recipe already exists, the agent might try to just copy from it rather than learning to build one from source documentation. In a real-world scenario where no existing recipe exists, you wouldn't need this constraint.)
 
 :::info
-Throughout this workshop, you'll find **suggested prompts** in collapsible sections. These are examples tuned for Claude Code. You don't have to use them verbatim; adapt them to your style or agent. They're there if you want a starting point.
+Throughout this workshop, you'll find **suggested prompts** in collapsible sections. These are examples tuned for Claude Code. You don't have to use them verbatim - adapt them to your style or agent. They're there if you want a starting point.
 :::
 
 <details>
@@ -189,6 +189,6 @@ Once you and the agent have settled on the subset, you should have a clear list 
 ### Takeaways
 
 * The agent is excellent at reading documentation and proposing comprehensive change lists.
-* Human judgment is critical for scoping. The agent will propose everything; you pick what matters most.
+* Human judgment is critical for scoping. The agent will propose everything - you pick what matters most.
 * The recipe type hierarchy (declarative > Refaster > imperative) should always guide your choices.
 * Starting with a plan prevents the agent from going off-track during implementation.

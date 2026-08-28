@@ -102,7 +102,7 @@ moderne-connector:latest
 For a working example, see the [`moderne-connector-example` Dockerfile](https://github.com/moderneinc/moderne-connector-example/blob/main/Dockerfile), which Moderne maintains.
 
 :::info
-You are responsible for creating your own Dockerfile and base image, and for keeping it up to date as vulnerabilities arise. The linked example is a starting point; yours will differ, as it should point to and use your own tools and services.
+You are responsible for creating your own Dockerfile and base image, and for keeping it up to date as vulnerabilities arise. The linked example is a starting point - yours will differ, as it should point to and use your own tools and services.
 :::
 
 **Example environment variables file**
@@ -302,7 +302,7 @@ java -jar connector-{version}.jar \
 Before Moderne can run recipes on your code, the Connector needs three things:
 
 1. The list of repositories you want Moderne to index.
-2. An [organizational hierarchy](./configure-organizations-hierarchy.md) that groups those repositories into organizations (at least one `org` column in the CSV). This doesn't need to be elaborate to start; a single `ALL` organization plus an organization for one team is a perfectly fine starting point that you can expand later.
+2. An [organizational hierarchy](./configure-organizations-hierarchy.md) that groups those repositories into organizations (at least one `org` column in the CSV). This doesn't need to be elaborate to start. For example, you could start with a single `ALL` organization plus an organization for one team. You could then expand on that later as needed.
 3. The [LST](../../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) artifact location for each repository.
 
 All of these things can come from a CSV file that you point the Connector to.
@@ -323,7 +323,7 @@ For `file` and `http` sources, please see the [organizational hierarchy configur
 
 You have two options:
 
-* **(Recommended) Include publish URIs in the CSV.** When each row has a `publishUri` column, the Connector trusts those values and fetches LSTs directly. You can generate such a CSV by setting up a [Mass Ingest](../mass-ingest.md) pipeline; its `mod publish` step produces a `repos-lock.csv` with `publishUri` values for every repository.
+* **(Recommended) Include publish URIs in the CSV.** When each row has a `publishUri` column, the Connector trusts those values and fetches LSTs directly. You can generate such a CSV by setting up a [Mass Ingest](../mass-ingest.md) pipeline. The `mod publish` step produces a `repos-lock.csv` with `publishUri` values for every repository.
 * **Let the Connector discover them.** If your CSV does not have `publishUri` values, point the Connector at the artifact repository (or repositories) where your LSTs are published. The Connector will query it to look up each LST's location at runtime:
   * **[Artifactory](./configure-a-connector-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing). Recommended for Artifactory users.
   * **[Maven repository](./configure-a-connector-with-maven-repository-access.md)** - works with any Maven-formatted repository (Artifactory, Nexus, etc.) via the [Maven Indexer](https://maven.apache.org/maven-indexer/). There will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process.
@@ -539,8 +539,8 @@ java -jar connector-{version}.jar \
 
 The Connector exposes two organization-wide knobs that affect how quickly new LSTs appear in Moderne and how much concurrent work the Connector performs. Both are optional and have sensible defaults.
 
-* **`moderne.connector.organization.interval`** — how often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Defaults to `10m`. Lower this if you want LSTs to show up faster; raise it to reduce load on your artifact repository.
-* **`moderne.connector.organization.downloadParallelism`** — the global cap on concurrent LST download, encrypt, and upload operations across all configured sources. Defaults to `max(4, availableProcessors())`. Raise it if your Connector host and upstream gateway have headroom; lower it to throttle network/CPU use.
+* **`moderne.connector.organization.interval`** — how often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Defaults to `10m`. Lower this if you want LSTs to show up faster. Raise it to reduce load on your artifact repository.
+* **`moderne.connector.organization.downloadParallelism`** — the global cap on concurrent LST download, encrypt, and upload operations across all configured sources. Defaults to `max(4, availableProcessors())`. Raise it if your Connector host and upstream gateway have headroom. Lower it to throttle network/CPU use.
 
 See the [All Connector variables reference](./connector-variables.md#organization-sync-variables) for the exact variable and argument names.
 

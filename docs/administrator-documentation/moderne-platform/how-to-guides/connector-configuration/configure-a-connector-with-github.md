@@ -53,7 +53,7 @@ GitHub Apps are recommended for their fine-grained permissions, short-lived toke
      ![GitHub Client secrets section with Generate a new client secret button](./assets/gh-secrets.png)
      <figcaption></figcaption>
    </figure>
-6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Connector](#configure-the-moderne-connector).
+6. Copy the `Client ID` and `Client secret` from this page - they will be used as [arguments for the Moderne Connector](#configure-the-moderne-connector).
 7. Install the GitHub App in your organization(s). See the [GitHub permissions documentation](../../references/github-permissions.md#installing-a-github-app) for detailed installation instructions.
 
 :::note
@@ -87,7 +87,7 @@ After creating a GitHub App, you must install it in each organization or account
      ![GitHub Client secrets section with Generate a new client secret button](./assets/gh-secrets.png)
      <figcaption></figcaption>
    </figure>
-6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Connector](#configure-the-moderne-connector).
+6. Copy the `Client ID` and `Client secret` from this page - they will be used as [arguments for the Moderne Connector](#configure-the-moderne-connector).
 
 #### Example values
 
@@ -110,14 +110,14 @@ You can configure multiple GitHub OAuth apps by including multiple entries, each
 
 **Environment variables:**
 
-| Variable Name                                                | Required                                     | Default         | Description                                                                                                                                                                                                                      |
-|--------------------------------------------------------------|----------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_SCM_GITHUB_{index}_OAUTH_CLIENTID`                  | `true`                                       |                 | The client id configured in GitHub.                                                                                                                                                                                              |
-| `MODERNE_SCM_GITHUB_{index}_OAUTH_CLIENTSECRET`              | `true`                                       |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
-| `MODERNE_SCM_GITHUB_{index}_URI`                             | `true`                                       |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
-| `MODERNE_SCM_GITHUB_{index}_SKIPSSL`                         | `false`                                      | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
-| `MODERNE_SCM_GITHUB_{index}_ALLOWABLE_ORGANIZATIONS_{index}` | `false`                                      | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
-| `MODERNE_SCM_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS`       | `false`                                      | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
+| Variable Name                                                | Required | Default         | Description                                                                                                                                                                                                                      |
+|--------------------------------------------------------------|----------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_SCM_GITHUB_{index}_OAUTH_CLIENTID`                  | `true`   |                 | The client id configured in GitHub.                                                                                                                                                                                              |
+| `MODERNE_SCM_GITHUB_{index}_OAUTH_CLIENTSECRET`              | `true`   |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
+| `MODERNE_SCM_GITHUB_{index}_URI`                             | `true`   |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
+| `MODERNE_SCM_GITHUB_{index}_SKIPSSL`                         | `false`  | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
+| `MODERNE_SCM_GITHUB_{index}_ALLOWABLE_ORGANIZATIONS_{index}` | `false`  | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
+| `MODERNE_SCM_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS`       | `false`  | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
 
 **Example:**
 
@@ -138,14 +138,14 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                   | Required                                     | Default         | Description                                                                                                                                                                                                                      |
-|-----------------------------------------------------------------|----------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.scm.github[{index}].oauth.clientId`                  | `true`                                       |                 | The client id configured in GitHub.                                                                                                                                                                                              |
-| `--moderne.scm.github[{index}].oauth.clientSecret`              | `true`                                       |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
-| `--moderne.scm.github[{index}].uri`                             | `true`                                       |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
-| `--moderne.scm.github[{index}].skipSsl`                         | `false`                                      | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
-| `--moderne.scm.github[{index}].allowableOrganizations[{index}]` | `false`                                      | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
-| `--moderne.scm.github[{index}].oauth.includePrivateRepos`       | `false`                                      | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
+| Argument Name                                                   | Required | Default         | Description                                                                                                                                                                                                                      |
+|-----------------------------------------------------------------|----------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.scm.github[{index}].oauth.clientId`                  | `true`   |                 | The client id configured in GitHub.                                                                                                                                                                                              |
+| `--moderne.scm.github[{index}].oauth.clientSecret`              | `true`   |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
+| `--moderne.scm.github[{index}].uri`                             | `true`   |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
+| `--moderne.scm.github[{index}].skipSsl`                         | `false`  | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
+| `--moderne.scm.github[{index}].allowableOrganizations[{index}]` | `false`  | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
+| `--moderne.scm.github[{index}].oauth.includePrivateRepos`       | `false`  | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
 
 **Example:**
 

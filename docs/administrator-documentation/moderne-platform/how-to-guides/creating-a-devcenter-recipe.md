@@ -108,7 +108,7 @@ DevCenter recipes have two notable properties worth calling out:
 
 ### Organizational ownership recipes
 
-The last two recipes in the list, `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters`, do not produce cards. They populate the **Lines of code** and **Contributing developers** cards in the DevCenter's Organizational ownership section. Include both in every DevCenter recipe; without them, those two cards remain empty. The canonical recipe list that includes both is the [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml).
+The last two recipes in the list, `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters`, do not produce cards. They populate the **Lines of code** and **Contributing developers** cards in the DevCenter's Organizational ownership section. Include both in every DevCenter recipe. Without them, those two cards remain empty. The canonical recipe list that includes both is the [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml).
 
 ### Security card
 

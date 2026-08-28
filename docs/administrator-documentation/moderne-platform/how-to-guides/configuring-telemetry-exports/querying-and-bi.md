@@ -71,7 +71,7 @@ Only the commands listed in the [trace hierarchy](../../../../user-documentation
 
 ### Replication lag is too high
 
-S3 Replication Time Control (RTC) is available if your contract requires 15-minute SLAs with a CloudWatch metric. Discuss with your CSM; this is a paid AWS feature billed to the source side.
+S3 Replication Time Control (RTC) is available if your contract requires 15-minute SLAs with a CloudWatch metric. Discuss with your CSM - this is a paid AWS feature billed to the source side.
 
 ### My BI doesn't see new partitions
 
