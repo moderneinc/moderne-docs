@@ -5150,22 +5150,3 @@ Republishing to update dependencies
 * Add custom source and sink messages to TaintFlowSpec
 * Fix taint tracking from static initializer blocks
 
-## August 27, 2025
-
-#### rewrite-devcenter - 1.7.0
-
-* DevCenter for Apache Maven org in app.moderne.io
-
-#### rewrite-java-security - 3.17.0
-
-* chore(ci): bump actions/setup-java from 4 to 5
-
-#### rewrite-spring - 0.12.0
-
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-08-19T1107
-* Use the property migrations from OSS rewrite-spring
-* Remove duplicate UpgradeSpringKafka_3_0 recipe
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-08-26T1110
-* Add Spring Boot 3.5 deprecation recipes
-* Enabled test after upstream fix
-
