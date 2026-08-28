@@ -47,7 +47,12 @@ kotlinCompilerPluginClasspath("org.openrewrite:rewrite-kotlin")
 ```
 
 :::info
-Without `kotlinCompilerPluginClasspath("org.openrewrite:rewrite-kotlin")`, your `recipe(...)` declarations still compile, but they produce nothing runnable.
+Without `kotlinCompilerPluginClasspath("org.openrewrite:rewrite-kotlin")`, your `recipe(...)` declarations still compile, but they produce nothing runnable. Nothing in the failure names the missing plugin - every test fails inside Jackson instead:
+
+```text
+Cannot construct instance of `org.openrewrite.RecipeBuilder$buildSimpleRecipe$1`
+(no Creators, like default constructor, exist)
+```
 :::
 
 :::note
@@ -222,6 +227,10 @@ Always include at least one no-change test so that you can be confident your rec
 
 1. Add a test that passes a single `kotlin(before)` source using a `Math` method your recipes don't target, such as `Math.floor(x)`, and confirm the recipe leaves it alone.
 2. Run the full test class and confirm everything passes.
+
+:::info
+`java.lang.Math` is a pure-Java API - the same condition that let `UseIsWhitespace` reach Java sources in Exercise 3-1. Your `kotlin.math` recipes still do not touch Java, because the second condition fails: `kotlin.math.abs(x)` is not valid Java. Rather than emit code that would not compile, the recipe leaves Java sources unchanged. Add a `java(...)` no-change assertion if you want to prove it to yourself.
+:::
 
 <details>
 <summary>Reference example: Completed UseKotlinMath.kt</summary>
