@@ -205,7 +205,7 @@ fun `Math abs becomes kotlin math abs`() = rewriteRun(
 ```
 
 :::tip
-The type annotation on the before lambda's parameter is what the compiler plugin resolves the `MethodMatcher` from, so it decides which overload you match. A pattern typed `x: Double` matches `Math.abs(double)` and leaves `Math.abs(int)` alone.
+The parameter needs a type annotation for the pattern to resolve, and that type is carried into the after-template - but it does not narrow the match. The compiler plugin builds the matcher spec with a wildcard per argument (`java.lang.Math abs(*)`), so `UseKotlinMathAbs` also rewrites `Math.abs(x)` where `x` is an `Int` or a `Long`. For this migration that is harmless, since `kotlin.math.abs` is overloaded the same way - but keep it in mind when a pattern is meant to apply to one overload only. [openrewrite/rewrite#8694](https://github.com/openrewrite/rewrite/pull/8694) types the non-varargs matcher parameters, which narrows the match to the declared type once it ships.
 :::
 
 #### Step 3: Bind two parameters
@@ -395,7 +395,7 @@ The compiler plugin synthesizes a class for each recipe declared with the DSL, a
 ### Takeaways
 
 * A Kotlin DSL recipe is a top-level property, not a class, and needs no annotations or processor configuration.
-* The parameter types in the before lambda determine which overload the generated `MethodMatcher` targets.
+* Parameter types in the before lambda are required to resolve the pattern and type the after-template, but they do not currently narrow which overload the generated `MethodMatcher` matches.
 * Zero-parameter patterns match field accesses; multi-parameter patterns thread every binding through to the after side.
 * `recipes(...)` composes sub-recipes across files into one runnable recipe, while each remains runnable on its own.
 * Tests should cover both transformation cases and no-change cases.
