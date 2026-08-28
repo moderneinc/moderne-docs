@@ -1,14 +1,14 @@
 .banner {
-  padding: var(--mor-space-3) var(--mor-space-4);
-  margin-bottom: var(--mor-space-4);
+  padding: var(--mod-spacing_1_1_2) var(--mod-spacing_2);
+  margin-bottom: var(--mod-spacing_2);
   /* Colors preserved from the pre-Morpheus (neo) banner per PR review: a static
      blue callout that stays a light-blue box with dark text in both light and
      dark so it reads as a prominent version notice. These blues sit outside the
      Morpheus semantic palette, so they're intentionally literal. */
   background-color: #dce0ff;
   border: 1px solid #2f42ff;
-  border-radius: var(--mor-radius-card);
-  font-size: var(--mor-font-size-base);
+  border-radius: var(--mod-border-radius-card);
+  font-size: var(--mod-font-size-sm);
   color: #1f2937;
 }
 

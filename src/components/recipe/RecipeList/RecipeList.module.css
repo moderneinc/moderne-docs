@@ -6,7 +6,7 @@
 .itemLabel {
 display: inline-flex;
   align-items: center;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 }
 
 .countBadge {
@@ -15,24 +15,24 @@ display: inline-flex;
   justify-content: center;
   min-width: 20px;
   height: 20px;
-  padding: 0 var(--mor-space-1);
-  border-radius: var(--mor-radius-full);
-  font-size: var(--mor-font-size-sm);
-  font-weight: var(--mor-font-weight-semibold);
+  padding: 0 var(--mod-spacing_1_2);
+  border-radius: var(--mod-border-radius-full);
+  font-size: var(--mod-font-size-xs);
+  font-weight: var(--mod-font-weight-semi-bold);
   line-height: 1;
 }
 
 /* Morpheus has one violet spectral stop, not a violet ramp: the tint background is a literal
-   derived from --mor-spectral-2 (no separate light-tint token exists) so badge text stays legible
+   derived from --mod-violet-500 (no separate light-tint token exists) so badge text stays legible
    against it while the accent color itself stays token-driven. */
 .countBadge_violet {
 background-color: rgba(157, 91, 232, 0.16);
-  color: var(--mor-spectral-2);
+  color: var(--mod-violet-500);
 }
 
 .countBadge_neutral {
-background-color: var(--mor-neutral);
-  color: var(--mor-status-note-accent);
+background-color: var(--mod-color-state-disabled-bg);
+  color: var(--mod-color-text-tertiary);
 }
 
 /* Borderless, inset list of links. The accordion body's horizontal padding does the insetting, so the
@@ -44,33 +44,33 @@ margin: 0;
 }
 
 .recipeListItem {
-padding: var(--mor-space-3) var(--mor-space-3);
-  font-size: var(--mor-font-size-base);
-  color: var(--mor-text);
+padding: var(--mod-spacing_1_1_2) var(--mod-spacing_1_1_2);
+  font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-primary);
 }
 
 .recipeListItem + .recipeListItem {
-border-top: 1px solid var(--mor-line);
+border-top: 1px solid var(--mod-color-border-primary);
 }
 
 .recipeListBounded {
 display: flex;
   flex-direction: column;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 }
 
 .recipeListSearch {
 display: flex;
   align-items: center;
-  gap: var(--mor-space-2);
-  padding: var(--mor-space-1) var(--mor-space-2);
-  border: 1px solid var(--mor-line);
-  border-radius: var(--mor-radius-lg);
-  background-color: var(--mor-panel);
+  gap: var(--mod-spacing_1);
+  padding: var(--mod-spacing_1_2) var(--mod-spacing_1);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-s);
+  background-color: var(--mod-color-surface-search-input);
 }
 
 .recipeListSearchIcon {
-color: var(--mor-muted);
+color: var(--mod-color-text-tertiary);
   flex-shrink: 0;
 }
 
@@ -80,19 +80,19 @@ flex: 1;
   border: none;
   background-color: transparent;
   outline: none;
-  font-family: var(--mor-font-sans);
-  font-size: var(--mor-font-size-base);
-  color: var(--mor-text);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-primary);
 }
 
 .recipeListInput::placeholder {
-color: var(--mor-muted);
+color: var(--mod-color-text-tertiary);
 }
 
 .recipeListCount {
 flex-shrink: 0;
-  font-size: var(--mor-font-size-sm);
-  color: var(--mor-muted);
+  font-size: var(--mod-font-size-xs);
+  color: var(--mod-color-text-tertiary);
   white-space: nowrap;
 }
 
@@ -107,37 +107,37 @@ margin: 0;
 }
 
 .recipeListEmpty {
-padding: var(--mor-space-3) var(--mor-space-3);
-  font-size: var(--mor-font-size-base);
-  color: var(--mor-muted);
+padding: var(--mod-spacing_1_1_2) var(--mod-spacing_1_1_2);
+  font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-tertiary);
 }
 
 .recipeLink {
-color: var(--mor-link);
+color: var(--mod-color-action-default);
   text-decoration: none;
 }
 
 .recipeLink:hover {
-color: var(--mor-link-deep);
+color: var(--mod-color-action-navy);
   text-decoration: underline;
 }
 
 html[data-theme='dark'] {
 .recipeLink {
-color: var(--mor-green);
+color: var(--mod-mint-400);
 }
 
 .recipeLink:hover {
-color: var(--mor-green);
+color: var(--mod-mint-400);
 }
 
 .countBadge_violet {
 background-color: rgba(157, 91, 232, 0.28);
-    color: var(--mor-spectral-2);
+    color: var(--mod-violet-500);
 }
 
 .countBadge_neutral {
-background-color: var(--mor-surface-2);
-    color: var(--mor-muted);
+background-color: var(--mod-color-surface-sunken-deep);
+    color: var(--mod-color-text-tertiary);
 }
 }

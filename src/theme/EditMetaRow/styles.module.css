@@ -28,11 +28,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: var(--mor-link);
+  color: var(--mod-color-action-default);
   text-decoration: none;
 }
 
 .feedback:hover {
-  color: var(--mor-link-deep);
+  color: var(--mod-color-action-navy);
   text-decoration: underline;
 }

@@ -26,15 +26,15 @@
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: var(--mor-space-2);
+  margin-top: var(--mod-spacing_1);
   width: 750px;
   max-width: calc(100vw - 2 * var(--ifm-navbar-padding-horizontal, 2.5rem));
-  max-height: calc(100vh - var(--ifm-navbar-height, 92px) - var(--mor-space-6));
+  max-height: calc(100vh - var(--ifm-navbar-height, 92px) - var(--mod-spacing_3));
   overflow-y: auto;
   background: var(--ifm-background-color);
   border: 1px solid var(--ifm-color-border);
-  border-radius: var(--mor-radius-sm);
-  box-shadow: var(--mor-shadow-dropdown);
+  border-radius: var(--mod-border-radius-x-s);
+  box-shadow: var(--mod-docs-shadow-dropdown);
   z-index: 401;
 }
 
@@ -42,46 +42,46 @@
 .content {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  gap: var(--mor-space-32px);
-  padding: var(--mor-space-32px) var(--mor-space-32px) var(--mor-space-6);
+  gap: var(--mod-spacing_4);
+  padding: var(--mod-spacing_4) var(--mod-spacing_4) var(--mod-spacing_3);
 
   /* Tablet: Adjust spacing */
   @media (min-width: 768px) and (max-width: 1023px) {
-    gap: var(--mor-space-6);
-    padding: var(--mor-space-28px) var(--mor-space-6) var(--mor-space-5);
+    gap: var(--mod-spacing_3);
+    padding: var(--mod-spacing_3_1_2) var(--mod-spacing_3) var(--mod-spacing_2_1_2);
   }
 
   /* Mobile: Single column layout */
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
-    gap: var(--mor-space-6);
-    padding: var(--mor-space-6) var(--mor-space-5) var(--mor-space-5);
+    gap: var(--mod-spacing_3);
+    padding: var(--mod-spacing_3) var(--mod-spacing_2_1_2) var(--mod-spacing_2_1_2);
   }
 
   /* Section headers within content */
   .sectionHeader {
-    font-size: var(--mor-font-size-base);
-    font-weight: var(--mor-font-weight-regular);
+    font-size: var(--mod-font-size-sm);
+    font-weight: var(--mod-font-weight-regular);
     letter-spacing: 0.5px;
-    color: var(--mor-text);
+    color: var(--mod-color-text-primary);
   }
 
   /* Right column - contains For Business and Learning sections */
   .rightColumn {
     display: flex;
     flex-direction: column;
-    gap: var(--mor-space-32px);
+    gap: var(--mod-spacing_4);
   }
 }
 
 /* Footer section */
 .footer {
   border-top: 1px solid var(--ifm-color-border);
-  padding: var(--mor-space-4) var(--mor-space-32px);
+  padding: var(--mod-spacing_2) var(--mod-spacing_4);
 
   /* Mobile: Adjust padding */
   @media (max-width: 767px) {
-    padding: var(--mor-space-4) var(--mor-space-5);
+    padding: var(--mod-spacing_2) var(--mod-spacing_2_1_2);
   }
 
   .footerLinks {
@@ -93,16 +93,16 @@
     @media (max-width: 767px) {
       flex-direction: column;
       align-items: flex-start;
-      gap: var(--mor-space-4);
+      gap: var(--mod-spacing_2);
     }
   }
 
   .footerLink {
     display: inline-flex;
     align-items: center;
-    gap: var(--mor-space-6px);
-    font-size: var(--mor-font-size-base);
-    font-weight: var(--mor-font-weight-medium);
+    gap: var(--mod-spacing_3_4);
+    font-size: var(--mod-font-size-sm);
+    font-weight: var(--mod-font-weight-medium);
     color: var(--ifm-heading-color);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -114,8 +114,8 @@
   }
 
   .externalIcon {
-    width: var(--mor-space-3);
-    height: var(--mor-space-3);
+    width: var(--mod-spacing_1_1_2);
+    height: var(--mod-spacing_1_1_2);
     flex-shrink: 0;
   }
 }
@@ -124,15 +124,15 @@
 .productList {
   display: flex;
   flex-direction: column;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 }
 
 .productItem {
   display: flex;
   align-items: flex-start;
-  gap: var(--mor-space-3);
-  padding: var(--mor-space-3);
-  border-radius: var(--mor-radius-sm);
+  gap: var(--mod-spacing_1_1_2);
+  padding: var(--mod-spacing_1_1_2);
+  border-radius: var(--mod-border-radius-x-s);
   text-decoration: none;
   color: inherit;
   transition: background-color 0.2s ease;
@@ -143,8 +143,8 @@
   }
 
   .productIcon {
-    width: var(--mor-space-32px);
-    height: var(--mor-space-32px);
+    width: var(--mod-spacing_4);
+    height: var(--mod-spacing_4);
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -154,19 +154,19 @@
   .productContent {
     display: flex;
     flex-direction: column;
-    gap: var(--mor-space-1);
+    gap: var(--mod-spacing_1_2);
   }
 
   .productName {
-    font-weight: var(--mor-font-weight-semibold);
-    font-size: var(--mor-font-size-lg);
+    font-weight: var(--mod-font-weight-semi-bold);
+    font-size: var(--mod-font-size-default);
     color: var(--ifm-heading-color);
   }
 
   .productDescription {
-    font-size: var(--mor-font-size-sm);
+    font-size: var(--mod-font-size-xs);
     line-height: 1.5;
-    color: var(--mor-text);
+    color: var(--mod-color-text-primary);
   }
 }
 
@@ -178,19 +178,19 @@
   .learningList {
     display: flex;
     flex-direction: column;
-    gap: var(--mor-space-2);
+    gap: var(--mod-spacing_1);
     align-items: flex-start;
   }
 
   .learningItem {
     display: flex;
     align-items: center;
-    gap: var(--mor-space-2);
-    padding: var(--mor-space-2) var(--mor-space-3);
-    border-radius: var(--mor-radius-sm);
+    gap: var(--mod-spacing_1);
+    padding: var(--mod-spacing_1) var(--mod-spacing_1_1_2);
+    border-radius: var(--mod-border-radius-x-s);
     text-decoration: none;
     color: var(--ifm-heading-color);
-    font-size: var(--mor-font-size-base);
+    font-size: var(--mod-font-size-sm);
     transition: background-color 0.2s ease;
 
     &:hover {
@@ -233,7 +233,7 @@
     border-top-color: rgba(255, 255, 255, 0.2);
 
     .footerLink {
-      color: var(--mor-text);
+      color: var(--mod-color-text-primary);
 
       &:hover {
         color: var(--brand-digital-green);
@@ -247,7 +247,7 @@
     }
 
     .productName {
-      color: var(--mor-text);
+      color: var(--mod-color-text-primary);
     }
 
     .productDescription {
@@ -257,7 +257,7 @@
 
   .learningSection {
     .learningItem {
-      color: var(--mor-text);
+      color: var(--mod-color-text-primary);
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.05);

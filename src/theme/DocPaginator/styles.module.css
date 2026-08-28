@@ -11,21 +11,21 @@
 .paginationNav {
   display: flex;
   justify-content: space-between;
-  gap: var(--mor-space-32px);
+  gap: var(--mod-spacing_4);
   padding: 0;
   margin: 0;
-  margin-top: var(--mor-space-32px); /* Add spacing above pagination nav */
+  margin-top: var(--mod-spacing_4); /* Add spacing above pagination nav */
 }
 
 .paginationLink {
   background: transparent;
   border: none;
   padding: 0;
-  font-family: var(--mor-font-sans), sans-serif;
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-medium);
+  font-family: var(--mod-font-family-body), sans-serif;
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
   line-height: 1;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
@@ -33,7 +33,7 @@
 .paginationLink:hover {
   opacity: 0.7;
   text-decoration: none;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
 }
 
 .paginationLinkPrev {
@@ -45,7 +45,7 @@
 }
 
 .arrow {
-  color: var(--mor-muted);
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-medium);
+  color: var(--mod-color-text-tertiary);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
 }

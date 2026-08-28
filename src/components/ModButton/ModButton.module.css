@@ -7,20 +7,20 @@
 /* Base button styles */
 .button {
   /* Typography */
-  font-family: var(--mor-font-sans);
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-medium);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
   line-height: 1;
 
   /* Shape - pill/capsule shape */
-  border-radius: var(--mor-radius-full);
+  border-radius: var(--mod-border-radius-full);
   border: none;
 
   /* Layout */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 
   /* Interaction */
   cursor: pointer;
@@ -50,83 +50,83 @@
 
 /* Primary variant */
 .button--primary {
-  background-color: var(--mor-btn-primary-bg);
-  color: var(--mor-btn-primary-fg);
+  background-color: var(--mod-button-primary-bg);
+  color: var(--mod-color-text-on-primary);
 
   &:hover:not(:disabled) {
-    background-color: var(--mor-btn-primary-hover);
+    background-color: var(--mod-button-primary-bg-hover);
     /* Pin the text color: when rendered as an <a> (href), Infima's global `a:hover` color
        (higher specificity than the variant's resting color) would otherwise repaint it dark. */
-    color: var(--mor-btn-primary-fg);
+    color: var(--mod-color-text-on-primary);
   }
 
   &:active:not(:disabled) {
-    background-color: var(--mor-btn-primary-hover);
+    background-color: var(--mod-button-primary-bg-hover);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--mor-btn-primary-bg);
+    outline: 2px solid var(--mod-button-primary-bg);
     outline-offset: 2px;
   }
 
   &:disabled {
-    background-color: var(--mor-surface);
-    color: var(--mor-muted);
+    background-color: var(--mod-color-surface-sunken);
+    color: var(--mod-color-text-tertiary);
   }
 }
 
 /* Secondary variant */
 .button--secondary {
-  background-color: var(--mor-card);
-  color: var(--mor-text);
-  border: 1px solid var(--mor-line);
+  background-color: var(--mod-color-surface-data-grid-hover);
+  color: var(--mod-color-text-primary);
+  border: 1px solid var(--mod-color-border-primary);
 
   &:hover:not(:disabled) {
-    background-color: var(--mor-row-hover);
+    background-color: var(--mod-color-surface-row-hover);
     /* Pin the text color against Infima's `a:hover` override when rendered as a link. */
-    color: var(--mor-text);
+    color: var(--mod-color-text-primary);
   }
 
   &:active:not(:disabled) {
-    background-color: var(--mor-surface-2);
+    background-color: var(--mod-color-surface-sunken-deep);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--mor-link);
+    outline: 2px solid var(--mod-color-action-default);
     outline-offset: 2px;
   }
 
   &:disabled {
-    background-color: var(--mor-field);
-    border-color: var(--mor-line);
-    color: var(--mor-muted);
+    background-color: var(--mod-color-surface-field);
+    border-color: var(--mod-color-border-primary);
+    color: var(--mod-color-text-tertiary);
   }
 }
 
 /* Outline variant (tertiary) */
 .button--outline {
   background-color: transparent;
-  color: var(--mor-link);
-  border: 1px solid var(--mor-link);
+  color: var(--mod-color-action-default);
+  border: 1px solid var(--mod-color-action-default);
 
   &:hover:not(:disabled) {
-    color: var(--mor-link-deep);
-    border-color: var(--mor-link-deep);
+    color: var(--mod-color-action-navy);
+    border-color: var(--mod-color-action-navy);
   }
 
   &:active:not(:disabled) {
-    color: var(--mor-link-deep);
-    border-color: var(--mor-link-deep);
+    color: var(--mod-color-action-navy);
+    border-color: var(--mod-color-action-navy);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--mor-link);
+    outline: 2px solid var(--mod-color-action-default);
     outline-offset: 2px;
   }
 
   &:disabled {
-    color: var(--mor-muted);
-    border-color: var(--mor-muted);
+    color: var(--mod-color-text-tertiary);
+    border-color: var(--mod-color-text-tertiary);
   }
 }
 
@@ -134,7 +134,7 @@
 .button--text {
   background-color: transparent;
   border: none;
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   padding: 0;
   border-radius: 0;
 
@@ -147,12 +147,12 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--mor-btn-primary-bg);
+    outline: 2px solid var(--mod-button-primary-bg);
     outline-offset: 2px;
   }
 
   &:disabled {
-    color: var(--mor-muted);
+    color: var(--mod-color-text-tertiary);
   }
 
   /* Text variant overrides size padding */
@@ -165,18 +165,18 @@
 
 /* Size variants */
 .button--small {
-  padding: var(--mor-space-2) var(--mor-space-4);
-  font-size: var(--mor-font-size-sm);
+  padding: var(--mod-spacing_1) var(--mod-spacing_2);
+  font-size: var(--mod-font-size-xs);
 }
 
 .button--medium {
-  padding: var(--mor-space-3) var(--mor-space-6);
-  font-size: var(--mor-font-size-base);
+  padding: var(--mod-spacing_1_1_2) var(--mod-spacing_3);
+  font-size: var(--mod-font-size-sm);
 }
 
 .button--large {
-  padding: var(--mor-space-4) var(--mor-space-32px);
-  font-size: var(--mor-font-size-lg);
+  padding: var(--mod-spacing_2) var(--mod-spacing_4);
+  font-size: var(--mod-font-size-default);
 }
 
 /* Icon styling */
@@ -196,14 +196,14 @@
 /* Icon-only button (no text) */
 .button--icon-only {
   aspect-ratio: 1;
-  padding: var(--mor-space-3);
+  padding: var(--mod-spacing_1_1_2);
 
   &.button--small {
-    padding: var(--mor-space-2);
+    padding: var(--mod-spacing_1);
   }
 
   &.button--large {
-    padding: var(--mor-space-4);
+    padding: var(--mod-spacing_2);
   }
 }
 

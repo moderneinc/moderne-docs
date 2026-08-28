@@ -1,6 +1,6 @@
 /**
  * ModCard component styles
- * Morpheus reskin: bound to --mor-* tokens. Because the tokens are mode-aware
+ * Morpheus reskin: bound to --mod-* tokens. Because the tokens are mode-aware
  * (light/dark values resolve via [data-theme]), no separate dark-mode block is
  * needed — one set of rules covers both themes.
  */
@@ -11,22 +11,22 @@
   width: 100%;
   max-width: 375px;
   min-height: 106px;
-  padding: var(--mor-space-4);
-  border-radius: var(--mor-radius-lg);
+  padding: var(--mod-spacing_2);
+  border-radius: var(--mod-border-radius-s);
 
   /* Flexbox Layout */
   display: flex;
   flex-direction: column;
-  gap: var(--mor-space-4);
+  gap: var(--mod-spacing_2);
   justify-content: space-between;
 
   /* Colors */
-  background: var(--mor-card);
-  border: 1px solid var(--mor-line);
-  color: var(--mor-text);
+  background: var(--mod-color-surface-data-grid-hover);
+  border: 1px solid var(--mod-color-border-primary);
+  color: var(--mod-color-text-primary);
 
   /* Typography */
-  font-family: var(--mor-font-sans);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
 
   /* Transitions */
   transition: all 0.2s ease-in-out;
@@ -40,33 +40,33 @@
     cursor: pointer;
 
     &:hover:not(.card--disabled) {
-      border-color: var(--mor-line-strong);
+      border-color: var(--mod-color-border-strong);
     }
 
     &:focus-visible {
-      border-color: var(--mor-link);
-      outline: 2px solid var(--mor-link);
+      border-color: var(--mod-color-action-default);
+      outline: 2px solid var(--mod-color-action-default);
       outline-offset: 2px;
     }
   }
 
   /* Nested: Active state */
   &--active {
-    border-color: var(--mor-link);
-    box-shadow: var(--mor-shadow-dropdown);
+    border-color: var(--mod-color-action-default);
+    box-shadow: var(--mod-docs-shadow-dropdown);
   }
 
   /* Nested: Focused state */
   &--focused {
-    border-color: var(--mor-link);
-    outline: 2px solid var(--mor-link);
+    border-color: var(--mod-color-action-default);
+    outline: 2px solid var(--mod-color-action-default);
     outline-offset: 2px;
   }
 
   /* Nested: Alternative focus style using box-shadow */
   &--focused-shadow {
-    border-color: var(--mor-link);
-    box-shadow: var(--mor-shadow-dropdown);
+    border-color: var(--mod-color-action-default);
+    box-shadow: var(--mod-docs-shadow-dropdown);
   }
 
   /* Nested: Disabled state */
@@ -80,14 +80,14 @@
   .card__content {
     display: flex;
     flex-direction: column;
-    gap: var(--mor-space-4);
+    gap: var(--mod-spacing_2);
   }
 
   /* Header with Icon, Gem, and Title */
   .card__header {
     display: flex;
     align-items: center;
-    gap: var(--mor-space-2);
+    gap: var(--mod-spacing_1);
   }
 
   /* Icon Container */
@@ -95,10 +95,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--mor-space-5);
-    height: var(--mor-space-5);
+    width: var(--mod-spacing_2_1_2);
+    height: var(--mod-spacing_2_1_2);
     flex-shrink: 0;
-    color: var(--mor-muted);
+    color: var(--mod-color-text-tertiary);
   }
 
   /* Gem/Logo Container */
@@ -106,18 +106,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--mor-space-5);
-    height: var(--mor-space-5);
+    width: var(--mod-spacing_2_1_2);
+    height: var(--mod-spacing_2_1_2);
     flex-shrink: 0;
   }
 
   /* Title */
   .card__title {
-    font-family: var(--mor-font-sans);
-    font-size: var(--mor-font-size-lg);
-    font-weight: var(--mor-font-weight-semibold);
+    font-family: var(--mod-font-family-body), system-ui, sans-serif;
+    font-size: var(--mod-font-size-default);
+    font-weight: var(--mod-font-weight-semi-bold);
     line-height: 1.4;
-    color: var(--mor-text);
+    color: var(--mod-color-text-primary);
     margin: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -127,11 +127,11 @@
 
   /* Description */
   .card__description {
-    font-family: var(--mor-font-sans);
-    font-size: var(--mor-font-size-sm);
-    font-weight: var(--mor-font-weight-regular);
+    font-family: var(--mod-font-family-body), system-ui, sans-serif;
+    font-size: var(--mod-font-size-xs);
+    font-weight: var(--mod-font-weight-regular);
     line-height: 1.5;
-    color: var(--mor-muted);
+    color: var(--mod-color-text-tertiary);
     margin: 0;
     width: 100%;
   }
@@ -139,7 +139,7 @@
   /* Action Buttons Container */
   .card__buttons {
     display: flex;
-    gap: var(--mor-space-6);
+    gap: var(--mod-spacing_3);
     align-items: center;
   }
 }

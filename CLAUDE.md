@@ -38,20 +38,24 @@ Use your language processing capabilities to identify and fix:
 * Inconsistent terminology
 * Style guide violations
 
-## Working with CSS Modules and Morpheus Design Tokens
+## Working with CSS modules and design tokens
 
-The design system is Morpheus (`--mor-*` tokens). It is self-contained — there is
-no external design-system package. When modifying any CSS module (`.module.css`),
-follow this workflow:
+The design system is `@moderneinc/design-system-tokens` (public npm, pinned `7.3.0`),
+consumed via `@moderneinc/design-system-tokens/moderne.css`. Tokens use the `--mod-*`
+namespace. When modifying any CSS module (`.module.css`), follow this workflow:
 
-1. **Find the right token** in `src/css/morpheus-tokens.css` — the single source of
-   truth. It defines the complete token set (spacing, type, radii, surfaces, lines,
-   text, links, buttons, status, shadows, spectral), mode-aware where relevant.
-   Add new brand values there, never as one-off literals in components.
+1. **Find the right token** in the package — the single source of truth for token
+   values, not a local file. Inspect `node_modules/@moderneinc/design-system-tokens/assets/*.css`
+   (individual collections) or `node_modules/@moderneinc/design-system-tokens/tokens.json` to
+   locate a value. `src/css/tokens-supplement.css` is the only local token file; it defines
+   only the mode-aware `--mod-docs-shadow-card`, `--mod-docs-shadow-dropdown`, and
+   `--mod-docs-shadow-modal` tokens, because the package's shadows have no dark variant. Do
+   not add other one-off tokens there without a design reason — request new values upstream
+   in the package instead.
 
-2. **Never use fallback values** with Morpheus tokens:
-   * ❌ Bad: `var(--mor-space-2, 8px)`
-   * ✅ Good: `var(--mor-space-2)`
+2. **Never use fallback values** with `--mod-*` tokens:
+   * ❌ Bad: `var(--mod-spacing_1, 8px)`
+   * ✅ Good: `var(--mod-spacing_1)`
    * Rationale: missing tokens should surface immediately, not fail silently.
 
 3. **Prefer mode-aware tokens over `[data-theme='dark']` overrides.** Color, surface,
@@ -69,17 +73,18 @@ follow this workflow:
    * Run `yarn validate:css` to verify no undefined variables are used.
    * Fix any issues before proceeding with the commit.
 
-**Token groups (see `morpheus-tokens.css` for the full list):**
+**Token groups** (see `node_modules/@moderneinc/design-system-tokens/assets/*.css` for the
+full list of collections):
 
-* Spacing: `--mor-space-*` (ordinal `-1..-8`; raw `-2px/-6px/-26px/-28px/-32px/-48px/-56px`)
-* Type: `--mor-font-sans`, `--mor-font-mono`, `--mor-font-size-*`, `--mor-font-weight-*`
-* Radii: `--mor-radius-*` (`xs/sm/md/lg/xl/2xl/full` + role aliases)
-* Surfaces: `--mor-bg`, `--mor-field`, `--mor-card`, `--mor-surface`, `--mor-surface-2`, `--mor-row-hover`
-* Lines: `--mor-line`, `--mor-line-2`, `--mor-line-strong`
-* Text/links: `--mor-text`, `--mor-muted`, `--mor-link`, `--mor-link-deep`
-* Buttons: `--mor-btn-primary-*`; on-fill text: `--mor-on-accent`
-* Status (mode-aware): `--mor-status-{info,tip,note,warning,danger}-{bg,accent}`
-* Shadows: `--mor-shadow-{card,dropdown,modal}`; brand: `--mor-green`, `--mor-spectral*`
+* Radii: `border-radius`
+* Color: `colors`, `semantic-colors`
+* Gradients: `gradients`
+* Spacing: `spacing`, `padding`
+* Type: `typography`, `semantic-typography`
+* Shadows: `shadows`
+* Strokes: `strokes`
+* Sizing: `height`, `icon-size`
+* Aggregate (imports all collections): `moderne`
 
 ## Important Context
 
@@ -151,7 +156,7 @@ This project uses **Docusaurus 3.9.1** and has customized several theme componen
 
 **Swizzled components:**
 
-* `DocBreadcrumbs` - Custom breadcrumb component using the Morpheus design system
+* `DocBreadcrumbs` - Custom breadcrumb component using the design system tokens
 * `DocCard` - Enhanced with gem icon support via `customProps.gemIcon`
 * `DocCategoryGeneratedIndexPage` - Custom layout for category index pages
 * `DocPaginator` - Styled pagination for documentation pages
