@@ -81,7 +81,7 @@ val UseUppercase: Recipe = recipe(
 4. Note the `@file:Suppress("DEPRECATION", "DEPRECATION_ERROR")` at the top of the file. Migration recipes name deprecated APIs constantly, because the deprecated call is the pattern being matched, not code that runs.
 
 :::warning
-Keep the `displayName` and `description` arguments as plain string literals. The compiler plugin silently falls back to a non-serializable recipe when they are built with `+` concatenation.
+Write the `displayName` and `description` arguments inline as compile-time constants: a string literal, a concatenation of literals (`"a" + "b"`), or a text block with `trimIndent()`. Referencing a `val`, a parameter, or a `const val` fails the build, since the code generator cannot resolve the value and would otherwise drop it.
 :::
 
 :::tip

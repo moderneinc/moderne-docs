@@ -117,7 +117,7 @@ The `edit` block is one of three phases the DSL exposes. These phases line up wi
 These phases compose, so a recipe can scan its sources, edit based on what it found, and then generate a summary report.
 
 :::warning
-Keep the `displayName` and `description` arguments to `recipe(...)` as plain string literals. The compiler plugin silently falls back to a non-serializable recipe when they are built with `+` concatenation.
+Write the `displayName` and `description` arguments to `recipe(...)` inline as compile-time constants: a string literal, a concatenation of literals (`"a" + "b"`), or a text block with `trimIndent()`. Referencing a `val`, a parameter, or a `const val` fails the build, since the code generator cannot resolve the value and would otherwise drop it.
 :::
 
 ### Binding multiple parameters
