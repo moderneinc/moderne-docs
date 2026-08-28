@@ -71,7 +71,7 @@ codegenomeUsername=<your username>
 codegenomePassword=<your token>
 ```
 
-Without them the build still works, but Gradle resolves from Maven Central instead, which lags the Code Genome Project by a release or two. The starter's `README.md` covers the same credentials as environment variables for CI.
+Set them before building. Without them Gradle silently falls back to Maven Central, which no longer receives every OpenRewrite release and will fall further behind over time - the build still succeeds, but can resolve a version that predates the DSL. The starter's `README.md` covers the same credentials as environment variables for CI.
 :::
 
 #### Step 2: Read a pattern-shaped recipe
