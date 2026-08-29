@@ -183,7 +183,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
 * [**mod config features inline-diff**](#mod-config-features-inline-diff)
 * [**mod config features lst**](#mod-config-features-lst)
-* [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
+* ~~[**mod config features no-maven-central**](#mod-config-features-no-maven-central-deprecated)~~ (deprecated)
 * [**mod config go**](#mod-config-go)
 * [**mod config go installation**](#mod-config-go-installation)
 * [**mod config go installation edit**](#mod-config-go-installation-edit)
@@ -332,18 +332,23 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes import csv**](#mod-config-recipes-import-csv)
 * [**mod config recipes go**](#mod-config-recipes-go)
 * [**mod config recipes go install**](#mod-config-recipes-go-install)
+* [**mod config recipes go retrieve**](#mod-config-recipes-go-retrieve)
 * [**mod config recipes go delete**](#mod-config-recipes-go-delete)
 * [**mod config recipes jar**](#mod-config-recipes-jar)
 * [**mod config recipes jar install**](#mod-config-recipes-jar-install)
+* [**mod config recipes jar retrieve**](#mod-config-recipes-jar-retrieve)
 * [**mod config recipes jar delete**](#mod-config-recipes-jar-delete)
 * [**mod config recipes npm**](#mod-config-recipes-npm)
 * [**mod config recipes npm install**](#mod-config-recipes-npm-install)
+* [**mod config recipes npm retrieve**](#mod-config-recipes-npm-retrieve)
 * [**mod config recipes npm delete**](#mod-config-recipes-npm-delete)
 * [**mod config recipes nuget**](#mod-config-recipes-nuget)
 * [**mod config recipes nuget install**](#mod-config-recipes-nuget-install)
+* [**mod config recipes nuget retrieve**](#mod-config-recipes-nuget-retrieve)
 * [**mod config recipes nuget delete**](#mod-config-recipes-nuget-delete)
 * [**mod config recipes pip**](#mod-config-recipes-pip)
 * [**mod config recipes pip install**](#mod-config-recipes-pip-install)
+* [**mod config recipes pip retrieve**](#mod-config-recipes-pip-retrieve)
 * [**mod config recipes pip delete**](#mod-config-recipes-pip-delete)
 * [**mod config recipes moderne**](#mod-config-recipes-moderne)
 * [**mod config recipes moderne install**](#mod-config-recipes-moderne-install)
@@ -4176,7 +4181,7 @@ mod config features [subcommands]
 * `index-recipes`
 * `inline-diff`: Configure inline diff rendering in the terminal.
 * `lst`: Configure the LST serialization format version.
-* `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
+* `no-maven-central`: (DEPRECATED) Use mod config build maven settings edit instead.
 
 ## mod config features agent-tools
 
@@ -4272,12 +4277,12 @@ mod config features lst
 | `--version` |  LST format version (2 or 3) |
 
 
-## mod config features no-maven-central
+## mod config features no-maven-central (deprecated)
 
-(INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
+(DEPRECATED) Use mod config build maven settings edit instead.
 
 
-Maven Central and OSS Sonatype Snapshots are considered as valid recipe and dependency sources by default. They are implicitly used as a fallback for the resolution of recipes. In some environments access to these repositories is not allowed. This command be used to disable adding them implicitly to the list of repositories used for installing running recipes.
+This command is deprecated. Enabling it mirrors Maven Central and Sonatype snapshots to the configured recipe repository when resolving recipes. A Maven _settings.xml_ says the same thing with a mirror of **central,sonatype-central**, composes with any mirrors already in use, and is configured with **mod config build maven settings edit**.
 
 ### Usage
 
@@ -7470,6 +7475,7 @@ mod config recipes go [subcommands]
 ### Subcommands
 
 * `install`: Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Reports where an installed Go recipe module is on disk.
 * `delete`: Removes a Go module supplying recipes from the marketplace.
 
 ## mod config recipes go install
@@ -7497,6 +7503,38 @@ mod config recipes go install github.com/openrewrite/rewrite-go-recipes@v1.0.0
 | ---- | ----------- |
 | `MODULE[@VERSION]` |  The Go module path with an optional version in the format module@version, where @version is optional. |
 
+
+
+## mod config recipes go retrieve
+
+Reports where an installed Go recipe module is on disk.
+
+
+Locates an installed Go module in the module cache and prints its directory. A Go recipe sidecar can load the recipes from that directory without contacting a module proxy.
+
+### Usage
+
+```
+mod config recipes go retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes go retrieve github.com/openrewrite/rewrite-go-recipes
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `MODULE` |  The Go module path as it was installed. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes go delete
@@ -7549,6 +7587,7 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 ### Subcommands
 
 * `install`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Retrieves an installed recipe artifact's dependencies and records its classpath.
 * `delete`: Removes an artifact supplying recipes to the marketplace.
 
 ## mod config recipes jar install
@@ -7577,6 +7616,39 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 | `GAV` |  The group, artifact, and version of the artifact to install in the format groupId:artifactId:version. The version may be a fixed version, LATEST, or RELEASE.
 The dependency will be resolved from the artifact source defined in **mod config recipes artifacts** |
 
+
+
+## mod config recipes jar retrieve
+
+Retrieves an installed recipe artifact's dependencies and records its classpath.
+
+
+Downloads the dependencies of an installed recipe artifact and records its classpath so that later runs do not resolve it again. Prints the recipe JAR and the number of dependencies retrieved.
+
+### Usage
+
+```
+mod config recipes jar retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes jar retrieve org.openrewrite:rewrite-java
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `GA` |  The group and artifact of an installed recipe artifact, in the format groupId:artifactId. The version is the one **mod config recipes jar install** selected.
+The dependencies will be resolved from the artifact source defined in **mod config recipes artifacts** |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes jar delete
@@ -7623,6 +7695,7 @@ mod config recipes npm [subcommands]
 ### Subcommands
 
 * `install`: Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Reports where an installed npm recipe package is on disk.
 * `delete`: Removes an npm package supplying recipes from the marketplace.
 
 ## mod config recipes npm install
@@ -7650,6 +7723,38 @@ mod config recipes npm install my-recipe-package@latest
 | ---- | ----------- |
 | `PACKAGE[@VERSION]` |  The npm package name with an optional version in the format package@version, where @version is optional. Alternatively,a path to a compiled recipe on disk that provides an OpenRewrite activate function. |
 
+
+
+## mod config recipes npm retrieve
+
+Reports where an installed npm recipe package is on disk.
+
+
+Verifies that an installed npm package is still on disk and prints its directory. A JavaScript recipe sidecar can load the recipes from that directory without contacting the registry.
+
+### Usage
+
+```
+mod config recipes npm retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes npm retrieve @openrewrite/recipes-nodejs
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `PACKAGE` |  The npm package name as it was installed, with its @scope if it has one. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes npm delete
@@ -7696,6 +7801,7 @@ mod config recipes nuget [subcommands]
 ### Subcommands
 
 * `install`: Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Reports where an installed NuGet recipe package's publish output is on disk.
 * `delete`: Removes a NuGet package supplying recipes from the marketplace.
 
 ## mod config recipes nuget install
@@ -7723,6 +7829,38 @@ mod config recipes nuget install OpenRewrite.Recipes@1.0.0
 | ---- | ----------- |
 | `PACKAGE[@VERSION]` |  The NuGet package name with an optional version in the format package@version, where @version is optional. |
 
+
+
+## mod config recipes nuget retrieve
+
+Reports where an installed NuGet recipe package's publish output is on disk.
+
+
+Verifies that an installed NuGet package's publish output is still on disk and prints its directory. A C# recipe sidecar can load the recipes from that directory without contacting a feed.
+
+### Usage
+
+```
+mod config recipes nuget retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes nuget retrieve OpenRewrite.Recipes
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `PACKAGE` |  The NuGet package id as it was installed. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes nuget delete
@@ -7769,6 +7907,7 @@ mod config recipes pip [subcommands]
 ### Subcommands
 
 * `install`: Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Reports where an installed pip recipe package is on disk.
 * `delete`: Removes a pip package supplying recipes from the marketplace.
 
 ## mod config recipes pip install
@@ -7796,6 +7935,38 @@ mod config recipes pip install rewrite-recipe-example==1.0.0
 | ---- | ----------- |
 | `PACKAGE[==VERSION]` |  The pip package name or local path with an optional version in the format package==version, where ==version is optional. |
 
+
+
+## mod config recipes pip retrieve
+
+Reports where an installed pip recipe package is on disk.
+
+
+Verifies that an installed pip package is still on disk and prints the directory it was installed into. A Python recipe sidecar given that directory as its recipe install directory can import the recipes without contacting the index.
+
+### Usage
+
+```
+mod config recipes pip retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes pip retrieve rewrite-recipe-example
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `PACKAGE` |  The pip distribution name as it was installed. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes pip delete
@@ -8528,6 +8699,9 @@ Execute build tool compilation tasks
 Execute build tool verification tasks
   **mod exec /path/to/project MODERNE_BUILD_TOOL_CHECK**
 
+List what would run, without running it
+  **mod exec /path/to/project MODERNE_BUILD_TOOL_CHECK --dry-run --json**
+
 ### Usage
 
 ```
@@ -8552,6 +8726,8 @@ mod exec /path/to/project rm *.hprof
 
 | Name | Description |
 | ---- | ----------- |
+| `--dry-run` |  Do not run the command, but list what would run in each repository, resolved to that repository's build tool, execution directory and JDK. Detecting the build tool still invokes it, exactly as a real run would. |
+| `--json` |  (INCUBATING) Print the result as JSON rather than as progress. The format of this JSON is unsettled at this point, and the data structure may change. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to a file. |
@@ -9899,8 +10075,8 @@ mod wrapper
 
 | Name | Description |
 | ---- | ----------- |
-| `--auto-update` |  Set version to RELEASE (track latest stable release from Maven Central). |
-| `--auto-update-snapshot` |  Set version to LATEST (track latest snapshot from Maven Central Snapshots). |
+| `--auto-update` |  Set version to RELEASE (track the latest stable release from the Code Genome Project). |
+| `--auto-update-snapshot` |  Set version to LATEST (track the latest snapshot from the Code Genome Project). |
 | `--distribution-password` |  Password for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-token` |  Bearer token for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null and null placeholders. |

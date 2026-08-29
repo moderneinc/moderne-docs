@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.7.0           |
+| CLI version | 4.7.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,21 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.7.1 (2026-08-28)
+
+#### What's Changed
+* Stop stashing the working tree around TypeSync
+* Definalize a tree node whose package nests deeper than one segment
+* Resolve and download the CLI from the Code Genome Project by default
+* Let the compiler hold trigrep's search invariants
+* Retire noMavenCentral in favor of settings.xml mirrors
+* Add mod config recipes jar retrieve to record a recipe's classpath
+* Name the retrieve JSON fields explicitly so obfuscation cannot rename or drop them
+* Make the CLI findable and legible to a coding agent
+* Relay an npm archive the upstream streams without a length
+* Skip the POSIX-path Sh dialect tests on Windows
+* Build against rewrite-mainframe, and every member kind it reads
 
 ### CLI / DX v4.7.0 (2026-08-26)
 
