@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.7.1           |
+| CLI version | 4.7.2           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,12 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.7.2 (2026-08-29)
+
+#### What's Changed
+* Find a pip bundle's dist-info inside the venv the sidecar installs it into
+* Make a dry run legible, and stop the harness scoring what builds regenerate
 
 ### CLI / DX v4.7.1 (2026-08-28)
 

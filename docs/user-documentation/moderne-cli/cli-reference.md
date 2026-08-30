@@ -8731,6 +8731,7 @@ mod exec /path/to/project rm *.hprof
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to a file. |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
@@ -9299,6 +9300,7 @@ mod git sync csv [parameters]
 
 | Name | Description |
 | ---- | ----------- |
+| `--agent` |  Write a guide to using this organization for the named coding agents, in the file each one reads. Accepts **copilot**. Without this, no guide is written. |
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
@@ -9341,6 +9343,7 @@ mod git sync moderne /path/to/organization --organization <ORG_NAME>
 
 | Name | Description |
 | ---- | ----------- |
+| `--agent` |  Write a guide to using this organization for the named coding agents, in the file each one reads. Accepts **copilot**. Without this, no guide is written. |
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
