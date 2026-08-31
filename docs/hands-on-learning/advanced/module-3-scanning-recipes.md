@@ -47,7 +47,7 @@ In this exercise, you'll write a scanning recipe to find any comments in Java so
    * You'll override `getScanner()`, `generate()`, and `getVisitor()`. The `TodoComments` accumulator and `getInitialValue()` are already defined for you. `TodoComments` has a `boolean` for whether `TODO.md` exists and a list of strings for the collected comments, plus an option for a `String` markdown header.
 3. In `getScanner()`, use two visitors: a `JavaIsoVisitor` to visit Java source files and a `TreeVisitor` for the markdown file. Since you can only return one visitor, create one and call `.visit(...)` on it from within the `visit(...)` of the visitor you return.
    * The plain-text visitor checks whether `TODO.md` already exists (as in Exercise 3a).
-   * In the `JavaIsoVisitor`, look for `Comment` elements and store each match in the accumulator's list. A `Comment` is either a `TextComment` or `JavadocComment`; collecting only `TextComment`s is fine here.
+   * In the `JavaIsoVisitor`, look for `Comment` elements and store each match in the accumulator's list. A `Comment` is either a `TextComment` or `JavadocComment`. Collecting only `TextComment`s is fine here.
 4. In `generate()`, create `TODO.md` if it doesn't already exist — this is nearly identical to the `AppendToReleaseNotes` `generate()` from Exercise 3a.
 5. In `getVisitor()`, write the collected comments to the markdown file. Use `.withText(...)` to return the plain-text file, building the full markdown `String` from the accumulator's list of comments.
 6. Build your project and run the tests. They should all pass. If any fail, use the failure description to locate the problem.

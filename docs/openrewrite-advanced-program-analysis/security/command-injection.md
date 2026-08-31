@@ -459,10 +459,10 @@ fi
 
 ## Next steps
 
-* [SQL Injection](./sql-injection.md) - Similar pattern for database commands
-* [LDAP Injection](./ldap-injection.md) - Directory service command injection
-* [Path Traversal](./path-traversal.md) - File system access vulnerabilities
+* [SQL injection detection](./sql-injection.md) - similar pattern for database commands
+* [LDAP injection detection](./ldap-injection.md) - directory service command injection
+* [Path traversal detection](./path-traversal.md) - file system access vulnerabilities
 
-:::danger[Critical Security Issue]
+:::danger[Critical security issue]
 Command injection is one of the most dangerous vulnerabilities. Always validate input, avoid shell invocation when possible, and use parameterized commands. Never trust user input in system commands.
 :::

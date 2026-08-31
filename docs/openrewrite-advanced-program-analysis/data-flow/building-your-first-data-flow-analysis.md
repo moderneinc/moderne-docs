@@ -179,7 +179,7 @@ private void demonstrateAdvancedFeatures(LiveVariables liveVars) {
 
 ## Step 5: Create a comprehensive dead code recipe
 
-Time to put it all together! Let's create a production-ready recipe that handles multiple types of dead code and provides clear, actionable feedback to developers:
+Let's now put it together into a production-ready recipe that handles multiple types of dead code and gives developers clear, actionable feedback:
 
 ```java
 public class ComprehensiveDeadCodeFinder extends Recipe {
@@ -371,7 +371,7 @@ Now that you've built your first data flow analysis, you can:
 3. **Optimize Further**: Add special handling for common patterns like loop variables
 4. **Create Fix Recipes**: Don't just detect dead code – automatically remove it
 
-:::tip[Building on This Foundation]
+:::tip[Building on this foundation]
 The pattern shown here works for any data flow analysis. Just swap `LivenessAnalysis` for `ReachingDefinitionsAnalysis`, `TaintAnalysis`, or your custom analysis. Always use `ControlFlowSupport` to ensure proper CFG caching.
 :::
 
@@ -417,4 +417,4 @@ Congratulations! You've just built a data flow analysis recipe that can catch re
 3. Test thoroughly with various code patterns
 4. Consider performance and edge cases
 
-This same pattern works for any data flow analysis you want to build. Whether you're tracking tainted data, finding constant values, or detecting resource leaks, just swap in the appropriate analysis type and use its result API. You now have the foundation to tackle much more complex program analysis challenges!
+This same pattern works for any data flow analysis you want to build. Whether you're tracking tainted data, finding constant values, or detecting resource leaks, just swap in the appropriate analysis type and use its result API. You now have the foundation to tackle more complex program analysis challenges.

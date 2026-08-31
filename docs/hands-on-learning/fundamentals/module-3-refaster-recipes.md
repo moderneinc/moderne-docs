@@ -26,7 +26,7 @@ In this exercise, you will generate a recipe from an existing Refaster template 
 #### Step 1: See how Refaster recipes are generated from templates
 
 1. Open [src/main/java/com/yourorg/SimplifyTernary.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/SimplifyTernary.java) and take a look at the Refaster template to see the before/after pattern it's matching to simplify ternary expressions.
-2. Build the project to trigger Refaster code generation (in IntelliJ, use Ctrl/Cmd + F9; or run `mvn compile` or `./gradlew build` from the command line). This will automatically create an imperative OpenRewrite recipe in a new file with the name `SimplifyTernaryRecipes.java`. 
+2. Build the project to trigger Refaster code generation (in IntelliJ, use Ctrl/Cmd + F9, or run `mvn compile` or `./gradlew build` from the command line). This will automatically create an imperative OpenRewrite recipe in a new file with the name `SimplifyTernaryRecipes.java`. 
 :::info
 Refaster template recipe names are the class name followed by `Recipe` or `Recipes` (depending on if there is more than one template in the class).
 :::
@@ -73,7 +73,7 @@ Now that you've seen how Refaster template recipes work, you can create your own
 
 #### Step 3: Build and re-run the tests
 
-1. Build the project (in IntelliJ, Ctrl/Cmd + F9; or run `mvn compile` or `./gradlew build`) to generate the recipe class the tests expect.
+1. Build the project (in IntelliJ, Ctrl/Cmd + F9, or run `mvn compile` or `./gradlew build`) to generate the recipe class the tests expect.
 2. Re-run the tests and use the remaining failures to decide the next template. (This iterative pattern is a common method for recipe development.)
 
 :::tip

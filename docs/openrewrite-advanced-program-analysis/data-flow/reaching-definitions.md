@@ -113,7 +113,7 @@ boolean isKilled = reachingDefs.isDefinitionKilled(definition, programPoint);
 
 ## Common applications
 
-With these querying tools in hand, let's examine the most powerful applications of reaching definitions analysis:
+With these querying tools in hand, let's examine the main applications of reaching definitions analysis:
 
 ### Uninitialized variable detection
 
@@ -203,7 +203,7 @@ public class DataDependencyAnalyzer {
 
 ## Advanced patterns
 
-Once you've mastered the basic applications, you can tackle more sophisticated optimization patterns. Here are some advanced techniques that build on reaching definitions:
+Once you've mastered the basic applications, you can tackle more advanced optimization patterns. Here are some advanced techniques that build on reaching definitions:
 
 ### Copy propagation
 
@@ -323,7 +323,7 @@ public class IncrementalReachingDefs {
 
 ## Integration with other analyses
 
-While reaching definitions analysis is powerful on its own, it becomes even more valuable when combined with other program analyses. Here are some powerful combinations:
+While reaching definitions analysis is useful on its own, it becomes even more valuable when combined with other program analyses. Here are some combinations:
 
 ### With liveness analysis
 
@@ -438,7 +438,7 @@ if (checkCondition()) {
 
 ## Testing reaching definitions
 
-With all these edge cases and pitfalls, thorough testing becomes essential.
+With all these edge cases and pitfalls, thorough testing matters.
 
 ```java
 @Test
@@ -465,7 +465,7 @@ void testMultipleDefinitions() {
 
 ## Next steps
 
-* [Liveness Analysis](./liveness-analysis.md) - The complementary backward analysis
-* [Inter-procedural Analysis](./inter-procedural-analysis.md) - Tracking data across method boundaries
-* [Taint Analysis](../taint-analysis/comprehensive-guide.md) - Security-focused data flow analysis
-* [Building Your First Data Flow Analysis](./building-your-first-data-flow-analysis.md) - Practical tutorial
+* [Liveness analysis](./liveness-analysis.md) - the complementary backward analysis
+* [Inter-procedural analysis](./inter-procedural-analysis.md) - tracking data across method boundaries
+* [Advanced taint analysis guide](../taint-analysis/comprehensive-guide.md) - security-focused data flow analysis
+* [Building your first data flow analysis](./building-your-first-data-flow-analysis.md) - practical tutorial

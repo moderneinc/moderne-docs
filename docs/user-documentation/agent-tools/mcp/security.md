@@ -123,12 +123,12 @@ The MCP server exposes two read-only status resources:
 
 **What stays on the local machine at all times:**
 
-* All repository source code (read for indexing and analysis; never transmitted)
+* All repository source code (read for indexing and analysis - never transmitted)
 * The LST (written to `.moderne/mcp/lst/` inside the repository)
 * The trigram search index (`.zoekt` shards under `.moderne/build/{buildId}/sources/` and the assembled repo-level index under `.moderne/build/{buildId}/index/` inside the repository, produced inline by `mod build`)
-* Recipe run output and DataTables (written to `.moderne/mcp/run/` inside the repository; auto-deleted after one hour)
+* Recipe run output and DataTables (written to `.moderne/mcp/run/` inside the repository. Auto-deleted after one hour)
 * The tool-observations CSV (written to `~/.moderne/mcp/tool-observations.csv`)
-* All MCP protocol messages (carried over stdin/stdout; never over a network)
+* All MCP protocol messages (carried over stdin/stdout - never over a network)
 
 **What may leave the machine:**
 
@@ -208,7 +208,7 @@ In a future release, the Moderne CLI will provide an opt-in feature to connect t
 
 ### Filesystem monitoring
 
-`mod mcp` uses a directory watcher to monitor the repository working tree for file changes so the LST and trigram index can be updated incrementally. Changes are debounced with a sub-second delay. The watcher uses a platform-native filesystem events API; it does not spawn external processes or make network calls.
+`mod mcp` uses a directory watcher to monitor the repository working tree for file changes so the LST and trigram index can be updated incrementally. Changes are debounced with a sub-second delay. The watcher uses a platform-native filesystem events API - it does not spawn external processes or make network calls.
 
 ## Configuration
 

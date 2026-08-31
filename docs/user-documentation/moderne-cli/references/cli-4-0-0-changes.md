@@ -211,7 +211,7 @@ distributionUrlEarlyAccess=https://nexus.corp.example.com/repository/snapshots
 
 ### Caching the version lookup
 
-For a dynamic `version`, the wrapper resolves it by fetching `maven-metadata.xml` on every invocation, which is a network round-trip to the artifact repository before each command. The wrapper caches that resolved version under `~/.moderne/cli/version-cache/` for a configurable time-to-live, so routine runs don't re-check on every call. `distributionUrlCacheTtl` governs the `RELEASE` lookup and `distributionUrlEarlyAccessCacheTtl` the `LATEST`/snapshot lookups; both are ISO-8601 durations (for example `PT1H` or `PT10M`), default to one hour, and accept `PT0S` to disable caching. Set `MODERNE_WRAPPER_REFRESH=1` to force a fresh lookup for a single run. See the [CLI wrapper guide](../how-to-guides/cli-wrapper.md#caching-the-version-lookup) for details.
+For a dynamic `version`, the wrapper resolves it by fetching `maven-metadata.xml` on every invocation, which is a network round-trip to the artifact repository before each command. The wrapper caches that resolved version under `~/.moderne/cli/version-cache/` for a configurable time-to-live, so routine runs don't re-check on every call. `distributionUrlCacheTtl` governs the `RELEASE` lookup and `distributionUrlEarlyAccessCacheTtl` the `LATEST`/snapshot lookups. Both are ISO-8601 durations (for example `PT1H` or `PT10M`), default to one hour, and accept `PT0S` to disable caching. Set `MODERNE_WRAPPER_REFRESH=1` to force a fresh lookup for a single run. See the [CLI wrapper guide](../how-to-guides/cli-wrapper.md#caching-the-version-lookup) for details.
 
 ### Authenticated mirrors
 
@@ -245,7 +245,7 @@ GraalVM distributions are **not compatible** with the AOT cache. If you are supp
 
 ## What's changing and why
 
-In 3.x, the CLI was a platform-specific GraalVM native binary. You downloaded a single executable for your OS and ran it directly with no JDK required. Internally, the native binary was only the command-line frontend; it spawned a separate JVM subprocess (`modjava`) to do the actual work (recipe execution, LST parsing), because GraalVM native images couldn't dynamically load recipe JARs.
+In 3.x, the CLI was a platform-specific GraalVM native binary. You downloaded a single executable for your OS and ran it directly with no JDK required. Internally, the native binary was only the command-line frontend - it spawned a separate JVM subprocess (`modjava`) to do the actual work (recipe execution, LST parsing), because GraalVM native images couldn't dynamically load recipe JARs.
 
 This split architecture had drawbacks. The native binary and the JVM subprocess were different artifacts with different behavior, meaning a feature could work perfectly in one but fail in the other. Native image compilation also took 8-10 minutes per platform, which slowed release cycles and made it difficult to catch bugs before shipping.
 

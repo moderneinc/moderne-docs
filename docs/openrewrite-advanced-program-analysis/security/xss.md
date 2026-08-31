@@ -1,10 +1,10 @@
 ---
-description: Detect and prevent Cross-Site Scripting (XSS) vulnerabilities in web applications.
+description: Detect and prevent cross-site scripting (XSS) vulnerabilities in web applications.
 ---
 
-# Cross-Site Scripting (XSS) detection
+# Cross-site scripting (XSS) detection
 
-Cross-Site Scripting (XSS) vulnerabilities allow attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal cookies, hijack sessions, deface websites, or redirect users to malicious sites. OpenRewrite's XSS detection uses taint analysis to find where untrusted data flows into HTML output without proper encoding.
+Cross-site scripting (XSS) vulnerabilities allow attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal cookies, hijack sessions, deface websites, or redirect users to malicious sites. OpenRewrite's XSS detection uses taint analysis to find where untrusted data flows into HTML output without proper encoding.
 
 ## Understanding XSS vulnerabilities
 
@@ -113,7 +113,7 @@ public void search(HttpServletRequest request, HttpServletResponse response)
 
 ### Attribute injection
 
-HTML attributes present a special challenge because attackers can break out of the attribute context even when developers think they're being careful. Quotes alone won't save you—attackers know how to escape them.
+HTML attributes present a special challenge because attackers can break out of the attribute context even when developers think they're being careful. Quotes alone won't save you - attackers know how to escape them.
 
 ```java
 // VULNERABLE - Unquoted attributes
@@ -524,9 +524,9 @@ XSS detection is typically fast because:
 
 ## Next steps
 
-* [SQL Injection](./sql-injection.md) - Similar taint analysis for database queries
-* [Command Injection](./command-injection.md) - OS command vulnerabilities
+* [SQL injection detection](./sql-injection.md) - similar taint analysis for database queries
+* [Command injection detection](./command-injection.md) - OS command vulnerabilities
 
-:::tip[Defense in Depth]
+:::tip[Defense in depth]
 XSS prevention requires multiple layers: input validation, output encoding, Content Security Policy, and secure frameworks. Automated detection helps but isn't a complete solution.
 :::

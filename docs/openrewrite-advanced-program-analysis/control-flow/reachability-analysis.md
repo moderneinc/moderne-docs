@@ -4,7 +4,7 @@ description: Learn how to determine which parts of code can be reached during ex
 
 # Reachability analysis
 
-Reachability analysis determines which parts of a program can actually be executed. It's one of the most fundamental control flow analyses, answering the simple but crucial question: "Can execution ever reach this point?" This analysis is essential for dead code detection, security analysis, and understanding program behavior.
+Reachability analysis determines which parts of a program can actually be executed. It's one of the most fundamental control flow analyses, answering a simple but important question: "Can execution ever reach this point?" This analysis underpins dead code detection, security analysis, and understanding program behavior.
 
 ## Understanding reachability
 
@@ -610,5 +610,5 @@ for (BasicBlock block : reachableBlocks) {
 
 ## Next steps
 
-* [Dominance Analysis](./dominance-analysis.md) - Master dominance relationships and control dependencies.
-* [Loop Analysis Techniques](./loop-analysis.md) - Master the intricacies of loop detection and analysis.
+* [Dominance analysis](./dominance-analysis.md) - master dominance relationships and control dependencies.
+* [Loop analysis techniques](./loop-analysis.md) - master the intricacies of loop detection and analysis.

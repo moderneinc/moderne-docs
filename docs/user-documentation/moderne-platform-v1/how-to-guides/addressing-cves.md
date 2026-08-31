@@ -126,7 +126,7 @@ This is where things get a bit more interesting.
 
 ## Step 3: Run a comprehensive migration
 
-Upgrading from Jackson `2.x` to `3.x` isn't just a version bump - it's a major version migration with breaking changes:
+Upgrading from Jackson `2.x` to `3.x` is a major version migration with breaking changes:
 
 * Package names change from `com.fasterxml.jackson` to `tools.jackson`
 * Several methods have been renamed

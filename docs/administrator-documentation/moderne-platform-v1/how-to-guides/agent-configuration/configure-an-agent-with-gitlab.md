@@ -94,7 +94,7 @@ You may create the OAuth application at the **group level** rather than the inst
 :::
 
 4. Click the Save application button
-5.  Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Agent:
+5.  Copy the `Application ID` and `Secret` from this page - they will be used as arguments for the Moderne Agent:
 
     ![GitLab OAuth application details showing Application ID, Secret, and configured scopes](./assets/gl-secrets.png)
 

@@ -19,7 +19,7 @@ The Moderne Agent has been renamed to the **Moderne Connector**. Beyond the rena
 
 1. **Property prefix renames.** Most `moderne.agent.*` properties have moved to a new prefix (`moderne.connector.*`, `moderne.scm.*`, `moderne.organization.*`, or `moderne.recipe.marketplace.*`), depending on the area they configure.
 2. **Two new endpoints.** The API gateway path has moved from `/rsocket` to `/connector`, and there is a new `status.<tenant>.moderne.io` subdomain for Atlas dashboards.
-3. **A few behavior changes.** You can no longer use a single Maven configuration as both an LST and recipe source; they require separate configs now.
+3. **A few behavior changes.** You can no longer use a single Maven configuration as both an LST and recipe source - they now require separate configs.
 
 For the full property-by-property mapping, see the [SaaS v2 property mapping reference](./saas-v2-property-mapping.md).
 
@@ -108,7 +108,7 @@ Both have been removed. Status information now lives at `https://status.<tenant>
 
 * `/admin/agents` (and all provider sub-pages) → `/admin/connectors`
 * `/devcenter/{organization}/configure` → `/devcenter/configure?organizationId={organization}`
-* `/results/{recipeRunId}` → `/results/{organization}/{recipeRunId}`. Results are now org-scoped; the same applies to data tables, repositories, and visualization sub-pages.
+* `/results/{recipeRunId}` → `/results/{organization}/{recipeRunId}`. Results are now org-scoped. The same applies to data tables, repositories, and visualization sub-pages.
 
 **Removed:**
 
@@ -129,7 +129,7 @@ If your internal docs, bookmarks, or automation hit any of the renamed or remove
 In addition to your existing tenant domains, your network team may need to allow `status.<tenant>.moderne.io`.
 
 :::tip
-If the page is reachable in incognito but slow or broken in a normal browser session, clear cookies and local cache; we've seen stale auth cookies cause this.
+If the page is reachable in incognito but slow or broken in a normal browser session, clear cookies and local cache - we've seen stale auth cookies cause this.
 :::
 
 ## Recipes in non-Java languages
@@ -166,7 +166,7 @@ Recipe results, data tables, and visualizations from v1 do **not** carry over. G
 
 ## Monitoring during and after migration
 
-The Prometheus endpoint on the Connector is still available; your existing scrape config keeps working. In addition, SaaS v2 ships Atlas dashboards at `status.<tenant>.moderne.io`, described in [What's changed in SaaS v2](./saas-v2-changes.md#atlas-status-pages).
+The Prometheus endpoint on the Connector is still available. Because of that, your existing scrape config will keep working. In addition, SaaS v2 ships Atlas dashboards at `status.<tenant>.moderne.io`, described in [What's changed in SaaS v2](./saas-v2-changes.md#atlas-status-pages).
 
 :::info[I see "Failed to enrich RepoKey..." in Connector logs]
 This typically means `repos-lock.csv` still references an LST that has been purged from S3, usually because a repo failed to build and hasn't been re-published since. It is logged at `WARN`, not `ERROR`, because it is not fatal. See [Troubleshooting LST issues](../administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues.md#failed-to-enrich-repokey-after-lst-purge) for the full diagnosis.
@@ -208,7 +208,7 @@ There is **no customer-side DNS change**. Your team continues to use the same te
 
 ### Will users be signed out at cutover?
 
-Keycloak's user database is migrated from v1 to v2 as part of the cutover sequence, and existing sessions may need to re-authenticate. Existing API tokens will be migrated and continue to work; they do not need to be re-issued.
+Keycloak's user database is migrated from v1 to v2 as part of the cutover sequence, and existing sessions may need to re-authenticate. Existing API tokens will be migrated and continue to work.
 
 ### AWS PrivateLink customers
 
@@ -244,7 +244,7 @@ You can tick items off as you go, but selections are not persisted across page r
 
 See [Configuring organizations hierarchy](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy.md) for setup details.
 
-* [ ] `repos.csv` defines an organizational hierarchy (at least one `org` column). This is required by the Connector; a single `ALL` organization is a fine starting point.
+* [ ] `repos.csv` defines an organizational hierarchy (at least one `org` column). This is required by the Connector. Note that a single `ALL` organization is a fine starting point.
 * [ ] `repos.csv` is uploaded to the **root** of the bucket or repo you publish LSTs to.
 * [ ] `repos-lock.csv` is being produced and updated by your `mod publish` runs.
 * [ ] `MODERNE_ORGANIZATION_SOURCES_S3_0_URI` (or `..._HTTP_0_URI`) points at the `repos-lock.csv` file, not the original `repos.csv` file.
@@ -273,7 +273,7 @@ Run these with v1 still serving as your front door, using the header, cookie, an
 
 * [ ] An API call to `api.<tenant>.moderne.io/graphql` with `X-Moderne-Platform-Version: v2` is served by v2.
 * [ ] Update and test any existing automations you've previously configured.
-* [ ] Set up recipe module redeploy automation. Moderne no longer refreshes recipe module versions for you in v2; see [Keeping recipe modules up to date](#keeping-recipe-modules-up-to-date).
+* [ ] Set up recipe module redeploy automation. Moderne no longer refreshes recipe module versions for you in v2 - see [Keeping recipe modules up to date](#keeping-recipe-modules-up-to-date).
 * [ ] `/admin/connectors` shows your SCM configuration and source recipe / LST repositories.
 * [ ] Marketplace lists the recipes you expect (including non-Java recipes if applicable).
 * [ ] Repositories view shows the orgs and repos you expect.
@@ -286,11 +286,11 @@ Run these with v1 still serving as your front door, using the header, cookie, an
 
 * [ ] AWS PrivateLink customers: the v2 endpoint service swap is **not** done at cutover. Schedule that separately with Moderne after cutover and before v1 teardown.
 * [ ] Plan for users to potentially re-authenticate after cutover (Keycloak DB migrates as part of the flip). API tokens carry over and do not need to be re-issued.
-* [ ] Confirm a maintenance window with Moderne for the `NS` flip; rollback is fast (30s TTL) but a window keeps the experience clean.
+* [ ] Confirm a maintenance window with Moderne for the `NS` flip - rollback is fast (30s TTL), but a window keeps the experience clean.
 
 ## New v2 configuration options
 
-In addition to the renamed properties from v1, SaaS v2 introduces a few optional configuration areas with no v1 equivalent. None are required to complete the migration; they enable new v2 features you may want to opt into:
+In addition to the renamed properties from v1, SaaS v2 introduces a few optional configuration areas with no v1 equivalent. None are required to complete the migration, but they enable new v2 features you may want to opt into:
 
 * **Login screen customization** — custom login text and links (`moderne.ui.loginText`, `moderne.ui.loginLinks[N]`). See [UI customization variables](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables.md#ui-customization-variables).
 * **Connector working storage** — filesystem location for the Connector's working state (`moderne.connector.storage.permanentDir`). Mount a persistent volume here to survive Connector restarts. See [Storage variables](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables.md#storage-variables).

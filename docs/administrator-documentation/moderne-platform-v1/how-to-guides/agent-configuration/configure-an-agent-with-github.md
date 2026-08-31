@@ -54,7 +54,7 @@ GitHub Apps are recommended for their fine-grained permissions, short-lived toke
      ![GitHub Client secrets section with Generate a new client secret button](./assets/gh-secrets.png)
      <figcaption></figcaption>
    </figure>
-6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
+6. Copy the `Client ID` and `Client secret` from this page - they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
 7. Install the GitHub App in your organization(s). See the [GitHub permissions documentation](../../references/github-permissions.md#installing-a-github-app) for detailed installation instructions.
 
 :::note
@@ -88,7 +88,7 @@ After creating a GitHub App, you must install it in each organization or account
      ![GitHub Client secrets section with Generate a new client secret button](./assets/gh-secrets.png)
      <figcaption></figcaption>
    </figure>
-6. Copy the `Client ID` and `Client secret` from this page; they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
+6. Copy the `Client ID` and `Client secret` from this page - they will be used as [arguments for the Moderne Agent](#configure-the-moderne-agent).
 
 #### Example values
 

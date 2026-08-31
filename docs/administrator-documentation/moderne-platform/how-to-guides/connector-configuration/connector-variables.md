@@ -848,7 +848,7 @@ java -jar connector-{version}.jar \
 
 ## Recipe marketplace Go variables
 
-Go recipe modules are resolved through a Go module proxy. Go module proxies authenticate with basic auth only; there is no separate bearer-token field. Supply your credentials as `USERNAME` + `PASSWORD` (for Artifactory, use your username and identity token as the password). If your proxy authenticates with a token alone, put the token in `PASSWORD` and set `USERNAME` to any non-empty placeholder that your proxy ignores (for example, `__token__`). You can configure multiple Go module proxies by including multiple entries, each with a different `{index}`.
+Go recipe modules are resolved through a Go module proxy. Go module proxies authenticate with basic auth only - there is no separate bearer-token field. Supply your credentials as `USERNAME` + `PASSWORD` (for Artifactory, use your username and identity token as the password). If your proxy authenticates with a token alone, put the token in `PASSWORD` and set `USERNAME` to any non-empty placeholder that your proxy ignores (for example, `__token__`). You can configure multiple Go module proxies by including multiple entries, each with a different `{index}`.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">

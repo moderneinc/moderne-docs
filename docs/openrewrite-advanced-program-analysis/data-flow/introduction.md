@@ -1,5 +1,5 @@
 ---
-description: Learn how data flow analysis tracks information through programs to enable powerful optimizations and bug detection.
+description: Learn how data flow analysis tracks information through programs to enable optimizations and bug detection.
 ---
 
 # Introduction to data flow analysis
@@ -7,6 +7,10 @@ description: Learn how data flow analysis tracks information through programs to
 Data flow analysis is like being a detective tracking clues through a program. Instead of following the order of execution (which control flow does), data flow analysis **tracks how information moves and changes as the program runs**. It answers questions like "Where did this value come from?" and "Will this variable be used again?"
 
 If control flow analysis gives us the map of the city, data flow analysis tells us about the traffic patterns – what cargo moves along those roads and where it ends up.
+
+:::info[Getting the analysis library]
+The analyses described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for details on configuring your project.
+:::
 
 ## Understanding the flow of information
 
@@ -58,7 +62,7 @@ z = x * 2;      // Use of x: Both D1 and D2 might reach here!
                 // x could be 5 or 10 depending on the condition
 ```
 
-This analysis is crucial for many optimizations. If only one definition reaches a use, we might be able to replace the variable with its value (constant propagation). If a definition doesn't reach any use, it's dead code.
+This analysis drives many optimizations. If only one definition reaches a use, we might be able to replace the variable with its value (constant propagation). If a definition doesn't reach any use, it's dead code.
 
 #### Available Expressions
 
@@ -98,7 +102,7 @@ Why does liveness analysis matter? It reveals optimization opportunities:
 * **Register allocation**: If we know a variable isn't live anymore, its register can be reused for other variables
 * **Performance insights**: Identifying computations whose results are discarded helps find inefficient code patterns
 
-In production compilers, liveness analysis is crucial for fitting many variables into the CPU's limited registers - without it, programs would constantly spill variables to slower memory.
+In production compilers, liveness analysis is what fits many variables into the CPU's limited registers - without it, programs would constantly spill variables to slower memory.
 
 #### Very Busy Expressions
 
@@ -243,7 +247,7 @@ Security tools use specialized data flow analyses:
 * **Taint analysis**: Tracks untrusted data through the program (covered in detail in another section)
 * **Information flow analysis**: Ensures sensitive data doesn't leak to public outputs
 
-:::info[Real-World Impact]
+:::info[Real-world impact]
 Modern Java IDEs perform data flow analysis constantly. When IntelliJ IDEA grays out an unused variable or warns about a potential null pointer, it's using these exact techniques behind the scenes.
 :::
 
@@ -251,10 +255,10 @@ Modern Java IDEs perform data flow analysis constantly. When IntelliJ IDEA grays
 
 Now that you understand the fundamentals, you can dive deeper:
 
-* [Building your first data flow analysis](./building-your-first-data-flow-analysis.md) - Hands-on guide to implementing analyses
-* [Liveness analysis in detail](./liveness-analysis.md) - Deep dive into this fundamental backward analysis
-* [Reaching definitions analysis](./reaching-definitions.md) - Master the classic forward analysis
+* [Building your first data flow analysis](./building-your-first-data-flow-analysis.md) - hands-on guide to implementing analyses
+* [Liveness analysis in detail](./liveness-analysis.md) - deep dive into this fundamental backward analysis
+* [Reaching definitions analysis](./reaching-definitions.md) - master the classic forward analysis
 
-:::info[Further Reading]
+:::info[Further reading]
 For theoretical foundations, see "Principles of Program Analysis" by Nielson, Nielson, and Hankin. For practical implementation details, "Modern Compiler Implementation in Java" by Appel provides excellent coverage with actual code.
 :::

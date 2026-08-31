@@ -15,7 +15,7 @@ In this module, you will build a composite upgrade recipe that includes the Quer
 
 ### Steps
 
-You could try to just run the custom QueryDSL recipe, but there is a chicken-and-egg issue: Spring Boot 4 expects `jakarta.*` APIs, but QueryDSL 3 generates `javax.*`-based code that will not compile. Applying QueryDSL 5 alone would leave Spring Boot 2.7 (which expects `javax.*`); applying Spring Boot 4 alone would leave QueryDSL 3 (which generates `javax.*`). Neither order works in isolation. The solution is to upgrade QueryDSL and Spring Boot in a single, repeatable recipe. You can do that using a composite YAML recipe similar to the way you built one in Module 1.
+You could try to just run the custom QueryDSL recipe, but there is a chicken-and-egg issue: Spring Boot 4 expects `jakarta.*` APIs, but QueryDSL 3 generates `javax.*`-based code that will not compile. Applying QueryDSL 5 alone would leave Spring Boot 2.7 (which expects `javax.*`). Applying Spring Boot 4 alone would leave QueryDSL 3 (which generates `javax.*`). Neither order works in isolation. The solution is to upgrade QueryDSL and Spring Boot in a single, repeatable recipe. You can do that using a composite YAML recipe similar to the way you built one in Module 1.
 
 Additionally, since you will be upgrading in waves to ensure that custom library dependencies are handled in the proper sequence, you also need to make sure to update the dependency versions in each wave to use the newly released version from the previous wave. So you will need to include this step in the composite recipe as well.
 

@@ -6,6 +6,10 @@ description: Find and fix security vulnerabilities using OpenRewrite's advanced 
 
 OpenRewrite's security analysis recipes help you automatically find security vulnerabilities in Java applications. These recipes leverage advanced program analysis techniques including taint analysis, control flow analysis, and data flow analysis to identify security issues with high precision and low false positive rates.
 
+:::info[Getting the security recipes]
+The recipes described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for details on configuring your project.
+:::
+
 ## Understanding security analysis
 
 Security vulnerabilities often arise when untrusted data flows into sensitive operations without proper validation or sanitization. Think of your application as a building with multiple entry points (user inputs) and secure rooms (sensitive operations). Security analysis ensures that anyone entering through public doors can't reach secure rooms without proper authorization and screening.
@@ -108,10 +112,10 @@ Each finding includes:
 Explore specific security recipes in detail:
 
 * [SQL Injection Detection](./sql-injection.md)
-* [Cross-Site Scripting Prevention](./xss.md)
-* [Command Injection Analysis](./command-injection.md)
+* [Cross-site scripting (XSS) detection](./xss.md)
+* [Command injection detection](./command-injection.md)
 * [Path Traversal Detection](./path-traversal.md)
-* [LDAP Injection Finding](./ldap-injection.md)
+* [LDAP injection detection](./ldap-injection.md)
 * [XXE Vulnerability Detection](./xxe.md)
 * [PII Protection](./pii-protection.md)
 * [Post-Quantum Cryptography Readiness](./post-quantum-cryptography.md)

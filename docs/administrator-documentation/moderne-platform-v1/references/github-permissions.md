@@ -149,7 +149,7 @@ OAuth Apps require only user authorization (no installation), but they have broa
 If your organization uses an [IP allow list](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization), you can configure the GitHub App to work within those restrictions.
 
 :::note
-GitHub App IP allow lists only work when your organization has IP restrictions enabled. This feature allows GitHub Apps to bypass org-wide IP restrictions by declaring trusted IPs—it does not restrict the GitHub App independently. If your organization doesn't use IP allow lists, this configuration has no effect.
+GitHub App IP allow lists only work when your organization has IP restrictions enabled. This feature allows GitHub Apps to bypass org-wide IP restrictions by declaring trusted IPs - it does not restrict the GitHub App independently. If your organization doesn't use IP allow lists, this configuration has no effect.
 :::
 
 **Step 1: Configure the GitHub App's IP allow list**

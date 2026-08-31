@@ -120,7 +120,7 @@ For more information on how to work with and use declarative recipes, please rea
 
 ## Refaster Template Recipes
 
-Refaster template recipes are used to replace one expression with another – or one statement with another. Because of that, they're ideal for straightforward replacements such as converting `StringUtils.equals(..)` to `Objects.equals(..)`. These are more than just a string replacement, though; they offer compiler and type support.
+Refaster template recipes are used to replace one expression with another – or one statement with another. Because of that, they're ideal for straightforward replacements such as converting `StringUtils.equals(..)` to `Objects.equals(..)`. These are more than just a string replacement, though - they offer compiler and type support.
 
 :::info
 For more information on Refaster template recipes, please see our [Getting started with Refaster template recipes guide](../writing-recipes/refaster-recipes.md) or our [documentation on the different types of recipes](../writing-recipes/types-of-recipes.md).

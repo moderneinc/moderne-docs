@@ -105,7 +105,7 @@ The project descriptor is small, and you can skip it entirely: a directory with 
 }
 ```
 
-`projectName` becomes the name on the `JavaProject` marker, and `buildTool` becomes the `BuildTool` marker. The `type` is matched against the tools the marker knows (`Gradle`, `Maven`, `Bazel`, and `ModerneCli`); anything else, including your tool's real name, falls back to `ModerneCli`.
+`projectName` becomes the name on the `JavaProject` marker, and `buildTool` becomes the `BuildTool` marker. The `type` is matched against the tools the marker knows (`Gradle`, `Maven`, `Bazel`, and `ModerneCli`). Anything else, including your tool's real name, falls back to `ModerneCli`.
 
 Use that fallback rather than borrowing `Maven`. It's the accurate label for a tool the CLI doesn't run, and it keeps recipes that branch on build tool from mistaking your repositories for Maven ones.
 
@@ -146,7 +146,7 @@ What each field means:
 * `sources`: the files and directories to parse. List a directory and the CLI walks it recursively. It prunes git-ignored entries (though it keeps tracked files that happen to match a `.gitignore` rule) and de-duplicates overlapping entries, so listing both `src` and `src/main/java` is harmless. [Source vs. classpath paths](#source-vs-classpath-paths) explains what these paths are relative to.
 * `resources`: non-source files to carry into the LST as resources, under the same [path rules](#source-vs-classpath-paths).
 * `classpath`: the dependencies these sources compiled against. The [classpath section](#the-classpath-three-kinds-of-dependency) covers it in detail.
-* `languageLevel`: the `--source` and `--target` the compiler used, which become the source and target on the `JavaVersion` marker. Optional; each value defaults to the runtime version when omitted.
+* `languageLevel`: the `--source` and `--target` the compiler used, which become the source and target on the `JavaVersion` marker. Optional - each value defaults to the runtime version when omitted.
 * `javaRuntime`: the JDK that compiled this source set, described in [the JDK section](#the-jdk) below.
 * `kotlin`: include this object (even empty, as `{}`) to have the CLI build a Kotlin parser for the set alongside the Java one. Its `languageVersion` and `apiVersion` fields are informational today.
 
@@ -154,7 +154,7 @@ What each field means:
 Include `sources`, `resources`, and `classpath` explicitly, as arrays, even when one is empty. The CLI won't fill in a missing field, so leaving out `classpath` is an error rather than an empty classpath.
 :::
 
-A few of these fields need more than a line; the sections below cover paths, the classpath, and the JDK in turn.
+A few of these fields need more than a line. The sections below cover paths, the classpath, and the JDK in turn.
 
 ### Source vs. classpath paths
 
@@ -167,7 +167,7 @@ Paths in a descriptor are resolved in one of two ways, depending on the field.
 Mixing up the two is the most common mistake when hand-authoring a descriptor, and classpath paths are the ones that fail quietly:
 
 :::warning
-The CLI passes classpath paths to the parser unchanged and silently drops any that don't exist. A mistyped jar path won't fail the build; it just leaves those types unattributed. Because of that, it's important that you confirm the paths resolve.
+The CLI passes classpath paths to the parser unchanged and silently drops any that don't exist. A mistyped jar path won't fail the build - it just leaves those types unattributed. Because of that, it's important that you confirm the paths resolve.
 :::
 
 ### The classpath: three kinds of dependency
@@ -275,15 +275,15 @@ Hits mean the Guava jar on your classpath resolved into types the recipe could m
 
 You own the tree's freshness. The generic JVM step doesn't regenerate it, so when a build file changes, your producer has to re-emit the affected descriptors. The per-directory layout lets you re-emit just the module that changed rather than the whole tree, which is worth wiring into your producer's own up-to-date check.
 
-The markers you get are the generic three. A recipe that needs `MavenResolutionResult` to reason about a dependency graph, or `GradleProject` to read a Gradle model, has nothing to read on a custom-tool LST. If such a recipe matters to you, raise it with the Moderne team; it isn't something the prebuild format can close.
+The markers you get are the generic three. A recipe that needs `MavenResolutionResult` to reason about a dependency graph, or `GradleProject` to read a Gradle model, has nothing to read on a custom-tool LST. If such a recipe matters to you, raise it with the Moderne team - this isn't something the prebuild format can close.
 
 ## Summary
 
 A custom build tool joins the CLI by writing files, not code.
 
 * **The tree is the contract.** `.moderne/prebuild/` holds a directory per project and source set, and each source-set directory carries a `jvm-sourceset.json` file naming its sources, resources, and classpath. Write the tree in that shape and the generic JVM step parses it like any other build's output.
-* **Coordinates make types shareable.** An `external` dependency is decoded once per machine and reused across the organization; a `local` one is rebuilt per repository. Attach real coordinates wherever your resolver has them.
-* **Paths have two frames.** Source and resource paths are relative to the repository root; classpath paths are absolute locations on disk. Missing classpath entries are dropped without an error, so verify them with a recipe run.
+* **Coordinates make types shareable.** An `external` dependency is decoded once per machine and reused across the organization, while a `local` one is rebuilt per repository. Attach real coordinates wherever your resolver has them.
+* **Paths have two frames.** Source and resource paths are relative to the repository root, while classpath paths are absolute locations on disk. Missing classpath entries are dropped without an error, so verify them with a recipe run.
 * **Describe the compilation that happened.** The runtime version and classpath you record have to match the build that produced the bytecode, because the CLI is reconstructing that compilation's type universe rather than inventing a new one.
 
 ## Next steps

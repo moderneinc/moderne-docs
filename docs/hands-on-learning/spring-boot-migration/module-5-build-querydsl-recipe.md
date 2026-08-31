@@ -218,6 +218,6 @@ mod exec $WORKSPACE git restore MODERNE_BUILD_TOOL_DIR
 
 ### Takeaways
 
-* Unit tests validate recipe correctness; running against real repos validates completeness.
+* Unit tests validate recipe correctness. Running against real repos validates completeness.
 * The iterate-and-fix loop (run recipe → check build → fix recipe) is how recipe development works in practice.
 * You now have a working recipe ready to compose into the freight-train upgrade in [Module 6](./module-6-wave-migration.md).

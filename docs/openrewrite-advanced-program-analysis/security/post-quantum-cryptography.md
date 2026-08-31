@@ -172,7 +172,7 @@ The recipe generates several data tables to help you assess your quantum readine
 
 * **SecurityIssues**: A list of security issues in the repository.
 
-These tables provide a comprehensive inventory of your cryptographic usage, which is the essential first step in planning a migration to post-quantum cryptography.
+These tables provide a comprehensive inventory of your cryptographic usage, which is the first step in planning a migration to post-quantum cryptography.
 
 ## Migration planning
 
@@ -188,7 +188,7 @@ NIST has standardized these post-quantum cryptographic algorithms:
 
 Use the post-quantum cryptography recipe as part of your security assessment strategy:
 
-* [SQL Injection Detection](./sql-injection.md) - Maintain security during migration
-* [Command Injection Analysis](./command-injection.md) - Comprehensive security analysis
-* [PII Protection](./pii-protection.md) - Protect sensitive data
-* [Security Analysis Overview](./overview.md) - Complete security picture
+* [SQL injection detection](./sql-injection.md) - maintain security during migration
+* [Command injection detection](./command-injection.md) - comprehensive security analysis
+* [PII protection](./pii-protection.md) - protect sensitive data
+* [Security analysis overview](./overview.md) - complete security picture

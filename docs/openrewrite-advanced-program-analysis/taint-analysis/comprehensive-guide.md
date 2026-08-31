@@ -4,7 +4,7 @@ description: Master taint analysis for finding security vulnerabilities in Java 
 
 # Advanced taint analysis guide
 
-This guide provides an in-depth exploration of implementing taint analysis for security vulnerability detection in complex Java applications. Building on the foundational concepts covered in the introduction, we'll dive into advanced implementation details, sophisticated analysis techniques, and real-world challenges you'll encounter when deploying taint analysis at scale.
+This guide provides an in-depth exploration of implementing taint analysis for security vulnerability detection in complex Java applications. Building on the foundational concepts covered in the introduction, we'll dive into advanced implementation details, analysis techniques, and real-world challenges you'll encounter when deploying taint analysis at scale.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ String stillTainted = input;                   // input remains TAINTED
 
 ## Implementation in OpenRewrite
 
-OpenRewrite provides a sophisticated field-sensitive taint analysis that you can use:
+OpenRewrite provides a field-sensitive taint analysis that you can use:
 
 ```java
 public class TaintAnalysis extends ForwardDataFlowAnalysis<TaintedValue, TaintFlows> {
@@ -406,7 +406,7 @@ public class ContextSensitiveTaint extends TaintAnalysis {
 
 ### Implicit flow tracking
 
-Here's where things get really interesting! Sometimes data becomes tainted not through direct assignment, but through control flow. If a secret value influences a branch condition, anything assigned in that branch might leak information about the secret:
+Sometimes data becomes tainted not through direct assignment, but through control flow. If a secret value influences a branch condition, anything assigned in that branch might leak information about the secret:
 
 ```java
 public class ImplicitFlowTaint extends TaintAnalysis {
@@ -436,7 +436,7 @@ public class ImplicitFlowTaint extends TaintAnalysis {
 
 ### Taint sanitization validation
 
-It's not enough to just call a sanitizer – you need to use it correctly! This validator checks common mistakes like ignoring the sanitizer's return value or using the wrong type of sanitizer for a particular vulnerability:
+It's not enough to just call a sanitizer – you need to use it correctly. This validator checks common mistakes like ignoring the sanitizer's return value or using the wrong type of sanitizer for a particular vulnerability:
 
 ```java
 public class SanitizationValidator {
@@ -507,7 +507,7 @@ public class LibraryModeledTaint extends TaintAnalysis {
 
 ## Testing taint analysis
 
-Testing your taint analysis is crucial – you want to make sure it catches real vulnerabilities without crying wolf too often. Here's how to write comprehensive tests that verify your analysis works correctly:
+Test your taint analysis carefully – you want to make sure it catches real vulnerabilities without crying wolf too often. Here's how to write comprehensive tests that verify your analysis works correctly:
 
 ```java
 @Test
@@ -584,4 +584,4 @@ void tracksFieldTaint() {
 
 ## Next steps
 
-* [Security Recipes](../security/overview.md) - Pre-built security analysis recipes
+* [Security analysis overview](../security/overview.md) - pre-built security analysis recipes

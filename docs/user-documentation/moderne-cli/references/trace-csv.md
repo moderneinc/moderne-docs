@@ -5,15 +5,15 @@ description: Field-by-field reference for the trace.csv telemetry file the Moder
 
 # trace.csv reference
 
-The Moderne CLI and platform record telemetry for each command as a row in a `trace.csv` file, one row per repository per command. For how that telemetry is generated and collected, see [Understanding CLI usage across your organization](../how-to-guides/cli-telemetry.md); for how to replicate it to your own cloud storage and query it, see [Querying and BI](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md).
+The Moderne CLI and platform record telemetry for each command as a row in a `trace.csv` file, one row per repository per command. For how that telemetry is generated and collected, see [Understanding CLI usage across your organization](../how-to-guides/cli-telemetry.md). For how to replicate it to your own cloud storage and query it, see [Querying and BI](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md).
 
 This page is the field reference for those rows.
 
 ## How to read this reference
 
-* **Traces are hierarchical.** Each command writes its own stage plus every earlier stage in the workflow. A `mod run` row therefore carries the sync, build, and run columns; a `mod git commit` row carries everything through commit. A stage a command didn't reach is left empty.
+* **Traces are hierarchical.** Each command writes its own stage plus every earlier stage in the workflow. A `mod run` row therefore carries the sync, build, and run columns, while a `mod git commit` row carries everything through commit. A stage a command didn't reach is left empty.
 * **`organization` is the last of the stage columns.** Because each command type carries a different set of stages, the row width and the position of `organization` differ by type. If you use [trace tags](../how-to-guides/cli-telemetry.md), one `tag.<key>` column per tag is appended *after* `organization`, so it is not the last column in that case.
-* **Every field is written as text.** The **Type** column below is the *logical* type of the value (what it represents), not a storage type; a CSV field is always text until you cast it.
+* **Every field is written as text.** The **Type** column below is the *logical* type of the value (what it represents), not a storage type. A CSV field is always text until you cast it.
 * **Column headers are mixed-case** in the file (`runStartTime`). Query engines that fold identifiers to lowercase (Athena, Trino) will expose them lowercased (`runstarttime`).
 * **Every `*Outcome` column holds one of `Succeeded`, `Failed`, `Canceled`, or `Skipped`.**
 * **Columns change between CLI versions**, and new fields land mid-stage rather than at the end. Older partitions can be both narrower and differently ordered, which a positional reader will not warn you about. Prefer reading by column name.
@@ -186,7 +186,7 @@ Populated after `mod git push`.
 
 ## Publish stage
 
-Populated after `mod publish`. These columns appear only in `mod publish` rows; they are not part of the `mod git sync` → `mod git push` workflow chain. Because `mod publish` branches off after Build, the publish columns slot in immediately after the build stage.
+Populated after `mod publish`. These columns appear only in `mod publish` rows - they are not part of the `mod git sync` → `mod git push` workflow chain. Because `mod publish` branches off after Build, the publish columns slot in immediately after the build stage.
 
 | Column                 | Type     | Description                                                                                            | Example                                                   |
 |------------------------|----------|--------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
