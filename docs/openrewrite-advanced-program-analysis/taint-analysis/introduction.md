@@ -123,7 +123,7 @@ if (file.getPath().startsWith(baseDir.getPath())) {  // Ensure within base direc
 }
 ```
 
-:::warning[Not All Sanitizers Are Equal]
+:::warning[Not all sanitizers are equal]
 A common mistake is using the wrong sanitizer for the sink. HTML encoding prevents XSS but won't stop SQL injection. URL encoding prevents some attacks but not others. Always match the sanitizer to the specific sink.
 :::
 
@@ -276,7 +276,7 @@ if (!file.getPath().startsWith("/uploads/")) {
 file.delete();
 ```
 
-:::info[Defense in Depth]
+:::info[Defense in depth]
 Even with taint analysis, follow defense-in-depth principles:
 1. Validate input at trust boundaries
 2. Use safe APIs that prevent injection by design
@@ -312,18 +312,16 @@ Recognize:
 
 ## Next steps
 
-Ready to put taint analysis to work? Explore these topics:
+* [Advanced taint analysis guide](./comprehensive-guide.md) - implementation details and advanced patterns
+* [Security analysis overview](../security/overview.md) - pre-built analyses for common vulnerabilities
 
-* [Comprehensive Guide to Taint Analysis](./comprehensive-guide.md) - Deep dive into implementation and advanced patterns
-* [Security Analysis](../security/overview.md) - Use pre-built analyses for common vulnerabilities
-
-:::tip[Start Small]
+:::tip[Start small]
 Begin with one vulnerability type (like SQL injection) in a small codebase. Once you understand how taint flows through your application, expand to other vulnerability types and larger scopes.
 :::
 
 ## Further reading
 
 For more on secure coding and vulnerability patterns:
-* [OWASP Top 10](https://owasp.org/www-project-top-ten/) - Most critical web application security risks
-* [CWE/SANS Top 25](https://cwe.mitre.org/top25/) - Most dangerous software weaknesses
-* [CERT Secure Coding Standards](https://wiki.sei.cmu.edu/confluence/display/seccode) - Language-specific security guidelines
+* [OWASP Top 10](https://owasp.org/www-project-top-ten/) - the most critical web application security risks
+* [CWE/SANS Top 25](https://cwe.mitre.org/top25/) - the most dangerous software weaknesses
+* [CERT secure coding standards](https://wiki.sei.cmu.edu/confluence/display/seccode) - language-specific security guidelines

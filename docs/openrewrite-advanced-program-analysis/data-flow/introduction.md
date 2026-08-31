@@ -243,7 +243,7 @@ Security tools use specialized data flow analyses:
 * **Taint analysis**: Tracks untrusted data through the program (covered in detail in another section)
 * **Information flow analysis**: Ensures sensitive data doesn't leak to public outputs
 
-:::info[Real-World Impact]
+:::info[Real-world impact]
 Modern Java IDEs perform data flow analysis constantly. When IntelliJ IDEA grays out an unused variable or warns about a potential null pointer, it's using these exact techniques behind the scenes.
 :::
 
@@ -251,10 +251,10 @@ Modern Java IDEs perform data flow analysis constantly. When IntelliJ IDEA grays
 
 Now that you understand the fundamentals, you can dive deeper:
 
-* [Building your first data flow analysis](./building-your-first-data-flow-analysis.md) - Hands-on guide to implementing analyses
-* [Liveness analysis in detail](./liveness-analysis.md) - Deep dive into this fundamental backward analysis
-* [Reaching definitions analysis](./reaching-definitions.md) - Master the classic forward analysis
+* [Building your first data flow analysis](./building-your-first-data-flow-analysis.md) - hands-on guide to implementing analyses
+* [Liveness analysis in detail](./liveness-analysis.md) - deep dive into this fundamental backward analysis
+* [Reaching definitions analysis](./reaching-definitions.md) - master the classic forward analysis
 
-:::info[Further Reading]
+:::info[Further reading]
 For theoretical foundations, see "Principles of Program Analysis" by Nielson, Nielson, and Hankin. For practical implementation details, "Modern Compiler Implementation in Java" by Appel provides excellent coverage with actual code.
 :::

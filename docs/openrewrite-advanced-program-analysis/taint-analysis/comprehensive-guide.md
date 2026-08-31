@@ -584,4 +584,4 @@ void tracksFieldTaint() {
 
 ## Next steps
 
-* [Security Recipes](../security/overview.md) - Pre-built security analysis recipes
+* [Security analysis overview](../security/overview.md) - pre-built security analysis recipes

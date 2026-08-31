@@ -188,7 +188,7 @@ NIST has standardized these post-quantum cryptographic algorithms:
 
 Use the post-quantum cryptography recipe as part of your security assessment strategy:
 
-* [SQL Injection Detection](./sql-injection.md) - Maintain security during migration
-* [Command Injection Analysis](./command-injection.md) - Comprehensive security analysis
-* [PII Protection](./pii-protection.md) - Protect sensitive data
-* [Security Analysis Overview](./overview.md) - Complete security picture
+* [SQL injection detection](./sql-injection.md) - maintain security during migration
+* [Command injection detection](./command-injection.md) - comprehensive security analysis
+* [PII protection](./pii-protection.md) - protect sensitive data
+* [Security analysis overview](./overview.md) - complete security picture

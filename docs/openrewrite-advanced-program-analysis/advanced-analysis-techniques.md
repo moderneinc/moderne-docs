@@ -51,7 +51,7 @@ The actual method called depends on the runtime type of `payment`. Call graph an
 
 Call graphs enable powerful analyses and tools:
 
-**Dead Code Detection**: Methods that no one calls are likely dead code. By building a call graph from your main methods, you can find unreachable code.
+**Dead code detection**: Methods that no one calls are likely dead code. By building a call graph from your main methods, you can find unreachable code.
 
 ```java
 public class OrderService {
@@ -65,7 +65,7 @@ public class OrderService {
 }
 ```
 
-**Impact Analysis**: When you change a method, which parts of the system might be affected? The call graph shows all direct and transitive callers.
+**Impact analysis**: When you change a method, which parts of the system might be affected? The call graph shows all direct and transitive callers.
 
 ```java
 // If you modify this method...
@@ -78,7 +78,7 @@ public void calculateTax(Order order) {
 }
 ```
 
-**Security Auditing**: Track how untrusted data can reach sensitive operations through method calls.
+**Security auditing**: Track how untrusted data can reach sensitive operations through method calls.
 
 ```java
 public void webEndpoint(HttpRequest request) {
@@ -133,7 +133,7 @@ Remaining challenges:
 * **Reflection**: Dynamic method invocation requires conservative handling
 * **Dynamic class loading**: Runtime-loaded classes aren't visible to static analysis
 
-:::info[Real-World Usage]
+:::info[Real-world usage]
 IDEs use call graphs constantly. When you use "Find Usages" on a method, the IDE is querying its call graph. When it warns that a method is never used, it's checked the call graph for callers.
 :::
 
@@ -180,7 +180,7 @@ public void validate(User user, Order order) {
 
 Path-sensitive analysis excels at finding subtle bugs:
 
-**Null Pointer Analysis**: Track when references are definitely null, definitely non-null, or unknown.
+**Null pointer analysis**: Track when references are definitely null, definitely non-null, or unknown.
 
 ```java
 public void processFile(String filename) {
@@ -195,7 +195,7 @@ public void processFile(String filename) {
 }
 ```
 
-**Resource Leak Detection**: Ensure resources are released on all paths.
+**Resource leak detection**: Ensure resources are released on all paths.
 
 ```java
 public void readFile(String path) throws IOException {
@@ -216,7 +216,7 @@ public void readFile(String path) throws IOException {
 }
 ```
 
-**Type State Analysis**: Track how object states change along different paths.
+**Type state analysis**: Track how object states change along different paths.
 
 ```java
 class Connection {
@@ -384,7 +384,7 @@ Ensure resources are released on all execution paths.
 // Together: Verify release on ALL paths, not just some
 ```
 
-:::tip[Synergy in Practice]
+:::tip[Synergy in practice]
 Modern IDEs and analysis tools rarely use just one technique. When IntelliJ suggests extracting a method, it's using control flow (to find complete code blocks), data flow (to determine parameters), and call graph analysis (to check for conflicts).
 :::
 
@@ -392,8 +392,8 @@ Modern IDEs and analysis tools rarely use just one technique. When IntelliJ sugg
 
 These advanced techniques open doors to sophisticated analyses:
 
-* [Inter-procedural Analysis](./data-flow/inter-procedural-analysis.md) - Track data across method boundaries
-* [Security Analysis](./security/overview.md) - Apply these techniques to find vulnerabilities
+* [Inter-procedural analysis](./data-flow/inter-procedural-analysis.md) - track data across method boundaries
+* [Security analysis overview](./security/overview.md) - apply these techniques to find vulnerabilities
 
 ## Further reading
 

@@ -341,8 +341,8 @@ public class PartialRedundancyElimination {
 
 ## Next steps
 
-* [Loop Analysis Techniques](./loop-analysis.md) - Detect and analyze loops in control flow graphs.
-* [Data Flow Analysis](../data-flow/introduction.md) - See how dominance relationships enable powerful data flow optimizations.
+* [Loop analysis techniques](./loop-analysis.md) - detect and analyze loops in control flow graphs.
+* [Introduction to data flow analysis](../data-flow/introduction.md) - see how dominance relationships enable powerful data flow optimizations.
 
 :::tip
 Dominance relationships are fundamental to many compiler optimizations. Understanding them well will help you implement sophisticated program transformations and analyses.

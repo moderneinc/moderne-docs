@@ -120,12 +120,12 @@ If you're new to program analysis, focus on understanding CFGs thoroughly before
 
 Now that you understand the basics of control flow analysis, you can explore:
 
-* [Building Control Flow Graphs](./building-cfgs.md) - Learn how to construct CFGs from source code.
-* [Reachability Analysis](./reachability-analysis.md) - Learn how to determine which parts of code can be reached during execution.
-* [Dominance Analysis](./dominance-analysis.md) - Master dominance relationships and control dependencies.
-* [Loop Analysis Techniques](./loop-analysis.md) - Master the intricacies of loop detection and analysis.
-* [Data Flow Analysis](../data-flow/introduction.md) - See how CFGs enable powerful data analyses.
+* [Building control flow graphs](./building-cfgs.md) - learn how to construct CFGs from source code.
+* [Reachability analysis](./reachability-analysis.md) - learn how to determine which parts of code can be reached during execution.
+* [Dominance analysis](./dominance-analysis.md) - master dominance relationships and control dependencies.
+* [Loop analysis techniques](./loop-analysis.md) - master the intricacies of loop detection and analysis.
+* [Introduction to data flow analysis](../data-flow/introduction.md) - see how CFGs enable powerful data analyses.
 
-:::info[Want to Learn More?]
+:::info[Want to learn more?]
 For a deeper dive into the theory behind control flow analysis, check out the classic textbook "Compilers: Principles, Techniques, and Tools" by Aho, Lam, Sethi, and Ullman (often called the "Dragon Book"). Chapter 8 provides an excellent theoretical foundation.
 :::

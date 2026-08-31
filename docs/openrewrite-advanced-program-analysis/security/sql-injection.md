@@ -715,12 +715,12 @@ public List<User> getUsers(String sortField) {
 
 Now that you understand SQL injection detection, explore related security analyses:
 
-* [Command Injection](./command-injection.md) - Similar taint analysis for OS command execution
-* [LDAP Injection](./ldap-injection.md) - Protecting directory service queries
-* [XSS Detection](./xss.md) - Finding cross-site scripting vulnerabilities
-* [Path Traversal](./path-traversal.md) - Preventing directory traversal attacks
+* [Command injection detection](./command-injection.md) - similar taint analysis for OS command execution
+* [LDAP injection detection](./ldap-injection.md) - protecting directory service queries
+* [Cross-Site Scripting (XSS) detection](./xss.md) - finding cross-site scripting vulnerabilities
+* [Path traversal detection](./path-traversal.md) - preventing directory traversal attacks
 
-:::warning[Security Best Practices]
+:::warning[Security best practices]
 Remember that automated detection is just one layer of defense. A comprehensive security strategy includes:
 
 * **Secure coding standards**: Enforce prepared statements as the default
