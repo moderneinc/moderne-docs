@@ -10,6 +10,39 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## August 31, 2026
+
+#### recipes-javascript - v0.1.0
+
+* Move the recipe packages to 8.91.2, and put recipes-ui5 on its AMD primitives
+* Implement eslint-plugin-import-x's autofixable rules as OpenRewrite recipes
+
+#### recipes-javascript - v0.0.1
+
+* Add GitHub Actions workflows
+* Increase test timeout to 60s to fix flaky CI
+* Add writing-openrewrite-recipes-js skill as repo-level skill
+* Add JavaScript code quality infrastructure and 10 recipes
+* Migrate npm publishing to Trusted Publishing (OIDC)
+* Migrate test suites from Jest to Vitest
+* Document type attribution model and failure modes in JS recipe skill
+* Remove the failing receive-pr/comment-pr automation
+* feat: add date-fns and Moment.js to Temporal API migration recipes
+* docs: add root README
+* actions/checkout@v7
+* Install JestToVitest fixture dependencies with npm ci
+* Forward Code Genome Project credentials to GHA workflows
+* Publish the recipe packages to the Code Genome Project, and fix the PR guard
+* Implement the UI5 linter's rules as OpenRewrite recipes
+* Pin the recipe packages to 8.91.1 and take what it lets us delete
+* Implement ESLint's autofixable core rules as OpenRewrite recipes
+
+## August 28, 2026
+
+#### rewrite-cobol - 3.0.0
+
+Renamed to `rewrite-mainframe` to reflect the expanding language support beyond COBOL.
+
 ## August 26, 2026
 
 #### recipes-csharp - 0.6.0
