@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.7.2           |
+| CLI version | 4.7.3           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.7.3 (2026-08-30)
+
+#### What's Changed
+* Retrieve a pip package that installed no recipes from its dist-info on disk
 
 ### CLI / DX v4.7.2 (2026-08-29)
 
