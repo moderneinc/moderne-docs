@@ -5,7 +5,7 @@ description: A high-level overview of what this workshop will entail.
 
 # Overview: Fundamentals of recipe development workshop
 
-This workshop builds on the foundations covered in the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop, but is focused on recipe development. It's designed to help you build the skills needed to customize and build [OpenRewrite](https://docs.openrewrite.org/) recipes. [OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations. [Recipes](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md) are the unit of work in OpenRewrite, and can be written in [YAML](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#declarative-recipes), [Refaster](../../user-documentation/recipes/authoring-recipes/writing-recipes/refaster-recipes.md), or [imperative Java](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#imperative-recipes).
+This workshop builds on the foundations covered in the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop, but is focused on recipe development. It's designed to help you build the skills needed to customize and build [OpenRewrite](https://docs.openrewrite.org/) recipes. [OpenRewrite](https://docs.openrewrite.org/) is a framework for writing and running code transformations. [Recipes](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md) are the unit of work in OpenRewrite, and can be written in [YAML](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#declarative-recipes), the [Kotlin recipe DSL](../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-kotlin-recipes.md), or [imperative Java](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#imperative-recipes).
 
 Throughout this workshop, you'll explore all three approaches to writing recipes, as well as how to test and validate recipe behavior so you can gain confidence developing recipes that apply safe, scalable changes across your codebase. This workshop is designed to be hands-on, so you can follow along with the examples in your own environment. The workshop consists of a series of modules that highlight key concepts, each with one or more exercises to help you practice what you've learned.
 
@@ -18,7 +18,7 @@ If you get stuck or have questions, feel free to ask in the [OpenRewrite Slack](
 * Setting up a recipe development environment
 * Creating your own declarative YAML recipes
 * Scoping recipes using preconditions
-* Using Refaster for pattern-based Java transformations
+* Using the Kotlin recipe DSL for pattern-based transformations
 * How to write and run imperative Java-based recipes
 * Testing and validating recipe logic
 
@@ -29,11 +29,13 @@ To get the most out of this workshop, you should at least be familiar with:
 * Writing Java code
 * Using build tools like Maven or Gradle
 
+Module 3 uses the Kotlin recipe DSL in a Gradle project. You do not need prior Kotlin experience, since the recipes there are short and every step includes a reference example.
+
 If you haven’t been through the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop yet, we recommend completing it first before returning here.
 
 ## Workshop modules
 
 1. [Module 1: Environment setup](./module-1-recipe-development-environment.md)
 2. [Module 2: Declarative YAML recipes & preconditions](./module-2-declarative-yaml-recipes.md)
-3. [Module 3: Refaster recipes](./module-3-refaster-recipes.md)
+3. [Module 3: Kotlin DSL recipes](./module-3-kotlin-dsl-recipes.md)
 4. [Module 4: Imperative recipes and testing](./module-4-imperative-recipes.md)

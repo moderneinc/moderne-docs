@@ -5,7 +5,7 @@ description: Writing imperative recipes with integrated testing.
 
 # Module 4: Imperative recipes
 
-For use cases beyond what declarative recipes and Refaster templates can handle, you will want to look at [writing a Java refactoring recipe](../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-java-refactoring-recipe.md).
+For use cases beyond what declarative recipes and the Kotlin recipe DSL can handle, you will want to look at [writing a Java refactoring recipe](../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-java-refactoring-recipe.md).
 
 [Imperative recipes](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#imperative-recipes) use visitors to traverse Lossless Semantic Trees (LSTs) and modify code with full type awareness. You will use `JavaTemplate` to [create new LST elements](../../user-documentation/recipes/authoring-recipes/advanced-authoring/modifying-methods-with-javatemplate.md) that replace existing nodes while preserving formatting and style.
 
@@ -191,7 +191,7 @@ public class UseIntegerValueOf extends Recipe {
 </details>
 
 :::tip
-This recipe is useful as an example for the purposes of this workshop, but it actually could more easily have been written as a Refaster recipe rather than as an imperative one. As a followup exercise, see if you can implement the same change using Refaster templates.
+This recipe is useful as an example for the purposes of this workshop, but it actually could more easily have been written as a pattern-shaped recipe rather than as an imperative one. As a followup exercise, see if you can express the same change with the [Kotlin recipe DSL](../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-kotlin-recipes.md) from Module 3. You'll need two patterns, one per argument type, composed with `recipes(...)`.
 :::
 
 ### Takeaways
