@@ -47,7 +47,7 @@ for (int i = 0; i < items.length; i++) {  // <- Header: loop condition check
 **Key terms:**
 
 * **Header**: The loop's condition check - every iteration starts here
-* **Loop body**: All the code inside the loop that executes repeatedly  
+* **Loop body**: All the code inside the loop that executes repeatedly
 * **Back edge**: The invisible flow from the end of the loop body back to the header for the next iteration
 * **Exit blocks**: Parts of the loop that can jump outside (like `break` statements)
 * **Preheader**: Code that runs once before the loop starts (useful for placing optimized code)

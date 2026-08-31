@@ -108,10 +108,10 @@ Each finding includes:
 Explore specific security recipes in detail:
 
 * [SQL Injection Detection](./sql-injection.md)
-* [Cross-Site Scripting Prevention](./xss.md)
-* [Command Injection Analysis](./command-injection.md)
+* [Cross-site scripting (XSS) detection](./xss.md)
+* [Command injection detection](./command-injection.md)
 * [Path Traversal Detection](./path-traversal.md)
-* [LDAP Injection Finding](./ldap-injection.md)
+* [LDAP injection detection](./ldap-injection.md)
 * [XXE Vulnerability Detection](./xxe.md)
 * [PII Protection](./pii-protection.md)
 * [Post-Quantum Cryptography Readiness](./post-quantum-cryptography.md)

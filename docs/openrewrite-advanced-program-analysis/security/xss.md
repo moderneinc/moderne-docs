@@ -1,10 +1,10 @@
 ---
-description: Detect and prevent Cross-Site Scripting (XSS) vulnerabilities in web applications.
+description: Detect and prevent cross-site scripting (XSS) vulnerabilities in web applications.
 ---
 
-# Cross-Site Scripting (XSS) detection
+# Cross-site scripting (XSS) detection
 
-Cross-Site Scripting (XSS) vulnerabilities allow attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal cookies, hijack sessions, deface websites, or redirect users to malicious sites. OpenRewrite's XSS detection uses taint analysis to find where untrusted data flows into HTML output without proper encoding.
+Cross-site scripting (XSS) vulnerabilities allow attackers to inject malicious scripts into web pages viewed by other users. These scripts can steal cookies, hijack sessions, deface websites, or redirect users to malicious sites. OpenRewrite's XSS detection uses taint analysis to find where untrusted data flows into HTML output without proper encoding.
 
 ## Understanding XSS vulnerabilities
 

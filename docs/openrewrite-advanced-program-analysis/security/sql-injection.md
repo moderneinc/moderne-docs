@@ -717,7 +717,7 @@ Now that you understand SQL injection detection, explore related security analys
 
 * [Command injection detection](./command-injection.md) - similar taint analysis for OS command execution
 * [LDAP injection detection](./ldap-injection.md) - protecting directory service queries
-* [Cross-Site Scripting (XSS) detection](./xss.md) - finding cross-site scripting vulnerabilities
+* [Cross-site scripting (XSS) detection](./xss.md) - finding untrusted data that reaches HTML output
 * [Path traversal detection](./path-traversal.md) - preventing directory traversal attacks
 
 :::warning[Security best practices]
