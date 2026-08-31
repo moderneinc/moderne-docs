@@ -13,11 +13,9 @@ rewrite-apollo-client
 rewrite-astgrep
 rewrite-bazel
 rewrite-circleci
-rewrite-cobol
 rewrite-compiled-analysis
 rewrite-concourse
 rewrite-containerized-logging
-rewrite-crossplane
 rewrite-cryptography
 rewrite-cve-2025-50059
 rewrite-cve-2026-22732
@@ -31,6 +29,7 @@ rewrite-java-application-server
 rewrite-java-security
 rewrite-kafka
 rewrite-kubernetes
+rewrite-mainframe
 rewrite-migrate-kotlin
 rewrite-migrate-python
 rewrite-nodejs
