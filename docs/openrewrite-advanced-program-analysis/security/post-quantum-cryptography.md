@@ -172,7 +172,7 @@ The recipe generates several data tables to help you assess your quantum readine
 
 * **SecurityIssues**: A list of security issues in the repository.
 
-These tables provide a comprehensive inventory of your cryptographic usage, which is the essential first step in planning a migration to post-quantum cryptography.
+These tables provide a comprehensive inventory of your cryptographic usage, which is the first step in planning a migration to post-quantum cryptography.
 
 ## Migration planning
 

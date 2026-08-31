@@ -10,7 +10,7 @@ In simpler terms, if you want to execute block B, you have no choice but to exec
 
 ## Overview
 
-While reachability analysis (covered in detail in [Reachability Analysis](./reachability-analysis.md)) determines what code can execute, dominance analysis determines what code **must** execute before reaching a given point. This relationship is crucial for understanding control dependencies and enabling sophisticated program optimizations.
+While reachability analysis (covered in detail in [Reachability Analysis](./reachability-analysis.md)) determines what code can execute, dominance analysis determines what code **must** execute before reaching a given point. This relationship is central to understanding control dependencies and enabling a range of program optimizations.
 
 ## Understanding dominance
 
@@ -204,7 +204,7 @@ public class PostDominatorAnalysis extends DominatorAnalysis {
 
 ## Control dependence
 
-Control dependence combines dominance and post-dominance to answer a crucial question: "Which conditions determine whether this code executes?" 
+Control dependence combines dominance and post-dominance to answer a key question: "Which conditions determine whether this code executes?" 
 
 A statement is control dependent on a conditional branch if the branch's outcome determines whether the statement executes. This relationship helps identify which parts of your program depend on specific decisions, making it invaluable for program slicing, debugging, and understanding program behavior.
 
@@ -342,8 +342,8 @@ public class PartialRedundancyElimination {
 ## Next steps
 
 * [Loop analysis techniques](./loop-analysis.md) - detect and analyze loops in control flow graphs.
-* [Introduction to data flow analysis](../data-flow/introduction.md) - see how dominance relationships enable powerful data flow optimizations.
+* [Introduction to data flow analysis](../data-flow/introduction.md) - see how dominance relationships enable data flow optimizations.
 
 :::tip
-Dominance relationships are fundamental to many compiler optimizations. Understanding them well will help you implement sophisticated program transformations and analyses.
+Dominance relationships are fundamental to many compiler optimizations. Understanding them well will help you implement more advanced program transformations and analyses.
 :::

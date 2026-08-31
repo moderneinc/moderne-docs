@@ -40,7 +40,7 @@ This vulnerability has led to countless data breaches, including high-profile at
 
 ## How OpenRewrite detects SQL injection
 
-OpenRewrite's `FindSqlInjection` recipe employs sophisticated taint analysis to track the flow of untrusted data through your application. Think of it as a security expert who follows every piece of user input from the moment it enters your system until it reaches a database query. The analysis works in four key phases:
+OpenRewrite's `FindSqlInjection` recipe uses taint analysis to track the flow of untrusted data through your application. Think of it as a security expert who follows every piece of user input from the moment it enters your system until it reaches a database query. The analysis works in four key phases:
 
 ### 1. Identify taint sources
 
@@ -91,7 +91,7 @@ String finalQuery = sb.toString();                           // finalQuery is TA
 statement.execute(finalQuery);                               // VULNERABILITY DETECTED!
 ```
 
-This tracking is crucial because attackers often rely on developers forgetting that transformed data is still dangerous. Simply converting to uppercase or trimming whitespace doesn't make malicious SQL code safe.
+This tracking matters because attackers often rely on developers forgetting that transformed data is still dangerous. Simply converting to uppercase or trimming whitespace doesn't make malicious SQL code safe.
 
 ### 3. Recognize SQL sinks
 
@@ -428,7 +428,7 @@ public List<Product> getSortedProducts(String sortField, String direction) {
 
 ## Advanced detection features
 
-OpenRewrite's SQL injection detection goes beyond simple pattern matching. It employs sophisticated program analysis techniques that understand the nuances of how data flows through complex applications:
+OpenRewrite's SQL injection detection goes beyond simple pattern matching. It uses program analysis techniques that follow how data actually flows through complex applications:
 
 ### Field-sensitive analysis
 
@@ -643,7 +643,7 @@ public class CustomSqlInjectionRecipe extends FindSqlInjection {
 
 ## Testing and validation
 
-Testing your SQL injection detection is crucial to ensure it catches vulnerabilities in your codebase:
+Test your SQL injection detection to make sure it catches vulnerabilities in your codebase:
 
 ### Unit tests
 
@@ -688,7 +688,7 @@ void allowsPreparedStatements() {
 
 ## Handling false positives
 
-While OpenRewrite's analysis is sophisticated, static analysis can't always understand the full context of your code. Here are scenarios where safe code might be incorrectly flagged and how to handle them:
+Static analysis can't always understand the full context of your code. Here are scenarios where safe code might be incorrectly flagged and how to handle them:
 
 ### Complex validation patterns
 

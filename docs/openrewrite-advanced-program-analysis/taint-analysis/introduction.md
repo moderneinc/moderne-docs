@@ -10,6 +10,10 @@ Taint analysis does exactly this for data in software systems, tracking potentia
 
 In this doc, we will explore the fundamental concepts of taint analysis, examine common vulnerability patterns like SQL injection and XSS, understand how data flows through programs, and gain practical knowledge for writing effective taint specifications to secure applications.
 
+:::info[Getting the analysis library]
+The analyses described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for details on configuring your project.
+:::
+
 ## The security challenge
 
 Modern applications constantly handle untrusted data. Web applications process user input from forms, URLs, and cookies. APIs receive data from external systems. Mobile apps handle data from sensors and user interactions. Any of this data could be malicious.
@@ -161,7 +165,7 @@ user2.id = request.getParameter("id");        // user2.id is tainted
 // Analysis knows exactly which fields are tainted
 ```
 
-This precision is crucial for reducing false positives. Without field sensitivity, any tainted field would contaminate the entire object, leading to numerous spurious warnings.
+This precision is what keeps false positives down. Without field sensitivity, any tainted field would contaminate the entire object, leading to numerous spurious warnings.
 
 ### Inter-procedural analysis
 

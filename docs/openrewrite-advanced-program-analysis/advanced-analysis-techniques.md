@@ -1,10 +1,10 @@
 ---
-description: Explore advanced program analysis techniques that combine control flow and data flow for sophisticated analyses.
+description: Explore advanced program analysis techniques that combine control flow and data flow.
 ---
 
 # Advanced analysis techniques
 
-Beyond the fundamental control flow and data flow analyses, modern program analysis combines these techniques in sophisticated ways to solve complex problems. These advanced analyses often blend multiple approaches, consider additional program properties, or tackle domain-specific challenges.
+Beyond the fundamental control flow and data flow analyses, modern program analysis combines these techniques to solve complex problems. These advanced analyses often blend multiple approaches, consider additional program properties, or tackle domain-specific challenges.
 
 Think of these techniques as specialized tools in your analysis toolkit. While a hammer (basic data flow) and saw (control flow) are essential, sometimes you need a precision instrument designed for a specific task.
 
@@ -49,7 +49,7 @@ The actual method called depends on the runtime type of `payment`. Call graph an
 
 ### Applications of call graphs
 
-Call graphs enable powerful analyses and tools:
+Call graphs enable a range of analyses and tools:
 
 **Dead code detection**: Methods that no one calls are likely dead code. By building a call graph from your main methods, you can find unreachable code.
 
@@ -390,7 +390,7 @@ Modern IDEs and analysis tools rarely use just one technique. When IntelliJ sugg
 
 ## Next steps
 
-These advanced techniques open doors to sophisticated analyses:
+These advanced techniques open the door to more capable analyses:
 
 * [Inter-procedural analysis](./data-flow/inter-procedural-analysis.md) - track data across method boundaries
 * [Security analysis overview](./security/overview.md) - apply these techniques to find vulnerabilities

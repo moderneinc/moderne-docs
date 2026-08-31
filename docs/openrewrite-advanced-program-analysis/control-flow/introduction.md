@@ -8,6 +8,10 @@ Control flow analysis is a fundamental technique in program analysis that examin
 
 When you write a program, you're not just writing a linear sequence of instructions. You're creating a complex web of decisions, loops, and jumps. Control flow analysis helps us understand and reason about this web systematically.
 
+:::info[Getting the analysis library]
+The analyses described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for details on configuring your project.
+:::
+
 ## What is a Control Flow Graph?
 
 A Control Flow Graph (CFG) is a representation of all paths that might be traversed through a program during its execution. If your program were a city, the CFG would be its road map, showing how you can travel from one location (statement) to another.
@@ -47,12 +51,12 @@ The main type of edges include:
 
 * **Conditional edges** arise from decision points in your code. An if-statement creates two conditional edges: one for when the condition is true, another for when it's false. Switch statements can create many conditional edges, one for each case.
 
-* **Loop edges** (also called **back edges**) occur when control can flow backward in the program, creating a cycle. These are crucial for understanding iteration.
+* **Loop edges** (also called **back edges**) occur when control can flow backward in the program, creating a cycle. These are central to understanding iteration.
 
 * **Exception edges** represent the paths control can take when exceptions are thrown. These edges often lead to catch blocks or method exits.
 
 :::info
-Understanding edge types is crucial for many analyses. For example, loop optimization algorithms specifically look for back edges, while exception analysis focuses on exception edges.
+Understanding edge types matters for many analyses. For example, loop optimization algorithms specifically look for back edges, while exception analysis focuses on exception edges.
 :::
 
 ## Direct applications of control flow analysis
@@ -93,7 +97,7 @@ This analysis helps identify methods that might throw undeclared exceptions, cat
 
 ### Control dependency analysis
 
-Sometimes we need to know which statements control the execution of other statements. For example, if statement B is inside an if-block controlled by condition A, then B is control-dependent on A. This relationship is crucial for many advanced analyses and transformations.
+Sometimes we need to know which statements control the execution of other statements. For example, if statement B is inside an if-block controlled by condition A, then B is control-dependent on A. This relationship underpins many advanced analyses and transformations.
 
 ## Relationship to data flow analysis
 
@@ -124,7 +128,7 @@ Now that you understand the basics of control flow analysis, you can explore:
 * [Reachability analysis](./reachability-analysis.md) - learn how to determine which parts of code can be reached during execution.
 * [Dominance analysis](./dominance-analysis.md) - master dominance relationships and control dependencies.
 * [Loop analysis techniques](./loop-analysis.md) - master the intricacies of loop detection and analysis.
-* [Introduction to data flow analysis](../data-flow/introduction.md) - see how CFGs enable powerful data analyses.
+* [Introduction to data flow analysis](../data-flow/introduction.md) - see how CFGs enable data flow analyses.
 
 :::info[Want to learn more?]
 For a deeper dive into the theory behind control flow analysis, check out the classic textbook "Compilers: Principles, Techniques, and Tools" by Aho, Lam, Sethi, and Ullman (often called the "Dragon Book"). Chapter 8 provides an excellent theoretical foundation.

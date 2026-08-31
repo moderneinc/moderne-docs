@@ -164,7 +164,7 @@ public void analyzeCompilationUnit(J.CompilationUnit cu) {
 
 ### Basic blocks
 
-A CFG consists of basic blocks connected by edges. Each basic block is a maximal sequence of statements that execute together without any branches or jumps. Understanding the structure of basic blocks is essential for navigating and analyzing control flow - every CFG has exactly one entry block and one or more exit blocks, connected by edges that represent possible execution paths.
+A CFG consists of basic blocks connected by edges. Each basic block is a maximal sequence of statements that execute together without any branches or jumps. Understanding the structure of basic blocks is what lets you navigate and analyze control flow - every CFG has exactly one entry block and one or more exit blocks, connected by edges that represent possible execution paths.
 
 ```java
 ControlFlowGraph cfg = ...;
@@ -188,7 +188,7 @@ for (BasicBlock block : blocks) {
 
 ### Edge types
 
-Different edge types represent different reasons why control might flow from one block to another. Understanding edge types is crucial for many analyses - sequential edges show normal execution flow, conditional edges represent if/else branches, loop-back edges indicate loops, and exception edges track how exceptions propagate through your code.
+Different edge types represent different reasons why control might flow from one block to another. Understanding edge types matters for many analyses - sequential edges show normal execution flow, conditional edges represent if/else branches, loop-back edges indicate loops, and exception edges track how exceptions propagate through your code.
 
 ```java
 // Get typed edges
@@ -236,7 +236,7 @@ public BasicBlock findContainingBlock(ControlFlowGraph cfg, Tree statement) {
 
 ### Path analysis
 
-Determining reachability between blocks is fundamental to many program analyses. This involves checking whether there's an execution path from one block to another, which is essential for understanding data flow, identifying dead code, and ensuring security properties.
+Determining reachability between blocks is fundamental to many program analyses. This involves checking whether there's an execution path from one block to another, which underpins data flow analysis, dead code detection, and security properties.
 
 ```java
 public boolean canReach(ControlFlowGraph cfg, BasicBlock from, BasicBlock to) {

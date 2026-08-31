@@ -4,7 +4,7 @@ description: Detect, analyze, and understand loops in control flow graphs for op
 
 # Loop analysis techniques
 
-Loops are where programs spend most of their execution time, making loop analysis crucial for performance optimization and program understanding. This guide explores how to detect loops, analyze their properties, and use that information for powerful transformations.
+Loops are where programs spend most of their execution time, making loop analysis important for performance optimization and program understanding. This guide explores how to detect loops, analyze their properties, and use that information to drive transformations.
 
 :::info
 This guide includes example implementations of loop analysis concepts. OpenRewrite's core library provides control flow graph construction but not specialized loop analysis classes. The `Loop`, `DataDependence`, and other types shown here are example implementations you could create for your own analyses.
@@ -190,7 +190,7 @@ public class NaturalLoopFinder {
 
 ### Loop nesting structure
 
-Loops can be nested within other loops, creating a hierarchy where inner loops execute completely for each iteration of outer loops. Understanding this nesting structure is crucial for optimization - inner loops typically have the highest impact on performance since they execute the most frequently.
+Loops can be nested within other loops, creating a hierarchy where inner loops execute completely for each iteration of outer loops. Understanding this nesting structure is important for optimization - inner loops typically have the highest impact on performance since they execute the most frequently.
 
 For example, in a doubly-nested loop, the innermost statements execute `outer_iterations × inner_iterations` times, making them prime targets for optimization.
 
@@ -285,7 +285,7 @@ public class LoopExitAnalysis {
 
 ### Loop-carried dependencies
 
-Loop-carried dependencies are relationships between different iterations of a loop - when one iteration depends on the results of a previous iteration. Understanding these dependencies is crucial because they determine whether we can safely optimize or parallelize a loop.
+Loop-carried dependencies are relationships between different iterations of a loop - when one iteration depends on the results of a previous iteration. These dependencies determine whether a loop can be safely optimized or parallelized.
 
 **Why do we need to identify these dependencies?**
 

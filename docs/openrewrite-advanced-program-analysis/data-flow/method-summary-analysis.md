@@ -186,7 +186,7 @@ public class IncrementalSummaryComputer {
 
 ## Advanced summary features
 
-Once you have the basic summary computation working, you can enhance your summaries with more sophisticated features to capture complex behaviors.
+Once you have the basic summary computation working, you can extend your summaries to capture more complex behaviors.
 
 ### Heap abstractions
 
