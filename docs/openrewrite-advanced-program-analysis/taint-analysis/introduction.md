@@ -11,7 +11,7 @@ Taint analysis does exactly this for data in software systems, tracking potentia
 In this doc, we will explore the fundamental concepts of taint analysis, examine common vulnerability patterns like SQL injection and XSS, understand how data flows through programs, and gain practical knowledge for writing effective taint specifications to secure applications.
 
 :::info[Getting the analysis library]
-The analyses described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for details on configuring your project.
+The analyses described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../user-documentation/recipes/accessing-the-code-genome-project.md) for details on configuring your project.
 :::
 
 ## The security challenge

@@ -84,6 +84,7 @@ const redirects: RedirectRule[] = [
   { from: '/user-documentation/moderne-platform/how-to-guides/categorize-recipes', to: '/administrator-documentation/moderne-platform/how-to-guides/categorize-recipes' },
   { from: '/user-documentation/recipes/moderne-trigrep', to: '/user-documentation/agent-tools/trigrep' },
   { from: '/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-strict-recipe-sources', to: '/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-the-pom-cache' },
+  { from: '/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project', to: '/user-documentation/recipes/accessing-the-code-genome-project' },
 ];
 
 export default redirects;

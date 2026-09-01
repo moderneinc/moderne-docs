@@ -25,6 +25,8 @@ Those limits do not fit how OpenRewrite is built and shipped:
 * A single release of OpenRewrite's primary repository exceeds both the release-count and size limits on its own.
 * OpenRewrite releases frequently, often several times per week.
 
+Aside from publishing limits, there are also rate limits that have negatively impacted us. When trying to build and release OpenRewrite, we often will see [HTTP 429 responses](https://central.sonatype.org/faq/429-error/) as we attempt to resolve artifacts across numerous repository. This holds up our release train and makes it take longer to get updates out.
+
 Rather than let another party's constraints dictate how these tools reach you, Moderne now hosts OpenRewrite's recipes and the Moderne CLI in the Code Genome Project.
 
 ## What the repository hosts
@@ -57,13 +59,13 @@ When ordering your virtual repositories, it's important that you put the Code Ge
 Use the repository URL exactly as shown. Do not append a storage prefix such as `/oss`. The gateway adds the correct prefix for you, and an extra one causes the request to be rejected.
 :::
 
-Once the remote repository is in place, your developers install and run the CLI and recipes through your internal repository exactly as before, with no per-developer changes. See [Deploying the CLI from an internal artifact repository](../../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) for the CLI-side setup.
+Once the remote repository is in place, your developers install and run the CLI and recipes through your internal repository exactly as before, with no per-developer changes. See [Deploying the CLI from an internal artifact repository](../moderne-cli/getting-started/cli-internal-mirror.md) for the CLI-side setup.
 
 ## Point the CLI or a build directly at the repository
 
 If you don't run an internal mirror, point the Moderne CLI or your build directly at the repository, authenticating with your token.
 
-For the **Moderne CLI**, add it as a recipe artifact repository. See [pointing the CLI at the Code Genome Project for recipes](../../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md#pointing-the-cli-at-the-code-genome-project-for-recipes).
+For the **Moderne CLI**, add it as a recipe artifact repository. See [pointing the CLI at the Code Genome Project for recipes](../moderne-cli/getting-started/cli-internal-tools.md#pointing-the-cli-at-the-code-genome-project-for-recipes).
 
 For a **Maven build**, put your credentials (the token is the password) in `settings.xml`:
 

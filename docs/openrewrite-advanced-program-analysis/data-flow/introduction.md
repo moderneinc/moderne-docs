@@ -9,7 +9,7 @@ Data flow analysis is like being a detective tracking clues through a program. I
 If control flow analysis gives us the map of the city, data flow analysis tells us about the traffic patterns – what cargo moves along those roads and where it ends up.
 
 :::info[Getting the analysis library]
-The analyses described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for details on configuring your project.
+The analyses described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../user-documentation/recipes/accessing-the-code-genome-project.md) for details on configuring your project.
 :::
 
 ## Understanding the flow of information

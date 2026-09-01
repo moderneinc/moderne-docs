@@ -9,7 +9,7 @@ Control flow analysis is a fundamental technique in program analysis that examin
 When you write a program, you're not just writing a linear sequence of instructions. You're creating a complex web of decisions, loops, and jumps. Control flow analysis helps us understand and reason about this web systematically.
 
 :::info[Getting the analysis library]
-The analyses described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for details on configuring your project.
+The analyses described here ship in [`io.moderne.recipe:rewrite-program-analysis`](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-program-analysis/). See [Accessing the Code Genome Project](../../user-documentation/recipes/accessing-the-code-genome-project.md) for details on configuring your project.
 :::
 
 ## What is a Control Flow Graph?
