@@ -39,7 +39,7 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## August 28, 2026
 
-#### rewrite-cobol - 3.0.0
+#### rewrite-mainframe - 3.0.0
 
 Renamed to `rewrite-mainframe` to reflect the expanding language support beyond COBOL.
 
@@ -89,12 +89,6 @@ Renamed to `rewrite-mainframe` to reflect the expanding language support beyond 
 #### rewrite-circleci - 3.12.6
 
 * Updated repository to use OpenRewrite version v8.91.0
-
-#### rewrite-cobol - 2.24.0
-
-* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
-* Record every BIND on a card, and delete the dead markers package
-* Read the DB2 DDL a program's columns come from
 
 #### rewrite-compiled-analysis - 0.15.1
 
@@ -177,6 +171,12 @@ Renamed to `rewrite-mainframe` to reflect the expanding language support beyond 
 * Extend the das-schiff to Sylva migration: mirrors, export-range classification, and static drift
 * Write Das Schiff as the proper noun it is
 * OpenRewrite recipe best practices
+
+#### rewrite-mainframe - 2.24.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+* Record every BIND on a card, and delete the dead markers package
+* Read the DB2 DDL a program's columns come from
 
 #### rewrite-migrate-kotlin - 0.8.0
 
@@ -337,15 +337,6 @@ Renamed to `rewrite-mainframe` to reflect the expanding language support beyond 
 
 ## August 17, 2026
 
-#### rewrite-cobol - 2.22.0
-
-* Fix three COBOL parse gaps: EXEC DLI, EXIT paragraphs, and RD PAGE
-* Stop PICTURE strings from consuming the entry that follows them
-* Parse four more constructs found in real CICS and IMS COBOL
-* Stop silently skipping a COPY REPLACING rule, and refuse partial words
-* Model JCL statements in the LST, and stop losing statements to column 73
-* Give every COBOL node an identity of its own
-
 #### rewrite-devcenter - 1.31.1
 
 Pick up latest rewrite-java-security.
@@ -359,6 +350,15 @@ Pick up latest rewrite-java-security.
 * Fix FindSensitiveApiEndpoints not working on record types
 * Classify Go recipes as go, not golang
 * Migrate off the end-of-life rewrite-analysis
+
+#### rewrite-mainframe - 2.22.0
+
+* Fix three COBOL parse gaps: EXEC DLI, EXIT paragraphs, and RD PAGE
+* Stop PICTURE strings from consuming the entry that follows them
+* Parse four more constructs found in real CICS and IMS COBOL
+* Stop silently skipping a COPY REPLACING rule, and refuse partial words
+* Model JCL statements in the LST, and stop losing statements to column 73
+* Give every COBOL node an identity of its own
 
 #### rewrite-program-analysis - 0.13.9
 
@@ -412,14 +412,6 @@ Pick up latest rewrite-java-security.
 #### rewrite-circleci - 3.12.5
 
 * Updated repository to use OpenRewrite version v8.89.0
-
-#### rewrite-cobol - v2.21.1
-
-* Move CI and publishing onto the openrewrite gh-automation workflows
-
-#### rewrite-cobol - 2.21.0
-
-* Pass Code Genome Project artifact credentials to the shared workflows
 
 #### rewrite-compiled-analysis - 0.15.0
 
@@ -480,6 +472,14 @@ Pick up latest rewrite-java-security.
 #### rewrite-kubernetes - 3.17.5
 
 * Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-mainframe - v2.21.1
+
+* Move CI and publishing onto the openrewrite gh-automation workflows
+
+#### rewrite-mainframe - 2.21.0
+
+* Pass Code Genome Project artifact credentials to the shared workflows
 
 #### rewrite-migrate-kotlin - 0.7.0
 
@@ -663,10 +663,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.88.0
 
-#### rewrite-cobol - 2.20.3
-
-* Updated repository to use OpenRewrite version v8.88.0
-
 #### rewrite-compiled-analysis - 0.14.4
 
 * Updated repository to use OpenRewrite version v8.88.0
@@ -719,6 +715,10 @@ Pick up latest rewrite-java-security.
 * Updated repository to use OpenRewrite version v8.88.0
 
 #### rewrite-kubernetes - 3.17.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-mainframe - 2.20.3
 
 * Updated repository to use OpenRewrite version v8.88.0
 
@@ -933,10 +933,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.87.0
 
-#### rewrite-cobol - 2.20.2
-
-* Updated repository to use OpenRewrite version v8.87.0
-
 #### rewrite-compiled-analysis - 0.14.3
 
 * Updated repository to use OpenRewrite version v8.87.0
@@ -998,6 +994,10 @@ Pick up latest rewrite-java-security.
 * Updated repository to use OpenRewrite version v8.87.0
 
 #### rewrite-kubernetes - 3.17.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-mainframe - 2.20.2
 
 * Updated repository to use OpenRewrite version v8.87.0
 
@@ -1105,7 +1105,7 @@ Pick up latest rewrite-java-security.
 
 ## July 7, 2026
 
-#### rewrite-cobol - 2.20.1
+#### rewrite-mainframe - 2.20.1
 
 * Read and tokenize JCL .prm members once by path, not per source
 
@@ -1144,11 +1144,6 @@ Pick up latest rewrite-java-security.
 #### rewrite-circleci - 3.12.2
 
 * Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-cobol - 2.20.0
-
-* Stop exposing the ANTLR4 codegen tool as a runtime dependency
-* Expand external SYSIN/SYSTSIN .prm members into the JCL LST
 
 #### rewrite-compiled-analysis - 0.14.2
 
@@ -1260,6 +1255,11 @@ Pick up latest rewrite-java-security.
 #### rewrite-kubernetes - 3.17.2
 
 * Updated repository to use OpenRewrite version v8.86.0
+
+#### rewrite-mainframe - 2.20.0
+
+* Stop exposing the ANTLR4 codegen tool as a runtime dependency
+* Expand external SYSIN/SYSTSIN .prm members into the JCL LST
 
 #### rewrite-migrate-kotlin - 0.6.1
 
@@ -1438,11 +1438,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.85.0
 
-#### rewrite-cobol - 2.19.0
-
-* Recognize .dcl (DCLGEN) files as copybooks for EXEC SQL INCLUDE
-* Increase default Cobol parser timeout to 10 minutes
-
 #### rewrite-compiled-analysis - 0.14.1
 
 * Updated repository to use OpenRewrite version v8.85.0
@@ -1516,6 +1511,11 @@ Pick up latest rewrite-java-security.
 #### rewrite-kubernetes - 3.17.1
 
 * Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-mainframe - 2.19.0
+
+* Recognize .dcl (DCLGEN) files as copybooks for EXEC SQL INCLUDE
+* Increase default Cobol parser timeout to 10 minutes
 
 #### rewrite-migrate-kotlin - 0.6.0
 
@@ -1673,10 +1673,6 @@ Pick up latest rewrite-java-security.
 
 * Regenerate recipes.csv
 
-#### rewrite-cobol - 2.18.0
-
-* Regenerate recipes.csv
-
 #### rewrite-compiled-analysis - 0.14.0
 
 * Regenerate recipes.csv
@@ -1748,6 +1744,10 @@ Pick up latest rewrite-java-security.
 * Regenerate recipes.csv
 
 #### rewrite-kubernetes - 3.17.0
+
+* Regenerate recipes.csv
+
+#### rewrite-mainframe - 2.18.0
 
 * Regenerate recipes.csv
 
@@ -1917,10 +1917,6 @@ Pick up latest rewrite-java-security.
 
 * Use rewriteRecipe.rewriteVersion convention
 
-#### rewrite-cobol - 2.17.5
-
-* Updated repository to use OpenRewrite version v8.83.0
-
 #### rewrite-compiled-analysis - 0.13.4
 
 * Updated repository to use OpenRewrite version v8.83.0
@@ -1993,6 +1989,10 @@ Pick up latest rewrite-java-security.
 * Migrate Kafka 4.0 DescribeTopicsResult.values() to topicNameValues()
 
 #### rewrite-kubernetes - 3.16.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-mainframe - 2.17.5
 
 * Updated repository to use OpenRewrite version v8.83.0
 
@@ -2317,7 +2317,7 @@ First release.
 
 ## May 6, 2026
 
-#### rewrite-cobol - v2.17.4
+#### rewrite-mainframe - v2.17.4
 
 - OpenRewrite v8.81.6
 
@@ -2357,10 +2357,6 @@ First release.
 * Updated repository to use OpenRewrite version v8.81.0
 
 #### rewrite-circleci - 3.10.2
-
-* Updated repository to use OpenRewrite version v8.81.0
-
-#### rewrite-cobol - 2.17.3
 
 * Updated repository to use OpenRewrite version v8.81.0
 
@@ -2414,6 +2410,10 @@ First release.
 * Updated repository to use OpenRewrite version v8.81.0
 
 #### rewrite-kubernetes - 3.16.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-mainframe - 2.17.3
 
 * Updated repository to use OpenRewrite version v8.81.0
 
@@ -2515,10 +2515,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.80.0
 
-#### rewrite-cobol - 2.17.2
-
-* Updated repository to use OpenRewrite version v8.80.0
-
 #### rewrite-compiled-analysis - 0.13.1
 
 * Updated repository to use OpenRewrite version v8.80.0
@@ -2583,6 +2579,10 @@ First release.
 * Updated repository to use OpenRewrite version v8.80.0
 
 #### rewrite-kubernetes - 3.16.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-mainframe - 2.17.2
 
 * Updated repository to use OpenRewrite version v8.80.0
 
@@ -2706,10 +2706,6 @@ First release.
 
 * Update Prethink context
 
-#### rewrite-cobol - 2.17.1
-
-* Updated repository to use OpenRewrite version v8.79.0
-
 #### rewrite-compiled-analysis - 0.13.0
 
 * Update Prethink context
@@ -2779,6 +2775,10 @@ First release.
 * Fix limitContainerCapabilities test for MergeYaml indentation change
 * Update Prethink context
 * Fix JsonPathMatcher.matches() incompatibility with rewrite 8.79.0
+
+#### rewrite-mainframe - 2.17.1
+
+* Updated repository to use OpenRewrite version v8.79.0
 
 #### rewrite-migrate-kotlin - 0.1.4
 
@@ -3013,10 +3013,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.77.0
 
-#### rewrite-cobol - 2.17.0
-
-* Add JCL FindWord search recipe
-
 #### rewrite-compiled-analysis - 0.12.3
 
 * Updated repository to use OpenRewrite version v8.77.0
@@ -3076,6 +3072,10 @@ First release.
 #### rewrite-kubernetes - 3.15.6
 
 * Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-mainframe - 2.17.0
+
+* Add JCL FindWord search recipe
 
 #### rewrite-migrate-kotlin - 0.1.3
 
@@ -3247,10 +3247,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.75.5
 
-#### rewrite-cobol - 2.16.0
-
-* Lombok Best Practices
-
 #### rewrite-compiled-analysis - 0.12.2
 
 * Updated repository to use OpenRewrite version v8.75.5
@@ -3298,6 +3294,10 @@ First release.
 #### rewrite-kubernetes - 3.15.5
 
 * Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-mainframe - 2.16.0
+
+* Lombok Best Practices
 
 #### rewrite-migrate-kotlin - 0.1.2
 
@@ -3384,10 +3384,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.75.0
 
-#### rewrite-cobol - 2.15.1
-
-* Updated repository to use OpenRewrite version v8.75.0
-
 #### rewrite-compiled-analysis - 0.12.1
 
 * Updated repository to use OpenRewrite version v8.75.0
@@ -3435,6 +3431,10 @@ First release.
 * Updated repository to use OpenRewrite version v8.75.0
 
 #### rewrite-kubernetes - 3.15.4
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-mainframe - 2.15.1
 
 * Updated repository to use OpenRewrite version v8.75.0
 
@@ -3539,10 +3539,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.74.1
 
-#### rewrite-cobol - 2.15.0
-
-* Update Prethink context
-
 #### rewrite-compiled-analysis - 0.12.0
 
 * Update SDKMan Java version
@@ -3592,6 +3588,10 @@ First release.
 #### rewrite-kubernetes - 3.15.3
 
 * Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-mainframe - 2.15.0
+
+* Update Prethink context
 
 #### rewrite-migrate-kotlin - v0.1.0
 
@@ -3704,7 +3704,7 @@ First release.
 
 ## February 23, 2026
 
-#### rewrite-cobol - 2.14.2
+#### rewrite-mainframe - 2.14.2
 
 * Add data tables to search recipes for CLI output
 * Fixing the copybook being output with potentially an absolute path rather than the standard relative one we expect everywhere else.
@@ -3716,7 +3716,7 @@ First release.
 
 ## February 20, 2026
 
-#### rewrite-cobol - 2.14.1
+#### rewrite-mainframe - 2.14.1
 
 * Remove excessive estimatedEffortPerOccurrence override
 * Adopt Moderne Source Available License
@@ -3785,12 +3785,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.73.0
 
-#### rewrite-cobol - 2.14.0
-
-* Drop `cobol-cli`
-* Bypass the adapt() method call to prevent ClassCastException
-* Drop `model`, which appears unused
-
 #### rewrite-compiled-analysis - 0.11.5
 
 * Updated repository to use OpenRewrite version v8.73.0
@@ -3838,6 +3832,12 @@ First release.
 #### rewrite-kubernetes - 3.15.2
 
 * Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-mainframe - 2.14.0
+
+* Drop `cobol-cli`
+* Bypass the adapt() method call to prevent ClassCastException
+* Drop `model`, which appears unused
 
 #### rewrite-nodejs - 0.38.0
 
@@ -3992,15 +3992,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.72.0
 
-#### rewrite-cobol - 2.13.2
-
-* Updated repository to use OpenRewrite version v8.72.0
-
-#### rewrite-cobol - 2.13.1
-
-* Upgrading Antlr to 4.13.2
-* Regenerate Antlr sources with Antlr 4.13.2
-
 #### rewrite-compiled-analysis - 0.11.4
 
 * Updated repository to use OpenRewrite version v8.72.0
@@ -4051,6 +4042,15 @@ First release.
 #### rewrite-kubernetes - 3.15.1
 
 * Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-mainframe - 2.13.2
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-mainframe - 2.13.1
+
+* Upgrading Antlr to 4.13.2
+* Regenerate Antlr sources with Antlr 4.13.2
 
 #### rewrite-nodejs - 0.37.1
 
