@@ -134,7 +134,6 @@ const platform = {
           keywords: ['guides'],
         },
         items: [
-          'administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project',
           'administrator-documentation/moderne-platform/how-to-guides/mass-ingest',
           {
             type: 'category' as const,
@@ -695,6 +694,7 @@ const recipes = {
     keywords: ['recipes'],
   },
   items: [
+    'user-documentation/recipes/accessing-the-code-genome-project',
     {
       type: 'category' as const,
       label: 'Recipe guides',

@@ -382,7 +382,7 @@ Once your recipe module is published, either locally for testing or to an extern
 :::info
 OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. The snippets below use `USERNAME` and `TOKEN` as placeholders. Replace them with your own credentials.
 
-For Maven, put the credentials in your `settings.xml`. See [Accessing the Code Genome Project](../../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
+For Maven, put the credentials in your `settings.xml`. See [Accessing the Code Genome Project](../../accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
 :::
 
 <Tabs groupId="projectType">

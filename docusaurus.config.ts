@@ -259,7 +259,7 @@ const config: Config = {
     },
     announcementBar: {
       id: "code_genome_project",
-      content: 'Recipes are moving from Maven Central to the <a href="https://codegenomeproject.org/" target="_blank" rel="noopener noreferrer">Code Genome Project</a>. <a href="/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project">Configure access</a> to keep releases resolving.',
+      content: 'Recipes are moving from Maven Central to the <a href="https://codegenomeproject.org/" target="_blank" rel="noopener noreferrer">Code Genome Project</a>. <a href="/user-documentation/recipes/accessing-the-code-genome-project">Configure access</a> to keep releases resolving.',
       isCloseable: true,
     },
     colorMode: {

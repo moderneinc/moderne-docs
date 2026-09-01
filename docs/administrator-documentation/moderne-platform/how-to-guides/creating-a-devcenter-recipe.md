@@ -36,7 +36,7 @@ Once you've created your recipe repository, you will need to update your `build.
 
 Because it is a proprietary recipe, the credentials your organization uses to mirror the Code Genome Project repository must have the customer entitlement.
 
-See [Accessing the Code Genome Project](./accessing-the-code-genome-project.md) for how your organization obtains credentials and mirrors the repository.
+See [Accessing the Code Genome Project](../../../user-documentation/recipes/accessing-the-code-genome-project.md) for how your organization obtains credentials and mirrors the repository.
 :::
 
 ### Step 3: Create a declarative DevCenter recipe
