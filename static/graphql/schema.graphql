@@ -486,6 +486,26 @@ type BranchCommitOptions implements CommitOptions
   branchName: String
 }
 
+"""
+Only reflects CLOSE-triggered branch deletes. A MERGE with deleteSourceBranch: true always
+reports SKIPPED regardless of whether the provider's bundled delete succeeded.
+"""
+enum BranchDeleteStatus
+  @join__type(graph: CHANGESETCOMMITTER)
+{
+  SKIPPED @join__enumValue(graph: CHANGESETCOMMITTER)
+  SUCCEEDED @join__enumValue(graph: CHANGESETCOMMITTER)
+  FAILED @join__enumValue(graph: CHANGESETCOMMITTER)
+
+  """
+  The branch could not be confidently resolved (e.g. an included PR wasn't found in
+  the changelog index, or a fork PR's branch lives in a different repository than
+  the one a delete would target), so the delete was refused rather than risk
+  deleting the wrong branch.
+  """
+  REFUSED_UNTRUSTED @join__enumValue(graph: CHANGESETCOMMITTER)
+}
+
 enum BuildState
   @join__type(graph: CHANGELOGREADER)
   @join__type(graph: CHANGESETCOMMITTER)
@@ -1199,6 +1219,8 @@ type ChangelogPullRequestRef
 {
   origin: String!
   repositoryPath: String!
+
+  """The pull request's source branch."""
   branch: String!
   number: Int!
 }
@@ -3150,7 +3172,14 @@ type Mutation
   Close, in bulk, the pull requests the committer created from a changeset.
   Returns the queued action for polling.
   """
-  closePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued! @join__field(graph: CHANGESETCOMMITTER)
+  closePullRequests(
+    organizationId: ID!
+    changesetId: ID!
+    repositories: [RepositoryInput!]
+
+    """Delete the source branch after a successful close."""
+    deleteSourceBranch: Boolean! = false
+  ): BulkPullRequestActionQueued! @join__field(graph: CHANGESETCOMMITTER)
 
   """Cancel a pending bulk pull request action."""
   cancelBulkPullRequestAction(id: ID!): BulkPullRequestActionCanceled! @join__field(graph: CHANGESETCOMMITTER)
@@ -4611,6 +4640,7 @@ type PullRequestActionSucceeded implements PullRequestAction
   pullRequest: PullRequestRef!
   startedAt: DateTime!
   finishedAt: DateTime!
+  branchDeleteStatus: BranchDeleteStatus!
 }
 
 enum PullRequestActionType
@@ -4713,6 +4743,8 @@ type PullRequestRef
 {
   origin: String!
   repositoryPath: String!
+
+  """The pull request's source branch."""
   branch: String!
   number: Int!
 }

@@ -307,7 +307,7 @@ Close pull requests in bulk. Returns the queued action for polling.
 #### `closePullRequests`
 
 ```graphql
-closePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued!
+closePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!], deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
@@ -1228,7 +1228,7 @@ A pull request (open, draft, merged, or closed).
 |-------|------|-------------|
 | `origin` | String! |  |
 | `repositoryPath` | String! |  |
-| `branch` | String! |  |
+| `branch` | String! | The pull request's source branch. |
 | `number` | Int! |  |
 
 ##### `ChangeParticipant`
@@ -2470,6 +2470,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
+| `branchDeleteStatus` | [BranchDeleteStatus](#branchdeletestatus)! |  |
 
 ##### `PullRequestCommitSucceeded`
 
@@ -2504,7 +2505,7 @@ Pull request commit completed successfully.
 |-------|------|-------------|
 | `origin` | String! |  |
 | `repositoryPath` | String! |  |
-| `branch` | String! |  |
+| `branch` | String! | The pull request's source branch. |
 | `number` | Int! |  |
 
 ##### `PullRequestStatus`
@@ -3681,6 +3682,16 @@ Use `__typename` to determine the specific commit type.
 
 * `SUCCESS`
 * `FAILURE`
+
+##### `BranchDeleteStatus`
+
+Only reflects CLOSE-triggered branch deletes. A MERGE with deleteSourceBranch: true always
+reports SKIPPED regardless of whether the provider's bundled delete succeeded.
+
+* `SKIPPED`
+* `SUCCEEDED`
+* `FAILED`
+* `REFUSED_UNTRUSTED`
 
 ##### `BuildState`
 
