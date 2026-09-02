@@ -6,9 +6,6 @@ description: How to configure the Moderne Connector to retrieve recipe artifacts
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configuring-artifactory-with-recipes" />
 
 # Configure a Connector with recipe marketplace repositories
 

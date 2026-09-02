@@ -6,9 +6,6 @@ description: How to configure the Moderne Connector with Moderne tenant SSL cert
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-a-moderne-tenant-ssl-certificate" />
 
 # Configure a Connector with a Moderne tenant SSL certificate
 

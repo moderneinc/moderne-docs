@@ -101,8 +101,8 @@ describe('no-h1-in-body', () => {
   it('does not flag a single # h1 preceded by leading JSX (Docusaurus still extracts it)', async () => {
     const md = [
       '---', 'title: FAQ', '---', '',
-      "import VersionBanner from '@site/src/components/VersionBanner';", '',
-      '<VersionBanner version="v1" linkPath="/faq" />', '',
+      "import ReactPlayer from '@site/src/components/VideoPlayer';", '',
+      "<ReactPlayer url='https://example.com/video' />", '',
       '# FAQ',
     ].join('\n');
     const issues = await checkMarkdown(md, 'test.md');

@@ -5,9 +5,6 @@ description: A brief introduction to the Moderne platform and what it can do for
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/running-your-first-recipe" />
 
 # Quickstart: Using the Moderne Platform
 

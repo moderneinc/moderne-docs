@@ -63,7 +63,7 @@ const noBareExpression = lintRule(
 //
 // A Docusaurus page has exactly one h1. Its mdx-loader takes the first heading
 // in the document — the first heading/thematic-break node, even when JSX such
-// as <VersionBanner> precedes it — and, if it's an h1, wraps it in <header> as
+// as <ReactPlayer> precedes it — and, if it's an h1, wraps it in <header> as
 // the page title. When there's no leading h1, Docusaurus synthesizes the page
 // h1 from the frontmatter `title:` (falling back to the slug). Either way that
 // first h1 is fine; any *additional* # h1 renders as a raw, duplicate h1. So we
