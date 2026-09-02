@@ -92,8 +92,8 @@ java -jar connector-{version}.jar \
 --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
 --moderne.organization.sources.http[0].poll.artifactory[0].username=admin \
 --moderne.organization.sources.http[0].poll.artifactory[0].password=password \
---moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 # ... Additional arguments
 ```
 </TabItem>

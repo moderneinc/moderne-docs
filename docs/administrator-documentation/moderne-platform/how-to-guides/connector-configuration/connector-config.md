@@ -175,7 +175,7 @@ All Connectors must be configured with the variables listed as required below:
 | `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`    | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
 | `MODERNE_CONNECTOR_NICKNAME`               | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
 | `MODERNE_CONNECTOR_TOKEN`                  | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                  |
-| `MODERNE_SCM_DEFAULTCOMMITOPTIONS_{index}` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `MODERNE_SCM_DEFAULTCOMMITOPTIONS_{index}` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`, `None`. Use `None` on its own to disable committing entirely. |
 
 **Example:**
 
@@ -208,7 +208,7 @@ moderne-connector:latest
 | `--moderne.connector.crypto.symmetricKey`     | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
 | `--moderne.connector.nickname`                | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
 | `--moderne.connector.token`                   | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                  |
-| `--moderne.scm.defaultCommitOptions[{index}]` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| `--moderne.scm.defaultCommitOptions[{index}]` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`, `None`. Use `None` on its own to disable committing entirely. |
 
 **Example:**
 
@@ -326,7 +326,7 @@ You have two options:
   * **[Artifactory](./configure-a-connector-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing). Recommended for Artifactory users.
   * **[Maven repository](./configure-a-connector-with-maven-repository-access.md)** - works with any Maven-formatted repository (Artifactory, Nexus, etc.) via the [Maven Indexer](https://maven.apache.org/maven-indexer/). There will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process.
 
-The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [connector variables reference](./connector-variables.md) for the full list of values.
+The Connector picks between these two paths automatically, per source: a source whose configuration includes poll repositories discovers LST locations by querying them, and a source without them uses the `publishUri` values already in its CSV.
 
 Below is an example of what a Connector run command might look like at the end of this step.
 
@@ -388,7 +388,7 @@ java -jar connector-{version}.jar \
 # --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
 # --moderne.organization.sources.http[0].poll.artifactory[0].username=... \
 # --moderne.organization.sources.http[0].poll.artifactory[0].password=... \
-# --moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+# --moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
 # ... Additional arguments to come
 ```
 </TabItem>
@@ -524,8 +524,8 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].oauth.includePrivateRepos=true \
 --moderne.organization.sources.http[0].uri=https://internal.example.com/repos-lock.csv \
 --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.organization.sources.http[0].poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
 ```
 

@@ -303,7 +303,7 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].oauth.includePrivateRepos=true \
 --moderne.organization.sources.http[0].uri=https://internal.example.com/repos-lock.csv \
 --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
 --moderne.moddy.anthropic.apiKey=$MODERNE_MODDY_ANTHROPIC_APIKEY
 ```
 

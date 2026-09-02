@@ -28,7 +28,7 @@ This document includes all of the variables you can configure the Moderne Connec
 | `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`            | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                                     |
 | `MODERNE_CONNECTOR_NICKNAME`                       | `true`   |                        | A name used to identify your Connector in the SaaS Connector dashboard UI.                                                                                     |
 | `MODERNE_CONNECTOR_TOKEN`                          | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                              |
-| `MODERNE_SCM_DEFAULTCOMMITOPTIONS_{index}`         | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`.             |
+| `MODERNE_SCM_DEFAULTCOMMITOPTIONS_{index}`         | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`, `None`. Use `None` on its own to disable committing entirely.             |
 | `MODERNE_AUTHORIZATION_ACCESSTOKENS_MAXEXPIRYDAYS` | `false`  |                        | The maximum number of days a personal access token can be configured to expire in. When set, users cannot create tokens with an expiry date beyond this limit. |
 
 **Example:**
@@ -55,7 +55,7 @@ docker run \
 | `--moderne.connector.crypto.symmetricKey`            | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                                     |
 | `--moderne.connector.nickname`                       | `true`   |                        | A name used to identify your Connector in the SaaS Connector dashboard UI.                                                                                     |
 | `--moderne.connector.token`                          | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                              |
-| `--moderne.scm.defaultCommitOptions[{index}]`        | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`.             |
+| `--moderne.scm.defaultCommitOptions[{index}]`        | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`, `None`. Use `None` on its own to disable committing entirely.             |
 | `--moderne.authorization.accessTokens.maxExpiryDays` | `false`  |                        | The maximum number of days a personal access token can be configured to expire in. When set, users cannot create tokens with an expiry date beyond this limit. |
 
 **Example:**
@@ -366,7 +366,7 @@ java -jar connector-{version}.jar \
 
 | Environment Variable                                    | Required | Default | Description                                                                                                                                                                                                |
 |---------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_ORGANIZATION_SOURCES_FILE_{index}_PATH`        | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`MODERNE_CONNECTOR_STORAGE_PERMANENTDIR`).                                                                          |
+| `MODERNE_ORGANIZATION_SOURCES_FILE_{index}_PATH`        | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`MODERNE_STORAGE_PERMANENTDIR`).                                                                          |
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_URI`         | `false`  |         | The URL of an HTTP(S) endpoint serving your `repos.csv` file (e.g., `https://<internal-endpoint>/repos.csv`).                                                                                              |
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_USERNAME`    | `false`  |         | Username for basic auth against the HTTP endpoint. Mutually exclusive with `BEARERTOKEN`.                                                                                                                  |
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_PASSWORD`    | `false`  |         | Password for basic auth against the HTTP endpoint. Mutually exclusive with `BEARERTOKEN`.                                                                                                                  |
@@ -400,7 +400,7 @@ docker run \
 
 | Argument Name                                              | Required | Default | Description                                                                                                                                                                                                |
 |------------------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.organization.sources.file[{index}].path`        | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`--moderne.connector.storage.permanentDir`).                                                                        |
+| `--moderne.organization.sources.file[{index}].path`        | `false`  |         | The path to a local `repos.csv` file, relative to the Connector's permanent directory (`--moderne.storage.permanentDir`).                                                                        |
 | `--moderne.organization.sources.http[{index}].uri`         | `false`  |         | The URL of an HTTP(S) endpoint serving your `repos.csv` file (e.g., `https://<internal-endpoint>/repos.csv`).                                                                                              |
 | `--moderne.organization.sources.http[{index}].username`    | `false`  |         | Username for basic auth against the HTTP endpoint. Mutually exclusive with `bearerToken`.                                                                                                                  |
 | `--moderne.organization.sources.http[{index}].password`    | `false`  |         | Password for basic auth against the HTTP endpoint. Mutually exclusive with `bearerToken`.                                                                                                                  |
@@ -440,7 +440,6 @@ These variables control how often the Connector re-fetches each `repos.csv` sour
 
 | Environment Variable                                 | Required | Default                         | Description                                                                                                                                                                                                                                                                               |
 |------------------------------------------------------|----------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_CONNECTOR_ORGANIZATION_MODE`                | `false`  | `AUTO`                          | Indexing mode. `AUTO` infers `POLLING` when any poll repository is configured and `LOCK` otherwise. `LOCK` forces use of `publishUri` values from the CSV (poll repositories, if any, supply credentials only). `POLLING` forces AQL / Maven Indexer discovery against poll repositories. |
 | `MODERNE_CONNECTOR_ORGANIZATION_INTERVAL`            | `false`  | `10m`                           | How often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Applies to both LOCK and POLLING modes. Specified as a duration (e.g., `10m`, `1h`).                                                                                                                   |
 | `MODERNE_CONNECTOR_ORGANIZATION_DOWNLOADPARALLELISM` | `false`  | `max(4, availableProcessors())` | Global cap on concurrent LST download, encrypt, and upload operations across all configured sources.                                                                                                                                                                                      |
 
@@ -461,7 +460,6 @@ docker run \
 
 | Argument Name                                          | Required | Default                         | Description                                                                                                                                                                                                                                                                               |
 |--------------------------------------------------------|----------|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.connector.organization.mode`                | `false`  | `AUTO`                          | Indexing mode. `AUTO` infers `POLLING` when any poll repository is configured and `LOCK` otherwise. `LOCK` forces use of `publishUri` values from the CSV (poll repositories, if any, supply credentials only). `POLLING` forces AQL / Maven Indexer discovery against poll repositories. |
 | `--moderne.connector.organization.interval`            | `false`  | `10m`                           | How often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Applies to both LOCK and POLLING modes. Specified as a duration (e.g., `10m`, `1h`).                                                                                                                   |
 | `--moderne.connector.organization.downloadParallelism` | `false`  | `max(4, availableProcessors())` | Global cap on concurrent LST download, encrypt, and upload operations across all configured sources.                                                                                                                                                                                      |
 
@@ -608,8 +606,8 @@ java -jar connector-{version}.jar \
 --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
 --moderne.organization.sources.http[0].poll.artifactory[0].username=admin \
 --moderne.organization.sources.http[0].poll.artifactory[0].password=password \
---moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[1]='"repo":{"$eq":"example-maven"}' \
 # ... Additional arguments
 ```
 </TabItem>
@@ -1316,16 +1314,16 @@ Filesystem location used by the Connector for its working state. Mount a persist
 
 **Environment variables:**
 
-| Variable Name                            | Required | Default                   | Description                                                                                                                                                                                                                                                                       |
-|------------------------------------------|----------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_CONNECTOR_STORAGE_PERMANENTDIR` | `false`  | `./working-set/permanent` | Filesystem path where the Connector stores working files: any file-based `repos.csv` you point at it, in-progress checkpoints used to resume after a restart, a cached copy of the last enrichment result, and any Maven repository indexes it builds. The path must be writable. |
+| Variable Name                  | Required | Default                   | Description                                                                                                                                                                                                                                                                       |
+|--------------------------------|----------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_STORAGE_PERMANENTDIR` | `false`  | `./working-set/permanent` | Filesystem path where the Connector stores working files: any file-based `repos.csv` you point at it, in-progress checkpoints used to resume after a restart, a cached copy of the last enrichment result, and any Maven repository indexes it builds. The path must be writable. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_CONNECTOR_STORAGE_PERMANENTDIR=/var/moderne/permanent \
+-e MODERNE_STORAGE_PERMANENTDIR=/var/moderne/permanent \
 # ... Additional variables
 ```
 
@@ -1335,16 +1333,16 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                              | Required | Default                   | Description                                                                                                                                                                                                                                                                       |
-|--------------------------------------------|----------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.connector.storage.permanentDir` | `false`  | `./working-set/permanent` | Filesystem path where the Connector stores working files: any file-based `repos.csv` you point at it, in-progress checkpoints used to resume after a restart, a cached copy of the last enrichment result, and any Maven repository indexes it builds. The path must be writable. |
+| Argument Name                    | Required | Default                   | Description                                                                                                                                                                                                                                                                       |
+|----------------------------------|----------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.storage.permanentDir` | `false`  | `./working-set/permanent` | Filesystem path where the Connector stores working files: any file-based `repos.csv` you point at it, in-progress checkpoints used to resume after a restart, a cached copy of the last enrichment result, and any Maven repository indexes it builds. The path must be writable. |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.connector.storage.permanentDir=/var/moderne/permanent \
+--moderne.storage.permanentDir=/var/moderne/permanent \
 # ... Additional arguments
 ```
 
