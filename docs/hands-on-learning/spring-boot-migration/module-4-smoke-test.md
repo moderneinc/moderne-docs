@@ -88,7 +88,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.7.4
+Moderne CLI 4.7.5
 
 ⏺ Reading organization
 
@@ -136,7 +136,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.7.4
+Moderne CLI 4.7.5
 
 ⏺ Reading organization
 
@@ -184,7 +184,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.7.4
+Moderne CLI 4.7.5
 
 ⏺ Reading organization
 

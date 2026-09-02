@@ -45,7 +45,7 @@ Download the platform-appropriate distribution from your internal mirror. For ex
 
 ```bash
 curl -fL -o moderne-cli.sh \
-    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.2.10/moderne-cli-linux-4.7.4.sh"
+    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.2.10/moderne-cli-linux-4.7.5.sh"
 ```
 
 Replace the version with the one you intend to install, and adjust the artifact name to match your platform (`moderne-cli-linux` or `moderne-cli-osx`).
@@ -65,7 +65,7 @@ Download the Windows distribution from your internal mirror:
 
 ```powershell
 Invoke-WebRequest `
-    -Uri "https://internal-mirror.example.com/io/moderne/moderne-cli-windows/4.2.10/moderne-cli-windows-4.7.4.zip" `
+    -Uri "https://internal-mirror.example.com/io/moderne/moderne-cli-windows/4.2.10/moderne-cli-windows-4.7.5.zip" `
     -OutFile moderne-cli.zip
 ```
 

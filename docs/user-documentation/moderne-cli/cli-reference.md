@@ -8,6 +8,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 ## Table of contents
 
 * [**mod**](#mod)
+* [**mod amp**](#mod-amp)
+* [**mod amp chat**](#mod-amp-chat)
 * [**mod audit**](#mod-audit)
 * [**mod audit builds**](#mod-audit-builds)
 * [**mod audit builds list**](#mod-audit-builds-list)
@@ -16,10 +18,14 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod batch**](#mod-batch)
 * [**mod batch publish**](#mod-batch-publish)
 * [**mod build**](#mod-build)
+* [**mod claude**](#mod-claude)
+* [**mod claude chat**](#mod-claude-chat)
 * [**mod clean**](#mod-clean)
 * [**mod clean builds**](#mod-clean-builds)
 * [**mod clean runs**](#mod-clean-runs)
 * [**mod clean repos**](#mod-clean-repos)
+* [**mod codex**](#mod-codex)
+* [**mod codex chat**](#mod-codex-chat)
 * [**mod config**](#mod-config)
 * [**mod config agent-tools**](#mod-config-agent-tools)
 * [**mod config agent-tools install**](#mod-config-agent-tools-install)
@@ -48,6 +54,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config agent-tools opencode**](#mod-config-agent-tools-opencode)
 * [**mod config agent-tools opencode install**](#mod-config-agent-tools-opencode-install)
 * [**mod config agent-tools opencode uninstall**](#mod-config-agent-tools-opencode-uninstall)
+* [**mod config agent-tools kiro**](#mod-config-agent-tools-kiro)
+* [**mod config agent-tools kiro install**](#mod-config-agent-tools-kiro-install)
+* [**mod config agent-tools kiro uninstall**](#mod-config-agent-tools-kiro-uninstall)
 * [**mod config agent-tools prethink**](#mod-config-agent-tools-prethink)
 * [**mod config agent-tools prethink edit**](#mod-config-agent-tools-prethink-edit)
 * [**mod config agent-tools prethink show**](#mod-config-agent-tools-prethink-show)
@@ -380,6 +389,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config scm add**](#mod-config-scm-add-deprecated)~~ (deprecated)
 * ~~[**mod config scm remove**](#mod-config-scm-remove-deprecated)~~ (deprecated)
 * ~~[**mod config scm show**](#mod-config-scm-show-deprecated)~~ (deprecated)
+* [**mod copilot**](#mod-copilot)
+* [**mod copilot chat**](#mod-copilot-chat)
+* [**mod cursor**](#mod-cursor)
+* [**mod cursor chat**](#mod-cursor-chat)
 * [**mod devcenter**](#mod-devcenter)
 * [**mod exec**](#mod-exec)
 * [**mod git**](#mod-git)
@@ -402,6 +415,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod git sync csv**](#mod-git-sync-csv)
 * [**mod git sync moderne**](#mod-git-sync-moderne)
 * [**mod git status**](#mod-git-status)
+* [**mod kiro**](#mod-kiro)
+* [**mod kiro chat**](#mod-kiro-chat)
 * [**mod log**](#mod-log)
 * [**mod log builds**](#mod-log-builds)
 * [**mod log builds add**](#mod-log-builds-add)
@@ -412,7 +427,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod log syncs**](#mod-log-syncs)
 * [**mod log syncs add**](#mod-log-syncs-add)
 * [**mod list**](#mod-list)
+* [**mod login**](#mod-login)
 * [**mod monitor**](#mod-monitor)
+* [**mod opencode**](#mod-opencode)
+* [**mod opencode chat**](#mod-opencode-chat)
 * [**mod prebuild**](#mod-prebuild)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
@@ -428,6 +446,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod trace runs analyze**](#mod-trace-runs-analyze)
 * [**mod trace syncs**](#mod-trace-syncs)
 * [**mod trace syncs analyze**](#mod-trace-syncs-analyze)
+* [**mod vscode**](#mod-vscode)
+* [**mod vscode chat**](#mod-vscode-chat)
+* [**mod windsurf**](#mod-windsurf)
+* [**mod windsurf chat**](#mod-windsurf-chat)
 * [**mod wrapper**](#mod-wrapper)
 
 ## mod
@@ -449,17 +471,25 @@ mod [subcommands]
 
 ### Subcommands
 
+* `amp`: (INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
 * `audit`: (INCUBATING) Perform an audit of recent activity.
 * `batch`: Add batch changes to the Moderne platform.
 * `build`: Generates LST artifacts for one or more repositories.
+* `claude`: (INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
 * `clean`: Clean build and run artifacts produced by the CLI.
+* `codex`: (INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
 * `config`: Global configuration options that are required by some CLI commands.
+* `copilot`: (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
+* `cursor`: (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
 * `devcenter`: Generate DevCenter dashboards.
 * `exec`: Execute an arbitrary shell command on selected repositories and partitions.
 * `git`: Multi-repository git operations.
+* `kiro`: (INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
 * `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
+* `login`: Logs the CLI into Moderne
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
+* `opencode`: (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
 * `prebuild`: Extracts build metadata without parsing source files.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTs.
@@ -468,7 +498,62 @@ mod [subcommands]
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `telemetry`: Manage CLI telemetry pushed to the configured Moderne tenant.
 * `trace`: Manages trace analysis tools.
+* `vscode`: (INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
+* `windsurf`: (INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
 * `wrapper`: Create or configure a Moderne wrapper.
+
+## mod amp
+
+(INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod amp [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
+
+## mod amp chat
+
+(INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches an Amp session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod amp chat [parameters]
+```
+
+### Examples
+
+```
+mod amp chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
 
 ## mod audit
 
@@ -685,6 +770,59 @@ mod build /path/to/project
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
+## mod claude
+
+(INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod claude [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
+
+## mod claude chat
+
+(INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Claude Code session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod claude chat [parameters]
+```
+
+### Examples
+
+```
+mod claude chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
 ## mod clean
 
 Clean build and run artifacts produced by the CLI.
@@ -812,6 +950,59 @@ mod clean repos /path/to/project --dry-run
 | `-s`, `--sync-failed` |  Remove repositories whose latest sync failed or was canceled. |
 
 
+## mod codex
+
+(INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod codex [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
+
+## mod codex chat
+
+(INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Codex session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod codex chat [parameters]
+```
+
+### Examples
+
+```
+mod codex chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
 ## mod config
 
 Global configuration options that are required by some CLI commands.
@@ -859,7 +1050,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 Manage Moderne agent tools for coding agents.
 
 
-Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, and opencode.
+Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, and Kiro.
 
 ### Usage
 
@@ -886,6 +1077,7 @@ mod config agent-tools install
 * `amp`: Manage Moderne agent tools for Sourcegraph Amp.
 * `codex`: Manage Moderne agent tools for OpenAI Codex.
 * `opencode`: Manage Moderne agent tools for opencode.
+* `kiro`: Manage Moderne agent tools for Kiro.
 * `prethink`: Configures the Prethink context refreshed live by the Moderne MCP server.
 
 ## mod config agent-tools install
@@ -893,7 +1085,7 @@ mod config agent-tools install
 Creates or updates Moderne agent tools for coding agents.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex). Safe to run multiple times — existing installations are updated in place.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro). Safe to run multiple times — existing installations are updated in place.
 
 ### Usage
 
@@ -914,7 +1106,7 @@ mod config agent-tools install
 Removes Moderne agent tools from coding agents.
 
 
-Removes skills and unregisters the Moderne MCP server from all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex).
+Removes skills and unregisters the Moderne MCP server from all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro).
 
 ### Usage
 
@@ -1462,6 +1654,73 @@ mod config agent-tools opencode uninstall
 
 ```
 mod config agent-tools opencode uninstall
+```
+
+
+
+## mod config agent-tools kiro
+
+Manage Moderne agent tools for Kiro.
+
+
+Installs skills under ~/.kiro/skills/ and registers the MCP server in ~/.kiro/settings/mcp.json.
+
+### Usage
+
+```
+mod config agent-tools kiro [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools kiro install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for Kiro.
+* `uninstall`: Remove Moderne agent tools from Kiro.
+
+## mod config agent-tools kiro install
+
+Install Moderne agent tools for Kiro.
+
+
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under ~/.kiro/skills/ and registers the Moderne MCP server in ~/.kiro/settings/mcp.json. Safe to run multiple times.
+
+### Usage
+
+```
+mod config agent-tools kiro install
+```
+
+### Examples
+
+```
+mod config agent-tools kiro install
+```
+
+
+
+## mod config agent-tools kiro uninstall
+
+Remove Moderne agent tools from Kiro.
+
+
+Removes skills and unregisters the Moderne MCP server from Kiro.
+
+### Usage
+
+```
+mod config agent-tools kiro uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools kiro uninstall
 ```
 
 
@@ -6087,6 +6346,8 @@ The default authorization mode is a web-based browser flow. After login and cons
 
 Alternatively, use **--with-token** to pass in an existing token on standard input.
 
+After a successful login, the local CLI recipe marketplace is synchronized from Moderne.
+
 ### Usage
 
 ```
@@ -6099,6 +6360,7 @@ mod config moderne login
 | ---- | ----------- |
 | `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Example: P180D for 180 days. |
 | `--with-token` |  The Moderne personal access token to use. |
+| `-y`, `--yes` |  Automatic yes to prompts when synchronizing the recipe marketplace. |
 
 
 ## mod config moderne show
@@ -8067,6 +8329,11 @@ Destroys all recipes in the local CLI marketplace and replaces them with the lat
 mod config recipes moderne sync
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `-y`, `--yes` |  Automatically confirm replacing an existing local marketplace. Required when there is no console to prompt on. |
 
 
 ## mod config recipes delete
@@ -8639,6 +8906,112 @@ mod config scm remove [parameters]
 mod config scm show
 ```
 
+
+
+## mod copilot
+
+(INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod copilot [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
+
+## mod copilot chat
+
+(INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a GitHub Copilot session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod copilot chat [parameters]
+```
+
+### Examples
+
+```
+mod copilot chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod cursor
+
+(INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod cursor [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+
+## mod cursor chat
+
+(INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Cursor session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod cursor chat [parameters]
+```
+
+### Examples
+
+```
+mod cursor chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
 ## mod devcenter
@@ -9300,11 +9673,10 @@ mod git sync csv [parameters]
 
 | Name | Description |
 | ---- | ----------- |
-| `--agent` |  Write a guide to using this organization for the named coding agents, in the file each one reads. Accepts **copilot**. Without this, no guide is written. |
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
-| `--organization` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
@@ -9343,11 +9715,10 @@ mod git sync moderne /path/to/organization --organization <ORG_NAME>
 
 | Name | Description |
 | ---- | ----------- |
-| `--agent` |  Write a guide to using this organization for the named coding agents, in the file each one reads. Accepts **copilot**. Without this, no guide is written. |
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
-| `--organization` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
@@ -9381,6 +9752,59 @@ mod git status /path/to/project
 | ---- | ----------- | ---------- |
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
+
+
+## mod kiro
+
+(INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod kiro [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
+
+## mod kiro chat
+
+(INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Kiro session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod kiro chat [parameters]
+```
+
+### Examples
+
+```
+mod kiro chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
 ## mod log
@@ -9624,6 +10048,32 @@ mod list /path/to/project
 | `--json` |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
 
 
+## mod login
+
+Logs the CLI into Moderne
+
+
+The default authorization mode is a web-based browser flow. After login and consent, a PAT (personal access token) will be created and stored in the configuration file.
+
+Alternatively, use **--with-token** to pass in an existing token on standard input.
+
+After a successful login, the local CLI recipe marketplace is synchronized from Moderne.
+
+### Usage
+
+```
+mod login
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Example: P180D for 180 days. |
+| `--with-token` |  The Moderne personal access token to use. |
+| `-y`, `--yes` |  Automatic yes to prompts when synchronizing the recipe marketplace. |
+
+
 ## mod monitor
 
 (INCUBATING) Launches an HTTP server used to monitor the CLI.
@@ -9642,6 +10092,59 @@ mod monitor
 | Name | Description |
 | ---- | ----------- |
 | `--port` |  The port to listen on. Default is 8080. |
+
+
+## mod opencode
+
+(INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod opencode [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
+
+## mod opencode chat
+
+(INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches an opencode session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod opencode chat [parameters]
+```
+
+### Examples
+
+```
+mod opencode chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
 ## mod prebuild
@@ -10059,6 +10562,109 @@ mod trace syncs analyze [parameters]
 | ---- | ----------- |
 | `--last-sync` |  Select whatever the last sync was, whether the sync ran fully to completion or terminated early. |
 | `--sync` |  A sync ID for a sync that has completed previously. |
+
+
+## mod vscode
+
+(INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod vscode [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
+
+## mod vscode chat
+
+(INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Visual Studio Code Chat session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod vscode chat [parameters]
+```
+
+### Examples
+
+```
+mod vscode chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+
+
+## mod windsurf
+
+(INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod windsurf [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
+
+## mod windsurf chat
+
+(INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Windsurf session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod windsurf chat [parameters]
+```
+
+### Examples
+
+```
+mod windsurf chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 
 
 ## mod wrapper

@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.7.4           |
+| CLI version | 4.7.5           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,19 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.7.5 (2026-09-01)
+
+#### What's Changed
+* use Invoke-RestMethod to resolve CLI version in get-mod.ps1
+* Commit the regenerated V3 tag registry
+* Add `mod login`, and sync the recipe marketplace on login
+* Start a coding agent on a synced organization with `mod <agent> chat`
+* Make `mod` available immediately after install, without sourcing the shell rc
+* Run the prompt to completion with `mod <agent> chat --unattended`
+* Validate login with `currentUser` instead of the admin-gated `users` query
+* End an inline COBOL comment at column 72
+* Survive a vendored engine bundle that cannot be renamed into place
 
 ### CLI / DX v4.7.3 (2026-08-30)
 
