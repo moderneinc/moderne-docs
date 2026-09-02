@@ -1,5 +1,7 @@
 # Moderne Documentation Project Instructions
 
+@CONTRIBUTING.md
+
 ## Important: Style Guide
 
 When editing any documentation in this repository, ALWAYS follow the rules in STYLE_GUIDE.md. Key rules include:
