@@ -1,5 +1,7 @@
 # Moderne Documentation Project Instructions
 
+Read CONTRIBUTING.md before opening a pull request. It defines what a PR description should and should not contain.
+
 ## Important: Style Guide
 
 When editing any documentation in this repository, ALWAYS follow the rules in STYLE_GUIDE.md. Key rules include:
