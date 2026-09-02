@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.11.1 (2026/09/02)
+
+- Bug fixes and other improvements.
+
 ### UI v14.11.0 (2026/09/02)
 
 - resizable columns and standard grid controls
