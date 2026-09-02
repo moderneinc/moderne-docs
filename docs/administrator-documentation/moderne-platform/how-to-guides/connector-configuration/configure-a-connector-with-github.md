@@ -6,9 +6,6 @@ description: How to configure the Moderne Connector to communicate with GitHub.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-github" />
 
 # Configure a Connector with GitHub
 

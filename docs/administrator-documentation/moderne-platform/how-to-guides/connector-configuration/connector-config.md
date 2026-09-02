@@ -7,9 +7,6 @@ slug: /administrator-documentation/moderne-platform/how-to-guides/connector-conf
      
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/agent-configuration" />
 
 # Configuring the Moderne Connector
 

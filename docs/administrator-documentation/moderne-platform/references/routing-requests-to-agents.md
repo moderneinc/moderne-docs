@@ -4,10 +4,6 @@ sidebar_label: Routing requests to Connectors
 description: Information on how Moderne routes requests to Connectors.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/routing-requests-to-agents" />
-
 # Routing requests to Connectors
 
 In most enterprise environments, deployments of developer tooling like source control management (SCM) systems and artifact repositories are complex and varied. There may be multiple SCM systems on isolated network segments.

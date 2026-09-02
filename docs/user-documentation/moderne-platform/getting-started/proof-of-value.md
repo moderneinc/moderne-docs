@@ -7,9 +7,6 @@ description: Describes what a typical proof of value process looks like.
 import ReactPlayer from '@site/src/components/VideoPlayer';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/proof-of-value" />
 
 # Proof of value (POV) process
 

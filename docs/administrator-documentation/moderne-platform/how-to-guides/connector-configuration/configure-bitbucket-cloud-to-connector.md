@@ -6,9 +6,6 @@ description: How to configure the Moderne Connector to communicate with Bitbucke
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-bitbucket-cloud-to-agent" />
 
 # Configure a Connector with Bitbucket Cloud access
 

@@ -4,10 +4,6 @@ sidebar_label: SCM access tokens
 description: Explains how Moderne obtains a credential for your source code management system, both by connecting your account and by accepting a token you supply for automation.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/references/create-scm-access-tokens" />
-
 # SCM access tokens
 
 Before Moderne can show you source code, display the diffs a recipe produced, or deliver those changes back to your repositories, it needs a credential for your source code management (SCM) system. This is separate from your [Moderne tokens](./moderne-tokens.md), which only authenticate you to the Platform itself.
