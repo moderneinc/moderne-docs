@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.7.5           |
+| CLI version | 4.8.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,12 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.8.0 (2026-09-02)
+
+#### What's Changed
+* Add daily repository backup workflow to S3
+* Open the agent on a partial sync and fill the agent trace from its transcript
 
 ### CLI / DX v4.7.5 (2026-09-01)
 
