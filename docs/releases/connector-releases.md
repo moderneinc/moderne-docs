@@ -7,11 +7,24 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.45 |
+| Connector | 0.151.111 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.45/connector-0.151.45.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.111/connector-0.151.111.jar)
 
 ## Changelog
+
+## September 2026
+
+### v0.151.111 – 2026-09-03
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.111/connector-0.151.111.jar)
+
+* Fix(connector): route the Azure DevOps Entra login through the configured proxy (#2042)
+* Infra: retain pentestaws and pentestazure tenant specs (#2008)
+* Let operators point recipe dependency resolution at a Maven mirror (#1928)
+* Expose connector organization sources in federated GraphQL (#1908)
+* Fix(gateway): fragment connector-facing RSocket responses over the 16MB frame limit (#1877)
+* Accept a Google Cloud Storage bucket as an organization source (#1873)
 
 ## August 2026
 
