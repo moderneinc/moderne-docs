@@ -14,11 +14,11 @@ Use the canonical name as written. The Connector also accepts camel case when bi
 
 ## Supplying a property
 
-| How you run the Connector | How you supply the property                      | Example                                          |
-|---------------------------|--------------------------------------------------|--------------------------------------------------|
-| OCI container             | An environment variable                          | `MODERNE_CONNECTOR_NICKNAME=prod-1`              |
-| Executable JAR            | A command line argument prefixed with `--`       | `--moderne.connector.nickname=prod-1`            |
-| Either                    | A key in a `moderne.yml` file                    | See [YAML](#yaml) below                          |
+| How you run the Connector | How you supply the property                | Example                               |
+|---------------------------|--------------------------------------------|---------------------------------------|
+| OCI container             | An environment variable                    | `MODERNE_CONNECTOR_NICKNAME=prod-1`   |
+| Executable JAR            | A command line argument prefixed with `--` | `--moderne.connector.nickname=prod-1` |
+| Either                    | A key in a `moderne.yml` file              | See [YAML](#yaml) below               |
 
 ## Deriving the environment variable name
 
@@ -30,13 +30,13 @@ The Connector is a Spring Boot application, so it follows Spring Boot's [relaxed
 
 For a list, surround the element number with underscores.
 
-| Canonical property                                    | Environment variable                              |
-|-------------------------------------------------------|---------------------------------------------------|
-| `moderne.connector.nickname`                          | `MODERNE_CONNECTOR_NICKNAME`                      |
-| `moderne.connector.crypto.symmetric-key`              | `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`           |
-| `moderne.scm.github[0].oauth.client-id`               | `MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID`             |
-| `moderne.scm.github[0].allowable-organizations[1]`    | `MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_1`   |
-| `moderne.organization.sources.http[0].bearer-token`   | `MODERNE_ORGANIZATION_SOURCES_HTTP_0_BEARERTOKEN` |
+| Canonical property                                  | Environment variable                              |
+|-----------------------------------------------------|---------------------------------------------------|
+| `moderne.connector.nickname`                        | `MODERNE_CONNECTOR_NICKNAME`                      |
+| `moderne.connector.crypto.symmetric-key`            | `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`           |
+| `moderne.scm.github[0].oauth.client-id`             | `MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID`             |
+| `moderne.scm.github[0].allowable-organizations[1]`  | `MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_1`   |
+| `moderne.organization.sources.http[0].bearer-token` | `MODERNE_ORGANIZATION_SOURCES_HTTP_0_BEARERTOKEN` |
 
 :::warning
 A dash is removed, not replaced. `allowable-organizations` becomes `ALLOWABLEORGANIZATIONS`, with no underscore between the two words. An underscore inside a property name is read as another level in the property tree, so an extra underscore names a property that does not exist.
@@ -46,11 +46,11 @@ A dash is removed, not replaced. `allowable-organizations` becomes `ALLOWABLEORG
 
 Prefix the canonical name with `--` and leave it otherwise unchanged.
 
-| Canonical property                                 | JAR argument                                          |
-|----------------------------------------------------|-------------------------------------------------------|
-| `moderne.connector.nickname`                       | `--moderne.connector.nickname`                        |
-| `moderne.scm.github[0].oauth.client-id`            | `--moderne.scm.github[0].oauth.client-id`             |
-| `moderne.scm.github[0].allowable-organizations[1]` | `--moderne.scm.github[0].allowable-organizations[1]`  |
+| Canonical property                                 | JAR argument                                         |
+|----------------------------------------------------|------------------------------------------------------|
+| `moderne.connector.nickname`                       | `--moderne.connector.nickname`                       |
+| `moderne.scm.github[0].oauth.client-id`            | `--moderne.scm.github[0].oauth.client-id`            |
+| `moderne.scm.github[0].allowable-organizations[1]` | `--moderne.scm.github[0].allowable-organizations[1]` |
 
 Exporting an environment variable also works when running the JAR, so you can mix the two forms. This is useful for secrets you would rather not put on the command line.
 
