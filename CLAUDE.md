@@ -6,13 +6,23 @@
 
 When editing any documentation in this repository, ALWAYS follow the rules in STYLE_GUIDE.md. Key rules include:
 
+**Formatting:**
+
 * Use asterisks (*) for bullet points, not dashes (-)
 * Add blank lines after headers and before code blocks
 * End description lines with exactly one period
 * Use sentence case for headers (no title case, no ending periods)
-* Use explicit relative paths for links (./file.md, ../parent.md)
+* Use explicit relative paths for links (./file.md, ../parent.md), never absolute https://docs.moderne.io URLs (Rules 9, 18)
+* Use Docusaurus admonitions (:::note, :::tip, :::warning) for callouts, never bold blockquotes (Rule 17)
 
-Please read the full STYLE_GUIDE.md for all formatting rules.
+**Prose:**
+
+* Keep one fact per sentence, but do not chop long sentences that develop a single idea (Rule 22)
+* Do not open a section by restating its header (Rule 25)
+* Use a list or table when prose enumerates three or more conditions or paths; keep a simple either/or as prose (Rule 22)
+* Address the reader ("you will need to", "you can"), not impersonal declarative phrasing (Rule 11)
+
+These are summaries. For the full rule and its examples, grep STYLE_GUIDE.md for `### <number>` rather than reading the whole file.
 
 ## Critical: Pre-commit Validation
 
