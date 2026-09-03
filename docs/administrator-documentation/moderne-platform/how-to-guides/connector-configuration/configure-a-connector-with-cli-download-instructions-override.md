@@ -26,15 +26,15 @@ Organizations may want to customize CLI download instructions for several reason
 
 The following table contains the variables/arguments needed to configure custom CLI download instructions for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
+Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
+
+| Property                                     | Required | Default | Description                                                                                                                                                                                                                |
+|----------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `moderne.ui.cli-download-instructions.label` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
+| `moderne.ui.cli-download-instructions.uri`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
+
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
-
-**Environment variables:**
-
-| Variable Name                              | Required | Default | Description                                                                                                                                                                                                                |
-|--------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_LABEL` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
-| `MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_URI`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
 
 **Example:**
 
@@ -45,29 +45,21 @@ docker run \
 -e MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_URI="https://docs.example.com/moderne-cli-setup" \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
-
-**Arguments:**
-
-| Argument Name                                | Required | Default | Description                                                                                                                                                                                                                |
-|----------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.ui.cliDownloadInstructions.label` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
-| `--moderne.ui.cliDownloadInstructions.uri`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.ui.cliDownloadInstructions.label="Download CLI Tools" \
---moderne.ui.cliDownloadInstructions.uri="https://docs.example.com/moderne-cli-setup" \
+--moderne.ui.cli-download-instructions.label="Download CLI Tools" \
+--moderne.ui.cli-download-instructions.uri="https://docs.example.com/moderne-cli-setup" \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>
 
 ## What users will see

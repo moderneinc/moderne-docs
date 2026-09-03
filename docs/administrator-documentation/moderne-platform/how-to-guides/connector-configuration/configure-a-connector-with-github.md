@@ -96,27 +96,27 @@ After creating a GitHub App, you must install it in each organization or account
 
 ## Configure the Moderne Connector
 
-The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your GitHub instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
+The following table contains all of the properties you need to add to your Moderne Connector run command in order for it to work with your GitHub instance. Please note that these properties must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
+
+Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
 
 :::info
 You can configure multiple GitHub OAuth apps by including multiple entries, each with a different `{index}`.
 :::
 
-<Tabs groupId="agent-type">
-<TabItem value="oci-container" label="OCI Container">
-
-**Environment variables:**
-
-| Variable Name                                                | Required | Default         | Description                                                                                                                                                                                                                      |
-|--------------------------------------------------------------|----------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_SCM_GITHUB_{index}_OAUTH_CLIENTID`                  | `true`   |                 | The client id configured in GitHub.                                                                                                                                                                                              |
-| `MODERNE_SCM_GITHUB_{index}_OAUTH_CLIENTSECRET`              | `true`   |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
-| `MODERNE_SCM_GITHUB_{index}_URI`                             | `true`   |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
-| `MODERNE_SCM_GITHUB_{index}_SKIPSSL`                         | `false`  | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
-| `MODERNE_SCM_GITHUB_{index}_ALLOWABLE_ORGANIZATIONS_{index}` | `false`  | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
-| `MODERNE_SCM_GITHUB_{index}_OAUTH_INCLUDEPRIVATEREPOS`       | `false`  | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
+| Property                                                       | Required | Default         | Description                                                                                                                                                                                                                      |
+|----------------------------------------------------------------|----------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `moderne.scm.github[{index}].oauth.client-id`                  | `true`   |                 | The client id configured in GitHub.                                                                                                                                                                                              |
+| `moderne.scm.github[{index}].oauth.client-secret`              | `true`   |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
+| `moderne.scm.github[{index}].uri`                              | `true`   |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
+| `moderne.scm.github[{index}].skip-ssl`                         | `false`  | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
+| `moderne.scm.github[{index}].allowable-organizations[{index}]` | `false`  | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
+| `moderne.scm.github[{index}].oauth.include-private-repos`      | `false`  | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
 
 **Example:**
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
 
 ```bash
 docker run \
@@ -124,8 +124,8 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=yourClientId \
 -e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=yourClientSecret \
 -e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_0=moderne \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 # ... Additional variables
 ```
@@ -133,28 +133,15 @@ docker run \
 
 <TabItem value="executable-jar" label="Executable JAR">
 
-**Arguments:**
-
-| Argument Name                                                   | Required | Default         | Description                                                                                                                                                                                                                      |
-|-----------------------------------------------------------------|----------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.scm.github[{index}].oauth.clientId`                  | `true`   |                 | The client id configured in GitHub.                                                                                                                                                                                              |
-| `--moderne.scm.github[{index}].oauth.clientSecret`              | `true`   |                 | The client secret configured in GitHub.                                                                                                                                                                                          |
-| `--moderne.scm.github[{index}].uri`                             | `true`   |                 | The fully-qualified hostname of the running GitHub instance.                                                                                                                                                                     |
-| `--moderne.scm.github[{index}].skipSsl`                         | `false`  | `false`         | Specifies whether or not to skip SSL validation for HTTP connections to this GitHub instance. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                           |
-| `--moderne.scm.github[{index}].allowableOrganizations[{index}]` | `false`  | See description | Specifies what organizations you can fork recipe results to. By default, there are no restrictions on which organizations can be committed to. If you want multiple organizations, increase the last index and add one per line. |
-| `--moderne.scm.github[{index}].oauth.includePrivateRepos`       | `false`  | See description | By default, the OAuth app will only have access to public repositories within your organization(s). To provide the OAuth app access to private repositories, you can set this to `true`.                                         |
-
-**Example:**
-
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.scm.github[0].oauth.clientId=yourClientId \
---moderne.scm.github[0].oauth.clientSecret=yourClientSecret \
+--moderne.scm.github[0].oauth.client-id=yourClientId \
+--moderne.scm.github[0].oauth.client-secret=yourClientSecret \
 --moderne.scm.github[0].uri=https://myorg.github.com \
---moderne.scm.github[0].allowableOrganizations[0]=moderne \
---moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
---moderne.scm.github[0].oauth.includePrivateRepos=true \
+--moderne.scm.github[0].allowable-organizations[0]=moderne \
+--moderne.scm.github[0].allowable-organizations[1]=openrewrite \
+--moderne.scm.github[0].oauth.include-private-repos=true \
 # ... Additional arguments
 ```
 </TabItem>

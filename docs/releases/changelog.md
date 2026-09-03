@@ -1298,14 +1298,14 @@ As of Moderne Connector v0.210.0, the organizations service configuration has mo
 
 ```properties
 moderne.agent.organization.url=https://my-organizations-service
-moderne.agent.organization.updateIntervalSeconds=600
+moderne.agent.organization.update-interval-seconds=600
 ```
 
 #### After
 
 ```properties
 moderne.agent.organization.service.url=https://my-organizations-service
-moderne.agent.organization.service.updateIntervalSeconds=600
+moderne.agent.organization.service.update-interval-seconds=600
 ```
 
 ### UI v11.10.1 (2025/02/22)

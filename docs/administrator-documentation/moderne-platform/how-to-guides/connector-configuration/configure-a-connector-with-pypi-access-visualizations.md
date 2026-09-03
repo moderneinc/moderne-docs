@@ -23,23 +23,23 @@ The following table contains all of the variables/arguments you need to add to y
 
 You can configure multiple PyPI indexes by including multiple entries, each with a different `{index}`.
 
+Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
+
+| Property                                                                           | Required | Default | Description                                                                                                                                                                                                                      |
+|------------------------------------------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `moderne.recipe.marketplace.repositories.pypi[{index}].uri`                        | `true`   |         | The URI of your PyPI package index.                                                                                                                                                                                              |
+| `moderne.recipe.marketplace.repositories.pypi[{index}].username`                   | `false`  | `null`  | The username used to access the index. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
+| `moderne.recipe.marketplace.repositories.pypi[{index}].password`                   | `false`  | `null`  | The password used to access the index. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
+| `moderne.recipe.marketplace.repositories.pypi[{index}].bearer-token`               | `false`  |         | The bearer token (access token) used to access the index. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearer-token` is specified, username and password must not be provided. |
+| `moderne.recipe.marketplace.repositories.pypi[{index}].skip-ssl`                   | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                    |
+| `moderne.recipe.marketplace.repositories.pypi[{index}].skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this PyPI index, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                          |
+| `moderne.recipe.marketplace.repositories.pypi[{index}].proxy.host`                 | `false`  |         | The hostname of a proxy server to use for connections to this PyPI index.                                                                                                                                                        |
+| `moderne.recipe.marketplace.repositories.pypi[{index}].proxy.port`                 | `false`  |         | The port of the proxy server to use for connections to this PyPI index.                                                                                                                                                          |
+| `moderne.recipe.marketplace.repositories.pypi[{index}].connect-timeout`            | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                         |
+| `moderne.recipe.marketplace.repositories.pypi[{index}].read-timeout`               | `false`  | `60s`   | Timeout for reading the response body from the PyPI package index. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                  |
+
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
-
-**Environment variables:**
-
-| Variable Name                                                                   | Required | Default | Description                                                                                                                                                                                                                      |
-|---------------------------------------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_URI`                      | `true`   |         | The URI of your PyPI package index.                                                                                                                                                                                              |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_USERNAME`                 | `false`  | `null`  | The username used to access the index. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PASSWORD`                 | `false`  | `null`  | The password used to access the index. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_BEARERTOKEN`              | `false`  |         | The bearer token (access token) used to access the index. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_SKIPSSL`                  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                    |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this PyPI index, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                          |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_HOST`               | `false`  |         | The hostname of a proxy server to use for connections to this PyPI index.                                                                                                                                                        |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_PORT`               | `false`  |         | The port of the proxy server to use for connections to this PyPI index.                                                                                                                                                          |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                         |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the PyPI package index. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                  |
 
 **Example:**
 
@@ -55,21 +55,6 @@ docker run \
 
 <TabItem value="executable-jar" label="Executable JAR">
 
-**Arguments:**
-
-| Argument Name                                                                      | Required | Default | Description                                                                                                                                                                                                                      |
-|------------------------------------------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].uri`                      | `true`   |         | The URI of your PyPI package index.                                                                                                                                                                                              |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].username`                 | `false`  | `null`  | The username used to access the index. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].password`                 | `false`  | `null`  | The password used to access the index. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used.                                                                                               |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].bearerToken`              | `false`  |         | The bearer token (access token) used to access the index. <br/><br/>**Note:** Only one of basic auth (username+password) or bearer token can be used. If `bearerToken` is specified, username and password must not be provided. |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].skipSsl`                  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI package index. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                    |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].skipValidateConnectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this PyPI index, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                          |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.host`               | `false`  |         | The hostname of a proxy server to use for connections to this PyPI index.                                                                                                                                                        |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.port`               | `false`  |         | The port of the proxy server to use for connections to this PyPI index.                                                                                                                                                          |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].connectTimeout`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                         |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].readTimeout`              | `false`  | `60s`   | Timeout for reading the response body from the PyPI package index. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                  |
-
 **Example:**
 
 ```bash
@@ -81,6 +66,7 @@ java -jar connector-{version}.jar \
 # ... Additional arguments
 ```
 </TabItem>
+
 </Tabs>
 
 ## The Connector environment
