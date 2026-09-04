@@ -10,6 +10,27 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## September 4, 2026
+
+#### rewrite-migrate-python - 0.13.2
+
+* Don't interpolate string literals into generated f-strings
+* Correct FindMethodsTest expectations to the Python type model
+* Decide typing-import removal by parsing forward references, not searching prose
+* Migrate typing annotations inside `if TYPE_CHECKING:` blocks
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Guard f-string conversions the migration target cannot parse
+* Re-indent lifted blocks recursively in the collapsible-if recipes
+* Keep each lifted statement's padding in AllBranchesIdentical
+* Resolve UTC through the file's own datetime imports
+* Restrict RemoveSelfAssignment to plain local names
+* Resolve LangChain community imports per symbol, not per submodule
+* Restrict the PEP 585 builtin-alias recipes to annotations
+* Splice whole lines when RemoveUnconditionalValueOverwrite drops a write
+* Resolve removed-API calls through the file's own imports
+* Keep f-string and await replacements in the statement slot they replace
+* Delete the workarounds 8.91.5 makes redundant, and stop shadowing an added import
+
 ## August 31, 2026
 
 #### recipes-javascript - v0.1.0
