@@ -7,13 +7,19 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.111 |
+| Connector | 0.151.113 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.111/connector-0.151.111.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.113/connector-0.151.113.jar)
 
 ## Changelog
 
 ## September 2026
+
+### v0.151.113 – 2026-09-03
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.113/connector-0.151.113.jar)
+
+* Fix(connector): restore logging by moving LOG_JSON onto structured logging (#2049)
 
 ### v0.151.111 – 2026-09-03
 
