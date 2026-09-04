@@ -251,7 +251,88 @@ You can pass additional arguments to Gradle when building LSTs. For details on h
 
 ## Step 4: (Optionally) Configure Maven
 
-The CLI uses the Maven installation found on your `$PATH`. There is no version selection or installation discovery for Maven.
+By default, the CLI uses the Maven wrapper (`mvnw`) included in each repository. If a repository doesn't include a wrapper, the CLI falls back to Maven installations it discovers on your machine. If you explicitly [select a version](#selecting-a-version-1), that version is used instead of the wrapper.
+
+### Discovering installations
+
+The CLI automatically discovers Maven installations from these locations (with the first one representing the one given the highest priority):
+
+* User-configured paths (via `mod config build maven installation edit`)
+* `$PATH`
+* `$MAVEN_HOME`
+* `$MVN_HOME`
+* SDKMAN (`~/.sdkman/candidates/maven/`)
+* Homebrew (`/opt/homebrew/opt/maven*` or `/usr/local/opt/maven*`)
+
+You can see all detected installations and their priority by running:
+
+```bash
+mod config build maven installation list
+```
+
+### Adding installation locations
+
+If you have Maven installations in locations the CLI does not automatically discover, you can register them:
+
+```bash
+mod config build maven installation edit /path/to/maven-home
+```
+
+Each path should point to a Maven home directory (i.e., a directory containing `bin/mvn`). You can register multiple installations at once:
+
+```bash
+mod config build maven installation edit /opt/apache-maven-3.8.8 /opt/apache-maven-3.9.6
+```
+
+To remove manually configured installation paths:
+
+```bash
+mod config build maven installation delete
+```
+
+### Selecting a version
+
+You can tell the CLI which Maven version to use rather than letting it pick one. The version must exactly match one of the installations known to the CLI. If no installation matches, the build fails with an error rather than falling back to another version.
+
+An explicitly selected version takes precedence over a repository's Maven wrapper. This is useful when wrappers are stale, point at an unreachable distribution URL, or otherwise can't be used to build.
+
+To set a Maven version globally:
+
+```bash
+mod config build maven version edit 3.9.6
+```
+
+To apply a version only to a specific group of repositories:
+
+```bash
+mod config build maven version edit 3.9.6 --local ./working-set
+```
+
+To revert to auto-detection:
+
+```bash
+mod config build maven version delete
+```
+
+To see the currently configured version:
+
+```bash
+mod config build maven version show
+```
+
+### Specifying a Maven version in the CSV
+
+When cloning using `mod git sync csv`, you can add a `mavenVersion` column to the CSV to specify the Maven version per repository:
+
+```csv
+"cloneUrl","branch","origin","path","mavenVersion"
+"https://github.com/example/legacy-app","main","github.com","example/legacy-app","3.8.8"
+"https://github.com/example/modern-app","main","github.com","example/modern-app"
+```
+
+:::tip
+`mavenVersion` takes precedence over a repository's Maven wrapper. Leave the column empty (or unset the version) to keep the default behavior of using the wrapper.
+:::
 
 ### Passing Maven arguments
 
