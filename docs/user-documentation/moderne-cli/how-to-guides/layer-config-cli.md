@@ -25,7 +25,7 @@ The precedence order during build (highest to lowest):
 3. **Global config** (`~/.moderne/cli/moderne.yml`) – applies to all repositories
 
 :::info
-**`repos.csv` and configuration**: When you run `mod git sync csv`, build configuration from `repos.csv` is written directly into each repository's `.moderne` directory. This includes build arguments (`mavenArgs`, `gradleArgs`), build tool versions (`java`, `gradleVersion`, `nodeVersion`), and other per-repository settings.
+**`repos.csv` and configuration**: When you run `mod git sync csv`, build configuration from `repos.csv` is written directly into each repository's `.moderne` directory. This includes build arguments (`mavenArgs`, `gradleArgs`), build tool versions (`java`, `gradleVersion`, `mavenVersion`, `nodeVersion`), and other per-repository settings.
 
 If you provide a `--save` flag they will go to `moderne.yml`. If you don't provide one, they will go to `moderne-uncommitted.yml`.
 
