@@ -36,16 +36,16 @@ Access scoping is **fail-closed**: if the service is unreachable or returns an e
 
 **Environment variables:**
 
-| Variable Name                                                 | Required | Default | Description                                                                                                       |
-|---------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_URI`          | `true`   |         | The URL of your organizations service's GraphQL endpoint (e.g., `https://org-service.internal/graphql`).          |
-| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_USERNAME`     | `false`  | `null`  | Username, if the service requires basic authentication.                                                           |
-| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_PASSWORD`     | `false`  | `null`  | Password, if the service requires basic authentication.                                                           |
-| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_BEARERTOKEN`  | `false`  | `null`  | Bearer token, if the service uses token authentication. Takes precedence over username/password when both are set. |
-| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_SKIPSSL`      | `false`  | `false` | Whether to skip SSL/TLS verification for the Connector's calls to this service. Set to `true` if the service uses a self-signed SSL/TLS certificate. |
-| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_SKIPVALIDATECONNECTIVITY` | `false` | `false` | By default, on Connector startup, we validate that we can reach this service and fail to start the Connector if we cannot. Set to `true` to skip this validation (e.g., if the service may be unavailable when the Connector boots). |
-| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_PROXY_HOST`   | `false`  |         | Hostname of a forward proxy to use for the Connector's calls to this service. |
-| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_PROXY_PORT`   | `false`  |         | Port of the forward proxy. |
+| Variable Name                                                             | Required | Default | Description                                                                                                                                                       |
+|---------------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_URI`                      | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                              |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_USERNAME`                 | `false`  | `null`  | Username, if the service requires basic authentication.                                                                                                           |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_PASSWORD`                 | `false`  | `null`  | Password, if the service requires basic authentication.                                                                                                           |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_BEARERTOKEN`              | `false`  | `null`  | Bearer token, if the service uses token authentication. Takes precedence over username/password when both are set.                                                |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_SKIPSSL`                  | `false`  | `false` | Whether to skip SSL/TLS verification for the Connector's calls to this service. Set to `true` if the service uses a self-signed SSL/TLS certificate.              |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, we validate that we can reach this service and fail to start the Connector if we cannot. Set to `true` to skip this validation. |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_PROXY_HOST`               | `false`  |         | Hostname of a forward proxy to use for the Connector's calls to this service.                                                                                     |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_PROXY_PORT`               | `false`  |         | Port of the forward proxy.                                                                                                                                        |
 
 **Example:**
 
@@ -61,16 +61,16 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                     | Required | Default | Description                                                                                                       |
-|-------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------|
-| `--moderne.custom-integrations.organization-service.uri`          | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                                          |
-| `--moderne.custom-integrations.organization-service.username`     | `false`  | `null`  | Username, if the service requires basic authentication.                                                           |
-| `--moderne.custom-integrations.organization-service.password`     | `false`  | `null`  | Password, if the service requires basic authentication.                                                           |
-| `--moderne.custom-integrations.organization-service.bearerToken`  | `false`  | `null`  | Bearer token, if the service uses token authentication. Takes precedence over username/password when both are set. |
-| `--moderne.custom-integrations.organization-service.skipSsl`      | `false`  | `false` | Whether to skip SSL/TLS verification for the Connector's calls to this service. Set to `true` if the service uses a self-signed SSL/TLS certificate. |
-| `--moderne.custom-integrations.organization-service.skipValidateConnectivity` | `false` | `false` | By default, on Connector startup, we validate that we can reach this service and fail to start the Connector if we cannot. Set to `true` to skip this validation. |
-| `--moderne.custom-integrations.organization-service.proxy.host`   | `false`  |         | Hostname of a forward proxy to use for the Connector's calls to this service. |
-| `--moderne.custom-integrations.organization-service.proxy.port`   | `false`  |         | Port of the forward proxy. |
+| Argument Name                                                                   | Required | Default | Description                                                                                                                                                       |
+|---------------------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.custom-integrations.organization-service.uri`                        | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                              |
+| `--moderne.custom-integrations.organization-service.username`                   | `false`  | `null`  | Username, if the service requires basic authentication.                                                                                                           |
+| `--moderne.custom-integrations.organization-service.password`                   | `false`  | `null`  | Password, if the service requires basic authentication.                                                                                                           |
+| `--moderne.custom-integrations.organization-service.bearer-token`               | `false`  | `null`  | Bearer token, if the service uses token authentication. Takes precedence over username/password when both are set.                                                |
+| `--moderne.custom-integrations.organization-service.skip-ssl`                   | `false`  | `false` | Whether to skip SSL/TLS verification for the Connector's calls to this service. Set to `true` if the service uses a self-signed SSL/TLS certificate.              |
+| `--moderne.custom-integrations.organization-service.skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, we validate that we can reach this service and fail to start the Connector if we cannot. Set to `true` to skip this validation. |
+| `--moderne.custom-integrations.organization-service.proxy.host`                 | `false`  |         | Hostname of a forward proxy to use for the Connector's calls to this service.                                                                                     |
+| `--moderne.custom-integrations.organization-service.proxy.port`                 | `false`  |         | Port of the forward proxy.                                                                                                                                        |
 
 **Example:**
 
@@ -81,6 +81,7 @@ java -jar moderne-connector-{version}.jar \
 # ... Additional arguments
 ```
 </TabItem>
+
 </Tabs>
 
 :::note

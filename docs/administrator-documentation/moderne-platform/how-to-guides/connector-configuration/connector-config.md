@@ -41,7 +41,7 @@ The Moderne Connector requires customers to create a hex-encoded 256-bit AES enc
 openssl enc -aes-256-cbc -k secret -P
 ```
 
-This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 3](#step-3-configure-the-connector-with-the-core-variablesarguments) as the `symmetricKey`.
+This will return a `salt`, `key`, and `iv`. Please copy the `key` and save it for use in [step 3](#step-3-configure-the-connector-with-the-core-variablesarguments) as the `symmetric-key`.
 
 ### Step 2: Determine how you will run the Connector
 
@@ -115,8 +115,8 @@ MODERNE_CONNECTOR_NICKNAME=prod-1
 MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=${GITHUB_CLIENT_ID}
 MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=${GITHUB_CLIENT_SECRET}
 MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com
-MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne
-MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite
+MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_0=moderne
+MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_1=openrewrite
 MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true
 
 # Set the environment variables for your artifactory
@@ -145,13 +145,13 @@ Use `java` to run a jar in combination with arguments that you'll add in the sub
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.connector.crypto.symmetricKey=...
+# --moderne.connector.crypto.symmetric-key=...
 export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 
 java -jar connector-{version}.jar \
 # Example arguments. These will be explained in step 3.
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
+--moderne.connector.api-gateway-rsocket-uri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 # ... Additional arguments
 ```
@@ -164,18 +164,18 @@ java -jar connector-{version}.jar \
 
 All Connectors must be configured with the variables listed as required below:
 
-<Tabs groupId="connector-type">
+<Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                              | Required | Default                | Description                                                                                                                                        |
-|--------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`   | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
-| `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`    | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
-| `MODERNE_CONNECTOR_NICKNAME`               | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
-| `MODERNE_CONNECTOR_TOKEN`                  | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                  |
-| `MODERNE_SCM_DEFAULTCOMMITOPTIONS_{index}` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| Variable Name                              | Required | Default                | Description                                                                                                                                                                                                      |
+|--------------------------------------------|----------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`   | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                                                                                 |
+| `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`    | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                                                                                       |
+| `MODERNE_CONNECTOR_NICKNAME`               | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                                                                                 |
+| `MODERNE_CONNECTOR_TOKEN`                  | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                                                                                |
+| `MODERNE_SCM_DEFAULTCOMMITOPTIONS_{index}` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`, `None`. Use `None` on its own to disable committing entirely. |
 
 **Example:**
 
@@ -202,30 +202,31 @@ moderne-connector:latest
 
 **Arguments:**
 
-| Argument Name                                 | Required | Default                | Description                                                                                                                                        |
-|-----------------------------------------------|----------|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.connector.apiGatewayRsocketUri`    | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                   |
-| `--moderne.connector.crypto.symmetricKey`     | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                         |
-| `--moderne.connector.nickname`                | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                   |
-| `--moderne.connector.token`                   | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                  |
-| `--moderne.scm.defaultCommitOptions[{index}]` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`. |
+| Argument Name                                   | Required | Default                | Description                                                                                                                                                                                                      |
+|-------------------------------------------------|----------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.api-gateway-rsocket-uri`   | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                                                                                 |
+| `--moderne.connector.crypto.symmetric-key`      | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                                                                                       |
+| `--moderne.connector.nickname`                  | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                                                                                 |
+| `--moderne.connector.token`                     | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                                                                                |
+| `--moderne.scm.default-commit-options[{index}]` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`, `None`. Use `None` on its own to disable committing entirely. |
 
 **Example:**
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.connector.crypto.symmetricKey=...
+# --moderne.connector.crypto.symmetric-key=...
 export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
+--moderne.connector.api-gateway-rsocket-uri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
---moderne.scm.defaultCommitOptions[0]=PullRequest \
---moderne.scm.defaultCommitOptions[1]=ForkAndPullRequest \
+--moderne.scm.default-commit-options[0]=PullRequest \
+--moderne.scm.default-commit-options[1]=ForkAndPullRequest \
 # ... Additional arguments
 ```
 </TabItem>
+
 </Tabs>
 
 ### Step 4: Configure the Connector to work with your SCM(s)
@@ -263,8 +264,8 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID \
 -e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET \
 -e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_0=moderne \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 # ... Additional variables to come
 -p 8080:8080
@@ -276,19 +277,19 @@ moderne-connector:latest
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.connector.crypto.symmetricKey=...
+# --moderne.connector.crypto.symmetric-key=...
 export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
+--moderne.connector.api-gateway-rsocket-uri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 --moderne.scm.github[0].uri=https://myorg.github.com \
---moderne.scm.github[0].allowableOrganizations[0]=moderne \
---moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
---moderne.scm.github[0].oauth.includePrivateRepos=true \
+--moderne.scm.github[0].allowable-organizations[0]=moderne \
+--moderne.scm.github[0].allowable-organizations[1]=openrewrite \
+--moderne.scm.github[0].oauth.include-private-repos=true \
 # ... Additional arguments to come
 ```
 </TabItem>
@@ -308,12 +309,12 @@ All of these things can come from a CSV file that you point the Connector to.
 
 The CSV can live in a few different places - pick whichever fits your environment. All four options sit under `moderne.organization.sources.*`:
 
-| Source type              | Description                                    | Configuration prefix                   |
-|--------------------------|------------------------------------------------|----------------------------------------|
-| File                     | A CSV on the Connector's filesystem.           | `moderne.organization.sources.file[*]` |
-| HTTP(S)                  | A URL serving a CSV.                           | `moderne.organization.sources.http[*]` |
-| S3 object                | An S3 URI pointing to a CSV object.            | `moderne.organization.sources.s3[*]`   |
-| Cloud Storage object     | A `gs://` URI pointing to a CSV object.        | `moderne.organization.sources.gcs[*]`  |
+| Source type          | Description                             | Configuration prefix                   |
+|----------------------|-----------------------------------------|----------------------------------------|
+| File                 | A CSV on the Connector's filesystem.    | `moderne.organization.sources.file[*]` |
+| HTTP(S)              | A URL serving a CSV.                    | `moderne.organization.sources.http[*]` |
+| S3 object            | An S3 URI pointing to a CSV object.     | `moderne.organization.sources.s3[*]`   |
+| Cloud Storage object | A `gs://` URI pointing to a CSV object. | `moderne.organization.sources.gcs[*]`  |
 
 For `file` and `http` sources, please see the [organizational hierarchy configuration guide](./configure-organizations-hierarchy.md). For `s3` sources, please see the [S3 organization source guide](./configure-a-connector-with-s3-access.md), and for `gcs` sources, please see the [Google Cloud Storage organization source guide](./configure-a-connector-with-gcs-access.md). For details on the CSV format itself (such as required and optional columns, how to express an organizational hierarchy), please see the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
 
@@ -326,7 +327,7 @@ You have two options:
   * **[Artifactory](./configure-a-connector-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing). Recommended for Artifactory users.
   * **[Maven repository](./configure-a-connector-with-maven-repository-access.md)** - works with any Maven-formatted repository (Artifactory, Nexus, etc.) via the [Maven Indexer](https://maven.apache.org/maven-indexer/). There will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process.
 
-The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [connector variables reference](./connector-variables.md) for the full list of values.
+The Connector picks between these two paths automatically, per source: a source whose configuration includes poll repositories discovers LST locations by querying them, and a source without them uses the `publishUri` values already in its CSV.
 
 Below is an example of what a Connector run command might look like at the end of this step.
 
@@ -349,8 +350,8 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID \
 -e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET \
 -e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_0=moderne \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 # Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
 -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos-lock.csv \
@@ -369,26 +370,26 @@ moderne-connector:latest
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.connector.crypto.symmetricKey=...
+# --moderne.connector.crypto.symmetric-key=...
 export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
+--moderne.connector.api-gateway-rsocket-uri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 --moderne.scm.github[0].uri=https://myorg.github.com \
---moderne.scm.github[0].allowableOrganizations[0]=moderne \
---moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
---moderne.scm.github[0].oauth.includePrivateRepos=true \
+--moderne.scm.github[0].allowable-organizations[0]=moderne \
+--moderne.scm.github[0].allowable-organizations[1]=openrewrite \
+--moderne.scm.github[0].oauth.include-private-repos=true \
 # Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
 --moderne.organization.sources.http[0].uri=https://internal.example.com/repos-lock.csv \
 # (Optional) Enrichment pollers — only needed if your CSV lacks publishUri values.
 # --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
 # --moderne.organization.sources.http[0].poll.artifactory[0].username=... \
 # --moderne.organization.sources.http[0].poll.artifactory[0].password=... \
-# --moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
+# --moderne.organization.sources.http[0].poll.artifactory[0].lst-query-filters[0]='"name":{"$match":"*-ast.jar"}' \
 # ... Additional arguments to come
 ```
 </TabItem>
@@ -482,8 +483,8 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID \
 -e MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET \
 -e MODERNE_SCM_GITHUB_0_URI=https://myorg.github.com \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_0=moderne \
--e MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_1=openrewrite \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_0=moderne \
+-e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
 -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos-lock.csv \
 -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
@@ -505,7 +506,7 @@ Use `java` to run a jar in combination with arguments that you've added in the p
 
 ```bash
 # Exporting environment variables with the exact same structure as the parameter in the Java command makes it so you no longer need to include them in the below Java command. For instance, the first export below is equivalent to including this parameter in the Java command:
-# --moderne.connector.crypto.symmetricKey=...
+# --moderne.connector.crypto.symmetric-key=...
 export MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY=...
 export MODERNE_CONNECTOR_TOKEN=...
 export MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID=...
@@ -516,16 +517,16 @@ export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_USERNAME=...
 export MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_PASSWORD=...
 
 java -jar connector-{version}.jar \
---moderne.connector.apiGatewayRsocketUri=https://api.tenant.moderne.io/connector \
+--moderne.connector.api-gateway-rsocket-uri=https://api.tenant.moderne.io/connector \
 --moderne.connector.nickname=prod-1 \
 --moderne.scm.github[0].uri=https://myorg.github.com \
---moderne.scm.github[0].allowableOrganizations[0]=moderne \
---moderne.scm.github[0].allowableOrganizations[1]=openrewrite \
---moderne.scm.github[0].oauth.includePrivateRepos=true \
+--moderne.scm.github[0].allowable-organizations[0]=moderne \
+--moderne.scm.github[0].allowable-organizations[1]=openrewrite \
+--moderne.scm.github[0].oauth.include-private-repos=true \
 --moderne.organization.sources.http[0].uri=https://internal.example.com/repos-lock.csv \
 --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
---moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[0]='{"name":{"$match":"*-ast.jar"}}' \
---moderne.organization.sources.http[0].poll.artifactory[0].lstQueryFilters[1]='{"repo":{"$eq":"example-maven"}}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lst-query-filters[0]='"name":{"$match":"*-ast.jar"}' \
+--moderne.organization.sources.http[0].poll.artifactory[0].lst-query-filters[1]='"repo":{"$eq":"example-maven"}' \
 --moderne.organization.sources.http[0].poll.maven[0].uri=https://myartifactory.example.com/artifactory/libs-releases-local \
 ```
 
@@ -538,7 +539,7 @@ java -jar connector-{version}.jar \
 The Connector exposes two organization-wide knobs that affect how quickly new LSTs appear in Moderne and how much concurrent work the Connector performs. Both are optional and have sensible defaults.
 
 * **`moderne.connector.organization.interval`** — how often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Defaults to `10m`. Lower this if you want LSTs to show up faster. Raise it to reduce load on your artifact repository.
-* **`moderne.connector.organization.downloadParallelism`** — the global cap on concurrent LST download, encrypt, and upload operations across all configured sources. Defaults to `max(4, availableProcessors())`. Raise it if your Connector host and upstream gateway have headroom. Lower it to throttle network/CPU use.
+* **`moderne.connector.organization.download-parallelism`** -- the global cap on concurrent LST download, encrypt, and upload operations across all configured sources. Defaults to `max(4, availableProcessors())`. Raise it if your Connector host and upstream gateway have headroom. Lower it to throttle network/CPU use.
 
 See the [All Connector variables reference](./connector-variables.md#organization-sync-variables) for the exact variable and argument names.
 
@@ -670,7 +671,7 @@ This allows the Connector to use the host's network stack directly, including it
 **Common causes and solutions:**
 
 * **SCM OAuth configuration:** Verify OAuth credentials (`MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID`, `MODERNE_SCM_GITHUB_0_OAUTH_CLIENTSECRET`, etc.) are correct
-* **Organization allowlists:** Check that `MODERNE_SCM_GITHUB_0_ALLOWABLE_ORGANIZATIONS_*` includes all necessary organizations
+* **Organization allowlists:** Check that `MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_*` includes all necessary organizations
 * **OAuth app permissions:** Ensure the OAuth application has been granted access to the repositories (may require organization admin approval)
 * **Private repository access:** Verify `MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true` is set if accessing private repositories
 

@@ -52,7 +52,7 @@ The `s3:ListBucket` permission applies to the bucket itself. The Connector requi
 
 The Connector supports multiple authentication methods for S3:
 
-* **Access key and secret key**: Provide `accessKey` and `secretKey` directly in the configuration. This is useful for non-AWS environments or when IAM roles are not available.
+* **Access key and secret key**: Provide `access-key` and `secret-key` directly in the configuration. This is useful for non-AWS environments or when IAM roles are not available.
 * **AWS profile**: Specify a `profile` name that references credentials configured in your AWS credentials file (`~/.aws/credentials`).
 * **IAM role**: When running on AWS infrastructure (EC2, ECS, EKS), the Connector can use the instance's IAM role automatically. In this case, you only need to provide the `uri` and, if deployed to a different region than the bucket, the `region`.
 
@@ -123,22 +123,21 @@ docker run \
 -e MODERNE_ORGANIZATION_SOURCES_S3_0_SKIPSSL=true \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                                            | Required                                                 | Default | Description                                                                                                                                                          |
-|----------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.organization.sources.s3[{index}].uri`         | `true`                                                   |         | The S3 URI of the CSV object. Must start with `s3://` and include the object key (e.g., `s3://my-bucket/repos-lock.csv`).                                            |
-| `--moderne.organization.sources.s3[{index}].endpointUrl` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3.                                           |
-| `--moderne.organization.sources.s3[{index}].region`      | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if the Connector is deployed on AWS infrastructure in the same region as the bucket. |
-| `--moderne.organization.sources.s3[{index}].accessKey`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                                                            |
-| `--moderne.organization.sources.s3[{index}].secretKey`   | `false` (Required if using access key)                   |         | The AWS secret access key for authentication.                                                                                                                        |
-| `--moderne.organization.sources.s3[{index}].profile`     | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                                                                     |
-| `--moderne.organization.sources.s3[{index}].skipSsl`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                                                                       |
+| Argument Name                                             | Required                                                 | Default | Description                                                                                                                                                          |
+|-----------------------------------------------------------|----------------------------------------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.s3[{index}].uri`          | `true`                                                   |         | The S3 URI of the CSV object. Must start with `s3://` and include the object key (e.g., `s3://my-bucket/repos-lock.csv`).                                            |
+| `--moderne.organization.sources.s3[{index}].endpoint-url` | `false`                                                  |         | Custom endpoint URL for S3-compatible services (e.g., `http://localhost:9000` for MinIO). Leave empty for standard AWS S3.                                           |
+| `--moderne.organization.sources.s3[{index}].region`       | `false`                                                  |         | The AWS region where the bucket is located (e.g., `us-east-1`). Can be excluded if the Connector is deployed on AWS infrastructure in the same region as the bucket. |
+| `--moderne.organization.sources.s3[{index}].access-key`   | `false` (Required if not using profile or IAM role)      |         | The AWS access key ID for authentication.                                                                                                                            |
+| `--moderne.organization.sources.s3[{index}].secret-key`   | `false` (Required if using access key)                   |         | The AWS secret access key for authentication.                                                                                                                        |
+| `--moderne.organization.sources.s3[{index}].profile`      | `false` (Alternative to access key/secret key)           |         | The AWS profile name from your credentials file.                                                                                                                     |
+| `--moderne.organization.sources.s3[{index}].skip-ssl`     | `true` (If using self-signed cert or non-HTTPS endpoint) | `false` | Specifies whether to skip SSL verification for connections to the S3 endpoint.                                                                                       |
 
 **Example using IAM role authentication on AWS infrastructure:**
 
@@ -157,8 +156,8 @@ java -jar connector-{version}.jar \
 # ... Existing arguments
 --moderne.organization.sources.s3[0].uri=s3://my-bucket/repos-lock.csv \
 --moderne.organization.sources.s3[0].region=us-east-1 \
---moderne.organization.sources.s3[0].accessKey=AKIAIOSFODNN7EXAMPLE \
---moderne.organization.sources.s3[0].secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
+--moderne.organization.sources.s3[0].access-key=AKIAIOSFODNN7EXAMPLE \
+--moderne.organization.sources.s3[0].secret-key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
 # ... Additional arguments
 ```
 
@@ -179,14 +178,14 @@ java -jar connector-{version}.jar \
 java -jar connector-{version}.jar \
 # ... Existing arguments
 --moderne.organization.sources.s3[0].uri=s3://my-bucket/repos-lock.csv \
---moderne.organization.sources.s3[0].endpointUrl=http://minio.example.com:9000 \
---moderne.organization.sources.s3[0].accessKey=minioadmin \
---moderne.organization.sources.s3[0].secretKey=minioadmin \
---moderne.organization.sources.s3[0].skipSsl=true \
+--moderne.organization.sources.s3[0].endpoint-url=http://minio.example.com:9000 \
+--moderne.organization.sources.s3[0].access-key=minioadmin \
+--moderne.organization.sources.s3[0].secret-key=minioadmin \
+--moderne.organization.sources.s3[0].skip-ssl=true \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>
 
 ## Using IAM roles on AWS

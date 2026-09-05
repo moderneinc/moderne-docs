@@ -6,7 +6,7 @@ description: The current version of the Moderne Agent and where to download it.
 # Agent releases
 
 | Component                             | Current version |
-| ------------------------------------- | --------------- |
+|---------------------------------------|-----------------|
 | Agent (recommended to use **latest**) | 0.262.0         |
 
 ### Maven download
@@ -153,7 +153,7 @@ This patch release fixes the publish workflow failure caused by gradle-docker-pl
 
 ### v0.239.0 - 2025-11-04
 
-* Add `moderne.agent.llm.adminOnly` to be able to limit Moddy usage to only admins
+* Add `moderne.agent.llm.admin-only` to be able to limit Moddy usage to only admins
 
 ## October 2025
 
