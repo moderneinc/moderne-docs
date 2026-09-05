@@ -25,19 +25,19 @@ Organizations may want to customize UI elements for several reasons:
 
 The following table contains the variables/arguments needed to configure custom UI elements for your Moderne Connector. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
-Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
-
-| Property                        | Required | Default | Description                                                                                                                                             |
-|---------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `moderne.ui.more-help[0].label` | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported. |
-| `moderne.ui.more-help[0].uri`   | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
-| `moderne.ui.more-help[1].label` | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                   |
-| `moderne.ui.more-help[1].uri`   | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                 |
-| `moderne.ui.more-help[2].label` | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                    |
-| `moderne.ui.more-help[2].uri`   | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
-
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                 | Required | Default | Description                                                                                                                                             |
+|-------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_UI_MOREHELP_0_LABEL` | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported. |
+| `MODERNE_UI_MOREHELP_0_URI`   | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
+| `MODERNE_UI_MOREHELP_1_LABEL` | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                   |
+| `MODERNE_UI_MOREHELP_1_URI`   | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                 |
+| `MODERNE_UI_MOREHELP_2_LABEL` | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                    |
+| `MODERNE_UI_MOREHELP_2_URI`   | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
 
 **Example:**
 
@@ -53,6 +53,17 @@ docker run \
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                     | Required | Default | Description                                                                                                                                             |
+|-----------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.ui.more-help[0].label` | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported. |
+| `--moderne.ui.more-help[0].uri`   | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
+| `--moderne.ui.more-help[1].label` | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                   |
+| `--moderne.ui.more-help[1].uri`   | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                 |
+| `--moderne.ui.more-help[2].label` | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                    |
+| `--moderne.ui.more-help[2].uri`   | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
 
 **Example:**
 

@@ -138,16 +138,16 @@ Values for client ID, client secret and tenant ID can be found in the Overview p
 You can configure multiple Azure DevOps OAuth apps by including multiple entries, each with a different `{index}`.
 :::
 
-Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
-
-| Property                                                | Required | Default | Description                                      |
-|---------------------------------------------------------|----------|---------|--------------------------------------------------|
-| `moderne.scm.azure-devops[{index}].oauth.client-id`     | `true`   |         | The client ID of the registered OAuth app.       |
-| `moderne.scm.azure-devops[{index}].oauth.client-secret` | `true`   |         | The client secret of the registered OAuth app.   |
-| `moderne.scm.azure-devops[{index}].oauth.tenant-id`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
-
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                        | Required | Default | Description                                      |
+|------------------------------------------------------|----------|---------|--------------------------------------------------|
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTID`     | `true`   |         | The client ID of the registered OAuth app.       |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_CLIENTSECRET` | `true`   |         | The client secret of the registered OAuth app.   |
+| `MODERNE_SCM_AZUREDEVOPS_{index}_OAUTH_TENANTID`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
 
 **Example:**
 
@@ -162,6 +162,14 @@ docker run \
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                             | Required | Default | Description                                      |
+|-----------------------------------------------------------|----------|---------|--------------------------------------------------|
+| `--moderne.scm.azure-devops[{index}].oauth.client-id`     | `true`   |         | The client ID of the registered OAuth app.       |
+| `--moderne.scm.azure-devops[{index}].oauth.client-secret` | `true`   |         | The client secret of the registered OAuth app.   |
+| `--moderne.scm.azure-devops[{index}].oauth.tenant-id`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
 
 **Example:**
 

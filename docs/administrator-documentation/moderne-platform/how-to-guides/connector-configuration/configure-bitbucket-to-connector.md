@@ -181,18 +181,18 @@ If you're not using a shell, please follow these instructions instead:
 
 The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
-Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
-
-| Property                                                 | Required      | Default | Description                                                                                                                                                               |
-|----------------------------------------------------------|---------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `moderne.scm.bitbucket-datacenter[{index}].uri`          | `true`        |         | The fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                                    |
-| `moderne.scm.bitbucket-datacenter[{index}].private-key`  | `conditional` |         | (OAuth1.0a only) The private key you configured for this Bitbucket.                                                                                                       |
-| `moderne.scm.bitbucket-datacenter[{index}].oauth.key`    | `conditional` |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
-| `moderne.scm.bitbucket-datacenter[{index}].oauth.secret` | `conditional` |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
-| `moderne.scm.bitbucket-datacenter[{index}].skip-ssl`     | `false`       | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                          | Required      | Default | Description                                                                                                                                                               |
+|--------------------------------------------------------|---------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_URI`          | `true`        |         | The fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                                    |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_PRIVATEKEY`   | `conditional` |         | (OAuth1.0a only) The private key you configured for this Bitbucket.                                                                                                       |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_OAUTH_KEY`    | `conditional` |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_OAUTH_SECRET` | `conditional` |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
+| `MODERNE_SCM_BITBUCKETDATACENTER_{index}_SKIPSSL`      | `false`       | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
@@ -207,6 +207,16 @@ docker run \
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                              | Required      | Default | Description                                                                                                                                                               |
+|------------------------------------------------------------|---------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.scm.bitbucket-datacenter[{index}].uri`          | `true`        |         | The fully-qualified URL of the running Bitbucket instance. For example: `https://bitbucket.myorg.com`.                                                                    |
+| `--moderne.scm.bitbucket-datacenter[{index}].private-key`  | `conditional` |         | (OAuth1.0a only) The private key you configured for this Bitbucket.                                                                                                       |
+| `--moderne.scm.bitbucket-datacenter[{index}].oauth.key`    | `conditional` |         | (OAuth2 only) The client id for the Application Link that you configured for this Bitbucket instance.                                                                     |
+| `--moderne.scm.bitbucket-datacenter[{index}].oauth.secret` | `conditional` |         | (OAuth2 only) The client secret for the Application Link that you configured for this Bitbucket instance.                                                                 |
+| `--moderne.scm.bitbucket-datacenter[{index}].skip-ssl`     | `false`       | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Bitbucket instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 

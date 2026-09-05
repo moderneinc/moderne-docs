@@ -22,15 +22,15 @@ This proxy will be used for egress, and then the API gateway will establish the 
 
 If your organization uses an HTTP CONNECT proxy for outbound traffic, configure the Connector with the proxy host and port. The following variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
-Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
-
-| Property                                   | Required | Default | Description                                 |
-|--------------------------------------------|----------|---------|---------------------------------------------|
-| `moderne.connector.api-gateway.proxy.host` | `false`  |         | Host (without scheme) for the proxy server. |
-| `moderne.connector.api-gateway.proxy.port` | `false`  |         | Port for the proxy server.                  |
-
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                             | Required | Default | Description                                 |
+|-------------------------------------------|----------|---------|---------------------------------------------|
+| `MODERNE_CONNECTOR_APIGATEWAY_PROXY_HOST` | `false`  |         | Host (without scheme) for the proxy server. |
+| `MODERNE_CONNECTOR_APIGATEWAY_PROXY_PORT` | `false`  |         | Port for the proxy server.                  |
 
 :::info
 If you include either a host or port, you must include both.
@@ -48,6 +48,13 @@ docker run \
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                | Required | Default | Description                                 |
+|----------------------------------------------|----------|---------|---------------------------------------------|
+| `--moderne.connector.api-gateway.proxy.host` | `false`  |         | Host (without scheme) for the proxy server. |
+| `--moderne.connector.api-gateway.proxy.port` | `false`  |         | Port for the proxy server.                  |
 
 :::info
 If you include either a host or port, you must include both.

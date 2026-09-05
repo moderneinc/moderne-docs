@@ -44,17 +44,17 @@ The following table contains all the variables/arguments you need to add to your
 
 You can configure multiple Cloud Storage sources by including multiple entries, each with a different `{index}`.
 
-Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
-
-| Property                                                     | Required                            | Default | Description                                                                                                                           |
-|--------------------------------------------------------------|-------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `moderne.organization.sources.gcs[{index}].uri`              | `true`                              |         | The Cloud Storage URI of the CSV object. Must start with `gs://` and include the object name (e.g., `gs://my-bucket/repos-lock.csv`). |
-| `moderne.organization.sources.gcs[{index}].credentials-json` | `false` (Required if not using ADC) |         | The contents of a service account key file. Omit to use Application Default Credentials.                                              |
-| `moderne.organization.sources.gcs[{index}].project`          | `false`                             |         | The project to bill requests to. Only needed for requester-pays buckets.                                                              |
-| `moderne.organization.sources.gcs[{index}].endpoint-url`     | `false`                             |         | Overrides the default `storage.googleapis.com` endpoint (e.g., a Private Service Connect endpoint).                                   |
-
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                              | Required                            | Default | Description                                                                                                                           |
+|------------------------------------------------------------|-------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_URI`             | `true`                              |         | The Cloud Storage URI of the CSV object. Must start with `gs://` and include the object name (e.g., `gs://my-bucket/repos-lock.csv`). |
+| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_CREDENTIALSJSON` | `false` (Required if not using ADC) |         | The contents of a service account key file. Omit to use Application Default Credentials.                                              |
+| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_PROJECT`         | `false`                             |         | The project to bill requests to. Only needed for requester-pays buckets.                                                              |
+| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_ENDPOINTURL`     | `false`                             |         | Overrides the default `storage.googleapis.com` endpoint (e.g., a Private Service Connect endpoint).                                   |
 
 **Example using Application Default Credentials:**
 
@@ -77,6 +77,15 @@ docker run \
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                  | Required                            | Default | Description                                                                                                                           |
+|----------------------------------------------------------------|-------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.gcs[{index}].uri`              | `true`                              |         | The Cloud Storage URI of the CSV object. Must start with `gs://` and include the object name (e.g., `gs://my-bucket/repos-lock.csv`). |
+| `--moderne.organization.sources.gcs[{index}].credentials-json` | `false` (Required if not using ADC) |         | The contents of a service account key file. Omit to use Application Default Credentials.                                              |
+| `--moderne.organization.sources.gcs[{index}].project`          | `false`                             |         | The project to bill requests to. Only needed for requester-pays buckets.                                                              |
+| `--moderne.organization.sources.gcs[{index}].endpoint-url`     | `false`                             |         | Overrides the default `storage.googleapis.com` endpoint (e.g., a Private Service Connect endpoint).                                   |
 
 **Example using Application Default Credentials:**
 

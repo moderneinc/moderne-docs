@@ -164,18 +164,18 @@ java -jar connector-{version}.jar \
 
 All Connectors must be configured with the variables listed as required below:
 
-Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
-
-| Property                                      | Required | Default                | Description                                                                                                                                                                                                      |
-|-----------------------------------------------|----------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `moderne.connector.api-gateway-rsocket-uri`   | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                                                                                 |
-| `moderne.connector.crypto.symmetric-key`      | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                                                                                       |
-| `moderne.connector.nickname`                  | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                                                                                 |
-| `moderne.connector.token`                     | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                                                                                |
-| `moderne.scm.default-commit-options[{index}]` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`, `None`. Use `None` on its own to disable committing entirely. |
-
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                              | Required | Default                | Description                                                                                                                                                                                                      |
+|--------------------------------------------|----------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`   | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                                                                                 |
+| `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`    | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                                                                                       |
+| `MODERNE_CONNECTOR_NICKNAME`               | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                                                                                 |
+| `MODERNE_CONNECTOR_TOKEN`                  | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                                                                                |
+| `MODERNE_SCM_DEFAULTCOMMITOPTIONS_{index}` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`, `None`. Use `None` on its own to disable committing entirely. |
 
 **Example:**
 
@@ -199,6 +199,16 @@ moderne-connector:latest
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                   | Required | Default                | Description                                                                                                                                                                                                      |
+|-------------------------------------------------|----------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.api-gateway-rsocket-uri`   | `true`   |                        | The URI used to connect to the Moderne API, provided by Moderne.                                                                                                                                                 |
+| `--moderne.connector.crypto.symmetric-key`      | `true`   |                        | A 256-bit AES encryption key, hex encoded. Used to encrypt your artifacts.                                                                                                                                       |
+| `--moderne.connector.nickname`                  | `true`   |                        | A name used to identify your Connector in the SaaS dashboard UI.                                                                                                                                                 |
+| `--moderne.connector.token`                     | `true`   |                        | The Moderne SaaS Connector connection token, provided by Moderne.                                                                                                                                                |
+| `--moderne.scm.default-commit-options[{index}]` | `false`  | All options available. | Use to restrict which commit options are available in Moderne. Acceptable values: `Direct`, `Branch`, `Fork`, `PullRequest`, `ForkAndPullRequest`, `None`. Use `None` on its own to disable committing entirely. |
 
 **Example:**
 

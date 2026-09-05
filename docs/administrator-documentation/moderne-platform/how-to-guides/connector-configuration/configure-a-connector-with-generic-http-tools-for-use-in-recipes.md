@@ -32,23 +32,23 @@ The following table contains all the variables/arguments you need to add to your
 
 You can configure multiple generic HTTP tools by including multiple entries, each with a different `{index}`.
 
-Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
-
-| Property                                                          | Required | Default | Description                                                                                                                                                                                                              |
-|-------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `moderne.connector.http-tool[{index}].uri`                        | `true`   |         | Fully qualified URL to your HTTP tool.                                                                                                                                                                                   |
-| `moderne.connector.http-tool[{index}].username`                   | `false`  |         | Username used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearer-token` must not be provided.    |
-| `moderne.connector.http-tool[{index}].password`                   | `false`  |         | Password used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearer-token` must not be provided.    |
-| `moderne.connector.http-tool[{index}].bearer-token`               | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearer-token` is specified, username and password must not be provided. |
-| `moderne.connector.http-tool[{index}].skip-ssl`                   | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                         |
-| `moderne.connector.http-tool[{index}].skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this HTTP tool, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                   |
-| `moderne.connector.http-tool[{index}].proxy.host`                 | `false`  |         | The hostname of a proxy server to use for connections to this HTTP tool.                                                                                                                                                 |
-| `moderne.connector.http-tool[{index}].proxy.port`                 | `false`  |         | The port of the proxy server to use for connections to this HTTP tool.                                                                                                                                                   |
-| `moderne.connector.http-tool[{index}].connect-timeout`            | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                 |
-| `moderne.connector.http-tool[{index}].read-timeout`               | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                   |
-
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                 | Required | Default | Description                                                                                                                                                                                                              |
+|---------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_URI`                      | `true`   |         | Fully qualified URL to your HTTP tool.                                                                                                                                                                                   |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_USERNAME`                 | `false`  |         | Username used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearer-token` must not be provided.    |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_PASSWORD`                 | `false`  |         | Password used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearer-token` must not be provided.    |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_BEARERTOKEN`              | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearer-token` is specified, username and password must not be provided. |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_SKIPSSL`                  | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                         |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this HTTP tool, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                   |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_PROXY_HOST`               | `false`  |         | The hostname of a proxy server to use for connections to this HTTP tool.                                                                                                                                                 |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_PROXY_PORT`               | `false`  |         | The port of the proxy server to use for connections to this HTTP tool.                                                                                                                                                   |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                 |
+| `MODERNE_CONNECTOR_HTTPTOOL_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                   |
 
 **Example:**
 
@@ -63,6 +63,21 @@ docker run \
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                       | Required | Default | Description                                                                                                                                                                                                              |
+|---------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.http-tool[{index}].uri`                        | `true`   |         | Fully qualified URL to your HTTP tool.                                                                                                                                                                                   |
+| `--moderne.connector.http-tool[{index}].username`                   | `false`  |         | Username used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearer-token` must not be provided.    |
+| `--moderne.connector.http-tool[{index}].password`                   | `false`  |         | Password used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If username and password are specified, `bearer-token` must not be provided.    |
+| `--moderne.connector.http-tool[{index}].bearer-token`               | `false`  |         | Bearer token used to authenticate to HTTP tool. <br/><br/>**Note:** Only one of basic auth (username+password) and bearer token can be used. If `bearer-token` is specified, username and password must not be provided. |
+| `--moderne.connector.http-tool[{index}].skip-ssl`                   | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this HTTP tool. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                                         |
+| `--moderne.connector.http-tool[{index}].skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, we will validate that we can connect to this HTTP tool, and fail to start up the Connector if we cannot. Set this to `true` to skip this validation.                                   |
+| `--moderne.connector.http-tool[{index}].proxy.host`                 | `false`  |         | The hostname of a proxy server to use for connections to this HTTP tool.                                                                                                                                                 |
+| `--moderne.connector.http-tool[{index}].proxy.port`                 | `false`  |         | The port of the proxy server to use for connections to this HTTP tool.                                                                                                                                                   |
+| `--moderne.connector.http-tool[{index}].connect-timeout`            | `false`  | `30s`   | Timeout for the connection to be established (and the first data received). Specified as a duration (e.g., `30s`, `1m`).                                                                                                 |
+| `--moderne.connector.http-tool[{index}].read-timeout`               | `false`  | `60s`   | Timeout for reading the response body from the HTTP tool. Specified as a duration (e.g., `60s`, `5m`).                                                                                                                   |
 
 **Example:**
 

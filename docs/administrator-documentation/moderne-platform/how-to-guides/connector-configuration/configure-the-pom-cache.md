@@ -18,23 +18,23 @@ Both paths fetch the same small set of files repeatedly, so the Connector can ca
 
 Caching is disabled by default. Set the cache type to `IN_MEMORY` to cache within a single Connector instance, or to `REDIS` to share one cache across multiple Connector replicas. If the Connector cannot initialize the Redis connection, it logs the failure and runs without a cache.
 
-Properties are listed by their canonical name. For how to supply each one as an environment variable or a JAR argument, please see [Property naming](./connector-property-naming.md).
-
-| Property                                               | Required                                  | Default | Description                                                                                                                                                         |
-|--------------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `moderne.connector.recipe.pom-cache.type`              | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. If unset, no caching is performed.                                |
-| `moderne.connector.recipe.pom-cache.pom-ttl`           | `false`                                   | `60m`   | How long cached `.pom` files should live in the POM cache. Specified as a duration (e.g., `60m`, `2h`).                                                             |
-| `moderne.connector.recipe.pom-cache.metadata-ttl`      | `false`                                   | `10m`   | How long cached `maven-metadata.xml` files should live in the POM cache. This defaults lower than `pom-ttl` because metadata changes as new versions are published. |
-| `moderne.connector.recipe.pom-cache.entry-ttl-minutes` | `false`                                   |         | **Deprecated** -- use `moderne.connector.recipe.pom-cache.pom-ttl` instead. If set, this value in minutes is used as the `.pom` TTL.                                |
-| `moderne.connector.recipe.pom-cache.redis.host`        | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                                                                                      |
-| `moderne.connector.recipe.pom-cache.redis.port`        | `true` (If the POM cache type is `REDIS`) | 6379    | The port number of the Redis instance.                                                                                                                              |
-| `moderne.connector.recipe.pom-cache.redis.username`    | `false`                                   |         | The username needed to authenticate to the Redis instance.                                                                                                          |
-| `moderne.connector.recipe.pom-cache.redis.password`    | `false`                                   |         | The password needed to authenticate with the Redis instance.                                                                                                        |
-| `moderne.connector.recipe.pom-cache.redis.ssl`         | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.                                                                                |
-| `moderne.connector.recipe.pom-cache.redis.database`    | `false`                                   | 0       | The Redis DB index.                                                                                                                                                 |
-
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                       | Required                                  | Default | Description                                                                                                                                                         |
+|-----------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_TYPE`            | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. If unset, no caching is performed.                                |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_POMTTL`          | `false`                                   | `60m`   | How long cached `.pom` files should live in the POM cache. Specified as a duration (e.g., `60m`, `2h`).                                                             |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_METADATATTL`     | `false`                                   | `10m`   | How long cached `maven-metadata.xml` files should live in the POM cache. This defaults lower than `pom-ttl` because metadata changes as new versions are published. |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_ENTRYTTLMINUTES` | `false`                                   |         | **Deprecated** -- use `moderne.connector.recipe.pom-cache.pom-ttl` instead. If set, this value in minutes is used as the `.pom` TTL.                                |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_HOST`      | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                                                                                      |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_PORT`      | `true` (If the POM cache type is `REDIS`) | 6379    | The port number of the Redis instance.                                                                                                                              |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_USERNAME`  | `false`                                   |         | The username needed to authenticate to the Redis instance.                                                                                                          |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_PASSWORD`  | `false`                                   |         | The password needed to authenticate with the Redis instance.                                                                                                        |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_SSL`       | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.                                                                                |
+| `MODERNE_CONNECTOR_RECIPE_POMCACHE_REDIS_DATABASE`  | `false`                                   | 0       | The Redis DB index.                                                                                                                                                 |
 
 **Example:**
 
@@ -48,6 +48,21 @@ docker run \
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                            | Required                                  | Default | Description                                                                                                                                                         |
+|----------------------------------------------------------|-------------------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.connector.recipe.pom-cache.type`              | `false`                                   |         | Used to specify what type of cache the POM should use. Acceptable values: `IN_MEMORY` or `REDIS`. If unset, no caching is performed.                                |
+| `--moderne.connector.recipe.pom-cache.pom-ttl`           | `false`                                   | `60m`   | How long cached `.pom` files should live in the POM cache. Specified as a duration (e.g., `60m`, `2h`).                                                             |
+| `--moderne.connector.recipe.pom-cache.metadata-ttl`      | `false`                                   | `10m`   | How long cached `maven-metadata.xml` files should live in the POM cache. This defaults lower than `pom-ttl` because metadata changes as new versions are published. |
+| `--moderne.connector.recipe.pom-cache.entry-ttl-minutes` | `false`                                   |         | **Deprecated** -- use `moderne.connector.recipe.pom-cache.pom-ttl` instead. If set, this value in minutes is used as the `.pom` TTL.                                |
+| `--moderne.connector.recipe.pom-cache.redis.host`        | `true` (If the POM cache type is `REDIS`) |         | The URL of the Redis instance.                                                                                                                                      |
+| `--moderne.connector.recipe.pom-cache.redis.port`        | `true` (If the POM cache type is `REDIS`) | 6379    | The port number of the Redis instance.                                                                                                                              |
+| `--moderne.connector.recipe.pom-cache.redis.username`    | `false`                                   |         | The username needed to authenticate to the Redis instance.                                                                                                          |
+| `--moderne.connector.recipe.pom-cache.redis.password`    | `false`                                   |         | The password needed to authenticate with the Redis instance.                                                                                                        |
+| `--moderne.connector.recipe.pom-cache.redis.ssl`         | `false`                                   | `false` | If set to `true`, then SSL will be enabled for the connection to the Redis instance.                                                                                |
+| `--moderne.connector.recipe.pom-cache.redis.database`    | `false`                                   | 0       | The Redis DB index.                                                                                                                                                 |
 
 **Example:**
 
