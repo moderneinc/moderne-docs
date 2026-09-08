@@ -5187,20 +5187,3 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.62.0
 
-## September 5, 2025
-
-#### rewrite-cryptography - v0.8.0
-
-* Implement custom taint flow messages for cryptography specs
-* Add a rewrite-cryptography-bom which contains just this project. Apparently this is useful for some corporate procurement processes.
-* Add FindSecurityModifications recipe to produce a data table of mutating methods invoked on java.lang.Security instances.
-* Add SSLSocket parameters search/data table recipe.
-* Add search/data table recipe to aggregate RSAKeyGenParameters.
-* Add Cipher.unwrap() as a possible sink for of hardcoded algorithms
-
-#### rewrite-program-analysis - v0.5.0
-
-* Fix NPE in `FindNullPointerIssues`
-* Add custom source and sink messages to TaintFlowSpec
-* Fix taint tracking from static initializer blocks
-
