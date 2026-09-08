@@ -79,14 +79,14 @@ Runs against organizations with more than 100 repositories take a slower queue s
 
 After pressing _Dry run_, you will be taken to a page that shows a summary of the recipe status, a list of all of the repositories where results were found, and a code block section that shows some of the changes that were made by the recipe:
 
-<figure style={{maxWidth: '600px', margin: '0 auto'}}>
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
   ![Example results](./assets/recipe-results.png)
   <figcaption>_Example results_</figcaption>
 </figure>
 
 If you want to learn more about why a change was made, you can click on the **change reason** label next to the file name:
 
-<figure style={{maxWidth: '600px', margin: '0 auto'}}>
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
   ![Animated demo of viewing why a specific code change was made](./assets/WhyDidThisChange.gif)
   <figcaption>_Understanding why the code was changed_</figcaption>
 </figure>
