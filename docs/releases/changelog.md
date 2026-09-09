@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.14.0 (2026/09/09)
+
+- render Moderne data grid output
+
 ### UI v14.13.0 (2026/09/09)
 
 - show a failed run's log in a modal instead of inline
