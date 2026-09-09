@@ -185,16 +185,16 @@ Approve pull requests in bulk. Returns the queued action for polling.
 #### `approvePullRequests`
 
 ```graphql
-approvePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued!
+approvePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositories: [RepositoryInput!]): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
 
 Approve, in bulk, the pull requests the committer created from a changeset.
-Pass `repositories` to limit the action to a subset of the changeset's
-repositories; omit it to target every pull request in the changeset. Returns
-the queued action for polling (also surfaces under
-`OrganizationChangeset.bulkPullRequestActions`).
+Pass `commitId` and/or `repositories` to limit the action to one commit job
+or a subset of the changeset's repositories; omit both to target every pull
+request in the changeset. Returns the queued action for polling (also
+surfaces under `OrganizationChangeset.bulkPullRequestActions`).
 
 #### `cancelBulkPullRequestAction`
 
@@ -307,7 +307,7 @@ Close pull requests in bulk. Returns the queued action for polling.
 #### `closePullRequests`
 
 ```graphql
-closePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!], deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
+closePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositories: [RepositoryInput!], deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
@@ -483,7 +483,7 @@ Merge pull requests in bulk. Returns the queued action for polling.
 #### `mergePullRequests`
 
 ```graphql
-mergePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!], mergeMethod: MergeMethod!, deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
+mergePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositories: [RepositoryInput!], mergeMethod: MergeMethod!, deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
@@ -2416,6 +2416,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 | `canceledBy` | [User](#user)! |  |
 
 ##### `PullRequestActionConnection`
@@ -2440,6 +2441,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 | `startedAt` | [DateTime](#datetime) |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `errorMessage` | String! |  |
@@ -2451,6 +2453,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 
 ##### `PullRequestActionRunning`
 
@@ -2459,6 +2462,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 
 ##### `PullRequestActionSucceeded`
@@ -2468,6 +2472,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `branchDeleteStatus` | [BranchDeleteStatus](#branchdeletestatus)! |  |
@@ -2517,6 +2522,7 @@ Pull request commit completed successfully.
 | `review` | [ReviewStatus](#reviewstatus)! |  |
 | `buildState` | [BuildState](#buildstate) |  |
 | `otherBlockingReasons` | [String!]! | Additional status flags that block this pull request. Can depend on the SCM service provider. |
+| `resolvedAt` | [DateTime](#datetime) | When the pull request was merged or closed. The provider's own timestamp on GitHub, Bitbucket Data Center and Azure DevOps; GitLab and Bitbucket Cloud don't report one, so those fall back to when Moderne observed the transition and advance on every read until the commit job finishes. Null while open, and for pull requests already terminal before this shipped -- those are never re-queried. |
 
 ##### `PypiConfiguration`
 
@@ -3559,6 +3565,7 @@ Use `__typename` to determine the current state.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID | The commit job whose pull request this result acted on. Bulk actions are changeset-scoped, so filter on this to show only one commit job's activity. Null only for actions enqueued before this field existed -- a shrinking population, but one a per-commit view will otherwise render as empty. |
 
 ##### `RecipeBundle`
 
@@ -4876,6 +4883,7 @@ Filter for file paths using glob patterns.
 | Field | Type | Description |
 |-------|------|-------------|
 | `state` | [PullRequestActionStateFilter](#pullrequestactionstatefilter) |  |
+| `commitId` | [IDFilter](#idfilter) | Narrow a changeset-scoped action's results to the pull requests one commit job opened. Unattributed results (see `PullRequestAction.commitId`) match `_neq` and `_nin` as well as the job you asked for, and `IDFilter` has no `_isNull`, so they cannot be selected on their own. |
 | `_and` | [[PullRequestActionWhereInput](#pullrequestactionwhereinput)!] |  |
 | `_or` | [[PullRequestActionWhereInput](#pullrequestactionwhereinput)!] |  |
 | `_not` | [PullRequestActionWhereInput](#pullrequestactionwhereinput) |  |
