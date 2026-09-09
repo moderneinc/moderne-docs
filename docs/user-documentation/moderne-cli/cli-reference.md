@@ -121,6 +121,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build maven arguments delete**](#mod-config-build-maven-arguments-delete)
 * [**mod config build maven arguments edit**](#mod-config-build-maven-arguments-edit)
 * [**mod config build maven arguments show**](#mod-config-build-maven-arguments-show)
+* [**mod config build maven installation**](#mod-config-build-maven-installation)
+* [**mod config build maven installation edit**](#mod-config-build-maven-installation-edit)
+* [**mod config build maven installation delete**](#mod-config-build-maven-installation-delete)
+* [**mod config build maven installation list**](#mod-config-build-maven-installation-list)
 * [**mod config build maven settings**](#mod-config-build-maven-settings)
 * [**mod config build maven settings delete**](#mod-config-build-maven-settings-delete)
 * [**mod config build maven settings edit**](#mod-config-build-maven-settings-edit)
@@ -129,6 +133,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build maven timeout delete**](#mod-config-build-maven-timeout-delete)
 * [**mod config build maven timeout edit**](#mod-config-build-maven-timeout-edit)
 * [**mod config build maven timeout show**](#mod-config-build-maven-timeout-show)
+* [**mod config build maven version**](#mod-config-build-maven-version)
+* [**mod config build maven version edit**](#mod-config-build-maven-version-edit)
+* [**mod config build maven version delete**](#mod-config-build-maven-version-delete)
+* [**mod config build maven version show**](#mod-config-build-maven-version-show)
 * [**mod config build node**](#mod-config-build-node)
 * [**mod config build node timeout**](#mod-config-build-node-timeout)
 * [**mod config build node timeout delete**](#mod-config-build-node-timeout-delete)
@@ -389,10 +397,13 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config scm add**](#mod-config-scm-add-deprecated)~~ (deprecated)
 * ~~[**mod config scm remove**](#mod-config-scm-remove-deprecated)~~ (deprecated)
 * ~~[**mod config scm show**](#mod-config-scm-show-deprecated)~~ (deprecated)
+* [**mod config telemetry**](#mod-config-telemetry)
+* [**mod config telemetry wait-for-upload**](#mod-config-telemetry-wait-for-upload)
 * [**mod copilot**](#mod-copilot)
 * [**mod copilot chat**](#mod-copilot-chat)
 * [**mod cursor**](#mod-cursor)
 * [**mod cursor chat**](#mod-cursor-chat)
+* [**mod doctor**](#mod-doctor)
 * [**mod devcenter**](#mod-devcenter)
 * [**mod exec**](#mod-exec)
 * [**mod git**](#mod-git)
@@ -442,6 +453,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod trace**](#mod-trace)
 * [**mod trace builds**](#mod-trace-builds)
 * [**mod trace builds analyze**](#mod-trace-builds-analyze)
+* [**mod trace execs**](#mod-trace-execs)
+* [**mod trace execs analyze**](#mod-trace-execs-analyze)
 * [**mod trace runs**](#mod-trace-runs)
 * [**mod trace runs analyze**](#mod-trace-runs-analyze)
 * [**mod trace syncs**](#mod-trace-syncs)
@@ -481,6 +494,7 @@ mod [subcommands]
 * `config`: Global configuration options that are required by some CLI commands.
 * `copilot`: (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
 * `cursor`: (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+* `doctor`: Checks that this machine and the CLI's configuration can build and publish LSTs.
 * `devcenter`: Generate DevCenter dashboards.
 * `exec`: Execute an arbitrary shell command on selected repositories and partitions.
 * `git`: Multi-repository git operations.
@@ -1044,6 +1058,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `run`: Configures recipe run behavior.
 * `scm`: (DEPRECATED) Configures source code management.
+* `telemetry`: Configures CLI telemetry.
 
 ## mod config agent-tools
 
@@ -2983,8 +2998,10 @@ mod config build maven settings edit <path-to-settings.xml>
 ### Subcommands
 
 * `arguments`: Configure Maven build arguments.
+* `installation`: Configures locations of Maven installations that can be used by build tools.
 * `settings`: Configure Maven settings.
 * `timeout`: Configure the build timeout.
+* `version`: Configures the Maven version to use.
 
 ## mod config build maven arguments
 
@@ -3069,6 +3086,78 @@ mod config build maven arguments show
 | ---- | ----------- |
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build maven installation
+
+Configures locations of Maven installations that can be used by build tools.
+
+
+Must be configured before you can run the build command if Maven is installed in non-standard locations.
+
+### Usage
+
+```
+mod config build maven installation [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of Maven installations that can be used by build tools.
+* `delete`: Removes the configured Maven installations. The CLI will revert to using only detectable Maven installations.
+* `list`: Displays the detected and configured Maven installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+## mod config build maven installation edit
+
+Configures locations of Maven installations that can be used by build tools.
+
+
+Must be configured before you can run the build command if Maven is installed in non-standard locations.
+
+### Usage
+
+```
+mod config build maven installation edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `mavenHomes` |  The paths on disk where Maven installations (MAVEN_HOME directories) can be found. |
+
+
+
+## mod config build maven installation delete
+
+Removes the configured Maven installations. The CLI will revert to using only detectable Maven installations.
+
+
+### Usage
+
+```
+mod config build maven installation delete
+```
+
+
+
+## mod config build maven installation list
+
+Displays the detected and configured Maven installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+
+### Usage
+
+```
+mod config build maven installation list
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--named` |  Filter the list of Maven installations to those matching this version. |
 
 
 ## mod config build maven settings
@@ -3247,6 +3336,91 @@ Displays the configured build timeout.
 
 ```
 mod config build maven timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build maven version
+
+Configures the Maven version to use.
+
+
+Configure an exact version like "3.9.6" to use ahead of the project's Maven wrapper.
+
+### Usage
+
+```
+mod config build maven version [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the Maven version to use.
+* `delete`: Reverts to auto-detection of a Maven version to use when building a repository.
+* `show`: Displays the configured Maven version.
+
+## mod config build maven version edit
+
+Configures the Maven version to use.
+
+
+Configure an exact version like "3.9.6" to use ahead of the project's Maven wrapper.
+
+### Usage
+
+```
+mod config build maven version edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `selectedMaven` |  The named Maven version to use. If set to "auto", the CLI will revert to detecting the correct Maven to use from signals available in the repository. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build maven version delete
+
+Reverts to auto-detection of a Maven version to use when building a repository.
+
+
+### Usage
+
+```
+mod config build maven version delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build maven version show
+
+Displays the configured Maven version.
+
+
+### Usage
+
+```
+mod config build maven version show
 ```
 
 ### Options
@@ -8908,6 +9082,44 @@ mod config scm show
 
 
 
+## mod config telemetry
+
+Configures CLI telemetry.
+
+
+Configure how the CLI uploads telemetry to the configured Moderne tenant.
+
+### Usage
+
+```
+mod config telemetry [subcommands]
+```
+
+
+### Subcommands
+
+* `wait-for-upload`: Waits for queued telemetry to upload before exiting.
+
+## mod config telemetry wait-for-upload
+
+Waits for queued telemetry to upload before exiting.
+
+
+Telemetry uploads in the background as each command finishes. Enable this on CI runners and containers, whose filesystem does not outlive the command and so never retries the upload. Disabled by default.
+
+### Usage
+
+```
+mod config telemetry wait-for-upload
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  |
+
+
 ## mod copilot
 
 (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
@@ -9012,6 +9224,42 @@ mod cursor chat /path/to/organization --org <ORG_NAME>
 | `--prompt` |  Start the session with this prompt already submitted. |  |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod doctor
+
+Checks that this machine and the CLI's configuration can build and publish LSTs.
+
+
+Reports on the host, the CLI's own configuration, the toolchains it found, git and its credentials, and then the services a mass-ingest run depends on: Maven settings, the LST artifact store, the Moderne tenant, and the SCM origins listed in a repos.csv. Each section lists facts first, then its checks as what was found against what a run needs. A check that says must fails the command when it is not met; one that says should only warns. What to do about each is listed at the end. Every check is read-only, and nothing is written to any remote.
+
+### Usage
+
+```
+mod doctor [parameters]
+```
+
+### Examples
+
+```
+mod doctor /path/to/project
+
+mod doctor --sync-csv --skip-remote
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `path` |  The directory a run works in. Its free space is checked, and its _.moderne/repos-lock.csv_ is the default list of SCM origins to probe. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  (INCUBATING) Output the report in JSON. The format of this JSON is unsettled at this point, and the data structure may change. |
+| `--skip-remote` |  Do not contact any network service. Remote sections report a single skipped row. |
+| `--sync-csv` |  A repos.csv whose rows are summarized and whose SCM origins are probed. Without a value, the central repos.csv of the configured LST artifact store is read, as **mod publish --sync-csv** would. |
 
 
 ## mod devcenter
@@ -10207,6 +10455,8 @@ mod publish [parameters]
 
 ```
 mod publish /path/to/project
+
+mod publish /path/to/ws --sync-csv --organization Payments
 ```
 
 ### Parameters
@@ -10219,6 +10469,9 @@ mod publish /path/to/project
 
 | Name | Description |
 | ---- | ----------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
+| `--shard` |  (INCUBATING) Work through only shard i of M of the repository list, for example 3/8 (i counts from 0), so M tasks split one repos.csv without coordinating. A repository's shard is the SHA-256 of `origin|path|branch` (origin and path lowercased, any partition removed, the branch blank when the row has none), leading 8 bytes as an unsigned number, modulo M. It depends on that row alone and is the same on every machine and CLI version. Applied after --organization. |
+| `--sync-csv` |  (INCUBATING) Work through a repos.csv one repository at a time: clone, build, publish, record the result in the artifact store's repos-lock.csv, and delete the repository directory before moving to the next, so the workspace never holds more than the repository in flight. A repository is skipped when its repos-lock.csv row already records the remote HEAD, was built by this CLI version, and was a reproducible build. Without a value, the csv is the repos.csv in the configured artifact store, which must exist either way. Put the path before this option. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
@@ -10426,6 +10679,7 @@ mod trace [subcommands]
 ### Subcommands
 
 * `builds`: Build trace analysis tools.
+* `execs`: Exec trace analysis tools.
 * `runs`: Run trace analysis tools.
 * `syncs`: Sync trace analysis tools.
 
@@ -10472,6 +10726,51 @@ mod trace builds analyze [parameters]
 | ---- | ----------- |
 | `--build` |  A build ID for a build that has completed previously. |
 | `--last-build` |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |
+
+
+## mod trace execs
+
+Exec trace analysis tools.
+
+
+Analyze exec traces to understand command execution patterns and results.
+
+### Usage
+
+```
+mod trace execs [subcommands]
+```
+
+
+### Subcommands
+
+* `analyze`: Launch interactive exec trace analyzer.
+
+## mod trace execs analyze
+
+Launch interactive exec trace analyzer.
+
+
+Launches a web-based trace analyzer for exec results. The analyzer provides an interactive interface to explore exec patterns, command operations, and execution metrics.
+
+### Usage
+
+```
+mod trace execs analyze [parameters]
+```
+
+### Parameters
+
+| Name | Description | Examples |
+| ---- | ----------- | ---------- |
+| `paths` |  A project directory, or one or more log.zip files containing trace data. | • `/path/to/project`<br/>• `log.zip`<br/>• `log-1.zip log-2.zip` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--exec` |  An exec ID for an exec that has completed previously. |
+| `--last-exec` |  Select whatever the last exec was, whether the exec ran fully to completion or terminated early. |
 
 
 ## mod trace runs
@@ -10688,7 +10987,7 @@ mod wrapper
 | `--auto-update-snapshot` |  Set version to LATEST (track the latest snapshot from the Code Genome Project). |
 | `--distribution-password` |  Password for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-token` |  Bearer token for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
-| `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null and null placeholders. |
+| `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null, null, null and null placeholders. null is the Maven directory, which for a snapshot keeps the -SNAPSHOT suffix while null is the timestamped file version. |
 | `--distribution-url-cache-ttl` |  How long the wrapper caches the resolved RELEASE version before re-checking the distribution repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. Avoids a metadata lookup on every invocation. |
 | `--distribution-url-early-access-cache-ttl` |  How long the wrapper caches the resolved LATEST/snapshot version before re-checking the early-access repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. |
 | `--distribution-username` |  Username for authenticated distribution downloads (stored in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
