@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.13.0 (2026/09/09)
+
+- show a failed run's log in a modal instead of inline
+
 ### UI v14.12.0 (2026/09/04)
 
 - Bug fixes and other improvements.
