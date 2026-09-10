@@ -1145,6 +1145,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.DependencyUsage**: *External library dependencies and how they are used in the codebase.*
 
 
+#### [io.moderne.prethink.ExtractRubyDependencies](/user-documentation/recipes/recipe-catalog/prethink/extractrubydependencies.md)
+  * **Extract Ruby dependencies**
+  * Read Gemfile, gemspec and Gemfile.lock manifests and emit rows into the shared dependency-list-report table, mirroring the JVM dependency inventory. Records the Bundler group a gem was declared in and whether it comes from a git or path source rather than RubyGems, and joins the resolved versions in Gemfile.lock, including transitive gems, onto the gems the Gemfile and gemspec declare.
+
+##### Data tables:
+
+  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
+
+
 #### [io.moderne.prethink.FindGoCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findgocodingconventions.md)
   * **Find Go coding conventions**
   * Detect Go naming patterns (package names, exported vs unexported, interface -er suffix, error variable prefix, test prefix).
@@ -1170,6 +1179,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
+
+
+#### [io.moderne.prethink.FindRubyCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findrubycodingconventions.md)
+  * **Find Ruby coding conventions**
+  * Detect Ruby conventions the Java convention extractor cannot see: snake_case method names, the `?` and `!` method suffixes, the `frozen_string_literal` magic comment, `require` versus `require_relative`, module namespacing depth, and whether visibility is declared as a section or per method.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
+
+
+#### [io.moderne.prethink.FindRubyErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/findrubyerrorpatterns.md)
+  * **Find Ruby error handling patterns**
+  * Detect Ruby error-handling idioms: bare, bound and typed `rescue` clauses, the `rescue` modifier, `ensure`, `retry`, `raise` with a class versus a string, custom error classes, and whether rescues log through `Rails.logger` or a bare `logger`.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
 
 
 #### [io.moderne.prethink.PythonDependencyReport](/user-documentation/recipes/recipe-catalog/prethink/pythondependencyreport.md)
@@ -1263,6 +1290,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
   * **org.openrewrite.prethink.table.ContextRegistry**: *Registry of available context files for coding agents.*
+
+
+#### [io.moderne.prethink.calm.FindActiveRecordModels](/user-documentation/recipes/recipe-catalog/prethink/calm/findactiverecordmodels.md)
+  * **Find ActiveRecord models**
+  * Identify ActiveRecord model classes in Ruby on Rails applications. Detects classes whose superclass chain reaches `ApplicationRecord` or `ActiveRecord::Base`, taking the table name from an explicit `self.table_name`, from the single-table inheritance parent that owns the table, or by pluralizing the class name, and skipping abstract classes. Also detects `connects_to` and `establish_connection` connections and Mongoid documents, and joins the database type from the `adapter:` of `config/database.yml`.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
 
 
 #### [io.moderne.prethink.calm.FindAspNetCoreEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findaspnetcoreendpoints.md)
@@ -1618,6 +1654,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
 
 
+#### [io.moderne.prethink.calm.FindGoSecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findgosecurityconfiguration.md)
+  * **Find Go security configuration**
+  * Identify security configuration in Go applications: CORS middleware, JWT / basic / OAuth2 authentication, CSRF protection, security headers, rate limiting, and TLS termination.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.SecurityConfiguration**: *Security configuration including authentication methods, CORS settings, and OAuth2 configuration.*
+
+
 #### [io.moderne.prethink.calm.FindGoServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgoserviceendpoints.md)
   * **Find Go service endpoints**
   * Detect HTTP endpoints registered via net/http, gin, echo, chi, gorilla/mux, and fiber routers.
@@ -1774,6 +1819,87 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [io.moderne.prethink.calm.FindPythonTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findpythontestcoverage.md)
   * **Find Python test coverage**
   * Identify test methods in Python test files. Detects pytest test functions/classes, unittest.TestCase subclasses, and behave/pytest-bdd/lettuce BDD step definitions, and populates the TestMapping table.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
+
+
+#### [io.moderne.prethink.calm.FindRailsDataAssets](/user-documentation/recipes/recipe-catalog/prethink/calm/findrailsdataassets.md)
+  * **Find Rails data assets**
+  * Identify ActiveRecord entities and their columns from `db/schema.rb`, or from `db/migrate/*.rb` when no schema dump is checked in. Association macros declared in `app/models` enrich the entity they belong to.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.DataAssets**: *Data entities, DTOs, and records that represent the application's data model.*
+
+
+#### [io.moderne.prethink.calm.FindRailsEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findrailsendpoints.md)
+  * **Find Rails endpoints**
+  * Identify HTTP endpoints declared in a Rails router. Expands `resources` and `resource` into their canonical actions, composes paths through `namespace`, `scope`, `member`, `collection` and `concern` nesting, expands `devise_for`, and reconciles every route against the controllers under `app/controllers`.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
+#### [io.moderne.prethink.calm.FindRubyHttpClients](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubyhttpclients.md)
+  * **Find Ruby HTTP clients**
+  * Detect outbound HTTP calls made through Net::HTTP, Faraday, HTTParty, RestClient, http.rb, Typhoeus, or ActiveResource.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.ExternalServiceCalls**: *Outbound HTTP/REST calls to external services.*
+
+
+#### [io.moderne.prethink.calm.FindRubyMessaging](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubymessaging.md)
+  * **Find Ruby messaging**
+  * Identify messaging patterns in Ruby applications. Detects Sidekiq, ActiveJob, Resque, ActionCable, Karafka, Racecar, and Shoryuken consumers, including those that reach their framework through a base class of the application's own, along with the call sites that enqueue to them.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.MessagingConnections**: *Message queue producers and consumers in the application.*
+
+
+#### [io.moderne.prethink.calm.FindRubyMicroframeworkEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubymicroframeworkendpoints.md)
+  * **Find Sinatra and Grape endpoints**
+  * Detect HTTP endpoints declared as verb calls with a block in Sinatra and Grape applications, composing Grape paths through `namespace`, `resource` and `route_param` nesting.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
+#### [io.moderne.prethink.calm.FindRubyProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubyprojectmetadata.md)
+  * **Find Ruby project metadata**
+  * Extract project metadata (name, version, summary) from Ruby gemspecs, from the Rails application module declared in config/application.rb, or failing both from the directory holding a Gemfile. Only the most specific of the three sources present contributes rows, so a repository resolves to one identity.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
+
+
+#### [io.moderne.prethink.calm.FindRubyScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubyscheduledtasks.md)
+  * **Find Ruby scheduled tasks**
+  * Identify recurring background work in Ruby applications. Detects whenever schedules in `config/schedule.rb`, sidekiq-cron jobs created through `Sidekiq::Cron::Job.create` or declared under `:schedule:` in `config/sidekiq.yml`, clockwork `every` declarations in `clock.rb`, and rufus-scheduler `cron`/`every`/`in`/`at` calls.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
+
+
+#### [io.moderne.prethink.calm.FindRubySecurityConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubysecurityconfiguration.md)
+  * **Find Ruby security configuration**
+  * Detect Rails authentication, authorization, CSRF, and transport security mechanisms: `before_action`/`skip_before_action` authentication filters, `protect_from_forgery`, Devise model configuration, Pundit, CanCanCan, `config.force_ssl`, and `has_secure_password`.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.SecurityConfiguration**: *Security configuration including authentication methods, CORS settings, and OAuth2 configuration.*
+
+
+#### [io.moderne.prethink.calm.FindRubyTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findrubytestcoverage.md)
+  * **Find Ruby test coverage**
+  * Identify RSpec examples and Minitest tests in Ruby test files and record them in the test mapping table. Joins each test to the class it exercises by Rails naming convention: the constant its `describe` names, its own class name minus the `Test` suffix, or the path of the spec, accepted only when a Ruby file declaring that class was scanned.
 
 ##### Data tables:
 
@@ -1968,6 +2094,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
+
+
+#### [io.moderne.prethink.quality.FindRubyMethodComplexity](/user-documentation/recipes/recipe-catalog/prethink/quality/findrubymethodcomplexity.md)
+  * **Find Ruby method complexity**
+  * Compute per-method code quality metrics for Ruby including cyclomatic complexity, cognitive complexity, max nesting depth, line count, parameter count, ABC metric, and Halstead measures.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.MethodQualityMetrics**: *Per-method code quality metrics including cyclomatic complexity, cognitive complexity, nesting depth, Halstead measures, and ABC metric.*
+
+
+#### [io.moderne.prethink.quality.FindRubyPackageMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findrubypackagemetrics.md)
+  * **Find Ruby package quality metrics**
+  * Per-directory architectural metrics for Ruby: afferent/efferent coupling, instability, abstractness (module ratio), distance from main sequence, and cycle detection.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
+
+
+#### [io.moderne.prethink.quality.FindRubyTypeMetrics](/user-documentation/recipes/recipe-catalog/prethink/quality/findrubytypemetrics.md)
+  * **Find Ruby type quality metrics**
+  * Compute per-class code quality metrics for Ruby including WMC, LCOM4, TCC, CBO, and maintainability index. Aggregates classes and modules of the same name across files.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
 
 
 #### [io.moderne.prethink.quality.FindSimilarCode](/user-documentation/recipes/recipe-catalog/prethink/quality/findsimilarcode.md)
@@ -2814,6 +2967,18 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 
+### rewrite-go
+
+#### [org.openrewrite.golang.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/golang/search/dependencyinsight.md)
+  * **Go dependency insight**
+  * Find direct and transitive Go module dependencies matching a module path pattern. Results include dependencies that either directly match or transitively include a matching dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.golang.table.GoDependenciesInUse**: *Direct and transitive dependencies in use in Go modules.*
+
+
+
 ### rewrite-gradle
 
 #### [org.openrewrite.gradle.AddDependency](/user-documentation/recipes/recipe-catalog/gradle/adddependency.md)
@@ -3272,7 +3437,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.maven.ChangePluginGroupIdAndArtifactId](/user-documentation/recipes/recipe-catalog/maven/changeplugingroupidandartifactid.md)
   * **Change Maven plugin group and artifact ID**
-  * Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version. This recipe does not perform any validation and assumes all values passed are valid.
+  * Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version, which may be given as an exact version or as a node-style semver selector resolved against the new plugin's available versions.
 
 ##### Data tables:
 
@@ -3491,21 +3656,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.xml.table.XmlStyleReport**: *Records style information about XML documents. Used for debugging style auto-detection issues.*
-
-
-
-## org.openrewrite.meta
-
-
-### rewrite-analysis
-
-#### [org.openrewrite.analysis.search.FindMethods](/user-documentation/recipes/recipe-catalog/analysis/search/findmethods.md)
-  * **Find method usages**
-  * Find method usages by pattern.
-
-##### Data tables:
-
-  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
 
 
 
@@ -3911,7 +4061,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-08-10T1122.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-08-24T1108.
 
 ##### Data tables:
 
@@ -4012,7 +4162,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-08-10T1122.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-08-24T1108.
 
 ##### Data tables:
 
@@ -4330,6 +4480,264 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-kubernetes
 
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.FindBgpPeeringMigrationBlockers](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/findbgppeeringmigrationblockers.md)
+  * **Find what blocks a Das Schiff `BGPPeering` from moving to the Sylva network connector API**
+  * Report what a human has to decide before a Das Schiff `BGPPeering` can move to the `network-connector.sylvaproject.org` group. Nothing is rewritten: the legacy `spec.export` is a reject-by-default prefix filter and the intent one is accept-by-default BGP communities, so a peering moved as it stands would advertise the whole VRF table.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.BgpPeerings**: *Deutsche Telekom `network.t-caas.telekom.com` `BGPPeering` resources, and what each one needs decided before it can be written against the `network-connector.sylvaproject.org` `BGPPeering` that shares its name.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.FindDasSchiffMigrationWork](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/finddasschiffmigrationwork.md)
+  * **Find Das Schiff resources that have to move to Sylva**
+  * Inventory every Das Schiff resource the Sylva intent group replaces and report, per kind, whether it moves automatically or what has to be decided first. All eight legacy kinds are marked, the three the operator generates included, so a kind that goes unmentioned is one this catalogue does not know about. A repository partway through the move also reports where the intent resources it already holds no longer say what the legacy ones do. Reports only; nothing is rewritten.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.LowLevelNetworkConfigs**: *Deutsche Telekom `network.t-caas.telekom.com` resources that the `network-connector.sylvaproject.org` intent group replaces, and whether each one can be moved mechanically.*
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.MirrorConfigs**: *Deutsche Telekom `MirrorTarget` and `MirrorSelector` resources that the `network-connector.sylvaproject.org` `Collector` and `TrafficMirror` replace, and whether each one can be moved mechanically.*
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.BgpPeerings**: *Deutsche Telekom `network.t-caas.telekom.com` `BGPPeering` resources, and what each one needs decided before it can be written against the `network-connector.sylvaproject.org` `BGPPeering` that shares its name.*
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.IntentDrift**: *Where the `network-connector.sylvaproject.org` resources in a repository do not say what the `network.t-caas.telekom.com` resources beside them said.*
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.ExportRanges**: *Every `spec.export` range of a Deutsche Telekom `VRFRouteConfiguration`, and whether it is classified as the load balancer pool or the egress NAT pool the `network-connector.sylvaproject.org` intent group needs it to be.*
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.NetworkOperatorConfigMaps**: *One row per `data` key of every `ConfigMap` that configures Deutsche Telekom's `das-schiff-network-operator`, describing where it lives and what shape it is in. A `ConfigMap` that declares no keys still gets a row, so that the inventory is of `ConfigMap`s and not only of keys.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.FindIntentMigrationDrift](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/findintentmigrationdrift.md)
+  * **Find drift between Das Schiff and Sylva intent network resources**
+  * Compare the `network.t-caas.telekom.com` resources in a repository against the `network-connector.sylvaproject.org` resources meant to replace them, and report every field the two no longer agree on. They are paired by VRF name and VLAN id, so a hand written translation is checked as readily as a generated one.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.IntentDrift**: *Where the `network-connector.sylvaproject.org` resources in a repository do not say what the `network.t-caas.telekom.com` resources beside them said.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.FindLowLevelNetworkConfig](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/findlowlevelnetworkconfig.md)
+  * **Find `VRFRouteConfiguration` and `Layer2NetworkConfiguration` to migrate**
+  * Find the Das Schiff `VRFRouteConfiguration` and `Layer2NetworkConfiguration` resources the Sylva intent group replaces, and report for each whether it moves automatically or why it has to be moved by hand. Resources that do move also report the fields the intent group derives rather than stores, which are the ones worth re-reading in review.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.LowLevelNetworkConfigs**: *Deutsche Telekom `network.t-caas.telekom.com` resources that the `network-connector.sylvaproject.org` intent group replaces, and whether each one can be moved mechanically.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.FindMirrorConfig](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/findmirrorconfig.md)
+  * **Find Das Schiff traffic mirror configuration**
+  * Find the Das Schiff `MirrorTarget` and `MirrorSelector` resources the Sylva `Collector` and `TrafficMirror` replace, and report for each whether it moves automatically or why it has to be moved by hand. Reports only; nothing is rewritten.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.MirrorConfigs**: *Deutsche Telekom `MirrorTarget` and `MirrorSelector` resources that the `network-connector.sylvaproject.org` `Collector` and `TrafficMirror` replace, and whether each one can be moved mechanically.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.FindNetworkOperatorConfigMap](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/findnetworkoperatorconfigmap.md)
+  * **Find Das Schiff network operator `ConfigMap`s**
+  * Inventory the `ConfigMap`s that configure Das Schiff's network operator, reporting for each `data` key how the value is written and how large it is. Each key is a whole embedded document the operator hands to its node agents as a file, not a setting. Nothing here reads those documents, so the report holds for any version of them.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.NetworkOperatorConfigMaps**: *One row per `data` key of every `ConfigMap` that configures Deutsche Telekom's `das-schiff-network-operator`, describing where it lives and what shape it is in. A `ConfigMap` that declares no keys still gets a row, so that the inventory is of `ConfigMap`s and not only of keys.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.FindUnclassifiedExportRanges](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/findunclassifiedexportranges.md)
+  * **Find unclassified Das Schiff export ranges**
+  * Report every `VRFRouteConfiguration.spec.export` range that has to be classified as a load balancer pool or an egress NAT pool before an `Inbound` or `Outbound` can be generated for it. Nothing in the legacy group tells the two apart.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.ExportRanges**: *Every `spec.export` range of a Deutsche Telekom `VRFRouteConfiguration`, and whether it is classified as the load balancer pool or the egress NAT pool the `network-connector.sylvaproject.org` intent group needs it to be.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.GenerateInboundAndOutboundFromExportRanges](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/generateinboundandoutboundfromexportranges.md)
+  * **Generate `Inbound` and `Outbound` from export ranges**
+  * Generate a Sylva `Inbound` or `Outbound` for each `VRFRouteConfiguration.spec.export` range the `classifications` option names as a load balancer pool or an egress NAT pool. Nothing in the legacy group tells the two apart, so an unclassified range is reported and left alone rather than guessed at.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.ExportRanges**: *Every `spec.export` range of a Deutsche Telekom `VRFRouteConfiguration`, and whether it is classified as the load balancer pool or the egress NAT pool the `network-connector.sylvaproject.org` intent group needs it to be.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.MigrateLowLevelNetworkConfigToIntent](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/migratelowlevelnetworkconfigtointent.md)
+  * **Migrate `VRFRouteConfiguration` and `Layer2NetworkConfiguration` to Sylva**
+  * Rewrite Das Schiff `VRFRouteConfiguration` and `Layer2NetworkConfiguration` resources into the `network-connector.sylvaproject.org` intent resources that replace them. Each becomes two: a `VRF` and a `Destination`, or a `Network` and a `Layer2Attachment`. Both kinds move here rather than in a recipe each, because a VRF moves whole or not at all. A resource whose meaning would change is reported rather than approximated.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.LowLevelNetworkConfigs**: *Deutsche Telekom `network.t-caas.telekom.com` resources that the `network-connector.sylvaproject.org` intent group replaces, and whether each one can be moved mechanically.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.MigrateMirrorConfigToIntent](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/migratemirrorconfigtointent.md)
+  * **Migrate Das Schiff traffic mirror configuration to intent resources**
+  * Rewrite Das Schiff `MirrorTarget` and `MirrorSelector` resources into the `Collector` and `TrafficMirror` that replace them. A `Collector` repeats its loopback's subnet inline, so a target whose mirror VRF is not declared in the same manifest is reported rather than moved.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.MirrorConfigs**: *Deutsche Telekom `MirrorTarget` and `MirrorSelector` resources that the `network-connector.sylvaproject.org` `Collector` and `TrafficMirror` replace, and whether each one can be moved mechanically.*
+
+
+#### [io.moderne.kubernetes.sylva.migrate.dasschiff.MigrateTCaasToSylvaNetworkConnector](/user-documentation/recipes/recipe-catalog/kubernetes/sylva/migrate/dasschiff/migratetcaastosylvanetworkconnector.md)
+  * **Migrate T-CaaS network resources to the Sylva network connector API**
+  * Move what can be moved without a decision from Das Schiff's low level `network.t-caas.telekom.com` group onto the `network-connector.sylvaproject.org` intent group. Four of the eight legacy kinds move: `VRFRouteConfiguration` and `Layer2NetworkConfiguration` together rather than one at a time, because a VRF whose attachment stays behind stops advertising that attachment's subnet, and `MirrorTarget` and `MirrorSelector` likewise, because a selector without its collector points at nothing. `BGPPeering` is report-only. `NodeNetworkConfig`, `NodeNetplanConfig` and `NetworkConfigRevision` are operator output rather than input — the first two are named after a node and owned by it, the third by a hash of its own spec — so their absence is not a gap.
+
+##### Data tables:
+
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.LowLevelNetworkConfigs**: *Deutsche Telekom `network.t-caas.telekom.com` resources that the `network-connector.sylvaproject.org` intent group replaces, and whether each one can be moved mechanically.*
+  * **io.moderne.kubernetes.sylva.migrate.dasschiff.table.MirrorConfigs**: *Deutsche Telekom `MirrorTarget` and `MirrorSelector` resources that the `network-connector.sylvaproject.org` `Collector` and `TrafficMirror` replace, and whether each one can be moved mechanically.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateClusterApiCoreResourceToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migrateclusterapicoreresourcetov1beta2.md)
+  * **Migrate the Cluster API core group to `v1beta2`**
+  * Rewrite `cluster.x-k8s.io/v1beta1` resources into their `v1beta2` form, fields and `apiVersion` together. `v1beta1` has been deprecated since Cluster API v1.11 and stops being served in v1.16. A resource moves as a whole or not at all: where `v1beta2` dropped a field outright, or a duration cannot be read exactly, it stays on `v1beta1` and the reason is reported.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateClusterApiCoreToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migrateclusterapicoretov1beta2.md)
+  * **Migrate the Cluster API core group to `v1beta2`**
+  * Rewrite every `cluster.x-k8s.io/v1beta1` resource Cluster API owns into its `v1beta2` form, fields and `apiVersion` together. `v1beta1` has been deprecated since Cluster API v1.11 and stops being served in v1.16. To migrate a subset, compose your own list from the per-kind recipes below.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateClusterClassToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migrateclusterclasstov1beta2.md)
+  * **Migrate `ClusterClass` to `cluster.x-k8s.io/v1beta2`**
+  * Rewrite a `ClusterClass` into its `v1beta2` form. Templates are named through `templateRef` without the `template` wrapper. A `templateRef` still carries an `apiVersion`, so which are safe to re-point belongs to the provider serving each kind and is reported rather than guessed.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateClusterToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migrateclustertov1beta2.md)
+  * **Migrate `Cluster` to `cluster.x-k8s.io/v1beta2`**
+  * Rewrite a `Cluster` into its `v1beta2` form. `spec.topology.class` becomes `spec.topology.classRef.name`, and a `spec.topology.rolloutAfter` is reported rather than dropped.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateMachineDeploymentToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migratemachinedeploymenttov1beta2.md)
+  * **Migrate `MachineDeployment` to `cluster.x-k8s.io/v1beta2`**
+  * Rewrite a `MachineDeployment` into its `v1beta2` form. `spec.strategy` splits into `rollout.strategy`, `deletion.order` and `remediation`, and `spec.minReadySeconds` moves onto the machines it creates. `spec.progressDeadlineSeconds` and `spec.revisionHistoryLimit` are gone, so a resource setting either is reported rather than silently losing them.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateMachineDrainRuleToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migratemachinedrainruletov1beta2.md)
+  * **Migrate `MachineDrainRule` to `cluster.x-k8s.io/v1beta2`**
+  * Rewrite a `MachineDrainRule` into its `v1beta2` form.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateMachineHealthCheckToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migratemachinehealthchecktov1beta2.md)
+  * **Migrate `MachineHealthCheck` to `cluster.x-k8s.io/v1beta2`**
+  * Rewrite a `MachineHealthCheck` into its `v1beta2` form. Its checks and remediation are regrouped, and `nodeStartupTimeout` becomes `checks.nodeStartupTimeoutSeconds` rather than moving under `deletion` with the other durations.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateMachinePoolToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migratemachinepooltov1beta2.md)
+  * **Migrate `MachinePool` to `cluster.x-k8s.io/v1beta2`**
+  * Rewrite a `MachinePool` into its `v1beta2` form. `spec.minReadySeconds` moves onto the machines it creates, since `MachinePoolSpec` no longer holds it.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateMachineSetToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migratemachinesettov1beta2.md)
+  * **Migrate `MachineSet` to `cluster.x-k8s.io/v1beta2`**
+  * Rewrite a `MachineSet` into its `v1beta2` form. `spec.minReadySeconds` moves onto the machines it creates, since `MachineSetSpec` no longer holds it.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateMachineToV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migratemachinetov1beta2.md)
+  * **Migrate `Machine` to `cluster.x-k8s.io/v1beta2`**
+  * Rewrite a `Machine` into its `v1beta2` form. References name an API group rather than an `apiVersion`, and each `metav1.Duration` becomes whole seconds under `deletion`.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.clusterapi.MigrateToClusterApiV1beta2](/user-documentation/recipes/recipe-catalog/kubernetes/clusterapi/migratetoclusterapiv1beta2.md)
+  * **Migrate Cluster API resources to `v1beta2`**
+  * Migrate every custom resource Cluster API owns to `v1beta2`. `v1beta1` has been deprecated since v1.11 and stops being served in v1.16. The `cluster.x-k8s.io` kinds move fields and `apiVersion` together; `addons` and `ipam` change `apiVersion` only, because those kinds are the same shape under a new name. Two things are deliberately left behind. The four `Kubeadm*` kinds are not migrated at all: `extraArgs` changes from a map to a list throughout the embedded kubeadm configuration and the control plane regroups half its spec, so a bare swap is either rejected outright or accepted while the apiserver prunes what moved. And `infrastructure.cluster.x-k8s.io` is out of scope, because that group belongs to the providers, each of which decides for itself what `v1beta2` means. Both have to be migrated by hand.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.clusterapi.table.ClusterApiV1beta2Migrations**: *Every `cluster.x-k8s.io/v1beta1` resource considered, what moving it to `v1beta2` rewrote, and why the ones left behind could not move.*
+
+
+#### [org.openrewrite.kubernetes.crd.FindCustomResourcesUsingDeprecatedCrdFields](/user-documentation/recipes/recipe-catalog/kubernetes/crd/findcustomresourcesusingdeprecatedcrdfields.md)
+  * **Find custom resources using deprecated CRD fields**
+  * Find custom resources that set a field which a CustomResourceDefinition in this repository marks deprecated, or that are on a version the CustomResourceDefinition deprecates. `controller-gen` copies Go doc comments verbatim into a CRD's OpenAPI schema `description`, so a field deprecated in Go ships its own deprecation notice inside the CRD and no per-CRD configuration is needed.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.table.DeprecatedCrdFieldUsages**: *Custom resources that use something a CustomResourceDefinition in this repository marks deprecated.*
+
+
+#### [org.openrewrite.kubernetes.helm.ChangeChartVersion](/user-documentation/recipes/recipe-catalog/kubernetes/helm/changechartversion.md)
+  * **Change Helm chart version**
+  * Propagate a Helm chart version across every file that restates it: the chart's own `Chart.yaml`, the `dependencies` of the charts that consume it, Flux `HelmRelease` resources, k0rdent `ClusterTemplate`, `ProviderTemplate` and `ServiceTemplate` resources, and optionally files whose name encodes the version. `dependencies[].version` is a range, so by default a range that the new version already satisfies is left alone rather than pinned. `Chart.lock` is never edited, because its digest cannot be recomputed here; it is reported instead. Files under a chart's `templates` directory are Go template text and are left alone.  A k0rdent template's `metadata.name` also encodes the chart version, but a name is an identity that `ClusterDeployment`, `Release` and `*TemplateChain` resources point at. Renaming it here would leave those references dangling, so this recipe changes only version fields; `org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion` moves the name and everything that references it together.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.table.HelmChartVersionChanges**: *Every place a chart version was propagated to, plus the places that were deliberately left alone.*
+
+
+#### [org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion](/user-documentation/recipes/recipe-catalog/kubernetes/k0rdent/changetemplateversion.md)
+  * **Change k0rdent template version**
+  * Move a k0rdent `ClusterTemplate`, `ProviderTemplate` or `ServiceTemplate` to a new chart version, taking its name and everything that points at that name along with it.  k0rdent encodes the chart version in the template's `metadata.name`, so a version bump renames the resource: `aws-standalone-cp-1-0-42` becomes `aws-standalone-cp-1-0-43`. That name is referenced from `ClusterDeployment.spec.template`, from `services[].template` on a `ClusterDeployment` or `MultiClusterService`, from `Release.spec.kcm.template`, `spec.regional.template`, `spec.capi.template` and `spec.providers[].template`, from `spec.core.kcm.template`, `spec.core.capi.template` and `spec.providers[].template` on a `Management` or `Region`, and from the `supportedTemplates` of a `ClusterTemplateChain` or `ServiceTemplateChain`. All of them move together here, along with any file whose name encodes the template name, because a rename that misses one of them leaves a reference the controller cannot resolve.  A template in a file that renders through a template engine is reported and left alone, and so are its referrers: its name is whatever the engine produces, so nothing can be moved without stranding the rest.  This changes the template's own `spec.helm.chartSpec.version` too, but not the chart it points at. Run `org.openrewrite.kubernetes.helm.ChangeChartVersion` alongside it to move the chart's own `Chart.yaml`, the charts that depend on it, and any Flux `HelmRelease`.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.table.TemplateNameChanges**: *The template resource that was renamed, every reference that moved with it, and the templates that were left alone.*
+
+
+#### [org.openrewrite.kubernetes.k0rdent.MigrateDeprecatedServiceSpecFields](/user-documentation/recipes/recipe-catalog/kubernetes/k0rdent/migratedeprecatedservicespecfields.md)
+  * **Migrate deprecated k0rdent `serviceSpec` fields**
+  * Move the fields k0rdent deprecated on `spec.serviceSpec` into the `spec.serviceSpec.provider.config` blob that supersedes them, on `ClusterDeployment` and `MultiClusterService`. The nine that move are `syncMode`, `templateResourceRefs`, `policyRefs`, `driftIgnore`, `driftExclusions`, `priority`, `stopOnConflict`, `reload` and `continueOnError`, plus `createNamespace` and `replace` on each service's `helmOptions`, which move into `helmOptions.installOptions`.  `reload` is renamed to `reloader` on the way, because that is the key the state management provider unmarshals; a hand migration that keeps the old spelling produces a manifest the apiserver accepts and the controller ignores.  Fields are left where they are, and reported in a data table, when the move would change what the resource does: the document renders through Helm, so what is written is not what is applied; `provider.name` or `provider.config` is already set, in which case the controller is already ignoring the deprecated fields and moving them would switch settings on; `installOptions` already declares a different value; or the resource is declared against `k0rdent.mirantis.com/v1alpha1`, whose schema has no `provider` field at all, so the apiserver would prune whatever was written there.  The `provider.name` case is the subtle one. `StateManagementProviderConfigFromServiceSpec` folds the deprecated fields into a config blob only when neither `provider.name` nor `provider.config` is set; name it, and every deprecated field is discarded. Moving them into `provider.config` would hand a named provider a `syncMode`, `priority` or `reloader` it is not acting on today.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.table.DeprecatedServiceSpecFields**: *Every deprecated `serviceSpec` field found, where it was moved to, and for the ones that were left in place, why.*
+
+
+#### [org.openrewrite.kubernetes.search.FindContainerResourceCoverage](/user-documentation/recipes/recipe-catalog/kubernetes/search/findcontainerresourcecoverage.md)
+  * **Find container resource coverage**
+  * Profile the compute resources and probes every container of every workload declares. Quantities are reported both as written and normalized to millicores and bytes, and each row carries the quality of service class the kubelet would give the pod the container belongs to.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.table.ContainerProfiles**: *Every container of every workload, with the compute resources and probes it declares. The raw columns answer what to change; the normalized columns answer what a cluster is being asked for.*
+
+
+#### [org.openrewrite.kubernetes.search.FindDanglingResourceReferences](/user-documentation/recipes/recipe-catalog/kubernetes/search/finddanglingresourcereferences.md)
+  * **Find dangling Kubernetes resource references**
+  * Find resources that refer by name to a ConfigMap, Secret, ServiceAccount, Service, PersistentVolumeClaim, Role, ClusterRole, PriorityClass or scale target that this repository declares nowhere. There is no safe automated fix for a dangling reference — the name is either a typo, a leftover, or satisfied out of band — so this only reports. Namespace is ignored when resolving, a kustomization's `namePrefix` and `nameSuffix` are replayed so that the name a cluster sees resolves as well as the one on disk, and references whose value is templated, whose target kind appears nowhere in the repository, or whose target kind has a name some template computes are all left alone.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.table.DanglingResourceReferences**: *References by name to a Kubernetes resource that this repository declares nowhere.*
+
+
 #### [org.openrewrite.kubernetes.search.FindHarcodedIPAddresses](/user-documentation/recipes/recipe-catalog/kubernetes/search/findharcodedipaddresses.md)
   * **Find hardcoded IP addresses**
   * Find hardcoded IP address anywhere in text-based files.
@@ -4337,6 +4745,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.table.TextMatches**: *Lines matching simple text search.*
+
+
+#### [org.openrewrite.kubernetes.search.FindKubernetesResources](/user-documentation/recipes/recipe-catalog/kubernetes/search/findkubernetesresources.md)
+  * **Find Kubernetes resources**
+  * An inventory of every Kubernetes resource in a repository, one row per YAML document. The pod spec path column reports where each kind keeps its containers, so the workloads this module cannot reach are counted rather than quietly skipped.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.table.KubernetesResources**: *Every Kubernetes resource declared in the repository, one row per YAML document.*
+
+
+#### [org.openrewrite.kubernetes.search.FindKustomizeImages](/user-documentation/recipes/recipe-catalog/kubernetes/search/findkustomizeimages.md)
+  * **Find kustomize images**
+  * An inventory of every image a kustomization overrides. The `images` block is where a repository's image pins actually live once kustomize is in play, and it is rewritten by `kustomize edit set image`, `sed`, `yq` and hand edits alike, so it is worth knowing where they all are.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.table.KustomizeImages**: *Every image a kustomization overrides, one row per entry in an `images` block.*
+
+
+#### [org.openrewrite.kubernetes.search.FindManifestFlavors](/user-documentation/recipes/recipe-catalog/kubernetes/search/findmanifestflavors.md)
+  * **Find Kubernetes manifest flavors**
+  * Classify every YAML file in a repository by what it actually is — a manifest, a Helm chart template, a kustomization, something else entirely — and by whether an edit to it would mean what it appears to mean. This is the denominator every other Kubernetes report is a fraction of.
+
+##### Data tables:
+
+  * **org.openrewrite.kubernetes.table.ManifestFlavors**: *Every YAML file in the repository, classified by what it actually is and by whether an edit to it would mean what it appears to mean. The denominator for the coverage of every other table here.*
 
 
 
@@ -5740,6 +6175,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.staticanalysis.table.AnonymousFunctionalInterfaceImplementations**: *Every anonymous class that implements a functional interface, whether or not it could be rewritten to a lambda, plus the sites that could not be decided either way because the supertype carries incomplete type attribution. Sites that were not rewritten carry the reason why.*
 
 
+#### [org.openrewrite.staticanalysis.UseMapEntrySetIteration](/user-documentation/recipes/recipe-catalog/staticanalysis/usemapentrysetiteration.md)
+  * **Iterate a `Map`'s `entrySet()` rather than its `keySet()`**
+  * A loop over `map.keySet()` that calls `map.get(key)` hashes and probes the map again for every element, which on a `TreeMap` costs an extra `O(log n)` lookup per iteration. Iterating `map.entrySet()` instead hands the loop both the key and the value. The loop is only rewritten when:  - The map is a simple reference that is neither modified nor reassigned inside the loop.  - `get` is called only with the loop variable.  - The loop variable is neither reassigned nor captured by a lambda or anonymous class.  Every candidate loop, converted or not, is recorded in a data table along with the reason it was left alone.
+
+##### Data tables:
+
+  * **org.openrewrite.staticanalysis.table.MapKeySetIterations**: *Loops that iterate a map's `keySet()` and look the value up again with `get(key)`, and whether they were converted to `entrySet()` iteration.*
+
+
 
 ### rewrite-struts
 
@@ -6417,6 +6861,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.quarkus.updates.core.quarkus339.ReplaceHibernateProcessorAnnotationProcessor](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus339/replacehibernateprocessorannotationprocessor.md)
+  * **io.quarkus.updates.core.quarkus339.ReplaceHibernateProcessorAnnotationProcessor**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus339.ReplaceNewJpaModelgenAnnotationProcessor](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus339/replacenewjpamodelgenannotationprocessor.md)
+  * **io.quarkus.updates.core.quarkus339.ReplaceNewJpaModelgenAnnotationProcessor**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus339.ReplaceOldJpaModelgenAnnotationProcessor](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus339/replaceoldjpamodelgenannotationprocessor.md)
+  * **io.quarkus.updates.core.quarkus339.ReplaceOldJpaModelgenAnnotationProcessor**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.quarkus.updates.core.quarkus37.ChangeMavenCompilerAnnotationProcessorGroupIdAndArtifactId](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/changemavencompilerannotationprocessorgroupidandartifactid.md)
   * **Change Maven Compiler plugin annotation processor groupId, artifactId and/or the version**
   * Change the groupId, artifactId and/or the version of a specified Maven Compiler plugin annotation processor.
@@ -6867,6 +7338,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.quarkus.MigrateToQuarkus_v3_39_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_39_0.md)
+  * **Quarkus Updates Aggregate 3.39.0**
+  * Quarkus update recipes to upgrade your application to 3.39.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.quarkus.MigrateToQuarkus_v3_3_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_3_0.md)
   * **Quarkus Updates Aggregate 3.3.0**
   * Quarkus update recipes to upgrade your application to 3.3.0.
@@ -6924,6 +7404,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.quarkus.MigrateToQuarkus_v3_9_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_9_0.md)
   * **Quarkus Updates Aggregate 3.9.0**
   * Quarkus update recipes to upgrade your application to 3.9.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [sh.stubborn.contract.migration.MigrateFromSpringCloudContract](/user-documentation/recipes/recipe-catalog/sh/stubborn/contract/migration/migratefromspringcloudcontract.md)
+  * **Migrate from Spring Cloud Contract to Stubborn Contract**
+  * Composite recipe that updates Maven/Gradle coordinates, Java package names, and drops JUnit 4 StubRunner / Verifier usage. Run this after adding stubborn-contract-migration to your build's rewrite plugin configuration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [sh.stubborn.contract.migration.UpdateDependencies](/user-documentation/recipes/recipe-catalog/sh/stubborn/contract/migration/updatedependencies.md)
+  * **Update Spring Cloud Contract coordinates to Stubborn Contract**
+  * Replaces org.springframework.cloud:spring-cloud-contract-* GAVs with sh.stubborn:stubborn-* equivalents, migrates the spring-cloud-contract-dependencies BOM, and swaps both build plugins, in Maven and Gradle builds alike. The com.toomuchcoding JSON/XML assertion coordinates are swapped alongside the sh.stubborn.jsonassert / sh.stubborn.xmlassert package renames. Every coordinate is repinned to latest.release.
 
 ##### Data tables:
 

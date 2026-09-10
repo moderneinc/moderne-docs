@@ -6,9 +6,6 @@ description: How to configure the Moderne Connector to load a repository CSV fro
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-s3-access" />
 
 # Configure a Connector with an S3 organization source
 
@@ -40,14 +37,16 @@ For background on how the Connector uses CSV sources and how S3 fits into the ov
             ],
             "Resource": [
                 "arn:aws:s3:::my-bucket",
-                "arn:aws:s3:::my-bucket/repos.csv"
+                "arn:aws:s3:::my-bucket/*"
             ]
         }
     ]
 }
 ```
 
-The `s3:GetObject` permission applies to the CSV object and lets the Connector read it. The `s3:ListBucket` permission applies to the bucket itself and is required because the Connector verifies that it can reach the bucket as a startup connectivity check before it reads the object. The Connector fails to start if this check does not pass.
+The `s3:GetObject` permission lets the Connector read the CSV object. It also lets the Connector read the LST artifacts that the CSV references. When the CSV carries `publishUri` values that point into the same bucket, the Connector downloads those LSTs with the same credentials. Because the Connector only fetches objects under the parent prefix of the configured `uri`, you can scope the object ARN to that prefix. The examples on this page use `my-bucket/*`, since the `uri` sits at the bucket root.
+
+The `s3:ListBucket` permission applies to the bucket itself. The Connector requires it because it runs a startup connectivity check to confirm that it can reach the bucket before it reads the object. If that check does not pass, the Connector fails to start.
 
 ## Authentication options
 

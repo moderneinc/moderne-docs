@@ -6,9 +6,6 @@ description: A reference manual that contains all Connector configuration variab
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/agent-variables" />
 
 # All Connector configuration variables
 
@@ -848,7 +845,7 @@ java -jar connector-{version}.jar \
 
 ## Recipe marketplace Go variables
 
-Go recipe modules are resolved through a Go module proxy. Go module proxies authenticate with basic auth only; there is no separate bearer-token field. Supply your credentials as `USERNAME` + `PASSWORD` (for Artifactory, use your username and identity token as the password). If your proxy authenticates with a token alone, put the token in `PASSWORD` and set `USERNAME` to any non-empty placeholder that your proxy ignores (for example, `__token__`). You can configure multiple Go module proxies by including multiple entries, each with a different `{index}`.
+Go recipe modules are resolved through a Go module proxy. Go module proxies authenticate with basic auth only - there is no separate bearer-token field. Supply your credentials as `USERNAME` + `PASSWORD` (for Artifactory, use your username and identity token as the password). If your proxy authenticates with a token alone, put the token in `PASSWORD` and set `USERNAME` to any non-empty placeholder that your proxy ignores (for example, `__token__`). You can configure multiple Go module proxies by including multiple entries, each with a different `{index}`.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -957,6 +954,54 @@ java -jar connector-{version}.jar \
 --moderne.organization.sources.s3[0].region=us-east-1 \
 --moderne.organization.sources.s3[0].accessKey=AKIAIOSFODNN7EXAMPLE \
 --moderne.organization.sources.s3[0].secretKey=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
+# ... Additional arguments
+```
+</TabItem>
+</Tabs>
+
+## Google Cloud Storage bucket variables
+
+You can configure multiple Cloud Storage buckets by including multiple entries, each with a different `{index}`. For a full walkthrough, including the permissions the Connector needs, please see the [Google Cloud Storage organization source guide](./configure-a-connector-with-gcs-access.md).
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                              | Required                                                        | Default | Description                                                                                         |
+|------------------------------------------------------------|-----------------------------------------------------------------|---------|-----------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_URI`             | `true`                                                          |         | The Cloud Storage URI of the CSV object (e.g., `gs://my-bucket/repos-lock.csv`).                    |
+| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_CREDENTIALSJSON` | `false` (Required if not using Application Default Credentials) |         | The contents of a service account key file.                                                         |
+| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_PROJECT`         | `false`                                                         |         | The project to bill requests to. Only needed for requester-pays buckets.                            |
+| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_ENDPOINTURL`     | `false`                                                         |         | Overrides the default `storage.googleapis.com` endpoint (e.g., a Private Service Connect endpoint). |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_ORGANIZATION_SOURCES_GCS_0_URI=gs://my-lst-bucket/repos-lock.csv \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                 | Required                                                        | Default | Description                                                                                         |
+|---------------------------------------------------------------|-----------------------------------------------------------------|---------|-----------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.gcs[{index}].uri`             | `true`                                                          |         | The Cloud Storage URI of the CSV object (e.g., `gs://my-bucket/repos-lock.csv`).                    |
+| `--moderne.organization.sources.gcs[{index}].credentialsJson` | `false` (Required if not using Application Default Credentials) |         | The contents of a service account key file.                                                         |
+| `--moderne.organization.sources.gcs[{index}].project`         | `false`                                                         |         | The project to bill requests to. Only needed for requester-pays buckets.                            |
+| `--moderne.organization.sources.gcs[{index}].endpointUrl`     | `false`                                                         |         | Overrides the default `storage.googleapis.com` endpoint (e.g., a Private Service Connect endpoint). |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.organization.sources.gcs[0].uri=gs://my-lst-bucket/repos-lock.csv \
 # ... Additional arguments
 ```
 </TabItem>

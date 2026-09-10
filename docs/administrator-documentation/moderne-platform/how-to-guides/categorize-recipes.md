@@ -11,7 +11,7 @@ You can also re-categorize existing recipes from other modules (e.g., OpenRewrit
 
 In this guide, we will walk you through how to define categories for your own recipes, how to re-categorize existing recipes under a custom structure, and how to deploy these categories to the Moderne Platform.
 
-## Defining categories for your own recipes
+## Defining categories for JVM recipes
 
 To create your own categories, you will need to create a `category.yml` file that maps your Java package structure to human-readable category names. After that, you will need to generate a `recipes.csv` file that the Moderne Platform will read when displaying recipes in the Marketplace.
 
@@ -37,10 +37,38 @@ Recipes are assigned to categories based on their package names. When generating
 
 For example, a recipe at `com.myorg.recipe.modernization.upgrades.UpgradeFramework` would match the `com.myorg.recipe.modernization.upgrades` entry above and appear under **Framework Upgrades**.
 
-Any package segments without an explicit entry will automatically generate a fallback category from the capitalized package name.
+Any package segments without an explicit entry will automatically generate a fallback category from the capitalized package name, unless they are marked as [root categories](#skipping-prefixes-with-root-categories).
 
 :::tip
 For a real-world example, see the [category.yml from rewrite-spring](https://github.com/openrewrite/rewrite-spring/blob/main/src/main/resources/META-INF/rewrite/category.yml), which shows how the Spring recipes build their category hierarchy.
+:::
+
+### Skipping prefixes with root categories
+
+The reverse DNS prefix at the front of a recipe name means nothing to someone browsing the Marketplace. Left alone it would become a category of its own, so recipes named `com.myorg.recipe.*` would sit under **Com** > **Myorg** > **Recipe**.
+
+Root categories exist to prevent that. A category marked `root: true` is never displayed as a node itself — everything underneath it is hoisted up to the level where it sits. Because `com` is a root category, `com.myorg.recipe.*` recipes appear under **Myorg** > **Recipe** instead.
+
+OpenRewrite ships root categories for the prefixes recipe authors commonly use in [`core-categories.yml`](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/src/main/resources/META-INF/rewrite/core-categories.yml). That covers the generic top-level domains (`com`, `org`, `io`, `net`, `dev`, `app`, `cloud`, and others), the country code top-level domains (`uk`, `de`, `nl`, `jp`, and others), and the second-level domains that go with them (`uk.co`, `jp.co`, `au.com`, and others).
+
+If your prefix is not on that list, add root entries for it to your own `category.yml`. A `root: true` entry needs no `name`, since the category is never displayed:
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/category
+packageName: uk
+root: true
+
+---
+type: specs.openrewrite.org/v1beta/category
+packageName: uk.co
+root: true
+```
+
+Entries are matched against the whole package prefix rather than against individual segments, so every level of a multi-segment prefix needs its own entry. Without the `uk.co` entry above, skipping `uk` would only promote **Co** to the top level. With both entries, `uk.co.acme.recipes.MyRecipe` lands under **Acme** > **Recipes**.
+
+:::note
+Root categories are one of the few cases where a `category.yml` entry affects packages you do not own. Descriptors are read from the whole classpath, so a root entry you publish applies to every recipe whose package starts with that prefix.
 :::
 
 ### Generating and validating the `recipes.csv` file
@@ -72,6 +100,87 @@ For more details, see the [recipes.csv reference](../../../user-documentation/mo
 :::
 
 Once validation passes, you can [publish and deploy the artifact to the Moderne Platform](#deploying-recipe-artifacts-to-the-moderne-platform).
+
+## Defining categories for Python, JavaScript, Go, and C# recipes
+
+Recipes in these languages declare their categories in code rather than in a configuration file. Each package has an activation entry point that installs its recipes, and the category path is an argument to that call.
+
+There is no `category.yml` file to write and no `recipes.csv` file to generate and ship inside your package. Your tenant's Marketplace is still stored as a CSV, but the Moderne Platform builds that file for you when you install the package.
+
+In every language the path runs from shallowest to deepest, and levels that do not exist yet are created on install.
+
+For the full authoring workflow in each language, check out the guides for [writing Python recipes](../../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-python-recipes.md), [writing a JavaScript refactoring recipe](../../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-javascript-refactoring-recipe.md), and [writing a C# refactoring recipe](../../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-csharp-refactoring-recipe.md).
+
+### Python
+
+The path is a list passed to `marketplace.install()`:
+
+```python
+from rewrite import CategoryDescriptor
+from rewrite.marketplace import RecipeMarketplace
+
+ExamplePython = [
+    CategoryDescriptor(display_name="Example"),
+    CategoryDescriptor(display_name="Python"),
+]
+
+
+def activate(marketplace: RecipeMarketplace) -> None:
+    marketplace.install(MyRecipe, ExamplePython)
+```
+
+### JavaScript and TypeScript
+
+The path is an array passed to `marketplace.install()`:
+
+```typescript
+import { RecipeMarketplace, CategoryDescriptor } from '@openrewrite/rewrite';
+
+export const ExampleCleanup: CategoryDescriptor[] = [
+    {displayName: "Example"},
+    {displayName: "Cleanup"},
+];
+
+export async function activate(marketplace: RecipeMarketplace): Promise<void> {
+    await marketplace.install(MyRecipe, ExampleCleanup);
+}
+```
+
+### Go
+
+The levels are variadic arguments to `Register`:
+
+```go
+func Activate(r *recipe.Registry) {
+    r.Register(&MyRecipe{},
+        recipe.CategoryDescriptor{DisplayName: "Example"},
+        recipe.CategoryDescriptor{DisplayName: "Cleanup"})
+}
+```
+
+### C#
+
+The path is expressed as attributes on the recipe class. `[Category]` opens the path and the attributes after it form the levels, which you declare as `CategoryDescriptorAttribute` subclasses:
+
+```csharp
+[Category, Example, Cleanup]
+public class MyRecipe : Recipe
+{
+    // ...
+}
+```
+
+### Understanding how categories are matched
+
+Whatever language a recipe is written in, a category is keyed by its display name. The Marketplace stores only the display name of each level in a path, so package names, module paths, and namespaces play no part in matching.
+
+That is what lets recipes from different languages share a category. If your organization publishes Java recipes named `com.example.recipes.*`, those appear under a top-level **Example** category, since `com` is a [root category](#skipping-prefixes-with-root-categories) that gets skipped and the next segment is capitalized into a display name. Declaring `CategoryDescriptor(display_name="Example")` in a Python package files its recipes under that same category.
+
+There is no shared registry to import from, so every package that uses a category declares its own descriptor for it. If several of your packages file into the same category, publish the descriptors in a small shared library and depend on it from each one, rather than copying them by hand.
+
+:::tip
+Copy the display name and description of an existing category exactly. No ecosystem takes precedence. Whichever bundle is installed first owns the node, and a later one can only fill in a description that was left blank. Copying both is what keeps the result the same no matter which order things are installed in.
+:::
 
 ## Sorting existing recipes into your own categories
 

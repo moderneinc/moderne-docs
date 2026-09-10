@@ -31,7 +31,7 @@ const SocialLinks: FunctionComponent = () => {
       <a href="https://www.linkedin.com/company/moderneinc" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
         <LinkedinIcon size={24} />
       </a>
-      <a href="https://www.youtube.com/@moderneinc" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.youtube.com/@Moderne-and-OpenRewrite" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
         <YoutubeIcon size={24} />
       </a>
     </div>

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove import"}
-  description={"Remove an `import` statement from a Go compilation unit. Matches by import path; any form (regular, aliased, dot, blank) is removed."}
+  description={"Remove an `import` statement from a Go compilation unit. Matches by import path, in any form (regular, aliased, dot, blank). Unless `force` is set, an import that the file still references is kept, as are blank (`_`) and dot (`.`) imports."}
   fqName={"org.openrewrite.golang.RemoveImport"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove import</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove an `import` statement from a Go compilation unit. Matches by import path; any form (regular, aliased, dot, blank) is removed.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove an `import` statement from a Go compilation unit. Matches by import path, in any form (regular, aliased, dot, blank). Unless `force` is set, an import that the file still references is kept, as are blank (`_`) and dot (`.`) imports.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"packagePath","required":true,"description":"The import path to remove.","example":"fmt"}]}>
+<OptionsTable options={[{"type":"String","name":"packagePath","required":true,"description":"The import path to remove.","example":"fmt"},{"type":"Boolean","name":"force","required":false,"description":"When true, remove the import even if the file still references the package, and remove blank (`_`) and dot (`.`) imports."}]}>
 
 ## Options
 

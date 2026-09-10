@@ -192,11 +192,14 @@ _18 recipes_
 
 _License: Moderne Source Available License_
 
-_1 recipe_
+_2 recipes_
 
 * [org.openrewrite.golang.RegenerateGoSum](/user-documentation/recipes/recipe-catalog/golang/regenerategosum.md)
   * **Regenerate `go.sum`**
   * Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged.
+* [org.openrewrite.golang.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/golang/search/dependencyinsight.md)
+  * **Go dependency insight**
+  * Find direct and transitive Go module dependencies matching a module path pattern. Results include dependencies that either directly match or transitively include a matching dependency.
 
 ## rewrite-gradle
 
@@ -761,7 +764,7 @@ _101 recipes_
   * Finds declared fields matching a particular class name.
 * [org.openrewrite.java.search.FindImplementations](/user-documentation/recipes/recipe-catalog/java/search/findimplementations.md)
   * **Find implementing classes**
-  * Find class declarations which implement the specified type. If the specified type is a class, its subclasses will be matched. If the specified type is an interface, classes which implement it will be matched.
+  * Find class declarations which implement the specified type. If the specified type is a class, its subclasses will be matched. If the specified type is an interface, classes which implement it will be matched. Anonymous classes, lambdas, and method references implementing the specified type are also matched.
 * [org.openrewrite.java.search.FindImports](/user-documentation/recipes/recipe-catalog/java/search/findimports.md)
   * **Find source files with imports**
   * Locates source files that have imports matching the given type pattern, regardless of whether that import is used in the code.
@@ -891,7 +894,7 @@ _18 recipes_
 
 _License: Apache License Version 2.0_
 
-_10 recipes_
+_11 recipes_
 
 * [org.openrewrite.json.AddKeyValue](/user-documentation/recipes/recipe-catalog/json/addkeyvalue.md)
   * **Add value to JSON Object**
@@ -911,6 +914,9 @@ _10 recipes_
 * [org.openrewrite.json.DeleteKey](/user-documentation/recipes/recipe-catalog/json/deletekey.md)
   * **Delete key**
   * Delete a JSON mapping entry key.
+* [org.openrewrite.json.RemoveEmptyKeys](/user-documentation/recipes/recipe-catalog/json/removeemptykeys.md)
+  * **Remove empty keys**
+  * Remove mapping entries whose value is an empty object or array, such as those left behind by `DeleteKey`. Entries are removed from the inside out, so a chain of objects holding nothing but the removed entry is removed entirely. Array elements are left alone, since removing one shifts the indexes of its siblings.
 * [org.openrewrite.json.format.AutoFormat](/user-documentation/recipes/recipe-catalog/json/format/autoformat.md)
   * **Format JSON**
   * Format JSON code using a standard comprehensive set of JSON formatting recipes.
@@ -1044,7 +1050,7 @@ _94 recipes_
   * Apply the specified executions to a Maven plugin. Will not add the plugin if it does not already exist in the pom.
 * [org.openrewrite.maven.ChangePluginGroupIdAndArtifactId](/user-documentation/recipes/recipe-catalog/maven/changeplugingroupidandartifactid.md)
   * **Change Maven plugin group and artifact ID**
-  * Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version. This recipe does not perform any validation and assumes all values passed are valid.
+  * Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version, which may be given as an exact version or as a node-style semver selector resolved against the new plugin's available versions.
 * [org.openrewrite.maven.ChangeProjectVersion](/user-documentation/recipes/recipe-catalog/maven/changeprojectversion.md)
   * **Change Maven Project Version**
   * Change the project version of a Maven pom.xml. Identifies the project to be changed by its groupId and artifactId. If the version is defined as a property, this recipe will only change the property value if the property exists within the same pom.
@@ -1143,7 +1149,7 @@ _94 recipes_
   * Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Applies to both `&lt;dependencies&gt;` and `&lt;dependencyManagement&gt;` sections.
 * [org.openrewrite.maven.UpdateMavenProjectPropertyJavaVersion](/user-documentation/recipes/recipe-catalog/maven/updatemavenprojectpropertyjavaversion.md)
   * **Update Maven Java project properties**
-  * The Java version is determined by several project properties, including:   * `java.version`  * `jdk.version`  * `javaVersion`  * `jdkVersion`  * `maven.compiler.source`  * `maven.compiler.target`  * `maven.compiler.release`  * `release.version`  If none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property.
+  * The Java version is determined by several project properties, including:   * `java.version`  * `jdk.version`  * `javaVersion`  * `jdkVersion`  * `maven.compiler.source`  * `maven.compiler.target`  * `maven.compiler.release`  * `release.version`  Properties of any other name are updated too when the `maven-compiler-plugin` `source`, `target` or `release` configuration of this pom, or of a pom it inherits from, resolves to them.  If none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property.
 * [org.openrewrite.maven.UpdateMavenWrapper](/user-documentation/recipes/recipe-catalog/maven/updatemavenwrapper.md)
   * **Update Maven wrapper**
   * Update the version of Maven used in an existing Maven wrapper.

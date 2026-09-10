@@ -22,9 +22,9 @@ If your CLI is signed in to a Moderne SaaS v2 tenant, the CLI already pushes its
 This guide is for:
 
 * **Moderne DX customers** and CLI-only deployments not connected to a Moderne tenant, which don't have the platform-native replication path.
-* Anyone who wants to publish CLI telemetry directly from the CLI to a destination they control (their own object storage, a BI endpoint, or anywhere else) in addition to (or instead of) the platform replication. This guide uses AWS S3 as the worked example; the same wrapper customization can target any destination.
+* Anyone who wants to publish CLI telemetry directly from the CLI to a destination they control (their own object storage, a BI endpoint, or anywhere else) in addition to (or instead of) the platform replication. This guide uses AWS S3 as the worked example, but the same wrapper customization can target any destination.
 
-In either case, this is a one-time setup for a platform or admin team, done on behalf of the people who consume the telemetry. The CLI users generating the telemetry don't publish anything themselves; they keep running `mod` as usual.
+In either case, this is a one-time setup for a platform or admin team, done on behalf of the people who consume the telemetry. The CLI users generating the telemetry don't publish anything themselves - they keep running `mod` as usual.
 :::
 
 :::tip
@@ -47,7 +47,7 @@ Querying the data (with AWS Athena or another engine) is covered separately in [
 
 The supported entry point for the CLI is the [`modw` wrapper script](./cli-wrapper.md) (`modw.cmd` on Windows). The `mod` command is a symlink to it. The recommended approach is for your central platform team to customize the wrapper itself and distribute it to your CLI users, the same way large organizations manage a customized Maven or Gradle wrapper.
 
-The wrapper ends by launching the CLI. You add a small step that runs after the CLI returns and publishes any new trace CSV files. This guide uploads them to S3, but the same hook can POST them to a BI endpoint, copy them to a network share, or do whatever your BI setup needs. CLI users keep using `mod` exactly as before; there's no separate command or alias to learn:
+The wrapper ends by launching the CLI. You add a small step that runs after the CLI returns and publishes any new trace CSV files. This guide uploads them to S3, but the same hook can POST them to a BI endpoint, copy them to a network share, or do whatever your BI setup needs. CLI users keep using `mod` exactly as before. There are no separate commands or alias's to learn:
 
 ```mermaid
 flowchart LR
@@ -290,7 +290,7 @@ Those two variables are all you need to get started. That being said, there are 
 
 ### Running commands
 
-Because the customization lives inside `modw`, CLI users keep using `mod` exactly as before; no separate command or alias is required:
+Because the customization lives inside `modw`, CLI users keep using `mod` exactly as before. No separate command or alias is required:
 
 ```bash
 mod build .

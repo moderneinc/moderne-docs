@@ -2,7 +2,7 @@
    parameter values) uses shared `.inlineCode`. */
 
 .paramTable {
-  margin-bottom: var(--mor-space-4);
+  margin-bottom: var(--mod-spacing_2);
 }
 
 /* Eyebrow labels: Unchanged / Before / After. */
@@ -11,27 +11,27 @@
 .afterLabel {
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  font-size: var(--mor-font-size-sm);
-  font-weight: var(--mor-font-weight-semibold);
-  color: var(--mor-muted);
+  font-size: var(--mod-font-size-xs);
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-tertiary);
 }
 
 .beforeLabel,
 .afterLabel {
-  margin-bottom: var(--mor-space-1);
+  margin-bottom: var(--mod-spacing_1_2);
 }
 
 .exampleName {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--mor-space-2);
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-medium);
-  color: var(--mor-text);
-  margin-bottom: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-text-primary);
+  margin-bottom: var(--mod-spacing_1);
 }
 
 .unchangedBlock {
-  margin-bottom: var(--mor-space-4);
+  margin-bottom: var(--mod-spacing_2);
 }

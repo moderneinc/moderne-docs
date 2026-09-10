@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Preallocate slice"}
-  description={"Find `append()` calls inside for/range loops where the slice could be preallocated."}
+  description={"Add a capacity to a slice made empty and then filled by appending over a range, so `out := make([]int, 0)` before `for _, x := range xs` becomes `make([]int, 0, len(xs))`. The capacity is a hint, so only the allocation changes."}
   fqName={"org.openrewrite.golang.codequality.PreallocateSlice"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Preallocate slice</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find `append()` calls inside for/range loops where the slice could be preallocated.</RecipeHeader.Description>
+<RecipeHeader.Description>Add a capacity to a slice made empty and then filled by appending over a range, so `out := make([]int, 0)` before `for _, x := range xs` becomes `make([]int, 0, len(xs))`. The capacity is a hint, so only the allocation changes.</RecipeHeader.Description>
 
 </RecipeHeader>
 

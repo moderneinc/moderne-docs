@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Cancel in-progress workflow when it is triggered again"}
-  description={"When a workflow is already running and would be triggered again, cancel the existing workflow. See [`styfle/cancel-workflow-action`](https://github.com/styfle/cancel-workflow-action) for details."}
+  description={"When a workflow is already running and would be triggered again, cancel the existing workflow, through the native [`concurrency`](https://docs.github.com/en/actions/using-jobs/using-concurrency) property. Runs on the default branch are not cancelled."}
   fqName={"org.openrewrite.github.AutoCancelInProgressWorkflow"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -21,7 +21,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
   license={"Moderne Source Available License"}
@@ -33,17 +33,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Cancel in-progress workflow when it is triggered again</RecipeHeader.Title>
 
-<RecipeHeader.Description>When a workflow is already running and would be triggered again, cancel the existing workflow. See [`styfle/cancel-workflow-action`](https://github.com/styfle/cancel-workflow-action) for details.</RecipeHeader.Description>
+<RecipeHeader.Description>When a workflow is already running and would be triggered again, cancel the existing workflow, through the native [`concurrency`](https://docs.github.com/en/actions/using-jobs/using-concurrency) property. Runs on the default branch are not cancelled.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"accessToken","required":false,"description":"Optionally provide the key name of a repository or organization secret that contains a GitHub personal access token with permission to cancel workflows.","example":"WORKFLOWS_ACCESS_TOKEN"}]}>
+<RecipeList recipes={[{"name":"Merge YAML snippet","href":"/user-documentation/recipes/recipe-catalog/yaml/mergeyaml/"}]}>
 
-## Options
+## Definition
 
-</OptionsTable>
+</RecipeList>
 
-<ExampleList examples={[{"parameters":[{"parameter":"accessToken","value":"null"}],"variants":[{"language":"yaml","before":"jobs:\n  build:\n    runs-on: linux\n    steps:\n      - uses: actions/checkout@v2\n","after":"jobs:\n  build:\n    runs-on: linux\n    steps:\n      - uses: styfle/cancel-workflow-action@0.9.1\n        with:\n          access_token: ${{ github.token }}\n      - uses: actions/checkout@v2\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -5,0 +5,3 @@\n    runs-on: linux\n    steps:\n+     - uses: styfle/cancel-workflow-action@0.9.1\n+       with:\n+         access_token: ${{ github.token }}\n      - uses: actions/checkout@v2\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"on:\n  push:\n    branches:\n      - main\njobs:\n  build:\n    runs-on: linux\n    steps:\n      - uses: actions/checkout@v4\n","after":"on:\n  push:\n    branches:\n      - main\nconcurrency:\n  group: ${{ github.workflow }}-${{ github.ref }}\n  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\njobs:\n  build:\n    runs-on: linux\n    steps:\n      - uses: actions/checkout@v4\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -5,0 +5,3 @@\n    branches:\n      - main\n+concurrency:\n+ group: ${{ github.workflow }}-${{ github.ref }}\n+ cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}\njobs:\n","newFile":false}]}]}>
 
 ## Examples
 

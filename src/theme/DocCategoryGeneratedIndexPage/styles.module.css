@@ -1,6 +1,6 @@
 /* Base layout for generated index pages */
 .generatedIndexPage {
-  --ifm-spacing-horizontal: var(--mor-space-26px);
+  --ifm-spacing-horizontal: var(--mod-spacing_3_1_4);
   position: relative;
 }
 
@@ -45,12 +45,12 @@
 .header {
   display: flex;
   flex-direction: column;
-  gap: var(--mor-space-2);
-  margin-bottom: var(--mor-space-32px);
-  padding: var(--mor-space-8) var(--mor-space-32px);
-  background: var(--mor-card);
-  border: 1px solid var(--mor-line-strong);
-  border-radius: var(--mor-radius-card);
+  gap: var(--mod-spacing_1);
+  margin-bottom: var(--mod-spacing_4);
+  padding: var(--mod-spacing_5) var(--mod-spacing_4);
+  background: var(--mod-color-surface-data-grid-hover);
+  border: 1px solid var(--mod-color-border-strong);
+  border-radius: var(--mod-border-radius-card);
   position: relative;
   overflow: hidden;
 }
@@ -64,25 +64,25 @@
   left: 0;
   right: 0;
   height: 6px;
-  background: var(--mor-spectral);
+  background: var(--mod-gradient-spectral);
   z-index: 1;
   pointer-events: none;
 }
 
 .header .title {
-  font-family: var(--mor-font-sans), sans-serif;
+  font-family: var(--mod-font-family-body), sans-serif;
   font-size: 36px;
-  font-weight: var(--mor-font-weight-semibold);
+  font-weight: var(--mod-font-weight-semi-bold);
   line-height: 45px;
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   margin: 0;
 }
 
 .header p {
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-regular);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-regular);
   line-height: 1.4;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
   margin: 0;
 }
 
@@ -90,7 +90,7 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 
   /* Make list items full width and remove Infima col padding */
   > * {

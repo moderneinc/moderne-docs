@@ -41,7 +41,7 @@ function SimplifiedCategoryItem({
             alignItems: 'center',
             padding: 'var(--sidebar-item-padding, 12px)',
             fontSize: 'var(--sidebar-item-font-size, 16px)',
-            fontWeight: 'var(--mor-font-weight-semibold)',
+            fontWeight: 'var(--mod-font-weight-semi-bold)',
             lineHeight: 'var(--sidebar-item-line-height, 1.5)',
             color: isActive
               ? 'var(--sidebar-link-active-color, #283af7)'
@@ -71,7 +71,7 @@ function SimplifiedCategoryItem({
             border: 'none',
             cursor: 'pointer',
             padding: '8px',
-            color: isActive ? 'var(--sidebar-link-active-color, #283af7)' : 'var(--mor-text)',
+            color: isActive ? 'var(--sidebar-link-active-color, #283af7)' : 'var(--mod-color-text-primary)',
             transition: 'color 0.2s',
           }}
           aria-label={isCollapsed ? `Expand ${label}` : `Collapse ${label}`}
@@ -107,7 +107,7 @@ function SimplifiedSidebarLink({
           display: 'block',
           padding: 'var(--sidebar-item-padding, 12px)',
           fontSize: 'var(--sidebar-item-font-size, 16px)',
-          fontWeight: 'var(--mor-font-weight-regular)',
+          fontWeight: 'var(--mod-font-weight-regular)',
           lineHeight: 'var(--sidebar-item-line-height, 1.5)',
           color: isActive
             ? 'var(--sidebar-link-active-color, #283af7)'

@@ -486,6 +486,26 @@ type BranchCommitOptions implements CommitOptions
   branchName: String
 }
 
+"""
+Only reflects CLOSE-triggered branch deletes. A MERGE with deleteSourceBranch: true always
+reports SKIPPED regardless of whether the provider's bundled delete succeeded.
+"""
+enum BranchDeleteStatus
+  @join__type(graph: CHANGESETCOMMITTER)
+{
+  SKIPPED @join__enumValue(graph: CHANGESETCOMMITTER)
+  SUCCEEDED @join__enumValue(graph: CHANGESETCOMMITTER)
+  FAILED @join__enumValue(graph: CHANGESETCOMMITTER)
+
+  """
+  The branch could not be confidently resolved (e.g. an included PR wasn't found in
+  the changelog index, or a fork PR's branch lives in a different repository than
+  the one a delete would target), so the delete was refused rather than risk
+  deleting the wrong branch.
+  """
+  REFUSED_UNTRUSTED @join__enumValue(graph: CHANGESETCOMMITTER)
+}
+
 enum BuildState
   @join__type(graph: CHANGELOGREADER)
   @join__type(graph: CHANGESETCOMMITTER)
@@ -1199,6 +1219,8 @@ type ChangelogPullRequestRef
 {
   origin: String!
   repositoryPath: String!
+
+  """The pull request's source branch."""
   branch: String!
   number: Int!
 }
@@ -1364,6 +1386,11 @@ type Connector
   tools: [ConnectorTool!]!
   uiConfiguration: UiConfiguration
   personalAccessTokenConfiguration: PersonalAccessTokenConfiguration
+
+  """
+  Organization CSV sources this connector is configured to pull. Admin only.
+  """
+  organizationSources: [OrganizationSource!]!
 }
 
 type ConnectorConnection
@@ -1596,6 +1623,13 @@ input CreateUserOrganizationInput
 
   """Repositories to include in the organization."""
   repositories: [RepositoryInput!]
+}
+
+enum DataGridFormat
+  @join__type(graph: CHANGESETREADER)
+{
+  FLAT @join__enumValue(graph: CHANGESETREADER)
+  TREE @join__enumValue(graph: CHANGESETREADER)
 }
 
 interface DataTable
@@ -3120,12 +3154,22 @@ type Mutation
 
   """
   Approve, in bulk, the pull requests the committer created from a changeset.
-  Pass `repositories` to limit the action to a subset of the changeset's
-  repositories; omit it to target every pull request in the changeset. Returns
-  the queued action for polling (also surfaces under
-  `OrganizationChangeset.bulkPullRequestActions`).
+  Pass `commitId` and/or `repositories` to limit the action to one commit job
+  or a subset of the changeset's repositories; omit both to target every pull
+  request in the changeset. Returns the queued action for polling (also
+  surfaces under `OrganizationChangeset.bulkPullRequestActions`).
   """
-  approvePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued! @join__field(graph: CHANGESETCOMMITTER)
+  approvePullRequests(
+    organizationId: ID!
+    changesetId: ID!
+
+    """
+    Limit the action to the pull requests this commit job opened; omit to target
+    every pull request in the changeset.
+    """
+    commitId: ID
+    repositories: [RepositoryInput!]
+  ): BulkPullRequestActionQueued! @join__field(graph: CHANGESETCOMMITTER)
 
   """
   Merge, in bulk, the pull requests the committer created from a changeset.
@@ -3134,6 +3178,12 @@ type Mutation
   mergePullRequests(
     organizationId: ID!
     changesetId: ID!
+
+    """
+    Limit the action to the pull requests this commit job opened; omit to target
+    every pull request in the changeset.
+    """
+    commitId: ID
     repositories: [RepositoryInput!]
     mergeMethod: MergeMethod!
 
@@ -3145,7 +3195,20 @@ type Mutation
   Close, in bulk, the pull requests the committer created from a changeset.
   Returns the queued action for polling.
   """
-  closePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued! @join__field(graph: CHANGESETCOMMITTER)
+  closePullRequests(
+    organizationId: ID!
+    changesetId: ID!
+
+    """
+    Limit the action to the pull requests this commit job opened; omit to target
+    every pull request in the changeset.
+    """
+    commitId: ID
+    repositories: [RepositoryInput!]
+
+    """Delete the source branch after a successful close."""
+    deleteSourceBranch: Boolean! = false
+  ): BulkPullRequestActionQueued! @join__field(graph: CHANGESETCOMMITTER)
 
   """Cancel a pending bulk pull request action."""
   cancelBulkPullRequestAction(id: ID!): BulkPullRequestActionCanceled! @join__field(graph: CHANGESETCOMMITTER)
@@ -4268,6 +4331,42 @@ input OrganizationRecipeRunWhereInput
   _not: OrganizationRecipeRunWhereInput
 }
 
+type OrganizationSource
+  @join__type(graph: CAPABILITIES)
+{
+  """
+  Stable id unique within its Connector: "<connectorId>:<sha-256 of the source URI>".
+  """
+  id: ID!
+  kind: OrganizationSourceKind!
+
+  """The source URI (http/s3/gcs) or permanent-dir-relative path (file)."""
+  location: String!
+
+  """
+  The downloadable structure-only repos.csv for this source; null only in the rare empty-slot case.
+  """
+  download: OrganizationSourceDownload
+}
+
+type OrganizationSourceDownload
+  @join__type(graph: CAPABILITIES)
+{
+  """Admin-gated URL serving the structure-only repos.csv for this source."""
+  url: String!
+  sizeBytes: Int!
+  lastUpdatedAt: DateTime
+}
+
+enum OrganizationSourceKind
+  @join__type(graph: CAPABILITIES)
+{
+  HTTP @join__enumValue(graph: CAPABILITIES)
+  S3 @join__enumValue(graph: CAPABILITIES)
+  GCS @join__enumValue(graph: CAPABILITIES)
+  FILE @join__enumValue(graph: CAPABILITIES)
+}
+
 input OrganizationWhereInput
   @join__type(graph: ORGANIZATION)
 {
@@ -4479,6 +4578,14 @@ interface PullRequestAction
   @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
+
+  """
+  The commit job whose pull request this result acted on. Bulk actions are
+  changeset-scoped, so filter on this to show only one commit job's activity.
+  Null only for actions enqueued before this field existed -- a shrinking
+  population, but one a per-commit view will otherwise render as empty.
+  """
+  commitId: ID
 }
 
 type PullRequestActionCanceled implements PullRequestAction
@@ -4486,6 +4593,7 @@ type PullRequestActionCanceled implements PullRequestAction
   @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
+  commitId: ID
   canceledBy: User!
 }
 
@@ -4509,6 +4617,7 @@ type PullRequestActionFailed implements PullRequestAction
   @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
+  commitId: ID
   startedAt: DateTime
   finishedAt: DateTime!
   errorMessage: String!
@@ -4534,6 +4643,7 @@ type PullRequestActionQueued implements PullRequestAction
   @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
+  commitId: ID
 }
 
 type PullRequestActionRunning implements PullRequestAction
@@ -4541,6 +4651,7 @@ type PullRequestActionRunning implements PullRequestAction
   @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
+  commitId: ID
   startedAt: DateTime!
 }
 
@@ -4568,8 +4679,10 @@ type PullRequestActionSucceeded implements PullRequestAction
   @join__type(graph: CHANGESETCOMMITTER)
 {
   pullRequest: PullRequestRef!
+  commitId: ID
   startedAt: DateTime!
   finishedAt: DateTime!
+  branchDeleteStatus: BranchDeleteStatus!
 }
 
 enum PullRequestActionType
@@ -4593,6 +4706,14 @@ input PullRequestActionWhereInput
   @join__type(graph: CHANGESETCOMMITTER)
 {
   state: PullRequestActionStateFilter
+
+  """
+  Narrow a changeset-scoped action's results to the pull requests one commit job
+  opened. Unattributed results (see `PullRequestAction.commitId`) match `_neq` and
+  `_nin` as well as the job you asked for, and `IDFilter` has no `_isNull`, so they
+  cannot be selected on their own.
+  """
+  commitId: IDFilter
   _and: [PullRequestActionWhereInput!]
   _or: [PullRequestActionWhereInput!]
   _not: PullRequestActionWhereInput
@@ -4672,6 +4793,8 @@ type PullRequestRef
 {
   origin: String!
   repositoryPath: String!
+
+  """The pull request's source branch."""
   branch: String!
   number: Int!
 }
@@ -4744,6 +4867,15 @@ type PullRequestStatus
   Additional status flags that block this pull request. Can depend on the SCM service provider.
   """
   otherBlockingReasons: [String!]!
+
+  """
+  When the pull request was merged or closed. The provider's own timestamp on GitHub,
+  Bitbucket Data Center and Azure DevOps; GitLab and Bitbucket Cloud don't report one,
+  so those fall back to when Moderne observed the transition and advance on every read
+  until the commit job finishes. Null while open, and for pull requests already
+  terminal before this shipped -- those are never re-queried.
+  """
+  resolvedAt: DateTime
 }
 
 type PypiConfiguration
@@ -6646,6 +6778,19 @@ type VisualizationConnection
   edges: [VisualizationEdge!]!
   pageInfo: PageInfo!
   count: Int!
+}
+
+type VisualizationDataGridOutput implements VisualizationOutput
+  @join__implements(graph: CHANGESETREADER, interface: "VisualizationOutput")
+  @join__type(graph: CHANGESETREADER)
+{
+  format: DataGridFormat!
+
+  """
+  Moderne data grid JSON, rendered client-side by the grid components
+  (MIME types: application/vnd.moderne.datagrid+json, application/vnd.moderne.treedatagrid+json)
+  """
+  data: Base64!
 }
 
 type VisualizationDescriptor

@@ -9,16 +9,16 @@ position: relative;
 display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--mor-space-2px);
+  padding: var(--mod-spacing_1_4);
   border: none;
-  border-radius: var(--mor-radius-full);
+  border-radius: var(--mod-border-radius-full);
   background-color: transparent;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
   cursor: pointer;
 }
 
 .accessInfoIcon:hover {
-color: var(--mor-text);
+color: var(--mod-color-text-primary);
 }
 
 .accessInfoPopover {
@@ -29,13 +29,13 @@ position: absolute;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--mor-space-3);
+  gap: var(--mod-spacing_1_1_2);
   width: 260px;
-  padding: var(--mor-space-4);
-  background-color: var(--mor-panel);
-  border: 1px solid var(--mor-line);
-  border-radius: var(--mor-radius-lg);
-  box-shadow: var(--mor-shadow-dropdown);
+  padding: var(--mod-spacing_2);
+  background-color: var(--mod-color-surface-search-input);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-s);
+  box-shadow: var(--mod-docs-shadow-dropdown);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -50,7 +50,7 @@ opacity: 1;
 }
 
 .accessInfoText {
-font-size: var(--mor-font-size-base);
+font-size: var(--mod-font-size-sm);
   line-height: 1.5;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
 }

@@ -37,13 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"keyPath","required":true,"description":"A [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expression to locate a JSON entry.","example":"$.subjects.kind"},{"type":"Boolean","name":"deleteEmptyParents","required":false,"description":"Delete objects and arrays that become empty as a result of deleting the key, applied recursively so that a chain of containers which only held the deleted key is removed entirely. For example, deleting `$.engines.node` from `{\"engines\": {\"node\": \"20\"}}` also deletes `engines`. Containers that were already empty before this recipe ran are left alone. Defaults to `false`."}]}>
+<OptionsTable options={[{"type":"String","name":"keyPath","required":true,"description":"A [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expression to locate a JSON entry.","example":"$.subjects.kind"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"keyPath","value":"$.metadata.name"},{"parameter":"deleteEmptyParents","value":"null"}],"variants":[{"language":"json","before":"{\n  \"apiVersion\": \"v1\",\n  \"metadata\": {\n    \"name\": \"monitoring-tools\",\n    \"namespace\": \"monitoring-tools\"\n  }\n}\n","after":"{\n  \"apiVersion\": \"v1\",\n  \"metadata\": {\n    \"namespace\": \"monitoring-tools\"\n  }\n}\n","diff":"@@ -4,1 +4,0 @@\n  \"apiVersion\": \"v1\",\n  \"metadata\": {\n-   \"name\": \"monitoring-tools\",\n    \"namespace\": \"monitoring-tools\"\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"keyPath","value":"$.metadata.name"}],"variants":[{"language":"json","before":"{\n  \"apiVersion\": \"v1\",\n  \"metadata\": {\n    \"name\": \"monitoring-tools\",\n    \"namespace\": \"monitoring-tools\"\n  }\n}\n","after":"{\n  \"apiVersion\": \"v1\",\n  \"metadata\": {\n    \"namespace\": \"monitoring-tools\"\n  }\n}\n","diff":"@@ -4,1 +4,0 @@\n  \"apiVersion\": \"v1\",\n  \"metadata\": {\n-   \"name\": \"monitoring-tools\",\n    \"namespace\": \"monitoring-tools\"\n","newFile":false}]}]}>
 
 ## Examples
 

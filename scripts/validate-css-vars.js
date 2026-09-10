@@ -15,9 +15,8 @@ function getAllDefinedVariables() {
   const sources = [
     // Custom variables
     'src/css/custom.css',
-    // Morpheus design system tokens + mapping layer
-    'src/css/morpheus-tokens.css',
-    'src/css/morpheus-theme.css'
+    // Morpheus mapping layer + design-system token supplement
+    'src/css/tokens-supplement.css',
   ];
 
   const allVariables = new Set();
@@ -41,6 +40,13 @@ function getAllDefinedVariables() {
       variables.forEach(v => allVariables.add(v));
     });
   }
+
+  // Design-system token package: all emitted --mod-* custom properties.
+  const dsAssets = glob.sync('node_modules/@moderneinc/design-system-tokens/assets/*.css');
+  dsAssets.forEach(file => {
+    const content = fs.readFileSync(file, 'utf-8');
+    extractVariables(content).forEach(v => allVariables.add(v));
+  });
 
   // Add framework variables as wildcards
   const frameworkPrefixes = ['--ifm-', '--docusaurus-'];

@@ -32,19 +32,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"oldApiVersion","required":true,"description":"The old Kubernetes API version to match.","example":"flowcontrol.apiserver.k8s.io/v1beta3"},{"type":"String","name":"newApiVersion","required":true,"description":"The new Kubernetes API version to change to.","example":"flowcontrol.apiserver.k8s.io/v1"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
+<OptionsTable options={[{"type":"String","name":"oldApiVersion","required":true,"description":"The old Kubernetes API version to match.","example":"flowcontrol.apiserver.k8s.io/v1beta3"},{"type":"String","name":"newApiVersion","required":true,"description":"The new Kubernetes API version to change to.","example":"flowcontrol.apiserver.k8s.io/v1"},{"type":"String","name":"kind","required":false,"description":"Only change resources of this kind. This is a glob expression. When omitted, every resource on the old API version is changed, which is only safe when the whole group/version moved together.","example":"PodDisruptionBudget"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"oldApiVersion","value":"flowcontrol.apiserver.k8s.io/v1beta3"},{"parameter":"newApiVersion","value":"flowcontrol.apiserver.k8s.io/v1"},{"parameter":"fileMatcher","value":"null"}],"variants":[{"language":"yaml","before":"apiVersion: flowcontrol.apiserver.k8s.io/v1beta3\n","after":"apiVersion: flowcontrol.apiserver.k8s.io/v1\n","diff":"@@ -1,1 +1,1 @@\n-apiVersion: flowcontrol.apiserver.k8s.io/v1beta3\n+apiVersion: flowcontrol.apiserver.k8s.io/v1\n\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"oldApiVersion","value":"flowcontrol.apiserver.k8s.io/v1beta3"},{"parameter":"newApiVersion","value":"flowcontrol.apiserver.k8s.io/v1"},{"parameter":"kind","value":"null"},{"parameter":"fileMatcher","value":"null"}],"variants":[{"language":"yaml","before":"apiVersion: flowcontrol.apiserver.k8s.io/v1beta3\nkind: FlowSchema\n","after":"apiVersion: flowcontrol.apiserver.k8s.io/v1\nkind: FlowSchema\n","diff":"@@ -1,1 +1,1 @@\n-apiVersion: flowcontrol.apiserver.k8s.io/v1beta3\n+apiVersion: flowcontrol.apiserver.k8s.io/v1\nkind: FlowSchema\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.ChangeApiVersion","displayName":"Change Kubernetes API version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldApiVersion=flowcontrol.apiserver.k8s.io/v1beta3\" --recipe-option \"newApiVersion=flowcontrol.apiserver.k8s.io/v1\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.ChangeApiVersion","displayName":"Change Kubernetes API version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldApiVersion=flowcontrol.apiserver.k8s.io/v1beta3\" --recipe-option \"newApiVersion=flowcontrol.apiserver.k8s.io/v1\" --recipe-option \"kind=PodDisruptionBudget\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
 
 ## Usage
 

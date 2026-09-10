@@ -12,7 +12,7 @@ This guide walks through installing and configuring the Moderne CLI in environme
 
 By the end of this guide, you'll have the CLI installed from your internal mirror and stocked with the recipe JARs needed to run recipes.
 
-You will work with your internal Artifactory or Nexus team to onboard `https://artifacts.codegenomeproject.org/maven` as a new remote repository. See [Accessing the Code Genome Project](../../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for the credentials and entitlement your organization needs.
+You will work with your internal Artifactory or Nexus team to onboard `https://artifacts.codegenomeproject.org/maven` as a new remote repository. See [Accessing the Code Genome Project](../../recipes/accessing-the-code-genome-project.md) for the credentials and entitlement your organization needs.
 
 Adding that remote repository is a one-time task for your artifact repository team. Once it is in place, your developers install and run the CLI and recipes exactly as before, resolving everything through your internal artifact repository with no per-developer changes.
 
@@ -45,7 +45,7 @@ Download the platform-appropriate distribution from your internal mirror. For ex
 
 ```bash
 curl -fL -o moderne-cli.sh \
-    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.2.10/moderne-cli-linux-4.6.3.sh"
+    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.2.10/moderne-cli-linux-4.8.2.sh"
 ```
 
 Replace the version with the one you intend to install, and adjust the artifact name to match your platform (`moderne-cli-linux` or `moderne-cli-osx`).
@@ -65,7 +65,7 @@ Download the Windows distribution from your internal mirror:
 
 ```powershell
 Invoke-WebRequest `
-    -Uri "https://internal-mirror.example.com/io/moderne/moderne-cli-windows/4.2.10/moderne-cli-windows-4.6.3.zip" `
+    -Uri "https://internal-mirror.example.com/io/moderne/moderne-cli-windows/4.2.10/moderne-cli-windows-4.8.2.zip" `
     -OutFile moderne-cli.zip
 ```
 

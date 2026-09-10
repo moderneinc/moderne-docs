@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 Refaster is easy to use and understand even for developers with no prior experience with parsers, compilers, or other refactoring tools.
 OpenRewrite has independently implemented support for Refaster-style templates so that recipe authors can benefit from Refaster's accessibility and existing catalogue of useful refactoring operations.
 
-Refaster template recipes are recipes created from [Refaster templates](#terminology) that refactor code by doing straightforward replacements (e.g., converting `StringUtils.equals(..)` to `Objects.equals(..)`). These are more than just a string replacement, though; they offer compiler and type support. They can also be used to build more complex recipes. Please note, though, that Refaster recipes are **whitespace agnostic** – meaning that you can't use a Refaster recipe to add or remove whitespace.
+Refaster template recipes are recipes created from [Refaster templates](#terminology) that refactor code by doing straightforward replacements (e.g., converting `StringUtils.equals(..)` to `Objects.equals(..)`). These are more than just a string replacement, though - they offer compiler and type support. They can also be used to build more complex recipes. Please note, though, that Refaster recipes are **whitespace agnostic** – meaning that you can't use a Refaster recipe to add or remove whitespace.
 
 Let's walk through everything you need to know to get started making your own.
 

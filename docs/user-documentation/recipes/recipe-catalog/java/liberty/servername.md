@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={[]}
+  tags={["websphere","liberty"]}
   license={"Apache License Version 2.0"}
   fqName={"org.openrewrite.java.liberty.ServerName"}
   artifact={"org.openrewrite.recipe:rewrite-liberty"}

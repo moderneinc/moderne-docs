@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upper case literal suffixes"}
-  description={"Using upper case literal suffixes for declaring literals is less ambiguous, e.g., `1l` versus `1L`. A lowercase `l` is easily mistaken for the digit `1` in many fonts, which can lead to incorrect assumptions about the value."}
+  description={"Using upper case literal suffixes for declaring literals is less ambiguous, e.g., `1l` versus `1L`. A lowercase `l` is easily mistaken for the digit `1` in many fonts, which can lead to incorrect assumptions about the value. Hexadecimal digits are upper cased as well, e.g., `0Xabc` versus `0xABC`, such that they stand out from the lower case `0x` prefix and `p` exponent."}
   fqName={"org.openrewrite.staticanalysis.UpperCaseLiteralSuffixes"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upper case literal suffixes</RecipeHeader.Title>
 
-<RecipeHeader.Description>Using upper case literal suffixes for declaring literals is less ambiguous, e.g., `1l` versus `1L`. A lowercase `l` is easily mistaken for the digit `1` in many fonts, which can lead to incorrect assumptions about the value.</RecipeHeader.Description>
+<RecipeHeader.Description>Using upper case literal suffixes for declaring literals is less ambiguous, e.g., `1l` versus `1L`. A lowercase `l` is easily mistaken for the digit `1` in many fonts, which can lead to incorrect assumptions about the value. Hexadecimal digits are upper cased as well, e.g., `0Xabc` versus `0xABC`, such that they stand out from the lower case `0x` prefix and `p` exponent.</RecipeHeader.Description>
 
 </RecipeHeader>
 

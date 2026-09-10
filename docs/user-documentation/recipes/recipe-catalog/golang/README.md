@@ -1,8 +1,10 @@
 ---
-description: Golang OpenRewrite recipes.
+description: Go OpenRewrite recipes.
 ---
 
-# Golang
+# Go
+
+_Recipes to search and transform Go._
 
 ## Categories
 
@@ -12,6 +14,7 @@ description: Golang OpenRewrite recipes.
 * [Search](/user-documentation/recipes/recipe-catalog/golang/search)
 * [Security](/user-documentation/recipes/recipe-catalog/golang/security)
 * [Test](/user-documentation/recipes/recipe-catalog/golang/test)
+* [Testify](/user-documentation/recipes/recipe-catalog/golang/testify)
 
 ## Recipes
 

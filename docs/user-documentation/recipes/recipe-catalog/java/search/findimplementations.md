@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find implementing classes"}
-  description={"Find class declarations which implement the specified type. If the specified type is a class, its subclasses will be matched. If the specified type is an interface, classes which implement it will be matched."}
+  description={"Find class declarations which implement the specified type. If the specified type is a class, its subclasses will be matched. If the specified type is an interface, classes which implement it will be matched. Anonymous classes, lambdas, and method references implementing the specified type are also matched."}
   fqName={"org.openrewrite.java.search.FindImplementations"}
   languages={["Java"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find implementing classes</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find class declarations which implement the specified type. If the specified type is a class, its subclasses will be matched. If the specified type is an interface, classes which implement it will be matched.</RecipeHeader.Description>
+<RecipeHeader.Description>Find class declarations which implement the specified type. If the specified type is a class, its subclasses will be matched. If the specified type is an interface, classes which implement it will be matched. Anonymous classes, lambdas, and method references implementing the specified type are also matched.</RecipeHeader.Description>
 
 </RecipeHeader>
 

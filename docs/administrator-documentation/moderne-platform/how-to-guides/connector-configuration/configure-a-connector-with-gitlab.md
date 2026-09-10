@@ -6,9 +6,6 @@ description: How to configure the Moderne Connector to communicate with GitLab.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-with-gitlab" />
 
 # Configure a Connector with GitLab
 
@@ -93,7 +90,7 @@ You may create the OAuth application at the **group level** rather than the inst
 :::
 
 4. Click the Save application button
-5.  Copy the `Application ID` and `Secret` from this page; they will be used as arguments for the Moderne Connector:
+5.  Copy the `Application ID` and `Secret` from this page - they will be used as arguments for the Moderne Connector:
 
     ![GitLab OAuth application details showing Application ID, Secret, and configured scopes](./assets/gl-secrets.png)
 

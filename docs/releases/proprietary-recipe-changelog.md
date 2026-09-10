@@ -10,6 +10,568 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## September 10, 2026
+
+#### recipes-go - 0.7.1
+
+* rewrite-go/v0.0.35
+
+## September 9, 2026
+
+#### recipes-csharp - 0.7.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### recipes-go - 0.7.0
+
+* Guard against side effects in all_branches_identical
+* rewrite-go/v0.0.33
+* Read the doc comment from the first line of its block
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### recipes-javascript - 0.1.2
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### recipes-javascript - v0.1.1
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Rewrite the no-globals findings whose module can be named, and make each deprecated-API fix its own recipe
+* Pass CODEGENOME credentials to the npm-publish pack step
+* Let the engine parenthesize inverted boolean checks, and drop the double-negation rule
+* Find every place a SAPUI5 or OpenUI5 version is declared
+
+#### recipes-kotlin - 0.5.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### recipes-scala - 0.6.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-ai - 0.5.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-ai-search - 0.36.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-android - 0.19.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-angular - 1.12.0
+
+* Pass Code Genome Project credentials to the npm-publish pack step
+
+#### rewrite-angular - 1.11.0
+
+* Pin rewrite to ^8.91.1 and move the suite to vitest without isolation
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Bump @openrewrite/rewrite from 8.91.1 to 8.91.4 in /recipes-angular
+* Adding empty modifiers
+* Use CodeGenome in CLI smoke test
+
+#### rewrite-circleci - 3.13.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-compiled-analysis - 0.16.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-concourse - 3.12.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-cryptography - 0.16.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-cryptography - 0.16.0
+
+* Join the cipher and PQC inventories into one data table
+* Resolve TLS values handed across a wrapper boundary
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-devcenter - 1.32.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-devcenter - 1.32.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-dotnet - 0.18.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-dropwizard - 0.8.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-elastic - 0.9.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-hibernate - 0.29.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-jasperreports - 0.7.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-java-application-server - 0.10.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-java-application-server - 0.10.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-java-security - 3.41.0
+
+OpenRewrite 8.92.1
+
+#### rewrite-java-security - 3.40.0
+
+* Do not template a JMS guard call into a class body
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Fix Golang's DVC tests to name other 3rd party package
+* Use CodeGenome in CLI smoke test
+* Add FindThreadSleepInSynchronized (Sonar S2276)
+* Add OWASP A09:2025 Security Logging and Alerting Failures coverage
+
+#### rewrite-kafka - 0.8.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-kubernetes - 3.19.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-mainframe - 3.1.2
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-mainframe - 3.1.1
+
+* Resolve the OpenRewrite build plugins from the Code Genome Project
+
+#### rewrite-migrate-kotlin - 0.9.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-migrate-python - 0.14.0
+
+* Add a skill for authoring Python recipes
+* Audit the recipes against the authoring skill, and the skill against the recipes
+* Expect the typing import to go when only a kwarg name spells it
+* Rename the typing alias inside a subscripted string annotation
+* Recognize PEP 695 type parameters and class bases as type positions
+* Decline a multi-argument `Optional` in both node shapes
+
+#### rewrite-nodejs - 0.50.0
+
+* Pass Code Genome Project credentials to the npm-publish pack step
+
+#### rewrite-nodejs - 0.49.0
+
+* Add spaces around {} in test expectations for tls-server-set-options
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-nullability - 0.6.0
+
+* Exclude libraryModelJars from the dependency check
+
+#### rewrite-prethink - 0.14.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-prethink - 0.14.0
+
+* Resolve Go packages without third-party type attribution
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Match narrowed RubyIsoVisitor return types in Ruby quality recipes
+* Match Django views by the names attribution actually gives them
+
+#### rewrite-program-analysis - 0.16.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-react - 0.7.0
+
+* Re-export React recipes so they can be imported by name
+* Use Map lookups to stop recipes matching Object.prototype members
+* Pin rewrite to ^8.91.1 and move the suite to vitest
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-reactive-streams - 0.21.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-release-metromap - 0.7.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-spring - 0.42.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Migrate `NoResourceFoundException` two-arg constructor to three-arg form
+
+#### rewrite-sql - 2.17.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Guard against unbounded input reaching the SQL parser
+
+#### rewrite-struts - 0.29.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-tapestry - 0.7.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-terraform - 3.15.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-vulncheck - 0.9.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-vulncheck - 0.9.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+## September 4, 2026
+
+#### rewrite-migrate-python - 0.13.2
+
+* Don't interpolate string literals into generated f-strings
+* Correct FindMethodsTest expectations to the Python type model
+* Decide typing-import removal by parsing forward references, not searching prose
+* Migrate typing annotations inside `if TYPE_CHECKING:` blocks
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Guard f-string conversions the migration target cannot parse
+* Re-indent lifted blocks recursively in the collapsible-if recipes
+* Keep each lifted statement's padding in AllBranchesIdentical
+* Resolve UTC through the file's own datetime imports
+* Restrict RemoveSelfAssignment to plain local names
+* Resolve LangChain community imports per symbol, not per submodule
+* Restrict the PEP 585 builtin-alias recipes to annotations
+* Splice whole lines when RemoveUnconditionalValueOverwrite drops a write
+* Resolve removed-API calls through the file's own imports
+* Keep f-string and await replacements in the statement slot they replace
+* Delete the workarounds 8.91.5 makes redundant, and stop shadowing an added import
+
+## August 31, 2026
+
+#### recipes-javascript - v0.1.0
+
+* Move the recipe packages to 8.91.2, and put recipes-ui5 on its AMD primitives
+* Implement eslint-plugin-import-x's autofixable rules as OpenRewrite recipes
+
+#### recipes-javascript - v0.0.1
+
+* Add GitHub Actions workflows
+* Increase test timeout to 60s to fix flaky CI
+* Add writing-openrewrite-recipes-js skill as repo-level skill
+* Add JavaScript code quality infrastructure and 10 recipes
+* Migrate npm publishing to Trusted Publishing (OIDC)
+* Migrate test suites from Jest to Vitest
+* Document type attribution model and failure modes in JS recipe skill
+* Remove the failing receive-pr/comment-pr automation
+* feat: add date-fns and Moment.js to Temporal API migration recipes
+* docs: add root README
+* actions/checkout@v7
+* Install JestToVitest fixture dependencies with npm ci
+* Forward Code Genome Project credentials to GHA workflows
+* Publish the recipe packages to the Code Genome Project, and fix the PR guard
+* Implement the UI5 linter's rules as OpenRewrite recipes
+* Pin the recipe packages to 8.91.1 and take what it lets us delete
+* Implement ESLint's autofixable core rules as OpenRewrite recipes
+
+## August 28, 2026
+
+#### rewrite-mainframe - 3.0.0
+
+Renamed to `rewrite-mainframe` to reflect the expanding language support beyond COBOL.
+
+## August 26, 2026
+
+#### recipes-csharp - 0.6.0
+
+* Mirror the NuGet packages to the Code Genome Project
+
+#### recipes-go - 0.6.2
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### recipes-kotlin - 0.4.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+* Bump Kotlin to 2.4.10 to match rewrite-kotlin's compiler plugin
+
+#### recipes-scala - 0.5.0
+
+* Name the marketplace categories instead of capitalizing packages
+* Drop the redundant `recipes` package segment
+
+#### rewrite-ai - 0.4.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-ai-search - 0.35.5
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-android - 0.18.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-angular - 1.10.0
+
+* Add UpgradeToAngular22 recipe
+* Bump @openrewrite/rewrite from 8.88.2 to 8.88.4 in /recipes-angular
+* Bump @openrewrite/rewrite from 8.88.4 to 8.90.0 in /recipes-angular
+* Always publish snapshots
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+* Set moduleResolution to bundler in tsconfig files for Angular 21
+* Bump @openrewrite/rewrite from 8.90.0 to 8.90.1 in /recipes-angular
+* Avoid redundant traversal in JsonVisitor recipes
+
+#### rewrite-circleci - 3.12.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-compiled-analysis - 0.15.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-concourse - 3.11.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-cryptography - 0.15.0
+
+* Remove rewrite-analysis dependency from build.gradle.kts
+* Apply the dependency-check plugin at the root project
+* Expect the taint-tracking recipes to settle on the first cycle
+
+#### rewrite-devcenter - 1.31.5
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-devcenter - 1.31.4
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-dotnet - 0.17.4
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-dropwizard - 0.7.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-elastic - 0.8.4
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-hibernate - 0.28.0
+
+* Drop the nexusPublishing block
+
+#### rewrite-jasperreports - 0.6.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-java-application-server - 0.9.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-java-application-server - 0.9.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-java-security - 3.39.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-java-security - 3.39.0
+
+* Let the CLI smoke test resolve snapshots from the Code Genome Project
+
+#### rewrite-java-security - 3.38.3
+
+* Add FindJdbcEmptyPassword (Sonar S2115)
+* Add FindWaitNotifyOnThread (Sonar S2236)
+* Remove duplicate org.openrewrite.golang category descriptor
+* Add OWASP LLM01 prompt-injection recipes
+
+#### rewrite-kafka - 0.7.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-kubernetes - 3.18.0
+
+* Fix latent defects across recipes: silent manifest corruption, crashes, and false positives
+* Preserve PodDisruptionBudget selector semantics across the policy/v1 move
+* Stop publishing to Maven Central
+* Structured output, cross-file analysis, and the Sylva migration recipes
+* Migrate Ingress and HorizontalPodAutoscaler bodies, not just their versions
+* Fix the blockers found by review and by running the recipes against customer repositories
+* Right-size the recipe descriptions, and split the Cluster API core migration per kind
+* Extend the das-schiff to Sylva migration: mirrors, export-range classification, and static drift
+* Write Das Schiff as the proper noun it is
+* OpenRewrite recipe best practices
+
+#### rewrite-mainframe - 2.24.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+* Record every BIND on a card, and delete the dead markers package
+* Read the DB2 DDL a program's columns come from
+
+#### rewrite-migrate-kotlin - 0.8.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-migrate-python - 0.13.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-nodejs - v0.48.2
+
+* Adapt util type-checking recipe to template parenthesizing in @openrewrite/rewrite 8.91.0
+
+#### rewrite-nodejs - 0.48.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-nullability - 0.5.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-nullability - 0.5.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-prethink - 0.13.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-prethink - 0.13.0
+
+* Add Ruby/Rails support across the prethink recipe set
+* Stop two polyglot prethink recipes from failing on non-Java sources
+* Fix NPE in Go prethink recipes on grouped type declarations
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+* Detect Go security configuration and stop two Go recipes duplicating every row
+
+#### rewrite-program-analysis - 0.15.0
+
+* Stop building a source cursor over a null tree
+
+#### rewrite-program-analysis - 0.14.2
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-program-analysis - 0.14.1
+
+* Share interprocedural taint-analysis state across a compilation unit
+
+#### rewrite-react - 0.6.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-reactive-streams - 0.20.6
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-release-metromap - 0.6.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-spring - 0.41.0
+
+* Stop pinning the latest Spring Cloud patch in release-tracking tests
+* Drop the nexusPublishing block
+
+#### rewrite-sql - 2.16.0
+
+* Support data-modifying Common Table Expression (CTE) bodies in SqlDetector
+
+#### rewrite-struts - 0.28.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-tapestry - 0.6.0
+
+* Pass the renamed CODEGENOME_USERNAME/TOKEN secrets to gh-automation
+
+#### rewrite-terraform - 3.14.8
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-vulncheck - 0.8.2
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+#### rewrite-vulncheck - 0.8.1
+
+* Updated repository to use OpenRewrite version v8.91.0
+
+## August 25, 2026
+
+#### recipes-go - 0.6.1
+
+* Bump to rewrite-go/v0.0.29
+* Add encoding/json/v2 mechanical migration recipes
+* Add AddV1FormatTags recipe to preserve v1 JSON encoding via field tags
+* Describe the `Go` category so it reads the same in every install order
+* Add `AdoptTestify` recipe
+* Register 18 recipes that were declared but missing from the catalog
+* Register the last four recipes and qualify the Ensure* family by type
+* Map recipes to the diagnostics their analyzers define
+* Rewrite what three reporting recipes only reported
+* Revive TestParseRealRepos and run it over all 252 recipes
+* Give PreferMakeForEmptyMap the rewrite its description promised
+* Adapt the type-assertion recipes to `Go.TypeAssertion`
+* Re-attribute the calls hand-built recipes emit
+* rewrite-go/v0.0.31
+* Use MaybeAddImport in UseStringsBuilderInLoop
+* Keep `main`, `init`, and exported functions in RemoveEmptyFunction
+* Defer the body close where the response is known to be non-nil
+* Skip receiver rename when the short name is already bound
+* Drop the cross-file flag in UseErrorsNewForSimpleErrors
+* Keep the conversion that types a qualified untyped constant
+* Read `resource == nil` guards when placing an inserted cleanup
+* Take indentation only when copying a statement's prefix
+* Declare each error sentinel once per package
+* Build rewritten nodes from templates instead of hand-attribution
+
+#### rewrite-java-security - 3.38.2
+
+* Add FindJdbcEmptyPassword (Sonar S2115)
+* Add FindWaitNotifyOnThread (Sonar S2236)
+* Remove duplicate org.openrewrite.golang category descriptor
+* Add OWASP LLM01 prompt-injection recipes
+
+#### rewrite-program-analysis - 0.14.0
+
+* Match taint sinks by id, and stop retaining cursors in the accumulator
+
+## August 21, 2026
+
+#### rewrite-migrate-python - 0.13.0
+
+* Mirror the PyPI wheel to the Code Genome Project
+* Decide typing-alias shadowing by scope instead of `field_type`
+* FindSuspiciousChainedComparison recipe
+
 ## August 19, 2026
 
 #### rewrite-spring - v0.40.1
@@ -32,15 +594,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## August 17, 2026
 
-#### rewrite-cobol - 2.22.0
-
-* Fix three COBOL parse gaps: EXEC DLI, EXIT paragraphs, and RD PAGE
-* Stop PICTURE strings from consuming the entry that follows them
-* Parse four more constructs found in real CICS and IMS COBOL
-* Stop silently skipping a COPY REPLACING rule, and refuse partial words
-* Model JCL statements in the LST, and stop losing statements to column 73
-* Give every COBOL node an identity of its own
-
 #### rewrite-devcenter - 1.31.1
 
 Pick up latest rewrite-java-security.
@@ -54,6 +607,15 @@ Pick up latest rewrite-java-security.
 * Fix FindSensitiveApiEndpoints not working on record types
 * Classify Go recipes as go, not golang
 * Migrate off the end-of-life rewrite-analysis
+
+#### rewrite-mainframe - 2.22.0
+
+* Fix three COBOL parse gaps: EXEC DLI, EXIT paragraphs, and RD PAGE
+* Stop PICTURE strings from consuming the entry that follows them
+* Parse four more constructs found in real CICS and IMS COBOL
+* Stop silently skipping a COPY REPLACING rule, and refuse partial words
+* Model JCL statements in the LST, and stop losing statements to column 73
+* Give every COBOL node an identity of its own
 
 #### rewrite-program-analysis - 0.13.9
 
@@ -107,14 +669,6 @@ Pick up latest rewrite-java-security.
 #### rewrite-circleci - 3.12.5
 
 * Updated repository to use OpenRewrite version v8.89.0
-
-#### rewrite-cobol - v2.21.1
-
-* Move CI and publishing onto the openrewrite gh-automation workflows
-
-#### rewrite-cobol - 2.21.0
-
-* Pass Code Genome Project artifact credentials to the shared workflows
 
 #### rewrite-compiled-analysis - 0.15.0
 
@@ -175,6 +729,14 @@ Pick up latest rewrite-java-security.
 #### rewrite-kubernetes - 3.17.5
 
 * Updated repository to use OpenRewrite version v8.89.0
+
+#### rewrite-mainframe - v2.21.1
+
+* Move CI and publishing onto the openrewrite gh-automation workflows
+
+#### rewrite-mainframe - 2.21.0
+
+* Pass Code Genome Project artifact credentials to the shared workflows
 
 #### rewrite-migrate-kotlin - 0.7.0
 
@@ -358,10 +920,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.88.0
 
-#### rewrite-cobol - 2.20.3
-
-* Updated repository to use OpenRewrite version v8.88.0
-
 #### rewrite-compiled-analysis - 0.14.4
 
 * Updated repository to use OpenRewrite version v8.88.0
@@ -414,6 +972,10 @@ Pick up latest rewrite-java-security.
 * Updated repository to use OpenRewrite version v8.88.0
 
 #### rewrite-kubernetes - 3.17.4
+
+* Updated repository to use OpenRewrite version v8.88.0
+
+#### rewrite-mainframe - 2.20.3
 
 * Updated repository to use OpenRewrite version v8.88.0
 
@@ -628,10 +1190,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.87.0
 
-#### rewrite-cobol - 2.20.2
-
-* Updated repository to use OpenRewrite version v8.87.0
-
 #### rewrite-compiled-analysis - 0.14.3
 
 * Updated repository to use OpenRewrite version v8.87.0
@@ -693,6 +1251,10 @@ Pick up latest rewrite-java-security.
 * Updated repository to use OpenRewrite version v8.87.0
 
 #### rewrite-kubernetes - 3.17.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-mainframe - 2.20.2
 
 * Updated repository to use OpenRewrite version v8.87.0
 
@@ -800,7 +1362,7 @@ Pick up latest rewrite-java-security.
 
 ## July 7, 2026
 
-#### rewrite-cobol - 2.20.1
+#### rewrite-mainframe - 2.20.1
 
 * Read and tokenize JCL .prm members once by path, not per source
 
@@ -839,11 +1401,6 @@ Pick up latest rewrite-java-security.
 #### rewrite-circleci - 3.12.2
 
 * Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-cobol - 2.20.0
-
-* Stop exposing the ANTLR4 codegen tool as a runtime dependency
-* Expand external SYSIN/SYSTSIN .prm members into the JCL LST
 
 #### rewrite-compiled-analysis - 0.14.2
 
@@ -955,6 +1512,11 @@ Pick up latest rewrite-java-security.
 #### rewrite-kubernetes - 3.17.2
 
 * Updated repository to use OpenRewrite version v8.86.0
+
+#### rewrite-mainframe - 2.20.0
+
+* Stop exposing the ANTLR4 codegen tool as a runtime dependency
+* Expand external SYSIN/SYSTSIN .prm members into the JCL LST
 
 #### rewrite-migrate-kotlin - 0.6.1
 
@@ -1133,11 +1695,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.85.0
 
-#### rewrite-cobol - 2.19.0
-
-* Recognize .dcl (DCLGEN) files as copybooks for EXEC SQL INCLUDE
-* Increase default Cobol parser timeout to 10 minutes
-
 #### rewrite-compiled-analysis - 0.14.1
 
 * Updated repository to use OpenRewrite version v8.85.0
@@ -1211,6 +1768,11 @@ Pick up latest rewrite-java-security.
 #### rewrite-kubernetes - 3.17.1
 
 * Updated repository to use OpenRewrite version v8.85.0
+
+#### rewrite-mainframe - 2.19.0
+
+* Recognize .dcl (DCLGEN) files as copybooks for EXEC SQL INCLUDE
+* Increase default Cobol parser timeout to 10 minutes
 
 #### rewrite-migrate-kotlin - 0.6.0
 
@@ -1368,10 +1930,6 @@ Pick up latest rewrite-java-security.
 
 * Regenerate recipes.csv
 
-#### rewrite-cobol - 2.18.0
-
-* Regenerate recipes.csv
-
 #### rewrite-compiled-analysis - 0.14.0
 
 * Regenerate recipes.csv
@@ -1443,6 +2001,10 @@ Pick up latest rewrite-java-security.
 * Regenerate recipes.csv
 
 #### rewrite-kubernetes - 3.17.0
+
+* Regenerate recipes.csv
+
+#### rewrite-mainframe - 2.18.0
 
 * Regenerate recipes.csv
 
@@ -1612,10 +2174,6 @@ Pick up latest rewrite-java-security.
 
 * Use rewriteRecipe.rewriteVersion convention
 
-#### rewrite-cobol - 2.17.5
-
-* Updated repository to use OpenRewrite version v8.83.0
-
 #### rewrite-compiled-analysis - 0.13.4
 
 * Updated repository to use OpenRewrite version v8.83.0
@@ -1688,6 +2246,10 @@ Pick up latest rewrite-java-security.
 * Migrate Kafka 4.0 DescribeTopicsResult.values() to topicNameValues()
 
 #### rewrite-kubernetes - 3.16.4
+
+* Updated repository to use OpenRewrite version v8.83.0
+
+#### rewrite-mainframe - 2.17.5
 
 * Updated repository to use OpenRewrite version v8.83.0
 
@@ -2012,7 +2574,7 @@ First release.
 
 ## May 6, 2026
 
-#### rewrite-cobol - v2.17.4
+#### rewrite-mainframe - v2.17.4
 
 - OpenRewrite v8.81.6
 
@@ -2052,10 +2614,6 @@ First release.
 * Updated repository to use OpenRewrite version v8.81.0
 
 #### rewrite-circleci - 3.10.2
-
-* Updated repository to use OpenRewrite version v8.81.0
-
-#### rewrite-cobol - 2.17.3
 
 * Updated repository to use OpenRewrite version v8.81.0
 
@@ -2109,6 +2667,10 @@ First release.
 * Updated repository to use OpenRewrite version v8.81.0
 
 #### rewrite-kubernetes - 3.16.2
+
+* Updated repository to use OpenRewrite version v8.81.0
+
+#### rewrite-mainframe - 2.17.3
 
 * Updated repository to use OpenRewrite version v8.81.0
 
@@ -2210,10 +2772,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.80.0
 
-#### rewrite-cobol - 2.17.2
-
-* Updated repository to use OpenRewrite version v8.80.0
-
 #### rewrite-compiled-analysis - 0.13.1
 
 * Updated repository to use OpenRewrite version v8.80.0
@@ -2278,6 +2836,10 @@ First release.
 * Updated repository to use OpenRewrite version v8.80.0
 
 #### rewrite-kubernetes - 3.16.1
+
+* Updated repository to use OpenRewrite version v8.80.0
+
+#### rewrite-mainframe - 2.17.2
 
 * Updated repository to use OpenRewrite version v8.80.0
 
@@ -2401,10 +2963,6 @@ First release.
 
 * Update Prethink context
 
-#### rewrite-cobol - 2.17.1
-
-* Updated repository to use OpenRewrite version v8.79.0
-
 #### rewrite-compiled-analysis - 0.13.0
 
 * Update Prethink context
@@ -2474,6 +3032,10 @@ First release.
 * Fix limitContainerCapabilities test for MergeYaml indentation change
 * Update Prethink context
 * Fix JsonPathMatcher.matches() incompatibility with rewrite 8.79.0
+
+#### rewrite-mainframe - 2.17.1
+
+* Updated repository to use OpenRewrite version v8.79.0
 
 #### rewrite-migrate-kotlin - 0.1.4
 
@@ -2708,10 +3270,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.77.0
 
-#### rewrite-cobol - 2.17.0
-
-* Add JCL FindWord search recipe
-
 #### rewrite-compiled-analysis - 0.12.3
 
 * Updated repository to use OpenRewrite version v8.77.0
@@ -2771,6 +3329,10 @@ First release.
 #### rewrite-kubernetes - 3.15.6
 
 * Updated repository to use OpenRewrite version v8.77.0
+
+#### rewrite-mainframe - 2.17.0
+
+* Add JCL FindWord search recipe
 
 #### rewrite-migrate-kotlin - 0.1.3
 
@@ -2942,10 +3504,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.75.5
 
-#### rewrite-cobol - 2.16.0
-
-* Lombok Best Practices
-
 #### rewrite-compiled-analysis - 0.12.2
 
 * Updated repository to use OpenRewrite version v8.75.5
@@ -2993,6 +3551,10 @@ First release.
 #### rewrite-kubernetes - 3.15.5
 
 * Updated repository to use OpenRewrite version v8.75.5
+
+#### rewrite-mainframe - 2.16.0
+
+* Lombok Best Practices
 
 #### rewrite-migrate-kotlin - 0.1.2
 
@@ -3079,10 +3641,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.75.0
 
-#### rewrite-cobol - 2.15.1
-
-* Updated repository to use OpenRewrite version v8.75.0
-
 #### rewrite-compiled-analysis - 0.12.1
 
 * Updated repository to use OpenRewrite version v8.75.0
@@ -3130,6 +3688,10 @@ First release.
 * Updated repository to use OpenRewrite version v8.75.0
 
 #### rewrite-kubernetes - 3.15.4
+
+* Updated repository to use OpenRewrite version v8.75.0
+
+#### rewrite-mainframe - 2.15.1
 
 * Updated repository to use OpenRewrite version v8.75.0
 
@@ -3234,10 +3796,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.74.1
 
-#### rewrite-cobol - 2.15.0
-
-* Update Prethink context
-
 #### rewrite-compiled-analysis - 0.12.0
 
 * Update SDKMan Java version
@@ -3287,6 +3845,10 @@ First release.
 #### rewrite-kubernetes - 3.15.3
 
 * Updated repository to use OpenRewrite version v8.74.1
+
+#### rewrite-mainframe - 2.15.0
+
+* Update Prethink context
 
 #### rewrite-migrate-kotlin - v0.1.0
 
@@ -3399,7 +3961,7 @@ First release.
 
 ## February 23, 2026
 
-#### rewrite-cobol - 2.14.2
+#### rewrite-mainframe - 2.14.2
 
 * Add data tables to search recipes for CLI output
 * Fixing the copybook being output with potentially an absolute path rather than the standard relative one we expect everywhere else.
@@ -3411,7 +3973,7 @@ First release.
 
 ## February 20, 2026
 
-#### rewrite-cobol - 2.14.1
+#### rewrite-mainframe - 2.14.1
 
 * Remove excessive estimatedEffortPerOccurrence override
 * Adopt Moderne Source Available License
@@ -3480,12 +4042,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.73.0
 
-#### rewrite-cobol - 2.14.0
-
-* Drop `cobol-cli`
-* Bypass the adapt() method call to prevent ClassCastException
-* Drop `model`, which appears unused
-
 #### rewrite-compiled-analysis - 0.11.5
 
 * Updated repository to use OpenRewrite version v8.73.0
@@ -3533,6 +4089,12 @@ First release.
 #### rewrite-kubernetes - 3.15.2
 
 * Updated repository to use OpenRewrite version v8.73.0
+
+#### rewrite-mainframe - 2.14.0
+
+* Drop `cobol-cli`
+* Bypass the adapt() method call to prevent ClassCastException
+* Drop `model`, which appears unused
 
 #### rewrite-nodejs - 0.38.0
 
@@ -3687,15 +4249,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.72.0
 
-#### rewrite-cobol - 2.13.2
-
-* Updated repository to use OpenRewrite version v8.72.0
-
-#### rewrite-cobol - 2.13.1
-
-* Upgrading Antlr to 4.13.2
-* Regenerate Antlr sources with Antlr 4.13.2
-
 #### rewrite-compiled-analysis - 0.11.4
 
 * Updated repository to use OpenRewrite version v8.72.0
@@ -3746,6 +4299,15 @@ First release.
 #### rewrite-kubernetes - 3.15.1
 
 * Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-mainframe - 2.13.2
+
+* Updated repository to use OpenRewrite version v8.72.0
+
+#### rewrite-mainframe - 2.13.1
+
+* Upgrading Antlr to 4.13.2
+* Regenerate Antlr sources with Antlr 4.13.2
 
 #### rewrite-nodejs - 0.37.1
 
@@ -4759,26 +5321,6 @@ Republishing to update dependencies
 
 ## September 10, 2025
 
-#### rewrite-ai-search - 0.30.2
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-android - 0.12.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-circleci - 3.7.4
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-compiled-analysis - 0.8.2
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-concourse - 3.7.2
-
-* Updated repository to use OpenRewrite version v8.62.0
-
 #### rewrite-cryptography - 0.8.1
 
 * Updated repository to use OpenRewrite version v8.62.0
@@ -4787,171 +5329,4 @@ Republishing to update dependencies
 
 * Add a Quarkus specific DevCenter
 * Do not assume `org.openrewrite.dataTables` messages preserve order in `DataTableWatcher`
-
-#### rewrite-dotnet - 0.13.2
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-elastic - v0.1.0
-
-* Migrate to v9 initial recipe
-* Rename `*Reponse valueBody()` methods for ElasticSearch 9
-* Map indicesBoost and dynamicTemplates `Map` to `NamedValue`
-* `Hit matchedQueries()` changed from `List&lt;String&gt;` to `Map&lt;String, Double&gt;`
-* Add comments to deprecated classes
-* Migrate source field from String to ScriptSource
-* Added BoxedApiFields recipe and the singular BoxedApiField recipe
-
-#### rewrite-hibernate - 0.11.0
-
-* Introduce (Composite)UserType recipes
-* Inline methods annotated with `@InlineMe`
-* Hibernate 7: JdbcType to JdbcTypeCode
-
-#### rewrite-java-security - 3.18.0
-
-* DependencyVulnerabilityCheck recipe produces a data table for tracking the origin of a vulnerable dependency
-
-#### rewrite-kafka - v0.1.0
-
-* Migrate `WindowStore.put()`
-* Add tests for migrating Joined.named() to Joined.as()
-* Change group id
-* Add RemovePartitionGrouperConfiguration recipe
-* Add Kafka 2.5 migration recipe for KafkaStreams#store method
-* Improve declarative recipes
-* Add MigrateKStream: `.groupByKey().reduce` to `.toTable`
-* Add MigrateRetryConfiguration recipe for Kafka 2.7
-* Add MigrateStreamsUncaughtExceptionHandler recipe
-* Add Kafka 3.0 migration recipes
-
-#### rewrite-kubernetes - 3.10.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-nodejs - 0.29.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-program-analysis - 0.5.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-reactive-streams - 0.16.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-spring - 0.13.0
-
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-09-02T1110
-* Leverage the OSS Spring Boot 3.5 migration recipes
-* Migrate `AntPathRequestMatcher`
-
-#### rewrite-sql - 2.6.4
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-struts - 0.20.0
-
-* Use type tables to support multiple versions
-* Enhance MigrateAwareInterfaces recipe with method renames for Struts 6
-* Add Dynamic Method Invocation migration recipe for Struts 6
-
-#### rewrite-terraform - 3.8.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-## September 5, 2025
-
-#### rewrite-cryptography - v0.8.0
-
-* Implement custom taint flow messages for cryptography specs
-* Add a rewrite-cryptography-bom which contains just this project. Apparently this is useful for some corporate procurement processes.
-* Add FindSecurityModifications recipe to produce a data table of mutating methods invoked on java.lang.Security instances.
-* Add SSLSocket parameters search/data table recipe.
-* Add search/data table recipe to aggregate RSAKeyGenParameters.
-* Add Cipher.unwrap() as a possible sink for of hardcoded algorithms
-
-#### rewrite-program-analysis - v0.5.0
-
-* Fix NPE in `FindNullPointerIssues`
-* Add custom source and sink messages to TaintFlowSpec
-* Fix taint tracking from static initializer blocks
-
-## August 27, 2025
-
-#### rewrite-ai-search - 0.30.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-circleci - 3.7.3
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-compiled-analysis - 0.8.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-concourse - 3.7.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-devcenter - 1.7.0
-
-* DevCenter for Apache Maven org in app.moderne.io
-
-#### rewrite-dotnet - 0.13.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-hibernate - 0.10.0
-
-* Replace annotation for Hibernate 7.0
-* Migrate Session load, get and refresh to getReference, find and refresh
-* Migrate Hibernate CascadeType constants
-* NaturalIdLoadAccess#using(Object...) and NaturalIdMultiLoadAccess#compoundValue(Object...) removed in favor of (Map) variants
-* Hibernate7: LockRequest to new LockOptions implementation
-* Remove Unnecessary Cast to Session from createEntityManager
-* Hibernate7 - Remove deprecated LockOptions
-
-#### rewrite-java-security - 3.17.0
-
-* chore(ci): bump actions/setup-java from 4 to 5
-
-#### rewrite-program-analysis - 0.4.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-reactive-streams - 0.16.0
-
-* Use classpath from resource for Refaster
-
-#### rewrite-spring - 0.12.0
-
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-08-19T1107
-* Use the property migrations from OSS rewrite-spring
-* Remove duplicate UpgradeSpringKafka_3_0 recipe
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-08-26T1110
-* Add Spring Boot 3.5 deprecation recipes
-* Enabled test after upstream fix
-
-#### rewrite-sql - 2.6.3
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-struts - 0.19.1
-
-* Updated repository to use OpenRewrite version v8.61.1
-
-#### rewrite-terraform - 3.8.0
-
-* Find required providers
-
-## August 22, 2025
-
-#### rewrite-java-security - v3.16.1
-
-* Fix `DependencyVulnerabilityCheckTest` after new vulnerabilities were added
-* Fix password detection regex to handle dots and special characters in URLs
-* Remove private IP addresses from comments
 

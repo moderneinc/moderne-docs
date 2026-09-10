@@ -4,10 +4,6 @@ sidebar_label: Moderne recipe catalog search
 description: A comprehensive guide on how to effectively find recipes in the Moderne Platform.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/how-to-guides/moderne-platform-search" />
-
 # Moderne recipe catalog search
 
 The Moderne Platform search bar helps you quickly find recipes by keyword, recipe ID, or tag. When you already have a sense of what you're after, it's the fastest way to get to the right recipe.

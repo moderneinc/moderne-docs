@@ -17,11 +17,11 @@ The resource step scoops up any files that weren't parsed by the preceding steps
 
 The CLI supports the following build step types:
 
-* **External build tool steps**: `maven`, `gradle`, `bazel`, and `sbt`. These invoke the respective build tool to extract build metadata — the project structure, source sets, and classpaths — and then the CLI parses the source code itself with full type attribution. The build tool is used only for discovery; the CLI does the parsing (see [discovery and parsing](#discovery-and-parsing)).
+* **External build tool steps**: `maven`, `gradle`, `bazel`, and `sbt`. These invoke the respective build tool to extract build metadata — the project structure, source sets, and classpaths — and then the CLI parses the source code itself with full type attribution. The build tool is used only for discovery. The CLI does the parsing (see [discovery and parsing](#discovery-and-parsing)).
 * **Language-specific steps**: `python`, `javascript`, `dotnet`, `go`, and `mainframe`. These use dedicated parsers to handle their respective language ecosystems.
 * **Resource step**: `resource`. A catch-all step that parses files not handled by other steps (YAML, XML, JSON, Terraform, properties, etc.).
 
-In the default configuration, the external build tool steps, the `javascript` and `python` language steps, and the resource step all run automatically. JavaScript and Python were added to the default pipeline in CLI v4.3.0; on earlier versions, they required explicit configuration. The `dotnet`, `go`, and `mainframe` steps must be [explicitly configured](#configuring-build-steps-explicitly) in your `moderne.yml` file.
+In the default configuration, the external build tool steps, the `javascript` and `python` language steps, and the resource step all run automatically. JavaScript and Python were added to the default pipeline in CLI v4.3.0. On earlier versions, they required explicit configuration. The `dotnet`, `go`, and `mainframe` steps must be [explicitly configured](#configuring-build-steps-explicitly) in your `moderne.yml` file.
 
 :::tip
 For a JVM build tool the CLI does not natively support, such as a homegrown or internal build system, you can hand-author the prebuild tree yourself and the CLI will parse it with full type attribution. See [authoring a prebuild for a custom JVM build tool](./custom-build-tool-prebuild.md).
@@ -35,7 +35,7 @@ Each external build tool step scans the repository for the root build files of i
 
 Each external build tool step runs in two phases: **discovery** and **parsing**.
 
-In the **discovery** phase, the CLI invokes the build tool to extract build metadata — the project's modules, source sets, compiler settings, and the classpath each source set compiled against. For Maven, this runs a lightweight metadata goal; for Gradle, a lightweight metadata task. The build tool is never asked to produce LSTs — it only reports the structure of the build — and the CLI records that structure under `.moderne/prebuild/` (see [`mod prebuild`](../cli-reference.md#mod-prebuild)).
+In the **discovery** phase, the CLI invokes the build tool to extract build metadata — the project's modules, source sets, compiler settings, and the classpath each source set compiled against. For Maven, this runs a lightweight metadata goal. For Gradle, it runs a lightweight metadata task. The build tool is never asked to produce LSTs — it only reports the structure of the build — and the CLI records that structure under `.moderne/prebuild/` (see [`mod prebuild`](../cli-reference.md#mod-prebuild)).
 
 In the **parsing** phase, the CLI reads that recorded structure and parses the source code itself, inside its own JVM, into type-attributed LSTs. Every JVM build tool — Maven, Gradle, Bazel, sbt, and [custom build tools](./custom-build-tool-prebuild.md) — shares this same parser, so parsing behaves consistently no matter which build tool discovered the sources.
 
@@ -111,7 +111,7 @@ build:
         **/*
 ```
 
-This configuration is a close equivalent of the defaults, but not an exact one. The default pipeline also includes a generic JVM step for [hand-authored prebuild trees](./custom-build-tool-prebuild.md); that step has no `moderne.yml` step type and runs only in the default configuration.
+This configuration is a close equivalent of the defaults, but not an exact one. The default pipeline also includes a generic JVM step for [hand-authored prebuild trees](./custom-build-tool-prebuild.md). That step has no `moderne.yml` step type and runs only in the default configuration.
 
 The order of the steps is important, as any file parsed by one step will be skipped by a subsequent step. In this way, the steps drive the order of precedence of build tools.
 

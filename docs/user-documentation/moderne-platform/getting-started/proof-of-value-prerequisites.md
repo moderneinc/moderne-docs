@@ -4,10 +4,6 @@ sidebar_label: Proof of value prerequisites
 description: What your team needs to prepare before starting the Moderne SaaS proof of value process.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/proof-of-value-prerequisites" />
-
 # Proof of value (POV) prerequisites
 
 Before starting the Moderne SaaS proof of value process, your team will need to:

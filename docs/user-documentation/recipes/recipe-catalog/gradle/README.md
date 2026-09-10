@@ -4,11 +4,13 @@ description: Gradle OpenRewrite recipes.
 
 # Gradle
 
+_Recipes to search and transform [Gradle](https://gradle.org/) build files._
+
 ## Categories
 
-* [Gradle8](/user-documentation/recipes/recipe-catalog/gradle/gradle8)
-* [Gradle9](/user-documentation/recipes/recipe-catalog/gradle/gradle9)
-* [Plugins](/user-documentation/recipes/recipe-catalog/gradle/plugins)
+* [Gradle 8](/user-documentation/recipes/recipe-catalog/gradle/gradle8)
+* [Gradle 9](/user-documentation/recipes/recipe-catalog/gradle/gradle9)
+* [Gradle Plugins](/user-documentation/recipes/recipe-catalog/gradle/plugins)
 * [Search](/user-documentation/recipes/recipe-catalog/gradle/search)
 * [Security](/user-documentation/recipes/recipe-catalog/gradle/security)
 * [Spring](/user-documentation/recipes/recipe-catalog/gradle/spring)

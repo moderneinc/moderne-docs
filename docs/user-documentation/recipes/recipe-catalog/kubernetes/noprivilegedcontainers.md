@@ -32,13 +32,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addconfiguration/"}]}>
+<RecipeList recipes={[{"name":"Add Kubernetes pod spec configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addpodspecconfiguration/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<ExampleList examples={[{"variants":[{"language":"yaml","before":"apiVersion: policy/v1beta1\nkind: PodSecurityPolicy\nmetadata:\n  name: example\nspec:\n  seLinux:\n    rule: RunAsAny\n","after":"apiVersion: policy/v1beta1\nkind: PodSecurityPolicy\nmetadata:\n  name: example\nspec:\n  seLinux:\n    rule: RunAsAny\n  privileged: false\n","diff":"@@ -8,0 +8,1 @@\n  seLinux:\n    rule: RunAsAny\n+ privileged: false\n\n","newFile":false}]},{"variants":[{"language":"yaml","before":"apiVersion: policy/v1beta1\nkind: PodSecurityPolicy\nmetadata:\n  name: example\nspec:\n  seLinux:\n    rule: RunAsAny\n","after":"apiVersion: policy/v1beta1\nkind: PodSecurityPolicy\nmetadata:\n  name: example\nspec:\n  seLinux:\n    rule: RunAsAny\n  privileged: false\n","diff":"@@ -8,0 +8,1 @@\n  seLinux:\n    rule: RunAsAny\n+ privileged: false\n\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"apiVersion: v1\nkind: Pod\nmetadata:\n  name: example\nspec:\n  containers:\n  - name: nginx\n    image: nginx\n","after":"apiVersion: v1\nkind: Pod\nmetadata:\n  name: example\nspec:\n  containers:\n  - name: nginx\n    image: nginx\n    securityContext:\n      privileged: false\n","diff":"@@ -9,0 +9,2 @@\n  - name: nginx\n    image: nginx\n+   securityContext:\n+     privileged: false\n\n","newFile":false}]},{"variants":[{"language":"yaml","before":"apiVersion: v1\nkind: Pod\nmetadata:\n  name: example\nspec:\n  containers:\n  - name: nginx\n    image: nginx\n","after":"apiVersion: v1\nkind: Pod\nmetadata:\n  name: example\nspec:\n  containers:\n  - name: nginx\n    image: nginx\n    securityContext:\n      privileged: false\n","diff":"@@ -9,0 +9,2 @@\n  - name: nginx\n    image: nginx\n+   securityContext:\n+     privileged: false\n\n","newFile":false}]}]}>
 
 ## Examples
 

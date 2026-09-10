@@ -32,13 +32,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Kubernetes API v1.29","href":"/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_29/"},{"name":"Change Kubernetes API version","href":"/user-documentation/recipes/recipe-catalog/kubernetes/changeapiversion/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Kubernetes API v1.31","href":"/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_31/"},{"name":"Change Kubernetes API version","href":"/user-documentation/recipes/recipe-catalog/kubernetes/changeapiversion/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<ExampleList examples={[{"variants":[{"language":"yaml","before":"apiVersion: flowcontrol.apiserver.k8s.io/v1beta1\nspec:\n  limited:\n    assuredConcurrencyShares: 30\n","after":"apiVersion: flowcontrol.apiserver.k8s.io/v1\nspec:\n  limited:\n    nominalConcurrencyShares: 30\n","diff":"@@ -1,1 +1,1 @@\n-apiVersion: flowcontrol.apiserver.k8s.io/v1beta1\n+apiVersion: flowcontrol.apiserver.k8s.io/v1\nspec:\n@@ -4,1 +4,1 @@\nspec:\n  limited:\n-   assuredConcurrencyShares: 30\n+   nominalConcurrencyShares: 30\n\n","newFile":false}]},{"variants":[{"language":"yaml","before":"apiVersion: flowcontrol.apiserver.k8s.io/v1beta1\nspec:\n  limited:\n    assuredConcurrencyShares: 30\n","after":"apiVersion: flowcontrol.apiserver.k8s.io/v1\nspec:\n  limited:\n    nominalConcurrencyShares: 30\n","diff":"@@ -1,1 +1,1 @@\n-apiVersion: flowcontrol.apiserver.k8s.io/v1beta1\n+apiVersion: flowcontrol.apiserver.k8s.io/v1\nspec:\n@@ -4,1 +4,1 @@\nspec:\n  limited:\n-   assuredConcurrencyShares: 30\n+   nominalConcurrencyShares: 30\n\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"apiVersion: flowcontrol.apiserver.k8s.io/v1beta1\nkind: PriorityLevelConfiguration\nspec:\n  limited:\n    assuredConcurrencyShares: 30\n","after":"apiVersion: flowcontrol.apiserver.k8s.io/v1\nkind: PriorityLevelConfiguration\nspec:\n  limited:\n    nominalConcurrencyShares: 30\n","diff":"@@ -1,1 +1,1 @@\n-apiVersion: flowcontrol.apiserver.k8s.io/v1beta1\n+apiVersion: flowcontrol.apiserver.k8s.io/v1\nkind: PriorityLevelConfiguration\n@@ -5,1 +5,1 @@\nspec:\n  limited:\n-   assuredConcurrencyShares: 30\n+   nominalConcurrencyShares: 30\n\n","newFile":false}]},{"variants":[{"language":"yaml","before":"apiVersion: flowcontrol.apiserver.k8s.io/v1beta1\nkind: PriorityLevelConfiguration\nspec:\n  limited:\n    assuredConcurrencyShares: 30\n","after":"apiVersion: flowcontrol.apiserver.k8s.io/v1\nkind: PriorityLevelConfiguration\nspec:\n  limited:\n    nominalConcurrencyShares: 30\n","diff":"@@ -1,1 +1,1 @@\n-apiVersion: flowcontrol.apiserver.k8s.io/v1beta1\n+apiVersion: flowcontrol.apiserver.k8s.io/v1\nkind: PriorityLevelConfiguration\n@@ -5,1 +5,1 @@\nspec:\n  limited:\n-   assuredConcurrencyShares: 30\n+   nominalConcurrencyShares: 30\n\n","newFile":false}]}]}>
 
 ## Examples
 

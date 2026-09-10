@@ -4,7 +4,7 @@ description: Detect, analyze, and understand loops in control flow graphs for op
 
 # Loop analysis techniques
 
-Loops are where programs spend most of their execution time, making loop analysis crucial for performance optimization and program understanding. This guide explores how to detect loops, analyze their properties, and use that information for powerful transformations.
+Loops are where programs spend most of their execution time, making loop analysis important for performance optimization and program understanding. This guide explores how to detect loops, analyze their properties, and use that information to drive transformations.
 
 :::info
 This guide includes example implementations of loop analysis concepts. OpenRewrite's core library provides control flow graph construction but not specialized loop analysis classes. The `Loop`, `DataDependence`, and other types shown here are example implementations you could create for your own analyses.
@@ -47,9 +47,9 @@ for (int i = 0; i < items.length; i++) {  // <- Header: loop condition check
 **Key terms:**
 
 * **Header**: The loop's condition check - every iteration starts here
-* **Loop Body**: All the code inside the loop that executes repeatedly  
-* **Back Edge**: The invisible flow from the end of the loop body back to the header for the next iteration
-* **Exit Blocks**: Parts of the loop that can jump outside (like `break` statements)
+* **Loop body**: All the code inside the loop that executes repeatedly
+* **Back edge**: The invisible flow from the end of the loop body back to the header for the next iteration
+* **Exit blocks**: Parts of the loop that can jump outside (like `break` statements)
 * **Preheader**: Code that runs once before the loop starts (useful for placing optimized code)
 
 ## Loop detection
@@ -190,7 +190,7 @@ public class NaturalLoopFinder {
 
 ### Loop nesting structure
 
-Loops can be nested within other loops, creating a hierarchy where inner loops execute completely for each iteration of outer loops. Understanding this nesting structure is crucial for optimization - inner loops typically have the highest impact on performance since they execute the most frequently.
+Loops can be nested within other loops, creating a hierarchy where inner loops execute completely for each iteration of outer loops. Understanding this nesting structure is important for optimization - inner loops typically have the highest impact on performance since they execute the most frequently.
 
 For example, in a doubly-nested loop, the innermost statements execute `outer_iterations × inner_iterations` times, making them prime targets for optimization.
 
@@ -285,7 +285,7 @@ public class LoopExitAnalysis {
 
 ### Loop-carried dependencies
 
-Loop-carried dependencies are relationships between different iterations of a loop - when one iteration depends on the results of a previous iteration. Understanding these dependencies is crucial because they determine whether we can safely optimize or parallelize a loop.
+Loop-carried dependencies are relationships between different iterations of a loop - when one iteration depends on the results of a previous iteration. These dependencies determine whether a loop can be safely optimized or parallelized.
 
 **Why do we need to identify these dependencies?**
 
@@ -837,7 +837,7 @@ public class LoopCacheAnalysis {
 
 ## Next steps
 
-* [Data Flow Analysis](../data-flow/introduction.md) - Apply loop analysis to data flow problems and optimizations.
+* [Introduction to data flow analysis](../data-flow/introduction.md) - apply loop analysis to data flow problems and optimizations.
 
 :::tip
 Loop analysis is one of the most impactful areas of program optimization. Even simple transformations like moving invariant code can significantly improve performance in hot loops.

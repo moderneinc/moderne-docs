@@ -6,15 +6,15 @@
 .backButton {
   display: flex;
   align-items: center;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
   width: 100%;
-  padding: var(--mor-space-3) var(--mor-space-4);
+  padding: var(--mod-spacing_1_1_2) var(--mod-spacing_2);
   background: none;
   border: none;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   color: var(--ifm-link-color);
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-medium);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
   cursor: pointer;
   text-align: left;
   transition: background-color 0.15s ease;

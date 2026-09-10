@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate deprecated APIs removed in Spring Framework 7.0"}
-  description={"Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, and NestedServletException to ServletException type migration."}
+  description={"Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, CookieLocaleResolver cookie name and max age configuration, and NestedServletException to ServletException type migration."}
   fqName={"io.moderne.java.spring.framework7.MigrateDeprecatedAPIs"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate deprecated APIs removed in Spring Framework 7.0</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, and NestedServletException to ServletException type migration.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, CookieLocaleResolver cookie name and max age configuration, and NestedServletException to ServletException type migration.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate `ListenableFuture` to `CompletableFuture`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratelistenablefuture/"},{"name":"Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate `ListenableFuture` to `CompletableFuture`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratelistenablefuture/"},{"name":"Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod/"},{"name":"Migrate `CookieLocaleResolver#setCookieName(String)` to the constructor","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratecookielocaleresolvercookiename/"},{"name":"Migrate `CookieLocaleResolver#setCookieMaxAge(Integer)` to `Duration`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratecookielocaleresolvercookiemaxage/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

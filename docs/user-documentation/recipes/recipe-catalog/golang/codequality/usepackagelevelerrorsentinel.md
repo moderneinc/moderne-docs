@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use package-level error sentinel"}
-  description={"Move inline `errors.New(\"...\")` calls to package-level sentinel variables so they can be compared with `errors.Is`."}
+  description={"Move inline `errors.New(\"...\")` calls to package-level sentinel variables so they can be compared with `errors.Is`. Each distinct message becomes one sentinel per package, declared in the first file that uses it and referenced from every other."}
   fqName={"org.openrewrite.golang.codequality.UsePackageLevelErrorSentinel"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use package-level error sentinel</RecipeHeader.Title>
 
-<RecipeHeader.Description>Move inline `errors.New("...")` calls to package-level sentinel variables so they can be compared with `errors.Is`.</RecipeHeader.Description>
+<RecipeHeader.Description>Move inline `errors.New("...")` calls to package-level sentinel variables so they can be compared with `errors.Is`. Each distinct message becomes one sentinel per package, declared in the first file that uses it and referenced from every other.</RecipeHeader.Description>
 
 </RecipeHeader>
 

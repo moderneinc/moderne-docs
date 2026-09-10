@@ -4,10 +4,6 @@ sidebar_label: Enhancing code quality
 description: How to find and fix static analysis and stylistic issues in your code.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/code-quality" />
-
 # Enhancing code quality through static analysis remediations
 
 Every programming language has a vast number of conventions and rules that make up "ideal" code. While some of these conventions are stylistic, others can help prevent significant bugs like a `NullPointerException`. Unfortunately, even for the most experienced developers, it's extremely difficult to keep track of these rules and follow them diligently in code. And, even if they do, trying to ensure that other developers follow those same conventions can be like parents trying to tell their kids to clean up their rooms.
@@ -64,7 +60,7 @@ By default, changes will be displayed on the right hand of your screen for the s
 
 ### Learning what's wrong with the code
 
-If you want to learn more about _why_ the code is changing, you can press the three dots (`...`) in the top right-hand corner of any file and select `Why did this change?`:
+If you want to learn more about _why_ the code is changing, you can click on the **Change reason** label next to any file name:
 
 <figure>
   ![Three-dot menu expanded showing the "Why did this change?" option](./assets/why-did-this-change.png)

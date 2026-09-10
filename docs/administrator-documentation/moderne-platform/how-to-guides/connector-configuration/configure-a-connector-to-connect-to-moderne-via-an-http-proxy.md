@@ -6,9 +6,6 @@ description: How to configure the Moderne Connector to connect to Moderne via an
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/agent-configuration/configure-an-agent-to-connect-to-moderne-via-an-http-proxy" />
 
 # Configure a Connector to connect to Moderne via an HTTP proxy
 

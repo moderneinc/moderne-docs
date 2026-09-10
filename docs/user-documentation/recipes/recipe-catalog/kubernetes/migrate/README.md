@@ -19,4 +19,21 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate to Kubernetes API v1.34](./migratetoapiv1_34.md)
 * [Migrate to Kubernetes API v1.35](./migratetoapiv1_35.md)
 
+## Recipes
+
+* [Migrate `HorizontalPodAutoscaler` to `autoscaling/v2`](./migratehorizontalpodautoscalertov2.md)
+* [Migrate `Ingress` to `networking.k8s.io/v1`](./migrateingresstonetworkingv1.md)
+* [Migrate `PodDisruptionBudget` to `policy/v1`](./migratepoddisruptionbudgettov1.md)
+* [Migrate to Kubernetes API v1.17](./migratetoapiv1_17.md)
+* [Migrate to Kubernetes API v1.18](./migratetoapiv1_18.md)
+* [Migrate to Kubernetes API v1.19](./migratetoapiv1_19.md)
+* [Migrate to Kubernetes API v1.20](./migratetoapiv1_20.md)
+* [Migrate to Kubernetes API v1.21](./migratetoapiv1_21.md)
+* [Migrate to Kubernetes API v1.23](./migratetoapiv1_23.md)
+* [Migrate to Kubernetes API v1.24](./migratetoapiv1_24.md)
+* [Migrate to Kubernetes API v1.28](./migratetoapiv1_28.md)
+* [Migrate to Kubernetes API v1.30](./migratetoapiv1_30.md)
+* [Migrate to Kubernetes API v1.31](./migratetoapiv1_31.md)
+* [Migrate to Kubernetes API v1.36](./migratetoapiv1_36.md)
+
 

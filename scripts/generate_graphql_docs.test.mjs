@@ -245,6 +245,33 @@ describe('generateMarkdown', () => {
     expect(userSection).not.toContain('Deprecated');
   });
 
+  it('escapes angle brackets in descriptions so MDX does not parse them as JSX', () => {
+    const sdl = `
+      type Query { _service: String }
+      type Widget {
+        """Stable id: "<connectorId>:<sha-256 of the URI>"."""
+        id: ID!
+      }
+    `;
+    const { ops, types } = parseSchema(sdl);
+    const out = generateMarkdown(ops, types);
+    expect(out).toContain('&lt;connectorId&gt;:&lt;sha-256 of the URI&gt;');
+    expect(out).not.toContain('<connectorId>');
+  });
+
+  it('escapes curly braces in descriptions', () => {
+    const sdl = `
+      type Query { _service: String }
+      type Widget {
+        """A template like {value} here."""
+        id: ID!
+      }
+    `;
+    const { ops, types } = parseSchema(sdl);
+    const out = generateMarkdown(ops, types);
+    expect(out).toContain('A template like \\{value\\} here.');
+  });
+
   it('includes SDL download link when sdlPath is provided', () => {
     const { ops, types } = parseSchema(SAMPLE_SDL);
     const out = generateMarkdown(ops, types, '/graphql/schema.graphql');

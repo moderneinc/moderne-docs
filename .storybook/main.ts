@@ -21,6 +21,15 @@ const config: StorybookConfig = {
     name: "@storybook/react-webpack5",
     options: {}
   },
+  // Load Geist from Google Fonts into the preview iframe, matching how the site
+  // loads it (see docusaurus.config.ts headTags). Injected here rather than via a
+  // preview-head.html file because the repo's file-type lint disallows .html.
+  previewHead: (head) => `
+    ${head}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,300..700;1,300..700&family=Geist+Mono:ital,wght@0,400;0,500;1,400&display=swap">
+  `,
   staticDirs: ['../static'],
   typescript: {
     check: false,

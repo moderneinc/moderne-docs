@@ -276,7 +276,7 @@ fun `rewrites the same call in Java`() = rewriteRun(
 
 ## Dropping into an imperative visitor
 
-When a change depends on where a call sits, what annotations surround it, or how two call sites relate, a fixed before/after pair cannot express it. The `kotlin { visit… }` scope gives you the full [visitor](../concepts/visitors.md) underneath - the DSL composes with `KotlinVisitor`; it does not replace it.
+When a change depends on where a call sits, what annotations surround it, or how two call sites relate, a fixed before/after pair cannot express it. The `kotlin { visit… }` scope gives you the full [visitor](../concepts/visitors.md) underneath. The DSL composes with `KotlinVisitor` - it does not replace it.
 
 The recipe below flags `println` and `print` calls, but leaves alone any call inside a `fun main`, where console output is expected. That "look at where the call sits" check uses the [cursor](../concepts/cursors.md) to walk enclosing declarations:
 

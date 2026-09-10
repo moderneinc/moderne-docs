@@ -2,12 +2,12 @@
    `.recipe` page scope (Morpheus segmented tabs + table-chrome resets). Light + dark. */
 
 .chip {
-padding: var(--mor-space-1) var(--mor-space-3);
-  border-radius: var(--mor-radius-full);
-  background-color: var(--mor-neutral);
-  color: var(--mor-status-note-accent);
-  font-size: var(--mor-font-size-sm);
-  font-weight: var(--mor-font-weight-medium);
+padding: var(--mod-spacing_1_2) var(--mod-spacing_1_1_2);
+  border-radius: var(--mod-border-radius-full);
+  background-color: var(--mod-color-state-disabled-bg);
+  color: var(--mod-color-text-tertiary);
+  font-size: var(--mod-font-size-xs);
+  font-weight: var(--mod-font-weight-medium);
 }
 
 .chipLink {
@@ -34,27 +34,27 @@ overflow-x: auto;
 text-align: left;
   /* Modern table header: sentence-case, full-size, bold — not a tiny uppercase
      eyebrow — with one faint rule under the header row. */
-  padding: var(--mor-space-3) var(--mor-space-3);
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-semibold);
-  color: var(--mor-text);
+  padding: var(--mod-spacing_1_1_2) var(--mod-spacing_1_1_2);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-primary);
   background-color: transparent;
   /* Reset Infima's four-sided cell border, then keep only the header rule. */
   border: none;
-  border-bottom: 1px solid var(--mor-line);
+  border-bottom: 1px solid var(--mod-color-border-primary);
 }
 
 .td {
-padding: var(--mor-space-4) var(--mor-space-3);
-  font-size: var(--mor-font-size-base);
-  color: var(--mor-text);
+padding: var(--mod-spacing_2) var(--mod-spacing_1_1_2);
+  font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-primary);
   vertical-align: top;
   /* Reset Infima's four-sided cell border; the row divider below adds just a top. */
   border: none;
 }
 
 tbody tr + tr .td {
-border-top: 1px solid var(--mor-line);
+border-top: 1px solid var(--mod-color-border-primary);
 }
 
 .recipe :global(table thead),
@@ -69,13 +69,13 @@ border: none;
 }
 
 .inlineCode {
-font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
-  font-size: var(--mor-font-size-base);
-  background-color: var(--mor-field);
-  color: var(--mor-text);
-  padding: var(--mor-space-2px) var(--mor-space-1);
+font-family: var(--mod-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--mod-font-size-sm);
+  background-color: var(--mod-color-surface-field);
+  color: var(--mod-color-text-primary);
+  padding: var(--mod-spacing_1_4) var(--mod-spacing_1_2);
   border: none;
-  border-radius: var(--mor-radius-sm);
+  border-radius: var(--mod-border-radius-x-s);
 }
 
 .recipe :global(.tabs) {
@@ -84,23 +84,23 @@ display: inline-flex;
   width: fit-content;
   max-width: 100%;
   padding: 0;
-  margin-bottom: var(--mor-space-4);
-  border: 1px solid var(--mor-line);
-  border-radius: var(--mor-radius-full);
+  margin-bottom: var(--mod-spacing_2);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-full);
   overflow: hidden;
-  background: var(--mor-panel);
+  background: var(--mod-color-surface-search-input);
 }
 
 .recipe :global(.tabs__item) {
 margin: 0;
-  padding: var(--mor-space-1) var(--mor-space-4);
+  padding: var(--mod-spacing_1_2) var(--mod-spacing_2);
   border: none;
-  border-right: 1px solid var(--mor-line);
+  border-right: 1px solid var(--mod-color-border-primary);
   border-radius: 0;
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-medium);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
   line-height: 1.4;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
   background: transparent;
 }
 
@@ -109,14 +109,14 @@ border-right: none;
 }
 
 .recipe :global(.tabs__item:hover) {
-background: var(--mor-row-hover);
-  color: var(--mor-text);
+background: var(--mod-color-surface-row-hover);
+  color: var(--mod-color-text-primary);
 }
 
 .recipe :global(.tabs__item--active),
 .recipe :global(.tabs__item--active:hover) {
-color: var(--mor-link);
-  background: var(--mor-panel);
+color: var(--mod-color-action-default);
+  background: var(--mod-color-surface-search-input);
 }
 
 /* A recipe section: a heading row stacked above the section body. All spacing is owned by flex gap
@@ -125,7 +125,7 @@ color: var(--mor-link);
 .section {
 display: flex;
   flex-direction: column;
-  gap: var(--mor-space-4);
+  gap: var(--mod-spacing_2);
 }
 
 /* Heading row: the markdown `## ` heading on the left, optional meta/toggle on the right. */
@@ -134,17 +134,17 @@ display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--mor-space-4);
+  gap: var(--mod-spacing_2);
 }
 
 /* The heading arrives as a bare markdown `## ` <h2> (it can't carry a class), so it's matched as a
    descendant — the one element selector we accept, kept tightly scoped under .sectionHeader. */
 .sectionHeader h2 {
 margin: 0;
-  font-size: var(--mor-font-size-doc-h2);
-  font-weight: var(--mor-font-weight-semibold);
+  font-size: var(--mod-font-size-h2);
+  font-weight: var(--mod-font-weight-semi-bold);
   letter-spacing: -0.01em;
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
 }
 
 /* The global `[docMainContainer] h2` rule (src/css/custom.css) underlines every doc h2. In the flex
@@ -157,11 +157,11 @@ border-bottom: none;
 
 html[data-theme='dark'] {
 .chip {
-background-color: var(--mor-surface-2);
-    color: var(--mor-muted);
+background-color: var(--mod-color-surface-sunken-deep);
+    color: var(--mod-color-text-tertiary);
 }
 }
 
 html[data-theme='dark'] .recipe :global(.tabs__item--active), html[data-theme='dark'] .recipe :global(.tabs__item--active:hover) {
-color: var(--mor-green);
+color: var(--mod-mint-400);
 }

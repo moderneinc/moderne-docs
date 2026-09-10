@@ -86,7 +86,7 @@ Building LSTs may take a few minutes to complete. It also requires a local JDK i
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.6.3
+Moderne CLI 4.8.2
 
 ⏺ Reading organization
 
@@ -247,7 +247,7 @@ mod study . --last-recipe-run --data-table MethodCalls
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.6.3
+Moderne CLI 4.8.2
 
 ⏺ Reading organization
 
@@ -353,8 +353,8 @@ In this exercise, you'll run recipes in the Moderne Platform and use the `Data T
 
 ### Takeaways
 
-* The Platform makes it easy to review results, download tables, and explore visualizations
-* Data tables are the source of “tabular” outputs; visualizations are graphical views of those outputs
+* The Platform makes it easy to review results, download tables, and explore visualizations.
+* Data tables are the source of “tabular” outputs. Visualizations are graphical views of those outputs.
 
 ## Learn more
 

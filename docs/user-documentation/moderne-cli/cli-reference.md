@@ -8,6 +8,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 ## Table of contents
 
 * [**mod**](#mod)
+* [**mod amp**](#mod-amp)
+* [**mod amp chat**](#mod-amp-chat)
 * [**mod audit**](#mod-audit)
 * [**mod audit builds**](#mod-audit-builds)
 * [**mod audit builds list**](#mod-audit-builds-list)
@@ -16,10 +18,14 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod batch**](#mod-batch)
 * [**mod batch publish**](#mod-batch-publish)
 * [**mod build**](#mod-build)
+* [**mod claude**](#mod-claude)
+* [**mod claude chat**](#mod-claude-chat)
 * [**mod clean**](#mod-clean)
 * [**mod clean builds**](#mod-clean-builds)
 * [**mod clean runs**](#mod-clean-runs)
 * [**mod clean repos**](#mod-clean-repos)
+* [**mod codex**](#mod-codex)
+* [**mod codex chat**](#mod-codex-chat)
 * [**mod config**](#mod-config)
 * [**mod config agent-tools**](#mod-config-agent-tools)
 * [**mod config agent-tools install**](#mod-config-agent-tools-install)
@@ -48,6 +54,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config agent-tools opencode**](#mod-config-agent-tools-opencode)
 * [**mod config agent-tools opencode install**](#mod-config-agent-tools-opencode-install)
 * [**mod config agent-tools opencode uninstall**](#mod-config-agent-tools-opencode-uninstall)
+* [**mod config agent-tools kiro**](#mod-config-agent-tools-kiro)
+* [**mod config agent-tools kiro install**](#mod-config-agent-tools-kiro-install)
+* [**mod config agent-tools kiro uninstall**](#mod-config-agent-tools-kiro-uninstall)
 * [**mod config agent-tools prethink**](#mod-config-agent-tools-prethink)
 * [**mod config agent-tools prethink edit**](#mod-config-agent-tools-prethink-edit)
 * [**mod config agent-tools prethink show**](#mod-config-agent-tools-prethink-show)
@@ -112,6 +121,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build maven arguments delete**](#mod-config-build-maven-arguments-delete)
 * [**mod config build maven arguments edit**](#mod-config-build-maven-arguments-edit)
 * [**mod config build maven arguments show**](#mod-config-build-maven-arguments-show)
+* [**mod config build maven installation**](#mod-config-build-maven-installation)
+* [**mod config build maven installation edit**](#mod-config-build-maven-installation-edit)
+* [**mod config build maven installation delete**](#mod-config-build-maven-installation-delete)
+* [**mod config build maven installation list**](#mod-config-build-maven-installation-list)
 * [**mod config build maven settings**](#mod-config-build-maven-settings)
 * [**mod config build maven settings delete**](#mod-config-build-maven-settings-delete)
 * [**mod config build maven settings edit**](#mod-config-build-maven-settings-edit)
@@ -120,6 +133,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build maven timeout delete**](#mod-config-build-maven-timeout-delete)
 * [**mod config build maven timeout edit**](#mod-config-build-maven-timeout-edit)
 * [**mod config build maven timeout show**](#mod-config-build-maven-timeout-show)
+* [**mod config build maven version**](#mod-config-build-maven-version)
+* [**mod config build maven version edit**](#mod-config-build-maven-version-edit)
+* [**mod config build maven version delete**](#mod-config-build-maven-version-delete)
+* [**mod config build maven version show**](#mod-config-build-maven-version-show)
 * [**mod config build node**](#mod-config-build-node)
 * [**mod config build node timeout**](#mod-config-build-node-timeout)
 * [**mod config build node timeout delete**](#mod-config-build-node-timeout-delete)
@@ -183,7 +200,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
 * [**mod config features inline-diff**](#mod-config-features-inline-diff)
 * [**mod config features lst**](#mod-config-features-lst)
-* [**mod config features no-maven-central**](#mod-config-features-no-maven-central)
+* ~~[**mod config features no-maven-central**](#mod-config-features-no-maven-central-deprecated)~~ (deprecated)
 * [**mod config go**](#mod-config-go)
 * [**mod config go installation**](#mod-config-go-installation)
 * [**mod config go installation edit**](#mod-config-go-installation-edit)
@@ -332,18 +349,23 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes import csv**](#mod-config-recipes-import-csv)
 * [**mod config recipes go**](#mod-config-recipes-go)
 * [**mod config recipes go install**](#mod-config-recipes-go-install)
+* [**mod config recipes go retrieve**](#mod-config-recipes-go-retrieve)
 * [**mod config recipes go delete**](#mod-config-recipes-go-delete)
 * [**mod config recipes jar**](#mod-config-recipes-jar)
 * [**mod config recipes jar install**](#mod-config-recipes-jar-install)
+* [**mod config recipes jar retrieve**](#mod-config-recipes-jar-retrieve)
 * [**mod config recipes jar delete**](#mod-config-recipes-jar-delete)
 * [**mod config recipes npm**](#mod-config-recipes-npm)
 * [**mod config recipes npm install**](#mod-config-recipes-npm-install)
+* [**mod config recipes npm retrieve**](#mod-config-recipes-npm-retrieve)
 * [**mod config recipes npm delete**](#mod-config-recipes-npm-delete)
 * [**mod config recipes nuget**](#mod-config-recipes-nuget)
 * [**mod config recipes nuget install**](#mod-config-recipes-nuget-install)
+* [**mod config recipes nuget retrieve**](#mod-config-recipes-nuget-retrieve)
 * [**mod config recipes nuget delete**](#mod-config-recipes-nuget-delete)
 * [**mod config recipes pip**](#mod-config-recipes-pip)
 * [**mod config recipes pip install**](#mod-config-recipes-pip-install)
+* [**mod config recipes pip retrieve**](#mod-config-recipes-pip-retrieve)
 * [**mod config recipes pip delete**](#mod-config-recipes-pip-delete)
 * [**mod config recipes moderne**](#mod-config-recipes-moderne)
 * [**mod config recipes moderne install**](#mod-config-recipes-moderne-install)
@@ -351,6 +373,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes delete**](#mod-config-recipes-delete)
 * [**mod config recipes list**](#mod-config-recipes-list)
 * [**mod config recipes search**](#mod-config-recipes-search)
+* [**mod config recipes tree**](#mod-config-recipes-tree)
 * [**mod config recipes upgrade**](#mod-config-recipes-upgrade)
 * [**mod config recipes yaml**](#mod-config-recipes-yaml)
 * [**mod config recipes yaml install**](#mod-config-recipes-yaml-install)
@@ -374,6 +397,13 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config scm add**](#mod-config-scm-add-deprecated)~~ (deprecated)
 * ~~[**mod config scm remove**](#mod-config-scm-remove-deprecated)~~ (deprecated)
 * ~~[**mod config scm show**](#mod-config-scm-show-deprecated)~~ (deprecated)
+* [**mod config telemetry**](#mod-config-telemetry)
+* [**mod config telemetry wait-for-upload**](#mod-config-telemetry-wait-for-upload)
+* [**mod copilot**](#mod-copilot)
+* [**mod copilot chat**](#mod-copilot-chat)
+* [**mod cursor**](#mod-cursor)
+* [**mod cursor chat**](#mod-cursor-chat)
+* [**mod doctor**](#mod-doctor)
 * [**mod devcenter**](#mod-devcenter)
 * [**mod exec**](#mod-exec)
 * [**mod git**](#mod-git)
@@ -396,6 +426,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod git sync csv**](#mod-git-sync-csv)
 * [**mod git sync moderne**](#mod-git-sync-moderne)
 * [**mod git status**](#mod-git-status)
+* [**mod kiro**](#mod-kiro)
+* [**mod kiro chat**](#mod-kiro-chat)
 * [**mod log**](#mod-log)
 * [**mod log builds**](#mod-log-builds)
 * [**mod log builds add**](#mod-log-builds-add)
@@ -406,7 +438,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod log syncs**](#mod-log-syncs)
 * [**mod log syncs add**](#mod-log-syncs-add)
 * [**mod list**](#mod-list)
+* [**mod login**](#mod-login)
 * [**mod monitor**](#mod-monitor)
+* [**mod opencode**](#mod-opencode)
+* [**mod opencode chat**](#mod-opencode-chat)
 * [**mod prebuild**](#mod-prebuild)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
@@ -418,10 +453,16 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod trace**](#mod-trace)
 * [**mod trace builds**](#mod-trace-builds)
 * [**mod trace builds analyze**](#mod-trace-builds-analyze)
+* [**mod trace execs**](#mod-trace-execs)
+* [**mod trace execs analyze**](#mod-trace-execs-analyze)
 * [**mod trace runs**](#mod-trace-runs)
 * [**mod trace runs analyze**](#mod-trace-runs-analyze)
 * [**mod trace syncs**](#mod-trace-syncs)
 * [**mod trace syncs analyze**](#mod-trace-syncs-analyze)
+* [**mod vscode**](#mod-vscode)
+* [**mod vscode chat**](#mod-vscode-chat)
+* [**mod windsurf**](#mod-windsurf)
+* [**mod windsurf chat**](#mod-windsurf-chat)
 * [**mod wrapper**](#mod-wrapper)
 
 ## mod
@@ -443,17 +484,26 @@ mod [subcommands]
 
 ### Subcommands
 
+* `amp`: (INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
 * `audit`: (INCUBATING) Perform an audit of recent activity.
 * `batch`: Add batch changes to the Moderne platform.
 * `build`: Generates LST artifacts for one or more repositories.
+* `claude`: (INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
 * `clean`: Clean build and run artifacts produced by the CLI.
+* `codex`: (INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
 * `config`: Global configuration options that are required by some CLI commands.
+* `copilot`: (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
+* `cursor`: (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+* `doctor`: Checks that this machine and the CLI's configuration can build and publish LSTs.
 * `devcenter`: Generate DevCenter dashboards.
 * `exec`: Execute an arbitrary shell command on selected repositories and partitions.
 * `git`: Multi-repository git operations.
+* `kiro`: (INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
 * `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
+* `login`: Logs the CLI into Moderne
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
+* `opencode`: (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
 * `prebuild`: Extracts build metadata without parsing source files.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTs.
@@ -462,7 +512,62 @@ mod [subcommands]
 * `study`: Produces studies from OpenRewrite recipe data tables locally.
 * `telemetry`: Manage CLI telemetry pushed to the configured Moderne tenant.
 * `trace`: Manages trace analysis tools.
+* `vscode`: (INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
+* `windsurf`: (INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
 * `wrapper`: Create or configure a Moderne wrapper.
+
+## mod amp
+
+(INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod amp [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
+
+## mod amp chat
+
+(INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches an Amp session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod amp chat [parameters]
+```
+
+### Examples
+
+```
+mod amp chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
 
 ## mod audit
 
@@ -679,6 +784,59 @@ mod build /path/to/project
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
+## mod claude
+
+(INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod claude [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
+
+## mod claude chat
+
+(INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Claude Code session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod claude chat [parameters]
+```
+
+### Examples
+
+```
+mod claude chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
 ## mod clean
 
 Clean build and run artifacts produced by the CLI.
@@ -806,6 +964,59 @@ mod clean repos /path/to/project --dry-run
 | `-s`, `--sync-failed` |  Remove repositories whose latest sync failed or was canceled. |
 
 
+## mod codex
+
+(INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod codex [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
+
+## mod codex chat
+
+(INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Codex session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod codex chat [parameters]
+```
+
+### Examples
+
+```
+mod codex chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
 ## mod config
 
 Global configuration options that are required by some CLI commands.
@@ -847,13 +1058,14 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `run`: Configures recipe run behavior.
 * `scm`: (DEPRECATED) Configures source code management.
+* `telemetry`: Configures CLI telemetry.
 
 ## mod config agent-tools
 
 Manage Moderne agent tools for coding agents.
 
 
-Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, and opencode.
+Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, and Kiro.
 
 ### Usage
 
@@ -880,6 +1092,7 @@ mod config agent-tools install
 * `amp`: Manage Moderne agent tools for Sourcegraph Amp.
 * `codex`: Manage Moderne agent tools for OpenAI Codex.
 * `opencode`: Manage Moderne agent tools for opencode.
+* `kiro`: Manage Moderne agent tools for Kiro.
 * `prethink`: Configures the Prethink context refreshed live by the Moderne MCP server.
 
 ## mod config agent-tools install
@@ -887,7 +1100,7 @@ mod config agent-tools install
 Creates or updates Moderne agent tools for coding agents.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex). Safe to run multiple times — existing installations are updated in place.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro). Safe to run multiple times — existing installations are updated in place.
 
 ### Usage
 
@@ -908,7 +1121,7 @@ mod config agent-tools install
 Removes Moderne agent tools from coding agents.
 
 
-Removes skills and unregisters the Moderne MCP server from all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex).
+Removes skills and unregisters the Moderne MCP server from all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro).
 
 ### Usage
 
@@ -1456,6 +1669,73 @@ mod config agent-tools opencode uninstall
 
 ```
 mod config agent-tools opencode uninstall
+```
+
+
+
+## mod config agent-tools kiro
+
+Manage Moderne agent tools for Kiro.
+
+
+Installs skills under ~/.kiro/skills/ and registers the MCP server in ~/.kiro/settings/mcp.json.
+
+### Usage
+
+```
+mod config agent-tools kiro [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools kiro install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for Kiro.
+* `uninstall`: Remove Moderne agent tools from Kiro.
+
+## mod config agent-tools kiro install
+
+Install Moderne agent tools for Kiro.
+
+
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under ~/.kiro/skills/ and registers the Moderne MCP server in ~/.kiro/settings/mcp.json. Safe to run multiple times.
+
+### Usage
+
+```
+mod config agent-tools kiro install
+```
+
+### Examples
+
+```
+mod config agent-tools kiro install
+```
+
+
+
+## mod config agent-tools kiro uninstall
+
+Remove Moderne agent tools from Kiro.
+
+
+Removes skills and unregisters the Moderne MCP server from Kiro.
+
+### Usage
+
+```
+mod config agent-tools kiro uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools kiro uninstall
 ```
 
 
@@ -2718,8 +2998,10 @@ mod config build maven settings edit <path-to-settings.xml>
 ### Subcommands
 
 * `arguments`: Configure Maven build arguments.
+* `installation`: Configures locations of Maven installations that can be used by build tools.
 * `settings`: Configure Maven settings.
 * `timeout`: Configure the build timeout.
+* `version`: Configures the Maven version to use.
 
 ## mod config build maven arguments
 
@@ -2804,6 +3086,78 @@ mod config build maven arguments show
 | ---- | ----------- |
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build maven installation
+
+Configures locations of Maven installations that can be used by build tools.
+
+
+Must be configured before you can run the build command if Maven is installed in non-standard locations.
+
+### Usage
+
+```
+mod config build maven installation [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures locations of Maven installations that can be used by build tools.
+* `delete`: Removes the configured Maven installations. The CLI will revert to using only detectable Maven installations.
+* `list`: Displays the detected and configured Maven installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+## mod config build maven installation edit
+
+Configures locations of Maven installations that can be used by build tools.
+
+
+Must be configured before you can run the build command if Maven is installed in non-standard locations.
+
+### Usage
+
+```
+mod config build maven installation edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `mavenHomes` |  The paths on disk where Maven installations (MAVEN_HOME directories) can be found. |
+
+
+
+## mod config build maven installation delete
+
+Removes the configured Maven installations. The CLI will revert to using only detectable Maven installations.
+
+
+### Usage
+
+```
+mod config build maven installation delete
+```
+
+
+
+## mod config build maven installation list
+
+Displays the detected and configured Maven installations in the order in which they will be selected, constrained by versions detected from a particular repository.
+
+
+### Usage
+
+```
+mod config build maven installation list
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--named` |  Filter the list of Maven installations to those matching this version. |
 
 
 ## mod config build maven settings
@@ -2982,6 +3336,91 @@ Displays the configured build timeout.
 
 ```
 mod config build maven timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build maven version
+
+Configures the Maven version to use.
+
+
+Configure an exact version like "3.9.6" to use ahead of the project's Maven wrapper.
+
+### Usage
+
+```
+mod config build maven version [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the Maven version to use.
+* `delete`: Reverts to auto-detection of a Maven version to use when building a repository.
+* `show`: Displays the configured Maven version.
+
+## mod config build maven version edit
+
+Configures the Maven version to use.
+
+
+Configure an exact version like "3.9.6" to use ahead of the project's Maven wrapper.
+
+### Usage
+
+```
+mod config build maven version edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `selectedMaven` |  The named Maven version to use. If set to "auto", the CLI will revert to detecting the correct Maven to use from signals available in the repository. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build maven version delete
+
+Reverts to auto-detection of a Maven version to use when building a repository.
+
+
+### Usage
+
+```
+mod config build maven version delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build maven version show
+
+Displays the configured Maven version.
+
+
+### Usage
+
+```
+mod config build maven version show
 ```
 
 ### Options
@@ -4175,7 +4614,7 @@ mod config features [subcommands]
 * `index-recipes`
 * `inline-diff`: Configure inline diff rendering in the terminal.
 * `lst`: Configure the LST serialization format version.
-* `no-maven-central`: (INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
+* `no-maven-central`: (DEPRECATED) Use mod config build maven settings edit instead.
 
 ## mod config features agent-tools
 
@@ -4271,12 +4710,12 @@ mod config features lst
 | `--version` |  LST format version (2 or 3) |
 
 
-## mod config features no-maven-central
+## mod config features no-maven-central (deprecated)
 
-(INCUBATING) Configure the availability of Maven Central and OSS Sonatype Snapshots.
+(DEPRECATED) Use mod config build maven settings edit instead.
 
 
-Maven Central and OSS Sonatype Snapshots are considered as valid recipe and dependency sources by default. They are implicitly used as a fallback for the resolution of recipes. In some environments access to these repositories is not allowed. This command be used to disable adding them implicitly to the list of repositories used for installing running recipes.
+This command is deprecated. Enabling it mirrors Maven Central and Sonatype snapshots to the configured recipe repository when resolving recipes. A Maven _settings.xml_ says the same thing with a mirror of **central,sonatype-central**, composes with any mirrors already in use, and is configured with **mod config build maven settings edit**.
 
 ### Usage
 
@@ -6081,6 +6520,8 @@ The default authorization mode is a web-based browser flow. After login and cons
 
 Alternatively, use **--with-token** to pass in an existing token on standard input.
 
+After a successful login, the local CLI recipe marketplace is synchronized from Moderne.
+
 ### Usage
 
 ```
@@ -6093,6 +6534,7 @@ mod config moderne login
 | ---- | ----------- |
 | `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Example: P180D for 180 days. |
 | `--with-token` |  The Moderne personal access token to use. |
+| `-y`, `--yes` |  Automatic yes to prompts when synchronizing the recipe marketplace. |
 
 
 ## mod config moderne show
@@ -6552,6 +6994,7 @@ mod config recipes moderne sync
 * `delete`: Clear the whole recipe marketplace.
 * `list`: List the artifacts that are contributing recipes to the marketplace.
 * `search`: Finds recipes based on free form text search.
+* `tree`: Show what a composite recipe is made of.
 * `upgrade`: Upgrades all installed recipe artifacts to the latest available version.
 * `yaml`: Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
 
@@ -7468,6 +7911,7 @@ mod config recipes go [subcommands]
 ### Subcommands
 
 * `install`: Adds or updates a Go module that contains recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Reports where an installed Go recipe module is on disk.
 * `delete`: Removes a Go module supplying recipes from the marketplace.
 
 ## mod config recipes go install
@@ -7495,6 +7939,38 @@ mod config recipes go install github.com/openrewrite/rewrite-go-recipes@v1.0.0
 | ---- | ----------- |
 | `MODULE[@VERSION]` |  The Go module path with an optional version in the format module@version, where @version is optional. |
 
+
+
+## mod config recipes go retrieve
+
+Reports where an installed Go recipe module is on disk.
+
+
+Locates an installed Go module in the module cache and prints its directory. A Go recipe sidecar can load the recipes from that directory without contacting a module proxy.
+
+### Usage
+
+```
+mod config recipes go retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes go retrieve github.com/openrewrite/rewrite-go-recipes
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `MODULE` |  The Go module path as it was installed. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes go delete
@@ -7547,6 +8023,7 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 ### Subcommands
 
 * `install`: Adds or updates an artifact that contains recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Retrieves an installed recipe artifact's dependencies and records its classpath.
 * `delete`: Removes an artifact supplying recipes to the marketplace.
 
 ## mod config recipes jar install
@@ -7575,6 +8052,39 @@ mod config recipes jar install org.openrewrite:rewrite-java:LATEST
 | `GAV` |  The group, artifact, and version of the artifact to install in the format groupId:artifactId:version. The version may be a fixed version, LATEST, or RELEASE.
 The dependency will be resolved from the artifact source defined in **mod config recipes artifacts** |
 
+
+
+## mod config recipes jar retrieve
+
+Retrieves an installed recipe artifact's dependencies and records its classpath.
+
+
+Downloads the dependencies of an installed recipe artifact and records its classpath so that later runs do not resolve it again. Prints the recipe JAR and the number of dependencies retrieved.
+
+### Usage
+
+```
+mod config recipes jar retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes jar retrieve org.openrewrite:rewrite-java
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `GA` |  The group and artifact of an installed recipe artifact, in the format groupId:artifactId. The version is the one **mod config recipes jar install** selected.
+The dependencies will be resolved from the artifact source defined in **mod config recipes artifacts** |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes jar delete
@@ -7621,6 +8131,7 @@ mod config recipes npm [subcommands]
 ### Subcommands
 
 * `install`: Adds or updates an npm package that contain recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Reports where an installed npm recipe package is on disk.
 * `delete`: Removes an npm package supplying recipes from the marketplace.
 
 ## mod config recipes npm install
@@ -7648,6 +8159,38 @@ mod config recipes npm install my-recipe-package@latest
 | ---- | ----------- |
 | `PACKAGE[@VERSION]` |  The npm package name with an optional version in the format package@version, where @version is optional. Alternatively,a path to a compiled recipe on disk that provides an OpenRewrite activate function. |
 
+
+
+## mod config recipes npm retrieve
+
+Reports where an installed npm recipe package is on disk.
+
+
+Verifies that an installed npm package is still on disk and prints its directory. A JavaScript recipe sidecar can load the recipes from that directory without contacting the registry.
+
+### Usage
+
+```
+mod config recipes npm retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes npm retrieve @openrewrite/recipes-nodejs
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `PACKAGE` |  The npm package name as it was installed, with its @scope if it has one. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes npm delete
@@ -7694,6 +8237,7 @@ mod config recipes nuget [subcommands]
 ### Subcommands
 
 * `install`: Adds or updates a NuGet package that contains recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Reports where an installed NuGet recipe package's publish output is on disk.
 * `delete`: Removes a NuGet package supplying recipes from the marketplace.
 
 ## mod config recipes nuget install
@@ -7721,6 +8265,38 @@ mod config recipes nuget install OpenRewrite.Recipes@1.0.0
 | ---- | ----------- |
 | `PACKAGE[@VERSION]` |  The NuGet package name with an optional version in the format package@version, where @version is optional. |
 
+
+
+## mod config recipes nuget retrieve
+
+Reports where an installed NuGet recipe package's publish output is on disk.
+
+
+Verifies that an installed NuGet package's publish output is still on disk and prints its directory. A C# recipe sidecar can load the recipes from that directory without contacting a feed.
+
+### Usage
+
+```
+mod config recipes nuget retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes nuget retrieve OpenRewrite.Recipes
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `PACKAGE` |  The NuGet package id as it was installed. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes nuget delete
@@ -7767,6 +8343,7 @@ mod config recipes pip [subcommands]
 ### Subcommands
 
 * `install`: Adds or updates a pip package that contains recipes that should be added to the recipe marketplace in the CLI.
+* `retrieve`: Reports where an installed pip recipe package is on disk.
 * `delete`: Removes a pip package supplying recipes from the marketplace.
 
 ## mod config recipes pip install
@@ -7794,6 +8371,38 @@ mod config recipes pip install rewrite-recipe-example==1.0.0
 | ---- | ----------- |
 | `PACKAGE[==VERSION]` |  The pip package name or local path with an optional version in the format package==version, where ==version is optional. |
 
+
+
+## mod config recipes pip retrieve
+
+Reports where an installed pip recipe package is on disk.
+
+
+Verifies that an installed pip package is still on disk and prints the directory it was installed into. A Python recipe sidecar given that directory as its recipe install directory can import the recipes without contacting the index.
+
+### Usage
+
+```
+mod config recipes pip retrieve [parameters]
+```
+
+### Examples
+
+```
+mod config recipes pip retrieve rewrite-recipe-example
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `PACKAGE` |  The pip distribution name as it was installed. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON rather than for reading. Nothing else is written to stdout. |
 
 
 ## mod config recipes pip delete
@@ -7894,6 +8503,11 @@ Destroys all recipes in the local CLI marketplace and replaces them with the lat
 mod config recipes moderne sync
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `-y`, `--yes` |  Automatically confirm replacing an existing local marketplace. Required when there is no console to prompt on. |
 
 
 ## mod config recipes delete
@@ -7955,7 +8569,41 @@ mod config recipes search owasp
 
 | Name | Description |
 | ---- | ----------- |
+| `--json` |  Print the results as JSON rather than asking which one you want. Defaults to **displayName**, **id** and **recipeCount**; any of **id**, **displayName**, **description**, **recipeCount**, **ecosystem**, **package**, **version**, **options** and **dataTables** may be named instead. |
 | `--limit` |  The maximum total number of results that will be returned. |
+
+
+## mod config recipes tree
+
+Show what a composite recipe is made of.
+
+
+A migration recipe composes hundreds or thousands of others, and its description cannot say what all of them do. This expands one level at a time so that the size of the answer does not depend on the size of the recipe. Drill in by running this again on the ID of any line that shows a child count.
+
+### Usage
+
+```
+mod config recipes tree [parameters]
+```
+
+### Examples
+
+```
+mod config recipes tree org.openrewrite.java.migrate.UpgradeToJava25
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `recipe` |  The recipe ID to expand. A trailing portion of the ID is accepted when it matches only one recipe. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--depth` |  How many levels below the recipe to expand. |
+| `--json` |  Print the tree as JSON rather than for reading. Defaults to **id** and **instanceName**; any of **id**, **instanceName**, **displayName**, **description**, **distinctRecipes**, **ecosystem**, **package** and **version** may be named instead. |
 
 
 ## mod config recipes upgrade
@@ -8434,6 +9082,186 @@ mod config scm show
 
 
 
+## mod config telemetry
+
+Configures CLI telemetry.
+
+
+Configure how the CLI uploads telemetry to the configured Moderne tenant.
+
+### Usage
+
+```
+mod config telemetry [subcommands]
+```
+
+
+### Subcommands
+
+* `wait-for-upload`: Waits for queued telemetry to upload before exiting.
+
+## mod config telemetry wait-for-upload
+
+Waits for queued telemetry to upload before exiting.
+
+
+Telemetry uploads in the background as each command finishes. Enable this on CI runners and containers, whose filesystem does not outlive the command and so never retries the upload. Disabled by default.
+
+### Usage
+
+```
+mod config telemetry wait-for-upload
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  |
+
+
+## mod copilot
+
+(INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod copilot [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
+
+## mod copilot chat
+
+(INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a GitHub Copilot session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod copilot chat [parameters]
+```
+
+### Examples
+
+```
+mod copilot chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod cursor
+
+(INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod cursor [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+
+## mod cursor chat
+
+(INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Cursor session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod cursor chat [parameters]
+```
+
+### Examples
+
+```
+mod cursor chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod doctor
+
+Checks that this machine and the CLI's configuration can build and publish LSTs.
+
+
+Reports on the host, the CLI's own configuration, the toolchains it found, git and its credentials, and then the services a mass-ingest run depends on: Maven settings, the LST artifact store, the Moderne tenant, and the SCM origins listed in a repos.csv. Each section lists facts first, then its checks as what was found against what a run needs. A check that says must fails the command when it is not met; one that says should only warns. What to do about each is listed at the end. Every check is read-only, and nothing is written to any remote.
+
+### Usage
+
+```
+mod doctor [parameters]
+```
+
+### Examples
+
+```
+mod doctor /path/to/project
+
+mod doctor --sync-csv --skip-remote
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `path` |  The directory a run works in. Its free space is checked, and its _.moderne/repos-lock.csv_ is the default list of SCM origins to probe. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  (INCUBATING) Output the report in JSON. The format of this JSON is unsettled at this point, and the data structure may change. |
+| `--skip-remote` |  Do not contact any network service. Remote sections report a single skipped row. |
+| `--sync-csv` |  A repos.csv whose rows are summarized and whose SCM origins are probed. Without a value, the central repos.csv of the configured LST artifact store is read, as **mod publish --sync-csv** would. |
+
+
 ## mod devcenter
 
 Generate DevCenter dashboards.
@@ -8492,6 +9320,9 @@ Execute build tool compilation tasks
 Execute build tool verification tasks
   **mod exec /path/to/project MODERNE_BUILD_TOOL_CHECK**
 
+List what would run, without running it
+  **mod exec /path/to/project MODERNE_BUILD_TOOL_CHECK --dry-run --json**
+
 ### Usage
 
 ```
@@ -8516,9 +9347,12 @@ mod exec /path/to/project rm *.hprof
 
 | Name | Description |
 | ---- | ----------- |
+| `--dry-run` |  Do not run the command, but list what would run in each repository, resolved to that repository's build tool, execution directory and JDK. Detecting the build tool still invokes it, exactly as a real run would. |
+| `--json` |  (INCUBATING) Print the result as JSON rather than as progress. The format of this JSON is unsettled at this point, and the data structure may change. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `-o`, `--out`, `--output` |  The output type for the command. Accepts `Console` and `File`. If not specified, the output will be printed to a file. |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
@@ -9090,7 +9924,7 @@ mod git sync csv [parameters]
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
-| `--organization` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
@@ -9132,7 +9966,7 @@ mod git sync moderne /path/to/organization --organization <ORG_NAME>
 | `--depth` |  Equivalent to the **git clone --depth** option. |
 | `--filter` |  Equivalent to the **git clone --filter** option. |
 | `--limit` |  The maximum number of repositories to clone. |
-| `--organization` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
@@ -9166,6 +10000,59 @@ mod git status /path/to/project
 | ---- | ----------- | ---------- |
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
 
+
+
+## mod kiro
+
+(INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod kiro [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
+
+## mod kiro chat
+
+(INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Kiro session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod kiro chat [parameters]
+```
+
+### Examples
+
+```
+mod kiro chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
 ## mod log
@@ -9409,6 +10296,32 @@ mod list /path/to/project
 | `--json` |  (INCUBATING) Output the repository listing in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
 
 
+## mod login
+
+Logs the CLI into Moderne
+
+
+The default authorization mode is a web-based browser flow. After login and consent, a PAT (personal access token) will be created and stored in the configuration file.
+
+Alternatively, use **--with-token** to pass in an existing token on standard input.
+
+After a successful login, the local CLI recipe marketplace is synchronized from Moderne.
+
+### Usage
+
+```
+mod login
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Example: P180D for 180 days. |
+| `--with-token` |  The Moderne personal access token to use. |
+| `-y`, `--yes` |  Automatic yes to prompts when synchronizing the recipe marketplace. |
+
+
 ## mod monitor
 
 (INCUBATING) Launches an HTTP server used to monitor the CLI.
@@ -9427,6 +10340,59 @@ mod monitor
 | Name | Description |
 | ---- | ----------- |
 | `--port` |  The port to listen on. Default is 8080. |
+
+
+## mod opencode
+
+(INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod opencode [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
+
+## mod opencode chat
+
+(INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches an opencode session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod opencode chat [parameters]
+```
+
+### Examples
+
+```
+mod opencode chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
 ## mod prebuild
@@ -9489,6 +10455,8 @@ mod publish [parameters]
 
 ```
 mod publish /path/to/project
+
+mod publish /path/to/ws --sync-csv --organization Payments
 ```
 
 ### Parameters
@@ -9501,6 +10469,9 @@ mod publish /path/to/project
 
 | Name | Description |
 | ---- | ----------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
+| `--shard` |  (INCUBATING) Work through only shard i of M of the repository list, for example 3/8 (i counts from 0), so M tasks split one repos.csv without coordinating. A repository's shard is the SHA-256 of `origin|path|branch` (origin and path lowercased, any partition removed, the branch blank when the row has none), leading 8 bytes as an unsigned number, modulo M. It depends on that row alone and is the same on every machine and CLI version. Applied after --organization. |
+| `--sync-csv` |  (INCUBATING) Work through a repos.csv one repository at a time: clone, build, publish, record the result in the artifact store's repos-lock.csv, and delete the repository directory before moving to the next, so the workspace never holds more than the repository in flight. A repository is skipped when its repos-lock.csv row already records the remote HEAD, was built by this CLI version, and was a reproducible build. Without a value, the csv is the repos.csv in the configured artifact store, which must exist either way. Put the path before this option. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
@@ -9708,6 +10679,7 @@ mod trace [subcommands]
 ### Subcommands
 
 * `builds`: Build trace analysis tools.
+* `execs`: Exec trace analysis tools.
 * `runs`: Run trace analysis tools.
 * `syncs`: Sync trace analysis tools.
 
@@ -9754,6 +10726,51 @@ mod trace builds analyze [parameters]
 | ---- | ----------- |
 | `--build` |  A build ID for a build that has completed previously. |
 | `--last-build` |  Select whatever the last build was, whether the build ran fully to completion or terminated early. |
+
+
+## mod trace execs
+
+Exec trace analysis tools.
+
+
+Analyze exec traces to understand command execution patterns and results.
+
+### Usage
+
+```
+mod trace execs [subcommands]
+```
+
+
+### Subcommands
+
+* `analyze`: Launch interactive exec trace analyzer.
+
+## mod trace execs analyze
+
+Launch interactive exec trace analyzer.
+
+
+Launches a web-based trace analyzer for exec results. The analyzer provides an interactive interface to explore exec patterns, command operations, and execution metrics.
+
+### Usage
+
+```
+mod trace execs analyze [parameters]
+```
+
+### Parameters
+
+| Name | Description | Examples |
+| ---- | ----------- | ---------- |
+| `paths` |  A project directory, or one or more log.zip files containing trace data. | • `/path/to/project`<br/>• `log.zip`<br/>• `log-1.zip log-2.zip` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--exec` |  An exec ID for an exec that has completed previously. |
+| `--last-exec` |  Select whatever the last exec was, whether the exec ran fully to completion or terminated early. |
 
 
 ## mod trace runs
@@ -9846,6 +10863,109 @@ mod trace syncs analyze [parameters]
 | `--sync` |  A sync ID for a sync that has completed previously. |
 
 
+## mod vscode
+
+(INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod vscode [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
+
+## mod vscode chat
+
+(INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Visual Studio Code Chat session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod vscode chat [parameters]
+```
+
+### Examples
+
+```
+mod vscode chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+
+
+## mod windsurf
+
+(INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod windsurf [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
+
+## mod windsurf chat
+
+(INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
+
+
+Launches a Windsurf session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+
+### Usage
+
+```
+mod windsurf chat [parameters]
+```
+
+### Examples
+
+```
+mod windsurf chat /path/to/organization --org <ORG_NAME>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory holding the organization the agent works on. Without **--org** or **--sync-csv**, it must already contain a synced organization. | `/path/to/organization` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+
+
 ## mod wrapper
 
 Create or configure a Moderne wrapper.
@@ -9863,11 +10983,11 @@ mod wrapper
 
 | Name | Description |
 | ---- | ----------- |
-| `--auto-update` |  Set version to RELEASE (track latest stable release from Maven Central). |
-| `--auto-update-snapshot` |  Set version to LATEST (track latest snapshot from Maven Central Snapshots). |
+| `--auto-update` |  Set version to RELEASE (track the latest stable release from the Code Genome Project). |
+| `--auto-update-snapshot` |  Set version to LATEST (track the latest snapshot from the Code Genome Project). |
 | `--distribution-password` |  Password for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-token` |  Bearer token for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
-| `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null and null placeholders. |
+| `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null, null, null and null placeholders. null is the Maven directory, which for a snapshot keeps the -SNAPSHOT suffix while null is the timestamped file version. |
 | `--distribution-url-cache-ttl` |  How long the wrapper caches the resolved RELEASE version before re-checking the distribution repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. Avoids a metadata lookup on every invocation. |
 | `--distribution-url-early-access-cache-ttl` |  How long the wrapper caches the resolved LATEST/snapshot version before re-checking the early-access repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. |
 | `--distribution-username` |  Username for authenticated distribution downloads (stored in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |

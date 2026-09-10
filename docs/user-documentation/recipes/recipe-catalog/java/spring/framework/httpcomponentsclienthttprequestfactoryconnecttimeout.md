@@ -1,6 +1,6 @@
 ---
-title: "Migrate `setConnectTimeout(..)` to ConnectionConfig `setConnectTimeout(..)`"
-sidebar_label: "Migrate `setConnectTimeout(..)` to ConnectionConfig `setConnectTimeout(..)`"
+title: "Migrate `setConnectTimeout(int)` to ConnectionConfig `setConnectTimeout(..)`"
+sidebar_label: "Migrate `setConnectTimeout(int)` to ConnectionConfig `setConnectTimeout(..)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate `setConnectTimeout(..)` to ConnectionConfig `setConnectTimeout(..)`"}
-  description={"`setConnectTimeout(..)` was deprecated in Spring Framework 6.2 and removed in 7.0. This recipe adds a comment directing users to migrate to `ConnectionConfig.setConnectTimeout()` on the `PoolingHttpClientConnectionManager`."}
+  displayName={"Migrate `setConnectTimeout(int)` to ConnectionConfig `setConnectTimeout(..)`"}
+  description={"`setConnectTimeout(..)` was deprecated in Spring Framework 6.2 and removed in 7.0. This recipe migrates local `PoolingHttpClientConnectionManager` instances that are wired into the request factory, and adds a comment when the configuration is not safe to migrate automatically."}
   fqName={"org.openrewrite.java.spring.framework.HttpComponentsClientHttpRequestFactoryConnectTimeout"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/httpcomponentsclienthttprequestfactoryconnecttimeout.md"}
 >
 
-<RecipeHeader.Title>Migrate `setConnectTimeout(..)` to ConnectionConfig `setConnectTimeout(..)`</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate `setConnectTimeout(int)` to ConnectionConfig `setConnectTimeout(..)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>`setConnectTimeout(..)` was deprecated in Spring Framework 6.2 and removed in 7.0. This recipe adds a comment directing users to migrate to `ConnectionConfig.setConnectTimeout()` on the `PoolingHttpClientConnectionManager`.</RecipeHeader.Description>
+<RecipeHeader.Description>`setConnectTimeout(..)` was deprecated in Spring Framework 6.2 and removed in 7.0. This recipe migrates local `PoolingHttpClientConnectionManager` instances that are wired into the request factory, and adds a comment when the configuration is not safe to migrate automatically.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"}]}>
+<RecipeList recipes={[{"name":"Move `setConnectTimeout(int)` to a locally wired `ConnectionConfig`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/moveconnecttimeouttoconnectionconfig/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"}]}>
 
 ## Definition
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.framework.HttpComponentsClientHttpRequestFactoryConnectTimeout","displayName":"Migrate `setConnectTimeout(..)` to ConnectionConfig `setConnectTimeout(..)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.framework.HttpComponentsClientHttpRequestFactoryConnectTimeout","displayName":"Migrate `setConnectTimeout(int)` to ConnectionConfig `setConnectTimeout(..)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use short receiver name"}
-  description={"Rename method receivers longer than 2 characters to the first lowercase letter of the type name."}
+  description={"Rename method receivers longer than 2 characters to the first lowercase letter of the type name, unless that name is already bound in the method."}
   fqName={"org.openrewrite.golang.codequality.UseShortReceiverName"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use short receiver name</RecipeHeader.Title>
 
-<RecipeHeader.Description>Rename method receivers longer than 2 characters to the first lowercase letter of the type name.</RecipeHeader.Description>
+<RecipeHeader.Description>Rename method receivers longer than 2 characters to the first lowercase letter of the type name, unless that name is already bound in the method.</RecipeHeader.Description>
 
 </RecipeHeader>
 

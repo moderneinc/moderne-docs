@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.6.3           |
+| CLI version | 4.8.2           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,96 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.8.2 (2026-09-09)
+
+#### What's Changed CLI
+* Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
+
+### CLI / DX v4.8.1 (2026-09-09)
+
+#### What's Changed CLI
+* Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
+
+### CLI / DX v4.8.0 (2026-09-02)
+
+#### What's Changed
+* Add daily repository backup workflow to S3
+* Open the agent on a partial sync and fill the agent trace from its transcript
+
+### CLI / DX v4.7.5 (2026-09-01)
+
+#### What's Changed
+* use Invoke-RestMethod to resolve CLI version in get-mod.ps1
+* Commit the regenerated V3 tag registry
+* Add `mod login`, and sync the recipe marketplace on login
+* Start a coding agent on a synced organization with `mod <agent> chat`
+* Make `mod` available immediately after install, without sourcing the shell rc
+* Run the prompt to completion with `mod <agent> chat --unattended`
+* Validate login with `currentUser` instead of the admin-gated `users` query
+* End an inline COBOL comment at column 72
+* Survive a vendored engine bundle that cannot be renamed into place
+
+### CLI / DX v4.7.3 (2026-08-30)
+
+#### What's Changed
+* Retrieve a pip package that installed no recipes from its dist-info on disk
+
+### CLI / DX v4.7.3 (2026-08-30)
+
+#### What's Changed
+* Retrieve a pip package that installed no recipes from its dist-info on disk
+
+### CLI / DX v4.7.2 (2026-08-29)
+
+#### What's Changed
+* Find a pip bundle's dist-info inside the venv the sidecar installs it into
+* Make a dry run legible, and stop the harness scoring what builds regenerate
+
+### CLI / DX v4.7.1 (2026-08-28)
+
+#### What's Changed
+* Stop stashing the working tree around TypeSync
+* Definalize a tree node whose package nests deeper than one segment
+* Resolve and download the CLI from the Code Genome Project by default
+* Let the compiler hold trigrep's search invariants
+* Retire noMavenCentral in favor of settings.xml mirrors
+* Add mod config recipes jar retrieve to record a recipe's classpath
+* Name the retrieve JSON fields explicitly so obfuscation cannot rename or drop them
+* Make the CLI findable and legible to a coding agent
+* Relay an npm archive the upstream streams without a length
+* Skip the POSIX-path Sh dialect tests on Windows
+* Build against rewrite-mainframe, and every member kind it reads
+
+### CLI / DX v4.7.0 (2026-08-26)
+
+#### What's Changed
+* Dependency type tables for V2 to V3 LST conversion
+* Index V2 object ids by the id instead of two hash maps
+* Search COBOL, JCL and BMS with trigrep
+* Make the CLI usable by an agent that cannot answer a prompt
+
+### CLI / DX v4.6.5 (2026-08-25)
+
+#### What's Changed
+* Warning when configuring Go environment with bearer token
+* Read a deferred tree from its root manifest
+* Stamp the stat cache once a deferred run settles
+* Resolve mod exec build tool variables for Maven and Gradle again
+* Constrain log4j-api to 2.26.+ for CVE-2026-49844
+* Pin the Go RPC engine to a toolchain that can decode what it reads
+* Count a line match's offset instead of decoding up to it
+* Compile a pattern once for a search, and compare a simple name in place
+* Read a sym: glob as a glob, not as a regex
+* Let ref: see a symbol whose name the shard stored inline
+
+### CLI / DX v4.6.4 (2026-08-23)
+
+#### What's Changed
+* Resolve io.moderne and org.openrewrite only from Code Genome
+* Stop symbol narrowing once it stops paying, and decode the rest against a local cursor
+* Reclaim superseded LST cache slots whatever the artifact is named
+* Create repository directories lazily in mod run --sync-csv
 
 ### CLI / DX v4.6.3 (2026-08-19)
 

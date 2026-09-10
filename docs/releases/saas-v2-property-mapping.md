@@ -183,7 +183,7 @@ Base URL is hardcoded to `https://bitbucket.org` in both — not configurable.
 
 ## LLM → Moddy
 
-`provider` becomes the discriminator (consumed, not emitted). `OPEN_AI` → `openai`, `ANTHROPIC` → `anthropic`, `GEMINI` → `gemini`, `MISTRAL` → `mistral`. `admin-only` stays top-level; everything else is provider-scoped, so multiple providers can be configured at once.
+`provider` becomes the discriminator (consumed, not emitted). `OPEN_AI` → `openai`, `ANTHROPIC` → `anthropic`, `GEMINI` → `gemini`, `MISTRAL` → `mistral`. `admin-only` stays top-level. Everything else is provider-scoped, so multiple providers can be configured at once.
 
 | Agent                                                | Connector                                               |
 |:-----------------------------------------------------|:--------------------------------------------------------|

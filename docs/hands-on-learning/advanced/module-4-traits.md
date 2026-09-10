@@ -43,7 +43,7 @@ The Java-only `TODO` scanning recipe from [Module 3](./module-3-scanning-recipes
 
 ### Steps
 
-1. Open the unit test [`TrackTodosTest.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackTodosTest.java). The first two tests should look familiar from Module 3; the additional tests cover XML and YAML cases, and the `SourceSpecs` indicate which file type (`java`, `yaml`, or `xml`) is being tested. Remove the `@Disabled` annotations and run the tests — they fail.
+1. Open the unit test [`TrackTodosTest.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/test/java/com/yourorg/TrackTodosTest.java). The first two tests should look familiar from Module 3. The additional tests cover XML and YAML cases, and the `SourceSpecs` indicate which file type (`java`, `yaml`, or `xml`) is being tested. Remove the `@Disabled` annotations and run the tests — they fail.
 2. Open [`trait/TodoComment.java`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/trait/TodoComment.java) — a `Trait` with `cursor` and `todos` members and a nested `Matcher` extending `SimpleTraitMatcher`. The `test(Cursor cursor)` method is partially filled in: it reads the cursor's value and branches on its LST type to decide how to match a comment.
 3. Fill in each section to match `TODO` comments for that file type. For Java, you can borrow the `JavaIsoVisitor` logic from `TrackJavaTodosFile.getScanner(...)` (Module 3). For XML and YAML, explore the LST model with the debugger or `TreeVisitingPrinter` from Module 1.
    * Hint: For YAML, look at `getPrefix(...)`. For XML, look at `Xml.Prolog.getMisc()` and `Xml.Tag.getContent()`.

@@ -1,0 +1,25 @@
+/*
+ * Local token supplement. The only design tokens defined outside
+ * @moderneinc/design-system-tokens. Reason: the package's shadows.css has no
+ * [data-theme="dark"] variant, so consuming it directly would drop card,
+ * dropdown, and modal shadows in dark mode. These three tokens carry the
+ * mode-aware shadow values the package cannot yet express. Namespaced
+ * --mod-docs-* to mark them as docs-local. Remove each token when the design
+ * system ships a mode-aware equivalent.
+ *
+ * Offsets/blur reference the package spacing scale (--mod-spacing_*); only the
+ * shadow colors are literals, since the package has no shadow-color token.
+ */
+
+:root,
+[data-theme='light'] {
+  --mod-docs-shadow-card: 0 var(--mod-spacing_1_4) var(--mod-spacing_1_2) rgba(35, 35, 66, 0.1);
+  --mod-docs-shadow-dropdown: 0 var(--mod-spacing_1_1_2) var(--mod-spacing_3_1_2) rgba(35, 35, 66, 0.14);
+  --mod-docs-shadow-modal: 0 var(--mod-spacing_3) var(--mod-spacing_8) rgba(35, 35, 66, 0.25);
+}
+
+[data-theme='dark'] {
+  --mod-docs-shadow-card: 0 var(--mod-spacing_1_4) var(--mod-spacing_1_2) rgba(0, 0, 0, 0.4);
+  --mod-docs-shadow-dropdown: 0 var(--mod-spacing_1_1_2) var(--mod-spacing_3_1_2) rgba(0, 0, 0, 0.5);
+  --mod-docs-shadow-modal: 0 var(--mod-spacing_3) var(--mod-spacing_8) rgba(0, 0, 0, 0.6);
+}

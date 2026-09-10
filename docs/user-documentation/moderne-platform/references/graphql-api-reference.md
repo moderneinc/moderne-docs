@@ -185,16 +185,16 @@ Approve pull requests in bulk. Returns the queued action for polling.
 #### `approvePullRequests`
 
 ```graphql
-approvePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued!
+approvePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositories: [RepositoryInput!]): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
 
 Approve, in bulk, the pull requests the committer created from a changeset.
-Pass `repositories` to limit the action to a subset of the changeset's
-repositories; omit it to target every pull request in the changeset. Returns
-the queued action for polling (also surfaces under
-`OrganizationChangeset.bulkPullRequestActions`).
+Pass `commitId` and/or `repositories` to limit the action to one commit job
+or a subset of the changeset's repositories; omit both to target every pull
+request in the changeset. Returns the queued action for polling (also
+surfaces under `OrganizationChangeset.bulkPullRequestActions`).
 
 #### `cancelBulkPullRequestAction`
 
@@ -307,7 +307,7 @@ Close pull requests in bulk. Returns the queued action for polling.
 #### `closePullRequests`
 
 ```graphql
-closePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued!
+closePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositories: [RepositoryInput!], deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
@@ -483,7 +483,7 @@ Merge pull requests in bulk. Returns the queued action for polling.
 #### `mergePullRequests`
 
 ```graphql
-mergePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!], mergeMethod: MergeMethod!, deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
+mergePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositories: [RepositoryInput!], mergeMethod: MergeMethod!, deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
@@ -1228,7 +1228,7 @@ A pull request (open, draft, merged, or closed).
 |-------|------|-------------|
 | `origin` | String! |  |
 | `repositoryPath` | String! |  |
-| `branch` | String! |  |
+| `branch` | String! | The pull request's source branch. |
 | `number` | Int! |  |
 
 ##### `ChangeParticipant`
@@ -1293,6 +1293,7 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `tools` | [[ConnectorTool](#connectortool)!]! |  |
 | `uiConfiguration` | [UiConfiguration](#uiconfiguration) |  |
 | `personalAccessTokenConfiguration` | [PersonalAccessTokenConfiguration](#personalaccesstokenconfiguration) |  |
+| `organizationSources` | [[OrganizationSource](#organizationsource)!]! | Organization CSV sources this connector is configured to pull. Admin only. |
 
 ##### `ConnectorConnection`
 
@@ -1915,7 +1916,7 @@ that recipe runs consume. Every repository has a conceptual artifact;
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `systemPrompt` | [Prompt](#prompt)! | The effective system prompt for this context. Cascades: user > organization > universal > built-in default. |
+| `systemPrompt` | [Prompt](#prompt)! | The effective system prompt for this context. Cascades: user &gt; organization &gt; universal &gt; built-in default. |
 | `adminOnly` | Boolean! | When true, only administrators can create conversations or send messages. Install-level policy flag; the UI uses this together with the viewer's admin status to gate the Moddy menu entry. |
 | `conversations` | (first: Int = 50, after: String, where: [ConversationWhereInput](#conversationwhereinput), orderBy: [[ConversationOrderByInput](#conversationorderbyinput)!]): [ConversationConnection](#conversationconnection)! |  |
 | `providerName` | String | Human-readable provider name (e.g. "Anthropic", "OpenAI"). Null when no LLM provider is configured (in which case `capabilities.moddy` is also false — clients should gate the chat composer on the capability, not on this field). |
@@ -2322,6 +2323,23 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
 
+##### `OrganizationSource`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! | Stable id unique within its Connector: "&lt;connectorId&gt;:&lt;sha-256 of the source URI&gt;". |
+| `kind` | [OrganizationSourceKind](#organizationsourcekind)! |  |
+| `location` | String! | The source URI (http/s3/gcs) or permanent-dir-relative path (file). |
+| `download` | [OrganizationSourceDownload](#organizationsourcedownload) | The downloadable structure-only repos.csv for this source; null only in the rare empty-slot case. |
+
+##### `OrganizationSourceDownload`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `url` | String! | Admin-gated URL serving the structure-only repos.csv for this source. |
+| `sizeBytes` | Int! |  |
+| `lastUpdatedAt` | [DateTime](#datetime) |  |
+
 ##### `PageInfo`
 
 | Field | Type | Description |
@@ -2398,6 +2416,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 | `canceledBy` | [User](#user)! |  |
 
 ##### `PullRequestActionConnection`
@@ -2422,6 +2441,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 | `startedAt` | [DateTime](#datetime) |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `errorMessage` | String! |  |
@@ -2433,6 +2453,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 
 ##### `PullRequestActionRunning`
 
@@ -2441,6 +2462,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 
 ##### `PullRequestActionSucceeded`
@@ -2450,8 +2472,10 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
+| `branchDeleteStatus` | [BranchDeleteStatus](#branchdeletestatus)! |  |
 
 ##### `PullRequestCommitSucceeded`
 
@@ -2486,7 +2510,7 @@ Pull request commit completed successfully.
 |-------|------|-------------|
 | `origin` | String! |  |
 | `repositoryPath` | String! |  |
-| `branch` | String! |  |
+| `branch` | String! | The pull request's source branch. |
 | `number` | Int! |  |
 
 ##### `PullRequestStatus`
@@ -2498,6 +2522,7 @@ Pull request commit completed successfully.
 | `review` | [ReviewStatus](#reviewstatus)! |  |
 | `buildState` | [BuildState](#buildstate) |  |
 | `otherBlockingReasons` | [String!]! | Additional status flags that block this pull request. Can depend on the SCM service provider. |
+| `resolvedAt` | [DateTime](#datetime) | When the pull request was merged or closed. The provider's own timestamp on GitHub, Bitbucket Data Center and Azure DevOps; GitLab and Bitbucket Cloud don't report one, so those fall back to when Moderne observed the transition and advance on every read until the commit job finishes. Null while open, and for pull requests already terminal before this shipped -- those are never re-queried. |
 
 ##### `PypiConfiguration`
 
@@ -3237,6 +3262,15 @@ The installation lives in a specific user's personal marketplace.
 | `pageInfo` | [PageInfo](#pageinfo)! |  |
 | `count` | Int! |  |
 
+##### `VisualizationDataGridOutput`
+
+**Implements:** [VisualizationOutput](#visualizationoutput)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `format` | [DataGridFormat](#datagridformat)! |  |
+| `data` | [Base64](#base64)! | Moderne data grid JSON, rendered client-side by the grid components (MIME types: application/vnd.moderne.datagrid+json, application/vnd.moderne.treedatagrid+json) |
+
 ##### `VisualizationDescriptor`
 
 | Field | Type | Description |
@@ -3540,6 +3574,7 @@ Use `__typename` to determine the current state.
 | Field | Type | Description |
 |-------|------|-------------|
 | `pullRequest` | [PullRequestRef](#pullrequestref)! |  |
+| `commitId` | ID | The commit job whose pull request this result acted on. Bulk actions are changeset-scoped, so filter on this to show only one commit job's activity. Null only for actions enqueued before this field existed -- a shrinking population, but one a per-commit view will otherwise render as empty. |
 
 ##### `RecipeBundle`
 
@@ -3663,6 +3698,16 @@ Use `__typename` to determine the specific commit type.
 
 * `SUCCESS`
 * `FAILURE`
+
+##### `BranchDeleteStatus`
+
+Only reflects CLOSE-triggered branch deletes. A MERGE with deleteSourceBranch: true always
+reports SKIPPED regardless of whether the provider's bundled delete succeeded.
+
+* `SKIPPED`
+* `SUCCEEDED`
+* `FAILED`
+* `REFUSED_UNTRUSTED`
 
 ##### `BuildState`
 
@@ -3801,6 +3846,11 @@ The participant's role for filtering.
 * `TOOL_RUNNING`
 * `ERRORED`
 
+##### `DataGridFormat`
+
+* `FLAT`
+* `TREE`
+
 ##### `DataTableFormat`
 
 * `CSV`
@@ -3910,6 +3960,13 @@ Execution state of a DevCenter run.
 * `CANCELED`
 * `ERROR`
 
+##### `OrganizationSourceKind`
+
+* `HTTP`
+* `S3`
+* `GCS`
+* `FILE`
+
 ##### `ProfilingEvent`
 
 The primary event the Pyroscope agent samples on. async-profiler can only
@@ -4009,7 +4066,7 @@ The kind of scope a `RecipeInstallation` lives in -- the discriminant of the
 
 Priority level for recipe runs.
 HIGH priority runs target small organizations (≤100 repositories).
-LOW priority runs target large organizations (>100 repositories).
+LOW priority runs target large organizations (&gt;100 repositories).
 
 * `HIGH`
 * `LOW`
@@ -4624,7 +4681,7 @@ Commit to a fork of the origin repository.
 | Field | Type | Description |
 |-------|------|-------------|
 | `organization` | String | Organization to create the fork in. If unset, creates in user's personal account. |
-| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions. Example: openrewrite/rewrite -> myuser/openrewrite__rewrite |
+| `prefixOrganizationName` | Boolean | Prefix the fork name with the origin organization to avoid name collisions. Example: openrewrite/rewrite -&gt; myuser/openrewrite__rewrite |
 
 ##### `GoRecipeBundleInput`
 
@@ -4840,6 +4897,7 @@ Filter for file paths using glob patterns.
 | Field | Type | Description |
 |-------|------|-------------|
 | `state` | [PullRequestActionStateFilter](#pullrequestactionstatefilter) |  |
+| `commitId` | [IDFilter](#idfilter) | Narrow a changeset-scoped action's results to the pull requests one commit job opened. Unattributed results (see `PullRequestAction.commitId`) match `_neq` and `_nin` as well as the job you asked for, and `IDFilter` has no `_isNull`, so they cannot be selected on their own. |
 | `_and` | [[PullRequestActionWhereInput](#pullrequestactionwhereinput)!] |  |
 | `_or` | [[PullRequestActionWhereInput](#pullrequestactionwhereinput)!] |  |
 | `_not` | [PullRequestActionWhereInput](#pullrequestactionwhereinput) |  |
@@ -5071,7 +5129,7 @@ Filter for repository changesets.
 | `origin` | [StringFilter](#stringfilter) | Filter by repository origin. |
 | `branch` | [StringFilter](#stringfilter) | Filter by repository branch. |
 | `files` | [FileChangeWhereInput](#filechangewhereinput) | Filter files within matching repositories. Useful for filtering to specific file patterns (e.g., all build.gradle.kts files). |
-| `onlyWithResults` | Boolean | Only return repositories with results (filesWithResults > 0). |
+| `onlyWithResults` | Boolean | Only return repositories with results (filesWithResults &gt; 0). |
 | `state` | [RepositoryChangesetStateFilter](#repositorychangesetstatefilter) | Filter by repository result state. |
 | `_and` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Logical AND - all conditions must match. |
 | `_or` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Logical OR - at least one condition must match. |

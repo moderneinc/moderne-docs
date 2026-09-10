@@ -62,7 +62,7 @@ Cannot construct instance of `org.openrewrite.RecipeBuilder$buildSimpleRecipe$1`
 :::
 
 :::note
-OpenRewrite artifacts are published to the [Code Genome Project](https://artifacts.codegenomeproject.org/maven), which requires authentication. Moderne customers receive a username, password, and download token directly from Moderne; see [Accessing the Code Genome Project](../../administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project.md) for how to get them and what each one covers.
+OpenRewrite artifacts are published to the [Code Genome Project](https://artifacts.codegenomeproject.org/maven), which requires authentication. Moderne customers receive a username, password, and download token directly from Moderne; see [Accessing the Code Genome Project](../../user-documentation/recipes/accessing-the-code-genome-project.md) for how to get them and what each one covers.
 
 Add them to `~/.gradle/gradle.properties` before building, using the token as the password:
 

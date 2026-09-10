@@ -9,6 +9,7 @@ description: Search OpenRewrite recipes.
 _Recipes that include further recipes, often including the individual recipes below._
 
 * [Find i18n usage](./find-i18n-usage.md)
+* [Find safe navigation in Angular templates](./find-template-safe-navigation.md)
 
 ## Recipes
 
@@ -16,9 +17,11 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find Angular decorators](./find-angular-decorator.md)
 * [Find `AnimationDriver.matchesElement` usage](./find-animation-driver-matches-element.md)
 * [Find `BrowserTransferStateModule` usage](./find-browser-transfer-state-module-usage.md)
+* [Find `ChangeDetectorRef.checkNoChanges` usage](./find-check-no-changes-usage.md)
 * [Find `CommonModule` usage](./find-common-module-usage.md)
 * [Find `DATE_PIPE_DEFAULT_TIMEZONE` usage](./find-date-pipe-default-timezone-usage.md)
 * [Find HammerJS usage](./find-hammer-js-usage.md)
+* [Find `HttpXhrBackend` usage](./find-http-xhr-backend-usage.md)
 * [Find Karma test runner usage](./find-karma-usage.md)
 * [Find `ModuleWithProviders` without generic type](./find-bare-module-with-providers.md)
 * [Find `NgClass` usage](./find-ng-class-usage.md)
@@ -44,12 +47,15 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find `isPlatformWorkerUi` and `isPlatformWorkerApp` usage](./find-platform-worker-usage.md)
 * [Find `pathMatch` route properties that may need type narrowing](./find-path-match-type-usage.md)
 * [Find `platformDynamicServer` usage](./find-platform-dynamic-server-usage.md)
+* [Find `provideRoutes` usage](./find-provide-routes-usage.md)
 * [Find removed `@angular/http` usage](./find-angular-http-usage.md)
 * [Find removed `@angular/platform-webworker` usage](./find-platform-webworker-usage.md)
 * [Find removed Testability pending request methods](./find-testability-pending-request-usage.md)
 * [Find `renderApplication` usage](./find-render-application-usage.md)
 * [Find `renderModuleFactory` usage](./find-render-module-factory-usage.md)
+* [Find router configuration relying on the default `paramsInheritanceStrategy`](./find-implicit-params-inheritance.md)
 * [Find `setupTestingRouter` usage](./find-setup-testing-router-usage.md)
+* [Find two argument `canMatch` guard calls](./find-can-match-usage.md)
 * [Find undecorated classes with Angular features](./find-undecorated-angular-class.md)
 * [Find `withNoDomReuse` usage](./find-with-no-dom-reuse-usage.md)
 * [Find zone.js usage](./find-zone-js-usage.md)

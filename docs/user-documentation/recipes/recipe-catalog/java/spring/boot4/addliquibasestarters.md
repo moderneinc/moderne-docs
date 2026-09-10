@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Add Liquibase starters"}
-  description={"Adds spring-boot-starter-liquibase and spring-boot-starter-liquibase-test dependencies when Liquibase usage is detected in the module."}
+  description={"Adds the spring-boot-starter-liquibase dependency when Liquibase usage is detected in the module."}
   fqName={"io.moderne.java.spring.boot4.AddLiquibaseStarters"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Add Liquibase starters</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adds spring-boot-starter-liquibase and spring-boot-starter-liquibase-test dependencies when Liquibase usage is detected in the module.</RecipeHeader.Description>
+<RecipeHeader.Description>Adds the spring-boot-starter-liquibase dependency when Liquibase usage is detected in the module.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Module uses Liquibase","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesliquibase/"}]}>
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Module uses Liquibase","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesliquibase/"}]}>
 
 ## Definition
 

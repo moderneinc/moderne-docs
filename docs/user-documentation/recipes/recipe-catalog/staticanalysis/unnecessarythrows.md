@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Unnecessary throws"}
-  description={"Remove unnecessary `throws` declarations. This recipe will only remove unused, checked exceptions if:\n\n - The declaring class or the method declaration is `final`.\n - The method declaration is `static` or `private`.\n - The method overrides a method declaration in a super class and the super class does not throw the exception.\n - The method is `public` and the exception is not documented via a JavaDoc as a `@throws` tag.\n\nThe `throws` declaration is retained on overridable methods (package-private and `protected` methods on non-`final` classes), and on `public` methods overridden within the same source file, so that a subclass override which does throw the exception keeps compiling. Overrides in other source files cannot be detected without a scanning recipe and are therefore not accounted for.\n\nDeclaring exceptions that are never thrown misleads callers into writing unnecessary error-handling code and obscures the method's true behavior."}
+  description={"Remove unnecessary `throws` declarations. This recipe will only remove unused, checked exceptions if:\n\n - The declaring class or the method declaration is `final`.\n - The method declaration is `static` or `private`.\n - The method overrides a method declaration in a super class and the super class does not throw the exception.\n - The method is `public` and the exception is not documented via a JavaDoc as a `@throws` tag.\n\nThe `throws` declaration is retained on overridable methods (package-private and `protected` methods on non-`final` classes), and on `public` methods overridden within the same source file, so that a subclass override which does throw the exception keeps compiling. Overrides in other source files cannot be detected without a scanning recipe and are therefore not accounted for.\n\nWhen a `throws` declaration is removed, any `@throws` or `@exception` JavaDoc tag documenting that exception is removed along with it, so that the documentation does not describe an exception the method no longer declares.\n\nDeclaring exceptions that are never thrown misleads callers into writing unnecessary error-handling code and obscures the method's true behavior."}
   fqName={"org.openrewrite.staticanalysis.UnnecessaryThrows"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -43,6 +43,8 @@ Remove unnecessary `throws` declarations. This recipe will only remove unused, c
  - The method is `public` and the exception is not documented via a JavaDoc as a `@throws` tag.
 
 The `throws` declaration is retained on overridable methods (package-private and `protected` methods on non-`final` classes), and on `public` methods overridden within the same source file, so that a subclass override which does throw the exception keeps compiling. Overrides in other source files cannot be detected without a scanning recipe and are therefore not accounted for.
+
+When a `throws` declaration is removed, any `@throws` or `@exception` JavaDoc tag documenting that exception is removed along with it, so that the documentation does not describe an exception the method no longer declares.
 
 Declaring exceptions that are never thrown misleads callers into writing unnecessary error-handling code and obscures the method's true behavior.
 

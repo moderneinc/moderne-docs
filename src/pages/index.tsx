@@ -60,9 +60,9 @@ export const WhatIsModerneSection: FunctionComponent = () => {
       title: 'OpenRewrite vs. Moderne',
     },
     {
-      id: 'KRXDMGt7DRE',
-      url: 'https://www.youtube.com/watch?v=KRXDMGt7DRE',
-      thumbnail: 'https://img.youtube.com/vi/KRXDMGt7DRE/hqdefault.jpg',
+      id: 'FQs048JKXVw',
+      url: 'https://www.youtube.com/watch?v=FQs048JKXVw',
+      thumbnail: 'https://img.youtube.com/vi/FQs048JKXVw/hqdefault.jpg',
       title: 'Moderne DevCenter',
     },
   ];
@@ -70,6 +70,7 @@ export const WhatIsModerneSection: FunctionComponent = () => {
   return (
     <section className={styles.whatIsSection}>
       <div className={styles.sectionHeader}>
+        <span className={styles.accentBar} aria-hidden="true" />
         <h2 className={styles.sectionTitle} id='what-is-moderne'>What is Moderne?</h2>
         <p className={styles.sectionDescription}>
           Moderne builds the knowledge, discovery, and execution tools coding agents rely on to operate faster, more accurately, and at far lower cost across real-world software systems. Powered by the <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> <Link href="/user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees">Lossless Semantic Tree (LST)</Link>, the industry's most comprehensive context model for understanding and transforming your code at scale.
@@ -97,6 +98,7 @@ export const WhatIsModerneSection: FunctionComponent = () => {
 export const AboutModerneSection: FunctionComponent = () => {
   return (
     <section className={styles.platformSection}>
+      <span className={styles.accentBar} aria-hidden="true" />
       <h2 className={styles.sectionTitle}>More about Moderne</h2>
       <div className={styles.platformContent}>
         <p>

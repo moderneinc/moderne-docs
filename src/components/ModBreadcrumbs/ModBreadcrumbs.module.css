@@ -2,37 +2,37 @@
  * Breadcrumbs Component - Design System Integration
  * Refactored with CSS nesting for improved specificity and maintainability
  *
- * This component uses Morpheus (--mor-*) and Infima (Docusaurus) CSS variables.
+ * This component uses design-system (--mod-*) and Infima (Docusaurus) CSS variables.
  *
  * Variable Mappings:
  *
  * LIGHT MODE:
- * - Icons/Chevrons: --mor-muted
- * - Link text: --mor-link
- * - Body text: --mor-muted
- * - Current page: --mor-link
+ * - Icons/Chevrons: --mod-color-text-tertiary
+ * - Link text: --mod-color-action-default
+ * - Body text: --mod-color-text-tertiary
+ * - Current page: --mod-color-action-default
  *
  * DARK MODE:
- * - Icons/Body text: --mor-muted (mode-aware, inherited)
- * - Links: --mor-muted
+ * - Icons/Body text: --mod-color-text-tertiary (mode-aware, inherited)
+ * - Links: --mod-color-text-tertiary
  * - Current page: --brand-digital-green (#85fe98 / mint green)
  *
  * TYPOGRAPHY:
  * - Font family: --ifm-font-family-base
- * - Font size: --mor-font-size-base (14px)
- * - Font weight: --mor-font-weight-medium (500)
+ * - Font size: --mod-font-size-sm (14px)
+ * - Font weight: --mod-font-weight-medium (500)
  */
 .breadcrumbs {
   /* Light mode tokens - mapped to Morpheus */
-  --breadcrumb-icon-color: var(--mor-muted);
-  --breadcrumb-text-color: var(--mor-muted);
-  --breadcrumb-link-color: var(--mor-link);
-  --breadcrumb-current-color: var(--mor-link);
+  --breadcrumb-icon-color: var(--mod-color-text-tertiary);
+  --breadcrumb-text-color: var(--mod-color-text-tertiary);
+  --breadcrumb-link-color: var(--mod-color-action-default);
+  --breadcrumb-current-color: var(--mod-color-action-default);
 
   /* Typography - using Morpheus variables */
   --breadcrumb-font-family: var(--ifm-font-family-base);
-  --breadcrumb-font-size: var(--mor-font-size-base);
-  --breadcrumb-font-weight: var(--mor-font-weight-medium);
+  --breadcrumb-font-size: var(--mod-font-size-sm);
+  --breadcrumb-font-weight: var(--mod-font-weight-medium);
   --breadcrumb-line-height: 1;
 
   display: inline-flex;
@@ -41,7 +41,7 @@
 
 /* Dark mode tokens - using brand variables from custom.css */
 [data-theme='dark'] .breadcrumbs {
-  --breadcrumb-link-color: var(--mor-muted);
+  --breadcrumb-link-color: var(--mod-color-text-tertiary);
   --breadcrumb-current-color: var(--brand-digital-green);
 }
 
@@ -49,7 +49,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -82,8 +82,8 @@
 
   &:focus-visible {
     outline: 2px solid var(--breadcrumb-link-color);
-    outline-offset: var(--mor-space-2px);
-    border-radius: var(--mor-radius-xs);
+    outline-offset: var(--mod-spacing_1_4);
+    border-radius: var(--mod-border-radius-x-xs);
   }
 }
 

@@ -168,8 +168,12 @@ function linkify(text, knownTypes) {
   return text.replace(TYPE_NAME_RE, name => knownTypes.has(name) ? `[${name}](#${name.toLowerCase()})` : name);
 }
 
+const MDX_ESCAPES = { '<': '&lt;', '>': '&gt;', '{': '\\{', '}': '\\}' };
+
+// MDX parses `<`/`>` as JSX/HTML and `{`/`}` as expressions, so any of these
+// appearing in schema descriptions (e.g. "<connectorId>") breaks the build.
 function mdxEscape(text) {
-  return text.replace(/[{}]/g, '\\$&');
+  return text.replace(/[<>{}]/g, c => MDX_ESCAPES[c]);
 }
 
 function cell(text) {

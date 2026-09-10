@@ -22,7 +22,7 @@
 # requires credentials, so set CODEGENOME_USERNAME/CODEGENOME_TOKEN before
 # running. Without them this falls back to Maven Central, which only carries
 # older releases; see
-# https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project
+# https://docs.moderne.io/user-documentation/recipes/accessing-the-code-genome-project
 #
 # All of the logic lives here (rather than in the workflow) so it can run both in
 # CI (.github/workflows/build-recipe-marketplace.yml) and locally.

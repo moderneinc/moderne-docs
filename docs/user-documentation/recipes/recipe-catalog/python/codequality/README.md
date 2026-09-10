@@ -7,6 +7,7 @@ description: Codequality OpenRewrite recipes.
 ## Recipes
 
 * [Boolean checks should not be inverted](./booleanchecksnotinverted.md)
+* [Find suspicious chained comparisons](./findsuspiciouschainedcomparison.md)
 * [Merge collapsible if statements](./collapsibleifstatements.md)
 * [Merge consecutive branches with identical bodies](./mergeidenticalbranches.md)
 * [Remove conditional with identical branches](./allbranchesidentical.md)

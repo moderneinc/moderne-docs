@@ -4,7 +4,7 @@ description: Detect and prevent exposure of Personally Identifiable Information 
 
 # PII protection
 
-Protecting Personally Identifiable Information (PII) is crucial for regulatory compliance (GDPR, CCPA, HIPAA) and user privacy. OpenRewrite provides recipes to detect PII exposure in URLs and unencrypted storage, helping prevent data breaches and privacy violations.
+Protecting Personally Identifiable Information (PII) is required for regulatory compliance (GDPR, CCPA, HIPAA) and user privacy. OpenRewrite provides recipes to detect PII exposure in URLs and unencrypted storage, helping prevent data breaches and privacy violations.
 
 ## Understanding PII risks
 
@@ -671,6 +671,6 @@ public class PIIAccessAuditor {
 }
 ```
 
-:::warning[Privacy First]
-PII protection is not just about security—it's about respecting user privacy and maintaining trust. Always apply the principle of data minimization: collect only what you need, store it only as long as necessary, and protect it at all times.
+:::warning[Privacy first]
+PII protection is about respecting user privacy and maintaining trust. Always apply the principle of data minimization: collect only what you need, store it only as long as necessary, and protect it at all times.
 :::

@@ -1,4 +1,45 @@
 # Platform changelog
+### UI v14.14.0 (2026/09/09)
+
+- render Moderne data grid output
+
+### UI v14.13.0 (2026/09/09)
+
+- show a failed run's log in a modal instead of inline
+
+### UI v14.12.0 (2026/09/04)
+
+- Bug fixes and other improvements.
+
+### UI v14.11.1 (2026/09/02)
+
+- Bug fixes and other improvements.
+
+### UI v14.11.0 (2026/09/02)
+
+- resizable columns and standard grid controls
+
+### UI v14.10.1 (2026/08/28)
+
+- Bug fixes and other improvements.
+
+### UI v14.10.0 (2026/08/27)
+
+- add API examples to the data tables tab
+
+### UI v14.9.0 (2026/08/27)
+
+- try-in-app first-time-user guided tour
+- add /dependabot-triage command
+
+### UI v14.8.0 (2026/08/24)
+
+- add Profiling link to the Pyroscope profiler
+
+### UI v14.7.1 (2026/08/21)
+
+- Bug fixes and other improvements.
+
 ### UI v14.7.0 (2026/08/19)
 
 - consume the marks from @moderneinc/design-system-logos
@@ -776,7 +817,7 @@ We have made changes to the key bindings and command palette:
 ### UI v11.80.0 (2025/08/01)
 
 - Removed Orphaned organization
-  - As part of the migration away from the organization service for managing organization hierarchy, the Orphaned organization (previously available to admins) has been removed. The purpose of the Orphaned organization was to find repositories that had LSTs built for them but were not correctly configured in the organization hierarchy. This functionality is now available through [Lost and Found repositories](../administrator-documentation/moderne-platform-v1/how-to-guides/troubleshooting-lst-issues.md#using-the-lost-and-found-query).
+  - As part of the migration away from the organization service for managing organization hierarchy, the Orphaned organization (previously available to admins) has been removed. The purpose of the Orphaned organization was to find repositories that had LSTs built for them but were not correctly configured in the organization hierarchy. This functionality is now available through [Lost and Found repositories](../administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues.md#using-the-lost-and-found-query).
 - add ability to set expiration on moderne token
 
 ### UI v11.79.1 (2025/08/01)

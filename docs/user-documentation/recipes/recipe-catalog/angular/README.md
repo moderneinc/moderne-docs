@@ -25,6 +25,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Upgrade to Angular 19](./upgradetoangular19.md)
 * [Upgrade to Angular 20](./upgradetoangular20.md)
 * [Upgrade to Angular 21](./upgradetoangular21.md)
+* [Upgrade to Angular 22](./upgradetoangular22.md)
 * [Upgrade to Angular 8](./upgradetoangular8.md)
 * [Upgrade to Angular 9](./upgradetoangular9.md)
 

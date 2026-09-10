@@ -86,7 +86,7 @@ Want to use a UI to build declarative recipes rather than trying to figure out a
 
 Refaster template recipes are the "middle ground" of recipes. They offer more functionality than [declarative recipes](#declarative-recipes), but not as much as [imperative recipes](#imperative-recipes). On the other hand, compared to an imperative recipe, they're much quicker to create and require much less knowledge to get started.
 
-Refaster template recipes can only be used to replace one expression with another – or one statement with another. Because of that, they're ideal for straightforward replacements such as converting `StringUtils.equals(..)` to `Objects.equals(..)`. These are more than just a string replacement, though; they offer compiler and type support.
+Refaster template recipes can only be used to replace one expression with another – or one statement with another. Because of that, they're ideal for straightforward replacements such as converting `StringUtils.equals(..)` to `Objects.equals(..)`. These are more than just a string replacement, though - they offer compiler and type support.
 
 To make Refaster template recipes, you will create [Refaster templates](https://errorprone.info/docs/refaster) that will get automatically converted to Refaster template recipes when you build your repository.
 

@@ -4,10 +4,6 @@ sidebar_label: Moderne architecture
 description: A detailed technical document about the Moderne Platform and how it fits into your environment.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/references/architecture" />
-
 # Moderne architecture
 
 To help you understand how the Moderne Platform works and how it interacts with your environment and services, this document will:
@@ -30,7 +26,7 @@ Below is a high-level architecture diagram that shows the flow of data between M
 
 <figure>
   ![Moderne architecture diagram](./assets/moderne-architecture-v2.png)
-  <figcaption>_Moderne architecture diagram_</figcaption>
+  <figcaption>_Moderne architecture diagram_ ([editable version](./assets/moderne-architecture-v2.excalidraw))</figcaption>
 </figure>
 
 ## Key components
@@ -122,7 +118,6 @@ The Moderne UI provides a browser-based interface for:
 
 * Executing search and transformation recipes across your codebase
 * Reviewing and committing code changes produced by recipe runs
-* Searching code across all repositories with [Moderne Trigrep](#moderne-trigrep)
 * Monitoring upgrade, migration, and security progress via the [DevCenter](#devcenter)
 * Conversing with [Moddy](#moddy), the AI assistant, to discover and run recipes
 * Building new recipes based on other recipes
@@ -236,16 +231,6 @@ The changelog service ingests commit and pull request activity from your SCM pro
 The DevCenter is an organizational dashboard that aggregates recipe run results into actionable metrics. It tracks upgrade, migration, and security progress across all repositories in your organization, helping you understand where your codebase stands and what work remains.
 
 For more details, see the [DevCenter guide](../../../user-documentation/moderne-platform/getting-started/dev-center.md).
-
-**Setup requirements**
-
-* None
-
-### Moderne Trigrep
-
-Moderne Trigrep provides code search across all repositories in your organization. You can search for code patterns, function calls, imports, and other structural elements across your entire codebase without needing to clone repositories locally.
-
-For more details, see the [Moderne Trigrep documentation](../../../user-documentation/agent-tools/trigrep.md).
 
 **Setup requirements**
 

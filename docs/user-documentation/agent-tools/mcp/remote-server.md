@@ -10,6 +10,12 @@ import TabItem from '@theme/TabItem';
 
 The Moderne Platform hosts a remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents access to your platform's recipes and recipe results. Unlike the [local MCP server](./overview.md), which runs on your workstation and operates on repositories you have checked out, the remote server runs on the platform and operates on the repositories already ingested into your tenant.
 
+:::info[Beta]
+The remote MCP server is in beta. Tools will be added, reshaped, and occasionally removed as we learn how agents use them. That being said, it's only the tools themselves that are in beta - not the platform underneath it. Authentication and access scoping work exactly as they do for the rest of the Moderne API (as described under [Security](#security).
+
+None of the changes to the tools requires anything from you, because your agents reads the current list of tools from the server each time it connects.
+:::
+
 This page covers when to use the remote server, how to connect your coding agents to it, how to try it out via the MCP explorer, how it authenticates and scopes access, and the [tools it provides](#available-tools).
 
 ## Local vs remote
@@ -18,6 +24,7 @@ Moderne offers two MCP servers, and they complement each other:
 
 |                         | Local MCP server                                                     | Remote MCP server                                              |
 |-------------------------|----------------------------------------------------------------------|----------------------------------------------------------------|
+| **Maturity**            | [Experimental](./overview.md)                                        | Beta                                                           |
 | **Where it runs**       | On your workstation, as a subprocess of your coding agent            | On the Moderne Platform                                        |
 | **What it operates on** | Repositories checked out locally                                     | Repositories ingested into your tenant, scoped by organization |
 | **Setup**               | [`mod config agent-tools install`](./getting-started.md)             | Point your agent at a URL with an access token (below)         |
@@ -34,7 +41,7 @@ The token carries the same permissions as your account, so an agent that uses it
 
 ## Connecting your agent
 
-Your coding agent can't use Moderne's recipes or results until it knows the remote server exists. Connecting it registers the server's tools with the agent, so you can ask, in plain language, to find a recipe, run it across an organization, and explore the results - without leaving your editor or opening the platform. You only need to do this once per agent; afterwards, the tools are available in every session.
+Your coding agent can't use Moderne's recipes or results until it knows the remote server exists. Connecting it registers the server's tools with the agent, so you can ask, in plain language, to find a recipe, run it across an organization, and explore the results - without leaving your editor or opening the platform. You only need to do this once per agent. Afterwards, the tools are available in every session.
 
 Whichever agent you use, register the remote server as a streamable HTTP MCP server at `https://api.<tenant>.moderne.io/mcp` with two headers:
 
@@ -138,7 +145,134 @@ Recipe runs are not allowed against the root organization (`ALL`). Pass a specif
 
 A typical flow is to find a recipe with `searchForRecipe`, inspect it with `describeRecipeOptions` and `describeRecipeDataTables`, run it with `runRecipe`, and then query the results with `processDataTableSql`. A recipe run can take a little time, so your agent waits for it to finish before returning the results.
 
-For the exact input schema of each tool, including its required and optional parameters, open the tool in the [MCP explorer](#trying-it-in-the-mcp-explorer).
+## Tool schemas
+
+Below is the input schema for each tool. Your agent reads the same schemas when it connects, so this is what it fills in for you when you ask for something in plain language. It is also what you would code against in a client of your own. If you'd rather use a UI to run the tools, check out our [MCP explorer](#trying-it-in-the-mcp-explorer).
+
+Every tool that takes an `organizationId` accepts the organization's ID, path, or name, as described in [choosing an organization](#choosing-an-organization).
+
+### searchForRecipe
+
+Searches the marketplace for recipes matching a natural-language query, scoped to one organization.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "query": { "type": "string", "description": "The search query" },
+    "organizationId": { "type": "string", "description": "The organization ID to search within" }
+  },
+  "required": ["query", "organizationId"]
+}
+```
+
+### describeRecipeOptions
+
+Returns the options a recipe accepts, including each option's type, description, and whether it is required.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "recipeId": { "type": "string", "description": "The recipe ID" },
+    "organizationId": { "type": "string", "description": "The organization ID" }
+  },
+  "required": ["recipeId", "organizationId"]
+}
+```
+
+### describeRecipeDataTables
+
+Returns the data tables a recipe produces, along with the columns in each one. The input schema is identical to `describeRecipeOptions`.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "recipeId": { "type": "string", "description": "The recipe ID" },
+    "organizationId": { "type": "string", "description": "The organization ID" }
+  },
+  "required": ["recipeId", "organizationId"]
+}
+```
+
+### runRecipe
+
+Runs a recipe across an organization's repositories and, once the run finishes, returns a preview of the first requested data table.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "recipeId": { "type": "string", "description": "The recipe ID to run" },
+    "organizationId": { "type": "string", "description": "The organization ID to run against" },
+    "dataTableNames": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of data table names to generate after the run"
+    },
+    "options": {
+      "type": "object",
+      "description": "Recipe options as key-value pairs",
+      "additionalProperties": { "type": "string" }
+    },
+    "recipeRunId": {
+      "type": "string",
+      "description": "Optional. Server-generated on the first call and returned in structuredContent. Pass it back on subsequent calls to resume the same run."
+    },
+    "email": {
+      "type": "string",
+      "description": "Reserved for the gateway-injected verified caller identity. Clients must not set this; any client-supplied value is ignored and overwritten at the gateway."
+    }
+  },
+  "required": ["recipeId", "organizationId", "dataTableNames"]
+}
+```
+
+A recipe run usually takes longer than a single MCP request can stay open, so `runRecipe` follows a resume-token protocol rather than blocking until the run finishes. Each call returns within about twenty seconds, carrying a `structuredContent` payload alongside the text response:
+
+```json
+{
+  "recipeRunId": "the ID for this run, generated on the first call and echoed on every later one",
+  "status": "QUEUED, RUNNING, FINISHED, ERROR, or CANCELED",
+  "terminal": "false while the run is still going, true once it has stopped for good",
+  "errorMessage": "present only when the status is ERROR or CANCELED and a reason was captured"
+}
+```
+
+If you omit `recipeRunId` on the first call, the server will generate one for you. Every call after that should pass the same ID, which is how the server knows you are asking after an existing run rather than starting a new one.
+
+The `terminal` flag is what tells you when to stop calling. It stays `false` while the run is queued or still in progress, and turns `true` once the run has reached a final state, whether that is `FINISHED`, `ERROR`, or `CANCELED`. So you keep calling while it is `false`, and the response that finally comes back with `true` is the one carrying the data table preview. Most agents run this loop for you, but a client written directly against the server has to implement it.
+
+A response that carries no `structuredContent` at all means the run failed before it was ever queued, so there is no ID to pass back and nothing to resume.
+
+### processDataTableSql
+
+Queries the data tables produced by a recipe run using [DuckDB](https://duckdb.org/) SQL.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "recipeRunId": { "type": "string", "description": "The recipe run ID" },
+    "dataTableName": { "type": "string", "description": "The data table name to query" },
+    "sqlQuery": { "type": "string", "description": "SQL query to run against the data table" }
+  },
+  "required": ["recipeRunId", "dataTableName", "sqlQuery"]
+}
+```
+
+`dataTableName` picks which table to query. The SQL you pass in `sqlQuery` refers to that table through the `{CSV_PATH}` placeholder rather than by name, and the server swaps in the loaded table just before running your statement:
+
+```sql
+SELECT sourceFile, COUNT(*) AS occurrences
+FROM {CSV_PATH}
+GROUP BY sourceFile
+ORDER BY occurrences DESC
+LIMIT 20
+```
+
+Leave the placeholder as written rather than trying to resolve it yourself. A query that never mentions `{CSV_PATH}` is rejected, so a plain `SELECT * FROM data_table` will not work. Data tables are often far too large to return in full, which is why the tool expects a query that summarizes or aggregates the rows instead of selecting all of them.
 
 ## Security
 

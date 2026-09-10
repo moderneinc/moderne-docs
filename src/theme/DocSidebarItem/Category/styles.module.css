@@ -46,7 +46,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   transition: color 0.2s ease;
   flex-shrink: 0;
   padding: 0;

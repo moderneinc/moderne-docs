@@ -10,7 +10,7 @@
   /* Override default menu padding with Morpheus spacing */
   .menu {
     flex-grow: 1;
-    padding: var(--mor-space-2) var(--mor-space-32px) 8rem var(--mor-space-32px);
+    padding: var(--mod-spacing_1) var(--mod-spacing_4) 8rem var(--mod-spacing_4);
     overflow-y: auto;
     scroll-padding-top: 12rem;
   }
@@ -32,8 +32,8 @@
  * Aligned with the Morpheus design system
  */
 :global(.theme-doc-sidebar-menu) {
-  font-size: var(--mor-font-size-lg);
-  font-weight: var(--mor-font-weight-regular);
+  font-size: var(--mod-font-size-default);
+  font-weight: var(--mod-font-weight-regular);
   line-height: 1.5;
 }
 
@@ -41,12 +41,12 @@
 :global(.theme-doc-sidebar-menu > .menu__list-item > .menu__link-wrapper > .menu__link),
 :global(.theme-doc-sidebar-menu > .menu__list-item > .menu__link),
 :global(.theme-doc-sidebar-menu > .menu__list-item > .menu__list-item-collapsible > .menu__link) {
-  font-weight: var(--mor-font-weight-semibold);
+  font-weight: var(--mod-font-weight-semi-bold);
 }
 
 /* Sidebar link spacing */
 :global(.theme-doc-sidebar-menu .menu__link) {
-  padding: var(--mor-space-6px) var(--mor-space-3);
+  padding: var(--mod-spacing_3_4) var(--mod-spacing_1_1_2);
   line-height: 1.4;
 }
 
@@ -102,10 +102,10 @@
 /* Sidebar section headers (HTML dividers in sidebar) */
 :global(.theme-doc-sidebar-item-link > strong) {
   text-transform: uppercase;
-  color: var(--mor-text);
-  font-size: var(--mor-font-size-base);
+  color: var(--mod-color-text-primary);
+  font-size: var(--mod-font-size-sm);
   line-height: 1.4;
-  font-weight: var(--mor-font-weight-semibold);
+  font-weight: var(--mod-font-weight-semi-bold);
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-item-link > strong) {

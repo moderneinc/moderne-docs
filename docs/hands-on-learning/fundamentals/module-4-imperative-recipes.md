@@ -44,7 +44,7 @@ Module 2 introduced `RewriteTest` when you added and ran unit tests for a declar
    * There is an optional `spec -> ...` parameter that sets the path (`spec.path(Path.of("RELEASE.md"))`), so the test asserts creation or edits at that location.
    * In `createNewReleaseNotes()`, the "before" source uses `doesNotExist()` to indicate that there is no file to start, meaning that the "after" block indicates that the file should be _created_ with the provided source.
 :::tip
-Use `SourceSpecs.text(...)` for plain text sources; `java(...)` is only for Java inputs.
+Use `SourceSpecs.text(...)` for plain text sources. `java(...)` is only for Java inputs.
 :::
 2. Add a new test to make sure no notes are added that are already there.
    * Add a case that asserts: if `RELEASE.md` already contains the message, the recipe should not append it again.

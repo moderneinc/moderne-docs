@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: var(--mor-space-4) 0;
+  padding: var(--mod-spacing_2) 0;
 }
 
 .menuList {
@@ -20,12 +20,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--mor-space-4) var(--mor-space-4);
+  padding: var(--mod-spacing_2) var(--mod-spacing_2);
   text-decoration: none;
   color: var(--ifm-font-color-base);
-  font-size: var(--mor-font-size-lg);
-  font-weight: var(--mor-font-weight-medium);
-  border-radius: var(--mor-radius-sm);
+  font-size: var(--mod-font-size-default);
+  font-weight: var(--mod-font-weight-medium);
+  border-radius: var(--mod-border-radius-x-s);
   transition: background-color 0.15s ease;
 }
 
@@ -57,19 +57,19 @@
 .footerSection {
   display: flex;
   flex-direction: column;
-  gap: var(--mor-space-2);
-  padding: var(--mor-space-6) var(--mor-space-4);
+  gap: var(--mod-spacing_1);
+  padding: var(--mod-spacing_3) var(--mod-spacing_2);
   margin-top: auto;
 }
 
 .footerLink {
   display: inline-flex;
   align-items: center;
-  gap: var(--mor-space-1);
+  gap: var(--mod-spacing_1_2);
   color: var(--ifm-link-color);
-  font-size: var(--mor-font-size-base);
+  font-size: var(--mod-font-size-sm);
   text-decoration: none;
-  padding: var(--mor-space-1) 0;
+  padding: var(--mod-spacing_1_2) 0;
 }
 
 .footerLink:hover {

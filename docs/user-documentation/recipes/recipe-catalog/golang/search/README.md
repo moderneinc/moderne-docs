@@ -8,5 +8,6 @@ description: Search OpenRewrite recipes.
 
 * [Find methods](./findmethods.md)
 * [Find types](./findtypes.md)
+* [Go dependency insight](./dependencyinsight.md)
 
 

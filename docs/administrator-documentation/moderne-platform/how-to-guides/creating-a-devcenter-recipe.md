@@ -4,10 +4,6 @@ sidebar_label: Creating a DevCenter recipe
 description: How to create a DevCenter recipe.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/administrator-documentation/moderne-platform-v1/how-to-guides/creating-a-devcenter-recipe" />
-
 # Creating a DevCenter recipe
 
 Moderne DevCenters can be defined and configured via a standard OpenRewrite recipe. This approach delivers significantly better performance and greater flexibility in the generation process compared to the old way of defining a DevCenter (JSON).
@@ -36,7 +32,7 @@ Once you've created your recipe repository, you will need to update your `build.
 
 Because it is a proprietary recipe, the credentials your organization uses to mirror the Code Genome Project repository must have the customer entitlement.
 
-See [Accessing the Code Genome Project](./accessing-the-code-genome-project.md) for how your organization obtains credentials and mirrors the repository.
+See [Accessing the Code Genome Project](../../../user-documentation/recipes/accessing-the-code-genome-project.md) for how your organization obtains credentials and mirrors the repository.
 :::
 
 ### Step 3: Create a declarative DevCenter recipe
@@ -108,7 +104,7 @@ DevCenter recipes have two notable properties worth calling out:
 
 ### Organizational ownership recipes
 
-The last two recipes in the list, `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters`, do not produce cards. They populate the **Lines of code** and **Contributing developers** cards in the DevCenter's Organizational ownership section. Include both in every DevCenter recipe; without them, those two cards remain empty. The canonical recipe list that includes both is the [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml).
+The last two recipes in the list, `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters`, do not produce cards. They populate the **Lines of code** and **Contributing developers** cards in the DevCenter's Organizational ownership section. Include both in every DevCenter recipe. Without them, those two cards remain empty. The canonical recipe list that includes both is the [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml).
 
 ### Security card
 

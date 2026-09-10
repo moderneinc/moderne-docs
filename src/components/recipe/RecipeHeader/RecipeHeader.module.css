@@ -6,19 +6,19 @@
 position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--mor-space-8);
+  gap: var(--mod-spacing_5);
   /* Subtle containment: a faint outline (no fill, no shadow) so the title block
      reads as a contained card instead of floating on the page. */
-  padding: var(--mor-space-32px);
-  border: 1px solid var(--mor-line);
-  border-radius: var(--mor-radius-card);
+  padding: var(--mod-spacing_4);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-card);
 }
 
 /* Identity block: access badge → title → code chips. */
 .titleGroup {
 display: flex;
   flex-direction: column;
-  gap: var(--mor-space-3);
+  gap: var(--mod-spacing_1_1_2);
 }
 
 /* Summary block: description → tags. One step tighter than the title group to offset the
@@ -26,57 +26,57 @@ display: flex;
 .metaGroup {
 display: flex;
   flex-direction: column;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 }
 
 .accessRow {
 display: flex;
   align-items: center;
-  gap: var(--mor-space-2px);
+  gap: var(--mod-spacing_1_4);
 }
 
 .accessBadge {
 display: flex;
   align-items: center;
-  padding: var(--mor-space-1) var(--mor-space-3);
-  border-radius: var(--mor-radius-full);
-  font-size: var(--mor-font-size-base);
-  font-weight: var(--mor-font-weight-semibold);
+  padding: var(--mod-spacing_1_2) var(--mod-spacing_1_1_2);
+  border-radius: var(--mod-border-radius-full);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-semi-bold);
 }
 
 .accessBadge_oss {
-background-color: var(--mor-status-tip-bg);
-  color: var(--mor-status-tip-accent);
+background-color: var(--mod-color-feedback-success-bg);
+  color: var(--mod-color-feedback-success-fg);
 }
 
 .accessBadge_moderne {
-background-color: var(--mor-status-info-bg);
-  color: var(--mor-link-deep);
+background-color: var(--mod-color-feedback-info-bg);
+  color: var(--mod-color-action-navy);
 }
 
 .title {
-font-size: var(--mor-font-size-doc-h1);
-  font-weight: var(--mor-font-weight-semibold);
+font-size: var(--mod-font-size-h1);
+  font-weight: var(--mod-font-weight-semi-bold);
   letter-spacing: -0.02em;
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   margin: 0;
   line-height: 1.2;
 }
 
 .title .titleCode {
-font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
+font-family: var(--mod-font-family-code), var(--ifm-font-family-monospace);
   font-size: 0.9em;
-  font-weight: var(--mor-font-weight-bold);
-  color: var(--mor-text);
+  font-weight: var(--mod-font-weight-bold);
+  color: var(--mod-color-text-primary);
   background: transparent;
   border: none;
   padding: 0;
 }
 
 .descCode {
-font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
+font-family: var(--mod-font-family-code), var(--ifm-font-family-monospace);
   font-size: 0.9em;
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   background: transparent;
   border: none;
   padding: 0;
@@ -87,19 +87,19 @@ font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
    these mirror .titleCode/.descCode so the markdown path matches the prop fallback. The doubled class
    raises specificity above Docusaurus's global inline-code styling (the pill background/border). */
 .title.title code {
-  font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
+  font-family: var(--mod-font-family-code), var(--ifm-font-family-monospace);
   font-size: 0.9em;
-  font-weight: var(--mor-font-weight-bold);
-  color: var(--mor-text);
+  font-weight: var(--mod-font-weight-bold);
+  color: var(--mod-color-text-primary);
   background: transparent;
   border: none;
   padding: 0;
 }
 
 .description.description code {
-  font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
+  font-family: var(--mod-font-family-code), var(--ifm-font-family-monospace);
   font-size: 0.9em;
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   background: transparent;
   border: none;
   padding: 0;
@@ -108,7 +108,7 @@ font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
 .idArtifactRow {
 display: flex;
   flex-direction: column;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 }
 
 .codeChip {
@@ -120,19 +120,19 @@ min-width: 0;
   max-width: 100%;
   display: inline-flex;
   align-items: center;
-  gap: var(--mor-space-2);
-  padding: var(--mor-space-1) var(--mor-space-1) var(--mor-space-1) var(--mor-space-3);
-  background-color: var(--mor-neutral);
-  border-radius: var(--mor-radius-lg);
+  gap: var(--mod-spacing_1);
+  padding: var(--mod-spacing_1_2) var(--mod-spacing_1_2) var(--mod-spacing_1_2) var(--mod-spacing_1_1_2);
+  background-color: var(--mod-color-state-disabled-bg);
+  border-radius: var(--mod-border-radius-s);
 }
 
 .codeChipLabel {
 flex-shrink: 0;
-  font-size: var(--mor-font-size-overline);
-  font-weight: var(--mor-font-weight-semibold);
+  font-size: var(--mod-font-size-xxs);
+  font-weight: var(--mod-font-weight-semi-bold);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
 }
 
 .codeChip .idCode {
@@ -141,9 +141,9 @@ flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-family: var(--mor-font-mono), var(--ifm-font-family-monospace);
-  font-size: var(--mor-font-size-base);
-  color: var(--mor-text);
+  font-family: var(--mod-font-family-code), var(--ifm-font-family-monospace);
+  font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-primary);
   background-color: transparent;
   border: none;
   padding: 0;
@@ -151,8 +151,8 @@ flex: 1;
 
 .description {
 max-width: 64ch;
-  font-size: var(--mor-font-size-lg);
-  color: var(--mor-text);
+  font-size: var(--mod-font-size-default);
+  color: var(--mod-color-text-primary);
   line-height: 1.65;
   margin: 0;
 }
@@ -160,7 +160,7 @@ max-width: 64ch;
 .tagRow {
 display: flex;
   flex-wrap: wrap;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 }
 
 .actions {
@@ -168,14 +168,14 @@ display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--mor-space-4);
+  gap: var(--mod-spacing_2);
 }
 
 .actionButtons {
 display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--mor-space-2);
+  gap: var(--mod-spacing_1);
 }
 
 /* Lightweight expectation-setting tooltip on the "Try in Platform" CTA. Reveal + card chrome echo
@@ -187,19 +187,19 @@ position: relative;
 
 .tryTooltip {
 position: absolute;
-  top: calc(100% + var(--mor-space-2));
+  top: calc(100% + var(--mod-spacing_1));
   left: 0;
   z-index: 40;
   width: 280px;
   max-width: 80vw;
-  padding: var(--mor-space-3) var(--mor-space-4);
-  font-size: var(--mor-font-size-base);
+  padding: var(--mod-spacing_1_1_2) var(--mod-spacing_2);
+  font-size: var(--mod-font-size-sm);
   line-height: 1.5;
-  color: var(--mor-muted);
-  background-color: var(--mor-panel);
-  border: 1px solid var(--mor-line);
-  border-radius: var(--mor-radius-lg);
-  box-shadow: var(--mor-shadow-dropdown);
+  color: var(--mod-color-text-tertiary);
+  background-color: var(--mod-color-surface-search-input);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-s);
+  box-shadow: var(--mod-docs-shadow-dropdown);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -214,11 +214,11 @@ opacity: 1;
 
 html[data-theme='dark'] {
 .accessBadge_oss {
-background-color: var(--mor-surface-2);
+background-color: var(--mod-color-surface-sunken-deep);
 }
 
 .accessBadge_moderne {
-background-color: var(--mor-surface-2);
-    color: var(--mor-link);
+background-color: var(--mod-color-surface-sunken-deep);
+    color: var(--mod-color-action-default);
 }
 }

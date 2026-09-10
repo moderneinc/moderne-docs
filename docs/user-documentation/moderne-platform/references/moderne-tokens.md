@@ -4,10 +4,6 @@ sidebar_label: Moderne tokens
 description: Describes the tokens Moderne issues for authenticating to the Platform and its APIs, including how to create them and how long they last.
 ---
 
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/references/moderne-tokens" />
-
 # Moderne tokens
 
 Moderne issues two kinds of tokens for authenticating to the Platform and its APIs:

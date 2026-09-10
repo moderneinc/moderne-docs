@@ -6,7 +6,7 @@ The docs behind [https://docs.moderne.io/](https://docs.moderne.io/). For OpenRe
 
 We encourage you to contribute to our docs! Please feel free to create an issue or open a PR if you find any issues.
 
-Please follow our comprehensive [Style Guide](./STYLE_GUIDE.md) when contributing to the documentation. It covers formatting rules, markdown conventions, and content guidelines to ensure consistency across all Moderne documentation.
+Please check out our [contributing guide](./CONTRIBUTING.md) and [style guide](./STYLE_GUIDE.md) before committing anything. They describe the expectations we have for incoming PRs and commits.
 
 ## Getting started
 

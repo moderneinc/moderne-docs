@@ -4,6 +4,8 @@ description: Spring Framework OpenRewrite recipes.
 
 # Spring Framework
 
+_Recipes for migrating between [Spring Framework](https://spring.io/projects/spring-framework) versions._
+
 ## Categories
 
 * [Beansxml](/user-documentation/recipes/recipe-catalog/java/spring/framework/beansxml)
@@ -21,6 +23,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate breaking changes in `ResponseStatusException`](./migrateresponsestatusexception.md)
 * [Migrate deprecated path mapping options](./removedeprecatedpathmappingoptions.md)
 * [Migrate removed Spring `Assert` methods](./migratespringassert.md)
+* [Migrate `setConnectTimeout(int)` to ConnectionConfig `setConnectTimeout(..)`](./httpcomponentsclienthttprequestfactoryconnecttimeout.md)
 * [Migrate to Spring Framework 3.x](./upgradespringframework_3_0.md)
 * [Migrate to Spring Framework 4.0](./upgradespringframework_4_0.md)
 * [Migrate to Spring Framework 5.0 (Moderne Edition)](./upgradespringframework_5_0-moderne-edition.md)
@@ -61,8 +64,8 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate `handleError` method invocations to new signature](./migratehandleerrormethodinvocations.md)
 * [Migrate `org.springframework.util.Base64Utils` to `java.io.Base64`](./migratebase64utils.md)
 * [Migrate `org.springframework.web.reactive.HandlerResult.setExceptionHandler` method](./migratehandlerresultsetexceptionhandlermethod.md)
-* [Migrate `setConnectTimeout(..)` to ConnectionConfig `setConnectTimeout(..)`](./httpcomponentsclienthttprequestfactoryconnecttimeout.md)
 * [Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`](./httpcomponentsclienthttprequestfactoryreadtimeout.md)
+* [Move `setConnectTimeout(int)` to a locally wired `ConnectionConfig`](./moveconnecttimeouttoconnectionconfig.md)
 * [Register a `UrlHandlerFilter` to preserve trailing slash matching](./migratetrailingslashmatch.md)
 * [Remove deprecated `setPathMatcher()` calls](./removesetpathmatchercall.md)
 * [Remove empty path match configuration methods](./removeemptypathmatchconfiguration.md)

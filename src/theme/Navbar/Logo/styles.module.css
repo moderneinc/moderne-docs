@@ -23,7 +23,7 @@
 }
 
 .logoLink:focus-visible {
-  outline: 2px solid var(--mor-btn-primary-bg);
+  outline: 2px solid var(--mod-button-primary-bg);
   outline-offset: 2px;
 }
 

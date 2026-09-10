@@ -1,7 +1,7 @@
 .footer {
-  background-color: var(--mor-bg);
+  background-color: var(--mod-color-surface-page);
   /* Flat hairline divider between page content and the footer. */
-  border-top: 1px solid var(--mor-line);
+  border-top: 1px solid var(--mod-color-border-primary);
   padding: var(--ifm-footer-padding-vertical) var(--ifm-footer-padding-horizontal);
   position: relative;
 }
@@ -21,7 +21,7 @@
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 var(--mor-space-26px);
+  padding: 0 var(--mod-spacing_3_1_4);
 }
 
 .social {
@@ -31,7 +31,7 @@
 }
 
 .social a {
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   display: flex;
   align-items: center;
   transition: opacity 0.2s;
@@ -57,7 +57,7 @@
 }
 
 .links a {
-  color: var(--mor-text);
+  color: var(--mod-color-text-primary);
   text-decoration: none;
 }
 
@@ -66,7 +66,7 @@
 }
 
 .links span {
-  color: var(--mor-muted);
+  color: var(--mod-color-text-tertiary);
 }
 
 @media (max-width: 768px) {

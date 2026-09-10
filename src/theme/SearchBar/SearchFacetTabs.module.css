@@ -1,21 +1,21 @@
 .tabsContainer {
   display: flex;
-  gap: var(--mor-space-2);
-  padding: var(--mor-space-2) var(--mor-space-4);
-  border-bottom: 1px solid var(--mor-line);
+  gap: var(--mod-spacing_1);
+  padding: var(--mod-spacing_1) var(--mod-spacing_2);
+  border-bottom: 1px solid var(--mod-color-border-primary);
 }
 
 .tab {
   display: inline-flex;
   align-items: center;
-  padding: var(--mor-space-6px) var(--mor-space-3);
+  padding: var(--mod-spacing_3_4) var(--mod-spacing_1_1_2);
   border-radius: 999px;
-  border: 1px solid var(--mor-line);
+  border: 1px solid var(--mod-color-border-primary);
   background: transparent;
-  color: var(--mor-text);
-  font-family: var(--mor-font-sans), sans-serif;
-  font-size: var(--mor-font-size-sm);
-  font-weight: var(--mor-font-weight-medium);
+  color: var(--mod-color-text-primary);
+  font-family: var(--mod-font-family-body), sans-serif;
+  font-size: var(--mod-font-size-xs);
+  font-weight: var(--mod-font-weight-medium);
   cursor: pointer;
   transition: all 0.15s ease;
   white-space: nowrap;
@@ -23,18 +23,18 @@
 }
 
 .tab:hover {
-  background: var(--mor-row-hover);
+  background: var(--mod-color-surface-row-hover);
 }
 
 .tabActive {
-  background: var(--mor-link);
-  border-color: var(--mor-link);
-  color: var(--mor-on-accent);
+  background: var(--mod-color-action-default);
+  border-color: var(--mod-color-action-default);
+  color: var(--mod-color-action-on-accent);
 }
 
 .tabActive:hover {
-  background: var(--mor-link-deep);
-  border-color: var(--mor-link-deep);
+  background: var(--mod-color-action-navy);
+  border-color: var(--mod-color-action-navy);
 }
 
 html[data-theme='dark'] .tab {
@@ -48,12 +48,12 @@ html[data-theme='dark'] .tab:hover {
 
 @media (max-width: 768px) {
   .tabsContainer {
-    padding: var(--mor-space-2) var(--mor-space-3);
-    gap: var(--mor-space-6px);
+    padding: var(--mod-spacing_1) var(--mod-spacing_1_1_2);
+    gap: var(--mod-spacing_3_4);
   }
 
   .tab {
-    font-size: var(--mor-font-size-overline);
-    padding: var(--mor-space-1) var(--mor-space-2);
+    font-size: var(--mod-font-size-xxs);
+    padding: var(--mod-spacing_1_2) var(--mod-spacing_1);
   }
 }

@@ -5,9 +5,6 @@ description: A guide on the different types of data tables and how to create/use
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
-import VersionBanner from '@site/src/components/VersionBanner';
-
-<VersionBanner version="v2" linkPath="/user-documentation/moderne-platform-v1/getting-started/data-tables" />
 
 # Getting started with data tables
 
@@ -21,7 +18,7 @@ To help give you a better idea of how data tables work in Moderne, this guide wi
 * [Walk you through running a recipe that produces a data table](#data-table-example)
 * [Help you decide whether or not you should add a data table to your recipe](#when-you-should-create-data-tables)
 
-<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=B-yh153_Fng' controls="true" />
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=TdA88aG8LnU' controls="true" />
 
 ## Types of data tables
 

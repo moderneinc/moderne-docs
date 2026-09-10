@@ -135,7 +135,7 @@ This walks the full type hierarchy, which is exactly the kind of question Trigre
 ### Takeaways
 
 * Semantic tools answer questions about *types*, not *text*. Use them when you care about correctness.
-* Each tool corresponds to a refactoring you'd do with an IDE; the MCP version works across the entire workspace at once.
+* Each tool corresponds to a refactoring you'd do with an IDE, but the MCP version works across the entire workspace at once.
 
 ---
 

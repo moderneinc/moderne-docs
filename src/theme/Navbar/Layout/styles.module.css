@@ -65,7 +65,7 @@
 
 /* Mobile sidebar header (logo + close button) */
 .navbar :global(.navbar-sidebar__brand) {
-  padding-top: var(--mor-space-4);
+  padding-top: var(--mod-spacing_2);
 }
 
 /* Mobile sidebar content area */

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Change Maven plugin group and artifact ID"}
-  description={"Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version. This recipe does not perform any validation and assumes all values passed are valid."}
+  description={"Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version, which may be given as an exact version or as a node-style semver selector resolved against the new plugin's available versions."}
   fqName={"org.openrewrite.maven.ChangePluginGroupIdAndArtifactId"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Change Maven plugin group and artifact ID</RecipeHeader.Title>
 
-<RecipeHeader.Description>Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version. This recipe does not perform any validation and assumes all values passed are valid.</RecipeHeader.Description>
+<RecipeHeader.Description>Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version, which may be given as an exact version or as a node-style semver selector resolved against the new plugin's available versions.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"oldGroupId","required":true,"description":"The old group ID to replace. The group ID is the first part of a plugin coordinate 'com.google.guava:guava:VERSION'. Supports glob expressions.","example":"org.openrewrite.recipe"},{"type":"String","name":"oldArtifactId","required":true,"description":"The old artifactId to replace. The artifact ID is the second part of a plugin coordinate 'com.google.guava:guava:VERSION'. Supports glob expressions.","example":"my-deprecated-maven-plugin"},{"type":"String","name":"newGroupId","required":false,"description":"The new group ID to use.","example":"corp.internal.openrewrite.recipe"},{"type":"String","name":"newArtifactId","required":false,"description":"The new artifact ID to use.","example":"my-new-maven-plugin"},{"type":"String","name":"newVersion","required":false,"description":"An exact version number.","example":"29.0"}]}>
+<OptionsTable options={[{"type":"String","name":"oldGroupId","required":true,"description":"The old group ID to replace. The group ID is the first part of a plugin coordinate 'com.google.guava:guava:VERSION'. Supports glob expressions.","example":"org.openrewrite.recipe"},{"type":"String","name":"oldArtifactId","required":true,"description":"The old artifactId to replace. The artifact ID is the second part of a plugin coordinate 'com.google.guava:guava:VERSION'. Supports glob expressions.","example":"my-deprecated-maven-plugin"},{"type":"String","name":"newGroupId","required":false,"description":"The new group ID to use.","example":"corp.internal.openrewrite.recipe"},{"type":"String","name":"newArtifactId","required":false,"description":"The new artifact ID to use.","example":"my-new-maven-plugin"},{"type":"String","name":"newVersion","required":false,"description":"An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors)","example":"29.X"}]}>
 
 ## Options
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.ChangePluginGroupIdAndArtifactId","displayName":"Change Maven plugin group and artifact ID","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.openrewrite.recipe\" --recipe-option \"oldArtifactId=my-deprecated-maven-plugin\" --recipe-option \"newGroupId=corp.internal.openrewrite.recipe\" --recipe-option \"newArtifactId=my-new-maven-plugin\" --recipe-option \"newVersion=29.0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.ChangePluginGroupIdAndArtifactId","displayName":"Change Maven plugin group and artifact ID","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.openrewrite.recipe\" --recipe-option \"oldArtifactId=my-deprecated-maven-plugin\" --recipe-option \"newGroupId=corp.internal.openrewrite.recipe\" --recipe-option \"newArtifactId=my-new-maven-plugin\" --recipe-option \"newVersion=29.X\""}}>
 
 ## Usage
 
