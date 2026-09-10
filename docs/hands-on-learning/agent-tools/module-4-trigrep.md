@@ -21,7 +21,7 @@ For the deep reference on syntax and semantics, see [Moderne Trigrep](../../user
 
 #### Step 1: How the index gets built
 
-The trigram index is produced inline by `mod build`, alongside each repository's V3 LST. There is no separate indexing step. If you ran `mod build` in [Module 1](./module-1-cli-and-lsts.md), the index already exists.
+The trigram index is derived from each repository's LST. If you built or synced LSTs in [Module 1](./module-1-cli-and-lsts.md), the LSTs already exist. Your first `mod search` converts each LST to the V3 format, if it isn't already, and writes the index during that conversion. Expect that first search to take longer than the ones after it, which reuse the converted LST and its index.
 
 Each source set writes its own `.zoekt` shard under `.moderne/build/{buildId}/sources/{sourceSet}/shard-*.zoekt`, and `mod build` then assembles them into a single repo-level index under `.moderne/build/{buildId}/index/merged-*.zoekt` (size-bounded chunks, plus `assembly.csv` and a `.complete` sentinel written last). The shards carry the document's printed-LST content, so a search reads matched lines straight from the shard.
 
@@ -79,7 +79,7 @@ Zero matches just means none of these repos use the keyword — for example, the
 
 ### Takeaways
 
-* The trigram index is produced inline by `mod build` — no separate indexing step. Re-run `mod build` to refresh after big code changes.
+* The trigram index is derived from the LST. Re-run `mod build` to refresh it after big code changes.
 * The index is local — there's no server to manage.
 
 ---
