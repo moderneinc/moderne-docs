@@ -10,6 +10,242 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## September 10, 2026
+
+#### recipes-go - 0.7.1
+
+* rewrite-go/v0.0.35
+
+## September 9, 2026
+
+#### recipes-csharp - 0.7.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### recipes-go - 0.7.0
+
+* Guard against side effects in all_branches_identical
+* rewrite-go/v0.0.33
+* Read the doc comment from the first line of its block
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### recipes-javascript - 0.1.2
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### recipes-javascript - v0.1.1
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Rewrite the no-globals findings whose module can be named, and make each deprecated-API fix its own recipe
+* Pass CODEGENOME credentials to the npm-publish pack step
+* Let the engine parenthesize inverted boolean checks, and drop the double-negation rule
+* Find every place a SAPUI5 or OpenUI5 version is declared
+
+#### recipes-kotlin - 0.5.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### recipes-scala - 0.6.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-ai - 0.5.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-ai-search - 0.36.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-android - 0.19.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-angular - 1.12.0
+
+* Pass Code Genome Project credentials to the npm-publish pack step
+
+#### rewrite-angular - 1.11.0
+
+* Pin rewrite to ^8.91.1 and move the suite to vitest without isolation
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Bump @openrewrite/rewrite from 8.91.1 to 8.91.4 in /recipes-angular
+* Adding empty modifiers
+* Use CodeGenome in CLI smoke test
+
+#### rewrite-circleci - 3.13.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-compiled-analysis - 0.16.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-concourse - 3.12.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-cryptography - 0.16.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-cryptography - 0.16.0
+
+* Join the cipher and PQC inventories into one data table
+* Resolve TLS values handed across a wrapper boundary
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-devcenter - 1.32.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-devcenter - 1.32.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-dotnet - 0.18.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-dropwizard - 0.8.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-elastic - 0.9.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-hibernate - 0.29.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-jasperreports - 0.7.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-java-application-server - 0.10.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-java-application-server - 0.10.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-java-security - 3.41.0
+
+OpenRewrite 8.92.1
+
+#### rewrite-java-security - 3.40.0
+
+* Do not template a JMS guard call into a class body
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Fix Golang's DVC tests to name other 3rd party package
+* Use CodeGenome in CLI smoke test
+* Add FindThreadSleepInSynchronized (Sonar S2276)
+* Add OWASP A09:2025 Security Logging and Alerting Failures coverage
+
+#### rewrite-kafka - 0.8.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-kubernetes - 3.19.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-mainframe - 3.1.2
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-mainframe - 3.1.1
+
+* Resolve the OpenRewrite build plugins from the Code Genome Project
+
+#### rewrite-migrate-kotlin - 0.9.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-migrate-python - 0.14.0
+
+* Add a skill for authoring Python recipes
+* Audit the recipes against the authoring skill, and the skill against the recipes
+* Expect the typing import to go when only a kwarg name spells it
+* Rename the typing alias inside a subscripted string annotation
+* Recognize PEP 695 type parameters and class bases as type positions
+* Decline a multi-argument `Optional` in both node shapes
+
+#### rewrite-nodejs - 0.50.0
+
+* Pass Code Genome Project credentials to the npm-publish pack step
+
+#### rewrite-nodejs - 0.49.0
+
+* Add spaces around {} in test expectations for tls-server-set-options
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-nullability - 0.6.0
+
+* Exclude libraryModelJars from the dependency check
+
+#### rewrite-prethink - 0.14.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-prethink - 0.14.0
+
+* Resolve Go packages without third-party type attribution
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Match narrowed RubyIsoVisitor return types in Ruby quality recipes
+* Match Django views by the names attribution actually gives them
+
+#### rewrite-program-analysis - 0.16.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-react - 0.7.0
+
+* Re-export React recipes so they can be imported by name
+* Use Map lookups to stop recipes matching Object.prototype members
+* Pin rewrite to ^8.91.1 and move the suite to vitest
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-reactive-streams - 0.21.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-release-metromap - 0.7.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-spring - 0.42.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Migrate `NoResourceFoundException` two-arg constructor to three-arg form
+
+#### rewrite-sql - 2.17.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+* Guard against unbounded input reaching the SQL parser
+
+#### rewrite-struts - 0.29.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-tapestry - 0.7.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-terraform - 3.15.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
+#### rewrite-vulncheck - 0.9.1
+
+* Updated repository to use OpenRewrite version v8.92.1
+
+#### rewrite-vulncheck - 0.9.0
+
+* Resolve org.openrewrite build plugins from the Code Genome Project
+
 ## September 4, 2026
 
 #### rewrite-migrate-python - 0.13.2
@@ -5085,26 +5321,6 @@ Republishing to update dependencies
 
 ## September 10, 2025
 
-#### rewrite-ai-search - 0.30.2
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-android - 0.12.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-circleci - 3.7.4
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-compiled-analysis - 0.8.2
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-concourse - 3.7.2
-
-* Updated repository to use OpenRewrite version v8.62.0
-
 #### rewrite-cryptography - 0.8.1
 
 * Updated repository to use OpenRewrite version v8.62.0
@@ -5113,77 +5329,4 @@ Republishing to update dependencies
 
 * Add a Quarkus specific DevCenter
 * Do not assume `org.openrewrite.dataTables` messages preserve order in `DataTableWatcher`
-
-#### rewrite-dotnet - 0.13.2
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-elastic - v0.1.0
-
-* Migrate to v9 initial recipe
-* Rename `*Reponse valueBody()` methods for ElasticSearch 9
-* Map indicesBoost and dynamicTemplates `Map` to `NamedValue`
-* `Hit matchedQueries()` changed from `List&lt;String&gt;` to `Map&lt;String, Double&gt;`
-* Add comments to deprecated classes
-* Migrate source field from String to ScriptSource
-* Added BoxedApiFields recipe and the singular BoxedApiField recipe
-
-#### rewrite-hibernate - 0.11.0
-
-* Introduce (Composite)UserType recipes
-* Inline methods annotated with `@InlineMe`
-* Hibernate 7: JdbcType to JdbcTypeCode
-
-#### rewrite-java-security - 3.18.0
-
-* DependencyVulnerabilityCheck recipe produces a data table for tracking the origin of a vulnerable dependency
-
-#### rewrite-kafka - v0.1.0
-
-* Migrate `WindowStore.put()`
-* Add tests for migrating Joined.named() to Joined.as()
-* Change group id
-* Add RemovePartitionGrouperConfiguration recipe
-* Add Kafka 2.5 migration recipe for KafkaStreams#store method
-* Improve declarative recipes
-* Add MigrateKStream: `.groupByKey().reduce` to `.toTable`
-* Add MigrateRetryConfiguration recipe for Kafka 2.7
-* Add MigrateStreamsUncaughtExceptionHandler recipe
-* Add Kafka 3.0 migration recipes
-
-#### rewrite-kubernetes - 3.10.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-nodejs - 0.29.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-program-analysis - 0.5.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-reactive-streams - 0.16.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-spring - 0.13.0
-
-* [Auto] Spring Boot and Spring Cloud property migration recipes as of 2025-09-02T1110
-* Leverage the OSS Spring Boot 3.5 migration recipes
-* Migrate `AntPathRequestMatcher`
-
-#### rewrite-sql - 2.6.4
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-struts - 0.20.0
-
-* Use type tables to support multiple versions
-* Enhance MigrateAwareInterfaces recipe with method renames for Struts 6
-* Add Dynamic Method Invocation migration recipe for Struts 6
-
-#### rewrite-terraform - 3.8.1
-
-* Updated repository to use OpenRewrite version v8.62.0
 
