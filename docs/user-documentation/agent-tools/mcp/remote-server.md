@@ -11,9 +11,9 @@ import TabItem from '@theme/TabItem';
 The Moderne Platform hosts a remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents access to your platform's recipes and recipe results. Unlike the [local MCP server](./overview.md), which runs on your workstation and operates on repositories you have checked out, the remote server runs on the platform and operates on the repositories already ingested into your tenant.
 
 :::info[Beta]
-The remote MCP server is in beta, alongside [Moddy](../../moddy/moddy-platform.md). We are still refining the tool set and the experience around it as we expand what agents can do across your estate. The server itself is ready to use, and it runs on the Moderne Platform's existing API: the same host as the GraphQL API, the same personal access tokens, and the same access scoping, so the [security](#security), API, and scalability model is the one your tenant already runs on.
+The remote MCP server is in beta. Tools will be added, reshaped, and occasionally removed as we learn how agents use them. That being said, it's only the tools themselves that are in beta - not the platform underneath it. Authentication and access scoping work exactly as they do for the rest of the Moderne API (as described under [Security](#security).
 
-Because your agent discovers the tools through MCP, it picks up changes to the tool set on its own.
+None of the changes to the tools requires anything from you, because your agents reads the current list of tools from the server each time it connects.
 :::
 
 This page covers when to use the remote server, how to connect your coding agents to it, how to try it out via the MCP explorer, how it authenticates and scopes access, and the [tools it provides](#available-tools).
