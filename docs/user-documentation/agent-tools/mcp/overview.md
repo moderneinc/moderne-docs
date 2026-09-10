@@ -12,7 +12,10 @@ This page describes the **local** MCP server (`mod mcp`), which runs on a develo
 :::
 
 :::warning[Experimental]
-The local MCP server is **experimental**. Though the tools work, agents don't use them consistently. An agent decides for itself when to call a tool, and several Moderne tools overlap with the search and file reading it already has, so it may not reach for a Moderne one even where it would help. Agent harnesses are also changing quickly, so the tool descriptions are continually retuned for each supported agent, and the tools and the commands that configure them may change significantly between CLI releases. The server also builds on a newer LST format.
+The local MCP server is **experimental**. While the tools work, agents don't call them consistently. There are two main reasons for this:
+
+* Several Moderne tools overlap with the search and file reading an agent already has - so it may skip a Moderne one even when that one would do better. 
+* Agents like Claude Code, Cursor, and Copilot ship frequent updates that change how they select tools - so a Moderne tool that gets picked reliably in one release may be ignored after the next.
 :::
 
 ## Why use the Moderne MCP server
