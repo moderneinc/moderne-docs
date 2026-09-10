@@ -156,6 +156,12 @@ Lost and Found also worked in the reverse direction, listing repositories that h
 
 There is now a global org that encompasses every organization, including user orgs. This makes it easier to run recipes and view activity at the highest level of your org hierarchy.
 
+### Administrators can see every user-configured organization
+
+Administrators now see every user's user-configured organizations, grouped by owner under **User organizations** in the org selector. Their own organizations stay under **My organizations**.
+
+Everyone else is unaffected and still sees only the organizations they created themselves. For more on creating and managing them, see [managing user-configured organizations](../user-documentation/moderne-platform/how-to-guides/managing-user-configured-organizations.md).
+
 ### Updated deploy page
 
 The deploy page has been substantially updated:

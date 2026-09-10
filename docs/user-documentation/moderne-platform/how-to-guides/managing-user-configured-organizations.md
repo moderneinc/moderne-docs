@@ -79,6 +79,10 @@ To help you get started with user-configured organizations, in this guide you wi
 
 Follow the same instructions as above, but click on the download button.
 
-## Additional information
+## Who can see your user-configured organizations
 
-User-configured organizations are saved in the database and are available between browsers. User-configured organizations are only available to the user that created them. This means that no one else in your organization or team will be able to see the user-configured organizations you've created.
+No one else on your team can see the organizations you create.
+
+:::note
+Administrators of your tenant are the exception. An administrator sees every user's organizations, grouped by owner under **User organizations** in the organization selector. Their own organizations stay under **My organizations**.
+:::
