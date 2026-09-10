@@ -3262,6 +3262,15 @@ The installation lives in a specific user's personal marketplace.
 | `pageInfo` | [PageInfo](#pageinfo)! |  |
 | `count` | Int! |  |
 
+##### `VisualizationDataGridOutput`
+
+**Implements:** [VisualizationOutput](#visualizationoutput)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `format` | [DataGridFormat](#datagridformat)! |  |
+| `data` | [Base64](#base64)! | Moderne data grid JSON, rendered client-side by the grid components (MIME types: application/vnd.moderne.datagrid+json, application/vnd.moderne.treedatagrid+json) |
+
 ##### `VisualizationDescriptor`
 
 | Field | Type | Description |
@@ -3836,6 +3845,11 @@ The participant's role for filtering.
 * `STREAMING_TEXT`
 * `TOOL_RUNNING`
 * `ERRORED`
+
+##### `DataGridFormat`
+
+* `FLAT`
+* `TREE`
 
 ##### `DataTableFormat`
 

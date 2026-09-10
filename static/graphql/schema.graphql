@@ -1625,6 +1625,13 @@ input CreateUserOrganizationInput
   repositories: [RepositoryInput!]
 }
 
+enum DataGridFormat
+  @join__type(graph: CHANGESETREADER)
+{
+  FLAT @join__enumValue(graph: CHANGESETREADER)
+  TREE @join__enumValue(graph: CHANGESETREADER)
+}
+
 interface DataTable
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
@@ -6771,6 +6778,19 @@ type VisualizationConnection
   edges: [VisualizationEdge!]!
   pageInfo: PageInfo!
   count: Int!
+}
+
+type VisualizationDataGridOutput implements VisualizationOutput
+  @join__implements(graph: CHANGESETREADER, interface: "VisualizationOutput")
+  @join__type(graph: CHANGESETREADER)
+{
+  format: DataGridFormat!
+
+  """
+  Moderne data grid JSON, rendered client-side by the grid components
+  (MIME types: application/vnd.moderne.datagrid+json, application/vnd.moderne.treedatagrid+json)
+  """
+  data: Base64!
 }
 
 type VisualizationDescriptor
