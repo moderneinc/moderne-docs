@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.14.1 (2026/09/10)
+
+- Bug fixes and other improvements.
+
 ### UI v14.14.0 (2026/09/09)
 
 - render Moderne data grid output
