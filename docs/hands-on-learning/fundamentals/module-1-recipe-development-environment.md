@@ -113,7 +113,11 @@ The Moderne plugin's **Set Active Recipe** action is a UI shortcut for `mod conf
 It's important to note there are different types of recipes, each with their own trade-offs.
 
 1. [Declarative recipes](../../user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md#declarative-recipes) are the simplest to write, and are the most common type of recipe. They are written in YAML, and often tie together existing recipe building blocks with some light configuration.
-2. [Refaster rules](../../user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md#refaster-template-recipes) bring you the benefit of compiler support, and work best for straightforward replacements. They generate recipes that can also be used as a starting point for more complex recipe implementations.
+2. [Kotlin DSL recipes](../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-kotlin-recipes.md) bring you the benefit of compiler support, and work best for straightforward, pattern-shaped replacements. A before/after pair of Kotlin lambdas is compiled into a regular recipe, which rewrites Java sources as well as Kotlin ones whenever the pattern names a pure-Java API.
 3. [Imperative recipes](../../user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md#imperative-recipes) are the most powerful, and allow you to write Java code to implement your recipe. By [using the `JavaTemplate` builder](../../user-documentation/recipes/authoring-recipes/advanced-authoring/modifying-methods-with-javatemplate.md), you can keep complexity down, as you define arbitrary code changes.
+
+:::note
+[Refaster template recipes](../../user-documentation/recipes/authoring-recipes/writing-recipes/refaster-recipes.md) are a fourth option, filling a similar pattern-shaped niche in Java. This workshop covers the Kotlin recipe DSL instead, but that guide walks through Refaster if you'd like to compare the two.
+:::
 
 No matter which method of recipe development you choose, you can (and should) always [write unit tests for your recipe](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing.md). Beyond that, there are [best practices for writing recipes](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices.md), such as ensuring idempotence, and avoiding harmful changes. The remaining modules will explore in more detail how to write and test all three of these types of recipes.
