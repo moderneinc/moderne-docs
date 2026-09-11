@@ -5319,14 +5319,3 @@ Republishing to update dependencies
 * Add line numbers for sources and sinks to TaintFlowTable
 * Check non-literal initializer expressions for taint
 
-## September 10, 2025
-
-#### rewrite-cryptography - 0.8.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-devcenter - 1.8.0
-
-* Add a Quarkus specific DevCenter
-* Do not assume `org.openrewrite.dataTables` messages preserve order in `DataTableWatcher`
-
