@@ -7,13 +7,21 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.113 |
+| Connector | 0.151.129 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.113/connector-0.151.113.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.129/connector-0.151.129.jar)
 
 ## Changelog
 
 ## September 2026
+
+### v0.151.129 – 2026-09-10
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.129/connector-0.151.129.jar)
+
+* Keep Content-Length on tunneled requests (#2092)
+* Feat(connector): publish percentile histograms for connector timers (#2083)
+* Consolidate mass ingest here: a Kubernetes Job on EKS, publishing to S3 (#2060)
 
 ### v0.151.113 – 2026-09-03
 
