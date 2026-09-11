@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.8.2           |
+| CLI version | 4.8.3           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.8.3 (2026-09-10)
+
+#### What's Changed
+* Give the Go RPC server its own log instead of the build log
+* Give the Python RPC server its own log, and each server its own metrics file
+* Bundle the Python engine against Python 3.12 so releases stop shipping without it
+* Serve build logs the trace records with absolute paths
 
 ### CLI / DX v4.8.2 (2026-09-09)
 
