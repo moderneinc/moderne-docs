@@ -117,7 +117,7 @@ Please save those for use in [Step 2](#step-2-configure-the-moderne-connector).
 
 The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order for it to work with your Bitbucket instance. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
-<Tabs>
+<Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
@@ -142,19 +142,20 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                               | Required | Default | Description                                            |
-|---------------------------------------------|----------|---------|--------------------------------------------------------|
-| `--moderne.scm.bitbucketCloud.oauth.key`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
-| `--moderne.scm.bitbucketCloud.oauth.secret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
+| Argument Name                                | Required | Default | Description                                            |
+|----------------------------------------------|----------|---------|--------------------------------------------------------|
+| `--moderne.scm.bitbucket-cloud.oauth.key`    | `true`   |         | The key specified in your Bitbucket OAuth consumer.    |
+| `--moderne.scm.bitbucket-cloud.oauth.secret` | `true`   |         | The secret specified in your Bitbucket OAuth consumer. |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.scm.bitbucketCloud.oauth.key=yourOAuthKey \
---moderne.scm.bitbucketCloud.oauth.secret=yourSecretKey \
+--moderne.scm.bitbucket-cloud.oauth.key=yourOAuthKey \
+--moderne.scm.bitbucket-cloud.oauth.secret=yourSecretKey \
 # ... Additional arguments
 ```
 </TabItem>
+
 </Tabs>

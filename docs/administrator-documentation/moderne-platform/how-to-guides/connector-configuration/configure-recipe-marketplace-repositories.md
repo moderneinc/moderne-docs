@@ -59,16 +59,19 @@ If your organization already runs an internal NPM registry mirror, NuGet feed, o
 
 **Environment variables:**
 
-| Variable Name                                                      | Required | Default | Description                                                                                                                                                                 |
-|--------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_URI`        | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_USERNAME`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PASSWORD`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PROXY_HOST` | `false`  | `null`  | The host of an HTTP proxy used to reach this repository.                                                                                                                    |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PROXY_PORT` | `false`  | `null`  | The port of an HTTP proxy used to reach this repository.                                                                                                                    |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_SKIPSSL`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_RELEASES`   | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_SNAPSHOTS`  | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
+| Variable Name                                                                    | Required | Default | Description                                                                                                                                                                 |
+|----------------------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_URI`                      | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_USERNAME`                 | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PASSWORD`                 | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PROXY_HOST`               | `false`  | `null`  | The host of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_PROXY_PORT`               | `false`  | `null`  | The port of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_SKIPSSL`                  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation.    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_RELEASES`                 | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_SNAPSHOTS`                | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                     |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                     |
 
 **Example:**
 
@@ -80,23 +83,25 @@ docker run \
 -e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_0_PASSWORD=password \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                                                         | Required | Default | Description                                                                                                                                                                 |
-|-----------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.recipe.marketplace.repositories.maven[{index}].uri`        | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
-| `--moderne.recipe.marketplace.repositories.maven[{index}].username`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
-| `--moderne.recipe.marketplace.repositories.maven[{index}].password`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
-| `--moderne.recipe.marketplace.repositories.maven[{index}].proxy.host` | `false`  | `null`  | The host of an HTTP proxy used to reach this repository.                                                                                                                    |
-| `--moderne.recipe.marketplace.repositories.maven[{index}].proxy.port` | `false`  | `null`  | The port of an HTTP proxy used to reach this repository.                                                                                                                    |
-| `--moderne.recipe.marketplace.repositories.maven[{index}].skipSsl`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
-| `--moderne.recipe.marketplace.repositories.maven[{index}].releases`   | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
-| `--moderne.recipe.marketplace.repositories.maven[{index}].snapshots`  | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
+| Argument Name                                                                         | Required | Default | Description                                                                                                                                                                 |
+|---------------------------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.maven[{index}].uri`                        | `true`   |         | The URL of your Maven repository.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].username`                   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                     |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].password`                   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                     |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].proxy.host`                 | `false`  | `null`  | The host of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].proxy.port`                 | `false`  | `null`  | The port of an HTTP proxy used to reach this repository.                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].skip-ssl`                   | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Maven repository. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation.    |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].releases`                   | `false`  | `true`  | Specifies whether or not this repository should be searched for releases.                                                                                                   |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].snapshots`                  | `false`  | `true`  | Specifies whether or not this repository should be searched for snapshots.                                                                                                  |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].connect-timeout`            | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                     |
+| `--moderne.recipe.marketplace.repositories.maven[{index}].read-timeout`               | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                     |
 
 **Example:**
 
@@ -108,8 +113,8 @@ java -jar connector-{version}.jar \
 --moderne.recipe.marketplace.repositories.maven[0].password=password \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>
 
 ### AWS CodeArtifact
@@ -177,22 +182,26 @@ java -jar connector-{version}.jar \
 
 ## NPM
 
-NPM repositories support either basic authentication (`username` + `password`) or bearer token authentication (`bearerToken`), but not both at the same time.
+NPM repositories support either basic authentication (`username` + `password`) or bearer token authentication (`bearer-token`), but not both at the same time.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                                                     | Required | Default | Description                                                                                                                                                             |
-|-------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_URI`         | `true`   |         | The URL of your NPM registry.                                                                                                                                           |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_USERNAME`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                          |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PASSWORD`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                          |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_BEARERTOKEN` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `USERNAME`/`PASSWORD`.                                                                                |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PROXY_HOST`  | `false`  | `null`  | The host of an HTTP proxy used to reach this registry.                                                                                                                  |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PROXY_PORT`  | `false`  | `null`  | The port of an HTTP proxy used to reach this registry.                                                                                                                  |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_SKIPSSL`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NPM registry. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Variable Name                                                                  | Required | Default | Description                                                                                                                                                                                                     |
+|--------------------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_URI`                      | `true`   |         | The URL of your NPM registry.                                                                                                                                                                                   |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_USERNAME`                 | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearer-token`.                                                                                                                                 |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PASSWORD`                 | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearer-token`.                                                                                                                                 |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_BEARERTOKEN`              | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                                                                        |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_SCOPE`                    | `false`  | `null`  | The npm package scope this registry serves, including the leading `@` (e.g., `@myorg`). Omit it on the one registry that serves unscoped packages. Scopes must be unique, and at most one registry may omit it. |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PROXY_HOST`               | `false`  | `null`  | The host of an HTTP proxy used to reach this registry.                                                                                                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_PROXY_PORT`               | `false`  | `null`  | The port of an HTTP proxy used to reach this registry.                                                                                                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_SKIPSSL`                  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NPM registry. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                         |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation.                                        |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                                                         |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                         |
 
 **Example:**
 
@@ -203,22 +212,25 @@ docker run \
 -e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NPM_0_BEARERTOKEN=... \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                                                        | Required | Default | Description                                                                                                                                                             |
-|----------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.recipe.marketplace.repositories.npm[{index}].bearerToken` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                                |
-| `--moderne.recipe.marketplace.repositories.npm[{index}].proxy.host`  | `false`  | `null`  | The host of an HTTP proxy used to reach this registry.                                                                                                                  |
-| `--moderne.recipe.marketplace.repositories.npm[{index}].password`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                          |
-| `--moderne.recipe.marketplace.repositories.npm[{index}].proxy.port`  | `false`  | `null`  | The port of an HTTP proxy used to reach this registry.                                                                                                                  |
-| `--moderne.recipe.marketplace.repositories.npm[{index}].uri`         | `true`   |         | The URL of your NPM registry.                                                                                                                                           |
-| `--moderne.recipe.marketplace.repositories.npm[{index}].username`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                          |
-| `--moderne.recipe.marketplace.repositories.npm[{index}].skipSsl`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NPM registry. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                                                       | Required | Default | Description                                                                                                                                                                                                     |
+|-------------------------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.npm[{index}].uri`                        | `true`   |         | The URL of your NPM registry.                                                                                                                                                                                   |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].username`                   | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearer-token`.                                                                                                                                 |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].password`                   | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearer-token`.                                                                                                                                 |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].bearer-token`               | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                                                                        |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].scope`                      | `false`  | `null`  | The npm package scope this registry serves, including the leading `@` (e.g., `@myorg`). Omit it on the one registry that serves unscoped packages. Scopes must be unique, and at most one registry may omit it. |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].proxy.host`                 | `false`  | `null`  | The host of an HTTP proxy used to reach this registry.                                                                                                                                                          |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].proxy.port`                 | `false`  | `null`  | The port of an HTTP proxy used to reach this registry.                                                                                                                                                          |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].skip-ssl`                   | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NPM registry. This must be set to `true` if you use a self-signed SSL/TLS certificate.                                         |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation.                                        |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].connect-timeout`            | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                                                         |
+| `--moderne.recipe.marketplace.repositories.npm[{index}].read-timeout`               | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                                                         |
 
 **Example:**
 
@@ -226,31 +238,34 @@ docker run \
 java -jar connector-{version}.jar \
 # ... Existing arguments
 --moderne.recipe.marketplace.repositories.npm[0].uri=https://myartifactory.example.com/artifactory/api/npm/npm-local \
---moderne.recipe.marketplace.repositories.npm[0].bearerToken=... \
+--moderne.recipe.marketplace.repositories.npm[0].bearer-token=... \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>
 
 ## NuGet
 
-NuGet repositories support either basic authentication (`username` + `password`) or bearer token authentication (`bearerToken`), but not both at the same time.
+NuGet repositories support either basic authentication (`username` + `password`) or bearer token authentication (`bearer-token`), but not both at the same time.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                                                       | Required | Default | Description                                                                                                                                                           |
-|---------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_URI`         | `true`   |         | The URL of your NuGet feed.                                                                                                                                           |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_USERNAME`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                        |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PASSWORD`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `BEARERTOKEN`.                                                                                        |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_BEARERTOKEN` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `USERNAME`/`PASSWORD`.                                                                              |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PROXY_HOST`  | `false`  | `null`  | The host of an HTTP proxy used to reach this feed.                                                                                                                    |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PROXY_PORT`  | `false`  | `null`  | The port of an HTTP proxy used to reach this feed.                                                                                                                    |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_SKIPSSL`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NuGet feed. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Variable Name                                                                    | Required | Default | Description                                                                                                                                                              |
+|----------------------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_URI`                      | `true`   |         | The URL of your NuGet feed.                                                                                                                                              |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_USERNAME`                 | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearer-token`.                                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PASSWORD`                 | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearer-token`.                                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_BEARERTOKEN`              | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                                 |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PROXY_HOST`               | `false`  | `null`  | The host of an HTTP proxy used to reach this feed.                                                                                                                       |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_PROXY_PORT`               | `false`  | `null`  | The port of an HTTP proxy used to reach this feed.                                                                                                                       |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_SKIPSSL`                  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NuGet feed. This must be set to `true` if you use a self-signed SSL/TLS certificate.    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation. |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                  |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                  |
 
 **Example:**
 
@@ -261,22 +276,24 @@ docker run \
 -e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_NUGET_0_BEARERTOKEN=... \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                                                          | Required | Default | Description                                                                                                                                                           |
-|------------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.recipe.marketplace.repositories.nuget[{index}].uri`         | `true`   |         | The URL of your NuGet feed.                                                                                                                                           |
-| `--moderne.recipe.marketplace.repositories.nuget[{index}].username`    | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                        |
-| `--moderne.recipe.marketplace.repositories.nuget[{index}].password`    | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearerToken`.                                                                                        |
-| `--moderne.recipe.marketplace.repositories.nuget[{index}].bearerToken` | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                              |
-| `--moderne.recipe.marketplace.repositories.nuget[{index}].proxy.host`  | `false`  | `null`  | The host of an HTTP proxy used to reach this feed.                                                                                                                    |
-| `--moderne.recipe.marketplace.repositories.nuget[{index}].proxy.port`  | `false`  | `null`  | The port of an HTTP proxy used to reach this feed.                                                                                                                    |
-| `--moderne.recipe.marketplace.repositories.nuget[{index}].skipSsl`     | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NuGet feed. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                                                         | Required | Default | Description                                                                                                                                                              |
+|---------------------------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].uri`                        | `true`   |         | The URL of your NuGet feed.                                                                                                                                              |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].username`                   | `false`  | `null`  | The username used to resolve artifacts. Mutually exclusive with `bearer-token`.                                                                                          |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].password`                   | `false`  | `null`  | The password used to resolve artifacts. Mutually exclusive with `bearer-token`.                                                                                          |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].bearer-token`               | `false`  | `null`  | A bearer token used to resolve artifacts. Mutually exclusive with `username`/`password`.                                                                                 |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].proxy.host`                 | `false`  | `null`  | The host of an HTTP proxy used to reach this feed.                                                                                                                       |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].proxy.port`                 | `false`  | `null`  | The port of an HTTP proxy used to reach this feed.                                                                                                                       |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].skip-ssl`                   | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this NuGet feed. This must be set to `true` if you use a self-signed SSL/TLS certificate.    |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation. |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].connect-timeout`            | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                  |
+| `--moderne.recipe.marketplace.repositories.nuget[{index}].read-timeout`               | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                  |
 
 **Example:**
 
@@ -284,11 +301,11 @@ docker run \
 java -jar connector-{version}.jar \
 # ... Existing arguments
 --moderne.recipe.marketplace.repositories.nuget[0].uri=https://myartifactory.example.com/artifactory/api/nuget/nuget-local \
---moderne.recipe.marketplace.repositories.nuget[0].bearerToken=... \
+--moderne.recipe.marketplace.repositories.nuget[0].bearer-token=... \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>
 
 ## PyPI
@@ -298,14 +315,18 @@ java -jar connector-{version}.jar \
 
 **Environment variables:**
 
-| Variable Name                                                     | Required | Default | Description                                                                                                                                                           |
-|-------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_URI`        | `true`   |         | The URL of your PyPI index.                                                                                                                                           |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_USERNAME`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                               |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PASSWORD`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                               |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_HOST` | `false`  | `null`  | The host of an HTTP proxy used to reach this index.                                                                                                                   |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_PORT` | `false`  | `null`  | The port of an HTTP proxy used to reach this index.                                                                                                                   |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_SKIPSSL`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Variable Name                                                                   | Required | Default | Description                                                                                                                                                              |
+|---------------------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_URI`                      | `true`   |         | The URL of your PyPI index.                                                                                                                                              |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_USERNAME`                 | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                  |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PASSWORD`                 | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                  |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_BEARERTOKEN`              | `false`  | `null`  | A bearer token used to resolve artifacts from this repository. Mutually exclusive with `username`/`password`.                                                            |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_HOST`               | `false`  | `null`  | The host of an HTTP proxy used to reach this index.                                                                                                                      |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_PROXY_PORT`               | `false`  | `null`  | The port of an HTTP proxy used to reach this index.                                                                                                                      |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_SKIPSSL`                  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI index. This must be set to `true` if you use a self-signed SSL/TLS certificate.    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation. |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                  |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                  |
 
 **Example:**
 
@@ -317,21 +338,24 @@ docker run \
 -e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_PYPI_0_PASSWORD=password \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                                                        | Required | Default | Description                                                                                                                                                           |
-|----------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].uri`        | `true`   |         | The URL of your PyPI index.                                                                                                                                           |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].username`   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                               |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].password`   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                               |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.host` | `false`  | `null`  | The host of an HTTP proxy used to reach this index.                                                                                                                   |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.port` | `false`  | `null`  | The port of an HTTP proxy used to reach this index.                                                                                                                   |
-| `--moderne.recipe.marketplace.repositories.pypi[{index}].skipSsl`    | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI index. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                                                        | Required | Default | Description                                                                                                                                                              |
+|--------------------------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].uri`                        | `true`   |         | The URL of your PyPI index.                                                                                                                                              |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].username`                   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                  |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].password`                   | `false`  | `null`  | The password used to resolve artifacts.                                                                                                                                  |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].bearer-token`               | `false`  | `null`  | A bearer token used to resolve artifacts from this repository. Mutually exclusive with `username`/`password`.                                                            |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.host`                 | `false`  | `null`  | The host of an HTTP proxy used to reach this index.                                                                                                                      |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].proxy.port`                 | `false`  | `null`  | The port of an HTTP proxy used to reach this index.                                                                                                                      |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].skip-ssl`                   | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this PyPI index. This must be set to `true` if you use a self-signed SSL/TLS certificate.    |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation. |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].connect-timeout`            | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                  |
+| `--moderne.recipe.marketplace.repositories.pypi[{index}].read-timeout`               | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                  |
 
 **Example:**
 
@@ -343,8 +367,8 @@ java -jar connector-{version}.jar \
 --moderne.recipe.marketplace.repositories.pypi[0].password=password \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>
 
 ## Go
@@ -358,12 +382,18 @@ The configured feeds are authoritative. There is no `direct` fallback and no ext
 
 **Environment variables:**
 
-| Variable Name                                                 | Required | Default | Description                                                                                                                                                                 |
-|---------------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_URI`      | `true`   |         | The URL of your Go module proxy.                                                                                                                                           |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_USERNAME` | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                    |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_PASSWORD` | `false`  | `null`  | The password used to resolve artifacts. For Artifactory, use your identity token as the password.                                                                          |
-| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_SKIPSSL`  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Go module proxy. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Variable Name                                                                 | Required | Default | Description                                                                                                                                                                |
+|-------------------------------------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_URI`                      | `true`   |         | The URL of your Go module proxy.                                                                                                                                           |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_USERNAME`                 | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_PASSWORD`                 | `false`  | `null`  | The password used to resolve artifacts. For Artifactory, use your identity token as the password.                                                                          |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_BEARERTOKEN`              | `false`  | `null`  | A bearer token used to resolve artifacts from this repository. Mutually exclusive with `username`/`password`.                                                              |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_PROXY_HOST`               | `false`  | `null`  | The host of an HTTP proxy to use when connecting to this repository.                                                                                                       |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_PROXY_PORT`               | `false`  | `null`  | The port of an HTTP proxy to use when connecting to this repository.                                                                                                       |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_SKIPSSL`                  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Go module proxy. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation.   |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_CONNECTTIMEOUT`           | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                    |
+| `MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_{index}_READTIMEOUT`              | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                    |
 
 **Example:**
 
@@ -375,19 +405,24 @@ docker run \
 -e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_GO_0_PASSWORD=identityToken \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                                                    | Required | Default | Description                                                                                                                                                                 |
-|------------------------------------------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.recipe.marketplace.repositories.go[{index}].uri`      | `true`   |         | The URL of your Go module proxy.                                                                                                                                           |
-| `--moderne.recipe.marketplace.repositories.go[{index}].username` | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                    |
-| `--moderne.recipe.marketplace.repositories.go[{index}].password` | `false`  | `null`  | The password used to resolve artifacts. For Artifactory, use your identity token as the password.                                                                          |
-| `--moderne.recipe.marketplace.repositories.go[{index}].skipSsl`  | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Go module proxy. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                                                      | Required | Default | Description                                                                                                                                                                |
+|------------------------------------------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.recipe.marketplace.repositories.go[{index}].uri`                        | `true`   |         | The URL of your Go module proxy.                                                                                                                                           |
+| `--moderne.recipe.marketplace.repositories.go[{index}].username`                   | `false`  | `null`  | The username used to resolve artifacts.                                                                                                                                    |
+| `--moderne.recipe.marketplace.repositories.go[{index}].password`                   | `false`  | `null`  | The password used to resolve artifacts. For Artifactory, use your identity token as the password.                                                                          |
+| `--moderne.recipe.marketplace.repositories.go[{index}].bearer-token`               | `false`  | `null`  | A bearer token used to resolve artifacts from this repository. Mutually exclusive with `username`/`password`.                                                              |
+| `--moderne.recipe.marketplace.repositories.go[{index}].proxy.host`                 | `false`  | `null`  | The host of an HTTP proxy to use when connecting to this repository.                                                                                                       |
+| `--moderne.recipe.marketplace.repositories.go[{index}].proxy.port`                 | `false`  | `null`  | The port of an HTTP proxy to use when connecting to this repository.                                                                                                       |
+| `--moderne.recipe.marketplace.repositories.go[{index}].skip-ssl`                   | `false`  | `false` | Whether or not to skip SSL/TLS verification for calls from the Connector to this Go module proxy. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| `--moderne.recipe.marketplace.repositories.go[{index}].skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can reach this repository and fails to start if it cannot. Set this to `true` to skip that validation.   |
+| `--moderne.recipe.marketplace.repositories.go[{index}].connect-timeout`            | `false`  | `30s`   | Timeout for the connection to be established, and the first data received. Specified as a duration (e.g., `30s`, `1m`).                                                    |
+| `--moderne.recipe.marketplace.repositories.go[{index}].read-timeout`               | `false`  | `60s`   | Timeout for reading the response body from the repository. Specified as a duration (e.g., `60s`, `5m`).                                                                    |
 
 **Example:**
 
@@ -399,12 +434,12 @@ java -jar connector-{version}.jar \
 --moderne.recipe.marketplace.repositories.go[0].password=identityToken \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>
 
 :::info[Connector-only transport settings]
-`proxy`, `connectTimeout`, and `readTimeout` bind on the Connector but do not propagate to the recipe-service CLI artifact store that resolves Go modules, so they have no effect on Go recipe resolution.
+`proxy`, `connect-timeout`, and `read-timeout` bind on the Connector but do not propagate to the recipe-service CLI artifact store that resolves Go modules, so they have no effect on Go recipe resolution.
 :::
 
 Once a feed is configured, install a recipe module with:

@@ -164,6 +164,7 @@ const platform = {
             },
             items: [
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-config',
+              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-property-naming',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-devops-services',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-to-connector',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-cloud-to-connector',

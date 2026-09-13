@@ -50,33 +50,32 @@ docker run \
 -e MODERNE_UI_MOREHELP_1_URI="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                    | Required | Default | Description                                                                                                                                             |
-|----------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.ui.moreHelp[0].label` | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported. |
-| `--moderne.ui.moreHelp[0].uri`   | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
-| `--moderne.ui.moreHelp[1].label` | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                   |
-| `--moderne.ui.moreHelp[1].uri`   | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                 |
-| `--moderne.ui.moreHelp[2].label` | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                    |
-| `--moderne.ui.moreHelp[2].uri`   | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
+| Argument Name                     | Required | Default | Description                                                                                                                                             |
+|-----------------------------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.ui.more-help[0].label` | `false`  | `null`  | Custom label for first link under the 'Need more help?' menu. If populated, the URL property must also be populated. Maximum of 3 help items supported. |
+| `--moderne.ui.more-help[0].uri`   | `false`  | `null`  | The URL for the first custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
+| `--moderne.ui.more-help[1].label` | `false`  | `null`  | Custom label for second link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                   |
+| `--moderne.ui.more-help[1].uri`   | `false`  | `null`  | The URL for the second custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                 |
+| `--moderne.ui.more-help[2].label` | `false`  | `null`  | Custom label for third link under the 'Need more help?' menu. If populated, the URL property must also be populated.                                    |
+| `--moderne.ui.more-help[2].uri`   | `false`  | `null`  | The URL for the third custom help resource. Must be a fully qualified URL that is accessible to users of the platform.                                  |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.ui.moreHelp[0].label="Getting started" \
---moderne.ui.moreHelp[0].uri="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
---moderne.ui.moreHelp[1].label="How to guides" \
---moderne.ui.moreHelp[1].uri="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
+--moderne.ui.more-help[0].label="Getting started" \
+--moderne.ui.more-help[0].uri="https://docs.moderne.io/user-documentation/moderne-platform/getting-started" \
+--moderne.ui.more-help[1].label="How to guides" \
+--moderne.ui.more-help[1].uri="https://docs.moderne.io/user-documentation/moderne-platform/how-to-guides" \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>

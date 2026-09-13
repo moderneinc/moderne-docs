@@ -45,17 +45,16 @@ docker run \
 -e MODERNE_CONNECTOR_APIGATEWAY_PROXY_PORT=8179 \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                               | Required | Default | Description                                 |
-|---------------------------------------------|----------|---------|---------------------------------------------|
-| `--moderne.connector.apiGateway.proxy.host` | `false`  |         | Host (without scheme) for the proxy server. |
-| `--moderne.connector.apiGateway.proxy.port` | `false`  |         | Port for the proxy server.                  |
+| Argument Name                                | Required | Default | Description                                 |
+|----------------------------------------------|----------|---------|---------------------------------------------|
+| `--moderne.connector.api-gateway.proxy.host` | `false`  |         | Host (without scheme) for the proxy server. |
+| `--moderne.connector.api-gateway.proxy.port` | `false`  |         | Port for the proxy server.                  |
 
 :::info
 If you include either a host or port, you must include both.
@@ -66,12 +65,12 @@ If you include either a host or port, you must include both.
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.connector.apiGateway.proxy.host=proxy.mycompany.com \
---moderne.connector.apiGateway.proxy.port=8179 \
+--moderne.connector.api-gateway.proxy.host=proxy.mycompany.com \
+--moderne.connector.api-gateway.proxy.port=8179 \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>
 
 ## Per-tool proxies

@@ -165,21 +165,22 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                           | Required | Default | Description                                      |
-|---------------------------------------------------------|----------|---------|--------------------------------------------------|
-| `--moderne.scm.azureDevops[{index}].oauth.clientId`     | `true`   |         | The client ID of the registered OAuth app.       |
-| `--moderne.scm.azureDevops[{index}].oauth.clientSecret` | `true`   |         | The client secret of the registered OAuth app.   |
-| `--moderne.scm.azureDevops[{index}].oauth.tenantId`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
+| Argument Name                                             | Required | Default | Description                                      |
+|-----------------------------------------------------------|----------|---------|--------------------------------------------------|
+| `--moderne.scm.azure-devops[{index}].oauth.client-id`     | `true`   |         | The client ID of the registered OAuth app.       |
+| `--moderne.scm.azure-devops[{index}].oauth.client-secret` | `true`   |         | The client secret of the registered OAuth app.   |
+| `--moderne.scm.azure-devops[{index}].oauth.tenant-id`     | `true`   |         | The Azure tenant ID of the registered OAuth app. |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.scm.azureDevops[0].oauth.clientId=4affd674-286d-423f-b643-7ffe4dec0f53 \
---moderne.scm.azureDevops[0].oauth.clientSecret=yourClientSecret \
---moderne.scm.azureDevops[0].oauth.tenantId=488bc312-9fdc-43d2-a647-7a7b28066cc4 \
+--moderne.scm.azure-devops[0].oauth.client-id=4affd674-286d-423f-b643-7ffe4dec0f53 \
+--moderne.scm.azure-devops[0].oauth.client-secret=yourClientSecret \
+--moderne.scm.azure-devops[0].oauth.tenant-id=488bc312-9fdc-43d2-a647-7a7b28066cc4 \
 # ... Additional arguments
 ```
 </TabItem>
+
 </Tabs>

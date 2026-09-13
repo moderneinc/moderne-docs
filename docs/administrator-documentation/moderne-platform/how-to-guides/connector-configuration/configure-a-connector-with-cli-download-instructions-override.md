@@ -45,29 +45,28 @@ docker run \
 -e MODERNE_UI_CLIDOWNLOADINSTRUCTIONS_URI="https://docs.example.com/moderne-cli-setup" \
 # ... Additional variables
 ```
-
 </TabItem>
 
 <TabItem value="executable-jar" label="Executable JAR">
 
 **Arguments:**
 
-| Argument Name                                | Required | Default | Description                                                                                                                                                                                                                |
-|----------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.ui.cliDownloadInstructions.label` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
-| `--moderne.ui.cliDownloadInstructions.uri`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
+| Argument Name                                  | Required | Default | Description                                                                                                                                                                                                                |
+|------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.ui.cli-download-instructions.label` | `false`  | `null`  | CLI download instructions label to show in the platform UI. Overrides the default display of the CLI tools menu presented in the Moderne platform's user interface. If populated, the URL property must also be populated. |
+| `--moderne.ui.cli-download-instructions.uri`   | `false`  | `null`  | The URL of the instructions documentation. Must be a fully qualified URL that is accessible to users of the platform.                                                                                                      |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.ui.cliDownloadInstructions.label="Download CLI Tools" \
---moderne.ui.cliDownloadInstructions.uri="https://docs.example.com/moderne-cli-setup" \
+--moderne.ui.cli-download-instructions.label="Download CLI Tools" \
+--moderne.ui.cli-download-instructions.uri="https://docs.example.com/moderne-cli-setup" \
 # ... Additional arguments
 ```
-
 </TabItem>
+
 </Tabs>
 
 ## What users will see
