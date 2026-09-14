@@ -10,6 +10,21 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## September 14, 2026
+
+#### recipes-go - 0.8.0
+
+* rewrite-go v0.0.36
+
+## September 12, 2026
+
+#### rewrite-sql - 2.18.0
+
+* Pair SQL verbs with their clause keywords in linear scans
+* Decide SQL from the leading word rather than any verb in the text
+* Invoke only the getters that can lead to another AST node
+* Parse on a shared pool and follow jsqlparser 5.4's AST types
+
 ## September 10, 2026
 
 #### recipes-go - 0.7.1
