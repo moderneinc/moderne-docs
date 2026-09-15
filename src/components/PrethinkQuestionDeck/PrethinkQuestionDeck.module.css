@@ -1,0 +1,329 @@
+/**
+ * PrethinkQuestionDeck styles.
+ * Bound to Morpheus --mor-* tokens. The colour, surface, line and shadow tokens
+ * are mode-aware, so one set of rules covers light and dark; the only explicit
+ * dark override is the card back, whose spectral wash needs a different weight
+ * against a dark surface.
+ */
+
+.deckArea {
+  /* One card size drives both the deck and the pile, so a drawn card reads as
+     the same object turned over rather than a differently shaped panel. */
+  --card-w: 250px;
+  --card-h: 340px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--mor-space-4);
+  margin: var(--mor-space-6) 0;
+  font-family: var(--mor-font-sans);
+}
+
+.tableau {
+  display: flex;
+  gap: var(--mor-space-6);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* ---------------------------------------------------------------- draw deck */
+
+.drawColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--mor-space-2);
+  flex-shrink: 0;
+}
+
+.drawStack {
+  /* Shorter than the JS shuffle window so every card settles before it ends. */
+  --shuffle-duration: 700ms;
+
+  position: relative;
+  width: var(--card-w);
+  height: var(--card-h);
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--mor-radius-2xl);
+}
+
+.drawStack:disabled {
+  cursor: default;
+}
+
+.drawStack:focus-visible {
+  outline: 2px solid var(--mor-link);
+  outline-offset: 4px;
+}
+
+/*
+ * Face-down cards. Each sits slightly above and left of the one beneath it,
+ * driven by --card-depth, so the stack reads as a clean squared-up deck.
+ */
+.cardBack {
+  /* Per-card values; React overrides these inline. Declared here so the deck
+     still renders correctly if the inline style is ever absent. */
+  --card-depth: 0;
+  --shuffle-delay: 0ms;
+
+  position: absolute;
+  inset: 0;
+  border-radius: var(--mor-radius-2xl);
+  border: 1px solid var(--mor-line-strong);
+  background: var(--mor-surface-2);
+  box-shadow: var(--mor-shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform: translate(calc(var(--card-depth) * -2px), calc(var(--card-depth) * -2px));
+  z-index: calc(10 - var(--card-depth));
+  transition: transform 180ms ease;
+}
+
+/* Spectral wash so the back reads as Moderne rather than a generic card. */
+.cardBack::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--mor-spectral);
+  opacity: 0.14;
+}
+
+.cardBack::after {
+  content: '';
+  position: absolute;
+  inset: var(--mor-space-3);
+  border-radius: var(--mor-radius-xl);
+  border: 1px solid var(--mor-line);
+}
+
+[data-theme='dark'] .cardBack::before {
+  opacity: 0.22;
+}
+
+.cardMark {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  color: var(--mor-text);
+  opacity: 0.85;
+}
+
+/* Lift the whole stack slightly when the deck is hoverable. */
+.drawStack:not(:disabled):hover .cardBack {
+  transform: translate(
+    calc(var(--card-depth) * -2px),
+    calc(var(--card-depth) * -2px - 4px)
+  );
+}
+
+.cardBackShuffling {
+  animation: shuffleCard var(--shuffle-duration) ease-in-out var(--shuffle-delay) both;
+}
+
+@keyframes shuffleCard {
+  0% {
+    transform: translate(calc(var(--card-depth) * -2px), calc(var(--card-depth) * -2px));
+  }
+  30% {
+    transform: translate(38px, calc(var(--card-depth) * -2px - 10px)) rotate(6deg);
+  }
+  60% {
+    transform: translate(-30px, calc(var(--card-depth) * -2px + 6px)) rotate(-5deg);
+  }
+  100% {
+    transform: translate(calc(var(--card-depth) * -2px), calc(var(--card-depth) * -2px));
+  }
+}
+
+.emptySlot {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--mor-radius-2xl);
+  border: 1px dashed var(--mor-line-strong);
+  color: var(--mor-muted);
+  font-size: var(--mor-font-size-sm);
+}
+
+.counter {
+  margin: 0;
+  color: var(--mor-muted);
+  font-size: var(--mor-font-size-sm);
+}
+
+/* -------------------------------------------------------------- drawn pile */
+
+.pileColumn {
+  flex: 0 0 auto;
+}
+
+.pile {
+  position: relative;
+  width: var(--card-w);
+  height: var(--card-h);
+}
+
+.pilePlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: var(--mor-space-4);
+  border-radius: var(--mor-radius-2xl);
+  border: 1px dashed var(--mor-line);
+  color: var(--mor-muted);
+  font-size: var(--mor-font-size-sm);
+  text-align: center;
+}
+
+/*
+ * A drawn card. The resting rotation and offset come from JS so each card sits
+ * a little differently, which is what makes the pile look handled. Cards deal
+ * in from the deck's side.
+ */
+.cardFace {
+  /* Per-card placement; React overrides these inline with the drawn jitter. */
+  --card-rotation: 0deg;
+  --card-offset-x: 0px;
+  --card-offset-y: 0px;
+  --pile-index: 0;
+
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mor-space-3);
+  padding: var(--mor-space-5);
+  border-radius: var(--mor-radius-2xl);
+  border: 1px solid var(--mor-line);
+  background: var(--mor-card);
+  box-shadow: var(--mor-shadow-card);
+  transform: translate(var(--card-offset-x), var(--card-offset-y)) rotate(var(--card-rotation));
+  z-index: var(--pile-index);
+  animation: dealCard 420ms cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+
+.cardFace[data-top='true'] {
+  box-shadow: var(--mor-shadow-dropdown);
+}
+
+@keyframes dealCard {
+  from {
+    transform: translate(-150px, -18px) rotate(-12deg) scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: translate(var(--card-offset-x), var(--card-offset-y)) rotate(var(--card-rotation));
+    opacity: 1;
+  }
+}
+
+.cardTheme {
+  font-size: var(--mor-font-size-xs);
+  font-weight: var(--mor-font-weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mor-muted);
+}
+
+.cardQuestion {
+  margin: 0;
+  font-size: var(--mor-font-size-base);
+  line-height: 1.4;
+  color: var(--mor-text);
+  overflow-wrap: break-word;
+}
+
+/* ---------------------------------------------------------------- controls */
+
+.controls {
+  display: flex;
+  gap: var(--mor-space-3);
+}
+
+.reshuffleButton {
+  padding: var(--mor-space-2) var(--mor-space-4);
+  border-radius: var(--mor-radius-full);
+  border: 1px solid var(--mor-line-strong);
+  background: var(--mor-surface);
+  color: var(--mor-text);
+  font-family: var(--mor-font-sans);
+  font-size: var(--mor-font-size-sm);
+  font-weight: var(--mor-font-weight-medium);
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.reshuffleButton:hover {
+  background: var(--mor-row-hover);
+  border-color: var(--mor-link);
+}
+
+.reshuffleButton:focus-visible {
+  outline: 2px solid var(--mor-link);
+  outline-offset: 2px;
+}
+
+/* Visually hidden, still announced. */
+.liveRegion {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------- responsive */
+
+@media (max-width: 600px) {
+  .tableau {
+    gap: var(--mor-space-4);
+  }
+
+  .deckArea {
+    --card-w: 165px;
+    --card-h: 240px;
+  }
+
+  .cardQuestion {
+    font-size: var(--mor-font-size-sm);
+  }
+
+  .cardMark {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/*
+ * Motion is decorative here: the card still draws, it just does not fly. The
+ * deck remains fully usable with animation suppressed.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .cardBackShuffling,
+  .cardFace {
+    animation: none;
+  }
+
+  .cardBack,
+  .reshuffleButton {
+    transition: none;
+  }
+
+  .drawStack:not(:disabled):hover .cardBack {
+    transform: translate(calc(var(--card-depth) * -2px), calc(var(--card-depth) * -2px));
+  }
+}
