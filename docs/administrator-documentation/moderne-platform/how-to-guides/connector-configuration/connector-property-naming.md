@@ -12,21 +12,14 @@ These settings can be supplied in different ways - depending on how you choose t
 
 Regardless of how you run the Connector, the spelling of the settings will be derived from the canonical property name.
 
-:::info
-Use the canonical name as written. The Connector also accepts camel case when binding most properties, but a few settings are resolved by direct lookup rather than by binding, and those only match the canonical form.
-:::
 
 ## Supplying a property
 
-| How you run the Connector | How you supply the property                | Example                               |
-|---------------------------|--------------------------------------------|---------------------------------------|
-| OCI container             | An environment variable                    | `MODERNE_CONNECTOR_NICKNAME=prod-1`   |
-| Executable JAR            | A command line argument prefixed with `--` | `--moderne.connector.nickname=prod-1` |
-| Either                    | A key in a `moderne.yml` file              | See [YAML](#yaml) below               |
+If you run the Connecting as an OCI container, you will set environment variable (e.g., `MODERNE_CONNECTOR_NICKNAME=prod-1`). If you run the Connector as an executable JAR, you will pass a command line argument (e.g., `--moderne.connector.nickname=prod-1`).
 
 ## Deriving the environment variable name
 
-The Connector is a Spring Boot application, so it follows Spring Boot's [relaxed binding](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. To convert a canonical property name to an environment variable name:
+To turn a canonical property name into an environment variable, apply Spring Boot's [relaxed binding](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules:
 
 1. Replace dots (`.`) with underscores (`_`).
 2. Remove any dashes (`-`).
@@ -83,4 +76,4 @@ moderne:
 
 ## Where to find property names
 
-Each configuration guide lists the canonical names for the properties it covers, and every property is listed in the [All Connector configuration variables](./connector-variables.md) reference.
+Each configuration guide shows both spellings for the settings it covers. The [All Connector configuration variables](./connector-variables.md) reference covers every setting.

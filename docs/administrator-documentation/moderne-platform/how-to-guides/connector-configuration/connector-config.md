@@ -164,7 +164,7 @@ java -jar connector-{version}.jar \
 
 All Connectors must be configured with the variables listed as required below:
 
-<Tabs groupId="agent-type">
+<Tabs groupId="connector-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**

@@ -1535,7 +1535,7 @@ java -jar connector-{version}.jar \
 
 Every organization source has an `encrypt` property, which defaults to `true`. With it enabled, the Connector fetches each LST from the source, encrypts it with `moderne.connector.crypto.symmetric-key`, and uploads it to Moderne. A source that encrypts requires that key to be set, or the Connector fails to start.
 
-Setting `encrypt` to `false` makes the source pass-through: the Connector does not fetch it, and Moderne reads the source directly through the Connector tunnel. The rules differ by source type.
+A source with `encrypt: false` and no poll block is pass-through. The Connector does not fetch its LSTs, and Moderne reads the source directly through the Connector tunnel. A source with `encrypt: false` and a poll block still discovers LSTs by polling, but publishes their locations unencrypted instead of uploading them.
 
 | Source type | `encrypt: false` | Notes                                                                                                              |
 |-------------|------------------|--------------------------------------------------------------------------------------------------------------------|
