@@ -6,7 +6,11 @@ description: How Connector property names map to environment variables and JAR a
 
 # Connector property naming
 
-Every Connector setting has one canonical property name, written in lowercase dotted kebab case, such as `moderne.connector.api-gateway-rsocket-uri`. The Connector documentation lists that canonical name once per property. How you supply it depends on how you run the Connector, and both forms are derived from the canonical name by a fixed rule.
+Every Connector setting has one canonical property name, written in lowercase dotted kebab case (e.g., `moderne.connector.api-gateway-rsocket-uri`).
+
+These settings can be supplied in different ways - depending on how you choose to run the Connector. Throughout the documentation these are presented in environment variables and command line arguments formats.
+
+Regardless of how you run the Connector, the spelling of the settings will be derived from the canonical property name.
 
 :::info
 Use the canonical name as written. The Connector also accepts camel case when binding most properties, but a few settings are resolved by direct lookup rather than by binding, and those only match the canonical form.
