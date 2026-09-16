@@ -164,6 +164,7 @@ const platform = {
             },
             items: [
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-config',
+              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-property-naming',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-devops-services',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-to-connector',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-cloud-to-connector',
@@ -177,6 +178,7 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-pypi-access-visualizations',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-llm-for-moddy',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy',
+              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-lst-encryption',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-generic-http-tools-for-use-in-recipes',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-the-pom-cache',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-client-ssl-certificates',

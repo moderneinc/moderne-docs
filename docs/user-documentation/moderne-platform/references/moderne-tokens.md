@@ -59,7 +59,7 @@ Unlike login tokens, a personal access token has its permissions resolved on eve
 
 You choose how long a personal access token should last when you create it. If you don't set an expiration date, the token never expires.
 
-Your organization's administrator may configure a maximum token lifetime through the connector's `moderne.authorization.accessTokens.maxExpiryDays` setting. When that limit is in place, you must set an expiration date that falls within it. Tokens without an expiration date, and tokens that would outlive the limit, are rejected.
+Your organization's administrator may configure a maximum token lifetime through the connector's `moderne.authorization.access-tokens.max-expiry-days` setting. When that limit is in place, you must set an expiration date that falls within it. Tokens without an expiration date, and tokens that would outlive the limit, are rejected.
 
 <figure>
   ![Access token creation form with expiration duration dropdown options](./assets/access-token-expiration.png)

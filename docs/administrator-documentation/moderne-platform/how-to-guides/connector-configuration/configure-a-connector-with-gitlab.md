@@ -107,12 +107,12 @@ You can configure multiple GitLab OAuth apps by including multiple entries, each
 
 **Environment variables:**
 
-| Variable Name                                   | Required                                     | Default | Description                                                                                                                                                            |
-|-------------------------------------------------|----------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_SCM_GITLAB_{index}_OAUTH_CLIENTID`     | `true`                                       |         | The application id configured in GitLab.                                                                                                                               |
-| `MODERNE_SCM_GITLAB_{index}_OAUTH_CLIENTSECRET` | `true`                                       |         | The secret configured in GitLab.                                                                                                                                       |
-| `MODERNE_SCM_GITLAB_{index}_URI`                | `true`                                       |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
-| `MODERNE_SCM_GITLAB_{index}_SKIPSSL`            | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Variable Name                                   | Required | Default | Description                                                                                                                                                            |
+|-------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_SCM_GITLAB_{index}_OAUTH_CLIENTID`     | `true`   |         | The application id configured in GitLab.                                                                                                                               |
+| `MODERNE_SCM_GITLAB_{index}_OAUTH_CLIENTSECRET` | `true`   |         | The secret configured in GitLab.                                                                                                                                       |
+| `MODERNE_SCM_GITLAB_{index}_URI`                | `true`   |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
+| `MODERNE_SCM_GITLAB_{index}_SKIPSSL`            | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
@@ -130,22 +130,23 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                      | Required                                     | Default | Description                                                                                                                                                            |
-|----------------------------------------------------|----------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.scm.gitlab[{index}].oauth.clientId`     | `true`                                       |         | The application id configured in GitLab.                                                                                                                               |
-| `--moderne.scm.gitlab[{index}].oauth.clientSecret` | `true`                                       |         | The secret configured in GitLab.                                                                                                                                       |
-| `--moderne.scm.gitlab[{index}].uri`                | `true`                                       |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
-| `--moderne.scm.gitlab[{index}].skipSsl`            | `false`                                      | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                       | Required | Default | Description                                                                                                                                                            |
+|-----------------------------------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.scm.gitlab[{index}].oauth.client-id`     | `true`   |         | The application id configured in GitLab.                                                                                                                               |
+| `--moderne.scm.gitlab[{index}].oauth.client-secret` | `true`   |         | The secret configured in GitLab.                                                                                                                                       |
+| `--moderne.scm.gitlab[{index}].uri`                 | `true`   |         | The fully-qualified hostname of your GitLab instance.                                                                                                                  |
+| `--moderne.scm.gitlab[{index}].skip-ssl`            | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this GitLab instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
 
 **Example:**
 
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.scm.gitlab[0].oauth.clientId=yourClientId \
---moderne.scm.gitlab[0].oauth.clientSecret=yourClientSecret \
+--moderne.scm.gitlab[0].oauth.client-id=yourClientId \
+--moderne.scm.gitlab[0].oauth.client-secret=yourClientSecret \
 --moderne.scm.gitlab[0].uri=https://your-gitlab.com \
 # ... Additional arguments
 ```
 </TabItem>
+
 </Tabs>
