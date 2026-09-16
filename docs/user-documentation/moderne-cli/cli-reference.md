@@ -89,6 +89,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build go gomemlimit delete**](#mod-config-build-go-gomemlimit-delete)
 * [**mod config build go gomemlimit edit**](#mod-config-build-go-gomemlimit-edit)
 * [**mod config build go gomemlimit show**](#mod-config-build-go-gomemlimit-show)
+* [**mod config build go timeout**](#mod-config-build-go-timeout)
+* [**mod config build go timeout delete**](#mod-config-build-go-timeout-delete)
+* [**mod config build go timeout edit**](#mod-config-build-go-timeout-edit)
+* [**mod config build go timeout show**](#mod-config-build-go-timeout-show)
 * [**mod config build gradle**](#mod-config-build-gradle)
 * [**mod config build gradle arguments**](#mod-config-build-gradle-arguments)
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
@@ -151,6 +155,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build python timeout delete**](#mod-config-build-python-timeout-delete)
 * [**mod config build python timeout edit**](#mod-config-build-python-timeout-edit)
 * [**mod config build python timeout show**](#mod-config-build-python-timeout-show)
+* [**mod config build ruby**](#mod-config-build-ruby)
+* [**mod config build ruby timeout**](#mod-config-build-ruby-timeout)
+* [**mod config build ruby timeout delete**](#mod-config-build-ruby-timeout-delete)
+* [**mod config build ruby timeout edit**](#mod-config-build-ruby-timeout-edit)
+* [**mod config build ruby timeout show**](#mod-config-build-ruby-timeout-show)
 * [**mod config build style**](#mod-config-build-style)
 * [**mod config build style checkstyle**](#mod-config-build-style-checkstyle)
 * [**mod config build style checkstyle delete**](#mod-config-build-style-checkstyle-delete)
@@ -1850,6 +1859,7 @@ mod config build [subcommands]
 * `node`: Configures Node as it is used for LST production.
 * `parsers`: Configure custom file-extension-to-parser mappings.
 * `python`: Configures Python as it is used for LST production.
+* `ruby`: Configures Ruby as it is used for LST production.
 * `style`: Configures style settings used for LST production.
 
 ## mod config build bazel
@@ -2335,6 +2345,7 @@ mod config build go gomemlimit edit "8GiB"
 ### Subcommands
 
 * `gomemlimit`: Configure the Go runtime memory limit.
+* `timeout`: Configure the build timeout.
 
 ## mod config build go gomemlimit
 
@@ -2411,6 +2422,91 @@ Displays the configured Go memory limit.
 
 ```
 mod config build go gomemlimit show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build go timeout
+
+Configure the build timeout.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool.
+
+### Usage
+
+```
+mod config build go timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured build timeout.
+* `edit`: Configure the timeout for build operations.
+* `show`: Displays the configured build timeout.
+
+## mod config build go timeout delete
+
+Removes the configured build timeout.
+
+
+### Usage
+
+```
+mod config build go timeout delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build go timeout edit
+
+Configure the timeout for build operations.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
+
+### Usage
+
+```
+mod config build go timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `duration` |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build go timeout show
+
+Displays the configured build timeout.
+
+
+### Usage
+
+```
+mod config build go timeout show
 ```
 
 ### Options
@@ -3727,6 +3823,109 @@ Displays the configured build timeout.
 
 ```
 mod config build python timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build ruby
+
+Configures Ruby as it is used for LST production.
+
+
+
+
+### Usage
+
+```
+mod config build ruby [subcommands]
+```
+
+
+### Subcommands
+
+* `timeout`: Configure the build timeout.
+
+## mod config build ruby timeout
+
+Configure the build timeout.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool.
+
+### Usage
+
+```
+mod config build ruby timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured build timeout.
+* `edit`: Configure the timeout for build operations.
+* `show`: Displays the configured build timeout.
+
+## mod config build ruby timeout delete
+
+Removes the configured build timeout.
+
+
+### Usage
+
+```
+mod config build ruby timeout delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build ruby timeout edit
+
+Configure the timeout for build operations.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
+
+### Usage
+
+```
+mod config build ruby timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `duration` |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build ruby timeout show
+
+Displays the configured build timeout.
+
+
+### Usage
+
+```
+mod config build ruby timeout show
 ```
 
 ### Options
@@ -9304,9 +9503,9 @@ Execute an arbitrary shell command on selected repositories and partitions.
 
 If you want to execute a command that contains positional parameters, please ensure that you use the end-of-options POSIX delimiter (**--**) before your command.
 
-When a repository has a detected build tool (Maven, Gradle, Bazel), the command is executed from the build tool's project directory. For partitioned repositories, the command runs once per partition in each partition's build tool directory. Partitions without a detected build tool are skipped in multi-partition repositories, they lack an execution directory.
+When a repository has a detected build tool (Maven, Gradle, Bazel, npm, Yarn, pnpm, Bun or uv), the command is executed from the build tool's project directory. For partitioned repositories, the command runs once per partition in each partition's build tool directory. Partitions without a detected build tool are skipped in multi-partition repositories, they lack an execution directory.
 
-Commands can use a set of precomputed environment variables specific to each repository or partition: **JAVA_HOME**, **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE**, **MODERNE_BUILD_TOOL_CHECK**, **MODERNE_BUILD_TOOL_DIR** and **MODERNE_BUILD_TOOL_EXECUTABLE**.These variables can be used as literal command arguments (they will be substituted) or as standalone commands that expand to a full build tool invocation.
+Commands can use a set of precomputed environment variables specific to each repository or partition: **JAVA_HOME**, **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE**, **MODERNE_BUILD_TOOL_CHECK**, **MODERNE_BUILD_TOOL_DIR** and **MODERNE_BUILD_TOOL_EXECUTABLE**.These variables can be used as literal command arguments (they will be substituted) or as standalone commands that expand to a full build tool invocation. A JavaScript project's dependencies are installed before its test or build script runs, and a Python project's tests run with pytest in an environment uv provisions.
 
 Open a GitHub Pull Request
   **mod exec /path/to/project -- gh pr create --title "Test PR" --body "Test PR"**

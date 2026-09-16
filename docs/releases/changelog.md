@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.15.0 (2026/09/15)
+
+- flag rate-limited queued repositories
+- adapt commit options to repositories' SCM capabilities
+- publish sign-in outcomes to the tenant's Atlas
+
 ### UI v14.14.2 (2026/09/11)
 
 - Bug fixes and other improvements.
