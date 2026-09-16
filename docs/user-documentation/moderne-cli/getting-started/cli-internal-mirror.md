@@ -65,7 +65,7 @@ Download the Windows distribution from your internal mirror:
 
 ```powershell
 Invoke-WebRequest `
-    -Uri "https://internal-mirror.example.com/io/moderne/moderne-cli-windows/4.2.10/moderne-cli-windows-4.8.4.zip" `
+    -Uri "https://internal-mirror.example.com/io/moderne/moderne-cli-windows/4.8.4/moderne-cli-windows-4.8.4.zip" `
     -OutFile moderne-cli.zip
 ```
 
