@@ -355,7 +355,7 @@ docker run \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_0=moderne \
 -e MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_1=openrewrite \
 -e MODERNE_SCM_GITHUB_0_OAUTH_INCLUDEPRIVATEREPOS=true \
-# Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
+# Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest, which already has publish URIs.
 -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_URI=https://internal.example.com/repos-lock.csv \
 # (Optional) Enrichment pollers — only needed if your CSV lacks publishUri values.
 # -e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_ARTIFACTORY_0_URI=https://myartifactory.example.com/artifactory/ \
@@ -385,7 +385,7 @@ java -jar connector-{version}.jar \
 --moderne.scm.github[0].allowable-organizations[0]=moderne \
 --moderne.scm.github[0].allowable-organizations[1]=openrewrite \
 --moderne.scm.github[0].oauth.include-private-repos=true \
-# Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest for LOCK mode.
+# Point the Connector at a CSV describing your repositories. Prefer `repos-lock.csv` from Mass Ingest, which already has publish URIs.
 --moderne.organization.sources.http[0].uri=https://internal.example.com/repos-lock.csv \
 # (Optional) Enrichment pollers — only needed if your CSV lacks publishUri values.
 # --moderne.organization.sources.http[0].poll.artifactory[0].uri=https://myartifactory.example.com/artifactory/ \
@@ -540,8 +540,8 @@ java -jar connector-{version}.jar \
 
 The Connector exposes two organization-wide knobs that affect how quickly new LSTs appear in Moderne and how much concurrent work the Connector performs. Both are optional and have sensible defaults.
 
-* **`moderne.connector.organization.interval`** — how often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Defaults to `10m`. Lower this if you want LSTs to show up faster. Raise it to reduce load on your artifact repository.
-* **`moderne.connector.organization.download-parallelism`** -- the global cap on concurrent LST download, encrypt, and upload operations across all configured sources. Defaults to `max(4, availableProcessors())`. Raise it if your Connector host and upstream gateway have headroom. Lower it to throttle network/CPU use.
+* **`moderne.connector.organization.interval`**: how often the Connector re-fetches each source `repos.csv` and re-runs enrichment. Defaults to `10m`. Lower this if you want LSTs to show up faster. Raise it to reduce load on your artifact repository.
+* **`moderne.connector.organization.download-parallelism`**: the global cap on concurrent LST download, encrypt, and upload operations across all configured sources. Defaults to `max(4, availableProcessors())`. Raise it if your Connector host and upstream gateway have headroom. Lower it to throttle network/CPU use.
 
 See the [All Connector variables reference](./connector-variables.md#organization-sync-variables) for the exact variable and argument names.
 

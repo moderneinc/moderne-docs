@@ -6,28 +6,30 @@ description: How the Moderne Connector encrypts LST artifacts before they reach 
 
 # Configure LST encryption
 
-LST artifacts describe your source code, so the Connector encrypts them before they leave your network. Moderne stores the encrypted bytes and cannot read them without the key, which stays with you.
+By default, the Connector encrypts every LST with a key that you generate and configure. Once encrypted, the LST is uploaded to Moderne and Moderne stores only the encrypted bytes. The Connector also sends the key to Moderne's services, where it is used to decrypt an LST when a recipe runs against it.
 
-Every organization source has an `encrypt` property that defaults to `true`. With it enabled, the Connector fetches each LST from that source, encrypts it with `moderne.connector.crypto.symmetric-key`, and uploads it to Moderne.
+Encryption is controlled per organization source through its `encrypt` property, which defaults to `true`. With it enabled, the Connector fetches each LST from that source, encrypts it with `moderne.connector.crypto.symmetric-key`, and uploads it to Moderne.
 
 ## Providing the key
 
-Generate a hex-encoded 256-bit AES key and set it as `moderne.connector.crypto.symmetric-key`. [Step 1 of the Configuring the Moderne Connector guide](./connector-config.md#step-1-generate-your-symmetric-key) covers how to produce one.
+The key is a hex-encoded 256-bit AES key, set as `moderne.connector.crypto.symmetric-key`. If you followed [Step 1 of the Connector configuration guide](./connector-config.md#step-1-generate-your-symmetric-key), you already have one.
 
-A source that encrypts requires the key. If any source would encrypt and no key is set, the Connector fails to start rather than shipping your LSTs unencrypted.
+The Connector checks for the key at startup. If any source still has encryption on and no key is configured, the Connector refuses to start and the log names the affected sources. You can either set the key or turn encryption off for those sources.
 
 ## Turning encryption off
 
-Setting `encrypt` to `false` on a source makes it pass-through. The Connector no longer fetches that source's LSTs, and Moderne reads the source directly through the Connector's tunnel. A pass-through source with a `poll` block still discovers LSTs by polling, but publishes their locations rather than uploading encrypted copies.
+When you set `encrypt` to `false` on a source, the Connector stops uploading encrypted copies of its LSTs. What happens instead depends on whether the source also has a `poll` block.
 
-Whether pass-through works depends on the source type.
+Without a `poll` block, the source is pass-through. The Connector leaves it alone, and Moderne reads the source itself through the Connector's tunnel. Whether that works depends on the source type.
 
-| Source type | `encrypt: false`      | Behavior                                                                                                          |
-|-------------|-----------------------|-------------------------------------------------------------------------------------------------------------------|
-| `http`      | Supported             | Moderne reads the endpoint through the Connector's tunnel.                                                        |
-| `s3`        | Supported             | Moderne reads the bucket through the Connector's tunnel.                                                          |
-| `gcs`       | Rejected at startup   | Cloud Storage sources cannot be tunneled, so a pass-through source would be silently inert.                       |
-| `file`      | Reaches nothing       | A file on the Connector's disk is not reachable by Moderne. Use a `poll` block instead, and leave encryption on.  |
+| Source type | Pass-through        | Behavior                                                                                                           |
+|-------------|---------------------|--------------------------------------------------------------------------------------------------------------------|
+| `http`      | Supported           | Moderne reads the endpoint through the Connector's tunnel.                                                         |
+| `s3`        | Supported           | Moderne reads the bucket through the Connector's tunnel.                                                           |
+| `gcs`       | Rejected at startup | Cloud Storage sources cannot be tunneled.                                                                          |
+| `file`      | Reaches nothing     | A file on the Connector's disk is not reachable from Moderne. Use a `poll` block instead, and leave encryption on. |
+
+With a `poll` block, the source is not pass-through. The Connector still polls the configured repositories to discover LSTs, but it publishes their locations to Moderne instead of uploading encrypted copies.
 
 ## File sources
 
