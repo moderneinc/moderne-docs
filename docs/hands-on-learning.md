@@ -26,7 +26,7 @@ Learn how OpenRewrite works and get hands-on experience running recipes using th
 
 ### Fundamentals of recipe development
 
-Build the skills needed to customize and build OpenRewrite recipes. Explore YAML, Refaster, and imperative Java approaches to writing recipes.
+Build the skills needed to customize and build OpenRewrite recipes. Explore YAML, the Kotlin recipe DSL, and imperative Java approaches to writing recipes.
 
 **What you'll learn:**
 
@@ -34,7 +34,7 @@ Build the skills needed to customize and build OpenRewrite recipes. Explore YAML
 * Creating your own declarative YAML recipes
 * Scoping recipes using preconditions
 * Testing and validating recipe logic
-* Using Refaster for pattern-based Java transformations
+* Using the Kotlin recipe DSL for pattern-based transformations
 * How to write and run imperative Java-based recipes
 
 **Prerequisites:** Java development experience and familiarity with Maven or Gradle. Complete the Introduction workshop first if you're new to OpenRewrite.

@@ -7,11 +7,38 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.45 |
+| Connector | 0.151.129 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.45/connector-0.151.45.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.129/connector-0.151.129.jar)
 
 ## Changelog
+
+## September 2026
+
+### v0.151.129 – 2026-09-10
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.129/connector-0.151.129.jar)
+
+* Keep Content-Length on tunneled requests (#2092)
+* Feat(connector): publish percentile histograms for connector timers (#2083)
+* Consolidate mass ingest here: a Kubernetes Job on EKS, publishing to S3 (#2060)
+
+### v0.151.113 – 2026-09-03
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.113/connector-0.151.113.jar)
+
+* Fix(connector): restore logging by moving LOG_JSON onto structured logging (#2049)
+
+### v0.151.111 – 2026-09-03
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.151.111/connector-0.151.111.jar)
+
+* Fix(connector): route the Azure DevOps Entra login through the configured proxy (#2042)
+* Infra: retain pentestaws and pentestazure tenant specs (#2008)
+* Let operators point recipe dependency resolution at a Maven mirror (#1928)
+* Expose connector organization sources in federated GraphQL (#1908)
+* Fix(gateway): fragment connector-facing RSocket responses over the 16MB frame limit (#1877)
+* Accept a Google Cloud Storage bucket as an organization source (#1873)
 
 ## August 2026
 

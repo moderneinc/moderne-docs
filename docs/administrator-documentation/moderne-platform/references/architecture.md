@@ -118,7 +118,6 @@ The Moderne UI provides a browser-based interface for:
 
 * Executing search and transformation recipes across your codebase
 * Reviewing and committing code changes produced by recipe runs
-* Searching code across all repositories with [Moderne Trigrep](#moderne-trigrep)
 * Monitoring upgrade, migration, and security progress via the [DevCenter](#devcenter)
 * Conversing with [Moddy](#moddy), the AI assistant, to discover and run recipes
 * Building new recipes based on other recipes
@@ -232,16 +231,6 @@ The changelog service ingests commit and pull request activity from your SCM pro
 The DevCenter is an organizational dashboard that aggregates recipe run results into actionable metrics. It tracks upgrade, migration, and security progress across all repositories in your organization, helping you understand where your codebase stands and what work remains.
 
 For more details, see the [DevCenter guide](../../../user-documentation/moderne-platform/getting-started/dev-center.md).
-
-**Setup requirements**
-
-* None
-
-### Moderne Trigrep
-
-Moderne Trigrep provides code search across all repositories in your organization. You can search for code patterns, function calls, imports, and other structural elements across your entire codebase without needing to clone repositories locally.
-
-For more details, see the [Moderne Trigrep documentation](../../../user-documentation/agent-tools/trigrep.md).
 
 **Setup requirements**
 

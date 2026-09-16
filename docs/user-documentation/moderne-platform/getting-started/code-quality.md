@@ -60,7 +60,7 @@ By default, changes will be displayed on the right hand of your screen for the s
 
 ### Learning what's wrong with the code
 
-If you want to learn more about _why_ the code is changing, you can press the three dots (`...`) in the top right-hand corner of any file and select `Why did this change?`:
+If you want to learn more about _why_ the code is changing, you can click on the **Change reason** label next to any file name:
 
 <figure>
   ![Three-dot menu expanded showing the "Why did this change?" option](./assets/why-did-this-change.png)

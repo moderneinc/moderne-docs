@@ -117,7 +117,7 @@ The `edit` block is one of three phases the DSL exposes. These phases line up wi
 These phases compose, so a recipe can scan its sources, edit based on what it found, and then generate a summary report.
 
 :::warning
-Keep the `displayName` and `description` arguments to `recipe(...)` as plain string literals. The compiler plugin silently falls back to a non-serializable recipe when they are built with `+` concatenation.
+Write the `displayName` and `description` arguments to `recipe(...)` inline as compile-time constants: a string literal, a concatenation of literals (`"a" + "b"`), or a text block with `trimIndent()`. Referencing a `val`, a parameter, or a `const val` fails the build, since the code generator cannot resolve the value and would otherwise drop it.
 :::
 
 ### Binding multiple parameters
@@ -422,7 +422,7 @@ mod config recipes active set src/main/kotlin/com/yourorg/UseModernKotlinApis.kt
 [`mod config recipes active set`](../../../moderne-cli/cli-reference.md#mod-config-recipes-active-set) detects your build tool, extracts the Kotlin compile classpath, and records the recipe as the active one. When the file declares several recipes, the CLI reports which one it selected, along with the alternatives you can pick from instead.
 
 :::info
-Kotlin sources are accepted by `mod config recipes active set` as of Moderne CLI 4.4.2. Earlier versions take only `.java`, `.yml`, and `.yaml` files.
+Kotlin sources are accepted by `mod config recipes active set` as of Moderne CLI 4.5.2. Earlier versions take only `.java`, `.yml`, and `.yaml` files.
 :::
 
 Then build the LSTs for the repositories you want to try the recipe on, and run the active recipe against them:

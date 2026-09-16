@@ -26,7 +26,7 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 
 *   Navigate to the [find method usages recipe](https://app.moderne.io/recipes/org.openrewrite.java.search.FindMethods):
 
-<figure>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![Find method usages recipe page with empty method pattern field](./assets/find-method-usage-empty.png)
   <figcaption></figcaption>
 </figure>
@@ -37,7 +37,7 @@ If you searched for `createFile` in GitHub, you might end up with a ton of irrel
 * Enter the method name of `createFile` in the method name field.
 * Enter `..` in the argument type field to denote that we want to search for any amount of arguments (zero or more).
 
-<figure>
+<figure style={{maxWidth: '400px', margin: '0 auto'}}>
   ![Method pattern wizard with receiver type, method name, and argument fields filled in](./assets/find-method-usage-input.png)
   <figcaption></figcaption>
 </figure>
@@ -76,28 +76,14 @@ From there, you can make intelligent decisions about the code. For instance, may
 
 To discover all of the type-aware search recipes, please follow these steps:
 
-* From the [Moderne Marketplace](https://app.moderne.io/marketplace), click on a category that relates to your needs such as `Java`:
+* From the [Moderne Marketplace](https://app.moderne.io/marketplace), click on a category that relates to your needs such as `Java`.
+* Next, click on the `Search` section.
+* This will take you to a page that includes recipes for all the different ways you can search for code.
 
-<figure>
-  ![Moderne Marketplace with Java category highlighted among recipe categories](./assets/java-category.png)
-  <figcaption></figcaption>
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![Finding search recipes in the Moderne Platform](./assets/search-recipes.gif)
+  <figcaption>_Finding search recipes in the Moderne Platform_</figcaption>
 </figure>
-
-* Click on `Search`:
-
-<figure>
-  ![Java recipe subcategories with arrow pointing to the Search group](./assets/search-recipe-group.png)
-  <figcaption></figcaption>
-</figure>
-
-* You will then arrive on a page that includes recipes for all of the different ways you can search for code:
-
-<figure>
-  ![Java Search recipe list including find annotations, deprecated classes, and secrets](./assets/search-recipe-examples.png)
-  <figcaption></figcaption>
-</figure>
-
-* Click on whichever one you are interested in exploring.
 
 ## Using regex in searches
 

@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.7.5           |
+| CLI version | 4.8.4           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,53 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.8.4 (2026-09-14)
+
+#### What's Changed
+* Additional memory lock around Go RPC server
+* Fix conditional bazel configuration unconditionally winning 
+* Bound a build step by its timeout rather than each project within it
+* Make trigrep error messages clearer
+* Stop scrubbing NODE_EXTRA_CA_CERTS so npm trusts private CAs
+* Bound the Go and Ruby build steps by a timeout
+* Shut down every Bazel server the build started; drop --max_idle_secs
+* Expand npm and pip recipes in `mod config recipes tree`
+* Skip install scripts in JavaScript builds, generating Prisma Client in their place
+* Cap every child's committed memory below the cgroup budget
+* Re-read repos-lock.csv when a writer replaces it mid-download
+* Exit red when a run's final lock flush is lost
+* Resolve the Bazel CLI distribution from the configured repository
+* Run MODERNE_BUILD_TOOL_CHECK in JavaScript and Python repositories
+* Run the Maven wrapper by a path relative to its build directory
+* Bound an S3 LST upload's wait and rebuild the client after a timeout
+* Keep git credentials after a rejected clone, and exit 0 on partial success
+* Read ~/.git-credentials when no credential helper is configured
+* Download public S3 LSTs without usable AWS credentials
+
+### CLI / DX v4.8.3 (2026-09-10)
+
+#### What's Changed
+* Give the Go RPC server its own log instead of the build log
+* Give the Python RPC server its own log, and each server its own metrics file
+* Bundle the Python engine against Python 3.12 so releases stop shipping without it
+* Serve build logs the trace records with absolute paths
+
+### CLI / DX v4.8.2 (2026-09-09)
+
+#### What's Changed CLI
+* Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
+
+### CLI / DX v4.8.1 (2026-09-09)
+
+#### What's Changed CLI
+* Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
+
+### CLI / DX v4.8.0 (2026-09-02)
+
+#### What's Changed
+* Add daily repository backup workflow to S3
+* Open the agent on a partial sync and fill the agent trace from its transcript
 
 ### CLI / DX v4.7.5 (2026-09-01)
 

@@ -1,4 +1,34 @@
 # Platform changelog
+### UI v14.15.0 (2026/09/15)
+
+- flag rate-limited queued repositories
+- adapt commit options to repositories' SCM capabilities
+- publish sign-in outcomes to the tenant's Atlas
+
+### UI v14.14.2 (2026/09/11)
+
+- Bug fixes and other improvements.
+
+### UI v14.14.1 (2026/09/10)
+
+- Bug fixes and other improvements.
+
+### UI v14.14.0 (2026/09/09)
+
+- render Moderne data grid output
+
+### UI v14.13.0 (2026/09/09)
+
+- show a failed run's log in a modal instead of inline
+
+### UI v14.12.0 (2026/09/04)
+
+- Bug fixes and other improvements.
+
+### UI v14.11.1 (2026/09/02)
+
+- Bug fixes and other improvements.
+
 ### UI v14.11.0 (2026/09/02)
 
 - resizable columns and standard grid controls
@@ -801,7 +831,7 @@ We have made changes to the key bindings and command palette:
 ### UI v11.80.0 (2025/08/01)
 
 - Removed Orphaned organization
-  - As part of the migration away from the organization service for managing organization hierarchy, the Orphaned organization (previously available to admins) has been removed. The purpose of the Orphaned organization was to find repositories that had LSTs built for them but were not correctly configured in the organization hierarchy. This functionality is now available through [Lost and Found repositories](../administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues.md#using-the-lost-and-found-query).
+  - As part of the migration away from the organization service for managing organization hierarchy, the Orphaned organization (previously available to admins) has been removed. The purpose of the Orphaned organization was to find repositories that had LSTs built for them but were not correctly configured in the organization hierarchy. This functionality is now available through [Lost and Found repositories](../administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues.md#finding-repositories-without-a-usable-lst).
 - add ability to set expiration on moderne token
 
 ### UI v11.79.1 (2025/08/01)

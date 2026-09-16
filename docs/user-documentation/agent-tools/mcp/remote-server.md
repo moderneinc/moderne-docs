@@ -10,6 +10,12 @@ import TabItem from '@theme/TabItem';
 
 The Moderne Platform hosts a remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents access to your platform's recipes and recipe results. Unlike the [local MCP server](./overview.md), which runs on your workstation and operates on repositories you have checked out, the remote server runs on the platform and operates on the repositories already ingested into your tenant.
 
+:::info[Beta]
+The remote MCP server is in beta. Tools will be added, reshaped, and occasionally removed as we learn how agents use them. That being said, it's only the tools themselves that are in beta - not the platform underneath it. Authentication and access scoping work exactly as they do for the rest of the Moderne API (as described under [Security](#security).
+
+None of the changes to the tools requires anything from you, because your agents reads the current list of tools from the server each time it connects.
+:::
+
 This page covers when to use the remote server, how to connect your coding agents to it, how to try it out via the MCP explorer, how it authenticates and scopes access, and the [tools it provides](#available-tools).
 
 ## Local vs remote
@@ -18,6 +24,7 @@ Moderne offers two MCP servers, and they complement each other:
 
 |                         | Local MCP server                                                     | Remote MCP server                                              |
 |-------------------------|----------------------------------------------------------------------|----------------------------------------------------------------|
+| **Maturity**            | [Experimental](./overview.md)                                        | Beta                                                           |
 | **Where it runs**       | On your workstation, as a subprocess of your coding agent            | On the Moderne Platform                                        |
 | **What it operates on** | Repositories checked out locally                                     | Repositories ingested into your tenant, scoped by organization |
 | **Setup**               | [`mod config agent-tools install`](./getting-started.md)             | Point your agent at a URL with an access token (below)         |

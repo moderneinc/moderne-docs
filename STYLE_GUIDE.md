@@ -383,6 +383,114 @@ Conceptual or structural headers like "Prerequisites", "Next steps", "Core conce
 
     ## Second section
 
+### 22. Structure and sentence flow
+
+**Rule**: Keep one fact per sentence, lead with the outcome, and move to a list once prose is enumerating more than a couple of things.
+
+**One sentence, one fact.** If a sentence carries two independent facts, split it. Length is not the test. A long sentence that develops a single idea is fine, while a short one that staples two unrelated facts together is not.
+
+**Correct:**
+
+    The agent connects to your SCM over HTTPS. You will need to supply a personal
+    access token with `repo` scope. That token expires after 90 days by default.
+
+**Incorrect:**
+
+    The agent connects to your SCM over HTTPS, and you will need to supply a personal
+    access token with `repo` scope, which expires after 90 days by default.
+
+**Lead with the outcome.** State what happens, or what the reader should do, before explaining why or how.
+
+**Correct:**
+
+    Your unrelated formatting is left untouched, because the recipe rewrites only
+    the nodes it matches.
+
+**Incorrect:**
+
+    Because the recipe rewrites only the nodes it matches, your unrelated formatting
+    is left untouched.
+
+**Prefer a list once prose is enumerating.** When a sentence enumerates three or more conditions, paths, or mapping rules, convert it into a list or a table. Two alternatives usually read better as prose, so do not split a simple either/or into bullets.
+
+Name the thing being determined in the lead-in, so the reader knows what the items are answers to. Each item should then read as a full sentence with an explicit subject. Items compressed to bare fragments force the reader back to the lead-in to work out what each one refers to.
+
+**Correct:**
+
+    Which category a recipe lands in depends on how its package name matches the
+    entries in your `category.yml` file.
+
+    * A package matching one entry lands in that category.
+    * A package matching several entries lands in the longest match, so
+      `com.myorg.spring.UpgradeBoot` uses `com.myorg.spring`, not `com.myorg`.
+    * A package matching no entry lands in a fallback category named after its
+      capitalized package name.
+
+**Incorrect:**
+
+    Each recipe's fully qualified name is compared against the entries in your
+    `category.yml` file, and if several entries match the longest prefix wins, so
+    `com.myorg.spring.UpgradeBoot` lands under `com.myorg.spring` rather than
+    `com.myorg`, while a recipe matching no entry at all falls back to a category
+    generated from its capitalized package name.
+
+### 23. Conciseness and precision
+
+**Rule**: Cut wordy phrasing and conversational filler. Do not shorten a sentence by turning concrete second-person prose into abstract noun phrases. That trade costs the reader more than the words it saves, and it works against the conversational tone required by Rule 11.
+
+**Correct:**
+
+    Before you can run a recipe against your organization, you will need to ingest
+    your repositories.
+
+**Incorrect:**
+
+    It is important to note that in order to run a recipe against your organization,
+    you will first need to have completed the process of ingesting your repositories.
+    <!-- Filler and roundabout phrasing -->
+
+    Recipe execution requires prior repository ingestion.
+    <!-- Shortest of the three, but the reader is gone and the verbs have become nouns -->
+
+Never state that a rule or mechanism exists without saying what it is. A sentence such as "The name is transformed according to a fixed rule" promises information and then withholds it. State the rule.
+
+### 24. Separate the rule from its exceptions
+
+**Rule**: Do not blend a general rule and its exceptions into one sentence. State the standard behavior first, then state the exceptions in a separate sentence, a bullet, or an admonition (Rule 17).
+
+**Correct example:**
+
+    Recipes run against every repository in the organization.
+
+    :::note
+    Repositories that failed their last ingestion are skipped until the next
+    successful ingest.
+    :::
+
+**Incorrect example:**
+
+    Recipes run against every repository in the organization, except for repositories
+    that failed their last ingestion, which are skipped until the next successful ingest.
+
+### 25. Do not restate the header or announce the topic
+
+**Rule**: Delete opening sentences that only tell the reader what a section is about. The header has already done that. Start with the first real instruction or fact instead.
+
+**Correct example:**
+
+    ## Configuring the agent
+
+    You will need to create a `moderne.yml` file in the agent's working directory.
+
+**Incorrect example:**
+
+    ## Configuring the agent
+
+    Configuring the agent is an important step in the setup process. There are several
+    things you will want to consider before you begin.
+
+    You will need to create a `moderne.yml` file in the agent's working directory.
+
 ## Complete example
 
 Here's what properly formatted documentation looks like:
@@ -454,6 +562,10 @@ When editing documentation, verify:
 * [ ] All images have meaningful, descriptive alt text (Rule 19)
 * [ ] UI elements use bold for interactive items, backticks for typed values (Rule 20)
 * [ ] No multiple consecutive blank lines (Rule 21)
+* [ ] One fact per sentence, outcome first, lists for enumerations (Rule 22)
+* [ ] No wordy abstractions or filler phrases (Rule 23)
+* [ ] Exceptions stated separately from the general rule (Rule 24)
+* [ ] No sentences that restate the header or announce the topic (Rule 25)
 
 ---
 

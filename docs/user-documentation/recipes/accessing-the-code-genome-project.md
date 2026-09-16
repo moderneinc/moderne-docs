@@ -59,7 +59,37 @@ When ordering your virtual repositories, it's important that you put the Code Ge
 Use the repository URL exactly as shown. Do not append a storage prefix such as `/oss`. The gateway adds the correct prefix for you, and an extra one causes the request to be rejected.
 :::
 
+![Artifactory new remote repository form with the repository key set to code-genome-project, the URL set to the Code Genome Project Maven repository, and a username and access token filled in](./assets/artifactory-remote-repository.png)
+
 Once the remote repository is in place, your developers install and run the CLI and recipes through your internal repository exactly as before, with no per-developer changes. See [Deploying the CLI from an internal artifact repository](../moderne-cli/getting-started/cli-internal-mirror.md) for the CLI-side setup.
+
+### The connection test returns a 404
+
+Artifactory's **Test** button, and the equivalent check in Nexus, requests the repository root at `https://artifacts.codegenomeproject.org/maven/`. The Code Genome Project answers a directory request from a build tool with a `404 Not Found`, because directory listings are not part of the Maven wire protocol. A browser asks for HTML at that same URL and gets a browsable index, but a repository manager does not, so it reports `Connection failed: Target remote URL returned error 404: Not Found`.
+
+![Artifactory error banner reading Connection failed: Target remote URL returned error 404: Not Found](./assets/artifactory-test-404.png)
+
+:::info
+This 404 is expected, and it does not mean the remote repository is misconfigured. Save the repository and verify it by requesting a real artifact through it.
+:::
+
+### Verifying the remote repository
+
+Request an artifact that the Code Genome Project hosts, through your own repository manager:
+
+```
+https://YOUR_ARTIFACTORY_HOST/artifactory/YOUR_REPOSITORY_KEY/org/openrewrite/rewrite-core/maven-metadata.xml
+```
+
+Replace `YOUR_ARTIFACTORY_HOST` with your host and `YOUR_REPOSITORY_KEY` with the repository key you chose. A `200` response whose body is `<metadata>` XML means the proxy and the credentials are both working.
+
+If that request fails, check the Code Genome Project directly to find out which side is at fault:
+
+```bash
+curl -u USERNAME:TOKEN https://artifacts.codegenomeproject.org/maven/org/openrewrite/rewrite-core/maven-metadata.xml
+```
+
+A `302` redirect to a signed CloudFront URL is success, since artifact bytes are served from the CDN rather than the gateway. Add `-L` to follow the redirect and see the metadata itself. If this request succeeds but the one through your repository manager fails, the credentials stored on the remote repository are the problem.
 
 ## Point the CLI or a build directly at the repository
 
@@ -108,5 +138,6 @@ repositories {
 
 ## Troubleshooting
 
+* **`404 Not Found` from a connection test**: expected. See [The connection test returns a 404](#the-connection-test-returns-a-404).
 * **`401 Unauthorized`**: your request had no credentials, or the token is invalid or revoked. Confirm your mirror is sending the token, and generate a new one if needed.
 * **`403 Forbidden`**: your request is authenticated, but your identity is not entitled to that artifact. Open-source recipes and the CLI are available to any authenticated user. MSAL and proprietary recipes require a customer entitlement. Confirm your mirror is configured with your Moderne-provided credentials rather than a personal account.
