@@ -30,13 +30,13 @@ This is also where dependency drift causes the most problems. Remediating a vuln
 
 The Moderne CLI is constantly being updated with new LST elements - especially for languages where our support is still evolving (e.g., JavaScript, Python, C#). Because mass ingest rebuilds every repository on a schedule, your LSTs pick up these updates quickly, so the recipes you run against them produce more complete, accurate results. With CI, a repository's LST is only ever as current as its last build, so one that rarely builds can quietly fall behind on an older version of the CLI. Additionally, in cases where you need to get a new CLI version across the company (be it to get a new LST element or a fix to an issue you were running into), it is a herculean effort to get every team to update their CI to take in this new CLI version.
 
-None of this means you have to chase every release. Moderne maintains best-effort backward compatibility, so LSTs built by older CLI versions keep working, and it's rare that a new version requires a full rebuild. That being said, mass ingest keeps you close enough to current on its own - simply by rebuilding on a regular cadence.
+None of this means you have to chase every release. Moderne maintains best-effort backward compatibility, so LSTs built by older CLI versions keep working. Mass ingest does rebuild every repository once after a CLI upgrade. It only skips a repository whose current LST was built by the same CLI version. [Pinning the CLI version](../how-to-guides/mass-ingest.md#pinning-the-cli-version) in your image lets you choose when that happens.
 
 ## Common objections
 
 A few objections come up regularly. None of them favor CI over mass ingest:
 
-* **"I don't want to spend compute rebuilding repositories that haven't changed."** An LST isn't current just because the source is unchanged. Transitive dependencies and the CLI version still drift. Mass ingest cadence is configurable, so you can tune how often you rebuild to balance freshness against compute, but rebuilding only when source changes leaves that drift unaddressed.
+* **"I don't want to spend compute rebuilding repositories that haven't changed."** Mass ingest already skips a repository whose commit and CLI version are unchanged since its last build, as long as that build resolved no dynamic dependency versions. An LST isn't current just because the source is unchanged. Dynamic dependency versions and the CLI version still drift, and those are exactly the cases mass ingest rebuilds. Rebuilding only when source changes would leave that drift unaddressed.
 
 * **"We already build our code in CI, so that's the natural place to build LSTs."** CI can't guarantee coverage or a consistent cadence across all of your repositories - and it leaves you without a way to rebuild everything quickly when you need to remediate a vulnerability. Mass ingest is purpose-built for both.
 

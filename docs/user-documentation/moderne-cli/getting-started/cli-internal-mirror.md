@@ -45,7 +45,7 @@ Download the platform-appropriate distribution from your internal mirror. For ex
 
 ```bash
 curl -fL -o moderne-cli.sh \
-    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.2.10/moderne-cli-linux-4.8.3.sh"
+    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.8.3/moderne-cli-linux-4.8.3.sh"
 ```
 
 Replace the version with the one you intend to install, and adjust the artifact name to match your platform (`moderne-cli-linux` or `moderne-cli-osx`).

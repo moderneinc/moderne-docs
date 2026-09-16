@@ -47,13 +47,13 @@ Now that you understand DX at a high level, let's talk about the various compone
 Mass ingest serves two purposes:
 
 * It clones all of the repositories specified across the `repos.csv` files your business units have created. It then builds the LSTs for each of these repositories - which the Moderne CLI will use to run recipes against.
-* It produces an effective `repos.csv` - which includes the published URI of all built LSTs. This can then easily be shared with others to let them quickly download the LSTs and run recipes.
+* It writes a `repos-lock.csv` file that records where every built LST was published. This file is the effective `repos.csv` described below, which others use to download the LSTs and run recipes.
 
 :::warning
 It is very important that a central team owns mass ingest. This is because, when onboarding new teams, you don't want to have to wait for their repos to build and be published. With a central team owning it all, any time you onboard someone new, their LSTs and publish locations will already be available in the easily shareable effective `repos.csv` file.
 :::
 
-Mass ingest is deployed to servers such as EC2 or Azure VMs, and can be scaled out to tens or hundreds of thousands of repositories by deploying to AWS/Azure Batch (or similar services).
+Mass ingest runs as a container. To scale it to tens or hundreds of thousands of repositories, you can run it as a Kubernetes Job with a number of shards that you choose. The CLI assigns each repository to a shard on its own, and Kubernetes runs one container per shard.
 
 :::tip
 We recommend running mass ingest daily and ingesting every repository. The most important reason for this is that source code, CLI versions, and transitive dependencies can change from day to day - which could cause problems if a user attempts to run a recipe on an out-of-date LST.
@@ -75,7 +75,7 @@ For more details on setting up and configuring mass run, please see our [mass ru
 
 ### Effective repos.csv
 
-The effective `repos.csv` file is a central configuration file that defines your repositories, their organizational structure, and the LSTs' publish locations. This file is produced by mass ingest, and centrally hosted either as a static file or URL. There can be one single effective `repos.csv` for the entire company, or one per business unit. This file is used by end users to download and run recipes on the LSTs of the repositories they own and care about. It contains information about the repositories themselves, as well as the location of the published LST.
+The effective `repos.csv` is the `repos-lock.csv` file that mass ingest writes next to your `repos.csv`. It defines your repositories, their organizational structure, and the LSTs' publish locations. It is centrally hosted either as a static file or URL. There can be one single effective `repos.csv` for the entire company, or one per business unit. This file is used by end users to download and run recipes on the LSTs of the repositories they own and care about.
 
 For more details on the repos.csv format and columns, please see our [repos.csv documentation](../../../user-documentation/moderne-cli/references/repos-csv.md).
 
