@@ -27,7 +27,7 @@ Whether pass-through works depends on the source type.
 | `http`      | Supported             | Moderne reads the endpoint through the Connector's tunnel.                                                        |
 | `s3`        | Supported             | Moderne reads the bucket through the Connector's tunnel.                                                          |
 | `gcs`       | Rejected at startup   | Cloud Storage sources cannot be tunneled, so a pass-through source would be silently inert.                       |
-| `file`      | Reaches nothing       | A file on the Connector's disk is not reachable by Moderne. Use a `poll` block instead, and leave encryption on.   |
+| `file`      | Reaches nothing       | A file on the Connector's disk is not reachable by Moderne. Use a `poll` block instead, and leave encryption on.  |
 
 ## File sources
 
