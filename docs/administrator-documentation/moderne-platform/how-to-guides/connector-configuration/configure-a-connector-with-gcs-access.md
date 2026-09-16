@@ -36,7 +36,7 @@ Either way, a row that points outside that prefix, or at a different bucket, is 
 
 ## Encrypting LSTs before they reach Moderne
 
-By default, the Connector fetches each LST from the bucket, encrypts it, and uploads it to Moderne. For Cloud Storage sources it's also the only supported arrangement: if you turn encryption off without configuring a `poll` block, the Connector will refuse to start.
+By default, the Connector fetches each LST from the bucket, encrypts it, and uploads it to Moderne. If you turn encryption off without configuring a `poll` block, the Connector will refuse to start. Please see [LST encryption](./configure-lst-encryption.md) for how `encrypt` behaves across source types.
 
 ## Configuring the Moderne Connector
 

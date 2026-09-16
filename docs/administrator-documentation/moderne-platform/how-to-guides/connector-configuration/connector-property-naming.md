@@ -19,7 +19,9 @@ If you run the Connecting as an OCI container, you will set environment variable
 
 ## Deriving the environment variable name
 
-To turn a canonical property name into an environment variable, apply Spring Boot's [relaxed binding](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules:
+Most operating systems restrict what an environment variable name may contain. Linux shell variables allow only letters, numbers, and the underscore, and are uppercase by convention, so the Connector derives the variable name from the canonical property name rather than using it directly.
+
+To convert a canonical property name to an environment variable name:
 
 1. Replace dots (`.`) with underscores (`_`).
 2. Remove any dashes (`-`).
@@ -31,13 +33,12 @@ For a list, surround the element number with underscores.
 |-----------------------------------------------------|---------------------------------------------------|
 | `moderne.connector.nickname`                        | `MODERNE_CONNECTOR_NICKNAME`                      |
 | `moderne.connector.crypto.symmetric-key`            | `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`           |
+| `moderne.scm.github[0].uri`                         | `MODERNE_SCM_GITHUB_0_URI`                        |
 | `moderne.scm.github[0].oauth.client-id`             | `MODERNE_SCM_GITHUB_0_OAUTH_CLIENTID`             |
 | `moderne.scm.github[0].allowable-organizations[1]`  | `MODERNE_SCM_GITHUB_0_ALLOWABLEORGANIZATIONS_1`   |
 | `moderne.organization.sources.http[0].bearer-token` | `MODERNE_ORGANIZATION_SOURCES_HTTP_0_BEARERTOKEN` |
 
-:::warning
-A dash is removed, not replaced. `allowable-organizations` becomes `ALLOWABLEORGANIZATIONS`, with no underscore between the two words. An underscore inside a property name is read as another level in the property tree, so an extra underscore names a property that does not exist.
-:::
+Spring Boot's [binding from environment variables](https://docs.spring.io/spring-boot/reference/features/external-config.html#features.external-config.typesafe-configuration-properties.relaxed-binding.environment-variables) documentation covers these rules in full.
 
 ## Deriving the JAR argument
 
@@ -62,7 +63,7 @@ A property with `[{index}]` in its name can be repeated. Start at `0` and increa
 
 ## YAML
 
-The Connector also reads a `moderne.yml` file. The canonical name maps onto nested keys.
+You can also keep your configuration in a YAML file and point the Connector at it with `--spring.config.additional-location=file:moderne.yml`. The canonical name maps onto nested keys.
 
 ```yaml
 moderne:
@@ -73,6 +74,8 @@ moderne:
           client-id: yourClientId
           client-secret: yourClientSecret
 ```
+
+The Connector also writes one for you. On startup it generates a `moderne.yml` showing your active configuration in canonical form, which is the quickest way to see what your current settings look like as property names. Set `moderne.connector.write-migrated-config` to `false` to turn that off, or `moderne.connector.migrated-config-path` to change where it lands.
 
 ## Where to find property names
 

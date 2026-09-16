@@ -329,6 +329,8 @@ You have two options:
 
 The Connector picks between these two paths automatically, per source: a source whose configuration includes poll repositories discovers LST locations by querying them, and a source without them uses the `publishUri` values already in its CSV.
 
+Whichever path a source takes, the Connector encrypts each LST before uploading it. Please see [LST encryption](./configure-lst-encryption.md) for how that works and when you can turn it off.
+
 Below is an example of what a Connector run command might look like at the end of this step.
 
 <Tabs groupId="connector-type">
