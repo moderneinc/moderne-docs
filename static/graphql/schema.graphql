@@ -3816,6 +3816,11 @@ type OrganizationCommitQueued implements OrganizationCommit
   extendedMessage: Base64
   startedAt: DateTime!
 
+  """
+  When a rate-limited commit becomes eligible to resume. Null unless the commit is waiting on an SCM rate limit.
+  """
+  retryAfter: DateTime
+
   """Paginated results per repository."""
   repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 }

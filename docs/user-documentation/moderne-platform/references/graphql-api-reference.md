@@ -2115,6 +2115,7 @@ Commit is queued and waiting to be processed.
 | `message` | String! |  |
 | `extendedMessage` | [Base64](#base64) |  |
 | `startedAt` | [DateTime](#datetime)! |  |
+| `retryAfter` | [DateTime](#datetime) | When a rate-limited commit becomes eligible to resume. Null unless the commit is waiting on an SCM rate limit. |
 | `repositories` | (first: Int = 50, after: String, where: [RepositoryCommitWhereInput](#repositorycommitwhereinput), orderBy: [[RepositoryCommitOrderByInput](#repositorycommitorderbyinput)!]): [RepositoryCommitConnection](#repositorycommitconnection)! | Paginated results per repository. |
 
 ##### `OrganizationCommitRunning`
