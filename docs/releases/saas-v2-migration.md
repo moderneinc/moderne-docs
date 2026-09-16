@@ -29,7 +29,7 @@ Pull `io.moderne:connector` instead of `io.moderne:moderne-agent`. Everything el
 
 ### Do I need a new token?
 
-Yes. You'll need a new Connector token (your Moderne contact will send it privately) and you'll need to define a new `moderne.connector.crypto.symmetricKey` value. Your existing API access tokens, recipe run activity, commits, user orgs, and audit logs will be migrated for you. For more information, see [What gets migrated and when](#what-gets-migrated-and-when) below.
+Yes. You'll need a new Connector token (your Moderne contact will send it privately) and you'll need to define a new `moderne.connector.crypto.symmetric-key` value. Your existing API access tokens, recipe run activity, commits, user orgs, and audit logs will be migrated for you. For more information, see [What gets migrated and when](#what-gets-migrated-and-when) below.
 
 ## Configuring the Connector
 
@@ -37,7 +37,7 @@ Yes. You'll need a new Connector token (your Moderne contact will send it privat
 
 The property name and URL have changed. You'll need to update them accordingly:
 
-* **Property name**: `moderne.agent.apiGatewayRsocketUri` → `moderne.connector.apiGatewayRsocketUri`
+* **Property name**: `moderne.agent.api-gateway-rsocket-uri` → `moderne.connector.api-gateway-rsocket-uri`
 * **URL**: `https://api.<tenant>.moderne.io/rsocket` → `https://api.<tenant>.moderne.io/connector`
 
 If you leave the `/rsocket` path in place, the Connector will fail to connect. As of Connector `0.148.100` you'll see an explicit `ERROR`-level message when this URI returns 404.
@@ -57,7 +57,7 @@ In v1, a single `moderne.agent.maven[{index}]*` block could serve both purposes 
 | Sources Moderne polls for LSTs     | `moderne.agent.maven[{index}].*` with `astSource: true`    | `moderne.organization.sources.<type>[N].poll.maven[{index}].uri` |
 | Sources for the recipe marketplace | `moderne.agent.maven[{index}].*` with `recipeSource: true` | `moderne.recipe.marketplace.repositories.maven[{index}].uri`     |
 
-For LST sources, the `<type>[N]` segment matches whichever org structure source contains your `repos.csv`. For example, if you set `moderne.organization.sources.http[0]` to an Artifactory URL, the poll setting becomes `moderne.organization.sources.http[0].poll.artifactory[0].uri` (plus `lstQueryFilters`).
+For LST sources, the `<type>[N]` segment matches whichever org structure source contains your `repos.csv`. For example, if you set `moderne.organization.sources.http[0]` to an Artifactory URL, the poll setting becomes `moderne.organization.sources.http[0].poll.artifactory[0].uri` (plus `lst-query-filters`).
 
 The v1 variables for LST and recipe sources are **not backwards-compatible**. Leaving them in place will produce the error `No recipe artifact store configured and default repositories are disabled. Recipe resolution is not possible with this configuration.` when you try to deploy a recipe. You must define both blocks explicitly under their new prefixes.
 
@@ -77,7 +77,7 @@ Properties under `moderne.agent.github[0]` and `moderne.scm.github[0]` are treat
 :::
 
 :::note
-`moderne.agent.github[{index}].skipValidateConnectivity: false` can be dropped entirely.
+`moderne.agent.github[{index}].skip-validate-connectivity: false` can be dropped entirely.
 :::
 
 ### Other tool proxies (Artifactory, Nexus, Maven, Gradle plugin telemetry)
@@ -236,7 +236,7 @@ You can tick items off as you go, but selections are not persisted across page r
 ### Connector deployment
 
 * [ ] Use `io.moderne:connector` (not `io.moderne:moderne-agent`) moving forward.
-* [ ] `moderne.connector.apiGatewayRsocketUri` ends in `/connector`, not `/rsocket`.
+* [ ] `moderne.connector.api-gateway-rsocket-uri` ends in `/connector`, not `/rsocket`.
 * [ ] `moderne.connector.token` (newly provided by Moderne) is set.
 * [ ] No `moderne.agent.*` properties remain alongside their `moderne.connector.*` / `moderne.scm.*` / `moderne.organization.*` / `moderne.recipe.marketplace.*` replacements. Mixed prefixes are treated as separate entries and silently drop settings (such as proxy settings).
 
@@ -292,8 +292,8 @@ Run these with v1 still serving as your front door, using the header, cookie, an
 
 In addition to the renamed properties from v1, SaaS v2 introduces a few optional configuration areas with no v1 equivalent. None are required to complete the migration, but they enable new v2 features you may want to opt into:
 
-* **Login screen customization** — custom login text and links (`moderne.ui.loginText`, `moderne.ui.loginLinks[N]`). See [UI customization variables](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables.md#ui-customization-variables).
-* **Connector working storage** — filesystem location for the Connector's working state (`moderne.connector.storage.permanentDir`). Mount a persistent volume here to survive Connector restarts. See [Storage variables](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables.md#storage-variables).
+* **Login screen customization** — custom login text and links (`moderne.ui.login-text`, `moderne.ui.login-links[N]`). See [UI customization variables](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables.md#ui-customization-variables).
+* **Connector working storage** — filesystem location for the Connector's working state (`moderne.storage.permanent-dir`). Mount a persistent volume here to survive Connector restarts. See [Storage variables](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables.md#storage-variables).
 * **Changelog feature** — SCM credentials and origins for posting Changelog updates (`moderne.changelog.<scm>.*`). See [Changelog variables](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables.md#changelog-variables).
 
 ## Migration aid
