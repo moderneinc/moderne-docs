@@ -41,11 +41,11 @@ Variables are nested under the specific provider you are configuring. Replace `{
 
 | Variable Name                         | Required | Default | Description                                                                                                                                                                                  |
 |---------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_MODDY_{PROVIDER}_APIKEY`     | `true`   |         | The API key for the specified LLM provider. Replace `{provider}` with `openai`, `anthropic`, `gemini`, or `mistral`.                                                                         |
+| `MODERNE_MODDY_{PROVIDER}_APIKEY`     | `true`   |         | The API key for the specified LLM provider. Replace `{PROVIDER}` with `OPENAI`, `ANTHROPIC`, `GEMINI`, or `MISTRAL`.                                                                         |
 | `MODERNE_MODDY_{PROVIDER}_MODEL`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                                           |
 | `MODERNE_MODDY_{PROVIDER}_URI`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
-| `MODERNE_MODDY_{PROVIDER}_PROXY_HOST` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `proxy.port` must also be set.                                                                                       |
-| `MODERNE_MODDY_{PROVIDER}_PROXY_PORT` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `proxy.host` must also be set.                                                                                         |
+| `MODERNE_MODDY_{PROVIDER}_PROXY_HOST` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `PROXY_PORT` must also be set.                                                                                       |
+| `MODERNE_MODDY_{PROVIDER}_PROXY_PORT` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `PROXY_HOST` must also be set.                                                                                         |
 | `MODERNE_MODDY_ADMINONLY`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
 
 **Example:**
