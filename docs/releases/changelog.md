@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.16.0 (2026/09/17)
+
+- render the chat conversation with MUI X Chat
+
 ### UI v14.15.2 (2026/09/17)
 
 - Bug fixes and other improvements.
