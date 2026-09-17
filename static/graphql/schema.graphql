@@ -107,70 +107,6 @@ type ArtifactoryConfiguration
   lastIngestedAt: DateTime
 }
 
-enum AuditActionType
-  @join__type(graph: AUDITREADER)
-{
-  CREATE @join__enumValue(graph: AUDITREADER)
-  READ @join__enumValue(graph: AUDITREADER)
-  UPDATE @join__enumValue(graph: AUDITREADER)
-  DELETE @join__enumValue(graph: AUDITREADER)
-}
-
-input AuditActionTypeFilter
-  @join__type(graph: AUDITREADER)
-{
-  _eq: AuditActionType
-  _neq: AuditActionType
-  _in: [AuditActionType!]
-  _nin: [AuditActionType!]
-}
-
-type AuditLog
-  @join__type(graph: AUDITREADER)
-{
-  id: ID!
-
-  """The user who performed the action."""
-  user: User!
-
-  """
-  The resource type that was acted upon (e.g., "access.tokens", "organizations").
-  """
-  target: String!
-
-  """
-  The specific action that was performed (e.g., "create.token", "delete.organization").
-  """
-  action: String!
-
-  """The CRUD classification of the action."""
-  actionType: AuditActionType!
-
-  """Whether the action succeeded or failed."""
-  outcome: AuditOutcome!
-
-  """Human-readable description of what happened."""
-  description: String
-
-  """When the action occurred."""
-  timestamp: DateTime!
-}
-
-type AuditLogConnection
-  @join__type(graph: AUDITREADER)
-{
-  edges: [AuditLogEdge!]!
-  pageInfo: PageInfo!
-  count: Int!
-}
-
-type AuditLogEdge
-  @join__type(graph: AUDITREADER)
-{
-  node: AuditLog!
-  cursor: String!
-}
-
 enum AuditLogExportFormat
   @join__type(graph: AUDITREADER)
 {
@@ -185,22 +121,6 @@ input AuditLogExportFormatFilter
   _neq: AuditLogExportFormat
   _in: [AuditLogExportFormat!]
   _nin: [AuditLogExportFormat!]
-}
-
-enum AuditLogOrderByField
-  @join__type(graph: AUDITREADER)
-{
-  TIMESTAMP @join__enumValue(graph: AUDITREADER)
-  USER_ID @join__enumValue(graph: AUDITREADER)
-  TARGET @join__enumValue(graph: AUDITREADER)
-  ACTION @join__enumValue(graph: AUDITREADER)
-}
-
-input AuditLogOrderByInput
-  @join__type(graph: AUDITREADER)
-{
-  field: AuditLogOrderByField!
-  direction: SortOrder! = DESC
 }
 
 interface AuditLogsDownload
@@ -280,35 +200,6 @@ input AuditLogsDownloadWhereInput
   _and: [AuditLogsDownloadWhereInput!]
   _or: [AuditLogsDownloadWhereInput!]
   _not: AuditLogsDownloadWhereInput
-}
-
-input AuditLogWhereInput
-  @join__type(graph: AUDITREADER)
-{
-  user: UserWhereInput
-  target: StringFilter
-  action: StringFilter
-  actionType: AuditActionTypeFilter
-  outcome: AuditOutcomeFilter
-  description: StringFilter
-  timestamp: DateTimeFilter
-  _and: [AuditLogWhereInput!]
-  _or: [AuditLogWhereInput!]
-  _not: AuditLogWhereInput
-}
-
-enum AuditOutcome
-  @join__type(graph: AUDITREADER)
-{
-  SUCCESS @join__enumValue(graph: AUDITREADER)
-  FAILURE @join__enumValue(graph: AUDITREADER)
-}
-
-input AuditOutcomeFilter
-  @join__type(graph: AUDITREADER)
-{
-  _eq: AuditOutcome
-  _neq: AuditOutcome
 }
 
 type AzureDevOpsConfiguration
@@ -4908,9 +4799,6 @@ type Query
   @join__type(graph: RECIPEMARKETPLACE)
   @join__type(graph: RECIPEWORKER)
 {
-  """Query audit log events with pagination and filtering."""
-  auditLogs(first: Int = 100, after: String, where: AuditLogWhereInput, orderBy: [AuditLogOrderByInput!]): AuditLogConnection! @join__field(graph: AUDITREADER) @cost(weight: 100)
-
   """
   Query audit log downloads with pagination and filtering.
   Use where: { id: { _eq: "..." } } to poll a specific download.

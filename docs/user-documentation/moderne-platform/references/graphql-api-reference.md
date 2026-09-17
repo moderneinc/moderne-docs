@@ -11,16 +11,6 @@ description: Complete reference for the Moderne GraphQL API, including all queri
 
 ## Queries
 
-#### `auditLogs`
-
-```graphql
-auditLogs(first: Int = 100, after: String, where: AuditLogWhereInput, orderBy: [AuditLogOrderByInput!]): AuditLogConnection!
-```
-
-**Returns:** [AuditLogConnection](#auditlogconnection)!
-
-Query audit log events with pagination and filtering.
-
 #### `auditLogsDownloads`
 
 ```graphql
@@ -725,34 +715,6 @@ Moderne Personal Access Tokens
 | `connectivity` | [HttpToolConnectivity](#httptoolconnectivity)! |  |
 | `lstQuery` | [String!] |  |
 | `lastIngestedAt` | [DateTime](#datetime) |  |
-
-##### `AuditLog`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | [User](#user)! | The user who performed the action. |
-| `target` | String! | The resource type that was acted upon (e.g., "access.tokens", "organizations"). |
-| `action` | String! | The specific action that was performed (e.g., "create.token", "delete.organization"). |
-| `actionType` | [AuditActionType](#auditactiontype)! | The CRUD classification of the action. |
-| `outcome` | [AuditOutcome](#auditoutcome)! | Whether the action succeeded or failed. |
-| `description` | String | Human-readable description of what happened. |
-| `timestamp` | [DateTime](#datetime)! | When the action occurred. |
-
-##### `AuditLogConnection`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [[AuditLogEdge](#auditlogedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
-| `count` | Int! |  |
-
-##### `AuditLogEdge`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | [AuditLog](#auditlog)! |  |
-| `cursor` | String! |  |
 
 ##### `AuditLogsDownloadConnection`
 
@@ -3672,33 +3634,14 @@ Use `__typename` to determine the specific commit type.
 * `CREATED`
 * `EXPIRES_AT`
 
-##### `AuditActionType`
-
-* `CREATE`
-* `READ`
-* `UPDATE`
-* `DELETE`
-
 ##### `AuditLogExportFormat`
 
 * `CEF`
 * `CSV`
 
-##### `AuditLogOrderByField`
-
-* `TIMESTAMP`
-* `USER_ID`
-* `TARGET`
-* `ACTION`
-
 ##### `AuditLogsDownloadOrderByField`
 
 * `STARTED_AT`
-
-##### `AuditOutcome`
-
-* `SUCCESS`
-* `FAILURE`
 
 ##### `BranchDeleteStatus`
 
@@ -4226,15 +4169,6 @@ sync completed).
 | `_or` | [[AccessTokenWhereInput](#accesstokenwhereinput)!] |  |
 | `_not` | [AccessTokenWhereInput](#accesstokenwhereinput) |  |
 
-##### `AuditActionTypeFilter`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | [AuditActionType](#auditactiontype) |  |
-| `_neq` | [AuditActionType](#auditactiontype) |  |
-| `_in` | [[AuditActionType](#auditactiontype)!] |  |
-| `_nin` | [[AuditActionType](#auditactiontype)!] |  |
-
 ##### `AuditLogExportFormatFilter`
 
 | Field | Type | Description |
@@ -4243,13 +4177,6 @@ sync completed).
 | `_neq` | [AuditLogExportFormat](#auditlogexportformat) |  |
 | `_in` | [[AuditLogExportFormat](#auditlogexportformat)!] |  |
 | `_nin` | [[AuditLogExportFormat](#auditlogexportformat)!] |  |
-
-##### `AuditLogOrderByInput`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `field` | [AuditLogOrderByField](#auditlogorderbyfield)! |  |
-| `direction` | [SortOrder](#sortorder)! |  |
 
 ##### `AuditLogsDownloadOrderByInput`
 
@@ -4267,28 +4194,6 @@ sync completed).
 | `_and` | [[AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput)!] |  |
 | `_or` | [[AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput)!] |  |
 | `_not` | [AuditLogsDownloadWhereInput](#auditlogsdownloadwhereinput) |  |
-
-##### `AuditLogWhereInput`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `user` | [UserWhereInput](#userwhereinput) |  |
-| `target` | [StringFilter](#stringfilter) |  |
-| `action` | [StringFilter](#stringfilter) |  |
-| `actionType` | [AuditActionTypeFilter](#auditactiontypefilter) |  |
-| `outcome` | [AuditOutcomeFilter](#auditoutcomefilter) |  |
-| `description` | [StringFilter](#stringfilter) |  |
-| `timestamp` | [DateTimeFilter](#datetimefilter) |  |
-| `_and` | [[AuditLogWhereInput](#auditlogwhereinput)!] |  |
-| `_or` | [[AuditLogWhereInput](#auditlogwhereinput)!] |  |
-| `_not` | [AuditLogWhereInput](#auditlogwhereinput) |  |
-
-##### `AuditOutcomeFilter`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `_eq` | [AuditOutcome](#auditoutcome) |  |
-| `_neq` | [AuditOutcome](#auditoutcome) |  |
 
 ##### `BooleanFilter`
 
