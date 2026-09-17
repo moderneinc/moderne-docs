@@ -32,11 +32,18 @@ On later runs, the CLI skips any repository whose `repos-lock.csv` row shows tha
 * The row was written by the same CLI version that is running now.
 * The last build was reproducible. This means it resolved no dynamic dependency versions and, if the ecosystem has lock files, it used one.
 
-If any of these are false, the CLI rebuilds the repository.
+If any of these are false, the CLI rebuilds the repository. Additionally, there are two kinds of repositories that are rebuilt on every run:
+
+* Bazel repositories (as the CLI cannot tell whether a Bazel build would come out the same).
+* Repositories whose last build or publish failed.
+
+:::note
+Both `--sync-csv` and the `--shard` option described below are incubating. Their behavior may shift between CLI releases. The [CLI reference](../../../user-documentation/moderne-cli/cli-reference.md#mod-publish) has the current options.
+:::
 
 ## Setting up mass ingest
 
-The [Moderne mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) packages mass ingest as a container image and runs it as a Kubernetes Job. You should start from its README, which walks you through the three steps below. Its [docs directory](https://github.com/moderneinc/mass-ingest-example/tree/main/docs) covers the details of each one.
+The [Moderne mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) packages mass ingest as a container image, with scripts to run it on one machine with Docker or as a Kubernetes Job. You should start from its README, which walks you through the three steps below. Its [docs directory](https://github.com/moderneinc/mass-ingest-example/tree/main/docs) covers the details of each one.
 
 ### Creating the `repos.csv` file
 
@@ -58,15 +65,15 @@ You will need to do three things to configure the container (via environment var
 
 * **Tell the container where to publish the LSTs.** Set the environment variables for your artifact repository, which the example's [S3](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/s3.md) and [Artifactory](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/artifactory.md) pages list. The Artifactory page also covers [Nexus and other Maven repositories](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/artifactory.md#nexus-and-other-maven-repositories).
 * **Connect it to your Moderne tenant.** Set `MOD_TENANT_HOST` and `MOD_TENANT_AUTHORIZATION` to your tenant's URL and an access token.
-* **Give it credentials for private repositories.** The CLI clones with Git, which reads credentials from a `.git-credentials` file in the home directory of the container's user. You will need to mount yours at `/home/moderne/.git-credentials`. The example Job does this from a Kubernetes secret. If every repository is public, you can skip this.
+* **Give it credentials for private repositories.** The CLI clones with Git, which reads credentials from a `.git-credentials` file in the home directory of the container's user. You will need to mount yours at `/home/moderne/.git-credentials`. The example's Kubernetes Job mounts it from a secret, and its single-machine script mounts it from your home directory. If every repository is public, an empty file is enough.
 
 You should start with `mod doctor`, which checks that everything is in place without changing anything and suggests a fix for anything that is not. Once it passes, run the image itself. The README shows both commands.
 
 ## Running mass ingest every day
 
-A large repository list finishes sooner when it is split into shards. You choose how many shards there are and how many run at once. The CLI decides which repositories belong to each shard by hashing each row of the `repos.csv` file. The containers split one list without coordinating, and you never assign repositories to shards yourself. A container runs one shard when its publish command includes `--shard i/M`, where `M` is the number of shards and `i` is its own index. Any scheduler that runs containers can do this.
+A large repository list finishes sooner when it is split into shards. You choose how many shards there are and how many run at once. The CLI decides which repositories belong to each shard by hashing each repository's origin, path, and branch. The containers split one list without coordinating, and you never assign repositories to shards yourself. A container runs one shard when its publish command includes `--shard i/M`, where `M` is the number of shards and `i` is its own index. Any scheduler that runs containers can do this.
 
-[Running on Kubernetes](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/kubernetes.md) shows this as an indexed Job. Kubernetes creates one pod per shard and fills in each pod's index. The page also explains what happens when a build or a pod fails. On Amazon EKS, the example includes a node pool that adds a spot instance for each pod and scales to zero between runs. Keeping LSTs current is then a matter of creating a Job every night, from CI or a CronJob.
+The example repository shows two ways to do this. [Running on one machine](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/docker.md) uses a short shell script that starts one container per shard on a single large VM. [Running on Kubernetes](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/kubernetes.md) uses an indexed Job, where Kubernetes creates one pod per shard and fills in each pod's index. On Amazon EKS, the example also includes a node pool that adds a spot instance for each pod and scales to zero between runs. Both pages explain what happens when a build fails. Keeping LSTs current is then a matter of starting a run every night, from cron, CI, or a CronJob.
 
 ## Sizing
 
@@ -83,6 +90,8 @@ These are what the example provisions, not the minimum. Any host that passes `mo
 You should keep the memory limit equal to the request. The CLI holds each build below that limit. A build that runs out of memory fails on its own, and the container moves on to the next repository.
 
 Only one repository is on disk at a time. Size the disk for your largest one. Lower the storage request if nothing you build comes close to 150 GiB.
+
+On one machine, the same numbers apply to each shard. Give each shard about 4 vCPUs and 16 GiB of the VM, and plan disk for your largest repository times the number of shards. The example's script caps each container at 12 GiB of memory.
 
 The number of shards sets how long each container runs. Shorter runs mean a lost container has less to redo. About four shards per concurrent container keeps each one to a few hours. You can change both numbers between runs. The lock tracks each repository, not the shard that built it.
 

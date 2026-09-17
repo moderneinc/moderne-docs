@@ -53,7 +53,7 @@ Mass ingest serves two purposes:
 It is very important that a central team owns mass ingest. This is because, when onboarding new teams, you don't want to have to wait for their repos to build and be published. With a central team owning it all, any time you onboard someone new, their LSTs and publish locations will already be available in the easily shareable effective `repos.csv` file.
 :::
 
-Mass ingest runs as a container. To scale it to tens or hundreds of thousands of repositories, you can run it as a Kubernetes Job with a number of shards that you choose. The CLI assigns each repository to a shard on its own, and Kubernetes runs one container per shard.
+Mass ingest runs as a container. To scale it to tens or hundreds of thousands of repositories, you can run it on one large machine with Docker or as a Kubernetes Job, with a number of shards that you choose. The CLI assigns each repository to a shard on its own, and the example runs one container per shard.
 
 :::tip
 We recommend running mass ingest daily and ingesting every repository. The most important reason for this is that source code, CLI versions, and transitive dependencies can change from day to day - which could cause problems if a user attempts to run a recipe on an out-of-date LST.

@@ -18,7 +18,7 @@ This page covers everything you need to do so nothing is missed on day one.
 
 | # | Requirement                                                                                   | Details                                                                                            |
 |---|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| 1 | Compute for [mass ingest](#mass-ingest) (4 CPU and 16 GB RAM per container recommended)       | Builds your repositories and publishes LST artifacts                                               |
+| 1 | Compute for [mass ingest](#mass-ingest) (4 CPU and 16 GB RAM per shard recommended)           | Builds your repositories and publishes LST artifacts                                               |
 | 2 | VM for the [Moderne Connector](#moderne-connector) (2 CPU, 8 GB RAM, 10 GB storage)           | Connects your environment to the Moderne SaaS tenant                                               |
 | 3 | [SCM service account](#source-control-access) with read access to all in-scope repositories   | Used by mass ingest to clone and build repositories                                                |
 | 4 | [SCM OAuth application](#source-control-access) (GitHub App, GitLab OAuth, etc.)              | Allows users to view code and commit changes through Moderne                                       |
@@ -46,7 +46,7 @@ Only one repository is stored on disk at a time. This is because each container 
 
 To finish a large repository list sooner, you can run several containers in parallel. You will need to choose the number of shards you want, and the CLI will then assign the repositories to them automatically.
 
-The [mass ingest guide](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md#sizing) covers sizing and sharding, and the [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Kubernetes Job that runs the shards for you.
+The [mass ingest guide](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md#sizing) covers sizing and sharding, and the [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Docker script and a Kubernetes Job that run the shards for you.
 
 :::tip
 If you have a standard base image that includes your existing certificates or other configuration, we can build on top of that. If you don't, we'll build from standard open-source base images and configure it with any certificates, credentials, and build tool settings during the first few days of the engagement.

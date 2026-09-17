@@ -46,7 +46,7 @@ Only one repository is stored on disk at a time. This is because each container 
 
 To finish a large repository list sooner, you can run several containers in parallel. You will need to choose the number of shards you want - the CLI will then assign the repositories to them automatically.
 
-The [mass ingest guide](../how-to-guides/mass-ingest-dx.md#sizing) covers sizing and sharding. The [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Kubernetes Job that runs the shards for you.
+The [mass ingest guide](../how-to-guides/mass-ingest-dx.md#sizing) covers sizing and sharding. The [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Docker script and a Kubernetes Job that run the shards for you.
 
 :::tip
 If you have a standard base image that includes your existing certificates or other configuration, we can build on top of that. If you don't, we'll build from standard open-source base images and configure it with any certificates, credentials, and build tool settings during the engagement.
