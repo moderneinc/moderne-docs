@@ -1,4 +1,12 @@
 # Platform changelog
+### UI v14.15.2 (2026/09/17)
+
+- Bug fixes and other improvements.
+
+### UI v14.15.1 (2026/09/16)
+
+- Bug fixes and other improvements.
+
 ### UI v14.15.0 (2026/09/15)
 
 - flag rate-limited queued repositories

@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.8.4           |
+| CLI version | 4.8.5           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.8.5 (2026-09-16)
+
+#### What's Changed
+* Upgrade `csv-parse` to 7.0.2
+* Don't take `gradle` directory as an executable
+* Exempt the loopback recipe registry from a configured proxy
+* Register `PlainText.Snippet` in the V3 tree codec so text search results serialize
 
 ### CLI / DX v4.8.4 (2026-09-14)
 
