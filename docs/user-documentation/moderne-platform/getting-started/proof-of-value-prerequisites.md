@@ -18,7 +18,7 @@ This page covers everything you need to do so nothing is missed on day one.
 
 | # | Requirement                                                                                   | Details                                                                                            |
 |---|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| 1 | VM for [mass ingest](#mass-ingest) (2 CPU, 16 GB RAM, 32 GB disk)                             | Builds your repositories and publishes LST artifacts                                               |
+| 1 | Compute for [mass ingest](#mass-ingest) (4 CPU and 16 GB RAM per shard recommended)           | Builds your repositories and publishes LST artifacts                                               |
 | 2 | VM for the [Moderne Connector](#moderne-connector) (2 CPU, 8 GB RAM, 10 GB storage)           | Connects your environment to the Moderne SaaS tenant                                               |
 | 3 | [SCM service account](#source-control-access) with read access to all in-scope repositories   | Used by mass ingest to clone and build repositories                                                |
 | 4 | [SCM OAuth application](#source-control-access) (GitHub App, GitLab OAuth, etc.)              | Allows users to view code and commit changes through Moderne                                       |
@@ -32,15 +32,21 @@ You will need two separate environments provisioned and ready:
 
 ### Mass ingest
 
-The mass ingest environment builds all of your repositories and creates the [LST artifacts](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a Docker container. When using a self-hosted SCM, it operates entirely within your network. When using a cloud SCM (github.com, gitlab.com, etc.), it requires outbound HTTPS to that service.
+The mass ingest environment builds all of your repositories and creates the [LST artifacts](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster. When using a self-hosted SCM, it operates entirely within your network. When using a cloud SCM (github.com, gitlab.com, etc.), it requires outbound HTTPS to that service.
 
-| Resource | Minimum |
-|----------|---------|
-| CPU      | 2 cores |
-| Memory   | 16 GB   |
-| Disk     | 32 GB   |
+| Resource | Minimum    | Recommended                                                                   |
+|----------|------------|-------------------------------------------------------------------------------|
+| CPU      | 2 cores    | 4 cores                                                                       |
+| Memory   | 16 GB      | 16 GB                                                                         |
+| Disk     | 10 GB free | Sized to your largest repository (the example Kubernetes Job requests 150 GB) |
 
-These resources are sufficient for up to ~1,000 repositories. For larger organizations, mass ingest can be scaled using cloud batch services like AWS Batch, Google Cloud Batch, or Azure Batch. The [mass ingest repository](https://github.com/moderneinc/mass-ingest-example) has scaling tiers and detailed setup instructions. See the [choosing a deployment approach](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md#choosing-a-deployment-approach) section for guidance on selecting the right compute environment.
+The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns when memory or free disk is below the other two. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
+
+Only one repository is stored on disk at a time. This is because each container builds one repository at a time and then deletes it once its LST is published.
+
+To finish a large repository list sooner, you can run several containers in parallel. You will need to choose the number of shards you want, and the CLI will then assign the repositories to them automatically.
+
+The [mass ingest guide](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md#sizing) covers sizing and sharding, and the [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Docker script and a Kubernetes Job that run the shards for you.
 
 :::tip
 If you have a standard base image that includes your existing certificates or other configuration, we can build on top of that. If you don't, we'll build from standard open-source base images and configure it with any certificates, credentials, and build tool settings during the first few days of the engagement.

@@ -32,15 +32,21 @@ The easiest way to generate this file is with our [repository fetcher scripts](h
 
 ## Mass ingest
 
-While mass ingest is typically set up after the initial POV rather than during it, you may want to plan for it early. Mass ingest builds all of your repositories and creates the [LST artifacts](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a Docker container.
+While mass ingest is typically set up after the initial POV rather than during it, you may want to plan for it early. Mass ingest builds all of your repositories and creates the [LST artifacts](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster.
 
-| Resource | Minimum |
-|----------|---------|
-| CPU      | 2 cores |
-| Memory   | 16 GB   |
-| Disk     | 32 GB   |
+| Resource | Minimum    | Recommended                                                                   |
+|----------|------------|-------------------------------------------------------------------------------|
+| CPU      | 2 cores    | 4 cores                                                                       |
+| Memory   | 16 GB      | 16 GB                                                                         |
+| Disk     | 10 GB free | Sized to your largest repository (the example Kubernetes Job requests 150 GB) |
 
-These resources are sufficient for up to ~1,000 repositories. For larger organizations, mass ingest can be scaled using cloud batch services like AWS Batch, Google Cloud Batch, or Azure Batch. See the [mass ingest documentation](../how-to-guides/mass-ingest-dx.md) for detailed setup instructions.
+The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns when memory or free disk is below the other two. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
+
+Only one repository is stored on disk at a time. This is because each container builds one repository at a time and then deletes it once its LST is published.
+
+To finish a large repository list sooner, you can run several containers in parallel. You will need to choose the number of shards you want - the CLI will then assign the repositories to them automatically.
+
+The [mass ingest guide](../how-to-guides/mass-ingest-dx.md#sizing) covers sizing and sharding. The [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Docker script and a Kubernetes Job that run the shards for you.
 
 :::tip
 If you have a standard base image that includes your existing certificates or other configuration, we can build on top of that. If you don't, we'll build from standard open-source base images and configure it with any certificates, credentials, and build tool settings during the engagement.
