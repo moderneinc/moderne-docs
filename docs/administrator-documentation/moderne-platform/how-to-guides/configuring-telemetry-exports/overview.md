@@ -22,15 +22,15 @@ There are two **sources** that produce this telemetry:
 | Source        | What it represents                                                                                                                                                                                                                                                                             | When you'll see rows                                                                      |
 |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | `source=saas` | Recipe runs, builds, and commits originated from the Moderne web UI. The recipe worker fleet invokes the same CLI server-side and uploads the resulting `trace.csv`.                                                                                                                           | Any user clicking "Run recipe" or "Commit changes" in the UI.                             |
-| `source=cli`  | Everything run with `mod` outside the web UI, signed into your tenant. That covers developer machines and any automation you run, including [mass ingest](../mass-ingest.md). The CLI queues each trace locally and pushes it to your tenant gateway when it next refreshes its license lease. | Anyone running `mod build`, `mod run`, `mod git commit`, etc., and every mass-ingest run. |
+| `source=cli`  | Everything run with `mod` outside the web UI, signed into your tenant. That covers developer machines and any automation you run, including [mass ingest](../mass-ingest.md). The CLI queues each trace locally and uploads it to your tenant gateway at the end of each command.              | Anyone running `mod build`, `mod run`, `mod git commit`, etc., and every mass-ingest run. |
 
 Both sources land in the same place, with the same partition layout, so queries can analyze them together or filter to one source as needed.
 
 ### How and when CLI telemetry is pushed
 
-A signed-in CLI queues each trace locally and auto-pushes queued telemetry to your tenant gateway when it refreshes its license lease, which happens at most once every three days.
+A signed-in CLI queues each trace locally and uploads queued telemetry to your tenant gateway in the background at the end of every command. Anything a command doesn't finish uploading stays queued for the next one.
 
-If the default cadence isn't frequent enough for your reporting, add `mod telemetry publish` to your customized [`modw` wrapper](../../../../user-documentation/moderne-cli/how-to-guides/cli-wrapper.md) with no other change to how the CLI is used.
+On CI runners and containers, whose filesystem doesn't outlive the command, run `mod config telemetry wait-for-upload` so each command waits for the upload before it exits. To upload everything queued on demand, run `mod telemetry publish`. See [how the CLI uploads telemetry to your tenant](../../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry.md#how-the-cli-uploads-telemetry-to-your-tenant) for details.
 
 ### Schema reference
 

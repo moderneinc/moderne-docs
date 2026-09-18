@@ -17,23 +17,23 @@ The local MCP server is experimental. See the [MCP server overview](./overview.m
 
 ## Summary for security reviewers
 
-| Question                                               | Answer                                                                                                                                                                                                    |
-|--------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Is `mod mcp` a network service?                        | No. It is a local subprocess that communicates exclusively over stdin/stdout with the process that launched it.                                                                                           |
-| Does it open any listening network port?               | One, conditionally: a loopback-only HTTP server bound to `127.0.0.1` on a random port, used by the macOS tray app. Disabled by default; only active when `feature.agentToolsTray=true` on macOS.          |
-| Can it be reached from the network?                    | No. The MCP interface is stdio-only. The optional HTTP server is bound to loopback and cannot accept external connections.                                                                                |
+| Question                                               | Answer                                                                                                                                                                                                         |
+|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Is `mod mcp` a network service?                        | No. It is a local subprocess that communicates exclusively over stdin/stdout with the process that launched it.                                                                                                |
+| Does it open any listening network port?               | One, conditionally: a loopback-only HTTP server bound to `127.0.0.1` on a random port, used by the macOS tray app. Disabled by default; only active when `feature.agentToolsTray=true` on macOS.               |
+| Can it be reached from the network?                    | No. The MCP interface is stdio-only. The optional HTTP server is bound to loopback and cannot accept external connections.                                                                                     |
 | Does it make outbound internet connections?            | HTTPS requests can occur when a recipe JAR is not in the local Maven cache. Recipes themselves can also make HTTPS requests as part of their own logic. This is standard recipe behavior, not specific to MCP. |
-| Does it contact the Moderne platform?                  | Not by default. The recipe marketplace is read from local CSV files. A future opt-in feature will allow connecting to your Moderne platform for audit and governance data collection.                          |
-| Does it transmit telemetry or usage data?              | Not by default. A local tool-usage CSV is written to disk but never transmitted. A future opt-in feature will allow connecting to your Moderne platform to collect and process usage data.                     |
-| Does it use or invoke any LLM or AI?                   | No. It is a deterministic code-intelligence tool server. It contains no model weights and makes no AI API calls.                                                                                          |
-| Does the AI agent run inside `mod mcp`?                | No. The AI runs in the client (e.g., Claude Code, Copilot, Windsurf), which is a separate process. `mod mcp` is a tool server the agent calls; the agent's reasoning is entirely outside `mod mcp`.          |
-| Does it read repository source code?                   | Yes - this is its core function. It reads the working repository to build the search index and LST, and to apply recipe transformations.                                                                  |
-| Does it transmit repository source code?               | No. Source code is processed locally and never included in any outbound request.                                                                                                                          |
-| Does it modify source files?                           | Yes, when refactoring tools are explicitly invoked (`run_recipe`, `change_type`, `change_method_name`, `pattern_replace`). The changes are the same as running the equivalent `mod run` command manually. |
-| Does it read AI conversation transcripts?              | Yes. The transcript watcher reads the AI client's local conversation transcript files to record search-tool usage statistics in a local CSV. The data never leaves the machine.                               |
-| Does it run with elevated privileges?                  | No. It runs under the developer's own user account with no privilege escalation.                                                                                                                          |
-| Can it be used without outbound internet access?       | Yes. Pre-populate the Maven cache with required recipe JARs and set `feature.noMavenCentral=true`. Note that outbound access for recipe artifacts is standard Moderne CLI behavior, not specific to MCP.     |
-| Is this different from already allowing the `mod` CLI? | No. Every operation `mod mcp` exposes is already available through `mod` CLI subcommands. `mod mcp` makes those same operations callable by an AI assistant in a structured, auditable way.               |
+| Does it contact the Moderne platform?                  | Not by default. The recipe marketplace is read from local CSV files. If you connect the CLI to a Moderne tenant and sign in, `mod mcp` uploads its tool-call telemetry to that tenant.                         |
+| Does it transmit telemetry or usage data?              | Only to a Moderne tenant you have connected the CLI to and signed in to. Each tool call then produces one row of metadata that uploads to that tenant. With no tenant configured, nothing is transmitted.      |
+| Does it use or invoke any LLM or AI?                   | No. It is a deterministic code-intelligence tool server. It contains no model weights and makes no AI API calls.                                                                                               |
+| Does the AI agent run inside `mod mcp`?                | No. The AI runs in the client (e.g., Claude Code, Copilot, Windsurf), which is a separate process. `mod mcp` is a tool server the agent calls; the agent's reasoning is entirely outside `mod mcp`.            |
+| Does it read repository source code?                   | Yes - this is its core function. It reads the working repository to build the search index and LST, and to apply recipe transformations.                                                                       |
+| Does it transmit repository source code?               | No. Source code is processed locally and never included in any outbound request.                                                                                                                               |
+| Does it modify source files?                           | Yes, when refactoring tools are explicitly invoked (`run_recipe`, `change_type`, `change_method_name`, `pattern_replace`). The changes are the same as running the equivalent `mod run` command manually.      |
+| Does it read AI conversation transcripts?              | Yes. The transcript watcher reads the AI client's local conversation transcript files to record search-tool usage statistics in a local CSV. The data never leaves the machine.                                |
+| Does it run with elevated privileges?                  | No. It runs under the developer's own user account with no privilege escalation.                                                                                                                               |
+| Can it be used without outbound internet access?       | Yes. Pre-populate the Maven cache with required recipe JARs and set `feature.noMavenCentral=true`. Note that outbound access for recipe artifacts is standard Moderne CLI behavior, not specific to MCP.       |
+| Is this different from already allowing the `mod` CLI? | No. Every operation `mod mcp` exposes is already available through `mod` CLI subcommands. `mod mcp` makes those same operations callable by an AI assistant in a structured, auditable way.                    |
 
 ## How it runs
 
@@ -163,13 +163,16 @@ Recipes may make outbound HTTPS connections as part of their normal behavior. Th
 
 ### Telemetry
 
-In its default configuration, `mod mcp` transmits no telemetry, analytics, crash reports, or usage data. The transcript watcher writes search-tool usage observations to a local CSV at `~/.moderne/mcp/tool-observations.csv`. This file is never transmitted anywhere. There is no phone-home mechanism.
+`mod mcp` records one row of metadata per tool call in the CLI's telemetry queue at `~/.moderne/cli/trace/mcp/`. Each row holds the tool name, timings, outcome, match and change counts, the size of the result, and a summary of the tool arguments truncated to about 120 characters. Tool results are not recorded, but the argument summary can include the text of a search query or code pattern. See [MCP tool-call telemetry](../../moderne-cli/how-to-guides/cli-telemetry.md#mcp-tool-call-telemetry) for the full field list.
 
-`mod mcp` does not contact the Moderne SaaS platform API by default. The recipe marketplace used by `edit_code`, `analyze_code`, `learn_recipe`, and `run_recipe` is read entirely from local CSV files installed by `mod config recipes` commands.
+What happens to those rows depends on whether the CLI is connected to a Moderne tenant:
 
-:::info
-In a future release, the Moderne CLI will provide an opt-in feature to connect to your Moderne platform for centralized telemetry collection and audit/governance data. This will require explicit configuration and will not be enabled by default.
-:::
+* **No tenant configured (the default):** the rows stay on disk and are never transmitted. There is no phone-home mechanism.
+* **Connected and signed in to a tenant:** the rows upload to that tenant's gateway along with the rest of the CLI's telemetry. See [how the CLI uploads telemetry to your tenant](../../moderne-cli/how-to-guides/cli-telemetry.md#how-the-cli-uploads-telemetry-to-your-tenant).
+
+Separately, the transcript watcher writes search-tool usage observations to a local CSV at `~/.moderne/mcp/tool-observations.csv`. This file is never transmitted anywhere.
+
+`mod mcp` reads the recipe marketplace used by `edit_code`, `analyze_code`, `learn_recipe`, and `run_recipe` entirely from local CSV files installed by `mod config recipes` commands.
 
 ## Filesystem access
 
