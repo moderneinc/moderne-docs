@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.17.0 (2026/09/18)
+
+- step-by-step instructions for audit log and data table downloads
+
 ### UI v14.16.0 (2026/09/17)
 
 - render the chat conversation with MUI X Chat
