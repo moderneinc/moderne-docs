@@ -420,9 +420,10 @@ const agentTools = {
     title: 'Agent tools',
     description: 'Tools and context that make AI coding agents faster, more accurate, and more effective across enterprise codebases.',
     slug: '/user-documentation/agent-tools',
-    keywords: ['agent', 'tools', 'ai', 'prethink', 'trigrep', 'skills', 'mcp'],
+    keywords: ['agent', 'tools', 'ai', 'chat', 'prethink', 'trigrep', 'skills', 'mcp'],
   },
   items: [
+    'user-documentation/agent-tools/agent-chat',
     'user-documentation/agent-tools/prethink',
     'user-documentation/agent-tools/trigrep',
     'user-documentation/agent-tools/skills',
