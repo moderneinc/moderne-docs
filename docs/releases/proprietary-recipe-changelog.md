@@ -5320,17 +5320,3 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.62.4
 
-## September 19, 2025
-
-#### rewrite-cryptography - v0.8.2
-
-**What's changed**
-
-- Upgrade to rewrite-program-analysis 0.5.2
-
-#### rewrite-program-analysis - v0.5.2
-
-* Track taint flow into method receivers from their arguments, fixing a common NPE
-* Add line numbers for sources and sinks to TaintFlowTable
-* Check non-literal initializer expressions for taint
-
