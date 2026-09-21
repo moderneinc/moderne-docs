@@ -23,7 +23,7 @@ Moderne supports seamless integration by offering various authentication options
 * **SAML** (Security Assertion Markup Language): Facilitates SSO capabilities by leveraging pre-existing enterprise identity infrastructures that adhere to industry standards.
 * **OIDC** (OpenID Connect): Provides a modern, flexible authentication framework based on open protocols and allows for secure authorization across different services and applications.
 
-SAML or OIDC provides customers with the ability to assert claims for each authenticating principal. Claims can define a principal's email, first name, last name, and whether they should be assigned the role of `admin`.
+SAML or OIDC provides customers with the ability to assert claims for each authenticating principal. Claims can define a principal's email, first name, last name, and whether they should be assigned the role of `admin`. A claim can also carry the user's country, which [Moddy](../how-to-guides/connector-configuration/configure-a-connector-with-llm-for-moddy.md) passes to your LLM proxy.
 
 :::info
 **Claims** are _assertions_ about a user, _as asserted by the Identity Provider_.
@@ -91,7 +91,7 @@ When configuring your authentication to the Moderne SaaS, you will need to selec
 2. Provide the URL that points to the IdP metadata to Moderne. This will be used to configure the SAML integration.
    * Example: `https://idp.EXAMPLE.com/saml/metadata`
 
-3. Ensure that four basic attributes are configured for the claims.
+3. Ensure that the four basic attributes are configured for the claims. The `country` attribute is optional.
    
 | Attribute Name | Description | Example Value |
 | --- | --- | --- |
@@ -99,6 +99,7 @@ When configuring your authentication to the Moderne SaaS, you will need to selec
 | `lastName` | The last name of the user | `Bobe` |
 | `email` | The email address of the user | `user@example.com` |
 | `admin` | A boolean value that determines if the user is an admin | `true` or `false` |
+| `country` | Optional. The user's country, which Moddy passes unchanged to your LLM proxy for model-per-country policy. Send a two-letter ISO 3166-1 code | `DE` |
 
 :::info
 An [example of a SAML payload](#example-saml-idp-metadata) can be provided to Moderne as well to help expedite the configuration process.
@@ -126,6 +127,7 @@ Keycloak is the identity broker used by Moderne to interface with your IdP. The 
 | `lastName` | `lastName` | `Attribute Importer` | `lastName` | `lastName` | `ATTRIBUTE_FORMAT_BASIC` |  |
 | `email` | `email` | `Attribute Importer` | `email` | `email` | `ATTRIBUTE_FORMAT_BASIC` |  |
 | `admin` | `admin` | `SAML Attribute to Role` | `admin` | `admin` |  | Role set to `admin` |
+| `country` | `country` | `Attribute Importer` | `country` | `country` | `ATTRIBUTE_FORMAT_BASIC` | Optional. Moderne also adds the claim to the token for Moddy |
 
 #### Terminology
 
