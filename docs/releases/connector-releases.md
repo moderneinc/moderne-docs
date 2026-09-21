@@ -7,13 +7,20 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.129 |
+| Connector | 0.151.151 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.151.129/connector-0.151.129.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.151/connector-0.151.151.jar)
 
 ## Changelog
 
 ## September 2026
+
+### v0.151.151 – 2026-09-21
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.151/connector-0.151.151.jar)
+
+* Attribute Moddy LLM requests to the acting user (#2057)
+* Publish to the Code Genome Project only (#2115)
 
 ### v0.151.129 – 2026-09-10
 
