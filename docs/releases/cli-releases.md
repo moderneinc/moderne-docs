@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.8.5           |
+| CLI version | 4.8.7           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.8.7 (2026-09-21)
+
+#### What's Changed
+* Use full configured Go environment when building Go RPC binary
 
 ### CLI / DX v4.8.5 (2026-09-16)
 
