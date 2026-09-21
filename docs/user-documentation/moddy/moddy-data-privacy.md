@@ -33,6 +33,8 @@ Models deployed to your on-prem environment can also be supported.
 
 Recipe results and data tables.
 
+Each request also carries an identifier for the signed-in user and, when your identity provider supplies it, the user's country code. The identifier is the SHA-256 hash of the user's email unless your Connector administrator turns hashing off. These values let your LLM proxy meter usage per user and enforce regional model policy. The model itself does not use them.
+
 ### What data is sent to Moderne?
 
 None. We employ a bring-your-own-model (BYOM) configuration. Moddy reaches out to your model and no data is passed to Moderne.

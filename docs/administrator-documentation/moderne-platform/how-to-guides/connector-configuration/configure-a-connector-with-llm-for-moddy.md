@@ -44,6 +44,7 @@ Variables are nested under the specific provider you are configuring. Replace `{
 | `MODERNE_MODDY_{PROVIDER}_APIKEY`     | `true`   |         | The API key for the specified LLM provider. Replace `{PROVIDER}` with `OPENAI`, `ANTHROPIC`, `GEMINI`, or `MISTRAL`.                                                                         |
 | `MODERNE_MODDY_{PROVIDER}_MODEL`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                                           |
 | `MODERNE_MODDY_{PROVIDER}_URI`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
+| `MODERNE_MODDY_{PROVIDER}_HASHUSERID` | `false`  | `true`  | Whether to send the SHA-256 hash of the user's email (`true`) or the plain email (`false`) as the user identifier on each LLM request. See [User identity on LLM requests](#user-identity-on-llm-requests).                                          |
 | `MODERNE_MODDY_{PROVIDER}_PROXY_HOST` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `PROXY_PORT` must also be set.                                                                                       |
 | `MODERNE_MODDY_{PROVIDER}_PROXY_PORT` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `PROXY_HOST` must also be set.                                                                                         |
 | `MODERNE_MODDY_ADMINONLY`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
@@ -70,6 +71,7 @@ moderne-connector:latest
 | `--moderne.moddy.{provider}.api-key`    | `true`   |         | The API key for the specified LLM provider. Replace `{provider}` with `openai`, `anthropic`, `gemini`, or `mistral`.                                                                         |
 | `--moderne.moddy.{provider}.model`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                                           |
 | `--moderne.moddy.{provider}.uri`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
+| `--moderne.moddy.{provider}.hash-user-id` | `false`  | `true`  | Whether to send the SHA-256 hash of the user's email (`true`) or the plain email (`false`) as the user identifier on each LLM request. See [User identity on LLM requests](#user-identity-on-llm-requests).                                        |
 | `--moderne.moddy.{provider}.proxy.host` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `proxy.port` must also be set.                                                                                       |
 | `--moderne.moddy.{provider}.proxy.port` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `proxy.host` must also be set.                                                                                         |
 | `--moderne.moddy.admin-only`            | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
@@ -245,6 +247,70 @@ java -jar connector-{version}.jar \
 
 </TabItem>
 </Tabs>
+
+## User identity on LLM requests
+
+Every request Moddy sends to your LLM carries the signed-in user's identifier and, when your identity provider supplies it, the user's country. Your LLM proxy can use these values to meter usage per user and to apply model-per-country policy. Moderne does not meter or route requests itself.
+
+| Provider      | User identifier                 | Country                         |
+|---------------|---------------------------------|---------------------------------|
+| OpenAI        | Request body `user`             | Header `x-moderne-user-country` |
+| Anthropic     | Request body `metadata.user_id` | Header `x-moderne-user-country` |
+| Google Gemini | Header `x-moderne-user-id`      | Header `x-moderne-user-country` |
+| Mistral       | Header `x-moderne-user-id`      | Header `x-moderne-user-country` |
+
+By default, the user identifier is the SHA-256 hash of the user's email address. The country is passed through from your identity provider unchanged. Send a two-letter ISO 3166-1 code, such as `DE`, so your proxy has a predictable value to match. If a user has no country, the header is omitted.
+
+### Sending the plain email to your proxy
+
+Set `hash-user-id` to `false` on a provider to send the user's email address instead of its hash. The setting is per provider, so you can send the plain email to one provider and the hash to another. You should only do this when the provider's `URI` points at your own LLM proxy.
+
+:::warning
+Anthropic rejects an email address in `metadata.user_id` and fails the request. Keep `hash-user-id` at `true` on the Anthropic block, or make sure your proxy replaces the identifier before forwarding to Anthropic. Your proxy can still meter by email with hashing on, because the identifier is the unsalted SHA-256 of the email and your proxy can compute the same value.
+:::
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+```bash
+export MODERNE_MODDY_MISTRAL_APIKEY=...
+
+docker run \
+# ... other required agent configuration ...
+-e MODERNE_MODDY_MISTRAL_APIKEY \
+-e MODERNE_MODDY_MISTRAL_URI=https://llm-proxy.company.com/v1 \
+-e MODERNE_MODDY_MISTRAL_HASHUSERID=false \
+# ... rest of configuration ...
+moderne-connector:latest
+```
+
+</TabItem>
+<TabItem value="executable-jar" label="Executable JAR">
+
+```bash
+export MODERNE_MODDY_MISTRAL_APIKEY=...
+
+java -jar connector-{version}.jar \
+# ... other required agent configuration ...
+--moderne.moddy.mistral.api-key=$MODERNE_MODDY_MISTRAL_APIKEY \
+--moderne.moddy.mistral.uri=https://llm-proxy.company.com/v1 \
+--moderne.moddy.mistral.hash-user-id=false \
+# ... rest of configuration ...
+```
+
+</TabItem>
+</Tabs>
+
+### Sending the user's country
+
+Your identity provider needs to send the user's country as a claim on login. Moderne maps the claim into the user's session. See the [authentication reference](../../references/authentication.md) for the attribute to send.
+
+### Configuring your LLM proxy
+
+Point the provider's `URI` at your proxy. Moddy sends each request in the provider's native format. The `MODEL` value is the model name your proxy receives, so your proxy decides which backend model answers.
+
+* Your proxy can read the user identifier from the request body for OpenAI and Anthropic without configuration. For Google Gemini and Mistral, you will need to configure your proxy to read the `x-moderne-user-id` header. In LiteLLM, for example, add `header_name: x-moderne-user-id` with `litellm_user_role: customer` under `general_settings.user_header_mappings`.
+* Routing by country is a rule you add to your proxy that reads `x-moderne-user-country`. No proxy applies one by default.
 
 ## Complete example with multiple configurations
 
