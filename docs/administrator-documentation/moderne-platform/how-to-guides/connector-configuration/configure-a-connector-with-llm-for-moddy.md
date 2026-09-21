@@ -19,12 +19,12 @@ This guide will walk you through how to configure the Moderne Connector to enabl
 
 The Moderne Connector currently supports the following LLM providers:
 
-| Provider      | Model Used            | API Endpoint                                       |
-|---------------|-----------------------|----------------------------------------------------|
-| OpenAI        | gpt-4o                | `https://api.openai.com/v1`                        |
-| Anthropic     | Claude 3.5 Sonnet     | `https://api.anthropic.com/v1`                     |
-| Google Gemini | Gemini 2.5 Flash-Lite | `https://generativelanguage.googleapis.com/v1beta` |
-| Mistral       | Mistral Small Latest  | `https://api.mistral.ai/v1`                        |
+| Provider      | Model Used             | API Endpoint                                       |
+|---------------|------------------------|----------------------------------------------------|
+| OpenAI        | GPT-6 Astra            | `https://api.openai.com/v1`                        |
+| Anthropic     | Claude Opus 5          | `https://api.anthropic.com/v1`                     |
+| Google Gemini | Gemini 3.1 Pro Preview | `https://generativelanguage.googleapis.com/v1beta` |
+| Mistral       | Mistral Large Latest   | `https://api.mistral.ai/v1`                        |
 
 If you need a model or LLM provider that isn't listed here, please contact Moderne support.
 
