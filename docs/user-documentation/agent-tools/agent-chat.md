@@ -57,7 +57,7 @@ You need the Moderne CLI 4.8.4 or later and a supported agent installed on your 
 :::warning
 Agent chat does not work together with the [Moderne skills](./skills.md) or [local MCP server](./mcp/overview.md). These tools are designed to steer the agent toward working on only one repository at a time instead.
 
-Before you use agent chat, remove them:
+If you have them installed, remove them before you use agent chat:
 
 ```bash
 mod config agent-tools uninstall
