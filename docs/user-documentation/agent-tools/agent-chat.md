@@ -65,7 +65,7 @@ mod config agent-tools uninstall
 
 You can always reinstall them later with `mod config agent-tools install`.
 
-If you'd prefer to just remove them for one particular agent, run `mod config agent-tools <agent-name> uninstall`, replacing `<agent-name>` with the agent you plan to use.
+To remove them for only one agent, see [per-agent installation](./skills.md#per-agent-installation).
 :::
 
 ## Choosing what to sync
