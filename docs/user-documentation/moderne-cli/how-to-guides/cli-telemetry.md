@@ -297,7 +297,17 @@ MCP telemetry is always-on and CSV-only: each tool call is appended straight to 
 | `costUnit`          | string | Unit of `cost` (e.g., `USD`, `AI credits`, `credits`)                                                                                                                                                              |
 | `elapsedTimeMs`     | number | Duration of the session in milliseconds                                                                                                                                                                            |
 
-The fields from `sessionId` through `costUnit` come from the agent's own transcript. The CLI reads them for Claude Code, OpenAI Codex, GitHub Copilot, Kiro, and opencode, and each of those agents reports a different subset. For the other agents, those fields are empty.
+The fields from `sessionId` through `costUnit` come from the agent's own transcript, which the CLI reads for Claude Code, OpenAI Codex, GitHub Copilot, Kiro, and opencode. Not every agent records every field, so the fields that get filled in depend on the agent:
+
+| Agent          | Session fields filled in                                           |
+|----------------|--------------------------------------------------------------------|
+| Claude Code    | `sessionId`, `turns`, and the token counts                         |
+| OpenAI Codex   | `sessionId`, `turns`, and the token counts                         |
+| GitHub Copilot | `sessionId`, `turns`, the token counts, and `cost` in `AI credits` |
+| Kiro           | `sessionId`, `turns`, and `cost` in `credits`                      |
+| opencode       | `sessionId`, `turns`, the token counts, and `cost` in `USD`        |
+
+For the other agents, all of those fields are empty.
 
 :::warning
 The `prompt` field records the full text of the session's initial prompt. It is uploaded with the rest of the row when the CLI is signed in to a tenant. Don't put credentials or other sensitive values in a prompt.
