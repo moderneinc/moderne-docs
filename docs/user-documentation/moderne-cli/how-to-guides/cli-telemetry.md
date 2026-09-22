@@ -276,7 +276,7 @@ MCP telemetry is always-on and CSV-only: each tool call is appended straight to 
 
 ### Agent session telemetry
 
-[`mod <agent> chat`](../../agent-tools/agent-chat.md) records one row per agent session. Like MCP telemetry, it has no `trace.json`. The row is written to `.moderne/agent/<id>/trace.csv` in the organization directory and copied to the telemetry queue at `~/.moderne/cli/trace/agent/`, from where it uploads like any other command's telemetry. Each row carries an `agent` block with these fields:
+[`mod <agent> chat`](../../agent-tools/agent-chat.md) records one row per agent session. Like MCP telemetry, it has no `trace.json`. The row is written to `.moderne/agent/<id>/trace.csv` in the organization directory. A copy goes to the telemetry queue at `~/.moderne/cli/trace/agent/` and uploads like any other command's telemetry. Each row carries an `agent` block with these fields:
 
 | Field               | Type   | Description                                                                                                                                                                                                        |
 |---------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -300,7 +300,7 @@ MCP telemetry is always-on and CSV-only: each tool call is appended straight to 
 The fields from `sessionId` through `costUnit` come from the agent's own transcript. The CLI reads them for Claude Code, OpenAI Codex, GitHub Copilot, Kiro, and opencode, and each of those agents reports a different subset. For the other agents, those fields are empty.
 
 :::warning
-The `prompt` field records the full text of the session's initial prompt, and it is uploaded with the rest of the row when the CLI is signed in to a tenant. Don't put credentials or other sensitive values in a prompt.
+The `prompt` field records the full text of the session's initial prompt. It is uploaded with the rest of the row when the CLI is signed in to a tenant. Don't put credentials or other sensitive values in a prompt.
 :::
 
 In the aggregate CSV these become the `agent`-prefixed columns (`agentOutcome`, `agentStartTime`, and so on). Agent rows are not tied to one repository, so they have no `origin`, `path`, `branch`, or `organization` columns. They start with `developer`, followed by the `agent` columns.
@@ -352,7 +352,7 @@ Where your telemetry ends up, and whether you have to do anything to route it in
 
 ### How the CLI uploads telemetry to your tenant
 
-When the CLI is connected and signed in to a tenant, every command ends by uploading queued telemetry to the tenant gateway in the background. The upload gets at most 30 seconds and never delays or fails the command. Anything it doesn't finish stays queued and goes with a later command.
+When the CLI is connected and signed in to a tenant, every command ends by uploading queued telemetry to the tenant gateway in the background. The upload gets about five seconds before the CLI exits and never fails the command. Anything it doesn't finish stays queued and goes with a later command.
 
 CI runners and containers are different: their filesystem disappears with the command, taking any unsent telemetry with it. On those hosts, have the CLI wait for the upload before it exits:
 
