@@ -14,6 +14,10 @@ Skills differ in what they need to do their job:
 * Most explain how and when to reach for a [Moderne MCP server](./mcp/overview.md) tool, so they need that server registered.
 * A couple call no MCP tool at all: one carries recipe-authoring knowledge and drives the `mod` CLI directly, and one points the agent at context files already generated for the repository.
 
+:::note
+Skills operate on one repository. To work across a whole organization, use [agent chat](./agent-chat.md) locally or the [remote MCP server](./mcp/remote-server.md) on the Moderne Platform.
+:::
+
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
 
 ## Why use Moderne skills
@@ -74,7 +78,13 @@ mod config agent-tools copilot install
 
 Each per-agent command installs both skills and the MCP server for that agent only. If the agent is not detected on your system, the command displays a message and exits without making changes.
 
-The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, `codex`, and `opencode`.
+To remove agent tools for a single coding agent, use `uninstall` in the same way:
+
+```bash
+mod config agent-tools claude uninstall
+```
+
+The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, `codex`, `opencode`, and `kiro`.
 
 ### Skills-only installation
 

@@ -17,7 +17,9 @@ This guide covers the recommended way to do that: customizing the Moderne CLI wr
 :::info
 **Who needs this guide**
 
-If your CLI is signed in to a Moderne SaaS v2 tenant, the CLI already pushes its telemetry to your tenant, automatically when it refreshes its license lease, or on demand with `mod telemetry publish`. From there, you can configure Moderne to replicate a continuous copy of your tenant's telemetry into a bucket or storage account you own. See [Configuring telemetry exports and reports](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/overview.md), with setup guides for [AWS](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/aws-replication.md) and [Azure](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/azure-replication.md). If that covers your needs, you don't need the approach below.
+If your CLI is signed in to a Moderne SaaS v2 tenant, the CLI already uploads its telemetry to your tenant at the end of each command. You can also upload it on demand via the `mod telemetry publish` command. From there, you can configure Moderne to replicate a continuous copy of your tenant's telemetry into a bucket or storage account you own.
+
+See [Configuring telemetry exports and reports](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/overview.md), with setup guides for [AWS](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/aws-replication.md) and [Azure](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/azure-replication.md). If that covers your needs, you don't need the approach below.
 
 This guide is for:
 
@@ -71,6 +73,8 @@ The upload won't interfere with your workflow. If it fails for any reason, the o
 * `mod git add`
 * `mod git commit`
 * `mod git push`
+* `mod mcp`
+* `mod <agent> chat`
 
 </details>
 :::note
@@ -106,6 +110,10 @@ fi
 get_trace_directory() {
     case "$1" in
         build) echo "build" ;;
+        # "mod <agent> chat" writes to the "agent" directory.
+        amp|claude|codex|copilot|cursor|kiro|opencode|vscode|windsurf)
+            if [ "${2:-}" = "chat" ]; then echo "agent"; else echo "$1"; fi
+            ;;
         git)
             # The deprecated "mod git clone" still writes to the "sync" directory.
             if [ "${2:-}" = "clone" ]; then
@@ -235,6 +243,8 @@ for /f "tokens=1,2" %%a in ("%_MOD_ARGS_%") do (
 )
 if not defined CMD exit /b 0
 set "TRACE_DIR=!CMD!"
+rem "mod <agent> chat" writes to the "agent" directory.
+for %%g in (amp claude codex copilot cursor kiro opencode vscode windsurf) do if /i "!CMD!"=="%%g" set "TRACE_DIR=agent"
 if /i "!CMD!"=="git" (
     rem The deprecated "mod git clone" still writes to the "sync" directory.
     if /i "!SUB!"=="clone" (set "TRACE_DIR=sync") else (set "TRACE_DIR=!SUB!")

@@ -63,11 +63,11 @@ Please confirm that:
 ### I see `source=cli` data but no `source=saas` data (or vice versa)
 
 * If you see no `saas` rows, no one has run a recipe or committed via the web UI during the period queried.
-* If you see no `cli` rows, either no one has run `mod` against your tenant, or CLI users haven't authenticated yet. The CLI auto-pushes telemetry when it next refreshes its license lease (at most once every three days), or users can force a flush with `mod telemetry publish`.
+* If you see no `cli` rows, either no one has run `mod` against your tenant, or CLI users haven't authenticated yet. The CLI uploads telemetry at the end of each command once a user is signed in. Users can force a flush by running: `mod telemetry publish`. Hosts whose filesystem doesn't outlive the command, such as CI runners and containers, will also need to run: `mod config telemetry wait-for-upload`.
 
 ### Some `mod` commands are missing traces
 
-Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit exported telemetry: sync, build, run, apply, add, commit, push, publish, exec, and mcp. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
+Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit exported telemetry: sync, build, run, apply, add, commit, push, publish, exec, mcp, and agent. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
 
 ### Replication lag is too high
 
