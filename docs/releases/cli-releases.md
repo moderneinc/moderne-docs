@@ -19,10 +19,14 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ### CLI / DX v4.8.7 (2026-09-21)
 
+_Based on OpenRewrite 8.92.6_
+
 #### What's Changed
 * Use full configured Go environment when building Go RPC binary
 
 ### CLI / DX v4.8.5 (2026-09-16)
+
+_Based on OpenRewrite 8.92.3_
 
 #### What's Changed
 * Upgrade `csv-parse` to 7.0.2
@@ -31,6 +35,8 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Register `PlainText.Snippet` in the V3 tree codec so text search results serialize
 
 ### CLI / DX v4.8.4 (2026-09-14)
+
+_Based on OpenRewrite 8.92.2_
 
 #### What's Changed
 * Additional memory lock around Go RPC server
@@ -55,6 +61,8 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ### CLI / DX v4.8.3 (2026-09-10)
 
+_Based on OpenRewrite 8.92.1_
+
 #### What's Changed
 * Give the Go RPC server its own log instead of the build log
 * Give the Python RPC server its own log, and each server its own metrics file
@@ -63,15 +71,21 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ### CLI / DX v4.8.2 (2026-09-09)
 
+_Based on OpenRewrite 8.92.1_
+
 #### What's Changed CLI
 * Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
 
 ### CLI / DX v4.8.1 (2026-09-09)
 
+_Based on OpenRewrite 8.92.1_
+
 #### What's Changed CLI
 * Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
 
 ### CLI / DX v4.8.0 (2026-09-02)
+
+_Based on OpenRewrite 8.91.4_
 
 #### What's Changed
 * Add daily repository backup workflow to S3
