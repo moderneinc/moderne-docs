@@ -63,7 +63,7 @@ Before you use agent chat, remove them:
 mod config agent-tools uninstall
 ```
 
-You can always reinstall them later with `mod config agent-tools <agent-name> install`.
+You can always reinstall them later with `mod config agent-tools install`.
 
 If you'd prefer to just remove them for one particular agent, run `mod config agent-tools <agent-name> uninstall`, replacing `<agent-name>` with the agent you plan to use.
 :::
