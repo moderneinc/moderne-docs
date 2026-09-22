@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.18.0 (2026/09/22)
+
+- show the option count; hide Options when none are set
+- render Integer/Number options as a numeric field
+- split Summary and Options into separate sections
+
 ### UI v14.17.0 (2026/09/18)
 
 - step-by-step instructions for audit log and data table downloads
