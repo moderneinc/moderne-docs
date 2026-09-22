@@ -40,8 +40,18 @@ The CLI clones every repository in the organization into the `./work` directory 
 
 You need the Moderne CLI 4.8.4 or later and a supported agent installed on your `PATH`.
 
-:::note
-Agent chat works on a whole organization locally, with every repository cloned to your machine. It is an alternative to the [Moderne skills](./skills.md) and [local MCP server](./mcp/overview.md), which work on one repository at a time, not an addition to them. An agent with both can get conflicting direction. To work on a whole organization without cloning it, use the [remote MCP server](./mcp/remote-server.md), which runs recipes on the Moderne Platform instead.
+:::warning
+Agent chat does not work together with the [Moderne skills](./skills.md) or [local MCP server](./mcp/overview.md). These tools are designed to steer the agent toward working on only one repository at a time instead.
+
+Before you use agent chat, remove them:
+
+```bash
+mod config agent-tools uninstall
+```
+
+You can always reinstall them later with `mod config agent-tools <agent-name> install`.
+
+If you'd prefer to just remove them for one particular agent, run `mod config agent-tools <agent-name> uninstall`, replacing `<agent-name>` with the agent you plan to use.
 :::
 
 ## Choosing what to sync
