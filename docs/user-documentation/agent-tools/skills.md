@@ -78,7 +78,13 @@ mod config agent-tools copilot install
 
 Each per-agent command installs both skills and the MCP server for that agent only. If the agent is not detected on your system, the command displays a message and exits without making changes.
 
-The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, `codex`, and `opencode`.
+To remove agent tools for a single coding agent, use `uninstall` in the same way:
+
+```bash
+mod config agent-tools claude uninstall
+```
+
+The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, `codex`, `opencode`, and `kiro`.
 
 ### Skills-only installation
 
