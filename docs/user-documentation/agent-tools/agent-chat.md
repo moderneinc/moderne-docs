@@ -27,6 +27,20 @@ Install the Moderne CLI with the install script:
 <Tabs groupId="cli-install-os" queryString="os">
 <TabItem value="linux-macos" label="Linux / macOS" default>
 
+```bash
+curl https://app.moderne.io/cli | bash
+```
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+```powershell
+irm https://app.moderne.io/cli/windows | iex
+```
+
+</TabItem>
+</Tabs>
+
 Then point your agent at an organization and give it a prompt. The following example uses GitHub Copilot. You can use `claude`, `codex`, or any other [supported agent](#supported-agents) in place of `copilot`:
 
 ```bash
