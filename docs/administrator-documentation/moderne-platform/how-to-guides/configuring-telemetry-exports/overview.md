@@ -30,7 +30,7 @@ Both sources land in the same place, with the same partition layout, so queries 
 
 A signed-in CLI queues each trace locally and uploads queued telemetry to your tenant gateway in the background at the end of every command. Anything a command doesn't finish uploading stays queued for the next one.
 
-On CI runners and containers, whose filesystem doesn't outlive the command, run `mod config telemetry wait-for-upload` so each command waits for the upload before it exits. To upload everything queued on demand, run `mod telemetry publish`. See [how the CLI uploads telemetry to your tenant](../../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry.md#how-the-cli-uploads-telemetry-to-your-tenant) for details.
+On developer machines, that's fine as there you can always run another command. On CI runners and containers, though, that poses a problem. Filesystems disappear with the command - so any telemetry that wasn't uploaded is lost. On those hosts, you'll want to run [`mod config telemetry wait-for-upload`](../../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry.md#how-the-cli-uploads-telemetry-to-your-tenant) so each command waits for the upload before it exits.
 
 ### Schema reference
 

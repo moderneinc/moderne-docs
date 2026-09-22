@@ -37,7 +37,9 @@ Each command produces a trace that includes its own stage plus all prior stages.
 | MCP server tool call | `mcp`     | MCP (standalone)                                 |
 | `mod <agent> chat`   | `agent`   | Agent (standalone, no repository columns)        |
 
-`mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec` and MCP tool calls are standalone: they carry the common columns plus their own stage, with no earlier workflow stages. Agent sessions are standalone too, but they are not tied to a repository, so they carry only `developer` and the agent columns.
+`mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec` and MCP tool calls are standalone: they carry the common columns plus their own stage, with no earlier workflow stages.
+
+Agent sessions are standalone too. Since they are not tied to a repository, they only have the `developer` and [agent columns](#agent-fields).
 
 ## Build columns and prebuilt LSTs
 

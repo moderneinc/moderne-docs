@@ -3,34 +3,38 @@ sidebar_label: Agent chat
 description: How to start an AI coding agent on a synced Moderne organization with mod <agent> chat.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Agent chat
 
 :::warning
 `mod <agent> chat` is incubating. Its commands and behavior may change between CLI releases.
 :::
 
-Agent chat puts the coding agent you already use to work on your entire codebase, not just the repository you have open. You pick an agent and an organization of repositories, then say what you want in plain language, like "Upgrade all of these repositories to Java 25" or "Patch every vulnerable dependency across all of these repositories." The agent drives Moderne's deterministic recipes across every repository at once, checks the result with each repository's own build, and fixes whatever the recipe left behind.
+A coding agent pointed at a directory of repositories makes each change by hand, one repository at a time. Across a large organization that can take hours and produce different results in each repository. Moderne's agent chat aims to fix this by giving the agent access to Moderne's recipes.
 
-Agent chat is designed to need no setup beyond the commands below. The rest of this page is reference for when you want to know more.
+You pick an agent and an organization of repositories - then talk to it in plain language. You could say things like: "Upgrade all of these repositories to Java 25" or "Patch every vulnerable dependency across all of these repositories."
+
+The agent runs the recipes across every repository at once, checks the results with each repository's own build, and then edits by hand only what the recipes left behind.
+
+Agent chat needs no setup beyond the two commands in the [quick start](#quick-start): one installs the CLI, and one clones the organization with its prebuilt LSTs and tells the agent how to use them. The rest of this page is reference for when you want to know more.
 
 ## Quick start
 
-Install the Moderne CLI:
+Install the Moderne CLI with the install script:
 
-```bash
-curl https://app.moderne.io/cli | bash
-```
+<Tabs groupId="cli-install-os" queryString="os">
+<TabItem value="linux-macos" label="Linux / macOS" default>
 
-On Windows, run `irm https://app.moderne.io/cli/windows | iex` in PowerShell instead. The install script also connects the CLI to Moderne and opens a browser for you to sign in. If you installed the CLI some other way, [connect it to Moderne](../moderne-cli/getting-started/cli-intro.md#step-3-connect-the-cli-to-moderne) yourself.
-
-Then start your agent on an organization with the work you want done:
+Then point your agent at an organization and give it a prompt. The following example uses GitHub Copilot. You can use `claude`, `codex`, or any other [supported agent](#supported-agents) in place of `copilot`:
 
 ```bash
 mod copilot chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
 
-The CLI clones every repository in the organization into `./work` along with its prebuilt LSTs, then opens GitHub Copilot there with your prompt already submitted. From there, work with the agent as you normally would. If you leave off `--prompt`, the session opens empty and you type your first request yourself. Swap `copilot` for `claude`, `codex`, or any other [supported agent](#supported-agents).
+The CLI clones every repository in the organization into the `./work` directory along with its prebuilt LSTs. It then opens whatever agent you specified in that directory with your prompt already submitted. From there, you work with the agent as you normally would. If you leave off `--prompt`, the session starts empty and you type your first request yourself.
 
 ## Requirements
 
@@ -42,9 +46,9 @@ Agent chat works on a whole organization locally, with every repository cloned t
 
 ## Choosing what to sync
 
-`--org` names an organization on the Moderne Platform you are connected to.
+You choose which repositories to sync to your machine by adding the `--org` flag to the `mod <agent> chat` command. You'll need to provide an organization name that exists on the Moderne tenant your CLI is connected to. The CLI will then sync every repository in that org to your local machine.
 
-To come back to the same organization later, leave off `--org` and `--sync-csv`. The CLI reuses what is already synced:
+If you want to come back to the same organization later, you can leave off the `--org` flag. The CLI will reuse what is already synced:
 
 ```bash
 mod claude chat ./work
@@ -52,16 +56,16 @@ mod claude chat ./work
 
 ### Without a Moderne Platform organization
 
-If your repositories are not in an organization on the Moderne Platform, pass `--sync-csv` in place of `--org`. It takes a [repos.csv](../moderne-cli/references/repos-csv.md) or `repos-lock.csv` file, either a local path or a URL, that lists the repositories to work on:
+If your repositories are not in an organization on the Moderne Platform, pass `--sync-csv` in place of `--org`. Syncing repositories this way does not require a Moderne tenant. Instead, it takes a [repos.csv](../moderne-cli/references/repos-csv.md) or a `repos-lock.csv` file that lists the repositories to work on. The file can be a local path or a URL:
 
 ```bash
 mod claude chat ./work --sync-csv ./repos-lock.csv \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
 
-The CLI clones each repository from its `cloneUrl` and downloads its LST from the `publishUri` column. You do not need to connect the CLI to a Moderne tenant. If the CSV has `org` columns, add `--org` to sync just one organization from it.
+The CLI clones each repository from its `cloneUrl` and downloads its LST from the `publishUri` column. If the CSV has `org` columns, add `--org` to sync just one organization from it.
 
-The agent works from prebuilt LSTs, so this works best with a `repos-lock.csv` that has a `publishUri` for every repository, such as the one `mod publish` uploads to your artifact repository. See [Creating and sharing a repos-lock.csv file](../moderne-cli/how-to-guides/repos-lock-csv.md) for how to produce that file and how to configure the CLI to download from the artifact repository.
+The agent needs prebuilt LSTs for every repository. We recommend that you use a `repos-lock.csv` with a `publishUri` on each row, like the one `mod publish` uploads to your artifact repository. See [Creating and sharing a repos-lock.csv file](../moderne-cli/how-to-guides/repos-lock-csv.md) for how to produce that file and how to configure the CLI to download from the artifact repository.
 
 If you do not have published LSTs, `--sync-csv` clones the source code but does not build LSTs. Sync and build them yourself first, then start the agent on the directory:
 
@@ -87,11 +91,11 @@ mod claude chat ./work --prompt "Upgrade all of these repositories to Java 25."
 
 If the agent's command is not on your `PATH`, the CLI tells you how to install it.
 
-## What happens when you run it
+## What happens when you run agent chat
 
-1. **Sync.** With `--org` or `--sync-csv`, the CLI syncs the organization into the directory with sources and LSTs, just like `mod git sync`. If some repositories fail to sync, the agent still starts on the ones that succeeded, and the CLI reports the failures when the session ends.
-2. **Guide.** The CLI links an `AGENTS.md` file into the directory. Every supported agent reads this file at startup, so the agent knows from the first turn how to use `mod` on the organization. The guide ships with the CLI and improves as you upgrade. An existing `AGENTS.md` that the CLI did not create is moved to `AGENTS.md.bak`.
-3. **Session.** The agent starts in the organization directory and takes over your terminal. When you exit the agent, you are back at your shell. The CLI then records a [telemetry row](../moderne-cli/how-to-guides/cli-telemetry.md#agent-session-telemetry) for the session.
+1. With `--org` or `--sync-csv`, the CLI syncs the organization into the directory with sources and LSTs, just like `mod git sync`. If some repositories fail to sync, the agent still starts on the ones that succeeded, and the CLI reports the failures when the session ends.
+2. The CLI links an `AGENTS.md` file into the directory. Every supported agent reads this file at startup, so the agent knows from the first turn how to use `mod` on the organization. The file ships with the CLI and improves as you upgrade. An existing `AGENTS.md` that the CLI did not create is moved to `AGENTS.md.bak`.
+3. The agent starts in the organization directory and takes over your terminal. When you exit the agent, you are back at your shell. The CLI then records a [telemetry row](../moderne-cli/how-to-guides/cli-telemetry.md#agent-session-telemetry) for the session.
 
 The agent expects the LSTs to already be in the directory, either downloaded during the sync or [built by you beforehand](#without-a-moderne-platform-organization). It does not build them itself.
 

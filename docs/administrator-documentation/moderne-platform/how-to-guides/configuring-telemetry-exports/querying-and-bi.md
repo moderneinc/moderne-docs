@@ -63,7 +63,7 @@ Please confirm that:
 ### I see `source=cli` data but no `source=saas` data (or vice versa)
 
 * If you see no `saas` rows, no one has run a recipe or committed via the web UI during the period queried.
-* If you see no `cli` rows, either no one has run `mod` against your tenant, or CLI users haven't authenticated yet. The CLI uploads telemetry at the end of each command once a user is signed in, and users can force a flush with `mod telemetry publish`. Hosts whose filesystem doesn't outlive the command, such as CI runners and containers, also need `mod config telemetry wait-for-upload`.
+* If you see no `cli` rows, either no one has run `mod` against your tenant, or CLI users haven't authenticated yet. The CLI uploads telemetry at the end of each command once a user is signed in. Users can force a flush by running: `mod telemetry publish`. Hosts whose filesystem doesn't outlive the command, such as CI runners and containers, will also need to run: `mod config telemetry wait-for-upload`.
 
 ### Some `mod` commands are missing traces
 

@@ -15,7 +15,7 @@ Skills differ in what they need to do their job:
 * A couple call no MCP tool at all: one carries recipe-authoring knowledge and drives the `mod` CLI directly, and one points the agent at context files already generated for the repository.
 
 :::note
-To work across a whole organization rather than one repository, use [agent chat](./agent-chat.md) to work on it locally, or the [remote MCP server](./mcp/remote-server.md) to work on it on the Moderne Platform.
+Skills operate on one repository. To work across a whole organization, use [agent chat](./agent-chat.md) locally or the [remote MCP server](./mcp/remote-server.md) on the Moderne Platform.
 :::
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
