@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.19.0 (2026/09/23)
+
+- Bug fixes and other improvements.
+
 ### UI v14.18.0 (2026/09/22)
 
 - show the option count; hide Options when none are set
