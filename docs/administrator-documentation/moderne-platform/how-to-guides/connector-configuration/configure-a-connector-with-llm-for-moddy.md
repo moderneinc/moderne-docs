@@ -48,7 +48,7 @@ Variables are nested under the specific provider you are configuring. Replace `{
 | `MODERNE_MODDY_{PROVIDER}_PROXY_HOST` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `PROXY_PORT` must also be set.                                                                                       |
 | `MODERNE_MODDY_{PROVIDER}_PROXY_PORT` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `PROXY_HOST` must also be set.                                                                                         |
 | `MODERNE_MODDY_{PROVIDER}_CONNECTTIMEOUT` | `false`  | `30s`   | How long to wait when opening a connection to the LLM API. Accepts a duration such as `30s` or `PT30S`. |
-| `MODERNE_MODDY_{PROVIDER}_READTIMEOUT` | `false`  | `60s`   | How long to wait between chunks of a streamed LLM response before the request fails. Accepts a duration such as `5m` or `PT5M`. |
+| `MODERNE_MODDY_{PROVIDER}_READTIMEOUT` | `false`  | `5m`    | How long to wait for an LLM API response before the request fails. Accepts a duration such as `5m` or `PT5M`. |
 | `MODERNE_MODDY_ADMINONLY`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
 
 **Example:**
