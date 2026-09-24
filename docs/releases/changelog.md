@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.20.0 (2026/09/24)
+
+- tag Atlas publishes with instance and server-group identity
+
 ### UI v14.19.2 (2026/09/23)
 
 - Bug fixes and other improvements.
