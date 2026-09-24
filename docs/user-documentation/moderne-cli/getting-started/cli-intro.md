@@ -586,6 +586,8 @@ mod build /path/to/your/workspace
 
 :::info
 If a project fails to build, it might require additional configuration. See [mod config build](../cli-reference.md#mod-config-build) for customization options. If an LST doesn't build, running a recipe will just skip that project rather than error on it.
+
+Make sure the build tools used by the projects are available on the system. You can check with `mod doctor` for any warnings.
 :::
 
 ### Analyzing build results locally

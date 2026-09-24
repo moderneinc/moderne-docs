@@ -60,9 +60,12 @@ Build output will be written to file:///Users/you/Documents/some-repository/.mod
 + Cleaned 1 older builds.
 ```
 
-If your project _does_ contain a `pom.xml` file (or similar), then you might want to double-check that your `.gitignore` file does not exclude it.
+Possible reasons are:
+- If your project _does_ contain a `pom.xml` file (or similar), then you might want to double-check that your `.gitignore` file does not exclude it.
+- If your system _does not_ have the needed build tool on path, you can use `mod doctor` to check for warnings.
 
 The CLI skips any resources marked as Git ignored during project discovery, and remove the matching entry from `.gitignore` if present.
+
 
 ## I need to enter an SSH passphrase to check out repositories – how does the CLI handle this?
 
