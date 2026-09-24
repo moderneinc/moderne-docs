@@ -77,7 +77,7 @@ moderne-connector:latest
 | `--moderne.moddy.{provider}.proxy.host` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `proxy.port` must also be set.                                                                                                      |
 | `--moderne.moddy.{provider}.proxy.port` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `proxy.host` must also be set.                                                                                                        |
 | `--moderne.moddy.{provider}.connect-timeout` | `false`  | `30s`   | How long to wait when opening a connection to the LLM API. Accepts a duration such as `30s` or `PT30S`.                                                                                                     |
-| `--moderne.moddy.{provider}.read-timeout` | `false`  | `60s`   | How long to wait for an LLM API response before the request fails. Accepts a duration such as `5m` or `PT5M`.                                                                                               |
+| `--moderne.moddy.{provider}.read-timeout` | `false`  | `5m`     | How long to wait for an LLM API response before the request fails. Accepts a duration such as `5m` or `PT5M`.                                                                                               |
 | `--moderne.moddy.admin-only`            | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                                             |
 
 **Example:**
