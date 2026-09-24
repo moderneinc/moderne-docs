@@ -9861,7 +9861,11 @@ mod git pull /path/to/project
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `--gpg-passphrase-path` |  Path to a file containing the passphrase for the GPG private key. |  |
+| `--gpg-private-key-path` |  Path to an armored PGP private key file for signing. Implies **--gpg-sign**. |  |
+| `--no-gpg-sign` |  Override **commit.gpgsign** configuration and create an unsigned commit. |  |
 | `--rebase` |  Pull with rebase or not. | `github.com` |
+| `-S`, `--gpg-sign` |  GPG sign the commit. Uses the local GPG keyring, or a key file if **--gpg-private-key-path** is provided. |  |
 
 
 ## mod git push

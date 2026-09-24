@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.8.7           |
+| CLI version | 4.8.8           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,23 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.8.8 (2026-09-23)
+
+_Based on OpenRewrite 8.92.8_
+
+#### What's Changed
+* Scope an unpartitioned Bazel build to its enumerated targets
+* Match whole rule kinds when enumerating the Bazel target universe
+* Name the generating machine's JDK, not a repository the consumer may not have
+* DevCenter report: Morpheus design system
+* Skip the recipe cache for composites that wrap an RPC engine recipe
+* CLI changelogs to name OR version explicitly
+* Apply, commit, rebase and push a recipe run with no clone
+* Keep a clone URL from becoming a second command
+* Revert "Skip the recipe cache for composites that wrap an RPC engine recipe" (#4711)
+* Give the metrics writer a private lock
+* Search the SaaS v2 recipe marketplace in `mod config recipes moderne install`
 
 ### CLI / DX v4.8.7 (2026-09-21)
 
