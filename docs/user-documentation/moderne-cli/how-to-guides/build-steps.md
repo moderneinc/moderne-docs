@@ -30,6 +30,7 @@ For a JVM build tool the CLI does not natively support, such as a homegrown or i
 ### External build tool steps
 
 Each external build tool step scans the repository for the root build files of its type — that is, the build files that represent independent projects rather than submodules — and invokes the build tool on each one.
+Make sure your desired build tool is available for execution at the system. You can use `mod doctor` to check for warnings.
 
 #### Discovery and parsing
 
