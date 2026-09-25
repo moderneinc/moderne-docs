@@ -43,7 +43,7 @@ The previous modules used the [`rewrite-recipe-starter`](https://github.com/mode
 
 ```kotlin
 // The Kotlin recipe DSL is authored in Kotlin and compiled by the K2 compiler.
-kotlin("jvm") version "2.4.10"
+kotlin("jvm") version "2.4.20"
 
 // ...
 
