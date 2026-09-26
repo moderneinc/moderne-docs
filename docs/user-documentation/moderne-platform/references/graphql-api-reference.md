@@ -1410,7 +1410,23 @@ A data table download is being processed.
 | `group` | String |  |
 | `format` | [DataTableFormat](#datatableformat)! |  |
 | `changesetId` | ID! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
+| `startedAt` | [DateTime](#datetime)! | When a worker began extracting the table. |
+
+##### `DataTableQueued`
+
+**Implements:** [DataTable](#datatable)
+
+A data table download is waiting for a worker to pick it up.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `dataTable` | [DataTableDescriptor](#datatabledescriptor)! |  |
+| `instanceName` | String! |  |
+| `group` | String |  |
+| `format` | [DataTableFormat](#datatableformat)! |  |
+| `changesetId` | ID! |  |
+| `queuedAt` | [DateTime](#datetime)! |  |
 
 ##### `DataTablesMessage`
 

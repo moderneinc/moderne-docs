@@ -1682,7 +1682,23 @@ type DataTableProcessing implements DataTable
   group: String
   format: DataTableFormat!
   changesetId: ID!
+
+  """When a worker began extracting the table."""
   startedAt: DateTime!
+}
+
+"""A data table download is waiting for a worker to pick it up."""
+type DataTableQueued implements DataTable
+  @join__implements(graph: CHANGESETREADER, interface: "DataTable")
+  @join__type(graph: CHANGESETREADER, key: "id")
+{
+  id: ID!
+  dataTable: DataTableDescriptor!
+  instanceName: String!
+  group: String
+  format: DataTableFormat!
+  changesetId: ID!
+  queuedAt: DateTime!
 }
 
 type DataTablesMessage implements Message
