@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.8.8           |
+| CLI version | 4.8.9           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,26 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.8.9 (2026-09-27)
+
+_Based on OpenRewrite 8.92.10_
+
+#### What's Changed
+* Write the name index into assembled search shards
+* Introduce minimal Node version (14)
+* Write trace CSV timestamps as ISO instants
+* Record .NET dependency resolution time in the build trace
+* ~~Record the data tables each repository produced so mod study stops walking the organization
+* Count a repository shared by suborganizations once, and run it once
+* Pin httpclient5 to 5.6.4 to restore authenticated proxy support
+* Bound the resource build step and stop attributing leftover Java
+* Build a repository once per `mod publish --sync-csv`, whatever organizations list it
+* Sync LSTs the tenant holds from the SaaS instead of the internal artifact store
+* Take a polyglot engine permit when the engine starts, not when the recipe prepares
+* Aggregate data tables per organization during mod run (mod config features pre-study)
+* Detect line separators when PreStudyTest reads an aggregate back
+* Check a working set out to a Moderne changeset and push to it
 
 ### CLI / DX v4.8.8 (2026-09-23)
 
