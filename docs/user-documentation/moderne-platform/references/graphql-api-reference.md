@@ -705,6 +705,32 @@ Moderne Personal Access Tokens
 | `node` | [AccessToken](#accesstoken)! |  |
 | `cursor` | String! |  |
 
+##### `AgentSession`
+
+**Implements:** [OrganizationChangeset](#organizationchangeset)
+
+A session driven by a coding agent through `mod &lt;agent&gt; chat --changeset`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `name` | String! |  |
+| `user` | [User](#user)! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `lastPushedAt` | [DateTime](#datetime)! | Nothing says whether more pushes will follow; a plain `git push` never announces an end. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! |  |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! |  |
+| `agent` | String! | As `mod &lt;agent&gt; chat` names it: claude, copilot, codex, kiro, opencode. |
+| `prompt` | String |  |
+| `transcript` | (first: Int = 100, after: String, where: [TranscriptWhereInput](#transcriptwhereinput)): [TranscriptConnection](#transcriptconnection)! | The session as spans: what the agent did, when, and what it cost, never what it read or wrote. The agent's own transcript is never kept. Empty until the agent exits and the wrapper uploads it. |
+| `transcriptExport` | [TranscriptExport](#transcriptexport) | The same spans as one OTLP JSON download. Null until the wrapper uploads them. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
+
 ##### `ArtifactoryConfiguration`
 
 | Field | Type | Description |
@@ -796,38 +822,6 @@ An audit log download is being processed.
 |-------|------|-------------|
 | `clientId` | String! |  |
 | `tenantId` | String! |  |
-
-##### `BatchChange`
-
-**Implements:** [OrganizationChangeset](#organizationchangeset)
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `createdAt` | [DateTime](#datetime)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
-| `name` | String |  |
-| `description` | String |  |
-| `sourceTool` | [ToolInfo](#toolinfo) |  |
-| `diffTool` | [ToolInfo](#toolinfo) |  |
-| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this batch change. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
-| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this batch change. |
-| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
-| `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
-
-##### `BatchChangeFileChange`
-
-**Implements:** [FileChange](#filechange)
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `path` | [Path](#path)! |  |
-| `beforeSourcePath` | [Path](#path) |  |
-| `afterSourcePath` | [Path](#path) |  |
-| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = WARNING, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
 
 ##### `BitbucketCloudConfiguration`
 
@@ -1640,6 +1634,29 @@ Result of exchanging an authorization code.
 | `success` | Boolean! | True if the exchange was successful and token was stored. |
 | `error` | String | Error message if exchange failed. |
 
+##### `ExecRun`
+
+**Implements:** [OrganizationChangeset](#organizationchangeset)
+
+A session made by `mod exec` running one command across the working set.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `name` | String! |  |
+| `user` | [User](#user)! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `lastPushedAt` | [DateTime](#datetime)! | Nothing says whether more pushes will follow; a plain `git push` never announces an end. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! |  |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! |  |
+| `command` | String! |  |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
+
 ##### `FileChangeConnection`
 
 Connection for file changes with aggregate statistics.
@@ -2144,6 +2161,29 @@ The installation lives in a specific organization's marketplace.
 |-------|------|-------------|
 | `organization` | [Organization](#organization)! |  |
 
+##### `OrganizationPush`
+
+**Implements:** [OrganizationChangeset](#organizationchangeset)
+
+Pushes with no `moderne-tool` option, or no session id at all, in which case each push is a
+session of one.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `name` | String! |  |
+| `user` | [User](#user)! |  |
+| `createdAt` | [DateTime](#datetime)! |  |
+| `lastUpdatedAt` | [DateTime](#datetime)! |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
+| `lastPushedAt` | [DateTime](#datetime)! | Nothing says whether more pushes will follow; a plain `git push` never announces an end. |
+| `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! |  |
+| `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! |  |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
+
 ##### `OrganizationRecipeRunCanceled`
 
 **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
@@ -2151,13 +2191,14 @@ The installation lives in a specific organization's marketplace.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
+| `name` | String! |  |
 | `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
 | `startedAt` | [DateTime](#datetime) |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `canceledAt` | [DateTime](#datetime)! | Alias for finishedAt - when the run was canceled |
@@ -2190,13 +2231,14 @@ The installation lives in a specific organization's marketplace.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
+| `name` | String! |  |
 | `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
 | `startedAt` | [DateTime](#datetime) |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `errorMessage` | String |  |
@@ -2214,13 +2256,14 @@ The installation lives in a specific organization's marketplace.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
+| `name` | String! |  |
 | `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `duration` | [Duration](#duration) |  |
@@ -2239,13 +2282,14 @@ The installation lives in a specific organization's marketplace.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
+| `name` | String! |  |
 | `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
 | `queuedAt` | [DateTime](#datetime)! |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
@@ -2261,13 +2305,14 @@ The installation lives in a specific organization's marketplace.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
+| `name` | String! |  |
 | `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `totals` | [RecipeRunTotals](#reciperuntotals) |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
@@ -2287,13 +2332,14 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
+| `name` | String! |  |
 | `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
@@ -2502,6 +2548,19 @@ Pull request commit completed successfully.
 | `buildState` | [BuildState](#buildstate) |  |
 | `otherBlockingReasons` | [String!]! | Additional status flags that block this pull request. Can depend on the SCM service provider. |
 | `resolvedAt` | [DateTime](#datetime) | When the pull request was merged or closed. The provider's own timestamp on GitHub, Bitbucket Data Center and Azure DevOps; GitLab and Bitbucket Cloud don't report one, so those fall back to when Moderne observed the transition and advance on every read until the commit job finishes. Null while open, and for pull requests already terminal before this shipped -- those are never re-queried. |
+
+##### `PushFileChange`
+
+**Implements:** [FileChange](#filechange)
+
+A push's file change: the difference between two trees, with no recipe attribution.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `path` | [Path](#path)! |  |
+| `beforeSourcePath` | [Path](#path) |  |
+| `afterSourcePath` | [Path](#path) |  |
+| `diff` | (markupLevel: [MarkupLevel](#markuplevel) = WARNING, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
 
 ##### `PypiConfiguration`
 
@@ -2853,16 +2912,6 @@ Resolved by the changeset reader using a batch check against the authorization s
 | `origin` | String! | The VCS origin (e.g., github.com). |
 | `access` | [RepoAccess](#repoaccess)! | The current viewer's read access to this specific repository. Drives whether the UI renders content (ALLOWED), a "you don't have access" message (DENIED), or an authorize prompt (UNAUTHENTICATED). |
 
-##### `RepositoryBatchChange`
-
-**Implements:** [RepositoryChangeset](#repositorychangeset)
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `repository` | [Repository](#repository)! |  |
-| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
-
 ##### `RepositoryChangesetConnection`
 
 Paginated connection for repository changesets.
@@ -3000,6 +3049,26 @@ Use `options.__typename` to determine the specific commit type.
 |-------|------|-------------|
 | `node` | [Repository](#repository)! |  |
 | `cursor` | String! |  |
+
+##### `RepositoryPush`
+
+**Implements:** [RepositoryChangeset](#repositorychangeset)
+
+One repository's push, recorded as the whole difference from the base commit to the pushed
+tip however many commits it carried. Its `.moderne/run/&lt;runId&gt;` directory is named by `id`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `repository` | [Repository](#repository)! |  |
+| `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! |  |
+| `session` | [OrganizationChangeset](#organizationchangeset)! | The session that pushed it: an AgentSession, ExecRun or OrganizationPush. |
+| `pushedBy` | [User](#user)! |  |
+| `pushedAt` | [DateTime](#datetime)! |  |
+| `message` | String | The `moderne-message` push option. |
+| `tipCommit` | String! | Provenance only; the objects are not retained. A later push must descend from it or name this change as its parent. |
+| `ancestors` | [[RepositoryChangeset](#repositorychangeset)!]! | This repository's earlier changes, newest first, down to the recipe run result. |
 
 ##### `RepositoryRecipeRunCanceled`
 
@@ -3164,13 +3233,48 @@ Check the `user` field to distinguish sender.
 | `state` | [MessageState](#messagestate)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! |  |
 
-##### `ToolInfo`
+##### `TranscriptConnection`
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `name` | String! |  |
-| `version` | String |  |
-| `arguments` | String |  |
+| `edges` | [[TranscriptSpanEdge](#transcriptspanedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+##### `TranscriptExport`
+
+The whole transcript as one OTLP JSON trace, rendered on download rather than stored, since the
+spans already are.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `bytes` | Int! |  |
+| `url` | String! | URL path to download the trace (relative to the service base URL). |
+| `uploadedAt` | [DateTime](#datetime)! | When the spans it renders arrived. |
+
+##### `TranscriptSpan`
+
+One span of a transcript. Spans are flat; a reader rebuilds the tree from `parentId`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `parentId` | ID |  |
+| `kind` | [TranscriptSpanKind](#transcriptspankind)! |  |
+| `name` | String! | The model, the tool, or the agent, by kind. |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `endedAt` | [DateTime](#datetime) |  |
+| `error` | String |  |
+| `inputTokens` | Int |  |
+| `outputTokens` | Int |  |
+| `repository` | [Repository](#repository) | The repository a tool call worked in, when the CLI could tell. |
+
+##### `TranscriptSpanEdge`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [TranscriptSpan](#transcriptspan)! |  |
+| `cursor` | String! |  |
 
 ##### `UiConfiguration`
 
@@ -3494,10 +3598,11 @@ A change to a single file within a repository changeset.
 ##### `OrganizationChangeset`
 
 An organization-wide changeset represents code changes or search results
-across multiple repositories. Implemented by OrganizationRecipeRun* and BatchChange.
+across multiple repositories. Implemented by OrganizationRecipeRun*, AgentSession, ExecRun
+and OrganizationPush.
 
 Note: This is a shared interface definition. Subgraphs that need to resolve this
-interface must define the implementation types (OrganizationRecipeRun*, BatchChange).
+interface must define the implementation types.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3505,9 +3610,10 @@ interface must define the implementation types (OrganizationRecipeRun*, BatchCha
 | `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
+| `name` | String! | What the changeset is called: a recipe run's instance name, or what its first push named it. |
 | `user` | [User](#user)! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this changeset. Each visualization starts as Available and transitions to Processing/Finished/Error when runVisualization mutation is called. |
@@ -3534,13 +3640,14 @@ repositories. Use `__typename` to determine the current state.
 | `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions for recipe-run changesets. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this recipe run. |
 | `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this recipe run. |
+| `name` | String! |  |
 | `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `parent` | [OrganizationChangeset](#organizationchangeset) |  |
+| `ancestors` | [[OrganizationChangeset](#organizationchangeset)!]! |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
@@ -3894,7 +4001,7 @@ Execution state of a DevCenter run.
 ##### `OrganizationChangesetType`
 
 * `RECIPE_RUN`
-* `BATCH_CHANGE`
+* `PUSH`
 
 ##### `OrganizationCommitOrderByField`
 
@@ -4138,6 +4245,12 @@ sync completed).
 
 * `ASC`
 * `DESC`
+
+##### `TranscriptSpanKind`
+
+* `AGENT_INVOCATION`
+* `MODEL_CALL`
+* `TOOL_CALL`
 
 ##### `UserOrderByField`
 
@@ -5189,6 +5302,29 @@ these tokens are preferred over stored OAuth tokens.
 | `_endsWith` | String |  |
 | `_icontains` | String | Case-insensitive contains |
 | `_isNull` | Boolean | True to match null values, false to match non-null values |
+
+##### `TranscriptSpanKindFilter`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [TranscriptSpanKind](#transcriptspankind) |  |
+| `_neq` | [TranscriptSpanKind](#transcriptspankind) |  |
+| `_in` | [[TranscriptSpanKind](#transcriptspankind)!] |  |
+| `_nin` | [[TranscriptSpanKind](#transcriptspankind)!] |  |
+
+##### `TranscriptWhereInput`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `kind` | [TranscriptSpanKindFilter](#transcriptspankindfilter) |  |
+| `parentId` | [IDFilter](#idfilter) | One subtree. |
+| `errorsOnly` | Boolean |  |
+| `origin` | [StringFilter](#stringfilter) |  |
+| `path` | [StringFilter](#stringfilter) |  |
+| `branch` | [StringFilter](#stringfilter) |  |
+| `_and` | [[TranscriptWhereInput](#transcriptwhereinput)!] |  |
+| `_or` | [[TranscriptWhereInput](#transcriptwhereinput)!] |  |
+| `_not` | [TranscriptWhereInput](#transcriptwhereinput) |  |
 
 ##### `UpdateUserOrganizationInput`
 

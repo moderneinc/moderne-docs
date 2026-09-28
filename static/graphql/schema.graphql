@@ -96,6 +96,64 @@ input AccessTokenWhereInput
   _not: AccessTokenWhereInput
 }
 
+"""
+A session driven by a coding agent through `mod <agent> chat --changeset`.
+"""
+type AgentSession implements OrganizationChangeset
+  @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
+  @join__type(graph: CHANGESETREADER, key: "id")
+{
+  id: ID!
+  name: String!
+  user: User!
+  createdAt: DateTime!
+  lastUpdatedAt: DateTime!
+  ancestors: [OrganizationChangeset!]!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+
+  """
+  Nothing says whether more pushes will follow; a plain `git push` never announces an end.
+  """
+  lastPushedAt: DateTime!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
+
+  """
+  As `mod <agent> chat` names it: claude, copilot, codex, kiro, opencode.
+  """
+  agent: String!
+  prompt: String
+
+  """
+  The session as spans: what the agent did, when, and what it cost, never what it read or
+  wrote. The agent's own transcript is never kept. Empty until the agent exits and the
+  wrapper uploads it.
+  """
+  transcript(first: Int = 100, after: String, where: TranscriptWhereInput): TranscriptConnection! @cost(weight: 50) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+
+  """
+  The same spans as one OTLP JSON download. Null until the wrapper uploads them.
+  """
+  transcriptExport: TranscriptExport
+
+  """
+  Bulk pull request actions (approve, merge, close) initiated against pull
+  requests that belong to this changeset.
+  
+  Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
+  last so polling clients still see in-flight actions.
+  """
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
+
+  """Commit operations initiated from this changeset."""
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+}
+
 type ArtifactoryConfiguration
   @join__type(graph: CAPABILITIES)
 {
@@ -247,58 +305,6 @@ scalar Base64
   @join__type(graph: ORGANIZATION)
   @join__type(graph: RECIPEMARKETPLACE)
   @join__type(graph: RECIPEWORKER)
-
-type BatchChange implements OrganizationChangeset
-  @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
-  @join__type(graph: CHANGESETREADER, key: "id")
-{
-  id: ID!
-  user: User!
-  createdAt: DateTime!
-  parent: OrganizationChangeset
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
-  name: String
-  description: String
-  sourceTool: ToolInfo
-  diffTool: ToolInfo
-
-  """
-  Data tables produced by this batch change.
-  Each data table starts as Available and transitions to Processing/Finished/Error
-  when downloadDataTable mutation is called.
-  """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
-
-  """Visualizations produced by this batch change."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
-
-  """
-  Bulk pull request actions (approve, merge, close) initiated against pull
-  requests that belong to this changeset.
-  
-  Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
-  last so polling clients still see in-flight actions.
-  """
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
-
-  """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
-
-  """
-  Bulk pull request actions (approve, merge, close) launched from this changeset.
-  """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
-}
-
-type BatchChangeFileChange implements FileChange
-  @join__implements(graph: CHANGESETREADER, interface: "FileChange")
-  @join__type(graph: CHANGESETREADER)
-{
-  path: Path!
-  beforeSourcePath: Path
-  afterSourcePath: Path
-  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch @cost(weight: 100)
-}
 
 type BitbucketCloudConfiguration
   @join__type(graph: CAPABILITIES)
@@ -2182,6 +2188,47 @@ type ExchangeAuthorizationResult
   error: String
 }
 
+"""
+A session made by `mod exec` running one command across the working set.
+"""
+type ExecRun implements OrganizationChangeset
+  @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
+  @join__type(graph: CHANGESETREADER, key: "id")
+{
+  id: ID!
+  name: String!
+  user: User!
+  createdAt: DateTime!
+  lastUpdatedAt: DateTime!
+  ancestors: [OrganizationChangeset!]!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+
+  """
+  Nothing says whether more pushes will follow; a plain `git push` never announces an end.
+  """
+  lastPushedAt: DateTime!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
+  command: String!
+
+  """
+  Bulk pull request actions (approve, merge, close) initiated against pull
+  requests that belong to this changeset.
+  
+  Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
+  last so polling clients still see in-flight actions.
+  """
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
+
+  """Commit operations initiated from this changeset."""
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+}
+
 """A change to a single file within a repository changeset."""
 interface FileChange
   @join__type(graph: CHANGESETREADER)
@@ -3463,10 +3510,11 @@ type Organization
 
 """
 An organization-wide changeset represents code changes or search results
-across multiple repositories. Implemented by OrganizationRecipeRun* and BatchChange.
+across multiple repositories. Implemented by OrganizationRecipeRun*, AgentSession, ExecRun
+and OrganizationPush.
 
 Note: This is a shared interface definition. Subgraphs that need to resolve this
-interface must define the implementation types (OrganizationRecipeRun*, BatchChange).
+interface must define the implementation types.
 """
 interface OrganizationChangeset
   @join__type(graph: CHANGELOGREADER, key: "id", isInterfaceObject: true)
@@ -3495,9 +3543,14 @@ interface OrganizationChangeset
   Bulk pull request actions (approve, merge, close) launched from this changeset.
   """
   bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGESETCOMMITTER)
+
+  """
+  What the changeset is called: a recipe run's instance name, or what its first push named it.
+  """
+  name: String! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
   user: User! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
   createdAt: DateTime! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
-  parent: OrganizationChangeset @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  ancestors: [OrganizationChangeset!]! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
@@ -3571,7 +3624,7 @@ enum OrganizationChangesetType
   @join__type(graph: RECIPEWORKER)
 {
   RECIPE_RUN @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  BATCH_CHANGE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  PUSH @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input OrganizationChangesetTypeFilter
@@ -3812,6 +3865,47 @@ input OrganizationOrderByInput
   direction: SortOrder! = ASC
 }
 
+"""
+Pushes with no `moderne-tool` option, or no session id at all, in which case each push is a
+session of one.
+"""
+type OrganizationPush implements OrganizationChangeset
+  @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
+  @join__type(graph: CHANGESETREADER, key: "id")
+{
+  id: ID!
+  name: String!
+  user: User!
+  createdAt: DateTime!
+  lastUpdatedAt: DateTime!
+  ancestors: [OrganizationChangeset!]!
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+
+  """
+  Nothing says whether more pushes will follow; a plain `git push` never announces an end.
+  """
+  lastPushedAt: DateTime!
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
+
+  """
+  Bulk pull request actions (approve, merge, close) initiated against pull
+  requests that belong to this changeset.
+  
+  Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
+  last so polling clients still see in-flight actions.
+  """
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
+
+  """Commit operations initiated from this changeset."""
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
+
+  """
+  Bulk pull request actions (approve, merge, close) launched from this changeset.
+  """
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
+}
+
 interface OrganizationRecipeRun implements OrganizationChangeset
   @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
   @join__type(graph: CHANGELOGREADER, key: "id", isInterfaceObject: true)
@@ -3831,6 +3925,7 @@ interface OrganizationRecipeRun implements OrganizationChangeset
   Bulk pull request actions (approve, merge, close) launched from this recipe run.
   """
   bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGESETCOMMITTER)
+  name: String! @join__field(graph: CHANGESETREADER)
   recipe: RecipeDescriptor @join__field(graph: CHANGESETREADER)
   user: User! @join__field(graph: CHANGESETREADER)
   options: [RecipeOptionValue!]! @join__field(graph: CHANGESETREADER)
@@ -3844,7 +3939,7 @@ interface OrganizationRecipeRun implements OrganizationChangeset
   """
   lastUpdatedAt: DateTime! @join__field(graph: CHANGESETREADER)
   priority: RecipeRunPriority! @join__field(graph: CHANGESETREADER)
-  parent: OrganizationChangeset @join__field(graph: CHANGESETREADER)
+  ancestors: [OrganizationChangeset!]! @join__field(graph: CHANGESETREADER)
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
@@ -3864,6 +3959,7 @@ type OrganizationRecipeRunCanceled implements OrganizationChangeset & Organizati
   @join__type(graph: CHANGESETREADER, key: "id")
 {
   id: ID!
+  name: String!
   recipe: RecipeDescriptor
   user: User!
   options: [RecipeOptionValue!]!
@@ -3877,7 +3973,7 @@ type OrganizationRecipeRunCanceled implements OrganizationChangeset & Organizati
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  parent: OrganizationChangeset
+  ancestors: [OrganizationChangeset!]!
   startedAt: DateTime
   finishedAt: DateTime!
 
@@ -3934,6 +4030,7 @@ type OrganizationRecipeRunError implements OrganizationChangeset & OrganizationR
   @join__type(graph: CHANGESETREADER, key: "id")
 {
   id: ID!
+  name: String!
   recipe: RecipeDescriptor
   user: User!
   options: [RecipeOptionValue!]!
@@ -3947,7 +4044,7 @@ type OrganizationRecipeRunError implements OrganizationChangeset & OrganizationR
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  parent: OrganizationChangeset
+  ancestors: [OrganizationChangeset!]!
   startedAt: DateTime
   finishedAt: DateTime!
   errorMessage: String
@@ -3987,6 +4084,7 @@ type OrganizationRecipeRunFinished implements OrganizationChangeset & Organizati
   @join__type(graph: CHANGESETREADER, key: "id")
 {
   id: ID!
+  name: String!
   recipe: RecipeDescriptor
   user: User!
   options: [RecipeOptionValue!]!
@@ -4000,7 +4098,7 @@ type OrganizationRecipeRunFinished implements OrganizationChangeset & Organizati
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  parent: OrganizationChangeset
+  ancestors: [OrganizationChangeset!]!
   startedAt: DateTime!
   finishedAt: DateTime!
   duration: Duration
@@ -4059,6 +4157,7 @@ type OrganizationRecipeRunQueued implements OrganizationChangeset & Organization
   @join__type(graph: RECIPEWORKER, key: "id")
 {
   id: ID!
+  name: String! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
   recipe: RecipeDescriptor @join__field(graph: CHANGESETREADER)
   user: User! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
   options: [RecipeOptionValue!]! @join__field(graph: CHANGESETREADER)
@@ -4072,7 +4171,7 @@ type OrganizationRecipeRunQueued implements OrganizationChangeset & Organization
   """
   lastUpdatedAt: DateTime! @join__field(graph: CHANGESETREADER)
   priority: RecipeRunPriority! @join__field(graph: CHANGESETREADER)
-  parent: OrganizationChangeset @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
+  ancestors: [OrganizationChangeset!]! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
   queuedAt: DateTime! @join__field(graph: CHANGESETREADER)
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
@@ -4110,6 +4209,7 @@ type OrganizationRecipeRunRunning implements OrganizationChangeset & Organizatio
   @join__type(graph: CHANGESETREADER, key: "id")
 {
   id: ID!
+  name: String!
   recipe: RecipeDescriptor
   user: User!
   options: [RecipeOptionValue!]!
@@ -4123,7 +4223,7 @@ type OrganizationRecipeRunRunning implements OrganizationChangeset & Organizatio
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  parent: OrganizationChangeset
+  ancestors: [OrganizationChangeset!]!
   startedAt: DateTime!
   totals: RecipeRunTotals
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
@@ -4186,6 +4286,7 @@ type OrganizationRecipeRunSyncing implements OrganizationChangeset & Organizatio
   @join__type(graph: CHANGESETREADER, key: "id")
 {
   id: ID!
+  name: String!
   recipe: RecipeDescriptor
   user: User!
   options: [RecipeOptionValue!]!
@@ -4199,7 +4300,7 @@ type OrganizationRecipeRunSyncing implements OrganizationChangeset & Organizatio
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  parent: OrganizationChangeset
+  ancestors: [OrganizationChangeset!]!
   startedAt: DateTime!
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
@@ -4788,6 +4889,19 @@ type PullRequestStatus
   terminal before this shipped -- those are never re-queried.
   """
   resolvedAt: DateTime
+}
+
+"""
+A push's file change: the difference between two trees, with no recipe attribution.
+"""
+type PushFileChange implements FileChange
+  @join__implements(graph: CHANGESETREADER, interface: "FileChange")
+  @join__type(graph: CHANGESETREADER)
+{
+  path: Path!
+  beforeSourcePath: Path
+  afterSourcePath: Path
+  diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch @cost(weight: 100)
 }
 
 type PypiConfiguration
@@ -5671,15 +5785,6 @@ type RepositoryAuthorization
   access: RepoAccess!
 }
 
-type RepositoryBatchChange implements RepositoryChangeset
-  @join__implements(graph: CHANGESETREADER, interface: "RepositoryChangeset")
-  @join__type(graph: CHANGESETREADER)
-{
-  repository: Repository!
-  authorization: RepositoryAuthorization!
-  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
-}
-
 interface RepositoryChangeset
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
@@ -6116,6 +6221,41 @@ input RepositoryOrderByInput
   direction: SortOrder! = ASC
 }
 
+"""
+One repository's push, recorded as the whole difference from the base commit to the pushed
+tip however many commits it carried. Its `.moderne/run/<runId>` directory is named by `id`.
+"""
+type RepositoryPush implements RepositoryChangeset
+  @join__implements(graph: CHANGESETREADER, interface: "RepositoryChangeset")
+  @join__type(graph: CHANGESETREADER)
+{
+  id: ID!
+  repository: Repository!
+  authorization: RepositoryAuthorization!
+  results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+
+  """
+  The session that pushed it: an AgentSession, ExecRun or OrganizationPush.
+  """
+  session: OrganizationChangeset!
+  pushedBy: User!
+  pushedAt: DateTime!
+
+  """The `moderne-message` push option."""
+  message: String
+
+  """
+  Provenance only; the objects are not retained. A later push must descend from it or name
+  this change as its parent.
+  """
+  tipCommit: String!
+
+  """
+  This repository's earlier changes, newest first, down to the recipe run result.
+  """
+  ancestors: [RepositoryChangeset!]!
+}
+
 interface RepositoryRecipeRun implements RepositoryChangeset
   @join__implements(graph: CHANGESETREADER, interface: "RepositoryChangeset")
   @join__type(graph: CHANGESETREADER)
@@ -6511,12 +6651,90 @@ type TextMessage implements Message
   lastUpdatedAt: DateTime!
 }
 
-type ToolInfo
+type TranscriptConnection
   @join__type(graph: CHANGESETREADER)
 {
+  edges: [TranscriptSpanEdge!]!
+  pageInfo: PageInfo!
+  count: Int!
+}
+
+"""
+The whole transcript as one OTLP JSON trace, rendered on download rather than stored, since the
+spans already are.
+"""
+type TranscriptExport
+  @join__type(graph: CHANGESETREADER)
+{
+  bytes: Int!
+
+  """URL path to download the trace (relative to the service base URL)."""
+  url: String!
+
+  """When the spans it renders arrived."""
+  uploadedAt: DateTime!
+}
+
+"""
+One span of a transcript. Spans are flat; a reader rebuilds the tree from `parentId`.
+"""
+type TranscriptSpan
+  @join__type(graph: CHANGESETREADER)
+{
+  id: ID!
+  parentId: ID
+  kind: TranscriptSpanKind!
+
+  """The model, the tool, or the agent, by kind."""
   name: String!
-  version: String
-  arguments: String
+  startedAt: DateTime!
+  endedAt: DateTime
+  error: String
+  inputTokens: Int
+  outputTokens: Int
+
+  """The repository a tool call worked in, when the CLI could tell."""
+  repository: Repository
+}
+
+type TranscriptSpanEdge
+  @join__type(graph: CHANGESETREADER)
+{
+  node: TranscriptSpan!
+  cursor: String!
+}
+
+enum TranscriptSpanKind
+  @join__type(graph: CHANGESETREADER)
+{
+  AGENT_INVOCATION @join__enumValue(graph: CHANGESETREADER)
+  MODEL_CALL @join__enumValue(graph: CHANGESETREADER)
+  TOOL_CALL @join__enumValue(graph: CHANGESETREADER)
+}
+
+input TranscriptSpanKindFilter
+  @join__type(graph: CHANGESETREADER)
+{
+  _eq: TranscriptSpanKind
+  _neq: TranscriptSpanKind
+  _in: [TranscriptSpanKind!]
+  _nin: [TranscriptSpanKind!]
+}
+
+input TranscriptWhereInput
+  @join__type(graph: CHANGESETREADER)
+{
+  kind: TranscriptSpanKindFilter
+
+  """One subtree."""
+  parentId: IDFilter
+  errorsOnly: Boolean
+  origin: StringFilter
+  path: StringFilter
+  branch: StringFilter
+  _and: [TranscriptWhereInput!]
+  _or: [TranscriptWhereInput!]
+  _not: TranscriptWhereInput
 }
 
 type UiConfiguration
