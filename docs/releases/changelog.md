@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.22.0 (2026/09/28)
+
+- let the browser download signed URLs itself
+
 ### UI v14.21.0 (2026/09/28)
 
 - Bug fixes and other improvements.
