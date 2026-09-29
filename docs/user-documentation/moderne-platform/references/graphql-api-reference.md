@@ -1388,7 +1388,7 @@ A data table download has completed successfully.
 | `startedAt` | [DateTime](#datetime)! |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `duration` | [Duration](#duration) |  |
-| `downloadUrl` | String! | URL path to download the file (relative to the service base URL). |
+| `downloadUrl` | String! | URL path to download the file (relative to the service base URL). It is signed, so it also downloads without an Authorization header for 15 minutes after it is read. Append `saveAs=&lt;name&gt;` to set the saved file name. |
 
 ##### `DataTableProcessing`
 

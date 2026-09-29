@@ -1631,7 +1631,11 @@ type DataTableFinished implements DataTable
   finishedAt: DateTime!
   duration: Duration
 
-  """URL path to download the file (relative to the service base URL)."""
+  """
+  URL path to download the file (relative to the service base URL). It is signed, so it also
+  downloads without an Authorization header for 15 minutes after it is read. Append
+  `saveAs=<name>` to set the saved file name.
+  """
   downloadUrl: String!
 }
 
