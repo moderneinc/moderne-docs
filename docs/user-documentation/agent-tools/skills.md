@@ -14,10 +14,10 @@ Two skills are supported, and this page covers both:
 * **create-recipe** carries recipe-authoring knowledge and drives the `mod` CLI directly.
 * **prethink** points the agent at [Prethink context](./prethink.md) files already generated for the repository.
 
-Neither one needs an MCP server. The CLI installs eight more skills that route the agent to a [local MCP server](./mcp/overview.md) tool, and those are experimental.
+Neither one needs an MCP server. The CLI installs eight more skills that route the agent to a [local MCP server](./mcp/overview.md) tool. Those are experimental and documented with that server, in [tool-routing skills](./mcp/tool-routing-skills.md).
 
 :::warning[Experimental]
-The [tool-routing skills](#tool-routing-skills) and the [local MCP server](./mcp/overview.md) they call are experimental, and we don't recommend configuring them. Agents don't reach for those tools consistently, because every agent overlaps with them in its own built-in search and editing tools, and changes how it picks tools from release to release.
+The [tool-routing skills](./mcp/tool-routing-skills.md) and the [local MCP server](./mcp/overview.md) they call are experimental, and we don't recommend configuring them. Agents don't reach for those tools consistently, because every agent overlaps with them in its own built-in search and editing tools, and changes how it picks tools from release to release.
 :::
 
 :::note
@@ -108,7 +108,7 @@ mod config agent-tools skills uninstall
 ```
 
 :::note
-This installs every skill, including the experimental [tool-routing skills](#tool-routing-skills), which do nothing without the MCP server they call. `create-recipe` works on its own, and `prethink` works as long as you have generated [Prethink context](./prethink.md).
+This installs every skill, including the experimental [tool-routing skills](./mcp/tool-routing-skills.md), which do nothing without the MCP server they call. `create-recipe` works on its own, and `prethink` works as long as you have generated [Prethink context](./prethink.md).
 :::
 
 ## Invoking skills
@@ -156,23 +156,6 @@ This skill helps you with:
 Use this skill when you want the agent to start from what Moderne already knows about the repository: its architecture, the dependencies actually in use, code-quality and complexity scores, and a ranked list of high-risk untested methods.
 
 The skill itself only tells the agent to read `.moderne/context/`, so it does nothing until that context exists. Generate it by running the `UpdatePrethinkContextStarter` recipe, as described in [Moderne Prethink](./prethink.md).
-
-### Tool-routing skills
-
-:::warning[Experimental]
-These skills are experimental and we don't recommend configuring them. Each one tells the agent when to reach for a [local MCP server](./mcp/overview.md) tool, so each needs that server registered, and the server is experimental too. They also work on one repository at a time. To run a recipe across many repositories, use [agent chat](./agent-chat.md) or `mod run` from the CLI.
-:::
-
-| Skill               | What it covers                                                                              | MCP tool                                    |
-|---------------------|----------------------------------------------------------------------------------------------|---------------------------------------------|
-| **edit-code**       | Applying a recipe across many files in the current repository (migrate, upgrade, rename, replace, find-and-fix) | `edit_code`                |
-| **analyze-code**    | Read-only impact analysis across the current repository — usages, callers, references, annotations | `analyze_code`                         |
-| **search-code**     | Structural and symbol-aware search, including Comby patterns and trigram queries              | `trigrep_search`, `trigrep_structural_search`, `grep` |
-| **find-symbols**    | Type-aware lookups that resolve through the LST type system                                   | `find_types`, `find_methods`, `find_annotations`, `find_implementations`, `symbols_overview` |
-| **change-symbols**  | Renaming a method or moving a type atomically, including callers and imports                  | `change_method_name`, `change_type`         |
-| **pattern-replace** | One-shot structural rewrites when no marketplace recipe matches                               | `pattern_replace`                           |
-| **inspect-status**  | Confirming the LST, trigram index, or build tool is ready                                     | `lst_status`, `build_status`, `build_info`  |
-| **query-datatable** | SQL against data tables produced by a recipe run                                              | `query_datatable`                           |
 
 ## Keeping skills up to date
 
