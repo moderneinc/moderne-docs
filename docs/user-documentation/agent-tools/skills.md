@@ -17,7 +17,7 @@ Two skills are supported, and this page covers both:
 Neither one needs an MCP server. The CLI installs eight more skills that route the agent to a [local MCP server](./mcp/overview.md) tool. Those are experimental and documented with that server, in [tool-routing skills](./mcp/tool-routing-skills.md).
 
 :::warning[Experimental]
-The [tool-routing skills](./mcp/tool-routing-skills.md) and the [local MCP server](./mcp/overview.md) they call are experimental, and we don't recommend configuring them. Agents don't reach for those tools consistently, because every agent overlaps with them in its own built-in search and editing tools, and changes how it picks tools from release to release.
+The [tool-routing skills](./mcp/tool-routing-skills.md) and the [local MCP server](./mcp/overview.md) they call are experimental, so treat them as something to try rather than to standardize on. Agents don't reach for those tools consistently, because every agent overlaps with them in its own built-in search and editing tools, and changes how it picks tools from release to release.
 :::
 
 :::note
