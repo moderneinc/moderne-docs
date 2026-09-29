@@ -1,6 +1,6 @@
 ---
 sidebar_label: Skills for AI coding agents
-description: How to use Moderne skills with AI coding agents for recipe development, code search, and large-scale refactoring.
+description: How to install and use the Moderne skills that teach AI coding agents to write recipes and read Prethink context.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
@@ -9,16 +9,20 @@ import ReactPlayer from '@site/src/components/VideoPlayer';
 
 The Moderne CLI can install agent tools (skills and MCP servers) that teach AI coding agents how to work with OpenRewrite recipes. With a single command, you can install these tools for all detected agents.
 
-Skills differ in what they need to do their job:
+Two skills are supported, and this page covers both:
 
-* Most explain how and when to reach for a [Moderne MCP server](./mcp/overview.md) tool, so they need that server registered.
-* A couple call no MCP tool at all: one carries recipe-authoring knowledge and drives the `mod` CLI directly, and one points the agent at context files already generated for the repository.
+* **create-recipe** carries recipe-authoring knowledge and drives the `mod` CLI directly.
+* **prethink** points the agent at [Prethink context](./prethink.md) files already generated for the repository.
+
+Neither one needs an MCP server. The CLI installs eight more skills that route the agent to a [local MCP server](./mcp/overview.md) tool, and those are experimental.
+
+:::warning[Experimental]
+The [tool-routing skills](#tool-routing-skills) and the [local MCP server](./mcp/overview.md) they call are experimental, and we don't recommend configuring them. Agents don't reach for those tools consistently, because every agent overlaps with them in its own built-in search and editing tools, and changes how it picks tools from release to release.
+:::
 
 :::note
 Skills operate on one repository. To work across a whole organization, use [agent chat](./agent-chat.md) locally or the [remote MCP server](./mcp/remote-server.md) on the Moderne Platform.
 :::
-
-<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
 
 ## Why use Moderne skills
 
@@ -27,7 +31,6 @@ Building OpenRewrite recipes requires understanding [visitor patterns](https://d
 Moderne skills teach agents about:
 
 * **Recipe creation** - choosing the right type of recipe ([Declarative](https://docs.openrewrite.org/concepts-and-explanations/recipes#declarative-recipes), [Refaster](https://docs.openrewrite.org/concepts-and-explanations/recipes#refaster-template-recipes), or [Imperative](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes)) and following [OpenRewrite conventions](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices)
-* **Tool routing** - reaching for a recipe or a type-aware search instead of text search when a change spans many files
 * **Codebase context** - pre-resolved architecture, dependency, and risk information about a repository before the agent starts editing
 
 The skills are bundled with the CLI and stay current when you update.
@@ -59,6 +62,10 @@ The following command scans for installed coding agents and installs agent tools
 ```bash
 mod config agent-tools install
 ```
+
+:::note
+This also registers the experimental [local MCP server](./mcp/overview.md). To install the skills without it, use [skills-only installation](#skills-only-installation).
+:::
 
 To remove all installed agent tools:
 
@@ -101,7 +108,7 @@ mod config agent-tools skills uninstall
 ```
 
 :::note
-This installs every skill, including the ones that call the Moderne MCP server and do nothing without it. It is most useful for refreshing skills when the MCP server is already registered. If you have not set up the MCP server, `create-recipe` still works, and `prethink` works as long as you have generated [Prethink context](./prethink.md) some other way.
+This installs every skill, including the experimental [tool-routing skills](#tool-routing-skills), which do nothing without the MCP server they call. `create-recipe` works on its own, and `prethink` works as long as you have generated [Prethink context](./prethink.md).
 :::
 
 ## Invoking skills
@@ -113,7 +120,7 @@ Write a recipe that replaces all calls to Logger.info() with Logger.debug()
 ```
 
 ```
-Rename getItems() to items() on com.example.ShoppingCart everywhere it is used
+What does this repository look like, and where is it riskiest to change?
 ```
 
 In Claude Code you can also invoke a skill explicitly with the `/moderne:` prefix, which is useful when you want to force a particular workflow:
@@ -125,38 +132,6 @@ Create a recipe that migrates deprecated API calls.
 ```
 
 ## Available skills
-
-### Skills that call no MCP tool
-
-Neither of these reaches for a Moderne MCP server tool, so both work without that server registered.
-
-| Skill             | What it covers                                                                                             |
-|-------------------|------------------------------------------------------------------------------------------------------------|
-| **create-recipe** | Writing, fixing, and debugging recipes — declarative YAML, Refaster templates, Java visitors, scanning recipes, and `RewriteTest` coverage |
-| **prethink**      | Reading pre-resolved codebase context — architecture, dependencies, and risk-ranked untested methods         |
-
-:::note
-`create-recipe` is self-contained. `prethink` is not: it tells the agent to read `.moderne/context/`, which only exists once you have generated [Prethink context](./prethink.md) by running the `UpdatePrethinkContextStarter` recipe. If you run the [MCP server](./mcp/overview.md), `mod mcp` refreshes that context in the background as you work.
-:::
-
-### Skills that use the MCP server
-
-Each of these explains when and how to reach for one of the [Moderne MCP server tools](./mcp/overview.md#available-tools), and requires the [MCP server](./mcp/overview.md) to be registered.
-
-:::note
-These skills operate on the repository the agent is currently working in — they are single-repo. To run a recipe across a working set of many repositories, use `mod run` from the CLI.
-:::
-
-| Skill               | What it covers                                                                              | MCP tool                                    |
-|---------------------|----------------------------------------------------------------------------------------------|---------------------------------------------|
-| **edit-code**       | Applying a recipe across many files in the current repository (migrate, upgrade, rename, replace, find-and-fix) | `edit_code`                |
-| **analyze-code**    | Read-only impact analysis across the current repository — usages, callers, references, annotations | `analyze_code`                         |
-| **search-code**     | Structural and symbol-aware search, including Comby patterns and trigram queries              | `trigrep_search`, `trigrep_structural_search`, `grep` |
-| **find-symbols**    | Type-aware lookups that resolve through the LST type system                                   | `find_types`, `find_methods`, `find_annotations`, `find_implementations`, `symbols_overview` |
-| **change-symbols**  | Renaming a method or moving a type atomically, including callers and imports                  | `change_method_name`, `change_type`         |
-| **pattern-replace** | One-shot structural rewrites when no marketplace recipe matches                               | `pattern_replace`                           |
-| **inspect-status**  | Confirming the LST, trigram index, or build tool is ready                                     | `lst_status`, `build_status`, `build_info`  |
-| **query-datatable** | SQL against data tables produced by a recipe run                                              | `query_datatable`                           |
 
 ### create-recipe
 
@@ -176,6 +151,29 @@ This skill helps you with:
 * **Data tables** - Emitting structured data for analysis
 * **Validating against real code** - Publishing the recipe, installing it, and running it across a working set with the CLI
 
+### prethink
+
+Use this skill when you want the agent to start from what Moderne already knows about the repository: its architecture, the dependencies actually in use, code-quality and complexity scores, and a ranked list of high-risk untested methods.
+
+The skill itself only tells the agent to read `.moderne/context/`, so it does nothing until that context exists. Generate it by running the `UpdatePrethinkContextStarter` recipe, as described in [Moderne Prethink](./prethink.md).
+
+### Tool-routing skills
+
+:::warning[Experimental]
+These skills are experimental and we don't recommend configuring them. Each one tells the agent when to reach for a [local MCP server](./mcp/overview.md) tool, so each needs that server registered, and the server is experimental too. They also work on one repository at a time. To run a recipe across many repositories, use [agent chat](./agent-chat.md) or `mod run` from the CLI.
+:::
+
+| Skill               | What it covers                                                                              | MCP tool                                    |
+|---------------------|----------------------------------------------------------------------------------------------|---------------------------------------------|
+| **edit-code**       | Applying a recipe across many files in the current repository (migrate, upgrade, rename, replace, find-and-fix) | `edit_code`                |
+| **analyze-code**    | Read-only impact analysis across the current repository — usages, callers, references, annotations | `analyze_code`                         |
+| **search-code**     | Structural and symbol-aware search, including Comby patterns and trigram queries              | `trigrep_search`, `trigrep_structural_search`, `grep` |
+| **find-symbols**    | Type-aware lookups that resolve through the LST type system                                   | `find_types`, `find_methods`, `find_annotations`, `find_implementations`, `symbols_overview` |
+| **change-symbols**  | Renaming a method or moving a type atomically, including callers and imports                  | `change_method_name`, `change_type`         |
+| **pattern-replace** | One-shot structural rewrites when no marketplace recipe matches                               | `pattern_replace`                           |
+| **inspect-status**  | Confirming the LST, trigram index, or build tool is ready                                     | `lst_status`, `build_status`, `build_info`  |
+| **query-datatable** | SQL against data tables produced by a recipe run                                              | `query_datatable`                           |
+
 ## Keeping skills up to date
 
 The skills are bundled with the CLI. When you upgrade the CLI, run the install command again to sync:
@@ -189,5 +187,5 @@ This ensures the agent tools stay current as CLI capabilities evolve.
 ## Next steps
 
 {/* Hidden until ready to share publicly: * [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to install skills and exercise them end-to-end */}
-* [Set up the Moderne MCP server](./mcp/overview.md) to give agents tools for semantic code search, navigation, and refactoring
+* [Start an agent on a whole organization](./agent-chat.md) with `mod <agent> chat`
 * [Learn about Moderne Prethink](./prethink.md) for giving agents pre-resolved codebase context
