@@ -441,7 +441,7 @@ const agentTools = {
         'user-documentation/agent-tools/mcp/remote-server',
         {
           type: 'category' as const,
-          label: 'Local server (CLI, experimental)',
+          label: 'Local server (CLI) [Experimental]',
           link: {
             type: 'doc' as const,
             id: 'user-documentation/agent-tools/mcp/overview',
