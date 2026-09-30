@@ -10,6 +10,256 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## September 30, 2026
+
+#### recipes-go - 0.11.2
+
+* Fix handling the malformed indirect comments in go.mod next to proper ones
+
+## September 29, 2026
+
+#### rewrite-java-security - 3.42.2
+
+* Add preconditions and cheaper scans to broad security recipes
+* Adapt to new GoResolutionResult() constructor arg
+* Limit FindSecretsVisitor to String literals
+* Avoid re-running path traversal fixes for every nested block
+* Gate SecureSnakeYamlConstructor on SnakeYAML constructors
+* InsecureSpringServiceExporter null-safety for XML root
+* Add FindPubliclyWritableTempDirectory (Sonar S5443)
+
+#### rewrite-program-analysis - 0.18.0
+
+* Stop exponential re-walks in taint analysis
+* Key taint facts by variable identity and seed units with only the fields they read
+
+## September 28, 2026
+
+#### recipes-go - 0.11.1
+
+* Stop over-adding indirect requires below Go 1.17
+
+#### recipes-go - 0.11.0
+
+* rewrite-go/v0.0.38 + add FindPartiallyResolvedGoMod search recipe
+
+## September 27, 2026
+
+#### rewrite-devcenter - 1.33.1
+
+* Count go.mod and go.sum lines in-process
+
+#### rewrite-java-security - 3.42.1
+
+* Drop Sonatype snapshots settings.xml from CLI smoke test
+* Limit CsrfProtection to Java compilation units
+
+## September 25, 2026
+
+#### recipes-go - 0.10.2
+
+* Remove Develocity configuration for retired ge.openrewrite.org
+* RemoveUnusedGoModRequires keeps build-constraint-gated direct requires
+* RemoveUnusedGoModRequires keeps every resolved build-list module.
+
+#### recipes-go - 0.10.1
+
+* AddMissingGoDirective recipe as part of GoModTidy
+* Fix GoModTidy over-adding pruned indirect requires
+* RemoveUnusedGoModRequires now drops self-references
+* Scope go.mod indirect-marker import scan per module
+* AddMissingGoModRequires to maintain a separate indirect block of requ…
+
+## September 23, 2026
+
+#### recipes-csharp - 0.8.0
+
+* Report the full transitive dependency graph in ListDependencies
+
+#### recipes-go - 0.10.0
+
+* Migrate unmaintained and end-of-life Go libraries
+
+#### recipes-javascript - 0.2.0
+
+* retire  workflow
+
+#### recipes-kotlin - 0.5.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### recipes-scala - 0.6.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-ai - 0.5.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-ai-search - 0.36.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-android - 0.19.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-angular - 1.13.0
+
+* Drop the empty array slot when adding the APP_ID provider
+* Tag hand-built variable initializers with their JLeftPadded kind
+* Build a well-formed providers array when replacing HttpClientModule
+
+#### rewrite-circleci - 3.13.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-compiled-analysis - 0.16.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-concourse - 3.12.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-cryptography - 0.16.2
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-devcenter - 1.33.0
+
+* Fix the Go version upgrade test against the new GoResolutionResult constructor
+* Refresh Apache Maven parent POM versions
+* Refresh Apache Maven parent POM versions
+
+#### rewrite-dotnet - 0.18.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-dropwizard - 0.8.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-elastic - 0.9.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-hibernate - 0.29.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-jasperreports - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-java-application-server - 0.10.2
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-java-security - 3.42.0
+
+* Reintroduce "C#: rebuild DependencyVulnerabilityCheck on the MSBuildProject attestation marker"
+* Add OWASP A10:2025 Mishandling of Exceptional Conditions coverage
+* Advertise additional RSPEC tags on six existing security recipes
+* Add FindInvalidJdbcIndex (Sonar S2695)
+* Add FindDoubleCheckedLocking (Sonar S2168)
+* Export Code Genome Project credentials to advisories workflow
+* Fix Golang's DVC test against the new GoResolutionResult constructor
+* Extend FindGenericSecrets and advertise RSPEC-S6418 on FindSecrets
+* Add FindAnonymousLdapBind (Sonar S4433)
+* Add OwaspA07 (2021) composite
+* Add FindWeakTlsProtocol (Sonar S4423)
+* Wire FindWeakTlsProtocol into OwaspA02 and OwaspA07
+* Fix CVE reference in tests
+
+#### rewrite-kafka - 0.8.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-kubernetes - 3.19.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-mainframe - 3.2.0
+
+* Keep DB2 and COBOL lexer errors off the console
+
+#### rewrite-migrate-kotlin - 0.9.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-migrate-python - 0.15.0
+
+* Fix Annotated metadata test for import removal
+* Raise the openrewrite floor to 8.92.2 and drop the quoted-body rename
+* Restore the quoted-annotation rename openrewrite 8.92.3 makes reachable
+* Gate the Pydantic recipes behind import preconditions
+
+#### rewrite-nodejs - 0.51.0
+
+* Add migrations for seven Node.js libraries
+
+#### rewrite-nullability - 0.7.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-prethink - 0.15.0
+
+* Report the verbs, paths and models Python sources actually declare
+* Read error handling patterns from the LST instead of printed source
+
+#### rewrite-program-analysis - 0.17.0
+
+* Advertise CWE-90 and RSPEC-S2078 tags on FindLdapInjection
+
+#### rewrite-react - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-reactive-streams - 0.21.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-release-metromap - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-spring - 0.43.0
+
+* Add FindSpringApplicationInDefaultPackage recipe (RSPEC-S4602)
+* Add Spring Cloud Azure upgrade recipes for Boot 3.5 and Boot 4.0
+* Add FindSessionAttributesWithoutSetComplete (Sonar S3753)
+* Pass Code Genome credentials to property migration workflows
+* [Auto] Spring Boot property migration recipes as of 2026-09-21T0755
+* Order licenseFormatMain after recipeCsvGenerate
+* Fix MigrateServiceBusJmsCustomizerParameterTest after import ordering change
+
+#### rewrite-sql - 2.19.0
+
+* Depend on upstream jsqlparser again
+
+#### rewrite-struts - 0.30.0
+
+* Call moderneinc/gh-automation for repository backups
+
+#### rewrite-tapestry - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-terraform - 3.15.1
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+#### rewrite-vulncheck - 0.9.2
+
+* Updated repository to use OpenRewrite version v8.92.8
+
+## September 22, 2026
+
+#### recipes-go - 0.9.0
+
+* rewrite-go/v0.0.37 and GoModTidy acting only on resolution=Resolved
+
 ## September 14, 2026
 
 #### recipes-go - 0.8.0
@@ -5209,114 +5459,4 @@ Republishing to update dependencies
 * Update recipe documentation examples
 * Add new documentation examples
 * Avoid stackoverflow exception
-
-## September 30, 2025
-
-#### rewrite-cryptography - v0.8.3
-
-- Fill in missing sinks for hardcoded algorithms and providers
-- Include BCJSSE and BCFIPS in the list of hardcoded providers in 56736bd
-- Also track hardcoded algorithm parameters flowing into cipher configuration @sambsnyd in 8398e13
-- Add more more objects as possible sinks for hardcoded algorithm parameters  @sambsnyd in 2a9c97f
-
-#### rewrite-program-analysis - v0.5.4
-
-- Fix TaintFlow data table rows listing incorrect source file.
-
-## September 24, 2025
-
-#### rewrite-ai-search - 0.30.3
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-android - 0.12.2
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-circleci - 3.7.5
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-compiled-analysis - 0.8.3
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-concourse - 3.7.3
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-cryptography - 0.9.0
-
-* Add README.md
-
-#### rewrite-devcenter - 1.9.0
-
-* Track upgrades to Java 25
-
-#### rewrite-dotnet - 0.13.3
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-elastic - 0.2.0
-
-* Created ChangeApiNumericFieldType recipe
-* Added some other types that have changed
-
-#### rewrite-hibernate - 0.12.0
-
-* Rename a file
-* Update type tables via `./gradlew createTypeTable`
-
-#### rewrite-java-security - 3.19.0
-
-* Rename a file
-* Update type tables via `./gradlew createTypeTable`
-* Only generate Spring `SecurityConfig` when `spring-security-config` is present
-* Fix RemoveUnusedDependencies to retain method declaring types
-
-#### rewrite-kafka - 0.2.0
-
-* Migrate Kafka to 4.0
-* Migrate to `KafkaProducer:sendOffsetsToTransaction(Map, ConsumerGroupMetadata)` since deprecated `KafkaProducer:sendOffsetsToTransaction(Map, String)` is now removed
-* Remove `checksum` from `RecordMetadata` constructor
-* Migrate `consumer.poll(long)` to `consumer.poll(Duration)`
-* Add MigrateConsumerCommittedToSet recipe for Kafka 4.0 migration
-* Remove deprecated props
-* Add declarative recipe for migrating ConsumerGroupState to GroupState in Kafka 4.0
-* Migrate AdminClient.alterConfigs() to incrementalAlterConfigs() for Kafka 4.0
-* Migrate to kafka 4.1
-* Added recipes for deprecations in Kafka 4.1
-
-#### rewrite-kubernetes - 3.10.2
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-nodejs - 0.29.2
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-program-analysis - 0.5.3
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-reactive-streams - 0.16.2
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-spring - 0.13.1
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-sql - 2.6.5
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-struts - 0.21.0
-
-* Rename a file
-* Update type tables via `./gradlew createTypeTable`
-
-#### rewrite-terraform - 3.8.2
-
-* Updated repository to use OpenRewrite version v8.62.4
 
