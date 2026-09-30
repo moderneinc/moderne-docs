@@ -7,7 +7,7 @@ description: How to install and use the Moderne skills that teach AI coding agen
 
 The Moderne CLI can install agent tools (skills and MCP servers) that teach AI coding agents how to work with OpenRewrite recipes. With a single command, you can install these tools for all detected agents.
 
-Two skills work without an MCP server, and this page covers both:
+Two skills work without an MCP server:
 
 * **create-recipe** carries recipe-authoring knowledge and drives the `mod` CLI directly.
 * **prethink** points the agent at [Prethink context](./prethink.md) files already generated for the repository.
