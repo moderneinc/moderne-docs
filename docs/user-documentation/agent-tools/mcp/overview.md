@@ -17,7 +17,7 @@ The local MCP server is **experimental**. While the tools work, agents don't cal
 * Several Moderne tools overlap with the search and file reading an agent already has - so it may skip a Moderne one even when that one would do better. 
 * Agents like Claude Code, Cursor, and Copilot ship frequent updates that change how they select tools - so a Moderne tool that gets picked reliably in one release may be ignored after the next.
 
-Because of this, the local MCP server is best treated as something to experiment with rather than to standardize on. To put an agent to work across an entire code estate, [agent chat](../agent-chat.md) is the better fit today: it gives the agent the whole Moderne CLI on a synced organization. Moderne Platform customers can also use the [remote MCP server](./remote-server.md) to work across the repositories already ingested into their tenant.
+Because of this, the local MCP server is best treated as something to experiment with rather than to standardize on. To put an agent to work across an entire code estate, [agent chat](../agent-chat.md) is the better fit today - it gives the agent the whole Moderne CLI on a synced organization. Moderne Platform customers can also use the [remote MCP server](./remote-server.md) to work across the repositories already ingested into their tenant.
 :::
 
 ## Why use the Moderne MCP server
