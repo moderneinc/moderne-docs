@@ -3,21 +3,19 @@ sidebar_label: Skills for AI coding agents
 description: How to install and use the Moderne skills that teach AI coding agents to write recipes and read Prethink context.
 ---
 
-import ReactPlayer from '@site/src/components/VideoPlayer';
-
 # Using Moderne skills with AI coding agents
 
 The Moderne CLI can install agent tools (skills and MCP servers) that teach AI coding agents how to work with OpenRewrite recipes. With a single command, you can install these tools for all detected agents.
 
-Two skills are supported, and this page covers both:
+Two skills work without an MCP server, and this page covers both:
 
 * **create-recipe** carries recipe-authoring knowledge and drives the `mod` CLI directly.
 * **prethink** points the agent at [Prethink context](./prethink.md) files already generated for the repository.
 
-Neither one needs an MCP server. The CLI installs eight more skills that route the agent to a [local MCP server](./mcp/overview.md) tool. Those are experimental and documented with that server, in [tool-routing skills](./mcp/tool-routing-skills.md).
+The CLI installs eight more skills that route the agent to a [local MCP server](./mcp/overview.md) tool. Those are experimental and documented with that server, in [tool-routing skills](./mcp/tool-routing-skills.md).
 
 :::warning[Experimental]
-The [tool-routing skills](./mcp/tool-routing-skills.md) and the [local MCP server](./mcp/overview.md) they call are experimental, so treat them as something to try rather than to standardize on. Agents don't reach for those tools consistently, because every agent overlaps with them in its own built-in search and editing tools, and changes how it picks tools from release to release.
+The [tool-routing skills](./mcp/tool-routing-skills.md) and the [local MCP server](./mcp/overview.md) they call are experimental, so treat them as something to try rather than to standardize on. Agents don't reach for those tools consistently. This is because several of them overlap with the search and file reading an agent already has - and agents change how they select tools from release to release.
 :::
 
 :::note

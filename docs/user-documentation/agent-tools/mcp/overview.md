@@ -109,7 +109,7 @@ Skills and the MCP server are complementary:
 | **When they help**      | Creating recipes, building working sets, mapping context  | Searching, navigating, and refactoring code             |
 | **Requires LST build**  | No                                                        | Yes (for semantic tools)                                |
 
-For the best experience, install both. Skills teach agents the recipe development workflow, while the MCP server gives them the tools to execute that workflow effectively.
+Start with the skills. They work on their own and teach agents the recipe development workflow. Add the experimental MCP server on top when you want the agent to reach for Moderne's search and refactoring tools as well.
 
 ## Next steps
 
@@ -118,4 +118,5 @@ For the best experience, install both. Skills teach agents the recipe developmen
 * [Set up the tool browser](./tool-browser.md) to monitor builds and test tools
 * [Review the security architecture](./security.md) for compliance and IT review
 * [Install skills for AI coding agents](../skills.md)
+* [Review the tool-routing skills](./tool-routing-skills.md) that tell an agent when to call these tools
 * [Learn about Moderne Prethink](../prethink.md) for giving agents pre-resolved codebase context
