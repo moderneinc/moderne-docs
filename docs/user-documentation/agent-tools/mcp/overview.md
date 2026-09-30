@@ -16,6 +16,8 @@ The local MCP server is **experimental**. While the tools work, agents don't cal
 
 * Several Moderne tools overlap with the search and file reading an agent already has - so it may skip a Moderne one even when that one would do better. 
 * Agents like Claude Code, Cursor, and Copilot ship frequent updates that change how they select tools - so a Moderne tool that gets picked reliably in one release may be ignored after the next.
+
+Because of this, the local MCP server is best treated as something to experiment with rather than to standardize on. To put an agent to work across an entire code estate, [agent chat](../agent-chat.md) is the better fit today - it gives the agent the whole Moderne CLI on a synced organization. Moderne Platform customers can also use the [remote MCP server](./remote-server.md) to work across the repositories already ingested into their tenant.
 :::
 
 ## Why use the Moderne MCP server
@@ -107,7 +109,7 @@ Skills and the MCP server are complementary:
 | **When they help**      | Creating recipes, building working sets, mapping context  | Searching, navigating, and refactoring code             |
 | **Requires LST build**  | No                                                        | Yes (for semantic tools)                                |
 
-For the best experience, install both. Skills teach agents the recipe development workflow, while the MCP server gives them the tools to execute that workflow effectively.
+Start with the skills. They work on their own and teach agents the recipe development workflow. Add the experimental MCP server on top when you want the agent to reach for Moderne's search and refactoring tools as well.
 
 ## Next steps
 
@@ -116,4 +118,5 @@ For the best experience, install both. Skills teach agents the recipe developmen
 * [Set up the tool browser](./tool-browser.md) to monitor builds and test tools
 * [Review the security architecture](./security.md) for compliance and IT review
 * [Install skills for AI coding agents](../skills.md)
+* [Review the tool-routing skills](./tool-routing-skills.md) that tell an agent when to call these tools
 * [Learn about Moderne Prethink](../prethink.md) for giving agents pre-resolved codebase context

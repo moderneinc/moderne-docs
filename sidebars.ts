@@ -438,9 +438,10 @@ const agentTools = {
         keywords: ['mcp', 'model context protocol', 'security', 'architecture', 'remote', 'local'],
       },
       items: [
+        'user-documentation/agent-tools/mcp/remote-server',
         {
           type: 'category' as const,
-          label: 'Local server (CLI)',
+          label: 'Local server (CLI) [Experimental]',
           link: {
             type: 'doc' as const,
             id: 'user-documentation/agent-tools/mcp/overview',
@@ -448,10 +449,10 @@ const agentTools = {
           items: [
             'user-documentation/agent-tools/mcp/getting-started',
             'user-documentation/agent-tools/mcp/tool-browser',
+            'user-documentation/agent-tools/mcp/tool-routing-skills',
             'user-documentation/agent-tools/mcp/security',
           ],
         },
-        'user-documentation/agent-tools/mcp/remote-server',
       ],
     },
   ],

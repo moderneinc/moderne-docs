@@ -145,7 +145,7 @@ For Cursor, look at `.cursor/rules/moderne-create-recipe.mdc` in the current pro
 
 The file is plain markdown describing the recipe development workflow: when to choose declarative YAML vs Refaster vs imperative recipes, how to scaffold a project, how to write tests with `RewriteTest`, and how to handle imports correctly. This is what the agent reads before responding.
 
-The install put several more skills alongside this one. Most of them front a [Moderne MCP server tool](../../user-documentation/agent-tools/mcp/overview.md#available-tools) and need that server registered, while a couple work with the CLI alone. See [Available skills](../../user-documentation/agent-tools/skills.md#available-skills) for the full list and what each one covers.
+The install put several more skills alongside this one. Most of them front a [Moderne MCP server tool](../../user-documentation/agent-tools/mcp/overview.md#available-tools) and need that server registered, while a couple work with the CLI alone. See [Available skills](../../user-documentation/agent-tools/skills.md#available-skills) for the two that need no server, and [tool-routing skills](../../user-documentation/agent-tools/mcp/tool-routing-skills.md) for the eight that do.
 
 #### Step 2 (optional): Try a skill with a throwaway prompt
 
