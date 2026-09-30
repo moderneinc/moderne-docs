@@ -33,7 +33,7 @@ _Based on OpenRewrite 8.92.10_
 * Introduce minimal Node version (14)
 * Write trace CSV timestamps as ISO instants
 * Record .NET dependency resolution time in the build trace
-* ~~Record the data tables each repository produced so mod study stops walking the organization
+* Record the data tables each repository produced so mod study stops walking the organization
 * Count a repository shared by suborganizations once, and run it once
 * Pin httpclient5 to 5.6.4 to restore authenticated proxy support
 * Bound the resource build step and stop attributing leftover Java
