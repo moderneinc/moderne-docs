@@ -265,7 +265,7 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
-    image: 'img/moderne-poster-logo.svg',
+    image: 'img/moderne-docs-og.png',
     navbar: {
       logo: {
         alt: 'Moderne Logo Logo',
