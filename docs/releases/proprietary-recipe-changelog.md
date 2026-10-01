@@ -10,11 +10,23 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## October 1, 2026
+
+#### recipes-go - 0.11.3
+
+* Stop stale go.sum versions bypassing the prune
+
 ## September 30, 2026
 
 #### recipes-go - 0.11.2
 
 * Fix handling the malformed indirect comments in go.mod next to proper ones
+
+#### rewrite-devcenter - 1.33.2
+
+* Adapt to new GoResolutionResult() constructor arg
+* Make DevCenter cards cheaper to evaluate
+* Count lines without printing the LST
 
 ## September 29, 2026
 
