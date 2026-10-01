@@ -1,4 +1,3 @@
-import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import { ModButton } from '@site/src/components/ModButton';
 import { ProductCardsGrid } from '@site/src/components/ProductCardsGrid';
@@ -133,25 +132,19 @@ export const AboutModerneSection: FunctionComponent = () => {
 
 const Home: FunctionComponent = () => {
   return (
-    <>
-      <Head>
-        <meta property="og:image" content="/img/og-home.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
-      <Layout
-        title="Moderne Documentation"
-        description="Explore documentation and tutorials for automated code remediation. Fix vulnerabilities, standardize code quality, perform type-aware code searches, and accelerate refactoring at enterprise scale with Moderne Platform, CLI, DX, and more."
-      >
-        <main className={styles.homePage}>
-          <div className={styles.pageBody}>
-            <HeroSection />
-            <ProductCardsGrid products={homepageProducts} />
-            <WhatIsModerneSection />
-            <AboutModerneSection />
-          </div>
-        </main>
-      </Layout>
-    </>
+    <Layout
+      title="Moderne Documentation"
+      description="Explore documentation and tutorials for automated code remediation. Fix vulnerabilities, standardize code quality, perform type-aware code searches, and accelerate refactoring at enterprise scale with Moderne Platform, CLI, DX, and more."
+    >
+      <main className={styles.homePage}>
+        <div className={styles.pageBody}>
+          <HeroSection />
+          <ProductCardsGrid products={homepageProducts} />
+          <WhatIsModerneSection />
+          <AboutModerneSection />
+        </div>
+      </main>
+    </Layout>
   );
 };
 
