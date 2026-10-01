@@ -8,10 +8,6 @@ import TabItem from '@theme/TabItem';
 
 # Agent chat
 
-:::warning
-`mod <agent> chat` is incubating. Its commands and behavior may change between CLI releases.
-:::
-
 A coding agent pointed at a directory of repositories makes each change by hand, one repository at a time. Across a large organization that can take hours and produce different results in each repository. Moderne's agent chat aims to fix this by giving the agent access to Moderne's recipes.
 
 You pick an agent and an organization of repositories - then talk to it in plain language. You could say things like: "Upgrade all of these repositories to Java 25" or "Patch every vulnerable dependency across all of these repositories."
