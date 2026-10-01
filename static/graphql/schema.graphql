@@ -2918,7 +2918,7 @@ type Moddy
   providerName: String
 
   """
-  Configured model identifier (e.g. "claude-3-5-sonnet-20241022"). Null
+  Configured model identifier (e.g. "claude-opus-5-5"). Null
   when no provider is configured or the provider is configured without a
   model override.
   """
