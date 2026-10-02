@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.23.0 (2026/10/02)
+
+- say why repository access was denied
+
 ### UI v14.22.2 (2026/09/30)
 
 - Bug fixes and other improvements.
