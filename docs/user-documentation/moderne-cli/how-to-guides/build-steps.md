@@ -94,7 +94,27 @@ In the default build steps, the resource build step runs after all other steps, 
 
 ## Configuring build steps explicitly
 
-Build steps can be configured explicitly in [Moderne CLI configuration](./layer-config-cli.md). The out-of-the-box default behavior described above can also be explicitly defined in the `.moderne/cli/moderne.yml` file:
+You can replace the default pipeline by listing `build.steps` in a `moderne.yml` file. The examples on this page show only the `build` section, so add it to whichever file matches the scope you want.
+
+### Choosing the configuration file
+
+Build steps follow the same [layered configuration](./layer-config-cli.md) as other CLI settings. The file you edit determines which repositories the steps apply to:
+
+| File                                            | Applies to                                     | Typical use                                                                            |
+|-------------------------------------------------|------------------------------------------------|----------------------------------------------------------------------------------------|
+| `~/.moderne/cli/moderne.yml`                    | Every repository you build on this machine     | Defaults for all repositories, such as a mass ingest                                   |
+| `<repository>/.moderne/moderne.yml`             | Only that repository                           | A repository that needs its own pipeline, committed so everyone builds it the same way |
+| `<repository>/.moderne/moderne-uncommitted.yml` | Only that repository, and only on this machine | Trying out a pipeline without committing it                                            |
+
+The global file lives in your CLI home directory, so if you set `MODERNE_CLI_HOME`, it is `$MODERNE_CLI_HOME/moderne.yml` instead. The repository files live directly in the `.moderne` directory at the root of the repository, with no `cli` subdirectory.
+
+The CLI takes the `build.steps` list from the most specific file that defines one: `moderne-uncommitted.yml` first, then the repository's `moderne.yml`, then the global file. Lists from different files are never merged. A repository-level list replaces the global list entirely, so it must include every step that repository needs. [Build partitions](./build-partitions.md) defined in a repository likewise replace any global `build.steps`.
+
+No `mod config` command writes build steps, so you will need to edit the YAML file directly.
+
+### Example configurations
+
+The out-of-the-box default behavior described above can also be explicitly defined:
 
 ```yaml
 specs: specs.moderne.ai/v1/cli
@@ -142,7 +162,7 @@ When you add a step, start from the default list above and add to it rather than
 
 In some cases, we have found that the CLI's recursive file walking of the repository to discover top level external build tool files will discover build tool files (e.g., `build.gradle`) that we do not desire to parse as a Gradle project.
 
-As an example, one Moderne customer organizes its microservice repositories to have a top level folder called `/deploy` in every repository, which in turn contains a `build.gradle` which they are fine being parsed as plain Groovy but do not wish to be interpreted as a Gradle file at parsing time because it contains references to properties that are only available while in the act of deploying (i.e. the Gradle project fails to configure in its at-rest state in the codebase). The following explicit build step configuration would categorically work for all of this customer's microservice repositories to skip `deploy/build.gradle` as a Gradle project:
+As an example, one Moderne customer organizes its microservice repositories to have a top level folder called `/deploy` in every repository, which in turn contains a `build.gradle` which they are fine being parsed as plain Groovy but do not wish to be interpreted as a Gradle file at parsing time because it contains references to properties that are only available while in the act of deploying (i.e. the Gradle project fails to configure in its at-rest state in the codebase). Because the convention holds across all of this customer's microservice repositories, the following configuration in the global `~/.moderne/cli/moderne.yml` file skips `deploy/build.gradle` as a Gradle project in every one of them:
 
 ```yaml
 specs: specs.moderne.ai/v1/cli
@@ -184,7 +204,7 @@ repo/
 
 Using `dir/subdir/*` would only match files directly in `subdir/` and would not include the Gradle projects in `project1/`, `project2/`, and `project3/`. To include all files in those subdirectories as resources, use `dir/subdir/**`:
 
-Example configuration:
+Because this layout is specific to one repository, put the configuration in that repository's `.moderne/moderne.yml` file:
 
 ```yaml
 specs: specs.moderne.ai/v1/cli
