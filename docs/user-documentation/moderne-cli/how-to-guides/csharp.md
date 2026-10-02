@@ -10,6 +10,8 @@ Moderne supports C# LSTs, enabling _semantically-aware_ refactoring of C# code. 
 
 In this guide, we'll walk you through how to configure the Moderne CLI to take advantage of C# support.
 
+As of CLI v4.5.0, the CLI parses C# out of the box, so most users don't need any `moderne.yml` changes to get started. If you're on an older CLI version or you use an explicit `build.steps` configuration, you'll need to [add the C# build step manually](#adding-the-c-build-step-manually).
+
 :::tip
 C# support is evolving quickly. Keep your Moderne CLI updated to the latest version and rebuild your LSTs after upgrading to stay compatible with the latest recipe packages.
 :::
@@ -35,35 +37,7 @@ The Moderne CLI invokes the .NET SDK, the NuGet CLI, and (on non-Windows machine
 The NuGet CLI is required to restore packages for **.NET Framework** projects - `dotnet restore` alone cannot restore these. Because `nuget.exe` is a Windows-only utility, **Mono** is required to run it on macOS and Linux. Mono is not required on Windows.
 :::
 
-## Step 1: Update your `moderne.yml` file
-
-In order to enable C# support, you will need to update the [build steps](./build-steps.md) in your `moderne.yml` file to include .NET. This file is located at `~/.moderne/cli/moderne.yml` and is created when you first set up the CLI.
-
-If your `moderne.yml` file already includes a `build` section, you can just add the `- type: dotnet` line to the end of your build steps. If it doesn't, you will need to add the entire section as seen in the example below:
-
-```yml title="moderne.yml"
-# Other keys and values...
-license:
-  key: some-license
-tenant:
-  host: https://app.moderne.io
-  apiHost: https://api.app.moderne.io
-  skipSsl: false
-  authorization: Bearer mat-some-token
-// highlight-start
-build:
-  steps:
-    - type: maven
-    - type: gradle
-    - type: bazel
-    - type: dotnet
-    - type: resource
-      inclusion: |-
-        **/*
-// highlight-end
-```
-
-## Step 2: (Optionally) Configure your .NET installation
+## Step 1: (Optionally) Configure your .NET installation
 
 By default, the CLI automatically detects .NET SDK installations in standard locations on your machine.
 
@@ -124,7 +98,7 @@ To revert to the default:
 mod config build dotnet timeout delete
 ```
 
-## Step 3: (Optionally) Clone a custom list of repositories
+## Step 2: (Optionally) Clone a custom list of repositories
 
 If you don't have the repositories you want to work with cloned locally already, you can clone a group of them by defining a `repos.csv` file that lists them out such as in the following example:
 
@@ -147,7 +121,7 @@ After creating the CSV, clone the repositories by running the following command:
 mod git sync csv . repos.csv --with-sources
 ```
 
-## Step 4: Build your C# repositories
+## Step 3: Build your C# repositories
 
 The next thing you'll need to do is build LSTs for each of your repositories. To build the LSTs, run:
 
@@ -173,7 +147,7 @@ Presuming everything has been set up correctly, you should see output similar to
     Cleaned 2 older builds
 ```
 
-## Step 5: Install recipes
+## Step 4: Install recipes
 
 In order to run recipes, you'll need to make sure the recipe packages are installed on your local machine.
 
@@ -193,7 +167,7 @@ mod config recipes nuget install OpenRewrite.Recipes.CSharp.Migration.Dotnet
 You can find the specific installation command for any recipe on its page in the [recipe catalog](../../recipes/recipe-catalog).
 :::
 
-## Step 6: Run recipes
+## Step 5: Run recipes
 
 With the LSTs built and recipes installed, you can now run recipes against your C# repositories. You can either specify the full recipe path for running such as in:
 
@@ -213,7 +187,7 @@ Then you can run the active recipe by:
 mod run . --active-recipe
 ```
 
-## Step 7: View data tables
+## Step 6: View data tables
 
 Many recipes will also produce useful data tables that you can access via the `mod study` command such as in:
 
@@ -244,6 +218,38 @@ Done (1s)
 
 Data tables for each organization with rows are linked above
 ```
+
+## Adding the C# build step manually
+
+You only need this step if you're on a CLI version older than v4.5.0, or if you maintain an explicit `build.steps` list in a `moderne.yml` file. An explicit list replaces the default pipeline, so it must include `- type: dotnet` for C# to be parsed. On CLI v4.5.0 and later with the default configuration, C# support is already enabled and you can skip this.
+
+Update the [build steps](./build-steps.md) in the `moderne.yml` file that defines them. This is usually the global `~/.moderne/cli/moderne.yml` file, which is created when you first set up the CLI, but a repository can also define its own steps in `.moderne/moderne.yml` (see [choosing the configuration file](./build-steps.md#choosing-the-configuration-file)).
+
+If your `moderne.yml` file already includes a `build` section, add a `- type: dotnet` step before the trailing `resource` step. If it doesn't, add the entire section as shown below:
+
+```yml title="moderne.yml"
+# Other keys and values...
+license:
+  key: some-license
+tenant:
+  host: https://app.moderne.io
+  apiHost: https://api.app.moderne.io
+  skipSsl: false
+  authorization: Bearer mat-some-token
+// highlight-start
+build:
+  steps:
+    - type: maven
+    - type: gradle
+    - type: bazel
+    - type: dotnet
+    - type: resource
+      inclusion: |-
+        **/*
+// highlight-end
+```
+
+If you maintain an explicit configuration, start from the [full default pipeline](./build-steps.md#configuring-build-steps-explicitly) so you don't drop steps the CLI would otherwise run, such as `sbt`, `javascript`, and `python`.
 
 ## Troubleshooting
 

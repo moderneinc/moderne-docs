@@ -58,10 +58,10 @@ The recipes below progress from simple to complex. Links go to the [public Moder
 1. **Install the Moderne CLI** – Follow the [installation steps in the getting started guide](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration) to install the CLI for your platform.
     * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipes JARs. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
 
-2. **Install the .NET SDK and enable C# builds** – The CLI uses `dotnet` to restore and parse C# projects, so a few things need to be in place:
+2. **Install the .NET SDK** – The CLI uses `dotnet` to restore and parse C# projects, so a few things need to be in place:
     * **Install .NET 10 or later.** The C# recipe runtime (`rewrite-csharp`) ships as a `net10.0` application, so .NET 8 and 9 will not work. Verify your install with `dotnet --version`.
     * **Let the CLI find your SDK.** It selects the SDK automatically from `$PATH`, or you can configure it explicitly with `mod config dotnet installation edit`.
-    * **Enable the .NET build step.** Add `- type: dotnet` to the build steps in your `~/.moderne/cli/moderne.yml` file.
+    * **Use CLI v4.5.0 or later.** These versions parse C# by default. On older versions, you will need to [add the .NET build step manually](../../moderne-cli/how-to-guides/csharp.md#adding-the-c-build-step-manually).
     * For the full walkthrough, including registering a non-standard SDK location and raising the build timeout for large solutions, see our [C# configuration guide](../../moderne-cli/how-to-guides/csharp.md).
 
 3. **Clone repos to your local machine** – In order for the CLI to run recipes against your code, you will need to provide it with [a repos.csv file](../../moderne-cli/references/repos-csv.md).
@@ -97,7 +97,7 @@ The recipes below progress from simple to complex. Links go to the [public Moder
     ```
 
 6. **Install the recipes** – Copy and run the [Moderne CLI command under CLI installation](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
-    * The C# code quality and .NET migration recipes are distributed separately as NuGet packages. Install them with `mod config recipes nuget install`, following [Install recipes](../../moderne-cli/how-to-guides/csharp.md#step-5-install-recipes) in the C# configuration guide.
+    * The C# code quality and .NET migration recipes are distributed separately as NuGet packages. Install them with `mod config recipes nuget install`, following [Install recipes](../../moderne-cli/how-to-guides/csharp.md#step-4-install-recipes) in the C# configuration guide.
 
 7. **Try your first recipe** – Try a simple recipe to test that you can execute successfully against the LSTs you built in step 4. We recommend the C# code quality recipe, which will apply a curated set of code quality improvements across your repos. To run this recipe, run the following command:
 
