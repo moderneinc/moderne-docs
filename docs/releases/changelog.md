@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.24.0 (2026/10/02)
+
+- show a changeset's agent team and message board in its own tab
+
 ### UI v14.23.0 (2026/10/02)
 
 - say why repository access was denied
