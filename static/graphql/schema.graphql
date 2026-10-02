@@ -5785,6 +5785,12 @@ type RepositoryAuthorization
   prompt (UNAUTHENTICATED).
   """
   access: RepoAccess!
+
+  """
+  What to tell the viewer when `access` isn't ALLOWED, e.g. that their token needs SAML SSO
+  authorization or that the SCM is rate-limiting access checks.
+  """
+  message: String
 }
 
 interface RepositoryChangeset

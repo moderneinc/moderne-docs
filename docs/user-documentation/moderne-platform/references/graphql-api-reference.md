@@ -2883,6 +2883,7 @@ Resolved by the changeset reader using a batch check against the authorization s
 |-------|------|-------------|
 | `origin` | String! | The VCS origin (e.g., github.com). |
 | `access` | [RepoAccess](#repoaccess)! | The current viewer's read access to this specific repository. Drives whether the UI renders content (ALLOWED), a "you don't have access" message (DENIED), or an authorize prompt (UNAUTHENTICATED). |
+| `message` | String | What to tell the viewer when `access` isn't ALLOWED, e.g. that their token needs SAML SSO authorization or that the SCM is rate-limiting access checks. |
 
 ##### `RepositoryChangesetConnection`
 
