@@ -9,7 +9,7 @@ description: Explains what build steps are and the various ways you can configur
 
 The Moderne CLI detects build tools, produces a list of build “steps”, and executes each of those steps to produce LSTs. Any file parsed by a previous build step is skipped by its successors.
 
-In the default configuration, the CLI first looks for Gradle build files, then Bazel, then Maven, and then sbt. These external build tool steps are followed by the JavaScript and Python language steps, and finally by a resource parsing step.
+In the default configuration, the CLI first looks for Gradle build files, then Bazel, then Maven, and then sbt. These external build tool steps are followed by the JavaScript, Python, .NET, and Go language steps, and finally by a resource parsing step.
 
 The resource step scoops up any files that weren't parsed by the preceding steps, because not every file in a repository is part of a source set managed by a build tool. For example, the top level `README.md` in a repository is generally parsed by the resource parsing step because it isn't located where it would be part of a source set defined by an external build tool.
 
@@ -21,7 +21,7 @@ The CLI supports the following build step types:
 * **Language-specific steps**: `python`, `javascript`, `dotnet`, `go`, and `mainframe`. These use dedicated parsers to handle their respective language ecosystems.
 * **Resource step**: `resource`. A catch-all step that parses files not handled by other steps (YAML, XML, JSON, Terraform, properties, etc.).
 
-In the default configuration, the external build tool steps, the `javascript` and `python` language steps, and the resource step all run automatically. JavaScript and Python were added to the default pipeline in CLI v4.3.0. On earlier versions, they required explicit configuration. The `dotnet`, `go`, and `mainframe` steps must be [explicitly configured](#configuring-build-steps-explicitly) in your `moderne.yml` file.
+In the default configuration, the external build tool steps, the `javascript`, `python`, `dotnet`, and `go` language steps, and the resource step all run automatically. JavaScript and Python were added to the default pipeline in CLI v4.3.0, and .NET and Go in CLI v4.5.0. On earlier versions, they required explicit configuration. The `mainframe` step must always be [explicitly configured](#configuring-build-steps-explicitly) in your `moderne.yml` file.
 
 :::tip
 For a JVM build tool the CLI does not natively support, such as a homegrown or internal build system, you can hand-author the prebuild tree yourself and the CLI will parse it with full type attribution. See [authoring a prebuild for a custom JVM build tool](./custom-build-tool-prebuild.md).
@@ -78,7 +78,7 @@ insurance-policy-administration/
 
 ### Language-specific steps
 
-Language-specific steps use dedicated parsers via RPC to handle their respective ecosystems. The `javascript` and `python` steps run in the default pipeline as of CLI v4.3.0. In that default configuration, a failure in either step does not stop the build. Instead, the affected files fall through to the resource step and are parsed as plain text. The `dotnet`, `go`, and `mainframe` steps must be explicitly configured.
+Language-specific steps use dedicated parsers via RPC to handle their respective ecosystems. The `javascript` and `python` steps run in the default pipeline as of CLI v4.3.0, and the `dotnet` and `go` steps as of CLI v4.5.0. In that default configuration, a failure in any of these steps does not stop the build. Instead, the affected files fall through to the resource step and are parsed as plain text. The `mainframe` step must be explicitly configured.
 
 * **`python`** - Parses Python projects. Detects projects via `pyproject.toml`, `setup.py`, or `.py` files. Requires Python 3.9+. See [Python configuration](./python.md) for setup details.
 * **`javascript`** - Parses JavaScript and TypeScript projects. Detects projects via `package.json` files. Automatically discovers the appropriate package manager (npm, yarn, pnpm, or bun) and Node.js version. See [JavaScript configuration](./javascript.md) for setup details.
@@ -128,6 +128,10 @@ build:
       continueOnError: true
     - type: python
       continueOnError: true
+    - type: dotnet
+      continueOnError: true
+    - type: go
+      continueOnError: true
     - type: resource
       inclusion: |-
         **/*
@@ -137,14 +141,14 @@ This configuration is a close equivalent of the defaults, but not an exact one. 
 
 The order of the steps is important, as any file parsed by one step will be skipped by a subsequent step. In this way, the steps drive the order of precedence of build tools.
 
-To add a language-specific step that is not part of the default pipeline, include its step type. For example, to parse a repository that contains both a Gradle project and Go code:
+To add a language-specific step that is not part of the default pipeline, include its step type. For example, to parse a repository that contains both a Gradle project and mainframe code:
 
 ```yaml
 specs: specs.moderne.ai/v1/cli
 build:
   steps:
     - type: gradle
-    - type: go
+    - type: mainframe
     - type: resource
       inclusion: |-
         **/*
@@ -155,7 +159,7 @@ The available step types are: `maven`, `gradle`, `bazel`, `sbt`, `python`, `java
 :::danger
 An explicit `build.steps` list fully replaces the default pipeline rather than extending it, so any step type you leave out will never run. For instance, if your configuration omits the `bazel` step, Bazel files are parsed as plain text by the `resource` step, even when Bazel files are present.
 
-When you add a step, start from the default list above and add to it rather than listing only the steps you want. An explicit configuration written for an older CLI can also disable steps that newer versions run by default, such as `javascript` and `python`, so revisit your explicit configurations when you upgrade.
+When you add a step, start from the default list above and add to it rather than listing only the steps you want. An explicit configuration written for an older CLI can also disable steps that newer versions run by default, such as `javascript`, `python`, `dotnet`, and `go`, so revisit your explicit configurations when you upgrade.
 :::
 
 ### Add a resource step to cause files/folders to be skipped by external build tools
