@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.25.0 (2026/10/03)
+
+- lay the agent team tab out as a chat with a resizable roster
+
 ### UI v14.24.0 (2026/10/02)
 
 - show a changeset's agent team and message board in its own tab
