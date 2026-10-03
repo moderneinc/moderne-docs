@@ -705,24 +705,36 @@ Moderne Personal Access Tokens
 | `node` | [AccessToken](#accesstoken)! |  |
 | `cursor` | String! |  |
 
-##### `AgentSession`
+##### `Agent`
 
-**Implements:** [OrganizationChangesetSession](#organizationchangesetsession)
-
-A session driven by a coding agent through `mod &lt;agent&gt; chat --changeset`.
+One coding agent working on a changeset through `mod &lt;agent&gt; chat --changeset`. The only
+thing in a changeset with a lifecycle: a revision lands or is refused, and a changeset never
+learns whether another agent will join.
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
+| `name` | String | The name the agent signed the team's roster with. Null until it signs. |
+| `specializations` | [String!]! | What the agent said it looks out for on the team, such as builder or skeptic. Several agents can share one, and a message can be addressed to all of them. |
+| `codingAgent` | [CodingAgent](#codingagent)! |  |
 | `user` | [User](#user)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime) |  |
-| `status` | [OrganizationChangesetSessionStatus](#organizationchangesetsessionstatus)! |  |
-| `revisions` | [[RepositoryChangeset](#repositorychangeset)!]! |  |
-| `agent` | [Agent](#agent)! |  |
 | `prompt` | String |  |
-| `transcript` | (first: Int = 100, after: String, where: [TranscriptWhereInput](#transcriptwhereinput)): [TranscriptConnection](#transcriptconnection)! | The session as spans: what the agent did, when, and what it cost, never what it read or wrote. The agent's own transcript is never kept. Empty until the agent exits and the wrapper uploads it. |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime) | Null while the agent is working, or when the tool that started it never said it ended. |
+| `status` | [AgentStatus](#agentstatus)! |  |
+| `revisions` | [[RepositoryChangeset](#repositorychangeset)!]! | What the agent pushed, in the order it landed; each is a RepositoryRevision. Empty for an agent that changed nothing. |
+| `transcript` | (first: Int = 100, after: String, where: [TranscriptWhereInput](#transcriptwhereinput)): [TranscriptConnection](#transcriptconnection)! | The agent's work as spans: what it did, when, and what it cost, never what it read or wrote. The agent's own transcript is never kept. Empty until the agent exits and the wrapper uploads it. |
 | `transcriptExport` | [TranscriptExport](#transcriptexport) | The same spans as one OTLP JSON download. Null until the wrapper uploads them. |
+
+##### `AgentTeamReview`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `name` | String | What the team called itself on the message board. Null until it has. |
+| `agents` | [[Agent](#agent)!]! | Every agent that joined the changeset, oldest first. An agent is on the list from the moment it joins, so one that changed nothing is still on record. |
+| `messageBoard` | [MessageBoard](#messageboard)! |  |
+| `marketplace` | [RecipeMarketplace](#recipemarketplace) | The recipes the team fixed or wrote, as the recipe repositories the changeset holds. Null while it holds none. |
 
 ##### `ArtifactoryConfiguration`
 
@@ -1192,6 +1204,14 @@ A participant identity from the VCS provider. Not necessarily a Moderne user.
 | `avatarUrl` | String | Avatar URL from the VCS provider. |
 | `roles` | [[ContributorRole](#contributorrole)!]! | The roles this participant has across changelog entries. |
 
+##### `ChangesetInstallScope`
+
+The installation is a recipe repository kept with a changeset, in effect for that changeset alone.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `changesetId` | ID! |  |
+
 ##### `CliDownloadInstructionLink`
 
 | Field | Type | Description |
@@ -1627,22 +1647,6 @@ Result of exchanging an authorization code.
 | `success` | Boolean! | True if the exchange was successful and token was stored. |
 | `error` | String | Error message if exchange failed. |
 
-##### `ExecRun`
-
-**Implements:** [OrganizationChangesetSession](#organizationchangesetsession)
-
-A session made by `mod exec` running one command across the working set.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime) |  |
-| `status` | [OrganizationChangesetSessionStatus](#organizationchangesetsessionstatus)! |  |
-| `revisions` | [[RepositoryChangeset](#repositorychangeset)!]! |  |
-| `command` | String! |  |
-
 ##### `FileChangeConnection`
 
 Connection for file changes with aggregate statistics.
@@ -1779,6 +1783,22 @@ Fork commit completed successfully.
 |-------|------|-------------|
 | `clientId` | String! |  |
 
+##### `GitRecipeBundle`
+
+**Implements:** [RecipeBundle](#recipebundle)
+
+A recipe repository kept with a changeset, where the agents working on the changeset fix and
+add recipes.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `packageName` | String! | The repository's name, such as `rewrite-migrate-java`. |
+| `requestedVersion` | String |  |
+| `version` | String | The commit the repository's branch stands at. |
+| `recipeCount` | Int |  |
+| `cloneUrl` | String! | What `git clone` takes, with the credentials the changeset's other remotes take. |
+| `branch` | String! | The repository's one branch, which is named for the changeset. |
+
 ##### `GoConfiguration`
 
 | Field | Type | Description |
@@ -1878,6 +1898,42 @@ that recipe runs consume. Every repository has a conceptual artifact;
 |-------|------|-------------|
 | `deleteSourceBranch` | Boolean! |  |
 | `mergeMethod` | [MergeMethod](#mergemethod)! |  |
+
+##### `MessageBoard`
+
+The git repository the team talks in: a message is a file, in a directory named for its topic.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `cloneUrl` | String! | What `git clone` takes. It authenticates like the changeset's other remotes. |
+| `pdfUrl` | String! | The whole board as one PDF, rendered when the link is opened. The link is signed, so it needs no Authorization header, and it expires 15 minutes after it is handed out. |
+| `topics` | [String!]! | The topics, in the order each was first posted to. |
+| `messages` | (first: Int = 100, after: String, where: [MessageBoardMessageWhereInput](#messageboardmessagewhereinput)): [MessageBoardMessageConnection](#messageboardmessageconnection)! | The messages in the order they were posted. |
+
+##### `MessageBoardMessage`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `topic` | String! |  |
+| `postedAt` | [DateTime](#datetime)! |  |
+| `message` | [Markdown](#markdown)! |  |
+| `agent` | [Agent](#agent) | The agent that posted it. Null for a message from outside any agent's work, such as one from a person steering the team. |
+
+##### `MessageBoardMessageConnection`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[MessageBoardMessageEdge](#messageboardmessageedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+##### `MessageBoardMessageEdge`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [MessageBoardMessage](#messageboardmessage)! |  |
+| `cursor` | String! |  |
 
 ##### `MessageConnection`
 
@@ -2161,7 +2217,7 @@ The installation lives in a specific organization's marketplace.
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `sessions` | [[OrganizationChangesetSession](#organizationchangesetsession)!]! |  |
+| `review` | [AgentTeamReview](#agentteamreview) |  |
 | `startedAt` | [DateTime](#datetime) |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `canceledAt` | [DateTime](#datetime)! | Alias for finishedAt - when the run was canceled |
@@ -2201,7 +2257,7 @@ The installation lives in a specific organization's marketplace.
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `sessions` | [[OrganizationChangesetSession](#organizationchangesetsession)!]! |  |
+| `review` | [AgentTeamReview](#agentteamreview) |  |
 | `startedAt` | [DateTime](#datetime) |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `errorMessage` | String |  |
@@ -2226,7 +2282,7 @@ The installation lives in a specific organization's marketplace.
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `sessions` | [[OrganizationChangesetSession](#organizationchangesetsession)!]! |  |
+| `review` | [AgentTeamReview](#agentteamreview) |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `finishedAt` | [DateTime](#datetime)! |  |
 | `duration` | [Duration](#duration) |  |
@@ -2252,7 +2308,7 @@ The installation lives in a specific organization's marketplace.
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `sessions` | [[OrganizationChangesetSession](#organizationchangesetsession)!]! |  |
+| `review` | [AgentTeamReview](#agentteamreview) |  |
 | `queuedAt` | [DateTime](#datetime)! |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
@@ -2275,7 +2331,7 @@ The installation lives in a specific organization's marketplace.
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `sessions` | [[OrganizationChangesetSession](#organizationchangesetsession)!]! |  |
+| `review` | [AgentTeamReview](#agentteamreview) |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `totals` | [RecipeRunTotals](#reciperuntotals) |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
@@ -2302,7 +2358,7 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `sessions` | [[OrganizationChangesetSession](#organizationchangesetsession)!]! |  |
+| `review` | [AgentTeamReview](#agentteamreview) |  |
 | `startedAt` | [DateTime](#datetime)! |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
@@ -2316,8 +2372,8 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 **Implements:** [OrganizationChangeset](#organizationchangeset)
 
 A changeset that began by push rather than by recipe run: what `mod exec` or a coding agent
-did across a working set with no recipe before it. Nothing but the interface: its sessions
-say who and how, its repositories say what.
+did across a working set with no recipe before it. Nothing but the interface: its review
+says who and how, its repositories say what.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -2325,7 +2381,7 @@ say who and how, its repositories say what.
 | `name` | String! |  |
 | `user` | [User](#user)! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `sessions` | [[OrganizationChangesetSession](#organizationchangesetsession)!]! |  |
+| `review` | [AgentTeamReview](#agentteamreview) |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! |  |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! |  |
@@ -3127,8 +3183,8 @@ refused it, so it has no state. Its `.moderne/run/&lt;id&gt;` directory is named
 | `id` | ID! |  |
 | `repository` | [Repository](#repository)! |  |
 | `authorization` | [RepositoryAuthorization](#repositoryauthorization)! |  |
-| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! | The whole difference from the base commit to `tipCommit`, however many commits and pushes came before, never the delta of this push alone. What one session changed is the difference between two revisions' results. |
-| `session` | [OrganizationChangesetSession](#organizationchangesetsession) | The session that pushed it, or null for a push from a checkout that named no tool. |
+| `results` | (first: Int = 100, after: String, where: [FileChangeWhereInput](#filechangewhereinput), orderBy: [[FileChangeOrderByInput](#filechangeorderbyinput)!]): [FileChangeConnection](#filechangeconnection)! | The whole difference from the base commit to `tipCommit`, however many commits and pushes came before, never the delta of this push alone. What one agent changed is the difference between two revisions' results. |
+| `agent` | [Agent](#agent) | The agent that pushed it, or null for a push from a checkout no agent worked in. |
 | `pushedBy` | [User](#user)! | The identity the remote verified at the push, which the commit's author line need not be. |
 | `pushedAt` | [DateTime](#datetime)! |  |
 | `message` | String | The `moderne-message` push option. |
@@ -3596,8 +3652,8 @@ A change to a single file within a repository changeset.
 
 An organization-wide changeset represents code changes or search results across multiple
 repositories: a recipe run (OrganizationRecipeRun*) or a revision that began by push
-(OrganizationRevision). Either kind is revised by sessions, whose pushes become each
-repository's newest change.
+(OrganizationRevision). Either kind is revised by the agents reviewing it, whose pushes
+become each repository's newest change.
 
 Note: This is a shared interface definition. Subgraphs that need to resolve this
 interface must define the implementation types.
@@ -3611,25 +3667,10 @@ interface must define the implementation types.
 | `name` | String! | What the changeset is called: a recipe run's instance name, or what its first push named it. |
 | `user` | [User](#user)! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
-| `sessions` | [[OrganizationChangesetSession](#organizationchangesetsession)!]! | The sessions that revised the changeset, oldest first. A session is on the list from the moment it opens, so a verification that changed nothing is still on record. A recipe run's list is empty until the run is terminal, since a changeset cannot be checked out before then. |
-| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! | Each repository of the changeset at its newest change: a RepositoryRevision where a session pushed one, else what the recipe run left. |
+| `review` | [AgentTeamReview](#agentteamreview) | The agents working on the changeset as one team: who they are, what they said to each other, and the recipes they fixed. Null until an agent joins, which for a recipe run is after the run is terminal, since a changeset cannot be checked out before then. |
+| `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! | Each repository of the changeset at its newest change: a RepositoryRevision where one was pushed, else what the recipe run left. |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this changeset. Each visualization starts as Available and transitions to Processing/Finished/Error when runVisualization mutation is called. |
-
-##### `OrganizationChangesetSession`
-
-One checkout of a changeset's working set that revises it: a coding agent or a command. Its
-pushes are RepositoryRevisions. The only thing in a changeset with a lifecycle: a revision
-lands or is refused, and a changeset never learns whether another session will follow.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `user` | [User](#user)! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime) | Null while the session is open, or when the tool that opened it never closed it. |
-| `status` | [OrganizationChangesetSessionStatus](#organizationchangesetsessionstatus)! |  |
-| `revisions` | [[RepositoryChangeset](#repositorychangeset)!]! | What the session pushed, in the order it landed; each is a RepositoryRevision. Empty for a session that changed nothing. |
 
 ##### `OrganizationCommit`
 
@@ -3660,7 +3701,7 @@ repositories. Use `__typename` to determine the current state.
 | `createdAt` | [DateTime](#datetime)! |  |
 | `lastUpdatedAt` | [DateTime](#datetime)! | Monotonic high-water mark advanced by every state writer (sync monitor, run monitor, processor). Treat as a content version: poll a tiny query selecting `__typename` + `lastUpdatedAt` cheaply and only refetch the heavy `repositories`/`totals` selections when this value changes. |
 | `priority` | [RecipeRunPriority](#reciperunpriority)! |  |
-| `sessions` | [[OrganizationChangesetSession](#organizationchangesetsession)!]! |  |
+| `review` | [AgentTeamReview](#agentteamreview) |  |
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
@@ -3770,19 +3811,12 @@ Use `__typename` to determine the specific commit type.
 * `CREATED`
 * `EXPIRES_AT`
 
-##### `Agent`
+##### `AgentStatus`
 
-The agent behind `mod &lt;agent&gt; chat`.
-
-* `AMP`
-* `CLAUDE`
-* `CODEX`
-* `COPILOT`
-* `CURSOR`
-* `KIRO`
-* `OPEN_CODE`
-* `VSCODE`
-* `WINDSURF`
+* `RUNNING`
+* `SUCCEEDED`
+* `FAILED`
+* `CANCELED`
 
 ##### `AuditLogExportFormat`
 
@@ -3885,6 +3919,20 @@ Discriminator for filtering by entry type.
 * `APPROVE`
 * `MERGE`
 * `CLOSE`
+
+##### `CodingAgent`
+
+The coding agent behind `mod &lt;agent&gt; chat`.
+
+* `AMP`
+* `CLAUDE`
+* `CODEX`
+* `COPILOT`
+* `CURSOR`
+* `KIRO`
+* `OPEN_CODE`
+* `VSCODE`
+* `WINDSURF`
 
 ##### `CommitOption`
 
@@ -4025,13 +4073,6 @@ Execution state of a DevCenter run.
 * `TYPE`
 * `USER`
 
-##### `OrganizationChangesetSessionStatus`
-
-* `RUNNING`
-* `SUCCEEDED`
-* `FAILED`
-* `CANCELED`
-
 ##### `OrganizationChangesetType`
 
 * `RECIPE_RUN`
@@ -4124,6 +4165,7 @@ sampling run on separate channels and are always on.
 * `Pip`
 * `Nuget`
 * `Go`
+* `Git`
 
 ##### `RecipeGraphEdgeType`
 
@@ -4148,6 +4190,7 @@ The kind of scope a `RecipeInstallation` lives in -- the discriminant of the
 * `UNIVERSAL`
 * `ORGANIZATION`
 * `USER`
+* `CHANGESET`
 
 ##### `RecipeInstallationStatus`
 
@@ -4813,6 +4856,13 @@ Commit to a fork of the origin repository.
 | `artifactId` | String! |  |
 | `version` | String! |  |
 
+##### `MessageBoardMessageWhereInput`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `topic` | [StringFilter](#stringfilter) |  |
+| `agent` | [IDFilter](#idfilter) | The id of the agent that posted. |
+
 ##### `NpmRecipeBundleInput`
 
 | Field | Type | Description |
@@ -5427,7 +5477,7 @@ these tokens are preferred over stored OAuth tokens.
 
 Discriminates where a `RecipeInstallation` lives.
 
-= [UniversalInstallScope](#universalinstallscope) | [OrganizationInstallScope](#organizationinstallscope) | [UserInstallScope](#userinstallscope)
+= [UniversalInstallScope](#universalinstallscope) | [OrganizationInstallScope](#organizationinstallscope) | [UserInstallScope](#userinstallscope) | [ChangesetInstallScope](#changesetinstallscope)
 
 ### Scalars
 

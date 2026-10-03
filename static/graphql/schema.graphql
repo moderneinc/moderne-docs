@@ -96,42 +96,43 @@ input AccessTokenWhereInput
   _not: AccessTokenWhereInput
 }
 
-"""The agent behind `mod <agent> chat`."""
-enum Agent
-  @join__type(graph: CHANGESETREADER)
-  @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
-  @join__type(graph: RECIPEWORKER)
-{
-  AMP @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  CLAUDE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  CODEX @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  COPILOT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  CURSOR @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  KIRO @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  OPEN_CODE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  VSCODE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  WINDSURF @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-}
-
 """
-A session driven by a coding agent through `mod <agent> chat --changeset`.
+One coding agent working on a changeset through `mod <agent> chat --changeset`. The only
+thing in a changeset with a lifecycle: a revision lands or is refused, and a changeset never
+learns whether another agent will join.
 """
-type AgentSession implements OrganizationChangesetSession
-  @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangesetSession")
+type Agent
   @join__type(graph: CHANGESETREADER)
 {
   id: ID!
-  user: User!
-  startedAt: DateTime!
-  finishedAt: DateTime
-  status: OrganizationChangesetSessionStatus!
-  revisions: [RepositoryChangeset!]!
-  agent: Agent!
-  prompt: String
+
+  """The name the agent signed the team's roster with. Null until it signs."""
+  name: String
 
   """
-  The session as spans: what the agent did, when, and what it cost, never what it read or
+  What the agent said it looks out for on the team, such as builder or skeptic. Several
+  agents can share one, and a message can be addressed to all of them.
+  """
+  specializations: [String!]!
+  codingAgent: CodingAgent!
+  user: User!
+  prompt: String
+  startedAt: DateTime!
+
+  """
+  Null while the agent is working, or when the tool that started it never said it ended.
+  """
+  finishedAt: DateTime
+  status: AgentStatus!
+
+  """
+  What the agent pushed, in the order it landed; each is a RepositoryRevision. Empty for an
+  agent that changed nothing.
+  """
+  revisions: [RepositoryChangeset!]!
+
+  """
+  The agent's work as spans: what it did, when, and what it cost, never what it read or
   wrote. The agent's own transcript is never kept. Empty until the agent exits and the
   wrapper uploads it.
   """
@@ -141,6 +142,42 @@ type AgentSession implements OrganizationChangesetSession
   The same spans as one OTLP JSON download. Null until the wrapper uploads them.
   """
   transcriptExport: TranscriptExport
+}
+
+enum AgentStatus
+  @join__type(graph: CHANGESETREADER)
+{
+  RUNNING @join__enumValue(graph: CHANGESETREADER)
+  SUCCEEDED @join__enumValue(graph: CHANGESETREADER)
+  FAILED @join__enumValue(graph: CHANGESETREADER)
+  CANCELED @join__enumValue(graph: CHANGESETREADER)
+}
+
+type AgentTeamReview
+  @join__type(graph: CHANGESETREADER, key: "id", resolvable: false)
+  @join__type(graph: CHANGESETREADER, key: "id", extension: true)
+  @join__type(graph: CHANGESETVISUALIZER, key: "id", resolvable: false)
+  @join__type(graph: CODESEARCH, key: "id", resolvable: false)
+  @join__type(graph: RECIPEMARKETPLACE, key: "id", extension: true)
+  @join__type(graph: RECIPEWORKER, key: "id", resolvable: false)
+{
+  id: ID!
+
+  """What the team called itself on the message board. Null until it has."""
+  name: String @join__field(graph: CHANGESETREADER)
+
+  """
+  Every agent that joined the changeset, oldest first. An agent is on the list from the
+  moment it joins, so one that changed nothing is still on record.
+  """
+  agents: [Agent!]! @join__field(graph: CHANGESETREADER)
+  messageBoard: MessageBoard! @join__field(graph: CHANGESETREADER)
+
+  """
+  The recipes the team fixed or wrote, as the recipe repositories the changeset holds.
+  Null while it holds none.
+  """
+  marketplace: RecipeMarketplace @join__field(graph: RECIPEMARKETPLACE)
 }
 
 type ArtifactoryConfiguration
@@ -1133,6 +1170,15 @@ type ChangeParticipant
   roles: [ContributorRole!]!
 }
 
+"""
+The installation is a recipe repository kept with a changeset, in effect for that changeset alone.
+"""
+type ChangesetInstallScope
+  @join__type(graph: RECIPEMARKETPLACE)
+{
+  changesetId: ID!
+}
+
 type CliDownloadInstructionLink
   @join__type(graph: CAPABILITIES)
 {
@@ -1162,6 +1208,24 @@ type CodeSearchResultEdge
 {
   node: CodeSearchResult!
   cursor: String!
+}
+
+"""The coding agent behind `mod <agent> chat`."""
+enum CodingAgent
+  @join__type(graph: CHANGESETREADER)
+  @join__type(graph: CHANGESETVISUALIZER)
+  @join__type(graph: CODESEARCH)
+  @join__type(graph: RECIPEWORKER)
+{
+  AMP @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  CLAUDE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  CODEX @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  COPILOT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  CURSOR @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  KIRO @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  OPEN_CODE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  VSCODE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  WINDSURF @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
 }
 
 type Column
@@ -2181,22 +2245,6 @@ type ExchangeAuthorizationResult
   error: String
 }
 
-"""
-A session made by `mod exec` running one command across the working set.
-"""
-type ExecRun implements OrganizationChangesetSession
-  @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangesetSession")
-  @join__type(graph: CHANGESETREADER)
-{
-  id: ID!
-  user: User!
-  startedAt: DateTime!
-  finishedAt: DateTime
-  status: OrganizationChangesetSessionStatus!
-  revisions: [RepositoryChangeset!]!
-  command: String!
-}
-
 """A change to a single file within a repository changeset."""
 interface FileChange
   @join__type(graph: CHANGESETREADER)
@@ -2485,6 +2533,31 @@ type GitLabOauth
   @join__type(graph: CAPABILITIES)
 {
   clientId: String!
+}
+
+"""
+A recipe repository kept with a changeset, where the agents working on the changeset fix and
+add recipes.
+"""
+type GitRecipeBundle implements RecipeBundle
+  @join__implements(graph: RECIPEMARKETPLACE, interface: "RecipeBundle")
+  @join__type(graph: RECIPEMARKETPLACE)
+{
+  """The repository's name, such as `rewrite-migrate-java`."""
+  packageName: String!
+  requestedVersion: String
+
+  """The commit the repository's branch stands at."""
+  version: String
+  recipeCount: Int
+
+  """
+  What `git clone` takes, with the credentials the changeset's other remotes take.
+  """
+  cloneUrl: String!
+
+  """The repository's one branch, which is named for the changeset."""
+  branch: String!
 }
 
 type GoConfiguration
@@ -2869,6 +2942,69 @@ interface Message
   user: User!
   state: MessageState!
   lastUpdatedAt: DateTime!
+}
+
+"""
+The git repository the team talks in: a message is a file, in a directory named for its topic.
+"""
+type MessageBoard
+  @join__type(graph: CHANGESETREADER)
+{
+  """
+  What `git clone` takes. It authenticates like the changeset's other remotes.
+  """
+  cloneUrl: String!
+
+  """
+  The whole board as one PDF, rendered when the link is opened. The link is signed, so it
+  needs no Authorization header, and it expires 15 minutes after it is handed out.
+  """
+  pdfUrl: String!
+
+  """The topics, in the order each was first posted to."""
+  topics: [String!]!
+
+  """The messages in the order they were posted."""
+  messages(first: Int = 100, after: String, where: MessageBoardMessageWhereInput): MessageBoardMessageConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+}
+
+type MessageBoardMessage
+  @join__type(graph: CHANGESETREADER)
+{
+  id: ID!
+  topic: String!
+  postedAt: DateTime!
+  message: Markdown!
+
+  """
+  The agent that posted it. Null for a message from outside any agent's work, such as one
+  from a person steering the team.
+  """
+  agent: Agent
+}
+
+type MessageBoardMessageConnection
+  @join__type(graph: CHANGESETREADER)
+{
+  edges: [MessageBoardMessageEdge!]!
+  pageInfo: PageInfo!
+  count: Int!
+}
+
+type MessageBoardMessageEdge
+  @join__type(graph: CHANGESETREADER)
+{
+  node: MessageBoardMessage!
+  cursor: String!
+}
+
+input MessageBoardMessageWhereInput
+  @join__type(graph: CHANGESETREADER)
+{
+  topic: StringFilter
+
+  """The id of the agent that posted."""
+  agent: IDFilter
 }
 
 type MessageConnection
@@ -3479,8 +3615,8 @@ type Organization
 """
 An organization-wide changeset represents code changes or search results across multiple
 repositories: a recipe run (OrganizationRecipeRun*) or a revision that began by push
-(OrganizationRevision). Either kind is revised by sessions, whose pushes become each
-repository's newest change.
+(OrganizationRevision). Either kind is revised by the agents reviewing it, whose pushes
+become each repository's newest change.
 
 Note: This is a shared interface definition. Subgraphs that need to resolve this
 interface must define the implementation types.
@@ -3521,15 +3657,15 @@ interface OrganizationChangeset
   createdAt: DateTime! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
 
   """
-  The sessions that revised the changeset, oldest first. A session is on the list from the
-  moment it opens, so a verification that changed nothing is still on record. A recipe run's
-  list is empty until the run is terminal, since a changeset cannot be checked out before then.
+  The agents working on the changeset as one team: who they are, what they said to each
+  other, and the recipes they fixed. Null until an agent joins, which for a recipe run is
+  after the run is terminal, since a changeset cannot be checked out before then.
   """
-  sessions: [OrganizationChangesetSession!]! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  review: AgentTeamReview @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
 
   """
-  Each repository of the changeset at its newest change: a RepositoryRevision where a session
-  pushed one, else what the recipe run left.
+  Each repository of the changeset at its newest change: a RepositoryRevision where one was
+  pushed, else what the recipe run left.
   """
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
@@ -3595,46 +3731,6 @@ input OrganizationChangesetOrderByInput
 {
   field: OrganizationChangesetOrderByField!
   direction: SortOrder! = DESC
-}
-
-"""
-One checkout of a changeset's working set that revises it: a coding agent or a command. Its
-pushes are RepositoryRevisions. The only thing in a changeset with a lifecycle: a revision
-lands or is refused, and a changeset never learns whether another session will follow.
-"""
-interface OrganizationChangesetSession
-  @join__type(graph: CHANGESETREADER)
-  @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
-  @join__type(graph: RECIPEWORKER)
-{
-  id: ID!
-  user: User!
-  startedAt: DateTime!
-
-  """
-  Null while the session is open, or when the tool that opened it never closed it.
-  """
-  finishedAt: DateTime
-  status: OrganizationChangesetSessionStatus!
-
-  """
-  What the session pushed, in the order it landed; each is a RepositoryRevision. Empty for a
-  session that changed nothing.
-  """
-  revisions: [RepositoryChangeset!]!
-}
-
-enum OrganizationChangesetSessionStatus
-  @join__type(graph: CHANGESETREADER)
-  @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
-  @join__type(graph: RECIPEWORKER)
-{
-  RUNNING @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  SUCCEEDED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  FAILED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  CANCELED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
 }
 
 enum OrganizationChangesetType
@@ -3918,7 +4014,7 @@ interface OrganizationRecipeRun implements OrganizationChangeset
   """
   lastUpdatedAt: DateTime! @join__field(graph: CHANGESETREADER)
   priority: RecipeRunPriority! @join__field(graph: CHANGESETREADER)
-  sessions: [OrganizationChangesetSession!]! @join__field(graph: CHANGESETREADER)
+  review: AgentTeamReview @join__field(graph: CHANGESETREADER)
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
@@ -3952,7 +4048,7 @@ type OrganizationRecipeRunCanceled implements OrganizationChangeset & Organizati
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  sessions: [OrganizationChangesetSession!]!
+  review: AgentTeamReview
   startedAt: DateTime
   finishedAt: DateTime!
 
@@ -4023,7 +4119,7 @@ type OrganizationRecipeRunError implements OrganizationChangeset & OrganizationR
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  sessions: [OrganizationChangesetSession!]!
+  review: AgentTeamReview
   startedAt: DateTime
   finishedAt: DateTime!
   errorMessage: String
@@ -4077,7 +4173,7 @@ type OrganizationRecipeRunFinished implements OrganizationChangeset & Organizati
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  sessions: [OrganizationChangesetSession!]!
+  review: AgentTeamReview
   startedAt: DateTime!
   finishedAt: DateTime!
   duration: Duration
@@ -4150,7 +4246,7 @@ type OrganizationRecipeRunQueued implements OrganizationChangeset & Organization
   """
   lastUpdatedAt: DateTime! @join__field(graph: CHANGESETREADER)
   priority: RecipeRunPriority! @join__field(graph: CHANGESETREADER)
-  sessions: [OrganizationChangesetSession!]! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
+  review: AgentTeamReview @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true)
   queuedAt: DateTime! @join__field(graph: CHANGESETREADER)
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
@@ -4202,7 +4298,7 @@ type OrganizationRecipeRunRunning implements OrganizationChangeset & Organizatio
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  sessions: [OrganizationChangesetSession!]!
+  review: AgentTeamReview
   startedAt: DateTime!
   totals: RecipeRunTotals
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
@@ -4279,7 +4375,7 @@ type OrganizationRecipeRunSyncing implements OrganizationChangeset & Organizatio
   """
   lastUpdatedAt: DateTime!
   priority: RecipeRunPriority!
-  sessions: [OrganizationChangesetSession!]!
+  review: AgentTeamReview
   startedAt: DateTime!
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
@@ -4325,8 +4421,8 @@ input OrganizationRecipeRunWhereInput
 
 """
 A changeset that began by push rather than by recipe run: what `mod exec` or a coding agent
-did across a working set with no recipe before it. Nothing but the interface: its sessions
-say who and how, its repositories say what.
+did across a working set with no recipe before it. Nothing but the interface: its review
+says who and how, its repositories say what.
 """
 type OrganizationRevision implements OrganizationChangeset
   @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
@@ -4336,7 +4432,7 @@ type OrganizationRevision implements OrganizationChangeset
   name: String!
   user: User!
   createdAt: DateTime!
-  sessions: [OrganizationChangesetSession!]!
+  review: AgentTeamReview
   repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
   visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
@@ -5246,6 +5342,7 @@ enum RecipeEcosystem
   Pip @join__enumValue(graph: RECIPEMARKETPLACE)
   Nuget @join__enumValue(graph: RECIPEMARKETPLACE)
   Go @join__enumValue(graph: RECIPEMARKETPLACE)
+  Git @join__enumValue(graph: RECIPEMARKETPLACE)
 }
 
 input RecipeEcosystemFilter
@@ -5461,7 +5558,8 @@ union RecipeInstallationScope
   @join__unionMember(graph: RECIPEMARKETPLACE, member: "UniversalInstallScope")
   @join__unionMember(graph: RECIPEMARKETPLACE, member: "OrganizationInstallScope")
   @join__unionMember(graph: RECIPEMARKETPLACE, member: "UserInstallScope")
- = UniversalInstallScope | OrganizationInstallScope | UserInstallScope
+  @join__unionMember(graph: RECIPEMARKETPLACE, member: "ChangesetInstallScope")
+ = UniversalInstallScope | OrganizationInstallScope | UserInstallScope | ChangesetInstallScope
 
 input RecipeInstallationScopeFilter
   @join__type(graph: RECIPEMARKETPLACE)
@@ -5482,6 +5580,7 @@ enum RecipeInstallationScopeType
   UNIVERSAL @join__enumValue(graph: RECIPEMARKETPLACE)
   ORGANIZATION @join__enumValue(graph: RECIPEMARKETPLACE)
   USER @join__enumValue(graph: RECIPEMARKETPLACE)
+  CHANGESET @join__enumValue(graph: RECIPEMARKETPLACE)
 }
 
 enum RecipeInstallationStatus
@@ -6388,15 +6487,15 @@ type RepositoryRevision implements RepositoryChangeset
 
   """
   The whole difference from the base commit to `tipCommit`, however many commits and pushes
-  came before, never the delta of this push alone. What one session changed is the difference
+  came before, never the delta of this push alone. What one agent changed is the difference
   between two revisions' results.
   """
   results(first: Int = 100, after: String, where: FileChangeWhereInput, orderBy: [FileChangeOrderByInput!]): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
-  The session that pushed it, or null for a push from a checkout that named no tool.
+  The agent that pushed it, or null for a push from a checkout no agent worked in.
   """
-  session: OrganizationChangesetSession
+  agent: Agent
 
   """
   The identity the remote verified at the push, which the commit's author line need not be.
