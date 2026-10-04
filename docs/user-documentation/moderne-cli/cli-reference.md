@@ -386,6 +386,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes delete**](#mod-config-recipes-delete)
 * [**mod config recipes list**](#mod-config-recipes-list)
 * [**mod config recipes search**](#mod-config-recipes-search)
+* [**mod config recipes source**](#mod-config-recipes-source)
+* [**mod config recipes source checkout**](#mod-config-recipes-source-checkout)
+* [**mod config recipes source new**](#mod-config-recipes-source-new)
 * [**mod config recipes tree**](#mod-config-recipes-tree)
 * [**mod config recipes upgrade**](#mod-config-recipes-upgrade)
 * [**mod config recipes yaml**](#mod-config-recipes-yaml)
@@ -427,6 +430,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod git clone csv**](#mod-git-clone-csv-deprecated)~~ (deprecated)
 * ~~[**mod git clone moderne**](#mod-git-clone-moderne-deprecated)~~ (deprecated)
 * [**mod git commit**](#mod-git-commit)
+* [**mod git compare**](#mod-git-compare)
 * [**mod git pull**](#mod-git-pull)
 * [**mod git push**](#mod-git-push)
 * [**mod git reset**](#mod-git-reset)
@@ -455,6 +459,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod monitor**](#mod-monitor)
 * [**mod opencode**](#mod-opencode)
 * [**mod opencode chat**](#mod-opencode-chat)
+* [**mod postbuild**](#mod-postbuild)
+* [**mod postbuild search**](#mod-postbuild-search)
+* [**mod postbuild search index**](#mod-postbuild-search-index)
 * [**mod prebuild**](#mod-prebuild)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
@@ -516,6 +523,7 @@ mod [subcommands]
 * `login`: Logs the CLI into Moderne
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
 * `opencode`: (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
+* `postbuild`: Post-build operations on LST artifacts.
 * `prebuild`: Extracts build metadata without parsing source files.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTs.
@@ -579,6 +587,7 @@ mod amp chat /path/to/organization --org <ORG_NAME>
 | `-n`, `--name` |  What a new changeset is called in Moderne. |  |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset <ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
@@ -703,7 +712,7 @@ If the path itself is not a Git repository, then this command will recursively l
 
 If this command executes successfully, the LST artifact for each project will be stored in a **.moderne/build** directory inside of each repository that is built.
 
-If you've set up a connection with Moderne (by running the **mod config moderne** command), this command will attempt to download LST artifacts from Moderne instead of building them locally. This will allow you to quickly run recipes and make changes. If you do not want this command to look for LST artifacts in Moderne, you can add the **--no-download** flag. Executes builds in sequential order, except if the **--download-only** flag is specified.
+This command always builds LSTs locally. To download the LSTs that Moderne has for an organization, use **mod git sync moderne <path> --organization <name>** instead (add **--with-sources** to also clone the source code).
 
 
 ### Usage
@@ -788,6 +797,7 @@ mod claude chat /path/to/organization --org <ORG_NAME>
 | `-n`, `--name` |  What a new changeset is called in Moderne. |  |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset <ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
@@ -970,6 +980,7 @@ mod codex chat /path/to/organization --org <ORG_NAME>
 | `-n`, `--name` |  What a new changeset is called in Moderne. |  |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset <ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
@@ -7266,6 +7277,7 @@ mod config recipes moderne sync
 * `delete`: Clear the whole recipe marketplace.
 * `list`: List the artifacts that are contributing recipes to the marketplace.
 * `search`: Finds recipes based on free form text search.
+* `source`: Work on the source of recipes in a working set.
 * `tree`: Show what a composite recipe is made of.
 * `upgrade`: Upgrades all installed recipe artifacts to the latest available version.
 * `yaml`: Adds or updates a YAML file that contains recipes that should be added to the recipe marketplace in the CLI.
@@ -8845,6 +8857,102 @@ mod config recipes search owasp
 | `--limit` |  The maximum total number of results that will be returned. |
 
 
+## mod config recipes source
+
+Work on the source of recipes in a working set.
+
+
+A recipe project kept under **.moderne/recipes/** of a working set is built from its source whenever it changed and its recipes run in place of the published ones of the same names, in every **mod run** on a path inside that working set. Nothing is published or installed. On a working set checked out to a changeset, each is a git repository whose commits are pushed to the changeset for the other sessions to pull.
+
+### Usage
+
+```
+mod config recipes source [subcommands]
+```
+
+### Examples
+
+```
+mod config recipes source checkout . --recipe org.openrewrite.java.migrate.UpgradeToJava25
+```
+
+
+### Subcommands
+
+* `checkout`: Check out the source of a recipe into the working set.
+* `new`: Start a new recipe project in the working set.
+
+## mod config recipes source checkout
+
+Check out the source of a recipe into the working set.
+
+
+Finds the repository the recipe's package was built from, in the package's own metadata, and clones it to **.moderne/recipes/<name>**. On a working set checked out to a changeset that already holds the repository, the changeset's copy is cloned, which has the commits other sessions pushed. Otherwise the upstream default branch is cloned with its whole history.
+
+### Usage
+
+```
+mod config recipes source checkout [parameters]
+```
+
+### Examples
+
+```
+mod config recipes source checkout . --recipe org.openrewrite.java.migrate.UpgradeToJava25
+
+mod config recipes source checkout . --url https://github.com/openrewrite/rewrite-migrate-java
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `path` |  The working set to check the recipe's source out into. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--recipe` |  The ID of a recipe whose source to check out. A trailing portion of the ID is accepted when it matches only one recipe. |
+| `--url` |  The git repository to clone, for a package that does not say where its source is kept, or to check out a repository no installed recipe came from. |
+
+
+## mod config recipes source new
+
+Start a new recipe project in the working set.
+
+
+Writes a recipe project to **.moderne/recipes/<name>** and makes it a git repository. On a working set checked out to a changeset its branch is the changeset's and its commits are pushed there. It builds as it stands, so a recipe added to it runs on the next **mod run**.
+
+### Usage
+
+```
+mod config recipes source new [parameters]
+```
+
+### Examples
+
+```
+mod config recipes source new . rewrite-acme
+
+mod config recipes source new . recipes-acme --ecosystem npm
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `path` |  The working set to start the recipe project in. |
+| `name` |  The name of the project and of its repository, for example **rewrite-acme**. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--ecosystem` |  What builds the project, which settles the language of its recipes: **gradle** for recipes written in Java, **npm** for recipes written in TypeScript, which is how a recipe for JavaScript or TypeScript code is written. Default: gradle. |
+| `--group` |  The group the project's artifact is published under, which also begins its package. |
+
+
 ## mod config recipes tree
 
 Show what a composite recipe is made of.
@@ -9443,6 +9551,7 @@ mod copilot chat /path/to/organization --org <ORG_NAME>
 | `-n`, `--name` |  What a new changeset is called in Moderne. |  |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset <ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
@@ -9498,6 +9607,7 @@ mod cursor chat /path/to/organization --org <ORG_NAME>
 | `-n`, `--name` |  What a new changeset is called in Moderne. |  |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset <ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
@@ -9507,7 +9617,7 @@ mod cursor chat /path/to/organization --org <ORG_NAME>
 Checks that this machine and the CLI's configuration can build and publish LSTs.
 
 
-Reports on the host, the CLI's own configuration, the toolchains it found, git and its credentials, and then the services a mass-ingest run depends on: Maven settings, the LST artifact store, the Moderne tenant, and the SCM origins listed in a repos.csv. Each section lists facts first, then its checks as what was found against what a run needs. A check that says must fails the command when it is not met; one that says should only warns. What to do about each is listed at the end. Every check is read-only, and nothing is written to any remote.
+Reports on the host, the CLI's own configuration, the toolchains it found, git and its credentials, and then the services a mass-ingest run depends on: Maven settings, the LST artifact store, the Moderne tenant, the license to run on private code, and the SCM origins listed in a repos.csv. Each section lists facts first, then its checks as what was found against what a run needs. A check that says must fails the command when it is not met; one that says should only warns. What to do about each is listed at the end. Every check is read-only, and nothing is written to any remote.
 
 ### Usage
 
@@ -9582,7 +9692,7 @@ If you want to execute a command that contains positional parameters, please ens
 
 When a repository has a detected build tool (Maven, Gradle, Bazel, npm, Yarn, pnpm, Bun or uv), the command is executed from the build tool's project directory. For partitioned repositories, the command runs once per partition in each partition's build tool directory. Partitions without a detected build tool are skipped in multi-partition repositories, they lack an execution directory.
 
-Commands can use a set of precomputed environment variables specific to each repository or partition: **JAVA_HOME**, **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE**, **MODERNE_BUILD_TOOL_CHECK**, **MODERNE_BUILD_TOOL_DIR** and **MODERNE_BUILD_TOOL_EXECUTABLE**.These variables can be used as literal command arguments (they will be substituted) or as standalone commands that expand to a full build tool invocation. A JavaScript project's dependencies are installed before its test or build script runs, and a Python project's tests run with pytest in an environment uv provisions.
+Commands can use a set of precomputed environment variables specific to each repository or partition: **JAVA_HOME**, **MODERNE_JAVA_HOME**, **MODERNE_JAVA_VERSION**, **MODERNE_JAVA_JDK**, **MODERNE_BUILD_TOOL**, **MODERNE_BUILD_TOOL_COMPILE**, **MODERNE_BUILD_TOOL_CHECK**, **MODERNE_BUILD_TOOL_DIR** and **MODERNE_BUILD_TOOL_EXECUTABLE**.These variables can be used as literal command arguments (they will be substituted) or as standalone commands that expand to a full build tool invocation. For Maven and Gradle that invocation is the one the build makes, with style, license and static analysis checks turned off, and it runs in each build root of the repository in turn. A JavaScript project's dependencies are installed before its test or build script runs, and a Python project's tests run with pytest in an environment uv provisions.
 
 Open a GitHub Pull Request
   **mod exec /path/to/project -- gh pr create --title "Test PR" --body "Test PR"**
@@ -9655,6 +9765,7 @@ mod git [subcommands]
 * `checkout`: Performs the equivalent of **git checkout** on multiple repositories.
 * `clone`: (DEPRECATED) List of repositories can be sourced from different places, like Moderne or a CSV. All clone operations can be performed in parallel by opt in via **--parallel=0 **.
 * `commit`: Performs the equivalent of **git commit** on multiple repositories.
+* `compare`: Compares a recipe run with what a changeset already holds.
 * `pull`: Performs the equivalent of **git pull** on multiple repositories.
 * `push`: Performs the equivalent of **git push** on multiple repositories.
 * `reset`: Performs the equivalent of **git reset** on multiple repositories.
@@ -9900,6 +10011,7 @@ mod git commit /path/to/project -m "commit message"
 
 | Name | Description |
 | ---- | ----------- |
+| `-a`, `--all` |  Stage the changes the recipe run made before committing, as **mod git add** would. |
 | `--allow-empty` |  Whether or not to allow making empty commits. |
 | `--gpg-passphrase-path` |  Path to a file containing the passphrase for the GPG private key. |
 | `--gpg-private-key-path` |  Path to an armored PGP private key file for signing. Implies **--gpg-sign**. |
@@ -9911,6 +10023,40 @@ mod git commit /path/to/project -m "commit message"
 | `-S`, `--gpg-sign` |  GPG sign the commit. Uses the local GPG keyring, or a key file if **--gpg-private-key-path** is provided. |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
+
+
+## mod git compare
+
+Compares a recipe run with what a changeset already holds.
+
+
+On a working set checked out to a changeset, a recipe run cannot be applied to the branch: the run works from each repository as it was before the changeset, and the branch already holds the recipe run the changeset started from and what was committed since. For each repository this puts the run's result on the commit the changeset started from, to the side, and says how it differs from the original run's commit and from the branch as it stands. The checkout, its index and its branch are left as they are. This is how to judge a change to a recipe: run the changed recipe, then compare.
+
+### Usage
+
+```
+mod git compare [parameters]
+```
+
+### Examples
+
+```
+mod git compare /path/to/project --last-recipe-run
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the comparison of every repository as JSON rather than for reading. |
+| `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 
 
 ## mod git pull
@@ -10214,6 +10360,7 @@ mod git sync csv [parameters]
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
@@ -10225,7 +10372,7 @@ mod git sync csv [parameters]
 Synchronizes the state of an organization with Moderne.
 
 
-The repositories are cloned or pulled at the same branch and changeset of the LST that represents that repository in the organization in Moderne so that a subsequent **mod build** will trivially match and download the LST from Moderne. If the repository has local changes or is on a different branch no changes will be made. Given **--changeset** with an id and no organization, the changeset's own repositories are synced at its base commits instead, and without **--with-sources** each repository's newest change is placed in **.moderne/run** for **mod git apply --last-recipe-run** to apply.
+The repositories are cloned or pulled at the same branch and changeset of the LST that represents that repository in the organization in Moderne, and that LST is downloaded alongside it unless **--with-lsts=false** is given. If the repository has local changes or is on a different branch no changes will be made. Given **--changeset** with an id and no organization, the changeset's own repositories are synced at its base commits instead, and without **--with-sources** each repository's newest change is placed in **.moderne/run** for **mod git apply --last-recipe-run** to apply. Joining a changeset also brings its data tables, as each organization aggregates them, for **mod study --changeset** to read.
 
 ### Usage
 
@@ -10258,6 +10405,7 @@ mod git sync moderne /path/to/organization --organization <ORG_NAME>
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 | `--with-lsts` |  Whether to download LSTs for the repositories. |
@@ -10342,6 +10490,7 @@ mod kiro chat /path/to/organization --org <ORG_NAME>
 | `-n`, `--name` |  What a new changeset is called in Moderne. |  |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset <ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
@@ -10684,8 +10833,74 @@ mod opencode chat /path/to/organization --org <ORG_NAME>
 | `-n`, `--name` |  What a new changeset is called in Moderne. |  |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset <ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod postbuild
+
+Post-build operations on LST artifacts.
+
+
+### Usage
+
+```
+mod postbuild [subcommands]
+```
+
+
+### Subcommands
+
+* `search`: Trigram search index operations.
+
+## mod postbuild search
+
+Trigram search index operations.
+
+
+### Usage
+
+```
+mod postbuild search [subcommands]
+```
+
+
+### Subcommands
+
+* `index`: Build an organization-wide trigram search index.
+
+## mod postbuild search index
+
+Build an organization-wide trigram search index.
+
+
+Folds the trigram shards of every repository in the working set into one index under **.moderne/trigrep/** at its root, so a search across the whole organization opens a few large shards rather than every repository's own. A repository with a V2 LST is converted to V3 in place first. Does nothing when the index already holds each repository's latest build.
+
+### Usage
+
+```
+mod postbuild search index [parameters]
+```
+
+### Examples
+
+```
+mod postbuild search index /path/to/organization
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--force`, `-f` |  Rebuild the index even when it is up to date. |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 
 
 ## mod prebuild
@@ -10763,7 +10978,7 @@ mod publish /path/to/ws --sync-csv --organization Payments
 | Name | Description |
 | ---- | ----------- |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
-| `--shard` |  (INCUBATING) Work through only shard i of M of the repository list, for example 3/8 (i counts from 0), so M tasks split one repos.csv without coordinating. A repository's shard is the SHA-256 of `origin|path|branch` (origin and path lowercased, any partition removed, the branch blank when the row has none), leading 8 bytes as an unsigned number, modulo M. It depends on that row alone and is the same on every machine and CLI version. Applied after --organization. |
+| `--shard` |  (INCUBATING) Work through only shard i of M of the repository list, for example 3/8 (i counts from 1, and 0 is read as M, so a job index that counts from 0 still covers the list), so M tasks split one repos.csv without coordinating. A repository's shard is the SHA-256 of `origin|path|branch` (origin and path lowercased, any partition removed, the branch blank when the row has none), leading 8 bytes as an unsigned number, modulo M, plus 1. It depends on that row alone and is the same on every machine. Applied after --organization. |
 | `--sync-csv` |  (INCUBATING) Work through a repos.csv one repository at a time: clone, build, publish, record the result in the artifact store's repos-lock.csv, and delete the repository directory before moving to the next, so the workspace never holds more than the repository in flight. A repository is skipped when its repos-lock.csv row already records the remote HEAD, was built by this CLI version, and was a reproducible build. A repository listed under several organizations is built once, and every one of its rows records that publish. Without a value, the csv is the repos.csv in the configured artifact store, which must exist either way. Put the path before this option. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
@@ -10808,6 +11023,7 @@ mod run /path/to/project \
 | `--recipe` |  The recipe ID of the recipe that should be run. Executes the recipe in parallel by default; pass --parallel 1 to run sequentially. | `org.openrewrite.java.search.FindMethods` |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
 | `--search` |  A search run ID to filter repositories to only those with matches. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. Takes effect with **--sync-csv**. |  |
 | `--streaming` |  (INCUBATING) Stream results from the recipe run to the console as they are produced. This is intended to be machine readable for the creation of incremental experiences like usage search in the IDE. Executes the recipe in parallel by default. |  |
 | `--sync-csv` |  Resolve repositories from a local repos.csv and sync their published LSTs before running, instead of requiring a prior `mod git sync`. Repositories whose csv row has no published LST are skipped. | `mod run ./ws --sync-csv ./repos.csv --recipe=<recipe>` |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |  |
@@ -10893,6 +11109,8 @@ mod study [parameters]
 
 ```
 mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
+
+mod study /path/to/project --changeset --data-table <DATA-TABLE-NAME> --csv
 ```
 
 ### Parameters
@@ -10905,6 +11123,7 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 
 | Name | Description |
 | ---- | ----------- |
+| `--changeset` |  In place of a recipe run, the data tables of the changeset the working set is checked out to: the ones noted in each repository under refs/notes/moderne/, aggregated the way Moderne shows them, every row prefixed with the repository it was noted in. Repositories with nothing noted here, those of other working sets included, keep the rows the changeset has for them, which are fetched again on each study. |
 | `--csv` |  Output in CSV format |
 | `--data-table` |  The name of the data table to study. |
 | `--group` |  When multiple data tables share a fully-qualified name, disambiguate by group. A null/absent value matches ungrouped tables. |
@@ -11207,6 +11426,7 @@ mod vscode chat /path/to/organization --org <ORG_NAME>
 | `-n`, `--name` |  What a new changeset is called in Moderne. |  |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset <ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 
 
@@ -11260,6 +11480,7 @@ mod windsurf chat /path/to/organization --org <ORG_NAME>
 | `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
 | `-n`, `--name` |  What a new changeset is called in Moderne. |  |
 | `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset <ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
 
 
@@ -11284,7 +11505,7 @@ mod wrapper
 | `--auto-update-snapshot` |  Set version to LATEST (track the latest snapshot from the Code Genome Project). |
 | `--distribution-password` |  Password for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-token` |  Bearer token for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
-| `--distribution-url` |  Custom URL template for downloading the CLI distribution. Supports null, null, null and null placeholders. null is the Maven directory, which for a snapshot keeps the -SNAPSHOT suffix while null is the timestamped file version. |
+| `--distribution-url` |  Where to download the CLI distribution from: the root of a Maven repository, which RELEASE is then also resolved against, or a URL template. A template supports null, null, null and null placeholders. null is the Maven directory, which for a snapshot keeps the -SNAPSHOT suffix while null is the timestamped file version. |
 | `--distribution-url-cache-ttl` |  How long the wrapper caches the resolved RELEASE version before re-checking the distribution repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. Avoids a metadata lookup on every invocation. |
 | `--distribution-url-early-access-cache-ttl` |  How long the wrapper caches the resolved LATEST/snapshot version before re-checking the early-access repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. |
 | `--distribution-username` |  Username for authenticated distribution downloads (stored in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |

@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.8.10           |
+| CLI version | 4.9.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,62 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.9.0 (2026-10-04)
+
+_Based on OpenRewrite 8.92.17_
+
+#### What's Changed
+* Read an unquoted proxy port from moderne.yml
+* Say what a receive-pack failure was caused by
+* Index a chain's readers by package
+* Decode only the package pool of a reader a chain indexes
+* Stop recording metrics twice into per-task modjava registries
+* Open a session on a changeset before the agent runs, and close it however the agent exits
+* Skip CycloneDX tasks during the Gradle metadata prebuild
+* Share one set of CHD parameter tables across readers
+* C#: Defer C# nuget.config write until engine starts
+* Carry data tables to a changeset as git notes
+* Search the latest build of each partition
+* Cap each recipe's work on one source file at 10 minutes
+* Honor Retry-After on LST downloads from the tenant, and stop requesting an origin's LSTs while its SCM is rate-limited
+* Unify fix suggestion markup
+* Say which JDKs were skipped because they failed to start
+* Require a license for private code on self-hosted forges and in mod mcp
+* Checkout to a changeset: keep the agent running, keep the branch, skip what has no LST, say why a fetch failed
+* Agents add their follow-on changes to the recipe run's data tables
+* Skip docker-compose-maven-plugin goals during Maven builds
+* Fix Windows-flaky ClonelessGitTest push to origin
+* Finish a canceled run's data table aggregates
+* Count repositories built under another organization as skipped in the `mod publish --sync-csv` summary
+* Resolve RELEASE against the wrapper's own distribution repository
+* Join a changeset with its data tables and message board, and split a sync with --shard
+* Run MODERNE_BUILD_TOOL_COMPILE and MODERNE_BUILD_TOOL_CHECK the way the build runs Maven and Gradle
+* Point FileUtils.sanitize at its moderne-saas copy
+* Resolve Flyway locations and dynamic SQL for offline jOOQ codegen
+* Remove unused JavaRuntime.findRtJar, selectModJavaHome and Run.javaHome
+* Check the license in mod doctor
+* Remove outdated LST download references from `mod build`
+* Check the Node.js 14 minimum in mod doctor
+* Record a Java version the build uses, not an unreplaced POM placeholder
+* Tell agents to describe a data table and its columns when they note it
+* Fix recipes from source on a changeset: build them where they are checked out, compare runs, and share the fix
+* Regenerate the V3 tag registry for the C# trees rewrite 8.92.16 changed
+* Commit a run's result onto a branch an earlier attempt left at the base
+* Commit the binary files a recipe run changed, such as the Gradle wrapper jar
+* Start a V2 to V3 conversion's RPC servers the way mod build and mod run do
+* Commit to a changeset's message board as the session that checked it out
+* `mod git commit` accepts `-a`/`--all` to stage a recipe run's changes and commit them in one step.
+* Skip JREs when detecting JDKs, and report them in mod doctor
+* Walk a decorated recipe once when deciding whether to cache it
+* Give Claude Code, Codex and Copilot chat sessions the tenant's MCP server
+* Run npm recipe packages from source in a working set
+* `mod postbuild search index` builds an organization-wide trigram index
+* Tell agents how to scope a Moderne run to chosen repositories, and how to record a recipe issue
+* Note what each recipe project lists on its tree, for the changeset it is pushed to
+* Build against rewrite 8.92.17, and convert a V2 LST to V3 without starting Node or Python
+* Find a file in every repository of a compound shard when a query combines terms
+* End agent chat sessions cleanly, accept a push that undoes a change, and say where recipe repositories came from
 
 ### CLI / DX v4.8.10 (2026-09-28)
 
