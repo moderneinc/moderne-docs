@@ -715,7 +715,7 @@ learns whether another agent will join.
 |-------|------|-------------|
 | `id` | ID! |  |
 | `name` | String | The name the agent signed the team's roster with. Null until it signs. |
-| `specializations` | [String!]! | What the agent said it looks out for on the team, such as builder or skeptic. Several agents can share one, and a message can be addressed to all of them. |
+| `specializations` | [String!]! | **Deprecated:** The roster no longer carries specializations. Always empty. |
 | `codingAgent` | [CodingAgent](#codingagent)! |  |
 | `user` | [User](#user)! |  |
 | `prompt` | String |  |

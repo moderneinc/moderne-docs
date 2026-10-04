@@ -108,12 +108,7 @@ type Agent
 
   """The name the agent signed the team's roster with. Null until it signs."""
   name: String
-
-  """
-  What the agent said it looks out for on the team, such as builder or skeptic. Several
-  agents can share one, and a message can be addressed to all of them.
-  """
-  specializations: [String!]!
+  specializations: [String!]! @deprecated(reason: "The roster no longer carries specializations. Always empty.")
   codingAgent: CodingAgent!
   user: User!
   prompt: String
