@@ -10,6 +10,15 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## October 5, 2026
+
+#### rewrite-migrate-python - 0.15.1
+
+* Keep an argument's own braces and quotes out of the f-string field
+* Only remove a dict overwrite the function provably keeps to itself
+* Set the f-string conversion through with_conversion
+* Add a CodeQuality composite for the Python code quality fixes
+
 ## October 2, 2026
 
 #### recipes-javascript - 0.2.1
