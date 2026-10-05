@@ -47,7 +47,7 @@ Alternatively, you can install via a package manager:
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
 
-For more installation options, including Enterprise and Moderne DX setups, see [Getting started with the Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md#installation-and-configuration).
+For more installation options, including Enterprise and Moderne DX setups, see [Installation and configuration](../../user-documentation/moderne-cli/getting-started/cli-intro.md#installation-and-configuration) in the CLI documentation.
 
 Verify the install:
 

@@ -1,17 +1,17 @@
 ---
 sidebar_label: Using the Moderne CLI
-description: How to install, configure, and use the Moderne CLI. Includes real-world examples to follow along with.
+description: How to install and configure the Moderne CLI, then sync organizations, build LSTs, run recipes, and commit the results yourself.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Getting started with the Moderne CLI
+# Using the Moderne CLI
 
 The Moderne CLI is a command line tool that complements the Moderne Platform and Moderne DX, enabling you to build [Lossless Semantic Tree](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) (LST) artifacts across many repositories and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
 
-To ensure you can use the Moderne CLI successfully, in this guide, we will walk you through everything you need to get started – from installation, to configuration, to examples demonstrating how to use it.
+The quickest way to see the CLI in action is the [quickstart](./cli-getting-started.md), where a coding agent drives `mod` for you. This guide is for when you want to run each step yourself, or need to understand what the agent is doing on your behalf. We will walk you through everything from installation, to configuration, to the commands that sync code, run recipes, and turn the results into pull requests.
 
 :::note
 The examples in this guide use the latest version of the Moderne CLI.
@@ -432,40 +432,34 @@ Moderne CLI 4.8.10
 
 ⏺ Retrieving the configured organizations
 
-  ALL (12345)
-    Default (11)
-    JetBrains (170)
-    Moderne (116)
-      Moderne - Public (8)
-      Moderne AI (8)
-      Moderne SaaS (26)
-        Moderne Libraries (10)
-        Moderne Microservices (15)
-        Moderne UI (1)
-      Recipes (28)
-      Smoke test (6)
-    Open Source (48316)
-      AirBnB (19)
-      Alibaba (363)
-      Amazon (95)
-      Android (129)
-      Antlr (10)
-      Atlassian (1)
-      BNY (3)
-      C# (459)
-      Cloud Foundry (7)
-      DataStax (124)
-      Eclipse Foundation (295)
-        Eclipse Platform (7)
-      Elastic Search (35)
-      Facebook (19)
-      FasterXML (48)
-      FINOS (29)
-      Forks (34)
-      Google (764)
-      Gradle (61)
-      Gradle Plugins (46)
-      Green Button Alliance (3)
+  ALL (56608)
+    Backend Services (7081)
+      API (217)
+        GraphQL (76)
+        RPC (36)
+      Frameworks (6779)
+        JVM Frameworks (4377)
+          Spring (1949)
+            Spring Boot (550)
+            ...
+    Data & ML (2467)
+      ...
+    Open Source (2235)
+      Apache (1164)
+      CNCF (137)
+      Eclipse Foundation (142)
+      ...
+      Sample Estate (27)
+        Java Estate (8)
+          Java Services (4)
+          Legacy Java Apps (5)
+        JavaScript Estate (8)
+          JavaScript Services (5)
+          Legacy JavaScript Apps (4)
+        Python Estate (11)
+          Legacy Python Apps (6)
+          Python Services (6)
+    Platform Engineering (6559)
       ...
 ```
 
@@ -504,40 +498,34 @@ Moderne CLI 4.8.10
 
 ⏺ Retrieving the configured organizations
 
-  ALL (12345)
-    Default (11)
-    JetBrains (170)
-    Moderne (116)
-      Moderne - Public (8)
-      Moderne AI (8)
-      Moderne SaaS (26)
-        Moderne Libraries (10)
-        Moderne Microservices (15)
-        Moderne UI (1)
-      Recipes (28)
-      Smoke test (6)
-    Open Source (48316)
-      AirBnB (19)
-      Alibaba (363)
-      Amazon (95)
-      Android (129)
-      Antlr (10)
-      Atlassian (1)
-      BNY (3)
-      C# (459)
-      Cloud Foundry (7)
-      DataStax (124)
-      Eclipse Foundation (295)
-        Eclipse Platform (7)
-      Elastic Search (35)
-      Facebook (19)
-      FasterXML (48)
-      FINOS (29)
-      Forks (34)
-      Google (764)
-      Gradle (61)
-      Gradle Plugins (46)
-      Green Button Alliance (3)
+  ALL (56608)
+    Backend Services (7081)
+      API (217)
+        GraphQL (76)
+        RPC (36)
+      Frameworks (6779)
+        JVM Frameworks (4377)
+          Spring (1949)
+            Spring Boot (550)
+            ...
+    Data & ML (2467)
+      ...
+    Open Source (2235)
+      Apache (1164)
+      CNCF (137)
+      Eclipse Foundation (142)
+      ...
+      Sample Estate (27)
+        Java Estate (8)
+          Java Services (4)
+          Legacy Java Apps (5)
+        JavaScript Estate (8)
+          JavaScript Services (5)
+          Legacy JavaScript Apps (4)
+        Python Estate (11)
+          Legacy Python Apps (6)
+          Python Services (6)
+    Platform Engineering (6559)
       ...
 ```
 

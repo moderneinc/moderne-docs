@@ -11,7 +11,7 @@ In order to use the [Moderne GraphQL API](https://api.app.moderne.io/), you will
 :::info
 If you want to learn how to use an access token, please go to the [Accessing the Moderne API doc](./accessing-the-moderne-api.md).
 
-If you want to use this token with the Moderne CLI, please see the [CLI getting started guide](../../moderne-cli/getting-started/cli-intro.md#step-3-connect-the-cli-to-moderne) for instructions on how to do that.
+If you want to use this token with the Moderne CLI, please see [Connect the CLI to Moderne](../../moderne-cli/getting-started/cli-intro.md#step-3-connect-the-cli-to-moderne) for instructions on how to do that.
 :::
 
 In this doc, you can find out:

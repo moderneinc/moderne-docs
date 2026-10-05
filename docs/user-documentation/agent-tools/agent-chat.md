@@ -48,7 +48,7 @@ The CLI clones every repository in the organization into the `./work` directory 
 
 ## Requirements
 
-You need the Moderne CLI 4.8.4 or later and a supported agent installed on your `PATH`.
+You need the Moderne CLI 4.8.4 or later and a supported agent installed on your `PATH`. For Claude Code, use 2.1.286 or later. Earlier releases do not read the `AGENTS.md` file the CLI writes, so the agent starts without knowing how to use `mod`.
 
 :::warning
 Agent chat does not work together with the [Moderne skills](./skills.md) or [local MCP server](./mcp/overview.md). These tools are designed to steer the agent toward working on only one repository at a time instead.
@@ -63,6 +63,8 @@ You can always reinstall them later with `mod config agent-tools install`.
 
 To remove them for only one agent, see [per-agent installation](./skills.md#per-agent-installation).
 :::
+
+The same goes for anything else your agent loads at startup: global instruction files, plugins, skills, and MCP servers. `AGENTS.md` tells the agent to reach for `mod` first, and a plugin that tells it to explore and ask clarifying questions first, or an MCP server that offers its own way to run recipes, competes with that. If the agent starts a session by reading files one at a time or searching the web instead of running `mod`, check what else it has loaded and disable it for the session.
 
 ## Choosing what to sync
 
@@ -144,4 +146,5 @@ mod claude chat ./work --org "Legacy Java Apps" \
 
 ## Next steps
 
+* [Follow the quickstart](../moderne-cli/getting-started/cli-getting-started.md), a complete agent chat session that upgrades an organization to Java 25
 * [Learn how to sync organizations](../moderne-cli/getting-started/cli-intro.md#syncing-moderne-organizations) with the Moderne CLI
