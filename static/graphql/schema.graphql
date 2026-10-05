@@ -115,7 +115,8 @@ type Agent
   startedAt: DateTime!
 
   """
-  Null while the agent is working, or when the tool that started it never said it ended.
+  Null while the agent is working. One whose tool went silent for 15 minutes without saying it
+  ended, say on a machine that died, finished when it was last heard from, and is CANCELED.
   """
   finishedAt: DateTime
   status: AgentStatus!
@@ -152,7 +153,6 @@ type AgentTeamReview
   @join__type(graph: CHANGESETREADER, key: "id", resolvable: false)
   @join__type(graph: CHANGESETREADER, key: "id", extension: true)
   @join__type(graph: CHANGESETVISUALIZER, key: "id", resolvable: false)
-  @join__type(graph: CODESEARCH, key: "id", resolvable: false)
   @join__type(graph: RECIPEMARKETPLACE, key: "id", extension: true)
   @join__type(graph: RECIPEWORKER, key: "id", resolvable: false)
 {
@@ -312,7 +312,6 @@ type AzureDevOpsOauth
 In the browser, `btoa` encodes ASCII strings to Base64.
 """
 scalar Base64
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -378,7 +377,6 @@ type BitbucketOauth
 }
 
 input BooleanFilter
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -1181,21 +1179,77 @@ type CliDownloadInstructionLink
   uri: String!
 }
 
+type CodeSearchContextLine
+  @join__type(graph: CODESEARCH)
+{
+  lineNumber: Int!
+  line: String!
+}
+
+"""The part of a line that matched."""
+type CodeSearchFragment
+  @join__type(graph: CODESEARCH)
+{
+  """In characters from the start of the line."""
+  offset: Int!
+  length: Int!
+}
+
+type CodeSearchLineMatch
+  @join__type(graph: CODESEARCH)
+{
+  """Counted from 1."""
+  lineNumber: Int!
+  line: String!
+  fragments: [CodeSearchFragment!]!
+  before: [CodeSearchContextLine!]!
+  after: [CodeSearchContextLine!]!
+}
+
+enum CodeSearchPreparePhase
+  @join__type(graph: CODESEARCH)
+{
+  """Waiting for another organization to finish preparing."""
+  QUEUED @join__enumValue(graph: CODESEARCH)
+
+  """Downloading the LSTs of the organization's repositories."""
+  SYNCING @join__enumValue(graph: CODESEARCH)
+
+  """Building the search index from those LSTs."""
+  INDEXING @join__enumValue(graph: CODESEARCH)
+  OPENING @join__enumValue(graph: CODESEARCH)
+}
+
+"""A file with at least one match."""
 type CodeSearchResult
   @join__type(graph: CODESEARCH)
 {
-  groupId: String!
-  artifactId: String!
-  fileChanges(first: Int = 100, after: String): FileChangeConnection!
+  repository: Repository!
+  path: Path!
+  language: String
+
+  """
+  Empty when the query selects files rather than lines, as `select:file` does.
+  """
+  lineMatches: [CodeSearchLineMatch!]!
 }
 
 type CodeSearchResultConnection
   @join__type(graph: CODESEARCH)
 {
   edges: [CodeSearchResultEdge!]!
+
+  """
+  A page can come back short, or empty, with `hasNextPage` still true: the search ran
+  out of time before filling it. `endCursor` is then where to resume.
+  """
   pageInfo: PageInfo!
-  count: Int!
-  searchDurationMs: Long!
+
+  """
+  What to know about how the query was read or how far the search got, such as a
+  filter that is not supported.
+  """
+  warnings: [String!]!
 }
 
 type CodeSearchResultEdge
@@ -1205,28 +1259,146 @@ type CodeSearchResultEdge
   cursor: String!
 }
 
+"""
+A session belongs to the user who opened it: nobody else can get it or search with it.
+"""
+interface CodeSearchSession
+  @join__type(graph: CODESEARCH)
+{
+  id: ID!
+  organization: Organization!
+  user: User!
+
+  """
+  The service instance that holds the session's index. Sessions do not move between
+  instances, so one whose instance is gone is closed with reason `INSTANCE_REPLACED`.
+  """
+  instance: String!
+  startedAt: DateTime!
+}
+
+type CodeSearchSessionClosed implements CodeSearchSession
+  @join__implements(graph: CODESEARCH, interface: "CodeSearchSession")
+  @join__type(graph: CODESEARCH)
+{
+  id: ID!
+  organization: Organization!
+  user: User!
+  instance: String!
+  startedAt: DateTime!
+  finishedAt: DateTime!
+  reason: CodeSearchSessionCloseReason!
+
+  """Why preparing the session failed, when `reason` is `FAILED`."""
+  message: String
+}
+
+enum CodeSearchSessionCloseReason
+  @join__type(graph: CODESEARCH)
+{
+  """Closed with `closeCodeSearchSession`."""
+  USER @join__enumValue(graph: CODESEARCH)
+
+  """It went too long without a search."""
+  IDLE_TIMEOUT @join__enumValue(graph: CODESEARCH)
+
+  """
+  The instance serving it was replaced, as happens on every deployment. Open a new session.
+  """
+  INSTANCE_REPLACED @join__enumValue(graph: CODESEARCH)
+
+  """The organization could not be made ready to search."""
+  FAILED @join__enumValue(graph: CODESEARCH)
+}
+
+type CodeSearchSessionConnection
+  @join__type(graph: CODESEARCH)
+{
+  edges: [CodeSearchSessionEdge!]!
+  pageInfo: PageInfo!
+  count: Int!
+}
+
+type CodeSearchSessionEdge
+  @join__type(graph: CODESEARCH)
+{
+  node: CodeSearchSession!
+  cursor: String!
+}
+
+"""
+The organization is being made ready to search. Sessions for the same organization share
+this work, and organizations are prepared one at a time.
+"""
+type CodeSearchSessionPreparing implements CodeSearchSession
+  @join__implements(graph: CODESEARCH, interface: "CodeSearchSession")
+  @join__type(graph: CODESEARCH)
+{
+  id: ID!
+  organization: Organization!
+  user: User!
+  instance: String!
+  startedAt: DateTime!
+  phase: CodeSearchPreparePhase!
+
+  """How many repositories the organization has, once that is known."""
+  repositoryCount: Int
+}
+
+"""The session can be searched."""
+type CodeSearchSessionReady implements CodeSearchSession
+  @join__implements(graph: CODESEARCH, interface: "CodeSearchSession")
+  @join__type(graph: CODESEARCH)
+{
+  id: ID!
+  organization: Organization!
+  user: User!
+  instance: String!
+  startedAt: DateTime!
+
+  """How many repositories the organization has."""
+  repositoryCount: Int!
+
+  """
+  How many of them are in the index. The rest have no LST, or one that could not be
+  downloaded or indexed, and a search does not cover them.
+  """
+  indexedRepositoryCount: Int!
+}
+
+input CodeSearchSessionWhereInput
+  @join__type(graph: CODESEARCH)
+{
+  id: IDFilter
+
+  """Only an admin has other users' sessions to filter."""
+  user: UserWhereInput
+  organization: IDFilter
+  _and: [CodeSearchSessionWhereInput!]
+  _or: [CodeSearchSessionWhereInput!]
+  _not: CodeSearchSessionWhereInput
+}
+
 """The coding agent behind `mod <agent> chat`."""
 enum CodingAgent
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  AMP @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  CLAUDE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  CODEX @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  COPILOT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  CURSOR @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  KIRO @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  OPEN_CODE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  VSCODE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  WINDSURF @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  AMP @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  CLAUDE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  CODEX @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  COPILOT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  CURSOR @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  KIRO @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  OPEN_CODE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  VSCODE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  WINDSURF @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 type Column
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEMARKETPLACE)
   @join__type(graph: RECIPEWORKER)
 {
@@ -1566,7 +1738,7 @@ input CreateUserOrganizationInput
   """The name of the organization."""
   name: String!
 
-  """Repositories to include in the organization."""
+  """Repositories to include in the organization. At least one is required."""
   repositories: [RepositoryInput!]
 }
 
@@ -1580,7 +1752,6 @@ enum DataGridFormat
 interface DataTable
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   id: ID!
@@ -1617,7 +1788,6 @@ type DataTableAvailable implements DataTable
 type DataTableConnection
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   edges: [DataTableEdge!]!
@@ -1628,21 +1798,19 @@ type DataTableConnection
 type DataTableDescriptor
   @join__type(graph: CHANGESETREADER, key: "name")
   @join__type(graph: CHANGESETVISUALIZER, key: "name")
-  @join__type(graph: CODESEARCH, key: "name")
   @join__type(graph: MODDY, key: "name", resolvable: false)
   @join__type(graph: RECIPEMARKETPLACE, key: "name")
   @join__type(graph: RECIPEWORKER, key: "name")
 {
   name: String!
-  displayName: String! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEMARKETPLACE) @join__field(graph: RECIPEWORKER)
-  description: String! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEMARKETPLACE) @join__field(graph: RECIPEWORKER)
-  columns: [Column!]! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEMARKETPLACE) @join__field(graph: RECIPEWORKER)
+  displayName: String! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEMARKETPLACE) @join__field(graph: RECIPEWORKER)
+  description: String! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEMARKETPLACE) @join__field(graph: RECIPEWORKER)
+  columns: [Column!]! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEMARKETPLACE) @join__field(graph: RECIPEWORKER)
 }
 
 type DataTableEdge
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   node: DataTable!
@@ -1690,17 +1858,15 @@ type DataTableFinished implements DataTable
 enum DataTableFormat
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  CSV @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  XLSX @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  CSV @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  XLSX @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input DataTableFormatFilter
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   _eq: DataTableFormat
@@ -1712,17 +1878,15 @@ input DataTableFormatFilter
 enum DataTableOrderByField
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  DATA_TABLE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  STARTED_AT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  DATA_TABLE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  STARTED_AT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input DataTableOrderByInput
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   field: DataTableOrderByField!
@@ -1784,7 +1948,6 @@ type DataTableSqlMessage implements Message
 input DataTableWhereInput
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   id: IDFilter
@@ -1797,7 +1960,6 @@ input DataTableWhereInput
 }
 
 scalar Date
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -1813,7 +1975,6 @@ scalar Date
   @join__type(graph: RECIPEWORKER)
 
 scalar DateTime
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -1830,7 +1991,6 @@ scalar DateTime
   @specifiedBy(url: "https://scalars.graphql.org/andimarek/date-time.html")
 
 input DateTimeFilter
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -2120,6 +2280,32 @@ input DevCenterRunWhereInput
   _not: DevCenterRunWhereInput
 }
 
+"""
+Consecutive lines on one side of a diff that one change made what they are: removed them,
+or wrote them and kept them through every change since.
+"""
+type DiffBlameRange
+  @join__type(graph: CHANGESETREADER)
+{
+  """
+  BEFORE for removed lines, numbered as in the base commit; AFTER for added lines, numbered
+  as in the revision. The numbers in the diff's hunk headers.
+  """
+  side: DiffSide!
+  startingLine: Int!
+  endingLine: Int!
+
+  """A RepositoryRevision, or the recipe run's result."""
+  change: RepositoryChangeset!
+}
+
+enum DiffSide
+  @join__type(graph: CHANGESETREADER)
+{
+  BEFORE @join__enumValue(graph: CHANGESETREADER)
+  AFTER @join__enumValue(graph: CHANGESETREADER)
+}
+
 """Aggregate line-level diff statistics."""
 type DiffStat
   @join__type(graph: CHANGELOGREADER)
@@ -2152,7 +2338,6 @@ type DirectCommitSucceeded implements RepositoryCommitSucceeded & RepositoryComm
 }
 
 scalar Duration
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -2244,7 +2429,6 @@ type ExchangeAuthorizationResult
 interface FileChange
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   """Path to the file relative to repository root."""
@@ -2270,7 +2454,6 @@ interface FileChange
 type FileChangeConnection
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   edges: [FileChangeEdge!]!
@@ -2290,7 +2473,6 @@ type FileChangeConnection
 type FileChangeEdge
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   node: FileChange!
@@ -2300,16 +2482,14 @@ type FileChangeEdge
 enum FileChangeOrderByField
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  PATH @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  PATH @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input FileChangeOrderByInput
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   field: FileChangeOrderByField!
@@ -2321,7 +2501,6 @@ input FileChangeWhereInput
   @join__type(graph: CHANGESETCOMMITTER)
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   """Filter by file path using glob patterns."""
@@ -2553,6 +2732,19 @@ type GitRecipeBundle implements RecipeBundle
 
   """The repository's one branch, which is named for the changeset."""
   branch: String!
+
+  """
+  The upstream repository the branch came from, as its first push said. Null when it did not
+  say, or the repository has no upstream.
+  """
+  upstreamUrl: String
+
+  """
+  The upstream commit the branch started at, an ancestor of every commit the branch has stood
+  at: `git log <baseCommit>..<branch>` is what the changeset added, with any newer upstream
+  commits a session pulled in. Null when `upstreamUrl` is.
+  """
+  baseCommit: String
 }
 
 type GoConfiguration
@@ -2599,7 +2791,6 @@ type HttpToolConnectivity
 }
 
 input IDFilter
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -2643,7 +2834,6 @@ input InitiateAuthorizationInput
 }
 
 input IntFilter
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -2680,7 +2870,6 @@ scalar join__FieldSet
 scalar join__FieldValue
 
 enum join__Graph {
-  ARTIFACTSMAVEN @join__graph(name: "artifactsmaven", url: "http://artifactsmaven/graphql")
   AUDITREADER @join__graph(name: "auditreader", url: "http://auditreader/graphql")
   AUTHZ @join__graph(name: "authz", url: "http://authz/graphql")
   CAPABILITIES @join__graph(name: "capabilities", url: "http://localhost:4000/capabilities/graphql")
@@ -2697,7 +2886,6 @@ enum join__Graph {
 }
 
 scalar JSON
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -2752,7 +2940,6 @@ enum LlmProvider
 }
 
 scalar Long
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -2814,7 +3001,6 @@ input LstArtifactWhereInput
 Contents may contain Markdown, HTML, or other text and should be passed through a Markdown parser by consumers
 """
 scalar Markdown
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -2832,7 +3018,6 @@ scalar Markdown
 interface Marker
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   id: ID!
@@ -2841,11 +3026,9 @@ interface Marker
 type Markup implements Marker
   @join__implements(graph: CHANGESETREADER, interface: "Marker")
   @join__implements(graph: CHANGESETVISUALIZER, interface: "Marker")
-  @join__implements(graph: CODESEARCH, interface: "Marker")
   @join__implements(graph: RECIPEWORKER, interface: "Marker")
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   id: ID!
@@ -2857,14 +3040,13 @@ type Markup implements Marker
 enum MarkupLevel
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  DEBUG @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  INFO @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  WARNING @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  ERROR @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  NONE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  DEBUG @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  INFO @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  WARNING @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  ERROR @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  NONE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 type MavenConfiguration
@@ -3072,6 +3254,7 @@ type Mutation
   @join__type(graph: CHANGESETCOMMITTER)
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
+  @join__type(graph: CODESEARCH)
   @join__type(graph: MODDY)
   @join__type(graph: ORGANIZATION)
   @join__type(graph: RECIPEMARKETPLACE)
@@ -3279,6 +3462,36 @@ type Mutation
   otherwise queues a new visualization run.
   """
   runVisualization(organizationId: ID!, visualizationId: ID!, options: [VisualizationOptionInput!]): Visualization! @join__field(graph: CHANGESETVISUALIZER)
+
+  """
+  Open a session for searching the code of an organization's repositories. The session
+  starts as a `CodeSearchSessionPreparing` while the organization's LSTs are downloaded
+  and indexed, which takes from seconds, when another session prepared the organization
+  recently, to much longer for an organization seen for the first time.
+  """
+  openCodeSearchSession(organizationId: ID!): CodeSearchSession! @join__field(graph: CODESEARCH)
+
+  """
+  Search a ready session. Fails, saying why, on a session that is still preparing or is
+  closed. Results are files with their matching lines, limited to repositories the
+  caller can read, in a stable order that `after` resumes.
+  
+  The query is a Sourcegraph-style expression: plain text and `/regular expressions/`,
+  combined with `AND`, `OR` and `NOT`, and narrowed by path and language with `file:`
+  and `lang:`. The index is built from LSTs, so the other filters match resolved types
+  rather than text: `call:` (the call sites of a method, such as
+  `call:java.util.List.add`, calls on subtypes included), `ref:` (the uses of a type),
+  `sym:` (a declared name), and `extends:`, `implements:`, `annotated:`, `returns:` and
+  `throws:` (declarations).
+  """
+  codeSearch(sessionId: ID!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+
+  """
+  Close a session, which only the user who opened it or an admin can do. An
+  organization's index is released once its last session closes. A session that goes
+  too long without a search closes on its own.
+  """
+  closeCodeSearchSession(id: ID!): CodeSearchSession! @join__field(graph: CODESEARCH)
 
   """
   Set the universal (default) system prompt. Admin-only — the universal prompt steers Moddy tenant-wide.
@@ -3507,7 +3720,6 @@ type OAuthAuthorization
 }
 
 scalar Object
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -3622,7 +3834,6 @@ interface OrganizationChangeset
   @join__type(graph: CHANGESETREADER, key: "id", resolvable: false)
   @join__type(graph: CHANGESETREADER, key: "id", extension: true)
   @join__type(graph: CHANGESETVISUALIZER, key: "id", resolvable: false)
-  @join__type(graph: CODESEARCH, key: "id", resolvable: false)
   @join__type(graph: RECIPEWORKER, key: "id", resolvable: false)
 {
   id: ID!
@@ -3647,42 +3858,41 @@ interface OrganizationChangeset
   """
   What the changeset is called: a recipe run's instance name, or what its first push named it.
   """
-  name: String! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
-  user: User! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
-  createdAt: DateTime! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  name: String! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEWORKER)
+  user: User! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEWORKER)
+  createdAt: DateTime! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEWORKER)
 
   """
   The agents working on the changeset as one team: who they are, what they said to each
   other, and the recipes they fixed. Null until an agent joins, which for a recipe run is
   after the run is terminal, since a changeset cannot be checked out before then.
   """
-  review: AgentTeamReview @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
+  review: AgentTeamReview @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEWORKER)
 
   """
   Each repository of the changeset at its newest change: a RepositoryRevision where one was
   pushed, else what the recipe run left.
   """
-  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 100, after: String, where: RepositoryChangesetWhereInput, orderBy: [RepositoryChangesetOrderByInput!]): RepositoryChangesetConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEWORKER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Data tables produced by this recipe run.
   Each data table starts as Available and transitions to Processing/Finished/Error
   when downloadDataTable mutation is called.
   """
-  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEWORKER) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Visualizations produced by this changeset.
   Each visualization starts as Available and transitions to Processing/Finished/Error
   when runVisualization mutation is called.
   """
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @cost(weight: 50)
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: RECIPEWORKER) @cost(weight: 50)
 }
 
 type OrganizationChangesetConnection
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   edges: [OrganizationChangesetEdge!]!
@@ -3693,7 +3903,6 @@ type OrganizationChangesetConnection
 type OrganizationChangesetEdge
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   node: OrganizationChangeset!
@@ -3710,18 +3919,16 @@ type OrganizationChangesetEdge
 enum OrganizationChangesetOrderByField
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  CREATED_AT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  TYPE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  USER @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  CREATED_AT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  TYPE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  USER @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input OrganizationChangesetOrderByInput
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   field: OrganizationChangesetOrderByField!
@@ -3731,17 +3938,15 @@ input OrganizationChangesetOrderByInput
 enum OrganizationChangesetType
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  RECIPE_RUN @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  REVISION @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  RECIPE_RUN @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  REVISION @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input OrganizationChangesetTypeFilter
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   _eq: OrganizationChangesetType
@@ -3753,7 +3958,6 @@ input OrganizationChangesetTypeFilter
 input OrganizationChangesetWhereInput
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   id: IDFilter
@@ -4502,7 +4706,6 @@ input OrganizationWhereInput
 }
 
 type PageInfo
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -4526,7 +4729,6 @@ type PageInfo
 type Patch
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   """Sanitized diff (does not include markers)"""
@@ -4544,7 +4746,6 @@ type Patch
 A file path relative to repository root (e.g., "src/main/java/Foo.java").
 """
 scalar Path
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -4561,7 +4762,6 @@ scalar Path
 
 """Filter for file paths using glob patterns."""
 input PathFilter
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -4615,14 +4815,12 @@ input PipRecipeBundleInput
 }
 
 type PlatformCapabilities
-  @join__type(graph: ARTIFACTSMAVEN, key: "id")
   @join__type(graph: CAPABILITIES, key: "id")
   @join__type(graph: CHANGELOGREADER, key: "id")
   @join__type(graph: CODESEARCH, key: "id")
   @join__type(graph: MODDY, key: "id")
 {
   id: ID!
-  artifacts: Boolean! @join__field(graph: ARTIFACTSMAVEN, override: "capabilities")
   connector: Boolean! @join__field(graph: CAPABILITIES)
   changelog: Boolean! @join__field(graph: CHANGELOGREADER, override: "capabilities")
   codeSearch: Boolean! @join__field(graph: CODESEARCH, override: "capabilities")
@@ -5007,7 +5205,6 @@ type PypiConfiguration
 }
 
 type Query
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -5056,11 +5253,16 @@ type Query
   bulkPullRequestAction(id: ID!): BulkPullRequestAction @join__field(graph: CHANGESETCOMMITTER)
 
   """
-  Search source code across artifact repositories.
-  Searches the given repository and all its descendants in the hierarchy.
-  Results are grouped by artifact (groupId:artifactId) with file-level matches.
+  One of the caller's code search sessions, or null when they have none with this id.
+  Poll it after `openCodeSearchSession` until it is a `CodeSearchSessionReady`.
   """
-  codeSearch(repositoryId: String!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH) @cost(weight: 50)
+  codeSearchSession(id: ID!): CodeSearchSession @join__field(graph: CODESEARCH)
+
+  """
+  The caller's code search sessions, newest first, including those that closed recently.
+  An admin gets every user's sessions and can narrow them with `where.user`.
+  """
+  codeSearchSessions(first: Int = 50, after: String, where: CodeSearchSessionWhereInput): CodeSearchSessionConnection! @join__field(graph: CODESEARCH) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Look up a single conversation by id. Returns null when no conversation
@@ -5825,23 +6027,22 @@ token for the origin).
 enum RepoAccess
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   """
   The viewer has a token for the origin and read access to the repository.
   """
-  ALLOWED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  ALLOWED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 
   """
   The viewer can't read this repository — either access is explicitly denied, or auth:z failed closed on a transient SCM/resolution error or invalid input (see RepoAccess in core). Surface a "you don't have access" message rather than empty results.
   """
-  DENIED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  DENIED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 
   """
   The viewer has no SCM token for the origin, so access can't be evaluated. Surface an authorize prompt.
   """
-  UNAUTHENTICATED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  UNAUTHENTICATED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 type Repository
@@ -5867,7 +6068,6 @@ Resolved by the changeset reader using a batch check against the authorization s
 type RepositoryAuthorization
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   """The VCS origin (e.g., github.com)."""
@@ -5890,7 +6090,6 @@ type RepositoryAuthorization
 interface RepositoryChangeset
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   repository: Repository!
@@ -5920,7 +6119,6 @@ track repository sync progress as each repository's LST is synced. Their sum equ
 type RepositoryChangesetConnection
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   edges: [RepositoryChangesetEdge!]!
@@ -5956,7 +6154,6 @@ type RepositoryChangesetConnection
 type RepositoryChangesetEdge
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   node: RepositoryChangeset!
@@ -5966,13 +6163,12 @@ type RepositoryChangesetEdge
 enum RepositoryChangesetOrderByField
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  PATH @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  ORIGIN @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  FILES_CHANGED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  SYNC_STATUS @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  PATH @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  ORIGIN @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  FILES_CHANGED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  SYNC_STATUS @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 
   """
   Run result state (the displayed status: Queued/Running/Success/Error/No LST/Canceled).
@@ -5980,13 +6176,12 @@ enum RepositoryChangesetOrderByField
   matching how it is rendered, so error repositories group together rather than being
   interleaved with finished ones.
   """
-  STATE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  STATE @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input RepositoryChangesetOrderByInput
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   field: RepositoryChangesetOrderByField!
@@ -6001,22 +6196,20 @@ enum RepositoryChangesetState
   @join__type(graph: CHANGESETCOMMITTER)
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  QUEUED @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  RUNNING @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  SUCCESS @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  ERROR @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  NO_LST @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  CANCELED @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  QUEUED @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  RUNNING @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  SUCCESS @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  ERROR @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  NO_LST @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  CANCELED @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input RepositoryChangesetStateFilter
   @join__type(graph: CHANGESETCOMMITTER)
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   _eq: RepositoryChangesetState
@@ -6030,7 +6223,6 @@ input RepositoryChangesetWhereInput
   @join__type(graph: CHANGESETCOMMITTER)
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   """Filter by repository path."""
@@ -6513,6 +6705,14 @@ type RepositoryRevision implements RepositoryChangeset
   not fast-forward the tip; accept a merge and this becomes `parents`.
   """
   ancestors: [RepositoryChangeset!]!
+
+  """
+  The repository as it stood just before `change`, which is this revision or one of its
+  ancestors: the previous revision, or the recipe run's result. What a blame range's "prior
+  to this change" opens. Null when only the base commit came before it, or for an id not in
+  this chain.
+  """
+  priorTo(change: ID!): RepositoryChangeset
 }
 
 """
@@ -6529,14 +6729,13 @@ sync completed).
 enum RepositorySyncStatus
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  PENDING @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  SYNCED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  FAILED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  CANCELED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  SKIPPED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  PENDING @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  SYNCED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  FAILED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  CANCELED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  SKIPPED @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 """Filter input for Repository queries using typed field filters."""
@@ -6597,6 +6796,12 @@ type RevisionFileChange implements FileChange
   beforeSourcePath: Path
   afterSourcePath: Path
   diff(markupLevel: MarkupLevel = WARNING, showWhitespaceOnlyChanges: Boolean = true): Patch @cost(weight: 100)
+
+  """
+  Which change in the repository's chain made each changed line of `diff` what it is, in
+  the order the lines appear in it. Context lines are the base commit's and fall in no range.
+  """
+  blame: [DiffBlameRange!]! @cost(weight: 100)
 }
 
 input RevokeScmTokenInput
@@ -6679,7 +6884,6 @@ An SCM organization (GitHub owner, GitLab group, Bitbucket project) and how many
 type ScmOrganizationRepositoryCount
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   name: String!
@@ -6715,11 +6919,9 @@ enum ScmType
 type SearchResult implements Marker
   @join__implements(graph: CHANGESETREADER, interface: "Marker")
   @join__implements(graph: CHANGESETVISUALIZER, interface: "Marker")
-  @join__implements(graph: CODESEARCH, interface: "Marker")
   @join__implements(graph: RECIPEWORKER, interface: "Marker")
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   id: ID!
@@ -6741,7 +6943,6 @@ type SendMessageResult
 }
 
 enum SortOrder
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -6756,12 +6957,11 @@ enum SortOrder
   @join__type(graph: RECIPEMARKETPLACE)
   @join__type(graph: RECIPEWORKER)
 {
-  ASC @join__enumValue(graph: ARTIFACTSMAVEN) @join__enumValue(graph: AUDITREADER) @join__enumValue(graph: AUTHZ) @join__enumValue(graph: CAPABILITIES) @join__enumValue(graph: CHANGELOGREADER) @join__enumValue(graph: CHANGELOGWRITER) @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: MODDY) @join__enumValue(graph: ORGANIZATION) @join__enumValue(graph: RECIPEMARKETPLACE) @join__enumValue(graph: RECIPEWORKER)
-  DESC @join__enumValue(graph: ARTIFACTSMAVEN) @join__enumValue(graph: AUDITREADER) @join__enumValue(graph: AUTHZ) @join__enumValue(graph: CAPABILITIES) @join__enumValue(graph: CHANGELOGREADER) @join__enumValue(graph: CHANGELOGWRITER) @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: MODDY) @join__enumValue(graph: ORGANIZATION) @join__enumValue(graph: RECIPEMARKETPLACE) @join__enumValue(graph: RECIPEWORKER)
+  ASC @join__enumValue(graph: AUDITREADER) @join__enumValue(graph: AUTHZ) @join__enumValue(graph: CAPABILITIES) @join__enumValue(graph: CHANGELOGREADER) @join__enumValue(graph: CHANGELOGWRITER) @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: MODDY) @join__enumValue(graph: ORGANIZATION) @join__enumValue(graph: RECIPEMARKETPLACE) @join__enumValue(graph: RECIPEWORKER)
+  DESC @join__enumValue(graph: AUDITREADER) @join__enumValue(graph: AUTHZ) @join__enumValue(graph: CAPABILITIES) @join__enumValue(graph: CHANGELOGREADER) @join__enumValue(graph: CHANGELOGWRITER) @join__enumValue(graph: CHANGESETCOMMITTER) @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: MODDY) @join__enumValue(graph: ORGANIZATION) @join__enumValue(graph: RECIPEMARKETPLACE) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input StringFilter
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -6924,13 +7124,12 @@ input UpdateUserOrganizationInput
   name: String
 
   """
-  Repositories to include in the organization. If provided, replaces the current list.
+  Repositories to include in the organization. If provided, replaces the current list and must name at least one.
   """
   repositories: [RepositoryInput!]
 }
 
 type User
-  @join__type(graph: ARTIFACTSMAVEN, key: "id", resolvable: false)
   @join__type(graph: AUDITREADER, key: "id", resolvable: false)
   @join__type(graph: AUTHZ, key: "id", resolvable: false)
   @join__type(graph: AUTHZ, key: "id", extension: true, resolvable: true)
@@ -7005,7 +7204,6 @@ type UsersEdge
 }
 
 input UserWhereInput
-  @join__type(graph: ARTIFACTSMAVEN)
   @join__type(graph: AUDITREADER)
   @join__type(graph: AUTHZ)
   @join__type(graph: CAPABILITIES)
@@ -7034,7 +7232,6 @@ input UserWhereInput
 interface Visualization
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   id: ID!
@@ -7057,7 +7254,6 @@ type VisualizationAvailable implements Visualization
 type VisualizationConnection
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   edges: [VisualizationEdge!]!
@@ -7082,7 +7278,6 @@ type VisualizationDescriptor
   @join__type(graph: CHANGESETREADER, key: "name", resolvable: false)
   @join__type(graph: CHANGESETVISUALIZER, key: "name", resolvable: false)
   @join__type(graph: CHANGESETVISUALIZER, key: "name", extension: true)
-  @join__type(graph: CODESEARCH, key: "name", resolvable: false)
   @join__type(graph: RECIPEWORKER, key: "name", resolvable: false)
 {
   name: String!
@@ -7095,7 +7290,6 @@ type VisualizationDescriptor
 type VisualizationEdge
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   node: Visualization!
@@ -7164,17 +7358,15 @@ input VisualizationOptionInput
 enum VisualizationOrderByField
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
-  VISUALIZATION @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
-  STARTED_AT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: CODESEARCH) @join__enumValue(graph: RECIPEWORKER)
+  VISUALIZATION @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
+  STARTED_AT @join__enumValue(graph: CHANGESETREADER) @join__enumValue(graph: CHANGESETVISUALIZER) @join__enumValue(graph: RECIPEWORKER)
 }
 
 input VisualizationOrderByInput
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   field: VisualizationOrderByField!
@@ -7245,7 +7437,6 @@ enum VisualizationRepositoryRunState
 input VisualizationWhereInput
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: RECIPEWORKER)
 {
   id: IDFilter

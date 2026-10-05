@@ -54,17 +54,27 @@ changelogBulkPullRequestAction(id: ID!): ChangelogBulkPullRequestAction
 
 Get a bulk pull request action by ID to poll for progress.
 
-#### `codeSearch`
+#### `codeSearchSession`
 
 ```graphql
-codeSearch(repositoryId: String!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection!
+codeSearchSession(id: ID!): CodeSearchSession
 ```
 
-**Returns:** [CodeSearchResultConnection](#codesearchresultconnection)!
+**Returns:** [CodeSearchSession](#codesearchsession)
 
-Search source code across artifact repositories.
-Searches the given repository and all its descendants in the hierarchy.
-Results are grouped by artifact (groupId:artifactId) with file-level matches.
+One of the caller's code search sessions, or null when they have none with this id.
+Poll it after `openCodeSearchSession` until it is a `CodeSearchSessionReady`.
+
+#### `codeSearchSessions`
+
+```graphql
+codeSearchSessions(first: Int = 50, after: String, where: CodeSearchSessionWhereInput): CodeSearchSessionConnection!
+```
+
+**Returns:** [CodeSearchSessionConnection](#codesearchsessionconnection)!
+
+The caller's code search sessions, newest first, including those that closed recently.
+An admin gets every user's sessions and can narrow them with `where.user`.
 
 #### `connectors`
 
@@ -294,6 +304,18 @@ closeChangelogPullRequests(organizationId: ID!, selection: PullRequestSelectionI
 
 Close pull requests in bulk. Returns the queued action for polling.
 
+#### `closeCodeSearchSession`
+
+```graphql
+closeCodeSearchSession(id: ID!): CodeSearchSession!
+```
+
+**Returns:** [CodeSearchSession](#codesearchsession)!
+
+Close a session, which only the user who opened it or an admin can do. An
+organization's index is released once its last session closes. A session that goes
+too long without a search closes on its own.
+
 #### `closePullRequests`
 
 ```graphql
@@ -304,6 +326,26 @@ closePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositor
 
 Close, in bulk, the pull requests the committer created from a changeset.
 Returns the queued action for polling.
+
+#### `codeSearch`
+
+```graphql
+codeSearch(sessionId: ID!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection!
+```
+
+**Returns:** [CodeSearchResultConnection](#codesearchresultconnection)!
+
+Search a ready session. Fails, saying why, on a session that is still preparing or is
+closed. Results are files with their matching lines, limited to repositories the
+caller can read, in a stable order that `after` resumes.
+
+The query is a Sourcegraph-style expression: plain text and `/regular expressions/`,
+combined with `AND`, `OR` and `NOT`, and narrowed by path and language with `file:`
+and `lang:`. The index is built from LSTs, so the other filters match resolved types
+rather than text: `call:` (the call sites of a method, such as
+`call:java.util.List.add`, calls on subtypes included), `ref:` (the uses of a type),
+`sym:` (a declared name), and `extends:`, `implements:`, `annotated:`, `returns:` and
+`throws:` (declarations).
 
 #### `commit`
 
@@ -480,6 +522,19 @@ mergePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositor
 
 Merge, in bulk, the pull requests the committer created from a changeset.
 Returns the queued action for polling.
+
+#### `openCodeSearchSession`
+
+```graphql
+openCodeSearchSession(organizationId: ID!): CodeSearchSession!
+```
+
+**Returns:** [CodeSearchSession](#codesearchsession)!
+
+Open a session for searching the code of an organization's repositories. The session
+starts as a `CodeSearchSessionPreparing` while the organization's LSTs are downloaded
+and indexed, which takes from seconds, when another session prepared the organization
+recently, to much longer for an organization seen for the first time.
 
 #### `reindexChangelog`
 
@@ -720,7 +775,7 @@ learns whether another agent will join.
 | `user` | [User](#user)! |  |
 | `prompt` | String |  |
 | `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime) | Null while the agent is working, or when the tool that started it never said it ended. |
+| `finishedAt` | [DateTime](#datetime) | Null while the agent is working. One whose tool went silent for 15 minutes without saying it ended, say on a machine that died, finished when it was last heard from, and is CANCELED. |
 | `status` | [AgentStatus](#agentstatus)! |  |
 | `revisions` | [[RepositoryChangeset](#repositorychangeset)!]! | What the agent pushed, in the order it landed; each is a RepositoryRevision. Empty for an agent that changed nothing. |
 | `transcript` | (first: Int = 100, after: String, where: [TranscriptWhereInput](#transcriptwhereinput)): [TranscriptConnection](#transcriptconnection)! | The agent's work as spans: what it did, when, and what it cost, never what it read or wrote. The agent's own transcript is never kept. Empty until the agent exits and the wrapper uploads it. |
@@ -1219,22 +1274,50 @@ The installation is a recipe repository kept with a changeset, in effect for tha
 | `label` | String! |  |
 | `uri` | String! |  |
 
-##### `CodeSearchResult`
+##### `CodeSearchContextLine`
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `groupId` | String! |  |
-| `artifactId` | String! |  |
-| `fileChanges` | (first: Int = 100, after: String): [FileChangeConnection](#filechangeconnection)! |  |
+| `lineNumber` | Int! |  |
+| `line` | String! |  |
+
+##### `CodeSearchFragment`
+
+The part of a line that matched.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `offset` | Int! | In characters from the start of the line. |
+| `length` | Int! |  |
+
+##### `CodeSearchLineMatch`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `lineNumber` | Int! | Counted from 1. |
+| `line` | String! |  |
+| `fragments` | [[CodeSearchFragment](#codesearchfragment)!]! |  |
+| `before` | [[CodeSearchContextLine](#codesearchcontextline)!]! |  |
+| `after` | [[CodeSearchContextLine](#codesearchcontextline)!]! |  |
+
+##### `CodeSearchResult`
+
+A file with at least one match.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repository` | [Repository](#repository)! |  |
+| `path` | [Path](#path)! |  |
+| `language` | String |  |
+| `lineMatches` | [[CodeSearchLineMatch](#codesearchlinematch)!]! | Empty when the query selects files rather than lines, as `select:file` does. |
 
 ##### `CodeSearchResultConnection`
 
 | Field | Type | Description |
 |-------|------|-------------|
 | `edges` | [[CodeSearchResultEdge](#codesearchresultedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
-| `count` | Int! |  |
-| `searchDurationMs` | [Long](#long)! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! | A page can come back short, or empty, with `hasNextPage` still true: the search ran out of time before filling it. `endCursor` is then where to resume. |
+| `warnings` | [String!]! | What to know about how the query was read or how far the search got, such as a filter that is not supported. |
 
 ##### `CodeSearchResultEdge`
 
@@ -1242,6 +1325,69 @@ The installation is a recipe repository kept with a changeset, in effect for tha
 |-------|------|-------------|
 | `node` | [CodeSearchResult](#codesearchresult)! |  |
 | `cursor` | String! |  |
+
+##### `CodeSearchSessionClosed`
+
+**Implements:** [CodeSearchSession](#codesearchsession)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `organization` | [Organization](#organization)! |  |
+| `user` | [User](#user)! |  |
+| `instance` | String! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `reason` | [CodeSearchSessionCloseReason](#codesearchsessionclosereason)! |  |
+| `message` | String | Why preparing the session failed, when `reason` is `FAILED`. |
+
+##### `CodeSearchSessionConnection`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[CodeSearchSessionEdge](#codesearchsessionedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+##### `CodeSearchSessionEdge`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [CodeSearchSession](#codesearchsession)! |  |
+| `cursor` | String! |  |
+
+##### `CodeSearchSessionPreparing`
+
+**Implements:** [CodeSearchSession](#codesearchsession)
+
+The organization is being made ready to search. Sessions for the same organization share
+this work, and organizations are prepared one at a time.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `organization` | [Organization](#organization)! |  |
+| `user` | [User](#user)! |  |
+| `instance` | String! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `phase` | [CodeSearchPreparePhase](#codesearchpreparephase)! |  |
+| `repositoryCount` | Int | How many repositories the organization has, once that is known. |
+
+##### `CodeSearchSessionReady`
+
+**Implements:** [CodeSearchSession](#codesearchsession)
+
+The session can be searched.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `organization` | [Organization](#organization)! |  |
+| `user` | [User](#user)! |  |
+| `instance` | String! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `repositoryCount` | Int! | How many repositories the organization has. |
+| `indexedRepositoryCount` | Int! | How many of them are in the index. The rest have no LST, or one that could not be downloaded or indexed, and a search does not cover them. |
 
 ##### `Column`
 
@@ -1603,6 +1749,18 @@ DevCenter recipe is currently running across repositories.
 | `startedAt` | [DateTime](#datetime)! |  |
 | `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
 
+##### `DiffBlameRange`
+
+Consecutive lines on one side of a diff that one change made what they are: removed them,
+or wrote them and kept them through every change since.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `side` | [DiffSide](#diffside)! | BEFORE for removed lines, numbered as in the base commit; AFTER for added lines, numbered as in the revision. The numbers in the diff's hunk headers. |
+| `startingLine` | Int! |  |
+| `endingLine` | Int! |  |
+| `change` | [RepositoryChangeset](#repositorychangeset)! | A RepositoryRevision, or the recipe run's result. |
+
 ##### `DiffStat`
 
 Aggregate line-level diff statistics.
@@ -1798,6 +1956,8 @@ add recipes.
 | `recipeCount` | Int |  |
 | `cloneUrl` | String! | What `git clone` takes, with the credentials the changeset's other remotes take. |
 | `branch` | String! | The repository's one branch, which is named for the changeset. |
+| `upstreamUrl` | String | The upstream repository the branch came from, as its first push said. Null when it did not say, or the repository has no upstream. |
+| `baseCommit` | String | The upstream commit the branch started at, an ancestor of every commit the branch has stood at: `git log &lt;baseCommit&gt;..&lt;branch&gt;` is what the changeset added, with any newer upstream commits a session pulled in. Null when `upstreamUrl` is. |
 
 ##### `GoConfiguration`
 
@@ -2445,7 +2605,6 @@ says who and how, its repositories say what.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `artifacts` | Boolean! |  |
 | `connector` | Boolean! |  |
 | `changelog` | Boolean! |  |
 | `codeSearch` | Boolean! |  |
@@ -3190,6 +3349,7 @@ refused it, so it has no state. Its `.moderne/run/&lt;id&gt;` directory is named
 | `message` | String | The `moderne-message` push option. |
 | `tipCommit` | String! | Provenance only; the objects are not retained. A later push must descend from it or name this change as its parent. |
 | `ancestors` | [[RepositoryChangeset](#repositorychangeset)!]! | This repository's earlier changes, newest first, down to the recipe run's result when a run made the changeset. A chain rather than a graph because the remote refuses a push that does not fast-forward the tip; accept a merge and this becomes `parents`. |
+| `priorTo` | (change: ID!): [RepositoryChangeset](#repositorychangeset) | The repository as it stood just before `change`, which is this revision or one of its ancestors: the previous revision, or the recipe run's result. What a blame range's "prior to this change" opens. Null when only the base commit came before it, or for an id not in this chain. |
 
 ##### `ReviewStatus`
 
@@ -3210,6 +3370,7 @@ A push's file change: the difference between two trees, with no recipe attributi
 | `beforeSourcePath` | [Path](#path) |  |
 | `afterSourcePath` | [Path](#path) |  |
 | `diff` | (markupLevel: [MarkupLevel](#markuplevel) = WARNING, showWhitespaceOnlyChanges: Boolean = true): [Patch](#patch) |  |
+| `blame` | [[DiffBlameRange](#diffblamerange)!]! | Which change in the repository's chain made each changed line of `diff` what it is, in the order the lines appear in it. Context lines are the base commit's and fall in no range. |
 
 ##### `RevokeTokenResult`
 
@@ -3596,6 +3757,18 @@ Use `__typename` to determine the current state.
 |-------|------|-------------|
 | `pullRequest` | [ChangelogPullRequestRef](#changelogpullrequestref)! |  |
 
+##### `CodeSearchSession`
+
+A session belongs to the user who opened it: nobody else can get it or search with it.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `organization` | [Organization](#organization)! |  |
+| `user` | [User](#user)! |  |
+| `instance` | String! | The service instance that holds the session's index. Sessions do not move between instances, so one whose instance is gone is closed with reason `INSTANCE_REPLACED`. |
+| `startedAt` | [DateTime](#datetime)! |  |
+
 ##### `CommitOptions`
 
 | Field | Type | Description |
@@ -3920,6 +4093,20 @@ Discriminator for filtering by entry type.
 * `MERGE`
 * `CLOSE`
 
+##### `CodeSearchPreparePhase`
+
+* `QUEUED`
+* `SYNCING`
+* `INDEXING`
+* `OPENING`
+
+##### `CodeSearchSessionCloseReason`
+
+* `USER`
+* `IDLE_TIMEOUT`
+* `INSTANCE_REPLACED`
+* `FAILED`
+
 ##### `CodingAgent`
 
 The coding agent behind `mod &lt;agent&gt; chat`.
@@ -4023,6 +4210,11 @@ Execution state of a DevCenter run.
 * `FINISHED`
 * `CANCELED`
 * `ERROR`
+
+##### `DiffSide`
+
+* `BEFORE`
+* `AFTER`
 
 ##### `FileChangeOrderByField`
 
@@ -4581,6 +4773,17 @@ Filter input for participants.
 | `_or` | [[ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput)!] |  |
 | `_not` | [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput) |  |
 
+##### `CodeSearchSessionWhereInput`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | [IDFilter](#idfilter) |  |
+| `user` | [UserWhereInput](#userwhereinput) | Only an admin has other users' sessions to filter. |
+| `organization` | [IDFilter](#idfilter) |  |
+| `_and` | [[CodeSearchSessionWhereInput](#codesearchsessionwhereinput)!] |  |
+| `_or` | [[CodeSearchSessionWhereInput](#codesearchsessionwhereinput)!] |  |
+| `_not` | [CodeSearchSessionWhereInput](#codesearchsessionwhereinput) |  |
+
 ##### `CommitInput`
 
 Input for creating a commit from a changeset.
@@ -4666,7 +4869,7 @@ Commit delivery strategy. Choose one option.
 | Field | Type | Description |
 |-------|------|-------------|
 | `name` | String! | The name of the organization. |
-| `repositories` | [[RepositoryInput](#repositoryinput)!] | Repositories to include in the organization. |
+| `repositories` | [[RepositoryInput](#repositoryinput)!] | Repositories to include in the organization. At least one is required. |
 
 ##### `DataTableFormatFilter`
 
@@ -5417,7 +5620,7 @@ these tokens are preferred over stored OAuth tokens.
 |-------|------|-------------|
 | `id` | ID! | The ID of the organization to update. |
 | `name` | String | The new name for the organization. |
-| `repositories` | [[RepositoryInput](#repositoryinput)!] | Repositories to include in the organization. If provided, replaces the current list. |
+| `repositories` | [[RepositoryInput](#repositoryinput)!] | Repositories to include in the organization. If provided, replaces the current list and must name at least one. |
 
 ##### `UserOrderByInput`
 
