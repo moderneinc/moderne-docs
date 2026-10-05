@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.27.0 (2026/10/05)
+
+- filter the results tree to repositories agents pushed to
+- Scope menu for campaign totals; single-click CSV download
+- roster rows name numbered agents and open apart from the board filter
+
 ### UI v14.26.0 (2026/10/05)
 
 - blame each changed line of a pushed repository on the change that made it
