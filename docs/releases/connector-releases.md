@@ -7,11 +7,22 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.151 |
+| Connector | 0.151.215 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.151/connector-0.151.151.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.215/connector-0.151.215.jar)
 
 ## Changelog
+
+## October 2026
+
+### v0.151.215 – 2026-10-04
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.215/connector-0.151.215.jar)
+
+* Get the OWASP report back to zero (#2382)
+* Read devaz mass ingest from S3 instead of Artifactory (#2376)
+* Serve a tenant's own CLI distribution repositories from /cli (#2323)
+* Drop the retired multitenant Artifactory source (#2292)
 
 ## September 2026
 
