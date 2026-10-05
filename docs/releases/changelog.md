@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.26.0 (2026/10/05)
+
+- blame each changed line of a pushed repository on the change that made it
+
 ### UI v14.25.0 (2026/10/03)
 
 - lay the agent team tab out as a chat with a resizable roster
