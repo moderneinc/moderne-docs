@@ -185,6 +185,7 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-a-moderne-tenant-ssl-certificate',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-to-connect-to-moderne-via-an-http-proxy',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-cli-download-instructions-override',
+              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-cli-distribution-repositories',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-ui-customizations',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables',
             ],
