@@ -29,7 +29,7 @@ You will need to:
 * Have JDKs 8, 11, 17, and 25 installed, so the agent can test and verify the sample repositories we'll use.
   * The CLI can detect installs from [SDKMAN, Homebrew, and system JDK installs automatically](../how-to-guides/java.md). You can check what the CLI sees by running the `mod config java installation list` command.
 
-## Step 1: Install the CLI
+## Step 1: Install the CLI and log in
 
 Run the install script for your operating system:
 
@@ -54,22 +54,23 @@ You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin ar
 </TabItem>
 </Tabs>
 
-The script installs a small wrapper that downloads the CLI on first use. You can check everything worked by running `mod --version`.
+The script installs a small wrapper that downloads the CLI on first use. It then points the CLI at app.moderne.io and runs `mod login`, which opens your browser. If you aren't already signed in to app.moderne.io, you'll first be asked to sign in to Moderne (via GitHub). Once you're signed in, you'll be taken to a page that asks whether the CLI can create a personal access token on your behalf. Click **Yes**.
 
-## Step 2: Connect to Moderne
+The CLI stores the token on your machine, where it stays valid for a year, and then syncs the recipe marketplace so the agent can search and run recipes locally. You can check everything worked by running `mod --version`.
 
-In order to pull down the sample organization we'll use later in this guide, you will need to point your CLI to the public Moderne instance and log in:
+<details>
+<summary>If the browser didn't open</summary>
+
+This may happen if you installed the CLI with Homebrew or Chocolatey instead of via the install script. To configure the CLI and login manually, run these two steps yourself:
 
 ```bash
 mod config moderne edit https://app.moderne.io
 mod login
 ```
 
-`mod login` opens your browser. If you aren't already signed in to `app.moderne.io`, you'll first be asked to sign in to Moderne (via GitHub). Once you're signed in, you'll be taken to a page that asks whether the CLI can create a personal access token on your behalf. Click **Yes**.
+</details>
 
-The CLI will store the token on your machine, where it will stay valid for a year. It will then sync the recipe marketplace so the agent can search and run recipes locally.
-
-## Step 3: Pick an organization
+## Step 2: Pick an organization
 
 In Moderne, an "organization" is a named group of repositories. Moderne hosts a variety of sample open source organizations that you can use to try recipes out on. For this guide, we'll use the `Legacy Java Apps` organization.
 
@@ -119,7 +120,7 @@ The `Legacy Java Apps` org is small enough that fully upgrading to Java 25, and 
 | spring-petclinic  | Java 17            | Pass                                                         |
 | maxwell           | Java 8 source      | Pass (406 run)                                               |
 
-## Step 4: Start the agent
+## Step 3: Start the agent
 
 You're now ready to start the agent. The Moderne CLI includes a command that will set up a local workspace, clone repositories, and then prompt the agent all at once:
 
@@ -142,7 +143,7 @@ By providing a more detailed prompt such as the one above, the agent will, inste
 
 When you run the command, the CLI clones the five repositories into `legacy-java-apps`, downloads their LSTs, and links an `AGENTS.md` file into the directory. That file is the agent's guide to the organization. It teaches the agent how to search the recipe marketplace, how to run a recipe across every repository, how to ask the CLI for each repository's own build command, and when to fall back to hand edits. Every supported agent reads it at startup, so the agent knows how to use `mod` right away.
 
-The agent then starts in the directory with your prompt already submitted. The first time you run this command, it may ask whether you trust the folder. After that it asks for approval before running each command, so you can ensure it's not doing anything you wouldn't want. If you would rather let it run to completion without stopping, add the `--unattended` flag to the command above (see [agent chat options](../../agent-tools/agent-chat.md#options)).
+The agent then starts in the directory with your prompt already submitted. The first time you run this command, it may ask whether you trust the folder. Depending on your agent's permission settings, it may ask you to approve commands before it runs them. Claude Code's default auto mode runs most commands on its own and only stops for ones it considers risky, such as discarding uncommitted changes. If you would rather let it run to completion without stopping, add the `--unattended` flag to the command above (see [agent chat options](../../agent-tools/agent-chat.md#options)).
 
 <details>
 <summary>Example output from running the `mod <agent> chat` CLI command</summary>
@@ -183,7 +184,7 @@ Synced 5 repositories.
 ```
 </details>
 
-## Step 5: Watch the agent work
+## Step 4: Watch the agent work
 
 Regardless of which agent you use, the work tends to follow the same path. The agent finds the right recipes, runs them across every repository at once, verifies the result with each repository's own build, and only then edits by hand whatever the recipes left behind. Below is how that played out with Claude Code in October 2026.
 
@@ -250,7 +251,7 @@ Two of the five failed to compile on the first pass. The agent traced both failu
 
 With the re-run applied, the remaining failures were things no recipe covers, and the agent fixed those by hand. For example, `javax.xml.bind.DatatypeConverter` no longer ships with the JDK, so the agent rewrote that code to use `java.util.Base64`.
 
-## Step 6: Review the result
+## Step 5: Review the result
 
 After a little over 20 minutes of work, the agent reported this:
 
@@ -265,7 +266,7 @@ Aside from the above information, the agent also explicitly called out things fo
 
 The changes are on disk in each repository's work tree - with nothing staged or committed. As the prompt requested, they go beyond just updating the Java version in the build files. Notable changes include using `var` and text blocks where appropriate, replacing `instanceof` chains and old-style `switch` statements with pattern matching, and switching to newer JDK APIs such as `getFirst()` and `String.formatted()`.
 
-## Step 7: Create pull requests
+## Step 6: Create pull requests
 
 Review the diffs like you would any other change. When you are ready to turn them into pull requests, the simplest route is to ask the agent to do that for you in the same session. Of course, you can also use the CLI's `mod git` commands to do the same across all the repos at once if you'd prefer. For more details, see [committing changes and creating PRs](./cli-intro.md#committing-changes-and-creating-prs).
 
