@@ -202,7 +202,9 @@ The wrapper will replace `${version}`, `${platform}`, and `${extension}` automat
 
 Setting `jdkUrl=skip` tells the wrapper not to download a JDK on its own. In this case, you will need Java 25+ available via `MODERNE_JAVA_HOME` or your `PATH`.
 
-`distributionUrl` controls where the distribution archive is downloaded from, but not where a dynamic `version` is *resolved*. Both `RELEASE` and `LATEST`/snapshot resolution query Moderne's distribution repository for the version metadata. If you track `LATEST` from an internal snapshot repository, set `distributionUrlEarlyAccess` to that repository's base URL so the snapshot lookup is redirected there:
+Starting with CLI `4.9.0`, `distributionUrl` can also be the root of a Maven repository. In that case, the wrapper resolves `RELEASE` against that repository too. A URL template like the one above only controls where the archive is downloaded from. `RELEASE` is then still resolved against Moderne's distribution repository.
+
+`LATEST` and snapshot versions are always resolved against `distributionUrlEarlyAccess`. If you track `LATEST` from an internal snapshot repository, set it to that repository's base URL:
 
 ```properties
 version=LATEST

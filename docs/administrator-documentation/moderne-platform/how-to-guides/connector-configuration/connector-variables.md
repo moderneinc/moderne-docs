@@ -1309,7 +1309,7 @@ See [CLI distribution repositories](./configure-a-connector-with-cli-distributio
 | Variable Name                            | Required | Default | Description                                                                                                                                              |
 |------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `MODERNE_CLI_DISTRIBUTIONURL`            | `false`  | `null`  | Root URL of the Maven repository that the CLI installer and wrapper download releases from. `RELEASE` resolves to the newest release in this repository. |
-| `MODERNE_CLI_DISTRIBUTIONURLEARLYACCESS` | `false`  | `null`  | Root URL of the Maven repository used to resolve and download `LATEST` and snapshot versions. Defaults to `MODERNE_CLI_DISTRIBUTIONURL` when not set.    |
+| `MODERNE_CLI_DISTRIBUTIONURLEARLYACCESS` | `false`  | `null`  | Root URL of the Maven repository used to resolve and download `LATEST` and snapshot versions. If unset, the install script uses `MODERNE_CLI_DISTRIBUTIONURL` for `LATEST` as well. |
 
 **Example:**
 
@@ -1329,7 +1329,7 @@ docker run \
 | Argument Name                                 | Required | Default | Description                                                                                                                                              |
 |-----------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `--moderne.cli.distribution-url`              | `false`  | `null`  | Root URL of the Maven repository that the CLI installer and wrapper download releases from. `RELEASE` resolves to the newest release in this repository. |
-| `--moderne.cli.distribution-url-early-access` | `false`  | `null`  | Root URL of the Maven repository used to resolve and download `LATEST` and snapshot versions. Defaults to `--moderne.cli.distribution-url` when not set. |
+| `--moderne.cli.distribution-url-early-access` | `false`  | `null`  | Root URL of the Maven repository used to resolve and download `LATEST` and snapshot versions. If unset, the install script uses `--moderne.cli.distribution-url` for `LATEST` as well. |
 
 **Example:**
 
