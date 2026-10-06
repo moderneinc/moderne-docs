@@ -307,7 +307,7 @@ const cli = {
   customProps: {
     gemIcon: 'blue-block',
     megaMenu: true,
-    homepageHref: '/user-documentation/moderne-cli/getting-started/cli-intro',
+    homepageHref: '/user-documentation/moderne-cli/getting-started/cli-getting-started',
   },
   link: {
     type: 'generated-index' as const,
@@ -328,6 +328,7 @@ const cli = {
         keywords: ['guides'],
       },
       items: [
+        'user-documentation/moderne-cli/getting-started/cli-getting-started',
         'user-documentation/moderne-cli/getting-started/cli-intro',
         {
           type: 'link' as const,

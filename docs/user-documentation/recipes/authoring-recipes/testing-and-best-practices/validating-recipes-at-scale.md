@@ -23,7 +23,7 @@ Running a recipe against a large, representative body of actual repositories is 
 This guide expects that you have:
 
 * Started developing a recipe. If you haven't written one yet, check out our guides on [how to write recipes](../writing-recipes/).
-* The Moderne CLI installed and connected to Moderne. If you don't have that, check out our [getting started with the Moderne CLI](../../../moderne-cli/getting-started/cli-intro.md) guide.
+* The Moderne CLI installed and connected to Moderne. If you don't have that, check out the [installation and configuration steps](../../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration) in the CLI documentation.
 * The CLI configured for the language you're developing in. See the setup guides for [Java](../../../moderne-cli/how-to-guides/java.md), [C#](../../../moderne-cli/how-to-guides/csharp.md), [Python](../../../moderne-cli/how-to-guides/python.md), [JavaScript](../../../moderne-cli/how-to-guides/javascript.md), and [Go](../../../moderne-cli/how-to-guides/go.md).
 
 :::tip
