@@ -246,7 +246,7 @@ Two of the five failed to compile on the first pass. The agent traced both failu
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
   ![Claude Code session in which the agent explains that three sub-recipes produced wrong code, describes the safer recipe it wrote, and asks how to proceed before discarding any working-tree changes](./assets/agent-asks-before-discarding.png)
-  <figcaption>_When a recipe produces code it doesn't trust, the agent explains why and asks before doing anything it can't undo._</figcaption>
+  <figcaption>_When a recipe produces code it doesn't trust, the agent explains why and asks before doing anything._</figcaption>
 </figure>
 
 With the re-run applied, the remaining failures were things no recipe covers, and the agent fixed those by hand. For example, `javax.xml.bind.DatatypeConverter` no longer ships with the JDK, so the agent rewrote that code to use `java.util.Base64`.
