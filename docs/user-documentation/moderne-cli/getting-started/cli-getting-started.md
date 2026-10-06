@@ -109,7 +109,7 @@ mod config moderne organizations show | grep -A 9 "Sample Estate"
 
 </details>
 
-The `Legacy Java Apps` org is small enough that a full upgrade to Java 25 can finish in about 20 minutes. Each of its five repositories also has something a Java 25 upgrade has to deal with - from a JDK 8 build to an OSGi bundle issue:
+The `Legacy Java Apps` org is small enough that fully upgrading to Java 25, and verifying that all repositories still build successfully, can finish in about 20 minutes. Each of its five repositories also has something a Java 25 upgrade has to deal with - from a JDK 8 build to an OSGi bundle issue:
 
 | Repository        | Started on         | Tests on JDK 25                                              |
 |-------------------|--------------------|--------------------------------------------------------------|
