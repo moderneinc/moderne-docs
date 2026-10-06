@@ -874,6 +874,6 @@ Depending on the run, you may also see additional tabs (for example, data tables
 
 ## Learn more
 
-* [Moderne CLI documentation](../../user-documentation/moderne-cli/getting-started/cli-getting-started.md)
+* [Follow the quickstart](../../user-documentation/moderne-cli/getting-started/cli-getting-started.md), a complete agent chat session that upgrades an organization to Java 25
 * [Running your first recipe on the Platform](../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md)
 * [Differences between OpenRewrite and Moderne](https://docs.openrewrite.org/#refactoring-at-scale-with-moderne)
