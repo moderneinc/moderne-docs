@@ -1,5 +1,5 @@
 ---
-sidebar_label: "Quickstart: modernizing with an agent"
+sidebar_label: "Quickstart: Modernizing with an agent"
 description: Install the Moderne CLI, point a coding agent at a sample organization of open source repositories, and watch it upgrade all of them to Java 25.
 ---
 
