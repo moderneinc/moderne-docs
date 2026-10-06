@@ -10,6 +10,12 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## October 6, 2026
+
+#### recipes-go - 0.12.0
+
+* Adapt to changes in 0.0.39
+
 ## October 5, 2026
 
 #### rewrite-migrate-python - 0.15.1
