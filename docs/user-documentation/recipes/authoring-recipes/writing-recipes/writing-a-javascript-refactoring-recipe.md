@@ -675,3 +675,4 @@ Congratulations on creating your first JavaScript recipe! You may find it useful
 
 * Explore the [JavaScript LST examples](../concepts/lst-examples/javascript.md).
 * Learn how to [configure the Moderne CLI to run JavaScript recipes](../../../moderne-cli/how-to-guides/javascript.md)
+* Learn how to [combine JavaScript recipes with Java and YAML recipes](../advanced-authoring/combining-recipes-across-ecosystems.md).

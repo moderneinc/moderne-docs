@@ -575,6 +575,7 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/advanced-authoring/data-tables',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/multiple-visitors',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/writing-recipes-over-multiple-source-file-types',
+            'user-documentation/recipes/authoring-recipes/advanced-authoring/combining-recipes-across-ecosystems',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/multiple-versions',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/automate-breaking-changes',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/modifying-methods-with-javatemplate',

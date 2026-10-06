@@ -78,6 +78,8 @@ recipeList:
 As a best practice, if your recipe can be declarative (meaning it can be built out of other recipes), then you should make it declarative.
 :::
 
+Declarative recipes can also combine recipes written in different languages, such as a TypeScript recipe and a Java recipe. Whether that works depends on how the YAML is installed, as described in [Combining recipes across ecosystems](../advanced-authoring/combining-recipes-across-ecosystems.md).
+
 :::tip
 Want to use a UI to build declarative recipes rather than trying to figure out all the keys on your own and manually typing out the recipes? Check out the [Moderne recipe builder](https://app.moderne.io/builder).
 :::
