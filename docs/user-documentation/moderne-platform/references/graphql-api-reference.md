@@ -344,6 +344,8 @@ combined with `AND`, `OR` and `NOT`, and narrowed by path and language with `fil
 and `lang:`. The index is built from LSTs, so the other filters match resolved types
 rather than text: `call:` (the call sites of a method, such as
 `call:java.util.List.add`, calls on subtypes included), `ref:` (the uses of a type),
+`dependency:` (the calls and references that come from a dependency, by name and
+optionally the version resolved, such as `dependency:com.fasterxml.*:jackson*:2.15.x`),
 `sym:` (a declared name), and `extends:`, `implements:`, `annotated:`, `returns:` and
 `throws:` (declarations).
 
@@ -1299,6 +1301,7 @@ The part of a line that matched.
 | `fragments` | [[CodeSearchFragment](#codesearchfragment)!]! |  |
 | `before` | [[CodeSearchContextLine](#codesearchcontextline)!]! |  |
 | `after` | [[CodeSearchContextLine](#codesearchcontextline)!]! |  |
+| `enclosing` | [[CodeSearchContextLine](#codesearchcontextline)!]! | The lines that declare the classes and methods this line sits in, outermost first. Empty for a line outside any, and for a file the index records no declarations in. |
 
 ##### `CodeSearchResult`
 
