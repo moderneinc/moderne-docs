@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.30.2 (2026/10/07)
+
+- Bug fixes and other improvements.
+
 ### UI v14.30.1 (2026/10/07)
 
 - move code highlighting to Shiki, fixing the long-line crash
