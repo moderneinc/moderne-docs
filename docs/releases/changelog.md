@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.29.0 (2026/10/07)
+
+- move code search above Moddy
+- render tool descriptions as markdown
+
 ### UI v14.28.0 (2026/10/07)
 
 - highlight query syntax in the search input
