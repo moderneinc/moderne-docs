@@ -221,7 +221,7 @@ Example first-time install with authentication:
 export MODERNE_WRAPPER_DISTRIBUTION_USERNAME="deploy-user"
 export MODERNE_WRAPPER_DISTRIBUTION_PASSWORD="secret"
 export MODERNE_WRAPPER_VERSION="RELEASE"
-curl -fsSL https://app.moderne.io/cli | bash
+curl -fsSL https://<TENANT>.moderne.io/cli | bash
 ```
 
 :::note
