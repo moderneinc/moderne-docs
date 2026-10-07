@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.30.0 (2026/10/07)
+
+- collapsible tool description with copy markdown
+
 ### UI v14.29.0 (2026/10/07)
 
 - move code search above Moddy
