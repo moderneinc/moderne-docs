@@ -1297,6 +1297,53 @@ java -jar connector-{version}.jar \
 
 </Tabs>
 
+## CLI distribution variables
+
+See [CLI distribution repositories](./configure-a-connector-with-cli-distribution-repositories.md) for what these settings change and what your repository needs to hold.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                            | Required | Default | Description                                                                                                                                              |
+|------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CLI_DISTRIBUTIONURL`            | `false`  | `null`  | Root URL of the Maven repository that the CLI installer and wrapper download releases from. `RELEASE` resolves to the newest release in this repository. |
+| `MODERNE_CLI_DISTRIBUTIONURLEARLYACCESS` | `false`  | `null`  | Root URL of the Maven repository used to resolve and download `LATEST` and snapshot versions. If unset, the install script uses `MODERNE_CLI_DISTRIBUTIONURL` for `LATEST` as well. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_CLI_DISTRIBUTIONURL="https://artifactory.example.com/artifactory/moderne-cli-approved" \
+-e MODERNE_CLI_DISTRIBUTIONURLEARLYACCESS="https://artifactory.example.com/artifactory/codegenome-remote" \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                 | Required | Default | Description                                                                                                                                              |
+|-----------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.cli.distribution-url`              | `false`  | `null`  | Root URL of the Maven repository that the CLI installer and wrapper download releases from. `RELEASE` resolves to the newest release in this repository. |
+| `--moderne.cli.distribution-url-early-access` | `false`  | `null`  | Root URL of the Maven repository used to resolve and download `LATEST` and snapshot versions. If unset, the install script uses `--moderne.cli.distribution-url` for `LATEST` as well. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.cli.distribution-url="https://artifactory.example.com/artifactory/moderne-cli-approved" \
+--moderne.cli.distribution-url-early-access="https://artifactory.example.com/artifactory/codegenome-remote" \
+# ... Additional arguments
+```
+</TabItem>
+
+</Tabs>
+
 ## Generic HTTP tool variables
 
 <Tabs groupId="agent-type">
