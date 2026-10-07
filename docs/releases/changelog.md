@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.30.1 (2026/10/07)
+
+- move code highlighting to Shiki, fixing the long-line crash
+
 ### UI v14.30.0 (2026/10/07)
 
 - collapsible tool description with copy markdown
