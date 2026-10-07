@@ -302,7 +302,7 @@ Everything lives under `~/.moderne/cli/` (or `$MODERNE_CLI_HOME`):
 
 ## Running in containers
 
-Pin the CLI version when you build a container image. Installing `modw` alone does not pin one. Without `MODERNE_WRAPPER_VERSION` or a `version=` line in a properties file, the wrapper looks up the latest release when a container starts and downloads any newer CLI version.
+Optionally pin the CLI version when you build a container image. Installing `modw` alone does not pin one. Without `MODERNE_WRAPPER_VERSION` or a `version=` line in a properties file, the wrapper looks up the latest release when a container starts and downloads any newer CLI version.
 
 To bake a pinned version into the image, set `MODERNE_WRAPPER_VERSION` and run `mod --version` during the build. The `mod --version` call downloads that version into the image:
 
