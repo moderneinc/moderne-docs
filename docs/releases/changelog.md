@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.28.0 (2026/10/07)
+
+- highlight query syntax in the search input
+- syntax highlight results
+- search an organization's code from the UI
+
 ### UI v14.27.0 (2026/10/05)
 
 - filter the results tree to repositories agents pushed to
