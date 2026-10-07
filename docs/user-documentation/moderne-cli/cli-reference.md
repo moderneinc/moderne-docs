@@ -206,6 +206,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config dotnet version show**](#mod-config-dotnet-version-show)
 * [**mod config environment**](#mod-config-environment)
 * [**mod config environment show**](#mod-config-environment-show)
+* [**mod config exec**](#mod-config-exec)
+* [**mod config exec timeout**](#mod-config-exec-timeout)
+* [**mod config exec timeout delete**](#mod-config-exec-timeout-delete)
+* [**mod config exec timeout edit**](#mod-config-exec-timeout-edit)
+* [**mod config exec timeout show**](#mod-config-exec-timeout-show)
 * [**mod config features**](#mod-config-features)
 * [**mod config features agent-tools**](#mod-config-features-agent-tools)
 * [**mod config features agent-tools tray**](#mod-config-features-agent-tools-tray)
@@ -1013,6 +1018,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `comms`: Configures communication channels for factory notifications.
 * `dotnet`: Configures DotNet options used for building LSTs and running recipes.
 * `environment`: The build environment that the CLI is running in.
+* `exec`: Configures shell command execution behavior.
 * `features`: Configures experimental features.
 * `go`: Configures Go options used for building LSTs and running recipes.
 * `http`: Configures HTTP options that will be used throughout the CLI.
@@ -4854,6 +4860,111 @@ Will output information about the environment the CLI is running in (e.g., a loc
 mod config environment show
 ```
 
+
+
+## mod config exec
+
+Configures shell command execution behavior.
+
+
+All subsequent executions will use these settings.
+
+### Usage
+
+```
+mod config exec [subcommands]
+```
+
+
+### Subcommands
+
+* `timeout`: Configure the exec timeout.
+
+## mod config exec timeout
+
+Configure the exec timeout.
+
+
+Limits the amount of time the CLI will wait for a repository's command to complete.
+
+### Usage
+
+```
+mod config exec timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Restores the default exec timeout.
+* `edit`: Configure the timeout for shell command execution.
+* `show`: Displays the configured exec timeout.
+
+## mod config exec timeout delete
+
+Restores the default exec timeout.
+
+
+The default is to time out after one hour.
+
+### Usage
+
+```
+mod config exec timeout delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config exec timeout edit
+
+Configure the timeout for shell command execution.
+
+
+Limits the amount of time the CLI will wait for a repository's command to complete. The default is one hour.
+
+### Usage
+
+```
+mod config exec timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `duration` |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config exec timeout show
+
+Displays the configured exec timeout.
+
+
+### Usage
+
+```
+mod config exec timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
 ## mod config features

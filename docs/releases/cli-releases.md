@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.9.0           |
+| CLI version | 4.9.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,33 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.9.1 (2026-10-07)
+
+_Based on OpenRewrite 8.92.18_
+
+#### What's Changed
+* Search for the calls and references that come from a dependency, by name and version
+* Show each search match under the class and method that enclose it
+* Point at the first failed repository, and suggest build trace commands only when building more than one
+* Find Go files in mod search after converting V2 LSTs that store empty spaces as null
+* Convert a V2 LST to V3 a fragment at a time, without holding each scope or its types in memory
+* Stop a repository's markers from being replaced by another marker with the same id
+* Resolve a variable's body with the unsafeSet that keeps its flags
+* Resolve six dependency vulnerabilities in Jackson, Maven and the embedded Kotlin compiler
+* Keep a searched shard's symbol tables small, and let an index bound how many shards hold theirs
+* Stop a prompt longer than 4,096 characters from failing an agent chat after its session ends
+* Build search match context from the newlines the index stores
+* Record why a build failed in its trace, and group builds that failed alike in the analyzer
+* Show why a build failed in the mod build output, and group failures by reason
+* Resolve a converted LST's dependencies through the configured Maven settings, mirrors included
+* Escape < and { in the CLI reference so moderne-docs can parse it as MDX
+* Write nuget.config through a temp file and rename it into place
+* Let a configured timeout bound how long a repository's exec command runs
+* Retry the nuget.config rename when Windows denies access
+* Accept a username and password for artifact repository env var config
+* Convert a V2 LST to V3 without language processes or a copy of the Maven reactor per module, and keep edits to a module's resolution
+* Point spectator-reg-atlas at the CLI's own Jackson
 
 ### CLI / DX v4.9.0 (2026-10-04)
 
