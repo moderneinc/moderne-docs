@@ -5,14 +5,6 @@ description: Restrict your Moderne tenant so that only your network can reach it
 
 # Restricting network access to your tenant
 
-import {useEffect as docsPreviewEffect} from 'react'; // docs-preview
-
-export const DocsPreviewBoxes = () => { docsPreviewEffect(() => { const draw = () => { document.querySelectorAll('.docs-preview-box').forEach(b => b.remove()); const art = document.querySelector('article'); if (!art) return; const ar = art.getBoundingClientRect(); document.querySelectorAll('.docs-preview-start').forEach(s => { const e = document.getElementById(s.id + '-end'); if (!e) return; const top = s.getBoundingClientRect().top, bottom = e.getBoundingClientRect().top; const box = document.createElement('div'); box.className = 'docs-preview-box'; Object.assign(box.style, {position: 'absolute', left: (ar.left - 14 + scrollX) + 'px', width: (ar.width + 28) + 'px', top: (top + scrollY - 10) + 'px', height: (bottom - top + 14) + 'px', outline: '4px solid #ff2fa0', background: 'rgba(255, 47, 160, 0.08)', borderRadius: '10px', pointerEvents: 'none', zIndex: 5}); const label = document.createElement('span'); label.textContent = s.dataset.label; Object.assign(label.style, {position: 'absolute', top: '-14px', left: '12px', background: '#ff2fa0', color: '#fff', fontWeight: 700, fontSize: '12px', padding: '2px 10px', borderRadius: '999px'}); box.appendChild(label); document.body.appendChild(box); }); }; if (!window.docsPreviewPing) { let last = 0; window.docsPreviewPing = () => { const now = Date.now(); if (now - last < 60000) return; last = now; fetch('/__docs-preview-activity?' + now, {cache: 'no-store'}).catch(() => {}); }; ['scroll', 'click', 'keydown', 'mousemove'].forEach(t => addEventListener(t, window.docsPreviewPing, {passive: true})); } draw(); const h = decodeURIComponent(location.hash.slice(1)); if (h.startsWith('dp-')) { setTimeout(() => document.getElementById(h)?.scrollIntoView(), 400); } const ro = new ResizeObserver(draw); ro.observe(document.body); addEventListener('resize', draw); return () => { ro.disconnect(); removeEventListener('resize', draw); document.querySelectorAll('.docs-preview-box').forEach(b => b.remove()); }; }, []); return null; }; // docs-preview
-
-<style>{`.docs-preview-start,.docs-preview-end{display:block;height:0;scroll-margin-top:110px}`}</style><DocsPreviewBoxes />{/* docs-preview */}
-
-<span className="docs-preview-start" id="dp-1" data-label="NEW PAGE" />{/* docs-preview */}
-
 By default, your tenant's public endpoints accept HTTPS connections from any IP address. If your security policy requires the tenant to be reachable only from your network, Moderne can restrict it to a list of IP ranges you provide.
 
 In this guide, we will walk you through what the restriction covers, which ranges you need to collect, and how to request it.
@@ -21,7 +13,7 @@ Here's how the setup works end-to-end:
 
 1. You collect every public egress range that needs to reach your tenant.
 2. You send that list to Moderne.
-3. Moderne applies it to your tenant's network configuration right away, with no downtime and nothing to change on your side.
+3. Moderne applies the restriction at a time agreed with you, and your team confirms access right after. The change requires no redeploy and no downtime.
 
 ## Prerequisites
 
@@ -31,6 +23,27 @@ This guide assumes that you have:
 * Your Moderne tenant name (the subdomain in your tenant's URL, e.g. `acme` for `acme.moderne.io`).
 
 ## Understanding what the restriction covers
+
+```mermaid
+flowchart LR
+    subgraph customer["Your network"]
+        users["People: UI, CLI, IDE plugins<br/>(via your proxy or VPN)"]
+        ci["Automation and CI"]
+        connector["Moderne Connector"]
+    end
+    other["Any other address"]
+    filter{{"IP allowlist"}}
+    subgraph tenant["Your Moderne tenant"]
+        services["Moderne services"]
+    end
+    users --> filter
+    ci --> filter
+    connector --> filter
+    other -. blocked .-x filter
+    filter --> services
+```
+
+The allowlist only filters connections made to your tenant. Moderne's services communicate with each other inside the tenant, so your list only needs your own ranges.
 
 Keep the following in mind before building your list:
 
@@ -51,5 +64,3 @@ Cloud-hosted CI runners, such as GitHub-hosted runners or Microsoft-hosted Azure
 ## Requesting the restriction
 
 Send your tenant name and the full list of ranges, in CIDR notation, to your CSM or [support@moderne.io](mailto:support@moderne.io). To change the list later, send the updated list the same way.
-
-<span className="docs-preview-end docs-preview-eof" id="dp-1-end" />{/* docs-preview */}
