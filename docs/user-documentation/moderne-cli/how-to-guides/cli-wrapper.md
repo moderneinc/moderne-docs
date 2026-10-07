@@ -195,6 +195,7 @@ You can set these properties via `mod wrapper`:
 
 ```bash
 mod wrapper --global \
+  --version RELEASE \
   --distribution-url "https://artifactory.corp.example.com/artifactory/moderne" \
   --distribution-username your-username \
   --distribution-password
@@ -217,7 +218,6 @@ Environment variables take precedence over properties file values. This is espec
 Example first-time install with authentication:
 
 ```bash
-export MODERNE_WRAPPER_DISTRIBUTION_URL="https://artifactory.corp.example.com/artifactory/moderne"
 export MODERNE_WRAPPER_DISTRIBUTION_USERNAME="deploy-user"
 export MODERNE_WRAPPER_DISTRIBUTION_PASSWORD="secret"
 export MODERNE_WRAPPER_VERSION="RELEASE"
