@@ -34,8 +34,8 @@ Rather than let another party's constraints dictate how these tools reach you, M
 Access to each kind of content depends on your entitlement:
 
 * **OpenRewrite open-source recipes** ([Apache 2.0](https://docs.openrewrite.org/licensing/openrewrite-licensing#apache-license-version-20)), the **Moderne CLI**, and the **Moderne Connector**: available to any authenticated user.
-* **[Moderne Source Available License (MSAL)](https://docs.openrewrite.org/licensing/openrewrite-licensing#moderne-source-available-license) recipes**: available to customers only.
-* **Moderne proprietary recipes** ([Moderne Proprietary License](https://docs.openrewrite.org/licensing/openrewrite-licensing#moderne-proprietary-license)): available to customers only.
+* **[Moderne Source Available License (MSAL)](../../licensing/moderne-source-available-license.md) recipes**: available to customers only.
+* **[Moderne proprietary](../../licensing/overview.md) recipes**: available to customers only.
 
 Your entitlement is checked on every request, so access that Moderne grants or revokes takes effect on your next download without needing a new credential.
 
