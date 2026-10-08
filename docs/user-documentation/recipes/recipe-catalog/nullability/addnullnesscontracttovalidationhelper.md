@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nclass Validation {\n    static boolean isNonEmpty(@Nullable String s) {\n        return s != null && !s.isEmpty();\n    }\n}\n","after":"package com.example;\n\nimport org.jetbrains.annotations.Contract;\nimport org.jspecify.annotations.Nullable;\n\nclass Validation {\n    @Contract(\"null -> false\")\n    static boolean isNonEmpty(@Nullable String s) {\n        return s != null && !s.isEmpty();\n    }\n}\n","diff":"--- src/main/java/com/example/Validation.java\n+++ src/main/java/com/example/Validation.java\n@@ -3,0 +3,1 @@\npackage com.example;\n\n+import org.jetbrains.annotations.Contract;\nimport org.jspecify.annotations.Nullable;\n@@ -6,0 +7,1 @@\n\nclass Validation {\n+   @Contract(\"null -> false\")\n    static boolean isNonEmpty(@Nullable String s) {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullnessContractToValidationHelper","displayName":"Add a `@Contract` nullness contract to a validation helper","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

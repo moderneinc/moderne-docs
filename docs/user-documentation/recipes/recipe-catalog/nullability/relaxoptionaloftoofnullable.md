@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nimport java.util.Optional;\nimport org.jspecify.annotations.Nullable;\n\nclass Test {\n    Optional<String> wrap(@Nullable String s) {\n        return Optional.of(s);\n    }\n}\n","after":"package com.example;\n\nimport java.util.Optional;\nimport org.jspecify.annotations.Nullable;\n\nclass Test {\n    Optional<String> wrap(@Nullable String s) {\n        return /*~~(Nullability: behavior change — yields Optional.empty() instead of throwing NullPointerException when the value is null)~~>*/Optional.ofNullable(s);\n    }\n}\n","diff":"--- src/main/java/com/example/Test.java\n+++ src/main/java/com/example/Test.java\n@@ -8,1 +8,1 @@\nclass Test {\n    Optional<String> wrap(@Nullable String s) {\n-       return Optional.of(s);\n+       return /*~~(Nullability: behavior change — yields Optional.empty() instead of throwing NullPointerException when the value is null)~~>*/Optional.ofNullable(s);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.RelaxOptionalOfToOfNullable","displayName":"Relax `Optional.of` to `Optional.ofNullable` on nullable values","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

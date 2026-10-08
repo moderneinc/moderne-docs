@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"oldModule","required":true,"description":"The module to change imports from","example":"react-dom/test-utils"},{"type":"String","name":"oldMember","required":true,"description":"The member to change (or 'default' for default imports, '*' for namespace imports)","example":"act"},{"type":"String","name":"newModule","required":true,"description":"The module to change imports to","example":"react"},{"type":"String","name":"newMember","required":false,"description":"The new member name. If not specified, keeps the same member name.","example":"act"},{"type":"String","name":"newAlias","required":false,"description":"Optional alias for the new import. Required when newMember is 'default' or '*'."}]}>
+<OptionsTable options={[{"type":"String","name":"oldModule","required":true,"description":"The module to change imports from","example":"react-dom/test-utils"},{"type":"String","name":"oldMember","required":true,"description":"The member to change (or 'default' for default imports, '*' for namespace imports)","example":"act"},{"type":"String","name":"newModule","required":true,"description":"The module to change imports to","example":"react"},{"type":"String","name":"newMember","required":false,"description":"The new member name. If not specified, keeps the same member name.","example":"act"},{"type":"String","name":"newAlias","required":false,"description":"The local name to bind the new member under. Defaults to the alias the import already had, or to the new member name where it had none.","example":"act"}]}>
 
 ## Options
 

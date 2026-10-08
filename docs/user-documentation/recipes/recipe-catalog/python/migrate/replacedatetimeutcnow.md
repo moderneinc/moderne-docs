@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `datetime.utcnow()` with `datetime.now(UTC)`"}
-  description={"The `datetime.utcnow()` method is deprecated in Python 3.12. Replace it with `datetime.now(datetime.UTC)` for timezone-aware datetime objects."}
+  description={"The `datetime.utcnow()` method is deprecated in Python 3.12. Replace it with `datetime.now(UTC)`, importing `UTC` from `datetime` where the name is not already in scope. The result is timezone-aware where `utcnow()` was naive, so stored or compared values may need migrating alongside the call sites."}
   fqName={"org.openrewrite.python.migrate.ReplaceDatetimeUtcNow"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={[]}
+  tags={["python","datetime","migration","3.12"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceDatetimeUtcNow"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `datetime.utcnow()` with `datetime.now(UTC)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `datetime.utcnow()` method is deprecated in Python 3.12. Replace it with `datetime.now(datetime.UTC)` for timezone-aware datetime objects.</RecipeHeader.Description>
+<RecipeHeader.Description>The `datetime.utcnow()` method is deprecated in Python 3.12. Replace it with `datetime.now(UTC)`, importing `UTC` from `datetime` where the name is not already in scope. The result is timezone-aware where `utcnow()` was naive, so stored or compared values may need migrating alongside the call sites.</RecipeHeader.Description>
 
 </RecipeHeader>
 

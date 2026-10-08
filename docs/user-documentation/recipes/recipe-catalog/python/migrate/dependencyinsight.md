@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"packagePattern","value":"requests"},{"parameter":"scope","value":"null"}],"variants":[{"language":"toml","before":"[project]\nname = \"my-project\"\ndependencies = [\n    \"requests>=2.28\",\n]\n","after":"~~(requests)~~>[project]\nname = \"my-project\"\ndependencies = [\n    \"requests>=2.28\",\n]\n","diff":"--- pyproject.toml\n+++ pyproject.toml\n@@ -1,1 +1,1 @@\n-[project]\n+~~(requests)~~>[project]\nname = \"my-project\"\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"packagePattern","value":"requests"},{"parameter":"scope","value":"null"}],"variants":[{"language":"toml","before":"[project]\nname = \"my-project\"\ndependencies = [\n    \"requests>=2.28\",\n]\n","after":"[project]\nname = \"my-project\"\ndependencies = [\n    ~~(requests)~~>\"requests>=2.28\",\n]\n","diff":"--- pyproject.toml\n+++ pyproject.toml\n@@ -4,1 +4,1 @@\nname = \"my-project\"\ndependencies = [\n-   \"requests>=2.28\",\n+   ~~(requests)~~>\"requests>=2.28\",\n]\n","newFile":false}]}]}>
 
 ## Examples
 

@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    public String find() {\n        return null;\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    public @Nullable String find() {\n        return null;\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\nclass Test {\n@@ -2,1 +4,1 @@\nclass Test {\n-   public String find() {\n+   public @Nullable String find() {\n        return null;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.ComposeJSpecifyBestPractices","displayName":"Compose JSpecify best practices (intra-body nullability inference)","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

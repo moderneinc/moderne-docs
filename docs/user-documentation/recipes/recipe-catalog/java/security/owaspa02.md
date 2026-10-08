@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Finds uses of `Encryptors.queryableText()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/security5/search/findencryptorsqueryabletextuses/"},{"name":"Insecure cookies","href":"/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesetsecure/"}]}>
+<RecipeList recipes={[{"name":"Finds uses of `Encryptors.queryableText()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/security5/search/findencryptorsqueryabletextuses/"},{"name":"Insecure cookies","href":"/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesetsecure/"},{"name":"Find weak SSL/TLS protocols","href":"/user-documentation/recipes/recipe-catalog/java/security/search/findweaktlsprotocol/"}]}>
 
 ## Definition
 

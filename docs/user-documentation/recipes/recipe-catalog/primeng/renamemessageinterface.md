@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Rename `Message` identifiers to `ToastMessageOptions`","href":""},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/javascript/change-import/"}]}>
+<RecipeList recipes={[{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/javascript/change-import/"}]}>
 
 ## Definition
 

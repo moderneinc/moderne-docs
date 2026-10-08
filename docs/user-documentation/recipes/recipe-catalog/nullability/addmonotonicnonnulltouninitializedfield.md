@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nclass Account {\n    String name;\n\n    Account() {\n    }\n}\n","after":"package com.example;\n\nimport org.checkerframework.checker.nullness.qual.MonotonicNonNull;\n\nclass Account {\n    @MonotonicNonNull\n    String name;\n\n    Account() {\n    }\n}\n","diff":"--- src/main/java/com/example/Account.java\n+++ src/main/java/com/example/Account.java\n@@ -3,0 +3,2 @@\npackage com.example;\n\n+import org.checkerframework.checker.nullness.qual.MonotonicNonNull;\n+\nclass Account {\n@@ -4,0 +6,1 @@\n\nclass Account {\n+   @MonotonicNonNull\n    String name;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddMonotonicNonNullToUninitializedField","displayName":"Add `@MonotonicNonNull` to an uninitialized field","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

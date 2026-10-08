@@ -23,6 +23,7 @@ _Basic building blocks for transforming Java code._
 * [Modernize](/user-documentation/recipes/recipe-catalog/java/migrate)
 * [Netty](/user-documentation/recipes/recipe-catalog/java/netty)
 * [Open Liberty](/user-documentation/recipes/recipe-catalog/java/liberty)
+* [PMD](/user-documentation/recipes/recipe-catalog/java/pmd)
 * [Recipes](/user-documentation/recipes/recipe-catalog/java/recipes)
 * [Search](/user-documentation/recipes/recipe-catalog/java/search)
 * [Security](/user-documentation/recipes/recipe-catalog/java/security)

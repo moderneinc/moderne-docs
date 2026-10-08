@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove unused go.mod requirements"}
-  description={"Remove `require` directives whose module provides no imported package and is unreachable through the module graph from any module that does. Uses the package→module map and module graph resolved at parse time; a no-op when that resolution did not run. Modules that pin a transitive version are kept, so the removal is build-safe."}
+  description={"Remove `require` directives that `go mod tidy` would drop, restricted to what can be proven unused from the offline resolution: modules absent from the resolved build list and stray self-references. A require present in the build list is kept even when it is neither imported nor reachable through the recorded module-graph edges, since that graph is pruned and a still-needed test-closure or build-tag-gated dependency can be unreachable in it. Uses the resolved build list attached at parse time; a no-op when that resolution did not run."}
   fqName={"org.openrewrite.golang.migration.RemoveUnusedGoModRequires"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove unused go.mod requirements</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove `require` directives whose module provides no imported package and is unreachable through the module graph from any module that does. Uses the package→module map and module graph resolved at parse time; a no-op when that resolution did not run. Modules that pin a transitive version are kept, so the removal is build-safe.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove `require` directives that `go mod tidy` would drop, restricted to what can be proven unused from the offline resolution: modules absent from the resolved build list and stray self-references. A require present in the build list is kept even when it is neither imported nor reachable through the recorded module-graph edges, since that graph is pruned and a still-needed test-closure or build-tag-gated dependency can be unreachable in it. Uses the resolved build list attached at parse time; a no-op when that resolution did not run.</RecipeHeader.Description>
 
 </RecipeHeader>
 

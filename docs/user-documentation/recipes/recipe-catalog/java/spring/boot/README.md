@@ -15,6 +15,7 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Add `@SpringBootApplication` class](./addspringbootapplication.md)
 * [Convert field injection to constructor injection](./fieldtoconstructorinjection.md)
+* [Find `@SpringBootApplication` or `@ComponentScan` in the default package](./findspringapplicationindefaultpackage.md)
 * [Is likely a Spring Boot project](./islikelyspringboot.md)
 * [Is likely not a Spring Boot project](./islikelynotspringboot.md)
 * [Mark embedded server as provided for WAR projects](./markembeddedserverprovidedforwar.md)

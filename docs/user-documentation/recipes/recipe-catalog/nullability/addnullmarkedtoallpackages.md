@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n","after":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n","diff":"--- src/main/java/com/example/package-info.java\n+++ src/main/java/com/example/package-info.java\n@@ -1,0 +1,1 @@\n+@NullMarked\npackage com.example;\n@@ -3,0 +4,2 @@\npackage com.example;\n\n+import org.jspecify.annotations.NullMarked;\n+\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullMarkedToAllPackages","displayName":"Add `@NullMarked` to every package","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

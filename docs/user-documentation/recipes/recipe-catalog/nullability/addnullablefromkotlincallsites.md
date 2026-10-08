@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"kotlin","code":"import io.moderne.nullability.fixture.Greeter\nfun use(g: Greeter): Int? {\n    return g.getName()?.length\n}\n"},"variants":[{"language":"java","before":"package io.moderne.nullability.fixture;\n\npublic class Greeter {\n    public String getName() {\n        return \"x\";\n    }\n\n    public String other() {\n        return \"y\";\n    }\n}\n","after":"package io.moderne.nullability.fixture;\n\nimport org.jspecify.annotations.Nullable;\n\npublic class Greeter {\n    @Nullable\n    public String getName() {\n        return \"x\";\n    }\n\n    public String other() {\n        return \"y\";\n    }\n}\n","diff":"@@ -3,0 +3,2 @@\npackage io.moderne.nullability.fixture;\n\n+import org.jspecify.annotations.Nullable;\n+\npublic class Greeter {\n@@ -4,0 +6,1 @@\n\npublic class Greeter {\n+   @Nullable\n    public String getName() {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullableFromKotlinCallSites","displayName":"Add `@Nullable` to Java returns from Kotlin call sites","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

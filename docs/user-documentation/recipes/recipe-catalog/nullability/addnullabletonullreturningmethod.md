@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nclass Caller {\n    String first(Source source) {\n        return source.get();\n    }\n}\n","after":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nclass Caller {\n    @Nullable\n    String first(Source source) {\n        return source.get();\n    }\n}\n","diff":"--- src/main/java/com/example/Caller.java\n+++ src/main/java/com/example/Caller.java\n@@ -3,0 +3,2 @@\npackage com.example;\n\n+import org.jspecify.annotations.Nullable;\n+\nclass Caller {\n@@ -4,0 +6,1 @@\n\nclass Caller {\n+   @Nullable\n    String first(Source source) {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullableToNullReturningMethod","displayName":"Add `@Nullable` to a method that can return null","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

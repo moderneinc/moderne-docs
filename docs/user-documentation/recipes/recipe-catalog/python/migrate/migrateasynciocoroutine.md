@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate `@asyncio.coroutine` to `async def`"}
-  description={"Migrate functions using the deprecated `@asyncio.coroutine` decorator to use `async def` syntax. Also transforms `yield from` to `await`. The decorator was removed in Python 3.11."}
+  description={"Migrate functions using the deprecated `@asyncio.coroutine` decorator to use `async def` syntax. Also transforms `yield from` to `await`. The decorator was removed in Python 3.11. A function whose body has a bare `yield` is left alone, since it would become an async generator."}
   fqName={"org.openrewrite.python.migrate.MigrateAsyncioCoroutine"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate `@asyncio.coroutine` to `async def`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate functions using the deprecated `@asyncio.coroutine` decorator to use `async def` syntax. Also transforms `yield from` to `await`. The decorator was removed in Python 3.11.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate functions using the deprecated `@asyncio.coroutine` decorator to use `async def` syntax. Also transforms `yield from` to `await`. The decorator was removed in Python 3.11. A function whose body has a bare `yield` is left alone, since it would become an async generator.</RecipeHeader.Description>
 
 </RecipeHeader>
 

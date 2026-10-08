@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"List .NET dependencies (SBOM)"}
-  description={"Records every dependency of each .NET project — NuGet packages, assembly references, and project references — into the `Dependencies in use` data table, forming a Software Bill of Materials. Reports the resolved dependency graph when the `MSBuildProject` marker is available and falls back to the raw `.csproj` XML otherwise, so it works for both .NET (Core) and .NET Framework projects."}
+  description={"Records every dependency of each .NET project — NuGet packages, assembly references, and project references — into the `Dependencies in use` data table, forming a Software Bill of Materials. Reports the full transitive dependency graph, including each dependency's depth and the path that pulls it in, when the `MSBuildProject` marker is available, and falls back to the raw `.csproj` XML otherwise, so it works for both .NET (Core) and .NET Framework projects."}
   fqName={"OpenRewrite.CSharp.Recipes.ListDependencies"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>List .NET dependencies (SBOM)</RecipeHeader.Title>
 
-<RecipeHeader.Description>Records every dependency of each .NET project — NuGet packages, assembly references, and project references — into the `Dependencies in use` data table, forming a Software Bill of Materials. Reports the resolved dependency graph when the `MSBuildProject` marker is available and falls back to the raw `.csproj` XML otherwise, so it works for both .NET (Core) and .NET Framework projects.</RecipeHeader.Description>
+<RecipeHeader.Description>Records every dependency of each .NET project — NuGet packages, assembly references, and project references — into the `Dependencies in use` data table, forming a Software Bill of Materials. Reports the full transitive dependency graph, including each dependency's depth and the path that pulls it in, when the `MSBuildProject` marker is available, and falls back to the raw `.csproj` XML otherwise, so it works for both .NET (Core) and .NET Framework projects.</RecipeHeader.Description>
 
 </RecipeHeader>
 

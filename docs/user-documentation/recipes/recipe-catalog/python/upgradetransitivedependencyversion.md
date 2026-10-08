@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade transitive Python dependency version"}
-  description={"Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes."}
+  description={"Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes."}
   fqName={"org.openrewrite.python.UpgradeTransitiveDependencyVersion"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade transitive Python dependency version</RecipeHeader.Title>
 
-<RecipeHeader.Description>Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+<RecipeHeader.Description>Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
 
 </RecipeHeader>
 

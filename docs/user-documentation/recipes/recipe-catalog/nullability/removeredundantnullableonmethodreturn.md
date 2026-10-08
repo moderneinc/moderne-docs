@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable\n    static byte @Nullable [] load() {\n        return null;\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    static byte @Nullable [] load() {\n        return null;\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nclass Test {\n-   @Nullable\n    static byte @Nullable [] load() {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.RemoveRedundantNullableOnMethodReturn","displayName":"Remove a redundant declaration-position `@Nullable` on a method return","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

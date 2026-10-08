@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.function.Supplier;\n\nclass Test {\n    static <T> T record(String name, Supplier<T> body) {\n        return body.get();\n    }\n\n    static Object use() {\n        return record(\"op\", () -> null);\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nimport java.util.function.Supplier;\n\nclass Test {\n    static <T extends @Nullable Object> T record(String name, Supplier<T> body) {\n        return body.get();\n    }\n\n    static Object use() {\n        return record(\"op\", () -> null);\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\nimport java.util.function.Supplier;\n@@ -4,1 +6,1 @@\n\nclass Test {\n-   static <T> T record(String name, Supplier<T> body) {\n+   static <T extends @Nullable Object> T record(String name, Supplier<T> body) {\n        return body.get();\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullableBoundToPassthroughTypeParameter","displayName":"Add a `@Nullable` upper bound to a pass-through type parameter fed a null-returning lambda","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

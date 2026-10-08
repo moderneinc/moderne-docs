@@ -1,14 +1,14 @@
 ---
-title: "DevCenter for Node.js"
-sidebar_label: "DevCenter for Node.js"
+title: "DevCenter for JavaScript and TypeScript"
+sidebar_label: "DevCenter for JavaScript and TypeScript"
 hide_title: true
 ---
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"DevCenter for Node.js"}
-  description={"A default DevCenter configuration for Node.js repositories. Track Node.js version adoption across your organization."}
+  displayName={"DevCenter for JavaScript and TypeScript"}
+  description={"A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend. Track Node.js version adoption and the move to ECMAScript 6 across your organization."}
   fqName={"io.moderne.devcenter.DevCenterNodeStarter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -26,19 +26,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   moderneOnly
 >
 
-<RecipeHeader.Title>DevCenter for Node.js</RecipeHeader.Title>
+<RecipeHeader.Title>DevCenter for JavaScript and TypeScript</RecipeHeader.Title>
 
-<RecipeHeader.Description>A default DevCenter configuration for Node.js repositories. Track Node.js version adoption across your organization.</RecipeHeader.Description>
+<RecipeHeader.Description>A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend. Track Node.js version adoption and the move to ECMAScript 6 across your organization.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Move to a later Node.js version","href":"/user-documentation/recipes/recipe-catalog/devcenter/nodeversionupgrade/"},{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find active committers on repositories","href":"/user-documentation/recipes/recipe-catalog/devcenter/findactivecommitters/"}]}>
+<RecipeList recipes={[{"name":"Move to a later Node.js version","href":"/user-documentation/recipes/recipe-catalog/devcenter/nodeversionupgrade/"},{"name":"Move to ECMAScript 6","href":"/user-documentation/recipes/recipe-catalog/devcenter/ecmascriptmodernization/"},{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find active committers on repositories","href":"/user-documentation/recipes/recipe-catalog/devcenter/findactivecommitters/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.DevCenterNodeStarter","displayName":"DevCenter for Node.js","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.DevCenterNodeStarter","displayName":"DevCenter for JavaScript and TypeScript","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":false}}>
 
 ## Usage
 

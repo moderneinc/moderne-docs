@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `typing.Union[X, Y]` with `X | Y`"}
-  description={"PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Union[X, Y, ...]` with the more concise `X | Y | ...` syntax."}
+  description={"PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Union[X, Y, ...]` with the more concise `X | Y | ...` syntax. Applies inside `if TYPE_CHECKING:` blocks as well; `X | Y` is valid at runtime from Python 3.10 on, so no `from __future__ import annotations` is needed."}
   fqName={"org.openrewrite.python.migrate.ReplaceTypingUnionWithPipe"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `typing.Union[X, Y]` with `X | Y`</RecipeHeader.Title>
 
-<RecipeHeader.Description>PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Union[X, Y, ...]` with the more concise `X | Y | ...` syntax.</RecipeHeader.Description>
+<RecipeHeader.Description>PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Union[X, Y, ...]` with the more concise `X | Y | ...` syntax. Applies inside `if TYPE_CHECKING:` blocks as well; `X | Y` is valid at runtime from Python 3.10 on, so no `from __future__ import annotations` is needed.</RecipeHeader.Description>
 
 </RecipeHeader>
 

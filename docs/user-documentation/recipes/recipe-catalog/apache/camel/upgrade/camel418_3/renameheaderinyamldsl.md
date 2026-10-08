@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Rename header in YAML DSL"}
-  description={"Renames header references in YAML DSL setHeader.name, header.name, and removeHeader.name entries."}
+  description={"Renames header references in YAML DSL setHeader.name, header.name, and removeHeader.name entries, and the ${header.oldName} placeholder wherever it appears in a scalar value."}
   fqName={"org.apache.camel.upgrade.camel418_3.RenameHeaderInYamlDsl"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Rename header in YAML DSL</RecipeHeader.Title>
 
-<RecipeHeader.Description>Renames header references in YAML DSL setHeader.name, header.name, and removeHeader.name entries.</RecipeHeader.Description>
+<RecipeHeader.Description>Renames header references in YAML DSL setHeader.name, header.name, and removeHeader.name entries, and the $&#123;header.oldName} placeholder wherever it appears in a scalar value.</RecipeHeader.Description>
 
 </RecipeHeader>
 

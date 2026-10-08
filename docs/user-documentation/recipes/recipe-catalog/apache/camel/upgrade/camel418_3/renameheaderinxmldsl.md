@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Rename header in XML DSL"}
-  description={"Renames header references in XML DSL <setHeader name=\"...\">, <header name=\"...\">, and <removeHeader name=\"...\"> elements."}
+  description={"Renames header references in XML DSL <setHeader name=\"...\">, <header name=\"...\">, and <removeHeader name=\"...\"> elements, and the ${header.oldName} placeholder wherever it appears in element text (<simple>) or in an attribute value."}
   fqName={"org.apache.camel.upgrade.camel418_3.RenameHeaderInXmlDsl"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Rename header in XML DSL</RecipeHeader.Title>
 
-<RecipeHeader.Description>Renames header references in XML DSL &lt;setHeader name="...">, &lt;header name="...">, and &lt;removeHeader name="..."> elements.</RecipeHeader.Description>
+<RecipeHeader.Description>Renames header references in XML DSL &lt;setHeader name="...">, &lt;header name="...">, and &lt;removeHeader name="..."> elements, and the $&#123;header.oldName} placeholder wherever it appears in element text (&lt;simple>) or in an attribute value.</RecipeHeader.Description>
 
 </RecipeHeader>
 

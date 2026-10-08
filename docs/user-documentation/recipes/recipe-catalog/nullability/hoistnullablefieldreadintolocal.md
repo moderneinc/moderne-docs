@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable String f;\n\n    void m() {\n        if (this.f != null) {\n            System.out.println(this.f.length());\n        }\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable String f;\n\n    void m() {\n        String f = this.f;\n        if (f != null) {\n            System.out.println(f.length());\n        }\n    }\n}\n","diff":"@@ -7,2 +7,3 @@\n\n    void m() {\n-       if (this.f != null) {\n-           System.out.println(this.f.length());\n+       String f = this.f;\n+       if (f != null) {\n+           System.out.println(f.length());\n        }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.HoistNullableFieldReadIntoLocal","displayName":"Hoist a guarded `@Nullable` field read into a local variable","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Modernize octal escape sequences"}
-  description={"Convert old-style octal escape sequences (e.g., `\\0`, `\\123`) to modern hex escape sequences (e.g., `\\x00`, `\\x53`) or Unicode escape sequences (e.g., `\\u0000`, `\\u0053`)."}
+  description={"Convert legacy octal escape sequences in string literals (e.g., `\\1`, `\\123`) to hex escape sequences (e.g., `\\x01`, `\\x53`) or Unicode escape sequences (e.g., `\\u0001`, `\\u0053`). The `\\0` escape is left alone unless a digit follows it."}
   fqName={"org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences"}
   languages={["JavaScript"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Modernize octal escape sequences</RecipeHeader.Title>
 
-<RecipeHeader.Description>Convert old-style octal escape sequences (e.g., `\0`, `\123`) to modern hex escape sequences (e.g., `\x00`, `\x53`) or Unicode escape sequences (e.g., `\u0000`, `\u0053`).</RecipeHeader.Description>
+<RecipeHeader.Description>Convert legacy octal escape sequences in string literals (e.g., `\1`, `\123`) to hex escape sequences (e.g., `\x01`, `\x53`) or Unicode escape sequences (e.g., `\u0001`, `\u0053`). The `\0` escape is left alone unless a digit follows it.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nclass Impl implements Listener {\n    @Override\n    public void onCompleted(String result) {\n    }\n}\n","after":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nclass Impl implements Listener {\n    @Override\n    public void onCompleted(@Nullable String result) {\n    }\n}\n","diff":"--- src/main/java/com/example/Impl.java\n+++ src/main/java/com/example/Impl.java\n@@ -3,0 +3,2 @@\npackage com.example;\n\n+import org.jspecify.annotations.Nullable;\n+\nclass Impl implements Listener {\n@@ -5,1 +7,1 @@\nclass Impl implements Listener {\n    @Override\n-   public void onCompleted(String result) {\n+   public void onCompleted(@Nullable String result) {\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AlignOverrideNullabilityWithSupertype","displayName":"Align override nullability with the supertype","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

@@ -30,7 +30,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate to Android Gradle Plugin 9.0](./migratetoandroidgradleplugin_9_0.md)
 * [Migrate to Android Gradle Plugin 9.1](./migratetoandroidgradleplugin_9_1.md)
 * [Migrate to Android Gradle Plugin 9.2](./migratetoandroidgradleplugin_9_2.md)
-* [Upgrade Android Gradle Plugin (AGP) version](./upgradeandroidgradlepluginversion.md)
 * [Upgrade to Android SDK 33](./upgradetoandroidsdk33.md)
 * [Upgrade to Android SDK 34](./upgradetoandroidsdk34.md)
 * [Upgrade to Android SDK 35](./upgradetoandroidsdk35.md)
@@ -42,5 +41,9 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Remove `buildToolsVersion`](./removebuildtoolsversion.md)
 * [Rename `aaptOptions` to `androidResources`](./renameaaptoptionstoandroidresources.md)
 * [Rename `lintOptions` to `lint`](./renamelintoptionstolint.md)
+* [Upgrade Android Gradle Plugin version](./upgradeandroidgradlepluginversion.md)
+* [Upgrade Android `compileSdk` version](./upgradecompilesdkversion.md)
+* [Upgrade Android `minSdk` version](./upgrademinsdkversion.md)
+* [Upgrade Android `targetSdk` version](./upgradetargetsdkversion.md)
 
 

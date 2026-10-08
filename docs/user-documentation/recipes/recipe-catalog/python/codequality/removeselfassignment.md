@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove self-assignments"}
-  description={"Remove statements that assign a variable to itself (`x = x`, `self.x = self.x`), since they have no effect."}
+  description={"Remove statements inside a function that assign a plain local name to itself (`x = x`), since they have no effect. Class-body and module-level `X = X` bind a new name from an enclosing one and are left alone, as are attribute and subscript targets, which run `__set__` and `__setitem__`."}
   fqName={"org.openrewrite.python.codequality.RemoveSelfAssignment"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove self-assignments</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove statements that assign a variable to itself (`x = x`, `self.x = self.x`), since they have no effect.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove statements inside a function that assign a plain local name to itself (`x = x`), since they have no effect. Class-body and module-level `X = X` bind a new name from an enclosing one and are left alone, as are attribute and subscript targets, which run `__set__` and `__setitem__`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

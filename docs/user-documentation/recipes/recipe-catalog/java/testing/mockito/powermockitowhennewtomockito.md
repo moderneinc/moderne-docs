@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `PowerMockito.whenNew` with Mockito counterpart"}
-  description={"Replaces `PowerMockito.whenNew` calls with respective `Mockito.whenConstructed` calls."}
+  description={"Replaces `PowerMockito.whenNew(Type.class).with...().thenReturn(instance)` with `Mockito.mockConstructionWithAnswer(Type.class, delegatesTo(instance))`, assigned to a field that is closed after each test. Every `Type` constructed while the mock is active delegates to `instance`, so stubbing and verification on `instance` keep working. Constructor argument matchers are not retained, and when the same type is stubbed more than once in a method, the calls are left unchanged."}
   fqName={"org.openrewrite.java.testing.mockito.PowerMockitoWhenNewToMockito"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `PowerMockito.whenNew` with Mockito counterpart</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces `PowerMockito.whenNew` calls with respective `Mockito.whenConstructed` calls.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces `PowerMockito.whenNew(Type.class).with...().thenReturn(instance)` with `Mockito.mockConstructionWithAnswer(Type.class, delegatesTo(instance))`, assigned to a field that is closed after each test. Every `Type` constructed while the mock is active delegates to `instance`, so stubbing and verification on `instance` keep working. Constructor argument matchers are not retained, and when the same type is stubbed more than once in a method, the calls are left unchanged.</RecipeHeader.Description>
 
 </RecipeHeader>
 

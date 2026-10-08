@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove Python dependency"}
-  description={"Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes."}
+  description={"Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes."}
   fqName={"org.openrewrite.python.RemoveDependency"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove Python dependency</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
 
 </RecipeHeader>
 

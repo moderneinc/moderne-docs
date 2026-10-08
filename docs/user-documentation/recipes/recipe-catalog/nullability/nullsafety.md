@@ -44,6 +44,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"},{"parameter":"assertionStyle","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nclass Test {\n    String find() {\n        return null;\n    }\n\n    int use() {\n        return find().length();\n    }\n}\n","after":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nimport static java.util.Objects.requireNonNull;\n\nclass Test {\n    @Nullable\n    String find() {\n        return null;\n    }\n\n    int use() {\n        return requireNonNull(find()).length();\n    }\n}\n","diff":"--- src/main/java/com/example/Test.java\n+++ src/main/java/com/example/Test.java\n@@ -3,0 +3,4 @@\npackage com.example;\n\n+import org.jspecify.annotations.Nullable;\n+\n+import static java.util.Objects.requireNonNull;\n+\nclass Test {\n@@ -4,0 +8,1 @@\n\nclass Test {\n+   @Nullable\n    String find() {\n@@ -9,1 +14,1 @@\n\n    int use() {\n-       return find().length();\n+       return requireNonNull(find()).length();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.NullSafety","displayName":"Make a codebase null-safe","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace deprecated unittest method aliases"}
-  description={"Replace deprecated unittest.TestCase method aliases like `assertEquals` with their modern equivalents like `assertEqual`. These aliases were removed in Python 3.11/3.12."}
+  description={"Replace deprecated unittest.TestCase method aliases like `assertEquals` with their modern equivalents like `assertEqual`. These aliases were removed in Python 3.11/3.12. Only fires where the receiver's type resolves to `unittest.TestCase` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceUnittestDeprecatedAliases"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace deprecated unittest method aliases</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace deprecated unittest.TestCase method aliases like `assertEquals` with their modern equivalents like `assertEqual`. These aliases were removed in Python 3.11/3.12.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace deprecated unittest.TestCase method aliases like `assertEquals` with their modern equivalents like `assertEqual`. These aliases were removed in Python 3.11/3.12. Only fires where the receiver's type resolves to `unittest.TestCase` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

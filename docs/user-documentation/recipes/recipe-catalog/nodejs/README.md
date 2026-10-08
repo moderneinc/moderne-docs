@@ -8,6 +8,7 @@ _Node.js dependency and package management._
 
 ## Categories
 
+* [Migrate](/user-documentation/recipes/recipe-catalog/nodejs/migrate)
 * [Search](/user-documentation/recipes/recipe-catalog/nodejs/search)
 * [Security](/user-documentation/recipes/recipe-catalog/nodejs/security)
 

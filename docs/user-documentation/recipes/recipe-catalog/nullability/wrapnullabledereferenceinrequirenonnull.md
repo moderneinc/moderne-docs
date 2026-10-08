@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"},{"parameter":"assertionStyle","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nclass Caller {\n    int run(Source source) {\n        return source.get().length();\n    }\n}\n","after":"package com.example;\n\nimport static java.util.Objects.requireNonNull;\n\nclass Caller {\n    int run(Source source) {\n        return requireNonNull(source.get()).length();\n    }\n}\n","diff":"--- src/main/java/com/example/Caller.java\n+++ src/main/java/com/example/Caller.java\n@@ -3,0 +3,2 @@\npackage com.example;\n\n+import static java.util.Objects.requireNonNull;\n+\nclass Caller {\n@@ -5,1 +7,1 @@\nclass Caller {\n    int run(Source source) {\n-       return source.get().length();\n+       return requireNonNull(source.get()).length();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.WrapNullableDereferenceInRequireNonNull","displayName":"Wrap nullable dereferenced values in `requireNonNull`","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

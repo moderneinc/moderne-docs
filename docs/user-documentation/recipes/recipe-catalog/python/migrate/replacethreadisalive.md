@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `Thread.isAlive()` with `Thread.is_alive()`"}
-  description={"Replace `isAlive()` method calls with `is_alive()`. Deprecated in Python 3.1 and removed in 3.9."}
+  description={"Replace `isAlive()` method calls with `is_alive()`. Deprecated in Python 3.1 and removed in 3.9. Only fires where the receiver's type resolves to `threading.Thread` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceThreadIsAlive"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `Thread.isAlive()` with `Thread.is_alive()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `isAlive()` method calls with `is_alive()`. Deprecated in Python 3.1 and removed in 3.9.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `isAlive()` method calls with `is_alive()`. Deprecated in Python 3.1 and removed in 3.9. Only fires where the receiver's type resolves to `threading.Thread` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

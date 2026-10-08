@@ -15,7 +15,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Python"]}
   tags={["python","re","migration","3.11"]}
   license={"Moderne Proprietary License"}
@@ -31,6 +31,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader.Description>`re.template()` was deprecated in Python 3.11 and removed in 3.13. Calls are auto-replaced with `re.compile()`. `re.TEMPLATE`/`re.T` flags have no direct replacement and are flagged for manual review.</RecipeHeader.Description>
 
 </RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"},{"name":"Find `re.TEMPLATE` and `re.T`","href":""}]}>
+
+## Definition
+
+</RecipeList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.migrate.ReplaceReTemplate","displayName":"Replace `re.template()` with `re.compile()` and flag `re.TEMPLATE`/`re.T`","pipPackage":"openrewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}]}}>
 

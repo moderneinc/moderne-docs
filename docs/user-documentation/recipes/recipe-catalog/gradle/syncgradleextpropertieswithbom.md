@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Sync Gradle ext properties with BOM"}
-  description={"Downloads a BOM and compares its properties against Gradle ext properties. When the BOM defines a higher version for a property, the ext property is updated to match (or removed if `removeRedundantOverrides` is enabled)."}
+  description={"Downloads a BOM and compares its properties against Gradle ext properties. When the BOM defines a higher version for a property, the ext property is updated to match (or removed if `removeRedundantOverrides` is enabled, unless a build script reads it). With `removeRedundantOverrides`, a property whose value refers to an entry of `gradle.properties` is compared by that entry's value."}
   fqName={"org.openrewrite.gradle.SyncGradleExtPropertiesWithBom"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Sync Gradle ext properties with BOM</RecipeHeader.Title>
 
-<RecipeHeader.Description>Downloads a BOM and compares its properties against Gradle ext properties. When the BOM defines a higher version for a property, the ext property is updated to match (or removed if `removeRedundantOverrides` is enabled).</RecipeHeader.Description>
+<RecipeHeader.Description>Downloads a BOM and compares its properties against Gradle ext properties. When the BOM defines a higher version for a property, the ext property is updated to match (or removed if `removeRedundantOverrides` is enabled, unless a build script reads it). With `removeRedundantOverrides`, a property whose value refers to an entry of `gradle.properties` is compared by that entry's value.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The groupId of the BOM to sync with.","example":"org.springframework.boot"},{"type":"String","name":"artifactId","required":true,"description":"The artifactId of the BOM to sync with.","example":"spring-boot-dependencies"},{"type":"String","name":"version","required":true,"description":"The version of the BOM to sync with.","example":"3.4.0"},{"type":"Boolean","name":"removeRedundantOverrides","required":false,"description":"When enabled, ext properties whose value is lower than or equal to the BOM version will be removed entirely instead of updated, since the BOM default is now sufficient."}]}>
+<OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The groupId of the BOM to sync with.","example":"org.springframework.boot"},{"type":"String","name":"artifactId","required":true,"description":"The artifactId of the BOM to sync with.","example":"spring-boot-dependencies"},{"type":"String","name":"version","required":true,"description":"The version of the BOM to sync with. An exact version, or a selector such as `3.4.x` which resolves to the latest matching release.","example":"3.4.0"},{"type":"Boolean","name":"removeRedundantOverrides","required":false,"description":"When enabled, ext properties whose value is lower than or equal to the BOM version will be removed entirely instead of updated, since the BOM default is now sufficient. A property that a build script reads is kept and updated instead."}]}>
 
 ## Options
 

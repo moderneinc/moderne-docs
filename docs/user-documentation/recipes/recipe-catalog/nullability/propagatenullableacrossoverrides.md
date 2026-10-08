@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"java","code":"import org.jspecify.annotations.Nullable;\n\nclass ServiceImpl implements Service {\n    @Override\n    public @Nullable String find() {\n        return null;\n    }\n}\n"},"variants":[{"language":"java","before":"interface Service {\n    String find();\n}\n","after":"import org.jspecify.annotations.Nullable;\n\ninterface Service {\n    @Nullable\n    String find();\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\ninterface Service {\n@@ -2,0 +4,1 @@\ninterface Service {\n+   @Nullable\n    String find();\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.PropagateNullableAcrossOverrides","displayName":"Propagate `@Nullable` across override relationships","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

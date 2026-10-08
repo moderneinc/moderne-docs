@@ -1,14 +1,14 @@
 ---
-title: "Upgrade Android Gradle Plugin (AGP) version"
-sidebar_label: "Upgrade Android Gradle Plugin (AGP) version"
+title: "Upgrade Android Gradle Plugin version"
+sidebar_label: "Upgrade Android Gradle Plugin version"
 hide_title: true
 ---
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Upgrade Android Gradle Plugin (AGP) version"}
-  description={"Upgrade Android Gradle Plugin (AGP) version and update the Gradle Wrapper version. Compatible versions are published in the [AGP release notes](https://developer.android.com/build/releases/gradle-plugin)."}
+  displayName={"Upgrade Android Gradle Plugin version"}
+  description={"Upgrade the Android Gradle Plugin (AGP) version. Handles both the legacy `buildscript { dependencies { classpath 'com.android.tools.build:gradle:...' } }` form (delegating to the upstream `UpgradeDependencyVersion` recipe for full DSL coverage) and the modern `plugins { id(\"com.android.application\") version \"...\" }` form."}
   fqName={"org.openrewrite.android.UpgradeAndroidGradlePluginVersion"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -26,25 +26,31 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   moderneOnly
 >
 
-<RecipeHeader.Title>Upgrade Android Gradle Plugin (AGP) version</RecipeHeader.Title>
+<RecipeHeader.Title>Upgrade Android Gradle Plugin version</RecipeHeader.Title>
 
-<RecipeHeader.Description>Upgrade Android Gradle Plugin (AGP) version and update the Gradle Wrapper version. Compatible versions are published in the [AGP release notes](https://developer.android.com/build/releases/gradle-plugin).</RecipeHeader.Description>
+<RecipeHeader.Description>Upgrade the Android Gradle Plugin (AGP) version. Handles both the legacy `buildscript { dependencies { classpath 'com.android.tools.build:gradle:...' } }` form (delegating to the upstream `UpgradeDependencyVersion` recipe for full DSL coverage) and the modern `plugins { id("com.android.application") version "..." }` form.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle dependency versions","href":"/user-documentation/recipes/recipe-catalog/gradle/upgradedependencyversion/"},{"name":"Update Gradle wrapper","href":"/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper/"}]}>
+<RecipeList recipes={[{"name":"Upgrade Gradle dependency versions","href":"/user-documentation/recipes/recipe-catalog/gradle/upgradedependencyversion/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<OptionsTable options={[{"type":"String","name":"agpVersion","required":true,"description":"The version of the Android Gradle Plugin to use.","example":"8.6.x"},{"type":"String","name":"gradleWrapperVersion","required":true,"description":"The version of the Gradle Wrapper to use.","example":"(8.7, 9]"}]}>
+<OptionsTable options={[{"type":"String","name":"newVersion","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"8.5.0"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics.","example":"8.5.0"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.android.UpgradeAndroidGradlePluginVersion","displayName":"Upgrade Android Gradle Plugin (AGP) version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-android","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_ANDROID","requiresConfiguration":true,"cliOptions":" --recipe-option \"agpVersion=8.6.x\" --recipe-option \"gradleWrapperVersion=(8.7, 9]\""}}>
+<ExampleList examples={[{"parameters":[{"parameter":"newVersion","value":"8.5.0"},{"parameter":"versionPattern","value":"null"}],"variants":[{"language":"groovy","before":"plugins {\n    id 'com.android.application' version '8.0.0'\n}\n","after":"plugins {\n    id 'com.android.application' version '8.5.0'\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -2,1 +2,1 @@\nplugins {\n-   id 'com.android.application' version '8.0.0'\n+   id 'com.android.application' version '8.5.0'\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
+<UsageList usage={{"recipeName":"org.openrewrite.android.UpgradeAndroidGradlePluginVersion","displayName":"Upgrade Android Gradle Plugin version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-android","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_ANDROID","requiresConfiguration":true,"cliOptions":" --recipe-option \"newVersion=8.5.0\" --recipe-option \"versionPattern=8.5.0\""}}>
 
 ## Usage
 

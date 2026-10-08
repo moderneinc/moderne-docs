@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc indexes per-module recipe lists. Click a groupId to see its recipes._
 
-Total recipes: 7909
+Total recipes: 8075
 
 
 ## io.moderne.recipe
@@ -39,8 +39,9 @@ Total recipes: 7909
 
 ## org.openrewrite
 
-* [rewrite-cobol](all-recipes-org-openrewrite.md#rewrite-cobol)
+* [rewrite-android](all-recipes-org-openrewrite.md#rewrite-android)
 * [rewrite-core](all-recipes-org-openrewrite.md#rewrite-core)
+* [rewrite-csharp](all-recipes-org-openrewrite.md#rewrite-csharp)
 * [rewrite-docker](all-recipes-org-openrewrite.md#rewrite-docker)
 * [rewrite-go](all-recipes-org-openrewrite.md#rewrite-go)
 * [rewrite-gradle](all-recipes-org-openrewrite.md#rewrite-gradle)
@@ -50,9 +51,12 @@ Total recipes: 7909
 * [rewrite-javascript](all-recipes-org-openrewrite.md#rewrite-javascript)
 * [rewrite-json](all-recipes-org-openrewrite.md#rewrite-json)
 * [rewrite-kotlin](all-recipes-org-openrewrite.md#rewrite-kotlin)
+* [rewrite-mainframe](all-recipes-org-openrewrite.md#rewrite-mainframe)
 * [rewrite-maven](all-recipes-org-openrewrite.md#rewrite-maven)
 * [rewrite-properties](all-recipes-org-openrewrite.md#rewrite-properties)
 * [rewrite-python](all-recipes-org-openrewrite.md#rewrite-python)
+* [rewrite-ruby](all-recipes-org-openrewrite.md#rewrite-ruby)
+* [rewrite-scala](all-recipes-org-openrewrite.md#rewrite-scala)
 * [rewrite-toml](all-recipes-org-openrewrite.md#rewrite-toml)
 * [rewrite-xml](all-recipes-org-openrewrite.md#rewrite-xml)
 * [rewrite-yaml](all-recipes-org-openrewrite.md#rewrite-yaml)
@@ -89,6 +93,7 @@ Total recipes: 7909
 * [rewrite-nodejs](all-recipes-org-openrewrite-recipe.md#rewrite-nodejs)
 * [rewrite-okhttp](all-recipes-org-openrewrite-recipe.md#rewrite-okhttp)
 * [rewrite-openapi](all-recipes-org-openrewrite-recipe.md#rewrite-openapi)
+* [rewrite-pmd](all-recipes-org-openrewrite-recipe.md#rewrite-pmd)
 * [rewrite-prethink](all-recipes-org-openrewrite-recipe.md#rewrite-prethink)
 * [rewrite-quarkus](all-recipes-org-openrewrite-recipe.md#rewrite-quarkus)
 * [rewrite-reactive-streams](all-recipes-org-openrewrite-recipe.md#rewrite-reactive-streams)

@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nclass Test {\n    String run(@Nullable Object o) {\n        return o.toString();\n    }\n}\n","after":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nclass Test {\n    String run(@Nullable Object o) {\n        return /*~~(Nullability: behavior change — returns \"null\" instead of throwing NullPointerException when the value is null)~~>*/String.valueOf(o);\n    }\n}\n","diff":"--- src/main/java/com/example/Test.java\n+++ src/main/java/com/example/Test.java\n@@ -7,1 +7,1 @@\nclass Test {\n    String run(@Nullable Object o) {\n-       return o.toString();\n+       return /*~~(Nullability: behavior change — returns \"null\" instead of throwing NullPointerException when the value is null)~~>*/String.valueOf(o);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.ReplaceNullableToStringWithStringValueOf","displayName":"Replace nullable `x.toString()` with `String.valueOf(x)`","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

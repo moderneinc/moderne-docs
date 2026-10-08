@@ -43,13 +43,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<OptionsTable options={[{"type":"String","name":"uriPattern","required":true,"description":"Regular expression to match the component URI. Use capturing groups for parts to preserve.","example":"^pulsar:((persistent|non-persistent)://([^/]+)/([^/]+)/([^/]+)/(.+))$"},{"type":"String","name":"replacement","required":true,"description":"Replacement string using ${1}, ${2}, etc. to reference capturing groups from the pattern.","example":"pulsar:${2}://${3}/${5}/${6}"}]}>
+<OptionsTable options={[{"type":"String","name":"uriPattern","required":true,"description":"Regular expression to match the component URI. Use capturing groups for parts to preserve.","example":"^pulsar:((persistent|non-persistent)://([^/]+)/([^/]+)/([^/]+)/(.+))$"},{"type":"String","name":"replacement","required":true,"description":"Replacement string using ${1}, ${2}, etc. to reference capturing groups from the pattern.","example":"pulsar:${2}://${3}/${5}/${6}"},{"type":"Boolean","name":"consumerOnly","required":false,"description":"When true, only consumer endpoints (from) are transformed; producer endpoints (to) are left unchanged.","example":"true"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.ChangeComponentUriRecipe","displayName":"Change Camel component URI across all DSLs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"uriPattern=^pulsar:((persistent|non-persistent)://([^/]+)/([^/]+)/([^/]+)/(.+))$\" --recipe-option \"replacement=pulsar:${2}://${3}/${5}/${6}\""}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.ChangeComponentUriRecipe","displayName":"Change Camel component URI across all DSLs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"uriPattern=^pulsar:((persistent|non-persistent)://([^/]+)/([^/]+)/([^/]+)/(.+))$\" --recipe-option \"replacement=pulsar:${2}://${3}/${5}/${6}\" --recipe-option \"consumerOnly=true\""}}>
 
 ## Usage
 

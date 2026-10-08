@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `datetime.utcfromtimestamp()` with `datetime.fromtimestamp(ts, UTC)`"}
-  description={"The `datetime.utcfromtimestamp()` method is deprecated in Python 3.12. Replace it with `datetime.fromtimestamp(ts, datetime.UTC)` for timezone-aware datetime objects."}
+  description={"The `datetime.utcfromtimestamp()` method is deprecated in Python 3.12. Replace it with `datetime.fromtimestamp(ts, UTC)`, importing `UTC` from `datetime` where the name is not already in scope. The result is timezone-aware where `utcfromtimestamp()` was naive, so stored or compared values may need migrating alongside the call sites."}
   fqName={"org.openrewrite.python.migrate.ReplaceDatetimeUtcFromTimestamp"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={[]}
+  tags={["python","datetime","migration","3.12"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceDatetimeUtcFromTimestamp"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `datetime.utcfromtimestamp()` with `datetime.fromtimestamp(ts, UTC)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `datetime.utcfromtimestamp()` method is deprecated in Python 3.12. Replace it with `datetime.fromtimestamp(ts, datetime.UTC)` for timezone-aware datetime objects.</RecipeHeader.Description>
+<RecipeHeader.Description>The `datetime.utcfromtimestamp()` method is deprecated in Python 3.12. Replace it with `datetime.fromtimestamp(ts, UTC)`, importing `UTC` from `datetime` where the name is not already in scope. The result is timezone-aware where `utcfromtimestamp()` was naive, so stored or compared values may need migrating alongside the call sites.</RecipeHeader.Description>
 
 </RecipeHeader>
 

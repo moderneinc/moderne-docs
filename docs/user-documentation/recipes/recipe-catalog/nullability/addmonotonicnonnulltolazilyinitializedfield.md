@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    private String cache;\n\n    String get() {\n        if (cache == null) {\n            cache = compute();\n        }\n        return cache;\n    }\n\n    String compute() {\n        return \"x\";\n    }\n}\n","after":"import org.checkerframework.checker.nullness.qual.MonotonicNonNull;\n\nclass Test {\n    @MonotonicNonNull\n    private String cache;\n\n    String get() {\n        if (cache == null) {\n            cache = compute();\n        }\n        return cache;\n    }\n\n    String compute() {\n        return \"x\";\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.checkerframework.checker.nullness.qual.MonotonicNonNull;\n+\nclass Test {\n@@ -2,0 +4,1 @@\nclass Test {\n+   @MonotonicNonNull\n    private String cache;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddMonotonicNonNullToLazilyInitializedField","displayName":"Add `@MonotonicNonNull` to a lazily-initialized field","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

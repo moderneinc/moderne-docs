@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.37.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_37_0/"},{"name":"io.quarkus.updates.core.quarkus338.ElasticsearchRestClientMigration","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus338/elasticsearchrestclientmigration/"},{"name":"Migrates `camel 4.20` application to `camel 4.21`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel421/camelquarkusmigrationrecipe/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
+<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.37.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_37_0/"},{"name":"Migrates `camel 4.20` application to `camel 4.21`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel421/camelquarkusmigrationrecipe/"},{"name":"io.quarkus.updates.core.quarkus338.ElasticsearchRestClientMigration","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus338/elasticsearchrestclientmigration/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={[]}
+  tags={["RSPEC-S5783"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.junit5.AssertThrowsOnLastStatement"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

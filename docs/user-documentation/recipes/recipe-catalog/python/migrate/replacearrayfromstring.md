@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `array.fromstring()` with `array.frombytes()`"}
-  description={"Replace `fromstring()` with `frombytes()` on array objects. The fromstring() method was deprecated in Python 3.2 and removed in 3.14."}
+  description={"Replace `fromstring()` with `frombytes()` on array objects. The fromstring() method was deprecated in Python 3.2 and removed in 3.14. Only fires where the receiver's type resolves to `array.array` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceArrayFromstring"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `array.fromstring()` with `array.frombytes()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `fromstring()` with `frombytes()` on array objects. The fromstring() method was deprecated in Python 3.2 and removed in 3.14.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `fromstring()` with `frombytes()` on array objects. The fromstring() method was deprecated in Python 3.2 and removed in 3.14. Only fires where the receiver's type resolves to `array.array` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

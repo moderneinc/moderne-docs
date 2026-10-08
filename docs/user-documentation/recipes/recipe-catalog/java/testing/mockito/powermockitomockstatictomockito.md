@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `PowerMock.mockStatic()` with `Mockito.mockStatic()`"}
-  description={"Replaces `PowerMockito.mockStatic()` by `Mockito.mockStatic()`. Removes the `@PrepareForTest` annotation."}
+  description={"Replaces `PowerMockito.mockStatic()` by `Mockito.mockStatic()`, assigning the resulting `MockedStatic` to a field that is closed after each test, so the static mock stays active for exactly the same part of the test as before. Also migrates `PowerMockito.verifyStatic()` and static stubbing, and removes the `@PrepareForTest` annotation."}
   fqName={"org.openrewrite.java.testing.mockito.PowerMockitoMockStaticToMockito"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `PowerMock.mockStatic()` with `Mockito.mockStatic()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces `PowerMockito.mockStatic()` by `Mockito.mockStatic()`. Removes the `@PrepareForTest` annotation.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces `PowerMockito.mockStatic()` by `Mockito.mockStatic()`, assigning the resulting `MockedStatic` to a field that is closed after each test, so the static mock stays active for exactly the same part of the test as before. Also migrates `PowerMockito.verifyStatic()` and static stubbing, and removes the `@PrepareForTest` annotation.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nimport java.util.List;\n\nclass Test {\n    List<String> names(boolean empty) {\n        if (empty) {\n            return null;\n        }\n        return List.of(\"a\");\n    }\n}\n","after":"package com.example;\n\nimport java.util.List;\n\nimport static java.util.Collections.emptyList;\n\nclass Test {\n    List<String> names(boolean empty) {\n        if (empty) {\n            /*~~(Nullability: behavior change — returns an empty List instead of null; callers that distinguish null from empty are affected)~~>*/return emptyList();\n        }\n        return List.of(\"a\");\n    }\n}\n","diff":"--- src/main/java/com/example/Test.java\n+++ src/main/java/com/example/Test.java\n@@ -5,0 +5,2 @@\nimport java.util.List;\n\n+import static java.util.Collections.emptyList;\n+\nclass Test {\n@@ -8,1 +10,1 @@\n    List<String> names(boolean empty) {\n        if (empty) {\n-           return null;\n+           /*~~(Nullability: behavior change — returns an empty List instead of null; callers that distinguish null from empty are affected)~~>*/return emptyList();\n        }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.ReturnEmptyCollectionInsteadOfNull","displayName":"Return an empty collection instead of `null`","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

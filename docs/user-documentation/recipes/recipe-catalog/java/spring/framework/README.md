@@ -46,6 +46,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Add `setUseSuffixPatternMatch(true)` for pre-Spring Framework 5.3 projects](./addsetusesuffixpatternmatchifprespring53.md)
 * [Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration](./addsetusesuffixpatternmatch.md)
 * [Convert `InstantiationAwareBeanPostProcessorAdapter` to `SmartInstantiationAwareBeanPostProcessor`](./migrateinstantiationawarebeanpostprocessoradapter.md)
+* [Find `@Controller` classes that use `@SessionAttributes` without calling `setComplete()`](./findsessionattributeswithoutsetcomplete.md)
 * [Find deprecated `PathMatcher` usage](./finddeprecatedpathmatcherusage.md)
 * [Flag deprecated suffix pattern matching usage for manual review](./flagsuffixpatternmatchusage.md)
 * [Is likely a Spring Framework project](./islikelyspringframework.md)

@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nimport java.util.Optional;\nimport org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable\n    String getFoo() {\n        return null;\n    }\n\n    Optional<String> getFooOptional() {\n        return Optional.ofNullable(getFoo());\n    }\n\n    int run() {\n        if (getFooOptional().isPresent()) {\n            return getFoo().length();\n        }\n        return 0;\n    }\n}\n","after":"package com.example;\n\nimport java.util.Optional;\nimport org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable\n    String getFoo() {\n        return null;\n    }\n\n    Optional<String> getFooOptional() {\n        return Optional.ofNullable(getFoo());\n    }\n\n    int run() {\n        if (getFooOptional().isPresent()) {\n            return getFooOptional().get().length();\n        }\n        return 0;\n    }\n}\n","diff":"--- src/main/java/com/example/Test.java\n+++ src/main/java/com/example/Test.java\n@@ -18,1 +18,1 @@\n    int run() {\n        if (getFooOptional().isPresent()) {\n-           return getFoo().length();\n+           return getFooOptional().get().length();\n        }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.CollapseOptionalPresentGuardToGet","displayName":"Route a guarded raw accessor through its present `Optional`","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

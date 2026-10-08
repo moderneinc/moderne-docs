@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Rename header in Simple expressions"}
-  description={"Renames header references in Simple expressions like ${header.oldName} → ${header.newName}. Only migrates expressions inside simple() method calls."}
+  description={"Renames header references in Simple expressions like ${header.oldName} → ${header.newName}, in every string literal carrying a Simple expression: simple(), log(), endpoint URIs and the like. Only the complete ${header.oldName} placeholder is matched, so plain occurrences of the name are left alone."}
   fqName={"org.apache.camel.upgrade.camel418_3.RenameHeaderInSimpleExpression"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Rename header in Simple expressions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Renames header references in Simple expressions like $&#123;header.oldName} → $&#123;header.newName}. Only migrates expressions inside simple() method calls.</RecipeHeader.Description>
+<RecipeHeader.Description>Renames header references in Simple expressions like $&#123;header.oldName} → $&#123;header.newName}, in every string literal carrying a Simple expression: simple(), log(), endpoint URIs and the like. Only the complete $&#123;header.oldName} placeholder is matched, so plain occurrences of the name are left alone.</RecipeHeader.Description>
 
 </RecipeHeader>
 

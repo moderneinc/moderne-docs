@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `typing.FrozenSet` with `frozenset`"}
-  description={"PEP 585 deprecated `typing.FrozenSet` in Python 3.9. Replace with the built-in `frozenset` type for generic annotations."}
+  description={"PEP 585 deprecated `typing.FrozenSet` in Python 3.9. Replace it with the built-in `frozenset` wherever a type is expected, including class base lists, where either spelling subclasses `frozenset`. Applies inside `if TYPE_CHECKING:` blocks as well; the built-in generic is valid at runtime from Python 3.9 on, so no `from __future__ import annotations` is needed. References in a value position are left alone: `typing.FrozenSet` and `frozenset` are distinct objects, so substituting one for the other where the name is used as a value would change behaviour."}
   fqName={"org.openrewrite.python.migrate.ReplaceTypingFrozenSetWithFrozenset"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `typing.FrozenSet` with `frozenset`</RecipeHeader.Title>
 
-<RecipeHeader.Description>PEP 585 deprecated `typing.FrozenSet` in Python 3.9. Replace with the built-in `frozenset` type for generic annotations.</RecipeHeader.Description>
+<RecipeHeader.Description>PEP 585 deprecated `typing.FrozenSet` in Python 3.9. Replace it with the built-in `frozenset` wherever a type is expected, including class base lists, where either spelling subclasses `frozenset`. Applies inside `if TYPE_CHECKING:` blocks as well; the built-in generic is valid at runtime from Python 3.9 on, so no `from __future__ import annotations` is needed. References in a value position are left alone: `typing.FrozenSet` and `frozenset` are distinct objects, so substituting one for the other where the name is used as a value would change behaviour.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.jspecify.annotations.NullMarked;\nimport org.jspecify.annotations.Nullable;\nimport java.util.List;\n\n@NullMarked\nclass Test {\n    void m(List<@Nullable String> src) {\n        List<String> dst = src;\n    }\n}\n","after":"import org.jspecify.annotations.NullMarked;\nimport org.jspecify.annotations.Nullable;\nimport java.util.List;\n\n@NullMarked\nclass Test {\n    void m(List<@Nullable String> src) {\n        List<@Nullable String> dst = src;\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\nclass Test {\n    void m(List<@Nullable String> src) {\n-       List<String> dst = src;\n+       List<@Nullable String> dst = src;\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullableToMismatchedTypeArgument","displayName":"Add `@Nullable` to a mismatched generic type argument","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

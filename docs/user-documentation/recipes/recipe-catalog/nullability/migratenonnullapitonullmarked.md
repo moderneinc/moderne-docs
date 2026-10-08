@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"@NonNullApi\n@NonNullFields\npackage com.example.app;\n\nimport org.springframework.lang.NonNullApi;\nimport org.springframework.lang.NonNullFields;\n","after":"@NullMarked\npackage com.example.app;\n\nimport org.jspecify.annotations.NullMarked;\n","diff":"--- com/example/app/package-info.java\n+++ com/example/app/package-info.java\n@@ -1,2 +1,1 @@\n-@NonNullApi\n-@NonNullFields\n+@NullMarked\npackage com.example.app;\n@@ -5,2 +4,1 @@\npackage com.example.app;\n\n-import org.springframework.lang.NonNullApi;\n-import org.springframework.lang.NonNullFields;\n+import org.jspecify.annotations.NullMarked;\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.MigrateNonNullApiToNullMarked","displayName":"Migrate `@NonNullApi`/`ParametersAreNonnullByDefault` to JSpecify `@NullMarked`","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

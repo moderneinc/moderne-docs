@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade Gradle dependency versions"}
-  description={"Upgrade the version of a dependency in a build.gradle file. Supports updating dependency declarations of various forms:\n * `String` notation: `\"group:artifact:version\"` \n * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`\nCan update version numbers which are defined earlier in the same file in variable declarations."}
+  description={"Upgrade the version of a dependency in a build.gradle file. Supports updating dependency declarations of various forms:\n * `String` notation: `\"group:artifact:version\"` \n * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`\nCan update version numbers which are defined earlier in the same file in variable declarations, and in a version catalog."}
   fqName={"org.openrewrite.gradle.UpgradeDependencyVersion"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 Upgrade the version of a dependency in a build.gradle file. Supports updating dependency declarations of various forms:
  * `String` notation: `"group:artifact:version"` 
  * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`
-Can update version numbers which are defined earlier in the same file in variable declarations.
+Can update version numbers which are defined earlier in the same file in variable declarations, and in a version catalog.
 
 </RecipeHeader.Description>
 

@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable private long[] prevTicks = null;\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    private long @Nullable [] prevTicks = null;\n}\n","diff":"@@ -4,1 +4,1 @@\n\nclass Test {\n-   @Nullable private long[] prevTicks = null;\n+   private long @Nullable [] prevTicks = null;\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.RelocateNullableToArrayReference","displayName":"Relocate a misplaced leading `@Nullable` on a primitive array to the array reference","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

@@ -5,33 +5,21 @@ description: Recipes in the org.openrewrite module.
 # org.openrewrite
 
 
-## rewrite-cobol
+## rewrite-android
 
 _License: Moderne Source Available License_
 
-_7 recipes_
+_3 recipes_
 
-* [org.openrewrite.cobol.cleanup.RemoveWithDebuggingMode](/user-documentation/recipes/recipe-catalog/cobol/cleanup/removewithdebuggingmode.md)
-  * **Remove with debugging mode**
-  * Remove debugging mode from SOURCE-COMPUTER paragraphs.
-* [org.openrewrite.cobol.search.FindCopybook](/user-documentation/recipes/recipe-catalog/cobol/search/findcopybook.md)
-  * **Find copybook usage**
-  * Find all copy statements with the copybook name.
-* [org.openrewrite.cobol.search.FindIndicators](/user-documentation/recipes/recipe-catalog/cobol/search/findindicators.md)
-  * **Find indicators**
-  * Find matching indicators. Currently, this recipe will not mark indicators on copybook code.
-* [org.openrewrite.cobol.search.FindReference](/user-documentation/recipes/recipe-catalog/cobol/search/findreference.md)
-  * **Find matching identifiers in COBOL, copybooks, and JCL**
-  * Finds an identifier by an exact match or regex pattern in COBOL, copybooks, and/or JCL.
-* [org.openrewrite.cobol.search.FindRelationships](/user-documentation/recipes/recipe-catalog/cobol/search/findrelationships.md)
-  * **Find COBOL relationships**
-  * Build a list of relationships for diagramming and exploration.
-* [org.openrewrite.cobol.search.FindWord](/user-documentation/recipes/recipe-catalog/cobol/search/findword.md)
-  * **Find matching words in the source code**
-  * Search for COBOL words based on a search term.
-* [org.openrewrite.jcl.search.FindWord](/user-documentation/recipes/recipe-catalog/jcl/search/findword.md)
-  * **Find matching words in JCL source code**
-  * Search for JCL words based on a search term.
+* [org.openrewrite.android.UpgradeCompileSdkVersion](/user-documentation/recipes/recipe-catalog/android/upgradecompilesdkversion.md)
+  * **Upgrade Android `compileSdk` version**
+  * Sets the `compileSdk` (or legacy `compileSdkVersion`) value in an Android module's `android \{ \}` block. Handles literal int, string form (`'android-N'`), extra-property reference, version-catalog reference (`libs.versions.*.toml`), and `gradle.properties` reference. Will not downgrade an already-newer value.
+* [org.openrewrite.android.UpgradeMinSdkVersion](/user-documentation/recipes/recipe-catalog/android/upgrademinsdkversion.md)
+  * **Upgrade Android `minSdk` version**
+  * Sets the `minSdk` (or legacy `minSdkVersion`) value in an Android module's `android \{ defaultConfig \{ \} \}` block. Handles literal int, string form (`'android-N'`), extra-property reference, version-catalog reference (`libs.versions.*.toml`), and `gradle.properties` reference. Will not downgrade an already-newer value.
+* [org.openrewrite.android.UpgradeTargetSdkVersion](/user-documentation/recipes/recipe-catalog/android/upgradetargetsdkversion.md)
+  * **Upgrade Android `targetSdk` version**
+  * Sets the `targetSdk` (or legacy `targetSdkVersion`) value in an Android module's `android \{ defaultConfig \{ \} \}` block. Handles literal int, string form (`'android-N'`), extra-property reference, version-catalog reference (`libs.versions.*.toml`), and `gradle.properties` reference. Will not downgrade an already-newer value, and will not upgrade past `minSdkFloor` if specified.
 
 ## rewrite-core
 
@@ -126,6 +114,19 @@ _29 recipes_
 * [org.openrewrite.text.RemoveByteOrderMark](/user-documentation/recipes/recipe-catalog/text/removebyteordermark.md)
   * **Remove byte order mark (BOM)**
   * Removes UTF-8 byte order marks from the beginning of files.  The BOM character (U+FEFF) is generally unnecessary in UTF-8 files and can cause issues with some tools.
+
+## rewrite-csharp
+
+_License: Moderne Source Available License_
+
+_2 recipes_
+
+* [org.openrewrite.csharp.msbuild.AlignPathCasing](/user-documentation/recipes/recipe-catalog/csharp/msbuild/alignpathcasing.md)
+  * **Align MSBuild path casing with the repository**
+  * MSBuild resolves paths case-insensitively on Windows, so a solution can reference `assemblies/WPFToolkit/WPFToolkit.csproj` while the directory committed to git is actually named `assemblies/Wpftoolkit`. The same reference fails with `MSB3202` or `Project file not found` on a case-sensitive file system. This recipe rewrites path references in `.sln`, `.slnx`, `.csproj`, `.props`, and `.targets` files so that every segment matches the casing of the file or directory that is actually in the repository. References that already resolve exactly, that cannot be resolved at all, or whose casing is ambiguous — because two files or directories differ only by case — are left untouched.
+* [org.openrewrite.csharp.sln.RemoveNjsprojFromSolution](/user-documentation/recipes/recipe-catalog/csharp/sln/removenjsprojfromsolution.md)
+  * **Remove `.njsproj` projects from solution**
+  * Removes Project entries with the `.njsproj` extension (Node.js Tools projects) from Visual Studio solution files, together with the configuration, nesting, and dependency entries that refer to them. The .NET SDK does not ship `Microsoft.NodejsTools.targets`, so `dotnet build` fails on a solution that still lists one of these projects.
 
 ## rewrite-docker
 
@@ -314,16 +315,16 @@ _84 recipes_
   * Sort dependencies in `build.gradle` and `build.gradle.kts` files. Dependencies are sorted alphabetically by configuration name (e.g. `api`, `implementation`), then by groupId, then by artifactId.
 * [org.openrewrite.gradle.SyncGradleExtPropertiesWithBom](/user-documentation/recipes/recipe-catalog/gradle/syncgradleextpropertieswithbom.md)
   * **Sync Gradle ext properties with BOM**
-  * Downloads a BOM and compares its properties against Gradle ext properties. When the BOM defines a higher version for a property, the ext property is updated to match (or removed if `removeRedundantOverrides` is enabled).
+  * Downloads a BOM and compares its properties against Gradle ext properties. When the BOM defines a higher version for a property, the ext property is updated to match (or removed if `removeRedundantOverrides` is enabled, unless a build script reads it). With `removeRedundantOverrides`, a property whose value refers to an entry of `gradle.properties` is compared by that entry's value.
 * [org.openrewrite.gradle.UpdateGradleWrapper](/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper.md)
   * **Update Gradle wrapper**
-  * Update the version of Gradle used in an existing Gradle wrapper. Queries `downloads.gradle.org` to determine the available releases, but prefers the artifact repository URL which already exists within the wrapper properties file. If your artifact repository does not contain the same Gradle distributions as `downloads.gradle.org`, then the recipe may suggest a version which is not available in your artifact repository.
+  * Update the version of Gradle used in an existing Gradle wrapper. Queries `services.gradle.org` to determine the available releases, but prefers the artifact repository URL which already exists within the wrapper properties file. If your artifact repository does not contain the same Gradle distributions as `services.gradle.org`, then the recipe may suggest a version which is not available in your artifact repository.
 * [org.openrewrite.gradle.UpdateJavaCompatibility](/user-documentation/recipes/recipe-catalog/gradle/updatejavacompatibility.md)
   * **Update Gradle project Java compatibility**
   * Find and updates the Java compatibility for the Gradle project.
 * [org.openrewrite.gradle.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/gradle/upgradedependencyversion.md)
   * **Upgrade Gradle dependency versions**
-  * Upgrade the version of a dependency in a build.gradle file. Supports updating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`   * `Map` notation: `group: 'group', name: 'artifact', version: 'version'` Can update version numbers which are defined earlier in the same file in variable declarations.
+  * Upgrade the version of a dependency in a build.gradle file. Supports updating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`   * `Map` notation: `group: 'group', name: 'artifact', version: 'version'` Can update version numbers which are defined earlier in the same file in variable declarations, and in a version catalog.
 * [org.openrewrite.gradle.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/gradle/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Gradle dependencies**
   * Upgrades the version of a transitive dependency in a Gradle build file. There are many ways to do this in Gradle, so the mechanism for upgrading a transitive dependency must be considered carefully depending on your style of dependency management.
@@ -833,23 +834,23 @@ _101 recipes_
 
 _License: Moderne Source Available License_
 
-_18 recipes_
+_19 recipes_
 
 * [org.openrewrite.javascript.AddDependency](/user-documentation/recipes/recipe-catalog/javascript/adddependency.md)
   * **Add npm dependency**
-  * Add an npm dependency to `package.json` and regenerate the lock file by running the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Add an npm dependency to `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.ChangeDependency](/user-documentation/recipes/recipe-catalog/javascript/changedependency.md)
   * **Change npm dependency**
-  * Renames an npm dependency in `package.json` and optionally updates its version constraint. After modifying the package.json, the lock file is regenerated by running the package manager. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Renames an npm dependency in `package.json` and optionally updates its version constraint. After modifying the package.json, the lock file is regenerated natively, without executing the package manager. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.RemoveDependency](/user-documentation/recipes/recipe-catalog/javascript/removedependency.md)
   * **Remove npm dependency**
-  * Remove an npm dependency from `package.json` and regenerate the lock file. If the dependency does not exist in any scope, the recipe is a no-op.
+  * Remove an npm dependency from `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency does not exist in any scope, the recipe is a no-op.
 * [org.openrewrite.javascript.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion.md)
   * **Upgrade npm dependency version**
-  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file by running the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file natively, without executing the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradetransitivedependencyversion.md)
   * **Upgrade transitive npm dependency**
-  * Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file natively, without executing the package manager. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.change-import](/user-documentation/recipes/recipe-catalog/javascript/change-import.md)
   * **Change import**
   * Changes an import from one module/member to another, updating all type attributions.
@@ -876,7 +877,7 @@ _18 recipes_
   * Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style.
 * [org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-escape-sequences.md)
   * **Modernize octal escape sequences**
-  * Convert old-style octal escape sequences (e.g., `\0`, `\123`) to modern hex escape sequences (e.g., `\x00`, `\x53`) or Unicode escape sequences (e.g., `\u0000`, `\u0053`).
+  * Convert legacy octal escape sequences in string literals (e.g., `\1`, `\123`) to hex escape sequences (e.g., `\x01`, `\x53`) or Unicode escape sequences (e.g., `\u0001`, `\u0053`). The `\0` escape is left alone unless a digit follows it.
 * [org.openrewrite.javascript.migrate.es6.modernize-octal-literals](/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-literals.md)
   * **Modernize octal literals**
   * Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`).
@@ -889,6 +890,9 @@ _18 recipes_
 * [org.openrewrite.javascript.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/javascript/search/dependencyinsight.md)
   * **Node.js dependency insight**
   * Find direct and transitive npm dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency.
+* [org.openrewrite.javascript.search.FindVendoredOrBundled](/user-documentation/recipes/recipe-catalog/javascript/search/findvendoredorbundled.md)
+  * **Find vendored or bundled JavaScript**
+  * Find JavaScript and TypeScript sources that are vendored, bundled or build output, based on their path (`node_modules/`, `bower_components/`, `vendor/`, `dist/`, `*.min.*`, `*.bundle.*`) or a trailing `sourceMappingURL` comment.
 
 ## rewrite-json
 
@@ -969,6 +973,34 @@ _11 recipes_
 * [org.openrewrite.kotlin.format.AutoFormat](/user-documentation/recipes/recipe-catalog/kotlin/format/autoformat.md)
   * **Format Kotlin code**
   * Format Kotlin code using a standard comprehensive set of Kotlin formatting recipes.
+
+## rewrite-mainframe
+
+_License: Moderne Source Available License_
+
+_7 recipes_
+
+* [org.openrewrite.mainframe.cobol.cleanup.RemoveWithDebuggingMode](/user-documentation/recipes/recipe-catalog/mainframe/cobol/cleanup/removewithdebuggingmode.md)
+  * **Remove with debugging mode**
+  * Remove debugging mode from SOURCE-COMPUTER paragraphs.
+* [org.openrewrite.mainframe.cobol.search.FindCopybook](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findcopybook.md)
+  * **Find copybook usage**
+  * Find all copy statements with the copybook name.
+* [org.openrewrite.mainframe.cobol.search.FindIndicators](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findindicators.md)
+  * **Find indicators**
+  * Find matching indicators. Currently, this recipe will not mark indicators on copybook code.
+* [org.openrewrite.mainframe.cobol.search.FindReference](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findreference.md)
+  * **Find matching identifiers in COBOL, copybooks, and JCL**
+  * Finds an identifier by an exact match or regex pattern in COBOL, copybooks, and/or JCL.
+* [org.openrewrite.mainframe.cobol.search.FindRelationships](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findrelationships.md)
+  * **Find COBOL relationships**
+  * Build a list of relationships for diagramming and exploration.
+* [org.openrewrite.mainframe.cobol.search.FindWord](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findword.md)
+  * **Find matching words in the source code**
+  * Search for COBOL words based on a search term.
+* [org.openrewrite.mainframe.jcl.search.FindWord](/user-documentation/recipes/recipe-catalog/mainframe/jcl/search/findword.md)
+  * **Find matching words in JCL source code**
+  * Search for JCL words based on a search term.
 
 ## rewrite-maven
 
@@ -1146,7 +1178,7 @@ _94 recipes_
   * Configure a Maven project for [reproducible builds](https://maven.apache.org/guides/mini/guide-reproducible-builds.html): pin dependency and plugin versions, set `project.build.outputTimestamp`, set explicit UTF-8 source encoding, and upgrade core plugins to versions that honor the output timestamp.
 * [org.openrewrite.maven.SortDependencies](/user-documentation/recipes/recipe-catalog/maven/sortdependencies.md)
   * **Sort dependencies**
-  * Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Applies to both `&lt;dependencies&gt;` and `&lt;dependencyManagement&gt;` sections.
+  * Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Imported BOMs retain their original positions. Applies to both `&lt;dependencies&gt;` and `&lt;dependencyManagement&gt;` sections.
 * [org.openrewrite.maven.UpdateMavenProjectPropertyJavaVersion](/user-documentation/recipes/recipe-catalog/maven/updatemavenprojectpropertyjavaversion.md)
   * **Update Maven Java project properties**
   * The Java version is determined by several project properties, including:   * `java.version`  * `jdk.version`  * `javaVersion`  * `jdkVersion`  * `maven.compiler.source`  * `maven.compiler.target`  * `maven.compiler.release`  * `release.version`  Properties of any other name are updated too when the `maven-compiler-plugin` `source`, `target` or `release` configuration of this pom, or of a pom it inherits from, resolves to them.  If none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property.
@@ -1298,16 +1330,16 @@ _16 recipes_
 
 * [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
   * **Add Python dependency**
-  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `onlyIfUsing` is set, the dependency is added only to projects with a Python file that imports that module. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.AddLiteralMethodArgument](/user-documentation/recipes/recipe-catalog/python/addliteralmethodargument.md)
   * **Add literal method argument**
   * Add a literal argument to method invocations matching a pattern.
 * [org.openrewrite.python.ChangeDependency](/user-documentation/recipes/recipe-catalog/python/changedependency.md)
   * **Change Python dependency**
-  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.ChangeImport](/user-documentation/recipes/recipe-catalog/python/changeimport.md)
   * **Change import**
-  * Change a Python import from one module/name to another, updating all type attributions.
+  * Change a Python import from one module/name to another, renaming the types that name what moved. Where the new module re-exports a member, set the declaring module for the types to match a fresh parse.
 * [org.openrewrite.python.ChangeMethodName](/user-documentation/recipes/recipe-catalog/python/changemethodname.md)
   * **Change method name**
   * Rename method invocations matching a pattern.
@@ -1322,7 +1354,7 @@ _16 recipes_
   * Remove an argument from method invocations matching a pattern.
 * [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
   * **Remove Python dependency**
-  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.RemovePass](/user-documentation/recipes/recipe-catalog/python/removepass.md)
   * **Remove redundant pass statements**
   * Remove redundant `pass` statements from Python code when there are other executable statements in the block.
@@ -1331,10 +1363,10 @@ _16 recipes_
   * Reorder arguments in method invocations matching a pattern.
 * [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
   * **Upgrade Python dependency version**
-  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Python dependency version**
-  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.python.format.PythonSpaces](/user-documentation/recipes/recipe-catalog/python/format/pythonspaces.md)
   * **Formats spaces in Python code**
   * Standardizes spaces in Python code. Currently limited to formatting method arguments.
@@ -1344,6 +1376,29 @@ _16 recipes_
 * [org.openrewrite.python.search.UsesImport](/user-documentation/recipes/recipe-catalog/python/search/usesimport.md)
   * **Find Python files that import a module**
   * Marks Python source files that import the given module, matching the as-written import path rather than type attribution. Robust to type-checker canonicalization and to removed or unresolvable symbols, which makes it usable as a precondition for import-migration recipes where `HasType` would miss the file.
+
+## rewrite-ruby
+
+_License: Moderne Source Available License_
+
+_2 recipes_
+
+* [org.openrewrite.ruby.migrate.CharacterLiteralToString](/user-documentation/recipes/recipe-catalog/ruby/migrate/characterliteraltostring.md)
+  * **Write character literals as strings**
+  * In Ruby 1.9 and later, characters are simply strings of length 1. That is, the literal `?A` is the same as the literal `'A'`, and there is really no need for the character literal syntax in new code.
+* [org.openrewrite.ruby.migrate.UpgradeToRuby1_9](/user-documentation/recipes/recipe-catalog/ruby/migrate/upgradetoruby1_9.md)
+  * **Migrate to Ruby 1.9**
+  * This recipe will apply changes commonly needed when migrating to Ruby 1.9.
+
+## rewrite-scala
+
+_License: Moderne Source Available License_
+
+_1 recipe_
+
+* [org.openrewrite.scala.format.AutoFormat](/user-documentation/recipes/recipe-catalog/scala/format/autoformat.md)
+  * **Format Scala code**
+  * Format Scala code using a standard comprehensive set of Scala formatting recipes.
 
 ## rewrite-toml
 

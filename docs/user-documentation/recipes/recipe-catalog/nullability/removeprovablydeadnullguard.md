@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nimport static java.util.Objects.requireNonNull;\n\nclass Test {\n    int run(@Nullable String o) {\n        requireNonNull(o);\n        if (o == null) {\n            return -1;\n        }\n        return o.length();\n    }\n}\n","after":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nimport static java.util.Objects.requireNonNull;\n\nclass Test {\n    int run(@Nullable String o) {\n        requireNonNull(o);\n        return o.length();\n    }\n}\n","diff":"--- src/main/java/com/example/Test.java\n+++ src/main/java/com/example/Test.java\n@@ -10,3 +10,0 @@\n    int run(@Nullable String o) {\n        requireNonNull(o);\n-       if (o == null) {\n-           return -1;\n-       }\n        return o.length();\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.RemoveProvablyDeadNullGuard","displayName":"Remove a provably-dead `if (x == null)` guard","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage
