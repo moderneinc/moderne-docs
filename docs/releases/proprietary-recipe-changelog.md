@@ -10,6 +10,30 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## October 8, 2026
+
+#### recipes-go - v0.12.1
+
+* AWS SDK v2 migration: fix missing helpers, narrowed fields, and half-migrated packages
+* OpenRewrite recipe best practices
+
+#### rewrite-migrate-python - v0.15.2
+
+* Keep a collapsed if's layout intact in CollapsibleIfStatements
+* Mark only the found dependency declaration in DependencyInsight
+* Decline Python rewrites that change program meaning
+* Migrate backoff decorators to tenacity
+* Require openrewrite 8.92.18 and build the recipes on what its SDK provides
+
+#### rewrite-nodejs - v0.51.1
+
+* Update lock files when the Node.js migrations change dependencies
+* Guard the migrated https-proxy-agent construction against a missing proxy
+* Fix import syntax expectations in tests
+* Bump .nvmrc and .node-version in the Node.js upgrade recipes
+* Match process types without the global prefix
+* Replace the source-map-support partial-mapping warning with an edit
+
 ## October 6, 2026
 
 #### recipes-go - 0.12.0
