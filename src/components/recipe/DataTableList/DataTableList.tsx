@@ -1,4 +1,5 @@
 import React, { type FunctionComponent, type ReactNode } from 'react';
+import CodeBlock from '@theme/CodeBlock';
 import { Accordion, type AccordionItem } from '../Accordion';
 import { CopyButton } from '../CopyButton';
 import type { RecipeDataTable } from '../shared/types';
@@ -8,8 +9,9 @@ import shared from '../shared/styles.module.css';
 
 /**
  * Data tables as a collapsible accordion: friendly name is the summary; expanding reveals id,
- * description, columns. Pass the section's markdown `## Data tables` heading as children: it renders
- * in the accordion header row (with the toggle) and still feeds the native TOC.
+ * description, the `mod study` command that exports the table after a run, and columns. Pass the
+ * section's markdown `## Data tables` heading as children: it renders in the accordion header row
+ * (with the toggle) and still feeds the native TOC.
  */
 export const DataTableList: FunctionComponent<{ tables: RecipeDataTable[]; children: ReactNode }> = ({ tables, children }) => {
   const items: AccordionItem[] = tables.map((dt) => ({
@@ -22,6 +24,9 @@ export const DataTableList: FunctionComponent<{ tables: RecipeDataTable[]; child
           <CopyButton value={dt.name} label="Copy data table identifier" />
         </div>
         <p className={styles.dataTableDesc}>{renderWithCode(dt.description, shared.inlineCode)}</p>
+        <CodeBlock language="shell" title="Export after a run">
+          {`mod study . --last-recipe-run \\\n  --data-table ${dt.name}`}
+        </CodeBlock>
         <div className={shared.tableScroll}>
           <table className={shared.table}>
             <thead><tr><th className={shared.th}>Column</th><th className={shared.th}>Description</th></tr></thead>
