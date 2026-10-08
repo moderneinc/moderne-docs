@@ -213,7 +213,7 @@ describe('RunRecipe', () => {
     expect(tabText('Pinned version')).toEqual('');
   });
 
-  describe('optional settings and data tables', () => {
+  describe('optional settings', () => {
     const upgradeDependencyVersion = {
       recipeName: 'org.openrewrite.java.dependencies.UpgradeDependencyVersion',
       displayName: 'Upgrade Gradle or Maven dependency versions',
@@ -278,34 +278,22 @@ describe('RunRecipe', () => {
       );
     });
 
-    it('studies each data table of a jar recipe after the run', () => {
-      renderRecipe({ ...dependencyVulnerabilityCheck, dataTables: ['VulnerabilityReport', 'DependencyOriginsReport'] });
-
-      expect(text()).toContain(
-        'mod study . --last-recipe-run --data-table VulnerabilityReport\n' +
-          'mod study . --last-recipe-run --data-table DependencyOriginsReport'
-      );
-      expect(text().indexOf('mod study')).toBeGreaterThan(text().indexOf('mod run'));
-    });
-
     it.each([
       ['npm', { npmPackage: '@openrewrite/recipes-npm' }],
       ['pip', { pipPackage: 'openrewrite-migrate-python' }],
       ['NuGet', { nugetPackage: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet' }],
       ['Go', { goPackage: 'github.com/moderneinc/recipes-go' }],
-    ])('offers optional settings and data tables for a %s recipe', (_, packageProps) => {
+    ])('offers optional settings for a %s recipe', (_, packageProps) => {
       renderRecipe({
         recipeName: 'org.openrewrite.example.FindDependency',
         displayName: 'Find dependency',
         ...packageProps,
         cliOptions: ' --recipe-option "packageName=lodash"',
         optionalCliOptions: ' --recipe-option "version=4.x"',
-        dataTables: ['DependenciesInUse'],
       });
 
       expect(text()).toMatch(/mod run \. --recipe \S*FindDependency --recipe-option "packageName=lodash"/);
       expect(text()).toMatch(/--recipe-option "packageName=lodash" \\\n {2}--recipe-option "version=4\.x"/);
-      expect(text()).toContain('mod study . --last-recipe-run --data-table DependenciesInUse');
     });
 
     // Unresolvable version keys keep these snapshots independent of the versions in latest-versions.js.
@@ -360,7 +348,7 @@ describe('RunRecipe', () => {
           cliOptions: ' --recipe-option "typePattern=*"',
         },
       ],
-    ])('renders a %s recipe unchanged when neither field is set', (_, props) => {
+    ])('renders a %s recipe unchanged without optional settings', (_, props) => {
       const { asFragment } = renderRecipe(props);
 
       expect(asFragment()).toMatchSnapshot();

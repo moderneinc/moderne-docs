@@ -125,22 +125,6 @@ function RunCommands({
   );
 }
 
-function StudyCommands({ dataTables }: { dataTables?: string[] }) {
-  if (!dataTables?.length) {
-    return null;
-  }
-  return (
-    <>
-      <p>
-        After the run, you can export the <a href="#data-tables">data tables</a> this recipe produced:
-      </p>
-      <CodeBlock language="shell" title={dataTables.length > 1 ? 'Export the data tables' : 'Export the data table'}>
-        {dataTables.map((table) => `mod study . --last-recipe-run --data-table ${table}`).join('\n')}
-      </CodeBlock>
-    </>
-  );
-}
-
 interface RunRecipeProps {
   recipeName: string;
   displayName: string;
@@ -150,7 +134,6 @@ interface RunRecipeProps {
   requiresConfiguration?: boolean;
   cliOptions?: string;
   optionalCliOptions?: string;
-  dataTables?: string[];
   useFullyQualifiedCliName?: boolean;
   npmPackage?: string;
   pipPackage?: string;
@@ -168,7 +151,6 @@ export default function RunRecipe({
   requiresConfiguration = false,
   cliOptions = '',
   optionalCliOptions,
-  dataTables,
   useFullyQualifiedCliName = false,
   npmPackage,
   pipPackage,
@@ -218,7 +200,6 @@ export default function RunRecipe({
           cliOptions={cliOptions}
           optionalCliOptions={optionalCliOptions}
         />
-        <StudyCommands dataTables={dataTables} />
       </>
     );
   }
@@ -266,7 +247,6 @@ export default function RunRecipe({
           cliOptions={cliOptions}
           optionalCliOptions={optionalCliOptions}
         />
-        <StudyCommands dataTables={dataTables} />
       </>
     );
   }
@@ -308,7 +288,6 @@ export default function RunRecipe({
           cliOptions={cliOptions}
           optionalCliOptions={optionalCliOptions}
         />
-        <StudyCommands dataTables={dataTables} />
       </>
     );
   }
@@ -339,7 +318,6 @@ export default function RunRecipe({
           commandsFor={(mode) => [`mod config recipes go install ${goModuleSpecFor(mode)}`]}
           hasPinnedVersion={!!version}
         />
-        <StudyCommands dataTables={dataTables} />
       </>
     );
   }
@@ -371,7 +349,6 @@ export default function RunRecipe({
           />
         </>
       )}
-      <StudyCommands dataTables={dataTables} />
     </>
   );
 }

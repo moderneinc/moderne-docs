@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`RunRecipe > optional settings and data tables > renders a Go recipe unchanged when neither field is set 1`] = `
+exports[`RunRecipe > optional settings > renders a Go recipe unchanged without optional settings 1`] = `
 <DocumentFragment>
   <main>
     <p>
@@ -34,7 +34,7 @@ exports[`RunRecipe > optional settings and data tables > renders a Go recipe unc
 </DocumentFragment>
 `;
 
-exports[`RunRecipe > optional settings and data tables > renders a NuGet recipe unchanged when neither field is set 1`] = `
+exports[`RunRecipe > optional settings > renders a NuGet recipe unchanged without optional settings 1`] = `
 <DocumentFragment>
   <main>
     <p>
@@ -62,7 +62,7 @@ exports[`RunRecipe > optional settings and data tables > renders a NuGet recipe 
 </DocumentFragment>
 `;
 
-exports[`RunRecipe > optional settings and data tables > renders a jar recipe unchanged when neither field is set 1`] = `
+exports[`RunRecipe > optional settings > renders a jar recipe unchanged without optional settings 1`] = `
 <DocumentFragment>
   <main>
     <p>
@@ -122,7 +122,7 @@ exports[`RunRecipe > optional settings and data tables > renders a jar recipe un
 </DocumentFragment>
 `;
 
-exports[`RunRecipe > optional settings and data tables > renders a jar without options recipe unchanged when neither field is set 1`] = `
+exports[`RunRecipe > optional settings > renders a jar without options recipe unchanged without optional settings 1`] = `
 <DocumentFragment>
   <main>
     <p>
@@ -185,7 +185,7 @@ exports[`RunRecipe > optional settings and data tables > renders a jar without o
 </DocumentFragment>
 `;
 
-exports[`RunRecipe > optional settings and data tables > renders a npm recipe unchanged when neither field is set 1`] = `
+exports[`RunRecipe > optional settings > renders a npm recipe unchanged without optional settings 1`] = `
 <DocumentFragment>
   <main>
     <p>
@@ -219,7 +219,7 @@ exports[`RunRecipe > optional settings and data tables > renders a npm recipe un
 </DocumentFragment>
 `;
 
-exports[`RunRecipe > optional settings and data tables > renders a pip recipe unchanged when neither field is set 1`] = `
+exports[`RunRecipe > optional settings > renders a pip recipe unchanged without optional settings 1`] = `
 <DocumentFragment>
   <main>
     <p>

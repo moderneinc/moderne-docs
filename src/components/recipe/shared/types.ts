@@ -7,7 +7,7 @@ export interface RecipeExample { name?: string; parameters?: ExampleParameter[];
 export interface CompanionJar { groupId: string; artifactId: string; versionKey?: string; }
 export interface UsageProps {
   recipeName: string; displayName: string; groupId?: string; artifactId?: string; versionKey?: string;
-  requiresConfiguration?: boolean; cliOptions?: string; optionalCliOptions?: string; dataTables?: string[];
+  requiresConfiguration?: boolean; cliOptions?: string; optionalCliOptions?: string;
   useFullyQualifiedCliName?: boolean;
   npmPackage?: string; pipPackage?: string; nugetPackage?: string; goPackage?: string;
   companionJars?: CompanionJar[];
