@@ -7,13 +7,19 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.215 |
+| Connector | 0.151.225 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.215/connector-0.151.215.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.225/connector-0.151.225.jar)
 
 ## Changelog
 
 ## October 2026
+
+### v0.151.225 – 2026-10-08
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.225/connector-0.151.225.jar)
+
+* Fix(connector): tag metrics with a persisted instance.id (#2406)
 
 ### v0.151.215 – 2026-10-04
 
