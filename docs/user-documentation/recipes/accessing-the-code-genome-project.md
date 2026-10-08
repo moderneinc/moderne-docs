@@ -33,7 +33,7 @@ Rather than let another party's constraints dictate how these tools reach you, M
 
 Access to each kind of content depends on your entitlement:
 
-* **OpenRewrite open-source recipes** ([Apache 2.0](https://docs.openrewrite.org/licensing/openrewrite-licensing#apache-license-version-20)), the **Moderne CLI**, and the **Moderne Connector**: available to any authenticated user.
+* **OpenRewrite open-source recipes** ([Apache 2.0](https://docs.openrewrite.org/licensing/openrewrite-licensing)), the **Moderne CLI**, and the **Moderne Connector**: available to any authenticated user.
 * **[Moderne Source Available License (MSAL)](../../licensing/moderne-source-available-license.md) recipes**: available to customers only.
 * **[Moderne proprietary](../../licensing/overview.md) recipes**: available to customers only.
 
