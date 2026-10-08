@@ -36,7 +36,7 @@ _Based on OpenRewrite 8.92.18_
 * Record why a build failed in its trace, and group builds that failed alike in the analyzer
 * Show why a build failed in the mod build output, and group failures by reason
 * Resolve a converted LST's dependencies through the configured Maven settings, mirrors included
-* Escape < and { in the CLI reference so moderne-docs can parse it as MDX
+* Escape `<` and `{` in the CLI reference so moderne-docs can parse it as MDX
 * Write nuget.config through a temp file and rename it into place
 * Let a configured timeout bound how long a repository's exec command runs
 * Retry the nuget.config rename when Windows denies access
