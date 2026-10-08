@@ -82,6 +82,65 @@ function InstallCommands({
   );
 }
 
+/**
+ * The generator emits options as ` --recipe-option "name=value"` repeated, values unescaped. Once
+ * optional settings are added there are usually several, so each goes on its own continuation line.
+ */
+const multilineRunCommand = (recipe: string, options: string): string => {
+  const parts = options.split(/ (?=--recipe-option ")/).filter(Boolean);
+  if (parts.length < 2) {
+    return `mod run . --recipe ${recipe}${options}`;
+  }
+  return [`mod run . --recipe ${recipe}`, ...parts].join(' \\\n  ');
+};
+
+function RunCommands({
+  title,
+  recipe,
+  cliOptions,
+  optionalCliOptions,
+}: {
+  title: string;
+  recipe: string;
+  cliOptions: string;
+  optionalCliOptions?: string;
+}) {
+  return (
+    <>
+      <CodeBlock language="shell" title={title}>
+        {`mod run . --recipe ${recipe}${cliOptions}`}
+      </CodeBlock>
+      {optionalCliOptions && (
+        <>
+          <p>
+            To also set the recipe's optional settings, add them to the command. The values below are examples, not
+            recommendations; see <a href="#options">Options</a> for what each one does.
+          </p>
+          <CodeBlock language="shell" title="With optional settings (example values)">
+            {multilineRunCommand(recipe, cliOptions + optionalCliOptions)}
+          </CodeBlock>
+        </>
+      )}
+    </>
+  );
+}
+
+function StudyCommands({ dataTables }: { dataTables?: string[] }) {
+  if (!dataTables?.length) {
+    return null;
+  }
+  return (
+    <>
+      <p>
+        After the run, you can export the <a href="#data-tables">data tables</a> this recipe produced:
+      </p>
+      <CodeBlock language="shell" title={dataTables.length > 1 ? 'Export the data tables' : 'Export the data table'}>
+        {dataTables.map((table) => `mod study . --last-recipe-run --data-table ${table}`).join('\n')}
+      </CodeBlock>
+    </>
+  );
+}
+
 interface RunRecipeProps {
   recipeName: string;
   displayName: string;
@@ -90,6 +149,8 @@ interface RunRecipeProps {
   versionKey?: string;
   requiresConfiguration?: boolean;
   cliOptions?: string;
+  optionalCliOptions?: string;
+  dataTables?: string[];
   useFullyQualifiedCliName?: boolean;
   npmPackage?: string;
   pipPackage?: string;
@@ -106,6 +167,8 @@ export default function RunRecipe({
   versionKey,
   requiresConfiguration = false,
   cliOptions = '',
+  optionalCliOptions,
+  dataTables,
   useFullyQualifiedCliName = false,
   npmPackage,
   pipPackage,
@@ -149,9 +212,13 @@ export default function RunRecipe({
           {`mod config recipes npm install ${npmPackage}`}
         </CodeBlock>
         <p>Then, you can run the recipe via:</p>
-        <CodeBlock language="shell" title="Run the recipe">
-          {`mod run . --recipe ${recipeName}`}
-        </CodeBlock>
+        <RunCommands
+          title="Run the recipe"
+          recipe={recipeName}
+          cliOptions={cliOptions}
+          optionalCliOptions={optionalCliOptions}
+        />
+        <StudyCommands dataTables={dataTables} />
       </>
     );
   }
@@ -193,9 +260,13 @@ export default function RunRecipe({
           hasPinnedVersion={!!version || resolvedCompanionJars.length > 0}
         />
         <p>Then, you can run the recipe via:</p>
-        <CodeBlock language="shell" title="Run the recipe">
-          {`mod run . --recipe ${recipeName}${cliOptions}`}
-        </CodeBlock>
+        <RunCommands
+          title="Run the recipe"
+          recipe={recipeName}
+          cliOptions={cliOptions}
+          optionalCliOptions={optionalCliOptions}
+        />
+        <StudyCommands dataTables={dataTables} />
       </>
     );
   }
@@ -231,9 +302,13 @@ export default function RunRecipe({
           hasPinnedVersion={multiplePackages}
         />
         <p>Then, you can run the recipe via:</p>
-        <CodeBlock language="shell" title="Run the recipe">
-          {`mod run . --recipe ${recipeName}`}
-        </CodeBlock>
+        <RunCommands
+          title="Run the recipe"
+          recipe={recipeName}
+          cliOptions={cliOptions}
+          optionalCliOptions={optionalCliOptions}
+        />
+        <StudyCommands dataTables={dataTables} />
       </>
     );
   }
@@ -252,15 +327,19 @@ export default function RunRecipe({
           <a href="https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/go">configuring Go guide</a>.
         </p>
         <p>Once the CLI is installed, you can run the recipe via:</p>
-        <CodeBlock language="shell" title="Run the recipe">
-          {`mod run . --recipe ${cliRecipeName}${cliOptions}`}
-        </CodeBlock>
+        <RunCommands
+          title="Run the recipe"
+          recipe={cliRecipeName}
+          cliOptions={cliOptions}
+          optionalCliOptions={optionalCliOptions}
+        />
         <p>If the recipe is not available locally, then you can install it using:</p>
         <InstallCommands
           title="Install the recipe module"
           commandsFor={(mode) => [`mod config recipes go install ${goModuleSpecFor(mode)}`]}
           hasPinnedVersion={!!version}
         />
+        <StudyCommands dataTables={dataTables} />
       </>
     );
   }
@@ -277,9 +356,12 @@ export default function RunRecipe({
         <a href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro">Moderne CLI</a>{' '}
         on your machine before you can run the following command.
       </p>
-      <CodeBlock language="shell" title="shell">
-        {`mod run . --recipe ${cliRecipeName}${cliOptions}`}
-      </CodeBlock>
+      <RunCommands
+        title="shell"
+        recipe={cliRecipeName}
+        cliOptions={cliOptions}
+        optionalCliOptions={optionalCliOptions}
+      />
       {hasDependency && (
         <>
           <p>If the recipe is not available locally, then you can install it using:</p>
@@ -289,6 +371,7 @@ export default function RunRecipe({
           />
         </>
       )}
+      <StudyCommands dataTables={dataTables} />
     </>
   );
 }

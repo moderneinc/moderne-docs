@@ -1,0 +1,248 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RunRecipe > optional settings and data tables > renders a Go recipe unchanged when neither field is set 1`] = `
+<DocumentFragment>
+  <main>
+    <p>
+      In order to run Go recipes, you will need to use the 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro"
+      >
+        Moderne CLI
+      </a>
+      . For Go specific configuration instructions, please see our 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/go"
+      >
+        configuring Go guide
+      </a>
+      .
+    </p>
+    <p>
+      Once the CLI is installed, you can run the recipe via:
+    </p>
+    <pre>
+      mod run . --recipe FindTypes --recipe-option "typePattern=*"
+    </pre>
+    <p>
+      If the recipe is not available locally, then you can install it using:
+    </p>
+    <pre>
+      mod config recipes go install github.com/moderneinc/recipes-go
+    </pre>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`RunRecipe > optional settings and data tables > renders a NuGet recipe unchanged when neither field is set 1`] = `
+<DocumentFragment>
+  <main>
+    <p>
+      In order to run C# recipes, you will need to use the 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro"
+      >
+        Moderne CLI
+      </a>
+      .
+    </p>
+    <p>
+      Once the CLI is installed, you can install this C# recipe package by running the following command:
+    </p>
+    <pre>
+      mod config recipes nuget install OpenRewrite.Recipes.CSharp.Migration.Dotnet
+    </pre>
+    <p>
+      Then, you can run the recipe via:
+    </p>
+    <pre>
+      mod run . --recipe OpenRewrite.Recipes.CSharp.Migration.Dotnet.FindCsprojMarker
+    </pre>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`RunRecipe > optional settings and data tables > renders a jar recipe unchanged when neither field is set 1`] = `
+<DocumentFragment>
+  <main>
+    <p>
+      You will need to have configured the 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro"
+      >
+        Moderne CLI
+      </a>
+       on your machine before you can run the following command.
+    </p>
+    <pre>
+      mod run . --recipe UpgradeDependencyVersion --recipe-option "groupId=com.fasterxml.jackson*" --recipe-option "artifactId=jackson-module*"
+    </pre>
+    <p>
+      If the recipe is not available locally, then you can install it using:
+    </p>
+    <p>
+      <code>
+        RELEASE
+      </code>
+       resolves to the newest release and 
+      <code>
+        LATEST
+      </code>
+       to the newest build of any kind, including snapshots. Either one lets 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/cli-reference#mod-config-recipes-upgrade"
+      >
+        <code>
+          mod config recipes upgrade
+        </code>
+      </a>
+       pull in later versions without editing this command; a pinned version stays where you put it.
+    </p>
+    <div
+      data-testid="tabs"
+    >
+      <div
+        data-label="RELEASE"
+        data-testid="tabitem"
+      >
+        <pre>
+          mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:RELEASE
+        </pre>
+      </div>
+      <div
+        data-label="LATEST"
+        data-testid="tabitem"
+      >
+        <pre>
+          mod config recipes jar install org.openrewrite.recipe:rewrite-java-dependencies:LATEST
+        </pre>
+      </div>
+    </div>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`RunRecipe > optional settings and data tables > renders a jar without options recipe unchanged when neither field is set 1`] = `
+<DocumentFragment>
+  <main>
+    <p>
+      This recipe has no required configuration options. Users of Moderne can run it via the Moderne CLI.
+    </p>
+    <p>
+      You will need to have configured the 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro"
+      >
+        Moderne CLI
+      </a>
+       on your machine before you can run the following command.
+    </p>
+    <pre>
+      mod run . --recipe AutoFormat
+    </pre>
+    <p>
+      If the recipe is not available locally, then you can install it using:
+    </p>
+    <p>
+      <code>
+        RELEASE
+      </code>
+       resolves to the newest release and 
+      <code>
+        LATEST
+      </code>
+       to the newest build of any kind, including snapshots. Either one lets 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/cli-reference#mod-config-recipes-upgrade"
+      >
+        <code>
+          mod config recipes upgrade
+        </code>
+      </a>
+       pull in later versions without editing this command; a pinned version stays where you put it.
+    </p>
+    <div
+      data-testid="tabs"
+    >
+      <div
+        data-label="RELEASE"
+        data-testid="tabitem"
+      >
+        <pre>
+          mod config recipes jar install org.openrewrite:rewrite-java:RELEASE
+        </pre>
+      </div>
+      <div
+        data-label="LATEST"
+        data-testid="tabitem"
+      >
+        <pre>
+          mod config recipes jar install org.openrewrite:rewrite-java:LATEST
+        </pre>
+      </div>
+    </div>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`RunRecipe > optional settings and data tables > renders a npm recipe unchanged when neither field is set 1`] = `
+<DocumentFragment>
+  <main>
+    <p>
+      In order to run JavaScript recipes, you will need to use the 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro"
+      >
+        Moderne CLI
+      </a>
+      . For JavaScript specific configuration instructions, please see our 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/javascript"
+      >
+        configuring JavaScript guide
+      </a>
+      .
+    </p>
+    <p>
+      Once the CLI is installed, you can install this JavaScript recipe package by running the following command:
+    </p>
+    <pre>
+      mod config recipes npm install @openrewrite/recipes-npm
+    </pre>
+    <p>
+      Then, you can run the recipe via:
+    </p>
+    <pre>
+      mod run . --recipe org.openrewrite.npm.Find
+    </pre>
+  </main>
+</DocumentFragment>
+`;
+
+exports[`RunRecipe > optional settings and data tables > renders a pip recipe unchanged when neither field is set 1`] = `
+<DocumentFragment>
+  <main>
+    <p>
+      In order to run Python recipes, you will need to use the 
+      <a
+        href="https://docs.moderne.io/user-documentation/moderne-cli/getting-started/cli-intro"
+      >
+        Moderne CLI
+      </a>
+      .
+    </p>
+    <p>
+      Once the CLI is installed, you can install this Python recipe package by running the following command:
+    </p>
+    <pre>
+      mod config recipes pip install openrewrite-migrate-python
+    </pre>
+    <p>
+      Then, you can run the recipe via:
+    </p>
+    <pre>
+      mod run . --recipe org.openrewrite.python.migrate.UpgradeToPython314 --recipe-option "methodPattern=dumps(..)"
+    </pre>
+  </main>
+</DocumentFragment>
+`;
