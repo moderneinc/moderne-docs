@@ -30,13 +30,14 @@ flowchart LR
     filter --> services
 ```
 
-The allowlist only filters connections made to your tenant. Moderne's services communicate with each other inside the tenant, so your list only needs your own ranges.
+The allowlist only filters connections made to your tenant. Moderne's services communicate with each other inside the tenant, so their traffic never needs to be on your list.
 
 Keep the following in mind before building your list:
 
 * The restriction applies to the whole tenant: the UI, the GraphQL API, login, the CLI download, and the endpoint the Connector connects to. It cannot be scoped to only one of them.
 * To a client outside the list, the tenant looks down. Hostnames resolve, but connections time out instead of returning an error page.
 * Only the source IP address is checked. If your traffic leaves through a shared cloud proxy without dedicated egress addresses, listing the proxy's ranges also admits the proxy vendor's other customers. Restrictions on specific users or devices belong in your identity provider.
+* Moderne adds one address of its own to your list, so that Moderne staff can still administer your tenant's login configuration. We confirm it with you before applying the restriction.
 
 ## Collecting your egress ranges
 
