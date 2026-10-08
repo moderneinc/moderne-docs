@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Sort dependencies"}
-  description={"Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Applies to both `<dependencies>` and `<dependencyManagement>` sections."}
+  description={"Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Imported BOMs retain their original positions. Applies to both `<dependencies>` and `<dependencyManagement>` sections."}
   fqName={"org.openrewrite.maven.SortDependencies"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Sort dependencies</RecipeHeader.Title>
 
-<RecipeHeader.Description>Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Applies to both `<dependencies>` and `<dependencyManagement>` sections.</RecipeHeader.Description>
+<RecipeHeader.Description>Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Imported BOMs retain their original positions. Applies to both `<dependencies>` and `<dependencyManagement>` sections.</RecipeHeader.Description>
 
 </RecipeHeader>
 

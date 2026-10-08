@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Remove `buildToolsVersion`","href":"/user-documentation/recipes/recipe-catalog/android/removebuildtoolsversion/"},{"name":"Rename `lintOptions` to `lint`","href":"/user-documentation/recipes/recipe-catalog/android/renamelintoptionstolint/"},{"name":"Upgrade Android Gradle Plugin (AGP) version","href":"/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion/"}]}>
+<RecipeList recipes={[{"name":"Remove `buildToolsVersion`","href":"/user-documentation/recipes/recipe-catalog/android/removebuildtoolsversion/"},{"name":"Rename `lintOptions` to `lint`","href":"/user-documentation/recipes/recipe-catalog/android/renamelintoptionstolint/"},{"name":"Upgrade Android Gradle Plugin version","href":"/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion/"}]}>
 
 ## Definition
 

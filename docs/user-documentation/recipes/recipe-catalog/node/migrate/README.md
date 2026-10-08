@@ -6,12 +6,19 @@ description: Migrate OpenRewrite recipes.
 
 ## Categories
 
+* [Angular-animations](/user-documentation/recipes/recipe-catalog/node/migrate/angular-animations)
 * [Buffer](/user-documentation/recipes/recipe-catalog/node/migrate/buffer)
 * [Crypto](/user-documentation/recipes/recipe-catalog/node/migrate/crypto)
+* [Express-request-id](/user-documentation/recipes/recipe-catalog/node/migrate/express-request-id)
 * [Fs](/user-documentation/recipes/recipe-catalog/node/migrate/fs)
+* [Fs-extra](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra)
+* [Hpagent](/user-documentation/recipes/recipe-catalog/node/migrate/hpagent)
 * [Http](/user-documentation/recipes/recipe-catalog/node/migrate/http)
 * [Net](/user-documentation/recipes/recipe-catalog/node/migrate/net)
+* [Path](/user-documentation/recipes/recipe-catalog/node/migrate/path)
 * [Process](/user-documentation/recipes/recipe-catalog/node/migrate/process)
+* [Prop-types](/user-documentation/recipes/recipe-catalog/node/migrate/prop-types)
+* [Source-map-support](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support)
 * [Stream](/user-documentation/recipes/recipe-catalog/node/migrate/stream)
 * [Timers](/user-documentation/recipes/recipe-catalog/node/migrate/timers)
 * [Tls](/user-documentation/recipes/recipe-catalog/node/migrate/tls)

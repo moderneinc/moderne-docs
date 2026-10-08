@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `platform.popen()` with `subprocess.check_output()`"}
-  description={"`platform.popen()` was removed in Python 3.8. Use `subprocess.check_output(cmd, shell=True)` instead. Note: this rewrites call sites but does not manage imports."}
+  description={"`platform.popen()` was removed in Python 3.8. Use `subprocess.check_output(cmd, shell=True)` instead. Only the single-argument form is rewritten, since `mode` and `bufsize` have no `check_output` equivalent."}
   fqName={"org.openrewrite.python.migrate.ReplacePlatformPopen"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `platform.popen()` with `subprocess.check_output()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>`platform.popen()` was removed in Python 3.8. Use `subprocess.check_output(cmd, shell=True)` instead. Note: this rewrites call sites but does not manage imports.</RecipeHeader.Description>
+<RecipeHeader.Description>`platform.popen()` was removed in Python 3.8. Use `subprocess.check_output(cmd, shell=True)` instead. Only the single-argument form is rewritten, since `mode` and `bufsize` have no `check_output` equivalent.</RecipeHeader.Description>
 
 </RecipeHeader>
 

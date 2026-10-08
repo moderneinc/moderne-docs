@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["RSPEC-S2078","CWE-90"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.analysis.java.security.FindLdapInjection"}
   artifact={"io.moderne.recipe:rewrite-program-analysis"}

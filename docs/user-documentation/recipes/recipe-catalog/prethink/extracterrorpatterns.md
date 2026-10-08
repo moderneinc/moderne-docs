@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Extract error handling patterns"}
-  description={"Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used."}
+  description={"Analyze JVM sources to extract error handling patterns including exception types, handling strategies, and logging frameworks used."}
   fqName={"io.moderne.prethink.ExtractErrorPatterns"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Extract error handling patterns</RecipeHeader.Title>
 
-<RecipeHeader.Description>Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.</RecipeHeader.Description>
+<RecipeHeader.Description>Analyze JVM sources to extract error handling patterns including exception types, handling strategies, and logging frameworks used.</RecipeHeader.Description>
 
 </RecipeHeader>
 

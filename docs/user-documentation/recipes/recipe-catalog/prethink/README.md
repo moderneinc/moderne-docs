@@ -29,6 +29,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find Go coding conventions](./findgocodingconventions.md)
 * [Find Go error handling patterns](./findgoerrorpatterns.md)
 * [Find JavaScript and TypeScript coding conventions](./findnodecodingconventions.md)
+* [Find Python error handling patterns](./findpythonerrorpatterns.md)
 * [Find Ruby coding conventions](./findrubycodingconventions.md)
 * [Find Ruby error handling patterns](./findrubyerrorpatterns.md)
 * [Python dependency report](./pythondependencyreport.md)

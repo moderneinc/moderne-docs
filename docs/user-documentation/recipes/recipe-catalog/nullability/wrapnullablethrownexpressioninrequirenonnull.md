@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"},{"parameter":"assertionStyle","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nclass Caller {\n    void run(Errors errors) {\n        throw errors.next();\n    }\n}\n","after":"package com.example;\n\nimport static java.util.Objects.requireNonNull;\n\nclass Caller {\n    void run(Errors errors) {\n        throw requireNonNull(errors.next());\n    }\n}\n","diff":"--- src/main/java/com/example/Caller.java\n+++ src/main/java/com/example/Caller.java\n@@ -3,0 +3,2 @@\npackage com.example;\n\n+import static java.util.Objects.requireNonNull;\n+\nclass Caller {\n@@ -5,1 +7,1 @@\nclass Caller {\n    void run(Errors errors) {\n-       throw errors.next();\n+       throw requireNonNull(errors.next());\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.WrapNullableThrownExpressionInRequireNonNull","displayName":"Wrap nullable thrown expressions in `requireNonNull`","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

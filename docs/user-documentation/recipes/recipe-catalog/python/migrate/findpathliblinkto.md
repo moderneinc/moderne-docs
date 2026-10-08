@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find deprecated `Path.link_to()` usage"}
-  description={"Find usage of `Path.link_to()` which was deprecated in Python 3.10 and removed in 3.12. Use `hardlink_to()` instead (note: argument order is reversed)."}
+  description={"Find usage of `Path.link_to()` which was deprecated in Python 3.10 and removed in 3.12. Use `hardlink_to()` instead (note: argument order is reversed). `link_to` is not a name reserved to `pathlib`, so this only reports calls whose receiver resolves to a `Path`; a parse without type attribution reports nothing. Only fires where the receiver's type resolves to `pathlib.Path` or a subclass."}
   fqName={"org.openrewrite.python.migrate.FindPathlibLinkTo"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find deprecated `Path.link_to()` usage</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find usage of `Path.link_to()` which was deprecated in Python 3.10 and removed in 3.12. Use `hardlink_to()` instead (note: argument order is reversed).</RecipeHeader.Description>
+<RecipeHeader.Description>Find usage of `Path.link_to()` which was deprecated in Python 3.10 and removed in 3.12. Use `hardlink_to()` instead (note: argument order is reversed). `link_to` is not a name reserved to `pathlib`, so this only reports calls whose receiver resolves to a `Path`; a parse without type attribution reports nothing. Only fires where the receiver's type resolves to `pathlib.Path` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

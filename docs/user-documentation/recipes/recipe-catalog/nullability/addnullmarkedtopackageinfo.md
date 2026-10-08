@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"packages","value":"List.of(\"com.airbnb.payments\")"},{"parameter":"generateMissing","value":"false"}],"variants":[{"language":"java","before":"package com.airbnb.payments;\n","after":"@NullMarked\npackage com.airbnb.payments;\n\nimport org.jspecify.annotations.NullMarked;\n","diff":"--- src/main/java/com/airbnb/payments/package-info.java\n+++ src/main/java/com/airbnb/payments/package-info.java\n@@ -1,0 +1,1 @@\n+@NullMarked\npackage com.airbnb.payments;\n@@ -3,0 +4,2 @@\npackage com.airbnb.payments;\n\n+import org.jspecify.annotations.NullMarked;\n+\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullMarkedToPackageInfo","displayName":"Add `@NullMarked` to `package-info.java` for an allowlist of packages","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"packages=com.airbnb.payments.*\""}}>
 
 ## Usage

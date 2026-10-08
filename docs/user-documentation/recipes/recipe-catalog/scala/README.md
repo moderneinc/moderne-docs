@@ -11,6 +11,7 @@ _Search and refactoring recipes for [Scala](https://www.scala-lang.org/) code, c
 * [Cleanup](/user-documentation/recipes/recipe-catalog/scala/cleanup)
 * [Concurrency](/user-documentation/recipes/recipe-catalog/scala/concurrency)
 * [Error handling](/user-documentation/recipes/recipe-catalog/scala/errorhandling)
+* [Format](/user-documentation/recipes/recipe-catalog/scala/format)
 * [Migrate](/user-documentation/recipes/recipe-catalog/scala/migrate)
 * [Performance](/user-documentation/recipes/recipe-catalog/scala/performance)
 * [Safety](/user-documentation/recipes/recipe-catalog/scala/safety)

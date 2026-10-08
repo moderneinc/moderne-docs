@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nclass Holder {\n    String cached;\n\n    void refresh(Source source) {\n        cached = source.get();\n    }\n}\n","after":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nclass Holder {\n    @Nullable\n    String cached;\n\n    void refresh(Source source) {\n        cached = source.get();\n    }\n}\n","diff":"--- src/main/java/com/example/Holder.java\n+++ src/main/java/com/example/Holder.java\n@@ -3,0 +3,2 @@\npackage com.example;\n\n+import org.jspecify.annotations.Nullable;\n+\nclass Holder {\n@@ -4,0 +6,1 @@\n\nclass Holder {\n+   @Nullable\n    String cached;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullableToNullAssignedField","displayName":"Add `@Nullable` to a field assigned a nullable value","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

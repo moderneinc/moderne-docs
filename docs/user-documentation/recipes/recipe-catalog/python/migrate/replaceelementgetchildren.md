@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `Element.getchildren()` with `list(element)`"}
-  description={"Replace `getchildren()` with `list(element)` on XML Element objects. Deprecated in Python 3.9."}
+  description={"Replace `getchildren()` with `list(element)` on XML Element objects. Deprecated in Python 3.9. Only fires where the receiver's type resolves to `xml.etree.ElementTree.Element` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceElementGetchildren"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `Element.getchildren()` with `list(element)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `getchildren()` with `list(element)` on XML Element objects. Deprecated in Python 3.9.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `getchildren()` with `list(element)` on XML Element objects. Deprecated in Python 3.9. Only fires where the receiver's type resolves to `xml.etree.ElementTree.Element` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

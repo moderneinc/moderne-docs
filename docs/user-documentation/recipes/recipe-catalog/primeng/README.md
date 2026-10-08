@@ -13,7 +13,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Rename `Calendar` to `DatePicker`](./renamecalendartodatepicker.md)
 * [Rename `Dropdown` to `Select`](./renamedropdowntoselect.md)
 * [Rename `InputSwitch` to `ToggleSwitch`](./renameinputswitchtotoggleswitch.md)
-* [Rename `Message` interface to `ToastMessageOptions`](./renamemessageinterface.md)
 * [Rename `OverlayPanel` to `Popover`](./renameoverlaypaneltopopover.md)
 * [Rename `Sidebar` to `Drawer`](./renamesidebartodrawer.md)
 * [Upgrade PrimeNG components to 18](./upgradecomponentsto18.md)
@@ -28,6 +27,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Mark imports of removed PrimeNG modules with TODO stubs](./markremovedprimengmodules.md)
 * [Migrate `&lt;p-messages&gt;` to `&lt;p-message&gt;` with `@for` loop](./migratemessagestomessageloop.md)
 * [Migrate `PrimeNG` config field assignments to `.set()`](./migrateprimengsignalassignments.md)
+* [Rename `Message` interface to `ToastMessageOptions`](./renamemessageinterface.md)
 * [Rename PrimeNG selectors in HTML templates to their v18 equivalents](./renametemplateselectors.md)
 
 

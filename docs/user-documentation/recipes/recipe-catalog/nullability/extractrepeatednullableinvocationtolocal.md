@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nclass Caller {\n    int run(Source source) {\n        if (source.get() != null) {\n            return source.get().length();\n        }\n        return 0;\n    }\n}\n","after":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nclass Caller {\n    int run(Source source) {\n        @Nullable String get = source.get();\n        if (get != null) {\n            return get.length();\n        }\n        return 0;\n    }\n}\n","diff":"--- src/main/java/com/example/Caller.java\n+++ src/main/java/com/example/Caller.java\n@@ -3,0 +3,2 @@\npackage com.example;\n\n+import org.jspecify.annotations.Nullable;\n+\nclass Caller {\n@@ -5,2 +7,3 @@\nclass Caller {\n    int run(Source source) {\n-       if (source.get() != null) {\n-           return source.get().length();\n+       @Nullable String get = source.get();\n+       if (get != null) {\n+           return get.length();\n        }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.ExtractRepeatedNullableInvocationToLocal","displayName":"Extract a repeated `@Nullable` invocation into a local variable","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

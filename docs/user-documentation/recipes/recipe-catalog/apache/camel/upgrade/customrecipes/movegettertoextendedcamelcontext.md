@@ -37,13 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"oldMethodName","required":true,"description":"Name of the method on external camel context.","example":"TODO Provide a usage example for the docs"}]}>
+<OptionsTable options={[{"type":"String","name":"oldMethodName","required":true,"description":"Name of the method on external camel context.","example":"getStartupStepRecorder"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.MoveGetterToExtendedCamelContext","displayName":"Move getter from context to ExtendedCamelContext.","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldMethodName=TODO Provide a usage example for the docs\""}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.MoveGetterToExtendedCamelContext","displayName":"Move getter from context to ExtendedCamelContext.","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldMethodName=getStartupStepRecorder\""}}>
 
 ## Usage
 

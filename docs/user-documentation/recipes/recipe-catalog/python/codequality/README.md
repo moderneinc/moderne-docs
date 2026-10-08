@@ -4,6 +4,12 @@ description: Codequality OpenRewrite recipes.
 
 # Codequality
 
+## Composite Recipes
+
+_Recipes that include further recipes, often including the individual recipes below._
+
+* [Code quality](./codequality-recipe.md)
+
 ## Recipes
 
 * [Boolean checks should not be inverted](./booleanchecksnotinverted.md)

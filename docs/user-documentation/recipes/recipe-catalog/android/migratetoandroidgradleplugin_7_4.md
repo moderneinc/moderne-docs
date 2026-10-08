@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Android Gradle Plugin 7.3","href":"/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_3/"},{"name":"Rename `aaptOptions` to `androidResources`","href":"/user-documentation/recipes/recipe-catalog/android/renameaaptoptionstoandroidresources/"},{"name":"Upgrade Android Gradle Plugin (AGP) version","href":"/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Android Gradle Plugin 7.3","href":"/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_3/"},{"name":"Rename `aaptOptions` to `androidResources`","href":"/user-documentation/recipes/recipe-catalog/android/renameaaptoptionstoandroidresources/"},{"name":"Upgrade Android Gradle Plugin version","href":"/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion/"}]}>
 
 ## Definition
 

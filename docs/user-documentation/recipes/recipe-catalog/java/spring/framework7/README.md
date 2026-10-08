@@ -27,6 +27,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migrate `CookieLocaleResolver#setCookieName(String)` to the constructor](./migratecookielocaleresolvercookiename.md)
 * [Migrate `Jackson2ObjectMapperBuilder` to mapper builder pattern](./migratejackson2objectmapperbuilder.md)
 * [Migrate `ListenableFuture` to `CompletableFuture`](./migratelistenablefuture.md)
+* [Migrate `NoResourceFoundException` constructor for Spring Framework 7.0](./migratenoresourcefoundexceptionconstructor.md)
 * [Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`](./migrateresponseentitygetstatuscodevaluemethod.md)
 * [Preserve DynamicDestinationResolver behavior for JmsTemplate](./migratejmsdestinationresolver.md)
 * [Remove Kotlin nullability from Spring HTTP entity type arguments](./removenullabilityfromspringhttpentitytypearguments.md)

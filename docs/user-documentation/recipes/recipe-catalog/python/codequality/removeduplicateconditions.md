@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove duplicate conditions in if/elif chains"}
-  description={"Remove `elif` branches whose condition is identical to an earlier branch in the same `if`/`elif` chain, since the duplicate branch is dead code that can never execute."}
+  description={"Remove `elif` branches whose condition is identical to an earlier branch in the same `if`/`elif` chain, since the duplicate branch is dead code that can never execute. A condition that may have side effects, such as a call, is kept, since evaluating it again can give a different result."}
   fqName={"org.openrewrite.python.codequality.RemoveDuplicateConditions"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove duplicate conditions in if/elif chains</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove `elif` branches whose condition is identical to an earlier branch in the same `if`/`elif` chain, since the duplicate branch is dead code that can never execute.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove `elif` branches whose condition is identical to an earlier branch in the same `if`/`elif` chain, since the duplicate branch is dead code that can never execute. A condition that may have side effects, such as a call, is kept, since evaluating it again can give a different result.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Change import"}
-  description={"Change a Python import from one module/name to another, updating all type attributions."}
+  description={"Change a Python import from one module/name to another, renaming the types that name what moved. Where the new module re-exports a member, set the declaring module for the types to match a fresh parse."}
   fqName={"org.openrewrite.python.ChangeImport"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Change import</RecipeHeader.Title>
 
-<RecipeHeader.Description>Change a Python import from one module/name to another, updating all type attributions.</RecipeHeader.Description>
+<RecipeHeader.Description>Change a Python import from one module/name to another, renaming the types that name what moved. Where the new module re-exports a member, set the declaring module for the types to match a fresh parse.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"old_module","required":true,"description":"The module to change imports from","example":"collections"},{"type":"String","name":"old_name","required":false,"description":"The name to change (for 'from X import name' style). Leave empty for direct imports.","example":"Mapping"},{"type":"String","name":"new_module","required":true,"description":"The module to change imports to","example":"collections.abc"},{"type":"String","name":"new_name","required":false,"description":"The new name. If not specified, uses the old name.","example":"Mapping"},{"type":"String","name":"new_alias","required":false,"description":"Optional alias for the new import"}]}>
+<OptionsTable options={[{"type":"String","name":"old_module","required":true,"description":"The module to change imports from","example":"collections"},{"type":"String","name":"old_name","required":false,"description":"The name to change (for 'from X import name' style). Leave empty for direct imports.","example":"Mapping"},{"type":"String","name":"new_module","required":true,"description":"The module to change imports to","example":"collections.abc"},{"type":"String","name":"new_name","required":false,"description":"The new name. If not specified, uses the old name.","example":"Mapping"},{"type":"String","name":"new_alias","required":false,"description":"Optional alias for the new import"},{"type":"String","name":"new_declaring_module","required":false,"description":"The module that defines the new member, where the new module re-exports it from another. Type attribution names the member after it.","example":"httpx._client"}]}>
 
 ## Options
 

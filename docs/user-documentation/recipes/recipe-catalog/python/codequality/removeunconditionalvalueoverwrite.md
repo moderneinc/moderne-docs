@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove unconditional value overwrites"}
-  description={"Remove consecutive assignments that write to the same dict key or object attribute, since the first value is immediately overwritten and never used."}
+  description={"Remove a constant written to a dict key when the next statement overwrites the same key. Only a dict the enclosing function built with `{...}` or `dict()` and has not yet passed on qualifies, and only for constant keys outside `try` and `with` blocks. Writes to attributes, parameters and globals are left alone, because another thread, an alias or a setter can observe them."}
   fqName={"org.openrewrite.python.codequality.RemoveUnconditionalValueOverwrite"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove unconditional value overwrites</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove consecutive assignments that write to the same dict key or object attribute, since the first value is immediately overwritten and never used.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove a constant written to a dict key when the next statement overwrites the same key. Only a dict the enclosing function built with `{...}` or `dict()` and has not yet passed on qualifies, and only for constant keys outside `try` and `with` blocks. Writes to attributes, parameters and globals are left alone, because another thread, an alias or a setter can observe them.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -1,6 +1,6 @@
 ---
-title: "Exclude JUnit 4, unless Testcontainers is used"
-sidebar_label: "Exclude JUnit 4, unless Testcontainers is used"
+title: "Exclude JUnit 4, unless a test library requires it"
+sidebar_label: "Exclude JUnit 4, unless a test library requires it"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Exclude JUnit 4, unless Testcontainers is used"}
-  description={"Excludes JUnit 4, as it ought not to be necessary in a JUnit 5 project, unless Testcontainers is used."}
+  displayName={"Exclude JUnit 4, unless a test library requires it"}
+  description={"Excludes JUnit 4 unless Testcontainers 1.x or Guava testlib requires it at runtime, even when tests use JUnit Jupiter."}
   fqName={"org.openrewrite.java.testing.junit5.ExcludeJUnit4UnlessUsingTestcontainers"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,19 +31,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/excludejunit4unlessusingtestcontainers.md"}
 >
 
-<RecipeHeader.Title>Exclude JUnit 4, unless Testcontainers is used</RecipeHeader.Title>
+<RecipeHeader.Title>Exclude JUnit 4, unless a test library requires it</RecipeHeader.Title>
 
-<RecipeHeader.Description>Excludes JUnit 4, as it ought not to be necessary in a JUnit 5 project, unless Testcontainers is used.</RecipeHeader.Description>
+<RecipeHeader.Description>Excludes JUnit 4 unless Testcontainers 1.x or Guava testlib requires it at runtime, even when tests use JUnit Jupiter.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Exclude Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/excludedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Does not include Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/doesnotincludedependency/"}]}>
+<RecipeList recipes={[{"name":"Exclude Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/excludedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Does not include Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/doesnotincludedependency/"},{"name":"Does not include Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/doesnotincludedependency/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.ExcludeJUnit4UnlessUsingTestcontainers","displayName":"Exclude JUnit 4, unless Testcontainers is used","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.ExcludeJUnit4UnlessUsingTestcontainers","displayName":"Exclude JUnit 4, unless a test library requires it","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

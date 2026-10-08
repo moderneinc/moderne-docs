@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `ConfigParser.readfp()` with `read_file()`"}
-  description={"The `ConfigParser.readfp()` method was deprecated in Python 3.2 and removed in Python 3.13. Replace with `read_file()`."}
+  description={"The `ConfigParser.readfp()` method was deprecated in Python 3.2 and removed in Python 3.13. Replace with `read_file()`. Only fires where the receiver's type resolves to `configparser.RawConfigParser` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceConfigparserReadfp"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `ConfigParser.readfp()` with `read_file()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `ConfigParser.readfp()` method was deprecated in Python 3.2 and removed in Python 3.13. Replace with `read_file()`.</RecipeHeader.Description>
+<RecipeHeader.Description>The `ConfigParser.readfp()` method was deprecated in Python 3.2 and removed in Python 3.13. Replace with `read_file()`. Only fires where the receiver's type resolves to `configparser.RawConfigParser` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

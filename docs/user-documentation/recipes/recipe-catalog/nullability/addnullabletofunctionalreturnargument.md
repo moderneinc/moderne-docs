@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.function.Function;\n\nclass Test {\n    static <T> String describe(Function<String, T> f) {\n        return String.valueOf(f.apply(\"\"));\n    }\n\n    static String use() {\n        return describe(s -> null);\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nimport java.util.function.Function;\n\nclass Test {\n    static <T> String describe(Function<String, @Nullable T> f) {\n        return String.valueOf(f.apply(\"\"));\n    }\n\n    static String use() {\n        return describe(s -> null);\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\nimport java.util.function.Function;\n@@ -4,1 +6,1 @@\n\nclass Test {\n-   static <T> String describe(Function<String, T> f) {\n+   static <T> String describe(Function<String, @Nullable T> f) {\n        return String.valueOf(f.apply(\"\"));\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullableToFunctionalReturnArgument","displayName":"Add `@Nullable` to a functional-interface return type argument fed a null-returning lambda","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

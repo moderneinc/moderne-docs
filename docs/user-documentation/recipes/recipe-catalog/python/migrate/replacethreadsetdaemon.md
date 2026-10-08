@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `Thread.setDaemon()` with `Thread.daemon = ...`"}
-  description={"Replace `setDaemon()` method calls with `daemon` property assignment. Deprecated in Python 3.10, removed in 3.12."}
+  description={"Replace `setDaemon()` method calls with `daemon` property assignment. Deprecated in Python 3.10, removed in 3.12. Only fires where the receiver's type resolves to `threading.Thread` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceThreadSetDaemon"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `Thread.setDaemon()` with `Thread.daemon = ...`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `setDaemon()` method calls with `daemon` property assignment. Deprecated in Python 3.10, removed in 3.12.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `setDaemon()` method calls with `daemon` property assignment. Deprecated in Python 3.10, removed in 3.12. Only fires where the receiver's type resolves to `threading.Thread` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Remove npm dependency","href":"/user-documentation/recipes/recipe-catalog/javascript/removedependency/"},{"name":"Add npm dependency","href":"/user-documentation/recipes/recipe-catalog/javascript/adddependency/"}]}>
+<RecipeList recipes={[{"name":"org.openrewrite.javascript.RemoveDependency","href":"/user-documentation/recipes/recipe-catalog/javascript/removedependency/"},{"name":"org.openrewrite.javascript.AddDependency","href":"/user-documentation/recipes/recipe-catalog/javascript/adddependency/"}]}>
 
 ## Definition
 

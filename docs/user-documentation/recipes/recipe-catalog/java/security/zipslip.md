@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["CWE-22"]}
+  tags={["RSPEC-S6096","CWE-22"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.ZipSlip"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

@@ -13,17 +13,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Add `org.hamcrest:hamcrest` if it is used"}
-  description={"JUnit Jupiter does not include hamcrest as a transitive dependency. If needed, add a direct dependency."}
+  description={"JUnit Jupiter does not include Hamcrest as a transitive dependency. Add a direct dependency for existing Hamcrest usage or ExpectedException assertions that generate Hamcrest usage during migration."}
   fqName={"org.openrewrite.java.testing.hamcrest.AddHamcrestIfUsed"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/hamcrest.yml"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/hamcrest/AddHamcrestIfUsed.java"}
 />
 
 <RecipeHeader
-  type={"Composite recipe"}
+  type={"Single recipe"}
   languages={["Java"]}
-  tags={["hamcrest","junit","testing"]}
+  tags={["junit","testing","hamcrest"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.hamcrest.AddHamcrestIfUsed"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
@@ -33,15 +33,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Add `org.hamcrest:hamcrest` if it is used</RecipeHeader.Title>
 
-<RecipeHeader.Description>JUnit Jupiter does not include hamcrest as a transitive dependency. If needed, add a direct dependency.</RecipeHeader.Description>
+<RecipeHeader.Description>JUnit Jupiter does not include Hamcrest as a transitive dependency. Add a direct dependency for existing Hamcrest usage or ExpectedException assertions that generate Hamcrest usage during migration.</RecipeHeader.Description>
 
 </RecipeHeader>
-
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
-
-## Definition
-
-</RecipeList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.hamcrest.AddHamcrestIfUsed","displayName":"Add `org.hamcrest:hamcrest` if it is used","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

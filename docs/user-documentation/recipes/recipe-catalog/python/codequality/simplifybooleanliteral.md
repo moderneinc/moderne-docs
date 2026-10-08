@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Simplify boolean literal comparisons"}
-  description={"Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression."}
+  description={"Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression. Only fires where the other operand's type resolves to `bool`."}
   fqName={"org.openrewrite.python.codequality.SimplifyBooleanLiteral"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Simplify boolean literal comparisons</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression. Only fires where the other operand's type resolves to `bool`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

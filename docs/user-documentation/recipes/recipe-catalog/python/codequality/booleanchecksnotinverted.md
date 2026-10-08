@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Boolean checks should not be inverted"}
-  description={"Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`."}
+  description={"Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`. An ordering such as `not (a < b)` is only inverted where both operands' types resolve to numbers, a chained comparison is left alone, and a double negation is only removed where its value is read as a truth value, as in a condition."}
   fqName={"org.openrewrite.python.codequality.BooleanChecksNotInverted"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Boolean checks should not be inverted</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`. An ordering such as `not (a < b)` is only inverted where both operands' types resolve to numbers, a chained comparison is left alone, and a double negation is only removed where its value is read as a truth value, as in a condition.</RecipeHeader.Description>
 
 </RecipeHeader>
 

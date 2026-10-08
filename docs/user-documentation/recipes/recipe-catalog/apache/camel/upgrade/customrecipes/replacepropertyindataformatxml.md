@@ -37,13 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"component","required":true,"description":"Component name.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"newPropertyKey","required":true,"description":"The prefix to be replaced with.","example":"TODO Provide a usage example for the docs"}]}>
+<OptionsTable options={[{"type":"String","name":"component","required":true,"description":"Component name.","example":"crypto"},{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"algorithmParameterRef"},{"type":"String","name":"newPropertyKey","required":true,"description":"The property key to be replaced with.","example":"algorithmParameterSpec"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.ReplacePropertyInDataFormatXml","displayName":"Camel XMl DSL changes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"component=TODO Provide a usage example for the docs\" --recipe-option \"oldPropertyKey=TODO Provide a usage example for the docs\" --recipe-option \"newPropertyKey=TODO Provide a usage example for the docs\""}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.ReplacePropertyInDataFormatXml","displayName":"Camel XMl DSL changes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"component=crypto\" --recipe-option \"oldPropertyKey=algorithmParameterRef\" --recipe-option \"newPropertyKey=algorithmParameterSpec\""}}>
 
 ## Usage
 

@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nimport org.jspecify.annotations.NonNull;\n\nclass Config {\n    @NonNull\n    String value;\n}\n","after":"package com.example;\n\nclass Config {\n    String value;\n}\n","diff":"--- src/main/java/com/example/Config.java\n+++ src/main/java/com/example/Config.java\n@@ -3,2 +3,0 @@\npackage com.example;\n\n-import org.jspecify.annotations.NonNull;\n-\nclass Config {\n@@ -6,1 +4,0 @@\n\nclass Config {\n-   @NonNull\n    String value;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.RemoveRedundantNonNullAnnotation","displayName":"Remove a redundant `@NonNull` annotation under `@NullMarked`","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

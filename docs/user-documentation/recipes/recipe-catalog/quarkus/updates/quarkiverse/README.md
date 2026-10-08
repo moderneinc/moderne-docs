@@ -6,6 +6,7 @@ description: Quarkiverse OpenRewrite recipes.
 
 ## Categories
 
+* [Cxf](/user-documentation/recipes/recipe-catalog/quarkus/updates/quarkiverse/cxf)
 * [Minio](/user-documentation/recipes/recipe-catalog/quarkus/updates/quarkiverse/minio)
 
 

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove conditional with identical branches"}
-  description={"Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes."}
+  description={"Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes. A chain whose conditions may have side effects, such as a call, is left alone."}
   fqName={"org.openrewrite.python.codequality.AllBranchesIdentical"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove conditional with identical branches</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes. A chain whose conditions may have side effects, such as a call, is left alone.</RecipeHeader.Description>
 
 </RecipeHeader>
 

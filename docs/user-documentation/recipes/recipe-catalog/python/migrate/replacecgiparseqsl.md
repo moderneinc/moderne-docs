@@ -8,14 +8,14 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `cgi.parse_qsl()` with `urllib.parse.parse_qsl()`"}
-  description={"`cgi.parse_qsl()` was removed in Python 3.8. Use `urllib.parse.parse_qsl()` instead. Note: this rewrites call sites but does not manage imports. Use with `ChangeImport` in a composite recipe to update `from` imports."}
+  description={"`cgi.parse_qsl()` was removed in Python 3.8. Use `urllib.parse.parse_qsl()` instead."}
   fqName={"org.openrewrite.python.migrate.ReplaceCgiParseQsl"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Python"]}
   tags={["python","cgi","migration","3.8"]}
   license={"Moderne Proprietary License"}
@@ -28,9 +28,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `cgi.parse_qsl()` with `urllib.parse.parse_qsl()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>`cgi.parse_qsl()` was removed in Python 3.8. Use `urllib.parse.parse_qsl()` instead. Note: this rewrites call sites but does not manage imports. Use with `ChangeImport` in a composite recipe to update `from` imports.</RecipeHeader.Description>
+<RecipeHeader.Description>`cgi.parse_qsl()` was removed in Python 3.8. Use `urllib.parse.parse_qsl()` instead.</RecipeHeader.Description>
 
 </RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"}]}>
+
+## Definition
+
+</RecipeList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.migrate.ReplaceCgiParseQsl","displayName":"Replace `cgi.parse_qsl()` with `urllib.parse.parse_qsl()`","pipPackage":"openrewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}]}}>
 

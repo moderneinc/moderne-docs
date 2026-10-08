@@ -1517,7 +1517,7 @@ _13 recipes_
   * Searches for .csproj files that reference a specific NuGet package. Intended for use as a precondition to scope other recipes.
 * [OpenRewrite.CSharp.Recipes.ListDependencies](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/listdependencies.md)
   * **List .NET dependencies (SBOM)**
-  * Records every dependency of each .NET project — NuGet packages, assembly references, and project references — into the `Dependencies in use` data table, forming a Software Bill of Materials. Reports the resolved dependency graph when the `MSBuildProject` marker is available and falls back to the raw `.csproj` XML otherwise, so it works for both .NET (Core) and .NET Framework projects.
+  * Records every dependency of each .NET project — NuGet packages, assembly references, and project references — into the `Dependencies in use` data table, forming a Software Bill of Materials. Reports the full transitive dependency graph, including each dependency's depth and the path that pulls it in, when the `MSBuildProject` marker is available, and falls back to the raw `.csproj` XML otherwise, so it works for both .NET (Core) and .NET Framework projects.
 * [OpenRewrite.CSharp.Recipes.RemoveDotNetCliToolReference](/user-documentation/recipes/recipe-catalog/csharp/csharp/recipes/removedotnetclitoolreference.md)
   * **Remove DotNetCliToolReference**
   * Removes a `&lt;DotNetCliToolReference&gt;` element from .csproj files. Use `*` to remove every CLI tool reference.
@@ -4581,7 +4581,7 @@ _1011 recipes_
 
 _License: Moderne Proprietary License_
 
-_192 recipes_
+_193 recipes_
 
 * [OpenRewrite.Recipes.CSharp.Migration.Dotnet.AddNuGetPackageReferenceIfTypeUsed](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/addnugetpackagereferenceiftypeused.md)
   * **Add NuGet package reference when namespace is used**
@@ -5159,6 +5159,9 @@ _192 recipes_
 * [OpenRewrite.Recipes.CSharp.Migration.Dotnet.RemoveMethodInvocations](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/removemethodinvocations.md)
   * **Remove method invocations**
   * Remove method invocations if syntactically safe.
+* [OpenRewrite.Recipes.CSharp.Migration.Dotnet.RemoveNjsprojFromSolution](/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/migration/dotnet/removenjsprojfromsolution.md)
+  * **Remove `.njsproj` projects from solution**
+  * Removes Project entries with the `.njsproj` extension (Node.js Tools projects) from Visual Studio Solution (.sln/.slnx) files. Node.js Tools projects can't be built by `dotnet build` and break dotnet-CLI-driven build pipelines.
 
 ## recipes-scala
 
@@ -5984,8 +5987,11 @@ _143 recipes_
 
 _License: Moderne Proprietary License_
 
-_38 recipes_
+_39 recipes_
 
+* [io.moderne.cryptography.BuildCryptographyInventory](/user-documentation/recipes/recipe-catalog/cryptography/buildcryptographyinventory.md)
+  * **Build a joined cryptography inventory**
+  * Runs the cipher inventory and the post-quantum TLS readiness inventory together so that every finding lands in one `Cryptography inventory` data table. Findings that different detectors report at the same source location — a TLS entry point classified both for the protocol versions it allows and for the key-exchange groups it offers — are joined into a single row there, which the per-detector tables cannot express. Those per-detector tables are still emitted unchanged, carrying the same findings unjoined. Changes nothing.
 * [io.moderne.cryptography.FindCryptoVulnerabilitiesPipeline](/user-documentation/recipes/recipe-catalog/cryptography/findcryptovulnerabilitiespipeline.md)
   * **Find cryptographic vulnerability chains**
   * Detects cryptographic vulnerabilities that span multiple operations, tracking flow from hardcoded algorithms through key material to encryption operations.
@@ -6090,7 +6096,7 @@ _38 recipes_
   * Inventories Spring Boot configuration files that set an embedded server's TLS protocol floor or cipher suites — `server.ssl.enabled-protocols`, `server.ssl.protocol` and `server.ssl.ciphers`, plus any key named in `additionalPropertyKeys` — and classifies each value by whether TLS 1.3, and therefore JEP 527 hybrid key exchange, remains reachable. A pinned `server.ssl.ciphers` list with no RFC 8446 suite blocks TLS 1.3 even when the protocol floor allows it. Rows land in the same TLS configuration inventory data table as the Java surface. Keys are matched with relaxed binding, so `enabled-protocols`, `enabledProtocols` and `ENABLED_PROTOCOLS` all match; values may be a single token, a comma-separated string, or a YAML sequence in either flow or block style. Configuration a source scan cannot see — config servers, `ConfigMap` overlays, environment variables — is out of scope, so an absent row is not evidence of a modern floor.
 * [io.moderne.cryptography.pqc.FindTlsProtocolConfiguration](/user-documentation/recipes/recipe-catalog/cryptography/pqc/findtlsprotocolconfiguration.md)
   * **Find TLS protocol configuration**
-  * Inventories every place a Java source decides which TLS protocol versions and cipher suites may be negotiated, and classifies each by whether TLS 1.3 — the only version JEP 527 hybrid key exchange exists for — remains reachable. Covers `SSLContext.getInstance` (whose algorithm name is a *ceiling*, never a floor), the `setProtocols`/`setEnabledProtocols` and `setCipherSuites`/`setEnabledCipherSuites` sinks, the `jdk.tls.client.protocols`, `jdk.tls.server.protocols`, `https.protocols`, `jdk.tls.client.cipherSuites` and `jdk.tls.server.cipherSuites` system properties, BouncyCastle `getSupportedVersions` and `getSupportedCipherSuites` overrides, and default-acquisition sites that configure no floor at all. A pinned cipher list with no RFC 8446 suite blocks TLS 1.3 even when the protocol floor allows it. Findings land in the TLS configuration inventory data table. Scope is JSSE and BouncyCastle: Netty, OkHttp, Apache HttpClient and servlet-container configuration are not scanned, and `-D` flags in build files and launch scripts are invisible, so an absent row is not evidence of a modern floor.
+  * Inventories every place a Java source decides which TLS protocol versions and cipher suites may be negotiated, and classifies each by whether TLS 1.3 — the only version JEP 527 hybrid key exchange exists for — remains reachable. Covers `SSLContext.getInstance` (whose algorithm name is a *ceiling*, never a floor), the `setProtocols`/`setEnabledProtocols` and `setCipherSuites`/`setEnabledCipherSuites` sinks, the `setSSLParameters` sink that applies a parameter bundle assembled elsewhere, the `jdk.tls.client.protocols`, `jdk.tls.server.protocols`, `https.protocols`, `jdk.tls.client.cipherSuites` and `jdk.tls.server.cipherSuites` system properties, BouncyCastle `getSupportedVersions` and `getSupportedCipherSuites` overrides, and default-acquisition sites that configure no floor at all. A pinned cipher list with no RFC 8446 suite blocks TLS 1.3 even when the protocol floor allows it. Findings land in the TLS configuration inventory data table. Scope is JSSE and BouncyCastle: Netty, OkHttp, Apache HttpClient and servlet-container configuration are not scanned, and `-D` flags in build files and launch scripts are invisible, so an absent row is not evidence of a modern floor.
 * [io.moderne.cryptography.pqc.PqcReadinessAudit](/user-documentation/recipes/recipe-catalog/cryptography/pqc/pqcreadinessaudit.md)
   * **Audit post-quantum TLS readiness of build files**
   * Reports how far each Maven and Gradle module is from post-quantum TLS by joining its JDK level with the BouncyCastle artifacts it resolves. Modules with no BouncyCastle get a row too, so absence is reported rather than inferred from an empty table.
@@ -6121,7 +6127,7 @@ _3 recipes_
 
 _License: Moderne Source Available License_
 
-_39 recipes_
+_40 recipes_
 
 * [io.moderne.devcenter.AngularVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/angularversionupgrade.md)
   * **Move to a later Angular version**
@@ -6166,20 +6172,23 @@ _39 recipes_
   * **DevCenter Kotlin**
   * This is a DevCenter helping you to track general Kotlin Modernisations.
 * [io.moderne.devcenter.DevCenterNodeStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenternodestarter.md)
-  * **DevCenter for Node.js**
-  * A default DevCenter configuration for Node.js repositories. Track Node.js version adoption across your organization.
+  * **DevCenter for JavaScript and TypeScript**
+  * A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend. Track Node.js version adoption and the move to ECMAScript 6 across your organization.
 * [io.moderne.devcenter.DevCenterPythonStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterpythonstarter.md)
   * **DevCenter for Python**
   * A default DevCenter configuration for Python repositories. Track Python version adoption across your organization.
 * [io.moderne.devcenter.DevCenterStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
   * **DevCenter**
   * This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/).
+* [io.moderne.devcenter.EcmaScriptModernization](/user-documentation/recipes/recipe-catalog/devcenter/ecmascriptmodernization.md)
+  * **Move to ECMAScript 6**
+  * Determine how many of a repository's JavaScript and TypeScript variable declarations still use `var` rather than `let` or `const`. A `var` that can't become `let` without changing behavior, such as a top-level one in a classic script or an exported or ambient one, isn't counted. Vendored, bundled and build-output files are skipped.
 * [io.moderne.devcenter.FindActiveCommitters](/user-documentation/recipes/recipe-catalog/devcenter/findactivecommitters.md)
   * **Find active committers on repositories**
   * List the committers on a repository whose most recent commit falls within the last 90 days, for the DevCenter contributing developers statistic.
 * [io.moderne.devcenter.FindOrganizationStatistics](/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics.md)
   * **Find organization statistics**
-  * Counts lines of code per repository for organization-level statistics.
+  * Counts lines of code per repository for organization-level statistics. Source files of a type without a line counter are not counted and are marked with a warning.
 * [io.moderne.devcenter.GoVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/goversionupgrade.md)
   * **Move to a later Go version**
   * Determine the current state of a repository relative to a desired Go version upgrade.
@@ -6816,7 +6825,7 @@ _41 recipes_
 
 _License: Moderne Proprietary License_
 
-_137 recipes_
+_138 recipes_
 
 * [io.moderne.prethink.ExtractCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/extractcodingconventions.md)
   * **Extract coding conventions**
@@ -6826,7 +6835,7 @@ _137 recipes_
   * Analyze the codebase to extract dependency usage patterns by examining which types from external libraries are actually used in the code.
 * [io.moderne.prethink.ExtractErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/extracterrorpatterns.md)
   * **Extract error handling patterns**
-  * Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
+  * Analyze JVM sources to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
 * [io.moderne.prethink.ExtractGoDependencies](/user-documentation/recipes/recipe-catalog/prethink/extractgodependencies.md)
   * **Extract Go dependencies and usage**
   * Scan go.mod and Go source imports to produce a DependencyUsage entry per actually-imported module, including file-count and sample imports.
@@ -6845,6 +6854,9 @@ _137 recipes_
 * [io.moderne.prethink.FindNodeCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findnodecodingconventions.md)
   * **Find JavaScript and TypeScript coding conventions**
   * Detect JavaScript/TypeScript conventions the Java convention extractor cannot see: import styles (default, named, namespace, type-only, side-effect, path-alias), React hook and component naming, the Props suffix for prop types, UPPER_SNAKE_CASE constants, and JSDoc comments.
+* [io.moderne.prethink.FindPythonErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/findpythonerrorpatterns.md)
+  * **Find Python error handling patterns**
+  * Detect Python error-handling idioms: typed, bare and group `except` clauses, `finally`, `raise` with a class versus a chained `raise ... from`, a `raise ... from None` that hides the active exception, bare re-raises, `contextlib.suppress`, custom exception classes, and whether a handler logs, warns, swallows, recovers, falls back to another import or prints a traceback.
 * [io.moderne.prethink.FindRubyCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findrubycodingconventions.md)
   * **Find Ruby coding conventions**
   * Detect Ruby conventions the Java convention extractor cannot see: snake_case method names, the `?` and `!` method suffixes, the `frozen_string_literal` magic comment, `require` versus `require_relative`, module namespacing depth, and whether visibility is declared as a section or per method.
@@ -7504,7 +7516,7 @@ _6 recipes_
 
 _License: Moderne Proprietary License_
 
-_213 recipes_
+_222 recipes_
 
 * [io.moderne.java.jsf.MigrateToJsf_2_3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
   * **Migrate to JSF 2.3**
@@ -7536,6 +7548,9 @@ _213 recipes_
 * [io.moderne.java.spring.boot.FieldToConstructorInjection](/user-documentation/recipes/recipe-catalog/java/spring/boot/fieldtoconstructorinjection.md)
   * **Convert field injection to constructor injection**
   * Converts `@Autowired` field injection to constructor injection pattern. For non-final classes, adds both a no-args constructor and the autowired constructor to maintain compatibility with extending classes. Moves `@Qualifier` annotations to constructor parameters.
+* [io.moderne.java.spring.boot.FindSpringApplicationInDefaultPackage](/user-documentation/recipes/recipe-catalog/java/spring/boot/findspringapplicationindefaultpackage.md)
+  * **Find `@SpringBootApplication` or `@ComponentScan` in the default package**
+  * Placing `@SpringBootApplication` or `@ComponentScan` in the default (unnamed) package causes Spring to scan the entire classpath, including third-party libraries. Move these classes into a dedicated package.
 * [io.moderne.java.spring.boot.IsLikelyNotSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/boot/islikelynotspringboot.md)
   * **Is likely not a Spring Boot project**
   * Marks the project if it's likely not a Spring Boot project.
@@ -7590,6 +7605,12 @@ _213 recipes_
 * [io.moderne.java.spring.boot3.MigrateRestTemplateToRestClient](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateresttemplatetorestclient.md)
   * **Migrate `RestTemplate` to `RestClient`**
   * Migrates Spring's `RestTemplate` to the modern `RestClient` API introduced in Spring Framework 6.1. `RestClient` provides a fluent, synchronous API that is the recommended approach for new development. This recipe converts constructor calls, type declarations, and common method invocations (`getForObject`, `getForEntity`, `postForObject`, `postForEntity`, `patchForObject`, `put`, `delete`, `headForHeaders`, `postForLocation`, `optionsForAllow`, `exchange`) to their `RestClient` equivalents, and then folds setter-based bean configuration (`setErrorHandler`, `setMessageConverters`, `setRequestFactory`, ...) into the immutable `RestClient.Builder` API where it is safe to do so. The configuration fold runs after the type change, so it detects setters on the already-retyped `RestClient` receiver.
+* [io.moderne.java.spring.boot3.MigrateServiceBusChannelProvisioner](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateservicebuschannelprovisioner.md)
+  * **Migrate `ServiceBusChannelProvisioner` template hooks to their 6.x replacements**
+  * The protected `validateOrCreateForConsumer` / `validateOrCreateForProducer` template hooks on `ServiceBusChannelProvisioner` were removed in Spring Cloud Azure 6.0. Rewrites overriding subclasses to move the logic into `provisionConsumerDestination` / `provisionProducerDestination` respectively, as directed by the 5.x deprecation Javadoc.
+* [io.moderne.java.spring.boot3.MigrateServiceBusJmsCustomizerParameter](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateservicebusjmscustomizerparameter.md)
+  * **Migrate `AzureServiceBusJmsConnectionFactoryCustomizer.customize` parameter type**
+  * The deprecated `ServiceBusJmsConnectionFactoryCustomizer` interface accepted `com.azure.spring.jms.ServiceBusJmsConnectionFactory` (Spring Cloud Azure's Qpid wrapper). Its replacement `AzureServiceBusJmsConnectionFactoryCustomizer` accepts `com.azure.servicebus.jms.ServiceBusJmsConnectionFactory` from the Azure Service Bus SDK. After the interface `ChangeType` retargets implementers to the new type, this recipe rewrites the `customize` method parameter so the override matches the new signature.
 * [io.moderne.java.spring.boot3.MigrateToRestClientAPI](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratetorestclientapi.md)
   * **Migrate `RestTemplate` API calls to `RestClient`**
   * Migrates Spring's `RestTemplate` to the modern `RestClient` API introduced in Spring Framework 6.1. `RestClient` provides a fluent, synchronous API that is the recommended approach for new development. This recipe converts constructor calls, type declarations, and common method invocations (`getForObject`, `getForEntity`, `postForObject`, `postForEntity`, `patchForObject`, `put`, `delete`, `headForHeaders`, `postForLocation`, `optionsForAllow`, `exchange`) to their `RestClient` equivalents.
@@ -7671,6 +7692,9 @@ _213 recipes_
 * [io.moderne.java.spring.boot3.UpgradeSpringCloudAWSToSpringBoot_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringcloudawstospringboot_3_4.md)
   * **Upgrade Spring Cloud AWS to Spring Boot 3.4 compatible version**
   * Upgrade the Spring Cloud AWS dependency to a version compatible with Spring Boot 3.4.
+* [io.moderne.java.spring.boot3.UpgradeSpringCloudAzure_6](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringcloudazure_6.md)
+  * **Migrate Spring Cloud Azure to 6.x**
+  * Upgrade `com.azure.spring` dependencies to the 6.x line, the Spring Cloud Azure release aligned with Spring Boot 3.5. Migrates code off the deprecated `ServiceBusJmsConnectionFactoryCustomizer` interface removed in 6.0.
 * [io.moderne.java.spring.boot3.UpgradeSpringKafka_3_3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringkafka_3_3.md)
   * **Migrate to Spring Kafka 3.3**
   * Migrate applications to the latest Spring Kafka 3.3 release.
@@ -7719,6 +7743,9 @@ _213 recipes_
 * [io.moderne.java.spring.boot4.FlagGrpcClientStubsForImportGrpcClients](/user-documentation/recipes/recipe-catalog/java/spring/boot4/flaggrpcclientstubsforimportgrpcclients.md)
   * **Flag gRPC client stub injections that need `@ImportGrpcClients`**
   * Spring gRPC 1.0 auto-scanned generated proto stubs and registered them as client beans; Spring gRPC 1.1 no longer does, so each stub must be imported explicitly with `@ImportGrpcClients`. The correct stub list and annotation location are application-specific, so rather than editing code this recipe adds a TODO comment to classes that inject a gRPC client stub (a field or constructor/method parameter whose type extends `io.grpc.stub.AbstractStub`) so the annotation can be added by hand.
+* [io.moderne.java.spring.boot4.InlineSpringRetryMaxAttemptsExpressionConstants](/user-documentation/recipes/recipe-catalog/java/spring/boot4/inlinespringretrymaxattemptsexpressionconstants.md)
+  * **Inline `maxAttemptsExpression` constants ahead of the Spring Framework 7 migration**
+  * Replace a `static final String` constant referenced by spring-retry's `@Retryable(maxAttemptsExpression = ...)` with its literal value, so that the migration to Spring Framework 7's `maxRetriesString` can apply the required `maxAttempts`-to-`maxRetries` decrement instead of leaving a TODO. Only constants declared in the sources being migrated are resolved.
 * [io.moderne.java.spring.boot4.InsertPropertyMapperAlwaysMethodInvocation](/user-documentation/recipes/recipe-catalog/java/spring/boot4/insertpropertymapperalwaysmethodinvocation.md)
   * **Preserve `PropertyMapper` null-passing behavior**
   * Spring Boot 4.0 changes the `PropertyMapper` behavior so that `from()` no longer calls `to()` when the source value is `null`. This recipe inserts `.always()` before terminal mapping methods to preserve the previous behavior. Chains that already contain `.whenNonNull()` or `.alwaysApplyingWhenNonNull()` are skipped, as they explicitly opted into null-skipping behavior which is now the default.
@@ -7860,6 +7887,9 @@ _213 recipes_
 * [io.moderne.java.spring.boot4.SpringBootProperties_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_1-moderne-edition.md)
   * **Migrate Spring Boot properties to 4.1 (Moderne Edition)**
   * Migrate properties found in `application.properties` and `application.yml`.
+* [io.moderne.java.spring.boot4.SpringBootProperties_4_2](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springbootproperties_4_2.md)
+  * **Migrate Spring Boot properties to 4.2**
+  * Migrate properties found in `application.properties` and `application.yml`.
 * [io.moderne.java.spring.boot4.UpgradeAwspringCloud_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradeawspringcloud_4_0.md)
   * **Migrate Spring Cloud AWS (awspring) to 4.0**
   * Upgrade `io.awspring.cloud` dependencies to 4.0.x and migrate code for the breaking API changes in Spring Cloud AWS 4.0. Spring Cloud AWS 4.0 aligns with Spring Boot 4 / Spring Framework 7 and adopts Jackson 3 by default; this recipe moves usages off the deprecated Jackson 2 variants to their Jackson 3 replacements and migrates the SQS default-converter `setObjectMapper` configurer. Run after the Jackson 2 to 3 migration so user mappers are already `tools.jackson` `JsonMapper`s.
@@ -7872,6 +7902,9 @@ _213 recipes_
 * [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_1.md)
   * **Migrate to Spring Boot 4.1**
   * Migrate applications to the latest Spring Boot 4.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.1.
+* [io.moderne.java.spring.boot4.UpgradeSpringCloudAzure_7](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringcloudazure_7.md)
+  * **Migrate Spring Cloud Azure to 7.x**
+  * Upgrade `com.azure.spring` dependencies to the 7.x line, the Spring Cloud Azure release aligned with Spring Boot 4.0. The 6.x to 7.x transition is a version alignment with Spring Boot 4 / Spring Framework 7 / Spring Cloud 2025.1 and introduces no breaking API changes on top of the migrations already performed by the Boot 3.5 chain via `UpgradeSpringCloudAzure_6`.
 * [io.moderne.java.spring.boot4.UpgradeSpringKafka_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringkafka_4_0.md)
   * **Migrate to Spring Kafka 4.0**
   * Migrate applications to Spring Kafka 4.0. This includes removing deprecated configuration options that are no longer supported.
@@ -7923,6 +7956,9 @@ _213 recipes_
 * [io.moderne.java.spring.framework.FindDeprecatedPathMatcherUsage](/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage.md)
   * **Find deprecated `PathMatcher` usage**
   * In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`. This recipe finds usages of the deprecated `AntPathMatcher` class that may require manual migration to `PathPatternParser`.
+* [io.moderne.java.spring.framework.FindSessionAttributesWithoutSetComplete](/user-documentation/recipes/recipe-catalog/java/spring/framework/findsessionattributeswithoutsetcomplete.md)
+  * **Find `@Controller` classes that use `@SessionAttributes` without calling `setComplete()`**
+  * Finds `@Controller` (or `@RestController`) classes annotated with `@SessionAttributes` whose body never calls `SessionStatus.setComplete()`. Without that call, session attributes declared by the controller are never cleared, leaking data across requests and eventually growing the session unbounded. A handler that finishes a workflow should inject a `SessionStatus` parameter and call `sessionStatus.setComplete()` before returning.
 * [io.moderne.java.spring.framework.FlagSuffixPatternMatchUsage](/user-documentation/recipes/recipe-catalog/java/spring/framework/flagsuffixpatternmatchusage.md)
   * **Flag deprecated suffix pattern matching usage for manual review**
   * Handles deprecated `setUseSuffixPatternMatch()` and `setUseRegisteredSuffixPatternMatch()` calls. When suffix pattern matching is explicitly enabled, adds TODO comments and search markers since there is no automatic migration path. When explicitly disabled, the call is safely removed since `false` is already the default since Spring Framework 5.3.
@@ -8033,7 +8069,7 @@ _213 recipes_
   * `CookieLocaleResolver#setCookieName(String)` was deprecated in Spring Framework 6.0 and removed in Spring Framework 7.0. This recipe moves the cookie name into the `CookieLocaleResolver(String)` constructor and removes the setter call.
 * [io.moderne.java.spring.framework7.MigrateDeprecatedAPIs](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratedeprecatedapis.md)
   * **Migrate deprecated APIs removed in Spring Framework 7.0**
-  * Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, CookieLocaleResolver cookie name and max age configuration, and NestedServletException to ServletException type migration.
+  * Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, CookieLocaleResolver cookie name and max age configuration, NoResourceFoundException constructor changes, and NestedServletException to ServletException type migration.
 * [io.moderne.java.spring.framework7.MigrateHttpStatusToRfc9110](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratehttpstatustorfc9110.md)
   * **Migrate `HttpStatus` enum values to RFC 9110 names**
   * Spring Framework 7.0 aligns HttpStatus enum values with RFC 9110. This recipe replaces deprecated status code constants with their RFC 9110 equivalents: `PAYLOAD_TOO_LARGE` becomes `CONTENT_TOO_LARGE` and `UNPROCESSABLE_ENTITY` becomes `UNPROCESSABLE_CONTENT`.
@@ -8046,6 +8082,9 @@ _213 recipes_
 * [io.moderne.java.spring.framework7.MigrateListenableFuture](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratelistenablefuture.md)
   * **Migrate `ListenableFuture` to `CompletableFuture`**
   * Spring Framework 6.0 deprecated `ListenableFuture` in favor of `CompletableFuture`. Spring Framework 7.0 removes `ListenableFuture` entirely. This recipe migrates usages of `ListenableFuture` and its callbacks to use `CompletableFuture` and `BiConsumer` instead.
+* [io.moderne.java.spring.framework7.MigrateNoResourceFoundExceptionConstructor](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratenoresourcefoundexceptionconstructor.md)
+  * **Migrate `NoResourceFoundException` constructor for Spring Framework 7.0**
+  * Spring Framework 7.0 changed the `NoResourceFoundException` constructor from `(HttpMethod, String resourcePath)` to `(HttpMethod, String requestUri, String resourcePath)`. This recipe rewrites the two-argument form to the three-argument form by duplicating the existing `resourcePath` argument into the new `requestUri` slot, matching typical test-fixture usage where the two URIs are the same.
 * [io.moderne.java.spring.framework7.MigrateResponseEntityGetStatusCodeValueMethod](/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod.md)
   * **Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`**
   * Replaces calls to `ResponseEntity#getStatusCodeValue()` which was deprecated in Spring Framework 6.0 and removed in Spring Framework 7.0 with `getStatusCode().value()`.

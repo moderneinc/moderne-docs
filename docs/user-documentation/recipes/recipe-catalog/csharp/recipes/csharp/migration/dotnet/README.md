@@ -27,6 +27,7 @@ description: Dotnet OpenRewrite recipes.
 * [Change type](./changetype.md)
 * [Delete method argument](./deletemethodargument.md)
 * [Find csproj MSBuildProject marker presence](./findcsprojmarker.md)
+* [Remove `.njsproj` projects from solution](./removenjsprojfromsolution.md)
 * [Remove method invocations](./removemethodinvocations.md)
 
 

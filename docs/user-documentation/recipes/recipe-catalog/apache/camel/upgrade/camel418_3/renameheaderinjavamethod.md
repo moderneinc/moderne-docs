@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Rename header in .setHeader()/.getHeader() calls"}
-  description={"Renames header references in Message.setHeader() and Message.getHeader() method calls. Only migrates string literals in safe contexts. Does NOT migrate dynamic header names or Map.get() calls."}
+  description={"Renames header references in Message.setHeader(), Message.getHeader(), and in the setHeader(), removeHeader() and header() DSL methods. Only migrates string literals in safe contexts. Does NOT migrate dynamic header names or Map.get() calls."}
   fqName={"org.apache.camel.upgrade.camel418_3.RenameHeaderInJavaMethod"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Rename header in .setHeader()/.getHeader() calls</RecipeHeader.Title>
 
-<RecipeHeader.Description>Renames header references in Message.setHeader() and Message.getHeader() method calls. Only migrates string literals in safe contexts. Does NOT migrate dynamic header names or Map.get() calls.</RecipeHeader.Description>
+<RecipeHeader.Description>Renames header references in Message.setHeader(), Message.getHeader(), and in the setHeader(), removeHeader() and header() DSL methods. Only migrates string literals in safe contexts. Does NOT migrate dynamic header names or Map.get() calls.</RecipeHeader.Description>
 
 </RecipeHeader>
 

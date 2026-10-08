@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"includeApproaching","value":"null"}],"variants":[{"language":"docker","before":"FROM debian:buster\nRUN apt-get update\n","after":"~~(EOL: debian:buster (ended 2022-09-10, suggest trixie (13)))~~>FROM debian:buster\nRUN apt-get update\n","diff":"@@ -1,1 +1,1 @@\n-FROM debian:buster\n+~~(EOL: debian:buster (ended 2022-09-10, suggest trixie (13)))~~>FROM debian:buster\nRUN apt-get update\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"includeApproaching","value":"null"}],"variants":[{"language":"docker","before":"FROM debian:buster\nRUN apt-get update\n","after":"~~(EOL: debian:buster (ended 2024-06-30, suggest trixie (13)))~~>FROM debian:buster\nRUN apt-get update\n","diff":"@@ -1,1 +1,1 @@\n-FROM debian:buster\n+~~(EOL: debian:buster (ended 2024-06-30, suggest trixie (13)))~~>FROM debian:buster\nRUN apt-get update\n","newFile":false}]}]}>
 
 ## Examples
 

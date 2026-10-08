@@ -13,6 +13,7 @@ description: Cryptography OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
+* [Build a joined cryptography inventory](./buildcryptographyinventory.md)
 * [Post quantum cryptography](./postquantumcryptography.md)
 
 ## Recipes

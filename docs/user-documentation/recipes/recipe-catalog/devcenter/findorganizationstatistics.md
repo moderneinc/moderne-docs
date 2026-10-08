@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find organization statistics"}
-  description={"Counts lines of code per repository for organization-level statistics."}
+  description={"Counts lines of code per repository for organization-level statistics. Source files of a type without a line counter are not counted and are marked with a warning."}
   fqName={"io.moderne.devcenter.FindOrganizationStatistics"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find organization statistics</RecipeHeader.Title>
 
-<RecipeHeader.Description>Counts lines of code per repository for organization-level statistics.</RecipeHeader.Description>
+<RecipeHeader.Description>Counts lines of code per repository for organization-level statistics. Source files of a type without a line counter are not counted and are marked with a warning.</RecipeHeader.Description>
 
 </RecipeHeader>
 

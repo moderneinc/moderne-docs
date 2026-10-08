@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["security","RSPEC-S6437"]}
+  tags={["security","RSPEC-S6437","RSPEC-S6418"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.secrets.FindSecrets"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

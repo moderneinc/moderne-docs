@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"JUnit 4 `@RunWith(Enclosed.class)` to JUnit Jupiter `@Nested`"}
-  description={"Removes the `Enclosed` specification from a class, with `Nested` added to its inner classes by `AddMissingNested`."}
+  description={"Replaces the `Enclosed` runner with `@Nested` on its inner test classes, preserving independent static test classes."}
   fqName={"org.openrewrite.java.testing.junit5.EnclosedToNested"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>JUnit 4 `@RunWith(Enclosed.class)` to JUnit Jupiter `@Nested`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes the `Enclosed` specification from a class, with `Nested` added to its inner classes by `AddMissingNested`.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces the `Enclosed` runner with `@Nested` on its inner test classes, preserving independent static test classes.</RecipeHeader.Description>
 
 </RecipeHeader>
 

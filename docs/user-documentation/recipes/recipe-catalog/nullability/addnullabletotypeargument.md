@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    void m() {\n        List<String> l = new ArrayList<>();\n        l.add(null);\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nimport java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    void m() {\n        List<@Nullable String> l = new ArrayList<>();\n        l.add(null);\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\nimport java.util.ArrayList;\n@@ -6,1 +8,1 @@\nclass Test {\n    void m() {\n-       List<String> l = new ArrayList<>();\n+       List<@Nullable String> l = new ArrayList<>();\n        l.add(null);\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AddNullableToTypeArgument","displayName":"Add `@Nullable` to collection and map type arguments that hold null elements","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

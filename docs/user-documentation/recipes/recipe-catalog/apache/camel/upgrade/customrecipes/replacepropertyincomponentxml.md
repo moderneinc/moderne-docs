@@ -37,13 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"component","required":true,"description":"Component name.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"newPropertyKey","required":true,"description":"The prefix to be replaced with.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"valuePrefix","required":false,"description":"This value is appended before the current value of the modified method.","example":"file:"}]}>
+<OptionsTable options={[{"type":"String","name":"component","required":true,"description":"Component name.","example":"netty"},{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"keyStoreFile"},{"type":"String","name":"newPropertyKey","required":true,"description":"The property key to be replaced with.","example":"keyStoreResource"},{"type":"String","name":"valuePrefix","required":false,"description":"This value is appended before the current value of the modified method.","example":"file:"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.ReplacePropertyInComponentXml","displayName":"Camel XMl DSL changes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"component=TODO Provide a usage example for the docs\" --recipe-option \"oldPropertyKey=TODO Provide a usage example for the docs\" --recipe-option \"newPropertyKey=TODO Provide a usage example for the docs\" --recipe-option \"valuePrefix=file:\""}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.ReplacePropertyInComponentXml","displayName":"Camel XMl DSL changes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"component=netty\" --recipe-option \"oldPropertyKey=keyStoreFile\" --recipe-option \"newPropertyKey=keyStoreResource\" --recipe-option \"valuePrefix=file:\""}}>
 
 ## Usage
 

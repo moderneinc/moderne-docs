@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"annotatedPackages","value":"null"}],"unchanged":{"language":"java","code":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n"},"variants":[{"language":"java","before":"package com.example;\n\nclass Caller {\n    int run(Source source) {\n        if (source.flag()) {\n            return 1;\n        }\n        return 0;\n    }\n}\n","after":"package com.example;\n\nclass Caller {\n    int run(Source source) {\n        if (/*~~(Nullability: behavior change — evaluates to false instead of throwing NullPointerException when the Boolean is null)~~>*/Boolean.TRUE.equals(source.flag())) {\n            return 1;\n        }\n        return 0;\n    }\n}\n","diff":"--- src/main/java/com/example/Caller.java\n+++ src/main/java/com/example/Caller.java\n@@ -5,1 +5,1 @@\nclass Caller {\n    int run(Source source) {\n-       if (source.flag()) {\n+       if (/*~~(Nullability: behavior change — evaluates to false instead of throwing NullPointerException when the Boolean is null)~~>*/Boolean.TRUE.equals(source.flag())) {\n            return 1;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.SafeNullableBooleanCondition","displayName":"Make a nullable `Boolean` condition null-safe with `Boolean.TRUE.equals(...)`","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

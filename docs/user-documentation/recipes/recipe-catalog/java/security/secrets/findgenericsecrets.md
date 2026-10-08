@@ -32,11 +32,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"}]}>
+<RecipeList recipes={[{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"}]}>
 
 ## Definition
 
 </RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"config:\n  apiKey: abcdefghijklmnopqrstuvwxyz0123456789\n","after":"config:\n  ~~(Generic API key)~~>apiKey: abcdefghijklmnopqrstuvwxyz0123456789\n","diff":"@@ -2,1 +2,1 @@\nconfig:\n- apiKey: abcdefghijklmnopqrstuvwxyz0123456789\n+ ~~(Generic API key)~~>apiKey: abcdefghijklmnopqrstuvwxyz0123456789\n\n","newFile":false}]},{"variants":[{"language":"yaml","before":"config:\n  apiKey: abcdefghijklmnopqrstuvwxyz0123456789\n","after":"config:\n  ~~(Generic API key)~~>apiKey: abcdefghijklmnopqrstuvwxyz0123456789\n","diff":"@@ -2,1 +2,1 @@\nconfig:\n- apiKey: abcdefghijklmnopqrstuvwxyz0123456789\n+ ~~(Generic API key)~~>apiKey: abcdefghijklmnopqrstuvwxyz0123456789\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.security.secrets.FindGenericSecrets","displayName":"Find generic secrets","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
 

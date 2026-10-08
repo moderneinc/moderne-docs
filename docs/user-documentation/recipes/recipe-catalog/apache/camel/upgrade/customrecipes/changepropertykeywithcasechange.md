@@ -37,13 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"newPrefix","required":true,"description":"The prefix to be replaced with.","example":"TODO Provide a usage example for the docs"},{"type":"List","name":"exclusions","required":true,"description":"Regexp for exclusions","example":"camel.springboot.main-run-controller"}]}>
+<OptionsTable options={[{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"camel.main.routeController(.*)"},{"type":"String","name":"newPrefix","required":true,"description":"The prefix to be replaced with.","example":"camel.routeController."},{"type":"List","name":"exclusions","required":true,"description":"Regexp for exclusions","example":"camel.springboot.main-run-controller"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.ChangePropertyKeyWithCaseChange","displayName":"Change prefix of property with Camel case","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPropertyKey=TODO Provide a usage example for the docs\" --recipe-option \"newPrefix=TODO Provide a usage example for the docs\" --recipe-option \"exclusions=camel.springboot.main-run-controller\""}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.ChangePropertyKeyWithCaseChange","displayName":"Change prefix of property with Camel case","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPropertyKey=camel.main.routeController(.*)\" --recipe-option \"newPrefix=camel.routeController.\" --recipe-option \"exclusions=camel.springboot.main-run-controller\""}}>
 
 ## Usage
 

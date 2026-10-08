@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `Condition.notifyAll()` with `Condition.notify_all()`"}
-  description={"Replace `notifyAll()` method calls with `notify_all()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12."}
+  description={"Replace `notifyAll()` method calls with `notify_all()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12. Only fires where the receiver's type resolves to `threading.Condition` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceConditionNotifyAll"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `Condition.notifyAll()` with `Condition.notify_all()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `notifyAll()` method calls with `notify_all()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `notifyAll()` method calls with `notify_all()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12. Only fires where the receiver's type resolves to `threading.Condition` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -54,6 +54,20 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-cryptography
 
+#### [io.moderne.cryptography.BuildCryptographyInventory](/user-documentation/recipes/recipe-catalog/cryptography/buildcryptographyinventory.md)
+  * **Build a joined cryptography inventory**
+  * Runs the cipher inventory and the post-quantum TLS readiness inventory together so that every finding lands in one `Cryptography inventory` data table. Findings that different detectors report at the same source location — a TLS entry point classified both for the protocol versions it allows and for the key-exchange groups it offers — are joined into a single row there, which the per-detector tables cannot express. Those per-detector tables are still emitted unchanged, carrying the same findings unjoined. Changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.cryptography.agilesec.table.CipherInventoryTable**: *Cryptographic algorithm usages detected in source code, including the algorithm, its function, the library and language, the precise source location, and repository provenance.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
+  * **io.moderne.cryptography.pqc.table.PqcReadinessTable**: *Per-module post-quantum TLS readiness derived from the resolved Maven and Gradle dependency models and the `JavaVersion` markers of the module's Java sources. Modules built by tools OpenRewrite does not parse (Bazel, Ant) and BouncyCastle shaded into fat jars are invisible here, so an absent row is not evidence of health.*
+  * **io.moderne.cryptography.pqc.table.TlsConfigurationInventoryTable**: *TLS protocol version and cipher suite configuration detected in Java sources and in Spring Boot `.properties`/`.yaml` files, classified by whether TLS 1.3 — and therefore JEP 527 / BouncyCastle 1.81 hybrid key exchange — remains reachable. Non-JSSE TLS stacks (Netty, OkHttp, Tomcat and Jetty server configuration, `-D` flags in build files and launch scripts) are out of scope, so an absent row is not evidence that a module has no legacy TLS floor.*
+  * **io.moderne.cryptography.pqc.table.TlsNamedGroupsInventoryTable**: *TLS key-exchange group configuration detected in Java sources, configuration files and checked-in JVM-options values, classified by whether an ML-KEM hybrid group is offered. `-D` flags in shell scripts, Dockerfiles and orchestration manifests outside the scanned repository are invisible, so an absent row is not evidence that no group pin exists.*
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
 #### [io.moderne.cryptography.FindCryptoVulnerabilitiesPipeline](/user-documentation/recipes/recipe-catalog/cryptography/findcryptovulnerabilitiespipeline.md)
   * **Find cryptographic vulnerability chains**
   * Detects cryptographic vulnerabilities that span multiple operations, tracking flow from hardcoded algorithms through key material to encryption operations.
@@ -216,6 +230,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.agilesec.table.CipherInventoryTable**: *Cryptographic algorithm usages detected in source code, including the algorithm, its function, the library and language, the precise source location, and repository provenance.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.agilesec.FindInsecureCSharpCryptography](/user-documentation/recipes/recipe-catalog/cryptography/agilesec/findinsecurecsharpcryptography.md)
@@ -225,6 +240,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.agilesec.table.CipherInventoryTable**: *Cryptographic algorithm usages detected in source code, including the algorithm, its function, the library and language, the precise source location, and repository provenance.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.agilesec.FindInsecureJavaCryptography](/user-documentation/recipes/recipe-catalog/cryptography/agilesec/findinsecurejavacryptography.md)
@@ -234,6 +250,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.agilesec.table.CipherInventoryTable**: *Cryptographic algorithm usages detected in source code, including the algorithm, its function, the library and language, the precise source location, and repository provenance.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.agilesec.FindInsecureNativeCryptography](/user-documentation/recipes/recipe-catalog/cryptography/agilesec/findinsecurenativecryptography.md)
@@ -243,6 +260,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.agilesec.table.CipherInventoryTable**: *Cryptographic algorithm usages detected in source code, including the algorithm, its function, the library and language, the precise source location, and repository provenance.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.pqc.AddHybridTlsNamedGroup](/user-documentation/recipes/recipe-catalog/cryptography/pqc/addhybridtlsnamedgroup.md)
@@ -270,6 +288,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.pqc.table.PqcReadinessTable**: *Per-module post-quantum TLS readiness derived from the resolved Maven and Gradle dependency models and the `JavaVersion` markers of the module's Java sources. Modules built by tools OpenRewrite does not parse (Bazel, Ant) and BouncyCastle shaded into fat jars are invisible here, so an absent row is not evidence of health.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
   * **io.moderne.cryptography.pqc.table.TlsConfigurationInventoryTable**: *TLS protocol version and cipher suite configuration detected in Java sources and in Spring Boot `.properties`/`.yaml` files, classified by whether TLS 1.3 — and therefore JEP 527 / BouncyCastle 1.81 hybrid key exchange — remains reachable. Non-JSSE TLS stacks (Netty, OkHttp, Tomcat and Jetty server configuration, `-D` flags in build files and launch scripts) are out of scope, so an absent row is not evidence that a module has no legacy TLS floor.*
   * **io.moderne.cryptography.pqc.table.TlsNamedGroupsInventoryTable**: *TLS key-exchange group configuration detected in Java sources, configuration files and checked-in JVM-options values, classified by whether an ML-KEM hybrid group is offered. `-D` flags in shell scripts, Dockerfiles and orchestration manifests outside the scanned repository are invisible, so an absent row is not evidence that no group pin exists.*
   * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
@@ -282,6 +301,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.pqc.table.TlsConfigurationInventoryTable**: *TLS protocol version and cipher suite configuration detected in Java sources and in Spring Boot `.properties`/`.yaml` files, classified by whether TLS 1.3 — and therefore JEP 527 / BouncyCastle 1.81 hybrid key exchange — remains reachable. Non-JSSE TLS stacks (Netty, OkHttp, Tomcat and Jetty server configuration, `-D` flags in build files and launch scripts) are out of scope, so an absent row is not evidence that a module has no legacy TLS floor.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.pqc.BuildTlsKeyExchangeInventory](/user-documentation/recipes/recipe-catalog/cryptography/pqc/buildtlskeyexchangeinventory.md)
@@ -291,6 +311,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.pqc.table.TlsNamedGroupsInventoryTable**: *TLS key-exchange group configuration detected in Java sources, configuration files and checked-in JVM-options values, classified by whether an ML-KEM hybrid group is offered. `-D` flags in shell scripts, Dockerfiles and orchestration manifests outside the scanned repository are invisible, so an absent row is not evidence that no group pin exists.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.pqc.EnableHybridTlsKeyExchange](/user-documentation/recipes/recipe-catalog/cryptography/pqc/enablehybridtlskeyexchange.md)
@@ -354,6 +375,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.pqc.table.TlsNamedGroupsInventoryTable**: *TLS key-exchange group configuration detected in Java sources, configuration files and checked-in JVM-options values, classified by whether an ML-KEM hybrid group is offered. `-D` flags in shell scripts, Dockerfiles and orchestration manifests outside the scanned repository are invisible, so an absent row is not evidence that no group pin exists.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.pqc.FindTlsPropertyConfiguration](/user-documentation/recipes/recipe-catalog/cryptography/pqc/findtlspropertyconfiguration.md)
@@ -363,15 +385,17 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.pqc.table.TlsConfigurationInventoryTable**: *TLS protocol version and cipher suite configuration detected in Java sources and in Spring Boot `.properties`/`.yaml` files, classified by whether TLS 1.3 — and therefore JEP 527 / BouncyCastle 1.81 hybrid key exchange — remains reachable. Non-JSSE TLS stacks (Netty, OkHttp, Tomcat and Jetty server configuration, `-D` flags in build files and launch scripts) are out of scope, so an absent row is not evidence that a module has no legacy TLS floor.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.pqc.FindTlsProtocolConfiguration](/user-documentation/recipes/recipe-catalog/cryptography/pqc/findtlsprotocolconfiguration.md)
   * **Find TLS protocol configuration**
-  * Inventories every place a Java source decides which TLS protocol versions and cipher suites may be negotiated, and classifies each by whether TLS 1.3 — the only version JEP 527 hybrid key exchange exists for — remains reachable. Covers `SSLContext.getInstance` (whose algorithm name is a *ceiling*, never a floor), the `setProtocols`/`setEnabledProtocols` and `setCipherSuites`/`setEnabledCipherSuites` sinks, the `jdk.tls.client.protocols`, `jdk.tls.server.protocols`, `https.protocols`, `jdk.tls.client.cipherSuites` and `jdk.tls.server.cipherSuites` system properties, BouncyCastle `getSupportedVersions` and `getSupportedCipherSuites` overrides, and default-acquisition sites that configure no floor at all. A pinned cipher list with no RFC 8446 suite blocks TLS 1.3 even when the protocol floor allows it. Findings land in the TLS configuration inventory data table. Scope is JSSE and BouncyCastle: Netty, OkHttp, Apache HttpClient and servlet-container configuration are not scanned, and `-D` flags in build files and launch scripts are invisible, so an absent row is not evidence of a modern floor.
+  * Inventories every place a Java source decides which TLS protocol versions and cipher suites may be negotiated, and classifies each by whether TLS 1.3 — the only version JEP 527 hybrid key exchange exists for — remains reachable. Covers `SSLContext.getInstance` (whose algorithm name is a *ceiling*, never a floor), the `setProtocols`/`setEnabledProtocols` and `setCipherSuites`/`setEnabledCipherSuites` sinks, the `setSSLParameters` sink that applies a parameter bundle assembled elsewhere, the `jdk.tls.client.protocols`, `jdk.tls.server.protocols`, `https.protocols`, `jdk.tls.client.cipherSuites` and `jdk.tls.server.cipherSuites` system properties, BouncyCastle `getSupportedVersions` and `getSupportedCipherSuites` overrides, and default-acquisition sites that configure no floor at all. A pinned cipher list with no RFC 8446 suite blocks TLS 1.3 even when the protocol floor allows it. Findings land in the TLS configuration inventory data table. Scope is JSSE and BouncyCastle: Netty, OkHttp, Apache HttpClient and servlet-container configuration are not scanned, and `-D` flags in build files and launch scripts are invisible, so an absent row is not evidence of a modern floor.
 
 ##### Data tables:
 
   * **io.moderne.cryptography.pqc.table.TlsConfigurationInventoryTable**: *TLS protocol version and cipher suite configuration detected in Java sources and in Spring Boot `.properties`/`.yaml` files, classified by whether TLS 1.3 — and therefore JEP 527 / BouncyCastle 1.81 hybrid key exchange — remains reachable. Non-JSSE TLS stacks (Netty, OkHttp, Tomcat and Jetty server configuration, `-D` flags in build files and launch scripts) are out of scope, so an absent row is not evidence that a module has no legacy TLS floor.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.pqc.PqcReadinessAudit](/user-documentation/recipes/recipe-catalog/cryptography/pqc/pqcreadinessaudit.md)
@@ -381,6 +405,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.pqc.table.PqcReadinessTable**: *Per-module post-quantum TLS readiness derived from the resolved Maven and Gradle dependency models and the `JavaVersion` markers of the module's Java sources. Modules built by tools OpenRewrite does not parse (Bazel, Ant) and BouncyCastle shaded into fat jars are invisible here, so an absent row is not evidence of health.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.pqc.PqcReadinessReport](/user-documentation/recipes/recipe-catalog/cryptography/pqc/pqcreadinessreport.md)
@@ -390,6 +415,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.cryptography.pqc.table.PqcReadinessTable**: *Per-module post-quantum TLS readiness derived from the resolved Maven and Gradle dependency models and the `JavaVersion` markers of the module's Java sources. Modules built by tools OpenRewrite does not parse (Bazel, Ant) and BouncyCastle shaded into fat jars are invisible here, so an absent row is not evidence of health.*
+  * **io.moderne.cryptography.table.CryptographyInventoryTable**: *Every cryptographic finding this module detects, joined into one sparse table so that a consumer does not have to match the per-detector tables on source location. A row carries the columns of whichever detectors reported at its location and leaves the others empty; the `Finding type` column names those detectors. The per-detector tables (`Cipher inventory`, `PQC readiness`, `TLS configuration inventory`, `TLS named groups inventory`) are still emitted unchanged, and carry the same findings unjoined.*
 
 
 #### [io.moderne.cryptography.pqc.UpgradeToPqcReadyTls](/user-documentation/recipes/recipe-catalog/cryptography/pqc/upgradetopqcreadytls.md)
@@ -598,8 +624,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [io.moderne.devcenter.DevCenterNodeStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenternodestarter.md)
-  * **DevCenter for Node.js**
-  * A default DevCenter configuration for Node.js repositories. Track Node.js version adoption across your organization.
+  * **DevCenter for JavaScript and TypeScript**
+  * A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend. Track Node.js version adoption and the move to ECMAScript 6 across your organization.
 
 ##### Data tables:
 
@@ -636,6 +662,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
 
 
+#### [io.moderne.devcenter.EcmaScriptModernization](/user-documentation/recipes/recipe-catalog/devcenter/ecmascriptmodernization.md)
+  * **Move to ECMAScript 6**
+  * Determine how many of a repository's JavaScript and TypeScript variable declarations still use `var` rather than `let` or `const`. A `var` that can't become `let` without changing behavior, such as a top-level one in a classic script or an exported or ambient one, isn't counted. Vendored, bundled and build-output files are skipped.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
 #### [io.moderne.devcenter.FindActiveCommitters](/user-documentation/recipes/recipe-catalog/devcenter/findactivecommitters.md)
   * **Find active committers on repositories**
   * List the committers on a repository whose most recent commit falls within the last 90 days, for the DevCenter contributing developers statistic.
@@ -648,7 +683,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.FindOrganizationStatistics](/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics.md)
   * **Find organization statistics**
-  * Counts lines of code per repository for organization-level statistics.
+  * Counts lines of code per repository for organization-level statistics. Source files of a type without a line counter are not counted and are marked with a warning.
 
 ##### Data tables:
 
@@ -820,6 +855,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 
@@ -1120,7 +1156,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.ExtractErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/extracterrorpatterns.md)
   * **Extract error handling patterns**
-  * Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
+  * Analyze JVM sources to extract error handling patterns including exception types, handling strategies, and logging frameworks used.
 
 ##### Data tables:
 
@@ -1179,6 +1215,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
+
+
+#### [io.moderne.prethink.FindPythonErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/findpythonerrorpatterns.md)
+  * **Find Python error handling patterns**
+  * Detect Python error-handling idioms: typed, bare and group `except` clauses, `finally`, `raise` with a class versus a chained `raise ... from`, a `raise ... from None` that hides the active exception, bare re-raises, `contextlib.suppress`, custom exception classes, and whether a handler logs, warns, swallows, recovers, falls back to another import or prints a traceback.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
 
 
 #### [io.moderne.prethink.FindRubyCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findrubycodingconventions.md)
@@ -2640,6 +2685,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [io.moderne.java.spring.boot3.UpgradeGradle8Spring34](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradegradle8spring34.md)
@@ -2658,6 +2704,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-moderne-edition.md)
@@ -2667,6 +2714,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition.md)
@@ -2676,6 +2724,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [io.moderne.java.spring.boot4.SpringBoot4BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springboot4bestpractices.md)
@@ -2685,6 +2734,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
@@ -2694,6 +2744,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_1.md)
@@ -2703,6 +2754,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [io.moderne.java.spring.boot4.UpgradeToJava21WhenUsingJooq](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradetojava21whenusingjooq.md)
@@ -2757,63 +2809,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 ## org.openrewrite
-
-
-### rewrite-cobol
-
-#### [org.openrewrite.cobol.search.FindCopybook](/user-documentation/recipes/recipe-catalog/cobol/search/findcopybook.md)
-  * **Find copybook usage**
-  * Find all copy statements with the copybook name.
-
-##### Data tables:
-
-  * **org.openrewrite.cobol.table.CopybookSource**: *Information about copybook references in a COBOL source.*
-
-
-#### [org.openrewrite.cobol.search.FindIndicators](/user-documentation/recipes/recipe-catalog/cobol/search/findindicators.md)
-  * **Find indicators**
-  * Find matching indicators. Currently, this recipe will not mark indicators on copybook code.
-
-##### Data tables:
-
-  * **org.openrewrite.cobol.table.IndicatorSearchResult**: *Indicator area matches found in COBOL source code.*
-
-
-#### [org.openrewrite.cobol.search.FindReference](/user-documentation/recipes/recipe-catalog/cobol/search/findreference.md)
-  * **Find matching identifiers in COBOL, copybooks, and JCL**
-  * Finds an identifier by an exact match or regex pattern in COBOL, copybooks, and/or JCL.
-
-##### Data tables:
-
-  * **org.openrewrite.cobol.table.ReferenceSearchResult**: *Identifier references found in COBOL, copybook, and JCL sources.*
-
-
-#### [org.openrewrite.cobol.search.FindRelationships](/user-documentation/recipes/recipe-catalog/cobol/search/findrelationships.md)
-  * **Find COBOL relationships**
-  * Build a list of relationships for diagramming and exploration.
-
-##### Data tables:
-
-  * **org.openrewrite.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
-
-
-#### [org.openrewrite.cobol.search.FindWord](/user-documentation/recipes/recipe-catalog/cobol/search/findword.md)
-  * **Find matching words in the source code**
-  * Search for COBOL words based on a search term.
-
-##### Data tables:
-
-  * **org.openrewrite.cobol.table.WordSearchResult**: *Words in COBOL source code that match the search criteria.*
-
-
-#### [org.openrewrite.jcl.search.FindWord](/user-documentation/recipes/recipe-catalog/jcl/search/findword.md)
-  * **Find matching words in JCL source code**
-  * Search for JCL words based on a search term.
-
-##### Data tables:
-
-  * **org.openrewrite.jcl.table.JclWordSearchResult**: *Words in JCL source code that match the search criteria.*
-
 
 
 ### rewrite-core
@@ -2916,6 +2911,18 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.table.TextMatches**: *Lines matching simple text search.*
+
+
+
+### rewrite-csharp
+
+#### [org.openrewrite.csharp.msbuild.AlignPathCasing](/user-documentation/recipes/recipe-catalog/csharp/msbuild/alignpathcasing.md)
+  * **Align MSBuild path casing with the repository**
+  * MSBuild resolves paths case-insensitively on Windows, so a solution can reference `assemblies/WPFToolkit/WPFToolkit.csproj` while the directory committed to git is actually named `assemblies/Wpftoolkit`. The same reference fails with `MSB3202` or `Project file not found` on a case-sensitive file system. This recipe rewrites path references in `.sln`, `.slnx`, `.csproj`, `.props`, and `.targets` files so that every segment matches the casing of the file or directory that is actually in the repository. References that already resolve exactly, that cannot be resolved at all, or whose casing is ambiguous — because two files or directories differ only by case — are left untouched.
+
+##### Data tables:
+
+  * **org.openrewrite.csharp.table.PathCasingMismatches**: *Path references in solution and MSBuild project files whose casing differs from the file or directory that is actually in the repository.*
 
 
 
@@ -3055,7 +3062,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.gradle.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/gradle/upgradedependencyversion.md)
   * **Upgrade Gradle dependency versions**
-  * Upgrade the version of a dependency in a build.gradle file. Supports updating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`   * `Map` notation: `group: 'group', name: 'artifact', version: 'version'` Can update version numbers which are defined earlier in the same file in variable declarations.
+  * Upgrade the version of a dependency in a build.gradle file. Supports updating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`   * `Map` notation: `group: 'group', name: 'artifact', version: 'version'` Can update version numbers which are defined earlier in the same file in variable declarations, and in a version catalog.
 
 ##### Data tables:
 
@@ -3305,7 +3312,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.javascript.AddDependency](/user-documentation/recipes/recipe-catalog/javascript/adddependency.md)
   * **Add npm dependency**
-  * Add an npm dependency to `package.json` and regenerate the lock file by running the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Add an npm dependency to `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -3314,7 +3321,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.javascript.ChangeDependency](/user-documentation/recipes/recipe-catalog/javascript/changedependency.md)
   * **Change npm dependency**
-  * Renames an npm dependency in `package.json` and optionally updates its version constraint. After modifying the package.json, the lock file is regenerated by running the package manager. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Renames an npm dependency in `package.json` and optionally updates its version constraint. After modifying the package.json, the lock file is regenerated natively, without executing the package manager. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -3323,7 +3330,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.javascript.RemoveDependency](/user-documentation/recipes/recipe-catalog/javascript/removedependency.md)
   * **Remove npm dependency**
-  * Remove an npm dependency from `package.json` and regenerate the lock file. If the dependency does not exist in any scope, the recipe is a no-op.
+  * Remove an npm dependency from `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency does not exist in any scope, the recipe is a no-op.
 
 ##### Data tables:
 
@@ -3332,7 +3339,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.javascript.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion.md)
   * **Upgrade npm dependency version**
-  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file by running the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file natively, without executing the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -3341,7 +3348,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.javascript.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradetransitivedependencyversion.md)
   * **Upgrade transitive npm dependency**
-  * Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.
+  * Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file natively, without executing the package manager. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -3367,6 +3374,63 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.kotlin.table.KotlinSourceFile**: *Kotlin sources present in LSTs on the SAAS.*
+
+
+
+### rewrite-mainframe
+
+#### [org.openrewrite.mainframe.cobol.search.FindCopybook](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findcopybook.md)
+  * **Find copybook usage**
+  * Find all copy statements with the copybook name.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CopybookSource**: *Information about copybook references in a COBOL source.*
+
+
+#### [org.openrewrite.mainframe.cobol.search.FindIndicators](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findindicators.md)
+  * **Find indicators**
+  * Find matching indicators. Currently, this recipe will not mark indicators on copybook code.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.IndicatorSearchResult**: *Indicator area matches found in COBOL source code.*
+
+
+#### [org.openrewrite.mainframe.cobol.search.FindReference](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findreference.md)
+  * **Find matching identifiers in COBOL, copybooks, and JCL**
+  * Finds an identifier by an exact match or regex pattern in COBOL, copybooks, and/or JCL.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.ReferenceSearchResult**: *Identifier references found in COBOL, copybook, and JCL sources.*
+
+
+#### [org.openrewrite.mainframe.cobol.search.FindRelationships](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findrelationships.md)
+  * **Find COBOL relationships**
+  * Build a list of relationships for diagramming and exploration.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [org.openrewrite.mainframe.cobol.search.FindWord](/user-documentation/recipes/recipe-catalog/mainframe/cobol/search/findword.md)
+  * **Find matching words in the source code**
+  * Search for COBOL words based on a search term.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.WordSearchResult**: *Words in COBOL source code that match the search criteria.*
+
+
+#### [org.openrewrite.mainframe.jcl.search.FindWord](/user-documentation/recipes/recipe-catalog/mainframe/jcl/search/findword.md)
+  * **Find matching words in JCL source code**
+  * Search for JCL words based on a search term.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.jcl.table.JclWordSearchResult**: *Words in JCL source code that match the search criteria.*
 
 
 
@@ -3594,7 +3658,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
   * **Add Python dependency**
-  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When `onlyIfUsing` is set, the dependency is added only to projects with a Python file that imports that module. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -3603,7 +3667,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.python.ChangeDependency](/user-documentation/recipes/recipe-catalog/python/changedependency.md)
   * **Change Python dependency**
-  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -3612,7 +3676,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.python.RemoveDependency](/user-documentation/recipes/recipe-catalog/python/removedependency.md)
   * **Remove Python dependency**
-  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -3621,7 +3685,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.python.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md)
   * **Upgrade Python dependency version**
-  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -3630,7 +3694,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.python.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Python dependency version**
-  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: invokes the package manager or the network and publishes per-project state shared with other dependency recipes.
+  * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -3879,8 +3943,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.openrewrite.android.UpgradeAndroidGradlePluginVersion](/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md)
-  * **Upgrade Android Gradle Plugin (AGP) version**
-  * Upgrade Android Gradle Plugin (AGP) version and update the Gradle Wrapper version. Compatible versions are published in the [AGP release notes](https://developer.android.com/build/releases/gradle-plugin).
+  * **Upgrade Android Gradle Plugin version**
+  * Upgrade the Android Gradle Plugin (AGP) version. Handles both the legacy `buildscript \{ dependencies \{ classpath 'com.android.tools.build:gradle:...' \} \}` form (delegating to the upstream `UpgradeDependencyVersion` recipe for full DSL coverage) and the modern `plugins \{ id(&quot;com.android.application&quot;) version &quot;...&quot; \}` form.
 
 ##### Data tables:
 
@@ -4061,7 +4125,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-08-24T1108.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. Both direct and transitive dependencies are checked using the full dependency graph captured when the project's LST was built. Vulnerable direct dependencies are upgraded in place; vulnerable transitive dependencies are added as direct dependencies pinned to a fixed version. The target version is controlled with the `versionSelection` option. Before any change, the version constraints declared by every other package in the dependency graph are validated; when an upgrade would violate a constraint, an error marker describing the conflicting dependency path is added instead and no change is made. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Last updated: 2026-09-28T1105.
 
 ##### Data tables:
 
@@ -4162,7 +4226,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-08-24T1108.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-09-28T1105.
 
 ##### Data tables:
 
@@ -4235,7 +4299,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.security.Owasp2025A07](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a07.md)
   * **Remediate OWASP A07:2025 Identification and authentication failures**
-  * OWASP [A07:2025](https://owasp.org/Top10/2025/A07_2025-Authentication_Failures/) describes failures related to identification and authentication, including weak credential management, missing brute force protections, session fixation, hardcoded credentials, insecure &quot;remember me&quot;, and missing multi-factor authentication. Same position as A07:2021 (no prior aggregator existed).
+  * OWASP [A07:2025](https://owasp.org/Top10/2025/A07_2025-Authentication_Failures/) describes failures related to identification and authentication, including weak credential management, missing brute force protections, session fixation, hardcoded credentials, insecure &quot;remember me&quot;, and missing multi-factor authentication. Same position as A07:2021; recipes whose primary CWE is on the 2021 A07 mapped list are inherited from `OwaspA07`.
 
 ##### Data tables:
 
@@ -4249,6 +4313,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.Owasp2025A09](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a09.md)
+  * **Remediate OWASP A09:2025 Security logging and alerting failures**
+  * OWASP [A09:2025](https://owasp.org/Top10/2025/A09_2025-Security_Logging_and_Alerting_Failures/) describes failures to detect, escalate, and alert on active attacks. Previously A09:2021 Security Logging and Monitoring Failures, renamed in 2025 to emphasize alerting. Coverage here focuses on the code-side prerequisites for effective detection: getting errors and stack traces into the log stream so SIEMs can see them, keeping user-controlled input from being able to forge log entries, and keeping secrets and other sensitive values out of the log.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
 #### [org.openrewrite.java.security.OwaspA01](/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md)
@@ -4281,6 +4354,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
 
 
+#### [org.openrewrite.java.security.OwaspA07](/user-documentation/recipes/recipe-catalog/java/security/owaspa07.md)
+  * **Remediate OWASP A07:2021 Identification and authentication failures**
+  * OWASP [A07:2021](https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/) describes failures related to identification and authentication, including weak credential management, hardcoded credentials, session fixation, weak password requirements, and anonymous LDAP binds.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
+
+
 #### [org.openrewrite.java.security.OwaspA08](/user-documentation/recipes/recipe-catalog/java/security/owaspa08.md)
   * **Remediate OWASP A08:2021 Software and data integrity failures**
   * OWASP [A08:2021](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/) software and data integrity failures.
@@ -4301,6 +4383,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
   * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
 #### [org.openrewrite.java.security.OwaspTopTen2025](/user-documentation/recipes/recipe-catalog/java/security/owasptopten2025.md)
@@ -4354,6 +4437,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.java.security.search.FindLogInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findloginjection.md)
+  * **Find log injection vulnerabilities**
+  * Finds logging statements where HTTP request input flows unsanitized into the log argument, allowing attackers to inject forged log entries via CRLF injection (CWE-117). Sources are servlet request accessors (`getParameter`, `getHeader`, `getReader`, `getInputStream`, etc.), Spring `WebRequest` accessors, and Spring MVC handler parameters bound with `@RequestParam`, `@PathVariable`, `@RequestHeader`, `@RequestBody`, `@RequestPart`, `@CookieValue`, or `@MatrixVariable`. Uses taint analysis so input assigned to a variable, field, or built into a larger string before being logged is also detected.
+
+##### Data tables:
+
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
 #### [org.openrewrite.java.security.search.FindMissingSpringAuthorization](/user-documentation/recipes/recipe-catalog/java/security/search/findmissingspringauthorization.md)
@@ -4772,6 +4864,18 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.kubernetes.table.ManifestFlavors**: *Every YAML file in the repository, classified by what it actually is and by whether an edit to it would mean what it appears to mean. The denominator for the coverage of every other table here.*
+
+
+
+### rewrite-logging-frameworks
+
+#### [org.openrewrite.java.logging.logback.ConditionAttributeToConditionElement](/user-documentation/recipes/recipe-catalog/java/logging/logback/conditionattributetoconditionelement.md)
+  * **Replace the Logback `condition` attribute with the `condition` element**
+  * Logback 1.5.37 removed the Janino based `&lt;if condition=&quot;...&quot;&gt;` attribute that 1.5.20 deprecated, so configuration files still using it fail to select the intended appenders. Replaces the attribute with the `&lt;condition class=&quot;...&quot;/&gt;` element that precedes `&lt;if&gt;`, using the conditions shipped in `ch.qos.logback.core.boolex`. Conditions that require custom Java logic are left unchanged and reported in a data table.
+
+##### Data tables:
+
+  * **org.openrewrite.java.logging.logback.table.UnmigratedJaninoConditions**: *Janino conditions that have no equivalent among the conditions shipped with logback-core, and so have to be migrated by hand to a custom `PropertyCondition`.*
 
 
 
@@ -5248,6 +5352,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.python.table.PythonDependenciesInUse**: *Direct and transitive dependencies in use in Python projects.*
 
 
+#### [org.openrewrite.python.migrate.FindBackoffDecoratorsNotMigrated](/user-documentation/recipes/recipe-catalog/python/migrate/findbackoffdecoratorsnotmigrated.md)
+  * **Find `backoff` decorators that need a hand migration**
+  * Mark every `@backoff.on_exception` and `@backoff.on_predicate` that `org.openrewrite.python.migrate.ReplaceBackoffDecoratorsWithTenacity` declines to rewrite, with the reason, and record it in a data table. This changes no behaviour; it scopes the hand migration left after the mechanical one. The markup it prints is not valid Python, so run it for a report rather than as part of a migration.
+
+##### Data tables:
+
+  * **org.openrewrite.python.migrate.table.BackoffDecorators**: *Backoff retry decorators whose behaviour tenacity cannot reproduce mechanically.*
+
+
 #### [org.openrewrite.python.migrate.FindFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/findfutureimports.md)
   * **Find `__future__` imports**
   * Find `__future__` imports and add a search marker. The `RemoveFutureImports` recipe automatically removes the imports that are obsolete in Python 3.
@@ -5486,6 +5599,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.recipes.UpgradeTestsToJava21](/user-documentation/recipes/recipe-catalog/java/recipes/upgradeteststojava21.md)
@@ -5505,6 +5619,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **org.openrewrite.java.recipes.DeprecatedMethodDelegations**: *Deprecated methods that delegate to another method in the same class, suitable for inlining via `InlineMethodCalls`.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 
@@ -5516,6 +5631,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
@@ -5562,6 +5678,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_5](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_5.md)
@@ -5571,6 +5688,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_6](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_6.md)
@@ -5580,6 +5698,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_7.md)
@@ -5589,6 +5708,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot2.search.FindUpgradeRequirementsSpringBoot_2_5](/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/findupgraderequirementsspringboot_2_5.md)
@@ -5616,6 +5736,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
@@ -5625,6 +5746,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_1.md)
@@ -5634,6 +5756,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_2.md)
@@ -5643,6 +5766,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3.md)
@@ -5652,6 +5776,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-community-edition.md)
@@ -5661,6 +5786,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-community-edition.md)
@@ -5670,6 +5796,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.boot4.MigrateJsonschema2PojoToSpringBoot4](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratejsonschema2pojotospringboot4.md)
@@ -5697,6 +5824,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/addspringclouddependenciesbom.md)
@@ -6123,7 +6251,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.staticanalysis.FindNewExceptionWithoutCause](/user-documentation/recipes/recipe-catalog/staticanalysis/findnewexceptionwithoutcause.md)
   * **Find new exceptions thrown without the caught exception**
-  * Finds `catch` blocks that throw a newly created exception without referencing the caught exception, which discards the original exception's stack trace and message. Data flow (taint) tracking is used to establish whether the caught exception—or any value derived from it—reaches the thrown exception, so indirect references through local variables and string concatenation are not falsely reported. This mirrors PMD's `PreserveStackTrace` rule.
+  * Finds `catch` blocks that throw a newly created exception without referencing the caught exception, which discards the original exception's stack trace and message. Taint tracking over the local variables of the `catch` block establishes whether the caught exception—or any value derived from it—reaches the thrown exception, so indirect references through local variables, helper calls and string concatenation are not falsely reported. This mirrors PMD's `PreserveStackTrace` rule.
 
 ##### Data tables:
 
@@ -6253,6 +6381,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
@@ -6262,7 +6391,26 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.easymock.EasyMockToMockito](/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymocktomockito.md)
+  * **Migrate from EasyMock to Mockito**
+  * This recipe will apply changes commonly needed when migrating from EasyMock to Mockito.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.jmockit.JMockitToMockito](/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockittomockito.md)
+  * **Migrate from JMockit to Mockito**
+  * This recipe will apply changes commonly needed when migrating from JMockit to Mockito.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.testing.junit.JUnit6BestPractices](/user-documentation/recipes/recipe-catalog/java/testing/junit/junit6bestpractices.md)
@@ -6280,6 +6428,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
@@ -6289,7 +6438,17 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.junit5.UseMockitoExtension](/user-documentation/recipes/recipe-catalog/java/testing/junit5/usemockitoextension.md)
+  * **Use Mockito JUnit Jupiter extension**
+  * Migrate uses of `@RunWith(MockitoJUnitRunner.class)` (and similar annotations) to `@ExtendWith(MockitoExtension.class)`.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.testing.junit6.JUnit5to6Migration](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
@@ -6299,6 +6458,69 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.mockito.DisableUnsupportedPowerMockTests](/user-documentation/recipes/recipe-catalog/java/testing/mockito/disableunsupportedpowermocktests.md)
+  * **Disable tests using PowerMock features with no Mockito equivalent**
+  * Disables tests that reach into private members through PowerMock, which Mockito deliberately does not support, so that the rest of the repository can migrate. The test is annotated `@Disabled`, `@Ignore` or TestNG's `@Ignore` and recorded in a data table as an action item: rework the test not to depend on private members, then re-enable it. A usage outside a test method, such as in a setup method or a class-level annotation, disables the whole class.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.mockito.Mockito1to3Migration](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
+  * **Mockito 3.x migration from 1.x**
+  * Upgrade Mockito from 1.x to 3.x.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.mockito.Mockito1to4Migration](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to4migration.md)
+  * **Mockito 4.x upgrade**
+  * Upgrade Mockito from 1.x to 4.x.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.mockito.Mockito1to5Migration](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to5migration.md)
+  * **Mockito 5.x upgrade**
+  * Upgrade Mockito from 1.x to 5.x.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.mockito.Mockito4to5Only](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito4to5only.md)
+  * **Mockito 4 to 5.x upgrade only**
+  * Upgrade Mockito from 4.x to 5.x. Does not include 1.x to 4.x migration.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.mockito.MockitoBestPractices](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitobestpractices.md)
+  * **Mockito best practices**
+  * Applies best practices for Mockito tests.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.mockito.ReplacePowerMockito](/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacepowermockito.md)
+  * **Replace PowerMock with raw Mockito**
+  * PowerMockito with raw Mockito; best executed as part of a Mockito upgrade.  Tests that mock, stub or verify private members are disabled rather than migrated. Mockito does not support reaching into private state by design, and a test that depends on it is testing an implementation detail, so the intended follow-up is a review that reworks each one to exercise the type through its public API -- not a like-for-like translation. Each disabled test keeps its original body as a comment for that review, is annotated `@Disabled`, `@Ignore` or TestNG's `@Ignore`, and is listed as an action item in the `PowerMockTestsDisabled` data table. Commenting the body out is what lets the PowerMock dependency be removed, so the rest of the repository moves off PowerMock and its tests keep running: PowerMock registers its own Mockito `MockMaker`, which cannot create the static and construction mocks the migrated tests rely on, so the two cannot share a classpath.
+
+##### Data tables:
+
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 
@@ -6465,6 +6687,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.quarkus.updates.camel.camel40.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel40/camelquarkusmigrationrecipe.md)
+  * **Migrate `camel3` application to `camel4.`**
+  * Migrate `camel3` quarkus application to `camel4` quarkus.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.quarkus.updates.camel.camel412.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel412/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.11` application to `camel 4.12`**
   * Migrates `camel 4.11` quarkus application to `camel 4.12`.
@@ -6486,6 +6717,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [io.quarkus.updates.camel.camel420.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel420/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.18` application to `camel 4.20`**
   * Migrates `camel 4.18` Quarkus application to `camel 4.20`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.camel.camel422.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel422/camelquarkusmigrationrecipe.md)
+  * **Migrates `camel 4.21` application to `camel 4.22`**
+  * Migrates `camel 4.21` Quarkus application to `camel 4.22`.
 
 ##### Data tables:
 
@@ -6960,6 +7200,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.quarkus.updates.cxf.cxf339.AddQuarkusJacksonIfUsed](/user-documentation/recipes/recipe-catalog/quarkus/updates/cxf/cxf339/addquarkusjacksonifused.md)
+  * **Add quarkus-jackson if Jackson is used**
+  * Adds io.quarkus:quarkus-jackson to applications that use Jackson types in their sources, because quarkus-cxf stopped pulling quarkus-jackson transitively in 3.39.0. The detection is source based only: the dependency is not added when it is already available directly or transitively through another extension. The update tooling applies this recipe only to projects depending on io.quarkiverse.cxf:quarkus-cxf.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.cxf.cxf339.UpdateAll](/user-documentation/recipes/recipe-catalog/quarkus/updates/cxf/cxf339/updateall.md)
+  * **Migrate quarkus-cxf to 3.39**
+  * quarkus-cxf 3.39.0 no longer pulls io.quarkus:quarkus-jackson transitively. Adds an explicit quarkus-jackson dependency to applications that use Jackson classes in their sources and do not get the dependency from elsewhere.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.apache.camel.upgrade.Camel410LTSMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410ltsmigrationrecipe.md)
   * **Migrate to 4.10.6**
   * Migrates Apache Camel application to 4.10.6.
@@ -6979,8 +7237,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.apache.camel.upgrade.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camelmigrationrecipe.md)
-  * **Migrate to 4.21.0**
-  * Migrates Apache Camel application to 4.21.0.
+  * **Migrate to 4.22.0**
+  * Migrates Apache Camel application to 4.22.0.
 
 ##### Data tables:
 
@@ -6990,6 +7248,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.apache.camel.upgrade.UpgradeToJava17](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/upgradetojava17.md)
   * **Migrate to Java 17**
   * This recipe will apply changes commonly needed when migrating to Java 17. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 17 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 17.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.apache.camel.upgrade.camel40.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/camelmigrationrecipe.md)
+  * **Migrate `camel3` application to `camel4.`**
+  * Migrate `camel3` application to `camel4`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.apache.camel.upgrade.camel40.renamedDependencies](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/renameddependencies.md)
+  * **Rename removed Camel 3.x dependencies to their Camel 4.0 replacements**
+  * Rename removed Camel 3.x dependencies to their Camel 4.0 replacements.
 
 ##### Data tables:
 
@@ -7044,6 +7320,42 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.apache.camel.upgrade.camel419.migrateGroovyXml](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/migrategroovyxml.md)
   * **Migrate camel-groovy-xml to camel-groovy**
   * camel-groovy-xml has been removed and moved into camel-groovy. Changes the dependency from camel-groovy-xml to camel-groovy.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.apache.camel.upgrade.camel422.CamelMigrationRecipe](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel422/camelmigrationrecipe.md)
+  * **Migrates `camel 4.21` application to `camel 4.22`**
+  * Migrates `camel 4.21` application to `camel 4.22`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.apache.camel.upgrade.camel422.migrateAwsApacheClient](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel422/migrateawsapacheclient.md)
+  * **Migrate AWS SDK apache-client to apache5-client**
+  * Migrates software.amazon.awssdk:apache-client to software.amazon.awssdk:apache5-client for projects using Camel AWS components. Explicit versions are set to 2.46.0, the AWS SDK release that made apache5-client the default; BOM-managed dependencies keep their managed version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.apache.camel.upgrade.camel422.migrateLangchain4jToolsUris](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel422/migratelangchain4jtoolsuris.md)
+  * **Migrate langchain4j-tools endpoint URIs to ai-tool**
+  * Renames the langchain4j-tools URI scheme to ai-tool on consumer endpoints (tool definition routes) in Java, XML and YAML DSL, and adds the camel-ai-tool dependency. Producer endpoints for direct tool calling are left unchanged and must be migrated to langchain4j-agent manually.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.apache.camel.upgrade.camel422.migrateSpringAiToolsDependency](/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel422/migratespringaitoolsdependency.md)
+  * **Migrate camel-spring-ai-tools to camel-ai-tool**
+  * Migrates the camel-spring-ai-tools dependency, removed in Camel 4.22, to camel-ai-tool. Route URIs using the spring-ai-tools scheme must be migrated to ai-tool manually.
 
 ##### Data tables:
 
@@ -7158,6 +7470,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.quarkus.MigrateToQuarkus_v3_16_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_16_0.md)
+  * **Quarkus Updates Aggregate 3.16.0**
+  * Quarkus update recipes to upgrade your application to 3.16.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.quarkus.MigrateToQuarkus_v3_17_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_17_0.md)
   * **Quarkus Updates Aggregate 3.17.0**
   * Quarkus update recipes to upgrade your application to 3.17.0.
@@ -7188,6 +7509,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.quarkus.MigrateToQuarkus_v3_1_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_1_0.md)
   * **Quarkus Updates Aggregate 3.1.0**
   * Quarkus update recipes to upgrade your application to 3.1.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.MigrateToQuarkus_v3_20_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_20_0.md)
+  * **Quarkus Updates Aggregate 3.20.0**
+  * Quarkus update recipes to upgrade your application to 3.20.0.
 
 ##### Data tables:
 

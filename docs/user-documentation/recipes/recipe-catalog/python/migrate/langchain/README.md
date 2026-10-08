@@ -8,6 +8,7 @@ description: Langchain OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
+* [Replace `langchain_community` imports with provider packages](./replacelangchainproviderimports.md)
 * [Upgrade to LangChain 0.2](./upgradetolangchain02.md)
 * [Upgrade to LangChain 1.0](./upgradetolangchain1.md)
 
@@ -17,6 +18,5 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find deprecated LangChain agent patterns](./finddeprecatedlangchainagents.md)
 * [Replace `langchain` imports with `langchain_community`](./replacelangchaincommunityimports.md)
 * [Replace `langchain` legacy imports with `langchain_classic`](./replacelangchainclassicimports.md)
-* [Replace `langchain_community` imports with provider packages](./replacelangchainproviderimports.md)
 
 

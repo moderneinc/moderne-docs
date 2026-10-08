@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"}]}>
+<RecipeList recipes={[{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"}]} preconditions={[{"name":"Find Camel XML DSL documents","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/findcamelxmldsl/"}]}>
 
 ## Definition
 

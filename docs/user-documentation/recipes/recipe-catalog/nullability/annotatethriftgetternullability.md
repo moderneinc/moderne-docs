@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.gen;\n\nimport org.apache.thrift.TBase;\n\npublic class Account implements TBase {\n    private long id;\n    private String name;\n    private String label;\n\n    public long getId() {\n        return id;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    public String getLabel() {\n        return label;\n    }\n}\n","after":"package com.example.gen;\n\nimport org.apache.thrift.TBase;\nimport org.jspecify.annotations.Nullable;\n\npublic class Account implements TBase {\n    private long id;\n    private String name;\n    private String label;\n\n    public long getId() {\n        return id;\n    }\n\n    public @Nullable String getName() {\n        return name;\n    }\n\n    public String getLabel() {\n        return label;\n    }\n}\n","diff":"--- src/main/java/com/example/gen/Account.java\n+++ src/main/java/com/example/gen/Account.java\n@@ -4,0 +4,1 @@\n\nimport org.apache.thrift.TBase;\n+import org.jspecify.annotations.Nullable;\n\n@@ -14,1 +15,1 @@\n    }\n\n-   public String getName() {\n+   public @Nullable String getName() {\n        return name;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.nullability.AnnotateThriftGetterNullability","displayName":"Add `@Nullable` to generated Thrift getters of `optional` fields","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 
 ## Usage

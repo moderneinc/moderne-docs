@@ -37,13 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"regexp","required":true,"description":"Regexp for matching a literal.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"replacement","required":true,"description":"Replacement to use.","example":"TODO Provide a usage example for the docs"}]}>
+<OptionsTable options={[{"type":"String","name":"regexp","required":true,"description":"Regexp for matching a literal.","example":"(\\{\\{aws:[^/]+)/([^/]+}})"},{"type":"String","name":"replacement","required":true,"description":"Replacement to use.","example":"${1}#${2}"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.LiteralRegexpConverterRecipe","displayName":"Replaces a literal matching an expression","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"regexp=TODO Provide a usage example for the docs\" --recipe-option \"replacement=TODO Provide a usage example for the docs\""}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.LiteralRegexpConverterRecipe","displayName":"Replaces a literal matching an expression","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"regexp=(\\{\\{aws:[^/]+)/([^/]+}})\" --recipe-option \"replacement=${1}#${2}\""}}>
 
 ## Usage
 

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `array.tostring()` with `array.tobytes()`"}
-  description={"Replace `tostring()` with `tobytes()` on array objects. The tostring() method was deprecated in Python 3.2 and removed in 3.14."}
+  description={"Replace `tostring()` with `tobytes()` on array objects. The tostring() method was deprecated in Python 3.2 and removed in 3.14. Only fires where the receiver's type resolves to `array.array` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceArrayTostring"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `array.tostring()` with `array.tobytes()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `tostring()` with `tobytes()` on array objects. The tostring() method was deprecated in Python 3.2 and removed in 3.14.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `tostring()` with `tobytes()` on array objects. The tostring() method was deprecated in Python 3.2 and removed in 3.14. Only fires where the receiver's type resolves to `array.array` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 
