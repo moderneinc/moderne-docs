@@ -469,5 +469,6 @@ Now that you've written your first Python recipe, you can go deeper:
 * Clone the [`python-recipe-starter` repository](https://github.com/moderneinc/python-recipe-starter) for a complete, runnable project: it includes the `RenameFunctionCall` recipe from this guide alongside a `RemoveRedundantPass` example that demonstrates deleting nodes - with tests, packaging, and CI already set up
 * Browse the [Python recipes in the Moderne recipe catalog](../../recipe-catalog/python/README.md) for real-world examples to learn from and build on
 * Read the [Java refactoring recipe guide](./writing-a-java-refactoring-recipe.md) and [JavaScript refactoring recipe guide](./writing-a-javascript-refactoring-recipe.md) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
+* Learn how to [call Java and YAML recipes from your recipe](../advanced-authoring/combining-recipes-across-ecosystems.md#calling-java-recipes-from-other-ecosystems)
 * Explore the [`rewrite-python` source](https://github.com/openrewrite/rewrite/tree/main/rewrite-python) to see how the Python LST and its built-in recipes are implemented
 * Work through the [recipe authoring fundamentals workshop](../../../../hands-on-learning/fundamentals/workshop-overview.md) for a hands-on introduction to recipe development
