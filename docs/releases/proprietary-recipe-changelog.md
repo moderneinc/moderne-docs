@@ -10,6 +10,14 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## October 9, 2026
+
+#### rewrite-nodejs - v0.51.2
+
+* Prevent npm releases from depending on prerelease @openrewrite/rewrite
+* Add Upgrade to Node.js 20 recipe
+* Add UpgradeNode26 composite recipe
+
 ## October 8, 2026
 
 #### recipes-go - v0.12.1
