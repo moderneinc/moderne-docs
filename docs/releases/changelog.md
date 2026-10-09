@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.31.0 (2026/10/09)
+
+- filters
+- color run badges by author
+- mark recipes authored by me and edit them in Builder
+
 ### UI v14.30.2 (2026/10/07)
 
 - Bug fixes and other improvements.
