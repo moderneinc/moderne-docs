@@ -21,7 +21,7 @@ The use of the "bill of materials" means that a developer will only need to spec
 |-----------------------------------------------------------------------------------------------------------------------| ---------- | ------- |
 | [**org.openrewrite:rewrite-bom**](https://github.com/openrewrite/rewrite)                                             | **[8.92.18](https://github.com/openrewrite/rewrite/releases/tag/v8.92.18)** | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
 | [**org.openrewrite:rewrite-maven-plugin**](https://github.com/openrewrite/rewrite-maven-plugin)                       | **[6.49.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.49.0)** | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
-| [**org.openrewrite:rewrite-gradle-plugin**](https://github.com/openrewrite/rewrite-gradle-plugin)                     | **[7.43.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.43.0)** | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
+| [**org.openrewrite:rewrite-gradle-plugin**](https://github.com/openrewrite/rewrite-gradle-plugin)                     | **[7.41.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.41.0)** | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
 | [**org.openrewrite.recipe:rewrite-recipe-bom**](https://github.com/openrewrite/rewrite-recipe-bom)                    | **[3.40.0](https://github.com/openrewrite/rewrite-recipe-bom/releases/tag/v3.40.0)** | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
 | [**io.moderne.recipe:moderne-recipe-bom**](https://github.com/moderneinc/moderne-recipe-bom)                          | **[0.45.0](https://github.com/moderneinc/rewrite-recipe-bom/releases/tag/v0.45.0)** | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [io.moderne.recipe:recipes-kotlin](https://github.com/moderneinc/recipes-kotlin/blob/main/)                           | [0.5.1](https://github.com/moderneinc/recipes-kotlin/releases/tag/0.5.1)                   | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
@@ -70,14 +70,13 @@ The use of the "bill of materials" means that a developer will only need to spec
 | [org.openrewrite:rewrite-xml](https://github.com/openrewrite/rewrite/blob/main/)                                      | [8.92.18](https://github.com/openrewrite/rewrite/releases/tag/8.92.18)                     | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
 | [org.openrewrite:rewrite-yaml](https://github.com/openrewrite/rewrite/blob/main/)                                     | [8.92.18](https://github.com/openrewrite/rewrite/releases/tag/8.92.18)                     | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
 | [org.openrewrite.meta:rewrite-analysis](https://github.com/openrewrite/rewrite-analysis/blob/main/)                   | [2.38.1](https://github.com/openrewrite/rewrite-analysis/releases/tag/2.38.1)              | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
-| [org.openrewrite.recipe:recipes-go](https://github.com/moderneinc/recipes-go/blob/main/)                              | [0.12.1](https://github.com/moderneinc/recipes-go/releases/tag/0.12.1)                     | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [org.openrewrite.recipe:rewrite-all](https://github.com/openrewrite/rewrite-all/blob/main/)                           | [1.30.1](https://github.com/openrewrite/rewrite-all/releases/tag/1.30.1)                   | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
 | [org.openrewrite.recipe:rewrite-android](https://github.com/moderneinc/rewrite-android/blob/main/)                    | [0.19.1](https://github.com/moderneinc/rewrite-android/releases/tag/0.19.1)                | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [org.openrewrite.recipe:rewrite-apache](https://github.com/openrewrite/rewrite-apache/blob/main/)                     | [2.33.0](https://github.com/openrewrite/rewrite-apache/releases/tag/2.33.0)                | [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license) |
 | [org.openrewrite.recipe:rewrite-circleci](https://github.com/moderneinc/rewrite-circleci/blob/main/)                  | [3.13.1](https://github.com/moderneinc/rewrite-circleci/releases/tag/3.13.1)               | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [org.openrewrite.recipe:rewrite-compiled-analysis](https://github.com/moderneinc/rewrite-compiled-analysis/blob/main/) | [0.16.1](https://github.com/moderneinc/rewrite-compiled-analysis/releases/tag/0.16.1)      | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [org.openrewrite.recipe:rewrite-concourse](https://github.com/moderneinc/rewrite-concourse/blob/main/)                | [3.12.1](https://github.com/moderneinc/rewrite-concourse/releases/tag/3.12.1)              | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
-| [org.openrewrite.recipe:rewrite-cucumber-jvm](https://github.com/openrewrite/rewrite-cucumber-jvm/blob/main/)         | [2.18.0](https://github.com/openrewrite/rewrite-cucumber-jvm/releases/tag/2.18.0)          | [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license) |
+| [org.openrewrite.recipe:rewrite-cucumber-jvm](https://github.com/openrewrite/rewrite-cucumber-jvm/blob/main/)         | [2.19.0](https://github.com/openrewrite/rewrite-cucumber-jvm/releases/tag/2.19.0)          | [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license) |
 | [org.openrewrite.recipe:rewrite-dotnet](https://github.com/moderneinc/rewrite-dotnet/blob/main/)                      | [0.18.1](https://github.com/moderneinc/rewrite-dotnet/releases/tag/0.18.1)                 | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [org.openrewrite.recipe:rewrite-feature-flags](https://github.com/openrewrite/rewrite-feature-flags/blob/main/)       | [1.24.1](https://github.com/openrewrite/rewrite-feature-flags/releases/tag/1.24.1)         | [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license) |
 | [org.openrewrite.recipe:rewrite-github-actions](https://github.com/openrewrite/rewrite-github-actions/blob/main/)     | [3.32.0](https://github.com/openrewrite/rewrite-github-actions/releases/tag/3.32.0)        | [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license) |
@@ -111,12 +110,13 @@ The use of the "bill of materials" means that a developer will only need to spec
 | [org.openrewrite.recipe:rewrite-static-analysis](https://github.com/openrewrite/rewrite-static-analysis/blob/main/)   | [2.44.0](https://github.com/openrewrite/rewrite-static-analysis/releases/tag/2.44.0)       | [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license) |
 | [org.openrewrite.recipe:rewrite-struts](https://github.com/moderneinc/rewrite-struts/blob/main/)                      | [0.30.0](https://github.com/moderneinc/rewrite-struts/releases/tag/0.30.0)                 | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [org.openrewrite.recipe:rewrite-terraform](https://github.com/moderneinc/rewrite-terraform/blob/main/)                | [3.15.1](https://github.com/moderneinc/rewrite-terraform/releases/tag/3.15.1)              | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
-| [org.openrewrite.recipe:rewrite-testing-frameworks](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/) | [3.48.0](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/3.48.0)    | [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license) |
+| [org.openrewrite.recipe:rewrite-testing-frameworks](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/) | [3.48.1](https://github.com/openrewrite/rewrite-testing-frameworks/releases/tag/3.48.1)    | [Moderne Source Available License](https://docs.moderne.io/licensing/moderne-source-available-license) |
 | [org.openrewrite.recipe:rewrite-third-party](https://github.com/openrewrite/rewrite-third-party/blob/main/)           | [0.48.0](https://github.com/openrewrite/rewrite-third-party/releases/tag/0.48.0)           | [Apache License Version 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
 | [OpenRewrite.Recipes.CSharp.CodeQuality](https://github.com/moderneinc/recipes-csharp/blob/main/)                     | [0.8.0](https://github.com/moderneinc/recipes-csharp/releases/tag/0.8.0)                   | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [OpenRewrite.Recipes.CSharp.Migration.Dotnet](https://github.com/moderneinc/recipes-csharp/blob/main/)                | [0.8.0](https://github.com/moderneinc/recipes-csharp/releases/tag/0.8.0)                   | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [OpenRewrite.Recipes.CSharp.Migration.TUnit](https://github.com/moderneinc/recipes-csharp/blob/main/)                 | [0.8.0](https://github.com/moderneinc/recipes-csharp/releases/tag/0.8.0)                   | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 | [OpenRewrite.Recipes.CSharp.Core](https://github.com/moderneinc/recipes-csharp/blob/main/)                            | [0.8.0](https://github.com/moderneinc/recipes-csharp/releases/tag/0.8.0)                   | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
+| [org.openrewrite.recipe:recipes-go](https://github.com/moderneinc/recipes-go/blob/main/)                              | [0.12.1](https://github.com/moderneinc/recipes-go/releases/tag/0.12.1)                     | [Moderne Proprietary License](https://docs.moderne.io/licensing/overview) |
 
 ## Configure the Code Genome Project repository
 
@@ -460,11 +460,6 @@ mutation seedOpenRewriteArtifacts {
       ) {
         id
       }
-      load_org_openrewrite_recipe_recipes_go: installRecipesUniversal(
-        bundle: { maven: { groupId: "org.openrewrite.recipe", artifactId: "recipes-go", version: "LATEST" } }
-      ) {
-        id
-      }
       load_org_openrewrite_recipe_rewrite_all: installRecipesUniversal(
         bundle: { maven: { groupId: "org.openrewrite.recipe", artifactId: "rewrite-all", version: "LATEST" } }
       ) {
@@ -692,6 +687,11 @@ mutation seedOpenRewriteArtifacts {
       }
       load_OpenRewrite_Recipes_CSharp_Core: installRecipesUniversal(
         bundle: { nuget: { packageName: "OpenRewrite.Recipes.CSharp.Core", version: "*-*" } }
+      ) {
+        id
+      }
+      load_org_openrewrite_recipe_recipes_go: installRecipesUniversal(
+        bundle: { maven: { groupId: "org.openrewrite.recipe", artifactId: "recipes-go", version: "LATEST" } }
       ) {
         id
       }
