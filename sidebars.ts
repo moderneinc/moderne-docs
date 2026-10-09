@@ -190,6 +190,7 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables',
             ],
           },
+          'administrator-documentation/moderne-platform/how-to-guides/restricting-network-access',
           'administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe',
           'administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter',
           'administrator-documentation/moderne-platform/how-to-guides/org-service',

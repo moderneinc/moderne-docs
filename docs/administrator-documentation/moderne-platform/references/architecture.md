@@ -81,7 +81,7 @@ When you set up a Connector, Moderne will share a token with you that you must c
 
 The connection to Moderne is established over [layer 7](https://www.cloudflare.com/learning/ddos/what-is-layer-7/), so you may choose to route traffic from the Connector through your own layer 7 gateway. This might be chosen to satisfy a desire for [Moderne's API gateway](#moderne-api-gateway) to perform client verification of an inbound Connector connection using a mechanism like X.509 in addition to token-based verification.
 
-These measures act in concert with techniques to limit IP addressability of the Moderne API gateway to enhance the overall security posture.
+These measures act in concert with [restricting which networks can reach your tenant](../how-to-guides/restricting-network-access.md) to enhance the overall security posture.
 
 ### Moderne API gateway
 
