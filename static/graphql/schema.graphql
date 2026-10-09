@@ -5452,6 +5452,13 @@ type RecipeDescriptor
   sourceUrl: String @join__field(graph: RECIPEMARKETPLACE)
 
   """
+  Where the bundle that provides this recipe was installed. Only user-scope installs are
+  attributed, so this is a `UserInstallScope` or null; null means the recipe came from an
+  organization or the universal marketplace.
+  """
+  scope: RecipeInstallationScope @join__field(graph: RECIPEMARKETPLACE)
+
+  """
   Expensive recipe detail fields that require resolving the full recipe bundle.
   Returns a state machine: query once to trigger resolution, poll until Finished.
   """
