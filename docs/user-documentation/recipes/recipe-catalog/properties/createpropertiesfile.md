@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.properties.CreatePropertiesFile","displayName":"Create Properties file","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=foo/bar/baz.properties\" --recipe-option \"fileContents=a.property=value\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.properties.CreatePropertiesFile","displayName":"Create Properties file","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=foo/bar/baz.properties\"","optionalCliOptions":" --recipe-option \"fileContents=a.property=value\" --recipe-option \"overwriteExisting=true\""}}>
 
 ## Usage
 

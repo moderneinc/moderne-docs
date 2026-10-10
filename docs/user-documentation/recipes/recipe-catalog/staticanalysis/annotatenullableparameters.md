@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.AnnotateNullableParameters","displayName":"Annotate null-checked method parameters with `@Nullable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.AnnotateNullableParameters","displayName":"Annotate null-checked method parameters with `@Nullable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"nullableAnnotationClass=org.jspecify.annotations.Nullable\" --recipe-option \"additionalNullCheckingMethods=com.mycompany.utils.StringUtil isEmpty(..), com.mycompany.utils.CollectionUtil isNullOrEmpty(..)\""}}>
 
 ## Usage
 

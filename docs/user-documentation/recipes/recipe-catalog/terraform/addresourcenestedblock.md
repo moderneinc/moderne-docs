@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.terraform.AddResourceNestedBlock","displayName":"Add a nested block to a Terraform resource","groupId":"org.openrewrite.recipe","artifactId":"rewrite-terraform","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceType=aws_db_parameter_group\" --recipe-option \"resourceNamePattern=rds_.*\" --recipe-option \"resourceAttrMatchers=family=mysql.*|mariadb.*\" --recipe-option \"keyMatchers=name=local_infile\" --recipe-option \"block=>\n        parameter {\n          name  = \"local_infile\"\n          value = \"0\"\n        }\" --recipe-option \"position=last\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.terraform.AddResourceNestedBlock","displayName":"Add a nested block to a Terraform resource","groupId":"org.openrewrite.recipe","artifactId":"rewrite-terraform","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceType=aws_db_parameter_group\" --recipe-option \"block=>\n        parameter {\n          name  = \"local_infile\"\n          value = \"0\"\n        }\"","optionalCliOptions":" --recipe-option \"resourceNamePattern=rds_.*\" --recipe-option \"resourceAttrMatchers=family=mysql.*|mariadb.*\" --recipe-option \"keyMatchers=name=local_infile\" --recipe-option \"position=last\""}}>
 
 ## Usage
 

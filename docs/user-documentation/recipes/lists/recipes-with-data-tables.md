@@ -2757,9 +2757,19 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
+#### [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_2](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_2.md)
+  * **Migrate to Spring Boot 4.2**
+  * Migrate applications to the latest Spring Boot 4.2 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.2.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
 #### [io.moderne.java.spring.boot4.UpgradeToJava21WhenUsingJooq](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradetojava21whenusingjooq.md)
   * **Upgrade to Java 21 when using jOOQ**
-  * Spring Boot 4 keeps a Java 17 baseline, but the jOOQ version it manages (3.20+) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.0 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619.
+  * Spring Boot 4.1 keeps a Java 17 baseline, but the jOOQ version it manages (3.21) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.1 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619.
 
 ##### Data tables:
 
@@ -2809,6 +2819,18 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 ## org.openrewrite
+
+
+### rewrite-android
+
+#### [org.openrewrite.android.UpgradeAndroidGradlePluginVersion](/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md)
+  * **Upgrade Android Gradle Plugin version**
+  * Upgrade the Android Gradle Plugin (AGP) version. Handles both the legacy `buildscript \{ dependencies \{ classpath 'com.android.tools.build:gradle:...' \} \}` form (delegating to the upstream `UpgradeDependencyVersion` recipe for full DSL coverage) and the modern `plugins \{ id(&quot;com.android.application&quot;) version &quot;...&quot; \}` form.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
 
 
 ### rewrite-core
@@ -2918,7 +2940,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.msbuild.AlignPathCasing](/user-documentation/recipes/recipe-catalog/csharp/msbuild/alignpathcasing.md)
   * **Align MSBuild path casing with the repository**
-  * MSBuild resolves paths case-insensitively on Windows, so a solution can reference `assemblies/WPFToolkit/WPFToolkit.csproj` while the directory committed to git is actually named `assemblies/Wpftoolkit`. The same reference fails with `MSB3202` or `Project file not found` on a case-sensitive file system. This recipe rewrites path references in `.sln`, `.slnx`, `.csproj`, `.props`, and `.targets` files so that every segment matches the casing of the file or directory that is actually in the repository. References that already resolve exactly, that cannot be resolved at all, or whose casing is ambiguous — because two files or directories differ only by case — are left untouched.
+  * MSBuild resolves paths case-insensitively on Windows, so a solution can reference `assemblies/WPFToolkit/WPFToolkit.csproj` while the directory committed to git is actually named `assemblies/Wpftoolkit`. The same reference fails with `MSB3202` or `Project file not found` on a case-sensitive file system. This recipe rewrites path references in `.sln` and `.slnx` solutions, in `.props` and `.targets` files, and in MSBuild project files such as `.csproj`, `.vbproj`, `.fsproj`, `.vcxproj`, `.sqlproj`, `.shproj`, and `.projitems`, so that every segment matches the casing of the file or directory that is actually in the repository. References that already resolve exactly, that cannot be resolved at all, or whose casing is ambiguous — because two files or directories differ only by case — are left untouched.
 
 ##### Data tables:
 
@@ -3510,7 +3532,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.maven.MigrateToMaven4](/user-documentation/recipes/recipe-catalog/maven/migratetomaven4.md)
   * **Migrate to Maven 4**
-  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, lifecycle phases, removes duplicate plugin and dependency declarations, upgrades plugins known to fail under Maven 4, switches repository URLs to HTTPS, and replaces removed properties to ensure compatibility with Maven 4.
+  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, runs the Maven 3.10 migration (which removes duplicate plugin and dependency declarations and updates an existing Maven wrapper to Maven 3.10), updates lifecycle phases, upgrades plugins known to fail under Maven 4, switches repository URLs to HTTPS, and replaces removed properties to ensure compatibility with Maven 4.
 
 ##### Data tables:
 
@@ -3942,15 +3964,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.openrewrite.android.UpgradeAndroidGradlePluginVersion](/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md)
-  * **Upgrade Android Gradle Plugin version**
-  * Upgrade the Android Gradle Plugin (AGP) version. Handles both the legacy `buildscript \{ dependencies \{ classpath 'com.android.tools.build:gradle:...' \} \}` form (delegating to the upstream `UpgradeDependencyVersion` recipe for full DSL coverage) and the modern `plugins \{ id(&quot;com.android.application&quot;) version &quot;...&quot; \}` form.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
 #### [org.openrewrite.android.UpgradeToAndroidSDK33](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk33.md)
   * **Upgrade to Android SDK 33**
   * Recipes to upgrade to Android SDK version 33.
@@ -4125,7 +4138,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. Both direct and transitive dependencies are checked using the full dependency graph captured when the project's LST was built. Vulnerable direct dependencies are upgraded in place; vulnerable transitive dependencies are added as direct dependencies pinned to a fixed version. The target version is controlled with the `versionSelection` option. Before any change, the version constraints declared by every other package in the dependency graph are validated; when an upgrade would violate a constraint, an error marker describing the conflicting dependency path is added instead and no change is made. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Last updated: 2026-09-28T1105.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. Both direct and transitive dependencies are checked using the full dependency graph captured when the project's LST was built. Vulnerable direct dependencies are upgraded in place; vulnerable transitive dependencies are added as direct dependencies pinned to a fixed version. The target version is controlled with the `versionSelection` option. Before any change, the version constraints declared by every other package in the dependency graph are validated; when an upgrade would violate a constraint, an error marker describing the conflicting dependency path is added instead and no change is made. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Last updated: 2026-10-05T1104.
 
 ##### Data tables:
 
@@ -4226,7 +4239,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-09-28T1105.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-10-05T1104.
 
 ##### Data tables:
 
@@ -4893,6 +4906,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-micronaut
 
+#### [org.openrewrite.java.micronaut.AddMicronautValidationDependencyVersion](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautvalidationdependencyversion.md)
+  * **Add missing Micronaut validation dependency versions**
+  * Supply a compatible version for unmanaged Gradle validation dependencies, reusing the validation version already in use when possible.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.micronaut.Micronaut2to3Migration](/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut2to3migration.md)
   * **Migrate from Micronaut 2.x to 3.x**
   * This recipe will apply changes required for migrating from Micronaut 2 to Micronaut 3.
@@ -5338,6 +5360,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.kotlin.migrate.autovalue.AutoValueToDataClass](/user-documentation/recipes/recipe-catalog/kotlin/migrate/autovalue/autovaluetodataclass.md)
+  * **Migrate `@AutoValue` classes to Kotlin data classes**
+  * Replaces a Java or Kotlin `@AutoValue` abstract class with a Kotlin `data class` and rewrites its Kotlin and Java callers: `x()` accessors become `x` property reads (`getX()` in Java) and the static or companion `create(..)` factory becomes the constructor. A Java class becomes a `.kt` file in place of the `.java` file. Only classes consisting of abstract accessors and a single forwarding factory are converted; every `@AutoValue` class is listed in the `AutoValueClasses` data table with the reason it was skipped.
+
+##### Data tables:
+
+  * **org.openrewrite.kotlin.migrate.autovalue.AutoValueClasses**: *Every `@AutoValue` class found, with the reason it was not migrated to a data class where applicable.*
 
 
 
@@ -7734,6 +7765,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.quarkus.MigrateToQuarkus_v3_9_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_9_0.md)
   * **Quarkus Updates Aggregate 3.9.0**
   * Quarkus update recipes to upgrade your application to 3.9.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.MigrateToQuarkus_v4_0_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v4_0_0.md)
+  * **Quarkus Updates Aggregate 4.0.0**
+  * Quarkus update recipes to upgrade your application to 4.0.0.
 
 ##### Data tables:
 

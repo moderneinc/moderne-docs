@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.UpdateMavenWrapper","displayName":"Update Maven wrapper","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.UpdateMavenWrapper","displayName":"Update Maven wrapper","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"wrapperVersion=3.x\" --recipe-option \"distributionVersion=3.x\" --recipe-option \"repositoryUrl=https://repo.maven.apache.org/maven2\" --recipe-option \"addIfMissing=true\" --recipe-option \"enforceWrapperChecksumVerification=true\""}}>
 
 ## Usage
 

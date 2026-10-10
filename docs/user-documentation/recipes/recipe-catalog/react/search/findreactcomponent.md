@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.react.search.FindReactComponent","displayName":"Find React component","groupId":"io.moderne.recipe","artifactId":"rewrite-react","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_REACT","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.react.search.FindReactComponent","displayName":"Find React component","groupId":"io.moderne.recipe","artifactId":"rewrite-react","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_REACT","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"componentName=Button\""}}>
 
 ## Usage
 

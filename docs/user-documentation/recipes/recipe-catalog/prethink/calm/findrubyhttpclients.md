@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"ruby","code":"require \"net/http\"\n\nclass UserFetcher\n  def fetch\n    Net::HTTP.get(URI(\"https://api.example.com/users\"))\n  end\nend\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindRubyHttpClients","displayName":"Find Ruby HTTP clients","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

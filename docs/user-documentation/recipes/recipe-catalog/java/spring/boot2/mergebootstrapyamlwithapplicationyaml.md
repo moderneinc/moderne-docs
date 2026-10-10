@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Merge Spring `bootstrap.yml` with `application.yml`"}
-  description={"In Spring Boot 2.4, the bootstrap context that loads `bootstrap.yml` is [disabled by default](https://docs.spring.io/spring-cloud-config/reference/client.html). Its properties should be merged with `application.yml` unless `spring-cloud-starter-bootstrap` is present as a dependency."}
+  description={"In Spring Boot 2.4, the bootstrap context that loads `bootstrap.yml` is [disabled by default](https://docs.spring.io/spring-cloud-config/reference/client.html). Its properties should be merged with `application.yml` unless `spring-cloud-starter-bootstrap` is present as a dependency. Profile-specific `bootstrap-{profile}.yml` files are also merged into their matching `application-{profile}.yml`. A bootstrap file without a matching application file is renamed instead."}
   fqName={"org.openrewrite.java.spring.boot2.MergeBootstrapYamlWithApplicationYaml"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Merge Spring `bootstrap.yml` with `application.yml`</RecipeHeader.Title>
 
-<RecipeHeader.Description>In Spring Boot 2.4, the bootstrap context that loads `bootstrap.yml` is [disabled by default](https://docs.spring.io/spring-cloud-config/reference/client.html). Its properties should be merged with `application.yml` unless `spring-cloud-starter-bootstrap` is present as a dependency.</RecipeHeader.Description>
+<RecipeHeader.Description>In Spring Boot 2.4, the bootstrap context that loads `bootstrap.yml` is [disabled by default](https://docs.spring.io/spring-cloud-config/reference/client.html). Its properties should be merged with `application.yml` unless `spring-cloud-starter-bootstrap` is present as a dependency. Profile-specific `bootstrap-{profile}.yml` files are also merged into their matching `application-{profile}.yml`. A bootstrap file without a matching application file is renamed instead.</RecipeHeader.Description>
 
 </RecipeHeader>
 

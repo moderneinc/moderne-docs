@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.toml.DeleteTableRow","displayName":"Delete TOML table row","groupId":"org.openrewrite","artifactId":"rewrite-toml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_TOML","requiresConfiguration":true,"cliOptions":" --recipe-option \"tableName=package.contributors\" --recipe-option \"identifyingKey=name\" --recipe-option \"identifyingValue=example-*\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.toml.DeleteTableRow","displayName":"Delete TOML table row","groupId":"org.openrewrite","artifactId":"rewrite-toml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_TOML","requiresConfiguration":true,"cliOptions":" --recipe-option \"tableName=package.contributors\" --recipe-option \"identifyingKey=name\" --recipe-option \"identifyingValue=example-*\"","optionalCliOptions":" --recipe-option \"useRegex=true\""}}>
 
 ## Usage
 

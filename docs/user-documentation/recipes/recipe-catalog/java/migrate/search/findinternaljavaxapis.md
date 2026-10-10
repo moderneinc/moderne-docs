@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.search.FindInternalJavaxApis","displayName":"Find uses of internal javax APIs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.search.FindInternalJavaxApis","displayName":"Find uses of internal javax APIs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"methodPattern=java.util.List add(..)\""}}>
 
 ## Usage
 

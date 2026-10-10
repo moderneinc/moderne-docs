@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.AddDevelocityMavenExtension","displayName":"Add the Develocity Maven extension","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=1.17.4\" --recipe-option \"server=https://scans.gradle.com/\" --recipe-option \"allowUntrustedServer=true\" --recipe-option \"fileFingerprints=true\" --recipe-option \"uploadInBackground=false\" --recipe-option \"publishCriteria=Always\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.AddDevelocityMavenExtension","displayName":"Add the Develocity Maven extension","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"server=https://scans.gradle.com/\"","optionalCliOptions":" --recipe-option \"version=1.17.4\" --recipe-option \"allowUntrustedServer=true\" --recipe-option \"fileFingerprints=true\" --recipe-option \"uploadInBackground=false\" --recipe-option \"publishCriteria=Always\""}}>
 
 ## Usage
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate Joda-Time `DateMidnight` to Java time"}
-  description={"Migrates `org.joda.time.DateMidnight` constructor and `now()` calls to `java.time.LocalDate.now().atStartOfDay(...)`."}
+  description={"Migrates `org.joda.time.DateMidnight` constructors and `now()` calls to `java.time.LocalDate.atStartOfDay(...)`."}
   fqName={"org.openrewrite.java.joda.time.JodaDateMidnightToJavaTime"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate Joda-Time `DateMidnight` to Java time</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates `org.joda.time.DateMidnight` constructor and `now()` calls to `java.time.LocalDate.now().atStartOfDay(...)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates `org.joda.time.DateMidnight` constructors and `now()` calls to `java.time.LocalDate.atStartOfDay(...)`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.DoesNotUseType","displayName":"Check whether a type is **not** in use","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=java.util.List\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.DoesNotUseType","displayName":"Check whether a type is **not** in use","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=java.util.List\"","optionalCliOptions":" --recipe-option \"includeImplicit=true\""}}>
 
 ## Usage
 

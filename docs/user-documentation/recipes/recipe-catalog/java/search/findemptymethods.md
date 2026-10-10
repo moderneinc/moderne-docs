@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindEmptyMethods","displayName":"Find methods with empty bodies","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindEmptyMethods","displayName":"Find methods with empty bodies","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"matchOverrides=true\""}}>
 
 ## Usage
 

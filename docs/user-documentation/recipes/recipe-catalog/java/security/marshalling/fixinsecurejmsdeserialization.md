@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.security.marshalling.FixInsecureJmsDeserialization","displayName":"Restrict deserialized classes for JMS `ObjectMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.security.marshalling.FixInsecureJmsDeserialization","displayName":"Restrict deserialized classes for JMS `ObjectMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"allowedPackages=com.acme.dto,java.util,java.lang\""}}>
 
 ## Usage
 

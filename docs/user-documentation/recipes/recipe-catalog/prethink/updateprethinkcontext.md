@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.prethink.UpdatePrethinkContext","displayName":"Update Prethink context","groupId":"org.openrewrite.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.prethink.UpdatePrethinkContext","displayName":"Update Prethink context","groupId":"org.openrewrite.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"targetConfigFiles=CLAUDE.md\" --recipe-option \"template=>\n        ## Available Context\n        \n        {{CONTEXT_TABLE}}\""}}>
 
 ## Usage
 

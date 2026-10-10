@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"com.oracle.weblogic.rewrite.jakarta.UpgradeMavenPluginArtifactItems","displayName":"Upgrade group, artifact ID and version of an artifactItem, of a maven plugin execution configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=javax\" --recipe-option \"oldArtifactId=javax\" --recipe-option \"newGroupId=jakarta.platform\" --recipe-option \"newArtifactId=javaee-api\" --recipe-option \"newVersion=9.1\""}}>
+<UsageList usage={{"recipeName":"com.oracle.weblogic.rewrite.jakarta.UpgradeMavenPluginArtifactItems","displayName":"Upgrade group, artifact ID and version of an artifactItem, of a maven plugin execution configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=javax\" --recipe-option \"oldArtifactId=javax\" --recipe-option \"newGroupId=jakarta.platform\" --recipe-option \"newArtifactId=javaee-api\"","optionalCliOptions":" --recipe-option \"newVersion=9.1\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.search.AboutJavaVersion","displayName":"Find which Java version is in use","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.search.AboutJavaVersion","displayName":"Find which Java version is in use","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"whenUsesType=lombok.val\""}}>
 
 ## Usage
 

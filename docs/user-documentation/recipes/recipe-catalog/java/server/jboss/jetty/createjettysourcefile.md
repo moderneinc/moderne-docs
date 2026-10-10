@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.server.jboss.jetty.CreateJettySourceFile","displayName":"Create Jetty server source file","groupId":"io.moderne.recipe","artifactId":"rewrite-java-application-server","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_JAVA_APPLICATION_SERVER","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageName=com.example.jetty\" --recipe-option \"contextPath=/myapp\" --recipe-option \"port=8080\""}}>
+<UsageList usage={{"recipeName":"io.moderne.java.server.jboss.jetty.CreateJettySourceFile","displayName":"Create Jetty server source file","groupId":"io.moderne.recipe","artifactId":"rewrite-java-application-server","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_JAVA_APPLICATION_SERVER","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageName=com.example.jetty\"","optionalCliOptions":" --recipe-option \"contextPath=/myapp\" --recipe-option \"port=8080\""}}>
 
 ## Usage
 

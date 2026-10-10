@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.UpdateGradleWrapper","displayName":"Update Gradle wrapper","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.UpdateGradleWrapper","displayName":"Update Gradle wrapper","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"version=7.x\" --recipe-option \"addIfMissing=true\" --recipe-option \"wrapperUri=https://services.gradle.org/distributions/gradle-8.5-bin.zip\" --recipe-option \"distributionChecksum=29e49b10984e585d8118b7d0bc452f944e386458df27371b49b4ac1dec4b7fda\""}}>
 
 ## Usage
 

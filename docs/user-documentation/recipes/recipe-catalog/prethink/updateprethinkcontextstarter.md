@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.prethink.UpdatePrethinkContextStarter","displayName":"Update Prethink context","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.prethink.UpdatePrethinkContextStarter","displayName":"Update Prethink context","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"targetConfigFiles=CLAUDE.md\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UseAsBuilder","displayName":"Chain calls to builder methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":true,"cliOptions":" --recipe-option \"builderType=org.example.Buildable.Builder\" --recipe-option \"builderCreator=org.example.Buildable builder()\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UseAsBuilder","displayName":"Chain calls to builder methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":true,"cliOptions":" --recipe-option \"builderType=org.example.Buildable.Builder\"","optionalCliOptions":" --recipe-option \"immutable=true\" --recipe-option \"builderCreator=org.example.Buildable builder()\""}}>
 
 ## Usage
 

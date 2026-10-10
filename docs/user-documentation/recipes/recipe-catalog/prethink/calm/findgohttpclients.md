@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package client\n\nimport (\n\t\"net/http\"\n)\n\nfunc Fetch() (*http.Response, error) {\n\treturn http.Get(\"https://inventory.example.com/items\")\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoHttpClients","displayName":"Find Go HTTP clients","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

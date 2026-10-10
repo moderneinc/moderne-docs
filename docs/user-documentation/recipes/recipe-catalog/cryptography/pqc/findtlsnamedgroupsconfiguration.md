@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.FindTlsNamedGroupsConfiguration","displayName":"Find TLS key exchange (named groups) configuration","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.FindTlsNamedGroupsConfiguration","displayName":"Find TLS key exchange (named groups) configuration","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"reportDefaultReliance=true\" --recipe-option \"detectConfigKeyHeuristics=true\""}}>
 
 ## Usage
 

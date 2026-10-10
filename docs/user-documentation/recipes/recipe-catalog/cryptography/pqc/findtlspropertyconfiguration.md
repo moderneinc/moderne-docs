@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.FindTlsPropertyConfiguration","displayName":"Find TLS protocol configuration in properties and YAML","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.FindTlsPropertyConfiguration","displayName":"Find TLS protocol configuration in properties and YAML","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"additionalPropertyKeys=my.service.tls-protocols\""}}>
 
 ## Usage
 

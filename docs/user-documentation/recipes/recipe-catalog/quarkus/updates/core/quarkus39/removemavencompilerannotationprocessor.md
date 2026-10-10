@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus39.RemoveMavenCompilerAnnotationProcessor","displayName":"Remove an annotation processor from the Maven Compiler plugin configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.hibernate.orm\" --recipe-option \"artifactId=hibernate-jpamodelgen\" --recipe-option \"processorClass=com.example.MyProcessor\""}}>
+<UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus39.RemoveMavenCompilerAnnotationProcessor","displayName":"Remove an annotation processor from the Maven Compiler plugin configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.hibernate.orm\" --recipe-option \"artifactId=hibernate-jpamodelgen\"","optionalCliOptions":" --recipe-option \"processorClass=com.example.MyProcessor\""}}>
 
 ## Usage
 

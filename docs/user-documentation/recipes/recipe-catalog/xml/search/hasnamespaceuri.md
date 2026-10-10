@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.xml.search.HasNamespaceUri","displayName":"Find XML namespace URIs","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"namespaceUri=http://www.w3.org/2001/XMLSchema-instance\" --recipe-option \"xPath=/dependencies/dependency\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.xml.search.HasNamespaceUri","displayName":"Find XML namespace URIs","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"namespaceUri=http://www.w3.org/2001/XMLSchema-instance\"","optionalCliOptions":" --recipe-option \"xPath=/dependencies/dependency\""}}>
 
 ## Usage
 

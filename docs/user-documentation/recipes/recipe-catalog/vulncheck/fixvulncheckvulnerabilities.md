@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.vulncheck.FixVulnCheckVulnerabilities","displayName":"Use [VulnCheck Exploit Intelligence](https://docs.vulncheck.com/products/exploit-and-vulnerability-intelligence/exploit-intelligence) to fix vulnerabilities","groupId":"io.moderne.recipe","artifactId":"rewrite-vulncheck","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_VULNCHECK","requiresConfiguration":true,"cliOptions":" --recipe-option \"apiToken=A_TOKEN_GENERATED_FROM_VULNCHECK\" --recipe-option \"scope=compile\" --recipe-option \"overrideTransitive=false\" --recipe-option \"maximumUpgradeDelta=patch\" --recipe-option \"exploitMaturity=weaponized\""}}>
+<UsageList usage={{"recipeName":"io.moderne.vulncheck.FixVulnCheckVulnerabilities","displayName":"Use [VulnCheck Exploit Intelligence](https://docs.vulncheck.com/products/exploit-and-vulnerability-intelligence/exploit-intelligence) to fix vulnerabilities","groupId":"io.moderne.recipe","artifactId":"rewrite-vulncheck","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_VULNCHECK","requiresConfiguration":true,"cliOptions":" --recipe-option \"apiToken=A_TOKEN_GENERATED_FROM_VULNCHECK\"","optionalCliOptions":" --recipe-option \"scope=compile\" --recipe-option \"overrideTransitive=false\" --recipe-option \"maximumUpgradeDelta=patch\" --recipe-option \"exploitMaturity=weaponized\""}}>
 
 ## Usage
 

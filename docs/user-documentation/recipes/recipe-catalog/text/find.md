@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.text.Find","displayName":"Find text","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":true,"cliOptions":" --recipe-option \"find=blacklist\" --recipe-option \"filePattern='**/*.java'\" --recipe-option \"contextSize=50\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.text.Find","displayName":"Find text","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":true,"cliOptions":" --recipe-option \"find=blacklist\"","optionalCliOptions":" --recipe-option \"regex=true\" --recipe-option \"caseSensitive=true\" --recipe-option \"multiline=true\" --recipe-option \"dotAll=true\" --recipe-option \"filePattern='**/*.java'\" --recipe-option \"description=true\" --recipe-option \"contextSize=50\""}}>
 
 ## Usage
 

@@ -11,6 +11,7 @@ description: 19 OpenRewrite recipes.
 * [Find deprecated ReactDOM APIs](./find-deprecated-reactdom-apis.md)
 * [Find `element.ref` access](./find-element-ref.md)
 * [Find legacy Context API usage](./find-legacy-context-api.md)
+* [Import the scoped React JSX namespace](./scoped-jsx-namespace.md)
 * [Remove `Context.Provider` wrapper](./remove-context-provider.md)
 * [Remove `React.FC` type annotation](./remove-react-fc.md)
 * [Remove `React.forwardRef` wrapper](./remove-forward-ref.md)

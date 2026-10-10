@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.AddSerialVersionUidToSerializable","displayName":"Add `serialVersionUID` to a `Serializable` class when missing","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.AddSerialVersionUidToSerializable","displayName":"Add `serialVersionUID` to a `Serializable` class when missing","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"uid=42L\""}}>
 
 ## Usage
 

@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Co-exclude `UserDetailsServiceAutoConfiguration` on auto-configuration exclusion annotations","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/adduserdetailsserviceautoconfigurationexclusiontoannotations/"},{"name":"Change the value of a spring application property","href":"/user-documentation/recipes/recipe-catalog/java/spring/changespringpropertyvalue/"}]}>
+<RecipeList recipes={[{"name":"Co-exclude `UserDetailsServiceAutoConfiguration` on auto-configuration exclusion annotations","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/adduserdetailsserviceautoconfigurationexclusiontoannotations/"},{"name":"Co-exclude `UserDetailsServiceAutoConfiguration` in `spring.autoconfigure.exclude`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/adduserdetailsserviceautoconfigurationexclusiontoproperties/"}]}>
 
 ## Definition
 

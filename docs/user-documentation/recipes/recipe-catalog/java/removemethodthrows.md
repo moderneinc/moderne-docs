@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.RemoveMethodThrows","displayName":"Remove elements from a method declaration `throws` clause","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=java.util.List add(..)\" --recipe-option \"exceptionTypePattern=java.io.IOException\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.RemoveMethodThrows","displayName":"Remove elements from a method declaration `throws` clause","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=java.util.List add(..)\" --recipe-option \"exceptionTypePattern=java.io.IOException\"","optionalCliOptions":" --recipe-option \"matchOverrides=true\""}}>
 
 ## Usage
 

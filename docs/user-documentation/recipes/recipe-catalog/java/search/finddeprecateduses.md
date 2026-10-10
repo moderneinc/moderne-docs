@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindDeprecatedUses","displayName":"Find uses of deprecated classes, methods, and fields","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindDeprecatedUses","displayName":"Find uses of deprecated classes, methods, and fields","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"typePattern=org.springframework..*\" --recipe-option \"matchInherited=true\" --recipe-option \"ignoreDeprecatedScopes=true\""}}>
 
 ## Usage
 

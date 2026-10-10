@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.properties.AddPropertyComment","displayName":"Add comment before property key","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders\" --recipe-option \"comment=comment\" --recipe-option \"commentOutProperty=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.properties.AddPropertyComment","displayName":"Add comment before property key","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders\" --recipe-option \"comment=comment\"","optionalCliOptions":" --recipe-option \"commentOutProperty=true\""}}>
 
 ## Usage
 

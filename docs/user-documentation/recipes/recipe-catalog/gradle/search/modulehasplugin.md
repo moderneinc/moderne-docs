@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.search.ModuleHasPlugin","displayName":"Module has plugin","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"pluginId='`com.jfrog.bintray`'\" --recipe-option \"pluginClass=com.jfrog.bintray.gradle.BintrayPlugin\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.search.ModuleHasPlugin","displayName":"Module has plugin","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"pluginId='`com.jfrog.bintray`'\"","optionalCliOptions":" --recipe-option \"pluginClass=com.jfrog.bintray.gradle.BintrayPlugin\""}}>
 
 ## Usage
 

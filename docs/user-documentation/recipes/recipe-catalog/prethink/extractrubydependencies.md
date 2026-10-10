@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"gemfile","code":"source \"https://rubygems.org\"\n\ngem \"rails\", \"~> 7.1\"\ngem \"pg\", \">= 1.1\", \"< 2.0\"\n\ngroup :development, :test do\n  gem \"rspec-rails\"\nend\n\ngroup :test do\n  gem \"capybara\"\nend\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.ExtractRubyDependencies","displayName":"Extract Ruby dependencies","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

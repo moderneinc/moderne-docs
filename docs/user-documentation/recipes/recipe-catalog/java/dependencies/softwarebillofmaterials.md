@@ -8,14 +8,14 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Software bill of materials"}
-  description={"Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Gradle and Maven. Places a file named sbom.xml adjacent to the Gradle or Maven build file."}
+  description={"Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Maven, Gradle, npm, Python, NuGet, and Go modules. Places a file named sbom.xml adjacent to the build file or package manifest, such as `pom.xml`, `build.gradle`, `package.json`, `pyproject.toml`, `requirements.txt`, `*.csproj`, `packages.config`, or `go.mod`. Manifests that share a directory, such as a `pom.xml` next to a `package.json`, contribute to the same `sbom.xml`."}
   fqName={"org.openrewrite.java.dependencies.SoftwareBillOfMaterials"}
   languages={["Java"]}
   license={"Moderne Proprietary License"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["CycloneDX"]}
   license={"Moderne Proprietary License"}
@@ -28,9 +28,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Software bill of materials</RecipeHeader.Title>
 
-<RecipeHeader.Description>Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Gradle and Maven. Places a file named sbom.xml adjacent to the Gradle or Maven build file.</RecipeHeader.Description>
+<RecipeHeader.Description>Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Maven, Gradle, npm, Python, NuGet, and Go modules. Places a file named sbom.xml adjacent to the build file or package manifest, such as `pom.xml`, `build.gradle`, `package.json`, `pyproject.toml`, `requirements.txt`, `*.csproj`, `packages.config`, or `go.mod`. Manifests that share a directory, such as a `pom.xml` next to a `package.json`, contribute to the same `sbom.xml`.</RecipeHeader.Description>
 
 </RecipeHeader>
+
+<RecipeList recipes={[{"name":"Software bill of materials for Java","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/javasoftwarebillofmaterials/"},{"name":"Software bill of materials for JavaScript","href":"/user-documentation/recipes/recipe-catalog/node/dependencies/softwarebillofmaterials/"},{"name":"Software bill of materials for Python","href":"/user-documentation/recipes/recipe-catalog/python/dependencies/softwarebillofmaterials/"},{"name":"Software bill of materials for C#","href":"/user-documentation/recipes/recipe-catalog/csharp/dependencies/softwarebillofmaterials/"},{"name":"Software bill of materials for Go","href":"/user-documentation/recipes/recipe-catalog/golang/dependencies/softwarebillofmaterials/"}]}>
+
+## Definition
+
+</RecipeList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.SoftwareBillOfMaterials","displayName":"Software bill of materials","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
 

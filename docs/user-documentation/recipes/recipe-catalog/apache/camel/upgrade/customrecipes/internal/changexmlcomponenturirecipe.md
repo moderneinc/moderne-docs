@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.internal.ChangeXmlComponentUriRecipe","displayName":"Change Camel component URI in XML DSL","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"uriPattern=^pulsar:((persistent|non-persistent)://([^/]+)/([^/]+)/([^/]+)/(.+))$\" --recipe-option \"replacement=pulsar:${2}://${3}/${5}/${6}\" --recipe-option \"consumerOnly=true\""}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.customRecipes.internal.ChangeXmlComponentUriRecipe","displayName":"Change Camel component URI in XML DSL","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"uriPattern=^pulsar:((persistent|non-persistent)://([^/]+)/([^/]+)/([^/]+)/(.+))$\" --recipe-option \"replacement=pulsar:${2}://${3}/${5}/${6}\"","optionalCliOptions":" --recipe-option \"consumerOnly=true\""}}>
 
 ## Usage
 

@@ -21,7 +21,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  type={"Composite recipe"}
+  type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
   license={"Moderne Source Available License"}
@@ -36,12 +36,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader.Description>As of 2.31.0, wiremock [supports JUnit 5](https://wiremock.org/docs/junit-jupiter/) via an extension.</RecipeHeader.Description>
 
 </RecipeHeader>
-
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
-
-## Definition
-
-</RecipeList>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.github.tomakehurst.wiremock.junit.WireMockRule;\nimport org.junit.Rule;\n\nimport static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;\n\nclass Test {\n    @Rule\n    public WireMockRule wm = new WireMockRule(options().dynamicHttpsPort());\n}\n","after":"import com.github.tomakehurst.wiremock.junit5.WireMockExtension;\nimport org.junit.jupiter.api.extension.RegisterExtension;\n\nimport static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;\n\nclass Test {\n    @RegisterExtension\n    public WireMockExtension wm = WireMockExtension.newInstance().options(options().dynamicHttpsPort()).build();\n}\n","diff":"@@ -1,2 +1,2 @@\n-import com.github.tomakehurst.wiremock.junit.WireMockRule;\n-import org.junit.Rule;\n+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;\n+import org.junit.jupiter.api.extension.RegisterExtension;\n\n@@ -7,2 +7,2 @@\n\nclass Test {\n-   @Rule\n-   public WireMockRule wm = new WireMockRule(options().dynamicHttpsPort());\n+   @RegisterExtension\n+   public WireMockExtension wm = WireMockExtension.newInstance().options(options().dynamicHttpsPort()).build();\n}\n","newFile":false}]}]}>
 

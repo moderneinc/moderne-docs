@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.method.ChangeSuperType","displayName":"Change supertype","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":true,"cliOptions":" --recipe-option \"targetClass=com.myorg.MyClass\" --recipe-option \"newSuperclass=com.myorg.NewSuperclass\""}}>
+<UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.method.ChangeSuperType","displayName":"Change supertype","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":true,"cliOptions":" --recipe-option \"targetClass=com.myorg.MyClass\" --recipe-option \"newSuperclass=com.myorg.NewSuperclass\"","optionalCliOptions":" --recipe-option \"keepTypeParameters=true\" --recipe-option \"convertToInterface=true\" --recipe-option \"removeUnnecessaryOverrides=true\""}}>
 
 ## Usage
 

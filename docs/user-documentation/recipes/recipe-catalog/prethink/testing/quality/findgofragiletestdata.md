@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package store\n\nimport \"testing\"\n\nfunc TestSeedData(t *testing.T) {\n\tday := \"2026-01-15\"\n\tfixture := \"/tmp/fixtures/users.json\"\n\taddr := \":8080\"\n\trelative := \"testdata/users.json\"\n\t_, _, _, _ = day, fixture, addr, relative\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindGoFragileTestData","displayName":"Find Go fragile test data","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

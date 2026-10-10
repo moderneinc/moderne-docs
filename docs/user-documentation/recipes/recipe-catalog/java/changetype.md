@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeType","displayName":"Change type","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldFullyQualifiedTypeName=org.junit.Assume\" --recipe-option \"newFullyQualifiedTypeName=org.junit.jupiter.api.Assumptions\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeType","displayName":"Change type","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldFullyQualifiedTypeName=org.junit.Assume\" --recipe-option \"newFullyQualifiedTypeName=org.junit.jupiter.api.Assumptions\"","optionalCliOptions":" --recipe-option \"ignoreDefinition=true\""}}>
 
 ## Usage
 

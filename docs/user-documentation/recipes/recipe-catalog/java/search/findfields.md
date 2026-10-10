@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindFields","displayName":"Find fields","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=com.fasterxml.jackson.core.json.JsonWriteFeature\" --recipe-option \"fieldName=QUOTE_FIELD_NAMES\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindFields","displayName":"Find fields","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=com.fasterxml.jackson.core.json.JsonWriteFeature\" --recipe-option \"fieldName=QUOTE_FIELD_NAMES\"","optionalCliOptions":" --recipe-option \"matchInherited=true\""}}>
 
 ## Usage
 

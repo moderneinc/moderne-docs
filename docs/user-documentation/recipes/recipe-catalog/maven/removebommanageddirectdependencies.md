@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.RemoveBomManagedDirectDependencies","displayName":"Remove direct dependencies that are managed by a BOM with incompatible versions","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"bomGroupPattern=org.springframework.boot\" --recipe-option \"bomArtifactPattern='*-dependencies'\" --recipe-option \"dependencyGroupPattern='*'\" --recipe-option \"dependencyArtifactPattern='*'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.RemoveBomManagedDirectDependencies","displayName":"Remove direct dependencies that are managed by a BOM with incompatible versions","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"bomGroupPattern=org.springframework.boot\"","optionalCliOptions":" --recipe-option \"bomArtifactPattern='*-dependencies'\" --recipe-option \"dependencyGroupPattern='*'\" --recipe-option \"dependencyArtifactPattern='*'\""}}>
 
 ## Usage
 

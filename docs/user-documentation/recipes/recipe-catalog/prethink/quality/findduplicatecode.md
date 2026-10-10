@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.prethink.quality.FindDuplicateCode","displayName":"Find duplicate code","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.prethink.quality.FindDuplicateCode","displayName":"Find duplicate code","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"minNodes=75\" --recipe-option \"minNodesType2=110\" --recipe-option \"minOccurrences=2\" --recipe-option \"detectType2=true\" --recipe-option \"includeTestSources=false\" --recipe-option \"maxOccurrencesPerGroup=200\" --recipe-option \"snippetMaxLines=40\" --recipe-option \"minStatements=5\" --recipe-option \"gapBudget=1\" --recipe-option \"detectStatementSequences=true\" --recipe-option \"suppressBoilerplate=true\" --recipe-option \"detectSimilarMethods=true\""}}>
 
 ## Usage
 

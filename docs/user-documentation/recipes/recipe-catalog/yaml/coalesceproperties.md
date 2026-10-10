@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.CoalesceProperties","displayName":"Coalesce YAML properties","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.CoalesceProperties","displayName":"Coalesce YAML properties","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"exclusions=$..[org.springframework.security]\" --recipe-option \"applyTo=$..[org.springframework.security]\""}}>
 
 ## Usage
 

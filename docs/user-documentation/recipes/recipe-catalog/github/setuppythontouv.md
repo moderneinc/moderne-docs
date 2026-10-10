@@ -73,7 +73,7 @@ See the [UV GitHub integration guide](https://docs.astral.sh/uv/guides/integrati
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.SetupPythonToUv","displayName":"Replace `actions/setup-python` with `astral-sh/setup-uv`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.SetupPythonToUv","displayName":"Replace `actions/setup-python` with `astral-sh/setup-uv`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"uvVersion=v6\" --recipe-option \"syncStrategy=locked\" --recipe-option \"transformPipCommands=true\" --recipe-option \"enableCache=true\""}}>
 
 ## Usage
 

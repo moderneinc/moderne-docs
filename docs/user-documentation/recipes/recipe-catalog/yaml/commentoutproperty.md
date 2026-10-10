@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.CommentOutProperty","displayName":"Comment out property","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=applicability.singleSource\" --recipe-option \"commentText=The `foo` property is deprecated, please migrate\" --recipe-option \"commentOutProperty=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.CommentOutProperty","displayName":"Comment out property","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=applicability.singleSource\" --recipe-option \"commentText=The `foo` property is deprecated, please migrate\"","optionalCliOptions":" --recipe-option \"commentOutProperty=true\""}}>
 
 ## Usage
 

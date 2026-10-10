@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.toml.CreateTomlFile","displayName":"Create TOML file","groupId":"org.openrewrite","artifactId":"rewrite-toml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_TOML","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=pyproject.toml\" --recipe-option \"fileContents=>\n        [tool.poetry]\n        name = \"my-project\"\n        version = \"0.1.0\"\" --recipe-option \"fileContentsUrl=https://raw.githubusercontent.com/example/repo/main/pyproject.toml\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.toml.CreateTomlFile","displayName":"Create TOML file","groupId":"org.openrewrite","artifactId":"rewrite-toml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_TOML","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=pyproject.toml\"","optionalCliOptions":" --recipe-option \"fileContents=>\n        [tool.poetry]\n        name = \"my-project\"\n        version = \"0.1.0\"\" --recipe-option \"fileContentsUrl=https://raw.githubusercontent.com/example/repo/main/pyproject.toml\" --recipe-option \"overwriteExisting=true\""}}>
 
 ## Usage
 

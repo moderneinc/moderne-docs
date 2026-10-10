@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.kubernetes.sylva.migrate.dasschiff.GenerateInboundAndOutboundFromExportRanges","displayName":"Generate `Inbound` and `Outbound` from export ranges","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"classifications=m2m/10.250.4.0/24=inbound-bgp:vlan1,m2m/10.250.2.0/30=outbound:vlan1\" --recipe-option \"fileMatcher='**/network-*.yml'\""}}>
+<UsageList usage={{"recipeName":"io.moderne.kubernetes.sylva.migrate.dasschiff.GenerateInboundAndOutboundFromExportRanges","displayName":"Generate `Inbound` and `Outbound` from export ranges","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"classifications=m2m/10.250.4.0/24=inbound-bgp:vlan1,m2m/10.250.2.0/30=outbound:vlan1\"","optionalCliOptions":" --recipe-option \"fileMatcher='**/network-*.yml'\""}}>
 
 ## Usage
 

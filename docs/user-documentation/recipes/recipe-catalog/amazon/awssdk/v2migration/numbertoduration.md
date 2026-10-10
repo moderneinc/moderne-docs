@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"software.amazon.awssdk.v2migration.NumberToDuration","displayName":"Convert the method parameter from numeric type to duration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=com.amazonaws.ClientConfiguration setRequestTimeout(int)\" --recipe-option \"timeUnit=MILLISECONDS\""}}>
+<UsageList usage={{"recipeName":"software.amazon.awssdk.v2migration.NumberToDuration","displayName":"Convert the method parameter from numeric type to duration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=com.amazonaws.ClientConfiguration setRequestTimeout(int)\"","optionalCliOptions":" --recipe-option \"timeUnit=MILLISECONDS\""}}>
 
 ## Usage
 

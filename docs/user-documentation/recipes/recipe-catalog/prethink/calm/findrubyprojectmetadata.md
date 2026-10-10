@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"ruby","code":"require \"blorgh/version\"\n\nGem::Specification.new do |spec|\n  spec.name        = \"blorgh\"\n  spec.version     = \"1.2.3\"\n  spec.authors     = [\"Rails Core\"]\n  spec.summary     = \"A forum engine for Rails\"\n  spec.description = \"Blorgh adds forums to a host Rails application.\"\n  spec.license     = \"MIT\"\n\n  spec.files = Dir[\"lib/**/*\"]\n\n  spec.add_dependency \"rails\", \">= 7.0.0\"\nend\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindRubyProjectMetadata","displayName":"Find Ruby project metadata","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

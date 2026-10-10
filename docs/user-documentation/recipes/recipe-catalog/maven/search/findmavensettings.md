@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.search.FindMavenSettings","displayName":"Find effective maven settings","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.search.FindMavenSettings","displayName":"Find effective maven settings","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"existenceCheckOnly=true\""}}>
 
 ## Usage
 

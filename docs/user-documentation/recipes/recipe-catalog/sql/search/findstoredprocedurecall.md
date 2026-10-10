@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.sql.search.FindStoredProcedureCall","displayName":"Find stored procedure calls","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.sql.search.FindStoredProcedureCall","displayName":"Find stored procedure calls","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"procedureName=sp_get_customer\" --recipe-option \"markSource=true\""}}>
 
 ## Usage
 

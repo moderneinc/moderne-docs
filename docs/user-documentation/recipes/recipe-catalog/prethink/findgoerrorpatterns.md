@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package store\n\nimport (\n\t\"errors\"\n\t\"fmt\"\n)\n\nvar ErrMissing = errors.New(\"missing\")\n\nfunc Load(id string) error {\n\tdefer func() {\n\t\tif r := recover(); r != nil {\n\t\t}\n\t}()\n\tif err := find(id); err != nil {\n\t\tif errors.Is(err, ErrMissing) {\n\t\t\treturn fmt.Errorf(\"loading %s: %w\", id, err)\n\t\t}\n\t}\n\treturn nil\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.FindGoErrorPatterns","displayName":"Find Go error handling patterns","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

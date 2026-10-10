@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion","displayName":"Find the oldest matching dependency version in use","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupIdPattern=com.fasterxml.jackson.module\" --recipe-option \"artifactIdPattern=jackson-module-*\" --recipe-option \"version=1.x\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion","displayName":"Find the oldest matching dependency version in use","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupIdPattern=com.fasterxml.jackson.module\" --recipe-option \"artifactIdPattern=jackson-module-*\"","optionalCliOptions":" --recipe-option \"version=1.x\""}}>
 
 ## Usage
 

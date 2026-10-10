@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.search.FindProperty","displayName":"Find YAML properties","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.*.enabled\" --recipe-option \"propertyValue=false\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.search.FindProperty","displayName":"Find YAML properties","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.*.enabled\"","optionalCliOptions":" --recipe-option \"relaxedBinding=true\" --recipe-option \"propertyValue=false\""}}>
 
 ## Usage
 

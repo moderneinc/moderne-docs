@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.testcontainers.ExplicitContainerImage","displayName":"Add image argument to container constructor","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"containerClass=org.testcontainers.containers.NginxContainer\" --recipe-option \"image=nginx:1.9.4\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.testcontainers.ExplicitContainerImage","displayName":"Add image argument to container constructor","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"containerClass=org.testcontainers.containers.NginxContainer\" --recipe-option \"image=nginx:1.9.4\"","optionalCliOptions":" --recipe-option \"parseImage=true\""}}>
 
 ## Usage
 

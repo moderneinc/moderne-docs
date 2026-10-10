@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.quarkus.AddQuarkusProperty","displayName":"Add a Quarkus configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS","requiresConfiguration":true,"cliOptions":" --recipe-option \"property=quarkus.http.port\" --recipe-option \"value=9090\" --recipe-option \"comment=This is a comment\" --recipe-option \"profile=dev\" --recipe-option \"pathExpressions=[\"**/application.yaml\"]\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.quarkus.AddQuarkusProperty","displayName":"Add a Quarkus configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS","requiresConfiguration":true,"cliOptions":" --recipe-option \"property=quarkus.http.port\" --recipe-option \"value=9090\"","optionalCliOptions":" --recipe-option \"comment=This is a comment\" --recipe-option \"profile=dev\" --recipe-option \"pathExpressions=[\"**/application.yaml\"]\""}}>
 
 ## Usage
 

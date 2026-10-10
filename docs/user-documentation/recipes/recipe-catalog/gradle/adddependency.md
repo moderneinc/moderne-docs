@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.AddDependency","displayName":"Add Gradle dependency","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\" --recipe-option \"version=29.X\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"configuration=implementation\" --recipe-option \"onlyIfUsing=org.junit.jupiter.api.*\" --recipe-option \"classifier=test\" --recipe-option \"extension=jar\" --recipe-option \"familyPattern=com.fasterxml.jackson*\" --recipe-option \"acceptTransitive=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.AddDependency","displayName":"Add Gradle dependency","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\"","optionalCliOptions":" --recipe-option \"version=29.X\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"configuration=implementation\" --recipe-option \"onlyIfUsing=org.junit.jupiter.api.*\" --recipe-option \"classifier=test\" --recipe-option \"extension=jar\" --recipe-option \"familyPattern=com.fasterxml.jackson*\" --recipe-option \"acceptTransitive=true\""}}>
 
 ## Usage
 

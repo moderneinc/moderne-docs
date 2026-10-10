@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.ReplaceLocalizedStreamMethods","displayName":"Replace `getLocalizedInputStream` and `getLocalizedOutputStream` with direct assignment","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.ReplaceLocalizedStreamMethods","displayName":"Replace `getLocalizedInputStream` and `getLocalizedOutputStream` with direct assignment","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"localizedInputStreamMethodMatcher=java.lang.Runtime getLocalizedInputStream(java.io.InputStream)\" --recipe-option \"localizedOutputStreamMethodMatcher=java.lang.Runtime getLocalizedOutputStream(java.io.OutputStream)\""}}>
 
 ## Usage
 

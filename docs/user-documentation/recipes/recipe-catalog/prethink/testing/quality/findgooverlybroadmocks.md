@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package store\n\nimport (\n\t\"testing\"\n\n\t\"github.com/stretchr/testify/mock\"\n)\n\ntype repo struct{ mock.Mock }\n\nfunc TestSaves(t *testing.T) {\n\tr := &repo{}\n\tr.On(\"Save\", mock.Anything).Return(nil)\n\tr.On(\"Find\", mock.AnythingOfType(\"string\")).Return(nil)\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindGoOverlyBroadMocks","displayName":"Find Go overly broad mocks","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus37.AddMavenCompilerAnnotationProcessor","displayName":"Add an annotation processor to the Maven Compiler plugin configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.hibernate.orm\" --recipe-option \"artifactId=hibernate-jpamodelgen\" --recipe-option \"mavenCompilerPluginVersion=hibernate-jpamodelgen\""}}>
+<UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus37.AddMavenCompilerAnnotationProcessor","displayName":"Add an annotation processor to the Maven Compiler plugin configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.hibernate.orm\" --recipe-option \"artifactId=hibernate-jpamodelgen\"","optionalCliOptions":" --recipe-option \"enforceManagedVersion=true\" --recipe-option \"mavenCompilerPluginVersion=hibernate-jpamodelgen\""}}>
 
 ## Usage
 

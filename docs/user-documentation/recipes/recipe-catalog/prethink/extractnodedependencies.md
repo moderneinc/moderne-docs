@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"typescript","code":"import React, { useState, useEffect } from 'react';\nimport axios from 'axios';\nimport Button from '@mui/material/Button';\n\nexport function useUsers() {\n  const [users, setUsers] = useState([]);\n  useEffect(() => { axios.get('/api/users').then(r => setUsers(r.data)); }, []);\n  return { users, Button };\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.ExtractNodeDependencies","displayName":"Extract Node.js dependencies and usage","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

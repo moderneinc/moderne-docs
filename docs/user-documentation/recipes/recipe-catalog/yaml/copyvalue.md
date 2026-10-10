@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.CopyValue","displayName":"Copy YAML value","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldKeyPath=$.source.kind\" --recipe-option \"oldFilePath=src/main/resources/application.yaml\" --recipe-option \"newKey=$.dest.kind\" --recipe-option \"newFilePath=src/main/resources/application.yaml\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.CopyValue","displayName":"Copy YAML value","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldKeyPath=$.source.kind\" --recipe-option \"newKey=$.dest.kind\"","optionalCliOptions":" --recipe-option \"oldFilePath=src/main/resources/application.yaml\" --recipe-option \"newFilePath=src/main/resources/application.yaml\" --recipe-option \"createNewKeys=true\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.DeclarationSiteTypeVariance","displayName":"Properly use declaration-site type variance","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":true,"cliOptions":" --recipe-option \"variantTypes=java.util.function.Function<IN, OUT>\" --recipe-option \"excludedBounds=java.lang.*\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.DeclarationSiteTypeVariance","displayName":"Properly use declaration-site type variance","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":true,"cliOptions":" --recipe-option \"variantTypes=java.util.function.Function<IN, OUT>\"","optionalCliOptions":" --recipe-option \"excludedBounds=java.lang.*\" --recipe-option \"excludeFinalClasses=true\""}}>
 
 ## Usage
 

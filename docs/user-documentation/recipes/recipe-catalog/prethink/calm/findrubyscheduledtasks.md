@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"ruby","code":"every 1.day, at: \"4:30 am\" do\n  runner \"MyModel.some_process\"\nend\n\nevery \"0 0 27-31 * *\" do\n  rake \"reports:monthly\"\nend\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindRubyScheduledTasks","displayName":"Find Ruby scheduled tasks","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

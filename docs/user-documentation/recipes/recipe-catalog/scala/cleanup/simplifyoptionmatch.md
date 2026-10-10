@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val opt: Option[String] = Some(\"hello\")\n    val value = opt match {\n      case Some(x) => x\n      case None => throw new RuntimeException(\"missing\")\n    }\n}\n","after":"class Example {\n    val opt: Option[String] = Some(\"hello\")\n    val value = opt.getOrElse(throw new RuntimeException(\"missing\"))\n}\n","diff":"@@ -3,4 +3,1 @@\nclass Example {\n    val opt: Option[String] = Some(\"hello\")\n-   val value = opt match {\n-     case Some(x) => x\n-     case None => throw new RuntimeException(\"missing\")\n-   }\n+   val value = opt.getOrElse(throw new RuntimeException(\"missing\"))\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.scala.cleanup.SimplifyOptionMatch","displayName":"Replace `Option` pattern matching with combinators","groupId":"io.moderne.recipe","artifactId":"recipes-scala","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_SCALA","requiresConfiguration":false}}>
 
 ## Usage

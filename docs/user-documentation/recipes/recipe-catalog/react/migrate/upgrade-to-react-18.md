@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<OptionsTable options={[{"type":"String","name":"upgradeDependencies","required":false,"description":"Upgrade React dependency versions as well as APIs. Set to false when composing this migration into a later React upgrade."}]}>
+
+## Options
+
+</OptionsTable>
+
 <UsageList usage={{"recipeName":"org.openrewrite.react.migrate.upgrade-to-react-18","displayName":"Upgrade to React 18","npmPackage":"@openrewrite/recipes-react"}}>
 
 ## Usage

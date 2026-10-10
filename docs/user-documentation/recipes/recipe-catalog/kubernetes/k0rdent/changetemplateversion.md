@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion","displayName":"Change k0rdent template version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"chart=aws-standalone-cp\" --recipe-option \"oldVersion=1.0.42\" --recipe-option \"newVersion=1.0.43\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion","displayName":"Change k0rdent template version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"chart=aws-standalone-cp\" --recipe-option \"newVersion=1.0.43\"","optionalCliOptions":" --recipe-option \"oldVersion=1.0.42\""}}>
 
 ## Usage
 

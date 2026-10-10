@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.plugins.AddDevelocityGradlePlugin","displayName":"Add the Develocity Gradle plugin","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.plugins.AddDevelocityGradlePlugin","displayName":"Add the Develocity Gradle plugin","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"version=3.x\" --recipe-option \"server=https://scans.gradle.com/\" --recipe-option \"allowUntrustedServer=true\" --recipe-option \"captureTaskInputFiles=true\" --recipe-option \"uploadInBackground=true\" --recipe-option \"publishCriteria=Always\""}}>
 
 ## Usage
 

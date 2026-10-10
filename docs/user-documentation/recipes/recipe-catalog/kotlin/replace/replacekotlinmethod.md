@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kotlin.replace.ReplaceKotlinMethod","displayName":"Replace Kotlin method","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-kotlin","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_KOTLIN","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=arrow.core.MapKt mapOrAccumulate(kotlin.Function2)\" --recipe-option \"replacement=mapValuesOrAccumulate(transform)\" --recipe-option \"imports=[\"arrow.core.Either\"]\" --recipe-option \"classpathFromResources=[\"arrow-core-2\"]\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kotlin.replace.ReplaceKotlinMethod","displayName":"Replace Kotlin method","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-kotlin","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_KOTLIN","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=arrow.core.MapKt mapOrAccumulate(kotlin.Function2)\" --recipe-option \"replacement=mapValuesOrAccumulate(transform)\"","optionalCliOptions":" --recipe-option \"imports=[\"arrow.core.Either\"]\" --recipe-option \"classpathFromResources=[\"arrow-core-2\"]\""}}>
 
 ## Usage
 

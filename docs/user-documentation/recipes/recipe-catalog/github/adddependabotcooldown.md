@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.AddDependabotCooldown","displayName":"Add cooldown periods to Dependabot configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.AddDependabotCooldown","displayName":"Add cooldown periods to Dependabot configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"cooldownDays=7\" --recipe-option \"semverMajorDays=14\" --recipe-option \"semverMinorDays=7\" --recipe-option \"semverPatchDays=3\" --recipe-option \"include=lodash, react*\" --recipe-option \"exclude=critical-security-package\" --recipe-option \"excludeEcosystems=github-actions\""}}>
 
 ## Usage
 

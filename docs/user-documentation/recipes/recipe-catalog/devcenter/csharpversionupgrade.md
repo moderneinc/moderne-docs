@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.CSharpVersionUpgrade","displayName":"Move to a later .NET version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=9\" --recipe-option \"upgradeRecipe=org.openrewrite.dotnet.UpgradeToNet9\""}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.CSharpVersionUpgrade","displayName":"Move to a later .NET version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=9\"","optionalCliOptions":" --recipe-option \"upgradeRecipe=org.openrewrite.dotnet.UpgradeToNet9\""}}>
 
 ## Usage
 

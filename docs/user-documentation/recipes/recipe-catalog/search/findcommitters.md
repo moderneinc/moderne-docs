@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.search.FindCommitters","displayName":"Find committers on repositories","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.search.FindCommitters","displayName":"Find committers on repositories","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"fromDate=2023-01-01\""}}>
 
 ## Usage
 

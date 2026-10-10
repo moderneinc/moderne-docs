@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel418_3.RenameHeaders","displayName":"Rename Camel header(s) across all DSLs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel418_3.RenameHeaders","displayName":"Rename Camel header(s) across all DSLs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"headerMappings=kafka.TOPIC: CamelKafkaTopic\" --recipe-option \"oldHeaderName=kafka.TOPIC\" --recipe-option \"newHeaderName=CamelKafkaTopic\""}}>
 
 ## Usage
 

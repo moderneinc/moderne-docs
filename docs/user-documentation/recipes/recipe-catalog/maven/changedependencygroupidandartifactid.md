@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId","displayName":"Change Maven dependency","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.openrewrite.recipe\" --recipe-option \"oldArtifactId=rewrite-testing-frameworks\" --recipe-option \"newGroupId=corp.internal.openrewrite.recipe\" --recipe-option \"newArtifactId=rewrite-testing-frameworks\" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId","displayName":"Change Maven dependency","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.openrewrite.recipe\" --recipe-option \"oldArtifactId=rewrite-testing-frameworks\"","optionalCliOptions":" --recipe-option \"newGroupId=corp.internal.openrewrite.recipe\" --recipe-option \"newArtifactId=rewrite-testing-frameworks\" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"overrideManagedVersion=true\" --recipe-option \"changeManagedDependency=true\" --recipe-option \"changePluginDependencies=true\""}}>
 
 ## Usage
 

@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.concourse.ChangeResourceVersion","displayName":"Change resource version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-concourse","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceType=git\" --recipe-option \"version=2.0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.concourse.ChangeResourceVersion","displayName":"Change resource version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-concourse","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceType=git\"","optionalCliOptions":" --recipe-option \"version=2.0\""}}>
 
 ## Usage
 

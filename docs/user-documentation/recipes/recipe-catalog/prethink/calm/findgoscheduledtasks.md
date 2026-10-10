@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package worker\n\nimport \"time\"\n\nfunc Start() {\n\tticker := time.NewTicker(5 * time.Minute)\n\tfor range ticker.C {\n\t\tdoWork()\n\t}\n}\n\nfunc doWork() {\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoScheduledTasks","displayName":"Find Go scheduled tasks","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

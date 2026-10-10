@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.UpdateJavaCompatibility","displayName":"Update Gradle project Java compatibility","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=11\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.UpdateJavaCompatibility","displayName":"Update Gradle project Java compatibility","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=11\"","optionalCliOptions":" --recipe-option \"allowDowngrade=true\" --recipe-option \"addIfMissing=true\""}}>
 
 ## Usage
 

@@ -9,6 +9,12 @@ description: Dependencies OpenRewrite recipes.
 * [End of life](/user-documentation/recipes/recipe-catalog/java/dependencies/endoflife)
 * [Search](/user-documentation/recipes/recipe-catalog/java/dependencies/search)
 
+## Composite Recipes
+
+_Recipes that include further recipes, often including the individual recipes below._
+
+* [Software bill of materials](./softwarebillofmaterials.md)
+
 ## Recipes
 
 * [Add Gradle or Maven dependency](./adddependency.md)
@@ -25,7 +31,7 @@ description: Dependencies OpenRewrite recipes.
 * [Remove a Gradle or Maven dependency](./removedependency.md)
 * [Remove redundant explicit dependencies](./removeredundantdependencies.md)
 * [Remove unused dependencies](./removeunuseddependencies.md)
-* [Software bill of materials](./softwarebillofmaterials.md)
+* [Software bill of materials for Java](./javasoftwarebillofmaterials.md)
 * [Upgrade Gradle or Maven dependency versions](./upgradedependencyversion.md)
 * [Upgrade transitive Gradle or Maven dependencies](./upgradetransitivedependencyversion.md)
 

@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.javascript.ChangeDependency","displayName":"Change npm dependency","groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPackageName=lodash\" --recipe-option \"newPackageName=lodash-es\" --recipe-option \"newVersion=^5.0.0\" --recipe-option \"scope=dependencies\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.ChangeDependency","displayName":"Change npm dependency","groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPackageName=lodash\" --recipe-option \"newPackageName=lodash-es\"","optionalCliOptions":" --recipe-option \"newVersion=^5.0.0\" --recipe-option \"scope=dependencies\""}}>
 
 ## Usage
 

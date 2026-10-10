@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.AppendToSequence","displayName":"Append to sequence","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"sequencePath=$.universe.planets\" --recipe-option \"value=earth\" --recipe-option \"existingSequenceValues=existingValue1\" --recipe-option \"matchExistingSequenceValuesInAnyOrder=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.AppendToSequence","displayName":"Append to sequence","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"sequencePath=$.universe.planets\" --recipe-option \"value=earth\"","optionalCliOptions":" --recipe-option \"existingSequenceValues=existingValue1\" --recipe-option \"matchExistingSequenceValuesInAnyOrder=true\""}}>
 
 ## Usage
 

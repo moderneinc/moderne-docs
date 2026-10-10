@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.angular.search.FindAngularComponent","displayName":"Find Angular component","groupId":"io.moderne.recipe","artifactId":"rewrite-angular","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_ANGULAR","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.angular.search.FindAngularComponent","displayName":"Find Angular component","groupId":"io.moderne.recipe","artifactId":"rewrite-angular","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_ANGULAR","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"componentName=AppComponent\""}}>
 
 ## Usage
 

@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Add Spring Boot 4.0 modular starters","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarters/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Module has monolithic Spring Boot starter","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulehasmonolithicstarter/"}]}>
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Add Spring Boot 4.0 modular starters","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarters/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Module has monolithic Spring Boot starter","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulehasmonolithicstarter/"}]}>
 
 ## Definition
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Cucumber to JUnit test `@Suite`"}
-  description={"Migrates Cucumber tests to JUnit test `@Suite`."}
+  description={"Migrates Cucumber tests run by the `@Cucumber` annotation or the JUnit 4 `@RunWith(Cucumber.class)` runner to a JUnit Platform `@Suite`, and swaps `cucumber-junit` for `cucumber-junit-platform-engine` 7.x. Each Cucumber-JVM module depends on the `cucumber-core` of its own release, and the engine fails to run against any other, so the rest of the Cucumber-JVM dependencies move to that same 7.x."}
   fqName={"org.openrewrite.cucumber.jvm.CucumberToJunitPlatformSuite"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Cucumber to JUnit test `@Suite`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates Cucumber tests to JUnit test `@Suite`.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates Cucumber tests run by the `@Cucumber` annotation or the JUnit 4 `@RunWith(Cucumber.class)` runner to a JUnit Platform `@Suite`, and swaps `cucumber-junit` for `cucumber-junit-platform-engine` 7.x. Each Cucumber-JVM module depends on the `cucumber-core` of its own release, and the engine fails to run against any other, so the rest of the Cucumber-JVM dependencies move to that same 7.x.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Replace `@Cucumber` with `@Suite`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberannotationtosuite/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]}>
+<RecipeList recipes={[{"name":"Replace `@Cucumber` with `@Suite`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberannotationtosuite/"},{"name":"Cucumber JUnit 4 `@RunWith(Cucumber.class)` to JUnit Platform `@Suite`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberrunwithtosuite/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

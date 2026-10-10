@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.AddLiteralMethodArgument","displayName":"Add a literal method argument","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=com.yourorg.A foo(int, int)\" --recipe-option \"argumentIndex=0\" --recipe-option \"literal=abc\" --recipe-option \"primitiveType=String\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.AddLiteralMethodArgument","displayName":"Add a literal method argument","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=com.yourorg.A foo(int, int)\" --recipe-option \"argumentIndex=0\" --recipe-option \"literal=abc\"","optionalCliOptions":" --recipe-option \"primitiveType=String\""}}>
 
 ## Usage
 

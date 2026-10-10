@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.terraform.ChangeResourceNestedBlockAttribute","displayName":"Change a single attribute inside a Terraform resource's nested block","groupId":"org.openrewrite.recipe","artifactId":"rewrite-terraform","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceType=aws_db_parameter_group\" --recipe-option \"resourceNamePattern=rds_.*\" --recipe-option \"resourceAttrMatchers=family=mysql.*|mariadb.*\" --recipe-option \"blockType=parameter\" --recipe-option \"keyMatchers=name=local_infile\" --recipe-option \"attributeName=value\" --recipe-option \"newValue=0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.terraform.ChangeResourceNestedBlockAttribute","displayName":"Change a single attribute inside a Terraform resource's nested block","groupId":"org.openrewrite.recipe","artifactId":"rewrite-terraform","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceType=aws_db_parameter_group\" --recipe-option \"blockType=parameter\" --recipe-option \"attributeName=value\" --recipe-option \"newValue=0\"","optionalCliOptions":" --recipe-option \"resourceNamePattern=rds_.*\" --recipe-option \"resourceAttrMatchers=family=mysql.*|mariadb.*\" --recipe-option \"keyMatchers=name=local_infile\""}}>
 
 ## Usage
 

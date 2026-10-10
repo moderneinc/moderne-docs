@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.AddSpringProperty","displayName":"Add a spring configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"property=management.metrics.enable.process.files\" --recipe-option \"value=true\" --recipe-option \"comment=This is a comment\" --recipe-option \"pathExpressions=[\"**/application.yml\"]\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.AddSpringProperty","displayName":"Add a spring configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"property=management.metrics.enable.process.files\" --recipe-option \"value=true\"","optionalCliOptions":" --recipe-option \"comment=This is a comment\" --recipe-option \"pathExpressions=[\"**/application.yml\"]\""}}>
 
 ## Usage
 

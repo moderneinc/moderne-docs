@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package store\n\nimport \"testing\"\n\nfunc TestDiscardsItsError(t *testing.T) {\n\t_ = doWork()\n}\n\nfunc TestChecksItsError(t *testing.T) {\n\tif err := doWork(); err != nil {\n\t\tt.Fatal(err)\n\t}\n}\n\nfunc doWork() error { return nil }\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindGoSilentTestFailures","displayName":"Find Go silent test failures","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

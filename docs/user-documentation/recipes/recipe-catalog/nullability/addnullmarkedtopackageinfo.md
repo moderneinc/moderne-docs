@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.nullability.AddNullMarkedToPackageInfo","displayName":"Add `@NullMarked` to `package-info.java` for an allowlist of packages","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"packages=com.airbnb.payments.*\""}}>
+<UsageList usage={{"recipeName":"io.moderne.nullability.AddNullMarkedToPackageInfo","displayName":"Add `@NullMarked` to `package-info.java` for an allowlist of packages","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"packages=com.airbnb.payments.*\"","optionalCliOptions":" --recipe-option \"generateMissing=true\""}}>
 
 ## Usage
 

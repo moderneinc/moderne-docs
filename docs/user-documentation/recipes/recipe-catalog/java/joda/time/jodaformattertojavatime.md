@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate Joda-Time formatter to Java time"}
-  description={"Migrates Joda-Time `DateTimeFormatter` and `DateTimeFormat` method calls to their Java time equivalents."}
+  description={"Migrates Joda-Time `DateTimeFormatter`, `DateTimeFormat` and `ISODateTimeFormat` method calls to their Java time equivalents. Patterns are translated where Joda-Time and `java.time` read a pattern letter differently, and left alone when there is no exact translation."}
   fqName={"org.openrewrite.java.joda.time.JodaFormatterToJavaTime"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate Joda-Time formatter to Java time</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates Joda-Time `DateTimeFormatter` and `DateTimeFormat` method calls to their Java time equivalents.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates Joda-Time `DateTimeFormatter`, `DateTimeFormat` and `ISODateTimeFormat` method calls to their Java time equivalents. Patterns are translated where Joda-Time and `java.time` read a pattern letter differently, and left alone when there is no exact translation.</RecipeHeader.Description>
 
 </RecipeHeader>
 

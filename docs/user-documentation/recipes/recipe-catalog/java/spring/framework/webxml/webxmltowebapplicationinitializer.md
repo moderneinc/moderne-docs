@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.spring.framework.webxml.WebXmlToWebApplicationInitializer","displayName":"Migrate `web.xml` to `WebApplicationInitializer`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.java.spring.framework.webxml.WebXmlToWebApplicationInitializer","displayName":"Migrate `web.xml` to `WebApplicationInitializer`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"useJakartaEE=true\""}}>
 
 ## Usage
 

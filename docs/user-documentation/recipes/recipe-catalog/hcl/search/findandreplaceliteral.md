@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.hcl.search.FindAndReplaceLiteral","displayName":"Find and replace literals in HCL files","groupId":"org.openrewrite","artifactId":"rewrite-hcl","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_HCL","requiresConfiguration":true,"cliOptions":" --recipe-option \"find=blacklist\" --recipe-option \"replace=denylist\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.hcl.search.FindAndReplaceLiteral","displayName":"Find and replace literals in HCL files","groupId":"org.openrewrite","artifactId":"rewrite-hcl","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_HCL","requiresConfiguration":true,"cliOptions":" --recipe-option \"find=blacklist\"","optionalCliOptions":" --recipe-option \"replace=denylist\" --recipe-option \"regex=true\" --recipe-option \"caseSensitive=true\""}}>
 
 ## Usage
 

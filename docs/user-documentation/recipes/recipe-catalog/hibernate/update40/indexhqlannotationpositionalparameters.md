@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.hibernate.update40.IndexHqlAnnotationPositionalParameters","displayName":"Index HQL/JPQL positional parameters in annotations","groupId":"io.moderne.recipe","artifactId":"rewrite-hibernate","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE","requiresConfiguration":true,"cliOptions":" --recipe-option \"annotationPattern='@jakarta.persistence.NamedQuery'\" --recipe-option \"attributeName=value\""}}>
+<UsageList usage={{"recipeName":"io.moderne.hibernate.update40.IndexHqlAnnotationPositionalParameters","displayName":"Index HQL/JPQL positional parameters in annotations","groupId":"io.moderne.recipe","artifactId":"rewrite-hibernate","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_HIBERNATE","requiresConfiguration":true,"cliOptions":" --recipe-option \"annotationPattern='@jakarta.persistence.NamedQuery'\"","optionalCliOptions":" --recipe-option \"attributeName=value\""}}>
 
 ## Usage
 

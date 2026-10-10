@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.migrate.MigratePodDisruptionBudgetToV1","displayName":"Migrate `PodDisruptionBudget` to `policy/v1`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.migrate.MigratePodDisruptionBudgetToV1","displayName":"Migrate `PodDisruptionBudget` to `policy/v1`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"fileMatcher='**/pdb-*.yml'\""}}>
 
 ## Usage
 

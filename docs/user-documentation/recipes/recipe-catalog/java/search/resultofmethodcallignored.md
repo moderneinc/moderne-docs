@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.ResultOfMethodCallIgnored","displayName":"Result of method call ignored","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=java.io.File mkdir*()\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.ResultOfMethodCallIgnored","displayName":"Result of method call ignored","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=java.io.File mkdir*()\"","optionalCliOptions":" --recipe-option \"matchOverrides=true\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.SetupJavaUpgradeJavaVersion","displayName":"Upgrade `actions/setup-java` `java-version`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.SetupJavaUpgradeJavaVersion","displayName":"Upgrade `actions/setup-java` `java-version`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"minimumJavaMajorVersion=21\""}}>
 
 ## Usage
 

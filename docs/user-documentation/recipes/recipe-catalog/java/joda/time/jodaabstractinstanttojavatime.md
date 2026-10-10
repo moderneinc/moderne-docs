@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate Joda-Time `AbstractInstant` to Java time"}
-  description={"Migrates Joda-Time `AbstractInstant` method calls to their Java time equivalents."}
+  description={"Migrates Joda-Time `AbstractInstant` method calls to their Java time equivalents, for both date times and instants."}
   fqName={"org.openrewrite.java.joda.time.JodaAbstractInstantToJavaTime"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate Joda-Time `AbstractInstant` to Java time</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates Joda-Time `AbstractInstant` method calls to their Java time equivalents.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates Joda-Time `AbstractInstant` method calls to their Java time equivalents, for both date times and instants.</RecipeHeader.Description>
 
 </RecipeHeader>
 

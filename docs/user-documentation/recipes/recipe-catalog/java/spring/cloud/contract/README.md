@@ -13,5 +13,6 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Migrate `@AutoConfigureWireMock` to `@EnableWireMock`](./migrateautoconfigurewiremock.md)
+* [Migrate `WireMockConfigurationCustomizer` beans to `@ConfigureWireMock`](./migratewiremockconfigurationcustomizer.md)
 
 

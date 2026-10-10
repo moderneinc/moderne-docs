@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.CreateYamlFile","displayName":"Create YAML file","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=foo/bar/baz.yaml\" --recipe-option \"fileContents=>\n        a:\n          property: value\n        another:\n          property: value\" --recipe-option \"fileContentsUrl=http://foo.bar/baz.yaml\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.CreateYamlFile","displayName":"Create YAML file","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=foo/bar/baz.yaml\"","optionalCliOptions":" --recipe-option \"fileContents=>\n        a:\n          property: value\n        another:\n          property: value\" --recipe-option \"fileContentsUrl=http://foo.bar/baz.yaml\" --recipe-option \"overwriteExisting=true\""}}>
 
 ## Usage
 

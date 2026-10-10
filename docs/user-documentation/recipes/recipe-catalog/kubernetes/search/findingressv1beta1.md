@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindIngressV1beta1","displayName":"Find `networking.k8s.io/v1beta1` Ingresses","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindIngressV1beta1","displayName":"Find `networking.k8s.io/v1beta1` Ingresses","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"fileMatcher='**/ingress-*.yml'\""}}>
 
 ## Usage
 

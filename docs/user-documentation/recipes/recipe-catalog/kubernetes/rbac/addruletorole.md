@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.rbac.AddRuleToRole","displayName":"Add RBAC rules","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"rbacResourceType=ClusterRole\" --recipe-option \"rbacResourceName=my-cluster-role\" --recipe-option \"apiGroups=,v1\" --recipe-option \"resources=pods\" --recipe-option \"resourceNames=my-pod\" --recipe-option \"verbs=get,list\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.rbac.AddRuleToRole","displayName":"Add RBAC rules","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"rbacResourceType=ClusterRole\" --recipe-option \"rbacResourceName=my-cluster-role\" --recipe-option \"apiGroups=,v1\" --recipe-option \"resources=pods\" --recipe-option \"verbs=get,list\"","optionalCliOptions":" --recipe-option \"resourceNames=my-pod\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
 
 ## Usage
 

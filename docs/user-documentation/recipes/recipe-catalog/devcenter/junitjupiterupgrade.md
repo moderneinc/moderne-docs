@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.JUnitJupiterUpgrade","displayName":"Move to JUnit 6","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.JUnitJupiterUpgrade","displayName":"Move to JUnit 6","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"upgradeRecipe=org.openrewrite.java.testing.junit5.JUnit4to5Migration\""}}>
 
 ## Usage
 

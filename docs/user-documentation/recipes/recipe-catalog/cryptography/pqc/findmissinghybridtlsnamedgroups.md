@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.FindMissingHybridTlsNamedGroups","displayName":"Find TLS key exchange sites that cannot be made hybrid automatically","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.FindMissingHybridTlsNamedGroups","displayName":"Find TLS key exchange sites that cannot be made hybrid automatically","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"includeAppliedWithoutNamedGroups=true\""}}>
 
 ## Usage
 

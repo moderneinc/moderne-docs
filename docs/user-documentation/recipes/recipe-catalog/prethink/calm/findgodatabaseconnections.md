@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package store\n\nimport (\n\t\"database/sql\"\n)\n\nfunc Load(dsn string) error {\n\tdb, err := sql.Open(\"postgres\", dsn)\n\tif err != nil {\n\t\treturn err\n\t}\n\tdb.Query(\"SELECT 1\")\n\tdb.Query(\"SELECT 2\")\n\treturn nil\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoDatabaseConnections","displayName":"Find Go database connections","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.MethodNameCasing","displayName":"Standardize method name casing","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.MethodNameCasing","displayName":"Standardize method name casing","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"includeTestSources=true\" --recipe-option \"renamePublicMethods=true\""}}>
 
 ## Usage
 

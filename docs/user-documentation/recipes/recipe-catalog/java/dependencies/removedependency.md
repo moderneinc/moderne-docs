@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.RemoveDependency","displayName":"Remove a Gradle or Maven dependency","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.fasterxml.jackson*\" --recipe-option \"artifactId=jackson-module*\" --recipe-option \"unlessUsing=org.aspectj.lang.*\" --recipe-option \"configuration=api\" --recipe-option \"scope=compile\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.RemoveDependency","displayName":"Remove a Gradle or Maven dependency","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.fasterxml.jackson*\" --recipe-option \"artifactId=jackson-module*\"","optionalCliOptions":" --recipe-option \"unlessUsing=org.aspectj.lang.*\" --recipe-option \"configuration=api\" --recipe-option \"scope=compile\""}}>
 
 ## Usage
 

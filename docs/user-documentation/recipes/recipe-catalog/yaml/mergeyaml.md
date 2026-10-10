@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.MergeYaml","displayName":"Merge YAML snippet","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=$.metadata\" --recipe-option \"yaml='labels:\n  label-one: \"value-one\"'\" --recipe-option \"objectIdentifyingProperty=name\" --recipe-option \"filePattern=.github/workflows/*.yml\" --recipe-option \"insertProperty=some-key\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.MergeYaml","displayName":"Merge YAML snippet","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=$.metadata\" --recipe-option \"yaml='labels:\n  label-one: \"value-one\"'\"","optionalCliOptions":" --recipe-option \"acceptTheirs=true\" --recipe-option \"objectIdentifyingProperty=name\" --recipe-option \"filePattern=.github/workflows/*.yml\" --recipe-option \"insertProperty=some-key\" --recipe-option \"createNewKeys=true\""}}>
 
 ## Usage
 

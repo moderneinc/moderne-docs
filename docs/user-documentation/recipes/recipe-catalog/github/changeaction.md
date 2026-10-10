@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.ChangeAction","displayName":"Change GitHub Action","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldAction=gradle/wrapper-validation-action\" --recipe-option \"oldSha=8f4b7f84864484a7bf31766abe9204da3cbe65b3\" --recipe-option \"newAction=gradle/actions/wrapper-validation\" --recipe-option \"newVersion=v3\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.ChangeAction","displayName":"Change GitHub Action","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldAction=gradle/wrapper-validation-action\" --recipe-option \"newAction=gradle/actions/wrapper-validation\"","optionalCliOptions":" --recipe-option \"oldSha=8f4b7f84864484a7bf31766abe9204da3cbe65b3\" --recipe-option \"newVersion=v3\""}}>
 
 ## Usage
 

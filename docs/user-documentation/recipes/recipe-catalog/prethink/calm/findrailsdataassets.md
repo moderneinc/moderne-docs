@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"ruby","code":"ActiveRecord::Schema[7.1].define(version: 2024_01_15_000000) do\n  create_table \"albums\", force: :cascade do |t|\n    t.string \"name\", null: false\n    t.timestamps\n  end\n\n  create_table \"photos\", force: :cascade do |t|\n    t.string \"title\"\n    t.text \"caption\"\n    t.references \"album\", null: false, foreign_key: true\n    t.index [\"title\"], name: \"index_photos_on_title\"\n  end\n\n  add_foreign_key \"photos\", \"albums\"\nend\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindRailsDataAssets","displayName":"Find Rails data assets","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

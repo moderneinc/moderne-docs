@@ -55,7 +55,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddStages","displayName":"Add GitLab stages","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"stages=build,test,deploy\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddStages","displayName":"Add GitLab stages","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"stages=build,test,deploy\"","optionalCliOptions":" --recipe-option \"acceptTheirs=true\""}}>
 
 ## Usage
 

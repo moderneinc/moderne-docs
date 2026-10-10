@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.android.UpgradeTargetSdkVersion","displayName":"Upgrade Android `targetSdk` version","groupId":"org.openrewrite","artifactId":"rewrite-android","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_ANDROID","requiresConfiguration":true,"cliOptions":" --recipe-option \"to=34\" --recipe-option \"minSdkFloor=33\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.android.UpgradeTargetSdkVersion","displayName":"Upgrade Android `targetSdk` version","groupId":"org.openrewrite","artifactId":"rewrite-android","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_ANDROID","requiresConfiguration":true,"cliOptions":" --recipe-option \"to=34\"","optionalCliOptions":" --recipe-option \"minSdkFloor=33\""}}>
 
 ## Usage
 

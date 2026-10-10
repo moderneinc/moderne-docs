@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.tapestry.ConvertAnnotatedMethodToField","displayName":"Convert annotated abstract method to field","groupId":"io.moderne.recipe","artifactId":"rewrite-tapestry","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_TAPESTRY","requiresConfiguration":true,"cliOptions":" --recipe-option \"sourceAnnotation=org.apache.tapestry.annotations.InjectObject\" --recipe-option \"targetAnnotation=org.apache.tapestry5.ioc.annotations.Inject\" --recipe-option \"preserveAnnotationArguments=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.tapestry.ConvertAnnotatedMethodToField","displayName":"Convert annotated abstract method to field","groupId":"io.moderne.recipe","artifactId":"rewrite-tapestry","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_TAPESTRY","requiresConfiguration":true,"cliOptions":" --recipe-option \"sourceAnnotation=org.apache.tapestry.annotations.InjectObject\" --recipe-option \"targetAnnotation=org.apache.tapestry5.ioc.annotations.Inject\"","optionalCliOptions":" --recipe-option \"preserveAnnotationArguments=true\""}}>
 
 ## Usage
 

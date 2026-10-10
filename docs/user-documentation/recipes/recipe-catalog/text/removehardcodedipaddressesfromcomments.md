@@ -66,7 +66,7 @@ For line comments, the entire line is removed. For block comments, only the IP a
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.text.RemoveHardcodedIPAddressesFromComments","displayName":"Remove hard-coded IP addresses from comments","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.text.RemoveHardcodedIPAddressesFromComments","displayName":"Remove hard-coded IP addresses from comments","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"ipAddressReplacement=IP_ADDRESS_REPLACED\""}}>
 
 ## Usage
 

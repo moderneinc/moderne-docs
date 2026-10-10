@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.cryptography.FindSecuritySetProperties","displayName":"Find `Security.setProperty(..)` calls for certain properties","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.cryptography.FindSecuritySetProperties","displayName":"Find `Security.setProperty(..)` calls for certain properties","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"properties=crypto.policy\""}}>
 
 ## Usage
 

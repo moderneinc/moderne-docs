@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package events\n\nimport (\n\t\"context\"\n\n\t\"github.com/nats-io/nats.go\"\n\t\"github.com/segmentio/kafka-go\"\n)\n\nfunc Run(ctx context.Context, msgs []kafka.Message) error {\n\tw := kafka.NewWriter(kafka.WriterConfig{})\n\tif err := w.WriteMessages(ctx, msgs...); err != nil {\n\t\treturn err\n\t}\n\n\tnc, err := nats.Connect(nats.DefaultURL)\n\tif err != nil {\n\t\treturn err\n\t}\n\tnc.Publish(\"orders.created\", []byte(\"{}\"))\n\tnc.Subscribe(\"orders.created\", handle)\n\treturn nil\n}\n\nfunc handle(m *nats.Msg) {}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoMessagingConnections","displayName":"Find Go messaging connections","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

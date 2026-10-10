@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.method.RemoveUnnecessaryOverride","displayName":"Remove unnecessary `@Override` annotations","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.method.RemoveUnnecessaryOverride","displayName":"Remove unnecessary `@Override` annotations","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"ignoreAnonymousClassMethods=true\""}}>
 
 ## Usage
 

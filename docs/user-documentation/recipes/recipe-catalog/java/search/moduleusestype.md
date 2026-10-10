@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.ModuleUsesType","displayName":"Module uses type","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=org.springframework..*\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.ModuleUsesType","displayName":"Module uses type","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=org.springframework..*\"","optionalCliOptions":" --recipe-option \"includeImplicit=true\""}}>
 
 ## Usage
 

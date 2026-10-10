@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.ChangePluginGroupIdAndArtifactId","displayName":"Change Maven plugin group and artifact ID","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.openrewrite.recipe\" --recipe-option \"oldArtifactId=my-deprecated-maven-plugin\" --recipe-option \"newGroupId=corp.internal.openrewrite.recipe\" --recipe-option \"newArtifactId=my-new-maven-plugin\" --recipe-option \"newVersion=29.X\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.ChangePluginGroupIdAndArtifactId","displayName":"Change Maven plugin group and artifact ID","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.openrewrite.recipe\" --recipe-option \"oldArtifactId=my-deprecated-maven-plugin\"","optionalCliOptions":" --recipe-option \"newGroupId=corp.internal.openrewrite.recipe\" --recipe-option \"newArtifactId=my-new-maven-plugin\" --recipe-option \"newVersion=29.X\""}}>
 
 ## Usage
 

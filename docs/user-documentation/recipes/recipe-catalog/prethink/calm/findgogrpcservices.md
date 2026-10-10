@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package server\n\nimport (\n\t\"google.golang.org/grpc\"\n\n\tpb \"github.com/example/app/gen\"\n)\n\nfunc Register(s *grpc.Server, orders pb.OrdersServer) {\n\tpb.RegisterOrdersServer(s, orders)\n\ts.Serve(nil)\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoGrpcServices","displayName":"Find Go gRPC services","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

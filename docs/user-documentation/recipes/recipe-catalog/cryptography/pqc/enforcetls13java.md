@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.EnforceTls13Java","displayName":"Enforce a TLS 1.3 floor in Java sources","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.EnforceTls13Java","displayName":"Enforce a TLS 1.3 floor in Java sources","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"minimumProtocol=TLSv1.2\" --recipe-option \"retainTls12In=**/legacy/**\" --recipe-option \"rewriteContextAlgorithm=true\" --recipe-option \"skipTestSources=true\" --recipe-option \"strictAlgorithmName=true\""}}>
 
 ## Usage
 

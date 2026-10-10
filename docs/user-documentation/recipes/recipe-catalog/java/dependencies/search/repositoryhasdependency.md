@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.search.RepositoryHasDependency","displayName":"Repository has dependency","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupIdPattern=com.fasterxml.jackson.module\" --recipe-option \"artifactIdPattern=jackson-module-*\" --recipe-option \"scope=compile\" --recipe-option \"version=1.x\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.search.RepositoryHasDependency","displayName":"Repository has dependency","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupIdPattern=com.fasterxml.jackson.module\" --recipe-option \"artifactIdPattern=jackson-module-*\"","optionalCliOptions":" --recipe-option \"scope=compile\" --recipe-option \"version=1.x\""}}>
 
 ## Usage
 

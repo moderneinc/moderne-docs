@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.clusterapi.MigrateClusterApiCoreResourceToV1beta2","displayName":"Migrate the Cluster API core group to `v1beta2`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.clusterapi.MigrateClusterApiCoreResourceToV1beta2","displayName":"Migrate the Cluster API core group to `v1beta2`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"kind=MachineDeployment\" --recipe-option \"fileMatcher='**/cluster-*.yml'\""}}>
 
 ## Usage
 

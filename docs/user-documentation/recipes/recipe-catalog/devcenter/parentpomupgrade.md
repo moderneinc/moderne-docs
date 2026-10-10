@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.ParentPomUpgrade","displayName":"Parent POM upgrade","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"cardName=Upgrade internal Parent POM\" --recipe-option \"groupIdPattern=org.springframework.boot\" --recipe-option \"artifactIdPattern=spring-boot-parent\" --recipe-option \"version=3.4.5\" --recipe-option \"upgradeRecipe=com.acme.UpgradeInternalParentPom\""}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.ParentPomUpgrade","displayName":"Parent POM upgrade","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"cardName=Upgrade internal Parent POM\" --recipe-option \"groupIdPattern=org.springframework.boot\" --recipe-option \"artifactIdPattern=spring-boot-parent\" --recipe-option \"version=3.4.5\"","optionalCliOptions":" --recipe-option \"upgradeRecipe=com.acme.UpgradeInternalParentPom\""}}>
 
 ## Usage
 

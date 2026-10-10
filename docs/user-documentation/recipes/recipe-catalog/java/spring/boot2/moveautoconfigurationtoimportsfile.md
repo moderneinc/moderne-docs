@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.MoveAutoConfigurationToImportsFile","displayName":"Use `AutoConfiguration#imports`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.MoveAutoConfigurationToImportsFile","displayName":"Use `AutoConfiguration#imports`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"preserveFactoriesFile=true\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.docker.AddUserInstruction","displayName":"Add `USER` instruction","groupId":"org.openrewrite","artifactId":"rewrite-docker","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_DOCKER","requiresConfiguration":true,"cliOptions":" --recipe-option \"userName=appuser\" --recipe-option \"groupName=appgroup\" --recipe-option \"stageName=final\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.docker.AddUserInstruction","displayName":"Add `USER` instruction","groupId":"org.openrewrite","artifactId":"rewrite-docker","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_DOCKER","requiresConfiguration":true,"cliOptions":" --recipe-option \"userName=appuser\"","optionalCliOptions":" --recipe-option \"groupName=appgroup\" --recipe-option \"stageName=final\" --recipe-option \"skipIfUserExists=true\""}}>
 
 ## Usage
 

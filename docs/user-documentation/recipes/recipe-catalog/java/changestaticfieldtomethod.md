@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeStaticFieldToMethod","displayName":"Change static field access to static method access","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldClassName=java.util.Collections\" --recipe-option \"oldFieldName=EMPTY_LIST\" --recipe-option \"newClassName=java.util.List\" --recipe-option \"newTarget=OK_RESPONSE\" --recipe-option \"newMethodName=of\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeStaticFieldToMethod","displayName":"Change static field access to static method access","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldClassName=java.util.Collections\" --recipe-option \"oldFieldName=EMPTY_LIST\" --recipe-option \"newMethodName=of\"","optionalCliOptions":" --recipe-option \"newClassName=java.util.List\" --recipe-option \"newTarget=OK_RESPONSE\""}}>
 
 ## Usage
 

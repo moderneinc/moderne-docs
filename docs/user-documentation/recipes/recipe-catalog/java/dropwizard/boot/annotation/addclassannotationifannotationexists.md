@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.annotation.AddClassAnnotationIfAnnotationExists","displayName":"Add annotation if target annotation exists","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":true,"cliOptions":" --recipe-option \"annotationToAdd=org.springframework.stereotype.Component\" --recipe-option \"targetAnnotationClassName=javax.ws.rs.Path\""}}>
+<UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.annotation.AddClassAnnotationIfAnnotationExists","displayName":"Add annotation if target annotation exists","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":true,"cliOptions":" --recipe-option \"annotationToAdd=org.springframework.stereotype.Component\" --recipe-option \"targetAnnotationClassName=javax.ws.rs.Path\"","optionalCliOptions":" --recipe-option \"annotateInnerClasses=true\""}}>
 
 ## Usage
 

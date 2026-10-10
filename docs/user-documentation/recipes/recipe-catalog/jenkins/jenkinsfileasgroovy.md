@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.jenkins.JenkinsfileAsGroovy","displayName":"Parse `Jenkinsfile` as Groovy","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jenkins","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.jenkins.JenkinsfileAsGroovy","displayName":"Parse `Jenkinsfile` as Groovy","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jenkins","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"filePattern='**/Jenkinsfile*'\""}}>
 
 ## Usage
 

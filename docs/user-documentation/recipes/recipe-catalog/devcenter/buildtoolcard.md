@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.BuildToolCard","displayName":"Build tool","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"cardName=Upgrade to Gradle 9\" --recipe-option \"buildTool=null\" --recipe-option \"targetVersion=9.0.0\" --recipe-option \"fixRecipeId=org.openrewrite.gradle.MigrateToGradle9\""}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.BuildToolCard","displayName":"Build tool","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"cardName=Upgrade to Gradle 9\" --recipe-option \"buildTool=null\" --recipe-option \"targetVersion=9.0.0\"","optionalCliOptions":" --recipe-option \"fixRecipeId=org.openrewrite.gradle.MigrateToGradle9\""}}>
 
 ## Usage
 

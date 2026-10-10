@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.logging.logback.ConditionAttributeToConditionElement","displayName":"Replace the Logback `condition` attribute with the `condition` element","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.logging.logback.ConditionAttributeToConditionElement","displayName":"Replace the Logback `condition` attribute with the `condition` element","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"filePattern='**/logback-spring.xml'\""}}>
 
 ## Usage
 

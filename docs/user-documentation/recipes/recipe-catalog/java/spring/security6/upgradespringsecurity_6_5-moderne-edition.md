@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Security 6.5","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-community-edition/"},{"name":"Migrate antPathRequestMatcher to pathPatternRequestMatcher","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/migrateantpathrequestmatcher/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Spring Security 6.5","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-community-edition/"},{"name":"Migrate from Spring Security OAuth to Spring Security","href":"/user-documentation/recipes/recipe-catalog/java/spring/security/oauth/migratespringsecurityoauth/"},{"name":"Migrate antPathRequestMatcher to pathPatternRequestMatcher","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/migrateantpathrequestmatcher/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

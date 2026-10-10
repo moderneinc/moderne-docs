@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeMethodAccessLevel","displayName":"Change method access level","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.mockito.Matchers anyVararg()\" --recipe-option \"newAccessLevel=public\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeMethodAccessLevel","displayName":"Change method access level","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.mockito.Matchers anyVararg()\" --recipe-option \"newAccessLevel=public\"","optionalCliOptions":" --recipe-option \"matchOverrides=true\""}}>
 
 ## Usage
 

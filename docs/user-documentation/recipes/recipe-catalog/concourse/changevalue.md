@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.concourse.ChangeValue","displayName":"Change Concourse value","groupId":"org.openrewrite.recipe","artifactId":"rewrite-concourse","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE","requiresConfiguration":true,"cliOptions":" --recipe-option \"keyPath=$.resources[?(@.type == 'git')].source.uri\" --recipe-option \"oldValue=https://github.com/openrewrite/rewrite0\" --recipe-option \"newValue=git@github.com:openrewrite/rewrite1.git\" --recipe-option \"fileMatcher='**/pipeline*.yml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.concourse.ChangeValue","displayName":"Change Concourse value","groupId":"org.openrewrite.recipe","artifactId":"rewrite-concourse","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE","requiresConfiguration":true,"cliOptions":" --recipe-option \"keyPath=$.resources[?(@.type == 'git')].source.uri\" --recipe-option \"newValue=git@github.com:openrewrite/rewrite1.git\"","optionalCliOptions":" --recipe-option \"oldValue=https://github.com/openrewrite/rewrite0\" --recipe-option \"fileMatcher='**/pipeline*.yml'\""}}>
 
 ## Usage
 

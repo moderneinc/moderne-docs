@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.FindCallGraph","displayName":"Find call graph","groupId":"org.openrewrite.recipe","artifactId":"rewrite-all","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_ALL","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.FindCallGraph","displayName":"Find call graph","groupId":"org.openrewrite.recipe","artifactId":"rewrite-all","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_ALL","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"includeStdLib=true\""}}>
 
 ## Usage
 

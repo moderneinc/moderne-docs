@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"ruby","code":"# frozen_string_literal: true\n\nrequire 'json'\nrequire_relative 'photo'\n\nmodule Api\n  module V1\n    class PhotosController < ApplicationController\n      def index\n        @photos = Photo.all\n      end\n\n      def published?\n        true\n      end\n\n      def save!\n        @photos.save\n      end\n\n      private\n\n      def photo_params\n        params.require(:photo)\n      end\n    end\n  end\nend\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.FindRubyCodingConventions","displayName":"Find Ruby coding conventions","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

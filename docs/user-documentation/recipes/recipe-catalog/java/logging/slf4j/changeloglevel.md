@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.ChangeLogLevel","displayName":"Change SLF4J log level","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"from=INFO\" --recipe-option \"to=DEBUG\" --recipe-option \"startsWith=LaunchDarkly\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.ChangeLogLevel","displayName":"Change SLF4J log level","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"from=INFO\" --recipe-option \"to=DEBUG\"","optionalCliOptions":" --recipe-option \"startsWith=LaunchDarkly\""}}>
 
 ## Usage
 

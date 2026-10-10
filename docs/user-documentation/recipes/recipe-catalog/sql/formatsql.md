@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.sql.FormatSql","displayName":"Format SQL in string text blocks","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.sql.FormatSql","displayName":"Format SQL in string text blocks","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"sqlDialect=postgresql\" --recipe-option \"indent=    \" --recipe-option \"maxColumnLength=100\" --recipe-option \"uppercase=true\""}}>
 
 ## Usage
 

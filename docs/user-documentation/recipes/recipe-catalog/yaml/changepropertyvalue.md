@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.ChangePropertyValue","displayName":"Change YAML property","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.*.enabled\" --recipe-option \"newValue=newValue\" --recipe-option \"oldValue=oldValue\" --recipe-option \"filePattern=.github/workflows/*.yml\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.ChangePropertyValue","displayName":"Change YAML property","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.*.enabled\" --recipe-option \"newValue=newValue\"","optionalCliOptions":" --recipe-option \"oldValue=oldValue\" --recipe-option \"regex=true\" --recipe-option \"relaxedBinding=true\" --recipe-option \"filePattern=.github/workflows/*.yml\""}}>
 
 ## Usage
 

@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.security.search.FindSensitiveApiEndpoints","displayName":"Find sensitive API endpoints","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"fieldNames=password,dateOfBirth,dob,ssn\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.security.search.FindSensitiveApiEndpoints","displayName":"Find sensitive API endpoints","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"fieldNames=password,dateOfBirth,dob,ssn\"","optionalCliOptions":" --recipe-option \"transitive=true\""}}>
 
 ## Usage
 

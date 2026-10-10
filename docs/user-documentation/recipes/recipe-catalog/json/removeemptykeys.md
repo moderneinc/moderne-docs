@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.json.RemoveEmptyKeys","displayName":"Remove empty keys","groupId":"org.openrewrite","artifactId":"rewrite-json","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JSON","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.json.RemoveEmptyKeys","displayName":"Remove empty keys","groupId":"org.openrewrite","artifactId":"rewrite-json","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JSON","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"keys=$..devDependencies\" --recipe-option \"cascadeTo=$.spec\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.RenameBean","displayName":"Rename bean","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"type=foo.MyType\" --recipe-option \"oldName=fooBean\" --recipe-option \"newName=barBean\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.RenameBean","displayName":"Rename bean","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldName=fooBean\" --recipe-option \"newName=barBean\"","optionalCliOptions":" --recipe-option \"type=foo.MyType\""}}>
 
 ## Usage
 

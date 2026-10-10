@@ -6,6 +6,10 @@ description: Spring Security OpenRewrite recipes.
 
 _Recipes for [Spring Security](https://spring.io/projects/spring-security)._
 
+## Categories
+
+* [Oauth](/user-documentation/recipes/recipe-catalog/java/spring/security/oauth)
+
 ## Composite Recipes
 
 _Recipes that include further recipes, often including the individual recipes below._

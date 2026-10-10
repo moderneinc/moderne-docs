@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.kustomize.UpdateImageTag","displayName":"Update kustomize image","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"imageName=controller\" --recipe-option \"newName=ghcr.io/telekom/das-schiff-network-operator\" --recipe-option \"newTag=v1.2.3\" --recipe-option \"digest=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229\" --recipe-option \"fileMatcher='**/overlays/**/kustomization.yaml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.kustomize.UpdateImageTag","displayName":"Update kustomize image","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"imageName=controller\"","optionalCliOptions":" --recipe-option \"newName=ghcr.io/telekom/das-schiff-network-operator\" --recipe-option \"newTag=v1.2.3\" --recipe-option \"digest=sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229\" --recipe-option \"fileMatcher='**/overlays/**/kustomization.yaml'\""}}>
 
 ## Usage
 

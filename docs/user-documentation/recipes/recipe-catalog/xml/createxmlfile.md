@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.xml.CreateXmlFile","displayName":"Create XML file","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=foo/bar/baz.xml\" --recipe-option \"fileContents=>\n        <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n        <root>\n            <child>1</child></root>\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.xml.CreateXmlFile","displayName":"Create XML file","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=foo/bar/baz.xml\"","optionalCliOptions":" --recipe-option \"fileContents=>\n        <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n        <root>\n            <child>1</child></root>\" --recipe-option \"overwriteExisting=true\""}}>
 
 ## Usage
 

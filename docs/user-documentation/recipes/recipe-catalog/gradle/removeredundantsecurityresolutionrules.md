@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.RemoveRedundantSecurityResolutionRules","displayName":"Remove redundant security resolution rules","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.RemoveRedundantSecurityResolutionRules","displayName":"Remove redundant security resolution rules","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"securityPattern=(CVE-\\d|GHSA-[a-z0-9])\""}}>
 
 ## Usage
 

@@ -6,6 +6,10 @@ description: Kotlin migration OpenRewrite recipes.
 
 _Recipes for migrating to newer Kotlin versions._
 
+## Categories
+
+* [Autovalue](/user-documentation/recipes/recipe-catalog/kotlin/migrate/autovalue)
+
 ## Composite Recipes
 
 _Recipes that include further recipes, often including the individual recipes below._

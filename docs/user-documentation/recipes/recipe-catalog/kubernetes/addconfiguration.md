@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.AddConfiguration","displayName":"Add Kubernetes configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"apiVersion=policy/v1beta1\" --recipe-option \"resourceKind=PodSecurityPolicy\" --recipe-option \"configurationPath=$.spec\" --recipe-option \"value='privileged: false'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.AddConfiguration","displayName":"Add Kubernetes configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceKind=PodSecurityPolicy\" --recipe-option \"configurationPath=$.spec\" --recipe-option \"value='privileged: false'\"","optionalCliOptions":" --recipe-option \"apiVersion=policy/v1beta1\""}}>
 
 ## Usage
 

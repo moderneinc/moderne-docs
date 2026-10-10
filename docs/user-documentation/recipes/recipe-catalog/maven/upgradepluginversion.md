@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.UpgradePluginVersion","displayName":"Upgrade Maven plugin version","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.openrewrite.maven\" --recipe-option \"artifactId=rewrite-maven-plugin\" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.UpgradePluginVersion","displayName":"Upgrade Maven plugin version","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.openrewrite.maven\" --recipe-option \"artifactId=rewrite-maven-plugin\" --recipe-option \"newVersion=29.X\"","optionalCliOptions":" --recipe-option \"versionPattern='-jre'\" --recipe-option \"trustParent=true\" --recipe-option \"addVersionIfMissing=true\""}}>
 
 ## Usage
 

@@ -36,6 +36,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find invalid JDBC indices](./findinvalidjdbcindex.md)
 * [Find log injection vulnerabilities](./findloginjection.md)
 * [Find long or disabled HTTP session timeout](./findlongsessiontimeout.md)
+* [Find mass assignment](./findmassassignment.md)
 * [Find permissive CORS configuration](./findpermissivecorsconfiguration.md)
 * [Find potential SQL injection](./findsqlinjection.md)
 * [Find predictable cryptographic salts](./findpredictablesalt.md)

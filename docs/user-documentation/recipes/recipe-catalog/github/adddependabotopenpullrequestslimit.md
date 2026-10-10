@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.AddDependabotOpenPullRequestsLimit","displayName":"Add `open-pull-requests-limit` to Dependabot configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"openPullRequestsLimit=5\" --recipe-option \"packageEcosystem=gradle\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.AddDependabotOpenPullRequestsLimit","displayName":"Add `open-pull-requests-limit` to Dependabot configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"openPullRequestsLimit=5\"","optionalCliOptions":" --recipe-option \"packageEcosystem=gradle\""}}>
 
 ## Usage
 

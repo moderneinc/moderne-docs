@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindContainerMissingConfiguration","displayName":"Find containers with missing configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"configurationPath=resources.limits.cpu\" --recipe-option \"resourceKind=Deployment\" --recipe-option \"containerTypes=containers\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindContainerMissingConfiguration","displayName":"Find containers with missing configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"configurationPath=resources.limits.cpu\"","optionalCliOptions":" --recipe-option \"resourceKind=Deployment\" --recipe-option \"containerTypes=containers\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
 
 ## Usage
 

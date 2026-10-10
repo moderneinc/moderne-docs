@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.AddProperty","displayName":"Add Gradle property","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=org.gradle.caching\" --recipe-option \"value=true\" --recipe-option \"overwrite=true\" --recipe-option \"filePattern='**/*.properties'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.AddProperty","displayName":"Add Gradle property","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=org.gradle.caching\" --recipe-option \"value=true\" --recipe-option \"overwrite=true\"","optionalCliOptions":" --recipe-option \"filePattern='**/*.properties'\""}}>
 
 ## Usage
 

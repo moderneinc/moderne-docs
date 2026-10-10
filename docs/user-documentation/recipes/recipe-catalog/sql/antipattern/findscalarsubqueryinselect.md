@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.sql.antipattern.FindScalarSubqueryInSelect","displayName":"Find scalar subqueries in the `SELECT` list","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.sql.antipattern.FindScalarSubqueryInSelect","displayName":"Find scalar subqueries in the `SELECT` list","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"markSource=true\""}}>
 
 ## Usage
 

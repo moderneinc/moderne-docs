@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeMethodName","displayName":"Change method name","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.mockito.Matchers anyVararg()\" --recipe-option \"newMethodName=any\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeMethodName","displayName":"Change method name","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.mockito.Matchers anyVararg()\" --recipe-option \"newMethodName=any\"","optionalCliOptions":" --recipe-option \"matchOverrides=true\" --recipe-option \"ignoreDefinition=true\""}}>
 
 ## Usage
 

@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.plugins.AddSettingsPlugin","displayName":"Add Gradle settings plugin","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"pluginId=com.jfrog.bintray\" --recipe-option \"version=3.x\" --recipe-option \"versionPattern='-jre'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.plugins.AddSettingsPlugin","displayName":"Add Gradle settings plugin","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"pluginId=com.jfrog.bintray\"","optionalCliOptions":" --recipe-option \"version=3.x\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"apply=true\" --recipe-option \"acceptTransitive=true\""}}>
 
 ## Usage
 

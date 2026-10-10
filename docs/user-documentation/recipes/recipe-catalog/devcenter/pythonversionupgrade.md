@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.PythonVersionUpgrade","displayName":"Move to a later Python version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"minorVersion=13\" --recipe-option \"upgradeRecipe=org.openrewrite.python.migrate.UpgradeToPython313\""}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.PythonVersionUpgrade","displayName":"Move to a later Python version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"minorVersion=13\"","optionalCliOptions":" --recipe-option \"upgradeRecipe=org.openrewrite.python.migrate.UpgradeToPython313\""}}>
 
 ## Usage
 

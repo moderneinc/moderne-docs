@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.ChangeActionVersion","displayName":"Change GitHub Action version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"action=actions/setup-java\" --recipe-option \"version=v4\" --recipe-option \"oldSha=8f4b7f84864484a7bf31766abe9204da3cbe65b3\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.ChangeActionVersion","displayName":"Change GitHub Action version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"action=actions/setup-java\" --recipe-option \"version=v4\"","optionalCliOptions":" --recipe-option \"oldSha=8f4b7f84864484a7bf31766abe9204da3cbe65b3\""}}>
 
 ## Usage
 

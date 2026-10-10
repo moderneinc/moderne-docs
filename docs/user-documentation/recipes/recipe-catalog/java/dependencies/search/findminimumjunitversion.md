@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.search.FindMinimumJUnitVersion","displayName":"Find minimum JUnit version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.search.FindMinimumJUnitVersion","displayName":"Find minimum JUnit version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"minimumVersion=4\""}}>
 
 ## Usage
 

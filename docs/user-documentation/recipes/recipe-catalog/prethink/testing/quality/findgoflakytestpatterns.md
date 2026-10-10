@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package store\n\nimport (\n\t\"math/rand\"\n\t\"testing\"\n\t\"time\"\n)\n\nfunc TestEventuallyConsistent(t *testing.T) {\n\ttime.Sleep(100 * time.Millisecond)\n\trand.Seed(1)\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindGoFlakyTestPatterns","displayName":"Find Go flaky test patterns","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

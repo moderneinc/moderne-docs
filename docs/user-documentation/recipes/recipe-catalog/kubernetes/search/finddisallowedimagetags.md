@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindDisallowedImageTags","displayName":"Find disallowed image tags","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"disallowedTags=latest\" --recipe-option \"includeInitContainers=false\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindDisallowedImageTags","displayName":"Find disallowed image tags","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"disallowedTags=latest\"","optionalCliOptions":" --recipe-option \"includeInitContainers=false\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
 
 ## Usage
 

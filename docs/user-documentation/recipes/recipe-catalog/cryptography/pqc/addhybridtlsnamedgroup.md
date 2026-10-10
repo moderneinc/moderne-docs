@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.AddHybridTlsNamedGroup","displayName":"Offer a hybrid ML-KEM key exchange group first","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.cryptography.pqc.AddHybridTlsNamedGroup","displayName":"Offer a hybrid ML-KEM key exchange group first","groupId":"io.moderne.recipe","artifactId":"rewrite-cryptography","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CRYPTOGRAPHY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"hybridGroup=SecP256r1MLKEM768\" --recipe-option \"mode=report\" --recipe-option \"skipTestSources=true\""}}>
 
 ## Usage
 

@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindHorizontalPodAutoscalerV2beta","displayName":"Find `autoscaling/v2beta1` and `autoscaling/v2beta2` HorizontalPodAutoscalers","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindHorizontalPodAutoscalerV2beta","displayName":"Find `autoscaling/v2beta1` and `autoscaling/v2beta2` HorizontalPodAutoscalers","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"fileMatcher='**/hpa-*.yml'\""}}>
 
 ## Usage
 

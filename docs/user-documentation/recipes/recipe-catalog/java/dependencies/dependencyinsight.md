@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.DependencyInsight","displayName":"Dependency insight for Gradle and Maven","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupIdPattern=com.fasterxml.jackson*\" --recipe-option \"artifactIdPattern=jackson-*\" --recipe-option \"version=1.x\" --recipe-option \"scope=compile\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.DependencyInsight","displayName":"Dependency insight for Gradle and Maven","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupIdPattern=com.fasterxml.jackson*\" --recipe-option \"artifactIdPattern=jackson-*\"","optionalCliOptions":" --recipe-option \"version=1.x\" --recipe-option \"scope=compile\""}}>
 
 ## Usage
 

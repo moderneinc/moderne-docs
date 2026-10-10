@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Android Gradle Plugin 8.0","href":"/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_0/"},{"name":"Upgrade Android Gradle Plugin version","href":"/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Android Gradle Plugin 8.0","href":"/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_0/"},{"name":"Upgrade Android Gradle Plugin version","href":"/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion/"},{"name":"Update Gradle wrapper","href":"/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper/"}]}>
 
 ## Definition
 

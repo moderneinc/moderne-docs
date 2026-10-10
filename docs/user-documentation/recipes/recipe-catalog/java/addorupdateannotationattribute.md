@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.AddOrUpdateAnnotationAttribute","displayName":"Add or update annotation attribute","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"annotationType=org.junit.Test\" --recipe-option \"attributeName=timeout\" --recipe-option \"attributeValue=500\" --recipe-option \"oldAttributeValue=400\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.AddOrUpdateAnnotationAttribute","displayName":"Add or update annotation attribute","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"annotationType=org.junit.Test\"","optionalCliOptions":" --recipe-option \"attributeName=timeout\" --recipe-option \"attributeValue=500\" --recipe-option \"oldAttributeValue=400\" --recipe-option \"addOnly=true\" --recipe-option \"appendArray=true\""}}>
 
 ## Usage
 

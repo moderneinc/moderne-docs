@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.sql.search.FindFunction","displayName":"Find SQL function","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":true,"cliOptions":" --recipe-option \"functionName=nvl\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.sql.search.FindFunction","displayName":"Find SQL function","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":true,"cliOptions":" --recipe-option \"functionName=nvl\"","optionalCliOptions":" --recipe-option \"markSource=true\""}}>
 
 ## Usage
 

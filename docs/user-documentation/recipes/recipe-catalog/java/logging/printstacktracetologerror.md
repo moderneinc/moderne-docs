@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.logging.PrintStackTraceToLogError","displayName":"Use logger instead of `printStackTrace()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.logging.PrintStackTraceToLogError","displayName":"Use logger instead of `printStackTrace()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"addLogger=true\" --recipe-option \"loggerName=log\""}}>
 
 ## Usage
 

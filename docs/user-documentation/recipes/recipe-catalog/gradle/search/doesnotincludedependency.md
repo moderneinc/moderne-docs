@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.search.DoesNotIncludeDependency","displayName":"Does not include Gradle dependency","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\" --recipe-option \"version=1.x\" --recipe-option \"configuration=compileClasspath\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.search.DoesNotIncludeDependency","displayName":"Does not include Gradle dependency","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\"","optionalCliOptions":" --recipe-option \"version=1.x\" --recipe-option \"configuration=compileClasspath\""}}>
 
 ## Usage
 

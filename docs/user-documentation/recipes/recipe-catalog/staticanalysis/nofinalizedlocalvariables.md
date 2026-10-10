@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.NoFinalizedLocalVariables","displayName":"Don't use final on local variables","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.NoFinalizedLocalVariables","displayName":"Don't use final on local variables","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"excludeMethodParameters=true\""}}>
 
 ## Usage
 

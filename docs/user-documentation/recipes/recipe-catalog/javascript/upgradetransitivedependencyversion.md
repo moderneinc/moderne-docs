@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.javascript.UpgradeTransitiveDependencyVersion","displayName":"Upgrade transitive npm dependency","groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageName=lodash\" --recipe-option \"newVersion=^5.0.0\" --recipe-option \"dependencyPath=express>accepts\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.UpgradeTransitiveDependencyVersion","displayName":"Upgrade transitive npm dependency","groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageName=lodash\" --recipe-option \"newVersion=^5.0.0\"","optionalCliOptions":" --recipe-option \"dependencyPath=express>accepts\""}}>
 
 ## Usage
 

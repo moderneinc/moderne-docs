@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.junit.jupiter.api.Test;\n\npublic class ServiceTest {\n    @Test\n    void placeholder() {\n    }\n}\n"},"variants":[]}]}>
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package pricing\n\nfunc Discount(total int, member bool) int {\n\tif member {\n\t\treturn total / 2\n\t}\n\treturn total\n}\n"},"variants":[]},{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.junit.jupiter.api.Test;\n\npublic class ServiceTest {\n    @Test\n    void placeholder() {\n    }\n}\n"},"variants":[]}]}>
 
 ## Examples
 

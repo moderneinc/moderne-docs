@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.ImplausibleTimeoutToMinutes","displayName":"Make implausibly long `@Timeout` values explicit in minutes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.ImplausibleTimeoutToMinutes","displayName":"Make implausibly long `@Timeout` values explicit in minutes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"thresholdSeconds=1000\""}}>
 
 ## Usage
 

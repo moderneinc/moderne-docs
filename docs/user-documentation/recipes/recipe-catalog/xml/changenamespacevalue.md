@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.xml.ChangeNamespaceValue","displayName":"Change XML attribute of a specific resource version","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"elementName=property\" --recipe-option \"oldValue=newfoo.bar.attribute.value.string\" --recipe-option \"newValue=newfoo.bar.attribute.value.string\" --recipe-option \"versionMatcher=1.1\" --recipe-option \"searchAllNamespaces=true\" --recipe-option \"newVersion=2.0\" --recipe-option \"newSchemaLocation=newfoo.bar.attribute.value.string\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.xml.ChangeNamespaceValue","displayName":"Change XML attribute of a specific resource version","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"newValue=newfoo.bar.attribute.value.string\" --recipe-option \"newVersion=2.0\"","optionalCliOptions":" --recipe-option \"elementName=property\" --recipe-option \"oldValue=newfoo.bar.attribute.value.string\" --recipe-option \"versionMatcher=1.1\" --recipe-option \"searchAllNamespaces=true\" --recipe-option \"newSchemaLocation=newfoo.bar.attribute.value.string\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.xml.XsltTransformation","displayName":"XSLT transformation","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"xslt=<xsl:stylesheet ...>...</xsl:stylesheet>\" --recipe-option \"xsltResource=/changePlugin.xslt\" --recipe-option \"filePattern='**/*.xml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.xml.XsltTransformation","displayName":"XSLT transformation","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"filePattern='**/*.xml'\"","optionalCliOptions":" --recipe-option \"xslt=<xsl:stylesheet ...>...</xsl:stylesheet>\" --recipe-option \"xsltResource=/changePlugin.xslt\""}}>
 
 ## Usage
 

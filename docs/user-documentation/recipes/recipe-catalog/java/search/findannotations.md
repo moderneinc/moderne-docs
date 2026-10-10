@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindAnnotations","displayName":"Find annotations","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"annotationPattern='@java.lang.SuppressWarnings(\"deprecation\")'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindAnnotations","displayName":"Find annotations","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"annotationPattern='@java.lang.SuppressWarnings(\"deprecation\")'\"","optionalCliOptions":" --recipe-option \"matchMetaAnnotations=true\""}}>
 
 ## Usage
 

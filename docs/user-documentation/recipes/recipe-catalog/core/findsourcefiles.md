@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.FindSourceFiles","displayName":"Find files","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.FindSourceFiles","displayName":"Find files","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"filePattern=.github/workflows/*.yml\""}}>
 
 ## Usage
 

@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.AngularVersionUpgrade","displayName":"Move to a later Angular version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=21\" --recipe-option \"upgradeRecipe=org.openrewrite.codemods.migrate.angular.ApplyAngularCLI\""}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.AngularVersionUpgrade","displayName":"Move to a later Angular version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=21\"","optionalCliOptions":" --recipe-option \"upgradeRecipe=org.openrewrite.codemods.migrate.angular.ApplyAngularCLI\""}}>
 
 ## Usage
 

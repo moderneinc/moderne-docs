@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.featureflags.ff4j.search.FindFeatureFlag","displayName":"Find a FF4j feature flag","groupId":"org.openrewrite.recipe","artifactId":"rewrite-feature-flags","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.featureflags.ff4j.search.FindFeatureFlag","displayName":"Find a FF4j feature flag","groupId":"org.openrewrite.recipe","artifactId":"rewrite-feature-flags","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"featureKey=flag-key-123abc\""}}>
 
 ## Usage
 

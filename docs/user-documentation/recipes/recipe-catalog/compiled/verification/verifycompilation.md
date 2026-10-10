@@ -54,7 +54,7 @@ Failures appear as inline warnings on the offending elements, so a run that prod
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.compiled.verification.VerifyCompilation","displayName":"Verify compilation of changes made earlier in the same run","groupId":"org.openrewrite.recipe","artifactId":"rewrite-compiled-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_COMPILED_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.compiled.verification.VerifyCompilation","displayName":"Verify compilation of changes made earlier in the same run","groupId":"org.openrewrite.recipe","artifactId":"rewrite-compiled-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_COMPILED_ANALYSIS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"trace=true\""}}>
 
 ## Usage
 

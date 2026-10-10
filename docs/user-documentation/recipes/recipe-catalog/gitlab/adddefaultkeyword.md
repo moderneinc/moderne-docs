@@ -55,7 +55,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddDefaultKeyword","displayName":"Add default keyword","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"keyword=image\" --recipe-option \"value=ruby:3.0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddDefaultKeyword","displayName":"Add default keyword","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"keyword=image\" --recipe-option \"value=ruby:3.0\"","optionalCliOptions":" --recipe-option \"acceptTheirs=true\""}}>
 
 ## Usage
 

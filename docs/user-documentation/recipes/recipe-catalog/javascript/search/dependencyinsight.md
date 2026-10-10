@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.javascript.search.DependencyInsight","displayName":"Node.js dependency insight","groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageNamePattern='@types/*'\" --recipe-option \"scope=dependencies\" --recipe-option \"onlyDirect=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.javascript.search.DependencyInsight","displayName":"Node.js dependency insight","groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageNamePattern='@types/*'\"","optionalCliOptions":" --recipe-option \"scope=dependencies\" --recipe-option \"onlyDirect=true\""}}>
 
 ## Usage
 

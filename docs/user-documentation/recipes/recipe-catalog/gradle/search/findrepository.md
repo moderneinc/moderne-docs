@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.search.FindRepository","displayName":"Find Gradle repository","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.search.FindRepository","displayName":"Find Gradle repository","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"type=maven\" --recipe-option \"url=https://repo.spring.io\""}}>
 
 ## Usage
 

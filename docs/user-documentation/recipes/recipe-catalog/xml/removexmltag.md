@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.xml.RemoveXmlTag","displayName":"Remove XML tag","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"xPath=/project/dependencies/dependency\" --recipe-option \"fileMatcher='**/application-*.xml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.xml.RemoveXmlTag","displayName":"Remove XML tag","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"xPath=/project/dependencies/dependency\"","optionalCliOptions":" --recipe-option \"fileMatcher='**/application-*.xml'\""}}>
 
 ## Usage
 

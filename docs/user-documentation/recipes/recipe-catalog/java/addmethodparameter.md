@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.AddMethodParameter","displayName":"Add method parameter to a method declaration","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=com.yourorg.A foo(int, int)\" --recipe-option \"parameterType=java.lang.String\" --recipe-option \"parameterName=name\" --recipe-option \"parameterIndex=0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.AddMethodParameter","displayName":"Add method parameter to a method declaration","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=com.yourorg.A foo(int, int)\" --recipe-option \"parameterType=java.lang.String\" --recipe-option \"parameterName=name\"","optionalCliOptions":" --recipe-option \"parameterIndex=0\""}}>
 
 ## Usage
 

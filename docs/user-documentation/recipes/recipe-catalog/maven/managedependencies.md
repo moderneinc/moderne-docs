@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.ManageDependencies","displayName":"Manage dependencies","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupPattern=com.google.*\" --recipe-option \"artifactPattern=guava*\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.ManageDependencies","displayName":"Manage dependencies","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupPattern=com.google.*\"","optionalCliOptions":" --recipe-option \"artifactPattern=guava*\" --recipe-option \"addToRootPom=true\" --recipe-option \"skipModelUpdate=true\""}}>
 
 ## Usage
 

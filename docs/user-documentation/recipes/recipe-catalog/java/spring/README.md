@@ -15,6 +15,7 @@ _Recipes for upgrading and patching [Spring](https://spring.io/) applications._
 * [Cloud2021](/user-documentation/recipes/recipe-catalog/java/spring/cloud2021)
 * [Cloud20251](/user-documentation/recipes/recipe-catalog/java/spring/cloud20251)
 * [Framework7](/user-documentation/recipes/recipe-catalog/java/spring/framework7)
+* [Graphql](/user-documentation/recipes/recipe-catalog/java/spring/graphql)
 * [Hibernate](/user-documentation/recipes/recipe-catalog/java/spring/hibernate)
 * [Integration](/user-documentation/recipes/recipe-catalog/java/spring/integration)
 * [Kotlin](/user-documentation/recipes/recipe-catalog/java/spring/kotlin)

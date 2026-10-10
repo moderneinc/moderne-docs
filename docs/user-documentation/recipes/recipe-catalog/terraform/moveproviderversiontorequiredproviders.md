@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.terraform.MoveProviderVersionToRequiredProviders","displayName":"Move provider version to `required_providers`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-terraform","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.terraform.MoveProviderVersionToRequiredProviders","displayName":"Move provider version to `required_providers`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-terraform","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"defaultNamespace=hashicorp\""}}>
 
 ## Usage
 

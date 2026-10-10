@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gitlab.MigrateTemplateToComponent","displayName":"Migrate GitLab template to component","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldTemplate=Terraform/Base.latest.gitlab-ci.yml\" --recipe-option \"newComponent=$CI_SERVER_FQDN/components/opentofu/job-templates\" --recipe-option \"version=~latest\" --recipe-option \"inputs=opentofu_version: 1.6.0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gitlab.MigrateTemplateToComponent","displayName":"Migrate GitLab template to component","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldTemplate=Terraform/Base.latest.gitlab-ci.yml\" --recipe-option \"newComponent=$CI_SERVER_FQDN/components/opentofu/job-templates\" --recipe-option \"version=~latest\"","optionalCliOptions":" --recipe-option \"inputs=opentofu_version: 1.6.0\""}}>
 
 ## Usage
 

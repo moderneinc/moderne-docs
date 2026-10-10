@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.xml.ChangeTagAttribute","displayName":"Change XML attribute","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"elementName=property\" --recipe-option \"attributeName=name\" --recipe-option \"newValue=newfoo.bar.attribute.value.string\" --recipe-option \"oldValue=foo.bar.attribute.value.string\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.xml.ChangeTagAttribute","displayName":"Change XML attribute","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"elementName=property\" --recipe-option \"attributeName=name\" --recipe-option \"newValue=newfoo.bar.attribute.value.string\"","optionalCliOptions":" --recipe-option \"oldValue=foo.bar.attribute.value.string\" --recipe-option \"regex=true\""}}>
 
 ## Usage
 

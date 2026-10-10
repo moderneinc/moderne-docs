@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.security.search.FindSensitiveDataInLogs","displayName":"Find sensitive data in log statements","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.security.search.FindSensitiveDataInLogs","displayName":"Find sensitive data in log statements","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"sensitiveFieldNames=password,token,ssn,creditCard\""}}>
 
 ## Usage
 

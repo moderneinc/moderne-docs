@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.helm.ChangeChartVersion","displayName":"Change Helm chart version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"chartName=k0smotron\" --recipe-option \"oldVersion=1.2.0\" --recipe-option \"newVersion=1.3.0\" --recipe-option \"newAppVersion=v1.3.0\" --recipe-option \"renameFilesMatching='**/files/release/*.yaml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.helm.ChangeChartVersion","displayName":"Change Helm chart version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"chartName=k0smotron\" --recipe-option \"newVersion=1.3.0\"","optionalCliOptions":" --recipe-option \"oldVersion=1.2.0\" --recipe-option \"newAppVersion=v1.3.0\" --recipe-option \"renameFilesMatching='**/files/release/*.yaml'\""}}>
 
 ## Usage
 

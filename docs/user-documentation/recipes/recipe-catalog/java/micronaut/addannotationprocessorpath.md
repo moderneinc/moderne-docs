@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.AddAnnotationProcessorPath","displayName":"Add Maven annotation processor path","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=corp.internal.openrewrite.recipe\" --recipe-option \"artifactId=my-new-annotation-processor\" --recipe-option \"version=${micronaut.validation}\" --recipe-option \"onlyIfUsing=jakarta.validation.constraints.*\" --recipe-option \"exclusions=io.micronaut:micronaut-inject\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.AddAnnotationProcessorPath","displayName":"Add Maven annotation processor path","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=corp.internal.openrewrite.recipe\" --recipe-option \"artifactId=my-new-annotation-processor\" --recipe-option \"version=${micronaut.validation}\" --recipe-option \"onlyIfUsing=jakarta.validation.constraints.*\"","optionalCliOptions":" --recipe-option \"exclusions=io.micronaut:micronaut-inject\""}}>
 
 ## Usage
 

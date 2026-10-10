@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.ChangeDependencyClassifier","displayName":"Change a Gradle dependency classifier","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.fasterxml.jackson*\" --recipe-option \"artifactId=jackson-module*\" --recipe-option \"newClassifier=sources\" --recipe-option \"configuration=api\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.ChangeDependencyClassifier","displayName":"Change a Gradle dependency classifier","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.fasterxml.jackson*\" --recipe-option \"artifactId=jackson-module*\"","optionalCliOptions":" --recipe-option \"newClassifier=sources\" --recipe-option \"configuration=api\""}}>
 
 ## Usage
 

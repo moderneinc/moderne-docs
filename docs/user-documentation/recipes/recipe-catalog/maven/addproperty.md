@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.AddProperty","displayName":"Add Maven project property","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=junit.version\" --recipe-option \"value=4.13\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.AddProperty","displayName":"Add Maven project property","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=junit.version\" --recipe-option \"value=4.13\"","optionalCliOptions":" --recipe-option \"preserveExistingValue=true\" --recipe-option \"trustParent=true\""}}>
 
 ## Usage
 

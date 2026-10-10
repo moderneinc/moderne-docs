@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.text.CreateTextFile","displayName":"Create text file","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":true,"cliOptions":" --recipe-option \"fileContents=Some text.\" --recipe-option \"relativeFileName=foo/bar/baz.txt\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.text.CreateTextFile","displayName":"Create text file","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":true,"cliOptions":" --recipe-option \"fileContents=Some text.\" --recipe-option \"relativeFileName=foo/bar/baz.txt\"","optionalCliOptions":" --recipe-option \"overwriteExisting=true\""}}>
 
 ## Usage
 

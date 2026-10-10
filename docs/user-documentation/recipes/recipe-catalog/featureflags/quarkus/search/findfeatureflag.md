@@ -55,7 +55,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.featureflags.quarkus.search.FindFeatureFlag","displayName":"Find a Quarkus feature flag","groupId":"org.openrewrite.recipe","artifactId":"rewrite-feature-flags","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.featureflags.quarkus.search.FindFeatureFlag","displayName":"Find a Quarkus feature flag","groupId":"org.openrewrite.recipe","artifactId":"rewrite-feature-flags","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"featureKey=flag-key-123abc\""}}>
 
 ## Usage
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Has minimum Java version"}
-  description={"Finds source files when the oldest Java version in use meets the supplied minimum version. Java version is attributed per source set (for example `src/main/java` and `src/test/java`), so the oldest Java version in use is the lowest version across every source set of every subproject in a repository. For example, the main source set of a project may use Java 8 while its test source set uses Java 17; in that case the oldest Java version in use is Java 8."}
+  description={"Finds source files when the oldest Java version in use meets the supplied minimum version. Java version is attributed per source set (for example `src/main/java` and `src/test/java`), so the oldest Java version in use is the lowest version across every source set of every subproject in a repository. For example, the main source set of a project may use Java 8 while its test source set uses Java 17; in that case the oldest Java version in use is Java 8. When the minimum is met, the source files at that oldest Java version are found, along with Gradle build scripts and every non-Java source file (such as `pom.xml`), which have no Java version of their own."}
   fqName={"org.openrewrite.java.search.HasMinimumJavaVersion"}
   languages={["Java"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Has minimum Java version</RecipeHeader.Title>
 
-<RecipeHeader.Description>Finds source files when the oldest Java version in use meets the supplied minimum version. Java version is attributed per source set (for example `src/main/java` and `src/test/java`), so the oldest Java version in use is the lowest version across every source set of every subproject in a repository. For example, the main source set of a project may use Java 8 while its test source set uses Java 17; in that case the oldest Java version in use is Java 8.</RecipeHeader.Description>
+<RecipeHeader.Description>Finds source files when the oldest Java version in use meets the supplied minimum version. Java version is attributed per source set (for example `src/main/java` and `src/test/java`), so the oldest Java version in use is the lowest version across every source set of every subproject in a repository. For example, the main source set of a project may use Java 8 while its test source set uses Java 17; in that case the oldest Java version in use is Java 8. When the minimum is met, the source files at that oldest Java version are found, along with Gradle build scripts and every non-Java source file (such as `pom.xml`), which have no Java version of their own.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.HasMinimumJavaVersion","displayName":"Has minimum Java version","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=17\" --recipe-option \"checkTargetCompatibility=17.X\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.HasMinimumJavaVersion","displayName":"Has minimum Java version","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=17\"","optionalCliOptions":" --recipe-option \"checkTargetCompatibility=17.X\""}}>
 
 ## Usage
 

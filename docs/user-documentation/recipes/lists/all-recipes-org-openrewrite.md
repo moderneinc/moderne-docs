@@ -9,8 +9,11 @@ description: Recipes in the org.openrewrite module.
 
 _License: Moderne Source Available License_
 
-_3 recipes_
+_4 recipes_
 
+* [org.openrewrite.android.UpgradeAndroidGradlePluginVersion](/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md)
+  * **Upgrade Android Gradle Plugin version**
+  * Upgrade the Android Gradle Plugin (AGP) version. Handles both the legacy `buildscript \{ dependencies \{ classpath 'com.android.tools.build:gradle:...' \} \}` form (delegating to the upstream `UpgradeDependencyVersion` recipe for full DSL coverage) and the modern `plugins \{ id(&quot;com.android.application&quot;) version &quot;...&quot; \}` form.
 * [org.openrewrite.android.UpgradeCompileSdkVersion](/user-documentation/recipes/recipe-catalog/android/upgradecompilesdkversion.md)
   * **Upgrade Android `compileSdk` version**
   * Sets the `compileSdk` (or legacy `compileSdkVersion`) value in an Android module's `android \{ \}` block. Handles literal int, string form (`'android-N'`), extra-property reference, version-catalog reference (`libs.versions.*.toml`), and `gradle.properties` reference. Will not downgrade an already-newer value.
@@ -123,7 +126,7 @@ _2 recipes_
 
 * [org.openrewrite.csharp.msbuild.AlignPathCasing](/user-documentation/recipes/recipe-catalog/csharp/msbuild/alignpathcasing.md)
   * **Align MSBuild path casing with the repository**
-  * MSBuild resolves paths case-insensitively on Windows, so a solution can reference `assemblies/WPFToolkit/WPFToolkit.csproj` while the directory committed to git is actually named `assemblies/Wpftoolkit`. The same reference fails with `MSB3202` or `Project file not found` on a case-sensitive file system. This recipe rewrites path references in `.sln`, `.slnx`, `.csproj`, `.props`, and `.targets` files so that every segment matches the casing of the file or directory that is actually in the repository. References that already resolve exactly, that cannot be resolved at all, or whose casing is ambiguous — because two files or directories differ only by case — are left untouched.
+  * MSBuild resolves paths case-insensitively on Windows, so a solution can reference `assemblies/WPFToolkit/WPFToolkit.csproj` while the directory committed to git is actually named `assemblies/Wpftoolkit`. The same reference fails with `MSB3202` or `Project file not found` on a case-sensitive file system. This recipe rewrites path references in `.sln` and `.slnx` solutions, in `.props` and `.targets` files, and in MSBuild project files such as `.csproj`, `.vbproj`, `.fsproj`, `.vcxproj`, `.sqlproj`, `.shproj`, and `.projitems`, so that every segment matches the casing of the file or directory that is actually in the repository. References that already resolve exactly, that cannot be resolved at all, or whose casing is ambiguous — because two files or directories differ only by case — are left untouched.
 * [org.openrewrite.csharp.sln.RemoveNjsprojFromSolution](/user-documentation/recipes/recipe-catalog/csharp/sln/removenjsprojfromsolution.md)
   * **Remove `.njsproj` projects from solution**
   * Removes Project entries with the `.njsproj` extension (Node.js Tools projects) from Visual Studio solution files, together with the configuration, nesting, and dependency entries that refer to them. The .NET SDK does not ship `Microsoft.NodejsTools.targets`, so `dotnet build` fails on a solution that still lists one of these projects.
@@ -807,7 +810,7 @@ _101 recipes_
   * Marks files that have at least one occurrence of a method matching a pattern.
 * [org.openrewrite.java.search.HasMinimumJavaVersion](/user-documentation/recipes/recipe-catalog/java/search/hasminimumjavaversion.md)
   * **Has minimum Java version**
-  * Finds source files when the oldest Java version in use meets the supplied minimum version. Java version is attributed per source set (for example `src/main/java` and `src/test/java`), so the oldest Java version in use is the lowest version across every source set of every subproject in a repository. For example, the main source set of a project may use Java 8 while its test source set uses Java 17; in that case the oldest Java version in use is Java 8.
+  * Finds source files when the oldest Java version in use meets the supplied minimum version. Java version is attributed per source set (for example `src/main/java` and `src/test/java`), so the oldest Java version in use is the lowest version across every source set of every subproject in a repository. For example, the main source set of a project may use Java 8 while its test source set uses Java 17; in that case the oldest Java version in use is Java 8. When the minimum is met, the source files at that oldest Java version are found, along with Gradle build scripts and every non-Java source file (such as `pom.xml`), which have no Java version of their own.
 * [org.openrewrite.java.search.HasSourceSet](/user-documentation/recipes/recipe-catalog/java/search/hassourceset.md)
   * **Find files in a source set**
   * Source sets are a way to organize your source code into logical groups. For example, Java projects commonly have a `main` source set for application code and a `test` source set for test code. This recipe will find all files in a given source set.
@@ -1006,7 +1009,7 @@ _7 recipes_
 
 _License: Apache License Version 2.0_
 
-_94 recipes_
+_95 recipes_
 
 * [org.openrewrite.maven.AddAnnotationProcessor](/user-documentation/recipes/recipe-catalog/maven/addannotationprocessor.md)
   * **Add an annotation processor to `maven-compiler-plugin`**
@@ -1107,9 +1110,12 @@ _94 recipes_
 * [org.openrewrite.maven.ManagedToRuntimeDependencies](/user-documentation/recipes/recipe-catalog/maven/managedtoruntimedependencies.md)
   * **Convert managed dependencies to runtime dependencies**
   * This recipe processes Maven POMs, converting all `&lt;dependencyManagement&gt;` entries into runtime scoped `&lt;dependencies&gt;` entries. Import scoped BOMs (like jackson-bom) are left unmodified in `&lt;dependencyManagement&gt;`. Some style guidelines prefer that `&lt;dependencyManagement&gt;` be used only for BOMs. This maintain that style while avoiding introducing new symbols onto the compile classpath unintentionally.
+* [org.openrewrite.maven.MigrateToMaven3_10](/user-documentation/recipes/recipe-catalog/maven/migratetomaven3_10.md)
+  * **Migrate to Maven 3.10**
+  * Migrates a project to Maven 3.10. Maven 3.10 rejects some POMs that earlier Maven 3 versions built with a warning, such as POMs with duplicate dependency or plugin declarations. This recipe fixes those POMs and updates an existing Maven wrapper to Maven 3.10.
 * [org.openrewrite.maven.MigrateToMaven4](/user-documentation/recipes/recipe-catalog/maven/migratetomaven4.md)
   * **Migrate to Maven 4**
-  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, lifecycle phases, removes duplicate plugin and dependency declarations, upgrades plugins known to fail under Maven 4, switches repository URLs to HTTPS, and replaces removed properties to ensure compatibility with Maven 4.
+  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, runs the Maven 3.10 migration (which removes duplicate plugin and dependency declarations and updates an existing Maven wrapper to Maven 3.10), updates lifecycle phases, upgrades plugins known to fail under Maven 4, switches repository URLs to HTTPS, and replaces removed properties to ensure compatibility with Maven 4.
 * [org.openrewrite.maven.ModernizeObsoletePoms](/user-documentation/recipes/recipe-catalog/maven/modernizeobsoletepoms.md)
   * **Modernize obsolete Maven poms**
   * Very old Maven poms are no longer supported by current versions of Maven. This recipe updates poms with `&lt;pomVersion&gt;3&lt;/pomVersion&gt;` to `&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;` of the Maven pom schema. This does not attempt to upgrade old dependencies or plugins and is best regarded as the starting point of a migration rather than an end-point.

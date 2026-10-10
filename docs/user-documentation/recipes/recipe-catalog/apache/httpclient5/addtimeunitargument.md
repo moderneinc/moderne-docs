@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.AddTimeUnitArgument","displayName":"Adds a TimeUnit argument to the matched method invocations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.apache.http.client.config.RequestConfig.Builder setConnectionRequestTimeout(int)\" --recipe-option \"timeUnit=MILLISECONDS\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.AddTimeUnitArgument","displayName":"Adds a TimeUnit argument to the matched method invocations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.apache.http.client.config.RequestConfig.Builder setConnectionRequestTimeout(int)\"","optionalCliOptions":" --recipe-option \"timeUnit=MILLISECONDS\""}}>
 
 ## Usage
 

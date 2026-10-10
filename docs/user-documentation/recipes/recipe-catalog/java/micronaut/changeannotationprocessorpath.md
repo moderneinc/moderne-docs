@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.ChangeAnnotationProcessorPath","displayName":"Change Maven annotation processor path","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.openrewrite.recipe\" --recipe-option \"oldArtifactId=my-deprecated-annotation-processor\" --recipe-option \"newGroupId=corp.internal.openrewrite.recipe\" --recipe-option \"newArtifactId=my-new-annotation-processor\" --recipe-option \"newVersion=micronaut.validation\" --recipe-option \"exclusions=io.micronaut:micronaut-inject\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.ChangeAnnotationProcessorPath","displayName":"Change Maven annotation processor path","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.openrewrite.recipe\" --recipe-option \"oldArtifactId=my-deprecated-annotation-processor\"","optionalCliOptions":" --recipe-option \"newGroupId=corp.internal.openrewrite.recipe\" --recipe-option \"newArtifactId=my-new-annotation-processor\" --recipe-option \"newVersion=micronaut.validation\" --recipe-option \"exclusions=io.micronaut:micronaut-inject\""}}>
 
 ## Usage
 

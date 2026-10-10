@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyAssertJAssertion","displayName":"Simplify AssertJ assertions with literal arguments","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"assertToReplace=hasSize\" --recipe-option \"literalArgument=0\" --recipe-option \"dedicatedAssertion=isEmpty\" --recipe-option \"requiredType=java.lang.String\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyAssertJAssertion","displayName":"Simplify AssertJ assertions with literal arguments","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"literalArgument=0\" --recipe-option \"dedicatedAssertion=isEmpty\" --recipe-option \"requiredType=java.lang.String\"","optionalCliOptions":" --recipe-option \"assertToReplace=hasSize\""}}>
 
 ## Usage
 

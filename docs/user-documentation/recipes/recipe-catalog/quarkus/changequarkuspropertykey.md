@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.quarkus.ChangeQuarkusPropertyKey","displayName":"Change Quarkus configuration property key","groupId":"org.openrewrite.recipe","artifactId":"rewrite-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPropertyKey=quarkus.hibernate-search-orm.automatic-indexing.synchronization.strategy\" --recipe-option \"newPropertyKey=quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy\" --recipe-option \"profile=dev\" --recipe-option \"changeAllProfiles=false\" --recipe-option \"pathExpressions=[\"**/application.yaml\"]\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.quarkus.ChangeQuarkusPropertyKey","displayName":"Change Quarkus configuration property key","groupId":"org.openrewrite.recipe","artifactId":"rewrite-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPropertyKey=quarkus.hibernate-search-orm.automatic-indexing.synchronization.strategy\" --recipe-option \"newPropertyKey=quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy\"","optionalCliOptions":" --recipe-option \"profile=dev\" --recipe-option \"changeAllProfiles=false\" --recipe-option \"pathExpressions=[\"**/application.yaml\"]\""}}>
 
 ## Usage
 

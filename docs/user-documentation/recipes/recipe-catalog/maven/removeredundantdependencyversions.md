@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.RemoveRedundantDependencyVersions","displayName":"Remove redundant explicit dependency and plugin versions","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.RemoveRedundantDependencyVersions","displayName":"Remove redundant explicit dependency and plugin versions","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"groupPattern=com.google.*\" --recipe-option \"artifactPattern=guava*\" --recipe-option \"onlyIfVersionsMatch=true\" --recipe-option \"except=com.jcraft:jsch\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.xml.security.AddOwaspDateBoundSuppressions","displayName":"Add date bounds to OWASP suppressions","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.xml.security.AddOwaspDateBoundSuppressions","displayName":"Add date bounds to OWASP suppressions","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"untilDate=2023-01-01\""}}>
 
 ## Usage
 

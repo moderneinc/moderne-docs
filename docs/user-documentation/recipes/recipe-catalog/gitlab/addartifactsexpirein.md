@@ -55,7 +55,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddArtifactsExpireIn","displayName":"Add artifacts expire_in","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"expireIn=1 week\" --recipe-option \"jobName=build_job\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddArtifactsExpireIn","displayName":"Add artifacts expire_in","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"expireIn=1 week\"","optionalCliOptions":" --recipe-option \"jobName=build_job\" --recipe-option \"acceptTheirs=true\""}}>
 
 ## Usage
 

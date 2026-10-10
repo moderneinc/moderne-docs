@@ -1,14 +1,14 @@
 ---
-title: "Preserve system-proxy defaults on Reactor HTTP client builders"
-sidebar_label: "Preserve system-proxy defaults on Reactor HTTP client builders"
+title: "Preserve Reactor HTTP client defaults when upgrading to Spring Boot 4.1"
+sidebar_label: "Preserve Reactor HTTP client defaults when upgrading to Spring Boot 4.1"
 hide_title: true
 ---
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Preserve system-proxy defaults on Reactor HTTP client builders"}
-  description={"Spring Boot 4.1 no longer applies `proxyWithSystemProperties()` by default on `ReactorClientHttpRequestFactoryBuilder` and `ReactorClientHttpConnectorBuilder`. This recipe appends `.withHttpClientDefaults()` to affected builder chains to restore the previous behavior, but only while the module is still on a Spring Boot older than 4.1. Gating on the current version keeps the method from being reintroduced when a developer deliberately removes it after upgrading and later runs an upgrade to a newer 4.2+ release."}
+  displayName={"Preserve Reactor HTTP client defaults when upgrading to Spring Boot 4.1"}
+  description={"Spring Boot 4.1 adds `proxyWithSystemProperties()` to the Reactor HTTP client defaults. Insert `.withHttpClientDefaults(client -> client.compress(true))` to preserve the previous compression-only defaults, leaving explicit defaults and subsequent customizers untouched. Use this recipe alongside the dependency upgrade to Spring Boot 4.1 or later; the inserted method is not available in older versions. Only modules currently below 4.1 are eligible, so later upgrades do not reintroduce a defaults override that a developer removed."}
   fqName={"io.moderne.java.spring.boot4.PreserveReactorHttpClientDefaults_4_1"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -26,25 +26,25 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   moderneOnly
 >
 
-<RecipeHeader.Title>Preserve system-proxy defaults on Reactor HTTP client builders</RecipeHeader.Title>
+<RecipeHeader.Title>Preserve Reactor HTTP client defaults when upgrading to Spring Boot 4.1</RecipeHeader.Title>
 
-<RecipeHeader.Description>Spring Boot 4.1 no longer applies `proxyWithSystemProperties()` by default on `ReactorClientHttpRequestFactoryBuilder` and `ReactorClientHttpConnectorBuilder`. This recipe appends `.withHttpClientDefaults()` to affected builder chains to restore the previous behavior, but only while the module is still on a Spring Boot older than 4.1. Gating on the current version keeps the method from being reintroduced when a developer deliberately removes it after upgrading and later runs an upgrade to a newer 4.2+ release.</RecipeHeader.Description>
+<RecipeHeader.Description>Spring Boot 4.1 adds `proxyWithSystemProperties()` to the Reactor HTTP client defaults. Insert `.withHttpClientDefaults(client -> client.compress(true))` to preserve the previous compression-only defaults, leaving explicit defaults and subsequent customizers untouched. Use this recipe alongside the dependency upgrade to Spring Boot 4.1 or later; the inserted method is not available in older versions. Only modules currently below 4.1 are eligible, so later upgrades do not reintroduce a defaults override that a developer removed.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Preserve system-proxy defaults on Reactor HTTP client builders","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/addwithhttpclientdefaultstoreactorbuilders/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
+<RecipeList recipes={[{"name":"Preserve Reactor HTTP client defaults when upgrading to Spring Boot 4.1","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/addwithhttpclientdefaultstoreactorbuilders/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor();\n    }\n}\n","after":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n-       return ClientHttpConnectorBuilder.reactor();\n+       return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults();\n    }\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor();\n    }\n}\n","after":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n-       return ClientHttpConnectorBuilder.reactor();\n+       return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults();\n    }\n","newFile":false}]}]}>
+<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor();\n    }\n}\n","after":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults(client -> client.compress(true));\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n-       return ClientHttpConnectorBuilder.reactor();\n+       return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults(client -> client.compress(true));\n    }\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor();\n    }\n}\n","after":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults(client -> client.compress(true));\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n-       return ClientHttpConnectorBuilder.reactor();\n+       return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults(client -> client.compress(true));\n    }\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.spring.boot4.PreserveReactorHttpClientDefaults_4_1","displayName":"Preserve system-proxy defaults on Reactor HTTP client builders","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.java.spring.boot4.PreserveReactorHttpClientDefaults_4_1","displayName":"Preserve Reactor HTTP client defaults when upgrading to Spring Boot 4.1","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

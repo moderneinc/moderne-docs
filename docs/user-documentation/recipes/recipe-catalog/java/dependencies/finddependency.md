@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.FindDependency","displayName":"Find Maven and Gradle dependencies","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\" --recipe-option \"version=3.0.0\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"configuration=api\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.FindDependency","displayName":"Find Maven and Gradle dependencies","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\"","optionalCliOptions":" --recipe-option \"version=3.0.0\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"configuration=api\""}}>
 
 ## Usage
 

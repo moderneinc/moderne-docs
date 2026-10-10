@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.properties.DeleteProperty","displayName":"Delete property by key","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.files.enabled or management.metrics.*\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.properties.DeleteProperty","displayName":"Delete property by key","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.files.enabled or management.metrics.*\"","optionalCliOptions":" --recipe-option \"relaxedBinding=true\""}}>
 
 ## Usage
 

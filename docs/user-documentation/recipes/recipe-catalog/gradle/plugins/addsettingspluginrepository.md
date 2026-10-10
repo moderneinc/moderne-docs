@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.plugins.AddSettingsPluginRepository","displayName":"Add a Gradle settings repository","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"type=maven\" --recipe-option \"url=https://repo.spring.io\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.plugins.AddSettingsPluginRepository","displayName":"Add a Gradle settings repository","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"type=maven\"","optionalCliOptions":" --recipe-option \"url=https://repo.spring.io\""}}>
 
 ## Usage
 

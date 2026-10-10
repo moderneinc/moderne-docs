@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.sql.antipattern.FindOversizedInList","displayName":"Find oversized `IN` lists","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.sql.antipattern.FindOversizedInList","displayName":"Find oversized `IN` lists","groupId":"org.openrewrite.recipe","artifactId":"rewrite-sql","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SQL","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"threshold=50\" --recipe-option \"markSource=true\""}}>
 
 ## Usage
 

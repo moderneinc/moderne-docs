@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.NodeVersionUpgrade","displayName":"Move to a later Node.js version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=22\" --recipe-option \"upgradeRecipe=org.openrewrite.node.migrate.upgrade-node-22\""}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.NodeVersionUpgrade","displayName":"Move to a later Node.js version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=22\"","optionalCliOptions":" --recipe-option \"upgradeRecipe=org.openrewrite.node.migrate.upgrade-node-22\""}}>
 
 ## Usage
 

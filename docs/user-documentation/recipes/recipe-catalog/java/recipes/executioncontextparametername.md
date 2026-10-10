@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.recipes.ExecutionContextParameterName","displayName":"Use a standard name for `ExecutionContext`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.recipes.ExecutionContextParameterName","displayName":"Use a standard name for `ExecutionContext`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"parameterName=ctx\""}}>
 
 ## Usage
 

@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.prethink.quality.FindSimilarCode","displayName":"Find similar code","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.prethink.quality.FindSimilarCode","displayName":"Find similar code","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"similarityThreshold=70\" --recipe-option \"maxSimilarity=99\" --recipe-option \"minMethodMass=40\" --recipe-option \"minFeatures=8\" --recipe-option \"minShingleMass=3\" --recipe-option \"includeTestSources=false\" --recipe-option \"suppressBoilerplate=true\" --recipe-option \"snippetMaxLines=40\" --recipe-option \"maxMembersPerGroup=200\""}}>
 
 ## Usage
 

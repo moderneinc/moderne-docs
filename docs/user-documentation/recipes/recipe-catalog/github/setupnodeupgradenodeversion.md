@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.SetupNodeUpgradeNodeVersion","displayName":"Upgrade `actions/setup-node` `node-version`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.SetupNodeUpgradeNodeVersion","displayName":"Upgrade `actions/setup-node` `node-version`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"minimumNodeMajorVersion=24\""}}>
 
 ## Usage
 

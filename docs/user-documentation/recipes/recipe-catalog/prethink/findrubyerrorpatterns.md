@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"ruby","code":"class PhotoLoader\n  def load(id)\n    Photo.find(id)\n  rescue ActiveRecord::RecordNotFound => e\n    Rails.logger.error(e)\n    nil\n  end\n\n  def touch(id)\n    Photo.find(id)\n  rescue => e\n    logger.warn(e)\n  end\n\n  def peek(id)\n    Photo.find(id)\n  rescue\n    nil\n  end\nend\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.FindRubyErrorPatterns","displayName":"Find Ruby error handling patterns","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

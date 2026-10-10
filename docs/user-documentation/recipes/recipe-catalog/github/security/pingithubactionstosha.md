@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.security.PinGitHubActionsToSha","displayName":"Pin GitHub Actions to commit SHAs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.security.PinGitHubActionsToSha","displayName":"Pin GitHub Actions to commit SHAs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"pinOfficialActions=true\" --recipe-option \"githubApiToken=ghp_exampleTokenNotARealToken\" --recipe-option \"trustedOwners=my-organization, my-other-organization\" --recipe-option \"includedActions=codecov/codecov-action\""}}>
 
 ## Usage
 

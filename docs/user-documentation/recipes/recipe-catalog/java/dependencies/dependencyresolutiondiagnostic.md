@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.DependencyResolutionDiagnostic","displayName":"Dependency resolution diagnostic","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.DependencyResolutionDiagnostic","displayName":"Dependency resolution diagnostic","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"groupId=com.fasterxml.jackson.core\" --recipe-option \"artifactId=jackson-core\" --recipe-option \"version=2.16.0\""}}>
 
 ## Usage
 

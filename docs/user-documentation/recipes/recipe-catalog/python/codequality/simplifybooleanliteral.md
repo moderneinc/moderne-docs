@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Simplify boolean literal comparisons"}
-  description={"Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression. Only fires where the other operand's type resolves to `bool`."}
+  description={"Replace `x != True` and `x is not True` with `not x`, and `x == True` and `x is True` with `x` where only the truth of the result is read. Only fires where `x`'s type resolves to `bool`. A comparison against `False` is left alone, because `x` may be `None` where its type reads as `bool`, and `None` and `False` compare differently."}
   fqName={"org.openrewrite.python.codequality.SimplifyBooleanLiteral"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Simplify boolean literal comparisons</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression. Only fires where the other operand's type resolves to `bool`.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `x != True` and `x is not True` with `not x`, and `x == True` and `x is True` with `x` where only the truth of the result is read. Only fires where `x`'s type resolves to `bool`. A comparison against `False` is left alone, because `x` may be `None` where its type reads as `bool`, and `None` and `False` compare differently.</RecipeHeader.Description>
 
 </RecipeHeader>
 

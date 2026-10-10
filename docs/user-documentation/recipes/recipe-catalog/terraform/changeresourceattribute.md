@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.terraform.ChangeResourceAttribute","displayName":"Change Terraform resource attribute","groupId":"org.openrewrite.recipe","artifactId":"rewrite-terraform","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceName=aws_db_instance\" --recipe-option \"attributeName=engine_version\" --recipe-option \"oldValuePattern=5\\.7.*\" --recipe-option \"newValue=8.0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.terraform.ChangeResourceAttribute","displayName":"Change Terraform resource attribute","groupId":"org.openrewrite.recipe","artifactId":"rewrite-terraform","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TERRAFORM","requiresConfiguration":true,"cliOptions":" --recipe-option \"resourceName=aws_db_instance\" --recipe-option \"attributeName=engine_version\" --recipe-option \"newValue=8.0\"","optionalCliOptions":" --recipe-option \"oldValuePattern=5\\.7.*\""}}>
 
 ## Usage
 

@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.ScalaVersionUpgrade","displayName":"Move to a later Scala version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=3\" --recipe-option \"upgradeRecipe=org.openrewrite.scala.migrate.UpgradeScala_2_12\""}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.ScalaVersionUpgrade","displayName":"Move to a later Scala version","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"majorVersion=3\"","optionalCliOptions":" --recipe-option \"upgradeRecipe=org.openrewrite.scala.migrate.UpgradeScala_2_12\""}}>
 
 ## Usage
 

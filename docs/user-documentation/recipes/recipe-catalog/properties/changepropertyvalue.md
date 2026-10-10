@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.properties.ChangePropertyValue","displayName":"Change property value","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.*.enabled\" --recipe-option \"newValue=newValue\" --recipe-option \"oldValue=oldValue\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.properties.ChangePropertyValue","displayName":"Change property value","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.*.enabled\" --recipe-option \"newValue=newValue\"","optionalCliOptions":" --recipe-option \"oldValue=oldValue\" --recipe-option \"regex=true\" --recipe-option \"relaxedBinding=true\""}}>
 
 ## Usage
 

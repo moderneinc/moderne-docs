@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.ChangeSpringPropertyKey","displayName":"Change the key of a Spring application property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPropertyKey=management.metrics.binders.*.enabled\" --recipe-option \"newPropertyKey=management.metrics.enable.process.files\" --recipe-option \"except=jvm\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.ChangeSpringPropertyKey","displayName":"Change the key of a Spring application property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPropertyKey=management.metrics.binders.*.enabled\" --recipe-option \"newPropertyKey=management.metrics.enable.process.files\"","optionalCliOptions":" --recipe-option \"except=jvm\""}}>
 
 ## Usage
 

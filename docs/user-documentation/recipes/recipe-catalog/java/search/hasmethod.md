@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.HasMethod","displayName":"Find files that have at least one use of a method","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=java.util.List add(..)\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.HasMethod","displayName":"Find files that have at least one use of a method","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=java.util.List add(..)\"","optionalCliOptions":" --recipe-option \"matchOverrides=true\""}}>
 
 ## Usage
 

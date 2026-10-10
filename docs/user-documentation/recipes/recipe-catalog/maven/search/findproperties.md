@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.search.FindProperties","displayName":"Find Maven project properties","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyPattern=guava.*\" --recipe-option \"valuePattern=28.*\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.search.FindProperties","displayName":"Find Maven project properties","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyPattern=guava.*\"","optionalCliOptions":" --recipe-option \"valuePattern=28.*\""}}>
 
 ## Usage
 

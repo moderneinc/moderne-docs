@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.ChangeProjectVersion","displayName":"Change Maven Project Version","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.openrewrite\" --recipe-option \"artifactId='*'\" --recipe-option \"newVersion=8.4.2\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.ChangeProjectVersion","displayName":"Change Maven Project Version","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.openrewrite\" --recipe-option \"artifactId='*'\" --recipe-option \"newVersion=8.4.2\"","optionalCliOptions":" --recipe-option \"overrideParentVersion=true\""}}>
 
 ## Usage
 

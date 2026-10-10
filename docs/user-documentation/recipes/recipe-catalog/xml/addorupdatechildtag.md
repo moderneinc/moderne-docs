@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.xml.AddOrUpdateChildTag","displayName":"Add or update child tag","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"parentXPath=/project//plugin//configuration\" --recipe-option \"newChildTag=<skip>true</skip>\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.xml.AddOrUpdateChildTag","displayName":"Add or update child tag","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":true,"cliOptions":" --recipe-option \"parentXPath=/project//plugin//configuration\" --recipe-option \"newChildTag=<skip>true</skip>\"","optionalCliOptions":" --recipe-option \"replaceExisting=true\""}}>
 
 ## Usage
 

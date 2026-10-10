@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"ruby","code":"class Cart\n  attr_reader :items\n\n  def initialize\n    @items = []\n    @total = 0\n  end\n\n  def add(item)\n    @items.push(item)\n    @total += item.price\n  end\n\n  def total\n    @total\n  end\nend\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.quality.FindRubyTypeMetrics","displayName":"Find Ruby type quality metrics","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package main\n\nimport \"time\"\n\ntype User struct {\n\tID        int64     `json:\"id\" db:\"user_id\"`\n\tEmail     string    `json:\"email\" gorm:\"uniqueIndex\"`\n\tCreatedAt time.Time `json:\"created_at\"`\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoDataAssets","displayName":"Find Go data assets","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

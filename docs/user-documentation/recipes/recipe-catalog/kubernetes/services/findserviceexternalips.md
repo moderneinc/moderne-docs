@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.services.FindServiceExternalIPs","displayName":"Find uses of `externalIP`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"externalIPs=192.168.0.1\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.services.FindServiceExternalIPs","displayName":"Find uses of `externalIP`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"externalIPs=192.168.0.1\"","optionalCliOptions":" --recipe-option \"findMissing=true\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
 
 ## Usage
 

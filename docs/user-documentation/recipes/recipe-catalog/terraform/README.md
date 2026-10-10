@@ -24,6 +24,10 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Add Terraform configuration](./addconfiguration.md)
 * [Add a nested block to a Terraform resource](./addresourcenestedblock.md)
+* [Change Terraform data source attribute](./changedatasourceattribute.md)
+* [Change Terraform module attribute](./changemoduleattribute.md)
+* [Change Terraform provider configuration attribute](./changeproviderconfigurationattribute.md)
+* [Change Terraform required provider attribute](./changerequiredproviderattribute.md)
 * [Change Terraform resource attribute](./changeresourceattribute.md)
 * [Change a single attribute inside a Terraform resource's nested block](./changeresourcenestedblockattribute.md)
 * [Move provider version to `required_providers`](./moveproviderversiontorequiredproviders.md)

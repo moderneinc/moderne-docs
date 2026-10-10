@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindDanglingResourceReferences","displayName":"Find dangling Kubernetes resource references","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindDanglingResourceReferences","displayName":"Find dangling Kubernetes resource references","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"indexFileMatcher='**/*.yaml'\" --recipe-option \"fileMatcher='**/overlays/**/*.yaml'\" --recipe-option \"requireTargetKindPresent=true\""}}>
 
 ## Usage
 

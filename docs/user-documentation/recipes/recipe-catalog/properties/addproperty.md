@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.properties.AddProperty","displayName":"Add a new property","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"property=management.metrics.enable.process.files\" --recipe-option \"value=newPropValue\" --recipe-option \"comment=This is a comment\" --recipe-option \"delimiter=:\" --recipe-option \"orderedInsertion=false\" --recipe-option \"insertProperty=server.port\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.properties.AddProperty","displayName":"Add a new property","groupId":"org.openrewrite","artifactId":"rewrite-properties","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PROPERTIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"property=management.metrics.enable.process.files\" --recipe-option \"value=newPropValue\"","optionalCliOptions":" --recipe-option \"comment=This is a comment\" --recipe-option \"delimiter=:\" --recipe-option \"orderedInsertion=false\" --recipe-option \"insertProperty=server.port\""}}>
 
 ## Usage
 

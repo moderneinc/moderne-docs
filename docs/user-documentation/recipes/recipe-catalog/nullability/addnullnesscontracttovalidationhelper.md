@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.nullability.AddNullnessContractToValidationHelper","displayName":"Add a `@Contract` nullness contract to a validation helper","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.nullability.AddNullnessContractToValidationHelper","displayName":"Add a `@Contract` nullness contract to a validation helper","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"annotatedPackages=com.example\""}}>
 
 ## Usage
 

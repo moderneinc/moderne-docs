@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.ChangePropertyKey","displayName":"Change property key","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPropertyKey=management.metrics.binders.*.enabled\" --recipe-option \"newPropertyKey=management.metrics.enable.process.files\" --recipe-option \"except=List.of(\"group\")\" --recipe-option \"filePattern=.github/workflows/*.yml\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.ChangePropertyKey","displayName":"Change property key","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPropertyKey=management.metrics.binders.*.enabled\" --recipe-option \"newPropertyKey=management.metrics.enable.process.files\"","optionalCliOptions":" --recipe-option \"relaxedBinding=true\" --recipe-option \"except=List.of(\"group\")\" --recipe-option \"filePattern=.github/workflows/*.yml\""}}>
 
 ## Usage
 

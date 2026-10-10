@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Replace method invocation with constant","href":"/user-documentation/recipes/recipe-catalog/java/replacemethodinvocationwithconstant/"},{"name":"Simplify constant if branch execution","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconstantifbranchexecution/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Replace method invocation with constant","href":"/user-documentation/recipes/recipe-catalog/java/replacemethodinvocationwithconstant/"},{"name":"Simplify the removed security manager's thread group fallback","href":"/user-documentation/recipes/recipe-catalog/java/migrate/simplifysecuritymanagerthreadgroup/"},{"name":"Simplify constant if branch execution","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconstantifbranchexecution/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

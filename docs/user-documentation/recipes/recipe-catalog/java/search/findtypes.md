@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindTypes","displayName":"Find types","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=java.util.List\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindTypes","displayName":"Find types","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=java.util.List\"","optionalCliOptions":" --recipe-option \"checkAssignability=true\""}}>
 
 ## Usage
 

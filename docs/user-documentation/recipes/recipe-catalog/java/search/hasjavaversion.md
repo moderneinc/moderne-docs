@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.HasJavaVersion","displayName":"Find files compiled at a specific Java version","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=17.X\" --recipe-option \"checkTargetCompatibility=17.X\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.HasJavaVersion","displayName":"Find files compiled at a specific Java version","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=17.X\"","optionalCliOptions":" --recipe-option \"checkTargetCompatibility=17.X\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.search.ModuleHasDependency","displayName":"Module has dependency","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupIdPattern=com.fasterxml.jackson.module\" --recipe-option \"artifactIdPattern=jackson-module-*\" --recipe-option \"scope=compile\" --recipe-option \"version=1.x\" --recipe-option \"onlyDirect=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.search.ModuleHasDependency","displayName":"Module has dependency","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupIdPattern=com.fasterxml.jackson.module\" --recipe-option \"artifactIdPattern=jackson-module-*\"","optionalCliOptions":" --recipe-option \"scope=compile\" --recipe-option \"version=1.x\" --recipe-option \"onlyDirect=true\""}}>
 
 ## Usage
 

@@ -50,7 +50,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.concourse.search.FindPinnedResource","displayName":"Find pinned resources by type","groupId":"org.openrewrite.recipe","artifactId":"rewrite-concourse","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.concourse.search.FindPinnedResource","displayName":"Find pinned resources by type","groupId":"org.openrewrite.recipe","artifactId":"rewrite-concourse","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"resourceType=git\""}}>
 
 ## Usage
 

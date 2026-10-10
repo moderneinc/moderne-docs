@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.mainframe.cobol.search.FindCopybook","displayName":"Find copybook usage","groupId":"org.openrewrite","artifactId":"rewrite-mainframe","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAINFRAME","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.mainframe.cobol.search.FindCopybook","displayName":"Find copybook usage","groupId":"org.openrewrite","artifactId":"rewrite-mainframe","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAINFRAME","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"copybookName=KP008\" --recipe-option \"onlyMissingCopybooks=True\""}}>
 
 ## Usage
 

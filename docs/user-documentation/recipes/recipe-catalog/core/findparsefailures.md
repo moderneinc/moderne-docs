@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.FindParseFailures","displayName":"Find source files with `ParseExceptionResult` markers","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.FindParseFailures","displayName":"Find source files with `ParseExceptionResult` markers","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"parserType=YamlParser\" --recipe-option \"stackTrace=RuntimeException\" --recipe-option \"createdAfter=2025-01-01\""}}>
 
 ## Usage
 

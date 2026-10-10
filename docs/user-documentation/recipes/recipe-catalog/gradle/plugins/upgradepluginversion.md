@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.plugins.UpgradePluginVersion","displayName":"Update a Gradle plugin by id","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"pluginIdPattern=com.jfrog.bintray\" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.plugins.UpgradePluginVersion","displayName":"Update a Gradle plugin by id","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"pluginIdPattern=com.jfrog.bintray\"","optionalCliOptions":" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\""}}>
 
 ## Usage
 

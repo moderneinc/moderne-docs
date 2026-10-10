@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.spring.kafka.consumer.FindMissingDltHandler","displayName":"Find `@RetryableTopic` without `@DltHandler`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.java.spring.kafka.consumer.FindMissingDltHandler","displayName":"Find `@RetryableTopic` without `@DltHandler`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"flagNoDltStrategy=true\""}}>
 
 ## Usage
 

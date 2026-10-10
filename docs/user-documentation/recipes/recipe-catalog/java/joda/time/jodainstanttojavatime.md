@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate Joda-Time `Instant` to Java time"}
-  description={"Migrates `org.joda.time.Instant` constructor calls to `java.time.Instant.now()`."}
+  description={"Migrates `org.joda.time.Instant` constructors and methods to `java.time.Instant`."}
   fqName={"org.openrewrite.java.joda.time.JodaInstantToJavaTime"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate Joda-Time `Instant` to Java time</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates `org.joda.time.Instant` constructor calls to `java.time.Instant.now()`.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates `org.joda.time.Instant` constructors and methods to `java.time.Instant`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

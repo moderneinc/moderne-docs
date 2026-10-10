@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.security.secrets.FindSecretsByPattern","displayName":"Find secrets with regular expressions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"secretName=AWS Access Key\" --recipe-option \"keyPattern='[a-zA-Z0-9+\\/=]{88}'\" --recipe-option \"valuePattern='[a-zA-Z0-9+\\/=]{88}'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.security.secrets.FindSecretsByPattern","displayName":"Find secrets with regular expressions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"secretName=AWS Access Key\" --recipe-option \"valuePattern='[a-zA-Z0-9+\\/=]{88}'\"","optionalCliOptions":" --recipe-option \"keyPattern='[a-zA-Z0-9+\\/=]{88}'\""}}>
 
 ## Usage
 

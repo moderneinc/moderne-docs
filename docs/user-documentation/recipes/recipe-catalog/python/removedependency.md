@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.python.RemoveDependency","displayName":"Remove Python dependency","groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageName=requests\" --recipe-option \"scope=project.dependencies\" --recipe-option \"groupName=dev\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.RemoveDependency","displayName":"Remove Python dependency","groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageName=requests\"","optionalCliOptions":" --recipe-option \"scope=project.dependencies\" --recipe-option \"groupName=dev\""}}>
 
 ## Usage
 

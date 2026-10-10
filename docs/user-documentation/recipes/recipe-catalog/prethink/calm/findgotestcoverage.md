@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package pricing\n\nimport \"testing\"\n\ntype Suite struct {\n\tname string\n}\n\nfunc TestDiscount(t *testing.T) {}\n\nfunc BenchmarkDiscount(b *testing.B) {}\n\nfunc FuzzDiscount(f *testing.F) {}\n\nfunc Test_userLogin(t *testing.T) {}\n\nfunc TestBlank(_ *testing.T) {}\n\nfunc TestWrongHarness(b *testing.B) {}\n\nfunc BenchmarkWrongHarness(t *testing.T) {}\n\nfunc FuzzWrongHarness(t *testing.T) {}\n\nfunc TestNoParameters() {}\n\nfunc TestTooManyParameters(t *testing.T, extra int) {}\n\nfunc TestNotAPointer(t testing.T) {}\n\nfunc TestMain(m *testing.M) {}\n\nfunc ExampleDiscount() {}\n\nfunc (s *Suite) TestReceiver(t *testing.T) {}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoTestCoverage","displayName":"Find Go test coverage","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

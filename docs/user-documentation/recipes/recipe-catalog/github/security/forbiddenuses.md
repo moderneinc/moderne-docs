@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.security.ForbiddenUses","displayName":"Find forbidden action usage","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.security.ForbiddenUses","displayName":"Find forbidden action usage","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"additionalDangerousActions=[\"some-org/dangerous-action@v1\", \"another-org/risky-action@v2\"]\" --recipe-option \"additionalSuspiciousPatterns=[\"malware\", \"crypto-miner\", \"backdoor\"]\""}}>
 
 ## Usage
 

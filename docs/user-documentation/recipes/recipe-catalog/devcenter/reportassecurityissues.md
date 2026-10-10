@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.ReportAsSecurityIssues","displayName":"Report as security issues","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.ReportAsSecurityIssues","displayName":"Report as security issues","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"fixRecipe=org.openrewrite.java.security.OwaspTopTen\""}}>
 
 ## Usage
 

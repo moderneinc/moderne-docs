@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.AddRepository","displayName":"Add repository","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"id=repo-id\" --recipe-option \"url=http://myrepo.maven.com/repo\" --recipe-option \"repoName=My Great Repo Name\" --recipe-option \"layout=default\" --recipe-option \"snapshotsChecksumPolicy=warn\" --recipe-option \"snapshotsUpdatePolicy=always\" --recipe-option \"releasesChecksumPolicy=fail\" --recipe-option \"releasesUpdatePolicy=never\" --recipe-option \"type=Repository\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.AddRepository","displayName":"Add repository","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"id=repo-id\" --recipe-option \"url=http://myrepo.maven.com/repo\"","optionalCliOptions":" --recipe-option \"repoName=My Great Repo Name\" --recipe-option \"layout=default\" --recipe-option \"snapshotsEnabled=true\" --recipe-option \"snapshotsChecksumPolicy=warn\" --recipe-option \"snapshotsUpdatePolicy=always\" --recipe-option \"releasesEnabled=true\" --recipe-option \"releasesChecksumPolicy=fail\" --recipe-option \"releasesUpdatePolicy=never\" --recipe-option \"type=Repository\""}}>
 
 ## Usage
 

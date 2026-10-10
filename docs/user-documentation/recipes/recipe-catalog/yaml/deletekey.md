@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.DeleteKey","displayName":"Delete key","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"keyPath=$.source.kind\" --recipe-option \"filePattern=.github/workflows/*.yml\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.DeleteKey","displayName":"Delete key","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"keyPath=$.source.kind\"","optionalCliOptions":" --recipe-option \"filePattern=.github/workflows/*.yml\""}}>
 
 ## Usage
 

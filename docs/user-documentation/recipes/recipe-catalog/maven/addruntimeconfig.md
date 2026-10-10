@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.AddRuntimeConfig","displayName":"Add a configuration option for the Maven runtime","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeConfigFileName=maven.config\" --recipe-option \"flag='-T'\" --recipe-option \"argument=3\" --recipe-option \"separator==\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.AddRuntimeConfig","displayName":"Add a configuration option for the Maven runtime","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeConfigFileName=maven.config\" --recipe-option \"flag='-T'\" --recipe-option \"separator==\"","optionalCliOptions":" --recipe-option \"argument=3\""}}>
 
 ## Usage
 

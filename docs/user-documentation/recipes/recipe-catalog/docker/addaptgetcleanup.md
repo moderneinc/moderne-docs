@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.docker.AddAptGetCleanup","displayName":"Add apt-get cleanup","groupId":"org.openrewrite","artifactId":"rewrite-docker","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_DOCKER","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.docker.AddAptGetCleanup","displayName":"Add apt-get cleanup","groupId":"org.openrewrite","artifactId":"rewrite-docker","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_DOCKER","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"cleanupCommand= && apt-get clean && rm -rf /var/lib/apt/lists/*\""}}>
 
 ## Usage
 

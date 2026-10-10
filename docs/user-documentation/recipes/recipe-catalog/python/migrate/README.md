@@ -7,6 +7,7 @@ description: Migrate OpenRewrite recipes.
 ## Categories
 
 * [Langchain](/user-documentation/recipes/recipe-catalog/python/migrate/langchain)
+* [Pandas](/user-documentation/recipes/recipe-catalog/python/migrate/pandas)
 * [Pydantic](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic)
 
 ## Composite Recipes

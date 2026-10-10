@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.server.jboss.jetty.CreateJettyEnvXml","displayName":"Create Jetty environment XML","groupId":"io.moderne.recipe","artifactId":"rewrite-java-application-server","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_JAVA_APPLICATION_SERVER","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.java.server.jboss.jetty.CreateJettyEnvXml","displayName":"Create Jetty environment XML","groupId":"io.moderne.recipe","artifactId":"rewrite-java-application-server","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_JAVA_APPLICATION_SERVER","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"contextPath=/myapp\""}}>
 
 ## Usage
 

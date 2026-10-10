@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.RemoveRepository","displayName":"Remove repository","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"id=repo-id\" --recipe-option \"url=http://myrepo.maven.com/repo\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.RemoveRepository","displayName":"Remove repository","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"url=http://myrepo.maven.com/repo\"","optionalCliOptions":" --recipe-option \"id=repo-id\""}}>
 
 ## Usage
 

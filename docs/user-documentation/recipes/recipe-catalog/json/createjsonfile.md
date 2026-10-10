@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.json.CreateJsonFile","displayName":"Create JSON file","groupId":"org.openrewrite","artifactId":"rewrite-json","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JSON","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=foo/bar/baz.json\" --recipe-option \"fileContents='{\"a\": {\"property\": \"value\"}, \"another\": {\"property\": \"value\"}}'\" --recipe-option \"fileContentsUrl=http://foo.bar/baz.json\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.json.CreateJsonFile","displayName":"Create JSON file","groupId":"org.openrewrite","artifactId":"rewrite-json","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JSON","requiresConfiguration":true,"cliOptions":" --recipe-option \"relativeFileName=foo/bar/baz.json\"","optionalCliOptions":" --recipe-option \"fileContents='{\"a\": {\"property\": \"value\"}, \"another\": {\"property\": \"value\"}}'\" --recipe-option \"fileContentsUrl=http://foo.bar/baz.json\" --recipe-option \"overwriteExisting=true\""}}>
 
 ## Usage
 

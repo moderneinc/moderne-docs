@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove unnecessary React imports"}
-  description={"Removes the default `import React from 'react'` when React is only used for JSX, which is no longer necessary with the new JSX transform in React 17+."}
+  description={"Removes the default `import React from 'react'` when React is only used for JSX, and the automatic JSX runtime is explicitly enabled, or the file contains no JSX."}
   fqName={"org.openrewrite.react.17.update-react-imports"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,9 +28,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove unnecessary React imports</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes the default `import React from 'react'` when React is only used for JSX, which is no longer necessary with the new JSX transform in React 17+.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes the default `import React from 'react'` when React is only used for JSX, and the automatic JSX runtime is explicitly enabled, or the file contains no JSX.</RecipeHeader.Description>
 
 </RecipeHeader>
+
+<OptionsTable options={[{"type":"String","name":"automaticJsxRuntime","required":false,"description":"Set to true only when the project uses the automatic JSX transform. Without this assertion, imports in files containing JSX are preserved."}]}>
+
+## Options
+
+</OptionsTable>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.17.update-react-imports","displayName":"Remove unnecessary React imports","npmPackage":"@openrewrite/recipes-react"}}>
 

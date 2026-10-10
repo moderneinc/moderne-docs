@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.docker.AddOrUpdateLabel","displayName":"Add Docker LABEL instruction","groupId":"org.openrewrite","artifactId":"rewrite-docker","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_DOCKER","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=org.opencontainers.image.version\" --recipe-option \"value=1.0.0\" --recipe-option \"stageName=final\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.docker.AddOrUpdateLabel","displayName":"Add Docker LABEL instruction","groupId":"org.openrewrite","artifactId":"rewrite-docker","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_DOCKER","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=org.opencontainers.image.version\" --recipe-option \"value=1.0.0\"","optionalCliOptions":" --recipe-option \"overwriteExisting=true\" --recipe-option \"stageName=final\""}}>
 
 ## Usage
 

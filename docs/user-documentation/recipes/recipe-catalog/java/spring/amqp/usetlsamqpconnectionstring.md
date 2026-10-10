@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString","displayName":"Use TLS for AMQP connection strings","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=spring.rabbitmq.addresses\" --recipe-option \"oldPort=1234\" --recipe-option \"port=1234\" --recipe-option \"tlsPropertyKey=spring.rabbitmq.ssl.enabled\" --recipe-option \"pathExpressions=**/application.yml\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString","displayName":"Use TLS for AMQP connection strings","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldPort=1234\" --recipe-option \"port=1234\"","optionalCliOptions":" --recipe-option \"propertyKey=spring.rabbitmq.addresses\" --recipe-option \"tlsPropertyKey=spring.rabbitmq.ssl.enabled\" --recipe-option \"pathExpressions=**/application.yml\""}}>
 
 ## Usage
 

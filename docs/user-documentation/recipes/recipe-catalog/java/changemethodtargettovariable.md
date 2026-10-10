@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeMethodTargetToVariable","displayName":"Change method target to variable","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.mycorp.A method(..)\" --recipe-option \"variableName=foo\" --recipe-option \"variableType=java.lang.String\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.ChangeMethodTargetToVariable","displayName":"Change method target to variable","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.mycorp.A method(..)\" --recipe-option \"variableName=foo\" --recipe-option \"variableType=java.lang.String\"","optionalCliOptions":" --recipe-option \"matchOverrides=true\""}}>
 
 ## Usage
 

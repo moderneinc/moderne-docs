@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.format.AutoFormat","displayName":"Format Java code","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.format.AutoFormat","displayName":"Format Java code","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"style=>\n        type: specs.openrewrite.org/v1beta/style\n        name: com.yourorg.YesTabsNoStarImports\n        styleConfigs:\n          - org.openrewrite.java.style.TabsAndIndentsStyle:\n              useTabCharacter: true\""}}>
 
 ## Usage
 

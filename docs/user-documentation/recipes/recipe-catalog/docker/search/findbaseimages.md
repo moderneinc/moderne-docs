@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.docker.search.FindBaseImages","displayName":"Find Docker base images","groupId":"org.openrewrite","artifactId":"rewrite-docker","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_DOCKER","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.docker.search.FindBaseImages","displayName":"Find Docker base images","groupId":"org.openrewrite","artifactId":"rewrite-docker","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_DOCKER","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"imageNamePattern=ubuntu*\" --recipe-option \"tagPattern=20.*\" --recipe-option \"digestPattern=sha256:*\" --recipe-option \"platformPattern=linux/amd64\""}}>
 
 ## Usage
 

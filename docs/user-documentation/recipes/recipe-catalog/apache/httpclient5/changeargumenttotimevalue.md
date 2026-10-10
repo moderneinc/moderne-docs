@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.ChangeArgumentToTimeValue","displayName":"Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.apache.http.impl.nio.reactor.IOReactorConfig.Builder setSelectInterval(long)\" --recipe-option \"timeUnit=MILLISECONDS\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.ChangeArgumentToTimeValue","displayName":"Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.apache.http.impl.nio.reactor.IOReactorConfig.Builder setSelectInterval(long)\"","optionalCliOptions":" --recipe-option \"timeUnit=MILLISECONDS\""}}>
 
 ## Usage
 

@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus37.ChangeMavenCompilerAnnotationProcessorGroupIdAndArtifactId","displayName":"Change Maven Compiler plugin annotation processor groupId, artifactId and/or the version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.hibernate\" --recipe-option \"oldArtifactId=hibernate-jpamodelgen\" --recipe-option \"newGroupId=org.hibernate.orm\" --recipe-option \"newArtifactId=hibernate-jpamodelgen\" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\""}}>
+<UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus37.ChangeMavenCompilerAnnotationProcessorGroupIdAndArtifactId","displayName":"Change Maven Compiler plugin annotation processor groupId, artifactId and/or the version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldGroupId=org.hibernate\" --recipe-option \"oldArtifactId=hibernate-jpamodelgen\"","optionalCliOptions":" --recipe-option \"newGroupId=org.hibernate.orm\" --recipe-option \"newArtifactId=hibernate-jpamodelgen\" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"overrideManagedVersion=true\" --recipe-option \"enforceManagedVersion=true\" --recipe-option \"removeVersionIfManaged=true\""}}>
 
 ## Usage
 

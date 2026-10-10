@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.AddProfile","displayName":"Add Maven profile","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"id=default\" --recipe-option \"activation=<activation><foo>foo</foo></activation>\" --recipe-option \"properties=<properties><foo>foo</foo><bar>bar</bar></properties>\" --recipe-option \"build=<build><foo>foo</foo></build>\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.AddProfile","displayName":"Add Maven profile","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"id=default\"","optionalCliOptions":" --recipe-option \"activation=<activation><foo>foo</foo></activation>\" --recipe-option \"properties=<properties><foo>foo</foo><bar>bar</bar></properties>\" --recipe-option \"build=<build><foo>foo</foo></build>\""}}>
 
 ## Usage
 

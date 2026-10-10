@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove `ComponentFactoryResolver`"}
-  description={"Replaces `resolver.resolveComponentFactory(Component)` with just `Component` and removes the `ComponentFactoryResolver` import. Since Ivy, `ViewContainerRef.createComponent` accepts the component class directly. `ComponentFactoryResolver` was deprecated in Angular 13 and removed in Angular 16."}
+  description={"Replaces `resolver.resolveComponentFactory(Component)` with just `Component` only when passed directly to `createComponent`. Since Ivy, `ViewContainerRef.createComponent` accepts the component class directly. Retains factories used through their own `create` method."}
   fqName={"org.openrewrite.angular.migration.remove-component-factory-resolver"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove `ComponentFactoryResolver`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces `resolver.resolveComponentFactory(Component)` with just `Component` and removes the `ComponentFactoryResolver` import. Since Ivy, `ViewContainerRef.createComponent` accepts the component class directly. `ComponentFactoryResolver` was deprecated in Angular 13 and removed in Angular 16.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces `resolver.resolveComponentFactory(Component)` with just `Component` only when passed directly to `createComponent`. Since Ivy, `ViewContainerRef.createComponent` accepts the component class directly. Retains factories used through their own `create` method.</RecipeHeader.Description>
 
 </RecipeHeader>
 

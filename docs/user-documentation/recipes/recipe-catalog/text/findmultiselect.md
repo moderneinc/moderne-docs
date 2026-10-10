@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.text.FindMultiselect","displayName":"Experimental find text with multiselect","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":true,"cliOptions":" --recipe-option \"find=blacklist\" --recipe-option \"filePattern='**/*.java'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.text.FindMultiselect","displayName":"Experimental find text with multiselect","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":true,"cliOptions":" --recipe-option \"find=blacklist\"","optionalCliOptions":" --recipe-option \"regex=true\" --recipe-option \"filePattern='**/*.java'\""}}>
 
 ## Usage
 

@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.nodejs.security.RemoveRedundantOverrides","displayName":"Remove redundant dependency overrides","groupId":"org.openrewrite.recipe","artifactId":"rewrite-nodejs","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NODEJS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.nodejs.security.RemoveRedundantOverrides","displayName":"Remove redundant dependency overrides","groupId":"org.openrewrite.recipe","artifactId":"rewrite-nodejs","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NODEJS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"dryRun=true\""}}>
 
 ## Usage
 

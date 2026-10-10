@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package server\n\nimport (\n\t\"net/http\"\n)\n\nfunc Serve() {\n\thttp.HandleFunc(\"/health\", healthz)\n\thttp.HandleFunc(\"/users\", func(w http.ResponseWriter, r *http.Request) {})\n}\n\nfunc healthz(w http.ResponseWriter, r *http.Request) {}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoServiceEndpoints","displayName":"Find Go service endpoints","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

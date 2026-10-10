@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.yaml.DeleteProperty","displayName":"Delete property","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.files.*\" --recipe-option \"filePattern=.github/workflows/*.yml\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.yaml.DeleteProperty","displayName":"Delete property","groupId":"org.openrewrite","artifactId":"rewrite-yaml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_YAML","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.files.*\"","optionalCliOptions":" --recipe-option \"coalesce=true\" --recipe-option \"relaxedBinding=true\" --recipe-option \"filePattern=.github/workflows/*.yml\""}}>
 
 ## Usage
 

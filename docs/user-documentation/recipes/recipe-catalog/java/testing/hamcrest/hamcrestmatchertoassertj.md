@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.hamcrest.HamcrestMatcherToAssertJ","displayName":"Migrate from Hamcrest `Matcher` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.hamcrest.HamcrestMatcherToAssertJ","displayName":"Migrate from Hamcrest `Matcher` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"matcher=equalTo\" --recipe-option \"assertion=isEqualTo\" --recipe-option \"argumentType=java.math.BigDecimal\""}}>
 
 ## Usage
 

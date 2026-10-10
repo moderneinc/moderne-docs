@@ -902,7 +902,7 @@ _3 recipes_
 
 _License: Moderne Proprietary License_
 
-_29 recipes_
+_28 recipes_
 
 * [org.openrewrite.android.ChangeAndroidSdkVersion](/user-documentation/recipes/recipe-catalog/android/changeandroidsdkversion.md)
   * **Change Android SDK version**
@@ -976,9 +976,6 @@ _29 recipes_
 * [org.openrewrite.android.RenameLintOptionsToLint](/user-documentation/recipes/recipe-catalog/android/renamelintoptionstolint.md)
   * **Rename `lintOptions` to `lint`**
   * The `lintOptions \{ ... \}` DSL block was renamed to `lint \{ ... \}` in Android Gradle Plugin 7.0 and may be removed in AGP 9.x. This is a pure block rename with no semantic change.
-* [org.openrewrite.android.UpgradeAndroidGradlePluginVersion](/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md)
-  * **Upgrade Android Gradle Plugin version**
-  * Upgrade the Android Gradle Plugin (AGP) version. Handles both the legacy `buildscript \{ dependencies \{ classpath 'com.android.tools.build:gradle:...' \} \}` form (delegating to the upstream `UpgradeDependencyVersion` recipe for full DSL coverage) and the modern `plugins \{ id(&quot;com.android.application&quot;) version &quot;...&quot; \}` form.
 * [org.openrewrite.android.UpgradeToAndroidSDK33](/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk33.md)
   * **Upgrade to Android SDK 33**
   * Recipes to upgrade to Android SDK version 33.
@@ -996,7 +993,7 @@ _29 recipes_
 
 _License: Moderne Source Available License_
 
-_123 recipes_
+_125 recipes_
 
 * [org.openrewrite.apache.ApacheBestPractices](/user-documentation/recipes/recipe-catalog/apache/apachebestpractices.md)
   * **Apache best practices**
@@ -1121,6 +1118,12 @@ _123 recipes_
 * [org.openrewrite.apache.commons.lang.IsNotEmptyToJdk](/user-documentation/recipes/recipe-catalog/apache/commons/lang/isnotemptytojdk.md)
   * **Replace any StringUtils#isEmpty(String) and #isNotEmpty(String)**
   * Replace any `StringUtils#isEmpty(String)` and `#isNotEmpty(String)` with `s == null || s.isEmpty()` and `s != null &amp;&amp; !s.isEmpty()`.
+* [org.openrewrite.apache.commons.lang.ParameterizeRawStrLookupSubclasses](/user-documentation/recipes/recipe-catalog/apache/commons/lang/parameterizerawstrlookupsubclasses.md)
+  * **Parameterize raw `StrLookup` subclasses**
+  * `org.apache.commons.text.StrLookup` implements `StringLookup`, which extends `UnaryOperator&lt;String&gt;`. Extending it as a raw type erases the inherited `apply(String)` default method, leaving `Function#apply(Object)` unimplemented, so add the `String` type argument.
+* [org.openrewrite.apache.commons.lang.SystemUtilsIsJavaVersionAtLeastToJavaVersion](/user-documentation/recipes/recipe-catalog/apache/commons/lang/systemutilsisjavaversionatleasttojavaversion.md)
+  * **Replace `SystemUtils#isJavaVersionAtLeast(float)` and `(int)` with the `JavaVersion` overload**
+  * Commons Lang 2.x compared Java versions as a `float` such as `1.4f` or an `int` such as `140`; Commons Lang 3.x only accepts a `JavaVersion`. Calls whose argument is not a literal that names a `JavaVersion` constant are left alone.
 * [org.openrewrite.apache.commons.lang.UpgradeApacheCommonsLang_2_3](/user-documentation/recipes/recipe-catalog/apache/commons/lang/upgradeapachecommonslang_2_3.md)
   * **Migrates to Apache Commons Lang 3.x**
   * Migrate applications to the latest Apache Commons Lang 3.x release. This recipe modifies application's build files, and changes the package as per [the migration release notes](https://commons.apache.org/proper/commons-lang/article3_0.html).
@@ -1423,7 +1426,7 @@ _6 recipes_
 
 _License: Moderne Source Available License_
 
-_24 recipes_
+_26 recipes_
 
 * [org.openrewrite.cucumber.jvm.CollapseCucumberOptionsTags](/user-documentation/recipes/recipe-catalog/cucumber/jvm/collapsecucumberoptionstags.md)
   * **Collapse `@CucumberOptions` tags into a single tag expression**
@@ -1452,9 +1455,15 @@ _24 recipes_
 * [org.openrewrite.cucumber.jvm.CucumberOptionsToTestNgCucumberOptions](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberoptionstotestngcucumberoptions.md)
   * **Migrate `cucumber.api.CucumberOptions` to `io.cucumber.testng.CucumberOptions`**
   * Replace `cucumber.api.CucumberOptions` with the TestNG variant in source files that run through a TestNG runner.
+* [org.openrewrite.cucumber.jvm.CucumberRunWithToSuite](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberrunwithtosuite.md)
+  * **Cucumber JUnit 4 `@RunWith(Cucumber.class)` to JUnit Platform `@Suite`**
+  * Replaces the Cucumber JUnit 4 runner with a JUnit Platform `@Suite` that runs the Cucumber engine. The `@CucumberOptions` become `@ConfigurationParameter` annotations, and the features become `@SelectClasspathResource` selectors where they are on the classpath. The JUnit 4 runner looks for glue in the package of the annotated class by default, and the Cucumber engine in the whole classpath, so that package becomes the explicit glue when none is configured. Class-level setup and teardown methods become `@BeforeSuite` and `@AfterSuite` methods, as a `@Suite` does not run `@BeforeClass` or `@BeforeAll`. A class that extends another class, which may contribute `@CucumberOptions`, or that has an option that cannot be carried over, such as one that refers to a constant, keeps the JUnit 4 runner, with a comment explaining why.
 * [org.openrewrite.cucumber.jvm.CucumberToJunitPlatformSuite](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumbertojunitplatformsuite.md)
   * **Cucumber to JUnit test `@Suite`**
-  * Migrates Cucumber tests to JUnit test `@Suite`.
+  * Migrates Cucumber tests run by the `@Cucumber` annotation or the JUnit 4 `@RunWith(Cucumber.class)` runner to a JUnit Platform `@Suite`, and swaps `cucumber-junit` for `cucumber-junit-platform-engine` 7.x. Each Cucumber-JVM module depends on the `cucumber-core` of its own release, and the engine fails to run against any other, so the rest of the Cucumber-JVM dependencies move to that same 7.x.
+* [org.openrewrite.cucumber.jvm.DropStrictAware](/user-documentation/recipes/recipe-catalog/cucumber/jvm/dropstrictaware.md)
+  * **Drop `StrictAware`**
+  * Cucumber-JVM 8.0.0 removed `StrictAware`, which Cucumber-JVM 7 only ever called with `setStrict(true)`. Remove it from `implements` along with the `setStrict(boolean)` override, and implement `Plugin` instead when the class implements no other plugin interface.
 * [org.openrewrite.cucumber.jvm.DropStrictOption](/user-documentation/recipes/recipe-catalog/cucumber/jvm/dropstrictoption.md)
   * **Drop the `strict` option**
   * Cucumber-JVM 7.0.0 removed the `strict` option, as scenarios are now always executed in strict mode.
@@ -1636,7 +1645,7 @@ _33 recipes_
 
 _License: Moderne Source Available License_
 
-_62 recipes_
+_63 recipes_
 
 * [org.openrewrite.github.AddCronTrigger](/user-documentation/recipes/recipe-catalog/github/addcrontrigger.md)
   * **Add cron workflow trigger**
@@ -1704,6 +1713,9 @@ _62 recipes_
 * [org.openrewrite.github.RemoveAllCronTriggers](/user-documentation/recipes/recipe-catalog/github/removeallcrontriggers.md)
   * **Remove all cron triggers**
   * Removes all cron triggers from a workflow.
+* [org.openrewrite.github.RemoveRunner](/user-documentation/recipes/recipe-catalog/github/removerunner.md)
+  * **Remove a runner from a job**
+  * Removes a runner label from the `runs-on` of a job, leaving the remaining runner labels untouched. Both sequences (`runs-on: [self-hosted, linux]`) and the `labels` of a runner group are supported. The runner is never removed when it is the only one left, as a job requires at least one runner.
 * [org.openrewrite.github.RemoveUnusedWorkflowDispatchInputs](/user-documentation/recipes/recipe-catalog/github/removeunusedworkflowdispatchinputs.md)
   * **Remove unused workflow dispatch inputs**
   * Remove workflow_dispatch inputs that are not referenced anywhere in the workflow file.
@@ -1902,7 +1914,7 @@ _22 recipes_
 
 _License: Moderne Source Available License_
 
-_28 recipes_
+_30 recipes_
 
 * [org.openrewrite.hibernate.AddScalarPreferStandardBasicTypes](/user-documentation/recipes/recipe-catalog/hibernate/addscalarpreferstandardbasictypes.md)
   * **AddScalarPreferStandardBasicTypesForHibernate5**
@@ -1915,7 +1927,10 @@ _28 recipes_
   * Replaces type mapping of booleans with appropriate attribute converters.
 * [org.openrewrite.hibernate.MigrateDialect](/user-documentation/recipes/recipe-catalog/hibernate/migratedialect.md)
   * **Migrate Hibernate dialect to the generic dialect**
-  * Migrate all Hibernate version-specific dialect classes to their generic equivalents. Version-specific dialects were deprecated in Hibernate 6.0 and removed in Hibernate 6.2.
+  * Migrate Hibernate version-specific dialect classes removed by Hibernate 6.2 to their generic equivalents.
+* [org.openrewrite.hibernate.MigrateRemovedDialectsHibernate70](/user-documentation/recipes/recipe-catalog/hibernate/migrateremoveddialectshibernate70.md)
+  * **Migrate dialects removed in Hibernate 7.0 to their generic equivalents**
+  * Hibernate 7.0 removed the remaining version- and storage-specific dialect subclasses that still existed in Hibernate 6.x. The IBM-i (`DB2400*`) variants map to `DB2iDialect`, not the generic `DB2Dialect`; the HANA row/column-store variants and MariaDB 10.6 collapse into the generic `HANADialect` / `MariaDBDialect`, which autodetect behavior from the JDBC connection.
 * [org.openrewrite.hibernate.MigrateResultCheckStyleToExpectation](/user-documentation/recipes/recipe-catalog/hibernate/migrateresultcheckstyletoexpectation.md)
   * **Migration of `ResultCheckStyle` to `Expectation`**
   * Will migrate the usage of `org.hibernate.annotations.ResultCheckStyle` to `org.hibernate.jdbc.Expectation` in `@SQLInsert`, `@SqlUpdate`, `@SqlDelete` and `@SqlDeleteAll` annotations.
@@ -1951,7 +1966,7 @@ _28 recipes_
   * This recipe will migrate any existing dependencies on Hibernate 5.x to the latest 6.0.x release. This migration will include the adjustment to the new `org.hibernate.orm` group ID. It accounts for artifacts names that both do and do not include the `jakarta` suffix and it will change both dependencies and managed dependencies.
 * [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate60](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate60.md)
   * **Migrate Hibernate Types to Hypersistence Utils 6.0**
-  * This recipe will migrate any existing dependencies on `com.vladmihalcea:hibernate-types` to `io.hypersistence:hypersistence-utils-hibernate-60`. This migration will include the adjustment from `com.vladmihalcea` to `io.hypersistence.utils` package name.
+  * This recipe will migrate any existing dependencies on `com.vladmihalcea:hibernate-types` to `io.hypersistence:hypersistence-utils-hibernate-60`. This migration will include the adjustment from the `com.vladmihalcea.hibernate` and `com.vladmihalcea.spring` packages to `io.hypersistence.utils.hibernate` and `io.hypersistence.utils.spring`.
 * [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate62](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate62.md)
   * **Migrate Hibernate Types to Hypersistence Utils 6.2**
   * This recipe will migrate any existing dependencies on `io.hypersistence:hypersistence-utils-hibernate-60` to `io.hypersistence:hypersistence-utils-hibernate-62`.
@@ -1967,6 +1982,9 @@ _28 recipes_
 * [org.openrewrite.hibernate.MigrateUserType](/user-documentation/recipes/recipe-catalog/hibernate/migrateusertype.md)
   * **Migrate `UserType` to Hibernate 6**
   * With Hibernate 6 the `UserType` interface received a type parameter making it more strictly typed. This recipe applies the changes required to adhere to this change.
+* [org.openrewrite.hibernate.RemoveGeneratedValueStrategyWithGenericGenerator](/user-documentation/recipes/recipe-catalog/hibernate/removegeneratedvaluestrategywithgenericgenerator.md)
+  * **Remove `@GeneratedValue` strategy when a custom `@GenericGenerator` is used**
+  * Hibernate 7 rejects `@GeneratedValue(strategy = TABLE|SEQUENCE, generator = &quot;X&quot;)` when `&quot;X&quot;` resolves to a `@GenericGenerator` rather than a `@TableGenerator`/`@SequenceGenerator`, and falls back to a plain JPA generator that looks for a table named `&quot;X&quot;`. Dropping the `strategy` attribute keeps the custom generator intact and remains compatible with Hibernate 5.
 * [org.openrewrite.hibernate.RemoveInvalidHibernateGeneratedValueAnnotation](/user-documentation/recipes/recipe-catalog/hibernate/removeinvalidhibernategeneratedvalueannotation.md)
   * **Remove invalid `@GeneratedValue` annotation**
   * Removes `@GeneratedValue` annotation from fields that are not also annotated with `@Id`.
@@ -1993,7 +2011,7 @@ _28 recipes_
 
 _License: Apache License Version 2.0_
 
-_47 recipes_
+_49 recipes_
 
 * [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
   * **Add `@JsonCreator` to non-public constructors**
@@ -2034,9 +2052,15 @@ _47 recipes_
 * [org.openrewrite.java.jackson.MigrateMapperSettersToBuilder](/user-documentation/recipes/recipe-catalog/java/jackson/migratemappersetterstobuilder.md)
   * **Migrate mapper setter calls to builder pattern**
   * In Jackson 3, `JsonMapper` and other format-aligned mappers are immutable. Configuration methods like `setFilterProvider`, `addMixIn`, `disable`, `enable`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible.
+* [org.openrewrite.java.jackson.ModuleStillOnJackson2](/user-documentation/recipes/recipe-catalog/java/jackson/modulestillonjackson2.md)
+  * **Find modules still on Jackson 2**
+  * Marks the source files of modules that either do not resolve Jackson 3 yet, or still use Jackson 2 types in their own sources or those of their child modules. Modules that already resolve Jackson 3 and no longer use Jackson 2 types are left unmarked, as any Jackson 2 dependencies they still declare are there on purpose, for instance for generated sources that are not part of the LST.
 * [org.openrewrite.java.jackson.ReadValueUrlToOpenStream](/user-documentation/recipes/recipe-catalog/java/jackson/readvalueurltoopenstream.md)
   * **Migrate `ObjectMapper.readValue(URL, ...)` to use `openStream()`**
   * Jackson 3.x removed every `URL`-accepting `readValue` overload from `ObjectMapper`. Rewrite call sites to feed `URL.openStream()` into the surviving `readValue(InputStream, ...)` overload, which is what `readValue(URL, ...)` did internally in Jackson 2.x. The caller's checked-exception story is unchanged: `URL.openStream()` declares `IOException`, the same checked exception the removed `readValue(URL, ...)` declared.
+* [org.openrewrite.java.jackson.RemoveBuiltInModuleBeans](/user-documentation/recipes/recipe-catalog/java/jackson/removebuiltinmodulebeans.md)
+  * **Remove Spring beans for modules built-in to Jackson 3**
+  * Jackson 3 includes Java time, JDK 8 and parameter name support in databind and removes their module classes. Remove Spring `@Bean` methods that only return a new default instance of one of these modules. Customized, overridden or directly referenced factories are left for manual migration.
 * [org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations](/user-documentation/recipes/recipe-catalog/java/jackson/removebuiltinmoduleregistrations.md)
   * **Remove registrations of modules built-in to Jackson 3**
   * In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules.
@@ -2078,7 +2102,7 @@ _47 recipes_
   * Migrate applications to the latest Jackson 3.x release. This recipe handles package changes (`com.fasterxml.jackson` -&gt; `tools.jackson`), dependency updates, core class renames, exception renames, and method renames (e.g., `JsonGenerator.writeObject()` -&gt; `writePOJO()`, `JsonParser.getCurrentValue()` -&gt; `currentValue()`).
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_Dependencies](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_dependencies.md)
   * **Upgrade Jackson 2.x dependencies to 3.x**
-  * Upgrade Jackson Maven dependencies from 2.x to 3.x versions and update group IDs.
+  * Upgrade Jackson Maven dependencies from 2.x to 3.x versions and update group IDs. Modules that already resolve Jackson 3 and no longer use Jackson 2 types in their sources are left as-is, as any Jackson 2 dependencies they still declare are there on purpose.
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_JsonGeneratorMethodRenames](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsongeneratormethodrenames.md)
   * **Rename Jackson 2.x methods to 3.x equivalents for JsonGenerator**
   * Rename JsonGenerator methods that were renamed in 3.x (e.g., `writeObject()` to `writePOJO()`, `getCurrentValue()` to `currentValue()`).
@@ -2202,7 +2226,7 @@ _18 recipes_
 
 _License: Moderne Proprietary License_
 
-_151 recipes_
+_157 recipes_
 
 * [org.openrewrite.ai.security.FindMissingStructuredOutput](/user-documentation/recipes/recipe-catalog/ai/security/findmissingstructuredoutput.md)
   * **Find LLM freeform output flowing into a structured parser (OWASP LLM01)**
@@ -2227,19 +2251,25 @@ _151 recipes_
   * Finds dependencies in `*.csproj` and `packages.config`.
 * [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. Both direct and transitive dependencies are checked using the full dependency graph captured when the project's LST was built. Vulnerable direct dependencies are upgraded in place; vulnerable transitive dependencies are added as direct dependencies pinned to a fixed version. The target version is controlled with the `versionSelection` option. Before any change, the version constraints declared by every other package in the dependency graph are validated; when an upgrade would violate a constraint, an error marker describing the conflicting dependency path is added instead and no change is made. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Last updated: 2026-09-28T1105.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. Both direct and transitive dependencies are checked using the full dependency graph captured when the project's LST was built. Vulnerable direct dependencies are upgraded in place; vulnerable transitive dependencies are added as direct dependencies pinned to a fixed version. The target version is controlled with the `versionSelection` option. Before any change, the version constraints declared by every other package in the dependency graph are validated; when an upgrade would violate a constraint, an error marker describing the conflicting dependency path is added instead and no change is made. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Last updated: 2026-10-05T1104.
 * [org.openrewrite.csharp.dependencies.FindEndOfLifeDependencies](/user-documentation/recipes/recipe-catalog/csharp/dependencies/findendoflifedependencies.md)
   * **Find end-of-life NuGet dependencies**
   * Find NuGet packages whose upstream release is end-of-life or scheduled for end-of-life soon, using a snapshot of [endoflife.date](https://endoflife.date). Direct package references are marked in source; all matches (direct and transitive) are reported in the data table.
+* [org.openrewrite.csharp.dependencies.SoftwareBillOfMaterials](/user-documentation/recipes/recipe-catalog/csharp/dependencies/softwarebillofmaterials.md)
+  * **Software bill of materials for C#**
+  * Produces a software bill of materials (SBOM) for each NuGet project. The SBOM lists every package reference, including transitive packages when the project was restored, in the [CycloneDX](https://cyclonedx.org/) XML format, in a file named `sbom.xml` adjacent to the `*.csproj` or `packages.config`.
 * [org.openrewrite.csharp.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md)
   * **Upgrade C# dependency versions**
-  * Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.
+  * Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`. Only declarations at a lower exact or pinned version are changed.
 * [org.openrewrite.dependencies.endoflife.FindEndOfLifeDependenciesDefault](/user-documentation/recipes/recipe-catalog/dependencies/endoflife/findendoflifedependenciesdefault.md)
   * **Find end-of-life dependencies (defaults)**
   * Flags Maven, Gradle, npm, and NuGet dependencies whose upstream release is end-of-life or reaches end-of-life within the next 180 days, using the bundled endoflife.date snapshot. Aggregates the per-ecosystem find-end-of-life recipes with their default settings.
 * [org.openrewrite.golang.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/golang/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Go dependencies**
   * This software composition analysis (SCA) tool detects and upgrades Go module dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades `go.mod` to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government.   When a `go.sum` file is present it is regenerated to match the upgraded `go.mod` by running `go mod download`, which requires the `go` toolchain to be installed. If the toolchain is unavailable the `go.mod` change is still applied and the `go.sum` is flagged so it can be brought back in sync with `go mod tidy`. Because the module graph is not re-resolved, upgrades that introduce new indirect requirements may still need a follow-up `go mod tidy`.   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically.
+* [org.openrewrite.golang.dependencies.SoftwareBillOfMaterials](/user-documentation/recipes/recipe-catalog/golang/dependencies/softwarebillofmaterials.md)
+  * **Software bill of materials for Go**
+  * Produces a software bill of materials (SBOM) for each Go module. The SBOM lists every module in the build list, at the version Go selects, in the [CycloneDX](https://cyclonedx.org/) XML format, in a file named `sbom.xml` adjacent to the `go.mod`.
 * [org.openrewrite.golang.security.GoSecurityBestPractices](/user-documentation/recipes/recipe-catalog/golang/security/gosecuritybestpractices.md)
   * **Go security best practices**
   * Locates common security vulnerabilities in Go code, mirroring the checks performed by `gosec`.
@@ -2266,13 +2296,16 @@ _151 recipes_
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-09-28T1105.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-10-05T1104.
+* [org.openrewrite.java.dependencies.JavaSoftwareBillOfMaterials](/user-documentation/recipes/recipe-catalog/java/dependencies/javasoftwarebillofmaterials.md)
+  * **Software bill of materials for Java**
+  * Produces a software bill of materials (SBOM) for each Maven and Gradle project. The SBOM lists every dependency, including transitive dependencies, in the [CycloneDX](https://cyclonedx.org/) XML format, in a file named `sbom.xml` adjacent to the `pom.xml` or `build.gradle`.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
 * [org.openrewrite.java.dependencies.SoftwareBillOfMaterials](/user-documentation/recipes/recipe-catalog/java/dependencies/softwarebillofmaterials.md)
   * **Software bill of materials**
-  * Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Gradle and Maven. Places a file named sbom.xml adjacent to the Gradle or Maven build file.
+  * Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Maven, Gradle, npm, Python, NuGet, and Go modules. Places a file named sbom.xml adjacent to the build file or package manifest, such as `pom.xml`, `build.gradle`, `package.json`, `pyproject.toml`, `requirements.txt`, `*.csproj`, `packages.config`, or `go.mod`. Manifests that share a directory, such as a `pom.xml` next to a `package.json`, contribute to the same `sbom.xml`.
 * [org.openrewrite.java.dependencies.endoflife.FindEndOfLifeDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/endoflife/findendoflifedependencies.md)
   * **Find end-of-life dependencies**
   * Find Maven and Gradle dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, using a snapshot of [endoflife.date](https://endoflife.date). Direct dependencies are marked in source; all matches (direct and transitive) are reported in the data table.
@@ -2450,6 +2483,9 @@ _151 recipes_
 * [org.openrewrite.java.security.search.FindLongSessionTimeout](/user-documentation/recipes/recipe-catalog/java/security/search/findlongsessiontimeout.md)
   * **Find long or disabled HTTP session timeout**
   * Finds calls to `HttpSession.setMaxInactiveInterval(int)` whose integer-literal argument exceeds 30 minutes or is zero/negative (which disables session expiration). Long-lived or non-expiring sessions increase the window for session hijacking and replay (CWE-613).
+* [org.openrewrite.java.security.search.FindMassAssignment](/user-documentation/recipes/recipe-catalog/java/security/search/findmassassignment.md)
+  * **Find mass assignment**
+  * Finds Spring and JAX-RS handler method parameters whose type is a JPA `@Entity`. The framework populates every property of the object from the request, so a client can set fields the form never exposes, such as a password or a role, and the entity is then persisted (CWE-915). Search only: the fix is a DTO plus a mapping layer.
 * [org.openrewrite.java.security.search.FindMissingSpringAuthorization](/user-documentation/recipes/recipe-catalog/java/security/search/findmissingspringauthorization.md)
   * **Find Spring MVC handlers missing authorization**
   * Flags Spring MVC (and WebFlux) controller methods reachable to anonymous users — either matched by `permitAll()` in a `SecurityFilterChain` / `SecurityWebFilterChain` bean (or in a legacy `WebSecurityConfigurerAdapter.configure(HttpSecurity)` override) or with no matching rule at all — and which do not carry an explicit authorization annotation (`@PreAuthorize`, `@PostAuthorize`, `@Secured`, `@RolesAllowed`, `@PermitAll`, `@DenyAll`), including annotations inherited from a superclass or overridden parent method. Security rules are read from both the Java fluent API (`requestMatchers(...).permitAll()`) and the Kotlin DSL (`authorize(&quot;/path&quot;, permitAll)`). Detector only; does not modify code.
@@ -2642,9 +2678,15 @@ _151 recipes_
 * [org.openrewrite.node.dependencies.FindEndOfLifeDependencies](/user-documentation/recipes/recipe-catalog/node/dependencies/findendoflifedependencies.md)
   * **Find end-of-life npm dependencies**
   * Find npm dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, using a snapshot of [endoflife.date](https://endoflife.date). Direct dependencies declared in `package.json` are marked in source; all matches (direct and transitive) are reported in the data table.
+* [org.openrewrite.node.dependencies.SoftwareBillOfMaterials](/user-documentation/recipes/recipe-catalog/node/dependencies/softwarebillofmaterials.md)
+  * **Software bill of materials for JavaScript**
+  * Produces a software bill of materials (SBOM) for each npm package. The SBOM lists every production dependency, including transitive dependencies resolved from the lock file, in the [CycloneDX](https://cyclonedx.org/) XML format, in a file named `sbom.xml` adjacent to the `package.json`.
 * [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable PyPI dependencies**
   * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable.   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source.
+* [org.openrewrite.python.dependencies.SoftwareBillOfMaterials](/user-documentation/recipes/recipe-catalog/python/dependencies/softwarebillofmaterials.md)
+  * **Software bill of materials for Python**
+  * Produces a software bill of materials (SBOM) for each Python project. The SBOM lists every runtime dependency, including transitive dependencies resolved from the lock file, in the [CycloneDX](https://cyclonedx.org/) XML format, in a file named `sbom.xml` adjacent to the `pyproject.toml`, `requirements.txt`, or other Python manifest.
 * [org.openrewrite.recipe.rewrite-java-security.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-java-security/inlinedeprecatedmethods.md)
   * **Inline deprecated delegating methods**
   * Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.
@@ -2726,14 +2768,14 @@ _19 recipes_
 
 _License: Moderne Source Available License_
 
-_12 recipes_
+_13 recipes_
 
 * [org.openrewrite.java.joda.time.JodaAbstractInstantToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodaabstractinstanttojavatime.md)
   * **Migrate Joda-Time `AbstractInstant` to Java time**
-  * Migrates Joda-Time `AbstractInstant` method calls to their Java time equivalents.
+  * Migrates Joda-Time `AbstractInstant` method calls to their Java time equivalents, for both date times and instants.
 * [org.openrewrite.java.joda.time.JodaDateMidnightToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodadatemidnighttojavatime.md)
   * **Migrate Joda-Time `DateMidnight` to Java time**
-  * Migrates `org.joda.time.DateMidnight` constructor and `now()` calls to `java.time.LocalDate.now().atStartOfDay(...)`.
+  * Migrates `org.joda.time.DateMidnight` constructors and `now()` calls to `java.time.LocalDate.atStartOfDay(...)`.
 * [org.openrewrite.java.joda.time.JodaDateTimeToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodadatetimetojavatime.md)
   * **Migrate Joda-Time `DateTime` to `java.time.ZonedDateTime`**
   * Migrates Joda-Time `DateTime` constructors and instance methods to the equivalent `java.time.ZonedDateTime` calls.
@@ -2745,10 +2787,10 @@ _12 recipes_
   * Migrates `org.joda.time.Duration` constructor and method calls to `java.time.Duration`.
 * [org.openrewrite.java.joda.time.JodaFormatterToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodaformattertojavatime.md)
   * **Migrate Joda-Time formatter to Java time**
-  * Migrates Joda-Time `DateTimeFormatter` and `DateTimeFormat` method calls to their Java time equivalents.
+  * Migrates Joda-Time `DateTimeFormatter`, `DateTimeFormat` and `ISODateTimeFormat` method calls to their Java time equivalents. Patterns are translated where Joda-Time and `java.time` read a pattern letter differently, and left alone when there is no exact translation.
 * [org.openrewrite.java.joda.time.JodaInstantToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodainstanttojavatime.md)
   * **Migrate Joda-Time `Instant` to Java time**
-  * Migrates `org.joda.time.Instant` constructor calls to `java.time.Instant.now()`.
+  * Migrates `org.joda.time.Instant` constructors and methods to `java.time.Instant`.
 * [org.openrewrite.java.joda.time.JodaIntervalToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodaintervaltojavatime.md)
   * **Migrate Joda-Time `Interval` to Java time**
   * Migrates `org.joda.time.Interval` constructors and methods to their Java time equivalents using ThreeTen-Extra.
@@ -2758,6 +2800,9 @@ _12 recipes_
 * [org.openrewrite.java.joda.time.JodaLocalTimeToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodalocaltimetojavatime.md)
   * **Migrate Joda-Time `LocalTime` to `java.time.LocalTime`**
   * Migrates Joda-Time `LocalTime` constructors and instance methods to the equivalent `java.time.LocalTime` calls.
+* [org.openrewrite.java.joda.time.JodaPropertyToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodapropertytojavatime.md)
+  * **Migrate Joda-Time property idioms to Java time**
+  * Migrates the common uses of Joda-Time properties, such as `dayOfMonth().withMaximumValue()`, `hourOfDay().roundFloorCopy()` and `monthOfYear().getAsText(locale)`, to their `java.time` equivalents.
 * [org.openrewrite.java.joda.time.JodaTimePeriodToJavaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/jodatimeperiodtojavatime.md)
   * **Migrate Joda-Time `Days`, `Hours`, `Minutes`, `Seconds` to Java time**
   * Migrates `org.joda.time.Days`, `Hours`, `Minutes`, and `Seconds` to `java.time.temporal.ChronoUnit` and `java.time.Duration`.
@@ -3568,7 +3613,7 @@ _7 recipes_
 
 _License: Apache License Version 2.0_
 
-_38 recipes_
+_40 recipes_
 
 * [org.openrewrite.java.micronaut.AddAnnotationProcessorPath](/user-documentation/recipes/recipe-catalog/java/micronaut/addannotationprocessorpath.md)
   * **Add Maven annotation processor path**
@@ -3579,6 +3624,12 @@ _38 recipes_
 * [org.openrewrite.java.micronaut.AddMicronautRetryDependencyIfNeeded](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautretrydependencyifneeded.md)
   * **Update the Micronaut Retry support**
   * This recipe will add the explicit Micronaut Retry dependency if needed.
+* [org.openrewrite.java.micronaut.AddMicronautValidationDependencyVersion](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautvalidationdependencyversion.md)
+  * **Add missing Micronaut validation dependency versions**
+  * Supply a compatible version for unmanaged Gradle validation dependencies, reusing the validation version already in use when possible.
+* [org.openrewrite.java.micronaut.AddMicronautValidationProcessor](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautvalidationprocessor.md)
+  * **Add the Micronaut validation processor to Gradle source sets**
+  * Add the validation annotation processor to each source set that uses validation constraints.
 * [org.openrewrite.java.micronaut.AddMicronautWebsocketDependencyIfNeeded](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautwebsocketdependencyifneeded.md)
   * **Update the Micronaut Websocket support**
   * This recipe will add the explicit Micronaut Websocket dependency if needed.
@@ -3689,7 +3740,7 @@ _38 recipes_
 
 _License: Moderne Source Available License_
 
-_477 recipes_
+_505 recipes_
 
 * [com.google.guava.InlineGuavaMethods](/user-documentation/recipes/recipe-catalog/google/guava/inlineguavamethods.md)
   * **Inline `guava` methods annotated with `@InlineMe`**
@@ -3712,6 +3763,9 @@ _477 recipes_
 * [org.openrewrite.java.jspecify.MigrateFromMicronautAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefrommicronautannotations.md)
   * **Migrate from Micronaut Framework annotations to JSpecify**
   * Migrate from Micronaut Framework annotations to JSpecify.
+* [org.openrewrite.java.jspecify.MigrateFromSpotBugsAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromspotbugsannotations.md)
+  * **Migrate from SpotBugs annotations to JSpecify**
+  * Migrate from SpotBugs `edu.umd.cs.findbugs.annotations` annotations to JSpecify.
 * [org.openrewrite.java.jspecify.MigrateFromSpringFrameworkAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromspringframeworkannotations.md)
   * **Migrate from Spring Framework annotations to JSpecify**
   * Migrate from Spring Framework annotations to JSpecify.
@@ -3928,6 +3982,9 @@ _477 recipes_
 * [org.openrewrite.java.migrate.ReplaceStringLiteralValue](/user-documentation/recipes/recipe-catalog/java/migrate/replacestringliteralvalue.md)
   * **Replace `String` literal**
   * Replace the value of a complete `String` literal.
+* [org.openrewrite.java.migrate.SimplifySecurityManagerThreadGroup](/user-documentation/recipes/recipe-catalog/java/migrate/simplifysecuritymanagerthreadgroup.md)
+  * **Simplify the removed security manager's thread group fallback**
+  * Remove a null SecurityManager local used only by the immediately following thread group conditional.
 * [org.openrewrite.java.migrate.SunNetSslPackageUnavailable](/user-documentation/recipes/recipe-catalog/java/migrate/sunnetsslpackageunavailable.md)
   * **Replace `com.sun.net.ssl` package**
   * The internal API `com.sun.net.ssl` is removed. The package was intended for internal use only and replacement APIs can be found in the `javax.net.ssl` package.
@@ -3964,6 +4021,9 @@ _477 recipes_
 * [org.openrewrite.java.migrate.UpgradeDockerImageVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradedockerimageversion.md)
   * **Upgrade Docker image Java version**
   * Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including eclipse-temurin, amazoncorretto, azul/zulu-openjdk, and others. Also migrates deprecated images (openjdk, adoptopenjdk) to eclipse-temurin, preserving any tag suffix such as `-jre-alpine`. When a `FROM` is built from a build argument, the default value of the corresponding global `ARG` is upgraded instead, such that `ARG java_version=17` used as `FROM eclipse-temurin:$\{java_version\}` becomes `ARG java_version=25`. Image references built from arguments without a default value are left untouched, as their value can not be determined statically. A digest pin is dropped when the tag is upgraded, as the stale digest would otherwise keep resolving to the old image.
+* [org.openrewrite.java.migrate.UpgradeJavaCiContainerImage](/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavacicontainerimage.md)
+  * **Upgrade CircleCI OpenJDK job images**
+  * Upgrade cimg/openjdk job containers in GitHub Actions and CircleCI to the target Java version, preserving newer versions and unrelated service images.
 * [org.openrewrite.java.migrate.UpgradeJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion.md)
   * **Upgrade Java version**
   * Upgrade build plugin configuration to use the specified Java version. This recipe changes `java.toolchain.languageVersion` in `build.gradle(.kts)` of gradle projects, or maven-compiler-plugin target version and related settings. Will not downgrade if the version is newer than the specified version.
@@ -3985,6 +4045,9 @@ _477 recipes_
 * [org.openrewrite.java.migrate.UpgradePluginsForJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava25.md)
   * **Upgrade plugins to Java 25 compatible versions**
   * Updates plugins and dependencies to versions compatible with Java 25.
+* [org.openrewrite.java.migrate.UpgradeSpringBootParentForJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradespringbootparentforjava25.md)
+  * **Upgrade Spring Boot 3 Maven parents for Java 25**
+  * Upgrade Spring Boot 3 Maven parents to the latest 3.5 release so that Spring's bundled ASM can read Java 25 class files. Stay within Boot 3: crossing from Boot 2 requires a separate Jakarta migration, and newer Boot major versions must not be downgraded.
 * [org.openrewrite.java.migrate.UpgradeToJava17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17.md)
   * **Migrate to Java 17**
   * This recipe will apply changes commonly needed when migrating to Java 17. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 17 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 17.
@@ -4003,6 +4066,9 @@ _477 recipes_
 * [org.openrewrite.java.migrate.UpgradeToJava8](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava8.md)
   * **Migrate to Java 8**
   * This recipe will apply changes commonly needed when upgrading to Java 8. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy.
+* [org.openrewrite.java.migrate.UpgradeUnmodeledMavenJavaVersion](/user-documentation/recipes/recipe-catalog/java/migrate/upgradeunmodeledmavenjavaversion.md)
+  * **Upgrade Java version in alternate Maven builds**
+  * Update explicit Java version properties and compiler settings in pom.xml files parsed as XML without a Maven model, for example in a repository built with Gradle. Property references are left intact.
 * [org.openrewrite.java.migrate.UseJavaUtilBase64](/user-documentation/recipes/recipe-catalog/java/migrate/usejavautilbase64.md)
   * **Prefer `java.util.Base64` instead of `sun.misc`**
   * Prefer `java.util.Base64` instead of using `sun.misc` in Java 8 or higher. `sun.misc` is not exported by the Java module system and accessing this class will result in a warning in Java 11 and an error in Java 17.
@@ -4012,6 +4078,12 @@ _477 recipes_
 * [org.openrewrite.java.migrate.WasDevMvnChangeParentArtifactId](/user-documentation/recipes/recipe-catalog/java/migrate/wasdevmvnchangeparentartifactid.md)
   * **Change `net.wasdev.maven.parent:java8-parent` to `:parent`**
   * This recipe changes the artifactId of the `&lt;parent&gt;` tag in the `pom.xml` from `java8-parent` to `parent`.
+* [org.openrewrite.java.migrate.awt.JavaAwtAPIs](/user-documentation/recipes/recipe-catalog/java/migrate/awt/javaawtapis.md)
+  * **Use modernized `java.awt` APIs**
+  * Replace calls to AWT and Swing methods deprecated since JDK 1.1 with calls to the methods that replaced them, such as `Component#show()` with `Component#setVisible(true)`.
+* [org.openrewrite.java.migrate.awt.ReplaceDeprecatedAwtMethod](/user-documentation/recipes/recipe-catalog/java/migrate/awt/replacedeprecatedawtmethod.md)
+  * **Replace a deprecated AWT method**
+  * Replace calls to an AWT method deprecated since JDK 1.1 with calls to the method that replaced it. Declarations and `super` calls are left alone: the replacements delegate back to the deprecated methods, so a rewritten `super` call would reach overrides it used to bypass.
 * [org.openrewrite.java.migrate.cobertura.RemoveCoberturaMavenPlugin](/user-documentation/recipes/recipe-catalog/java/migrate/cobertura/removecoberturamavenplugin.md)
   * **Remove Cobertura Maven plugin**
   * This recipe will remove Cobertura, as it is not compatible with Java 11.
@@ -4294,12 +4366,42 @@ _477 recipes_
 * [org.openrewrite.java.migrate.jacoco.UpgradeJaCoCo](/user-documentation/recipes/recipe-catalog/java/migrate/jacoco/upgradejacoco.md)
   * **Upgrade JaCoCo**
   * This recipe will upgrade JaCoCo to the latest patch version, which traditionally advertises full backwards compatibility for older Java versions.
+* [org.openrewrite.java.migrate.jakarta.AddJakartaAnnotationDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartaannotationdependency.md)
+  * **Add the Jakarta Annotation API when needed**
+  * Add the migrated API without promoting an explicitly provided or compile-only dependency.
+* [org.openrewrite.java.migrate.jakarta.AddJakartaCdiDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartacdidependency.md)
+  * **Add the Jakarta CDI API when needed**
+  * Add the Jakarta CDI API for migrated source without promoting an explicitly provided or compile-only API to a runtime dependency.
+* [org.openrewrite.java.migrate.jakarta.AddJakartaEjbDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartaejbdependency.md)
+  * **Add the Jakarta Ejb API when needed**
+  * Add the migrated API without promoting an explicitly provided or compile-only dependency.
+* [org.openrewrite.java.migrate.jakarta.AddJakartaElDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartaeldependency.md)
+  * **Add the Jakarta El API when needed**
+  * Add the migrated API without promoting an explicitly provided or compile-only dependency.
+* [org.openrewrite.java.migrate.jakarta.AddJakartaInjectDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartainjectdependency.md)
+  * **Add the jakarta.inject API when needed**
+  * Add a standalone API only when no explicitly provided API or full platform already supplies it.
+* [org.openrewrite.java.migrate.jakarta.AddJakartaMailDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartamaildependency.md)
+  * **Add the Jakarta Mail API when needed**
+  * Add the migrated API without promoting an explicitly provided or compile-only dependency.
+* [org.openrewrite.java.migrate.jakarta.AddJakartaRestDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartarestdependency.md)
+  * **Add the jakarta.ws.rs API when needed**
+  * Add a standalone API only when no explicitly provided API or full platform already supplies it.
+* [org.openrewrite.java.migrate.jakarta.AddJakartaXmlBindRuntime](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartaxmlbindruntime.md)
+  * **Add a Jakarta JAXB runtime for Maven applications**
+  * Add a Jakarta JAXB 3 runtime when a Maven module calls JAXBContext.newInstance and has no explicit JAXB provider or provided Jakarta platform. Java 8's built-in javax provider cannot serve Jakarta calls. Annotation-only modules are left alone and test-only calls receive a test dependency.
 * [org.openrewrite.java.migrate.jakarta.ApplicationPathWildcardNoLongerAccepted](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/applicationpathwildcardnolongeraccepted.md)
   * **Remove trailing slash from `jakarta.ws.rs.ApplicationPath` values**
   * Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values.
+* [org.openrewrite.java.migrate.jakarta.ChangeJaxbApiDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/changejaxbapidependency.md)
+  * **Migrate the JAXB API dependency unless Recorder still needs it**
+  * Migrate JAXB API coordinates while preserving the legacy API needed alongside Jakarta JAXB by external Arquillian Recorder 1.x binaries. Recorder modules migrated in the same reactor are excluded.
 * [org.openrewrite.java.migrate.jakarta.DeprecatedCDIAPIsRemoved40](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/deprecatedcdiapisremoved40.md)
   * **Remove deprecated API's not supported in CDI4.0**
   * Deprecated APIs have been removed in CDI 4.0. This recipe removes and updates the corresponding deprecated methods.
+* [org.openrewrite.java.migrate.jakarta.DoesNotHaveProvidedApiDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/doesnothaveprovidedapidependency.md)
+  * **Build does not declare a provided API dependency**
+  * Find build files without an explicitly provided or compile-only API, so adding a compile dependency does not promote a container-provided API to runtime scope.
 * [org.openrewrite.java.migrate.jakarta.EhcacheJavaxToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/ehcachejavaxtojakarta.md)
   * **Migrate Ehcache from javax to jakarta namespace**
   * Java EE has been rebranded to Jakarta EE.  This recipe replaces existing Ehcache dependencies with their counterparts that are compatible with Jakarta EE 9.
@@ -4321,12 +4423,21 @@ _477 recipes_
 * [org.openrewrite.java.migrate.jakarta.FileuploadToFileUpload2](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/fileuploadtofileupload2.md)
   * **Migrate deprecated `org.apache.commons.fileload` packages to `org.apache.commons.fileload.core`**
   * Migrate deprecated `org.apache.commons.fileload` packages to `org.apache.commons.fileload.core`.
+* [org.openrewrite.java.migrate.jakarta.HasJettyDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/hasjettydependency.md)
+  * **Build uses Jetty before version 12**
+  * Mark the source set when a Maven or Gradle module depends on servlet or WebSocket artifacts relocated by the Jetty 12 migration. This permits updating the Java baseline in parent build files as well as the module using Jetty.
 * [org.openrewrite.java.migrate.jakarta.HasNoJakartaAnnotations](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/hasnojakartaannotations.md)
   * **Project has no Jakarta annotations**
   * Mark all source as found per `JavaProject` where no Jakarta annotations are found. This is useful mostly as a precondition for recipes that require Jakarta annotations to be present.
+* [org.openrewrite.java.migrate.jakarta.InvocationContextGetConstructor](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/invocationcontextgetconstructor.md)
+  * **Complete InvocationContext decorators**
+  * Delegate getConstructor() when a legacy InvocationContext wrapper delegates getMethod().
 * [org.openrewrite.java.migrate.jakarta.JacksonJavaxToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jacksonjavaxtojakarta.md)
   * **Migrate Jackson from javax to jakarta namespace**
   * Java EE has been rebranded to Jakarta EE.  This recipe replaces existing Jackson dependencies with their counterparts that are compatible with Jakarta EE 9.
+* [org.openrewrite.java.migrate.jakarta.JacksonProviderOverrides](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jacksonprovideroverrides.md)
+  * **Migrate Jackson provider configuration overrides**
+  * Add and forward the default view parameter required by Jakarta Jackson providers.
 * [org.openrewrite.java.migrate.jakarta.JakartaEE10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10.md)
   * **Migrate to Jakarta EE 10**
   * These recipes help with the Migration to Jakarta EE 10, flagging and updating deprecated methods.
@@ -4435,6 +4546,9 @@ _477 recipes_
 * [org.openrewrite.java.migrate.jakarta.JavaxResourceToJakartaResource](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxresourcetojakartaresource.md)
   * **Migrate deprecated `javax.resource` packages to `jakarta.resource`**
   * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+* [org.openrewrite.java.migrate.jakarta.JavaxRuntimeTypeNamesToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxruntimetypenamestojakarta.md)
+  * **Migrate Jakarta EE runtime type names**
+  * Migrate CDI, EJB, Servlet and resource annotation names used for reflective lookup and annotation matching while retaining Java SE type names.
 * [org.openrewrite.java.migrate.jakarta.JavaxSecurityToJakartaSecurity](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxsecuritytojakartasecurity.md)
   * **Migrate deprecated `javax.security.enterprise` packages to `jakarta.security.enterprise`**
   * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
@@ -4474,6 +4588,12 @@ _477 recipes_
 * [org.openrewrite.java.migrate.jakarta.JavaxXmlWsMigrationToJakartaXmlWs](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlwsmigrationtojakartaxmlws.md)
   * **Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`**
   * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+* [org.openrewrite.java.migrate.jakarta.JerseyLoggingFilterToFeature](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jerseyloggingfiltertofeature.md)
+  * **Replace Jersey logging filter with logging feature**
+  * Replace the removed Jersey `LoggingFilter(Logger, boolean)` constructor when passed directly to JAX-RS `Configurable.register`, preserving the logger and entity logging setting. Other usages require manual migration.
+* [org.openrewrite.java.migrate.jakarta.JettyConnectorGetPort](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jettyconnectorgetport.md)
+  * **Access Jetty connector ports through `NetworkConnector`**
+  * Jetty 9 moved `getPort()` from `Connector` to `NetworkConnector`. Cast legacy connector receivers to the network connector interface when upgrading Jetty.
 * [org.openrewrite.java.migrate.jakarta.JettyUpgradeEE10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jettyupgradeee10.md)
   * **Update Jetty EE9 to Jetty EE10**
   * Update Jetty dependencies from EE9 to EE10, changing the groupId and artifactIds as needed.
@@ -4534,6 +4654,9 @@ _477 recipes_
 * [org.openrewrite.java.migrate.jakarta.RestAssuredJavaxToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/restassuredjavaxtojakarta.md)
   * **Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9**
   * Java EE has been rebranded to Jakarta EE.  This recipe replaces existing RestAssured dependencies with their counterparts that are compatible with Jakarta EE 9.
+* [org.openrewrite.java.migrate.jakarta.RetainJaxbApiForArquillianRecorder](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/retainjaxbapiforarquillianrecorder.md)
+  * **Retain the JAXB 2 API for Arquillian Recorder 1.x**
+  * Retain the legacy JAXB API in Maven modules using Arquillian Recorder 1.x binaries, which still reference javax.xml.bind classes after the application's Jakarta migration.
 * [org.openrewrite.java.migrate.jakarta.RetainJaxbApiForJackson](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/retainjaxbapiforjackson.md)
   * **Retain `javax.xml.bind:jaxb-api` when `jackson-module-jaxb-annotations` is present**
   * When migrating from `javax.xml.bind` to `jakarta.xml.bind` 3.0+, the `javax.xml.bind:jaxb-api` dependency is normally replaced. However, if `jackson-module-jaxb-annotations` is on the classpath (and still uses the `javax.xml.bind` namespace), this recipe ensures `javax.xml.bind:jaxb-api` remains available as a runtime dependency to prevent `NoClassDefFoundError`.
@@ -4609,9 +4732,18 @@ _477 recipes_
 * [org.openrewrite.java.migrate.jakarta.UpgradeFaces4OpenSourceLibraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces4opensourcelibraries.md)
   * **Upgrade Faces open source libraries**
   * Upgrade PrimeFaces, OmniFaces, and MyFaces libraries to Jakarta EE10 versions.
+* [org.openrewrite.java.migrate.jakarta.UpgradeJavaForJetty12](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradejavaforjetty12.md)
+  * **Use Java 17 for Jetty 12**
+  * Update the Java baseline of builds using Jetty to the minimum required by Jetty 12.
+* [org.openrewrite.java.migrate.jakarta.UpgradeJettyCoreDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradejettycoredependencies.md)
+  * **Align legacy Jetty core dependencies with Jetty 12**
+  * Upgrade explicitly declared Jetty core dependencies alongside the relocated servlet dependencies.
 * [org.openrewrite.java.migrate.jakarta.UpgradeMavenEjbPluginConfiguration](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgrademavenejbpluginconfiguration.md)
   * **Set `maven-ejb-plugin` ejbVersion to 4.0**
   * Updates the `&lt;ejbVersion&gt;` configuration of `maven-ejb-plugin` to `4.0` when the current value (or its resolved Maven property) indicates EJB 3.x. Handles the common pattern where `&lt;ejbVersion&gt;` is coupled to the `javax.ejb-api` dependency version via a shared property, decoupling them after migration.
+* [org.openrewrite.java.migrate.jakarta.WeldToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/weldtojakarta.md)
+  * **Migrate Weld implementations to Jakarta CDI**
+  * Replace legacy Weld core artifacts and upgrade javax-based Weld implementations to Weld 4, which implements Jakarta CDI 3.
 * [org.openrewrite.java.migrate.jakarta.WsWsocServerContainerDeprecation](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/wswsocservercontainerdeprecation.md)
   * **Replace `doUpgrade(..)` with `ServerContainer.upgradeHttpToWebSocket(..)`**
   * Deprecated `WsWsocServerContainer.doUpgrade(..)` is replaced by the Jakarta WebSocket 2.1 specification `ServerContainer.upgradeHttpToWebSocket(..)`.
@@ -4636,6 +4768,9 @@ _477 recipes_
 * [org.openrewrite.java.migrate.javaee8.ServletIsRequestedSessionIdFromURL](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/servletisrequestedsessionidfromurl.md)
   * **Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`**
   * The  method `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` is deprecated in JavaEE8 and is replaced by `HttpServletRequestWrapper.isRequestedSessionIdFromURL()`.
+* [org.openrewrite.java.migrate.javax.AddApiDependencyForImports](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addapidependencyforimports.md)
+  * **Add an API dependency for explicit imports**
+  * Add an API dependency to the nearest Maven module importing the package, including imports whose types could not be resolved by the parser because the JDK used to provide them. A module that already has the API in the needed scope, or from a dependency it declares as provided, is left alone.
 * [org.openrewrite.java.migrate.javax.AddColumnAnnotation](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addcolumnannotation.md)
   * **`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation**
   * When an attribute is annotated with `@ElementCollection`, a separate table is created for the attribute that includes the attribute  ID and value. In OpenJPA, the column for the annotated attribute is named element, whereas EclipseLink names the column based on  the name of the attribute. To remain compatible with tables that were created with OpenJPA, add a `@Column` annotation with the name  attribute set to element.
@@ -5127,7 +5262,7 @@ _477 recipes_
 
 _License: Moderne Proprietary License_
 
-_33 recipes_
+_34 recipes_
 
 * [androidx.compose.animation.ReplaceDeprecatedAnimationCore1Methods](/user-documentation/recipes/recipe-catalog/androidx/compose/animation/replacedeprecatedanimationcore1methods.md)
   * **Replace deprecated `animation-core` methods**
@@ -5225,6 +5360,9 @@ _33 recipes_
 * [org.openrewrite.kotlin.migrate.UseJvmTargetProviderSyntax](/user-documentation/recipes/recipe-catalog/kotlin/migrate/usejvmtargetprovidersyntax.md)
   * **Use the `jvmTarget` provider syntax in Kotlin `compilerOptions`**
   * In Gradle Kotlin DSL build scripts, replace the legacy `jvmTarget = &quot;X&quot;` string assignment inside a `compilerOptions` (or `kotlinOptions`) block with the modern Provider-style `jvmTarget.set(JvmTarget.JVM_X)`, adding the `JvmTarget` import. The string-assignment form does not compile against the `compilerOptions` DSL, where `jvmTarget` is a `Property&lt;JvmTarget&gt;`.
+* [org.openrewrite.kotlin.migrate.autovalue.AutoValueToDataClass](/user-documentation/recipes/recipe-catalog/kotlin/migrate/autovalue/autovaluetodataclass.md)
+  * **Migrate `@AutoValue` classes to Kotlin data classes**
+  * Replaces a Java or Kotlin `@AutoValue` abstract class with a Kotlin `data class` and rewrites its Kotlin and Java callers: `x()` accessors become `x` property reads (`getX()` in Java) and the static or companion `create(..)` factory becomes the constructor. A Java class becomes a `.kt` file in place of the `.java` file. Only classes consisting of abstract accessors and a single forwarding factory are converted; every `@AutoValue` class is listed in the `AutoValueClasses` data table with the reason it was skipped.
 * [org.openrewrite.kotlin.replace.ReplaceKotlinMethod](/user-documentation/recipes/recipe-catalog/kotlin/replace/replacekotlinmethod.md)
   * **Replace Kotlin method**
   * Replaces Kotlin method calls based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
@@ -5233,14 +5371,56 @@ _33 recipes_
 
 _License: Moderne Proprietary License_
 
-_146 recipes_
+_161 recipes_
 
+* [org.openrewrite.python.cleanup.MergeNestedWithStatements](/user-documentation/recipes/recipe-catalog/python/cleanup/mergenestedwithstatements.md)
+  * **Merge nested `with` statements into one**
+  * Combine directly nested `with` statements into a single `with` when the outer body contains only the inner `with`. An `async with` is left alone, as is a comment between the two, an outer `with` holding other statements, and a pair whose context managers the merge would leave split across lines outside parentheses.
+* [org.openrewrite.python.cleanup.MergeStartswithEndswith](/user-documentation/recipes/recipe-catalog/python/cleanup/mergestartswithendswith.md)
+  * **Merge multiple `startswith()`/`endswith()` calls into one**
+  * When several `startswith()` or `endswith()` calls on the same receiver are joined by `or`, combine them into a single call with a tuple argument. It only fires where the receiver's type resolves to `str` or `bytes`, the receiver is a name or attribute, every argument is a string literal of the receiver's kind, and no comment would be lost.
+* [org.openrewrite.python.cleanup.RemoveTrailingReturnNone](/user-documentation/recipes/recipe-catalog/python/cleanup/removetrailingreturnnone.md)
+  * **Remove trailing `return None` from functions**
+  * Delete `return None` or a bare `return` when it is the last statement in a function body and no other return yields a non-None value. A return holding a comment is kept, as is one that is the function's only statement.
+* [org.openrewrite.python.cleanup.RemoveUnnecessaryAssign](/user-documentation/recipes/recipe-catalog/python/cleanup/removeunnecessaryassign.md)
+  * **Remove unnecessary assignment before return**
+  * Return the value directly where a variable is assigned and then immediately returned. A name that appears anywhere else in the function, a `yield` value, and a comment before the `return` are left alone.
+* [org.openrewrite.python.cleanup.RemoveUselessObjectInheritance](/user-documentation/recipes/recipe-catalog/python/cleanup/removeuselessobjectinheritance.md)
+  * **Remove useless `object` inheritance**
+  * Remove redundant `object` base class from class declarations. In Python 3, all classes implicitly inherit from `object`. It only fires where the base's type resolves to the builtin `object`, and leaves alone a base list holding comments.
+* [org.openrewrite.python.cleanup.ReplaceGetAttrWithConstant](/user-documentation/recipes/recipe-catalog/python/cleanup/replacegetattrwithconstant.md)
+  * **Replace `getattr(x, 'attr')` with `x.attr`**
+  * Replace `getattr(x, &quot;attr&quot;)` calls with `x.attr` when the attribute name is a constant string that is a valid Python identifier. It leaves alone a shadowed `getattr`, a non-ASCII or name-mangled name, an object that would need parentheses, and a call holding comments.
+* [org.openrewrite.python.cleanup.ReplaceLoggerWarn](/user-documentation/recipes/recipe-catalog/python/cleanup/replaceloggerwarn.md)
+  * **Replace `logger.warn()` with `logger.warning()`**
+  * Replace `warn()` calls on a `logging.Logger` or `logging.LoggerAdapter` with `warning()`. The `warn()` method is a deprecated alias that should not be used. It only fires where the receiver's type resolves, and leaves alone the module-level `logging.warn()` and a subclass that overrides `warn()`.
+* [org.openrewrite.python.cleanup.ReplaceNotInTest](/user-documentation/recipes/recipe-catalog/python/cleanup/replacenotintest.md)
+  * **Replace `not x in y` with `x not in y`**
+  * Replace `not x in y` with `x not in y`. The `not in` operator is clearer than negating an `in` test. A chained comparison such as `not a in b in c` is left alone.
+* [org.openrewrite.python.cleanup.ReplaceNotIsTest](/user-documentation/recipes/recipe-catalog/python/cleanup/replacenotistest.md)
+  * **Use `is not` instead of `not ... is`**
+  * Replace `not x is y` with `x is not y`. The `is not` operator is clearer than negating an `is` test. A chained comparison such as `not a is b is c` is left alone.
+* [org.openrewrite.python.cleanup.ReplaceSetAttrWithConstant](/user-documentation/recipes/recipe-catalog/python/cleanup/replacesetattrwithconstant.md)
+  * **Replace `setattr()` with constant attribute assignment**
+  * Replace a `setattr(x, &quot;attr&quot;, value)` statement with `x.attr = value` when the attribute name is a constant valid Python identifier. It leaves alone a shadowed `setattr`, a non-ASCII or name-mangled name, a call used as an expression, a call holding comments, and an object or value that may have side effects, since the assignment evaluates the value first.
+* [org.openrewrite.python.cleanup.ReplaceYodaConditions](/user-documentation/recipes/recipe-catalog/python/cleanup/replaceyodaconditions.md)
+  * **Replace Yoda conditions with normal comparisons**
+  * Replace Yoda conditions (e.g. `None == x`) with the conventional comparison order (e.g. `x == None`). A chained comparison, or one with a constant on both sides, is left alone. See Ruff rule SIM300.
+* [org.openrewrite.python.cleanup.SimplifyBooleanReturn](/user-documentation/recipes/recipe-catalog/python/cleanup/simplifybooleanreturn.md)
+  * **Collapse `if`/`else` returning boolean literals**
+  * Replace `if cond: return True / else: return False` with `return cond` and the inverse with `return not cond`, including the fallthrough variant without an explicit `else`. A condition other than a comparison, a `not`, or an `and`/`or` of those is returned as `bool(cond)`. The rewrite is declined where `bool` is not the builtin or the removed statements hold comments.
+* [org.openrewrite.python.cleanup.UseItemsForKeyValueIteration](/user-documentation/recipes/recipe-catalog/python/cleanup/useitemsforkeyvalueiteration.md)
+  * **Replace `zip(d.keys(), d.values())` with `d.items()`**
+  * When both `.keys()` and `.values()` are zipped together, replace with `.items()` which yields key-value pairs directly. Only a `zip` that a for-loop or comprehension iterates directly is replaced, and only where the receiver is a name or attribute read whose type resolves to `dict`.
+* [org.openrewrite.python.cleanup.UseListClear](/user-documentation/recipes/recipe-catalog/python/cleanup/uselistclear.md)
+  * **Replace `del x[:]` with `x.clear()`**
+  * Use `.clear()` instead of `del x[:]` to empty a list. The method call is more explicit and idiomatic. Only a receiver whose type resolves to `list` or `bytearray` is rewritten, since `del x[:]` raises on a dict or deque that `.clear()` would empty.
 * [org.openrewrite.python.codequality.AllBranchesIdentical](/user-documentation/recipes/recipe-catalog/python/codequality/allbranchesidentical.md)
   * **Remove conditional with identical branches**
   * Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes. A chain whose conditions may have side effects, such as a call, is left alone.
 * [org.openrewrite.python.codequality.BooleanChecksNotInverted](/user-documentation/recipes/recipe-catalog/python/codequality/booleanchecksnotinverted.md)
   * **Boolean checks should not be inverted**
-  * Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`. An ordering such as `not (a &lt; b)` is only inverted where both operands' types resolve to numbers, a chained comparison is left alone, and a double negation is only removed where its value is read as a truth value, as in a condition.
+  * Replace inverted boolean comparisons like `not (a == b)` with the equivalent direct operator (`a != b`), and remove double negations like `not (not x)`. An ordering such as `not (a &lt; b)` is only inverted where both operands' types resolve to integers, a chained comparison is left alone, as is a comparison inside a method such as `__ne__` that the inverted operator would call. A double negation is only removed where its value is read as a truth value, as in a condition.
 * [org.openrewrite.python.codequality.CodeQuality](/user-documentation/recipes/recipe-catalog/python/codequality/codequality-recipe.md)
   * **Code quality**
   * Apply all Python code quality recipes that change code: simplify boolean expressions, merge and collapse `if` chains, and remove dead conditions and writes. Search-only recipes, which mark code for review, are not included.
@@ -5264,7 +5444,7 @@ _146 recipes_
   * Remove a constant written to a dict key when the next statement overwrites the same key. Only a dict the enclosing function built with `\{...\}` or `dict()` and has not yet passed on qualifies, and only for constant keys outside `try` and `with` blocks. Writes to attributes, parameters and globals are left alone, because another thread, an alias or a setter can observe them.
 * [org.openrewrite.python.codequality.SimplifyBooleanLiteral](/user-documentation/recipes/recipe-catalog/python/codequality/simplifybooleanliteral.md)
   * **Simplify boolean literal comparisons**
-  * Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression. Only fires where the other operand's type resolves to `bool`.
+  * Replace `x != True` and `x is not True` with `not x`, and `x == True` and `x is True` with `x` where only the truth of the result is read. Only fires where `x`'s type resolves to `bool`. A comparison against `False` is left alone, because `x` may be `None` where its type reads as `bool`, and `None` and `False` compare differently.
 * [org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression](/user-documentation/recipes/recipe-catalog/python/codequality/simplifyredundantlogicalexpression.md)
   * **Simplify redundant logical expressions**
   * Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake.
@@ -5609,7 +5789,7 @@ _146 recipes_
   * Migrate deprecated APIs and detect legacy patterns for Python 3.8 compatibility.
 * [org.openrewrite.python.migrate.UpgradeToPython39](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39.md)
   * **Upgrade to Python 3.9**
-  * Migrate deprecated APIs for Python 3.9 compatibility. This includes PEP 585 built-in generics, removed base64 functions, and deprecated XML Element methods.
+  * Migrate deprecated APIs for Python 3.9 compatibility. This includes PEP 585 built-in generics, removed base64 functions, and deprecated XML Element methods, and adopts the dict union operator and `str.removeprefix()`/`removesuffix()`.
 * [org.openrewrite.python.migrate.langchain.FindDeprecatedLangchainAgents](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/finddeprecatedlangchainagents.md)
   * **Find deprecated LangChain agent patterns**
   * Find usage of deprecated LangChain agent patterns including `initialize_agent`, `AgentExecutor`, and `LLMChain`. These were deprecated in LangChain v0.2 and removed in v1.0.
@@ -5631,6 +5811,9 @@ _146 recipes_
 * [org.openrewrite.python.migrate.langchain.UpgradeToLangChain1](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain1.md)
   * **Upgrade to LangChain 1.0**
   * Migrate to LangChain 1.0 by applying all v0.2 migrations and then moving legacy functionality to `langchain_classic`.
+* [org.openrewrite.python.migrate.pandas.UpgradeToPandas20](/user-documentation/recipes/recipe-catalog/python/migrate/pandas/upgradetopandas20.md)
+  * **Upgrade to pandas 2.0**
+  * Migrate code that uses APIs removed in pandas 2.0, such as `DataFrame.append()`, which becomes `pd.concat()`.
 * [org.openrewrite.python.migrate.pydantic.FindDeprecatedJsonEncoders](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/finddeprecatedjsonencoders.md)
   * **Find deprecated `json_encoders` config option**
   * Pydantic deprecated the `json_encoders` option in `ConfigDict`. Its replacements (`@field_serializer` / `@model_serializer` or `Annotated[..., PlainSerializer(...)]`) require restructuring, so this recipe flags its use for review.
@@ -5718,194 +5901,8 @@ _11 recipes_
 
 _License: Moderne Proprietary License_
 
-_77 recipes_
+_15 recipes_
 
-* [org.openrewrite.node.migrate.angular-animations.find-legacy-angular-animations](/user-documentation/recipes/recipe-catalog/node/migrate/angular-animations/find-legacy-angular-animations.md)
-  * **Find legacy `@angular/animations` usage**
-  * Marks what keeps an application on the deprecated `@angular/animations` package and needs a manual move to native CSS animations: `trigger()` definitions, `AnimationBuilder`, and application-wide noop animation providers. `RemoveAngularAnimationsProviders` removes the providers once none of these remain.
-* [org.openrewrite.node.migrate.angular-animations.migrate-angular-animations](/user-documentation/recipes/recipe-catalog/node/migrate/angular-animations/migrate-angular-animations.md)
-  * **Migrate off the deprecated `@angular/animations` package**
-  * Removes the animation providers and the `@angular/animations` dependency from applications that no longer use the legacy animation engine, and marks the triggers, `AnimationBuilder` uses and noop providers that need a manual move to native CSS animations with `animate.enter`/`animate.leave`.
-* [org.openrewrite.node.migrate.angular-animations.remove-angular-animations-providers](/user-documentation/recipes/recipe-catalog/node/migrate/angular-animations/remove-angular-animations-providers.md)
-  * **Remove unneeded `@angular/animations` providers**
-  * Angular 20.2 deprecated `@angular/animations` in favor of native CSS animations with `animate.enter`/`animate.leave`, which need no provider. Where an application no longer uses the legacy animation engine, this removes `provideAnimations()`, `provideAnimationsAsync()` and `BrowserAnimationsModule` from providers, `imports` and `importProvidersFrom`, removes `NoopAnimationsModule`/`provideNoopAnimations()` from tests, and drops `@angular/animations` from `package.json`. A package is left alone while anything still uses the legacy engine: an import of `@angular/animations` (a `trigger()` in `animations:` metadata, `AnimationBuilder`), a `[@trigger]`, `(@trigger.done)` or `@HostBinding('@trigger')` binding, Angular Material before 19.2, or a library that depends on `@angular/animations` or is known to ship legacy triggers. Noop providers outside tests are kept, since removing them would enable animations the application turned off. Lock files are not regenerated; run the package manager's install afterwards.
-* [org.openrewrite.node.migrate.buffer.replace-deprecated-slice](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-deprecated-slice.md)
-  * **Replace deprecated `Buffer.slice()` with `Buffer.subarray()`**
-  * Replace deprecated `buffer.slice()` calls with `buffer.subarray()` for compatibility with Uint8Array.prototype.slice().
-* [org.openrewrite.node.migrate.buffer.replace-slow-buffer](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-slow-buffer.md)
-  * **Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`**
-  * Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method.
-* [org.openrewrite.node.migrate.crypto.find-create-cipher](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/find-create-cipher.md)
-  * **Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage**
-  * `crypto.createCipher()` and `crypto.createDecipher()` were deprecated in Node.js 10 (DEP0106) and removed in Node.js 22. Use `crypto.createCipheriv()` and `crypto.createDecipheriv()` instead.
-* [org.openrewrite.node.migrate.crypto.replace-crypto-fips](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-crypto-fips.md)
-  * **Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`**
-  * Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes.
-* [org.openrewrite.node.migrate.crypto.replace-hash-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-hash-constructor.md)
-  * **Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods**
-  * Replace deprecated `new crypto.Hash(algorithm)` constructor calls with `crypto.createHash(algorithm)` and `new crypto.Hmac(algorithm, key)` with `crypto.createHmac(algorithm, key)` factory methods.
-* [org.openrewrite.node.migrate.express-request-id.migrate-express-request-id-to-native](/user-documentation/recipes/recipe-catalog/node/migrate/express-request-id/migrate-express-request-id-to-native.md)
-  * **Migrate `express-request-id` to an inline middleware**
-  * Replaces the `express-request-id` middleware with an equivalent inline middleware built on `randomUUID()` from `node:crypto`, then removes the dependency from each `package.json` that declares it, updating the lock file to match.
-* [org.openrewrite.node.migrate.express-request-id.remove-unused-express-request-id-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/express-request-id/remove-unused-express-request-id-dependency.md)
-  * **Remove the `express-request-id` dependency**
-  * Removes `express-request-id` and `@types/express-request-id` from each `package.json` that declares them, and updates the lock file to match. `uuid` is kept, since the application may use it directly.
-* [org.openrewrite.node.migrate.express-request-id.replace-express-request-id](/user-documentation/recipes/recipe-catalog/node/migrate/express-request-id/replace-express-request-id.md)
-  * **Replace `express-request-id` with an inline middleware**
-  * Replaces the `express-request-id` middleware factory with an equivalent inline middleware that reuses an incoming `X-Request-Id` header or generates an id with `randomUUID()` from `node:crypto` (Node.js 14.17+), stores it on the request and echoes it in the response header. The `setHeader`, `headerName`, `attributeName` and `generator` options carry over; calls with other options, or options that aren't literals, are left alone. `attributeName` is honored as in 1.x; versions 2 and 3 ignore it and always set `req.id`. In TypeScript the id is set with `Object.assign` so no `Request` augmentation is needed, and a middleware stored in a variable is typed as Express's `RequestHandler`.
-* [org.openrewrite.node.migrate.find-process-assert](/user-documentation/recipes/recipe-catalog/node/migrate/find-process-assert.md)
-  * **Find deprecated `process.assert()` usage**
-  * `process.assert()` was deprecated in Node.js 10 (DEP0100) and removed in Node.js 23. Use the `assert` module instead.
-* [org.openrewrite.node.migrate.find-punycode-usage](/user-documentation/recipes/recipe-catalog/node/migrate/find-punycode-usage.md)
-  * **Find deprecated `punycode` module usage**
-  * The `punycode` built-in module was deprecated in Node.js 21 (DEP0040). Use the userland `punycode` package from npm or `url.domainToASCII`/`url.domainToUnicode` instead.
-* [org.openrewrite.node.migrate.fs-extra.find-fs-extra-manual-migrations](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/find-fs-extra-manual-migrations.md)
-  * **Find fs-extra usages that need manual migration**
-  * Marks every fs-extra usage the automated migration leaves in place — `move`, `emptyDir`, `ensureLink`/`ensureSymlink`, `exists`, calls with unsupported arguments, fs-extra used as a value, type imports, re-exports, dynamic imports, and test mocks — and records each with a suggested replacement in the `FsExtraManualMigrationSteps` data table.
-* [org.openrewrite.node.migrate.fs-extra.migrate-fs-extra-to-node-fs](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/migrate-fs-extra-to-node-fs.md)
-  * **Migrate `fs-extra` to Node.js `fs`**
-  * Replaces `fs-extra` with the Node.js standard library (`node:fs`, `node:fs/promises`, `node:path`). fs-extra's own methods (`remove`, `ensureDir`, `pathExists`, `readJson`, `writeJson`, `outputFile`, `outputJson`, `ensureFile`, `copy`, `emptyDir`) are rewritten to their native equivalents and the `fs` methods fs-extra re-exports are bound from `node:fs` or `node:fs/promises` directly. `move` becomes a call to a helper written into the same file, since `rename` alone doesn't create the destination's parent, refuse an existing destination, or work across devices. Calls without a faithful native equivalent (`ensureSymlink`, `ensureLink`, ...) are left in place and listed in the `FsExtraManualMigrationSteps` data table. `fs-extra` and `@types/fs-extra` are removed from each `package.json` that declares them, with the lock file updated to match. They are removed even where a call listed in the data table still uses fs-extra, so migrate those before building. Tests that mock or spy on fs-extra itself (`vi.mock('fs-extra')`, `vi.spyOn(fs, 'outputFile')`, ...) keep watching a module the migrated code no longer calls, so they fail until they mock `node:fs` / `node:fs/promises` instead. Every such site is listed in the data table; migrate them together with the code they cover.
-* [org.openrewrite.node.migrate.fs-extra.remove-unused-fs-extra-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/remove-unused-fs-extra-dependency.md)
-  * **Remove the `fs-extra` dependency**
-  * Removes `fs-extra` and `@types/fs-extra` from each `package.json` that declares them, and updates the lock file to match.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-copy](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-copy.md)
-  * **Replace fs-extra `copy` with `fs.cp`**
-  * Replaces fs-extra's `copy(src, dest[, options])` and `copySync` with `cp`/`cpSync` from `node:fs/promises` and `node:fs`, adding `recursive: true` and mapping `overwrite`/`clobber` to `force`; `errorOnExist`, `dereference`, `preserveTimestamps` and `filter` carry over unchanged. The callback form maps to the callback `cp` from `node:fs`. Calls whose options aren't an object literal of known options are left alone. Note that `fs.cp` is experimental before Node.js 22.3 (it emits an `ExperimentalWarning` on 16.7–22.2), and that copying a file onto an existing directory copies it into that directory where fs-extra throws.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-empty-dir](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-empty-dir.md)
-  * **Replace fs-extra `emptyDir` with `mkdir` and `rm` of each entry**
-  * Replaces fs-extra's `emptyDir`/`emptyDirSync` with a recursive `mkdir` of the directory followed by an `rm` of each entry `readdir` returns. Emptying the directory rather than replacing it is what fs-extra does, and it keeps the directory's own inode and permissions, which removing and recreating it would not. `mkdir` runs first so a missing directory is created, as `emptyDir` does when `readdir` fails. A path that isn't safe to evaluate twice is hoisted into a `const` first; since both need a statement to sit in, a call in expression position is left alone, as are callback-form calls.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-ensure-file](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-ensure-file.md)
-  * **Replace fs-extra `ensureFile` with `fs.mkdir` and `fs.writeFile`**
-  * Replaces fs-extra's `ensureFile`/`createFile` (and their `Sync` variants) with `mkdir(dirname(file), \{ recursive: true \})` followed by `writeFile(file, '', \{ flag: 'a' \})`, which creates the file without truncating an existing one. A call standing alone as a statement becomes two statements; other promise-form calls chain the two with `.then`. A path that isn't safe to evaluate twice is hoisted into a `const` first, which needs a statement to sit before, so such a call in expression position is left alone, as are callback-form calls and sync calls used as expressions.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-mkdirs](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-mkdirs.md)
-  * **Replace fs-extra `ensureDir`/`mkdirp`/`mkdirs` with `fs.mkdir`**
-  * Replaces fs-extra's `ensureDir`, `mkdirp`, and `mkdirs` (and their `Sync` variants) with `mkdir`/`mkdirSync` from `node:fs/promises` and `node:fs`, passing `\{ recursive: true \}` as fs-extra does internally. A numeric mode or an options object's `mode` carries over; the callback form maps to the callback `mkdir` from `node:fs`. Options that can't be read statically are left alone.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-move](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-move.md)
-  * **Replace fs-extra `move` with a generated helper**
-  * Replaces fs-extra's `move`/`moveSync` with a call to a helper this recipe writes into the same file. `rename` alone is not a replacement: it doesn't create the destination's parent directory, it overwrites silently instead of refusing, and it fails across devices with `EXDEV`. The helper does what fs-extra does — `mkdir` the parent, refuse an existing destination unless `overwrite` was asked for, then `rename`, falling back to `cp` + `rm` on `EXDEV`. A call passing an option other than `overwrite` (`dereference`, the legacy `clobber`) or a callback is left alone, as is one whose options aren't an object literal. One helper is written per file, however many calls it has.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-native-methods](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-native-methods.md)
-  * **Replace fs-extra's re-exported `fs` methods with `node:fs`**
-  * fs-extra re-exports every `fs` method, with the async ones returning a promise when no callback is passed. Promise-form calls move to `node:fs/promises`; callback-form calls, `*Sync` methods, streams, watchers and `constants` move to `node:fs`. fd-based methods keep their promise form on fs-extra, as `node:fs/promises` has no fd-number equivalents.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-output-file](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-output-file.md)
-  * **Replace fs-extra `outputFile` and `outputJson` with `mkdir` + `writeFile`**
-  * Replaces fs-extra's `outputFile`, `outputJson` and their sync variants with a recursive `mkdir` of the parent directory followed by `writeFile` from `node:fs/promises` or `node:fs`. JSON is written the way jsonfile does, as `JSON.stringify(data, replacer, spaces) + '\n'`. A path that isn't safe to evaluate twice is hoisted into a `const` first, which needs a statement to sit before, so such a call in expression position is left alone — as are callback-style calls and JSON options a native rewrite can't reproduce (non-literal options, a custom `fs`, an `EOL` other than `'\n'`).
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-path-exists](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-path-exists.md)
-  * **Replace fs-extra `pathExists` with `fs.access`/`fs.existsSync`**
-  * Replaces fs-extra's `pathExistsSync(path)` with `existsSync(path)` from `node:fs`, which is what fs-extra exports under that name, and the promise form of `pathExists(path)` with `access(path).then(() =&gt; true, () =&gt; false)` from `node:fs/promises`, matching fs-extra's implementation. The callback form is left in place.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-read-json](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-read-json.md)
-  * **Replace fs-extra `readJson` with `JSON.parse` of `readFile`**
-  * Replaces fs-extra's `readJson`/`readJSON` and `readJsonSync`/`readJSONSync` with `JSON.parse` of `readFile` from `node:fs/promises` or `readFileSync` from `node:fs`. An awaited call becomes `JSON.parse(await readFile(file, 'utf8'))`, any other promise use `readFile(file, 'utf8').then(JSON.parse)`. An encoding passed as a string or `\{encoding\}` is kept. Calls passing `throws`, `reviver`, or other options, and callback-style calls, are left alone. Unlike fs-extra, `JSON.parse` does not strip a leading byte order mark.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-remove](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-remove.md)
-  * **Replace fs-extra `remove` with `fs.rm`**
-  * Replaces fs-extra's `remove(path)` and `removeSync(path)` with `rm`/`rmSync` from `node:fs/promises` and `node:fs`, passing `\{ recursive: true, force: true \}` as fs-extra does internally. The callback form maps to the callback `rm` from `node:fs`.
-* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-write-json](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-write-json.md)
-  * **Replace fs-extra `writeJson` with `fs.writeFile`**
-  * Replaces fs-extra's `writeJson`/`writeJSON` and their sync forms with `writeFile`/`writeFileSync` from `node:fs/promises` and `node:fs`, serializing with `JSON.stringify(obj, replacer, spaces) + '\n'` exactly as fs-extra does. Calls with a callback, non-literal options, or a non-default `EOL` are left in place.
-* [org.openrewrite.node.migrate.fs.replace-dirent-path](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-dirent-path.md)
-  * **Replace `dirent.path` with `dirent.parentPath`**
-  * Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation.
-* [org.openrewrite.node.migrate.fs.replace-fs-access-constants](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-access-constants.md)
-  * **Replace deprecated `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK` with `fs.constants.*`**
-  * Replace deprecated file access constants (`fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK`) with their equivalents from `fs.constants`. These constants were removed in Node.js v24+ and should be accessed through the constants namespace.
-* [org.openrewrite.node.migrate.fs.replace-fs-truncate-fd](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-truncate-fd.md)
-  * **Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`**
-  * Replace deprecated `fs.truncate(fd, ...)` and `fs.truncateSync(fd, ...)` calls with `fs.ftruncate(fd, ...)` and `fs.ftruncateSync(fd, ...)` when the first argument is a file descriptor (number).
-* [org.openrewrite.node.migrate.fs.replace-stats-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-stats-constructor.md)
-  * **Replace deprecated `fs.Stats` constructor with object literal**
-  * Replace deprecated `new fs.Stats()` constructor calls with an object literal containing Stats properties initialized to undefined.
-* [org.openrewrite.node.migrate.hpagent.find-hpagent-manual-migrations](/user-documentation/recipes/recipe-catalog/node/migrate/hpagent/find-hpagent-manual-migrations.md)
-  * **Find hpagent usages that need manual migration**
-  * Marks every hpagent usage the automated migration leaves in place — a construction whose options aren't an object literal or set a TLS option for the destination handshake, an agent class used as a value, hpagent's option types, re-exports, dynamic imports and test mocks — and records each with a suggested replacement in the `HpagentManualMigrationSteps` data table.
-* [org.openrewrite.node.migrate.hpagent.migrate-hpagent-to-https-proxy-agent](/user-documentation/recipes/recipe-catalog/node/migrate/hpagent/migrate-hpagent-to-https-proxy-agent.md)
-  * **Migrate `hpagent` to `https-proxy-agent`**
-  * Replaces the unmaintained `hpagent` package with `https-proxy-agent`. Both of hpagent's agent classes tunnel through the proxy with `CONNECT`, which is what `https-proxy-agent` does, upgrading the tunnel to TLS only for an `https:` target — so `HttpProxyAgent` and `HttpsProxyAgent` both become `https-proxy-agent`'s `HttpsProxyAgent`. The proxy URL moves from the `proxy` option to the constructor's first argument, `proxyRequestOptions` members move up into the options object, and the dependency is swapped in each `package.json` that declares it, with the lock file updated to match.  Two things do not carry over, and both are reported in the `HpagentManualMigrationSteps` data table rather than rewritten. A TLS option set at the top level of hpagent's `HttpsProxyAgent` (`ca`, `rejectUnauthorized`, `cert`, ...) configured the handshake with the **destination**, because that class extends `https.Agent`; `https-proxy-agent` spends its constructor options on the connection to the **proxy** and takes the destination's TLS options from each request, so such an option has to move to the request or the client library. Agent options that aren't written as an object literal can't be split into the new two-argument form either. The dependency is swapped regardless, so migrate every reported site before building.
-* [org.openrewrite.node.migrate.hpagent.replace-hpagent](/user-documentation/recipes/recipe-catalog/node/migrate/hpagent/replace-hpagent.md)
-  * **Replace `hpagent` with `https-proxy-agent`**
-  * Replaces `hpagent`'s `HttpProxyAgent` and `HttpsProxyAgent` with `https-proxy-agent`'s `HttpsProxyAgent`, whose constructor takes the proxy URL as its first argument rather than as a `proxy` option: `new HttpsProxyAgent(\{proxy: url, keepAlive: true\})` becomes `new HttpsProxyAgent(url, \{keepAlive: true\})`. Both hpagent classes tunnel with `CONNECT`, and `https-proxy-agent` upgrades the tunnel to TLS only for an `https:` target, so one class serves both. `proxyRequestOptions` members move up into the options object, where `https-proxy-agent` applies them to the connection to the proxy. hpagent accepted a missing proxy until a request needed it, but `https-proxy-agent` reads it in the constructor, so in JavaScript a proxy that may be missing, such as `process.env.HTTP_PROXY`, guards the construction: `proxy ? new HttpsProxyAgent(proxy) : undefined`. Calls whose options aren't an object literal, or that set a TLS option for the destination handshake (`ca`, `rejectUnauthorized`, `cert`, ...), are left alone: `https-proxy-agent` would apply those to the proxy hop instead. `FindHpagentManualMigrations` reports every usage left behind.
-* [org.openrewrite.node.migrate.hpagent.swap-hpagent-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/hpagent/swap-hpagent-dependency.md)
-  * **Swap the `hpagent` dependency for `https-proxy-agent`**
-  * Replaces `hpagent` with `https-proxy-agent` in each `package.json` that declares it, in whichever dependency section declares it, and updates the lock file to match.
-* [org.openrewrite.node.migrate.http.replace-outgoing-message-headers](/user-documentation/recipes/recipe-catalog/node/migrate/http/replace-outgoing-message-headers.md)
-  * **Replace `OutgoingMessage._headers` and `._headerNames` with public methods**
-  * Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation.
-* [org.openrewrite.node.migrate.increase-node-engine-version](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version.md)
-  * **Increase Node.js engine version**
-  * Raises the lower bound of the `engines.node` version range in package.json to the specified Node.js version, performing a hard cutover that drops support for older, end-of-life versions (`22.x` → `24.x`, `&gt;= 22` → `&gt;= 24`). The original constraint style is preserved where possible and the version is never lowered.
-* [org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version-in-github-actions.md)
-  * **Increase Node.js version in GitHub Actions**
-  * Increases `node-version` in `actions/setup-node` steps in GitHub Actions workflows. Only modifies plain major version values (e.g. `20`) and x-ranges (e.g. `20.x`). Never decreases the version.
-* [org.openrewrite.node.migrate.net.remove-set-simultaneous-accepts](/user-documentation/recipes/recipe-catalog/node/migrate/net/remove-set-simultaneous-accepts.md)
-  * **Remove deprecated `net._setSimultaneousAccepts()`**
-  * Remove calls to deprecated `net._setSimultaneousAccepts()` which was an undocumented internal function that is no longer necessary.
-* [org.openrewrite.node.migrate.path.remove-redundant-path-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/path/remove-redundant-path-dependency.md)
-  * **Remove the redundant `path` npm package**
-  * Removes the `path` npm package, an unmaintained 2015 copy of Node's `path` module, from `package.json`. Node always resolves `require('path')` and `import 'path'` to its built-in module, so the package is never loaded at runtime. It is kept where a browser bundle may still use it: when webpack 5, Vite, esbuild, Parcel, Rspack or Rsbuild (directly or through a framework such as Create React App 5, the Angular CLI, Vue CLI 5, Nuxt 3, SvelteKit or Astro) would bundle a `path` import from browser-side source, when the `browser` field maps `path` to a package, or when code names the package explicitly as `path/`. Lock files are not regenerated; run the package manager's install afterwards.
-* [org.openrewrite.node.migrate.process.coerce-process-exit-code](/user-documentation/recipes/recipe-catalog/node/migrate/process/coerce-process-exit-code.md)
-  * **Coerce `process.exit()` and `process.exitCode` to integer**
-  * Wraps non-integer values passed to `process.exit()` or assigned to `process.exitCode` with `Math.trunc()` to avoid the DEP0164 deprecation warning about implicit coercion to integer.
-* [org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants](/user-documentation/recipes/recipe-catalog/node/migrate/process/remove-usage-of-features-tls-underscore_constants.md)
-  * **Remove usage of deprecated `process.features.tls_*` properties**
-  * Remove references to deprecated `process.features.tls_*` properties, replace with `process.features.tls`.
-* [org.openrewrite.node.migrate.prop-types.remove-prop-types](/user-documentation/recipes/recipe-catalog/node/migrate/prop-types/remove-prop-types.md)
-  * **Remove `propTypes` that no longer check anything**
-  * Removes `Component.propTypes = \{...\}` assignments and `static propTypes` class members where they have become redundant, then the `prop-types` import and, once no source uses it, the `prop-types` dependency. In TypeScript a component's `propTypes` are removed when its props are already typed (an annotated props parameter, `React.FC&lt;Props&gt;`, type arguments on `forwardRef`/`memo`, or `Component&lt;Props&gt;`). In JavaScript they are removed where the package runs React 19 or later, which ignores `propTypes` entirely, unless a documentation tool (Storybook, react-docgen, Styleguidist, Docz) builds prop tables from them. Packages whose `peerDependencies` still admit React before 19 keep them, as do components whose `propTypes` are read elsewhere (spread into another component's, or passed to `checkPropTypes`). Lock files are not regenerated; run the package manager's install afterwards.
-* [org.openrewrite.node.migrate.source-map-support.enable-source-maps-at-launch](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/enable-source-maps-at-launch.md)
-  * **Enable native source maps at launch and drop `source-map-support`**
-  * Where `source-map-support` is installed too late for `process.setSourceMapsEnabled(true)` to stand in for it — in an ES module, every `import` is evaluated before any statement runs, so the call would only map what loads after it — this puts `--enable-source-maps` on whatever launches the process instead, which Node applies before the first module loads. The flag goes into the package's `bin` shebang (as `#!/usr/bin/env -S node --enable-source-maps`) and into any `package.json` script that runs `node` or `mocha` directly. The `install()` call and `register` import are then redundant and are removed, rather than replaced by a call that would map less. A package with no launcher this recipe can reach is left alone and reported by `FindSourceMapSupportManualMigrations`.
-* [org.openrewrite.node.migrate.source-map-support.find-source-map-support-manual-migrations](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/find-source-map-support-manual-migrations.md)
-  * **Find source-map-support usages that need manual migration**
-  * Marks every source-map-support usage the automated migration leaves in place — an `install()` or `register` entry point that would only map part of the process, options Node has no equivalent for (`retrieveSourceMap`, `retrieveFile`, `environment: 'browser'`), the API beyond `install` (`wrapCallSite`, `mapSourcePosition`, ...), bundler banner strings, `package.json` scripts whose command doesn't take Node's flags, type imports, re-exports, dynamic imports and test mocks — and records each with a suggested replacement in the `SourceMapSupportManualMigrationSteps` data table.
-* [org.openrewrite.node.migrate.source-map-support.migrate-source-map-support-to-native](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/migrate-source-map-support-to-native.md)
-  * **Migrate `source-map-support` to Node.js native source maps**
-  * Replaces the `source-map-support` package with Node.js's built-in source map support. Where Node is launched from `package.json` scripts or mocha/ava configuration, `source-map-support/register` becomes the `--enable-source-maps` flag; in code, `install()` and `register` imports become `process.setSourceMapsEnabled(true)` where that maps everything the module loads. Where it would not — in an ES module every `import` is evaluated before any statement runs — the flag goes on the launcher instead, in the package's `bin` shebang or a `node` script, and the entry point is removed as redundant. Uses with no native equivalent (custom `retrieveSourceMap`, browser bundles, webpack banners) are left in place, and the dependency is removed from each `package.json` that declares it, with the lock file updated to match. Everything left in place is recorded in the `SourceMapSupportManualMigrationSteps` data table with a suggested replacement, and has to be migrated before building, since the dependency is removed regardless.
-* [org.openrewrite.node.migrate.source-map-support.remove-unused-source-map-support-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/remove-unused-source-map-support-dependency.md)
-  * **Remove the `source-map-support` dependency**
-  * Removes `source-map-support` and `@types/source-map-support` from each `package.json` that declares them, and updates the lock file to match.
-* [org.openrewrite.node.migrate.source-map-support.replace-source-map-support-install](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/replace-source-map-support-install.md)
-  * **Replace `source-map-support` with `process.setSourceMapsEnabled()`**
-  * Replaces `require('source-map-support').install()`, `import 'source-map-support/register'` and their variants with Node's native `process.setSourceMapsEnabled(true)` (Node.js 16.6+). Calls passing options Node has no equivalent for (`retrieveSourceMap`, `retrieveFile`, `environment: 'browser'`, ...) are left alone. Native source maps only apply to modules loaded after they are enabled, where `source-map-support` maps every stack frame, so by default a call is only replaced where no other module is loaded before it: no other runtime import in the file, and no earlier `require`. Elsewhere, launch Node with `--enable-source-maps`, which `ReplaceSourceMapSupportRegisterInPackageJson` sets in `package.json` scripts.
-* [org.openrewrite.node.migrate.source-map-support.replace-source-map-support-register-in-mocha-config](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/replace-source-map-support-register-in-mocha-config.md)
-  * **Replace `source-map-support/register` with `enable-source-maps` in mocha config**
-  * Replaces `source-map-support/register` in the `require` list of `.mocharc.js`/`.mocharc.cjs` with `'enable-source-maps': true`, which mocha forwards to Node as `--enable-source-maps`, and `--require source-map-support/register` in `mocha.opts` with `--enable-source-maps`.
-* [org.openrewrite.node.migrate.source-map-support.replace-source-map-support-register-in-package-json](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/replace-source-map-support-register-in-package-json.md)
-  * **Replace `source-map-support/register` with `--enable-source-maps` in `package.json`**
-  * Replaces `-r source-map-support/register` with Node's `--enable-source-maps` flag in `package.json` scripts that run `node` or `mocha`, including through `nyc`, `c8` or `cross-env`. Mocha's `require` list (in `package.json` or `.mocharc.json`) gets `&quot;enable-source-maps&quot;: true`, which mocha forwards to Node, and ava's `require` list `nodeArguments: [&quot;--enable-source-maps&quot;]`. Jest `setupFiles` entries are dropped, since Jest maps stack traces itself. Scripts running other tools are left alone.
-* [org.openrewrite.node.migrate.stream.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/stream/replace-internal-modules.md)
-  * **Replace deprecated `node:_stream_*` with `node:stream`**
-  * Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module.
-* [org.openrewrite.node.migrate.timers.find-timers-active](/user-documentation/recipes/recipe-catalog/node/migrate/timers/find-timers-active.md)
-  * **Find deprecated `timers.active()` and `timers._unrefActive()` usage**
-  * `timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead.
-* [org.openrewrite.node.migrate.tls.find-tls-secure-pair](/user-documentation/recipes/recipe-catalog/node/migrate/tls/find-tls-secure-pair.md)
-  * **Find deprecated `tls.SecurePair` and `tls.createSecurePair()` usage**
-  * `tls.SecurePair` (DEP0043) and `tls.createSecurePair()` (DEP0064) were deprecated and removed in Node.js 24. Use `tls.TLSSocket` instead.
-* [org.openrewrite.node.migrate.tls.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/tls/replace-internal-modules.md)
-  * **Replace deprecated `node:_tls_common` and `node:_tls_wrap` with `node:tls`**
-  * Replace deprecated internal TLS module imports `require('node:_tls_common')` and `require('node:_tls_wrap')` with the public `node:tls` module.
-* [org.openrewrite.node.migrate.upgrade-node-22](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22.md)
-  * **Upgrade to Node.js 22**
-  * Migrate deprecated APIs for Node.js 22 compatibility. Addresses Node 22 runtime deprecations and deprecations from earlier versions.
-* [org.openrewrite.node.migrate.upgrade-node-24](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24.md)
-  * **Upgrade to Node.js 24**
-  * Migrate deprecated APIs for Node.js 24 compatibility. Includes all migrations from Node.js 22, plus Node 23 and Node 24 deprecations.
-* [org.openrewrite.node.migrate.util.remove-promisify-on-promise](/user-documentation/recipes/recipe-catalog/node/migrate/util/remove-promisify-on-promise.md)
-  * **Remove unnecessary `util.promisify()` on Promise-returning functions**
-  * Removes `util.promisify()` calls on functions that already return a Promise. Since Node.js v17.0.0, calling promisify on a function that returns a Promise emits a runtime deprecation warning (DEP0174).
-* [org.openrewrite.node.migrate.util.replace-is-webassembly-compiled-module](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-is-webassembly-compiled-module.md)
-  * **Replace deprecated `util.types.isWebAssemblyCompiledModule()`**
-  * Replace `util.types.isWebAssemblyCompiledModule(value)` with `value instanceof WebAssembly.Module`.
-* [org.openrewrite.node.migrate.util.replace-util-extend](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-extend.md)
-  * **Replace deprecated `util._extend()` with `Object.assign()`**
-  * Replace deprecated `util._extend(target, source)` calls with `Object.assign(target, source)` which preserves the mutation behavior.
-* [org.openrewrite.node.migrate.util.replace-util-log](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-log.md)
-  * **Replace deprecated `util.log()` with `console.log()`**
-  * Replace deprecated `util.log()` calls with `console.log()`. Note: `util.log()` included timestamps, but `console.log()` does not.
-* [org.openrewrite.node.migrate.util.use-native-type-checking-methods](/user-documentation/recipes/recipe-catalog/node/migrate/util/use-native-type-checking-methods.md)
-  * **Replace deprecated `util.isX()` methods with native JavaScript**
-  * The `util` module's type-checking methods have been removed in Node 22.
-* [org.openrewrite.node.migrate.zlib.replace-bytes-read](/user-documentation/recipes/recipe-catalog/node/migrate/zlib/replace-bytes-read.md)
-  * **Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`**
-  * Replace deprecated `bytesRead` property on zlib streams with `bytesWritten`.
 * [org.openrewrite.nodejs.migrate.UpgradeNodeVersion](/user-documentation/recipes/recipe-catalog/nodejs/migrate/upgradenodeversion.md)
   * **Upgrade Node.js version in version files**
   * Increases the Node.js version in `.nvmrc` and `.node-version` files. Major versions (`20`, `v20`) and pinned versions (`20.11.0`) become the target major, and LTS codenames (`lts/iron`) become the target's codename. Floating aliases such as `lts/*` and `node` are left alone. Never decreases the version.
@@ -6395,7 +6392,7 @@ _43 recipes_
 
 _License: Moderne Source Available License_
 
-_338 recipes_
+_341 recipes_
 
 * [org.openrewrite.gradle.spring.AddParametersCompilerFlagToGradle](/user-documentation/recipes/recipe-catalog/gradle/spring/addparameterscompilerflagtogradle.md)
   * **Add `-parameters` compiler flag for Spring in Gradle**
@@ -6573,7 +6570,7 @@ _338 recipes_
   * Replace deprecated `micrometer-spring-legacy` with `spring-boot-starter-actuator`.
 * [org.openrewrite.java.spring.boot2.MergeBootstrapYamlWithApplicationYaml](/user-documentation/recipes/recipe-catalog/java/spring/boot2/mergebootstrapyamlwithapplicationyaml.md)
   * **Merge Spring `bootstrap.yml` with `application.yml`**
-  * In Spring Boot 2.4, the bootstrap context that loads `bootstrap.yml` is [disabled by default](https://docs.spring.io/spring-cloud-config/reference/client.html). Its properties should be merged with `application.yml` unless `spring-cloud-starter-bootstrap` is present as a dependency.
+  * In Spring Boot 2.4, the bootstrap context that loads `bootstrap.yml` is [disabled by default](https://docs.spring.io/spring-cloud-config/reference/client.html). Its properties should be merged with `application.yml` unless `spring-cloud-starter-bootstrap` is present as a dependency. Profile-specific `bootstrap-\{profile\}.yml` files are also merged into their matching `application-\{profile\}.yml`. A bootstrap file without a matching application file is renamed instead.
 * [org.openrewrite.java.spring.boot2.MigrateActuatorMediaTypeToApiVersion](/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateactuatormediatypetoapiversion.md)
   * **Migrate deprecated `ActuatorMediaType` to `ApiVersion#getProducedMimeType`**
   * Spring Boot `ActuatorMediaType` was deprecated in 2.5 in favor of `ApiVersion#getProducedMimeType()`. Replace `MediaType.parseMediaType(ActuatorMediaType.Vx_JSON)` with `MediaType.asMediaType(ApiVersion.Vx.getProducedMimeType())`.
@@ -6919,6 +6916,9 @@ _338 recipes_
 * [org.openrewrite.java.spring.boot4.AddModularStarterDependencies](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarterdependencies.md)
   * **Add Spring Boot 4.0 modular starter dependencies**
   * Adds the Spring Boot 4.0 modular starter dependencies implied by a module's Spring Boot 3 package usage, without relocating any source. Split out from `MigrateToModularStarters` so that it can be sequenced ahead of `MigrateAutoconfigurePackages` when composed into a larger migration.
+* [org.openrewrite.java.spring.boot4.AddSpringBootBomForTransitiveDependencyManagement](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addspringbootbomfortransitivedependencymanagement.md)
+  * **Manage Spring Boot directly when a third-party BOM manages an older version**
+  * Import Spring Boot's BOM ahead of third-party BOMs that still manage an older Spring Boot release.
 * [org.openrewrite.java.spring.boot4.AddSpringBootStarterDataMongoDbReactiveTest](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addspringbootstarterdatamongodbreactivetest.md)
   * **Add `spring-boot-starter-data-mongodb-reactive-test` for reactive MongoDB tests**
   * Adds the dedicated Spring Boot 4.0 reactive Spring Data MongoDB test starter when the application directly uses the reactive Spring Data MongoDB starter and MongoDB test slices.
@@ -6937,6 +6937,9 @@ _338 recipes_
 * [org.openrewrite.java.spring.boot4.MigrateJsonschema2PojoToSpringBoot4](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratejsonschema2pojotospringboot4.md)
   * **Migrate jsonschema2pojo configuration to Spring Boot 4**
   * Update `jsonschema2pojo-maven-plugin` to generate Jackson 3 and Jakarta Validation annotations compatible with Spring Boot 4. The `jackson3` annotation style was introduced in jsonschema2pojo 1.3.0, so the plugin is upgraded to at least that version first.
+* [org.openrewrite.java.spring.boot4.MigrateLiquibasePropertiesApi](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateliquibasepropertiesapi.md)
+  * **Migrate Liquibase property values passed to SpringLiquibase**
+  * Convert the former String contexts and labels properties to comma-delimited values when passed directly to SpringLiquibase setters, and replace setLabels with setLabelFilter. Already collection-aware code is retained.
 * [org.openrewrite.java.spring.boot4.MigrateOpenApiGeneratorToSpringBoot4](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateopenapigeneratortospringboot4.md)
   * **Migrate OpenAPI Generator `spring` configuration to Spring Boot 4**
   * Update `openapi-generator-maven-plugin` executions using the `spring` generator to generate Spring Boot 4 and Jackson 3 sources. Replaces the deprecated `useSpringBoot3` option with `useSpringBoot4` and enables `useJackson3`, matching the Jackson 3 baseline of Spring Boot 4. Enabling `useSpringBoot4` also enables `useJakartaEe`, so it is left implicit. The `useSpringBoot4`/`useJackson3` options were introduced in OpenAPI Generator 7.16.0, so the plugin is upgraded to at least that version first.
@@ -6964,6 +6967,9 @@ _338 recipes_
 * [org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
   * **Migrate to Spring Boot 4.0 (Community Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs.
+* [org.openrewrite.java.spring.boot4.UsesSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/boot4/usesspringboot.md)
+  * **Find Spring Boot repositories**
+  * Find every source file of a repository in which some build uses Spring Boot: a Spring Boot dependency, direct or transitive, the Spring Boot Gradle plugin, a Spring Boot parent POM, or an imported `spring-boot-dependencies` BOM. A repository without build files matches.
 * [org.openrewrite.java.spring.cloud2022.AddLoggingPatternLevelForSleuth](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/addloggingpatternlevelforsleuth.md)
   * **Add logging.pattern.level for traceId and spanId**
   * Add `logging.pattern.level` for traceId and spanId which was previously set by default, if not already set.
@@ -7733,7 +7739,7 @@ _34 recipes_
 
 _License: Moderne Source Available License_
 
-_203 recipes_
+_205 recipes_
 
 * [org.openrewrite.recipe.rewrite-static-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-static-analysis/inlinedeprecatedmethods.md)
   * **Inline deprecated delegating methods**
@@ -7870,6 +7876,12 @@ _203 recipes_
 * [org.openrewrite.staticanalysis.FinalizePrivateFields](/user-documentation/recipes/recipe-catalog/staticanalysis/finalizeprivatefields.md)
   * **Finalize private fields**
   * Adds the `final` modifier keyword to private instance variables which are not reassigned.
+* [org.openrewrite.staticanalysis.FindIgnoredCheckReturnValue](/user-documentation/recipes/recipe-catalog/staticanalysis/findignoredcheckreturnvalue.md)
+  * **Find ignored results of `@CheckReturnValue` methods**
+  * Marks invocations whose result is discarded even though the method is annotated with `@CheckReturnValue`, either directly or through its enclosing class or package. Any annotation named `CheckReturnValue` is recognized, and `@CanIgnoreReturnValue` opts a method or class back out. Ignoring such a result is usually a bug, such as calling a method on an immutable object without using the returned copy. Calls expected to throw, Mockito stubbing and verification, calls on the current instance in custom AssertJ assertion constructors, and code under `@SuppressWarnings(&quot;CheckReturnValue&quot;)` are not marked.
+* [org.openrewrite.staticanalysis.FindMainWithThrowsClause](/user-documentation/recipes/recipe-catalog/staticanalysis/findmainwiththrowsclause.md)
+  * **Find `main` methods with a `throws` clause**
+  * Marks JVM entry-point `main` methods (`public static void main(String[])` or the varargs equivalent) that declare a `throws` clause. Uncaught exceptions from `main` propagate to the JVM's default handler, which just prints the stack trace and returns exit code 1. Handle exceptions explicitly and exit with a meaningful code.
 * [org.openrewrite.staticanalysis.FindMissingJavadocOnPublicMethods](/user-documentation/recipes/recipe-catalog/staticanalysis/findmissingjavadoconpublicmethods.md)
   * **Find public methods missing Javadoc**
   * Locates `public` method declarations that are not documented with a Javadoc comment, marks them with a search result, and records them in a data table.
@@ -8690,7 +8702,7 @@ _22 recipes_
 
 _License: Moderne Proprietary License_
 
-_135 recipes_
+_139 recipes_
 
 * [org.openrewrite.terraform.AddConfiguration](/user-documentation/recipes/recipe-catalog/terraform/addconfiguration.md)
   * **Add Terraform configuration**
@@ -8698,6 +8710,18 @@ _135 recipes_
 * [org.openrewrite.terraform.AddResourceNestedBlock](/user-documentation/recipes/recipe-catalog/terraform/addresourcenestedblock.md)
   * **Add a nested block to a Terraform resource**
   * Add a nested block (e.g. `parameter \{ ... \}`) to a Terraform resource if no matching instance exists. When `keyMatchers` is provided, the recipe deduplicates by attribute keys so it works correctly with repeatable blocks like `aws_db_parameter_group.parameter`.
+* [org.openrewrite.terraform.ChangeDataSourceAttribute](/user-documentation/recipes/recipe-catalog/terraform/changedatasourceattribute.md)
+  * **Change Terraform data source attribute**
+  * Change the value of an attribute on a Terraform `data` block if it matches a given pattern. Data sources are labelled with a type and a local name just like resources, and the two share type names, so this is a separate recipe from `ChangeResourceAttribute`.
+* [org.openrewrite.terraform.ChangeModuleAttribute](/user-documentation/recipes/recipe-catalog/terraform/changemoduleattribute.md)
+  * **Change Terraform module attribute**
+  * Change the value of an attribute on a Terraform `module` block, for example to bump the `version` of every call site of a shared module. Modules are selected by their `source` address, since the same module is typically referenced under different local names.
+* [org.openrewrite.terraform.ChangeProviderConfigurationAttribute](/user-documentation/recipes/recipe-catalog/terraform/changeproviderconfigurationattribute.md)
+  * **Change Terraform provider configuration attribute**
+  * Change the value of an attribute on a Terraform `provider` block if it matches a given pattern, for example to move a provider configuration to another region. Provider version constraints belong in `terraform \{ required_providers \{ ... \} \}`, so use `ChangeRequiredProviderAttribute` to change those.
+* [org.openrewrite.terraform.ChangeRequiredProviderAttribute](/user-documentation/recipes/recipe-catalog/terraform/changerequiredproviderattribute.md)
+  * **Change Terraform required provider attribute**
+  * Change the value of an attribute on an entry of a `terraform \{ required_providers \{ ... \} \}` block, for example to bump a provider `version` constraint or to point a `source` at a different registry. Since Terraform 0.13 this is where provider versions are declared, so use this recipe rather than `ChangeProviderConfigurationAttribute` to manage provider versions.
 * [org.openrewrite.terraform.ChangeResourceAttribute](/user-documentation/recipes/recipe-catalog/terraform/changeresourceattribute.md)
   * **Change Terraform resource attribute**
   * Change the value of a Terraform resource attribute if it matches a given pattern.
@@ -10018,7 +10042,7 @@ _303 recipes_
 
 _License: Apache License Version 2.0_
 
-_1675 recipes_
+_1693 recipes_
 
 * [ai.timefold.solver.migration.ChangeVersion](/user-documentation/recipes/recipe-catalog/timefold/solver/migration/changeversion.md)
   * **Change the Timefold version**
@@ -10671,6 +10695,9 @@ _1675 recipes_
 * [io.quarkus.updates.core.quarkus311.SyncHibernateJpaModelgenVersionWithBOM](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus311/synchibernatejpamodelgenversionwithbom.md)
   * **io.quarkus.updates.core.quarkus311.SyncHibernateJpaModelgenVersionWithBOM**
   * 
+* [io.quarkus.updates.core.quarkus311.WebDependencyLocatorRelocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus311/webdependencylocatorrelocations.md)
+  * **io.quarkus.updates.core.quarkus311.WebDependencyLocatorRelocations**
+  * 
 * [io.quarkus.updates.core.quarkus312.SyncHibernateJpaModelgenVersionWithBOM](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus312/synchibernatejpamodelgenversionwithbom.md)
   * **io.quarkus.updates.core.quarkus312.SyncHibernateJpaModelgenVersionWithBOM**
   * 
@@ -10749,6 +10776,9 @@ _1675 recipes_
 * [io.quarkus.updates.core.quarkus324.ReplaceOldJpaModelgenAnnotationProcessor](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus324/replaceoldjpamodelgenannotationprocessor.md)
   * **io.quarkus.updates.core.quarkus324.ReplaceOldJpaModelgenAnnotationProcessor**
   * 
+* [io.quarkus.updates.core.quarkus325.DevUiSpiRelocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus325/devuispirelocations.md)
+  * **io.quarkus.updates.core.quarkus325.DevUiSpiRelocations**
+  * Rename the Dev UI SPI artifacts quarkus-vertx-http-dev-ui-spi to quarkus-devui-deployment-spi and quarkus-vertx-http-dev-ui-tests to quarkus-devui-test-spi.
 * [io.quarkus.updates.core.quarkus326.EnableEnabledConfigChanges](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus326/enableenabledconfigchanges.md)
   * **io.quarkus.updates.core.quarkus326.EnableEnabledConfigChanges**
   * 
@@ -10896,6 +10926,51 @@ _1675 recipes_
 * [io.quarkus.updates.core.quarkus39.UpdateConfigRoots](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus39/updateconfigroots.md)
   * **io.quarkus.updates.core.quarkus39.UpdateConfigRoots**
   * 
+* [io.quarkus.updates.core.quarkus40.HibernateORMConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/hibernateormconfigproperties.md)
+  * **Rename deprecated Hibernate ORM configuration properties**
+  * Rename Hibernate ORM configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.HttpSslConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/httpsslconfigproperties.md)
+  * **Rename deprecated HTTP SSL configuration properties**
+  * Rename HTTP SSL configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.InfinispanConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/infinispanconfigproperties.md)
+  * **Rename deprecated Infinispan configuration properties**
+  * Rename Infinispan configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.Jackson3Migration](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/jackson3migration.md)
+  * **Migrate Jackson from 2.x to 3.x**
+  * Jackson 3.x uses new package names (tools.jackson instead of com.fasterxml.jackson), new group IDs, and includes various API changes. This recipe applies the OpenRewrite Jackson 2 to 3 migration.
+* [io.quarkus.updates.core.quarkus40.JavaVersion21](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/javaversion21.md)
+  * **Change Maven and Gradle Java version property values to 21**
+  * Change maven.compiler.source and maven.compiler.target values to 21.
+* [io.quarkus.updates.core.quarkus40.KeycloakPolicyEnforcerConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/keycloakpolicyenforcerconfigproperties.md)
+  * **Rename deprecated Keycloak Policy Enforcer configuration properties**
+  * Rename Keycloak Policy Enforcer configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.KubernetesConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/kubernetesconfigproperties.md)
+  * **Rename deprecated Kubernetes configuration properties**
+  * Rename Kubernetes configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.MailerConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/mailerconfigproperties.md)
+  * **Rename deprecated Mailer configuration properties**
+  * Rename Mailer configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.MicrometerConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/micrometerconfigproperties.md)
+  * **Rename deprecated Micrometer configuration properties**
+  * Rename Micrometer configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.MiscConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/miscconfigproperties.md)
+  * **Rename miscellaneous deprecated configuration properties**
+  * Rename miscellaneous configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.OidcConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/oidcconfigproperties.md)
+  * **Rename deprecated OIDC configuration properties**
+  * Rename OIDC configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.RedisCacheConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/rediscacheconfigproperties.md)
+  * **Rename deprecated Redis Cache configuration properties**
+  * Rename Redis Cache configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.RestClientConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/restclientconfigproperties.md)
+  * **Rename deprecated REST Client configuration properties**
+  * Rename REST Client configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.SmallRyeConfigProperties](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/smallryeconfigproperties.md)
+  * **Rename deprecated SmallRye configuration properties**
+  * Rename SmallRye configuration properties that were deprecated in Quarkus 3.x and removed in Quarkus 4.0.
+* [io.quarkus.updates.core.quarkus40.UpgradeToJava21](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/upgradetojava21.md)
+  * **Migrate to Java 21**
+  * This recipe will apply changes commonly needed when migrating to Java 21. Build files will be updated to use Java 21 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 21.
 * [io.quarkus.updates.cxf.cxf316.UpdateAll](/user-documentation/recipes/recipe-catalog/quarkus/updates/cxf/cxf316/updateall.md)
   * **Migrate quarkus-cxf to 3.16**
   * quarkus-cxf 3.16.0 switched the default HTTP conduit to the Vert.x HttpClient, where hostname-verifier fails at runtime, and deprecated the per client trust-store*/key-store* options in favor of the Quarkus TLS registry. A safe automatic rewrite is not possible for every configuration, so this recipe only adds a deprecation warning comment at the top of the affected properties files and leaves the migration to the user.
@@ -11601,6 +11676,9 @@ _1675 recipes_
 * [org.openrewrite.quarkus.MigrateToQuarkus_v3_9_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_9_0.md)
   * **Quarkus Updates Aggregate 3.9.0**
   * Quarkus update recipes to upgrade your application to 3.9.0.
+* [org.openrewrite.quarkus.MigrateToQuarkus_v4_0_0](/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v4_0_0.md)
+  * **Quarkus Updates Aggregate 4.0.0**
+  * Quarkus update recipes to upgrade your application to 4.0.0.
 * [sh.stubborn.contract.migration.DropJUnit4Support](/user-documentation/recipes/recipe-catalog/sh/stubborn/contract/migration/dropjunit4support.md)
   * **Migrate StubRunner JUnit 4 Rule to JUnit 5 Extension**
   * Replaces @Rule StubRunnerRule / StubRunnerClassRule with @RegisterExtension StubRunnerExtension (JUnit 5). Requires JUnit 5 on the test classpath.

@@ -58,7 +58,7 @@ For Maven projects, upgrade the version of a dependency by specifying a group ID
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.UpgradeDependencyVersion","displayName":"Upgrade Gradle or Maven dependency versions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.fasterxml.jackson*\" --recipe-option \"artifactId=jackson-module*\" --recipe-option \"newVersion=29.X\" --recipe-option \"versionPattern='-jre'\" --recipe-option \"retainVersions=com.jcraft:jsch\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.UpgradeDependencyVersion","displayName":"Upgrade Gradle or Maven dependency versions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.fasterxml.jackson*\" --recipe-option \"artifactId=jackson-module*\" --recipe-option \"newVersion=29.X\"","optionalCliOptions":" --recipe-option \"versionPattern='-jre'\" --recipe-option \"overrideManagedVersion=true\" --recipe-option \"retainVersions=com.jcraft:jsch\""}}>
 
 ## Usage
 

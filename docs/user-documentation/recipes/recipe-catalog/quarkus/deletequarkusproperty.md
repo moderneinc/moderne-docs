@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.quarkus.DeleteQuarkusProperty","displayName":"Delete Quarkus configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy\" --recipe-option \"oldValue=read-sync\" --recipe-option \"profile=dev\" --recipe-option \"deleteFromAllProfiles=false\" --recipe-option \"pathExpressions=[\"**/application.yaml\"]\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.quarkus.DeleteQuarkusProperty","displayName":"Delete Quarkus configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_QUARKUS","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy\"","optionalCliOptions":" --recipe-option \"oldValue=read-sync\" --recipe-option \"profile=dev\" --recipe-option \"deleteFromAllProfiles=false\" --recipe-option \"pathExpressions=[\"**/application.yaml\"]\""}}>
 
 ## Usage
 

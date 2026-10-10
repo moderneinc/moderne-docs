@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.CreateEmptyJavaClass","displayName":"Create Java class","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"sourceRoot=src/main/java\" --recipe-option \"packageName=org.openrewrite.example\" --recipe-option \"modifier=public\" --recipe-option \"className=ExampleClass\" --recipe-option \"relativePath=foo/bar\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.CreateEmptyJavaClass","displayName":"Create Java class","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"sourceRoot=src/main/java\" --recipe-option \"packageName=org.openrewrite.example\" --recipe-option \"modifier=public\" --recipe-option \"className=ExampleClass\"","optionalCliOptions":" --recipe-option \"overwriteExisting=true\" --recipe-option \"relativePath=foo/bar\""}}>
 
 ## Usage
 

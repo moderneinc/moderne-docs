@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"python","code":"def load(path):\n    try:\n        return read(path)\n    except socket.timeout:\n        pass\n    except (ValueError, KeyError) as e:\n        pass\n    except:\n        pass\n    finally:\n        close()\n\n\ndef grouped(path):\n    try:\n        read(path)\n    except* OSError:\n        pass\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.FindPythonErrorPatterns","displayName":"Find Python error handling patterns","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

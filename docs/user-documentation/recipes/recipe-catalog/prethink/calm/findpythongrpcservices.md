@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"python","code":"import helloworld_pb2_grpc\n\n\nclass GreeterService(helloworld_pb2_grpc.GreeterServicer):\n    def __init__(self):\n        self.count = 0\n\n    def SayHello(self, request, context):\n        return None\n\n    def SayHelloAgain(self, request, context):\n        return None\n\n    def _helper(self):\n        return None\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindPythonGrpcServices","displayName":"Find Python gRPC services","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

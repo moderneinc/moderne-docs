@@ -55,7 +55,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddCache","displayName":"Add cache configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=$CI_COMMIT_REF_SLUG\" --recipe-option \"paths=.cache/,vendor/\" --recipe-option \"policy=pull-push\" --recipe-option \"jobName=build_job\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddCache","displayName":"Add cache configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"key=$CI_COMMIT_REF_SLUG\" --recipe-option \"paths=.cache/,vendor/\"","optionalCliOptions":" --recipe-option \"policy=pull-push\" --recipe-option \"jobName=build_job\" --recipe-option \"acceptTheirs=true\""}}>
 
 ## Usage
 

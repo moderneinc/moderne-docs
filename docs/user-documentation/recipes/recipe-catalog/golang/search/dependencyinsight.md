@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.golang.search.DependencyInsight","displayName":"Go dependency insight","groupId":"org.openrewrite","artifactId":"rewrite-go","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GO","requiresConfiguration":true,"cliOptions":" --recipe-option \"modulePattern=github.com/google/*\" --recipe-option \"version=1.x\" --recipe-option \"onlyDirect=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.golang.search.DependencyInsight","displayName":"Go dependency insight","groupId":"org.openrewrite","artifactId":"rewrite-go","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GO","requiresConfiguration":true,"cliOptions":" --recipe-option \"modulePattern=github.com/google/*\"","optionalCliOptions":" --recipe-option \"version=1.x\" --recipe-option \"onlyDirect=true\""}}>
 
 ## Usage
 

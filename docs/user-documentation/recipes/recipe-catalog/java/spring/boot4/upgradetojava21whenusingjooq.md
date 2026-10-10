@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade to Java 21 when using jOOQ"}
-  description={"Spring Boot 4 keeps a Java 17 baseline, but the jOOQ version it manages (3.20+) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.0 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619."}
+  description={"Spring Boot 4.1 keeps a Java 17 baseline, but the jOOQ version it manages (3.21) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.1 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619."}
   fqName={"io.moderne.java.spring.boot4.UpgradeToJava21WhenUsingJooq"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade to Java 21 when using jOOQ</RecipeHeader.Title>
 
-<RecipeHeader.Description>Spring Boot 4 keeps a Java 17 baseline, but the jOOQ version it manages (3.20+) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.0 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619.</RecipeHeader.Description>
+<RecipeHeader.Description>Spring Boot 4.1 keeps a Java 17 baseline, but the jOOQ version it manages (3.21) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.1 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619.</RecipeHeader.Description>
 
 </RecipeHeader>
 

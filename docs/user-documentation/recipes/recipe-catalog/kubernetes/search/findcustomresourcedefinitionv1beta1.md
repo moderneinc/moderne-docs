@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindCustomResourceDefinitionV1beta1","displayName":"Find `apiextensions.k8s.io/v1beta1` CustomResourceDefinitions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.search.FindCustomResourceDefinitionV1beta1","displayName":"Find `apiextensions.k8s.io/v1beta1` CustomResourceDefinitions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"fileMatcher='**/crd-*.yml'\""}}>
 
 ## Usage
 

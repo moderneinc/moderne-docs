@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.AddNullMethodArgument","displayName":"Add a `null` method argument","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=com.yourorg.A foo(int, int)\" --recipe-option \"argumentIndex=0\" --recipe-option \"parameterType=java.lang.String\" --recipe-option \"parameterName=name\" --recipe-option \"explicitCast=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.AddNullMethodArgument","displayName":"Add a `null` method argument","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=com.yourorg.A foo(int, int)\" --recipe-option \"argumentIndex=0\" --recipe-option \"parameterType=java.lang.String\"","optionalCliOptions":" --recipe-option \"parameterName=name\" --recipe-option \"explicitCast=true\""}}>
 
 ## Usage
 

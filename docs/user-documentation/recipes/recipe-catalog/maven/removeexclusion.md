@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.maven.RemoveExclusion","displayName":"Remove exclusion","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\" --recipe-option \"exclusionGroupId=com.google.guava\" --recipe-option \"exclusionArtifactId=guava\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.maven.RemoveExclusion","displayName":"Remove exclusion","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\" --recipe-option \"exclusionGroupId=com.google.guava\" --recipe-option \"exclusionArtifactId=guava\"","optionalCliOptions":" --recipe-option \"onlyIneffective=true\""}}>
 
 ## Usage
 

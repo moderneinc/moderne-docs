@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"go","code":"package store\n\nimport \"testing\"\n\nfunc TestNothingHappens(t *testing.T) {}\n\nfunc TestSkippedForNoReason(t *testing.T) {\n\tt.Skip()\n\tt.Log(\"unreachable\")\n}\n\nfunc TestSkippedWithAReason(t *testing.T) {\n\tt.Skip(\"needs a live database\")\n}\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindGoGhostTests","displayName":"Find Go ghost tests","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

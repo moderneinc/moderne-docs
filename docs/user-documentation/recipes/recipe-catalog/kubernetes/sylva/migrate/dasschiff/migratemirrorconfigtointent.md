@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.kubernetes.sylva.migrate.dasschiff.MigrateMirrorConfigToIntent","displayName":"Migrate Das Schiff traffic mirror configuration to intent resources","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.kubernetes.sylva.migrate.dasschiff.MigrateMirrorConfigToIntent","displayName":"Migrate Das Schiff traffic mirror configuration to intent resources","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"fileMatcher='**/mirror-*.yml'\""}}>
 
 ## Usage
 

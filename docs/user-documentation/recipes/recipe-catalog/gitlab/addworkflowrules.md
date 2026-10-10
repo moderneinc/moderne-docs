@@ -55,7 +55,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddWorkflowRules","displayName":"Add workflow rules","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"rules='- if: $CI_PIPELINE_SOURCE == 'merge_request_event'\\n- if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS\\n  when: never\\n- if: $CI_COMMIT_BRANCH'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gitlab.AddWorkflowRules","displayName":"Add workflow rules","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"rules='- if: $CI_PIPELINE_SOURCE == 'merge_request_event'\\n- if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS\\n  when: never\\n- if: $CI_COMMIT_BRANCH'\"","optionalCliOptions":" --recipe-option \"acceptTheirs=true\""}}>
 
 ## Usage
 

@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindFieldsOfType","displayName":"Find fields of type","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=org.slf4j.api.Logger\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.FindFieldsOfType","displayName":"Find fields of type","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedTypeName=org.slf4j.api.Logger\"","optionalCliOptions":" --recipe-option \"matchInherited=true\""}}>
 
 ## Usage
 

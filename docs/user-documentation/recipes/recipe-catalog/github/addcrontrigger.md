@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.AddCronTrigger","displayName":"Add cron workflow trigger","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"cron='@daily'\" --recipe-option \"workflowFileMatcher=build.yml\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.AddCronTrigger","displayName":"Add cron workflow trigger","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"cron='@daily'\"","optionalCliOptions":" --recipe-option \"workflowFileMatcher=build.yml\""}}>
 
 ## Usage
 

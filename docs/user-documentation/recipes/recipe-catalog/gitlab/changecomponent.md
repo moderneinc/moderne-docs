@@ -55,7 +55,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gitlab.ChangeComponent","displayName":"Change GitLab Component","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldComponent=$CI_SERVER_FQDN/components/opentofu/full-pipeline\" --recipe-option \"oldComponentVersion=0.10.0\" --recipe-option \"newComponent=$CI_SERVER_FQDN/components/opentofu/full-pipeline\" --recipe-option \"newComponentVersion=0.10.0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gitlab.ChangeComponent","displayName":"Change GitLab Component","groupId":"org.openrewrite.recipe","artifactId":"rewrite-gitlab","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITLAB","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldComponent=$CI_SERVER_FQDN/components/opentofu/full-pipeline\" --recipe-option \"oldComponentVersion=0.10.0\" --recipe-option \"newComponentVersion=0.10.0\"","optionalCliOptions":" --recipe-option \"newComponent=$CI_SERVER_FQDN/components/opentofu/full-pipeline\""}}>
 
 ## Usage
 

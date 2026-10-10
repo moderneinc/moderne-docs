@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"pyproject","code":"[project]\nname = \"my-python-app\"\nversion = \"1.0.0\"\nrequires-python = \">=3.8\"\ndependencies = [\n    \"requests>=2.0\",\n    \"flask\",\n]\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.PythonDependencyReport","displayName":"Python dependency report","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

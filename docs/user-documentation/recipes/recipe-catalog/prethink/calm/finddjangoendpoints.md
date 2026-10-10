@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"unchanged":{"language":"pyproject","code":"[project]\nname = \"test-app\"\nversion = \"0.1.0\"\ndependencies = [\"djangorestframework>=3.14\", \"djangorestframework-stubs>=3.14\"]\n"},"variants":[]}]}>
+<ExampleList examples={[{"unchanged":{"language":"pyproject","code":"[project]\nname = \"test-app\"\nversion = \"0.1.0\"\ndependencies = [\"djangorestframework>=3.14\"]\n"},"variants":[]}]}>
 
 ## Examples
 

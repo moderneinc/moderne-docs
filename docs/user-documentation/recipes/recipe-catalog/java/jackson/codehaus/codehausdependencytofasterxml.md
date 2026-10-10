@@ -55,7 +55,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.jackson.codehaus.CodehausDependencyToFasterXML","displayName":"Migrate dependencies from Jackson Codehaus (legacy) to FasterXML","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.jackson.codehaus.CodehausDependencyToFasterXML","displayName":"Migrate dependencies from Jackson Codehaus (legacy) to FasterXML","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"version=2.x\""}}>
 
 ## Usage
 

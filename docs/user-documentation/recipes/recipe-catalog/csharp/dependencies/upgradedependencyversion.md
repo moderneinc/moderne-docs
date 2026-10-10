@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade C# dependency versions"}
-  description={"Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`."}
+  description={"Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`. Only declarations at a lower exact or pinned version are changed."}
   fqName={"org.openrewrite.csharp.dependencies.UpgradeDependencyVersion"}
   languages={["C#"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade C# dependency versions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.</RecipeHeader.Description>
+<RecipeHeader.Description>Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`. Only declarations at a lower exact or pinned version are changed.</RecipeHeader.Description>
 
 </RecipeHeader>
 

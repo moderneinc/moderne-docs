@@ -50,7 +50,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.concourse.UpdateGitResourceUri","displayName":"Update git resource `source.uri` references","groupId":"org.openrewrite.recipe","artifactId":"rewrite-concourse","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldURIPattern=https://github.com/openrewrite/rewrite\" --recipe-option \"newURI=git@gitlab.com:openrewrite/rewrite.git\" --recipe-option \"fileMatcher='**/pipeline*.yml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.concourse.UpdateGitResourceUri","displayName":"Update git resource `source.uri` references","groupId":"org.openrewrite.recipe","artifactId":"rewrite-concourse","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CONCOURSE","requiresConfiguration":true,"cliOptions":" --recipe-option \"newURI=git@gitlab.com:openrewrite/rewrite.git\"","optionalCliOptions":" --recipe-option \"oldURIPattern=https://github.com/openrewrite/rewrite\" --recipe-option \"fileMatcher='**/pipeline*.yml'\""}}>
 
 ## Usage
 

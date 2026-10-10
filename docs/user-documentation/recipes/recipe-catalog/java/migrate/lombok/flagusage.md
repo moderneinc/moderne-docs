@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lombok.FlagUsage","displayName":"Flag usage of a Lombok feature","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"featureName=val\" --recipe-option \"value=error\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lombok.FlagUsage","displayName":"Flag usage of a Lombok feature","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"featureName=val\"","optionalCliOptions":" --recipe-option \"value=error\""}}>
 
 ## Usage
 

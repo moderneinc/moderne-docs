@@ -53,7 +53,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Rename `afterRender` to `afterEveryRender`](./rename-after-render.md)
 * [Rename file](./rename-file.md)
 * [Rename `getAngularLib`/`setAngularLib` to `getAngularJSGlobal`/`setAngularJSGlobal`](./rename-angular-js-globals.md)
-* [Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`](./rename-check-no-changes.md)
+* [Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesConfig`](./rename-check-no-changes.md)
 * [Rename `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection`](./rename-zoneless-provider.md)
 * [Rename `ssr.experimentalPlatform` to `ssr.platform` in `angular.json`](./rename-ssr-experimental-platform.md)
 * [Replace `HttpClientModule` with `provideHttpClient()`](./replace-http-client-module.md)

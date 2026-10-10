@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.jackson.FindJsonSetterNullsAsEmptyCollections","displayName":"Find `@JsonSetter(nulls = Nulls.AS_EMPTY)` on empty collection fields","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.jackson.FindJsonSetterNullsAsEmptyCollections","displayName":"Find `@JsonSetter(nulls = Nulls.AS_EMPTY)` on empty collection fields","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"addJsonIgnore=true\""}}>
 
 ## Usage
 

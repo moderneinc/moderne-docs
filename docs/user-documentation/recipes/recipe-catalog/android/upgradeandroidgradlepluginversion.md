@@ -4,6 +4,11 @@ sidebar_label: "Upgrade Android Gradle Plugin version"
 hide_title: true
 ---
 
+
+<head>
+  <link rel="canonical" href="https://docs.openrewrite.org/recipes/android/upgradeandroidgradlepluginversion" />
+</head>
+
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
@@ -11,19 +16,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   description={"Upgrade the Android Gradle Plugin (AGP) version. Handles both the legacy `buildscript { dependencies { classpath 'com.android.tools.build:gradle:...' } }` form (delegating to the upstream `UpgradeDependencyVersion` recipe for full DSL coverage) and the modern `plugins { id(\"com.android.application\") version \"...\" }` form."}
   fqName={"org.openrewrite.android.UpgradeAndroidGradlePluginVersion"}
   languages={["OpenRewrite"]}
-  license={"Moderne Proprietary License"}
+  license={"Moderne Source Available License"}
+  sourceUrl={"https://github.com/openrewrite/rewrite/blob/main/rewrite-android/src/main/java/org/openrewrite/android/UpgradeAndroidGradlePluginVersion.java"}
 />
 
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
-  license={"Moderne Proprietary License"}
+  license={"Moderne Source Available License"}
   fqName={"org.openrewrite.android.UpgradeAndroidGradlePluginVersion"}
-  artifact={"org.openrewrite.recipe:rewrite-android"}
+  artifact={"org.openrewrite:rewrite-android"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.UpgradeAndroidGradlePluginVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md"}
-  moderneOnly
 >
 
 <RecipeHeader.Title>Upgrade Android Gradle Plugin version</RecipeHeader.Title>
@@ -50,7 +55,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.android.UpgradeAndroidGradlePluginVersion","displayName":"Upgrade Android Gradle Plugin version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-android","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_ANDROID","requiresConfiguration":true,"cliOptions":" --recipe-option \"newVersion=8.5.0\" --recipe-option \"versionPattern=8.5.0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.android.UpgradeAndroidGradlePluginVersion","displayName":"Upgrade Android Gradle Plugin version","groupId":"org.openrewrite","artifactId":"rewrite-android","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_ANDROID","requiresConfiguration":true,"cliOptions":" --recipe-option \"newVersion=8.5.0\"","optionalCliOptions":" --recipe-option \"versionPattern=8.5.0\""}}>
 
 ## Usage
 

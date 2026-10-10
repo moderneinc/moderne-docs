@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.CommentOutSpringPropertyKey","displayName":"Comment out Spring properties","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.files.enabled\" --recipe-option \"comment=This property is deprecated and no longer applicable starting from Spring Boot 3.0.x\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.CommentOutSpringPropertyKey","displayName":"Comment out Spring properties","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.files.enabled\" --recipe-option \"comment=This property is deprecated and no longer applicable starting from Spring Boot 3.0.x\"","optionalCliOptions":" --recipe-option \"commentOutProperty=true\""}}>
 
 ## Usage
 

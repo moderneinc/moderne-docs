@@ -5636,7 +5636,7 @@ _143 recipes_
   * Adds `&quot;aot&quot;: true` to build options in `angular.json`. Angular 9 made AOT compilation the default, and projects upgrading from Angular 8 should enable it explicitly. Build targets using a builder that already defaults `aot` to `true` (`@angular/build:application`, `@angular-devkit/build-angular:application`, `@angular-devkit/build-angular:browser-esbuild`) are left untouched.
 * [org.openrewrite.angular.migration.explicit-standalone-flag](/user-documentation/recipes/recipe-catalog/angular/migration/explicit-standalone-flag.md)
   * **Make standalone flag explicit**
-  * Adds `standalone: false` to Angular components, directives, and pipes that are declared in an `@NgModule`, and removes redundant `standalone: true` from the rest, since standalone became the default in Angular 19. Classes that are not declared in any `@NgModule` are left alone, because they are already standalone under the new default.
+  * Adds `standalone: false` to Angular components, directives, and pipes that are declared in an `@NgModule` or `TestBed`, and removes redundant `standalone: true` from the rest, since standalone became the default in Angular 19. Classes that are not declared in any `@NgModule` are left alone, because they are already standalone under the new default.
 * [org.openrewrite.angular.migration.migrate-constructor-to-inject](/user-documentation/recipes/recipe-catalog/angular/migration/migrate-constructor-to-inject.md)
   * **Migrate constructor injection to `inject()`**
   * Converts constructor parameter properties in Angular classes to field declarations using the `inject()` function. For example, `constructor(private svc: MyService) \{\}` becomes `private svc = inject(MyService);`.
@@ -5666,7 +5666,7 @@ _143 recipes_
   * Replaces `BrowserModule.withServerTransition(\{ appId: '...' \})` with `BrowserModule` and adds `\{ provide: APP_ID, useValue: '...' \}` to the NgModule providers. The `withServerTransition` method was removed in Angular 19.
 * [org.openrewrite.angular.migration.remove-component-factory-resolver](/user-documentation/recipes/recipe-catalog/angular/migration/remove-component-factory-resolver.md)
   * **Remove `ComponentFactoryResolver`**
-  * Replaces `resolver.resolveComponentFactory(Component)` with just `Component` and removes the `ComponentFactoryResolver` import. Since Ivy, `ViewContainerRef.createComponent` accepts the component class directly. `ComponentFactoryResolver` was deprecated in Angular 13 and removed in Angular 16.
+  * Replaces `resolver.resolveComponentFactory(Component)` with just `Component` only when passed directly to `createComponent`. Since Ivy, `ViewContainerRef.createComponent` accepts the component class directly. Retains factories used through their own `create` method.
 * [org.openrewrite.angular.migration.remove-default-project](/user-documentation/recipes/recipe-catalog/angular/migration/remove-default-project.md)
   * **Remove `defaultProject` from `angular.json`**
   * Removes the deprecated `defaultProject` property from `angular.json`. The `defaultProject` option was deprecated in Angular 13 and the CLI infers the default project from the workspace.
@@ -5713,8 +5713,8 @@ _143 recipes_
   * **Rename `getAngularLib`/`setAngularLib` to `getAngularJSGlobal`/`setAngularJSGlobal`**
   * Renames the `getAngularLib` and `setAngularLib` functions from `@angular/upgrade` to `getAngularJSGlobal` and `setAngularJSGlobal`. The deprecated aliases were removed in Angular 22.
 * [org.openrewrite.angular.migration.rename-check-no-changes](/user-documentation/recipes/recipe-catalog/angular/migration/rename-check-no-changes.md)
-  * **Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`**
-  * Renames `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug` in imports and usages. The experimental API was promoted to developer preview in Angular 20.
+  * **Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesConfig`**
+  * Renames `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesConfig` in imports and usages, the name the experimental API took when it became developer preview in Angular 20. Angular 20 also made `exhaustive` required, so it is added as `true` to match the Angular 19 default, dropped `useNgZoneOnStable`, and no longer accepts `interval` alongside `exhaustive: false`.
 * [org.openrewrite.angular.migration.rename-default-change-detection](/user-documentation/recipes/recipe-catalog/angular/migration/rename-default-change-detection.md)
   * **Rename `ChangeDetectionStrategy.Default` to `ChangeDetectionStrategy.Eager`**
   * Renames the deprecated `ChangeDetectionStrategy.Default` enum member to its Angular 22 replacement `ChangeDetectionStrategy.Eager`. Both members have the same value, so the change is behavior preserving.
@@ -5747,7 +5747,7 @@ _143 recipes_
   * Replaces deprecated `initialNavigation` router option values: `'legacy_enabled'` and `true` become `'enabledBlocking'`, `'legacy_disabled'` and `false` become `'disabled'`, and `'enabled'` becomes `'enabledNonBlocking'`. The legacy values were removed in Angular 11; `'enabled'` was renamed in Angular 14.
 * [org.openrewrite.angular.migration.replace-inject-flags](/user-documentation/recipes/recipe-catalog/angular/migration/replace-inject-flags.md)
   * **Replace `InjectFlags` with options object**
-  * Replaces deprecated `InjectFlags` enum usage in `inject()` calls with the corresponding options object. For example, `inject(MyService, InjectFlags.Optional)` becomes `inject(MyService, \{ optional: true \})`.
+  * Replaces deprecated `InjectFlags` enum usage in `inject()`, `Injector.get()`, and `TestBed.inject()` calls with the corresponding options object. For example, `injector.get(MyService, null, InjectFlags.Optional)` becomes `injector.get(MyService, null, \{ optional: true \})`.
 * [org.openrewrite.angular.migration.replace-load-children-string](/user-documentation/recipes/recipe-catalog/angular/migration/replace-load-children-string.md)
   * **Replace string-based `loadChildren` with dynamic `import()`**
   * Converts the deprecated string-based `loadChildren: 'path#Module'` syntax to dynamic imports: `loadChildren: () =&gt; import('path').then(m =&gt; m.Module)`.
@@ -7331,7 +7331,7 @@ _26 recipes_
 
 _License: Moderne Proprietary License_
 
-_51 recipes_
+_52 recipes_
 
 * [org.openrewrite.javascript.cleanup.simplify-object-pattern-property](/user-documentation/recipes/recipe-catalog/javascript/cleanup/simplify-object-pattern-property.md)
   * **Simplify object pattern properties**
@@ -7362,7 +7362,7 @@ _51 recipes_
   * Renames `componentWillMount`, `componentWillReceiveProps`, and `componentWillUpdate` to their UNSAFE_ prefixed versions.
 * [org.openrewrite.react.17.update-react-imports](/user-documentation/recipes/recipe-catalog/react/17/update-react-imports.md)
   * **Remove unnecessary React imports**
-  * Removes the default `import React from 'react'` when React is only used for JSX, which is no longer necessary with the new JSX transform in React 17+.
+  * Removes the default `import React from 'react'` when React is only used for JSX, and the automatic JSX runtime is explicitly enabled, or the file contains no JSX.
 * [org.openrewrite.react.18.remove-unstable-batched-updates](/user-documentation/recipes/recipe-catalog/react/18/remove-unstable-batched-updates.md)
   * **Remove `unstable_batchedUpdates`**
   * Removes `unstable_batchedUpdates` wrappers from `react-dom`. React 18 automatically batches all state updates, making this function unnecessary.
@@ -7423,6 +7423,9 @@ _51 recipes_
 * [org.openrewrite.react.19.replace-use-form-state](/user-documentation/recipes/recipe-catalog/react/19/replace-use-form-state.md)
   * **Replace `useFormState` with `useActionState`**
   * In React 19, `useFormState` from `react-dom` has been renamed to `useActionState` and moved to `react`.
+* [org.openrewrite.react.19.scoped-jsx-namespace](/user-documentation/recipes/recipe-catalog/react/19/scoped-jsx-namespace.md)
+  * **Import the scoped React JSX namespace**
+  * Imports React's JSX namespace for references to the global namespace removed in React 19.
 * [org.openrewrite.react.19.use-context-hook](/user-documentation/recipes/recipe-catalog/react/19/use-context-hook.md)
   * **Replace `useContext` with `use`**
   * In React 19, `useContext` is replaced by the `use` API. This recipe updates both direct and namespace imports.
@@ -7516,7 +7519,7 @@ _6 recipes_
 
 _License: Moderne Proprietary License_
 
-_222 recipes_
+_243 recipes_
 
 * [io.moderne.java.jsf.MigrateToJsf_2_3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
   * **Migrate to JSF 2.3**
@@ -7698,9 +7701,15 @@ _222 recipes_
 * [io.moderne.java.spring.boot3.UpgradeSpringKafka_3_3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringkafka_3_3.md)
   * **Migrate to Spring Kafka 3.3**
   * Migrate applications to the latest Spring Kafka 3.3 release.
+* [io.moderne.java.spring.boot4.AddAlwaysRetryPolicyUnboundedTodo](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addalwaysretrypolicyunboundedtodo.md)
+  * **Add TODO for `AlwaysRetryPolicy` lack of SF7 equivalent**
+  * Insert a `// TODO` comment at each `new AlwaysRetryPolicy()` construction site. SF7's `RetryPolicy.Builder#maxRetries(long)` javadoc notes `RetryTemplate` effectively caps at `Integer.MAX_VALUE`, so there is no exact unlimited-retry replacement. The author must choose between a bounded `.maxRetries(Integer.MAX_VALUE)` approximation and a `.timeout(Duration)` time-bounded policy.
 * [io.moderne.java.spring.boot4.AddAutoConfigureMockMvc](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addautoconfiguremockmvc-moderne-edition.md)
   * **Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc` (Moderne Edition)**
   * Adds `@AutoConfigureMockMvc` annotation to classes annotated with `@SpringBootTest` that use `MockMvc`.
+* [io.moderne.java.spring.boot4.AddExponentialRandomBackOffPolicyJitterTodo](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addexponentialrandombackoffpolicyjittertodo.md)
+  * **Add TODO for `ExponentialRandomBackOffPolicy` randomization loss**
+  * Insert a `// TODO` comment at each `new ExponentialRandomBackOffPolicy()` construction site noting that the downstream migration to spring-core `ExponentialBackOff` drops the multiplicative randomization. `RetryPolicy.Builder#jitter(Duration)` is the closest SF7 analog but is additive rather than multiplicative, so the semantics are not identical and the choice is left to the author.
 * [io.moderne.java.spring.boot4.AddFlywayStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addflywaystarters.md)
   * **Add Flyway starters**
   * Adds the spring-boot-starter-flyway dependency when Flyway usage is detected in the module.
@@ -7715,25 +7724,34 @@ _222 recipes_
   * Adds the spring-boot-starter-liquibase dependency when Liquibase usage is detected in the module.
 * [io.moderne.java.spring.boot4.AddModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarters.md)
   * **Add Spring Boot 4.0 modular starters**
-  * Add Spring Boot 4.0 starter dependencies based on package usage. Note: Higher-level starters (like data-jpa) include lower-level ones (like jdbc) transitively, so only the highest-level detected starter is added for each technology. A `-test` starter is only added when the module actually uses the test support it provides, such as a test slice annotation like `@DataJpaTest`. Production usage alone does not pull one in, so `-test` starters without a matching test-side trigger are skipped.
+  * Add Spring Boot 4.0 starter dependencies based on package usage. Usage of Spring Boot's own types is matched to the Spring Boot 4 module the type belongs to, using tables generated from the published Spring Boot artifacts. Spring Boot 3 types are first mapped to their Spring Boot 4 names. Note: Higher-level starters (like data-jpa) include lower-level ones (like jdbc) transitively, so only the highest-level detected starter is added for each technology. A `-test` starter is only added when the module actually uses the test support it provides, such as a test slice annotation like `@DataJpaTest`. Production usage alone does not pull one in, so `-test` starters without a matching test-side trigger are skipped.
+* [io.moderne.java.spring.boot4.AddModularStartersFromReferencedTypes](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstartersfromreferencedtypes.md)
+  * **Add the Spring Boot 4 modules of the referenced Spring Boot types**
+  * Adds the Spring Boot 4.x starters, or modules where no starter is published, that the Spring Boot types a project references belong to. This covers projects on Spring Boot 3 or earlier, whose types are first mapped to their Spring Boot 4 names, and projects on `spring-boot-starter-classic` or `spring-boot-starter-test-classic`, which bring in every module. A module used only from test sources is added in test scope, a starter is skipped when another starter added alongside it already includes all of its modules, and modules that are still on the classpath are not added again. On the classic starters, run this after they are swapped for the minimal `spring-boot-starter` and `spring-boot-starter-test`.
 * [io.moderne.java.spring.boot4.AddMongoDbRepresentationProperties](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmongodbrepresentationproperties.md)
   * **Add MongoDB representation properties for UUID and BigDecimal**
   * Adds the 'spring.mongodb.representation.uuid' property with value 'standard' and the 'spring.data.mongodb.representation.big-decimal' property with the value 'decimal128' to Spring configuration files when a MongoDB dependency is detected.
 * [io.moderne.java.spring.boot4.AddMssqlKerberosJaasConfig](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmssqlkerberosjaasconfig.md)
   * **Add `useDefaultJaasConfig=true` to MSSQL Kerberos JDBC URLs**
   * For MSSQL JDBC connections using Kerberos authentication (`authenticationScheme=JavaKerberos` or `integratedSecurity=true`), adds `useDefaultJaasConfig=true` to the connection string. This is required for compatibility with Keycloak 26.4+ which changes JAAS configuration handling.
+* [io.moderne.java.spring.boot4.AddUniformRandomBackOffPolicyTodo](/user-documentation/recipes/recipe-catalog/java/spring/boot4/adduniformrandombackoffpolicytodo.md)
+  * **Add TODO for unmigrated `UniformRandomBackOffPolicy` usage**
+  * Insert a `// TODO` comment at `new UniformRandomBackOffPolicy()` construction sites that the `FoldSpringRetryBackOffIntoRetryPolicyBuilder` recipe did not fold inline into a `RetryPolicy.Builder`. SF7 expresses uniform-random delay only through the policy builder's `.delay(Duration)` + `.jitter(Duration)` pair, not through a standalone `BackOff` instance, so a construction site outside the recognized RetryTemplate assembly pattern cannot be migrated mechanically.
 * [io.moderne.java.spring.boot4.AddUserDetailsServiceAutoConfigurationExclusion](/user-documentation/recipes/recipe-catalog/java/spring/boot4/adduserdetailsserviceautoconfigurationexclusion.md)
   * **Co-exclude `UserDetailsServiceAutoConfiguration` where `SecurityAutoConfiguration` is excluded**
   * Spring Boot 4.0 decoupled `SecurityAutoConfiguration` and `UserDetailsServiceAutoConfiguration`: only `SecurityAutoConfiguration` registers the `SecurityProperties` bean that `UserDetailsServiceAutoConfiguration` consumes, so an application that excludes only the former fails at startup. This recipe co-excludes `UserDetailsServiceAutoConfiguration` for both exclusion styles - the `exclude` / `excludeAutoConfiguration` annotation attributes and the `spring.autoconfigure.exclude` property/YAML setting. It is intended to run while the sources are still on the Spring Boot 3 namespace, before the Spring Boot 4.0 modular-starter package relocation, and it is idempotent.
 * [io.moderne.java.spring.boot4.AddUserDetailsServiceAutoConfigurationExclusionToAnnotations](/user-documentation/recipes/recipe-catalog/java/spring/boot4/adduserdetailsserviceautoconfigurationexclusiontoannotations.md)
   * **Co-exclude `UserDetailsServiceAutoConfiguration` on auto-configuration exclusion annotations**
-  * Appends `UserDetailsServiceAutoConfiguration` to any `exclude` / `excludeAutoConfiguration` annotation attribute that already excludes the servlet `SecurityAutoConfiguration` (for example on `@SpringBootApplication`, `@EnableAutoConfiguration`, or a `@WebMvcTest` slice). Boot 4.0 decoupled the two auto-configurations, and only `SecurityAutoConfiguration` registers the `SecurityProperties` bean that `UserDetailsServiceAutoConfiguration` consumes, so excluding only the former fails at startup. The Boot 3 FQN is added; the surrounding Spring Boot 4.0 migration relocates both classes into the `org.springframework.boot.security.autoconfigure` package. The change is annotation-agnostic (matched by the attribute value, not the annotation type), value-precise (it only appends where `SecurityAutoConfiguration` is actually excluded), and idempotent.
+  * Appends `ServletWebSecurityAutoConfiguration` and `UserDetailsServiceAutoConfiguration` to any `exclude` / `excludeAutoConfiguration` annotation attribute that already excludes the servlet `SecurityAutoConfiguration` (for example on `@SpringBootApplication`, `@EnableAutoConfiguration`, or a `@WebMvcTest` slice). Boot 4.0 moved the default security filter chain to `ServletWebSecurityAutoConfiguration`, and only `SecurityAutoConfiguration` registers the `SecurityProperties` bean that `UserDetailsServiceAutoConfiguration` consumes, so excluding only the former fails at startup, and excluding only those two leaves the application secured. Both are added on their Boot 4 names; the surrounding Spring Boot 4.0 migration relocates `SecurityAutoConfiguration` itself. The change is annotation-agnostic (matched by the attribute value, not the annotation type), value-precise (it only appends where `SecurityAutoConfiguration` is actually excluded), and idempotent.
+* [io.moderne.java.spring.boot4.AddUserDetailsServiceAutoConfigurationExclusionToProperties](/user-documentation/recipes/recipe-catalog/java/spring/boot4/adduserdetailsserviceautoconfigurationexclusiontoproperties.md)
+  * **Co-exclude `UserDetailsServiceAutoConfiguration` in `spring.autoconfigure.exclude`**
+  * Excludes `UserDetailsServiceAutoConfiguration` wherever `spring.autoconfigure.exclude` names the servlet `SecurityAutoConfiguration` without it. The class name is added as an entry of its own in whichever form the property takes: a comma-separated value, indexed keys, or a YAML sequence. `SecurityAutoConfiguration` itself is left for the surrounding Spring Boot 4.0 migration to relocate.
 * [io.moderne.java.spring.boot4.AddValidationStarterDependency](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addvalidationstarterdependency.md)
   * **Add `spring-boot-starter-validation` dependency**
   * In Spring Boot 4, validation is no longer auto-included from the web starter. This recipe adds the `spring-boot-starter-validation` dependency when Jakarta Validation annotations are used in the project.
 * [io.moderne.java.spring.boot4.AddWithHttpClientDefaultsToReactorBuilders](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addwithhttpclientdefaultstoreactorbuilders.md)
-  * **Preserve system-proxy defaults on Reactor HTTP client builders**
-  * Spring Boot 4.1 no longer applies `proxyWithSystemProperties()` by default on `ReactorClientHttpRequestFactoryBuilder` and `ReactorClientHttpConnectorBuilder`. This recipe appends `.withHttpClientDefaults()` to chains starting at `ClientHttpRequestFactoryBuilder.reactor()` or `ClientHttpConnectorBuilder.reactor()` to restore the previous behavior. Chains that already call `withHttpClientDefaults(..)` or `proxyWithSystemProperties(..)` are left untouched.
+  * **Preserve Reactor HTTP client defaults when upgrading to Spring Boot 4.1**
+  * Spring Boot 4.1 adds `proxyWithSystemProperties()` to the Reactor HTTP client defaults. Insert `.withHttpClientDefaults(client -&gt; client.compress(true))` immediately after `ClientHttpRequestFactoryBuilder.reactor()` or `ClientHttpConnectorBuilder.reactor()` to preserve the previous compression-only defaults. Existing explicit defaults and subsequent customizers are preserved. Use this recipe alongside an upgrade from Spring Boot below 4.1 to 4.1 or later, where `withHttpClientDefaults(..)` is available.
 * [io.moderne.java.spring.boot4.AdoptJackson3](/user-documentation/recipes/recipe-catalog/java/spring/boot4/adoptjackson3.md)
   * **Adopt Jackson 3**
   * Adopt Jackson 3 which is supported by Spring Boot 4 and Jackson 2 support is deprecated.
@@ -7743,6 +7761,9 @@ _222 recipes_
 * [io.moderne.java.spring.boot4.FlagGrpcClientStubsForImportGrpcClients](/user-documentation/recipes/recipe-catalog/java/spring/boot4/flaggrpcclientstubsforimportgrpcclients.md)
   * **Flag gRPC client stub injections that need `@ImportGrpcClients`**
   * Spring gRPC 1.0 auto-scanned generated proto stubs and registered them as client beans; Spring gRPC 1.1 no longer does, so each stub must be imported explicitly with `@ImportGrpcClients`. The correct stub list and annotation location are application-specific, so rather than editing code this recipe adds a TODO comment to classes that inject a gRPC client stub (a field or constructor/method parameter whose type extends `io.grpc.stub.AbstractStub`) so the annotation can be added by hand.
+* [io.moderne.java.spring.boot4.FoldSpringRetryBackOffIntoRetryPolicyBuilder](/user-documentation/recipes/recipe-catalog/java/spring/boot4/foldspringretrybackoffintoretrypolicybuilder.md)
+  * **Fold spring-retry `setBackOffPolicy` into SF7 `RetryPolicy.Builder.backOff(BackOff)`**
+  * Fold `retryTemplate.setBackOffPolicy(backOff)` into the corresponding SF7 `RetryPolicy.builder()...build()` chain via `.backOff(BackOff)` and delete the now-unnecessary setter call. Recognizes a contiguous block: a SF7 `RetryPolicy` local built via `RetryPolicy.builder()`, a spring-core `BackOff` local (typically `ExponentialBackOff` or `FixedBackOff`) with its setter chain, then a spring-retry `RetryTemplate` local followed by `setRetryPolicy` and `setBackOffPolicy` calls. The `BackOff` declaration and its setter block are reordered above the `RetryPolicy` declaration so the fold is a legal forward reference; the `setBackOffPolicy` statement is deleted. The spring-retry `RetryTemplate` type is left to a downstream `ChangeType` step. Any shape outside this exact template aborts the fold silently.
 * [io.moderne.java.spring.boot4.InlineSpringRetryMaxAttemptsExpressionConstants](/user-documentation/recipes/recipe-catalog/java/spring/boot4/inlinespringretrymaxattemptsexpressionconstants.md)
   * **Inline `maxAttemptsExpression` constants ahead of the Spring Framework 7 migration**
   * Replace a `static final String` constant referenced by spring-retry's `@Retryable(maxAttemptsExpression = ...)` with its literal value, so that the migration to Spring Framework 7's `maxRetriesString` can apply the required `maxAttempts`-to-`maxRetries` decrement instead of leaving a TODO. Only constants declared in the sources being migrated are resolved.
@@ -7782,6 +7803,12 @@ _222 recipes_
 * [io.moderne.java.spring.boot4.MigrateSpringRetry](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry.md)
   * **Migrate Spring Retry to Spring Resilience**
   * Handle spring-retry no longer managed by Spring Boot and the possible migration to Spring Core Resilience.
+* [io.moderne.java.spring.boot4.MigrateSpringRetryImperative](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretryimperative.md)
+  * **Migrate imperative spring-retry usage to Spring Framework 7**
+  * Migrate imperatively constructed spring-retry `RetryTemplate` beans to Spring Framework 7. Retypes `ExponentialBackOffPolicy` and `ExponentialRandomBackOffPolicy` to spring-core `ExponentialBackOff`, and `FixedBackOffPolicy` to `FixedBackOff`; rewrites `SimpleRetryPolicy`, `MaxAttemptsRetryPolicy`, `NeverRetryPolicy` and `TimeoutRetryPolicy` constructions to SF7 `RetryPolicy.builder()`; folds `retryTemplate.setBackOffPolicy(...)` into that builder; and retypes `RetryTemplate` to SF7. A `UniformRandomBackOffPolicy` set on the template is folded into the builder's `.delay(Duration)` / `.jitter(Duration)` pair, as SF7 has no standalone `BackOff` for it. TODO comments mark what has no clean SF7 equivalent: the randomization of `ExponentialRandomBackOffPolicy`, unfolded `UniformRandomBackOffPolicy` usages, and `AlwaysRetryPolicy` (`RetryTemplate` exhausts at `Integer.MAX_VALUE` by design). `NoBackOffPolicy` is left untouched, and `ExponentialBackOffPolicy.setSleeper(...)` calls need manual attention after the type change.
+* [io.moderne.java.spring.boot4.MigrateSpringRetryPolicyToRetryPolicyBuilder](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretrypolicytoretrypolicybuilder.md)
+  * **Migrate spring-retry `RetryPolicy` construction to Spring Framework 7 `RetryPolicy.builder()`**
+  * Rewrite construction of spring-retry policies at a local variable declaration into the equivalent `org.springframework.core.retry.RetryPolicy.builder()` chain from Spring Framework 7, and retype the local to SF7 `RetryPolicy`. Supported inputs: `SimpleRetryPolicy` (all four ctor overloads, with `traverseCauses` ignored and the classifier `Map.of(...)` bucketed into `.includes(...)`/`.excludes(...)`), `MaxAttemptsRetryPolicy` (default 3 attempts or explicit `int`), `NeverRetryPolicy` (zero retries), and `TimeoutRetryPolicy` (default 1000ms or explicit `long` ms, wrapped in `Duration.ofMillis(...)` for SF7). Trailing setter chains (`setMaxAttempts` on `SimpleRetryPolicy`/`MaxAttemptsRetryPolicy`, `setTimeout` on `TimeoutRetryPolicy`) are folded into the builder chain and the setter statements deleted; a setter overrides the corresponding constructor-time builder call. The `maxAttempts` argument is decremented by one to match SF7's `maxRetries` semantics. The migration is skipped when the local is reassigned, when any setter in the chain is unmappable, when the classifier is not an inline `Map.of(...)` literal with class-literal keys and boolean-literal values, or when the declaration has multiple named variables.
 * [io.moderne.java.spring.boot4.MigrateSpringRetryRecoverToRetryTemplate](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretryrecovertoretrytemplate.md)
   * **Migrate `@Retryable(recover=...)` + `@Recover` to programmatic `RetryTemplate`**
   * Convert spring-retry `@Retryable` methods that name a `@Recover` method into Spring Framework 7's programmatic `org.springframework.core.retry.RetryTemplate` wrapped in a try/catch that dispatches to the (now plain) recover method. Spring Framework 7's resilience `@Retryable` annotation has no equivalent to `@Recover`, so this conversion is required for recover-method semantics to survive the migration.
@@ -7812,6 +7839,9 @@ _222 recipes_
 * [io.moderne.java.spring.boot4.ModuleStarterRelocations](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulestarterrelocations.md)
   * **Spring Boot 4.0 Module Starter Relocations**
   * Relocate types and packages for Spring Boot 4.0 modular starters.
+* [io.moderne.java.spring.boot4.ModuleStarterRelocations_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulestarterrelocations_4_1.md)
+  * **Spring Boot 4.1 type relocations**
+  * Relocate types that Spring Boot 4.1 moved to a different package. The OAuth2 resource server auto-configuration and its `JwkSetUriJwtDecoderBuilderCustomizer` moved out of the `servlet` package, now that the resource server auto-configuration also applies outside servlet web applications.
 * [io.moderne.java.spring.boot4.ModuleUsesFlyway](/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesflyway.md)
   * **Module uses Flyway**
   * Precondition that marks all files in a module if Flyway usage is detected. Detection is based on having a Flyway dependency, using Flyway types, or having migration files.
@@ -7819,8 +7849,8 @@ _222 recipes_
   * **Module uses Liquibase**
   * Precondition that marks all files in a module if Liquibase usage is detected. Detection is based on having a Liquibase dependency, using Liquibase types, or having changelog files.
 * [io.moderne.java.spring.boot4.PreserveReactorHttpClientDefaults_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/preservereactorhttpclientdefaults_4_1.md)
-  * **Preserve system-proxy defaults on Reactor HTTP client builders**
-  * Spring Boot 4.1 no longer applies `proxyWithSystemProperties()` by default on `ReactorClientHttpRequestFactoryBuilder` and `ReactorClientHttpConnectorBuilder`. This recipe appends `.withHttpClientDefaults()` to affected builder chains to restore the previous behavior, but only while the module is still on a Spring Boot older than 4.1. Gating on the current version keeps the method from being reintroduced when a developer deliberately removes it after upgrading and later runs an upgrade to a newer 4.2+ release.
+  * **Preserve Reactor HTTP client defaults when upgrading to Spring Boot 4.1**
+  * Spring Boot 4.1 adds `proxyWithSystemProperties()` to the Reactor HTTP client defaults. Insert `.withHttpClientDefaults(client -&gt; client.compress(true))` to preserve the previous compression-only defaults, leaving explicit defaults and subsequent customizers untouched. Use this recipe alongside the dependency upgrade to Spring Boot 4.1 or later; the inserted method is not available in older versions. Only modules currently below 4.1 are eligible, so later upgrades do not reintroduce a defaults override that a developer removed.
 * [io.moderne.java.spring.boot4.RelocateAutoConfigurationExcludes](/user-documentation/recipes/recipe-catalog/java/spring/boot4/relocateautoconfigurationexcludes.md)
   * **Expand split `spring.autoconfigure.exclude` entries for Spring Boot 4.0**
   * Spring Boot 4.0 split several auto-configurations across per-technology modules, so that what one class configured in 3.5 is now configured by two or more independently activating classes. An application excluding the old class keeps only part of it disabled after the upgrade. One-to-one relocations need no recipe of their own: `ChangeType` and `ChangePackage` already rewrite fully qualified names in `application.properties` and `application.yaml` through `org.openrewrite.trait.Reference`. A `Reference` renames to a single name, however, so one-to-many splits are out of its reach. This recipe expands them into all of their successors, as derived from the `AutoConfiguration.imports` files of Spring Boot 3.5 and 4.0. Excluding a class that is not on the classpath is ignored by Spring Boot, so successors that an application does not use are harmless.
@@ -7902,9 +7932,18 @@ _222 recipes_
 * [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_1.md)
   * **Migrate to Spring Boot 4.1**
   * Migrate applications to the latest Spring Boot 4.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.1.
+* [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_2](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_2.md)
+  * **Migrate to Spring Boot 4.2**
+  * Migrate applications to the latest Spring Boot 4.2 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.2.
 * [io.moderne.java.spring.boot4.UpgradeSpringCloudAzure_7](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringcloudazure_7.md)
   * **Migrate Spring Cloud Azure to 7.x**
   * Upgrade `com.azure.spring` dependencies to the 7.x line, the Spring Cloud Azure release aligned with Spring Boot 4.0. The 6.x to 7.x transition is a version alignment with Spring Boot 4 / Spring Framework 7 / Spring Cloud 2025.1 and introduces no breaking API changes on top of the migrations already performed by the Boot 3.5 chain via `UpgradeSpringCloudAzure_6`.
+* [io.moderne.java.spring.boot4.UpgradeSpringGraphQl_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringgraphql_2_0.md)
+  * **Migrate to Spring for GraphQL 2.0**
+  * Migrate applications to Spring for GraphQL 2.0. This upgrades explicitly versioned Spring for GraphQL, GraphQL Java, Java DataLoader and Apollo Federation dependencies to the versions Spring for GraphQL 2.0 requires, and rewrites APIs deprecated for removal to their replacements.
+* [io.moderne.java.spring.boot4.UpgradeSpringHateoas_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringhateoas_3_0.md)
+  * **Migrate to Spring HATEOAS 3.0**
+  * Migrate applications to Spring HATEOAS 3.0, which ships with Spring Boot 4.0. Spring HATEOAS 3.0 moves to Jackson 3, renaming the `Jackson2*` media type modules and message converter, and removes APIs that were deprecated in the 1.x and 2.x lines. Removed APIs without a mechanical replacement are flagged with a comment.
 * [io.moderne.java.spring.boot4.UpgradeSpringKafka_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringkafka_4_0.md)
   * **Migrate to Spring Kafka 4.0**
   * Migrate applications to Spring Kafka 4.0. This includes removing deprecated configuration options that are no longer supported.
@@ -7913,13 +7952,16 @@ _222 recipes_
   * Migrate applications to Spring Kafka 4.1. This builds on the Spring Kafka 4.0 migration and rewrites APIs deprecated in 4.1 to their replacements.
 * [io.moderne.java.spring.boot4.UpgradeToJava21WhenUsingJooq](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradetojava21whenusingjooq.md)
   * **Upgrade to Java 21 when using jOOQ**
-  * Spring Boot 4 keeps a Java 17 baseline, but the jOOQ version it manages (3.20+) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.0 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619.
+  * Spring Boot 4.1 keeps a Java 17 baseline, but the jOOQ version it manages (3.21) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.1 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619.
 * [io.moderne.java.spring.cloud.contract.MigrateAutoConfigureWireMock](/user-documentation/recipes/recipe-catalog/java/spring/cloud/contract/migrateautoconfigurewiremock.md)
   * **Migrate `@AutoConfigureWireMock` to `@EnableWireMock`**
-  * Spring Cloud Contract 5.0 removed `@AutoConfigureWireMock` and the rest of the `spring-cloud-contract-wiremock` autoconfig package. Rewrite `@AutoConfigureWireMock` to `@EnableWireMock(@ConfigureWireMock(...))` from the official `wiremock-spring-boot` library, translating `port` and `httpsPort` directly and mapping `stubs`/`files` `classpath:` prefixes to `filesUnderClasspath` and `file:` prefixes to `filesUnderDirectory`. The old `port` default of `8080` is preserved so tests that relied on the fixed port continue to reach WireMock. Shapes that cannot be migrated losslessly (multi-location `stubs`/`files`, divergent `stubs`/`files` values, non-literal expressions) are annotated with a `TODO(migrate-wiremock)` comment.
+  * Spring Cloud Contract 5.0 removed `@AutoConfigureWireMock` and the rest of the `spring-cloud-contract-wiremock` autoconfig package. Rewrite `@AutoConfigureWireMock` to `@EnableWireMock(@ConfigureWireMock(...))` from the official `wiremock-spring-boot` library, translating `port` and `httpsPort` directly. `wiremock-spring-boot` reads stubs from `mappings/` and bodies from `__files/` under a single root, so `stubs` and `files` locations are translated to the `filesUnderClasspath` or `filesUnderDirectory` root that serves the same files, and WireMock's former `src/test/resources` default is kept when it holds stubs. The old `port` default of `8080` is preserved so tests that relied on the fixed port continue to reach WireMock. Shapes that cannot be migrated losslessly (multi-location or wildcard `stubs`/`files`, stubs outside a `mappings/` directory, divergent `stubs`/`files` roots, non-literal expressions) are annotated with a `TODO(migrate-wiremock)` comment.
+* [io.moderne.java.spring.cloud.contract.MigrateWireMockConfigurationCustomizer](/user-documentation/recipes/recipe-catalog/java/spring/cloud/contract/migratewiremockconfigurationcustomizer.md)
+  * **Migrate `WireMockConfigurationCustomizer` beans to `@ConfigureWireMock`**
+  * `@AutoConfigureWireMock` applied every `WireMockConfigurationCustomizer` bean in the test context, but Spring Cloud Contract 5.0 removed that interface and `wiremock-spring-boot` only reads its configuration from `@ConfigureWireMock`. Customizer beans that only register extensions with public no-arg constructors are replaced by `extensions = \{...\}` on the `@ConfigureWireMock` annotations of the same project; other customizer beans are annotated with a `TODO(migrate-wiremock)` comment.
 * [io.moderne.java.spring.cloud.contract.MigrateWireMockToWireMockSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/cloud/contract/migratewiremocktowiremockspringboot.md)
   * **Migrate from `spring-cloud-contract-wiremock` to `wiremock-spring-boot`**
-  * Spring Cloud Contract 5.0 removed the entire `spring-cloud-contract-wiremock` autoconfig package (including `@AutoConfigureWireMock`, `WireMockConfiguration`, `WireMockApplicationListener`, and `WireMockTestExecutionListener`). Migrate to the official `wiremock-spring-boot` integration, rewriting `@AutoConfigureWireMock` to `@EnableWireMock(@ConfigureWireMock(...))`, adding the `wiremock-spring-boot` test dependency, and removing configuration properties that no longer have any effect.
+  * Spring Cloud Contract 5.0 removed the entire `spring-cloud-contract-wiremock` autoconfig package (including `@AutoConfigureWireMock`, `WireMockConfiguration`, `WireMockConfigurationCustomizer`, `WireMockApplicationListener`, and `WireMockTestExecutionListener`). Migrate to the official `wiremock-spring-boot` integration for Spring Boot 4, rewriting `@AutoConfigureWireMock` to `@EnableWireMock(@ConfigureWireMock(...))` with the stub and body root it used to serve, moving extension-only `WireMockConfigurationCustomizer` beans onto `@ConfigureWireMock(extensions = ...)`, adding the `wiremock-spring-boot` test dependency, and removing configuration properties that no longer have any effect.
 * [io.moderne.java.spring.cloud2020.SpringCloudProperties_2020](/user-documentation/recipes/recipe-catalog/java/spring/cloud2020/springcloudproperties_2020.md)
   * **Migrate Spring Cloud properties to 2020**
   * Migrate properties found in `application.properties` and `application.yml`.
@@ -8096,7 +8138,7 @@ _222 recipes_
   * The `spring-jcl` module has been removed in Spring Framework 7.0 in favor of Apache Commons Logging 1.3.0. This recipe removes any explicit dependency on `org.springframework:spring-jcl`. The change should be transparent for most applications, as spring-jcl was typically a transitive dependency and the logging API calls (`org.apache.commons.logging.*`) remain unchanged.
 * [io.moderne.java.spring.framework7.RenameMemberCategoryConstants](/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamemembercategoryconstants.md)
   * **Rename MemberCategory field constants for Spring Framework 7.0**
-  * Renames deprecated `MemberCategory` constants to their new names in Spring Framework 7.0. `MemberCategory.PUBLIC_FIELDS` is renamed to `MemberCategory.INVOKE_PUBLIC_FIELDS` and `MemberCategory.DECLARED_FIELDS` is renamed to `MemberCategory.INVOKE_DECLARED_FIELDS`. These renames clarify the original intent of these categories and align with the rest of the API.
+  * Renames deprecated `MemberCategory` constants to their new names in Spring Framework 7.0. `MemberCategory.PUBLIC_FIELDS` is renamed to `MemberCategory.ACCESS_PUBLIC_FIELDS` and `MemberCategory.DECLARED_FIELDS` is renamed to `MemberCategory.ACCESS_DECLARED_FIELDS`. These renames clarify the original intent of these categories and align with the rest of the API.
 * [io.moderne.java.spring.framework7.RenameRequestContextJstlPresent](/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamerequestcontextjstlpresent.md)
   * **Rename `RequestContext.jstPresent` to `JSTL_PRESENT`**
   * Renames the protected static field `RequestContext.jstPresent` to `JSTL_PRESENT` in Spring Framework 7.0. This field was renamed as part of a codebase-wide effort to use uppercase for classpath-related static final field names (see https://github.com/spring-projects/spring-framework/issues/35525).
@@ -8105,7 +8147,7 @@ _222 recipes_
   * Replace `AbstractJUnit4SpringContextTests` and `AbstractTransactionalJUnit4SpringContextTests` base classes with `@ExtendWith(SpringExtension.class)` and `@Transactional` annotations. These base classes are deprecated in Spring Framework 7.0 in favor of the SpringExtension for JUnit Jupiter.
 * [io.moderne.java.spring.framework7.SimplifyReflectionHintRegistration](/user-documentation/recipes/recipe-catalog/java/spring/framework7/simplifyreflectionhintregistration.md)
   * **Simplify reflection hint registrations for Spring Framework 7.0**
-  * Removes deprecated `MemberCategory` arguments from `registerType()` calls on `ReflectionHints`. In Spring Framework 7.0, registering a reflection hint for a type now implies methods, constructors, and fields introspection. All `MemberCategory` values except `INVOKE_*` have been deprecated. This recipe removes those deprecated arguments, simplifying code like `hints.reflection().registerType(MyType.class, MemberCategory.DECLARED_FIELDS)` to `hints.reflection().registerType(MyType.class)`.
+  * Removes redundant introspection `MemberCategory` arguments from `ReflectionHints#registerType()`, `ReflectionHints#registerTypeIfPresent()`, `TypeHint.Builder#withMembers()`, and `TypeHint#builtWith()`. In Spring Framework 7.0, registering a type already enables introspection of its methods, constructors, fields, and nested classes. Field access, invocation, and unsafe allocation categories are preserved. For example, `hints.reflection().registerType(MyType.class, MemberCategory.INTROSPECT_DECLARED_METHODS)` becomes `hints.reflection().registerType(MyType.class)`.
 * [io.moderne.java.spring.framework7.UpdateGraalVmNativeHints](/user-documentation/recipes/recipe-catalog/java/spring/framework7/updategraalvmnativehints.md)
   * **Update GraalVM native reflection hints for Spring Framework 7.0**
   * Migrates GraalVM native reflection hints to Spring Framework 7.0 conventions. Spring Framework 7.0 adopts the unified reachability metadata format for GraalVM. This recipe renames deprecated `MemberCategory` constants and simplifies reflection hint registrations where explicit member categories are no longer needed.
@@ -8115,6 +8157,15 @@ _222 recipes_
 * [io.moderne.java.spring.framework7.WrapGenericMessageMapInMessageHeaders](/user-documentation/recipes/recipe-catalog/java/spring/framework7/wrapgenericmessagemapinmessageheaders.md)
   * **Wrap `GenericMessage` map argument in `MessageHeaders`**
   * Wraps the `Map` argument in `GenericMessage` constructors in Kotlin sources with `MessageHeaders(map)` to explicitly use the `MessageHeaders` overload. This resolves Kotlin overload resolution ambiguity between the `Map` and `MessageHeaders` constructor overloads.
+* [io.moderne.java.spring.graphql.MigrateDefaultScrollSubrange](/user-documentation/recipes/recipe-catalog/java/spring/graphql/migratedefaultscrollsubrange.md)
+  * **Migrate `defaultScrollSubrange(ScrollSubrange)` to `defaultScrollSubrange(int, Function)`**
+  * The `defaultScrollSubrange(ScrollSubrange)` methods on the `QuerydslDataFetcher` and `QueryByExampleDataFetcher` builders are deprecated for removal in favor of `defaultScrollSubrange(int, Function&lt;Boolean, ScrollPosition&gt;)`. This recipe rewrites calls passing `ScrollSubrange.create(position, count, forward)` to `defaultScrollSubrange(count, forward -&gt; position)`, mirroring the deprecated method, which ignores the `forward` flag.
+* [io.moderne.java.spring.graphql.MigrateGraphQlArgumentBinderConstructor](/user-documentation/recipes/recipe-catalog/java/spring/graphql/migrategraphqlargumentbinderconstructor.md)
+  * **Migrate `GraphQlArgumentBinder` constructors to `GraphQlArgumentBinder.Options`**
+  * The `GraphQlArgumentBinder(ConversionService)` and `GraphQlArgumentBinder(ConversionService, boolean)` constructors are deprecated for removal in Spring for GraphQL 2.0 in favor of `GraphQlArgumentBinder(GraphQlArgumentBinder.Options)`.
+* [io.moderne.java.spring.graphql.MigrateSetFallBackOnDirectFieldAccess](/user-documentation/recipes/recipe-catalog/java/spring/graphql/migratesetfallbackondirectfieldaccess.md)
+  * **Migrate `setFallBackOnDirectFieldAccess` to `configureBinder`**
+  * `AnnotatedControllerConfigurer.setFallBackOnDirectFieldAccess(boolean)` is deprecated for removal in Spring for GraphQL 2.0 in favor of `configureBinder(Consumer&lt;GraphQlArgumentBinder.Options&gt;)`. This recipe rewrites `setFallBackOnDirectFieldAccess(flag)` to `configureBinder(options -&gt; options.fallBackOnDirectFieldAccess(flag))`.
 * [io.moderne.java.spring.hibernate.MigrateDaoSupportGetSession](/user-documentation/recipes/recipe-catalog/java/spring/hibernate/migratedaosupportgetsession.md)
   * **Migrate `HibernateDaoSupport#getSession()` usage**
   * Migrate `HibernateDaoSupport#getSession()` usage to `HibernateDaoSupport#getSessionFactory()#getCurrentSession()` and annotate the methods with `@Transactional`.
@@ -8151,6 +8202,21 @@ _222 recipes_
 * [io.moderne.java.spring.security.MigrateAcegiToSpringSecurity_5_0](/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0.md)
   * **Migrate from Acegi Security 1.0.x to Spring Security 5.0**
   * Migrates Acegi Security 1.0.x directly to Spring Security 5.0. This recipe handles dependency changes, type renames, XML configuration updates, web.xml filter migration, and adds TODO comments for password encoders that require manual migration.
+* [io.moderne.java.spring.security.oauth.MigrateOAuth2RestTemplateBean](/user-documentation/recipes/recipe-catalog/java/spring/security/oauth/migrateoauth2resttemplatebean.md)
+  * **Migrate `OAuth2RestTemplate` beans to `RestTemplate` with an OAuth2 interceptor**
+  * Replaces a `@Bean` method returning a Spring Security OAuth `OAuth2RestTemplate` with one returning a plain `RestTemplate` configured with `OAuth2ClientHttpRequestInterceptor`, and moves the `ClientCredentialsResourceDetails` settings that built it into `spring.security.oauth2.client.registration.default.*` properties. Since `OAuth2RestTemplate` extends `RestTemplate`, call sites continue to compile unchanged. Beans whose settings cannot all be read at compile time are left exactly as they are and marked for a manual migration, because a template stripped of its credentials would still compile while failing at runtime.
+* [io.moderne.java.spring.security.oauth.MigrateResourceServerConfigurerAdapter](/user-documentation/recipes/recipe-catalog/java/spring/security/oauth/migrateresourceserverconfigureradapter.md)
+  * **Migrate `ResourceServerConfigurerAdapter` to a `SecurityFilterChain` bean**
+  * Replaces the Spring Security OAuth `@EnableResourceServer` and `ResourceServerConfigurerAdapter` combination with a `SecurityFilterChain` bean calling `oauth2ResourceServer(..)`, as provided by `spring-security-oauth2-resource-server`. Classes that also override `configure(ResourceServerSecurityConfigurer)` are left untouched and marked instead: those calls have no faithful equivalent, and dropping `resourceId` in particular would silently stop the resource server validating the `aud` claim.
+* [io.moderne.java.spring.security.oauth.MigrateSpringSecurityOAuth](/user-documentation/recipes/recipe-catalog/java/spring/security/oauth/migratespringsecurityoauth.md)
+  * **Migrate from Spring Security OAuth to Spring Security**
+  * Migrates the client and resource server halves of the end-of-life `org.springframework.security.oauth:spring-security-oauth2` project onto the modules that replaced them in Spring Security, and drops the legacy dependencies; code that could not be migrated is marked and will fail to compile against the removed dependency, which is preferable to failing silently at runtime. Authorization servers built on `@EnableAuthorizationServer` are deliberately out of scope: Spring Authorization Server uses a different configuration model, moves the token endpoints, and drops the password grant, so those need a manual migration.
+* [io.moderne.java.spring.security.oauth.MigrateSpringSecurityOAuthClient](/user-documentation/recipes/recipe-catalog/java/spring/security/oauth/migratespringsecurityoauthclient.md)
+  * **Migrate Spring Security OAuth clients to Spring Security**
+  * Migrates the client half of the end-of-life `org.springframework.security.oauth:spring-security-oauth2` project to the `spring-security-oauth2-client` module. Flat `security.oauth2.client.*` properties and the settings that built an `OAuth2RestTemplate` in Java both become a single `default` client registration; rename it to something meaningful when a project has more than one client. Beans whose settings cannot all be read at compile time are left untouched and marked, since a template stripped of its credentials would compile but fail at runtime. Requires Spring Security 6.4 or later for `OAuth2ClientHttpRequestInterceptor`.
+* [io.moderne.java.spring.security.oauth.MigrateSpringSecurityOAuthResourceServer](/user-documentation/recipes/recipe-catalog/java/spring/security/oauth/migratespringsecurityoauthresourceserver.md)
+  * **Migrate Spring Security OAuth resource servers to Spring Security**
+  * Migrates the resource server half of the end-of-life `org.springframework.security.oauth:spring-security-oauth2` project to the `spring-security-oauth2-resource-server` module. Note that the legacy project shares the `org.springframework.security.oauth2` package root with its replacement, so every type here is matched by exact name rather than by package. Configuration classes that cannot be migrated faithfully are left exactly as they are and marked for a manual migration rather than partially rewritten.
 * [io.moderne.java.spring.security6.MigrateAntPathRequestMatcher](/user-documentation/recipes/recipe-catalog/java/spring/security6/migrateantpathrequestmatcher.md)
   * **Migrate antPathRequestMatcher to pathPatternRequestMatcher**
   * In Spring Security 6.5, `AntPathRequestMatcher` is deprecated in favor of `PathPatternRequestMatcher`. This recipe migrates static method calls and constructor usage to the new pattern in both Java and Kotlin sources.

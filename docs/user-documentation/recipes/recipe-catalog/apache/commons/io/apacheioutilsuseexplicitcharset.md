@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset","displayName":"Use IOUtils method that include  their charset encoding","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.apache.commons.io.ApacheIOUtilsUseExplicitCharset","displayName":"Use IOUtils method that include  their charset encoding","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"encoding=UTF_8\""}}>
 
 ## Usage
 

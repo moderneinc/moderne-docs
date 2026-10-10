@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.logging.ParameterizedLogging","displayName":"Parameterize logging statements","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.slf4j.Logger info(..)\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.logging.ParameterizedLogging","displayName":"Parameterize logging statements","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"methodPattern=org.slf4j.Logger info(..)\"","optionalCliOptions":" --recipe-option \"removeToString=true\""}}>
 
 ## Usage
 

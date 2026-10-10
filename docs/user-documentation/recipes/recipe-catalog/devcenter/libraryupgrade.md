@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.LibraryUpgrade","displayName":"Library upgrade","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"cardName=Move to Spring Boot 4.0\" --recipe-option \"groupIdPattern=com.fasterxml.jackson.module\" --recipe-option \"artifactIdPattern=jackson-module-*\" --recipe-option \"version=3.4.1\" --recipe-option \"upgradeRecipe=io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5\""}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.LibraryUpgrade","displayName":"Library upgrade","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":true,"cliOptions":" --recipe-option \"cardName=Move to Spring Boot 4.0\" --recipe-option \"groupIdPattern=com.fasterxml.jackson.module\" --recipe-option \"artifactIdPattern=jackson-module-*\" --recipe-option \"version=3.4.1\"","optionalCliOptions":" --recipe-option \"upgradeRecipe=io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5\""}}>
 
 ## Usage
 

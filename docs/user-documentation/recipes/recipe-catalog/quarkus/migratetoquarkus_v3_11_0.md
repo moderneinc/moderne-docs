@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.10.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_10_0/"},{"name":"io.quarkus.updates.core.quarkus311.SyncHibernateJpaModelgenVersionWithBOM","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus311/synchibernatejpamodelgenversionwithbom/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
+<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.10.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_10_0/"},{"name":"io.quarkus.updates.core.quarkus311.SyncHibernateJpaModelgenVersionWithBOM","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus311/synchibernatejpamodelgenversionwithbom/"},{"name":"io.quarkus.updates.core.quarkus311.WebDependencyLocatorRelocations","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus311/webdependencylocatorrelocations/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

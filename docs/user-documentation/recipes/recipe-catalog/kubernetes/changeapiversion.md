@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.ChangeApiVersion","displayName":"Change Kubernetes API version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldApiVersion=flowcontrol.apiserver.k8s.io/v1beta3\" --recipe-option \"newApiVersion=flowcontrol.apiserver.k8s.io/v1\" --recipe-option \"kind=PodDisruptionBudget\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.kubernetes.ChangeApiVersion","displayName":"Change Kubernetes API version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-kubernetes","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_KUBERNETES","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldApiVersion=flowcontrol.apiserver.k8s.io/v1beta3\" --recipe-option \"newApiVersion=flowcontrol.apiserver.k8s.io/v1\"","optionalCliOptions":" --recipe-option \"kind=PodDisruptionBudget\" --recipe-option \"fileMatcher='**/pod-*.yml'\""}}>
 
 ## Usage
 

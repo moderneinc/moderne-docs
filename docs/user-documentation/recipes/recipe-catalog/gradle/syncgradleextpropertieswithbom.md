@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.gradle.SyncGradleExtPropertiesWithBom","displayName":"Sync Gradle ext properties with BOM","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.springframework.boot\" --recipe-option \"artifactId=spring-boot-dependencies\" --recipe-option \"version=3.4.0\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.gradle.SyncGradleExtPropertiesWithBom","displayName":"Sync Gradle ext properties with BOM","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=org.springframework.boot\" --recipe-option \"artifactId=spring-boot-dependencies\" --recipe-option \"version=3.4.0\"","optionalCliOptions":" --recipe-option \"removeRedundantOverrides=true\""}}>
 
 ## Usage
 

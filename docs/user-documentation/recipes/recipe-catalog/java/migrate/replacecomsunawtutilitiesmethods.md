@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.ReplaceComSunAWTUtilitiesMethods","displayName":"Replace `com.sun.awt.AWTUtilities` static method invocations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.ReplaceComSunAWTUtilitiesMethods","displayName":"Replace `com.sun.awt.AWTUtilities` static method invocations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"getAWTIsWindowsTranslucencyPattern=com.sun.awt.AWTUtilities isTranslucencySupported(com.sun.awt.AWTUtilities.Translucency)\" --recipe-option \"isWindowOpaquePattern=com.test.AWTUtilities isWindowOpaque(java.awt.Window)\" --recipe-option \"isTranslucencyCapablePattern=com.test.AWTUtilities isTranslucencyCapable(java.awt.GraphicsConfiguration)\" --recipe-option \"setWindowOpacityPattern=com.test.AWTUtilities setWindowOpacity(java.awt.Window, float)\" --recipe-option \"getWindowOpacityPattern=com.test.AWTUtilities getWindowOpacity(java.awt.Window)\" --recipe-option \"getWindowShapePattern=com.test.AWTUtilitiesTest getWindowShape(java.awt.Window)\" --recipe-option \"setComponentMixingCutoutShapePattern=com.test.AWTUtilities setComponentMixingCutoutShape(java.awt.Component,java.awt.Shape)\""}}>
 
 ## Usage
 

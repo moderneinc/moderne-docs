@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.MoveFile","displayName":"Move a file","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":true,"cliOptions":" --recipe-option \"folder=src/main/resources/\" --recipe-option \"fileMatcher='**/*.yml'\" --recipe-option \"moveTo=../yamls/\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.MoveFile","displayName":"Move a file","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":true,"cliOptions":" --recipe-option \"moveTo=../yamls/\"","optionalCliOptions":" --recipe-option \"folder=src/main/resources/\" --recipe-option \"fileMatcher='**/*.yml'\""}}>
 
 ## Usage
 

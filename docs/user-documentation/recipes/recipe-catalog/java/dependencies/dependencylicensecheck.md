@@ -44,7 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.DependencyLicenseCheck","displayName":"Find licenses in use in third-party dependencies","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"scope=compile\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.DependencyLicenseCheck","displayName":"Find licenses in use in third-party dependencies","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":true,"cliOptions":" --recipe-option \"scope=compile\"","optionalCliOptions":" --recipe-option \"addMarkers=true\""}}>
 
 ## Usage
 

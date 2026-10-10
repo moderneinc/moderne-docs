@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `InjectFlags` with options object"}
-  description={"Replaces deprecated `InjectFlags` enum usage in `inject()` calls with the corresponding options object. For example, `inject(MyService, InjectFlags.Optional)` becomes `inject(MyService, { optional: true })`."}
+  description={"Replaces deprecated `InjectFlags` enum usage in `inject()`, `Injector.get()`, and `TestBed.inject()` calls with the corresponding options object. For example, `injector.get(MyService, null, InjectFlags.Optional)` becomes `injector.get(MyService, null, { optional: true })`."}
   fqName={"org.openrewrite.angular.migration.replace-inject-flags"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `InjectFlags` with options object</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces deprecated `InjectFlags` enum usage in `inject()` calls with the corresponding options object. For example, `inject(MyService, InjectFlags.Optional)` becomes `inject(MyService, { optional: true })`.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces deprecated `InjectFlags` enum usage in `inject()`, `Injector.get()`, and `TestBed.inject()` calls with the corresponding options object. For example, `injector.get(MyService, null, InjectFlags.Optional)` becomes `injector.get(MyService, null, { optional: true })`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
