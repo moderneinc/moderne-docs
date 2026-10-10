@@ -10,13 +10,246 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## October 10, 2026
+
+#### rewrite-cryptography - 0.17.0
+
+* Remove Sonatype snapshots repository
+
+#### rewrite-devcenter - 1.33.4
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-java-application-server - 0.11.0
+
+* Resolve org.openrewrite artifacts from Code Genome Project in Gradle integration test sample
+* Resolve the rewrite Gradle plugin from Code Genome in the integration test sample
+* Common static analysis issues
+
+#### rewrite-prethink - 0.16.0
+
+* Skip Maven archetype template poms in FindProjectMetadata
+* Use `.relativeTo()` in tests
+* Tolerate messaging rows without a destination in GenerateCalmMermaidDiagram
+* Group Dotnet and Go CALM data tables under architecture
+* OpenRewrite recipe best practices
+
+#### rewrite-vulncheck - 0.10.0
+
+* Remove Sonatype snapshots repository
+* Remove stale top-level workflows directory
+* Fix scope validation ignoring Scope.fromName result
+
 ## October 9, 2026
+
+#### recipes-csharp - 0.9.0
+
+* Remove Develocity configuration for retired ge.openrewrite.org
+* Drop unused workflow secrets and upgrade to Gradle 9.8.0
+* Match typeof as Cs.TypeOf and read using resources via ControlParentheses
+* Warn once per declaration of an obsolete type, not twice
+
+#### recipes-go - 0.12.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### recipes-javascript - 0.3.0
+
+* Adopt rewrite 8.92.18's scope, template and pattern APIs, and fix what the audit found
+
+#### recipes-kotlin - 0.6.0
+
+* Bump the Kotlin DSL toolchain to 2.4.20
+
+#### recipes-scala - 0.6.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-ai - 0.5.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-ai-search - 0.37.0
+
+* Fix discarded AssertJ assertions in model client tests
+
+#### rewrite-android - 0.20.0
+
+* Use the core UpgradeAndroidGradlePluginVersion recipe
+
+#### rewrite-angular - 1.14.0
+
+* Bump @openrewrite/rewrite from 8.91.6 to 8.92.2
+* Bump @openrewrite/rewrite from 8.92.2 to 8.92.6 in /recipes-angular
+* Replace InjectFlags in Injector.get and TestBed.inject calls
+* Migrate provideExperimentalCheckNoChangesForDebug to Angular 20
+* Add generated recipes.csv recipe metadata
+* OpenRewrite 8.92.15
+* Keep DI interceptors when replacing `HttpClientModule` with `provideHttpClient()`
+* Keep multiline `imports` and `providers` arrays well formed when moving HTTP modules
+* Provide `HttpClient` along with `provideHttpClientTesting()`
+* Replace `resolveComponentFactory` only where its result goes straight to `createComponent`
+* Mark components declared only in `TestBed` as `standalone: false`
+* Separate the inserted `standalone` flag from the property after it
+* Type hand-built options properties as a parse would
+* Adapt to rewrite 8.92.18, and type the HTTP client and router recipes
+* Bump source-map-js from 1.2.1 to 1.2.2 in /recipes-angular
+
+#### rewrite-circleci - 3.13.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-compiled-analysis - 0.16.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-concourse - 3.12.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-dotnet - 0.18.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-dropwizard - 0.8.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-elastic - 0.9.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-hibernate - 0.30.0
+
+* Flag untracked `LockOptions` variables with a TODO in `MigrateLockOptionsToDirectParameters`
+
+#### rewrite-jasperreports - 0.7.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-java-security - 3.43.0
+
+* Add FindMassAssignment (Sonar S4684)
+* Update dependency vulnerability test expectations for 2026-10-05 advisories
+* Reject invalid Maven scopes in dependency check validation
+* Generate SBOMs for npm, Python, NuGet, and Go with one recipe per language
+* Fix test compilation on main: restore char loop variable
+* Expect single cycle in directDependencyAlsoAppearsAsTransitive
+* Only upgrade C# dependencies declaring a lower exact or pinned version
+* Tolerate dependency coordinates without a version in RemoveUnusedDependencies
+
+#### rewrite-kafka - 0.8.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-kubernetes - 3.20.0
+
+* Only read the pod spec registry from the ExecutionContext when looking up paths
+
+#### rewrite-mainframe - 3.2.1
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-migrate-kotlin - 0.10.0
+
+* Upgrade to Kotlin 2.4.20
+* Migrate `@AutoValue` classes to Kotlin data classes
+* Widen the AutoValue conversion: factories, nested types, supertypes, unresolved types, keepJavaAccessors
+
+#### rewrite-migrate-python - 0.16.0
+
+* Run the Python LST tests instead of skipping them
+* Absorb the Python cleanup recipes from rewrite-static-analysis
+* Treat a None union member as builtin in NoneCompare
+
+#### rewrite-nodejs - 0.52.0
+
+* Expect fs-extra destructured require to split after upstream maybeRebind change
 
 #### rewrite-nodejs - v0.51.2
 
 * Prevent npm releases from depending on prerelease @openrewrite/rewrite
 * Add Upgrade to Node.js 20 recipe
 * Add UpgradeNode26 composite recipe
+
+#### rewrite-nullability - 0.7.1
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-program-analysis - 0.19.0
+
+* Remove ignored `getParameterTypes()` call in `FunctionalProgrammingAssertions`
+* Fix TaintedFieldAcrossFilesTest failures on main
+
+#### rewrite-react - 0.8.0
+
+* Merge claude.md into CLAUDE.md to fix case collision
+* Add generated recipes.csv recipe catalog
+* Keep destructured props flat when removing `forwardRef`
+* Import React's scoped `JSX` namespace where React 19 removed the global one
+* Remove `.Provider` only from React contexts
+* Type the `ref` prop with `React.RefAttributes` when removing `forwardRef`
+* Keep `import React` in files with JSX unless the project uses the automatic JSX runtime
+* Upgrade React's dependencies only to the final version when composing upgrades
+* Replace only React DOM's `useFormState`
+* Parenthesize the parameter of an arrow function typed in place of `React.FC`
+* Migrate string refs to instance fields, not to the frozen `refs` object
+* Move `React.renderToString` and `renderToStaticMarkup` to `react-dom/server`
+* Upgrade `react-test-renderer` along with React 19
+* Add the `react-dom` and `prop-types` imports that `ReactToReactDom` and `ReactPropTypes` reference
+* Type hand-built tag literals and `undefined` as a parse would
+* Adapt to rewrite 8.92.18, and bind the React 18/19 API templates through their context
+
+#### rewrite-reactive-streams - 0.21.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-release-metromap - 0.7.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-spring - 0.44.0
+
+* Scaffold Spring Boot 4.2 migration recipe
+* Remove Sonatype snapshots repository
+* Migrate Spring Security OAuth clients and resource servers
+* Fix `AddWithHttpClientDefaultsToReactorBuilders` (was producing code that does not compile)
+* Migrate `RedisProperties` to `DataRedisProperties` for Spring Boot 4
+* Regenerate recipes.csv
+* Fix Spring 7 reflection member category migration
+* Upgrade to Java 21 for jOOQ only in Spring Boot 4.1 migration
+* Close modular-starter gaps when migrating off the classic starters
+* Relocate OAuth2 resource server types moved in Spring Boot 4.1
+* Migrate an excluded SecurityAutoConfiguration to its three Spring Boot 4 names, one class name per entry
+* Remove Gradle ext version overrides that Spring Boot 4.0 already meets
+* Remove redundant Gradle ext version overrides in the Spring Boot 3.4, 3.5, 4.1 and 4.2 migrations too
+* Keep the stubs, injection and customizers working when migrating @AutoConfigureWireMock to wiremock-spring-boot
+* [Auto] Spring Cloud property migration recipes as of 2026-10-06T1111
+* Relocate deprecated Spring Security types removed in 7.0
+* Skip property migration PRs when only recipes.csv changed
+* Derive Spring Boot 4 modular starter additions from referenced types for both the classic and 3 → 4 paths
+* Fix ReplaceDeprecatedDockerApi for superclass constructor calls
+* Add missing removals of `throws Exception` clauses from Spring Security 7 overrides
+* Migrate imperative `RetryTemplate` construction off spring-retry
+* Add Spring HATEOAS 3.0 migration to the Spring Boot 4.0 upgrade
+* Add Spring for GraphQL 2.0 migration recipes
+
+#### rewrite-sql - 2.20.0
+
+* Handle derived DELETE USING sources, elided table qualifiers and wide integer literals
+* Read OFFSET and COUNT comparison literals wider than a long
+
+#### rewrite-struts - 0.30.1
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-tapestry - 0.7.2
+
+* Updated repository to use OpenRewrite version v8.93.0
+
+#### rewrite-terraform - 3.16.0
+
+* Add recipes to change module, provider, and data source attributes
 
 ## October 8, 2026
 
@@ -5518,15 +5751,4 @@ Republishing to update dependencies
 #### rewrite-terraform - 3.9.0
 
 * Update recipe documentation examples
-
-## October 9, 2025
-
-#### rewrite-java-security - 3.19.1
-
-* Application properties detection
-* Try to skip errors on resolving versions and only throw when no direct was able to bump the vulnerability.
-* Add a data table to RemoveUnusedDependencies which cites evidence of a dependency use
-* Update recipe documentation examples
-* Add new documentation examples
-* Avoid stackoverflow exception
 
