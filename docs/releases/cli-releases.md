@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.9.1           |
+| CLI version | 4.9.2           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,13 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.9.2 (2026-10-10)
+
+_Based on OpenRewrite 8.93.0_
+
+#### What's Changed CLI
+* Incorporates the latest version of OpenRewrite ([v8.93.0](https://github.com/openrewrite/rewrite/releases/tag/v8.93.0)) to improve code parsing accuracy and recipe execution reliability.
 
 ### CLI / DX v4.9.1 (2026-10-07)
 
