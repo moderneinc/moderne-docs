@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.32.0 (2026/10/12)
+
+- Bug fixes and other improvements.
+
 ### UI v14.31.0 (2026/10/09)
 
 - filters
