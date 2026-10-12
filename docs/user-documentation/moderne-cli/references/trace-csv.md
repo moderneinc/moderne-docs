@@ -81,15 +81,22 @@ Populated after `mod build`.
 | Column                            | Type     | Description                     | Example                              |
 |-----------------------------------|----------|---------------------------------|--------------------------------------|
 | `buildOutcome`                    | string   | Build result                    | `Succeeded`                          |
+| `buildFailureCategory`            | string   | Why a failed build failed       | `Other`                              |
+| `buildFailureException`           | string   | Innermost exception reported    | `java.lang.ClassNotFoundException`   |
+| `buildFailureReason`              | string   | Innermost cause, tool's words   | `org.gradle.api.plugins.MavenPlugin` |
 | `buildStartTime`                  | ISO 8601 | Build start timestamp           | `2026-02-19T00:12:22.215Z`           |
 | `buildEndTime`                    | ISO 8601 | Build end timestamp             | `2026-02-19T00:12:47.263Z`           |
 | `buildId`                         | string   | Build identifier                | `20260219000719-cYGAL`               |
 | `buildDependencyResolutionTimeMs` | integer  | Dependency resolution time (ms) | `13534`                              |
 | `buildChangeset`                  | string   | Git SHA at build time           | `a3b1862d...`                        |
+| `buildTool`                       | string   | Primary build tool              | `Maven`                              |
+| `buildToolVersion`                | string   | Primary build tool version      | `3.9.16`                             |
+| `buildJdk`                        | string   | JDK the build used              | `17.0.20.1-tem`                      |
 | `buildMavenVersion`               | string   | Maven version used              | `3.8.4`                              |
 | `buildGradleVersion`              | string   | Gradle version used             |                                      |
 | `buildBazelVersion`               | string   | Bazel version used              |                                      |
 | `buildDotnetVersion`              | string   | .NET version used               |                                      |
+| `buildGoVersion`                  | string   | Go version used                 | `1.25.14`                            |
 | `buildPythonVersion`              | string   | Python version used             |                                      |
 | `buildNodeVersion`                | string   | Node.js version used            |                                      |
 | `buildOsName`                     | string   | Build host OS                   | `Linux`                              |
@@ -169,8 +176,9 @@ Populated after `mod git commit`.
 | `commitOutcome`       | string   | Commit result          | `Succeeded`                |
 | `commitStartTime`     | ISO 8601 | Commit start timestamp | `2026-02-19T21:28:32.965Z` |
 | `commitEndTime`       | ISO 8601 | Commit end timestamp   | `2026-02-19T21:28:33.064Z` |
-| `commitId`            | string   | Commit identifier      | `20260219152832-ztzOh`     |
+| `commitId`            | string   | Run ID (not a git SHA) | `20260219152832-ztzOh`     |
 | `commitBranch`        | string   | Target branch          | `main`                     |
+| `commitSha`           | string   | Git SHA of the commit  | `5bc3ba70...`              |
 | `commitElapsedTimeMs` | integer  | Duration (ms)          | `99`                       |
 
 ## Push stage
