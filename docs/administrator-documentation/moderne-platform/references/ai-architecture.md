@@ -10,7 +10,6 @@ Moderne has integrated AI capabilities into our solution set in a number of ways
 
 * **Moddy, a multi-repo AI agent** that is an optional component to the Moderne Platform, combines suggestive AI with deterministic OpenRewrite recipes to help developers search, analyze, and transform codebases. 
 * **An AI-driven recipe search function** in the Moderne Platform enables you to use natural language search to find the most relevant recipes among thousands.
-* **A small set of OpenRewrite recipes that relegate tasks to AI** for certain functions.
 
 This architecture document will walk through all of the components and their use of AI.
 
@@ -73,26 +72,6 @@ We use two BAAI embedding models – one for retrieval and one for reranking. We
 
 Search results are saved on the worker, similar to any recipe run result. No data is permanently stored.
 
-## OpenRewrite recipes using AI
-
-### AI recipe recommendations
-
-Moderne has created recipes that can look through your code base and offer suggestions of recipes that you should consider running to help modernize or secure your code base. 
-
-You might also find it beneficial to read about [AI embeddings and how we use them](https://www.moderne.ai/blog/what-are-embeddings-and-why-are-they-great-for-code-impact-analysis).
-
-#### Deployment
-
-Exists inside of the `rewrite-ai-search` JAR. Only deployed if you deploy this artifact to your tenant alongside the other recipe artifacts.
-
-#### AI models
-
-Uses [QwenCoder](https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B) for generative recommendations. Uses BAAI embedding models for clustering-based smart sampling and search, with K-means clustering.
-
-#### State management
-
-Recipe recommendation results are stored on the worker, similar to other recipe runs. No data is permanently saved.
-
 ## Frequently asked questions
 
 ### Can I configure and customize AI features?
@@ -100,7 +79,6 @@ Recipe recommendation results are stored on the worker, similar to other recipe 
 Moderne customers can choose what AI features they want to enable or disable. For instance, you can:
 
 * Disable AI-powered search and rely on keyword matching only.
-* Choose not to import any of the AI-powered recipes.
 * Toggle the Moddy AI agent availability.
 
 Furthermore, many of our AI features offer you the flexibility of bringing your own model so that you can ensure that the model you use meets your safety and security standards.
