@@ -130,7 +130,7 @@ Ask your agent:
 
 > Use `find_implementations` to list every class that implements `org.springframework.data.repository.Repository`, including indirect implementations through subinterfaces.
 
-This walks the full type hierarchy, which is exactly the kind of question Trigrep's `implements:` filter can only answer at one level. The MCP version goes deep.
+This walks the full type hierarchy. Trigrep's `implements:` filter follows the same transitive closure, but it returns matching lines, while the MCP tool returns each implementing class as a structured result.
 
 ### Takeaways
 
