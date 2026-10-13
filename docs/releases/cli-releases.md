@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.9.2           |
+| CLI version | 4.10.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,35 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.10.0 (2026-10-12)
+
+_Based on OpenRewrite 8.93.3_
+
+#### What's Changed
+* One trigrep per tenant: shards of whole repositories, segment postings over resolved names, and a build's index as the one thing assembled
+* Assemble a converted build's index where the build is, not in the temp directory the swap discards
+* Map a rune on a file boundary past empty files, so a search does not spin on one
+* Read a shard's trigram table and section indexes where it is mapped, so an open shard holds no heap for them
+* Sweep the tenant's shards several at a time, widening as shards come back without filling the page
+* Keep the Bazel build bar's percentage on the count it shows while the target total grows
+* More efficient check in `EclipseBuildStepTest`
+* Record the created commit's SHA in the commit trace
+* Sweep every shard of a trigrep index at full width, for readers that want every match
+* Stop `mod build` silently skipping Maven
+* JvmLstDependencies to skip remote lookups for IntelliJ Platform local jars
+* Fix `mod study` to honor `--json` options
+* JvmLstDependencies to skip remote lookups for a build’s own modules
+* Give Bazel java_test and java_binary targets their compile classpath
+* Locate each type-table chain entry once
+* Build and run pip recipe packages a working set holds as source
+* Fail Maven builds loudly on validation errors
+* Let the trace analyzer page scroll so the data table stays reachable
+* Read trigrep `file:` values as Sourcegraph-style path regexes
+* Build a converted source set's npm, pip, Go and NuGet type tables from packages fetched by coordinate
+* Keep secrets out of moderne.yml, in the OS keychain or a secrets file
+* Report a failed `nuget.config` write as a warning, not a stack trace
+* Reject unconstrained searches and expose precise trigrep evidence
 
 ### CLI / DX v4.9.2 (2026-10-10)
 

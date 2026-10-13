@@ -74,6 +74,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build bazel timeout edit**](#mod-config-build-bazel-timeout-edit)
 * [**mod config build bazel timeout show**](#mod-config-build-bazel-timeout-show)
 * [**mod config build dotnet**](#mod-config-build-dotnet)
+* [**mod config build dotnet nuget-config**](#mod-config-build-dotnet-nuget-config)
+* [**mod config build dotnet nuget-config delete**](#mod-config-build-dotnet-nuget-config-delete)
+* [**mod config build dotnet nuget-config edit**](#mod-config-build-dotnet-nuget-config-edit)
+* [**mod config build dotnet nuget-config show**](#mod-config-build-dotnet-nuget-config-show)
 * [**mod config build dotnet timeout**](#mod-config-build-dotnet-timeout)
 * [**mod config build dotnet timeout delete**](#mod-config-build-dotnet-timeout-delete)
 * [**mod config build dotnet timeout edit**](#mod-config-build-dotnet-timeout-edit)
@@ -418,6 +422,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * ~~[**mod config scm add**](#mod-config-scm-add-deprecated)~~ (deprecated)
 * ~~[**mod config scm remove**](#mod-config-scm-remove-deprecated)~~ (deprecated)
 * ~~[**mod config scm show**](#mod-config-scm-show-deprecated)~~ (deprecated)
+* [**mod config secrets**](#mod-config-secrets)
+* [**mod config secrets store**](#mod-config-secrets-store)
+* [**mod config secrets store delete**](#mod-config-secrets-store-delete)
+* [**mod config secrets store edit**](#mod-config-secrets-store-edit)
+* [**mod config secrets store show**](#mod-config-secrets-store-show)
 * [**mod config telemetry**](#mod-config-telemetry)
 * [**mod config telemetry wait-for-upload**](#mod-config-telemetry-wait-for-upload)
 * [**mod copilot**](#mod-copilot)
@@ -464,9 +473,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod monitor**](#mod-monitor)
 * [**mod opencode**](#mod-opencode)
 * [**mod opencode chat**](#mod-opencode-chat)
-* [**mod postbuild**](#mod-postbuild)
-* [**mod postbuild search**](#mod-postbuild-search)
-* [**mod postbuild search index**](#mod-postbuild-search-index)
 * [**mod prebuild**](#mod-prebuild)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
@@ -528,7 +534,6 @@ mod [subcommands]
 * `login`: Logs the CLI into Moderne
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
 * `opencode`: (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
-* `postbuild`: Post-build operations on LST artifacts.
 * `prebuild`: Extracts build metadata without parsing source files.
 * `publish`: Publishes the LST artifacts for one or more projects.
 * `run`: Runs an OpenRewrite recipe locally on pre-built LSTs.
@@ -1032,6 +1037,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `recipes`: Configures the recipe marketplace available to the CLI. Must be configured before you can run recipes.
 * `run`: Configures recipe run behavior.
 * `scm`: (DEPRECATED) Configures source code management.
+* `secrets`: Configures how secrets in the configuration are kept.
 * `telemetry`: Configures CLI telemetry.
 
 ## mod config agent-tools
@@ -2116,7 +2122,107 @@ mod config build dotnet [subcommands]
 
 ### Subcommands
 
+* `nuget-config`: Configure the nuget.config whose package sources dependency packages are fetched from.
 * `timeout`: Configure the build timeout.
+
+## mod config build dotnet nuget-config
+
+Configure the nuget.config whose package sources dependency packages are fetched from.
+
+
+Converting an LST to version 3 builds a type table for each NuGet dependency from its published package, fetched from the package sources of this _nuget.config_, or of the user profile's when none is configured. You can also use an environment variable that points to the location of the file with **`${ENV_VAR}`** syntax.
+
+### Usage
+
+```
+mod config build dotnet nuget-config [subcommands]
+```
+
+### Examples
+
+```
+mod config build dotnet nuget-config edit <path-to-nuget.config>
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured nuget.config.
+* `edit`: Configure the nuget.config whose package sources dependency packages are fetched from.
+* `show`: Displays the configured nuget.config.
+
+## mod config build dotnet nuget-config delete
+
+Removes the configured nuget.config.
+
+
+
+
+### Usage
+
+```
+mod config build dotnet nuget-config delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build dotnet nuget-config edit
+
+Configure the nuget.config whose package sources dependency packages are fetched from.
+
+
+### Usage
+
+```
+mod config build dotnet nuget-config edit [parameters]
+```
+
+### Examples
+
+```
+mod config build dotnet nuget-config edit <path-to-nuget.config>
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `nugetConfig` |  The location of a _nuget.config_ file to use. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build dotnet nuget-config show
+
+Displays the configured nuget.config.
+
+
+
+
+### Usage
+
+```
+mod config build dotnet nuget-config show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
 
 ## mod config build dotnet timeout
 
@@ -9573,6 +9679,91 @@ mod config scm show
 
 
 
+## mod config secrets
+
+Configures how secrets in the configuration are kept.
+
+
+Tokens and passwords are written to moderne.yml as null placeholders, so that reading the configuration does not reveal them.
+
+### Usage
+
+```
+mod config secrets [subcommands]
+```
+
+
+### Subcommands
+
+* `store`: Configures where the secrets of the global configuration are kept.
+
+## mod config secrets store
+
+Configures where the secrets of the global configuration are kept.
+
+
+Either the OS keychain (the macOS keychain, Windows Credential Manager, or the Secret Service of a Linux desktop through secret-tool) or a secrets.properties file beside moderne.yml. The keychain is the default on macOS and Windows, the file on Linux.
+
+### Usage
+
+```
+mod config secrets store [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Keeps secrets in the default store for this OS, moving every secret in moderne.yml there.
+* `edit`: Chooses where secrets are kept, moving every secret in moderne.yml there.
+* `show`: Displays where secrets are kept.
+
+## mod config secrets store delete
+
+Keeps secrets in the default store for this OS, moving every secret in moderne.yml there.
+
+
+### Usage
+
+```
+mod config secrets store delete
+```
+
+
+
+## mod config secrets store edit
+
+Chooses where secrets are kept, moving every secret in moderne.yml there.
+
+
+Secrets still in plain text move too, and one that can't be moved is reported.
+
+### Usage
+
+```
+mod config secrets store edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `store` |  Either 'keychain' or 'file'. |
+
+
+
+## mod config secrets store show
+
+Displays where secrets are kept.
+
+
+### Usage
+
+```
+mod config secrets store show
+```
+
+
+
 ## mod config telemetry
 
 Configures CLI telemetry.
@@ -10949,71 +11140,6 @@ mod opencode chat /path/to/organization --org <ORG_NAME>
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
-## mod postbuild
-
-Post-build operations on LST artifacts.
-
-
-### Usage
-
-```
-mod postbuild [subcommands]
-```
-
-
-### Subcommands
-
-* `search`: Trigram search index operations.
-
-## mod postbuild search
-
-Trigram search index operations.
-
-
-### Usage
-
-```
-mod postbuild search [subcommands]
-```
-
-
-### Subcommands
-
-* `index`: Build an organization-wide trigram search index.
-
-## mod postbuild search index
-
-Build an organization-wide trigram search index.
-
-
-Folds the trigram shards of every repository in the working set into one index under **.moderne/trigrep/** at its root, so a search across the whole organization opens a few large shards rather than every repository's own. A repository with a V2 LST is converted to V3 in place first. Does nothing when the index already holds each repository's latest build.
-
-### Usage
-
-```
-mod postbuild search index [parameters]
-```
-
-### Examples
-
-```
-mod postbuild search index /path/to/organization
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--force`, `-f` |  Rebuild the index even when it is up to date. |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-
-
 ## mod prebuild
 
 Extracts build metadata without parsing source files.
@@ -11172,7 +11298,7 @@ mod run-history [parameters]
 Search repositories using trigram indexes.
 
 
-Searches the pre-built merged trigram shards (**.zoekt** files) emitted by **mod build** for each repository in the working set. A repository with a V2 LST is auto-converted to V3 in place (which writes its shards) before searching; one with no LST, or whose LST predates trigram indexing, is skipped — rebuild it with **mod build**.%n%nQuery parts are joined with spaces (implicit AND) and passed straight to the query parser. To search for a literal phrase containing spaces, preserve the quotes through your shell, e.g. **'"phrase search"'**.
+Searches the trigram index each repository's latest build carries, the **index/** that **mod build** assembles with every type name resolved. A repository with a V2 LST is converted to V3 in place first, which assembles its index; one with no LST, or whose LST was built before its index was assembled, is skipped — rebuild it with **mod build**.%n%nQuery parts are joined with spaces (implicit AND) and passed straight to the query parser. To search for a literal phrase containing spaces, preserve the quotes through your shell, e.g. **'"phrase search"'**.
 
 ### Usage
 
@@ -11197,7 +11323,7 @@ mod search /path/to/working-set "@Autowired"
 
 | Name | Description |
 | ---- | ----------- |
-| `-m`, `--max` |  Maximum number of results per repository (default: 100). An explicit **count:** filter in the query overrides this. |
+| `-m`, `--max` |  Maximum number of matching files to show across the whole search (default: 100). An explicit **count:** filter in the query overrides this. |
 | `--output` |  Output mode: rich (default, highlighted diffs with run directory) or plain (fast text output) |
 | `--syntax` |  Query syntax: sourcegraph (default) or zoekt |
 | `-y`, `--yes` |  Proceed without confirmation for a search that cannot use the trigram index and must scan every file. Required when there is no console to prompt on. |
