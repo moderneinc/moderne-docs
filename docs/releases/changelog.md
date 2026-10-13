@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.33.0 (2026/10/13)
+
+- make nav beta label configurable; Code search is Preview
+
 ### UI v14.32.0 (2026/10/12)
 
 - Bug fixes and other improvements.
