@@ -50,8 +50,23 @@ _Based on OpenRewrite 8.93.3_
 
 _Based on OpenRewrite 8.93.0_
 
-#### What's Changed CLI
+#### What's Changed
 * Incorporates the latest version of OpenRewrite ([v8.93.0](https://github.com/openrewrite/rewrite/releases/tag/v8.93.0)) to improve code parsing accuracy and recipe execution reliability.
+* Count only aspect-eligible targets in the Bazel build progress bar
+* Rebuild the packages that load a changed .bzl instead of escalating to a full build
+* Break BazelHarvest down into BazelHarvest, BazelTargetOutput and BazelTypeTables
+* Read each Bazel source set's dependencies.bin once when resolving missing type tables from local jars
+* Accept Bazel query syntax in targetExpression
+* Restyle the agent tools browser with the Moderne design system
+* Attach JavaProject + GradleProject + BuildTool to gradle.properties
+* Pass configured Maven settings and package repositories to every recipe resolver
+* Negative cache for misses in JvmLstDependencies
+* Strip the -beta suffix from the Chocolatey download URL
+* Say why modw is downloading the Moderne CLI
+* Stop latest.release from picking milestones and release candidates
+* Report a failed Bazel query by Bazel's errors, and log why an incremental build escalated
+* Don't apply git ignore rules in the Bazel per-target build
+* Match the parse aspect's BEP key when Bazel appends its resolved parameters
 
 ### CLI / DX v4.9.1 (2026-10-07)
 
