@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.10.0           |
+| CLI version | 4.10.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,30 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.10.1 (2026-10-14)
+
+_Based on OpenRewrite 8.93.7_
+
+#### What's Changed
+* Pin ClassGraph to 4.x
+* `DependencyInsight` no longer reports each Gradle dependency twice in projects that have a `gradle.properties` file, or marks that file as a match. LSTs built with 4.9.2 or 4.10.0 keep the duplicates until they are rebuilt
+* Keep trigrep regex narrowing from dropping files the regex matches
+* Narrow trigrep regex and structural candidates from the rarest trigrams, once per file
+* Converting LSTs to the V3 format builds npm, pip and Go dependency type tables concurrently, and for Go only for the module versions a build compiles, making conversion of JavaScript, Python and Go repositories many times faster
+* Recipes scoped to a module, such as those using `ModuleHasDependency` as a precondition, now apply to a Gradle project's `gradle.properties`. LSTs need to be rebuilt to pick this up
+* Hold a repository too large for one shard in pieces that answer only together
+* Code search finds npm usages attributed to separate declaration packages and supports runtime-version filtering when builds provide verified npm identity and version metadata
+* Run every Gradle the CLI forks with a plain console
+* Converting LSTs to V3 asks a registry for a package it doesn't serve once per run, not once for every source set that depends on it. A monorepo with unresolvable dependencies no longer stalls conversion for hours
+* Fixed `mod claude chat` on Windows dropping keystrokes at the agent's interactive prompt
+* Drop SectionReader's unreachable zstd-frame path
+* Decompress a type table straight off its mapping
+* On Windows, the CLI now installs on machines whose endpoint security blocked unpacking the bundled Java runtime, and a failed unpack now stops with an error instead of reporting "Cannot find Moderne CLI JAR"
+* Query the git index in place, and reload it when its file changes
+* Bazel: Rebuild every target a changed file can affect in an incremental build
+* Keep JVM warnings off the wrapper's stdout
+* `sym:` and type filters such as `ref:` accept a wildcard in an unqualified name (`sym:get*`, `ref:*List`), and `sym:/regex/` is always searched as a regex
 
 ### CLI / DX v4.10.0 (2026-10-12)
 
