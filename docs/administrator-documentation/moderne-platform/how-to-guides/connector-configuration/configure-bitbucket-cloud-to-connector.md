@@ -68,13 +68,15 @@ The OAuth consumer requests the following permissions. Each permission is used f
 | `/2.0/user`        | GET    | Retrieve the authenticated user's profile |
 | `/2.0/user/emails` | GET    | Retrieve the user's email addresses       |
 
-**Repository access checks** (Projects - Read / Repositories):
+**Repository access checks** (Account - Read / Projects - Read / Repositories):
 
-| API endpoint                                            | Method | Purpose                            |
-|---------------------------------------------------------|--------|------------------------------------|
-| `/2.0/workspaces/{workspace}`                           | GET    | Check whether a workspace exists   |
-| `/2.0/repositories/{workspace}?page={page}&pagelen=100` | GET    | List repositories to verify access |
-| `/2.0/repositories/{workspace}/{repo}`                  | GET    | Retrieve repository details        |
+| API endpoint                                                            | Method | Purpose                                                |
+|-------------------------------------------------------------------------|--------|--------------------------------------------------------|
+| `/2.0/user/workspaces?pagelen=100`                                      | GET    | List the workspaces the user belongs to                |
+| `/2.0/user/workspaces/{workspace}/permissions/repositories?pagelen=100` | GET    | List the repositories the user can read in a workspace |
+| `/2.0/workspaces/{workspace}`                                           | GET    | Check whether a workspace exists                       |
+| `/2.0/repositories/{workspace}?page={page}&pagelen=100`                 | GET    | List repositories to verify access                     |
+| `/2.0/repositories/{workspace}/{repo}`                                  | GET    | Retrieve repository details                            |
 
 **Pull request operations** (Pull requests - Write):
 
@@ -95,6 +97,13 @@ The OAuth consumer requests the following permissions. Each permission is used f
 | API endpoint                                 | Method | Purpose     |
 |----------------------------------------------|--------|-------------|
 | `/2.0/repositories/{workspace}/{repo}/forks` | POST   | Create fork |
+
+**Branch operations** (Repositories - Write):
+
+| API endpoint                                                  | Method | Purpose                       |
+|---------------------------------------------------------------|--------|-------------------------------|
+| `/2.0/repositories/{workspace}/{repo}/refs/branches/{branch}` | GET    | Check whether a branch exists |
+| `/2.0/repositories/{workspace}/{repo}/refs/branches/{branch}` | DELETE | Delete a branch               |
 
 </details>
 
