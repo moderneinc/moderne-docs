@@ -491,6 +491,100 @@ Never state that a rule or mechanism exists without saying what it is. A sentenc
 
     You will need to create a `moderne.yml` file in the agent's working directory.
 
+### 26. State facts, do not stage deductions
+
+**Rule**: Write each fact as a plain statement. Do not present a fact as the logical consequence of the previous sentence, announce that a point is coming, or balance matches against non-matches in one sentence. These shapes read as generated text, and they often hide a sentence that adds nothing.
+
+**No rule-then-consequence.** Do not state a rule and then derive an example from it with "so". Give the example its own sentence.
+
+**Correct:**
+
+    Transitive dependencies match under their own name. A `JsonProcessingException`
+    is found by `dependency:jackson-core` even if your build only declares
+    `jackson-databind`.
+
+**Incorrect:**
+
+    A transitive dependency counts under its own name, so a `JsonProcessingException`
+    is `jackson-core` even where only `jackson-databind` is declared.
+
+**No announcing.** Do not open with "The difference is that", "It is worth noting that", or "The key point is". State the point. Then check that it is a point: an announced difference is often not a difference at all.
+
+**Correct:**
+
+    `sym:` accepts the same forms.
+
+**Incorrect:**
+
+    `sym:` accepts the same forms. The difference is that a simple name has to equal
+    the symbol's own name, so `sym:add` finds every method named `add` but not `addAll`.
+    <!-- The type filters also require an exact simple name, so there is no difference -->
+
+**No colon lists in prose.** Do not introduce an inline list with a colon. Make it a real list (Rule 22) or write a sentence about which item matters.
+
+**Correct:**
+
+    On its own, `dependency:` matches every way code can use a library, including
+    method calls on values whose type was inferred rather than written out.
+
+**Incorrect:**
+
+    Bare `dependency:` covers every kind of use: written type names, `new`, method
+    calls, field accesses, and Javadoc links.
+
+**No sentence that only carries a link.** A sentence whose whole job is to point at another section is signposting. Hang the link on a phrase that already says something, and make the phrase tell the reader why they would follow it. "See the note below" with no link fails both tests.
+
+**Correct:**
+
+    `type:symbol` is easy to confuse with `sym:`, which
+    [matches declarations by name rather than by text](#typesymbol-versus-sym).
+
+**Incorrect:**
+
+    `type:symbol` is easy to confuse with `sym:`.
+    [`type:symbol` versus `sym:`](#typesymbol-versus-sym) explains the difference.
+
+### 27. Describe the outcome, not the implementation
+
+**Rule**: Describe what the reader will see or get. Do not describe how the software decides, and do not borrow the vocabulary of the code or its commit messages.
+
+**Correct:**
+
+    Match file paths. You can write the path as a glob (`file:*.java`) or as a
+    regular expression (`file:\.kt$`).
+
+**Incorrect:**
+
+    Match file paths. A bare value is a regex, or a glob when it has a `*` that
+    follows anything other than `.`, `)`, `]`, or an escape. The value runs to the
+    next space, so `file:a|b` is one regex.
+    <!-- Explains the parser's disambiguation rule; the reader only needs to know both notations work -->
+
+**Give a reason a full sentence, or cut it.** A reason compressed into a trailing clause (e.g., "which needs quotes for its brackets") is too short to understand and too long to ignore. If the reason changes what the reader does, give it a sentence. If it does not, leave it out.
+
+**Correct:**
+
+    A Maven version range. Quote it, since the brackets and comma would otherwise
+    be read as query syntax.
+
+**Incorrect:**
+
+    A Maven version range, which needs quotes for its brackets.
+
+**Do not stack parentheticals.** A sentence with three parenthetical asides is a list wearing a disguise. Give each item a sentence, or use a table.
+
+**Correct:**
+
+    The version doesn't have to be exact. `2.15` and `2.15.x` both mean any 2.15
+    release. Ranges like `^2.15` and `~2.15.1` work too. A glob such as `*-jre`
+    matches against the version text as written.
+
+**Incorrect:**
+
+    A version can be a leading part (`2.15` and `2.15.x` both match every 2.15
+    release), a range (`^2.15`, `~2.15.1`, or a quoted Maven range), or a glob over
+    the version as written (`*-jre`).
+
 ## Complete example
 
 Here's what properly formatted documentation looks like:
@@ -566,6 +660,8 @@ When editing documentation, verify:
 * [ ] No wordy abstractions or filler phrases (Rule 23)
 * [ ] Exceptions stated separately from the general rule (Rule 24)
 * [ ] No sentences that restate the header or announce the topic (Rule 25)
+* [ ] No rule-then-"so" deductions, announced points, balanced match/non-match halves, colon lists in prose, or link-only sentences (Rule 26)
+* [ ] Outcomes described, not parser or implementation mechanics; reasons given a full sentence or cut (Rule 27)
 
 ---
 
