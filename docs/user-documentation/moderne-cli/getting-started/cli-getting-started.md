@@ -54,9 +54,9 @@ You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin ar
 </TabItem>
 </Tabs>
 
-The script installs a small wrapper that downloads the CLI on first use. It then points the CLI at app.moderne.io and runs `mod login`, which opens your browser. If you aren't already signed in to app.moderne.io, you'll first be asked to sign in to Moderne (via GitHub). Once you're signed in, you'll be taken to a page that asks whether the CLI can create a personal access token on your behalf. Click **Yes**.
+The script installs a small wrapper that downloads the CLI on first use. It makes `mod` available in your terminal, points the CLI to app.moderne.io, and then opens your browser so you can authorize it. Sign in if you aren't already (via GitHub), then click **Yes** when asked whether the CLI can create a personal access token on your behalf.
 
-The CLI stores the token on your machine, where it stays valid for a year, and then syncs the recipe marketplace so the agent can search and run recipes locally. You can check everything worked by running `mod --version`.
+Once you've confirmed, the CLI stores the token on your machine, where it stays valid for a year, and then syncs the recipe marketplace so the agent can search and run recipes locally. The sync takes a few minutes. You can check everything worked by running `mod --version`.
 
 <details>
 <summary>If the browser didn't open</summary>
