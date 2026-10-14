@@ -651,21 +651,21 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 
 ## Test modernization
 
-### [JUnit Jupiter best practices](../../recipes/recipe-catalog/java/testing/junit5/junit5bestpractices.md)
+### [JUnit 6 best practices](../../recipes/recipe-catalog/java/testing/junit/junit6bestpractices.md)
 
-> Migrates to JUnit 5 and applies best practices to tests. This recipe will: migrate from JUnit 4.x to JUnit Jupiter, statically import JUnit Jupiter assertions, remove the test prefix and public visibility from JUnit 5 tests, add `@ParameterizedTest` annotations, and improve lifecycle methods – among other things.
+> Migrates to JUnit 6 and applies best practices to tests. This recipe will: migrate from JUnit 4.x or 5.x to JUnit 6, statically import JUnit Jupiter assertions, remove the test prefix and public visibility from tests, add `@ParameterizedTest` annotations, and clean up assertions – among other things.
 
 #### CLI commands
 
 ```bash
-mod run . --recipe org.openrewrite.java.testing.junit5.JUnit5BestPractices
+mod run . --recipe org.openrewrite.java.testing.junit.JUnit6BestPractices
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
 #### Recipe results
 
 <figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![Code diff migrating JUnit 4 imports to JUnit Jupiter and removing test prefix from methods](./assets/junit-best-practices-example.png)
+  ![Code diff removing unused imports, dropping the test prefix from a method name, and replacing assertEquals with assertTrue and assertFalse](./assets/junit-best-practices-example.png)
   <figcaption>_Applying best practices to JUnit tests._</figcaption>
 </figure>
 
