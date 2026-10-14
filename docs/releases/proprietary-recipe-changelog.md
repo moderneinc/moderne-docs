@@ -10,6 +10,21 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## October 13, 2026
+
+#### rewrite-prethink - v0.17.1
+
+* Cover TypeScript in Node.js test quality recipe tests
+* Reuse the C# RPC process across tests to speed up CI
+
+#### rewrite-prethink - v0.17.0
+
+* Detect Node.js tests without assertions across assertion libraries
+* Count focused, skipped, concurrent and parameterized Node.js tests
+* Skip Node.js external calls and static waits that the test file mocks
+* Reduce false positives in Node.js test quality recipes
+* Detect Node.js subtests, template-named tests and assertions in helpers
+
 ## October 10, 2026
 
 #### rewrite-cryptography - 0.17.0
