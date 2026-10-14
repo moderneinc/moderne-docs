@@ -2239,7 +2239,7 @@ This release is not available due to publishing issues please use v3.45.1 instea
 #### What's Changed CLI
 
 * Updated where the CLI is published. We are no longer publishing to Azure due to size limitations of what could be uploaded. 
-    * If you were downloading the CLI via an Azure URL, you will need to [download it from the new URL](../user-documentation/moderne-cli/getting-started/cli-intro.md#step-1-download-the-cli).
+    * If you were downloading the CLI via an Azure URL, you will need to [download it from the new URL](../user-documentation/moderne-cli/getting-started/cli-intro.md#install-the-cli-and-log-in).
 
 ### CLI / DX v3.43.0 (2025-07-09)
 

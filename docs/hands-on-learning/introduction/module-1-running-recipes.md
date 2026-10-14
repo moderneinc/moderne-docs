@@ -83,10 +83,32 @@ irm https://app.moderne.io/cli/windows | iex
 </TabItem>
 </Tabs>
 
-Alternatively, you can install via a package manager:
+The script makes `mod` available in your terminal, points the CLI to app.moderne.io, and then opens your browser so you can authorize it. Sign in if you aren't already, then click **Yes** when asked whether the CLI can create a personal access token on your behalf.
+
+<figure>
+  ![Grant Access to Moderne CLI dialog requesting email, profile, and PAT permissions](./assets/grant-access.png)
+  <figcaption>_The authorization prompt. Click Yes to let the CLI create a token._</figcaption>
+</figure>
+
+Once you've confirmed, close the browser tab and return to the terminal. The CLI stores the token on your machine and then syncs the recipe marketplace. The sync takes a few minutes.
+
+<details>
+<summary>Installing with Homebrew or Chocolatey</summary>
+
+You can also install the wrapper with a package manager:
 
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
+
+A package manager installs only the wrapper. You will need to connect the CLI to app.moderne.io and authorize it yourself:
+
+```bash
+mod config moderne edit https://app.moderne.io
+mod login
+```
+
+The login command opens your browser for the same authorization, then syncs the recipe marketplace.
+</details>
 
 Verify the installation by opening a terminal and typing:
 
@@ -149,71 +171,20 @@ Commands:
 
 You should see a list of available commands.
 
-#### Step 2: Connect the CLI to Moderne
+#### Step 2: Confirm the recipes are available
 
-Moderne provides a hosted platform at [app.moderne.io](https://app.moderne.io/), a public instance backed by a large catalog of open-source repositories. Connecting your CLI to this endpoint lets you authenticate and easily run recipes against these repos.
-
-1. Connect the CLI to the Moderne Platform:
+Search for the first recipe you'll run in this workshop:
 
 ```bash
-mod config moderne edit https://app.moderne.io
+mod config recipes search CommonStaticAnalysis
 ```
+
+The CLI lists the closest matches and asks you to pick one. You should see `org.openrewrite.staticanalysis.CommonStaticAnalysis` at the top of the list. Enter its number to see the recipe's description and options, or press `Enter` on its own to leave the list. You'll choose recipes explicitly with `--recipe` later.
 
 <details>
-<summary>Reference output</summary>
+<summary>If the search finds nothing</summary>
 
-```text
-   ▛▀▀▚▖  ▗▄▟▜
-   ▌   ▜▄▟▀  ▐
-   ▛▀▀█▀▛▀▀▀▀▜
-   ▌▟▀  ▛▀▀▀▀▜
-   ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.10.0
-
-⏺ Configuring tenant https://app.moderne.io
-
-⏺ What to do next
-    > To log in, run mod config moderne login
-
-MOD SUCCEEDED in 1s
-```
-
-</details>
-
-2. Authenticate with Moderne:
-
-```bash
-mod config moderne login
-```
-
-<details>
-<summary>Reference output</summary>
-
-```text
-   ▛▀▀▚▖  ▗▄▟▜
-   ▌   ▜▄▟▀  ▐
-   ▛▀▀█▀▛▀▀▀▀▜
-   ▌▟▀  ▛▀▀▀▀▜
-   ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.10.0
-
-Opening a browser to complete authentication...
-
-Login successful, the token is valid for 365 days, until 2027-01-05T15:27:34-08:00
-
-MOD SUCCEEDED in 20s
-```
-![Grant Access to Moderne CLI dialog requesting email, profile, and PAT permissions](./assets/grant-access.png)
-
-![Browser confirmation showing successful Moderne CLI authentication](./assets/login-success.png)
-
-</details>
-
-This command will open a web page where you'll grant the CLI access. After granting access, the CLI will automatically configure and store your token locally. You should see a success message indicating your token is valid for 365 days.
-
-#### Step 3: Install the recipe packs you'll use
-
-You could download the full recipe catalog from Moderne using the `mod config recipes moderne sync` command, but this will take several minutes to run. For this workshop, you can install only the recipe JARs needed for the upcoming exercises with the following command:
+The marketplace sync didn't complete. The usual cause is a network that can't reach the marketplace. You can install the recipe JARs this workshop needs directly from the artifact repository instead:
 
 ```bash
 mod config recipes jar install \
@@ -224,61 +195,16 @@ mod config recipes jar install \
   org.openrewrite.recipe:rewrite-java-security
 ```
 
-<details>
-<summary>Reference output</summary>
+Then run the search again.
 
-```text
-   ▛▀▀▚▖  ▗▄▟▜
-   ▌   ▜▄▟▀  ▐
-   ▛▀▀█▀▛▀▀▀▀▜
-   ▌▟▀  ▛▀▀▀▀▜
-   ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.10.0
-
-⏺ Installing recipes from JAR artifacts
-
-Recipe resolution output will be written to log
-
-▶ org.openrewrite:rewrite-java
-    Selected version 8.71.0-SNAPSHOT
-    Found 98 recipes
-    ✓ Installed artifact
-▶ org.openrewrite.recipe:rewrite-migrate-java
-    Selected version 3.25.0-SNAPSHOT
-    Found 415 recipes
-    ✓ Installed artifact
-▶ org.openrewrite.recipe:rewrite-java-dependencies
-    Selected version 1.49.0-SNAPSHOT
-    Found 16 recipes
-    ✓ Installed artifact
-▶ org.openrewrite.recipe:rewrite-static-analysis
-    Selected version 2.25.0-SNAPSHOT
-    Found 171 recipes
-    ✓ Installed artifact
-▶ org.openrewrite.recipe:rewrite-java-security
-    Selected version 3.25.0-SNAPSHOT
-    Found 67 recipes
-    ✓ Installed artifact
-Done (51s)
-
-Installed 5 recipe JARs.
-
-MOD SUCCEEDED in 52s
-```
-
+If this step also fails, your network is probably blocking the artifact repository too. See [Deploying the CLI from an internal artifact repository](../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) for how to install the CLI and recipes from your organization's internal artifact repository (Artifactory/Nexus/etc.).
 </details>
-
-:::note
-If you are on a corporate network that blocks the CLI download, this step may fail. See [Deploying the CLI from an internal artifact repository](../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) for how to install the CLI from your organization's internal artifact repository (Artifactory/Nexus/etc.).
-:::
-
-Each JAR includes a collection of related recipes, so these four artifacts cover everything you need for now.
 
 :::tip
 If you only need a _single_ recipe, use `mod config recipes moderne install <search term>` (for example, `mod config recipes moderne install DependencyVulnerabilityCheck`). The CLI will list the closest matches for you to choose from.
 :::
 
-#### Step 4: Set up a workspace and sync repositories
+#### Step 3: Set up a workspace and sync repositories
 
 1. First, create a directory to use as your workspace for this workshop:
 
@@ -451,7 +377,7 @@ Listed 11 repositories.
 
 This command mirrors how other Moderne CLI commands discover repositories and makes it clear which repos have LSTs available for recipe runs. If a repository does not have an LST built, it will let you know with a `(no LST)` message for that repo. 
 
-#### Step 5: Run a recipe
+#### Step 4: Run a recipe
 
 Now you're ready to run your first recipe! Let's run a recipe that fixes common static analysis issues with the following command:
 
@@ -544,7 +470,7 @@ The CLI will run the recipe against the downloaded LSTs for all repositories in 
 You might see `The latest LST is not up to date` or `Skipped recipe run because no LST was found` for some repositories, meaning the downloaded LST is stale or doesn't exist. Don't worry, you can still move on and continue the exercise with the repositories that do have LSTs.
 :::
 
-#### Step 6: View and apply changes
+#### Step 5: View and apply changes
 
 After the recipe completes, the CLI output will include a `Fix results` link. Open it to review the diffs and see exactly what would change in each repository. (From a terminal, you can use command-click on Mac or ctrl-click on Windows to open the files.)
 

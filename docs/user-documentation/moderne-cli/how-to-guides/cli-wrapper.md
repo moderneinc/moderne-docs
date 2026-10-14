@@ -15,7 +15,7 @@ The wrapper is part of the CLI, not an optional convenience. The supported way t
 
 ## What is `modw`?
 
-The standard installation methods place `modw` in `~/.moderne/cli/bin/` and add it to your `PATH`. When you run any `mod` command, the wrapper handles five things before launching the CLI:
+The install script places `modw` in `~/.moderne/cli/bin/` and makes `mod` available on your `PATH`. Homebrew and Chocolatey place it in their own bin directories. When you run any `mod` command, the wrapper handles five things before launching the CLI:
 
 1. **Ensures the CLI is installed** — downloads and extracts the platform-specific CLI installer (JAR + bundled JRE) if needed
 2. **Finds a JDK** — locates a compatible Java runtime
