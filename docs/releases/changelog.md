@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.34.0 (2026/10/15)
+
+- link repositories, files and line numbers to the SCM
+- highlight example queries and tighten the landing
+
 ### UI v14.33.1 (2026/10/14)
 
 - Bug fixes and other improvements.
