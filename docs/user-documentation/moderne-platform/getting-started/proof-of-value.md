@@ -530,9 +530,9 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 ```bash
 # Update specific plugin - adjust parameters for your plugins
 mod run . --recipe org.openrewrite.maven.UpgradePluginVersion \
-  --recipe-option "groupId=org.openrewrite.maven" \
-  --recipe-option "artifactId=rewrite-maven-plugin" \
-  --recipe-option "newVersion=29.X"
+  --recipe-option "groupId=org.springframework.boot" \
+  --recipe-option "artifactId=spring-boot-maven-plugin" \
+  --recipe-option "newVersion=3.4.x"
 
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
