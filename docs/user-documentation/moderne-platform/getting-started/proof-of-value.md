@@ -352,7 +352,7 @@ mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
   -P "artifactIdPattern=jackson*" \
   -P "scope=runtime"
 
-mod study . --last-recipe-run --data-table DependenciesInUse
+mod study . --last-recipe-run --data-table org.openrewrite.maven.table.DependenciesInUse
 ```
 
 #### Recipe results
@@ -628,6 +628,7 @@ mod run . --recipe org.openrewrite.java.dependencies.DependencyVulnerabilityChec
   -P "maximumUpgradeDelta=patch"
 
 mod study . --last-recipe-run --data-table VulnerabilityReport
+mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
 #### Recipe results
@@ -757,6 +758,13 @@ AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when t
 
 ```bash
 mod run . --recipe io.moderne.prethink.UpdatePrethinkContextStarter
+
+mod study . --last-recipe-run --data-table ClassQualityMetrics
+mod study . --last-recipe-run --data-table MethodQualityMetrics
+mod study . --last-recipe-run --data-table PackageQualityMetrics
+mod study . --last-recipe-run --data-table CodeSmells
+mod study . --last-recipe-run --data-table TestGaps
+mod study . --last-recipe-run --data-table TestQualityIssues
 
 mod git apply . --last-recipe-run
 ```
