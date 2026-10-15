@@ -48,6 +48,9 @@ jobs:
       - name: Lint markdown
         run: yarn lint:markdown
 
+      - name: Check proof of value script
+        run: yarn check:pov-script
+
       - name: TypeScript type check
         run: yarn typecheck
 
