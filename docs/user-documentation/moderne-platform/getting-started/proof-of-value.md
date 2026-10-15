@@ -108,17 +108,6 @@ The recipes below progress from simple to complex. Each one links to its page in
 </TabItem>
 </Tabs>
 
-## Run every CLI recipe in one script
-
-Instead of running the CLI commands below one section at a time, you can download [proof-of-value.sh](/scripts/proof-of-value.sh) to run every recipe in this guide in one go. Run it from the directory where you built your LSTs:
-
-```bash
-curl -O https://docs.moderne.io/scripts/proof-of-value.sh
-bash proof-of-value.sh
-```
-
-The script installs the recipe modules, then runs each recipe and exports the data tables listed in its section. If a recipe fails, the script moves on to the next one and lists the failures at the end. The script does not apply any recipe changes to your working tree.
-
 ## Code quality recipes
 
 ### [Common static analysis issues](../../recipes/recipe-catalog/staticanalysis/commonstaticanalysis.md)
@@ -494,7 +483,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 # Update specific plugin - adjust parameters for your plugins
 mod run . --recipe org.openrewrite.gradle.plugins.UpgradePluginVersion \
   --recipe-option "pluginIdPattern=org.springframework.boot" \
-  --recipe-option "newVersion=3.4.x"
+  --recipe-option "newVersion=3.5.x"
 
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
@@ -535,7 +524,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 mod run . --recipe org.openrewrite.maven.UpgradePluginVersion \
   --recipe-option "groupId=org.springframework.boot" \
   --recipe-option "artifactId=spring-boot-maven-plugin" \
-  --recipe-option "newVersion=3.4.x"
+  --recipe-option "newVersion=3.5.x"
 
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
@@ -768,9 +757,9 @@ AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when t
 
 ```bash
 mod run . --recipe io.moderne.prethink.UpdatePrethinkContextStarter
-```
 
-To write the generated context files into your repositories, run `mod git apply . --last-recipe-run`.
+mod git apply . --last-recipe-run
+```
 
 #### Recipe results
 

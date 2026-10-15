@@ -21,7 +21,6 @@
     "validate:css": "node scripts/validate-css-vars.js",
     "lint:markdown": "node scripts/check-markdown.mjs 'docs/**/*.md' 'docs/**/*.mdx'",
     "lint:markdown:recipes": "node scripts/check-markdown.mjs 'docs/user-documentation/recipes/**/*.md'",
-    "generate:pov-script": "node scripts/generate-pov-script.mjs",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",

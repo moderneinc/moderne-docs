@@ -48,11 +48,6 @@ jobs:
       - name: Lint markdown
         run: yarn lint:markdown
 
-      - name: Check proof of value script is up to date
-        run: |
-          yarn generate:pov-script
-          git diff --exit-code static/scripts/proof-of-value.sh
-
       - name: TypeScript type check
         run: yarn typecheck
 
