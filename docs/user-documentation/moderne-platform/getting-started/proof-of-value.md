@@ -94,7 +94,7 @@ The recipes below progress from simple to complex. Each one links to its page in
 5. **Install the recipes** – Install the recipe modules used by the recommended recipes below. This single command covers every recipe in this guide:
 
     ```bash
-    mod config recipes jar install org.openrewrite.recipe:rewrite-static-analysis:LATEST org.openrewrite.recipe:rewrite-java-security:LATEST org.openrewrite.recipe:rewrite-java-dependencies:LATEST org.openrewrite.recipe:rewrite-sql:LATEST org.openrewrite.recipe:rewrite-spring:LATEST org.openrewrite.recipe:rewrite-logging-frameworks:LATEST org.openrewrite.recipe:rewrite-testing-frameworks:LATEST org.openrewrite.recipe:rewrite-migrate-java:LATEST io.moderne.recipe:rewrite-cryptography:LATEST io.moderne.recipe:rewrite-spring:LATEST io.moderne.recipe:rewrite-prethink:LATEST io.moderne.recipe:rewrite-devcenter:LATEST
+    mod config recipes jar install org.openrewrite.recipe:rewrite-all:LATEST org.openrewrite.recipe:rewrite-static-analysis:LATEST org.openrewrite.recipe:rewrite-java-security:LATEST org.openrewrite.recipe:rewrite-java-dependencies:LATEST org.openrewrite.recipe:rewrite-sql:LATEST org.openrewrite.recipe:rewrite-spring:LATEST org.openrewrite.recipe:rewrite-logging-frameworks:LATEST org.openrewrite.recipe:rewrite-testing-frameworks:LATEST org.openrewrite.recipe:rewrite-migrate-java:LATEST io.moderne.recipe:rewrite-cryptography:LATEST io.moderne.recipe:rewrite-spring:LATEST io.moderne.recipe:rewrite-prethink:LATEST io.moderne.recipe:rewrite-devcenter:LATEST
     ```
 
     * **Note**: This installs only the modules needed for the proof of value recipes. To install every available recipe module instead, copy and run the [Moderne CLI command under CLI installation](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
@@ -483,7 +483,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 # Update specific plugin - adjust parameters for your plugins
 mod run . --recipe org.openrewrite.gradle.plugins.UpgradePluginVersion \
   --recipe-option "pluginIdPattern=org.springframework.boot" \
-  --recipe-option "newVersion=3.4.x"
+  --recipe-option "newVersion=3.5.x"
 
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
@@ -522,9 +522,9 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 ```bash
 # Update specific plugin - adjust parameters for your plugins
 mod run . --recipe org.openrewrite.maven.UpgradePluginVersion \
-  --recipe-option "groupId=org.openrewrite.maven" \
-  --recipe-option "artifactId=rewrite-maven-plugin" \
-  --recipe-option "newVersion=29.X"
+  --recipe-option "groupId=org.springframework.boot" \
+  --recipe-option "artifactId=spring-boot-maven-plugin" \
+  --recipe-option "newVersion=3.5.x"
 
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
