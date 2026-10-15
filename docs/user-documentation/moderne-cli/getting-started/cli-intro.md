@@ -662,7 +662,7 @@ For more options, see the [CLI reference documentation](../cli-reference.md#mod-
 How you remove the CLI depends on how you installed it.
 
 <Tabs groupId="cli-uninstall-method" queryString="uninstall">
-<TabItem value="script" label="Install script" default>
+<TabItem value="script" label="macOS/Linux" default>
 
 1. Delete the CLI directory:
 
@@ -698,7 +698,7 @@ How you remove the CLI depends on how you installed it.
 </TabItem>
 </Tabs>
 
-Removing the CLI leaves your access tokens and other data in the rest of the `~/.moderne` directory (`%USERPROFILE%\.moderne` on Windows). Delete that directory too if you want a clean slate.
+Removing the CLI leaves your access tokens and other data in the `~/.moderne` directory (`%USERPROFILE%\.moderne` on Windows). Delete that directory too if you want a clean slate.
 
 ## Additional information
 
