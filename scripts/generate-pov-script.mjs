@@ -35,13 +35,16 @@ export function extractGuide(markdown) {
   visit(parser.parse(markdown), (node) => {
     if (node.type === 'heading') {
       inCliCommands = node.depth === 4 && toString(node) === 'CLI commands';
-      if (node.depth === 2) section = toString(node);
+      if (node.depth === 2) {
+        section = toString(node);
+        heading = { title: section };
+      }
       if (node.depth === 3) {
         heading = { title: toString(node), catalogLink: node.children.find((child) => child.type === 'link')?.url };
       }
     } else if (node.type === 'code' && node.lang === 'bash') {
-      for (const line of node.value.split('\n')) {
-        line.match(INSTALL_COMMAND)?.[1].split(/\s+/).forEach((module) => modules.add(module));
+      for (const line of node.value.replace(/\\\n\s*/g, ' ').split('\n')) {
+        line.match(INSTALL_COMMAND)?.[1].trim().split(/\s+/).forEach((module) => modules.add(module));
       }
       if (inCliCommands) recipes.push({ section, ...heading, commands: node.value });
     }
@@ -71,11 +74,16 @@ export function validateRecipes(recipes, modules, readCatalogPage) {
       errors.push(`"${recipe.title}" has no recipe catalog link in its heading`);
       continue;
     }
-    let entry;
+    let catalogPage;
     try {
-      entry = catalogEntry(readCatalogPage(recipe.catalogLink));
+      catalogPage = readCatalogPage(recipe.catalogLink);
     } catch {
       errors.push(`"${recipe.title}" links to ${recipe.catalogLink}, which could not be read`);
+      continue;
+    }
+    const entry = catalogEntry(catalogPage);
+    if (!entry.fqName) {
+      errors.push(`"${recipe.title}" links to ${recipe.catalogLink}, which has no RecipeHeader`);
       continue;
     }
     if (!entry.artifact.startsWith(BUNDLED_GROUP) && !installed.has(entry.artifact)) {
@@ -96,6 +104,22 @@ export function validateRecipes(recipes, modules, readCatalogPage) {
     }
   }
   return errors;
+}
+
+// Install commands are hoisted into the script's single install step, along with the comments that
+// introduce them, so a section that installs its own module for standalone readers doesn't repeat it.
+function recipeSteps(commands) {
+  const kept = [];
+  let inInstall = false;
+  for (const line of commands.split('\n')) {
+    if (inInstall || INSTALL_COMMAND.test(line)) {
+      if (!inInstall) while (kept.length > 0 && kept.at(-1).trim().startsWith('#')) kept.pop();
+      inInstall = line.trimEnd().endsWith('\\');
+    } else {
+      kept.push(line);
+    }
+  }
+  return kept.join('\n').trim().replace(/^(?=.)/gm, '  ');
 }
 
 function functionName(title) {
@@ -149,7 +173,7 @@ export function renderScript(recipes, modules) {
       '',
       `${name}() (`,
       '  set -e',
-      recipe.commands.trim().replace(/^(?=.)/gm, '  '),
+      recipeSteps(recipe.commands),
       ')',
       `run_recipe ${JSON.stringify(recipe.title)} ${name}`,
     );

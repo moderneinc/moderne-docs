@@ -117,7 +117,7 @@ curl -O https://docs.moderne.io/scripts/proof-of-value.sh
 bash proof-of-value.sh
 ```
 
-The script installs the recipe modules, then runs each recipe and exports the data tables listed in its section. If a recipe fails, the script moves on to the next one and lists the failures at the end. It only runs recipes and exports their results, so your working tree stays unchanged.
+The script installs the recipe modules, then runs each recipe and exports the data tables listed in its section. If a recipe fails, the script moves on to the next one and lists the failures at the end. The script does not apply any recipe changes to your working tree.
 
 ## Code quality recipes
 
@@ -443,6 +443,9 @@ There are two ways to view a DevCenter:
 #### CLI commands
 
 ```bash
+# Install the DevCenter starter recipes
+mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
+
 # Run the DevCenterStarter recipe to produce the required data tables
 mod run . --recipe io.moderne.devcenter.DevCenterStarter
 
