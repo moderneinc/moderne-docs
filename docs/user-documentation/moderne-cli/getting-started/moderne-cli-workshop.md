@@ -47,10 +47,10 @@ The Moderne CLI was not designed to run multiple commands simultaneously. In the
 
 ### Cloning repositories from Moderne
 
-For this exercise, we've prepared a list of open-source repositories for you to use. These repositories have been added to the Moderne Platform and put inside the `Default` organization. Clone these repositories by running the following command from inside your `workshop` directory:
+For this exercise, we've prepared a list of open-source repositories for you to use. These repositories are in the `Legacy Java Apps` organization, which is part of the public Sample Estate on the Moderne Platform. Clone them by running the following command from inside your `workshop` directory:
 
 ```bash
-mod git sync moderne . --organization "Default" --with-sources
+mod git sync moderne . --organization "Legacy Java Apps" --with-sources
 ```
 
 <details>
@@ -62,66 +62,58 @@ Moderne CLI 4.10.1
 
 ● Retrieving organization from Moderne
 
-Found organization ALL/Default
+Found organization ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps
+Organization written to disk at file:///path/to/workshop/.moderne/repos.csv
+
+● Analyzing organization structure
+
+Done
+
+Selected organization ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps
 
 ● Synchronizing organization directory structure
 
-Found 1 organization containing 11 repositories
+Found 1 organization containing 5 repositories
 
-Adding organization Default
+Adding organization Legacy Java Apps
 Adjusted 1 organization directory.
 
 ● Performing Git operations on repositories
 
-▶ openrewrite/rewrite-recipe-bom@main
-    ✓ Checked out ec62df6 on branch main
 ▶ spring-projects/spring-petclinic@main
-    ✓ Checked out e316074 on branch main
-▶ Netflix/ribbon@master
-    ✓ Checked out 2a55b5d on branch master
-▶ finos/symphony-bdk-java@main
-    ✓ Checked out 0986508 on branch main
-▶ apache/maven-doxia@master
-    ✓ Checked out 52ace71 on branch master
-▶ spring-projects/spring-data-commons@main
-    ✓ Checked out 1e35f68 on branch main
-▶ finos/messageml-utils@main
-    ✓ Checked out a3b1862 on branch main
-▶ finos/symphony-wdk@master
-    ✓ Checked out e965749 on branch master
-▶ finos/spring-bot@spring-bot-master
-    ✓ Checked out 46100d8 on branch spring-bot-master
-▶ awslabs/aws-saas-boost@main
-    ✓ Checked out 452d7ca on branch main
-▶ Netflix/photon@master
-    ✓ Checked out da91e84 on branch master
-Done (1m 41s)
+    ✓ Checked out 500158f on branch main
+▶ rrd4j/rrd4j@master
+    ✓ Checked out d928916 on branch master
+▶ naveenchr/SeleniumTDD@master
+    ✓ Checked out 7535b36 on branch master
+▶ zendesk/maxwell@master
+    ✓ Checked out f9d96be on branch master
+▶ CSPF-Founder/JavaVulnerableLab@master
+    ✓ Checked out 626a106 on branch master
+Done
 
 ● Downloading LSTs for repositories
 
-▶ finos/messageml-utils@main
-    ✓ Downloaded messageml-utils-20260310001435288-ast.jar
-▶ Netflix/photon@master
-    ✓ Downloaded photon-20260310002917829-ast.jar
+▶ CSPF-Founder/JavaVulnerableLab@master
+    ✓ Downloaded LST from https://api.app.moderne.io/organizations/lsts/2026/1014/20261014170826-XsUqc.jar
+▶ naveenchr/SeleniumTDD@master
+    ✓ Downloaded LST from https://api.app.moderne.io/organizations/lsts/2026/1014/20261014085954-z4rW9.jar
+▶ rrd4j/rrd4j@master
+    ✓ Downloaded LST from https://api.app.moderne.io/organizations/lsts/2026/1014/20261014085954-dmMVO.jar
 ▶ spring-projects/spring-petclinic@main
-    ✓ Downloaded spring-petclinic-20260310001214884-ast.jar
-▶ apache/maven-doxia@master
-    ✓ Downloaded maven-doxia-20260310001001066-ast.jar
-▶ spring-projects/spring-data-commons@main
-    ✓ Downloaded spring-data-commons-20260310003630876-ast.jar
-▶ Netflix/ribbon@master
-    ✓ Downloaded ribbon-20260310003212222-ast.jar
-▶ finos/symphony-wdk@master
-    ✓ Downloaded symphony-wdk-20260310002815392-ast.jar
-▶ finos/spring-bot@spring-bot-master
-    ✓ Downloaded spring-bot-20260310001547436-ast.jar
-▶ finos/symphony-bdk-java@main
-    ✓ Downloaded symphony-bdk-java-20260310002418851-ast.jar
-Done (4s)
+    ✓ Downloaded LST from https://api.app.moderne.io/organizations/lsts/2026/1015/20261015072859-LYb50.jar
+▶ zendesk/maxwell@master
+    ✓ Downloaded LST from https://api.app.moderne.io/organizations/lsts/2026/1014/20261014170827-XcXuk.jar
+Done
 
-Synced 11 repositories.
+Synced 5 repositories.
 
-MOD SUCCEEDED in 1m 47s
+● What to do next
+    > Run mod build . to build LSTs from the synced sources
+    > Run mod log syncs add . syncs.zip --last-sync to aggregate sync logs
+    > Examine clone telemetry at file:///path/to/workshop/.moderne/sync/20261015082500-p0bA3/trace.csv
+
+MOD SUCCEEDED in 6s
 ```
 
 </details>
@@ -142,7 +134,7 @@ dir .  # For Windows users
 <summary>You should see output similar to the following.</summary>
 
 ```bash
-apache          awslabs         finos           Netflix         openrewrite     spring-projects
+CSPF-Founder    naveenchr       rrd4j           spring-projects zendesk
 ```
 
 </details>
@@ -171,57 +163,35 @@ Moderne CLI 4.10.1
 
 ● Reading organization
 
-Found 1 organization containing 11 repositories (1s)
+Found 1 organization containing 5 git repositories
 
 ● Building LST(s)
 
-▶ apache/maven-doxia@master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded maven-doxia-20260310001001066-ast.jar
-▶ finos/messageml-utils@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded messageml-utils-20260310001435288-ast.jar
-▶ finos/spring-bot@spring-bot-master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded spring-bot-20260310001547436-ast.jar
-▶ finos/symphony-bdk-java@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded symphony-bdk-java-20260310002418851-ast.jar
-▶ finos/symphony-wdk@master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded symphony-wdk-20260310002815392-ast.jar
-▶ Netflix/photon@master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded photon-20260310002917829-ast.jar
-▶ Netflix/ribbon@master
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded ribbon-20260310003212222-ast.jar
-▶ openrewrite/rewrite-recipe-bom@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded rewrite-recipe-bom-20260310035630833-ast.jar
-▶ spring-projects/spring-data-commons@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded spring-data-commons-20260310003630876-ast.jar
+▶ CSPF-Founder/JavaVulnerableLab@master
+    Build output will be written to file:///path/to/workshop/CSPF-Founder/JavaVulnerableLab/.moderne/build/20261015082854-RT672/build.log
+    ✓ Maven · JDK 1.8.0_392-zulu (14s)
+▶ naveenchr/SeleniumTDD@master
+    Build output will be written to file:///path/to/workshop/naveenchr/SeleniumTDD/.moderne/build/20261015082854-RT672/build.log
+    ✓ Maven · JDK 1.8.0_392-zulu (7s)
+▶ rrd4j/rrd4j@master
+    Build output will be written to file:///path/to/workshop/rrd4j/rrd4j/.moderne/build/20261015082854-RT672/build.log
+    ✓ Maven · JDK 11.0.21-corretto (9s)
 ▶ spring-projects/spring-petclinic@main
-    Build output will be written to build.log
-    > Download from Moderne
-        ✓ Downloaded spring-petclinic-20260310001214884-ast.jar
-Done (32s)
+    Build output will be written to file:///path/to/workshop/spring-projects/spring-petclinic/.moderne/build/20261015082854-RT672/build.log
+    ✓ Gradle · JDK 17.0.9-tem (34s)
+▶ zendesk/maxwell@master
+    Build output will be written to file:///path/to/workshop/zendesk/maxwell/.moderne/build/20261015082854-RT672/build.log
+    ✓ Maven · JDK 11.0.21-corretto (19s)
+Done
 
-19m 58s saved by using previously built LSTs
+Built 5 repositories.
 
-Built 0 repositories.
+● What to do next
+    > Run mod run . --recipe=<RecipeName>
+    > Analyze build results with mod trace builds analyze . --last-build
+    > Run mod log builds add . logs.zip --last-build to aggregate build logs
 
-MOD SUCCEEDED in 32s
+MOD SUCCEEDED in 1m 26s
 ```
 
 </details>
@@ -243,54 +213,72 @@ mod run . --recipe org.openrewrite.java.dependencies.DependencyVulnerabilityChec
 ```bash
 Moderne CLI 4.10.1
 
-Found 1 organization containing 11 repositories (1s)
+● Reading organization
+
+Found 1 organization containing 5 git repositories
 
 ● Running recipe org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
 
-Run log
-
-▶ apache/maven-doxia@master
-    No changes
-    ✓ Recipe run complete
-▶ Netflix/photon@master
-    No changes
-    ✓ Recipe run complete
-▶ openrewrite/rewrite-recipe-bom@main
-    No changes
-    ✓ Recipe run complete
-▶ finos/symphony-wdk@master
-    No changes
-    ✓ Recipe run complete
 ▶ spring-projects/spring-petclinic@main
     No changes
     ✓ Recipe run complete
-▶ finos/symphony-bdk-java@main
+▶ rrd4j/rrd4j@master
     No changes
     ✓ Recipe run complete
-▶ Netflix/ribbon@master
-    Fix results
-    ✓ Recipe run complete
-▶ finos/messageml-utils@main
+▶ naveenchr/SeleniumTDD@master
     No changes
     ✓ Recipe run complete
-▶ spring-projects/spring-data-commons@main
-    No changes
-    ✓ Recipe run complete
-▶ finos/spring-bot@spring-bot-master
-    No changes
-    ✓ Recipe run complete
-▶ awslabs/aws-saas-boost@main
-    Fix results
-    ✓ Recipe run complete
-Done (52s)
+▶ CSPF-Founder/JavaVulnerableLab@master
+    ● Update(pom.xml)
+        14         <version>3.8.1</version>
+        15         <scope>test</scope>
+        16       </dependency>
+        17 +     <!-- CVE-2017-3523, CVE-2015-2575, CVE-2017-3586, CVE-2017-3589 -->
+        18       <dependency>
+        19           <groupId>mysql</groupId>
+        20           <artifactId>mysql-connector-java</artifactId>
+        20 -         <version>5.1.26</version>
+        21 +         <version>5.1.42</version>
+        22       </dependency>
+        23       <dependency>
+        24           <groupId>org.json</groupId>
 
-19m 58s saved by using previously built LSTs
-50m saved by using recipes
+        48           <artifactId>log4j-api</artifactId>
+        49           <version>2.12.1</version>
+        50       </dependency>
+        51 +     <!-- CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, CVE-2021-44832, CVE-2020-9488 -->
+        52       <dependency>
+        53           <groupId>org.apache.logging.log4j</groupId>
+        54           <artifactId>log4j-core</artifactId>
+        53 -         <version>2.12.1</version>
+        55 +         <version>2.12.4</version>
+        56       </dependency>
+        57       <!-- OWASP 2025 A08 Software or Data Integrity Failures: commons-collections
+        58            3.1 (2004) carries the InvokerTransformer gadget used by ysoserial's
 
-Produced results for 10 repositories.
+    Fix results at file:///path/to/workshop/CSPF-Founder/JavaVulnerableLab/.moderne/run/20261015082612-jVdvC/fix.patch
+    ✓ Recipe run complete
+▶ zendesk/maxwell@master
+    ● Update(pom.xml)
+        226       <dependency>
+        227         <groupId>org.apache.logging.log4j</groupId>
+        228         <artifactId>log4j-core</artifactId>
+        229 -       <version>2.25.3</version>
+        229 +       <version>2.25.4</version>
+        230       </dependency>
+        231       <dependency>
+        232         <groupId>org.apache.logging.log4j</groupId>
+
+    Fix results at file:///path/to/workshop/zendesk/maxwell/.moderne/run/20261015082612-jVdvC/fix.patch
+    ✓ Recipe run complete
+Done
+
+58s saved by using previously built LSTs
+10m saved by using recipes
+
+Produced results for 5 repositories.
 
 ● What to do next
-    > A repository's source code doesn't match its LST. Run mod build to update the LSTs.
     > Run mod study to examine the following data tables produced by this recipe:
           > mod study . --last-recipe-run --data-table DependencyOriginsReport
           > mod study . --last-recipe-run --data-table VulnerabilityReport
@@ -298,9 +286,12 @@ Produced results for 10 repositories.
           > mod study . --last-recipe-run --data-table SourcesFileResults
     > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
+    > Run mod git apply . --recipe-run 20261015082612-jVdvC to apply the changes
+    > Run mod trace runs analyze . --last-run to launch an interactive trace analyzer for this recipe run
     > Run mod log runs add . logs.zip --last-recipe-run to aggregate run logs
+    > Examine run telemetry at file:///path/to/workshop/.moderne/run/20261015082612-jVdvC/trace.csv
 
-MOD SUCCEEDED in 52s
+MOD SUCCEEDED in 57s
 ```
 
 </details>
@@ -319,7 +310,6 @@ If you've been following along, you'll know that we just ran the `DependencyVuln
 
 ```bash
 ● What to do next
-    > A repository's source code doesn't match its LST. Run mod build to update the LSTs.
     > Run mod study to examine the following data tables produced by this recipe:
           > mod study . --last-recipe-run --data-table DependencyOriginsReport
           > mod study . --last-recipe-run --data-table VulnerabilityReport
@@ -327,7 +317,10 @@ If you've been following along, you'll know that we just ran the `DependencyVuln
           > mod study . --last-recipe-run --data-table SourcesFileResults
     > Run mod git checkout . -b refactor/DependencyVulnerabilityCheck --last-recipe-run to prepare a refactor/DependencyVulnerabilityCheck branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
+    > Run mod git apply . --recipe-run 20261015082612-jVdvC to apply the changes
+    > Run mod trace runs analyze . --last-run to launch an interactive trace analyzer for this recipe run
     > Run mod log runs add . logs.zip --last-recipe-run to aggregate run logs
+    > Examine run telemetry at file:///path/to/workshop/.moderne/run/20261015082612-jVdvC/trace.csv
 ```
 
 You may notice that one of the suggestions on what to do next is the `mod study` command. This command allows you to examine the [data tables](../../moderne-platform/getting-started/data-tables.md) produced by the recipe run. Data tables are columnar data in a schema defined by the recipe.
@@ -354,28 +347,27 @@ mod study . --last-recipe-run --data-table VulnerabilityReport
 ```bash
 Moderne CLI 4.10.1
 
-⏺ Reading organization
+● Reading organization
 
-Found 1 organization containing 11 repositories (1s)
-Found recipe run 20250811094641-N6e9F
+Found 1 organization containing 5 git repositories
+Found recipe run 20261015082612-jVdvC
 
+● Building CSV output for each organization
 
-⏺ Building CSV output for each organization
+▶ Legacy Java Apps
+    ✓ Data table produced at file:///path/to/workshop/.moderne/run/20261015082612-jVdvC/datatables/org.openrewrite.java.dependencies.table.VulnerabilityReport.csv
+Done
 
-▶ Default
-    ✓ Data table produced
-Done (1s)
+● Converting to Excel for each organization
 
-⏺ Converting to Excel for each organization
-
-▶ Default
-    ✓ Added 214 rows
-    ✓ Data table produced
-Done (3s)
+▶ Legacy Java Apps
+    ✓ Added 167 rows
+    ✓ Data table produced at file:///path/to/workshop/.moderne/run/20261015082612-jVdvC/datatables/org.openrewrite.java.dependencies.table.VulnerabilityReport.xlsx
+Done
 
 Data tables for each organization with rows are linked above
 
-MOD SUCCEEDED in 4s
+MOD SUCCEEDED in 1s
 ```
 
 </details>
@@ -384,7 +376,7 @@ MOD SUCCEEDED in 4s
 We used the short name for the data table (`VulnerabilityReport`) rather than the fully-qualified name. As long as the short name is distinct, you can do this to save some typing.
 :::
 
-Open up the Excel file that is produced. You will see that the recipe found hundreds of vulnerabilities. You can sort them by severity to see what the most important ones to start with are – or you could find the ones that can be fixed with a version update only to quickly address some of the problems. Having a table like this can help you and your organization track and prioritize security issues.
+Open up the Excel file that is produced. You will see that the recipe found more than a hundred vulnerabilities. You can sort them by severity to see what the most important ones to start with are – or you could find the ones that can be fixed with a version update only to quickly address some of the problems. Having a table like this can help you and your organization track and prioritize security issues.
 
 ## Part 6: Customizing data table output
 
@@ -408,7 +400,7 @@ As you can see, the output is extremely flexible to meet whatever needs you have
 
 So far, everything we've done has remained local to your machine. In a real-world situation, though, you'd definitely want to commit the results, test the changes, and open a PR in each repository. Let's walk through how to do this.
 
-To begin, make sure you're still in the `$HOME/workshop` directory with the `Default` organization cloned. Then, run the following recipe to resolve common static analysis issues in all of the repositories:
+To begin, make sure you're still in the `$HOME/workshop` directory with the `Legacy Java Apps` organization cloned. Then, run the following recipe to resolve common static analysis issues in all of the repositories:
 
 ```bash
 mod run . --recipe CommonStaticAnalysis
@@ -423,62 +415,51 @@ Moderne CLI 4.10.1
 
 ● Reading organization
 
-Found 1 organization containing 11 repositories (1s)
+Found 1 organization containing 5 git repositories
 
 ● Running recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
 
-Run log
+▶ CSPF-Founder/JavaVulnerableLab@master
+    ... (diff preview trimmed)
 
-▶ openrewrite/rewrite-recipe-bom@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ Netflix/ribbon@master
-    ✓ Fix results
+    Fix results at file:///path/to/workshop/CSPF-Founder/JavaVulnerableLab/.moderne/run/20261015082720-aDY1x/fix.patch
     ✓ Recipe run complete
 ▶ spring-projects/spring-petclinic@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ finos/spring-bot@spring-bot-master
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ finos/symphony-wdk@master
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ finos/messageml-utils@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ Netflix/photon@master
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ awslabs/aws-saas-boost@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ apache/maven-doxia@master
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ spring-projects/spring-data-commons@main
-    ✓ Fix results
-    ✓ Recipe run complete
-▶ finos/symphony-bdk-java@main
-    ✓ Fix results
-    ✓ Recipe run complete
-Done (1m 7s)
+    ... (diff preview trimmed)
 
-19m saved by using previously built LSTs
-70h saved by using recipes
+    Fix results at file:///path/to/workshop/spring-projects/spring-petclinic/.moderne/run/20261015082720-aDY1x/fix.patch
+    ✓ Recipe run complete
+▶ naveenchr/SeleniumTDD@master
+    ... (diff preview trimmed)
 
-Produced results for 10 repositories.
+    Fix results at file:///path/to/workshop/naveenchr/SeleniumTDD/.moderne/run/20261015082720-aDY1x/fix.patch
+    ✓ Recipe run complete
+▶ rrd4j/rrd4j@master
+    ... (diff preview trimmed)
+
+    Fix results at file:///path/to/workshop/rrd4j/rrd4j/.moderne/run/20261015082720-aDY1x/fix.patch
+    ✓ Recipe run complete
+▶ zendesk/maxwell@master
+    ... (diff preview trimmed)
+
+    Fix results at file:///path/to/workshop/zendesk/maxwell/.moderne/run/20261015082720-aDY1x/fix.patch
+    ✓ Recipe run complete
+Done
+
+Produced results for 5 repositories.
 
 ● What to do next
-    > A repository's source code doesn't match its LST. Run mod build to update the LSTs.
     > Run mod study to examine the following data tables produced by this recipe:
           > mod study . --last-recipe-run --data-table RecipeRunStats
           > mod study . --last-recipe-run --data-table SourcesFileResults
     > Run mod git checkout . -b refactor/CommonStaticAnalysis --last-recipe-run to prepare a refactor/CommonStaticAnalysis branch for applying the changes
     > Run mod git apply . --last-recipe-run to apply the changes
+    > Run mod git apply . --recipe-run 20261015082720-aDY1x to apply the changes
+    > Run mod trace runs analyze . --last-run to launch an interactive trace analyzer for this recipe run
     > Run mod log runs add . logs.zip --last-recipe-run to aggregate run logs
+    > Examine run telemetry at file:///path/to/workshop/.moderne/run/20261015082720-aDY1x/trace.csv
 
-MOD SUCCEEDED in 1m 7s
+MOD SUCCEEDED in 9s
 ```
 
 </details>
@@ -502,41 +483,30 @@ Moderne CLI 4.10.1
 
 ● Reading organization
 
-Found 1 organization containing 11 repositories (1s)
+Found 1 organization containing 5 git repositories
+Found recipe run 20261015082720-aDY1x
 
 ● Executing git checkout
 
-▶ apache/maven-doxia@master
+▶ CSPF-Founder/JavaVulnerableLab@master
     ✓ Switched to branch workshop-changes
-▶ awslabs/aws-saas-boost@main
+▶ naveenchr/SeleniumTDD@master
     ✓ Switched to branch workshop-changes
-▶ finos/messageml-utils@main
-    ✓ Switched to branch workshop-changes
-▶ finos/spring-bot@spring-bot-master
-    ✓ Switched to branch workshop-changes
-▶ finos/symphony-bdk-java@main
-    ✓ Switched to branch workshop-changes
-▶ finos/symphony-wdk@master
-    ✓ Switched to branch workshop-changes
-▶ Netflix/photon@master
-    ✓ Switched to branch workshop-changes
-▶ Netflix/ribbon@master
-    ✓ Switched to branch workshop-changes
-▶ openrewrite/rewrite-recipe-bom@main
-    Skipped because there are no results to commit
-▶ spring-projects/spring-data-commons@main
+▶ rrd4j/rrd4j@master
     ✓ Switched to branch workshop-changes
 ▶ spring-projects/spring-petclinic@main
     ✓ Switched to branch workshop-changes
-Done (1s)
+▶ zendesk/maxwell@master
+    ✓ Switched to branch workshop-changes
+Done
 
-Checked out 9 repositories.
+Checked out 5 repositories.
 
 ● What to do next
     > Run mod git apply . --last-recipe-run to apply the changes
     > Commit your changes using mod git commit . -m "commit message" --last-recipe-run.
 
-MOD SUCCEEDED in 1s
+MOD SUCCEEDED in 3s
 ```
 
 </details>
@@ -590,7 +560,7 @@ Or you could create a PR directly with the GitHub command line:
 
 ```bash
 # Please don't run this command during the workshop
-mod exec . --last-recipe-run -- gh pr create --title "refactor: Apply AssertJ best practices"
+mod exec . --last-recipe-run -- gh pr create --title "refactor: Apply common static analysis fixes"
 ```
 
 For more options, see the [CLI reference documentation](../cli-reference.md#mod-git-push).
