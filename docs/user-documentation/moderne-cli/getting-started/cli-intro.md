@@ -657,6 +657,49 @@ mod exec . --last-recipe-run -- gh pr create --title "<PR title>"
 
 For more options, see the [CLI reference documentation](../cli-reference.md#mod-git-push).
 
+## Uninstalling the CLI
+
+How you remove the CLI depends on how you installed it.
+
+<Tabs groupId="cli-uninstall-method" queryString="uninstall">
+<TabItem value="script" label="Install script" default>
+
+1. Delete the CLI directory:
+
+    ```bash
+    rm -rf ~/.moderne/cli
+    ```
+
+2. Delete any `mod` and `modw` links the installer created in `~/.local/bin`, `~/bin`, or `/usr/local/bin`:
+
+    ```bash
+    rm -f ~/.local/bin/mod ~/.local/bin/modw
+    ```
+
+3. If the installer added `~/.moderne/cli/bin` to your `PATH`, remove that line and the `completion.bash` line from your shell configuration file (such as `~/.zshrc` or `~/.bashrc`).
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+1. Delete the CLI directory:
+
+    ```powershell
+    Remove-Item -Recurse -Force "$env:USERPROFILE\.moderne\cli"
+    ```
+
+2. Remove `%USERPROFILE%\.moderne\cli\bin` from your user `Path` environment variable.
+
+</TabItem>
+<TabItem value="package-manager" label="Homebrew or Chocolatey">
+
+* **Homebrew**: `brew uninstall mod`
+* **Chocolatey**: `choco uninstall mod`
+
+</TabItem>
+</Tabs>
+
+Removing the CLI leaves your access tokens and other data in the rest of the `~/.moderne` directory (`%USERPROFILE%\.moderne` on Windows). Delete that directory too if you want a clean slate.
+
 ## Additional information
 
 If you want to learn more about the Moderne CLI, we'd encourage you to check out the following docs:
