@@ -288,7 +288,7 @@ mod study . --last-recipe-run --data-table CallGraph
 # Finds all HTTP API endpoints exposed by Spring applications.
 mod run . --recipe org.openrewrite.java.spring.search.FindApiEndpoints
 
-mod study . --last-recipe-run --data-table DatabaseColumnsUsed
+mod study . --last-recipe-run --data-table ApiEndpoints
 ```
 
 #### Recipe results
