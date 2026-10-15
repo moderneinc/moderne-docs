@@ -483,7 +483,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 # Update specific plugin - adjust parameters for your plugins
 mod run . --recipe org.openrewrite.gradle.plugins.UpgradePluginVersion \
   --recipe-option "pluginIdPattern=org.springframework.boot" \
-  --recipe-option "newVersion=3.5.x"
+  --recipe-option "newVersion=4.1.x"
 
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
@@ -524,7 +524,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 mod run . --recipe org.openrewrite.maven.UpgradePluginVersion \
   --recipe-option "groupId=org.springframework.boot" \
   --recipe-option "artifactId=spring-boot-maven-plugin" \
-  --recipe-option "newVersion=3.5.x"
+  --recipe-option "newVersion=4.1.x"
 
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
