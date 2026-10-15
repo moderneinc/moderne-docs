@@ -15,7 +15,7 @@ This is where Moderne comes into play. AI agents equipped with the Moderne CLI c
 In this guide, we will walk you through this process. We'll start by installing the CLI and connecting it to Moderne before moving on to asking a coding agent to upgrade five sample open source repositories to Java 25. Along the way, you'll see what the agent does with the CLI and what types of results you get back at the end.
 
 :::info
-While this quickstart guide uses Claude Code, you are free to use [any of our supported agents](../../agent-tools/agent-chat.md#supported-agents). The steps are the same regardless of which agent you pick.
+While this quickstart guide uses Claude Code, you are free to use [any of our supported agents](../../agent-tools/agent-chat.md#quick-start). The steps are the same regardless of which agent you pick.
 :::
 
 ## Before you begin
@@ -122,12 +122,89 @@ The `Legacy Java Apps` org is small enough that fully upgrading to Java 25, and 
 
 ## Step 3: Start the agent
 
-You're now ready to start the agent. The Moderne CLI includes a command that will set up a local workspace, clone repositories, and then prompt the agent all at once:
+You're now ready to start the agent. The Moderne CLI includes a command that will set up a local workspace, clone repositories, and then prompt the agent all at once.
+
+Below you can find example commands for starting the agents:
+
+<Tabs groupId="agent">
+<TabItem value="claude-code" label="Claude Code" default>
 
 ```bash
 mod claude chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
+
+</TabItem>
+<TabItem value="codex" label="Codex">
+
+```bash
+mod codex chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="copilot-cli" label="Copilot">
+
+```bash
+mod copilot chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="cursor" label="Cursor">
+
+```bash
+mod cursor chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="kiro" label="Kiro">
+
+```bash
+mod kiro chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="amp" label="Amp">
+
+```bash
+mod amp chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="opencode" label="OpenCode">
+
+```bash
+mod opencode chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="vscode" label="VS Code">
+
+```bash
+mod vscode chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="windsurf" label="Windsurf">
+
+```bash
+mod windsurf chat legacy-java-apps --org "Legacy Java Apps"
+```
+
+Windsurf does not take `--prompt`. Once the IDE opens, paste this prompt into the chat panel:
+
+```text
+Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build.
+```
+
+</TabItem>
+</Tabs>
 
 Let's break the command down:
 
