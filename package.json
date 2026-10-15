@@ -22,7 +22,6 @@
     "lint:markdown": "node scripts/check-markdown.mjs 'docs/**/*.md' 'docs/**/*.mdx'",
     "lint:markdown:recipes": "node scripts/check-markdown.mjs 'docs/user-documentation/recipes/**/*.md'",
     "generate:pov-script": "node scripts/generate-pov-script.mjs",
-    "check:pov-script": "node scripts/generate-pov-script.mjs --check",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",

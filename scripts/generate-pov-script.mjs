@@ -1,89 +1,70 @@
 #!/usr/bin/env node
 /**
- * Builds static/scripts/proof-of-value.sh from the CLI commands in the proof of value guide,
- * and embeds the same script in the guide itself.
- *
- * Every bash block under a "#### CLI commands" heading becomes one step of the script. The data
- * tables each step studies are checked against the recipe catalog page its "###" heading links to.
- *
- * Usage:
- *   node scripts/generate-pov-script.mjs           Regenerate the script and the guide
- *   node scripts/generate-pov-script.mjs --check   Fail if either is out of date
+ * Builds static/scripts/proof-of-value.sh from the proof of value guide. Every bash block under a
+ * "#### CLI commands" heading becomes one step, and the recipe and data tables each step uses are
+ * checked against the recipe catalog page its "###" heading links to.
  */
 
 import { readFileSync, writeFileSync } from 'fs';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkMdx from 'remark-mdx';
+import { visit } from 'unist-util-visit';
+import { toString } from 'mdast-util-to-string';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const GUIDE_PATH = 'docs/user-documentation/moderne-platform/getting-started/proof-of-value.md';
 const SCRIPT_PATH = 'static/scripts/proof-of-value.sh';
 
-const START_MARKER = '{/* proof-of-value-script:start */}';
-const END_MARKER = '{/* proof-of-value-script:end */}';
+// The CLI ships with the core OpenRewrite modules, so only recipe modules need installing.
+const BUNDLED_GROUP = 'org.openrewrite:';
+const INSTALL_COMMAND = /^\s*mod config recipes jar install\s+(.+)$/;
 
-export function withoutEmbeddedScript(markdown) {
-  const start = markdown.indexOf(START_MARKER);
-  const end = markdown.indexOf(END_MARKER);
-  if (start === -1 || end === -1) return markdown;
-  return markdown.slice(0, start) + markdown.slice(end + END_MARKER.length);
-}
+const parser = unified().use(remarkParse).use(remarkFrontmatter).use(remarkMdx);
 
-export function extractRecipes(markdown) {
+export function extractGuide(markdown) {
   const recipes = [];
+  const modules = new Set();
   let section = null;
   let heading = null;
   let inCliCommands = false;
-  let fence = null;
 
-  for (const line of markdown.split('\n')) {
-    if (fence) {
-      if (line.trim().startsWith('```')) {
-        if (fence.collect) {
-          recipes.push({ section, ...heading, commands: fence.lines.join('\n') });
-        }
-        fence = null;
-      } else {
-        fence.lines.push(line);
+  visit(parser.parse(markdown), (node) => {
+    if (node.type === 'heading') {
+      inCliCommands = node.depth === 4 && toString(node) === 'CLI commands';
+      if (node.depth === 2) section = toString(node);
+      if (node.depth === 3) {
+        heading = { title: toString(node), catalogLink: node.children.find((child) => child.type === 'link')?.url };
       }
-      continue;
+    } else if (node.type === 'code' && node.lang === 'bash') {
+      for (const line of node.value.split('\n')) {
+        line.match(INSTALL_COMMAND)?.[1].split(/\s+/).forEach((module) => modules.add(module));
+      }
+      if (inCliCommands) recipes.push({ section, ...heading, commands: node.value });
     }
+  });
 
-    const fenceOpen = line.match(/^\s*```(\w*)/);
-    if (fenceOpen) {
-      fence = { lines: [], collect: inCliCommands && fenceOpen[1] === 'bash' };
-      continue;
-    }
-
-    const headingMatch = line.match(/^(#{2,4}) (.+)$/);
-    if (!headingMatch) continue;
-    const [, hashes, text] = headingMatch;
-    inCliCommands = hashes === '####' && text === 'CLI commands';
-    if (hashes === '##') {
-      section = text;
-    } else if (hashes === '###') {
-      const link = text.match(/^\[(.+)\]\((.+)\)$/);
-      heading = link ? { title: link[1], catalogLink: link[2] } : { title: text };
-    }
-  }
-
-  return recipes;
-}
-
-export function extractInstallCommand(markdown) {
-  const match = markdown.match(/^\s*(mod config recipes jar install .+)$/m);
-  if (!match) throw new Error(`No "mod config recipes jar install" command found in ${GUIDE_PATH}`);
-  return match[1].trim();
+  return { recipes, modules: [...modules] };
 }
 
 function catalogEntry(catalogMarkdown) {
-  const fqName = catalogMarkdown.match(/fqName=\{"([^"]+)"\}/)?.[1];
-  const tables = catalogMarkdown.match(/<DataTableList tables=\{(\[.*\])\}>/)?.[1];
-  const dataTables = tables ? JSON.parse(tables).map((table) => table.name.split('.').pop()) : [];
-  return { fqName, dataTables };
+  const entry = { fqName: null, artifact: null, dataTables: [] };
+  visit(parser.parse(catalogMarkdown), 'mdxJsxFlowElement', (node) => {
+    const attribute = (name) => JSON.parse(node.attributes.find((a) => a.name === name).value.value);
+    if (node.name === 'RecipeHeader') {
+      entry.fqName = attribute('fqName');
+      entry.artifact = attribute('artifact');
+    }
+    if (node.name === 'DataTableList') entry.dataTables = attribute('tables').map((table) => table.name.split('.').pop());
+  });
+  return entry;
 }
 
-export function validateRecipes(recipes, readCatalogPage) {
+export function validateRecipes(recipes, modules, readCatalogPage) {
+  const installed = new Set(modules.map((module) => module.split(':').slice(0, 2).join(':')));
   const errors = [];
   for (const recipe of recipes) {
     if (!recipe.catalogLink) {
@@ -94,8 +75,11 @@ export function validateRecipes(recipes, readCatalogPage) {
     try {
       entry = catalogEntry(readCatalogPage(recipe.catalogLink));
     } catch {
-      errors.push(`"${recipe.title}" links to ${recipe.catalogLink}, which does not exist`);
+      errors.push(`"${recipe.title}" links to ${recipe.catalogLink}, which could not be read`);
       continue;
+    }
+    if (!entry.artifact.startsWith(BUNDLED_GROUP) && !installed.has(entry.artifact)) {
+      errors.push(`"${recipe.title}" needs ${entry.artifact}, which the recipe install command does not include`);
     }
     for (const [, recipeId] of recipe.commands.matchAll(/--recipe\s+(\S+)/g)) {
       if (recipeId !== entry.fqName) {
@@ -118,20 +102,8 @@ function functionName(title) {
   return title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
 }
 
-function recipeSteps(commands) {
-  return commands
-    .split('\n')
-    .filter((line) => !/^\s*mod git apply\b/.test(line))
-    .join('\n')
-    .trim()
-    .split('\n')
-    .map((line) => (line ? `  ${line}` : line))
-    .join('\n');
-}
-
-export function renderScript(recipes, installCommand) {
+export function renderScript(recipes, modules) {
   const names = new Set();
-
   const lines = [
     '#!/usr/bin/env bash',
     '#',
@@ -142,7 +114,6 @@ export function renderScript(recipes, installCommand) {
     '#',
     '# Point it at the directory where you cloned your repositories and built their LSTs; it defaults',
     '# to the current directory. A recipe that fails is reported at the end without stopping the rest.',
-    '# The script never changes your working tree, so `mod git apply` steps from the guide are left out.',
     '#',
     `# Generated from ${GUIDE_PATH}`,
     '# by `yarn generate:pov-script`. Edit the guide instead of this file.',
@@ -162,7 +133,7 @@ export function renderScript(recipes, installCommand) {
     '}',
     '',
     'echo "==> Installing recipe modules"',
-    installCommand.replace(/ (?=\S+:\S+:\S+)/g, ' \\\n  ') + ' || exit 1',
+    ['mod config recipes jar install', ...modules].join(' \\\n  ') + ' || exit 1',
   ];
 
   let section = null;
@@ -178,7 +149,7 @@ export function renderScript(recipes, installCommand) {
       '',
       `${name}() (`,
       '  set -e',
-      recipeSteps(recipe.commands),
+      recipe.commands.trim().replace(/^(?=.)/gm, '  '),
       ')',
       `run_recipe ${JSON.stringify(recipe.title)} ${name}`,
     );
@@ -199,58 +170,22 @@ export function renderScript(recipes, installCommand) {
   return lines.join('\n') + '\n';
 }
 
-export function embedScript(markdown, script) {
-  const start = markdown.indexOf(START_MARKER);
-  const end = markdown.indexOf(END_MARKER);
-  if (start === -1 || end === -1) {
-    throw new Error(`${GUIDE_PATH} is missing the ${START_MARKER} and ${END_MARKER} markers`);
-  }
-  const block = `${START_MARKER}\n\n\`\`\`bash title="proof-of-value.sh"\n${script}\`\`\`\n\n`;
-  return markdown.slice(0, start) + block + markdown.slice(end);
-}
-
 function generate() {
   const guidePath = resolve(ROOT, GUIDE_PATH);
-  const guide = readFileSync(guidePath, 'utf8');
-  const source = withoutEmbeddedScript(guide);
-  const recipes = extractRecipes(source);
+  const { recipes, modules } = extractGuide(readFileSync(guidePath, 'utf8'));
 
-  const errors = validateRecipes(recipes, (link) => readFileSync(resolve(dirname(guidePath), link), 'utf8'));
+  const errors = validateRecipes(recipes, modules, (link) => readFileSync(resolve(dirname(guidePath), link), 'utf8'));
   if (errors.length > 0) {
     throw new Error(`${GUIDE_PATH} has CLI commands that do not match the recipe catalog:\n  ${errors.join('\n  ')}`);
   }
 
-  const script = renderScript(recipes, extractInstallCommand(source));
-  return { guide, updatedGuide: embedScript(guide, script), script };
-}
-
-function readIfExists(path) {
-  try {
-    return readFileSync(path, 'utf8');
-  } catch {
-    return null;
-  }
+  return renderScript(recipes, modules);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   try {
-    const { guide, updatedGuide, script } = generate();
-    const scriptPath = resolve(ROOT, SCRIPT_PATH);
-    if (process.argv.includes('--check')) {
-      const stale = [
-        ...(readIfExists(scriptPath) === script ? [] : [SCRIPT_PATH]),
-        ...(guide === updatedGuide ? [] : [GUIDE_PATH]),
-      ];
-      if (stale.length > 0) {
-        console.error(`Out of date: ${stale.join(', ')}. Run \`yarn generate:pov-script\` and commit the result.`);
-        process.exit(1);
-      }
-      console.log('Proof of value script is up to date.');
-    } else {
-      writeFileSync(scriptPath, script, { mode: 0o755 });
-      writeFileSync(resolve(ROOT, GUIDE_PATH), updatedGuide);
-      console.log(`Wrote ${SCRIPT_PATH} and updated ${GUIDE_PATH}.`);
-    }
+    writeFileSync(resolve(ROOT, SCRIPT_PATH), generate(), { mode: 0o755 });
+    console.log(`Wrote ${SCRIPT_PATH}.`);
   } catch (error) {
     console.error(error.message);
     process.exit(1);

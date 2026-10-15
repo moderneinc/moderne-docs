@@ -7,7 +7,6 @@
 #
 # Point it at the directory where you cloned your repositories and built their LSTs; it defaults
 # to the current directory. A recipe that fails is reported at the end without stopping the rest.
-# The script never changes your working tree, so `mod git apply` steps from the guide are left out.
 #
 # Generated from docs/user-documentation/moderne-platform/getting-started/proof-of-value.md
 # by `yarn generate:pov-script`. Edit the guide instead of this file.
@@ -28,6 +27,7 @@ run_recipe() {
 
 echo "==> Installing recipe modules"
 mod config recipes jar install \
+  org.openrewrite.recipe:rewrite-all:LATEST \
   org.openrewrite.recipe:rewrite-static-analysis:LATEST \
   org.openrewrite.recipe:rewrite-java-security:LATEST \
   org.openrewrite.recipe:rewrite-java-dependencies:LATEST \
@@ -178,9 +178,6 @@ run_recipe "SLF4J best practices" slf4j_best_practices
 
 devcenter_starter() (
   set -e
-  # Install the DevCenter starter recipes
-  mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
-
   # Run the DevCenterStarter recipe to produce the required data tables
   mod run . --recipe io.moderne.devcenter.DevCenterStarter
 
