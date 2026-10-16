@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.35.0 (2026/10/16)
+
+- copy a credentialed git clone command
+- show saved code searches in the Activity view
+
 ### UI v14.34.0 (2026/10/15)
 
 - link repositories, files and line numbers to the SCM
