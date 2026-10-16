@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.37.0 (2026/10/16)
+
+- reveal the lines a result hides, at the commit searched
+
 ### UI v14.36.0 (2026/10/16)
 
 - Bug fixes and other improvements.
