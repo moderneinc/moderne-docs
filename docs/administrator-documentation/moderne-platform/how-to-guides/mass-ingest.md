@@ -10,7 +10,7 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 Building LSTs on a schedule rather than in CI keeps every repository current. That includes the repositories that rarely build, and the ones whose code has not changed but whose dependencies have. To understand why we recommend this over building LSTs in CI, see [mass ingest vs CI-integrated LST builds](../references/mass-ingest-vs-ci.md).
 
-In this guide, we will walk you through how mass ingest works, how to set it up from the Moderne mass ingest example repository, and how to size and scale it.
+In this guide, we will walk you through how mass ingest works, what you will need to arrange before you start, how to set it up from the Moderne mass ingest example repository, and how to size and scale it.
 
 ## How mass ingest works
 
@@ -40,6 +40,16 @@ If any of these are false, the CLI rebuilds the repository. Additionally, there 
 :::note
 Both `--sync-csv` and the `--shard` option described below are incubating. Their behavior may shift between CLI releases. The [CLI reference](../../../user-documentation/moderne-cli/cli-reference.md#mod-publish) has the current options.
 :::
+
+## Prerequisites
+
+Before you can set up mass ingest, you'll need:
+
+* A Linux VM with Docker, or a Kubernetes namespace, that can reach your SCM, artifact repository, and container registry. For details on how to size it, check out the [sizing](#sizing) section below.
+* An artifact repository to publish the LSTs to.
+* A service account for that artifact repository. It needs read, deploy, and overwrite permissions.
+* An SCM service account with read access to every repository you plan to ingest.
+* The configuration your developers use to reach your internal package registries, along with any internal CA certificates.
 
 ## Setting up mass ingest
 
@@ -100,7 +110,7 @@ The number of shards sets how long each container runs. Shorter runs mean a lost
 By default, the image installs the newest CLI release each time a container starts. Every CLI release then rebuilds every repository once. The lock only skips a repository that the same CLI version built. CLI releases are frequent, and an unpinned image will rebuild everything on many nights. To choose when that happens, pin the version with the `MODERNE_WRAPPER_VERSION` environment variable, as [customizing the image](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#the-cli-version) describes.
 
 :::warning
-The `--sync-csv` option was added to `mod publish` in CLI 4.8.1. Do not pin to an earlier version.
+Do not pin to a version prior to 4.9.0.
 :::
 
 ## Next steps
