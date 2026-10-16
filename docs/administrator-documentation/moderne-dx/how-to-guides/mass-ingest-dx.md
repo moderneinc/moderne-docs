@@ -9,7 +9,7 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 Building LSTs on a schedule rather than in CI keeps every repository current. That includes the repositories that rarely build, and the ones whose code has not changed but whose dependencies have. To understand why we recommend this over building LSTs in CI, see [mass ingest vs CI-integrated LST builds](../../moderne-platform/references/mass-ingest-vs-ci.md).
 
-In this guide, we will walk you through how mass ingest works, how to set it up from the Moderne mass ingest example repository, and how to size and scale it.
+In this guide, we will walk you through how mass ingest works, what you will need to arrange before you start, how to set it up from the Moderne mass ingest example repository, and how to size and scale it.
 
 ## How mass ingest works
 
@@ -40,6 +40,16 @@ If any of these are false, the CLI rebuilds the repository. Additionally, there 
 Both `--sync-csv` and the `--shard` option described below are incubating. Their behavior may shift between CLI releases. The [CLI reference](../../../user-documentation/moderne-cli/cli-reference.md#mod-publish) has the current options.
 :::
 
+## Prerequisites
+
+Before you can set up mass ingest, you'll need:
+
+* A Linux VM with Docker, or a Kubernetes namespace, that can reach your SCM, artifact repository, and container registry. For details on how to size it, check out the [sizing](#sizing) section below.
+* An artifact repository to publish the LSTs to.
+* A service account for that artifact repository. It needs read, deploy, and overwrite permissions.
+* An SCM service account with read access to every repository you plan to ingest.
+* The configuration your developers use to reach your internal package registries, along with any internal CA certificates.
+
 ## Setting up mass ingest
 
 The [Moderne mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) packages mass ingest as a container image, with scripts to run it on one machine with Docker or as a Kubernetes Job. You should start from its README, which walks you through the three steps below. Its [docs directory](https://github.com/moderneinc/mass-ingest-example/tree/main/docs) covers the details of each one.
@@ -63,6 +73,7 @@ The example's Dockerfile contains the build tools for JVM, JavaScript, Python, .
 You will need to do three things to configure the container (via environment variables and one mounted file):
 
 * **Tell the container where to publish the LSTs.** Set the environment variables for your artifact repository, which the example's [S3](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/s3.md) and [Artifactory](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/artifactory.md) pages list. The Artifactory page also covers [Nexus and other Maven repositories](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/artifactory.md#nexus-and-other-maven-repositories).
+  * **Note**: An LST contains the full source code of its repository. Anyone who can read the artifact repository can download it.
 * **Give it your license key.** Set `MOD_LICENSE_KEY` to your Moderne DX license key. The CLI never contacts Moderne. The image does download the CLI from Moderne's artifact host when a container starts. If your network blocks that, see [air-gapped installations](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#air-gapped-installations).
 * **Give it credentials for private repositories.** The CLI clones with Git, which reads credentials from a `.git-credentials` file in the home directory of the container's user. You will need to mount yours at `/home/moderne/.git-credentials`. The example's Kubernetes Job mounts it from a secret, and its single-machine script mounts it from your home directory. If every repository is public, an empty file is enough.
 
@@ -99,7 +110,7 @@ The number of shards sets how long each container runs. Shorter runs mean a lost
 By default, the image installs the newest CLI release each time a container starts. Every CLI release then rebuilds every repository once. The lock only skips a repository that the same CLI version built. CLI releases are frequent, and an unpinned image will rebuild everything on many nights. To choose when that happens, pin the version with the `MODERNE_WRAPPER_VERSION` environment variable, as [customizing the image](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#the-cli-version) describes.
 
 :::warning
-The `--sync-csv` option was added to `mod publish` in CLI 4.8.1. Do not pin to an earlier version.
+Do not pin to a version prior to 4.9.0.
 :::
 
 ## Next steps
