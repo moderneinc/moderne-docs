@@ -414,5 +414,6 @@ Now that you've written your first C# recipe, you can go deeper:
 
 * Browse the [C# recipes in the Moderne recipe catalog](../../recipe-catalog/csharp/README.md) for real-world examples to learn from and build on
 * Read the [Java refactoring recipe guide](./writing-a-java-refactoring-recipe.md) and [JavaScript refactoring recipe guide](./writing-a-javascript-refactoring-recipe.md) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
+* Learn how to [call Java and YAML recipes from your recipe](../advanced-authoring/combining-recipes-across-ecosystems.md#calling-java-recipes-from-other-ecosystems)
 * Learn more about [setting up and using C# LSTs with the Moderne CLI](../../../moderne-cli/how-to-guides/csharp.md)
 * Work through the [recipe authoring fundamentals workshop](../../../../hands-on-learning/fundamentals/workshop-overview.md) for a hands-on introduction to recipe development
