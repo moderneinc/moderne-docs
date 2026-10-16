@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.36.0 (2026/10/16)
+
+- Bug fixes and other improvements.
+
 ### UI v14.35.0 (2026/10/16)
 
 - copy a credentialed git clone command
