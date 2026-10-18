@@ -5664,9 +5664,3 @@ Republishing to update dependencies
 
 * Update suppressions
 
-## October 18, 2025
-
-#### rewrite-nodejs - 0.32.1
-
-* Handle negations of the `util.is` calls too
-
