@@ -17,7 +17,7 @@ The agent runs the recipes across every repository at once, checks the results w
 
 Agent chat needs no setup beyond the two commands in the [quick start](#quick-start): one installs the CLI, and one clones the organization with its prebuilt LSTs and tells the agent how to use them. The rest of this page is reference for when you want to know more.
 
-<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=ExcahLrnN2U' controls="true" />
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=maZDbrvc3u0' controls="true" />
 
 ## Quick start
 
