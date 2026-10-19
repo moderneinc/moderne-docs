@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.10.1           |
+| CLI version | 4.11.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,74 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.11.0 (2026-10-18)
+
+_Based on OpenRewrite 8.93.11_
+
+#### What's Changed
+* Add mod <agent> factory, with mod graphql and one-off recipe bundles
+* Tell agents the diff, not SourcesFileResults, is what a run changed
+* Fix total count for `mod git sync csv`
+* Fix help messages not to render `null`
+* Avoid ε in title when generating dev center dashboards
+* Reject a missing Maven settings file, and share one ~ expansion helper
+* Join a changeset with `--changeset` on `sync moderne`, put a team on it with `mod <agent> team join`, and search or run on Moderne with `moderne://`
+* Start a factory without an objective, approve its tool use without asking, and have Codex wait for Moderne's tools
+* Write the types a marker holds as slots in the scope's type table
+* Hint a factory to spend teams sparingly: a piece at a time, a sample before the herd, a shard per session
+* Support the `repo:` filter in trigrep search
+* Escaping/input sanitization fixes for GenerateDevcenter when embedding content
+* Print progress during the wrapper's first-run setup
+* Record commit history on V3 LSTs, and search code by who last changed it
+* Add Scala source sets to Maven, Gradle builds
+* Fix `mod config moderne login --with-token` using stdin
+* Look up fetched NuGet packages under their lowercase version folder
+* Read `types.bin` without memory-mapping in `SourceSetStoreMarkerTypesTest`
+* Remove what remained of the Pi-based `mod factory`
+* Don't rebuild the MCP LST when a watcher event fires for an unmodifie…
+* Make doctor's proxy fix a command that actually parses
+* Suggest a proxy when an established connection is reset
+* Make every mainframe kind a path in one kind tree
+* Note on each match what the filter that matched it knew
+* Show match notes in mod search, trigrep_search and remote searches
+* Name the declarations holding a match when a search asks
+* Let type: mainframe read only mainframe repositories, as the default pipeline does
+* Keep a search's view of which shard answers for a repository
+* Look up only the jars a source set's build compiled against when converting to V3
+* Let mod publish --sync-csv --full build every repository, whatever its lock row records
+* Give up on an LST's conversion to V3 after a timeout, and note in convert.log why one failed
+* Keep a conversion given up on to its share of the sync until it stops, and stop it at its next file
+* Stop a --sync-csv build step stuck past its budget, and let a child, not the CLI, die out of memory
+* Record the id rewrite-mainframe 3.3.0 gives a COBOL preprocessor word
+* Print a search or run in Moderne as a search or run of a working set prints it
+* Let agent sessions work through mod where MCP is not approved
+* Name an organization by its name or part of one in moderne:// and --org
+* Sum up --output=summary over the whole search instead of a repository at a time
+* Give each mainframe extractor a file of its own, and let one place a name exactly
+* Keep every mainframe name upper case in the index, however a member writes it
+* Expect a summary's last line without the line break after it, which is CRLF on Windows
+* Find a Control-M job, its folder, calendars and conditions by name, and what it runs
+* Find a load module by name, from the deck that links it and the listing of what it holds
+* Count any use of a level-88 condition name as a use of the item it is declared under
+* Search the text a phrase spans across lines, where a shard keeps one
+* Let a copybook declare its own member name, so sym: finds it
+* Find a data set by the name a job writes and the name it resolves to, and every name an IDCAMS deck defines
+* Let a COBOL program, section and paragraph hold their lines, so a match shows them
+* Find an IMS database, segment, field, PSB, transaction or screen by name, and every deck that uses it
+* Print a search match's notes below its line, after the info icon, as rich output prints a search result's description
+* Find a COBOL phrase across the lines it is written on
+* Find the DB2 tables and cursors a COBOL program's EXEC SQL names, and what it does to each table
+* Read a link-edit deck a job writes in its stream as a link-edit deck
+* Find an assembler program, its sections, data and macros by name, and what it calls
+* Find the DB2 objects DDL and bind decks declare, and what each statement names
+* Find the CICS files, queues, transactions and maps a COBOL program names, and the IMS segments, MODs and PSBs
+* Grow a write buffer past 1 GiB by doubling, and name the file whose tree is too large to write
+* Read Db2 utility decks and the DB2 decks a job writes in its own stream, and find what they name
+* Skip a file whose tree is too large to write, and say in the build log and console what a build leaves out of a file
+* Find a phrase across a JCL, assembler or IMS gen member's comment lines
+* Say which files a build step leaves out for their size, in the build log and once for the repository on the console
+* Show the DB2 table note as it prints, below the line after ℹ
 
 ### CLI / DX v4.10.1 (2026-10-14)
 

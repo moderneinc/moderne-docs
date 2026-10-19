@@ -10,6 +10,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod**](#mod)
 * [**mod amp**](#mod-amp)
 * [**mod amp chat**](#mod-amp-chat)
+* [**mod amp factory**](#mod-amp-factory)
+* [**mod amp team**](#mod-amp-team)
+* [**mod amp team join**](#mod-amp-team-join)
 * [**mod audit**](#mod-audit)
 * [**mod audit builds**](#mod-audit-builds)
 * [**mod audit builds list**](#mod-audit-builds-list)
@@ -18,13 +21,21 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod build**](#mod-build)
 * [**mod claude**](#mod-claude)
 * [**mod claude chat**](#mod-claude-chat)
+* [**mod claude factory**](#mod-claude-factory)
+* [**mod claude team**](#mod-claude-team)
+* [**mod claude team join**](#mod-claude-team-join)
 * [**mod clean**](#mod-clean)
 * [**mod clean builds**](#mod-clean-builds)
 * [**mod clean runs**](#mod-clean-runs)
 * [**mod clean repos**](#mod-clean-repos)
 * [**mod codex**](#mod-codex)
 * [**mod codex chat**](#mod-codex-chat)
+* [**mod codex factory**](#mod-codex-factory)
+* [**mod codex team**](#mod-codex-team)
+* [**mod codex team join**](#mod-codex-team-join)
 * [**mod config**](#mod-config)
+* [**mod config agents**](#mod-config-agents)
+* [**mod config agents mcp**](#mod-config-agents-mcp)
 * [**mod config agent-tools**](#mod-config-agent-tools)
 * [**mod config agent-tools install**](#mod-config-agent-tools-install)
 * [**mod config agent-tools uninstall**](#mod-config-agent-tools-uninstall)
@@ -185,20 +196,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config clone timeout delete**](#mod-config-clone-timeout-delete)
 * [**mod config clone timeout edit**](#mod-config-clone-timeout-edit)
 * [**mod config clone timeout show**](#mod-config-clone-timeout-show)
-* [**mod config comms**](#mod-config-comms)
-* [**mod config comms slack**](#mod-config-comms-slack)
-* [**mod config comms slack setup**](#mod-config-comms-slack-setup)
-* [**mod config comms slack edit**](#mod-config-comms-slack-edit)
-* [**mod config comms slack show**](#mod-config-comms-slack-show)
-* [**mod config comms slack delete**](#mod-config-comms-slack-delete)
-* [**mod config comms webhook**](#mod-config-comms-webhook)
-* [**mod config comms webhook edit**](#mod-config-comms-webhook-edit)
-* [**mod config comms webhook show**](#mod-config-comms-webhook-show)
-* [**mod config comms webhook delete**](#mod-config-comms-webhook-delete)
-* [**mod config comms sms**](#mod-config-comms-sms)
-* [**mod config comms sms edit**](#mod-config-comms-sms-edit)
-* [**mod config comms sms show**](#mod-config-comms-sms-show)
-* [**mod config comms sms delete**](#mod-config-comms-sms-delete)
 * [**mod config dotnet**](#mod-config-dotnet)
 * [**mod config dotnet installation**](#mod-config-dotnet-installation)
 * [**mod config dotnet installation edit**](#mod-config-dotnet-installation-edit)
@@ -218,6 +215,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features**](#mod-config-features)
 * [**mod config features agent-tools**](#mod-config-features-agent-tools)
 * [**mod config features agent-tools tray**](#mod-config-features-agent-tools-tray)
+* [**mod config features build**](#mod-config-features-build)
+* [**mod config features build git-blame**](#mod-config-features-build-git-blame)
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
 * [**mod config features inline-diff**](#mod-config-features-inline-diff)
 * [**mod config features lst**](#mod-config-features-lst)
@@ -362,6 +361,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes artifacts go add**](#mod-config-recipes-artifacts-go-add)
 * [**mod config recipes artifacts go delete**](#mod-config-recipes-artifacts-go-delete)
 * [**mod config recipes artifacts go show**](#mod-config-recipes-artifacts-go-show)
+* [**mod config recipes bundle**](#mod-config-recipes-bundle)
+* [**mod config recipes bundle push**](#mod-config-recipes-bundle-push)
 * [**mod config recipes csv**](#mod-config-recipes-csv)
 * [**mod config recipes csv sync**](#mod-config-recipes-csv-sync)
 * [**mod config recipes export**](#mod-config-recipes-export)
@@ -431,8 +432,14 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config telemetry wait-for-upload**](#mod-config-telemetry-wait-for-upload)
 * [**mod copilot**](#mod-copilot)
 * [**mod copilot chat**](#mod-copilot-chat)
+* [**mod copilot factory**](#mod-copilot-factory)
+* [**mod copilot team**](#mod-copilot-team)
+* [**mod copilot team join**](#mod-copilot-team-join)
 * [**mod cursor**](#mod-cursor)
 * [**mod cursor chat**](#mod-cursor-chat)
+* [**mod cursor factory**](#mod-cursor-factory)
+* [**mod cursor team**](#mod-cursor-team)
+* [**mod cursor team join**](#mod-cursor-team-join)
 * [**mod doctor**](#mod-doctor)
 * [**mod devcenter**](#mod-devcenter)
 * [**mod exec**](#mod-exec)
@@ -457,8 +464,12 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod git sync csv**](#mod-git-sync-csv)
 * [**mod git sync moderne**](#mod-git-sync-moderne)
 * [**mod git status**](#mod-git-status)
+* [**mod graphql**](#mod-graphql)
 * [**mod kiro**](#mod-kiro)
 * [**mod kiro chat**](#mod-kiro-chat)
+* [**mod kiro factory**](#mod-kiro-factory)
+* [**mod kiro team**](#mod-kiro-team)
+* [**mod kiro team join**](#mod-kiro-team-join)
 * [**mod log**](#mod-log)
 * [**mod log builds**](#mod-log-builds)
 * [**mod log builds add**](#mod-log-builds-add)
@@ -473,6 +484,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod monitor**](#mod-monitor)
 * [**mod opencode**](#mod-opencode)
 * [**mod opencode chat**](#mod-opencode-chat)
+* [**mod opencode factory**](#mod-opencode-factory)
+* [**mod opencode team**](#mod-opencode-team)
+* [**mod opencode team join**](#mod-opencode-team-join)
 * [**mod prebuild**](#mod-prebuild)
 * [**mod publish**](#mod-publish)
 * [**mod run**](#mod-run)
@@ -492,8 +506,13 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod trace syncs analyze**](#mod-trace-syncs-analyze)
 * [**mod vscode**](#mod-vscode)
 * [**mod vscode chat**](#mod-vscode-chat)
+* [**mod vscode factory**](#mod-vscode-factory)
+* [**mod vscode team**](#mod-vscode-team)
+* [**mod vscode team join**](#mod-vscode-team-join)
 * [**mod windsurf**](#mod-windsurf)
 * [**mod windsurf chat**](#mod-windsurf-chat)
+* [**mod windsurf team**](#mod-windsurf-team)
+* [**mod windsurf team join**](#mod-windsurf-team-join)
 * [**mod wrapper**](#mod-wrapper)
 
 ## mod
@@ -528,6 +547,7 @@ mod [subcommands]
 * `devcenter`: Generate DevCenter dashboards.
 * `exec`: Execute an arbitrary shell command on selected repositories and partitions.
 * `git`: Multi-repository git operations.
+* `graphql`: Send a GraphQL query or mutation to Moderne and print the response.
 * `kiro`: (INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
 * `log`: Manages a log aggregate.
 * `list`: Lists the repositories that can be built and published.
@@ -563,13 +583,15 @@ mod amp [subcommands]
 ### Subcommands
 
 * `chat`: (INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
+* `factory`: (INCUBATING) Launches an Amp session on a standing objective over an organization in Moderne, with nothing checked out.
+* `team`: (INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
 
 ## mod amp chat
 
 (INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
 
 
-Launches an Amp session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+Launches an Amp session configured to use **mod** for deterministic work on a synced multi-repository organization. It is one agent on as much of a code estate as is synced to this machine, from Moderne or from a repos.csv. To work on a changeset in Moderne as one of its team, use **mod \<agent> team join** instead.
 
 ### Usage
 
@@ -593,12 +615,98 @@ mod amp chat /path/to/organization --org <ORG_NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |  |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset \<ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. | `mod codex chat ./ws --org <ORG_NAME> --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod amp factory
+
+(INCUBATING) Launches an Amp session on a standing objective over an organization in Moderne, with nothing checked out.
+
+
+Launches an Amp session on a standing objective over an organization in Moderne, or over everything you can see there. Nothing is synced. The agent finds where the objective is not met with **mod search moderne://\<organization id>**, makes changesets of the work there with **mod run moderne://\<organization id>** or by saving the searches that find it, launches **mod \<agent> team join** teams on them, and ships them. A session derives where things stand from the code and the changesets in Moderne, so running it again, by hand or on a schedule, continues the work. Where the agent can be started that way, its tool use is approved without asking, interactive or not, since a factory is designed to work on its own.
+
+### Usage
+
+```
+mod amp factory [parameters]
+```
+
+### Examples
+
+```
+mod amp factory /path/to/factory --org <ORG_NAME> --unattended --prompt "<OBJECTIVE>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The factory's directory, which holds its guide. The teams a session launches work beside it rather than under it, in a directory named for it with -teams added, so that no team reads the factory's guide as its own. | `/path/to/factory` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name or id of the organization in Moderne the objective is over, found the way **mod \<agent> chat --org** finds it. Without it, the objective is over every organization you can see. |  |
+| `--prompt` |  The objective: what should always be true of the code, given as a standing instruction rather than a task, with the commit strategy it may use and the channel to report to, if any. Give it to every session, since nothing keeps it between them. Without it, the session starts and waits for you to type the objective in, which **--unattended** cannot. | `Keep every repository on the latest Gradle release, and open a pull request for each upgrade` |
+| `--unattended` |  Work the objective to completion and exit instead of starting an interactive session, as a session started on a schedule must. Requires **--prompt**. |  |
+
+
+## mod amp team
+
+(INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
+
+
+A team is the sessions on one changeset in Moderne, however many there are and wherever they run. Each works in a working set of its own, on the repositories the changeset holds a change for or on the part of them that **--shard** or **--organization** gave it. The sessions talk on the changeset's message board. Moderne lists each among the changeset's agents while it works, which is how whoever launched them, a factory among them, waits on them.
+
+### Usage
+
+```
+mod amp team [subcommands]
+```
+
+
+### Subcommands
+
+* `join`: (INCUBATING) Launches an Amp session as one of the team on a changeset in Moderne.
+
+## mod amp team join
+
+(INCUBATING) Launches an Amp session as one of the team on a changeset in Moderne.
+
+
+Launches an Amp session as one of the team on a changeset in Moderne. The repositories the changeset holds a change for are synced with sources and LSTs, as **mod git sync moderne \<dir> --changeset \<id>** syncs them, and checked out to its branch, so what the agent pushes lands on the changeset. The session is opened on the changeset before the agent starts and closed when it exits, so Moderne lists it among the changeset's agents while it works. Run it again in another directory, here or on another machine logged in to the same tenant, to add a session to the team.
+
+### Usage
+
+```
+mod amp team join [parameters]
+```
+
+### Examples
+
+```
+mod amp team join /path/to/teams/<CHANGESET_ID> <CHANGESET_ID> --unattended --prompt "<PROMPT>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory the session works in, a working set of the changeset's own. Every session on the changeset has one, on this machine or another. A factory keeps its teams' working sets beside its own directory, in one named for it with -teams added. | `/path/to/teams/20260924153000-Ab1cD` |
+| `changesetId` |  The changeset the team works on, a recipe run, a saved search or a revision in Moderne, by the last segment of its results URL. | `20260924153000-Ab1cD` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  Work on one organization of the changeset, given by its id, its name or the last segments of its id, or part of either, case aside. The session then syncs only the repositories the changeset holds a change for in that organization's subtree. | `ALL/Payments` |
+| `--prompt` |  Start the session with this prompt already submitted. It is all the agent knows of why it is on the changeset, so say what the change was meant to do and what done looks like. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories the changeset holds a change for, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split the changeset without coordinating. A repository's shard depends on its repos.csv row alone, so it is the same on every machine. |  |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
@@ -773,13 +881,15 @@ mod claude [subcommands]
 ### Subcommands
 
 * `chat`: (INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
+* `factory`: (INCUBATING) Launches a Claude Code session on a standing objective over an organization in Moderne, with nothing checked out.
+* `team`: (INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
 
 ## mod claude chat
 
 (INCUBATING) Launches a Claude Code session configured to use **mod** for deterministic multi-repository work.
 
 
-Launches a Claude Code session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+Launches a Claude Code session configured to use **mod** for deterministic work on a synced multi-repository organization. It is one agent on as much of a code estate as is synced to this machine, from Moderne or from a repos.csv. To work on a changeset in Moderne as one of its team, use **mod \<agent> team join** instead.
 
 ### Usage
 
@@ -803,12 +913,98 @@ mod claude chat /path/to/organization --org <ORG_NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |  |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset \<ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. | `mod codex chat ./ws --org <ORG_NAME> --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod claude factory
+
+(INCUBATING) Launches a Claude Code session on a standing objective over an organization in Moderne, with nothing checked out.
+
+
+Launches a Claude Code session on a standing objective over an organization in Moderne, or over everything you can see there. Nothing is synced. The agent finds where the objective is not met with **mod search moderne://\<organization id>**, makes changesets of the work there with **mod run moderne://\<organization id>** or by saving the searches that find it, launches **mod \<agent> team join** teams on them, and ships them. A session derives where things stand from the code and the changesets in Moderne, so running it again, by hand or on a schedule, continues the work. Where the agent can be started that way, its tool use is approved without asking, interactive or not, since a factory is designed to work on its own.
+
+### Usage
+
+```
+mod claude factory [parameters]
+```
+
+### Examples
+
+```
+mod claude factory /path/to/factory --org <ORG_NAME> --unattended --prompt "<OBJECTIVE>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The factory's directory, which holds its guide. The teams a session launches work beside it rather than under it, in a directory named for it with -teams added, so that no team reads the factory's guide as its own. | `/path/to/factory` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name or id of the organization in Moderne the objective is over, found the way **mod \<agent> chat --org** finds it. Without it, the objective is over every organization you can see. |  |
+| `--prompt` |  The objective: what should always be true of the code, given as a standing instruction rather than a task, with the commit strategy it may use and the channel to report to, if any. Give it to every session, since nothing keeps it between them. Without it, the session starts and waits for you to type the objective in, which **--unattended** cannot. | `Keep every repository on the latest Gradle release, and open a pull request for each upgrade` |
+| `--unattended` |  Work the objective to completion and exit instead of starting an interactive session, as a session started on a schedule must. Requires **--prompt**. |  |
+
+
+## mod claude team
+
+(INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
+
+
+A team is the sessions on one changeset in Moderne, however many there are and wherever they run. Each works in a working set of its own, on the repositories the changeset holds a change for or on the part of them that **--shard** or **--organization** gave it. The sessions talk on the changeset's message board. Moderne lists each among the changeset's agents while it works, which is how whoever launched them, a factory among them, waits on them.
+
+### Usage
+
+```
+mod claude team [subcommands]
+```
+
+
+### Subcommands
+
+* `join`: (INCUBATING) Launches a Claude Code session as one of the team on a changeset in Moderne.
+
+## mod claude team join
+
+(INCUBATING) Launches a Claude Code session as one of the team on a changeset in Moderne.
+
+
+Launches a Claude Code session as one of the team on a changeset in Moderne. The repositories the changeset holds a change for are synced with sources and LSTs, as **mod git sync moderne \<dir> --changeset \<id>** syncs them, and checked out to its branch, so what the agent pushes lands on the changeset. The session is opened on the changeset before the agent starts and closed when it exits, so Moderne lists it among the changeset's agents while it works. Run it again in another directory, here or on another machine logged in to the same tenant, to add a session to the team.
+
+### Usage
+
+```
+mod claude team join [parameters]
+```
+
+### Examples
+
+```
+mod claude team join /path/to/teams/<CHANGESET_ID> <CHANGESET_ID> --unattended --prompt "<PROMPT>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory the session works in, a working set of the changeset's own. Every session on the changeset has one, on this machine or another. A factory keeps its teams' working sets beside its own directory, in one named for it with -teams added. | `/path/to/teams/20260924153000-Ab1cD` |
+| `changesetId` |  The changeset the team works on, a recipe run, a saved search or a revision in Moderne, by the last segment of its results URL. | `20260924153000-Ab1cD` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  Work on one organization of the changeset, given by its id, its name or the last segments of its id, or part of either, case aside. The session then syncs only the repositories the changeset holds a change for in that organization's subtree. | `ALL/Payments` |
+| `--prompt` |  Start the session with this prompt already submitted. It is all the agent knows of why it is on the changeset, so say what the change was meant to do and what done looks like. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories the changeset holds a change for, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split the changeset without coordinating. A repository's shard depends on its repos.csv row alone, so it is the same on every machine. |  |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
@@ -956,13 +1152,15 @@ mod codex [subcommands]
 ### Subcommands
 
 * `chat`: (INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
+* `factory`: (INCUBATING) Launches a Codex session on a standing objective over an organization in Moderne, with nothing checked out.
+* `team`: (INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
 
 ## mod codex chat
 
 (INCUBATING) Launches a Codex session configured to use **mod** for deterministic multi-repository work.
 
 
-Launches a Codex session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+Launches a Codex session configured to use **mod** for deterministic work on a synced multi-repository organization. It is one agent on as much of a code estate as is synced to this machine, from Moderne or from a repos.csv. To work on a changeset in Moderne as one of its team, use **mod \<agent> team join** instead.
 
 ### Usage
 
@@ -986,12 +1184,98 @@ mod codex chat /path/to/organization --org <ORG_NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |  |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset \<ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. | `mod codex chat ./ws --org <ORG_NAME> --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod codex factory
+
+(INCUBATING) Launches a Codex session on a standing objective over an organization in Moderne, with nothing checked out.
+
+
+Launches a Codex session on a standing objective over an organization in Moderne, or over everything you can see there. Nothing is synced. The agent finds where the objective is not met with **mod search moderne://\<organization id>**, makes changesets of the work there with **mod run moderne://\<organization id>** or by saving the searches that find it, launches **mod \<agent> team join** teams on them, and ships them. A session derives where things stand from the code and the changesets in Moderne, so running it again, by hand or on a schedule, continues the work. Where the agent can be started that way, its tool use is approved without asking, interactive or not, since a factory is designed to work on its own.
+
+### Usage
+
+```
+mod codex factory [parameters]
+```
+
+### Examples
+
+```
+mod codex factory /path/to/factory --org <ORG_NAME> --unattended --prompt "<OBJECTIVE>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The factory's directory, which holds its guide. The teams a session launches work beside it rather than under it, in a directory named for it with -teams added, so that no team reads the factory's guide as its own. | `/path/to/factory` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name or id of the organization in Moderne the objective is over, found the way **mod \<agent> chat --org** finds it. Without it, the objective is over every organization you can see. |  |
+| `--prompt` |  The objective: what should always be true of the code, given as a standing instruction rather than a task, with the commit strategy it may use and the channel to report to, if any. Give it to every session, since nothing keeps it between them. Without it, the session starts and waits for you to type the objective in, which **--unattended** cannot. | `Keep every repository on the latest Gradle release, and open a pull request for each upgrade` |
+| `--unattended` |  Work the objective to completion and exit instead of starting an interactive session, as a session started on a schedule must. Requires **--prompt**. |  |
+
+
+## mod codex team
+
+(INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
+
+
+A team is the sessions on one changeset in Moderne, however many there are and wherever they run. Each works in a working set of its own, on the repositories the changeset holds a change for or on the part of them that **--shard** or **--organization** gave it. The sessions talk on the changeset's message board. Moderne lists each among the changeset's agents while it works, which is how whoever launched them, a factory among them, waits on them.
+
+### Usage
+
+```
+mod codex team [subcommands]
+```
+
+
+### Subcommands
+
+* `join`: (INCUBATING) Launches a Codex session as one of the team on a changeset in Moderne.
+
+## mod codex team join
+
+(INCUBATING) Launches a Codex session as one of the team on a changeset in Moderne.
+
+
+Launches a Codex session as one of the team on a changeset in Moderne. The repositories the changeset holds a change for are synced with sources and LSTs, as **mod git sync moderne \<dir> --changeset \<id>** syncs them, and checked out to its branch, so what the agent pushes lands on the changeset. The session is opened on the changeset before the agent starts and closed when it exits, so Moderne lists it among the changeset's agents while it works. Run it again in another directory, here or on another machine logged in to the same tenant, to add a session to the team.
+
+### Usage
+
+```
+mod codex team join [parameters]
+```
+
+### Examples
+
+```
+mod codex team join /path/to/teams/<CHANGESET_ID> <CHANGESET_ID> --unattended --prompt "<PROMPT>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory the session works in, a working set of the changeset's own. Every session on the changeset has one, on this machine or another. A factory keeps its teams' working sets beside its own directory, in one named for it with -teams added. | `/path/to/teams/20260924153000-Ab1cD` |
+| `changesetId` |  The changeset the team works on, a recipe run, a saved search or a revision in Moderne, by the last segment of its results URL. | `20260924153000-Ab1cD` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  Work on one organization of the changeset, given by its id, its name or the last segments of its id, or part of either, case aside. The session then syncs only the repositories the changeset holds a change for in that organization's subtree. | `ALL/Payments` |
+| `--prompt` |  Start the session with this prompt already submitted. It is all the agent knows of why it is on the changeset, so say what the change was meant to do and what done looks like. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories the changeset holds a change for, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split the changeset without coordinating. A repository's shard depends on its repos.csv row alone, so it is the same on every machine. |  |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
@@ -1017,10 +1301,10 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 
 ### Subcommands
 
+* `agents`: Configures the coding agent sessions **mod \<agent>** starts.
 * `agent-tools`: Manage Moderne agent tools for coding agents.
 * `build`: Configures build tools used to produce LSTs.
 * `clone`: Configures cloning behavior.
-* `comms`: Configures communication channels for factory notifications.
 * `dotnet`: Configures DotNet options used for building LSTs and running recipes.
 * `environment`: The build environment that the CLI is running in.
 * `exec`: Configures shell command execution behavior.
@@ -1039,6 +1323,50 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `scm`: (DEPRECATED) Configures source code management.
 * `secrets`: Configures how secrets in the configuration are kept.
 * `telemetry`: Configures CLI telemetry.
+
+## mod config agents
+
+Configures the coding agent sessions **mod \<agent>** starts.
+
+
+
+
+### Usage
+
+```
+mod config agents [subcommands]
+```
+
+
+### Subcommands
+
+* `mcp`: Configure whether agent sessions are given Moderne's MCP server.
+
+## mod config agents mcp
+
+Configure whether agent sessions are given Moderne's MCP server.
+
+
+When enabled, as it is by default, **mod \<agent> chat**, **factory** and **team join** give an agent that can take an MCP server for one session (Claude Code, Codex and the Copilot CLI) the MCP server of the Moderne tenant the CLI is logged in to. Disable it where MCP is not approved for coding agents: the sessions then work through **mod** alone, as their guides teach them to anyway. **MOD_AGENTS_MCP=false** in the environment disables it as well.
+
+### Usage
+
+```
+mod config agents mcp
+```
+
+### Examples
+
+```
+mod config agents mcp --enabled=false
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  Whether sessions are given Moderne's MCP server. |
+
 
 ## mod config agent-tools
 
@@ -4499,258 +4827,6 @@ mod config clone timeout show
 
 
 
-## mod config comms
-
-Configures communication channels for factory notifications.
-
-
-Channels are accumulative — configuring Slack does not remove webhook config. The factory automatically uses all configured channels. Delete a channel to stop receiving notifications on it.
-
-### Usage
-
-```
-mod config comms [subcommands]
-```
-
-
-### Subcommands
-
-* `slack`: Configures Slack notifications for the factory.
-* `webhook`: Configures webhook notifications for the factory.
-* `sms`: Configures SMS notifications for the factory.
-
-## mod config comms slack
-
-Configures Slack notifications for the factory.
-
-
-Run 'setup' first to create the Slack app, then 'edit' to save the tokens. The factory will post a thread with per-phase and per-repo updates.
-
-### Usage
-
-```
-mod config comms slack [subcommands]
-```
-
-
-### Subcommands
-
-* `setup`: Prints the Slack app manifest and setup instructions.
-* `edit`: Saves the Slack bot token, app token, and channel ID.
-* `show`: Displays the configured Slack notification settings.
-* `delete`: Removes Slack notification configuration.
-
-## mod config comms slack setup
-
-Prints the Slack app manifest and setup instructions.
-
-
-Generates a Slack App Manifest JSON that you paste into Slack's 'Create App from Manifest' flow. This pre-configures all required bot scopes — no manual scope configuration needed.
-
-### Usage
-
-```
-mod config comms slack setup
-```
-
-
-
-## mod config comms slack edit
-
-Saves the Slack bot token, app token, and channel ID.
-
-
-Run 'mod config comms slack setup' first to create the Slack app and get these values.
-
-### Usage
-
-```
-mod config comms slack edit
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--app-token` |  Slack app-level token for Socket Mode (starts with xapp-). Enables bidirectional communication — reply in the factory thread to pause, resume, or adjust the factory. |
-| `--channel` |  Slack channel ID (starts with C, e.g., C0123ABCDEF). Not the channel name. |
-| `--token` |  Slack bot token (starts with xoxb-). |
-
-
-## mod config comms slack show
-
-Displays the configured Slack notification settings.
-
-
-Shows the bot token (masked) and channel ID.
-
-### Usage
-
-```
-mod config comms slack show
-```
-
-
-
-## mod config comms slack delete
-
-Removes Slack notification configuration.
-
-
-The factory will no longer send Slack notifications. The Slack app itself is not removed — delete it at https://api.slack.com/apps if needed.
-
-### Usage
-
-```
-mod config comms slack delete
-```
-
-
-
-## mod config comms webhook
-
-Configures webhook notifications for the factory.
-
-
-The factory will POST JSON events to the configured URL at each lifecycle point.
-
-### Usage
-
-```
-mod config comms webhook [subcommands]
-```
-
-
-### Subcommands
-
-* `edit`: Configures the webhook URL for factory notifications.
-* `show`: Displays the configured webhook settings.
-* `delete`: Removes webhook notification configuration.
-
-## mod config comms webhook edit
-
-Configures the webhook URL for factory notifications.
-
-
-Events are POSTed as JSON with Content-Type: application/json. An optional bearer token is sent in the Authorization header.
-
-### Usage
-
-```
-mod config comms webhook edit
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--token` |  Optional bearer token for the Authorization header. |
-| `--url` |  The webhook URL to POST events to. |
-
-
-## mod config comms webhook show
-
-Displays the configured webhook settings.
-
-
-Shows the webhook URL and whether a bearer token is set.
-
-### Usage
-
-```
-mod config comms webhook show
-```
-
-
-
-## mod config comms webhook delete
-
-Removes webhook notification configuration.
-
-
-The factory will no longer send webhook notifications.
-
-### Usage
-
-```
-mod config comms webhook delete
-```
-
-
-
-## mod config comms sms
-
-Configures SMS notifications for the factory.
-
-
-Uses a Twilio-compatible HTTP API. Only sends high-signal events: factory start, complete, and errors.
-
-### Usage
-
-```
-mod config comms sms [subcommands]
-```
-
-
-### Subcommands
-
-* `edit`: Configures SMS notification settings.
-* `show`: Displays the configured SMS notification settings.
-* `delete`: Removes SMS notification configuration.
-
-## mod config comms sms edit
-
-Configures SMS notification settings.
-
-
-Requires a Twilio-compatible API URL, auth credentials, and phone numbers.
-
-### Usage
-
-```
-mod config comms sms edit
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--api-url` |  Twilio Messages API URL (e.g., `https://api.twilio.com/2010-04-01/Accounts/{SID}/Messages.json`). |
-| `--auth` |  Authorization header value (e.g., 'Basic base64(SID:AuthToken)'). |
-| `--from` |  Sender phone number (e.g., +1234567890). |
-| `--to` |  Recipient phone number (e.g., +0987654321). |
-
-
-## mod config comms sms show
-
-Displays the configured SMS notification settings.
-
-
-Shows the API URL, phone numbers, and whether auth is configured.
-
-### Usage
-
-```
-mod config comms sms show
-```
-
-
-
-## mod config comms sms delete
-
-Removes SMS notification configuration.
-
-
-The factory will no longer send SMS notifications.
-
-### Usage
-
-```
-mod config comms sms delete
-```
-
-
-
 ## mod config dotnet
 
 Configures DotNet options used for building LSTs and running recipes.
@@ -5090,6 +5166,7 @@ mod config features [subcommands]
 ### Subcommands
 
 * `agent-tools`: Configure agent tools features.
+* `build`: Configure what LST builds record.
 * `index-recipes`
 * `inline-diff`: Configure inline diff rendering in the terminal.
 * `lst`: Configure the LST serialization format version.
@@ -5123,6 +5200,42 @@ When enabled, the MCP server launches a system tray icon with a browser-based da
 
 ```
 mod config features agent-tools tray
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  |
+
+
+## mod config features build
+
+Configure what LST builds record.
+
+
+### Usage
+
+```
+mod config features build [subcommands]
+```
+
+
+### Subcommands
+
+* `git-blame`: Configure cloning repositories with the history line blame needs.
+
+## mod config features build git-blame
+
+Configure cloning repositories with the history line blame needs.
+
+
+When enabled, **mod git sync** makes full clones instead of treeless ones, so that **mod build** records for every line of a source file the commit that last changed it, as **git blame** would. A build records what the clone on disk has the history for: every line's commit in a full clone, each file's commits in a clone with its trees, and otherwise the commits alone. Repositories already cloned keep the clone they have. Disabled by default.
+
+### Usage
+
+```
+mod config features build git-blame
 ```
 
 ### Options
@@ -7482,6 +7595,7 @@ mod config recipes moderne sync
 
 * `active`: Manage the active recipe configuration.
 * `artifacts`: Configures artifact repositories to resolve recipes from.
+* `bundle`: Pack the build of a recipe project into a zip that runs as it is wherever it is put.
 * `csv`: Manage the recipe marketplace via a Recipe Marketplace CSV.
 * `export`: Export the recipe catalog for study by different tools.
 * `import`: Import recipes into the marketplace from different formats.
@@ -8245,6 +8359,70 @@ Displays the configured Go recipe artifact feeds.
 ```
 mod config recipes artifacts go show
 ```
+
+
+
+## mod config recipes bundle
+
+Pack the build of a recipe project into a zip that runs as it is wherever it is put.
+
+
+The zip holds the project's jars and everything they run with, the recipes they provide, and what built them. Put it in another working set's **.moderne/recipes/** to run its recipes there in place of any published under the same names, or push it to Moderne to run it once. Only the build of a Gradle or Maven recipe project can be bundled.
+
+### Usage
+
+```
+mod config recipes bundle [parameters] [subcommands]
+```
+
+### Examples
+
+```
+mod config recipes bundle .moderne/recipes/rewrite-spring
+
+mod config recipes bundle push .moderne/recipes/rewrite-spring
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `project` |  The recipe project, a directory under a working set's .moderne/recipes/. It is built first when its source changed. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--output` |  Where to write the zip. By default, the project's name with .zip, in the current directory. |
+
+### Subcommands
+
+* `push`: Upload the build of a recipe project to Moderne, to run once.
+
+## mod config recipes bundle push
+
+Upload the build of a recipe project to Moderne, to run once.
+
+
+Packs the project as **bundle** does and uploads the zip, which Moderne keeps for a day and installs in no marketplace. A recipe run that names its id as **bundleId** runs its recipes in place of any published under the same names. Only an administrator can push a bundle, and only whoever pushed it can run it.
+
+### Usage
+
+```
+mod config recipes bundle push [parameters]
+```
+
+### Examples
+
+```
+mod config recipes bundle push .moderne/recipes/rewrite-spring
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `project` |  The recipe project, a directory under a working set's .moderne/recipes/. It is built first when its source changed. |
 
 
 
@@ -9684,7 +9862,7 @@ mod config scm show
 Configures how secrets in the configuration are kept.
 
 
-Tokens and passwords are written to moderne.yml as null placeholders, so that reading the configuration does not reveal them.
+Tokens and passwords are written to moderne.yml as $\{secret:name} placeholders, so that reading the configuration does not reveal them.
 
 ### Usage
 
@@ -9819,13 +9997,15 @@ mod copilot [subcommands]
 ### Subcommands
 
 * `chat`: (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
+* `factory`: (INCUBATING) Launches a GitHub Copilot session on a standing objective over an organization in Moderne, with nothing checked out.
+* `team`: (INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
 
 ## mod copilot chat
 
 (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
 
 
-Launches a GitHub Copilot session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+Launches a GitHub Copilot session configured to use **mod** for deterministic work on a synced multi-repository organization. It is one agent on as much of a code estate as is synced to this machine, from Moderne or from a repos.csv. To work on a changeset in Moderne as one of its team, use **mod \<agent> team join** instead.
 
 ### Usage
 
@@ -9849,12 +10029,98 @@ mod copilot chat /path/to/organization --org <ORG_NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |  |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset \<ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. | `mod codex chat ./ws --org <ORG_NAME> --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod copilot factory
+
+(INCUBATING) Launches a GitHub Copilot session on a standing objective over an organization in Moderne, with nothing checked out.
+
+
+Launches a GitHub Copilot session on a standing objective over an organization in Moderne, or over everything you can see there. Nothing is synced. The agent finds where the objective is not met with **mod search moderne://\<organization id>**, makes changesets of the work there with **mod run moderne://\<organization id>** or by saving the searches that find it, launches **mod \<agent> team join** teams on them, and ships them. A session derives where things stand from the code and the changesets in Moderne, so running it again, by hand or on a schedule, continues the work. Where the agent can be started that way, its tool use is approved without asking, interactive or not, since a factory is designed to work on its own.
+
+### Usage
+
+```
+mod copilot factory [parameters]
+```
+
+### Examples
+
+```
+mod copilot factory /path/to/factory --org <ORG_NAME> --unattended --prompt "<OBJECTIVE>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The factory's directory, which holds its guide. The teams a session launches work beside it rather than under it, in a directory named for it with -teams added, so that no team reads the factory's guide as its own. | `/path/to/factory` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name or id of the organization in Moderne the objective is over, found the way **mod \<agent> chat --org** finds it. Without it, the objective is over every organization you can see. |  |
+| `--prompt` |  The objective: what should always be true of the code, given as a standing instruction rather than a task, with the commit strategy it may use and the channel to report to, if any. Give it to every session, since nothing keeps it between them. Without it, the session starts and waits for you to type the objective in, which **--unattended** cannot. | `Keep every repository on the latest Gradle release, and open a pull request for each upgrade` |
+| `--unattended` |  Work the objective to completion and exit instead of starting an interactive session, as a session started on a schedule must. Requires **--prompt**. |  |
+
+
+## mod copilot team
+
+(INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
+
+
+A team is the sessions on one changeset in Moderne, however many there are and wherever they run. Each works in a working set of its own, on the repositories the changeset holds a change for or on the part of them that **--shard** or **--organization** gave it. The sessions talk on the changeset's message board. Moderne lists each among the changeset's agents while it works, which is how whoever launched them, a factory among them, waits on them.
+
+### Usage
+
+```
+mod copilot team [subcommands]
+```
+
+
+### Subcommands
+
+* `join`: (INCUBATING) Launches a GitHub Copilot session as one of the team on a changeset in Moderne.
+
+## mod copilot team join
+
+(INCUBATING) Launches a GitHub Copilot session as one of the team on a changeset in Moderne.
+
+
+Launches a GitHub Copilot session as one of the team on a changeset in Moderne. The repositories the changeset holds a change for are synced with sources and LSTs, as **mod git sync moderne \<dir> --changeset \<id>** syncs them, and checked out to its branch, so what the agent pushes lands on the changeset. The session is opened on the changeset before the agent starts and closed when it exits, so Moderne lists it among the changeset's agents while it works. Run it again in another directory, here or on another machine logged in to the same tenant, to add a session to the team.
+
+### Usage
+
+```
+mod copilot team join [parameters]
+```
+
+### Examples
+
+```
+mod copilot team join /path/to/teams/<CHANGESET_ID> <CHANGESET_ID> --unattended --prompt "<PROMPT>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory the session works in, a working set of the changeset's own. Every session on the changeset has one, on this machine or another. A factory keeps its teams' working sets beside its own directory, in one named for it with -teams added. | `/path/to/teams/20260924153000-Ab1cD` |
+| `changesetId` |  The changeset the team works on, a recipe run, a saved search or a revision in Moderne, by the last segment of its results URL. | `20260924153000-Ab1cD` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  Work on one organization of the changeset, given by its id, its name or the last segments of its id, or part of either, case aside. The session then syncs only the repositories the changeset holds a change for in that organization's subtree. | `ALL/Payments` |
+| `--prompt` |  Start the session with this prompt already submitted. It is all the agent knows of why it is on the changeset, so say what the change was meant to do and what done looks like. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories the changeset holds a change for, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split the changeset without coordinating. A repository's shard depends on its repos.csv row alone, so it is the same on every machine. |  |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
@@ -9875,13 +10141,15 @@ mod cursor [subcommands]
 ### Subcommands
 
 * `chat`: (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+* `factory`: (INCUBATING) Launches a Cursor session on a standing objective over an organization in Moderne, with nothing checked out.
+* `team`: (INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
 
 ## mod cursor chat
 
 (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
 
 
-Launches a Cursor session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+Launches a Cursor session configured to use **mod** for deterministic work on a synced multi-repository organization. It is one agent on as much of a code estate as is synced to this machine, from Moderne or from a repos.csv. To work on a changeset in Moderne as one of its team, use **mod \<agent> team join** instead.
 
 ### Usage
 
@@ -9905,12 +10173,98 @@ mod cursor chat /path/to/organization --org <ORG_NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |  |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset \<ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. | `mod codex chat ./ws --org <ORG_NAME> --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod cursor factory
+
+(INCUBATING) Launches a Cursor session on a standing objective over an organization in Moderne, with nothing checked out.
+
+
+Launches a Cursor session on a standing objective over an organization in Moderne, or over everything you can see there. Nothing is synced. The agent finds where the objective is not met with **mod search moderne://\<organization id>**, makes changesets of the work there with **mod run moderne://\<organization id>** or by saving the searches that find it, launches **mod \<agent> team join** teams on them, and ships them. A session derives where things stand from the code and the changesets in Moderne, so running it again, by hand or on a schedule, continues the work. Where the agent can be started that way, its tool use is approved without asking, interactive or not, since a factory is designed to work on its own.
+
+### Usage
+
+```
+mod cursor factory [parameters]
+```
+
+### Examples
+
+```
+mod cursor factory /path/to/factory --org <ORG_NAME> --unattended --prompt "<OBJECTIVE>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The factory's directory, which holds its guide. The teams a session launches work beside it rather than under it, in a directory named for it with -teams added, so that no team reads the factory's guide as its own. | `/path/to/factory` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name or id of the organization in Moderne the objective is over, found the way **mod \<agent> chat --org** finds it. Without it, the objective is over every organization you can see. |  |
+| `--prompt` |  The objective: what should always be true of the code, given as a standing instruction rather than a task, with the commit strategy it may use and the channel to report to, if any. Give it to every session, since nothing keeps it between them. Without it, the session starts and waits for you to type the objective in, which **--unattended** cannot. | `Keep every repository on the latest Gradle release, and open a pull request for each upgrade` |
+| `--unattended` |  Work the objective to completion and exit instead of starting an interactive session, as a session started on a schedule must. Requires **--prompt**. |  |
+
+
+## mod cursor team
+
+(INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
+
+
+A team is the sessions on one changeset in Moderne, however many there are and wherever they run. Each works in a working set of its own, on the repositories the changeset holds a change for or on the part of them that **--shard** or **--organization** gave it. The sessions talk on the changeset's message board. Moderne lists each among the changeset's agents while it works, which is how whoever launched them, a factory among them, waits on them.
+
+### Usage
+
+```
+mod cursor team [subcommands]
+```
+
+
+### Subcommands
+
+* `join`: (INCUBATING) Launches a Cursor session as one of the team on a changeset in Moderne.
+
+## mod cursor team join
+
+(INCUBATING) Launches a Cursor session as one of the team on a changeset in Moderne.
+
+
+Launches a Cursor session as one of the team on a changeset in Moderne. The repositories the changeset holds a change for are synced with sources and LSTs, as **mod git sync moderne \<dir> --changeset \<id>** syncs them, and checked out to its branch, so what the agent pushes lands on the changeset. The session is opened on the changeset before the agent starts and closed when it exits, so Moderne lists it among the changeset's agents while it works. Run it again in another directory, here or on another machine logged in to the same tenant, to add a session to the team.
+
+### Usage
+
+```
+mod cursor team join [parameters]
+```
+
+### Examples
+
+```
+mod cursor team join /path/to/teams/<CHANGESET_ID> <CHANGESET_ID> --unattended --prompt "<PROMPT>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory the session works in, a working set of the changeset's own. Every session on the changeset has one, on this machine or another. A factory keeps its teams' working sets beside its own directory, in one named for it with -teams added. | `/path/to/teams/20260924153000-Ab1cD` |
+| `changesetId` |  The changeset the team works on, a recipe run, a saved search or a revision in Moderne, by the last segment of its results URL. | `20260924153000-Ab1cD` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  Work on one organization of the changeset, given by its id, its name or the last segments of its id, or part of either, case aside. The session then syncs only the repositories the changeset holds a change for in that organization's subtree. | `ALL/Payments` |
+| `--prompt` |  Start the session with this prompt already submitted. It is all the agent knows of why it is on the changeset, so say what the change was meant to do and what done looks like. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories the changeset holds a change for, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split the changeset without coordinating. A repository's shard depends on its repos.csv row alone, so it is the same on every machine. |  |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
@@ -10240,7 +10594,7 @@ mod git clone csv [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--depth` |  Equivalent to the **git clone --depth** option. |
-| `--filter` |  Equivalent to the **git clone --filter** option. |
+| `--filter` |  Equivalent to the **git clone --filter** option. Defaults to **tree:0**, or to a full clone while **mod config features build git-blame** is enabled. |
 | `--limit` |  The maximum number of repositories to clone. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
@@ -10275,7 +10629,7 @@ mod git clone moderne [parameters]
 | Name | Description |
 | ---- | ----------- |
 | `--depth` |  Equivalent to the **git clone --depth** option. |
-| `--filter` |  Equivalent to the **git clone --filter** option. |
+| `--filter` |  Equivalent to the **git clone --filter** option. Defaults to **tree:0**, or to a full clone while **mod config features build git-blame** is enabled. |
 | `--limit` |  The maximum number of repositories to clone. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
@@ -10630,7 +10984,7 @@ mod git sync [subcommands]
 ### Subcommands
 
 * `csv`: Synchronizes the repositories and metadata of an organization from a local repos.csv file.
-* `moderne`: Synchronizes the state of an organization with Moderne.
+* `moderne`: Synchronizes an organization in Moderne, or the repositories a changeset there holds a change for.
 
 ## mod git sync csv
 
@@ -10650,16 +11004,16 @@ mod git sync csv [parameters]
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The absolute or relative path on disk to a directory containing one or more checked-out Git repositories that you want to operate on. This typically takes the form of targeting a single, checked-out copy of a Git repository or it can be a folder containing a collection of Git repositories that will be discovered by recursively scanning the initial provided directory. | `/path/to/project` |
-| `csv` |  The URI (local file or remote) to the CSV file to write the organization to. |  |
+| `csv` |  The URI (local file or remote) to the CSV file to write the organization to. A **moderne://** URI names an organization or a changeset in Moderne instead, as **moderne://\<organization id>** or **moderne://changeset/\<changesetId>**, and is synced as **mod git sync moderne** syncs it. **--organization** beside a changeset narrows it to one of its organizations. |  |
 
 ### Options
 
 | Name | Description |
 | ---- | ----------- |
 | `--depth` |  Equivalent to the **git clone --depth** option. |
-| `--filter` |  Equivalent to the **git clone --filter** option. |
+| `--filter` |  Equivalent to the **git clone --filter** option. Defaults to **tree:0**, or to a full clone while **mod config features build git-blame** is enabled. |
 | `--limit` |  The maximum number of repositories to clone. |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
 | `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. |
@@ -10671,10 +11025,10 @@ mod git sync csv [parameters]
 
 ## mod git sync moderne
 
-Synchronizes the state of an organization with Moderne.
+Synchronizes an organization in Moderne, or the repositories a changeset there holds a change for.
 
 
-The repositories are cloned or pulled at the same branch and changeset of the LST that represents that repository in the organization in Moderne, and that LST is downloaded alongside it unless **--with-lsts=false** is given. If the repository has local changes or is on a different branch no changes will be made. Given **--changeset** with an id and no organization, the changeset's own repositories are synced at its base commits instead, and without **--with-sources** each repository's newest change is placed in **.moderne/run** for **mod git apply --last-recipe-run** to apply. Joining a changeset also brings its data tables, as each organization aggregates them, for **mod study --changeset** to read.
+The repositories are cloned or pulled at the same branch and changeset of the LST that represents that repository in the organization in Moderne, and that LST is downloaded alongside it unless **--with-lsts=false** is given. If the repository has local changes or is on a different branch no changes will be made.%n%nWith **--changeset**, the repositories a changeset in Moderne holds a change for are synced instead. They are the ones its recipe run changed or found something in, the ones its saved search matched in and the ones a session has pushed to. Each is synced at the commit the changeset's LST of it was built from. **--organization** beside it narrows the join to one organization of the changeset, the repositories it holds a change for in that organization's subtree. With **--with-sources**, each repository is then checked out to the changeset's branch at its newest change, so that a push from it lands on the changeset. The changeset's message board is cloned to **.moderne/messageboard** as well. Without **--with-sources**, each repository's newest change is placed in **.moderne/run** for **mod git apply --last-recipe-run** to apply. The changeset's data tables come too, as each organization aggregates them, for **mod study --changeset** to read. A new changeset is started from a synced working set with **mod git checkout --changeset**.
 
 ### Usage
 
@@ -10686,6 +11040,10 @@ mod git sync moderne [parameters]
 
 ```
 mod git sync moderne /path/to/organization --organization <ORG_NAME>
+
+mod git sync moderne /path/to/working-set --changeset 20260924153000-Ab1cD --with-sources
+
+mod git sync moderne /path/to/working-set --changeset 20260924153000-Ab1cD --organization ALL/Payments --with-sources
 ```
 
 ### Parameters
@@ -10697,21 +11055,20 @@ mod git sync moderne /path/to/organization --organization <ORG_NAME>
 
 ### Options
 
-| Name | Description |
-| ---- | ----------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |
-| `--depth` |  Equivalent to the **git clone --depth** option. |
-| `--filter` |  Equivalent to the **git clone --filter** option. |
-| `--limit` |  The maximum number of repositories to clone. |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. |
-| `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
-| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
-| `--with-lsts` |  Whether to download LSTs for the repositories. |
-| `--with-sources` |  Whether to clone the repository at the specified branch. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--changeset` |  Join the changeset in Moderne with this id, the last segment of its results URL, at the repositories it holds a change for, rather than sync an organization. A recipe run's id and a saved search's are their changesets' ids. | `20260924153000-Ab1cD` |
+| `--depth` |  Equivalent to the **git clone --depth** option. |  |
+| `--filter` |  Equivalent to the **git clone --filter** option. Defaults to **tree:0**, or to a full clone while **mod config features build git-blame** is enabled. |  |
+| `--limit` |  The maximum number of repositories to clone. |  |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. |  |
+| `--single-branch` |  Equivalent to the **git clone --single-branch** option. |  |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |  |
+| `--with-lsts` |  Whether to download LSTs for the repositories. |  |
+| `--with-sources` |  Whether to clone the repository at the specified branch. |  |
 
 
 ## mod git status
@@ -10741,6 +11098,43 @@ mod git status /path/to/project
 
 
 
+## mod graphql
+
+Send a GraphQL query or mutation to Moderne and print the response.
+
+
+Sends the document to the GraphQL API of the configured tenant, as the user its token is, and prints the response as Moderne sent it. A response can hold data and errors both, so one with errors is printed all the same, and the command then fails. The schema is large: look up the type you need with **__type(name: "...")** rather than introspecting all of it.
+
+### Usage
+
+```
+mod graphql [parameters]
+```
+
+### Examples
+
+```
+mod graphql '{ organizations { edges { node { id name } } } }'
+
+mod graphql -f id=ALL 'query($id: ID!) { organization(id: $id) { name } }'
+
+mod graphql -F input=@commit.json - < commit.graphql
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `query` |  The query or mutation, or - to read it from standard input. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `-f`, `--raw-field` |  A variable whose value is the string given, whatever it looks like. |
+| `-F`, `--field` |  A variable. Its value is read as JSON when all of it is JSON (a number, true, false, null, an object, an array or a quoted string) and as a string otherwise; @\<file> reads it from a file. |
+
+
 ## mod kiro
 
 (INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
@@ -10758,13 +11152,15 @@ mod kiro [subcommands]
 ### Subcommands
 
 * `chat`: (INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
+* `factory`: (INCUBATING) Launches a Kiro session on a standing objective over an organization in Moderne, with nothing checked out.
+* `team`: (INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
 
 ## mod kiro chat
 
 (INCUBATING) Launches a Kiro session configured to use **mod** for deterministic multi-repository work.
 
 
-Launches a Kiro session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+Launches a Kiro session configured to use **mod** for deterministic work on a synced multi-repository organization. It is one agent on as much of a code estate as is synced to this machine, from Moderne or from a repos.csv. To work on a changeset in Moderne as one of its team, use **mod \<agent> team join** instead.
 
 ### Usage
 
@@ -10788,12 +11184,98 @@ mod kiro chat /path/to/organization --org <ORG_NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |  |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset \<ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. | `mod codex chat ./ws --org <ORG_NAME> --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod kiro factory
+
+(INCUBATING) Launches a Kiro session on a standing objective over an organization in Moderne, with nothing checked out.
+
+
+Launches a Kiro session on a standing objective over an organization in Moderne, or over everything you can see there. Nothing is synced. The agent finds where the objective is not met with **mod search moderne://\<organization id>**, makes changesets of the work there with **mod run moderne://\<organization id>** or by saving the searches that find it, launches **mod \<agent> team join** teams on them, and ships them. A session derives where things stand from the code and the changesets in Moderne, so running it again, by hand or on a schedule, continues the work. Where the agent can be started that way, its tool use is approved without asking, interactive or not, since a factory is designed to work on its own.
+
+### Usage
+
+```
+mod kiro factory [parameters]
+```
+
+### Examples
+
+```
+mod kiro factory /path/to/factory --org <ORG_NAME> --unattended --prompt "<OBJECTIVE>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The factory's directory, which holds its guide. The teams a session launches work beside it rather than under it, in a directory named for it with -teams added, so that no team reads the factory's guide as its own. | `/path/to/factory` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name or id of the organization in Moderne the objective is over, found the way **mod \<agent> chat --org** finds it. Without it, the objective is over every organization you can see. |  |
+| `--prompt` |  The objective: what should always be true of the code, given as a standing instruction rather than a task, with the commit strategy it may use and the channel to report to, if any. Give it to every session, since nothing keeps it between them. Without it, the session starts and waits for you to type the objective in, which **--unattended** cannot. | `Keep every repository on the latest Gradle release, and open a pull request for each upgrade` |
+| `--unattended` |  Work the objective to completion and exit instead of starting an interactive session, as a session started on a schedule must. Requires **--prompt**. |  |
+
+
+## mod kiro team
+
+(INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
+
+
+A team is the sessions on one changeset in Moderne, however many there are and wherever they run. Each works in a working set of its own, on the repositories the changeset holds a change for or on the part of them that **--shard** or **--organization** gave it. The sessions talk on the changeset's message board. Moderne lists each among the changeset's agents while it works, which is how whoever launched them, a factory among them, waits on them.
+
+### Usage
+
+```
+mod kiro team [subcommands]
+```
+
+
+### Subcommands
+
+* `join`: (INCUBATING) Launches a Kiro session as one of the team on a changeset in Moderne.
+
+## mod kiro team join
+
+(INCUBATING) Launches a Kiro session as one of the team on a changeset in Moderne.
+
+
+Launches a Kiro session as one of the team on a changeset in Moderne. The repositories the changeset holds a change for are synced with sources and LSTs, as **mod git sync moderne \<dir> --changeset \<id>** syncs them, and checked out to its branch, so what the agent pushes lands on the changeset. The session is opened on the changeset before the agent starts and closed when it exits, so Moderne lists it among the changeset's agents while it works. Run it again in another directory, here or on another machine logged in to the same tenant, to add a session to the team.
+
+### Usage
+
+```
+mod kiro team join [parameters]
+```
+
+### Examples
+
+```
+mod kiro team join /path/to/teams/<CHANGESET_ID> <CHANGESET_ID> --unattended --prompt "<PROMPT>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory the session works in, a working set of the changeset's own. Every session on the changeset has one, on this machine or another. A factory keeps its teams' working sets beside its own directory, in one named for it with -teams added. | `/path/to/teams/20260924153000-Ab1cD` |
+| `changesetId` |  The changeset the team works on, a recipe run, a saved search or a revision in Moderne, by the last segment of its results URL. | `20260924153000-Ab1cD` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  Work on one organization of the changeset, given by its id, its name or the last segments of its id, or part of either, case aside. The session then syncs only the repositories the changeset holds a change for in that organization's subtree. | `ALL/Payments` |
+| `--prompt` |  Start the session with this prompt already submitted. It is all the agent knows of why it is on the changeset, so say what the change was meant to do and what done looks like. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories the changeset holds a change for, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split the changeset without coordinating. A repository's shard depends on its repos.csv row alone, so it is the same on every machine. |  |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
@@ -11101,13 +11583,15 @@ mod opencode [subcommands]
 ### Subcommands
 
 * `chat`: (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
+* `factory`: (INCUBATING) Launches an opencode session on a standing objective over an organization in Moderne, with nothing checked out.
+* `team`: (INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
 
 ## mod opencode chat
 
 (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
 
 
-Launches an opencode session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+Launches an opencode session configured to use **mod** for deterministic work on a synced multi-repository organization. It is one agent on as much of a code estate as is synced to this machine, from Moderne or from a repos.csv. To work on a changeset in Moderne as one of its team, use **mod \<agent> team join** instead.
 
 ### Usage
 
@@ -11131,12 +11615,98 @@ mod opencode chat /path/to/organization --org <ORG_NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |  |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset \<ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. | `mod codex chat ./ws --org <ORG_NAME> --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+| `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
+
+
+## mod opencode factory
+
+(INCUBATING) Launches an opencode session on a standing objective over an organization in Moderne, with nothing checked out.
+
+
+Launches an opencode session on a standing objective over an organization in Moderne, or over everything you can see there. Nothing is synced. The agent finds where the objective is not met with **mod search moderne://\<organization id>**, makes changesets of the work there with **mod run moderne://\<organization id>** or by saving the searches that find it, launches **mod \<agent> team join** teams on them, and ships them. A session derives where things stand from the code and the changesets in Moderne, so running it again, by hand or on a schedule, continues the work. Where the agent can be started that way, its tool use is approved without asking, interactive or not, since a factory is designed to work on its own.
+
+### Usage
+
+```
+mod opencode factory [parameters]
+```
+
+### Examples
+
+```
+mod opencode factory /path/to/factory --org <ORG_NAME> --unattended --prompt "<OBJECTIVE>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The factory's directory, which holds its guide. The teams a session launches work beside it rather than under it, in a directory named for it with -teams added, so that no team reads the factory's guide as its own. | `/path/to/factory` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name or id of the organization in Moderne the objective is over, found the way **mod \<agent> chat --org** finds it. Without it, the objective is over every organization you can see. |  |
+| `--prompt` |  The objective: what should always be true of the code, given as a standing instruction rather than a task, with the commit strategy it may use and the channel to report to, if any. Give it to every session, since nothing keeps it between them. Without it, the session starts and waits for you to type the objective in, which **--unattended** cannot. | `Keep every repository on the latest Gradle release, and open a pull request for each upgrade` |
+| `--unattended` |  Work the objective to completion and exit instead of starting an interactive session, as a session started on a schedule must. Requires **--prompt**. |  |
+
+
+## mod opencode team
+
+(INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
+
+
+A team is the sessions on one changeset in Moderne, however many there are and wherever they run. Each works in a working set of its own, on the repositories the changeset holds a change for or on the part of them that **--shard** or **--organization** gave it. The sessions talk on the changeset's message board. Moderne lists each among the changeset's agents while it works, which is how whoever launched them, a factory among them, waits on them.
+
+### Usage
+
+```
+mod opencode team [subcommands]
+```
+
+
+### Subcommands
+
+* `join`: (INCUBATING) Launches an opencode session as one of the team on a changeset in Moderne.
+
+## mod opencode team join
+
+(INCUBATING) Launches an opencode session as one of the team on a changeset in Moderne.
+
+
+Launches an opencode session as one of the team on a changeset in Moderne. The repositories the changeset holds a change for are synced with sources and LSTs, as **mod git sync moderne \<dir> --changeset \<id>** syncs them, and checked out to its branch, so what the agent pushes lands on the changeset. The session is opened on the changeset before the agent starts and closed when it exits, so Moderne lists it among the changeset's agents while it works. Run it again in another directory, here or on another machine logged in to the same tenant, to add a session to the team.
+
+### Usage
+
+```
+mod opencode team join [parameters]
+```
+
+### Examples
+
+```
+mod opencode team join /path/to/teams/<CHANGESET_ID> <CHANGESET_ID> --unattended --prompt "<PROMPT>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory the session works in, a working set of the changeset's own. Every session on the changeset has one, on this machine or another. A factory keeps its teams' working sets beside its own directory, in one named for it with -teams added. | `/path/to/teams/20260924153000-Ab1cD` |
+| `changesetId` |  The changeset the team works on, a recipe run, a saved search or a revision in Moderne, by the last segment of its results URL. | `20260924153000-Ab1cD` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  Work on one organization of the changeset, given by its id, its name or the last segments of its id, or part of either, case aside. The session then syncs only the repositories the changeset holds a change for in that organization's subtree. | `ALL/Payments` |
+| `--prompt` |  Start the session with this prompt already submitted. It is all the agent knows of why it is on the changeset, so say what the change was meant to do and what done looks like. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories the changeset holds a change for, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split the changeset without coordinating. A repository's shard depends on its repos.csv row alone, so it is the same on every machine. |  |
 | `--unattended` |  Run the prompt to completion and exit instead of starting an interactive session, with the agent's tool use approved automatically. Requires **--prompt**. |  |
 
 
@@ -11214,9 +11784,10 @@ mod publish /path/to/ws --sync-csv --organization Payments
 
 | Name | Description |
 | ---- | ----------- |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |
+| `--full`, `--rebuild` |  (INCUBATING) Build and publish every repository, even one whose repos-lock.csv row already records the remote HEAD, this CLI version and a reproducible build. The row does not record how the repository was built, so a run after the build steps change needs this to build again what they now read differently. |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |
 | `--shard` |  (INCUBATING) Work through only shard i of M of the repository list, for example 3/8 (i counts from 1, and 0 is read as M, so a job index that counts from 0 still covers the list), so M tasks split one repos.csv without coordinating. A repository's shard is the SHA-256 of `origin|path|branch` (origin and path lowercased, any partition removed, the branch blank when the row has none), leading 8 bytes as an unsigned number, modulo M, plus 1. It depends on that row alone and is the same on every machine. Applied after --organization. |
-| `--sync-csv` |  (INCUBATING) Work through a repos.csv one repository at a time: clone, build, publish, record the result in the artifact store's repos-lock.csv, and delete the repository directory before moving to the next, so the workspace never holds more than the repository in flight. A repository is skipped when its repos-lock.csv row already records the remote HEAD, was built by this CLI version, and was a reproducible build. A repository listed under several organizations is built once, and every one of its rows records that publish. Without a value, the csv is the repos.csv in the configured artifact store, which must exist either way. Put the path before this option. |
+| `--sync-csv` |  (INCUBATING) Work through a repos.csv one repository at a time: clone, build, publish, record the result in the artifact store's repos-lock.csv, and delete the repository directory before moving to the next, so the workspace never holds more than the repository in flight. A repository is skipped when its repos-lock.csv row already records the remote HEAD, was built by this CLI version, and was a reproducible build, unless --full. A repository listed under several organizations is built once, and every one of its rows records that publish. Without a value, the csv is the repos.csv in the configured artifact store, which must exist either way. Put the path before this option. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
@@ -11225,7 +11796,7 @@ mod publish /path/to/ws --sync-csv --organization Payments
 Runs an OpenRewrite recipe locally on pre-built LSTs.
 
 
-You must run the **mod build** command before this command will work. You also must set up a connection to moderne (**mod config moderne**) and install recipes (**mod config recipes**) for this command to work.
+You must run the **mod build** command before this command will work. You also must set up a connection to moderne (**mod config moderne**) and install recipes (**mod config recipes**) for this command to work.%n%nIn place of a directory, **moderne://\<organization>** runs the recipe in the Moderne tenant the CLI is logged in to, over that organization's LSTs, waits until the run ends, and prints each repository with the diff of what the recipe changed or found there, as a run of a directory does. The recipe must be one the tenant's marketplace has, or one of the bundle **--bundle** names. The run is a changeset in Moderne, which **mod git sync moderne \<dir> --changeset \<id>** checks out, **mod study moderne://changeset/\<id>** reads the data tables of, and a team of agents can join. Nothing is synced or written here. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal.
 
 ### Usage
 
@@ -11239,6 +11810,9 @@ mod run [parameters]
 mod run /path/to/project \
   --recipe=org.openrewrite.java.search.FindMethods \
   -P methodPattern='java.util.List add(..)'
+
+mod run moderne://ALL/Default \
+  --recipe=org.openrewrite.gradle.UpdateGradleWrapper
 ```
 
 ### Parameters
@@ -11252,6 +11826,7 @@ mod run /path/to/project \
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `--active-recipe` |  If this flag is included, the recipe specified as the active recipe in your IDE will be run (assuming you have the Moderne plugin installed and configured). Executes the recipe in parallel by default. |  |
+| `--bundle` |  For a run in Moderne, take the recipe from the bundle **mod config recipes bundle push** uploaded, by the id it printed, in place of the published recipe of the same name, for this run only. | `mod run moderne://ALL/Default --recipe=<recipe> --bundle <BUNDLE_ID>` |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |  |
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |  |
 | `--no-patch` |  (INCUBATING) Do not generate patch files on disk at the conclusion of a recipe run that makes changes. This is useful when you are looking to only use data table outputs and don't wish to incur the cost of writing patch files when they will be unused. |  |
@@ -11298,7 +11873,7 @@ mod run-history [parameters]
 Search repositories using trigram indexes.
 
 
-Searches the trigram index each repository's latest build carries, the **index/** that **mod build** assembles with every type name resolved. A repository with a V2 LST is converted to V3 in place first, which assembles its index; one with no LST, or whose LST was built before its index was assembled, is skipped — rebuild it with **mod build**.%n%nQuery parts are joined with spaces (implicit AND) and passed straight to the query parser. To search for a literal phrase containing spaces, preserve the quotes through your shell, e.g. **'"phrase search"'**.
+Searches the trigram index each repository's latest build carries, the **index/** that **mod build** assembles with every type name resolved. A repository with a V2 LST is converted to V3 in place first, which assembles its index; one with no LST, or whose LST was built before its index was assembled, is skipped — rebuild it with **mod build**.%n%nIn place of a directory, **moderne://\<organization>** searches that organization in the Moderne tenant the CLI is logged in to, with Moderne's code search over the organization's current LSTs, and prints what it finds as a search of a working set does. Nothing is synced or written here. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. Only there can a search be saved, as a changeset a team of agents can join (**--save**), or written as SQL (**--syntax=sql**).%n%nQuery parts are joined with spaces (implicit AND) and passed straight to the query parser. To search for a literal phrase containing spaces, preserve the quotes through your shell, e.g. **'"phrase search"'**.
 
 ### Usage
 
@@ -11310,6 +11885,10 @@ mod search [parameters]
 
 ```
 mod search /path/to/working-set "@Autowired"
+
+mod search moderne://ALL/Default "@Autowired" --output=summary
+
+mod search moderne://ALL/Default "dependency:org.springframework.boot:spring-boot:2.x" --save --name "Boot 2"
 ```
 
 ### Parameters
@@ -11323,9 +11902,11 @@ mod search /path/to/working-set "@Autowired"
 
 | Name | Description |
 | ---- | ----------- |
-| `-m`, `--max` |  Maximum number of matching files to show across the whole search (default: 100). An explicit **count:** filter in the query overrides this. |
-| `--output` |  Output mode: rich (default, highlighted diffs with run directory) or plain (fast text output) |
-| `--syntax` |  Query syntax: sourcegraph (default) or zoekt |
+| `-m`, `--max` |  Maximum number of matching files to show across the whole search, 100 by default. With **--syntax=sql** it is the maximum number of rows to keep. An explicit **count:** filter in the query overrides it. It does not apply to **--output=summary**, which counts every match. |
+| `--name` |  What to call the changeset **--save** makes. Without it, the changeset is named for the query. |
+| `--output` |  How to show what the search finds. **rich**, the default, shows highlighted diffs and, for a working set, writes a run directory. **plain** is fast text output. **summary** counts every match over the whole search, with the files and repositories they are in, and lists neither the matches nor the repositories. A search in Moderne shows each the way a search of a working set does. |
+| `--save` |  Keep the search as a changeset in Moderne, which a team of agents can join and push to. It holds every repository of the organization the query matches in, with the files and lines it matched. The command waits until Moderne has searched the whole organization. It is only for a moderne:// organization, since a search of a working set already keeps its results in **.moderne/run/\<id>** of each repository. |
+| `--syntax` |  The language the query is written in. **sourcegraph**, the default, is Sourcegraph's syntax, and **zoekt** is zoekt's. **sql** is DuckDB SQL over **search('\<query>')**, **search_lines('\<query>')**, **search_matches('\<query>')** and **organizations()**, as Moderne's code search runs it, so it is for a moderne:// organization only. |
 | `-y`, `--yes` |  Proceed without confirmation for a search that cannot use the trigram index and must scan every file. Required when there is no console to prompt on. |
 
 
@@ -11334,7 +11915,7 @@ mod search /path/to/working-set "@Autowired"
 Produces studies from OpenRewrite recipe data tables locally.
 
 
-Data tables are an important part of performing large scale impact analyses on source code.
+Data tables are an important part of performing large scale impact analyses on source code.%n%nIn place of a directory, **moderne://changeset/\<changesetId>** queries a data table of that changeset in Moderne, a recipe run or a saved search, with nothing checked out: every repository's rows of it, the run's and the ones sessions pushed, printed as CSV, all of them up to **--max** or what **--sql** makes of them.
 
 ### Usage
 
@@ -11348,6 +11929,8 @@ mod study [parameters]
 mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 
 mod study /path/to/project --changeset --data-table <DATA-TABLE-NAME> --csv
+
+mod study moderne://changeset/<CHANGESET_ID> --data-table SourcesFileResults --sql "SELECT repositoryPath, count(*) AS files FROM data_table GROUP BY ALL"
 ```
 
 ### Parameters
@@ -11367,8 +11950,10 @@ mod study /path/to/project --changeset --data-table <DATA-TABLE-NAME> --csv
 | `--gzip` |  Gzip-compress the CSV output (.csv.gz). |
 | `--json` |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
+| `-m`, `--max` |  For a changeset in Moderne, the most rows to print, 100 by default and up to 10,000. |
 | `-o`, `--output-file` |  The location to output the data table. When neither --csv nor --json is given, the format is inferred from this file's extension (.csv, .json, or .xlsx), defaulting to Excel. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
+| `--sql` |  For a changeset in Moderne, DuckDB SQL over the data table, which it reads as **data_table**, such as **SELECT repositoryPath, count(*) FROM data_table GROUP BY ALL**. Without it, every row of the table up to **--max**. |
 | `--template` |  |
 
 
@@ -11629,13 +12214,15 @@ mod vscode [subcommands]
 ### Subcommands
 
 * `chat`: (INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
+* `factory`: (INCUBATING) Launches a Visual Studio Code Chat session on a standing objective over an organization in Moderne, with nothing checked out.
+* `team`: (INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
 
 ## mod vscode chat
 
 (INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
 
 
-Launches a Visual Studio Code Chat session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+Launches a Visual Studio Code Chat session configured to use **mod** for deterministic work on a synced multi-repository organization. It is one agent on as much of a code estate as is synced to this machine, from Moderne or from a repos.csv. To work on a changeset in Moderne as one of its team, use **mod \<agent> team join** instead.
 
 ### Usage
 
@@ -11659,12 +12246,96 @@ mod vscode chat /path/to/organization --org <ORG_NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |  |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
 | `--prompt` |  Start the session with this prompt already submitted. |  |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset \<ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. | `mod codex chat ./ws --org <ORG_NAME> --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+
+
+## mod vscode factory
+
+(INCUBATING) Launches a Visual Studio Code Chat session on a standing objective over an organization in Moderne, with nothing checked out.
+
+
+Launches a Visual Studio Code Chat session on a standing objective over an organization in Moderne, or over everything you can see there. Nothing is synced. The agent finds where the objective is not met with **mod search moderne://\<organization id>**, makes changesets of the work there with **mod run moderne://\<organization id>** or by saving the searches that find it, launches **mod \<agent> team join** teams on them, and ships them. A session derives where things stand from the code and the changesets in Moderne, so running it again, by hand or on a schedule, continues the work. Where the agent can be started that way, its tool use is approved without asking, interactive or not, since a factory is designed to work on its own.
+
+### Usage
+
+```
+mod vscode factory [parameters]
+```
+
+### Examples
+
+```
+mod vscode factory /path/to/factory --org <ORG_NAME> --prompt "<OBJECTIVE>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The factory's directory, which holds its guide. The teams a session launches work beside it rather than under it, in a directory named for it with -teams added, so that no team reads the factory's guide as its own. | `/path/to/factory` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  The name or id of the organization in Moderne the objective is over, found the way **mod \<agent> chat --org** finds it. Without it, the objective is over every organization you can see. |  |
+| `--prompt` |  The objective: what should always be true of the code, given as a standing instruction rather than a task, with the commit strategy it may use and the channel to report to, if any. Give it to every session, since nothing keeps it between them. Without it, the session starts and waits for you to type the objective in, which **--unattended** cannot. | `Keep every repository on the latest Gradle release, and open a pull request for each upgrade` |
+
+
+## mod vscode team
+
+(INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
+
+
+A team is the sessions on one changeset in Moderne, however many there are and wherever they run. Each works in a working set of its own, on the repositories the changeset holds a change for or on the part of them that **--shard** or **--organization** gave it. The sessions talk on the changeset's message board. Moderne lists each among the changeset's agents while it works, which is how whoever launched them, a factory among them, waits on them.
+
+### Usage
+
+```
+mod vscode team [subcommands]
+```
+
+
+### Subcommands
+
+* `join`: (INCUBATING) Launches a Visual Studio Code Chat session as one of the team on a changeset in Moderne.
+
+## mod vscode team join
+
+(INCUBATING) Launches a Visual Studio Code Chat session as one of the team on a changeset in Moderne.
+
+
+Launches a Visual Studio Code Chat session as one of the team on a changeset in Moderne. The repositories the changeset holds a change for are synced with sources and LSTs, as **mod git sync moderne \<dir> --changeset \<id>** syncs them, and checked out to its branch, so what the agent pushes lands on the changeset. The session is opened on the changeset before the agent starts and closed when it exits, so Moderne lists it among the changeset's agents while it works. Run it again in another directory, here or on another machine logged in to the same tenant, to add a session to the team.
+
+### Usage
+
+```
+mod vscode team join [parameters]
+```
+
+### Examples
+
+```
+mod vscode team join /path/to/teams/<CHANGESET_ID> <CHANGESET_ID> --prompt "<PROMPT>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory the session works in, a working set of the changeset's own. Every session on the changeset has one, on this machine or another. A factory keeps its teams' working sets beside its own directory, in one named for it with -teams added. | `/path/to/teams/20260924153000-Ab1cD` |
+| `changesetId` |  The changeset the team works on, a recipe run, a saved search or a revision in Moderne, by the last segment of its results URL. | `20260924153000-Ab1cD` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  Work on one organization of the changeset, given by its id, its name or the last segments of its id, or part of either, case aside. The session then syncs only the repositories the changeset holds a change for in that organization's subtree. | `ALL/Payments` |
+| `--prompt` |  Start the session with this prompt already submitted. It is all the agent knows of why it is on the changeset, so say what the change was meant to do and what done looks like. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories the changeset holds a change for, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split the changeset without coordinating. A repository's shard depends on its repos.csv row alone, so it is the same on every machine. |  |
 
 
 ## mod windsurf
@@ -11684,13 +12355,14 @@ mod windsurf [subcommands]
 ### Subcommands
 
 * `chat`: (INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
+* `team`: (INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
 
 ## mod windsurf chat
 
 (INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
 
 
-Launches a Windsurf session configured to use **mod** for deterministic work on a synced multi-repository organization. This is the fundamental building block of an agent factory making changes to and studying entire code estates.
+Launches a Windsurf session configured to use **mod** for deterministic work on a synced multi-repository organization. It is one agent on as much of a code estate as is synced to this machine, from Moderne or from a repos.csv. To work on a changeset in Moderne as one of its team, use **mod \<agent> team join** instead.
 
 ### Usage
 
@@ -11714,11 +12386,61 @@ mod windsurf chat /path/to/organization --org <ORG_NAME>
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `--changeset` |  A changeset in Moderne, a new one when no id is given or the existing one with this id. Every repository with sources is checked out to the branch that pushes to it, which needs a login from **mod config moderne login**. |  |
-| `-n`, `--name` |  What a new changeset is called in Moderne. |  |
-| `--organization`, `--org` |  The name of an organization in Moderne. All repositories in that organization will be cloned at the branch and commit of their current LSTs. |  |
-| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. With **--changeset \<ID>** and no organization, the changeset's own repositories are what is split, so M agents each take a share of it. | `mod codex chat ./ws --changeset 20260924153000-Ab1cD --shard 3/8 --unattended --prompt "..."` |
+| `--organization`, `--org` |  An organization in Moderne, all of whose repositories are cloned at the branch and commit of their current LSTs. An organization is named by its id, as Moderne lists it, such as **ALL/Default**; by its name or the last segments of its id, such as **Default**; or by part of either, case aside. A name that fits several organizations lists them, to choose one from at a terminal. |  |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split one organization or changeset without coordinating. A repository's shard depends on its repos.csv row alone, the way it does for **mod publish --sync-csv --shard**, so it is the same on every machine. Applied after **--organization**. | `mod codex chat ./ws --org <ORG_NAME> --shard 3/8 --unattended --prompt "..."` |
 | `--sync-csv` |  Synchronize the organization defined by a repos.csv (local file or remote URI) before starting the agent, exactly as **mod git sync csv** does with sources and LSTs, without needing a Moderne tenant to resolve **--org** against. Given both, **--org** selects an organization within the CSV. | `mod copilot chat ./ws --sync-csv ./repos.csv` |
+
+
+## mod windsurf team
+
+(INCUBATING) Works on a changeset in Moderne as one of the team of sessions on it.
+
+
+A team is the sessions on one changeset in Moderne, however many there are and wherever they run. Each works in a working set of its own, on the repositories the changeset holds a change for or on the part of them that **--shard** or **--organization** gave it. The sessions talk on the changeset's message board. Moderne lists each among the changeset's agents while it works, which is how whoever launched them, a factory among them, waits on them.
+
+### Usage
+
+```
+mod windsurf team [subcommands]
+```
+
+
+### Subcommands
+
+* `join`: (INCUBATING) Launches a Windsurf session as one of the team on a changeset in Moderne.
+
+## mod windsurf team join
+
+(INCUBATING) Launches a Windsurf session as one of the team on a changeset in Moderne.
+
+
+Launches a Windsurf session as one of the team on a changeset in Moderne. The repositories the changeset holds a change for are synced with sources and LSTs, as **mod git sync moderne \<dir> --changeset \<id>** syncs them, and checked out to its branch, so what the agent pushes lands on the changeset. The session is opened on the changeset before the agent starts and closed when it exits, so Moderne lists it among the changeset's agents while it works. Run it again in another directory, here or on another machine logged in to the same tenant, to add a session to the team.
+
+### Usage
+
+```
+mod windsurf team join [parameters]
+```
+
+### Examples
+
+```
+mod windsurf team join /path/to/teams/<CHANGESET_ID> <CHANGESET_ID>
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The directory the session works in, a working set of the changeset's own. Every session on the changeset has one, on this machine or another. A factory keeps its teams' working sets beside its own directory, in one named for it with -teams added. | `/path/to/teams/20260924153000-Ab1cD` |
+| `changesetId` |  The changeset the team works on, a recipe run, a saved search or a revision in Moderne, by the last segment of its results URL. | `20260924153000-Ab1cD` |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--organization`, `--org` |  Work on one organization of the changeset, given by its id, its name or the last segments of its id, or part of either, case aside. The session then syncs only the repositories the changeset holds a change for in that organization's subtree. | `ALL/Payments` |
+| `--shard` |  (INCUBATING) Sync only shard i of M of the repositories the changeset holds a change for, for example 3/8 (i counts from 1, and 0 is read as M), so M working sets split the changeset without coordinating. A repository's shard depends on its repos.csv row alone, so it is the same on every machine. |  |
 
 
 ## mod wrapper
@@ -11742,12 +12464,12 @@ mod wrapper
 | `--auto-update-snapshot` |  Set version to LATEST (track the latest snapshot from the Code Genome Project). |
 | `--distribution-password` |  Password for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-token` |  Bearer token for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
-| `--distribution-url` |  Where to download the CLI distribution from: the root of a Maven repository, which RELEASE is then also resolved against, or a URL template. A template supports null, null, null and null placeholders. null is the Maven directory, which for a snapshot keeps the -SNAPSHOT suffix while null is the timestamped file version. |
+| `--distribution-url` |  Where to download the CLI distribution from: the root of a Maven repository, which RELEASE is then also resolved against, or a URL template. A template supports $\{directory}, $\{version}, $\{platform} and $\{extension} placeholders. $\{directory} is the Maven directory, which for a snapshot keeps the -SNAPSHOT suffix while $\{version} is the timestamped file version. |
 | `--distribution-url-cache-ttl` |  How long the wrapper caches the resolved RELEASE version before re-checking the distribution repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. Avoids a metadata lookup on every invocation. |
 | `--distribution-url-early-access-cache-ttl` |  How long the wrapper caches the resolved LATEST/snapshot version before re-checking the early-access repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. |
 | `--distribution-username` |  Username for authenticated distribution downloads (stored in moderne/wrapper/moderne-wrapper.properties, or ~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--global` |  Configure the global CLI installation instead of creating a project-local wrapper. |
-| `--jdk-url` |  URL template for a JDK archive, used when no bundled JRE or system JDK is found. Supports null and null placeholders. Set to 'skip' to disable JDK auto-download (useful for air-gapped environments where Java is available via MODERNE_JAVA_HOME or PATH). |
+| `--jdk-url` |  URL template for a JDK archive, used when no bundled JRE or system JDK is found. Supports $\{os} and $\{arch} placeholders. Set to 'skip' to disable JDK auto-download (useful for air-gapped environments where Java is available via MODERNE_JAVA_HOME or PATH). |
 | `--version` |  CLI version to pin in the wrapper properties. Defaults to the currently-running CLI version. |
 
 
