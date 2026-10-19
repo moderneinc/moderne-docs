@@ -10,6 +10,29 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## October 19, 2026
+
+#### rewrite-mainframe - 3.3.1
+
+* Print DB2 statements as written, and read COMMENT ON COLUMN and ADD CONSTRAINT
+* Read a DSN deck that opens with comments, or only frees, as a DSN deck
+
+## October 18, 2026
+
+#### rewrite-mainframe - 3.3.0
+
+* Name Lombok getters in code, since Javadoc cannot link to them
+* Read a range partition's STARTING FROM and ENDING AT bounds
+* Read the rest of a table when one element cannot be read
+* Leave another vendor's SQL to the resource step
+* Give REPLACE originals and preprocessor words ids of their own
+* Count any use of a condition name as a use of its item
+* Read a group SSA's segment, and LINK and XCTL as calls
+* Say which tables a DB2 query and view read
+* Read a DSN RUN deck as a bind deck, and say what it runs
+* Read DDL kept with the control cards as DDL
+* Say which tables an EXEC SQL block names, what it does to each, and where
+
 ## October 13, 2026
 
 #### rewrite-prethink - v0.17.1
@@ -83,10 +106,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-ai - 0.5.2
 
 * Updated repository to use OpenRewrite version v8.93.0
-
-#### rewrite-ai-search - 0.37.0
-
-* Fix discarded AssertJ assertions in model client tests
 
 #### rewrite-android - 0.20.0
 
@@ -414,10 +433,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.92.8
 
-#### rewrite-ai-search - 0.36.1
-
-* Updated repository to use OpenRewrite version v8.92.8
-
 #### rewrite-android - 0.19.1
 
 * Updated repository to use OpenRewrite version v8.92.8
@@ -633,10 +648,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Resolve org.openrewrite build plugins from the Code Genome Project
 
 #### rewrite-ai - 0.5.0
-
-* Resolve org.openrewrite build plugins from the Code Genome Project
-
-#### rewrite-ai-search - 0.36.0
 
 * Resolve org.openrewrite build plugins from the Code Genome Project
 
@@ -904,10 +915,6 @@ Renamed to `rewrite-mainframe` to reflect the expanding language support beyond 
 * Drop the redundant `recipes` package segment
 
 #### rewrite-ai - 0.4.6
-
-* Updated repository to use OpenRewrite version v8.91.0
-
-#### rewrite-ai-search - 0.35.5
 
 * Updated repository to use OpenRewrite version v8.91.0
 
@@ -1233,10 +1240,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.89.0
 
-#### rewrite-ai-search - 0.35.4
-
-* Updated repository to use OpenRewrite version v8.89.0
-
 #### rewrite-android - 0.18.5
 
 * Updated repository to use OpenRewrite version v8.89.0
@@ -1484,10 +1487,6 @@ Pick up latest rewrite-java-security.
 * Updated repository to use OpenRewrite version v8.88.0
 
 #### rewrite-ai - 0.4.4
-
-* Updated repository to use OpenRewrite version v8.88.0
-
-#### rewrite-ai-search - 0.35.3
 
 * Updated repository to use OpenRewrite version v8.88.0
 
@@ -1756,10 +1755,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.87.0
 
-#### rewrite-ai-search - 0.35.2
-
-* Updated repository to use OpenRewrite version v8.87.0
-
 #### rewrite-android - 0.18.3
 
 * Updated repository to use OpenRewrite version v8.87.0
@@ -1966,10 +1961,6 @@ Pick up latest rewrite-java-security.
 * Updated repository to use OpenRewrite version v8.86.0
 
 #### rewrite-ai - 0.4.2
-
-* Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-ai-search - 0.35.1
 
 * Updated repository to use OpenRewrite version v8.86.0
 
@@ -2258,10 +2249,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.85.0
 
-#### rewrite-ai-search - 0.35.0
-
-* Add missing static Mockito imports in SpellCheckCommentsInFrenchTest
-
 #### rewrite-android - 0.18.1
 
 * Updated repository to use OpenRewrite version v8.85.0
@@ -2488,10 +2475,6 @@ Pick up latest rewrite-java-security.
 * Add UpgradeSbtVersion recipe
 
 #### rewrite-ai - 0.4.0
-
-* Regenerate recipes.csv
-
-#### rewrite-ai-search - 0.34.0
 
 * Regenerate recipes.csv
 
@@ -2740,10 +2723,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.83.0
 
-#### rewrite-ai-search - 0.33.4
-
-* Updated repository to use OpenRewrite version v8.83.0
-
 #### rewrite-android - 0.17.1
 
 * Updated repository to use OpenRewrite version v8.83.0
@@ -2981,10 +2960,6 @@ First release.
 
 * OpenRewrite v8.81.6
 
-#### rewrite-ai-search - v0.33.3
-
-- OpenRewrite v8.81.6
-
 #### rewrite-android - v0.17.0
 
 * OpenRewrite v8.81.6
@@ -3179,10 +3154,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.81.0
 
-#### rewrite-ai-search - 0.33.2
-
-* Updated repository to use OpenRewrite version v8.81.0
-
 #### rewrite-android - 0.16.3
 
 * Updated repository to use OpenRewrite version v8.81.0
@@ -3336,10 +3307,6 @@ First release.
 ## April 21, 2026
 
 #### rewrite-ai - 0.3.1
-
-* Updated repository to use OpenRewrite version v8.80.0
-
-#### rewrite-ai-search - 0.33.1
 
 * Updated repository to use OpenRewrite version v8.80.0
 
@@ -3525,10 +3492,6 @@ First release.
 ## April 8, 2026
 
 #### rewrite-ai - 0.3.0
-
-* Update Prethink context
-
-#### rewrite-ai-search - 0.33.0
 
 * Update Prethink context
 
@@ -3837,10 +3800,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.77.0
 
-#### rewrite-ai-search - 0.32.10
-
-* Updated repository to use OpenRewrite version v8.77.0
-
 #### rewrite-android - 0.15.9
 
 * Updated repository to use OpenRewrite version v8.77.0
@@ -4057,10 +4016,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.75.5
 
-#### rewrite-ai-search - 0.32.9
-
-* Updated repository to use OpenRewrite version v8.75.5
-
 #### rewrite-android - 0.15.8
 
 * Updated repository to use OpenRewrite version v8.75.5
@@ -4204,10 +4159,6 @@ First release.
 ## March 4, 2026
 
 #### rewrite-ai - 0.2.4
-
-* Updated repository to use OpenRewrite version v8.75.0
-
-#### rewrite-ai-search - 0.32.8
 
 * Updated repository to use OpenRewrite version v8.75.0
 
@@ -4360,10 +4311,6 @@ First release.
 ## February 25, 2026
 
 #### rewrite-ai - 0.2.3
-
-* Updated repository to use OpenRewrite version v8.74.1
-
-#### rewrite-ai-search - 0.32.7
 
 * Updated repository to use OpenRewrite version v8.74.1
 
@@ -4609,10 +4556,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.73.0
 
-#### rewrite-ai-search - 0.32.6
-
-* Updated repository to use OpenRewrite version v8.73.0
-
 #### rewrite-android - 0.15.5
 
 * Updated repository to use OpenRewrite version v8.73.0
@@ -4816,10 +4759,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.72.0
 
-#### rewrite-ai-search - 0.32.5
-
-* Updated repository to use OpenRewrite version v8.72.0
-
 #### rewrite-android - 0.15.4
 
 * Updated repository to use OpenRewrite version v8.72.0
@@ -4968,10 +4907,6 @@ First release.
 
 * Added 2 agents configuration files detection patterns
 
-#### rewrite-ai-search - 0.32.4
-
-* Updated repository to use OpenRewrite version v8.71.0
-
 #### rewrite-android - 0.15.3
 
 * Updated repository to use OpenRewrite version v8.71.0
@@ -5086,10 +5021,6 @@ First release.
 * Initial commit of `FindLibrariesInUse` and `FindModelsInUse`
 * Added a recipe to find AI agents in use
 
-#### rewrite-ai-search - 0.32.3
-
-* Updated repository to use OpenRewrite version v8.69.0
-
 #### rewrite-android - 0.15.2
 
 * Updated repository to use OpenRewrite version v8.69.0
@@ -5196,10 +5127,6 @@ First release.
 * Updated repository to use OpenRewrite version v8.69.0
 
 ## December 5, 2025
-
-#### rewrite-ai-search - 0.32.2
-
-* Updated repository to use OpenRewrite version v8.68.1
 
 #### rewrite-android - 0.15.1
 
@@ -5326,10 +5253,6 @@ First release.
 Republishing to update dependencies
 
 ## November 20, 2025
-
-#### rewrite-ai-search - 0.32.1
-
-* Updated repository to use OpenRewrite version v8.67.0
 
 #### rewrite-android - 0.15.0
 
@@ -5494,10 +5417,6 @@ Republishing to update dependencies
 
 ## November 4, 2025
 
-#### rewrite-ai-search - 0.32.0
-
-* Gradle 9.2.0
-
 #### rewrite-android - 0.14.0
 
 * Gradle 9.2.0
@@ -5573,10 +5492,6 @@ Republishing to update dependencies
 * Also remove `util` module import if possible
 
 ## October 22, 2025
-
-#### rewrite-ai-search - 0.31.1
-
-* Updated repository to use OpenRewrite version v8.64.0
 
 #### rewrite-android - 0.13.1
 
