@@ -1,4 +1,11 @@
 # Platform changelog
+### UI v14.38.0 (2026/10/19)
+
+- highlight COBOL and JCL
+- open what a match matched, as a results page opens a search result
+- filter
+- step back through searches with the browser's Back button
+
 ### UI v14.37.0 (2026/10/16)
 
 - reveal the lines a result hides, at the commit searched
