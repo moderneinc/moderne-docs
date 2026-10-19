@@ -22,7 +22,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 _Based on OpenRewrite 8.93.11_
 
 #### What's Changed
-* Add mod <agent> factory, with mod graphql and one-off recipe bundles
+* Add `mod <agent> factory`, with `mod graphql` and one-off recipe bundles
 * Tell agents the diff, not SourcesFileResults, is what a run changed
 * Fix total count for `mod git sync csv`
 * Fix help messages not to render `null`
