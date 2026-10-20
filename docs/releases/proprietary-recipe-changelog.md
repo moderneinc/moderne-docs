@@ -10,7 +10,20 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## October 20, 2026
+
+#### rewrite-nodejs - v0.52.1
+
+* Adapt to rewrite-javascript’s new lock engine API
+* Migrate every hpagent shape found in real projects off hpagent
+* Write source-map-support's non-native API into the files that use it
+
 ## October 19, 2026
+
+#### recipes-go - v0.12.3
+
+* Stop publishing the empty Maven artifact
+* AWS SDK v2 migration: output that builds and behaves like v1
 
 #### rewrite-mainframe - 3.3.1
 
