@@ -80,7 +80,7 @@ insurance-policy-administration/
 
 Language-specific steps use dedicated parsers via RPC to handle their respective ecosystems. The `javascript` and `python` steps run in the default pipeline as of CLI v4.3.0, and the `dotnet` and `go` steps as of CLI v4.5.0. In that default configuration, a failure in any of these steps does not stop the build. Instead, the affected files fall through to the resource step and are parsed as plain text. The `mainframe` step must be explicitly configured.
 
-* **`python`** - Parses Python projects. Detects projects via `pyproject.toml`, `setup.py`, or `.py` files. Requires Python 3.9+. See [Python configuration](./python.md) for setup details.
+* **`python`** - Parses Python projects. Detects projects via `pyproject.toml`, `setup.py`, or `.py` files. Requires Python 3.12+. See [Python configuration](./python.md) for setup details.
 * **`javascript`** - Parses JavaScript and TypeScript projects. Detects projects via `package.json` files. Automatically discovers the appropriate package manager (npm, yarn, pnpm, or bun) and Node.js version. See [JavaScript configuration](./javascript.md) for setup details.
 * **`dotnet`** - Parses C# projects. Detects projects via `.sln`, `.slnx`, or `.csproj` files. Requires .NET SDK 10.0+. See [C# configuration](./csharp.md) for setup details.
 * **`go`** - Parses Go projects. Detects projects via `go.mod` files. Uses the Go installation on your `$PATH`. See [Go configuration](./go.md) for setup details.

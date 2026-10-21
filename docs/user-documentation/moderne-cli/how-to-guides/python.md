@@ -18,7 +18,7 @@ This guide assumes that:
 
 * You have [installed and configured the Moderne CLI](../getting-started/cli-intro.md) (version `3.57.0` or higher)
 * You are familiar with running Moderne CLI commands (if not, work through our [CLI workshop](../getting-started/moderne-cli-workshop.md))
-* You have Python installed on your machine
+* You have Python 3.12 or higher installed on your machine
 
 ## Step 1: (Optionally) Configure your Python installation
 
@@ -63,7 +63,7 @@ You can use a major version (`3`), minor (`3.12`), or exact patch (`3.12.1`) dep
 To apply a version only to a specific group of repositories, use the `--local` flag:
 
 ```bash
-mod config python version edit 3.10 --local ./legacy-set
+mod config python version edit 3.13 --local ./py313-repos
 ```
 
 To revert to auto-detection:
