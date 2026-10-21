@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.39.0 (2026/10/21)
+
+- Bug fixes and other improvements.
+
 ### UI v14.38.0 (2026/10/19)
 
 - highlight COBOL and JCL
