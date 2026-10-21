@@ -42,13 +42,7 @@ Both `--sync-csv` and the `--shard` option described below are incubating. Their
 
 ## Prerequisites
 
-Before you can set up mass ingest, you'll need:
-
-* A Linux VM with Docker, or a Kubernetes namespace, that can reach your SCM, artifact repository, and container registry. For details on how to size it, check out the [sizing](#sizing) section below.
-* An artifact repository to publish the LSTs to.
-* A service account for that artifact repository. It needs read, deploy, and overwrite permissions.
-* An SCM service account with read access to every repository you plan to ingest.
-* The configuration your developers use to reach your internal package registries, along with any internal CA certificates.
+There are some prerequisites that you'll need to address before you can set up mass ingest. They are listed in the [mass ingest example repository's README](https://github.com/moderneinc/mass-ingest-example#what-youll-need).
 
 ## Setting up mass ingest
 
