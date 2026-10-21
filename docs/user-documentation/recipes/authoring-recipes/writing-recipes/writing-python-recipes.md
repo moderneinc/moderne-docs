@@ -22,7 +22,7 @@ If you would rather start from working code, the [`python-recipe-starter` reposi
 
 This guide assumes that:
 
-* You have Python 3.10 or higher installed
+* You have Python 3.12 or higher installed
 * You are comfortable writing and running Python tests
 * You have [installed and configured the Moderne CLI](../../../moderne-cli/getting-started/cli-intro.md) so you can test your recipe against real repositories
 * You have [configured the Moderne CLI to work for Python projects](../../../moderne-cli/how-to-guides/python.md)
