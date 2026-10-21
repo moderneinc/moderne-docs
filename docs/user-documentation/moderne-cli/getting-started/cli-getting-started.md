@@ -5,6 +5,7 @@ description: Install the Moderne CLI, point a coding agent at a sample organizat
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Quickstart: Modernizing multiple repositories with an agent
 
@@ -17,6 +18,8 @@ In this guide, we will walk you through this process. We'll start by installing 
 :::info
 While this quickstart guide uses Claude Code, you are free to use [any of our supported agents](../../agent-tools/agent-chat.md#quick-start). The steps are the same regardless of which agent you pick.
 :::
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=maZDbrvc3u0' controls="true" />
 
 ## Before you begin
 
