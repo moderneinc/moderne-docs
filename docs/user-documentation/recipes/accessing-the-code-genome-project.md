@@ -122,15 +122,22 @@ and declare the repository in `pom.xml`:
 </repositories>
 ```
 
-For a **Gradle build**, add the repository to your `build.gradle.kts`:
+For a **Gradle build**, put your credentials (the token is the password) in `~/.gradle/gradle.properties`:
+
+```properties
+codegenomeUsername=USERNAME
+codegenomePassword=TOKEN
+```
+
+and add the repository to your `build.gradle.kts`:
 
 ```kotlin
 repositories {
     maven {
         url = uri("https://artifacts.codegenomeproject.org/maven")
         credentials {
-            username = "USERNAME"
-            password = "TOKEN"
+            username = providers.gradleProperty("codegenomeUsername").get()
+            password = providers.gradleProperty("codegenomePassword").get()
         }
     }
 }
@@ -144,8 +151,8 @@ pluginManagement {
         maven {
             url = uri("https://artifacts.codegenomeproject.org/maven")
             credentials {
-                username = "USERNAME"
-                password = "TOKEN"
+                username = providers.gradleProperty("codegenomeUsername").get()
+                password = providers.gradleProperty("codegenomePassword").get()
             }
         }
         gradlePluginPortal()

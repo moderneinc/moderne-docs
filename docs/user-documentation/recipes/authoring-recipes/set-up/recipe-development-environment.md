@@ -64,7 +64,7 @@ mvn -B archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -Darch
 :::tip
 If you are using Gradle, it is highly-recommended that you apply the [`org.openrewrite.build.recipe-library-base` plugin](https://github.com/openrewrite/rewrite-build-gradle-plugin). The plugin automatically configures the project with meaningful conventions like necessary compiler options.
 
-The OpenRewrite build plugins and the `rewrite-core` libraries they depend on are distributed through the [Code Genome Project](../../accessing-the-code-genome-project.md), which requires authentication. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so the Code Genome Project has to be declared there. Replace `USERNAME` and `TOKEN` with your own credentials:
+The OpenRewrite build plugins and the `rewrite-core` libraries they depend on are distributed through the [Code Genome Project](../../accessing-the-code-genome-project.md), which requires authentication. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so the Code Genome Project has to be declared there. Put your username in `~/.gradle/gradle.properties` as `codegenomeUsername` and your token as `codegenomePassword`:
 
 ```groovy title="settings.gradle"
 pluginManagement {
@@ -72,8 +72,8 @@ pluginManagement {
         maven {
             url = "https://artifacts.codegenomeproject.org/maven"
             credentials {
-                username = "USERNAME"
-                password = "TOKEN"
+                username = providers.gradleProperty("codegenomeUsername").get()
+                password = providers.gradleProperty("codegenomePassword").get()
             }
         }
         gradlePluginPortal()
@@ -397,7 +397,7 @@ If you want your recipes to appear in your organization's Moderne Platform insta
 Once your recipe module is published, either locally for testing or to an external artifact repository for broader distribution, you'll need to configure a separate repository to test with (See the [Getting Started Guide](https://docs.openrewrite.org/running-recipes/getting-started) for more detailed instructions). In the repository you want to test your recipe against, update the build plugins accordingly:
 
 :::info
-OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. The snippets below use `USERNAME` and `TOKEN` as placeholders. Replace them with your own credentials.
+OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. For Gradle, put your username in `~/.gradle/gradle.properties` as `codegenomeUsername` and your token as `codegenomePassword`, which the snippets below read.
 
 For Maven, put the credentials in your `settings.xml`. See [Accessing the Code Genome Project](../../accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
 :::
@@ -413,8 +413,8 @@ pluginManagement {
         maven {
             url = "https://artifacts.codegenomeproject.org/maven"
             credentials {
-                username = "USERNAME"
-                password = "TOKEN"
+                username = providers.gradleProperty("codegenomeUsername").get()
+                password = providers.gradleProperty("codegenomePassword").get()
             }
         }
         gradlePluginPortal()
@@ -434,8 +434,8 @@ repositories {
     maven {
         url = "https://artifacts.codegenomeproject.org/maven"
         credentials {
-            username = "USERNAME"
-            password = "TOKEN"
+            username = providers.gradleProperty("codegenomeUsername").get()
+            password = providers.gradleProperty("codegenomePassword").get()
         }
     }
 }

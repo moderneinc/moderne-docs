@@ -279,7 +279,7 @@ By default, OpenRewrite recipes will **not** produce a data table. In order for 
 2. Next, you will either need to update build file or modify your command for running a recipe:
 
 :::info
-OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. The snippets below use `USERNAME` and `TOKEN` as placeholders. Replace them with your own credentials.
+OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. For Gradle, put your username in `~/.gradle/gradle.properties` as `codegenomeUsername` and your token as `codegenomePassword`, which the snippets below read.
 
 For Maven, put the credentials in your `settings.xml`. See [Accessing the Code Genome Project](../../accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
 :::
@@ -295,8 +295,8 @@ pluginManagement {
         maven {
             url = "https://artifacts.codegenomeproject.org/maven"
             credentials {
-                username = "USERNAME"
-                password = "TOKEN"
+                username = providers.gradleProperty("codegenomeUsername").get()
+                password = providers.gradleProperty("codegenomePassword").get()
             }
         }
         gradlePluginPortal()
@@ -321,8 +321,8 @@ repositories {
     maven {
         url = "https://artifacts.codegenomeproject.org/maven"
         credentials {
-            username = "USERNAME"
-            password = "TOKEN"
+            username = providers.gradleProperty("codegenomeUsername").get()
+            password = providers.gradleProperty("codegenomePassword").get()
         }
     }
 }
