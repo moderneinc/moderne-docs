@@ -28,7 +28,7 @@ plugins {
 }
 ```
 
-The plugin and the `rewrite-core` libraries it depends on are distributed through the [Code Genome Project](../../accessing-the-code-genome-project.md), which requires authentication. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so declare the repository there, with your credentials as `codeGenomeUsername` and `codeGenomeToken` in `~/.gradle/gradle.properties`:
+The plugin and the `rewrite-core` libraries it depends on are distributed through the [Code Genome Project](../../accessing-the-code-genome-project.md), which requires authentication. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so declare the repository there, with your username as `codegenomeUsername` and your token as `codegenomePassword` in `~/.gradle/gradle.properties`:
 
 ```groovy title="settings.gradle"
 pluginManagement {
@@ -36,8 +36,8 @@ pluginManagement {
         maven {
             url = "https://artifacts.codegenomeproject.org/maven"
             credentials {
-                username = providers.gradleProperty("codeGenomeUsername").get()
-                password = providers.gradleProperty("codeGenomeToken").get()
+                username = providers.gradleProperty("codegenomeUsername").get()
+                password = providers.gradleProperty("codegenomePassword").get()
             }
         }
         gradlePluginPortal()
