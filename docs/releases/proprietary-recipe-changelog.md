@@ -5506,22 +5506,6 @@ Republishing to update dependencies
 
 ## October 22, 2025
 
-#### rewrite-android - 0.13.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-circleci - 3.8.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-compiled-analysis - 0.9.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-concourse - 3.8.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
 #### rewrite-cryptography - 0.10.1
 
 * Updated repository to use OpenRewrite version v8.64.0
@@ -5529,66 +5513,4 @@ Republishing to update dependencies
 #### rewrite-devcenter - 1.10.1
 
 * Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-dotnet - 0.13.5
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-elastic - 0.3.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-hibernate - 0.13.2
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-hibernate - 0.13.1
-
-* Move changing jakarta.persistence.criteria.Expression 'as' to 'cast' to hibernate-7.0
-
-#### rewrite-java-security - 3.20.0
-
-* Tests expect org.apache.tomcat.embed:tomcat-embed-core:9.0.111 now
-* Update suppressions
-* Fix Maven tests that needs to reflect because information
-* Fix failing tests by also calling the scanner for the direct dependency updates and not only for the transitive ones.
-
-#### rewrite-kafka - 0.3.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-kubernetes - 3.12.0
-
-* Update suppressions
-
-#### rewrite-nodejs - 0.32.3
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-program-analysis - 0.5.6
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-reactive-streams - 0.17.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-spring - 0.15.0
-
-* Update suppressions
-* `beans.xml` to Java configuration migration
-* When migrating from web.xml to ApplicationInitializer ignore context and listeners
-* Recipe to convert field injection to constructor injection
-
-#### rewrite-sql - 2.7.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-struts - 0.22.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-terraform - 3.10.0
-
-* Update suppressions
 
