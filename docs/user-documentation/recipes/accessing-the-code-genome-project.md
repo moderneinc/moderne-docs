@@ -61,7 +61,7 @@ Use the repository URL exactly as shown. Do not append a storage prefix such as 
 
 ![Artifactory new remote repository form with the repository key set to code-genome-project, the URL set to the Code Genome Project Maven repository, and a username and access token filled in](./assets/artifactory-remote-repository.png)
 
-Once the remote repository is in place, your developers install and run the CLI and recipes through your internal repository exactly as before, with no per-developer changes. See [Deploying the CLI from an internal artifact repository](../moderne-cli/getting-started/cli-internal-mirror.md) for the CLI-side setup.
+Once the remote repository is in place, your developers install and run the CLI and recipes through your internal repository exactly as before, with no per-developer changes. Gradle builds that apply OpenRewrite plugins also need the mirror wherever their plugins resolve from, typically `pluginManagement` in `settings.gradle(.kts)`, since those plugins are distributed through the Code Genome Project. See [Deploying the CLI from an internal artifact repository](../moderne-cli/getting-started/cli-internal-mirror.md) for the CLI-side setup.
 
 ### The connection test returns a 404
 
@@ -132,6 +132,23 @@ repositories {
             username = "USERNAME"
             password = "TOKEN"
         }
+    }
+}
+```
+
+Gradle plugins are resolved separately, from `pluginManagement` in `settings.gradle.kts`, before any project is evaluated. The `org.openrewrite.rewrite` plugin and the `org.openrewrite.build.*` plugins are distributed through the Code Genome Project, so declare it there too when your build applies them:
+
+```kotlin title="settings.gradle.kts"
+pluginManagement {
+    repositories {
+        maven {
+            url = uri("https://artifacts.codegenomeproject.org/maven")
+            credentials {
+                username = "USERNAME"
+                password = "TOKEN"
+            }
+        }
+        gradlePluginPortal()
     }
 }
 ```

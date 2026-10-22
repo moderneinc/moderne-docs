@@ -47,7 +47,27 @@ Two practical consequences follow from that shared model:
 
 ## Setting up your project
 
-The DSL needs a Gradle build with the Kotlin plugin applied, because the compiler plugin has to be on the Kotlin compiler's plugin classpath. Here are the pieces that matter in a `build.gradle.kts` file:
+The DSL needs a Gradle build with the Kotlin plugin applied, because the compiler plugin has to be on the Kotlin compiler's plugin classpath.
+
+The OpenRewrite build plugins and the rewrite core libraries are distributed through the [Code Genome Project](../../accessing-the-code-genome-project.md), which requires authentication. Put your credentials in `~/.gradle/gradle.properties` as `codeGenomeUsername` and `codeGenomeToken`. Gradle resolves plugins from `pluginManagement` in `settings.gradle.kts` before any project is evaluated, so the Code Genome Project has to be declared there for `org.openrewrite.build.recipe-library-base` to resolve:
+
+```kotlin title="settings.gradle.kts"
+pluginManagement {
+    repositories {
+        maven {
+            url = uri("https://artifacts.codegenomeproject.org/maven")
+            credentials {
+                username = providers.gradleProperty("codeGenomeUsername").get()
+                password = providers.gradleProperty("codeGenomeToken").get()
+            }
+        }
+        // Keep the portal for any other plugins your build applies
+        gradlePluginPortal()
+    }
+}
+```
+
+Here are the pieces that matter in a `build.gradle.kts` file:
 
 ```kotlin title="build.gradle.kts"
 plugins {
@@ -59,6 +79,17 @@ plugins {
 
 group = "com.yourorg"
 description = "OpenRewrite recipes for Kotlin, authored with the Kotlin recipe DSL."
+
+repositories {
+    maven {
+        url = uri("https://artifacts.codegenomeproject.org/maven")
+        credentials {
+            username = providers.gradleProperty("codeGenomeUsername").get()
+            password = providers.gradleProperty("codeGenomeToken").get()
+        }
+    }
+    mavenCentral()
+}
 
 dependencies {
     // The bom aligns every org.openrewrite module - including rewrite-kotlin - to one version.

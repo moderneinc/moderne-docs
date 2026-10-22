@@ -287,7 +287,24 @@ For Maven, put the credentials in your `settings.xml`. See [Accessing the Code G
 <Tabs>
 
 <TabItem value="build.gradle" label="build.gradle">
-Add `exportDatatables = true` to your `build.gradle` file such as in the following example:
+The `org.openrewrite.rewrite` plugin is resolved from the Code Genome Project. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so declare the repository there:
+
+```groovy title="settings.gradle"
+pluginManagement {
+    repositories {
+        maven {
+            url = "https://artifacts.codegenomeproject.org/maven"
+            credentials {
+                username = "USERNAME"
+                password = "TOKEN"
+            }
+        }
+        gradlePluginPortal()
+    }
+}
+```
+
+Then add `exportDatatables = true` to your `build.gradle` file such as in the following example:
 
 ```groovy
 plugins {

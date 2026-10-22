@@ -62,7 +62,24 @@ mvn -B archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -Darch
 </Tabs>
 
 :::tip
-If you are using Gradle, it is highly-recommended that you apply the [`org.openrewrite.build.recipe-library-base` plugin](https://plugins.gradle.org/plugin/org.openrewrite.build.recipe-library-base). The plugin automatically configures the project with meaningful conventions like necessary compiler options.
+If you are using Gradle, it is highly-recommended that you apply the [`org.openrewrite.build.recipe-library-base` plugin](https://github.com/openrewrite/rewrite-build-gradle-plugin). The plugin automatically configures the project with meaningful conventions like necessary compiler options.
+
+The OpenRewrite build plugins and the `rewrite-core` libraries they depend on are distributed through the [Code Genome Project](../../accessing-the-code-genome-project.md), which requires authentication. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so the Code Genome Project has to be declared there. Replace `USERNAME` and `TOKEN` with your own credentials:
+
+```groovy title="settings.gradle"
+pluginManagement {
+    repositories {
+        maven {
+            url = "https://artifacts.codegenomeproject.org/maven"
+            credentials {
+                username = "USERNAME"
+                password = "TOKEN"
+            }
+        }
+        gradlePluginPortal()
+    }
+}
+```
 :::
 
 ### Dependencies & dependency management
@@ -387,6 +404,23 @@ For Maven, put the credentials in your `settings.xml`. See [Accessing the Code G
 
 <Tabs groupId="projectType">
 <TabItem value="gradle" label="Gradle">
+
+The `org.openrewrite.rewrite` plugin is also resolved from the Code Genome Project. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so declare it there as well as in the project's `repositories`:
+
+```groovy title="settings.gradle"
+pluginManagement {
+    repositories {
+        maven {
+            url = "https://artifacts.codegenomeproject.org/maven"
+            credentials {
+                username = "USERNAME"
+                password = "TOKEN"
+            }
+        }
+        gradlePluginPortal()
+    }
+}
+```
 
 ```groovy title="build.gradle"
 plugins {
