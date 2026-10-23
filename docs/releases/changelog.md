@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.40.0 (2026/10/23)
+
+- offer draft pull requests for every SCM provider
+- show recipe name in browser tab title
+- pin each file's header while its diff scrolls
+
 ### UI v14.39.0 (2026/10/21)
 
 - Bug fixes and other improvements.
