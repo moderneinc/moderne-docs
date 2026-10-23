@@ -407,6 +407,11 @@ const cli = {
         'user-documentation/moderne-cli/references/cli-3-44-0-changes',
       ],
     },
+    {
+      type: 'link' as const,
+      label: 'CLI releases',
+      href: '/releases/cli-releases',
+    },
   ],
 };
 
