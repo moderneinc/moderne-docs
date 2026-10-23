@@ -193,6 +193,61 @@ const mockSidebarItems: PropSidebarItem[] = [
   } as PropSidebarItemCategory,
 ];
 
+// A cross-section link: the CLI section links to a doc owned by Releases.
+// Doc entries carry a docId in the props sidebar; hand-written links do not.
+const crossLinkSidebarItems: PropSidebarItem[] = [
+  {
+    type: 'category',
+    label: 'CLI',
+    href: '/user-documentation/moderne-cli',
+    collapsed: false,
+    collapsible: true,
+    items: [
+      {
+        type: 'category',
+        label: 'References',
+        href: '/user-documentation/moderne-cli/references',
+        collapsed: false,
+        collapsible: true,
+        items: [
+          {
+            type: 'link',
+            docId: 'user-documentation/moderne-cli/references/faq',
+            label: 'FAQ',
+            href: '/user-documentation/moderne-cli/references/faq',
+          },
+        ],
+      },
+      {
+        type: 'link',
+        label: 'CLI releases',
+        href: '/releases/cli-releases',
+      },
+    ],
+  } as PropSidebarItemCategory,
+  {
+    type: 'category',
+    label: 'Releases',
+    href: '/releases',
+    collapsed: false,
+    collapsible: true,
+    items: [
+      {
+        type: 'link',
+        docId: 'releases/agent-releases',
+        label: 'Agent releases',
+        href: '/releases/agent-releases',
+      },
+      {
+        type: 'link',
+        docId: 'releases/cli-releases',
+        label: 'CLI releases',
+        href: '/releases/cli-releases',
+      },
+    ],
+  } as PropSidebarItemCategory,
+];
+
 describe('filterSidebarItemsByContext', () => {
   describe('Root level (depth 0)', () => {
     it('should return empty sidebar for root path', () => {
@@ -456,6 +511,23 @@ describe('filterSidebarItemsByContext', () => {
         item.type === 'category' && item.label === 'Moderne Platform'
       );
       expect(hasPlatformSubsection).toBe(true);
+    });
+
+    it('should show the owning section when another section cross-links to a doc', () => {
+      // CLI links to the CLI releases doc, which lives in the Releases section.
+      // The sidebar should show Releases, not the CLI tree that links to it.
+      const result = filterSidebarItemsByContext(
+        crossLinkSidebarItems,
+        '/releases/cli-releases',
+        2,
+        null
+      );
+
+      expect(result[0].type).toBe('html');
+      if (result[0].type === 'html') {
+        expect(result[0].value).toContain('Releases');
+        expect(result[0].value).not.toContain('CLI');
+      }
     });
   });
 
