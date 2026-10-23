@@ -14,7 +14,7 @@ If your policy forbids external principals from writing into your account, or fr
 Here's how the setup works end-to-end:
 
 1. You create a destination bucket in your AWS account.
-2. You send Moderne your tenant name and the destination bucket ARN.
+2. You send Moderne your tenant name, the destination bucket ARN, and the AWS account ID that owns the bucket.
 3. Moderne sends back a bucket policy scoped to your tenant's replication role, which you apply to the bucket.
 4. Moderne configures a replication rule on your tenant's source bucket and confirms when objects start landing.
 
@@ -29,17 +29,18 @@ This guide assumes that you have:
 
 ## What we'll need from you
 
-Send your CSM the following three values:
+Send your CSM the following four values:
 
-| Value                  | Example                               | How to get it                                               |
-|------------------------|---------------------------------------|-------------------------------------------------------------|
-| Tenant name            | `acme`                                | Your Moderne tenant subdomain (`acme.moderne.io` → `acme`). |
-| Destination bucket ARN | `arn:aws:s3:::acme-moderne-telemetry` | After step 1 below.                                         |
-| Bucket region          | `us-east-1`                           | Wherever your BI lives.                                     |
+| Value                  | Example                               | How to get it                                                                                       |
+|------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Tenant name            | `acme`                                | Your Moderne tenant subdomain (`acme.moderne.io` → `acme`).                                         |
+| Destination bucket ARN | `arn:aws:s3:::acme-moderne-telemetry` | After step 1 below.                                                                                 |
+| Bucket account ID      | `123456789012`                        | The 12-digit ID of the account that owns the bucket: `aws sts get-caller-identity --query Account`. |
+| Bucket region          | `us-east-1`                           | Wherever your BI lives.                                                                             |
 
 ## Step 1: Create the destination bucket
 
-Pick any name and region you like. We recommend enabling **bucket versioning** (required for replication on the source side, optional but useful on the destination side for object-history preservation).
+Pick any name and region you like. You must enable **bucket versioning** on the destination bucket, because S3 replication requires versioning on both the source and destination buckets. Moderne cannot enable replication until it is on.
 
 ```bash
 # Replace these with your values:
@@ -62,7 +63,7 @@ aws s3api put-bucket-versioning \
 
 ## Step 2: Send Moderne your bucket details
 
-Email your CSM the three values from the "What we'll need from you" table above. Moderne provisions a replication role dedicated to your tenant and sends back a destination bucket policy tailored to it. Apply the policy exactly as provided — do not edit it.
+Email your CSM the four values from the "What we'll need from you" table above. Moderne provisions a replication role dedicated to your tenant and sends back a destination bucket policy tailored to it. Apply the policy exactly as provided, without edits.
 
 ## Step 3: Apply the bucket policy
 
@@ -74,7 +75,7 @@ aws s3api put-bucket-policy \
     --policy file://destination-bucket-policy.json
 ```
 
-The policy grants Moderne's per-tenant replication role only the permissions it needs to write replicated objects into your bucket (the `s3:Replicate*` actions plus `s3:ObjectOwnerOverrideToBucketOwner`) and to read and set the bucket's versioning state. It grants no read access to your data and nothing else.
+The policy grants Moderne's per-tenant replication role only the permissions it needs to write replicated objects into your bucket (`s3:ReplicateObject`, `s3:ReplicateDelete`, `s3:ReplicateTags`, and `s3:ObjectOwnerOverrideToBucketOwner` on the bucket's objects). It grants no read access to your data and nothing else.
 
 ## Step 4: Moderne enables replication
 
