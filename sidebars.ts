@@ -47,6 +47,7 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/changelog',
           'user-documentation/moderne-platform/getting-started/prethink',
           'user-documentation/moderne-platform/getting-started/activity-view',
+          'user-documentation/moderne-platform/getting-started/code-search',
         ],
       },
       {
@@ -65,7 +66,6 @@ const platform = {
           'user-documentation/moderne-platform/how-to-guides/vulnerable-dependencies',
           'user-documentation/moderne-platform/how-to-guides/addressing-cves',
           'user-documentation/moderne-platform/how-to-guides/new-recipe-builder',
-          'user-documentation/moderne-platform/how-to-guides/introduction-to-type-aware-code-search',
           'user-documentation/moderne-platform/how-to-guides/moderne-platform-search',
           'user-documentation/moderne-platform/how-to-guides/accessing-the-moderne-api',
           'user-documentation/moderne-platform/how-to-guides/recipe-execution-and-commits-with-graphql',

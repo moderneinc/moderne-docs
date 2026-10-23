@@ -82,6 +82,7 @@ const redirects: RedirectRule[] = [
   { from: '/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-strict-recipe-sources', to: '/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-the-pom-cache' },
   { from: '/hands-on-learning/fundamentals/module-3-refaster-recipes', to: '/hands-on-learning/fundamentals/module-3-kotlin-dsl-recipes' },
   { from: '/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project', to: '/user-documentation/recipes/accessing-the-code-genome-project' },
+  { from: '/user-documentation/moderne-platform/how-to-guides/introduction-to-type-aware-code-search', to: '/user-documentation/moderne-platform/getting-started/code-search' },
 ];
 
 export default redirects;
