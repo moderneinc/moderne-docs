@@ -5504,13 +5504,3 @@ Republishing to update dependencies
 
 * Also remove `util` module import if possible
 
-## October 22, 2025
-
-#### rewrite-cryptography - 0.10.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-devcenter - 1.10.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
