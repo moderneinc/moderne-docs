@@ -122,7 +122,7 @@ The `moderne-wrapper.properties` file supports these properties:
 | Property                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Default             |
 |--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | `version`                            | CLI version to use. `RELEASE` resolves the latest release. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`.                                                                                                                                                                                                                                                                                                          | `RELEASE`           |
-| `distributionUrl`                    | Where to download the distribution from. Set it to the root of a Maven repository (e.g., `https://nexus.example.com/repository/moderne`). <br/><br/>Starting with CLI `4.9.0`, `RELEASE` is also resolved against that repository. <br/><br/>A URL template with `${version}`, `${platform}`, and `${extension}` placeholders is still accepted. On Linux, a template always downloads the x64 distribution because `${platform}` carries no architecture. | Code Genome Project |
+| `distributionUrl`                    | Where to download the distribution from. Set it to the root of a Maven repository (e.g., `https://nexus.example.com/repository/moderne`). <br/><br/>Starting with CLI `4.9.0`, `RELEASE` is also resolved against that repository. <br/><br/>A URL template with `${version}`, `${platform}`, and `${extension}` placeholders is still accepted. In a Linux template, write the architecture into the artifact name instead of using `${platform}` (see [air-gapped or restricted environments](#air-gapped-or-restricted-environments)). | Code Genome Project |
 | `distributionUrlEarlyAccess`         | Base URL of the repository used to resolve `LATEST`/snapshot versions. Overrides the default snapshot source; point it at your own snapshot repository in restricted environments.                                                                                                                                                                                                                                                                 | Code Genome Project |
 | `distributionUsername`               | Username for basic authentication when downloading the distribution.                                                                                                                                                                                                                                                                                                                                                                               | _(none)_            |
 | `distributionPassword`               | Password for basic authentication when downloading the distribution.                                                                                                                                                                                                                                                                                                                                                                               | _(none)_            |
@@ -163,8 +163,20 @@ Setting `jdkUrl=skip` disables the JDK auto-download, which is useful when you k
 
 When `distributionUrl` is a repository root, the wrapper resolves `RELEASE` against that repository's `maven-metadata.xml` and downloads from it, so developers only move to a new CLI version once it is available in your mirror. To track `LATEST` from an internal mirror as well, set `distributionUrlEarlyAccess` to the repository that holds the snapshots.
 
+Use a repository root if your wrappers are on CLI `4.9.0` or later. Older wrappers need a URL template or a direct link to the archive instead:
+
+```properties
+version=4.9.0
+distributionUrl=https://internal-mirror.example.com/maven/io/moderne/moderne-cli-linux-x64/${version}/moderne-cli-linux-x64-${version}.sh
+jdkUrl=skip
+```
+
+The wrapper treats a `distributionUrl` as a template or archive link when it contains a `${...}` placeholder or ends in `.sh` or `.zip`. Any other value is a repository root.
+
+In a Linux template, write the architecture into the artifact name (`moderne-cli-linux-x64` or `moderne-cli-linux-aarch64`) instead of using `${platform}`. On Linux, the wrapper replaces `${platform}` with just `linux`, which points at the old `moderne-cli-linux` artifact. That artifact only contains the x64 build and is only published until older wrappers are retired.
+
 :::warning
-When `distributionUrl` is a URL template, it controls only where the distribution archive is *downloaded* from. `RELEASE` is still resolved against the Code Genome Project, and if that is not reachable, every `mod` invocation fails at version resolution. With a template, pin a concrete `version` (such as `4.x.x`) to skip the lookup entirely.
+Pin a concrete `version` when you use a URL template or archive link, as in the example above. With either form, the wrapper still looks up a `RELEASE` version on the Code Genome Project. If the Code Genome Project is unreachable, every `mod` command fails.
 :::
 
 :::tip
@@ -287,6 +299,33 @@ Everything lives under `~/.moderne/cli/` (or `$MODERNE_CLI_HOME`):
     │   └── classpath/                    # extracted JARs for build plugins
     └── ...                               # recipes, metrics, and other CLI config
 ```
+
+## Running in containers
+
+Optionally pin the CLI version when you build a container image. Installing `modw` alone does not pin one. Without `MODERNE_WRAPPER_VERSION` or a `version=` line in a properties file, the wrapper looks up the latest release when a container starts and downloads any newer CLI version.
+
+To bake a pinned version into the image, set `MODERNE_WRAPPER_VERSION` and run `mod --version` during the build. The `mod --version` call downloads that version into the image:
+
+```dockerfile
+USER moderne
+ENV MODERNE_WRAPPER_VERSION=4.9.0 \
+    MODERNE_WRAPPER_DISTRIBUTION_URL=https://internal-mirror.example.com/maven
+RUN mod --version
+```
+
+Set `MODERNE_WRAPPER_DISTRIBUTION_URL` only if the image downloads the CLI from an internal mirror. When the container starts, it finds the pinned version already installed and makes no network calls for the CLI.
+
+Use environment variables rather than a properties file to pin the version. A `moderne/wrapper/moderne-wrapper.properties` file in a repository the container works on overrides the global properties file, but not environment variables.
+
+Make sure the running container finds the CLI where the build installed it:
+
+* Run `mod --version` as the same user, with the same `HOME` and `MODERNE_CLI_HOME`, that the container runs with. The wrapper installs the CLI under `$MODERNE_CLI_HOME/dist`, which defaults to `~/.moderne/cli/dist`. If the build runs it as `root`, the CLI ends up in `/root/.moderne/cli/dist` and the container user downloads it again.
+* Give the container user write access to `$MODERNE_CLI_HOME/dist`. The wrapper writes the extracted classpath and AOT cache there at runtime.
+* Do not mount a volume over `$MODERNE_CLI_HOME/dist` or any directory above it, such as `~/.moderne`. A volume there hides the installed CLI. The wrapper then downloads the CLI again, or fails if the container can't reach the distribution repository.
+
+To skip the download entirely, copy the platform-independent `io.moderne:moderne-cli` JAR into the image and set `MODERNE_JAR` to its path. The wrapper then launches that JAR without looking up or downloading a version. You will need a Java 25+ runtime in the image that the wrapper can find (see [how the wrapper finds Java](#how-the-wrapper-finds-java)), because this JAR does not include the bundled JRE.
+
+For a complete Dockerfile that installs a pinned CLI version from a mirror, see the [mass-ingest example](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md).
 
 ## Running the CLI without the wrapper
 
