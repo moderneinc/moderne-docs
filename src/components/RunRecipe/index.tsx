@@ -18,6 +18,9 @@ interface CompanionJar {
  */
 type VersionMode = 'RELEASE' | 'LATEST' | 'pinned';
 
+const MULTIPLE_PACKAGES_INTRO =
+  'This recipe calls into other OpenRewrite packages as it runs. You will need to install all of the following packages before running it:';
+
 const jarSpec = (groupId: string, artifactId: string, version: string, mode: VersionMode): string =>
   `${groupId}:${artifactId}:${mode === 'pinned' ? version : mode}`;
 
@@ -179,8 +182,21 @@ export default function RunRecipe({
     : recipeName.substring(recipeName.lastIndexOf('.') + 1);
   const version = resolveVersion(versionKey);
 
-  // JavaScript recipes
+  // JavaScript recipes. Some npm recipes delegate to jar recipes. For example, the Angular and React
+  // upgrades call org.openrewrite.javascript.UpgradeDependencyVersion from the rewrite-javascript jar.
+  // An npm install never brings in a jar, so each of those jars gets its own install command.
+  // The npm package is never pinned, so the pinned tab only pins the jars.
   if (npmPackage) {
+    const resolvedCompanionJars = (companionJars ?? [])
+      .map((jar) => ({ ...jar, version: resolveVersion(jar.versionKey) }))
+      .filter((jar) => jar.version);
+    const installCommandsFor = (mode: VersionMode): string[] => [
+      `mod config recipes npm install ${npmPackage}`,
+      ...resolvedCompanionJars.map(
+        (jar) => `mod config recipes jar install ${jarSpec(jar.groupId, jar.artifactId, jar.version, mode)}`
+      ),
+    ];
+    const multiplePackages = resolvedCompanionJars.length > 0;
     return (
       <>
         <p>
@@ -189,10 +205,16 @@ export default function RunRecipe({
           For JavaScript specific configuration instructions, please see our{' '}
           <a href="https://docs.moderne.io/user-documentation/moderne-cli/how-to-guides/javascript">configuring JavaScript guide</a>.
         </p>
-        <p>Once the CLI is installed, you can install this JavaScript recipe package by running the following command:</p>
-        <CodeBlock language="shell" title="Install the recipe package">
-          {`mod config recipes npm install ${npmPackage}`}
-        </CodeBlock>
+        <p>
+          {multiplePackages
+            ? MULTIPLE_PACKAGES_INTRO
+            : 'Once the CLI is installed, you can install this JavaScript recipe package by running the following command:'}
+        </p>
+        <InstallCommands
+          title={multiplePackages ? 'Install the recipe packages' : 'Install the recipe package'}
+          commandsFor={installCommandsFor}
+          hasPinnedVersion={multiplePackages}
+        />
         <p>Then, you can run the recipe via:</p>
         <RunCommands
           title="Run the recipe"
@@ -232,7 +254,7 @@ export default function RunRecipe({
         </p>
         <p>
           {multiplePackages
-            ? 'This recipe calls into other OpenRewrite packages as it runs, and the CLI needs every one of them in its marketplace. Once the CLI is installed, install all of the following:'
+            ? MULTIPLE_PACKAGES_INTRO
             : 'Once the CLI is installed, you can install this Python recipe package by running the following command:'}
         </p>
         <InstallCommands
@@ -273,7 +295,7 @@ export default function RunRecipe({
         </p>
         <p>
           {multiplePackages
-            ? 'This recipe calls into other OpenRewrite packages as it runs, and the CLI needs every one of them in its marketplace. Once the CLI is installed, install all of the following:'
+            ? MULTIPLE_PACKAGES_INTRO
             : 'Once the CLI is installed, you can install this C# recipe package by running the following command:'}
         </p>
         <InstallCommands
