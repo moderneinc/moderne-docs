@@ -372,6 +372,7 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/parallelism',
         'user-documentation/moderne-cli/how-to-guides/ssh-key',
         'user-documentation/moderne-cli/how-to-guides/layer-config-cli',
+        'user-documentation/moderne-cli/how-to-guides/cli-secrets',
         'user-documentation/moderne-cli/how-to-guides/code-style-config',
         'user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands',
         'user-documentation/moderne-cli/how-to-guides/on-prem-scm-config',
