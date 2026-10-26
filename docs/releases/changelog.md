@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.41.1 (2026/10/26)
+
+- Bug fixes and other improvements.
+
 ### UI v14.41.0 (2026/10/26)
 
 - render marker-only lines as search results inside diffs
