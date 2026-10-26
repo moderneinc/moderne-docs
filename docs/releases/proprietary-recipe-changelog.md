@@ -5492,15 +5492,3 @@ Republishing to update dependencies
 
 * Gradle 9.2.0
 
-## October 24, 2025
-
-#### rewrite-nodejs - 0.32.5
-
-* OpenRewrite recipe best practices
-
-## October 23, 2025
-
-#### rewrite-nodejs - 0.32.4
-
-* Also remove `util` module import if possible
-
