@@ -1,6 +1,6 @@
 ---
-title: "Migrate `packages.config` to `&lt;PackageReference&gt;` (net48)"
-sidebar_label: "Migrate `packages.config` to `&lt;PackageReference&gt;` (net48)"
+title: "Migrate `packages.config` to `<PackageReference>` (net48)"
+sidebar_label: "Migrate `packages.config` to `<PackageReference>` (net48)"
 hide_title: true
 ---
 

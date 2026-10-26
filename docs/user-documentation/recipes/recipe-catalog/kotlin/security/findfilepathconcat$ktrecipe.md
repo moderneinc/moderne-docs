@@ -1,6 +1,6 @@
 ---
-title: "Find `File(&quot;...&quot; + input)` constructions"
-sidebar_label: "Find `File(&quot;...&quot; + input)` constructions"
+title: "Find `File(\"...\" + input)` constructions"
+sidebar_label: "Find `File(\"...\" + input)` constructions"
 hide_title: true
 ---
 

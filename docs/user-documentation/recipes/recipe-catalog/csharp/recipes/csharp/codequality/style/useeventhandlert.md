@@ -1,6 +1,6 @@
 ---
-title: "Use EventHandler&lt;T&gt;"
-sidebar_label: "Use EventHandler&lt;T&gt;"
+title: "Use EventHandler<T>"
+sidebar_label: "Use EventHandler<T>"
 hide_title: true
 ---
 

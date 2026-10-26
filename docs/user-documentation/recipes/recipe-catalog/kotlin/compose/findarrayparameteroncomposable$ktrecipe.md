@@ -1,6 +1,6 @@
 ---
-title: "Find `Array&lt;T&gt;` parameters on `@Composable` functions"
-sidebar_label: "Find `Array&lt;T&gt;` parameters on `@Composable` functions"
+title: "Find `Array<T>` parameters on `@Composable` functions"
+sidebar_label: "Find `Array<T>` parameters on `@Composable` functions"
 hide_title: true
 ---
 

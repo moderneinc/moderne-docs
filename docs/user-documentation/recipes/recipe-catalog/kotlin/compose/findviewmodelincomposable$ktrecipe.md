@@ -1,6 +1,6 @@
 ---
-title: "Find `viewModel&lt;X&gt;()` calls inside `@Composable`"
-sidebar_label: "Find `viewModel&lt;X&gt;()` calls inside `@Composable`"
+title: "Find `viewModel<X>()` calls inside `@Composable`"
+sidebar_label: "Find `viewModel<X>()` calls inside `@Composable`"
 hide_title: true
 ---
 

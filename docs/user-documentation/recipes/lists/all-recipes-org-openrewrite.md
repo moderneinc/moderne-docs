@@ -122,11 +122,14 @@ _29 recipes_
 
 _License: Moderne Source Available License_
 
-_2 recipes_
+_3 recipes_
 
 * [org.openrewrite.csharp.msbuild.AlignPathCasing](/user-documentation/recipes/recipe-catalog/csharp/msbuild/alignpathcasing.md)
   * **Align MSBuild path casing with the repository**
   * MSBuild resolves paths case-insensitively on Windows, so a solution can reference `assemblies/WPFToolkit/WPFToolkit.csproj` while the directory committed to git is actually named `assemblies/Wpftoolkit`. The same reference fails with `MSB3202` or `Project file not found` on a case-sensitive file system. This recipe rewrites path references in `.sln` and `.slnx` solutions, in `.props` and `.targets` files, and in MSBuild project files such as `.csproj`, `.vbproj`, `.fsproj`, `.vcxproj`, `.sqlproj`, `.shproj`, and `.projitems`, so that every segment matches the casing of the file or directory that is actually in the repository. References that already resolve exactly, that cannot be resolved at all, or whose casing is ambiguous — because two files or directories differ only by case — are left untouched.
+* [org.openrewrite.csharp.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/csharp/search/modulehasdependency.md)
+  * **Module has dependency**
+  * Searches for .NET projects that have a NuGet package dependency matching the specified package id. Places a `SearchResult` marker on all sources within a project with a matching dependency. A source belongs to the project file (`.csproj`, `.vbproj`, `.fsproj`) in its nearest enclosing directory. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a migration to only projects that use a specific version of a package. If the search result you want is instead just the project file referencing the package, use the `FindNuGetPackageReference` recipe instead.
 * [org.openrewrite.csharp.sln.RemoveNjsprojFromSolution](/user-documentation/recipes/recipe-catalog/csharp/sln/removenjsprojfromsolution.md)
   * **Remove `.njsproj` projects from solution**
   * Removes Project entries with the `.njsproj` extension (Node.js Tools projects) from Visual Studio solution files, together with the configuration, nesting, and dependency entries that refer to them. The .NET SDK does not ship `Microsoft.NodejsTools.targets`, so `dotnet build` fails on a solution that still lists one of these projects.
@@ -196,7 +199,7 @@ _18 recipes_
 
 _License: Moderne Source Available License_
 
-_2 recipes_
+_3 recipes_
 
 * [org.openrewrite.golang.RegenerateGoSum](/user-documentation/recipes/recipe-catalog/golang/regenerategosum.md)
   * **Regenerate `go.sum`**
@@ -204,12 +207,15 @@ _2 recipes_
 * [org.openrewrite.golang.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/golang/search/dependencyinsight.md)
   * **Go dependency insight**
   * Find direct and transitive Go module dependencies matching a module path pattern. Results include dependencies that either directly match or transitively include a matching dependency.
+* [org.openrewrite.golang.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/golang/search/modulehasdependency.md)
+  * **Module has dependency**
+  * Searches for Go modules that have a dependency matching the specified module path. Places a `SearchResult` marker on all sources within a module with a matching dependency. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a migration to only modules that use a specific version of a library. If the search result you want is instead just the `require` directive in `go.mod`, use the `DependencyInsight` recipe instead.
 
 ## rewrite-gradle
 
 _License: Apache License Version 2.0_
 
-_84 recipes_
+_87 recipes_
 
 * [org.openrewrite.gradle.AddDependency](/user-documentation/recipes/recipe-catalog/gradle/adddependency.md)
   * **Add Gradle dependency**
@@ -268,6 +274,9 @@ _84 recipes_
 * [org.openrewrite.gradle.EnableGradleParallelExecution](/user-documentation/recipes/recipe-catalog/gradle/enablegradleparallelexecution.md)
   * **Enable Gradle parallel execution**
   * Most builds consist of more than one project and some of those projects are usually independent of one another. Yet Gradle will only run one task at a time by default, regardless of the project structure. By using the `--parallel` switch, you can force Gradle to execute tasks in parallel as long as those tasks are in different projects. See the [Gradle performance documentation](https://docs.gradle.org/current/userguide/performance.html#parallel_execution) for more information.
+* [org.openrewrite.gradle.ExcludeDependency](/user-documentation/recipes/recipe-catalog/gradle/excludedependency.md)
+  * **Exclude Gradle dependency**
+  * Exclude the specified dependency from any direct dependency declaration that transitively includes it. The exclusion is attached to each matching direct dependency, mirroring Maven's per-dependency `&lt;exclusions&gt;` behavior. Supports both Groovy and Kotlin DSL build scripts.
 * [org.openrewrite.gradle.GradleBestPractices](/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md)
   * **Apply Gradle best practices**
   * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and idiomatic builds.
@@ -295,6 +304,9 @@ _84 recipes_
 * [org.openrewrite.gradle.RemoveDependency](/user-documentation/recipes/recipe-catalog/gradle/removedependency.md)
   * **Remove a Gradle dependency**
   * Removes a single dependency from the dependencies section of the `build.gradle`.
+* [org.openrewrite.gradle.RemoveDuplicateDependencies](/user-documentation/recipes/recipe-catalog/gradle/removeduplicatedependencies.md)
+  * **Remove duplicate Gradle dependencies**
+  * Removes duplicated dependency declarations from the `dependencies` block of `build.gradle` and `build.gradle.kts` files. A declaration is only considered a duplicate when an earlier declaration in the same `dependencies` block uses the same configuration and the same coordinates, including version, classifier and extension, whether those are written as a single string or as separate arguments. Declarations that differ only by version are left untouched.
 * [org.openrewrite.gradle.RemoveEmptyBuildscriptBlock](/user-documentation/recipes/recipe-catalog/gradle/removeemptybuildscriptblock.md)
   * **Remove empty `buildscript` block**
   * Removes a `buildscript` block from `build.gradle(.kts)` or `settings.gradle(.kts)` when it contributes nothing to the build. A block containing only other empty blocks, such as an empty `dependencies` or `repositories` block, is also considered empty. A block containing a comment is left alone, so that no comment is silently deleted.
@@ -304,6 +316,9 @@ _84 recipes_
 * [org.openrewrite.gradle.RemoveExtension](/user-documentation/recipes/recipe-catalog/gradle/removeextension.md)
   * **Remove build extension by name**
   * Remove a Gradle build extension from `settings.gradle(.kts)` or `build.gradle(.kts)` files.
+* [org.openrewrite.gradle.RemoveExtraProperty](/user-documentation/recipes/recipe-catalog/gradle/removeextraproperty.md)
+  * **Remove extra property**
+  * Gradle's [ExtraPropertiesExtension](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html) is a commonly used mechanism for setting arbitrary key/value pairs on a project. This recipe removes every assignment of the property with the given key, whatever its value, such as `ext.foo = 'bar'`, `ext['foo'] = 'bar'`, `ext.set('foo', 'bar')`, an assignment in an `ext \{ \}` block, or Kotlin's `extra[&quot;foo&quot;] = &quot;bar&quot;` and `val foo by extra(&quot;bar&quot;)`. An `ext \{ \}` block left empty is removed as well. Reads of the property are left as they are.
 * [org.openrewrite.gradle.RemoveRedundantDependencyVersions](/user-documentation/recipes/recipe-catalog/gradle/removeredundantdependencyversions.md)
   * **Remove redundant explicit dependencies and versions**
   * Remove explicitly-specified dependency versions that are managed by a Gradle `platform`, `enforcedPlatform` or the `io.spring.dependency-management` plugin. Also removes redundant direct dependencies and dependency constraints that are already satisfied by transitive dependencies.
@@ -487,8 +502,11 @@ _4 recipes_
 
 _License: Apache License Version 2.0_
 
-_11 recipes_
+_12 recipes_
 
+* [org.openrewrite.hcl.ChangeKey](/user-documentation/recipes/recipe-catalog/hcl/changekey.md)
+  * **Change key**
+  * Rename an HCL attribute while leaving its value intact. Attributes with a computed key, or with a sibling attribute or block already named `newKey`, are left unchanged.
 * [org.openrewrite.hcl.DeleteContent](/user-documentation/recipes/recipe-catalog/hcl/deletecontent.md)
   * **Delete content**
   * Delete HCL content by path.
@@ -837,23 +855,23 @@ _101 recipes_
 
 _License: Moderne Source Available License_
 
-_19 recipes_
+_20 recipes_
 
 * [org.openrewrite.javascript.AddDependency](/user-documentation/recipes/recipe-catalog/javascript/adddependency.md)
   * **Add npm dependency**
-  * Add an npm dependency to `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Add an npm dependency to `package.json` and regenerate the lock file natively, without executing the package manager. In a pnpm workspace with catalogs it writes what `pnpm add` writes under the workspace's `catalogMode` and `saveCatalogName`. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.ChangeDependency](/user-documentation/recipes/recipe-catalog/javascript/changedependency.md)
   * **Change npm dependency**
-  * Renames an npm dependency in `package.json` and optionally updates its version constraint. After modifying the package.json, the lock file is regenerated natively, without executing the package manager. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Renames an npm dependency in `package.json` and optionally updates its version constraint. A `catalog:` reference keeps its catalog, which gains the new name's entry. After modifying the package.json, the lock file is regenerated natively, without executing the package manager. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.RemoveDependency](/user-documentation/recipes/recipe-catalog/javascript/removedependency.md)
   * **Remove npm dependency**
-  * Remove an npm dependency from `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency does not exist in any scope, the recipe is a no-op.
+  * Remove an npm dependency from `package.json` and regenerate the lock file natively, without executing the package manager. A pnpm workspace with `cleanupUnusedCatalogs` also loses the catalog entries no project references any more. If the dependency does not exist in any scope, the recipe is a no-op.
 * [org.openrewrite.javascript.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion.md)
   * **Upgrade npm dependency version**
-  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file natively, without executing the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file natively, without executing the package manager. Matching is by exact package name or glob pattern. A version range is replaced when it admits a version below the new range's lowest; one that already starts at or above it is left, and so is a `peerDependencies` range that admits every version the new one does. A `catalog:` reference is upgraded in its catalog entry by the same rule, and any other value is left as it is. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradetransitivedependencyversion.md)
   * **Upgrade transitive npm dependency**
-  * Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file natively, without executing the package manager. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.change-import](/user-documentation/recipes/recipe-catalog/javascript/change-import.md)
   * **Change import**
   * Changes an import from one module/member to another, updating all type attributions.
@@ -896,6 +914,9 @@ _19 recipes_
 * [org.openrewrite.javascript.search.FindVendoredOrBundled](/user-documentation/recipes/recipe-catalog/javascript/search/findvendoredorbundled.md)
   * **Find vendored or bundled JavaScript**
   * Find JavaScript and TypeScript sources that are vendored, bundled or build output, based on their path (`node_modules/`, `bower_components/`, `vendor/`, `dist/`, `*.min.*`, `*.bundle.*`) or a trailing `sourceMappingURL` comment.
+* [org.openrewrite.javascript.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/javascript/search/modulehasdependency.md)
+  * **Module has dependency**
+  * Searches for Node.js packages that have an npm dependency matching the specified package name. Places a `SearchResult` marker on all sources within a package with a matching dependency. A source belongs to the `package.json` in its nearest enclosing directory, so each member of a workspace is its own module. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a migration to only packages that use a specific version of a library. If the search result you want is instead just the dependency entry in `package.json`, use the `DependencyInsight` recipe instead.
 
 ## rewrite-json
 
@@ -1009,7 +1030,7 @@ _7 recipes_
 
 _License: Apache License Version 2.0_
 
-_95 recipes_
+_96 recipes_
 
 * [org.openrewrite.maven.AddAnnotationProcessor](/user-documentation/recipes/recipe-catalog/maven/addannotationprocessor.md)
   * **Add an annotation processor to `maven-compiler-plugin`**
@@ -1112,10 +1133,10 @@ _95 recipes_
   * This recipe processes Maven POMs, converting all `&lt;dependencyManagement&gt;` entries into runtime scoped `&lt;dependencies&gt;` entries. Import scoped BOMs (like jackson-bom) are left unmodified in `&lt;dependencyManagement&gt;`. Some style guidelines prefer that `&lt;dependencyManagement&gt;` be used only for BOMs. This maintain that style while avoiding introducing new symbols onto the compile classpath unintentionally.
 * [org.openrewrite.maven.MigrateToMaven3_10](/user-documentation/recipes/recipe-catalog/maven/migratetomaven3_10.md)
   * **Migrate to Maven 3.10**
-  * Migrates a project to Maven 3.10. Maven 3.10 rejects some POMs that earlier Maven 3 versions built with a warning, such as POMs with duplicate dependency or plugin declarations. This recipe fixes those POMs and updates an existing Maven wrapper to Maven 3.10.
+  * Migrates a project to Maven 3.10. Maven 3.10 rejects some POMs that earlier Maven 3 versions built with a warning, such as POMs with duplicate dependency or plugin declarations, or with a parent `relativePath` that holds coordinates instead of a path. This recipe fixes those POMs, updates an existing Maven wrapper to Maven 3.10, and then removes encoding and output timestamp properties that equal the Maven 3.10 super POM defaults.
 * [org.openrewrite.maven.MigrateToMaven4](/user-documentation/recipes/recipe-catalog/maven/migratetomaven4.md)
   * **Migrate to Maven 4**
-  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, runs the Maven 3.10 migration (which removes duplicate plugin and dependency declarations and updates an existing Maven wrapper to Maven 3.10), updates lifecycle phases, upgrades plugins known to fail under Maven 4, switches repository URLs to HTTPS, and replaces removed properties to ensure compatibility with Maven 4.
+  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, runs the Maven 3.10 migration (which removes duplicate plugin and dependency declarations, fixes invalid parent relative paths, updates an existing Maven wrapper to Maven 3.10, and removes properties that equal the new super POM defaults), updates lifecycle phases, upgrades plugins known to fail under Maven 4, switches repository URLs to HTTPS, and replaces removed properties to ensure compatibility with Maven 4.
 * [org.openrewrite.maven.ModernizeObsoletePoms](/user-documentation/recipes/recipe-catalog/maven/modernizeobsoletepoms.md)
   * **Modernize obsolete Maven poms**
   * Very old Maven poms are no longer supported by current versions of Maven. This recipe updates poms with `&lt;pomVersion&gt;3&lt;/pomVersion&gt;` to `&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;` of the Maven pom schema. This does not attempt to upgrade old dependencies or plugins and is best regarded as the starting point of a migration rather than an end-point.
@@ -1130,13 +1151,16 @@ _95 recipes_
   * Removes a single dependency from the &lt;dependencies&gt; section of the pom.xml. Does not remove usage of the dependency classes, nor guard against the resulting compilation errors.
 * [org.openrewrite.maven.RemoveDuplicateDependencies](/user-documentation/recipes/recipe-catalog/maven/removeduplicatedependencies.md)
   * **Remove duplicate Maven dependencies**
-  * Removes duplicated dependencies in the `&lt;dependencies&gt;` and `&lt;dependencyManagement&gt;` sections of the `pom.xml`.
+  * Maven 3.10 and Maven 4 fail the build when a `&lt;dependencies&gt;` or `&lt;dependencyManagement&gt;` section, including those of a profile, declares the same `groupId:artifactId:type:classifier` more than once, regardless of `&lt;scope&gt;`. Earlier Maven versions only warned and kept a single declaration: the first one in a project's `&lt;dependencyManagement&gt;`, and otherwise the last one, in the position of the first. This recipe removes the duplicates, keeping the declaration earlier Maven versions used so that the resolved dependencies stay the same.
 * [org.openrewrite.maven.RemoveDuplicatePluginDeclarations](/user-documentation/recipes/recipe-catalog/maven/removeduplicateplugindeclarations.md)
   * **Remove duplicate plugin declarations**
-  * Maven 4 rejects duplicate plugin declarations (same groupId and artifactId) with an error. This recipe removes duplicate plugin declarations, keeping only the first occurrence.
+  * Maven 3.10 and Maven 4 reject duplicate plugin declarations (same groupId and artifactId) with an error, where Maven 3.9 and earlier only warned. This recipe collapses each set of duplicates into the position of the first declaration, preserving the effective model Maven 3 built from them. Maven 3 merged duplicates, with the later declaration taking precedence, whenever there was a declaration to merge them into: always for build plugins, and for plugins in a profile or in plugin management when the main build or a parent also declares the plugin. Otherwise it applied only the last declaration, which is then the one kept.
 * [org.openrewrite.maven.RemoveExclusion](/user-documentation/recipes/recipe-catalog/maven/removeexclusion.md)
   * **Remove exclusion**
   * Remove any matching exclusion from any matching dependency.
+* [org.openrewrite.maven.RemoveInvalidParentRelativePath](/user-documentation/recipes/recipe-catalog/maven/removeinvalidparentrelativepath.md)
+  * **Remove invalid parent `relativePath`**
+  * Maven 3.10 and 4 fail the build when a parent `&lt;relativePath&gt;` contains any of the characters `: &quot; &lt; &gt; | ? *`, which typically means a `groupId:artifactId:version` was entered instead of a path. Earlier Maven versions found no POM at such a path and resolved the parent from the repository. This recipe replaces the value with an empty `&lt;relativePath/&gt;`, which tells Maven to do exactly that.
 * [org.openrewrite.maven.RemoveManagedDependency](/user-documentation/recipes/recipe-catalog/maven/removemanageddependency.md)
   * **Remove Maven managed dependency**
   * Removes a single managed dependency from the &lt;dependencyManagement&gt;&lt;dependencies&gt; section of the pom.xml.
@@ -1160,7 +1184,7 @@ _95 recipes_
   * Remove explicitly-specified dependency/plugin versions when a parent POM's `dependencyManagement`/`pluginManagement` specifies the version.
 * [org.openrewrite.maven.RemoveRedundantProperties](/user-documentation/recipes/recipe-catalog/maven/removeredundantproperties.md)
   * **Remove redundant properties**
-  * Remove properties when a parent POM specifies the same property.
+  * Remove properties when a parent POM specifies the same property. When the project is built with Maven 3.10 or later, according to its `BuildTool` marker, the super POM's defaults count as well: `project.build.sourceEncoding` and `project.reporting.outputEncoding` set to `UTF-8`, and `project.build.outputTimestamp` set to `1980-02-01T00:00:00Z` are removed when no parent POM sets them.
 * [org.openrewrite.maven.RemoveRepository](/user-documentation/recipes/recipe-catalog/maven/removerepository.md)
   * **Remove repository**
   * Removes a matching Maven repository.
@@ -1332,7 +1356,7 @@ _8 recipes_
 
 _License: Moderne Proprietary License_
 
-_16 recipes_
+_17 recipes_
 
 * [org.openrewrite.python.AddDependency](/user-documentation/recipes/recipe-catalog/python/adddependency.md)
   * **Add Python dependency**
@@ -1379,6 +1403,9 @@ _16 recipes_
 * [org.openrewrite.python.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/search/dependencyinsight.md)
   * **Python dependency insight**
   * Find direct and transitive Python dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency.
+* [org.openrewrite.python.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/python/search/modulehasdependency.md)
+  * **Module has dependency**
+  * Searches for Python projects that have a dependency matching the specified package name. Places a `SearchResult` marker on all sources within a project with a matching dependency. A source belongs to the dependency manifest (`pyproject.toml`, `Pipfile`, `setup.cfg`, `setup.py` or `requirements.txt`) in its nearest enclosing directory. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a migration to only projects that use a specific version of a library. If the search result you want is instead just the dependency entry in the manifest, use the `DependencyInsight` recipe instead.
 * [org.openrewrite.python.search.UsesImport](/user-documentation/recipes/recipe-catalog/python/search/usesimport.md)
   * **Find Python files that import a module**
   * Marks Python source files that import the given module, matching the as-written import path rather than type attribution. Robust to type-checker canonicalization and to removed or unresolvable symbols, which makes it usable as a precondition for import-migration recipes where `HasType` would miss the file.

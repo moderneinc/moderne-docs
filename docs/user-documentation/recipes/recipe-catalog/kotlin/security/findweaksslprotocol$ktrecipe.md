@@ -1,6 +1,6 @@
 ---
-title: "Find `SSLContext.getInstance(&quot;SSL&quot;/&quot;TLSv1&quot;/&quot;TLSv1.1&quot;)` calls"
-sidebar_label: "Find `SSLContext.getInstance(&quot;SSL&quot;/&quot;TLSv1&quot;/&quot;TLSv1.1&quot;)` calls"
+title: "Find `SSLContext.getInstance(\"SSL\"/\"TLSv1\"/\"TLSv1.1\")` calls"
+sidebar_label: "Find `SSLContext.getInstance(\"SSL\"/\"TLSv1\"/\"TLSv1.1\")` calls"
 hide_title: true
 ---
 

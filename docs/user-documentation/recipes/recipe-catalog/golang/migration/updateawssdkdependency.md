@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Require `aws-sdk-go-v2` instead of `aws-sdk-go`"}
-  description={"Require the `github.com/aws/aws-sdk-go-v2` modules the migrated source imports, and drop `github.com/aws/aws-sdk-go` once no file imports it. Only the core, `config` and `credentials` modules are pinned here; every service is its own independently versioned module, so `go mod tidy` adds those from the imports. Does not sync go.sum."}
+  description={"Require the `github.com/aws/aws-sdk-go-v2` modules the migrated source imports — the core, `config`, `credentials`, the relocated `feature` packages and each service — along with the indirect requirements they bring, and add their go.sum lines, so the module builds without a `go mod tidy`. Drop `github.com/aws/aws-sdk-go` once no file imports it. A module the build list already selects at a higher version keeps it. Then run `go mod tidy`: the build does not need it, but it drops what the migration leaves behind — the requirements only v1 needed, the go.sum lines nothing reads any more, and an `// indirect` marker on a module the source now imports directly."}
   fqName={"org.openrewrite.golang.migration.UpdateAwsSdkDependency"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Require `aws-sdk-go-v2` instead of `aws-sdk-go`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Require the `github.com/aws/aws-sdk-go-v2` modules the migrated source imports, and drop `github.com/aws/aws-sdk-go` once no file imports it. Only the core, `config` and `credentials` modules are pinned here; every service is its own independently versioned module, so `go mod tidy` adds those from the imports. Does not sync go.sum.</RecipeHeader.Description>
+<RecipeHeader.Description>Require the `github.com/aws/aws-sdk-go-v2` modules the migrated source imports — the core, `config`, `credentials`, the relocated `feature` packages and each service — along with the indirect requirements they bring, and add their go.sum lines, so the module builds without a `go mod tidy`. Drop `github.com/aws/aws-sdk-go` once no file imports it. A module the build list already selects at a higher version keeps it. Then run `go mod tidy`: the build does not need it, but it drops what the migration leaves behind — the requirements only v1 needed, the go.sum lines nothing reads any more, and an `// indirect` marker on a module the source now imports directly.</RecipeHeader.Description>
 
 </RecipeHeader>
 

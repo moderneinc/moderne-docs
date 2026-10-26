@@ -1,6 +1,6 @@
 ---
-title: "Find `URL(&quot;http://...&quot;)` literal constructions"
-sidebar_label: "Find `URL(&quot;http://...&quot;)` literal constructions"
+title: "Find `URL(\"http://...\")` literal constructions"
+sidebar_label: "Find `URL(\"http://...\")` literal constructions"
 hide_title: true
 ---
 

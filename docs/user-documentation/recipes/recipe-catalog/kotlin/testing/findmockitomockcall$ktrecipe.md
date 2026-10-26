@@ -1,6 +1,6 @@
 ---
-title: "Find `Mockito.mock(...)` / `mock&lt;X&gt;()` calls"
-sidebar_label: "Find `Mockito.mock(...)` / `mock&lt;X&gt;()` calls"
+title: "Find `Mockito.mock(...)` / `mock<X>()` calls"
+sidebar_label: "Find `Mockito.mock(...)` / `mock<X>()` calls"
 hide_title: true
 ---
 

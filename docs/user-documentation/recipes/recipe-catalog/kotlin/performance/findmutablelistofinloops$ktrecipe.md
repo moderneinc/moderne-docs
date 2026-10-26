@@ -1,6 +1,6 @@
 ---
-title: "Find `mutableListOf&lt;T&gt;()` allocations inside loops"
-sidebar_label: "Find `mutableListOf&lt;T&gt;()` allocations inside loops"
+title: "Find `mutableListOf<T>()` allocations inside loops"
+sidebar_label: "Find `mutableListOf<T>()` allocations inside loops"
 hide_title: true
 ---
 

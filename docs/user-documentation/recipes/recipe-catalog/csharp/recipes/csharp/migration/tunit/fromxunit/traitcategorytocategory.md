@@ -1,6 +1,6 @@
 ---
-title: "Replace `[Trait(&quot;Category&quot;, ...)]` with `[Category]`"
-sidebar_label: "Replace `[Trait(&quot;Category&quot;, ...)]` with `[Category]`"
+title: "Replace `[Trait(\"Category\", ...)]` with `[Category]`"
+sidebar_label: "Replace `[Trait(\"Category\", ...)]` with `[Category]`"
 hide_title: true
 ---
 

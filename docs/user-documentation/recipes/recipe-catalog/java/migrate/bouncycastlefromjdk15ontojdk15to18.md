@@ -1,6 +1,6 @@
 ---
-title: "Migrate Bouncy Castle to `jdk15to18` for Java &lt; 8"
-sidebar_label: "Migrate Bouncy Castle to `jdk15to18` for Java &lt; 8"
+title: "Migrate Bouncy Castle to `jdk15to18` for Java < 8"
+sidebar_label: "Migrate Bouncy Castle to `jdk15to18` for Java < 8"
 hide_title: true
 ---
 

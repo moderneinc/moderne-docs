@@ -1,6 +1,6 @@
 ---
-title: "Find equality operator on Span&lt;T&gt;"
-sidebar_label: "Find equality operator on Span&lt;T&gt;"
+title: "Find equality operator on Span<T>"
+sidebar_label: "Find equality operator on Span<T>"
 hide_title: true
 ---
 

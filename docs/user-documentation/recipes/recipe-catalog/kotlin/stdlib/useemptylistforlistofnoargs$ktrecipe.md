@@ -1,6 +1,6 @@
 ---
-title: "Use `emptyList&lt;T&gt;()` instead of `listOf&lt;T&gt;()`"
-sidebar_label: "Use `emptyList&lt;T&gt;()` instead of `listOf&lt;T&gt;()`"
+title: "Use `emptyList<T>()` instead of `listOf<T>()`"
+sidebar_label: "Use `emptyList<T>()` instead of `listOf<T>()`"
 hide_title: true
 ---
 

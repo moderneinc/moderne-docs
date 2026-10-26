@@ -1,6 +1,6 @@
 ---
-title: "Find `Intent(&quot;some.implicit.action&quot;)` constructions"
-sidebar_label: "Find `Intent(&quot;some.implicit.action&quot;)` constructions"
+title: "Find `Intent(\"some.implicit.action\")` constructions"
+sidebar_label: "Find `Intent(\"some.implicit.action\")` constructions"
 hide_title: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Find `Cipher.getInstance(&quot;DESede&quot;/&quot;TripleDES&quot;)` calls"
-sidebar_label: "Find `Cipher.getInstance(&quot;DESede&quot;/&quot;TripleDES&quot;)` calls"
+title: "Find `Cipher.getInstance(\"DESede\"/\"TripleDES\")` calls"
+sidebar_label: "Find `Cipher.getInstance(\"DESede\"/\"TripleDES\")` calls"
 hide_title: true
 ---
 

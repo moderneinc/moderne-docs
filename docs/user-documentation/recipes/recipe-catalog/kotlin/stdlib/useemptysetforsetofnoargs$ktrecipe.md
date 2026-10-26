@@ -1,6 +1,6 @@
 ---
-title: "Use `emptySet&lt;T&gt;()` instead of `setOf&lt;T&gt;()`"
-sidebar_label: "Use `emptySet&lt;T&gt;()` instead of `setOf&lt;T&gt;()`"
+title: "Use `emptySet<T>()` instead of `setOf<T>()`"
+sidebar_label: "Use `emptySet<T>()` instead of `setOf<T>()`"
 hide_title: true
 ---
 

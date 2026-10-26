@@ -1,6 +1,6 @@
 ---
-title: "Find `remember { mutableStateOf(emptyMap&lt;K, V&gt;()) }` candidates for `mutableStateMapOf`"
-sidebar_label: "Find `remember { mutableStateOf(emptyMap&lt;K, V&gt;()) }` candidates for `mutableStateMapOf`"
+title: "Find `remember { mutableStateOf(emptyMap<K, V>()) }` candidates for `mutableStateMapOf`"
+sidebar_label: "Find `remember { mutableStateOf(emptyMap<K, V>()) }` candidates for `mutableStateMapOf`"
 hide_title: true
 ---
 

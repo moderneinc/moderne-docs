@@ -1,6 +1,6 @@
 ---
-title: "Use `..&lt;` instead of `until`"
-sidebar_label: "Use `..&lt;` instead of `until`"
+title: "Use `..<` instead of `until`"
+sidebar_label: "Use `..<` instead of `until`"
 hide_title: true
 ---
 

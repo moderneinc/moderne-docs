@@ -1,6 +1,6 @@
 ---
-title: "Find `data class` declarations with `List&lt;T&gt;` properties"
-sidebar_label: "Find `data class` declarations with `List&lt;T&gt;` properties"
+title: "Find `data class` declarations with `List<T>` properties"
+sidebar_label: "Find `data class` declarations with `List<T>` properties"
 hide_title: true
 ---
 

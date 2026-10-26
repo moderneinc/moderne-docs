@@ -1,6 +1,6 @@
 ---
-title: "Prefer `new HashMap&lt;&gt;()`"
-sidebar_label: "Prefer `new HashMap&lt;&gt;()`"
+title: "Prefer `new HashMap<>()`"
+sidebar_label: "Prefer `new HashMap<>()`"
 hide_title: true
 ---
 

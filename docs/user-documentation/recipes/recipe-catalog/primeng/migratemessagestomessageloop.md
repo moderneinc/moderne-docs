@@ -1,6 +1,6 @@
 ---
-title: "Migrate `&lt;p-messages&gt;` to `&lt;p-message&gt;` with `@for` loop"
-sidebar_label: "Migrate `&lt;p-messages&gt;` to `&lt;p-message&gt;` with `@for` loop"
+title: "Migrate `<p-messages>` to `<p-message>` with `@for` loop"
+sidebar_label: "Migrate `<p-messages>` to `<p-message>` with `@for` loop"
 hide_title: true
 ---
 

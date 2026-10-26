@@ -1,6 +1,6 @@
 ---
-title: "Use `enumEntries&lt;T&gt;()` instead of `enumValues&lt;T&gt;()`"
-sidebar_label: "Use `enumEntries&lt;T&gt;()` instead of `enumValues&lt;T&gt;()`"
+title: "Use `enumEntries<T>()` instead of `enumValues<T>()`"
+sidebar_label: "Use `enumEntries<T>()` instead of `enumValues<T>()`"
 hide_title: true
 ---
 

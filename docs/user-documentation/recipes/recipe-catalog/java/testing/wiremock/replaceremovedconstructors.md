@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.github.tomakehurst.wiremock.client.WireMock;\n\nclass Client {\n    WireMock remote() {\n        return new WireMock(\"localhost\", 8080);\n    }\n}\n","after":"import com.github.tomakehurst.wiremock.client.WireMock;\n\nclass Client {\n    WireMock remote() {\n        return WireMock.create().host(\"localhost\").port(8080).build();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Client {\n    WireMock remote() {\n-       return new WireMock(\"localhost\", 8080);\n+       return WireMock.create().host(\"localhost\").port(8080).build();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.wiremock.ReplaceRemovedConstructors","displayName":"Replace WireMock constructors removed in 4.x","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

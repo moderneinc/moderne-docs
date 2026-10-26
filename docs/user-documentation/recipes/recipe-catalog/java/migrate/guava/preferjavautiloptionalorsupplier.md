@@ -1,6 +1,6 @@
 ---
-title: "Prefer `java.util.Optional#or(Supplier&lt;T extends java.util.Optional&lt;T&gt;&gt;)`"
-sidebar_label: "Prefer `java.util.Optional#or(Supplier&lt;T extends java.util.Optional&lt;T&gt;&gt;)`"
+title: "Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`"
+sidebar_label: "Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`"
 hide_title: true
 ---
 

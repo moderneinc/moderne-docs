@@ -1,6 +1,6 @@
 ---
-title: "Find `Cipher.getInstance(&quot;RC4&quot;/&quot;ARCFOUR&quot;)` calls"
-sidebar_label: "Find `Cipher.getInstance(&quot;RC4&quot;/&quot;ARCFOUR&quot;)` calls"
+title: "Find `Cipher.getInstance(\"RC4\"/\"ARCFOUR\")` calls"
+sidebar_label: "Find `Cipher.getInstance(\"RC4\"/\"ARCFOUR\")` calls"
 hide_title: true
 ---
 

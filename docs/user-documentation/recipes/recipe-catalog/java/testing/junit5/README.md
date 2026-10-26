@@ -76,6 +76,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Use JUnit Jupiter `@TempDir`](./temporaryfoldertotempdir.md)
 * [Use JUnit Jupiter `Executable`](./throwingrunnabletoexecutable.md)
 * [Use JUnit5's `assertSame` or `assertNotSame` instead of `assertTrue(... == ...)`](./useassertsame.md)
+* [Use `WireMockServer` for a `WireMockRule` used as a server](./wiremockruletowiremockserver.md)
 * [Use XMLUnit Legacy for JUnit 5](./usexmlunitlegacy.md)
 * [Use wiremock extension](./usewiremockextension.md)
 * [`assertTrue(x instanceof y)` to `assertInstanceOf(y.class, x)`](./asserttrueinstanceoftoassertinstanceof.md)

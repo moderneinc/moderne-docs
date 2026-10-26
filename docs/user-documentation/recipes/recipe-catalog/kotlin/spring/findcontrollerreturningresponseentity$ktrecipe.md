@@ -1,6 +1,6 @@
 ---
-title: "Find `@RestController` methods returning `ResponseEntity&lt;T&gt;`"
-sidebar_label: "Find `@RestController` methods returning `ResponseEntity&lt;T&gt;`"
+title: "Find `@RestController` methods returning `ResponseEntity<T>`"
+sidebar_label: "Find `@RestController` methods returning `ResponseEntity<T>`"
 hide_title: true
 ---
 

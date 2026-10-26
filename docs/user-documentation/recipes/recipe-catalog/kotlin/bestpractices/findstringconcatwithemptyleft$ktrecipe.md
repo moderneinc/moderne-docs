@@ -1,6 +1,6 @@
 ---
-title: "Find `&quot;&quot; + x` patterns"
-sidebar_label: "Find `&quot;&quot; + x` patterns"
+title: "Find `\"\" + x` patterns"
+sidebar_label: "Find `\"\" + x` patterns"
 hide_title: true
 ---
 

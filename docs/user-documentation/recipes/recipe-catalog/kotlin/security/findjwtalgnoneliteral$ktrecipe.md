@@ -1,6 +1,6 @@
 ---
-title: "Find `&quot;alg&quot;:&quot;none&quot;` literal strings"
-sidebar_label: "Find `&quot;alg&quot;:&quot;none&quot;` literal strings"
+title: "Find `\"alg\":\"none\"` literal strings"
+sidebar_label: "Find `\"alg\":\"none\"` literal strings"
 hide_title: true
 ---
 

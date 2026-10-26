@@ -1,6 +1,6 @@
 ---
-title: "Simplify Nullable&lt;T&gt;.HasValue"
-sidebar_label: "Simplify Nullable&lt;T&gt;.HasValue"
+title: "Simplify Nullable<T>.HasValue"
+sidebar_label: "Simplify Nullable<T>.HasValue"
 hide_title: true
 ---
 

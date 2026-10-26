@@ -1,6 +1,6 @@
 ---
-title: "Mergeable &quot;if&quot; statements should be combined"
-sidebar_label: "Mergeable &quot;if&quot; statements should be combined"
+title: "Mergeable \"if\" statements should be combined"
+sidebar_label: "Mergeable \"if\" statements should be combined"
 hide_title: true
 ---
 

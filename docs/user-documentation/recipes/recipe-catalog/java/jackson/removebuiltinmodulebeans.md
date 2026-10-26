@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\nimport com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;\nimport com.fasterxml.jackson.datatype.jdk8.Jdk8Module;\n\nclass Config {\n    @Bean\n    JavaTimeModule javaTimeModule() {\n        return new JavaTimeModule();\n    }\n\n    @Bean\n    Jdk8Module jdk8Module() {\n        return new Jdk8Module();\n    }\n}\n","after":"class Config {\n}\n","diff":"@@ -1,4 +1,0 @@\n-import org.springframework.context.annotation.Bean;\n-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;\n-import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;\n-\nclass Config {\n@@ -6,9 +2,0 @@\n\nclass Config {\n-   @Bean\n-   JavaTimeModule javaTimeModule() {\n-       return new JavaTimeModule();\n-   }\n-\n-   @Bean\n-   Jdk8Module jdk8Module() {\n-       return new Jdk8Module();\n-   }\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.RemoveBuiltInModuleBeans","displayName":"Remove Spring beans for modules built-in to Jackson 3","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 
 ## Usage

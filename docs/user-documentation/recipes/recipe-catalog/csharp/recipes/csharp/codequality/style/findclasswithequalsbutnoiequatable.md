@@ -1,6 +1,6 @@
 ---
-title: "Find class with Equals(T) but no IEquatable&lt;T&gt;"
-sidebar_label: "Find class with Equals(T) but no IEquatable&lt;T&gt;"
+title: "Find class with Equals(T) but no IEquatable<T>"
+sidebar_label: "Find class with Equals(T) but no IEquatable<T>"
 hide_title: true
 ---
 

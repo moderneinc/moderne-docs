@@ -1,6 +1,6 @@
 ---
-title: "Find `WebView.loadUrl(&quot;http://...&quot;)` calls"
-sidebar_label: "Find `WebView.loadUrl(&quot;http://...&quot;)` calls"
+title: "Find `WebView.loadUrl(\"http://...\")` calls"
+sidebar_label: "Find `WebView.loadUrl(\"http://...\")` calls"
 hide_title: true
 ---
 

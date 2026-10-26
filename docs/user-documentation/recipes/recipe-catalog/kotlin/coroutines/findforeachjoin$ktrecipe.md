@@ -1,6 +1,6 @@
 ---
-title: "Find `forEach { it.join() }` over `List&lt;Job&gt;`"
-sidebar_label: "Find `forEach { it.join() }` over `List&lt;Job&gt;`"
+title: "Find `forEach { it.join() }` over `List<Job>`"
+sidebar_label: "Find `forEach { it.join() }` over `List<Job>`"
 hide_title: true
 ---
 

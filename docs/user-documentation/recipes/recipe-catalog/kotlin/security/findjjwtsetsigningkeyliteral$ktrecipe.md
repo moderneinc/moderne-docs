@@ -1,6 +1,6 @@
 ---
-title: "Find `JwtBuilder.setSigningKey(&quot;literal&quot;.toByteArray())` patterns"
-sidebar_label: "Find `JwtBuilder.setSigningKey(&quot;literal&quot;.toByteArray())` patterns"
+title: "Find `JwtBuilder.setSigningKey(\"literal\".toByteArray())` patterns"
+sidebar_label: "Find `JwtBuilder.setSigningKey(\"literal\".toByteArray())` patterns"
 hide_title: true
 ---
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove duplicate Maven dependencies"}
-  description={"Removes duplicated dependencies in the `<dependencies>` and `<dependencyManagement>` sections of the `pom.xml`."}
+  description={"Maven 3.10 and Maven 4 fail the build when a `<dependencies>` or `<dependencyManagement>` section, including those of a profile, declares the same `groupId:artifactId:type:classifier` more than once, regardless of `<scope>`. Earlier Maven versions only warned and kept a single declaration: the first one in a project's `<dependencyManagement>`, and otherwise the last one, in the position of the first. This recipe removes the duplicates, keeping the declaration earlier Maven versions used so that the resolved dependencies stay the same."}
   fqName={"org.openrewrite.maven.RemoveDuplicateDependencies"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove duplicate Maven dependencies</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes duplicated dependencies in the `<dependencies>` and `<dependencyManagement>` sections of the `pom.xml`.</RecipeHeader.Description>
+<RecipeHeader.Description>Maven 3.10 and Maven 4 fail the build when a `<dependencies>` or `<dependencyManagement>` section, including those of a profile, declares the same `groupId:artifactId:type:classifier` more than once, regardless of `<scope>`. Earlier Maven versions only warned and kept a single declaration: the first one in a project's `<dependencyManagement>`, and otherwise the last one, in the position of the first. This recipe removes the duplicates, keeping the declaration earlier Maven versions used so that the resolved dependencies stay the same.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -1,6 +1,6 @@
 ---
-title: "Use `mutableDoubleStateOf` instead of `mutableStateOf&lt;Double&gt;` in Compose"
-sidebar_label: "Use `mutableDoubleStateOf` instead of `mutableStateOf&lt;Double&gt;` in Compose"
+title: "Use `mutableDoubleStateOf` instead of `mutableStateOf<Double>` in Compose"
+sidebar_label: "Use `mutableDoubleStateOf` instead of `mutableStateOf<Double>` in Compose"
 hide_title: true
 ---
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove redundant properties"}
-  description={"Remove properties when a parent POM specifies the same property."}
+  description={"Remove properties when a parent POM specifies the same property. When the project is built with Maven 3.10 or later, according to its `BuildTool` marker, the super POM's defaults count as well: `project.build.sourceEncoding` and `project.reporting.outputEncoding` set to `UTF-8`, and `project.build.outputTimestamp` set to `1980-02-01T00:00:00Z` are removed when no parent POM sets them."}
   fqName={"org.openrewrite.maven.RemoveRedundantProperties"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove redundant properties</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove properties when a parent POM specifies the same property.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove properties when a parent POM specifies the same property. When the project is built with Maven 3.10 or later, according to its `BuildTool` marker, the super POM's defaults count as well: `project.build.sourceEncoding` and `project.reporting.outputEncoding` set to `UTF-8`, and `project.build.outputTimestamp` set to `1980-02-01T00:00:00Z` are removed when no parent POM sets them.</RecipeHeader.Description>
 
 </RecipeHeader>
 

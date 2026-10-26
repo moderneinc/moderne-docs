@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Mockito 4.x upgrade","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to4migration/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Replace JUnit 4 MockitoJUnitRunner with junit-jupiter MockitoExtension","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitojunitrunnertoextension/"},{"name":"Add Mockito Jupiter integration for migrated Mockito rules","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/addmockitojupiterforrules/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Mockito 4.x upgrade","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to4migration/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Replace JUnit 4 MockitoJUnitRunner with junit-jupiter MockitoExtension","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitojunitrunnertoextension/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Mockito Jupiter integration for migrated Mockito rules","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/addmockitojupiterforrules/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

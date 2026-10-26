@@ -730,10 +730,10 @@ _290 recipes_
   * Apply `go mod tidy` behavior to go.mod: add missing requirements at their resolved versions, remove unused ones, correct the `// indirect` markers, add a `go` directive when one is missing, and sort require blocks. Adding and removing require the module graph resolved at parse time, and are no-ops without it. It does not sync go.sum; the `RegenerateGoSum` recipe covers that.
 * [org.openrewrite.golang.migration.MigrateAwsSdkGoModuleToV2](/user-documentation/recipes/recipe-catalog/golang/migration/migrateawssdkgomoduletov2.md)
   * **Migrate a module from `aws-sdk-go` to `aws-sdk-go-v2`**
-  * Migrate the files whose `github.com/aws/aws-sdk-go` usage has a faithful `aws-sdk-go-v2` form, and bring go.mod along with them. This is a partial migration by design: v2 replaced the session, the error types, the page iterators and the waiters outright, so a file holding one of those is left as it is. Run `FindAwsSdkGoV1Usage` to enumerate what remains, and `go mod tidy` to resolve the per-service modules.
+  * Migrate the files whose `github.com/aws/aws-sdk-go` usage has a faithful `aws-sdk-go-v2` form, and bring go.mod and go.sum along with them. This is a partial migration by design: v2 replaced the session, the error types, the page iterators and the waiters outright, so a file holding one of those is left as it is. go.mod and go.sum gain every module the migrated imports need, so the result builds as it stands under `-mod=readonly`. Then run `go mod tidy`: the build does not need it, but it drops what the migration leaves behind — the requirements only v1 needed, the go.sum lines nothing reads any more, and an `// indirect` marker on a module the source now imports directly. Run `FindAwsSdkGoV1Usage` to enumerate what remains.
 * [org.openrewrite.golang.migration.MigrateAwsSdkGoToV2](/user-documentation/recipes/recipe-catalog/golang/migration/migrateawssdkgotov2.md)
   * **Migrate `aws-sdk-go` to `aws-sdk-go-v2`**
-  * Migrate `github.com/aws/aws-sdk-go`, whose support AWS ended in July 2025, to `github.com/aws/aws-sdk-go-v2`. The go directive rises to the Go 1.24 the v2 modules require; the session becomes a config loaded through a context, with each `aws.Config` field it carried — the region, the endpoint, the retry count, a static or shared credentials provider — becoming the loader option that replaces it; each client is built with `NewFromConfig`, a per-client region override becoming a functional option; and every operation takes a context. A config built field by field instead of in one literal keeps its shape: the load moves to the local's declaration and the writes that follow retarget onto v2's own config, with the S3 addressing style — which v2 holds on the client's options rather than the config — hoisted into a local the constructor reads. Shapes and enums follow the manifest to the `types` sub-package, an enum field losing the `aws.String` its `*string` needed and an enum list changing element type with it; v1's fluent setters become assignments; and a field v2 holds by value loses the dereference that read it, or regains the pointer where it was passed on — v1 could report such a field as nil and v2 cannot, so review a nil test downstream of one. The packages v2 relocated follow too: `s3manager` becomes `feature/s3/manager`, `ec2metadata` becomes `feature/ec2/imds` and `stscreds` moves up beside `credentials`, each bound back to the name the file already spells, and the per-service `iface` packages v2 deleted are regenerated into the module under `internal/awsiface`, so the interfaces mocks embed still exist. Where v2 restructured rather than renamed, a wrapper keeps the v1 call site's shape: a page iterator's callback is driven by the v2 paginator in a function literal called on the spot, a waiter becomes v2's waiter type bounded by a generated constant, an inline `session.New` becomes a generated loader that panics as `session.Must` did, `EC2Metadata.Region` goes through a generated helper, and a list or map v2 holds by value is converted at the API boundary by generated helpers so the code around it keeps its v1 shape. v1 took no context anywhere v2 takes one, so a function with none in scope gets `context.TODO()` — review those and plumb a real context through. A package migrates whole or not at all, since a half-migrated one does not compile, but the module does not: a file holding a construct with no faithful v2 form — the v1 request handler stack, a session compared to nil, a shared-credentials provider assigned to a config field, a v1-only helper the manifest cannot account for — is left as it is along with the rest of its package, each listed in the blockers data table, and the rest of the module moves around it. Both requires then sit in the go.mod side by side. A client and a shape cross package boundaries, so callers of what stayed behind will not compile until it is migrated by hand; that table is the list to work through, and `FindAwsSdkGoV1Usage` marks the constructs within each file. Run `go mod tidy` afterwards to resolve the per-service modules.
+  * Migrate `github.com/aws/aws-sdk-go`, whose support AWS ended in July 2025, to `github.com/aws/aws-sdk-go-v2`. The go directive rises to the Go 1.24 the v2 modules require; the session becomes a config loaded through a context, with each `aws.Config` field it carried — the region, the endpoint, the retry count, a static or shared credentials provider — becoming the loader option that replaces it; each client is built with `NewFromConfig`, a per-client region override — or a config local that is nil or sets only the region — becoming a functional option; and every operation takes a context. A config built field by field instead of in one literal keeps its shape: the load moves to the local's declaration and the writes that follow retarget onto v2's own config, with the S3 addressing style — which v2 holds on the client's options rather than the config — hoisted into a local the constructor reads. Shapes and enums follow the manifest to the `types` sub-package, an enum field losing the `aws.String` its `*string` needed and an enum list changing element type with it; v1's fluent setters become assignments; and a field v2 holds by value loses the dereference that read it, or regains the pointer where it was passed on — v1 could report such a field as nil and v2 cannot, so review a nil test downstream of one. The packages v2 relocated follow too: `s3manager` becomes `feature/s3/manager`, `ec2metadata` becomes `feature/ec2/imds`, the DynamoDB `expression` builder becomes `feature/dynamodb/expression` — short of an operand v2's encoder would store differently — `rdsutils.BuildAuthToken` becomes `feature/rds/auth`'s, taking a context and the config's credentials provider, and `stscreds` moves up beside `credentials`, each bound back to the name the file already spells, and the per-service `iface` packages v2 deleted are regenerated into the module under `internal/awsiface`, so the interfaces mocks embed still exist; a mockery mock of one is regenerated against v2's signatures, the expectations set on it gaining the context v2 passes first, and a hand-written stub overriding a page iterator gains the operation v2's paginator calls instead, serving the pages its override hands out in turn. `dynamodbattribute` is ported onto v2's `AttributeValue` and generated under `internal/awscompat`, since v2's `attributevalue` ignores json tags and stores an empty value as itself where v1 stored NULL, so items written before the migration still read back. A shape's `Validate` becomes a generated function checking v1's rules and reporting them in v1's words. Where the go directive rises past 1.24, a printf-style call whose format is not a constant gains a `&quot;%s&quot;` format, which that release's vet otherwise rejects. Where v2 restructured rather than renamed, a wrapper keeps the v1 call site's shape: a page iterator's callback is driven by the v2 paginator in a function literal called on the spot, a waiter becomes v2's waiter type bounded by a generated constant, an inline `session.New` becomes a generated loader that panics as `session.Must` did, as does a `session.Must` anywhere but an `x :=` statement, which expands into the load and its panic, a handler a function adds to its session's `Send` or `UnmarshalError` list becomes a generated stand-in for that list on the config's `APIOptions`, run per attempt around the round trip in v1's order and handed the service and operation names, the attempt's start and the input — so metrics and logs it feeds keep their meaning, though the operation and input print differently — `EC2Metadata.Region` and `Available` go through generated helpers, a DynamoDB `AttributeValue` setting one scalar member becomes that member's v2 type and a read of one goes through a generated getter answering nil where v1's field was unset, `awserr.New` with nothing wrapped becomes a generated error reading as v1's did, `aws.WriteAtBuffer` moves to the transfer manager, an endpoint gains the https scheme v1 added to one written without, and a list or map v2 holds by value is converted at the API boundary by generated helpers so the code around it keeps its v1 shape. v1 took no context anywhere v2 takes one, so a function with none in scope gets `context.TODO()` — review those and plumb a real context through. A package migrates whole or not at all, since a half-migrated one does not compile, but the module does not: a file holding a construct with no faithful v2 form — the rest of the v1 request plumbing, such as a handler reading the request's error or response, a session compared to nil, a shared-credentials provider assigned to a config field, a v1-only helper the manifest cannot account for, a shape v2 turned into a union interface such as DynamoDB's `AttributeValue`, a sub-package v2 moved or dropped such as `s3crypto`, a type implementing `dynamodbattribute`'s Marshaler, which takes v1's `AttributeValue`, a stub overriding a WithContext, Request or waiter method v2's client would never call — is left as it is along with the rest of its package, each listed in the blockers data table, and the rest of the module moves around it. Both requires then sit in the go.mod side by side. A client and a shape cross package boundaries, so callers of what stayed behind will not compile until it is migrated by hand; that table is the list to work through, and `FindAwsSdkGoV1Usage` marks the constructs within each file. go.mod requires each v2 module the migrated source imports, along with the indirect requirements they bring, at versions the regenerated iface packages compile against — a module the build already selects higher keeps its version — and go.sum gains their hashes, so the result builds under `-mod=readonly` as it stands. Then run `go mod tidy`: the build does not need it, but it drops what the migration leaves behind — the requirements only v1 needed, the go.sum lines nothing reads any more, and an `// indirect` marker on a module the source now imports directly.
 * [org.openrewrite.golang.migration.MigrateNewRelicMetricRecording](/user-documentation/recipes/recipe-catalog/golang/migration/migratenewrelicmetricrecording.md)
   * **Record New Relic metrics through OpenTelemetry**
   * Rewrite `harvester.RecordMetric(telemetry.Count\{…\})` and `telemetry.Gauge\{…\}` as an OpenTelemetry `Float64Counter.Add` / `Float64Gauge.Record` on a meter from the global provider. The instrument is created at the call site inside a scoping block, which keeps one statement replacing one; hoist it to a package-level instrument when reviewing. `Timestamp` and `Interval` are dropped, since OpenTelemetry stamps a measurement when it is collected. A call site is left alone when its attribute values are not all `string`, `bool`, `int`, `int64` or `float64`, when the enclosing function has no `context.Context` in scope, or when the harvester is a local variable the rewrite would leave unused.
@@ -787,7 +787,7 @@ _290 recipes_
   * Repoint every `github.com/mitchellh/mapstructure` import at `github.com/go-viper/mapstructure/v2`, the maintained fork. The package name is unchanged, so call sites stay as written; only the import path and its type attribution move. A file naming `mapstructure.Error`, the one export v2 dropped, is left alone — see `FindMapstructureErrorUsage`.
 * [org.openrewrite.golang.migration.UpdateAwsSdkDependency](/user-documentation/recipes/recipe-catalog/golang/migration/updateawssdkdependency.md)
   * **Require `aws-sdk-go-v2` instead of `aws-sdk-go`**
-  * Require the `github.com/aws/aws-sdk-go-v2` modules the migrated source imports, and drop `github.com/aws/aws-sdk-go` once no file imports it. Only the core, `config` and `credentials` modules are pinned here; every service is its own independently versioned module, so `go mod tidy` adds those from the imports. Does not sync go.sum.
+  * Require the `github.com/aws/aws-sdk-go-v2` modules the migrated source imports — the core, `config`, `credentials`, the relocated `feature` packages and each service — along with the indirect requirements they bring, and add their go.sum lines, so the module builds without a `go mod tidy`. Drop `github.com/aws/aws-sdk-go` once no file imports it. A module the build list already selects at a higher version keeps it. Then run `go mod tidy`: the build does not need it, but it drops what the migration leaves behind — the requirements only v1 needed, the go.sum lines nothing reads any more, and an `// indirect` marker on a module the source now imports directly.
 * [org.openrewrite.golang.migration.UpdateGolangMockDependency](/user-documentation/recipes/recipe-catalog/golang/migration/updategolangmockdependency.md)
   * **Require `go.uber.org/mock` instead of `github.com/golang/mock`**
   * Bring the go.mod `require` into line with what the source imports: repoint `github.com/golang/mock` at `go.uber.org/mock v0.6.0` once nothing imports the archived module any more, and require both while a file still does. Does not sync go.sum, so a `go mod tidy` is still needed to complete resolution.
@@ -2011,7 +2011,7 @@ _30 recipes_
 
 _License: Apache License Version 2.0_
 
-_49 recipes_
+_61 recipes_
 
 * [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
   * **Add `@JsonCreator` to non-public constructors**
@@ -2033,13 +2033,16 @@ _49 recipes_
   * Find `Map` and `Collection` fields that carry `@JsonSetter(nulls = Nulls.AS_EMPTY)`, are initialized with an empty collection, and are no longer hidden by `@JsonIgnore` on the field or its getter, or by a class level `@JsonIgnoreProperties`. In rewrite-jackson 1.17.0 through 1.28.0 the Jackson 2 to 3 migration replaced `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on exactly these fields, which starts serializing properties that were deliberately hidden wherever the field is otherwise visible, such as through a getter. Run this recipe to audit repositories migrated with those versions; every match that should stay out of the JSON output needs `@JsonIgnore` restored, which the `addJsonIgnore` option does for you.
 * [org.openrewrite.java.jackson.IOExceptionToJacksonException](/user-documentation/recipes/recipe-catalog/java/jackson/ioexceptiontojacksonexception.md)
   * **Replace `IOException` with `JacksonException` in catch clauses**
-  * In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`.
+  * In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`. Where the caught exception is passed on as an `IOException`, for instance to `new UncheckedIOException(e)`, it is wrapped in a `new IOException(e)`; such catches are left alone when the try block also throws `IOException` from non-Jackson code.
 * [org.openrewrite.java.jackson.Jackson3JsonNodeFieldIterators](/user-documentation/recipes/recipe-catalog/java/jackson/jackson3jsonnodefielditerators.md)
   * **Migrate `JSONNode` field iterator for Jackson 3**
   * `JSONNode` fields are using `Collections` instead of `Iterator` singe Jackson 3. To mimic Jackson 2s behavior an additional call to `Collection#iterator()`is needed.
 * [org.openrewrite.java.jackson.JacksonBestPractices](/user-documentation/recipes/recipe-catalog/java/jackson/jacksonbestpractices.md)
   * **Jackson best practices**
   * Apply best practices for using Jackson library, including upgrade to Jackson 2.x and removing redundant annotations.
+* [org.openrewrite.java.jackson.JsonNodeTextValueToStringValue](/user-documentation/recipes/recipe-catalog/java/jackson/jsonnodetextvaluetostringvalue.md)
+  * **Replace `JsonNode.textValue()` with `stringValue(null)`**
+  * In Jackson 2, `JsonNode.textValue()` returns `null` for nodes that are not textual. In Jackson 3, `textValue()` delegates to `stringValue()`, which throws for nodes that are not strings. `stringValue(null)` keeps the Jackson 2 behavior of returning `null`.
 * [org.openrewrite.java.jackson.JsonSerializeIncludeToJsonInclude](/user-documentation/recipes/recipe-catalog/java/jackson/jsonserializeincludetojsoninclude.md)
   * **Migrate deprecated `@JsonSerialize(include = ...)` to `@JsonInclude`**
   * Move the deprecated `include` attribute of FasterXML's `@JsonSerialize` to a separate `@JsonInclude` annotation. The `include` attribute was deprecated in Jackson 2.x and removed in Jackson 3.x; running this recipe before the Jackson 2 → 3 package rename produces a correct `tools.jackson.annotation.JsonInclude` on the Jackson 3 side.
@@ -2055,6 +2058,9 @@ _49 recipes_
 * [org.openrewrite.java.jackson.ModuleStillOnJackson2](/user-documentation/recipes/recipe-catalog/java/jackson/modulestillonjackson2.md)
   * **Find modules still on Jackson 2**
   * Marks the source files of modules that either do not resolve Jackson 3 yet, or still use Jackson 2 types in their own sources or those of their child modules. Modules that already resolve Jackson 3 and no longer use Jackson 2 types are left unmarked, as any Jackson 2 dependencies they still declare are there on purpose, for instance for generated sources that are not part of the LST.
+* [org.openrewrite.java.jackson.ObjectCodecToReadWriteContext](/user-documentation/recipes/recipe-catalog/java/jackson/objectcodectoreadwritecontext.md)
+  * **Declare `ObjectCodec` variables as `ObjectReadContext` or `ObjectWriteContext`**
+  * Jackson 3 removes `ObjectCodec`. `JsonParser.getCodec()` becomes `objectReadContext()`, which returns an `ObjectReadContext`, and `JsonGenerator.getCodec()` becomes `objectWriteContext()`, which returns an `ObjectWriteContext`. This recipe changes the declared type of variables initialized from those calls, so the declaration still compiles after the migration.
 * [org.openrewrite.java.jackson.ReadValueUrlToOpenStream](/user-documentation/recipes/recipe-catalog/java/jackson/readvalueurltoopenstream.md)
   * **Migrate `ObjectMapper.readValue(URL, ...)` to use `openStream()`**
   * Jackson 3.x removed every `URL`-accepting `readValue` overload from `ObjectMapper`. Rewrite call sites to feed `URL.openStream()` into the surviving `readValue(InputStream, ...)` overload, which is what `readValue(URL, ...)` did internally in Jackson 2.x. The caller's checked-exception story is unchanged: `URL.openStream()` declares `IOException`, the same checked exception the removed `readValue(URL, ...)` declared.
@@ -2063,7 +2069,7 @@ _49 recipes_
   * Jackson 3 includes Java time, JDK 8 and parameter name support in databind and removes their module classes. Remove Spring `@Bean` methods that only return a new default instance of one of these modules. Customized, overridden or directly referenced factories are left for manual migration.
 * [org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations](/user-documentation/recipes/recipe-catalog/java/jackson/removebuiltinmoduleregistrations.md)
   * **Remove registrations of modules built-in to Jackson 3**
-  * In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules.
+  * In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules. A `ParameterNamesModule` created with `JsonCreator.Mode.PROPERTIES` or `DELEGATING` is replaced with the matching `ConstructorDetector` instead, as that mode is not the Jackson 3 default.
 * [org.openrewrite.java.jackson.RemoveDeadJacksonThrows](/user-documentation/recipes/recipe-catalog/java/jackson/removedeadjacksonthrows.md)
   * **Remove dead `throws` declarations for unchecked Jackson exceptions**
   * In Jackson 3 the exception hierarchy is rerooted under `JacksonException`, which extends `RuntimeException`. Any surviving `throws` for a Jackson exception type is dead: callers are not required to handle it, and the declaration misleads readers into thinking checked-exception handling is needed. Removes `throws` for `JacksonException` and its subtypes (e.g. `DatabindException`) from both methods and constructors. Assumes the Jackson 2 to 3 package changes have already run, so all Jackson exception types live under `tools.jackson`. Does not touch `throws IOException` (still a checked exception) or non-Jackson exception types.
@@ -2100,6 +2106,33 @@ _49 recipes_
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3.md)
   * **Migrates from Jackson 2.x to Jackson 3.x**
   * Migrate applications to the latest Jackson 3.x release. This recipe handles package changes (`com.fasterxml.jackson` -&gt; `tools.jackson`), dependency updates, core class renames, exception renames, and method renames (e.g., `JsonGenerator.writeObject()` -&gt; `writePOJO()`, `JsonParser.getCurrentValue()` -&gt; `currentValue()`).
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDatabindDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddatabinddependency.md)
+  * **Add Jackson 3 `jackson-databind` for sources that use it transitively**
+  * Add `tools.jackson.core:jackson-databind` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.core:jackson-databind` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatAvroDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatavrodependency.md)
+  * **Add Jackson 3 `jackson-dataformat-avro` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-avro` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-avro` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatCborDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatcbordependency.md)
+  * **Add Jackson 3 `jackson-dataformat-cbor` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-cbor` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-cbor` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatCsvDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatcsvdependency.md)
+  * **Add Jackson 3 `jackson-dataformat-csv` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-csv` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-csv` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatIonDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformationdependency.md)
+  * **Add Jackson 3 `jackson-dataformat-ion` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-ion` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-ion` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatProtobufDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatprotobufdependency.md)
+  * **Add Jackson 3 `jackson-dataformat-protobuf` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-protobuf` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-protobuf` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatSmileDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatsmiledependency.md)
+  * **Add Jackson 3 `jackson-dataformat-smile` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-smile` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-smile` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatXmlDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatxmldependency.md)
+  * **Add Jackson 3 `jackson-dataformat-xml` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-xml` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-xml` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatYamlDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatyamldependency.md)
+  * **Add Jackson 3 `jackson-dataformat-yaml` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-yaml` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-yaml` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_Dependencies](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_dependencies.md)
   * **Upgrade Jackson 2.x dependencies to 3.x**
   * Upgrade Jackson Maven dependencies from 2.x to 3.x versions and update group IDs. Modules that already resolve Jackson 3 and no longer use Jackson 2 types in their sources are left as-is, as any Jackson 2 dependencies they still declare are there on purpose.
@@ -2130,6 +2163,9 @@ _49 recipes_
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_RemoveRedundantFeatureFlags](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_removeredundantfeatureflags.md)
   * **Remove redundant Jackson 3 feature flag configurations**
   * Remove `ObjectMapper` feature flag configurations that are now defaults in Jackson 3.
+* [org.openrewrite.java.jackson.UpgradeJackson_2_3_RestAssured](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_restassured.md)
+  * **Use the Jackson 3 object mapper factory of REST Assured**
+  * REST Assured 6 configures Jackson 3 through `jackson3ObjectMapperFactory` and `ObjectMapperType.JACKSON_3`, next to their Jackson 2 counterparts, which do not accept a Jackson 3 `ObjectMapper`.
 * [org.openrewrite.java.jackson.UpgradeJackson_2_3_TypeChanges](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_typechanges.md)
   * **Update Jackson 2.x types to 3.x**
   * Update Jackson type names including exception types and core class renames.
@@ -2165,7 +2201,7 @@ _49 recipes_
 
 _License: Apache License Version 2.0_
 
-_18 recipes_
+_19 recipes_
 
 * [org.openrewrite.java.dependencies.AddDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency.md)
   * **Add Gradle or Maven dependency**
@@ -2182,6 +2218,9 @@ _18 recipes_
 * [org.openrewrite.java.dependencies.DependencyResolutionDiagnostic](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyresolutiondiagnostic.md)
   * **Dependency resolution diagnostic**
   * Recipes which manipulate dependencies must be able to successfully access the artifact repositories and resolve dependencies from them. This recipe produces two data tables used to understand the state of dependency resolution.   The Repository accessibility report lists all the artifact repositories known to the project and whether respond to network access. The network access is attempted while the recipe is run and so is representative of current conditions.   The Gradle dependency configuration errors lists all the dependency configurations that failed to resolve one or more dependencies when the project was parsed. This is representative of conditions at the time the LST was parsed.
+* [org.openrewrite.java.dependencies.ExcludeDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/excludedependency.md)
+  * **Exclude a Gradle or Maven dependency**
+  * Exclude the specified dependency from any direct dependency that transitively includes it. For a Gradle project, adds an `exclude` to the declaration's closure in `build.gradle` or `build.gradle.kts`. For a Maven project, adds an `&lt;exclusion&gt;` to the dependency in the `pom.xml`.
 * [org.openrewrite.java.dependencies.FindDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency.md)
   * **Find Maven and Gradle dependencies**
   * Finds direct dependencies declared in Maven and Gradle build files. This does *not* search transitive dependencies. To detect both direct and transitive dependencies use `org.openrewrite.java.dependencies.DependencyInsight` This recipe works for both Maven and Gradle projects.
@@ -5901,8 +5940,218 @@ _11 recipes_
 
 _License: Moderne Proprietary License_
 
-_15 recipes_
+_85 recipes_
 
+* [org.openrewrite.node.migrate.angular-animations.find-legacy-angular-animations](/user-documentation/recipes/recipe-catalog/node/migrate/angular-animations/find-legacy-angular-animations.md)
+  * **Find legacy `@angular/animations` usage**
+  * Marks what keeps an application on the deprecated `@angular/animations` package and needs a manual move to native CSS animations: `trigger()` definitions, `AnimationBuilder`, and application-wide noop animation providers. `RemoveAngularAnimationsProviders` removes the providers once none of these remain.
+* [org.openrewrite.node.migrate.angular-animations.migrate-angular-animations](/user-documentation/recipes/recipe-catalog/node/migrate/angular-animations/migrate-angular-animations.md)
+  * **Migrate off the deprecated `@angular/animations` package**
+  * Removes the animation providers and the `@angular/animations` dependency from applications that no longer use the legacy animation engine, and marks the triggers, `AnimationBuilder` uses and noop providers that need a manual move to native CSS animations with `animate.enter`/`animate.leave`.
+* [org.openrewrite.node.migrate.angular-animations.remove-angular-animations-providers](/user-documentation/recipes/recipe-catalog/node/migrate/angular-animations/remove-angular-animations-providers.md)
+  * **Remove unneeded `@angular/animations` providers**
+  * Angular 20.2 deprecated `@angular/animations` in favor of native CSS animations with `animate.enter`/`animate.leave`, which need no provider. Where an application no longer uses the legacy animation engine, this removes `provideAnimations()`, `provideAnimationsAsync()` and `BrowserAnimationsModule` from providers, `imports` and `importProvidersFrom`, removes `NoopAnimationsModule`/`provideNoopAnimations()` from tests, and drops `@angular/animations` from `package.json`. A package is left alone while anything still uses the legacy engine: an import of `@angular/animations` (a `trigger()` in `animations:` metadata, `AnimationBuilder`), a `[@trigger]`, `(@trigger.done)` or `@HostBinding('@trigger')` binding, Angular Material before 19.2, or a library that depends on `@angular/animations` or is known to ship legacy triggers. Noop providers outside tests are kept, since removing them would enable animations the application turned off. Lock files are not regenerated; run the package manager's install afterwards.
+* [org.openrewrite.node.migrate.buffer.replace-deprecated-slice](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-deprecated-slice.md)
+  * **Replace deprecated `Buffer.slice()` with `Buffer.subarray()`**
+  * Replace deprecated `buffer.slice()` calls with `buffer.subarray()` for compatibility with Uint8Array.prototype.slice().
+* [org.openrewrite.node.migrate.buffer.replace-slow-buffer](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-slow-buffer.md)
+  * **Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`**
+  * Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method.
+* [org.openrewrite.node.migrate.crypto.find-aead-decipheriv-without-auth-tag-length](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/find-aead-decipheriv-without-auth-tag-length.md)
+  * **Find `crypto.createDecipheriv()` for AEAD ciphers without `authTagLength`**
+  * Accepting shorter-than-default authentication tags for AEAD ciphers (`aes-*-gcm`, `aes-*-ccm`, `aes-*-ocb`, `chacha20-poly1305`) in `crypto.createDecipheriv()` is end-of-life in Node.js 26 (DEP0182). Pass an explicit `authTagLength` in the options so the tag length is validated at decipher construction instead of at `setAuthTag()` time.
+* [org.openrewrite.node.migrate.crypto.find-create-cipher](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/find-create-cipher.md)
+  * **Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage**
+  * `crypto.createCipher()` and `crypto.createDecipher()` were deprecated in Node.js 10 (DEP0106) and removed in Node.js 22. Use `crypto.createCipheriv()` and `crypto.createDecipheriv()` instead.
+* [org.openrewrite.node.migrate.crypto.replace-crypto-fips](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-crypto-fips.md)
+  * **Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`**
+  * Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes.
+* [org.openrewrite.node.migrate.crypto.replace-hash-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-hash-constructor.md)
+  * **Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods**
+  * Replace deprecated `new crypto.Hash(algorithm)` constructor calls with `crypto.createHash(algorithm)` and `new crypto.Hmac(algorithm, key)` with `crypto.createHmac(algorithm, key)` factory methods.
+* [org.openrewrite.node.migrate.express-request-id.migrate-express-request-id-to-native](/user-documentation/recipes/recipe-catalog/node/migrate/express-request-id/migrate-express-request-id-to-native.md)
+  * **Migrate `express-request-id` to an inline middleware**
+  * Replaces the `express-request-id` middleware with an equivalent inline middleware built on `randomUUID()` from `node:crypto`, then removes the dependency from each `package.json` that declares it, updating the lock file to match.
+* [org.openrewrite.node.migrate.express-request-id.remove-unused-express-request-id-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/express-request-id/remove-unused-express-request-id-dependency.md)
+  * **Remove the `express-request-id` dependency**
+  * Removes `express-request-id` and `@types/express-request-id` from each `package.json` that declares them, and updates the lock file to match. `uuid` is kept, since the application may use it directly.
+* [org.openrewrite.node.migrate.express-request-id.replace-express-request-id](/user-documentation/recipes/recipe-catalog/node/migrate/express-request-id/replace-express-request-id.md)
+  * **Replace `express-request-id` with an inline middleware**
+  * Replaces the `express-request-id` middleware factory with an equivalent inline middleware that reuses an incoming `X-Request-Id` header or generates an id with `randomUUID()` from `node:crypto` (Node.js 14.17+), stores it on the request and echoes it in the response header. The `setHeader`, `headerName`, `attributeName` and `generator` options carry over; calls with other options, or options that aren't literals, are left alone. `attributeName` is honored as in 1.x; versions 2 and 3 ignore it and always set `req.id`. In TypeScript the id is set with `Object.assign` so no `Request` augmentation is needed, and a middleware stored in a variable is typed as Express's `RequestHandler`.
+* [org.openrewrite.node.migrate.find-crypto-default-encoding](/user-documentation/recipes/recipe-catalog/node/migrate/find-crypto-default-encoding.md)
+  * **Find deprecated `crypto.DEFAULT_ENCODING` usage**
+  * The `crypto.DEFAULT_ENCODING` property was deprecated in Node.js 10 (DEP0091) and removed in Node.js 20. Each API that accepted an encoding (hash, hmac, cipher, etc.) now requires the encoding to be passed explicitly. Occurrences must be reviewed and fixed by hand.
+* [org.openrewrite.node.migrate.find-module-register](/user-documentation/recipes/recipe-catalog/node/migrate/find-module-register.md)
+  * **Find `module.register()` usage**
+  * `module.register()` for loading ESM loader hooks is runtime-deprecated in Node.js 26 (DEP0205). Use the `--import` CLI flag with a loader module instead.
+* [org.openrewrite.node.migrate.find-process-assert](/user-documentation/recipes/recipe-catalog/node/migrate/find-process-assert.md)
+  * **Find deprecated `process.assert()` usage**
+  * `process.assert()` was deprecated in Node.js 10 (DEP0100) and removed in Node.js 23. Use the `assert` module instead.
+* [org.openrewrite.node.migrate.find-punycode-usage](/user-documentation/recipes/recipe-catalog/node/migrate/find-punycode-usage.md)
+  * **Find deprecated `punycode` module usage**
+  * The `punycode` built-in module was deprecated in Node.js 21 (DEP0040). Use the userland `punycode` package from npm or `url.domainToASCII`/`url.domainToUnicode` instead.
+* [org.openrewrite.node.migrate.fs-extra.find-fs-extra-manual-migrations](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/find-fs-extra-manual-migrations.md)
+  * **Find fs-extra usages that need manual migration**
+  * Marks every fs-extra usage the automated migration leaves in place — `move`, `emptyDir`, `ensureLink`/`ensureSymlink`, `exists`, calls with unsupported arguments, fs-extra used as a value, type imports, re-exports, dynamic imports, and test mocks — and records each with a suggested replacement in the `FsExtraManualMigrationSteps` data table.
+* [org.openrewrite.node.migrate.fs-extra.migrate-fs-extra-to-node-fs](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/migrate-fs-extra-to-node-fs.md)
+  * **Migrate `fs-extra` to Node.js `fs`**
+  * Replaces `fs-extra` with the Node.js standard library (`node:fs`, `node:fs/promises`, `node:path`). fs-extra's own methods (`remove`, `ensureDir`, `pathExists`, `readJson`, `writeJson`, `outputFile`, `outputJson`, `ensureFile`, `copy`, `emptyDir`) are rewritten to their native equivalents and the `fs` methods fs-extra re-exports are bound from `node:fs` or `node:fs/promises` directly. `move` becomes a call to a helper written into the same file, since `rename` alone doesn't create the destination's parent, refuse an existing destination, or work across devices. Calls without a faithful native equivalent (`ensureSymlink`, `ensureLink`, ...) are left in place and listed in the `FsExtraManualMigrationSteps` data table. `fs-extra` and `@types/fs-extra` are removed from each `package.json` that declares them, with the lock file updated to match. They are removed even where a call listed in the data table still uses fs-extra, so migrate those before building. Tests that mock or spy on fs-extra itself (`vi.mock('fs-extra')`, `vi.spyOn(fs, 'outputFile')`, ...) keep watching a module the migrated code no longer calls, so they fail until they mock `node:fs` / `node:fs/promises` instead. Every such site is listed in the data table; migrate them together with the code they cover.
+* [org.openrewrite.node.migrate.fs-extra.remove-unused-fs-extra-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/remove-unused-fs-extra-dependency.md)
+  * **Remove the `fs-extra` dependency**
+  * Removes `fs-extra` and `@types/fs-extra` from each `package.json` that declares them, and updates the lock file to match.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-copy](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-copy.md)
+  * **Replace fs-extra `copy` with `fs.cp`**
+  * Replaces fs-extra's `copy(src, dest[, options])` and `copySync` with `cp`/`cpSync` from `node:fs/promises` and `node:fs`, adding `recursive: true` and mapping `overwrite`/`clobber` to `force`; `errorOnExist`, `dereference`, `preserveTimestamps` and `filter` carry over unchanged. The callback form maps to the callback `cp` from `node:fs`. Calls whose options aren't an object literal of known options are left alone. Note that `fs.cp` is experimental before Node.js 22.3 (it emits an `ExperimentalWarning` on 16.7–22.2), and that copying a file onto an existing directory copies it into that directory where fs-extra throws.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-empty-dir](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-empty-dir.md)
+  * **Replace fs-extra `emptyDir` with `mkdir` and `rm` of each entry**
+  * Replaces fs-extra's `emptyDir`/`emptyDirSync` with a recursive `mkdir` of the directory followed by an `rm` of each entry `readdir` returns. Emptying the directory rather than replacing it is what fs-extra does, and it keeps the directory's own inode and permissions, which removing and recreating it would not. `mkdir` runs first so a missing directory is created, as `emptyDir` does when `readdir` fails. A path that isn't safe to evaluate twice is hoisted into a `const` first; since both need a statement to sit in, a call in expression position is left alone, as are callback-form calls.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-ensure-file](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-ensure-file.md)
+  * **Replace fs-extra `ensureFile` with `fs.mkdir` and `fs.writeFile`**
+  * Replaces fs-extra's `ensureFile`/`createFile` (and their `Sync` variants) with `mkdir(dirname(file), \{ recursive: true \})` followed by `writeFile(file, '', \{ flag: 'a' \})`, which creates the file without truncating an existing one. A call standing alone as a statement becomes two statements; other promise-form calls chain the two with `.then`. A path that isn't safe to evaluate twice is hoisted into a `const` first, which needs a statement to sit before, so such a call in expression position is left alone, as are callback-form calls and sync calls used as expressions.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-mkdirs](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-mkdirs.md)
+  * **Replace fs-extra `ensureDir`/`mkdirp`/`mkdirs` with `fs.mkdir`**
+  * Replaces fs-extra's `ensureDir`, `mkdirp`, and `mkdirs` (and their `Sync` variants) with `mkdir`/`mkdirSync` from `node:fs/promises` and `node:fs`, passing `\{ recursive: true \}` as fs-extra does internally. A numeric mode or an options object's `mode` carries over; the callback form maps to the callback `mkdir` from `node:fs`. Options that can't be read statically are left alone.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-move](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-move.md)
+  * **Replace fs-extra `move` with a generated helper**
+  * Replaces fs-extra's `move`/`moveSync` with a call to a helper this recipe writes into the same file. `rename` alone is not a replacement: it doesn't create the destination's parent directory, it overwrites silently instead of refusing, and it fails across devices with `EXDEV`. The helper does what fs-extra does — `mkdir` the parent, refuse an existing destination unless `overwrite` was asked for, then `rename`, falling back to `cp` + `rm` on `EXDEV`. A call passing an option other than `overwrite` (`dereference`, the legacy `clobber`) or a callback is left alone, as is one whose options aren't an object literal. One helper is written per file, however many calls it has.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-native-methods](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-native-methods.md)
+  * **Replace fs-extra's re-exported `fs` methods with `node:fs`**
+  * fs-extra re-exports every `fs` method, with the async ones returning a promise when no callback is passed. Promise-form calls move to `node:fs/promises`; callback-form calls, `*Sync` methods, streams, watchers and `constants` move to `node:fs`. fd-based methods keep their promise form on fs-extra, as `node:fs/promises` has no fd-number equivalents.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-output-file](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-output-file.md)
+  * **Replace fs-extra `outputFile` and `outputJson` with `mkdir` + `writeFile`**
+  * Replaces fs-extra's `outputFile`, `outputJson` and their sync variants with a recursive `mkdir` of the parent directory followed by `writeFile` from `node:fs/promises` or `node:fs`. JSON is written the way jsonfile does, as `JSON.stringify(data, replacer, spaces) + '\n'`. A path that isn't safe to evaluate twice is hoisted into a `const` first, which needs a statement to sit before, so such a call in expression position is left alone — as are callback-style calls and JSON options a native rewrite can't reproduce (non-literal options, a custom `fs`, an `EOL` other than `'\n'`).
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-path-exists](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-path-exists.md)
+  * **Replace fs-extra `pathExists` with `fs.access`/`fs.existsSync`**
+  * Replaces fs-extra's `pathExistsSync(path)` with `existsSync(path)` from `node:fs`, which is what fs-extra exports under that name, and the promise form of `pathExists(path)` with `access(path).then(() =&gt; true, () =&gt; false)` from `node:fs/promises`, matching fs-extra's implementation. The callback form is left in place.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-read-json](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-read-json.md)
+  * **Replace fs-extra `readJson` with `JSON.parse` of `readFile`**
+  * Replaces fs-extra's `readJson`/`readJSON` and `readJsonSync`/`readJSONSync` with `JSON.parse` of `readFile` from `node:fs/promises` or `readFileSync` from `node:fs`. An awaited call becomes `JSON.parse(await readFile(file, 'utf8'))`, any other promise use `readFile(file, 'utf8').then(JSON.parse)`. An encoding passed as a string or `\{encoding\}` is kept. Calls passing `throws`, `reviver`, or other options, and callback-style calls, are left alone. Unlike fs-extra, `JSON.parse` does not strip a leading byte order mark.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-remove](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-remove.md)
+  * **Replace fs-extra `remove` with `fs.rm`**
+  * Replaces fs-extra's `remove(path)` and `removeSync(path)` with `rm`/`rmSync` from `node:fs/promises` and `node:fs`, passing `\{ recursive: true, force: true \}` as fs-extra does internally. The callback form maps to the callback `rm` from `node:fs`.
+* [org.openrewrite.node.migrate.fs-extra.replace-fs-extra-write-json](/user-documentation/recipes/recipe-catalog/node/migrate/fs-extra/replace-fs-extra-write-json.md)
+  * **Replace fs-extra `writeJson` with `fs.writeFile`**
+  * Replaces fs-extra's `writeJson`/`writeJSON` and their sync forms with `writeFile`/`writeFileSync` from `node:fs/promises` and `node:fs`, serializing with `JSON.stringify(obj, replacer, spaces) + '\n'` exactly as fs-extra does. Calls with a callback, non-literal options, or a non-default `EOL` are left in place.
+* [org.openrewrite.node.migrate.fs.replace-dirent-path](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-dirent-path.md)
+  * **Replace `dirent.path` with `dirent.parentPath`**
+  * Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation.
+* [org.openrewrite.node.migrate.fs.replace-fs-access-constants](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-access-constants.md)
+  * **Replace deprecated `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK` with `fs.constants.*`**
+  * Replace deprecated file access constants (`fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK`) with their equivalents from `fs.constants`. These constants were removed in Node.js v24+ and should be accessed through the constants namespace.
+* [org.openrewrite.node.migrate.fs.replace-fs-truncate-fd](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-truncate-fd.md)
+  * **Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`**
+  * Replace deprecated `fs.truncate(fd, ...)` and `fs.truncateSync(fd, ...)` calls with `fs.ftruncate(fd, ...)` and `fs.ftruncateSync(fd, ...)` when the first argument is a file descriptor (number).
+* [org.openrewrite.node.migrate.fs.replace-stats-constructor](/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-stats-constructor.md)
+  * **Replace deprecated `fs.Stats` constructor with object literal**
+  * Replace deprecated `new fs.Stats()` constructor calls with an object literal containing Stats properties initialized to undefined.
+* [org.openrewrite.node.migrate.hpagent.find-hpagent-manual-migrations](/user-documentation/recipes/recipe-catalog/node/migrate/hpagent/find-hpagent-manual-migrations.md)
+  * **Find hpagent usages that need manual migration**
+  * Marks every hpagent usage the automated migration leaves in place — a construction that doesn't pass one options object, an agent class used as a value, re-exports, dynamic imports, a `require` in a shape it doesn't follow, and test mocks — and records each with a suggested replacement in the `HpagentManualMigrationSteps` data table.
+* [org.openrewrite.node.migrate.hpagent.migrate-hpagent-to-https-proxy-agent](/user-documentation/recipes/recipe-catalog/node/migrate/hpagent/migrate-hpagent-to-https-proxy-agent.md)
+  * **Migrate `hpagent` to `https-proxy-agent`**
+  * Replaces the unmaintained `hpagent` package with `https-proxy-agent`. Both of hpagent's agent classes tunnel through the proxy with `CONNECT`, which is what `https-proxy-agent` does, upgrading the tunnel to TLS only for an `https:` target — so `HttpProxyAgent` and `HttpsProxyAgent` both become `https-proxy-agent`'s `HttpsProxyAgent`. The proxy URL moves from the `proxy` option to the constructor's first argument, `proxyRequestOptions` members move up into the options object, and the dependency is swapped in each `package.json` that declares it, with the lock file updated to match.  Two things do not carry over, and both are reported in the `HpagentManualMigrationSteps` data table rather than rewritten. A TLS option set at the top level of hpagent's `HttpsProxyAgent` (`ca`, `rejectUnauthorized`, `cert`, ...) configured the handshake with the **destination**, because that class extends `https.Agent`; `https-proxy-agent` spends its constructor options on the connection to the **proxy** and takes the destination's TLS options from each request, so such an option has to move to the request or the client library. Agent options that aren't written as an object literal can't be split into the new two-argument form either. The dependency is swapped regardless, so migrate every reported site before building.
+* [org.openrewrite.node.migrate.hpagent.replace-hpagent](/user-documentation/recipes/recipe-catalog/node/migrate/hpagent/replace-hpagent.md)
+  * **Replace `hpagent` with `https-proxy-agent`**
+  * Replaces `hpagent`'s `HttpProxyAgent` and `HttpsProxyAgent` with `https-proxy-agent`'s `HttpsProxyAgent`, whose constructor takes the proxy URL as its first argument rather than as a `proxy` option: `new HttpsProxyAgent(\{proxy: url, keepAlive: true\})` becomes `new HttpsProxyAgent(url, \{keepAlive: true\})`. Both hpagent classes tunnel with `CONNECT`, and `https-proxy-agent` upgrades the tunnel to TLS only for an `https:` target, so one class serves both. `proxyRequestOptions` members move up into the options object, where `https-proxy-agent` applies them to the connection to the proxy. hpagent accepted a missing proxy until a request needed it, but `https-proxy-agent` reads it in the constructor, so in JavaScript a proxy that may be missing, such as `process.env.HTTP_PROXY`, guards the construction: `proxy ? new HttpsProxyAgent(proxy) : undefined`.  A construction that can't take the two-argument form — options that aren't an object literal, a spread that can't be checked, or a TLS option for the destination handshake (`ca`, `rejectUnauthorized`, `cert`, ...), which `https-proxy-agent` would apply to the proxy hop — calls a `createProxyAgent` adapter written into the same file instead. It takes hpagent's options object as it was, gives the proxy hop what hpagent gave it, and puts every other option on the agent's per-request options, which is where hpagent's `https.Agent` kept them for the destination. hpagent's option types become the adapter's own `ProxyAgentOptions`, `ConstructorParameters&lt;typeof HttpProxyAgent&gt;[0]` included, and `ProxyAgentRequestOptions` a `ProxyRequestOptions` of its own; `instanceof` checks and type references move to the new class. A default import becomes a namespace import, since `https-proxy-agent` has no default export; a block's `const \{...\} = require('hpagent')`, and `(\{...\} = require('hpagent'))` into a `let`, move like a top-level one; `jest.mock`/`vi.mock` and `spyOn` follow the module in a file whose hpagent bindings all moved; and a `declare module 'hpagent'` is deleted. `FindHpagentManualMigrations` reports every usage left behind.
+* [org.openrewrite.node.migrate.hpagent.swap-hpagent-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/hpagent/swap-hpagent-dependency.md)
+  * **Swap the `hpagent` dependency for `https-proxy-agent`**
+  * Replaces `hpagent` with `https-proxy-agent` in each `package.json` that declares it, in whichever dependency section declares it, and updates the lock file to match.
+* [org.openrewrite.node.migrate.http.replace-outgoing-message-headers](/user-documentation/recipes/recipe-catalog/node/migrate/http/replace-outgoing-message-headers.md)
+  * **Replace `OutgoingMessage._headers` and `._headerNames` with public methods**
+  * Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation.
+* [org.openrewrite.node.migrate.http.replace-server-response-write-header](/user-documentation/recipes/recipe-catalog/node/migrate/http/replace-server-response-write-header.md)
+  * **Replace `ServerResponse.writeHeader()` with `writeHead()`**
+  * `ServerResponse.prototype.writeHeader()` was an undocumented alias for `writeHead()` that was deprecated in Node.js 11 (DEP0063) and removed in Node.js 26. The signatures are identical.
+* [org.openrewrite.node.migrate.increase-node-engine-version](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version.md)
+  * **Increase Node.js engine version**
+  * Raises the lower bound of the `engines.node` version range in package.json to the specified Node.js version, performing a hard cutover that drops support for older, end-of-life versions (`22.x` → `24.x`, `&gt;= 22` → `&gt;= 24`). The original constraint style is preserved where possible and the version is never lowered.
+* [org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions](/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version-in-github-actions.md)
+  * **Increase Node.js version in GitHub Actions**
+  * Increases `node-version` in `actions/setup-node` steps in GitHub Actions workflows. Only modifies plain major version values (e.g. `20`) and x-ranges (e.g. `20.x`). Never decreases the version.
+* [org.openrewrite.node.migrate.net.remove-set-simultaneous-accepts](/user-documentation/recipes/recipe-catalog/node/migrate/net/remove-set-simultaneous-accepts.md)
+  * **Remove deprecated `net._setSimultaneousAccepts()`**
+  * Remove calls to deprecated `net._setSimultaneousAccepts()` which was an undocumented internal function that is no longer necessary.
+* [org.openrewrite.node.migrate.path.remove-redundant-path-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/path/remove-redundant-path-dependency.md)
+  * **Remove the redundant `path` npm package**
+  * Removes the `path` npm package, an unmaintained 2015 copy of Node's `path` module, from `package.json`. Node always resolves `require('path')` and `import 'path'` to its built-in module, so the package is never loaded at runtime. It is kept where a browser bundle may still use it: when webpack 5, Vite, esbuild, Parcel, Rspack or Rsbuild (directly or through a framework such as Create React App 5, the Angular CLI, Vue CLI 5, Nuxt 3, SvelteKit or Astro) would bundle a `path` import from browser-side source, when the `browser` field maps `path` to a package, or when code names the package explicitly as `path/`. Lock files are not regenerated; run the package manager's install afterwards.
+* [org.openrewrite.node.migrate.process.coerce-process-exit-code](/user-documentation/recipes/recipe-catalog/node/migrate/process/coerce-process-exit-code.md)
+  * **Coerce `process.exit()` and `process.exitCode` to integer**
+  * Wraps non-integer values passed to `process.exit()` or assigned to `process.exitCode` with `Math.trunc()` to avoid the DEP0164 deprecation warning about implicit coercion to integer.
+* [org.openrewrite.node.migrate.process.remove-usage-of-features-tls-underscore_constants](/user-documentation/recipes/recipe-catalog/node/migrate/process/remove-usage-of-features-tls-underscore_constants.md)
+  * **Remove usage of deprecated `process.features.tls_*` properties**
+  * Remove references to deprecated `process.features.tls_*` properties, replace with `process.features.tls`.
+* [org.openrewrite.node.migrate.prop-types.remove-prop-types](/user-documentation/recipes/recipe-catalog/node/migrate/prop-types/remove-prop-types.md)
+  * **Remove `propTypes` that no longer check anything**
+  * Removes `Component.propTypes = \{...\}` assignments and `static propTypes` class members where they have become redundant, then the `prop-types` import and, once no source uses it, the `prop-types` dependency. In TypeScript a component's `propTypes` are removed when its props are already typed (an annotated props parameter, `React.FC&lt;Props&gt;`, type arguments on `forwardRef`/`memo`, or `Component&lt;Props&gt;`). In JavaScript they are removed where the package runs React 19 or later, which ignores `propTypes` entirely, unless a documentation tool (Storybook, react-docgen, Styleguidist, Docz) builds prop tables from them. Packages whose `peerDependencies` still admit React before 19 keep them, as do components whose `propTypes` are read elsewhere (spread into another component's, or passed to `checkPropTypes`). Lock files are not regenerated; run the package manager's install afterwards.
+* [org.openrewrite.node.migrate.source-map-support.enable-source-maps-at-launch](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/enable-source-maps-at-launch.md)
+  * **Enable native source maps at launch and drop `source-map-support`**
+  * Where `source-map-support` is installed too late for `process.setSourceMapsEnabled(true)` to stand in for it — in an ES module, every `import` is evaluated before any statement runs, so the call would only map what loads after it — this puts `--enable-source-maps` on whatever launches the process instead, which Node applies before the first module loads. The flag goes into the package's `bin` shebang (as `#!/usr/bin/env -S node --enable-source-maps`) and into any `package.json` script that runs `node` or `mocha` directly. The `install()` call and `register` import are then redundant and are removed, rather than replaced by a call that would map less. A package with no launcher this recipe can reach is left alone and reported by `FindSourceMapSupportManualMigrations`.
+* [org.openrewrite.node.migrate.source-map-support.find-source-map-support-manual-migrations](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/find-source-map-support-manual-migrations.md)
+  * **Find source-map-support usages that need manual migration**
+  * Marks every source-map-support usage the automated migration leaves in place — an `install()` or `register` entry point that would only map part of the process, options Node has no equivalent for (`retrieveSourceMap`, `retrieveFile`, `environment: 'browser'`) and the API beyond `install` (`wrapCallSite`, `mapSourcePosition`, ...) where no replacement could be written, bundler banner strings, `package.json` scripts whose command doesn't take Node's flags, type imports, re-exports, dynamic imports and test mocks — and records each with a suggested replacement in the `SourceMapSupportManualMigrationSteps` data table.
+* [org.openrewrite.node.migrate.source-map-support.migrate-source-map-support-to-native](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/migrate-source-map-support-to-native.md)
+  * **Migrate `source-map-support` to Node.js native source maps**
+  * Replaces the `source-map-support` package with Node.js's built-in source map support. Where Node is launched from `package.json` scripts or mocha/ava configuration, `source-map-support/register` becomes the `--enable-source-maps` flag; in code, `install()` and `register` imports become `process.setSourceMapsEnabled(true)` where that maps everything the module loads. Where it would not — in an ES module every `import` is evaluated before any statement runs — the flag goes on the launcher instead, in the package's `bin` shebang or a `node` script, and the entry point is removed as redundant. What Node has no equivalent for — `install()` with a custom `retrieveSourceMap` or `retrieveFile`, and `wrapCallSite`, `getErrorSource`, `mapSourcePosition`, `retrieveSourceMap` and `resetRetrieveHandlers` — is written into the file that uses it, on Node's own `SourceMap`, and an `install()` configured for a browser is removed. The dependency is removed from each `package.json` that declares it, with the lock file updated to match. Anything left in place, such as a webpack banner, is recorded in the `SourceMapSupportManualMigrationSteps` data table with a suggested replacement, and has to be migrated before building, since the dependency is removed regardless.
+* [org.openrewrite.node.migrate.source-map-support.remove-unused-source-map-support-dependency](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/remove-unused-source-map-support-dependency.md)
+  * **Remove the `source-map-support` dependency**
+  * Removes `source-map-support` and `@types/source-map-support` from each `package.json` that declares them, and updates the lock file to match.
+* [org.openrewrite.node.migrate.source-map-support.replace-source-map-support-api](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/replace-source-map-support-api.md)
+  * **Replace source-map-support's API with functions written into the file**
+  * Writes the part of source-map-support that Node has no equivalent for into each file that uses it, built on Node's own source map decoder (`node:module`'s `SourceMap`): `install()` with a custom `retrieveSourceMap` or `retrieveFile`, or with options that can't be read statically, becomes `installSourceMapSupport()`, and `wrapCallSite`, `getErrorSource`, `mapSourcePosition`, `retrieveSourceMap` and `resetRetrieveHandlers` become functions of the same name, along with the types they take from `@types/source-map-support`. Only the functions a file calls, and what they depend on, are written, after its other statements. An `install()` configured for a browser is removed: browsers map stack traces in their developer tools, and Node's source maps don't run there.
+* [org.openrewrite.node.migrate.source-map-support.replace-source-map-support-install](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/replace-source-map-support-install.md)
+  * **Replace `source-map-support` with `process.setSourceMapsEnabled()`**
+  * Replaces `require('source-map-support').install()`, `import 'source-map-support/register'` and their variants with Node's native `process.setSourceMapsEnabled(true)` (Node.js 16.6+). Calls passing options Node has no equivalent for (`retrieveSourceMap`, `retrieveFile`, `environment: 'browser'`, ...) are left to `ReplaceSourceMapSupportApi`. Native source maps only apply to modules loaded after they are enabled, where `source-map-support` maps every stack frame, so by default a call is only replaced where no other module is loaded before it: no other runtime import in the file, and no earlier `require`. Elsewhere, launch Node with `--enable-source-maps`, which `ReplaceSourceMapSupportRegisterInPackageJson` sets in `package.json` scripts.
+* [org.openrewrite.node.migrate.source-map-support.replace-source-map-support-register-in-mocha-config](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/replace-source-map-support-register-in-mocha-config.md)
+  * **Replace `source-map-support/register` with `enable-source-maps` in mocha config**
+  * Replaces `source-map-support/register` in the `require` list of `.mocharc.js`/`.mocharc.cjs` with `'enable-source-maps': true`, which mocha forwards to Node as `--enable-source-maps`, and `--require source-map-support/register` in `mocha.opts` with `--enable-source-maps`.
+* [org.openrewrite.node.migrate.source-map-support.replace-source-map-support-register-in-package-json](/user-documentation/recipes/recipe-catalog/node/migrate/source-map-support/replace-source-map-support-register-in-package-json.md)
+  * **Replace `source-map-support/register` with `--enable-source-maps` in `package.json`**
+  * Replaces `-r source-map-support/register` with Node's `--enable-source-maps` flag in `package.json` scripts that run `node` or `mocha`, including through `nyc`, `c8` or `cross-env`. Mocha's `require` list (in `package.json` or `.mocharc.json`) gets `&quot;enable-source-maps&quot;: true`, which mocha forwards to Node, and ava's `require` list `nodeArguments: [&quot;--enable-source-maps&quot;]`. Jest `setupFiles` entries are dropped, since Jest maps stack traces itself. Scripts running other tools are left alone.
+* [org.openrewrite.node.migrate.stream.find-duplex-to-web-type](/user-documentation/recipes/recipe-catalog/node/migrate/stream/find-duplex-to-web-type.md)
+  * **Find `Duplex.toWeb()` calls passing `options.type`**
+  * Passing `options.type` to `stream.Duplex.toWeb()` is runtime-deprecated in Node.js 26 (DEP0201). The `type` field controls the readable-side ReadableStream chunk type; drop it from the options and set the type on the resulting `ReadableStream` instead.
+* [org.openrewrite.node.migrate.stream.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/stream/replace-internal-modules.md)
+  * **Replace deprecated `node:_stream_*` with `node:stream`**
+  * Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module.
+* [org.openrewrite.node.migrate.timers.find-timers-active](/user-documentation/recipes/recipe-catalog/node/migrate/timers/find-timers-active.md)
+  * **Find deprecated `timers.active()` and `timers._unrefActive()` usage**
+  * `timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead.
+* [org.openrewrite.node.migrate.tls.find-tls-secure-pair](/user-documentation/recipes/recipe-catalog/node/migrate/tls/find-tls-secure-pair.md)
+  * **Find deprecated `tls.SecurePair` and `tls.createSecurePair()` usage**
+  * `tls.SecurePair` (DEP0043) and `tls.createSecurePair()` (DEP0064) were deprecated and removed in Node.js 24. Use `tls.TLSSocket` instead.
+* [org.openrewrite.node.migrate.tls.replace-internal-modules](/user-documentation/recipes/recipe-catalog/node/migrate/tls/replace-internal-modules.md)
+  * **Replace deprecated `node:_tls_common` and `node:_tls_wrap` with `node:tls`**
+  * Replace deprecated internal TLS module imports `require('node:_tls_common')` and `require('node:_tls_wrap')` with the public `node:tls` module.
+* [org.openrewrite.node.migrate.upgrade-node-20](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-20.md)
+  * **Upgrade to Node.js 20**
+  * Migrate deprecated APIs for Node.js 20 compatibility. Addresses deprecations that are end-of-life in Node 20.
+* [org.openrewrite.node.migrate.upgrade-node-22](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22.md)
+  * **Upgrade to Node.js 22**
+  * Migrate deprecated APIs for Node.js 22 compatibility. Includes all migrations from Node.js 20, plus Node 21 and Node 22 deprecations.
+* [org.openrewrite.node.migrate.upgrade-node-24](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24.md)
+  * **Upgrade to Node.js 24**
+  * Migrate deprecated APIs for Node.js 24 compatibility. Includes all migrations from Node.js 22, plus Node 23 and Node 24 deprecations.
+* [org.openrewrite.node.migrate.upgrade-node-26](/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-26.md)
+  * **Upgrade to Node.js 26**
+  * Migrate deprecated APIs for Node.js 26 compatibility. Includes all migrations from Node.js 24, plus Node 25 and Node 26 deprecations.
+* [org.openrewrite.node.migrate.util.remove-promisify-on-promise](/user-documentation/recipes/recipe-catalog/node/migrate/util/remove-promisify-on-promise.md)
+  * **Remove unnecessary `util.promisify()` on Promise-returning functions**
+  * Removes `util.promisify()` calls on functions that already return a Promise. Since Node.js v17.0.0, calling promisify on a function that returns a Promise emits a runtime deprecation warning (DEP0174).
+* [org.openrewrite.node.migrate.util.replace-is-webassembly-compiled-module](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-is-webassembly-compiled-module.md)
+  * **Replace deprecated `util.types.isWebAssemblyCompiledModule()`**
+  * Replace `util.types.isWebAssemblyCompiledModule(value)` with `value instanceof WebAssembly.Module`.
+* [org.openrewrite.node.migrate.util.replace-util-extend](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-extend.md)
+  * **Replace deprecated `util._extend()` with `Object.assign()`**
+  * Replace deprecated `util._extend(target, source)` calls with `Object.assign(target, source)` which preserves the mutation behavior.
+* [org.openrewrite.node.migrate.util.replace-util-log](/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-log.md)
+  * **Replace deprecated `util.log()` with `console.log()`**
+  * Replace deprecated `util.log()` calls with `console.log()`. Note: `util.log()` included timestamps, but `console.log()` does not.
+* [org.openrewrite.node.migrate.util.use-native-type-checking-methods](/user-documentation/recipes/recipe-catalog/node/migrate/util/use-native-type-checking-methods.md)
+  * **Replace deprecated `util.isX()` methods with native JavaScript**
+  * The `util` module's type-checking methods have been removed in Node 22.
+* [org.openrewrite.node.migrate.zlib.replace-bytes-read](/user-documentation/recipes/recipe-catalog/node/migrate/zlib/replace-bytes-read.md)
+  * **Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`**
+  * Replace deprecated `bytesRead` property on zlib streams with `bytesWritten`.
 * [org.openrewrite.nodejs.migrate.UpgradeNodeVersion](/user-documentation/recipes/recipe-catalog/nodejs/migrate/upgradenodeversion.md)
   * **Upgrade Node.js version in version files**
   * Increases the Node.js version in `.nvmrc` and `.node-version` files. Major versions (`20`, `v20`) and pinned versions (`20.11.0`) become the target major, and LTS codenames (`lts/iron`) become the target's codename. Floating aliases such as `lts/*` and `node` are left alone. Never decreases the version.
@@ -6256,7 +6505,7 @@ _25 recipes_
 
 _License: Moderne Source Available License_
 
-_43 recipes_
+_54 recipes_
 
 * [org.openrewrite.java.jspecify.MigrateFromOpenRewriteAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromopenrewriteannotations.md)
   * **Migrate from OpenRewrite annotations to JSpecify**
@@ -6270,9 +6519,15 @@ _43 recipes_
 * [org.openrewrite.java.recipes.CorrectlySpacedDescriptions](/user-documentation/recipes/recipe-catalog/java/recipes/correctlyspaceddescriptions.md)
   * **Correctly spaced descriptions**
   * Recipe descriptions should be cleanly formatted. This recipe forces correct spacing in multiline descriptions. In a multi line description the lines should not start with whitespace and end with a single space except for the last line which should end with a &quot;.&quot; (e.g. ```   return &quot;This is a correct &quot; +    &quot;multi line description&quot;; ``` ).
+* [org.openrewrite.java.recipes.DeclarativeRecipeBestPractices](/user-documentation/recipes/recipe-catalog/java/recipes/declarativerecipebestpractices.md)
+  * **Declarative recipe best practices**
+  * Best practices for declarative YAML recipe development.
 * [org.openrewrite.java.recipes.DeclarativeSingleton](/user-documentation/recipes/recipe-catalog/java/recipes/declarativesingleton.md)
   * **Make declarative recipes singletons**
   * Adds the `org.openrewrite.Singleton` precondition to declarative YAML recipes to ensure they only execute once, even when included multiple times.
+* [org.openrewrite.java.recipes.EndDeclarativeRecipeDescriptionsWithPeriod](/user-documentation/recipes/recipe-catalog/java/recipes/enddeclarativerecipedescriptionswithperiod.md)
+  * **End declarative recipe descriptions with a period**
+  * Append a period to the `description` of declarative YAML recipes, as is expected of recipe descriptions. Descriptions that already end in punctuation, or end in a code fence, table or list of links, are left as is.
 * [org.openrewrite.java.recipes.ExamplesExtractor](/user-documentation/recipes/recipe-catalog/java/recipes/examplesextractor.md)
   * **Extract documentation examples from tests**
   * Extract the before/after sources from tests annotated with `@DocumentExample`, and generate a YAML file with those examples to be shown in the documentation to show usage.
@@ -6282,6 +6537,9 @@ _43 recipes_
 * [org.openrewrite.java.recipes.FindRecipes](/user-documentation/recipes/recipe-catalog/java/recipes/findrecipes.md)
   * **Find OpenRewrite recipes**
   * This recipe finds all OpenRewrite recipes, primarily to produce a data table that is being used to experiment with fine-tuning a large language model to produce more recipes.
+* [org.openrewrite.java.recipes.FindSharedVisitorInstances](/user-documentation/recipes/recipe-catalog/java/recipes/findsharedvisitorinstances.md)
+  * **Find visitor instances shared across `getVisitor()` calls**
+  * Find `static` fields, and instance fields of `Recipe` classes, holding `TreeVisitor` instances. `getVisitor()` is called once per source file and source files may be visited concurrently, so a shared visitor that walks the tree has its cursor, visit count and after-visit list corrupted by concurrent visits. Construct such visitors inside `getVisitor()` instead. Fields holding only visitors which keep no per-visit state, such as `UsesType` combined through `Preconditions.or/and/not`, are not reported.
 * [org.openrewrite.java.recipes.GenerateDeprecatedMethodRecipes](/user-documentation/recipes/recipe-catalog/java/recipes/generatedeprecatedmethodrecipes.md)
   * **Generate `InlineMethodCalls` recipes for deprecated delegating methods**
   * Finds `@Deprecated` method declarations whose body is a single delegation call to another method in the same class, and generates a declarative YAML recipe file containing `InlineMethodCalls` entries for each.
@@ -6294,6 +6552,12 @@ _43 recipes_
 * [org.openrewrite.java.recipes.JavaRecipeBestPractices](/user-documentation/recipes/recipe-catalog/java/recipes/javarecipebestpractices.md)
   * **Java Recipe best practices**
   * Best practices for Java recipe development.
+* [org.openrewrite.java.recipes.ListUtilsFilterOverMapToNull](/user-documentation/recipes/recipe-catalog/java/recipes/listutilsfilterovermaptonull.md)
+  * **Use `ListUtils.filter` instead of mapping elements to `null`**
+  * Replaces `ListUtils.map(list, e -&gt; condition ? null : e)` and the equivalent block lambdas with `ListUtils.filter(list, e -&gt; !condition)`, which states the intent of removing elements directly.
+* [org.openrewrite.java.recipes.LowercaseVersionWildcards](/user-documentation/recipes/recipe-catalog/java/recipes/lowercaseversionwildcards.md)
+  * **Use a lowercase `x` as version wildcard in declarative recipes**
+  * Replace an uppercase `X` wildcard in the `version` and `newVersion` options of declarative YAML recipes, such as `2.0.X`, with the conventional lowercase `2.0.x`.
 * [org.openrewrite.java.recipes.MissingOptionExample](/user-documentation/recipes/recipe-catalog/java/recipes/missingoptionexample.md)
   * **Find missing `@Option` `example` values**
   * Find `@Option` annotations that are missing `example` values for documentation, and add a TODO comment.
@@ -6312,6 +6576,12 @@ _43 recipes_
 * [org.openrewrite.java.recipes.RecipeTestingBestPractices](/user-documentation/recipes/recipe-catalog/java/recipes/recipetestingbestpractices.md)
   * **Recipe testing best practices**
   * Best practices for testing recipes.
+* [org.openrewrite.java.recipes.RemoveConsecutiveDuplicateRecipes](/user-documentation/recipes/recipe-catalog/java/recipes/removeconsecutiveduplicaterecipes.md)
+  * **Remove consecutive duplicate entries from declarative recipe lists**
+  * Remove an entry from the `recipeList` or `preconditions` of a declarative YAML recipe when it repeats the entry right before it, with the same recipe name and options, as running it twice in a row has no effect. Duplicates further apart are kept, as the recipes in between can produce new matches for the repeated recipe.
+* [org.openrewrite.java.recipes.RemoveEmptyRecipeOptions](/user-documentation/recipes/recipe-catalog/java/recipes/removeemptyrecipeoptions.md)
+  * **Remove the trailing colon from declarative recipe entries without options**
+  * Remove the trailing colon, or `: \{\}`, from entries in the `recipeList` or `preconditions` of a declarative YAML recipe that configure no options, to list just the recipe name.
 * [org.openrewrite.java.recipes.RemoveImportBeforeAddImport](/user-documentation/recipes/recipe-catalog/java/recipes/removeimportbeforeaddimport.md)
   * **Reorder `maybeRemoveImport` before `maybeAddImport`**
   * Reorders `maybeAddImport` and `maybeRemoveImport` calls so that imports are removed before new imports are added. This ordering prevents potential conflicts when the import being added and the import being removed resolve to the same simple class name.
@@ -6342,6 +6612,12 @@ _43 recipes_
 * [org.openrewrite.java.recipes.SourceSpecTextBlockNewLine](/user-documentation/recipes/recipe-catalog/java/recipes/sourcespectextblocknewline.md)
   * **New line at the end of `SourceSpecs` text blocks**
   * Text blocks that assert before and after source code should have a new line after it is closed.
+* [org.openrewrite.java.recipes.StaticFinalMatcherFields](/user-documentation/recipes/recipe-catalog/java/recipes/staticfinalmatcherfields.md)
+  * **Make matcher fields `static final` constants**
+  * Instance fields of recipes and visitors holding a `MethodMatcher`, `AnnotationMatcher` or `TypeMatcher` built only from constants are recreated, and their pattern parsed again, for every instance. Make such `private final` fields `private static final` constants with an upper snake case name.
+* [org.openrewrite.java.recipes.UnconditionalMaybeImport](/user-documentation/recipes/recipe-catalog/java/recipes/unconditionalmaybeimport.md)
+  * **Drop redundant conditions around `maybeAddImport` and `maybeRemoveImport`**
+  * `maybeAddImport` only adds an import when the type is referenced, and `maybeRemoveImport` only removes one when the type is no longer referenced, so wrapping these calls in an `if` statement is redundant. Unwraps `if` statements without an `else` that contain only such calls, when the condition and arguments have no side effects and the condition does not guard the arguments. Guards comparing trees by identity, such as `if (cu != c)`, are kept, as are calls passing `onlyIfReferenced` as anything other than `true`.
 * [org.openrewrite.java.recipes.UpgradeTestsToJava21](/user-documentation/recipes/recipe-catalog/java/recipes/upgradeteststojava21.md)
   * **Migrate tests to Java 21**
   * Use Java 21 features in tests.
@@ -6354,6 +6630,9 @@ _43 recipes_
 * [org.openrewrite.java.recipes.UseJavaTemplateStaticApply](/user-documentation/recipes/recipe-catalog/java/recipes/usejavatemplatestaticapply.md)
   * **Use `JavaTemplate.apply()` static method**
   * Replaces `JavaTemplate.builder(template).build().apply(cursor, coordinates, args...)` with `JavaTemplate.apply(template, cursor, coordinates, args...)` when the builder chain has no intermediate configuration methods.
+* [org.openrewrite.java.recipes.UseMethodMatcherPreconditions](/user-documentation/recipes/recipe-catalog/java/recipes/usemethodmatcherpreconditions.md)
+  * **Use `UsesMethod` and `DeclaresMethod` preconditions with `MethodMatcher`s**
+  * Pass an existing `static final` `MethodMatcher` field to `UsesMethod` and `DeclaresMethod` instead of repeating its method pattern and `matchOverrides` flag. Also replace `new FindMethods(..).getVisitor()` and `new FindMethodDeclaration(..).getVisitor()` preconditions with `UsesMethod` and `DeclaresMethod`, which only consult the types in use of a source file.
 * [org.openrewrite.java.recipes.UseRewriteTestDefaults](/user-documentation/recipes/recipe-catalog/java/recipes/userewritetestdefaults.md)
   * **Refactor RewriteTest to use defaults method**
   * When all `rewriteRun` methods in a test class use the same RecipeSpec configuration, refactor to use the `defaults` method instead.
@@ -6381,6 +6660,9 @@ _43 recipes_
 * [org.openrewrite.java.recipes.UseVisitWithParentCursor](/user-documentation/recipes/recipe-catalog/java/recipes/usevisitwithparentcursor.md)
   * **Use `visit` with parent cursor when calling from another visitor**
   * When calling another visitor from within a visitor, use the generic `visit(tree, ctx, getCursor().getParentTreeCursor())` method instead of a specific `visit*` method like `visitMethodInvocation`. The specific visit methods bypass the visitor lifecycle, including cursor setup, pre/post visit hooks, and observer notifications.
+* [org.openrewrite.java.recipes.UseVisitorReduce](/user-documentation/recipes/recipe-catalog/java/recipes/usevisitorreduce.md)
+  * **Use `TreeVisitor#reduce` instead of a captured accumulator**
+  * Replaces an accumulator that is declared, passed to `TreeVisitor#visit` and only read afterwards with a call to `TreeVisitor#reduce`, which returns the accumulator it was given. When the accumulator is read only once, right after the visit, the `reduce` call is inlined at that read.
 * [org.openrewrite.recipes.rewrite.InlineMethods](/user-documentation/recipes/recipe-catalog/recipes/rewrite/inlinemethods.md)
   * **Inline calls to deprecated OpenRewrite methods**
   * Inline calls to deprecated OpenRewrite methods that delegate to their replacement, composing the `InlineDeprecatedMethods` recipes that individual recipe modules generate and publish themselves.
@@ -9126,7 +9408,7 @@ _139 recipes_
 
 _License: Moderne Source Available License_
 
-_303 recipes_
+_306 recipes_
 
 * [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
   * **ArchUnit 0.x upgrade**
@@ -9734,6 +10016,9 @@ _303 recipes_
 * [org.openrewrite.java.testing.junit5.VertxUnitToVertxJunit5](/user-documentation/recipes/recipe-catalog/java/testing/junit5/vertxunittovertxjunit5.md)
   * **Use Vert.x JUnit 5 Extension**
   * Migrates Vert.x `@RunWith` `VertxUnitRunner` to the JUnit Jupiter `@ExtendWith` `VertxExtension`.
+* [org.openrewrite.java.testing.junit5.WireMockRuleToWireMockServer](/user-documentation/recipes/recipe-catalog/java/testing/junit5/wiremockruletowiremockserver.md)
+  * **Use `WireMockServer` for a `WireMockRule` used as a server**
+  * Replace a `WireMockRule` that is started, stopped or passed on as a `WireMockServer` with a plain `WireMockServer`, as the JUnit 5 `WireMockExtension` has no such methods. The server is started and stopped around each test, or around all tests for a `@ClassRule`.
 * [org.openrewrite.java.testing.junit6.JUnit5to6Migration](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
   * **JUnit 6 migration from JUnit 5.x**
   * Migrates JUnit 5.x tests to JUnit 6.x.
@@ -9776,6 +10061,9 @@ _303 recipes_
 * [org.openrewrite.java.testing.mockito.ArgumentMatcherToLambda](/user-documentation/recipes/recipe-catalog/java/testing/mockito/argumentmatchertolambda.md)
   * **Convert `ArgumentMatcher&lt;T&gt;` anonymous class to lambda**
   * Converts anonymous `ArgumentMatcher&lt;T&gt;` implementations with `matches(Object)` to lambda expressions with the correct parameter type. In Mockito 1.x, `ArgumentMatcher&lt;T&gt;` extended Hamcrest's `BaseMatcher` and `matches` always took `Object`. In Mockito 2+, `ArgumentMatcher&lt;T&gt;` is a functional interface where `matches` takes `T`.
+* [org.openrewrite.java.testing.mockito.ChangeMockitoAllToMockitoCoreReplacingPowerMock](/user-documentation/recipes/recipe-catalog/java/testing/mockito/changemockitoalltomockitocorereplacingpowermock.md)
+  * **Change `mockito-all` to `mockito-core` along with the Mockito that replaces PowerMock**
+  * Changes a declared `mockito-all` into `mockito-core`, as `mockito-all` is a 1.x-only uber jar with no 3.x release to upgrade to. This runs before the PowerMock dependencies are replaced, so that a module which declared `mockito-all` is seen to declare `mockito-core` and does not get it a second time.
 * [org.openrewrite.java.testing.mockito.CleanupMockitoImports](/user-documentation/recipes/recipe-catalog/java/testing/mockito/cleanupmockitoimports.md)
   * **Cleanup Mockito imports**
   * Removes unused `org.mockito` import symbols, unless its possible they are associated with method invocations having null or unknown type information.
@@ -9790,7 +10078,7 @@ _303 recipes_
   * Disables tests that reach into private members through PowerMock, which Mockito deliberately does not support, so that the rest of the repository can migrate. The test is annotated `@Disabled`, `@Ignore` or TestNG's `@Ignore` and recorded in a data table as an action item: rework the test not to depend on private members, then re-enable it. A usage outside a test method, such as in a setup method or a class-level annotation, disables the whole class.
 * [org.openrewrite.java.testing.mockito.ExcludeMockitoAllReplacingPowerMock](/user-documentation/recipes/recipe-catalog/java/testing/mockito/excludemockitoallreplacingpowermock.md)
   * **Exclude a transitive `mockito-all` from modules that move off PowerMock**
-  * Excludes `mockito-all` from the dependencies that bring it into a module that depends on the PowerMock Mockito API. `mockito-all` is a 1.x-only uber jar with its own `org.mockito.Mockito`, which shadows the one of the Mockito 3.x that replaces PowerMock wherever it comes first on the classpath, so that `Mockito.mockStatic` and `MockedStatic` do not resolve. The Hamcrest 1.1 and Objenesis classes bundled in `mockito-all` go with it. Only the Maven dependencies declared in the module itself are excluded from, not those it inherits from a parent that does not depend on PowerMock. Where `UpgradeMockitoCoreReplacingPowerMock` runs again in a later cycle, it pairs the exclusion with one of `mockito-core`, which is harmless as the module declares the Mockito that replaces PowerMock.
+  * Excludes `mockito-all` from the dependencies that bring it into a module that depends on the PowerMock Mockito API. `mockito-all` is a 1.x-only uber jar with its own `org.mockito.Mockito`, which shadows the one of the Mockito 3.x that replaces PowerMock wherever it comes first on the classpath, so that `Mockito.mockStatic` and `MockedStatic` do not resolve. The Hamcrest 1.1 and Objenesis classes bundled in `mockito-all` go with it. Only the Maven dependencies declared in the module itself are excluded from, not those it inherits from a parent that does not depend on PowerMock. Where `ChangeMockitoAllToMockitoCoreReplacingPowerMock` runs again in a later cycle, it pairs the exclusion with one of `mockito-core`, which is harmless as the module declares the Mockito that replaces PowerMock.
 * [org.openrewrite.java.testing.mockito.FlagUnsupportedPowerMockUsage](/user-documentation/recipes/recipe-catalog/java/testing/mockito/flagunsupportedpowermockusage.md)
   * **Flag PowerMock usage that cannot be migrated to Mockito**
   * Adds a comment to PowerMock usages that cannot be migrated to Mockito, such as `MemberModifier.suppress`, `PowerMockito.verifyNew` or stubbing private methods. Repositories with such usage are left on PowerMock by `ReplacePowerMockito`, so these need to be migrated manually first.
@@ -9916,7 +10204,7 @@ _303 recipes_
   * In Mockito 3+, `thenThrow()` validates that checked exceptions are declared in the mocked method's `throws` clause. This recipe replaces checked exception class literals in `thenThrow()` calls with `RuntimeException.class` when the mocked method does not declare the exception.
 * [org.openrewrite.java.testing.mockito.UpgradeMockitoCoreReplacingPowerMock](/user-documentation/recipes/recipe-catalog/java/testing/mockito/upgrademockitocorereplacingpowermock.md)
   * **Upgrade `mockito-core` along with the Mockito that replaces PowerMock**
-  * Upgrades an explicitly declared `mockito-core` to at least the Mockito 3.x that replaces the PowerMock Mockito API. An older `mockito-core` would otherwise take precedence over the one `mockito-inline` depends on, so that `Mockito.mockStatic` and `MockedStatic` do not resolve. `mockito-all` is a 1.x-only uber jar with no 3.x release, so it becomes `mockito-core` first. A declared `mockito-inline` is upgraded as well, as before 3.4 it depends on a `mockito-core` without `Mockito.mockStatic`.
+  * Upgrades a declared `mockito-core` to at least the Mockito 3.x that replaces the PowerMock Mockito API. An older `mockito-core` would otherwise take precedence over the one `mockito-inline` depends on, so that `Mockito.mockStatic` and `MockedStatic` do not resolve. A declared `mockito-inline` is upgraded as well, as before 3.4 it depends on a `mockito-core` without `Mockito.mockStatic`. This runs after the PowerMock dependencies are replaced, so that it also upgrades the Mockito artifact that replaces them. A version managed by a BOM, such as the Mockito 3.3 of Spring Boot 2.2 and 2.3, is overridden as well, through its `mockito.version` property where the BOM uses one, so that the other Mockito artifacts it manages stay aligned.
 * [org.openrewrite.java.testing.mockito.VerifyZeroToNoMoreInteractions](/user-documentation/recipes/recipe-catalog/java/testing/mockito/verifyzerotonomoreinteractions.md)
   * **Replace `verifyZeroInteractions()` with `verifyNoMoreInteractions()`**
   * Replaces `verifyZeroInteractions()` with `verifyNoMoreInteractions()` in Mockito tests when migration when using a Mockito version &lt; 3.x.
@@ -10010,6 +10298,9 @@ _303 recipes_
 * [org.openrewrite.java.testing.wiremock.MigrateContentTypeHeaderCharset](/user-documentation/recipes/recipe-catalog/java/testing/wiremock/migratecontenttypeheadercharset.md)
   * **Preserve the UTF-8 default of `ContentTypeHeader.charset()`**
   * WireMock 3's `ContentTypeHeader.charset()` fell back to `UTF_8` when the header was missing or carried no charset, while 4.x returns an `Optional` that is empty in those cases. Append `orElse(StandardCharsets.UTF_8)` so the value stays what it was; reaching for `get()` or `orElse(null)` instead, which is the easy way to make the compiler happy, would turn a missing charset into an exception or a null.
+* [org.openrewrite.java.testing.wiremock.MigrateJettyEE10ToEE11](/user-documentation/recipes/recipe-catalog/java/testing/wiremock/migratejettyee10toee11.md)
+  * **Move Jetty EE10 usages to EE11 alongside `wiremock-jetty12`**
+  * WireMock 3's `wiremock-jetty12` module ran on Jetty's EE10 servlet environment, whereas WireMock 4.x runs on EE11, so EE10 types such as the `ServletContextHandler` handed to `NotFoundHandler` no longer line up. Move EE10 packages and dependencies over to their EE11 counterparts, but only in modules depending on `wiremock-jetty12`, where EE10 arrived through WireMock in the first place.
 * [org.openrewrite.java.testing.wiremock.MigrateRequestMethodIsOneOf](/user-documentation/recipes/recipe-catalog/java/testing/wiremock/migraterequestmethodisoneof.md)
   * **Migrate `RequestMethod.isOneOf` to the matcher it became**
   * WireMock 3's `isOneOf` was an instance method answering whether the method was one of those given. In 4.x it is static and builds a matcher instead, so `method.isOneOf(GET, POST)` quietly stops being a boolean. Rewrite it as `RequestMethod.isOneOf(GET, POST).match(method).isExactMatch()`, which asks the same question of the new API.

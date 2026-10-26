@@ -1,6 +1,6 @@
 ---
-title: "Replace `= NULL` and `&lt;&gt; NULL` with `IS NULL` and `IS NOT NULL`"
-sidebar_label: "Replace `= NULL` and `&lt;&gt; NULL` with `IS NULL` and `IS NOT NULL`"
+title: "Replace `= NULL` and `<> NULL` with `IS NULL` and `IS NOT NULL`"
+sidebar_label: "Replace `= NULL` and `<> NULL` with `IS NULL` and `IS NOT NULL`"
 hide_title: true
 ---
 

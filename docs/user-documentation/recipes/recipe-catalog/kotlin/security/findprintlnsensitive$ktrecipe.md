@@ -1,6 +1,6 @@
 ---
-title: "Find `println(&quot;... password ...&quot;)` patterns"
-sidebar_label: "Find `println(&quot;... password ...&quot;)` patterns"
+title: "Find `println(\"... password ...\")` patterns"
+sidebar_label: "Find `println(\"... password ...\")` patterns"
 hide_title: true
 ---
 

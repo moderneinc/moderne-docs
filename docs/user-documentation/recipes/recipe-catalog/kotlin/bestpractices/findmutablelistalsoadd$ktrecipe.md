@@ -1,6 +1,6 @@
 ---
-title: "Find `mutableListOf&lt;T&gt;().also { it.add(x) }` patterns"
-sidebar_label: "Find `mutableListOf&lt;T&gt;().also { it.add(x) }` patterns"
+title: "Find `mutableListOf<T>().also { it.add(x) }` patterns"
+sidebar_label: "Find `mutableListOf<T>().also { it.add(x) }` patterns"
 hide_title: true
 ---
 

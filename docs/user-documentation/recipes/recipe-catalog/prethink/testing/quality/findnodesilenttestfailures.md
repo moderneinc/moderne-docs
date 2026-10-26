@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find Node.js silent test failures"}
-  description={"Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions missing expect() calls."}
+  description={"Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions without any assertion."}
   fqName={"io.moderne.prethink.testing.quality.FindNodeSilentTestFailures"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find Node.js silent test failures</RecipeHeader.Title>
 
-<RecipeHeader.Description>Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions missing expect() calls.</RecipeHeader.Description>
+<RecipeHeader.Description>Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions without any assertion.</RecipeHeader.Description>
 
 </RecipeHeader>
 

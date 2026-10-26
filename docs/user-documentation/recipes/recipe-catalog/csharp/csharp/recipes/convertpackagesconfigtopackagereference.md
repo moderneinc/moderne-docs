@@ -1,6 +1,6 @@
 ---
-title: "Convert `packages.config` to `&lt;PackageReference&gt;`"
-sidebar_label: "Convert `packages.config` to `&lt;PackageReference&gt;`"
+title: "Convert `packages.config` to `<PackageReference>`"
+sidebar_label: "Convert `packages.config` to `<PackageReference>`"
 hide_title: true
 ---
 

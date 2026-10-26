@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find Node.js ghost tests"}
-  description={"Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), test.skip(), it.skip(), and describe.skip() calls that lack a documented reason in their description."}
+  description={"Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), xdescribe(), test.skip(), it.skip(), describe.skip() and their .each and chained forms, and node:test and tap tests registered with { skip: true } or { todo: true }, that lack a documented reason in their description."}
   fqName={"io.moderne.prethink.testing.quality.FindNodeGhostTests"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find Node.js ghost tests</RecipeHeader.Title>
 
-<RecipeHeader.Description>Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), test.skip(), it.skip(), and describe.skip() calls that lack a documented reason in their description.</RecipeHeader.Description>
+<RecipeHeader.Description>Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), xdescribe(), test.skip(), it.skip(), describe.skip() and their .each and chained forms, and node:test and tap tests registered with &#123; skip: true } or &#123; todo: true }, that lack a documented reason in their description.</RecipeHeader.Description>
 
 </RecipeHeader>
 

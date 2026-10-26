@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"json","before":"{\n  \"uuid\": \"8f4c3b1e-5d2a-4f6b-9c8d-1a2b3c4d5e6f\",\n  \"name\": \"get user\",\n  \"request\": {\n    \"method\": \"GET\",\n    \"url\": \"/user\"\n  },\n  \"response\": {\n    \"status\": 200\n  }\n}\n","after":"{\n  \"id\": \"8f4c3b1e-5d2a-4f6b-9c8d-1a2b3c4d5e6f\",\n  \"name\": \"get user\",\n  \"request\": {\n    \"method\": \"GET\",\n    \"url\": \"/user\"\n  },\n  \"response\": {\n    \"status\": 200\n  }\n}\n","diff":"--- src/test/resources/mappings/get-user.json\n+++ src/test/resources/mappings/get-user.json\n@@ -2,1 +2,1 @@\n{\n- \"uuid\": \"8f4c3b1e-5d2a-4f6b-9c8d-1a2b3c4d5e6f\",\n+ \"id\": \"8f4c3b1e-5d2a-4f6b-9c8d-1a2b3c4d5e6f\",\n  \"name\": \"get user\",\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.wiremock.MigrateStubMappingUuidToId","displayName":"Migrate the `uuid` field in WireMock stub mapping files to `id`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

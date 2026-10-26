@@ -1,6 +1,6 @@
 ---
-title: "Find `BigDecimal(&quot;...&quot;)` allocations inside loops"
-sidebar_label: "Find `BigDecimal(&quot;...&quot;)` allocations inside loops"
+title: "Find `BigDecimal(\"...\")` allocations inside loops"
+sidebar_label: "Find `BigDecimal(\"...\")` allocations inside loops"
 hide_title: true
 ---
 

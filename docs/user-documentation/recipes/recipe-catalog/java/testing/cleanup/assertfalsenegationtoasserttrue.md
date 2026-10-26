@@ -1,6 +1,6 @@
 ---
-title: "Replace JUnit `assertFalse(!&lt;boolean&gt;)` to `assertTrue(&lt;boolean&gt;)`"
-sidebar_label: "Replace JUnit `assertFalse(!&lt;boolean&gt;)` to `assertTrue(&lt;boolean&gt;)`"
+title: "Replace JUnit `assertFalse(!<boolean>)` to `assertTrue(<boolean>)`"
+sidebar_label: "Replace JUnit `assertFalse(!<boolean>)` to `assertTrue(<boolean>)`"
 hide_title: true
 ---
 

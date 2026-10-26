@@ -1,6 +1,6 @@
 ---
-title: "Prefer `new CopyOnWriteArrayList&lt;&gt;()`"
-sidebar_label: "Prefer `new CopyOnWriteArrayList&lt;&gt;()`"
+title: "Prefer `new CopyOnWriteArrayList<>()`"
+sidebar_label: "Prefer `new CopyOnWriteArrayList<>()`"
 hide_title: true
 ---
 

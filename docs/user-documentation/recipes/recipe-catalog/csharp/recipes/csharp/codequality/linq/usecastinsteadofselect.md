@@ -1,6 +1,6 @@
 ---
-title: "Use Cast&lt;T&gt;() instead of Select with cast"
-sidebar_label: "Use Cast&lt;T&gt;() instead of Select with cast"
+title: "Use Cast<T>() instead of Select with cast"
+sidebar_label: "Use Cast<T>() instead of Select with cast"
 hide_title: true
 ---
 

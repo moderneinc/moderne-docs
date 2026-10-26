@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `IOException` with `JacksonException` in catch clauses"}
-  description={"In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`."}
+  description={"In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`. Where the caught exception is passed on as an `IOException`, for instance to `new UncheckedIOException(e)`, it is wrapped in a `new IOException(e)`; such catches are left alone when the try block also throws `IOException` from non-Jackson code."}
   fqName={"org.openrewrite.java.jackson.IOExceptionToJacksonException"}
   languages={["Java"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `IOException` with `JacksonException` in catch clauses</RecipeHeader.Title>
 
-<RecipeHeader.Description>In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`.</RecipeHeader.Description>
+<RecipeHeader.Description>In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`. Where the caught exception is passed on as an `IOException`, for instance to `new UncheckedIOException(e)`, it is wrapped in a `new IOException(e)`; such catches are left alone when the try block also throws `IOException` from non-Jackson code.</RecipeHeader.Description>
 
 </RecipeHeader>
 

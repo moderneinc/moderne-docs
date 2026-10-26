@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.assertj.core.api.BDDAssertions.then;\n\nclass Test {\n    void test(int port) {\n        then(port).isNotEqualTo(0).as(\"Lifecycle port is zero\");\n    }\n}\n","after":"import static org.assertj.core.api.BDDAssertions.then;\n\nclass Test {\n    void test(int port) {\n        then(port).as(\"Lifecycle port is zero\").isNotEqualTo(0);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test(int port) {\n-       then(port).isNotEqualTo(0).as(\"Lifecycle port is zero\");\n+       then(port).as(\"Lifecycle port is zero\").isNotEqualTo(0);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.PlaceAssertJDescriptionBeforeAssertion","displayName":"Place AssertJ descriptions and failure messages before the assertion","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

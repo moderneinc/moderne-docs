@@ -1,6 +1,6 @@
 ---
-title: "Find `map { it.await() }` over `List&lt;Deferred&lt;T&gt;&gt;`"
-sidebar_label: "Find `map { it.await() }` over `List&lt;Deferred&lt;T&gt;&gt;`"
+title: "Find `map { it.await() }` over `List<Deferred<T>>`"
+sidebar_label: "Find `map { it.await() }` over `List<Deferred<T>>`"
 hide_title: true
 ---
 

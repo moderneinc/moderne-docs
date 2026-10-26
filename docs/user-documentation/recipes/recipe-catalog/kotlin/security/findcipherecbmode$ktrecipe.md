@@ -1,6 +1,6 @@
 ---
-title: "Find `Cipher.getInstance(&quot;AES/ECB/...&quot;)` calls"
-sidebar_label: "Find `Cipher.getInstance(&quot;AES/ECB/...&quot;)` calls"
+title: "Find `Cipher.getInstance(\"AES/ECB/...\")` calls"
+sidebar_label: "Find `Cipher.getInstance(\"AES/ECB/...\")` calls"
 hide_title: true
 ---
 

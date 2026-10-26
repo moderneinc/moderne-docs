@@ -1,6 +1,6 @@
 ---
-title: "Prefer `new ConcurrentHashMap&lt;&gt;()`"
-sidebar_label: "Prefer `new ConcurrentHashMap&lt;&gt;()`"
+title: "Prefer `new ConcurrentHashMap<>()`"
+sidebar_label: "Prefer `new ConcurrentHashMap<>()`"
 hide_title: true
 ---
 

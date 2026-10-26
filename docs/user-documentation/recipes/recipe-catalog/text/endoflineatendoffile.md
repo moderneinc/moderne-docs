@@ -33,7 +33,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>End of Line @ End of File (EOL @ EOF)</RecipeHeader.Title>
 
-<RecipeHeader.Description>Ensure that the file ends with the newline character.  *Note*: If this recipe modifies a file, it converts the file into plain text. As such, this recipe should be run after any recipe that modifies the language-specific LST.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Ensure that the file ends with the newline character.
+
+*Note*: If this recipe modifies a file, it converts the file into plain text. As such, this recipe should be run after any recipe that modifies the language-specific LST.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

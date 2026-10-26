@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Rule;\nimport org.junit.Test;\nimport org.powermock.modules.junit4.rule.PowerMockRule;\n\npublic class MyTest {\n    @Rule\n    public PowerMockRule rule = new PowerMockRule();\n\n    @Test\n    public void test() {\n    }\n}\n","after":"import org.junit.Test;\n\npublic class MyTest {\n\n    @Test\n    public void test() {\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.junit.Rule;\nimport org.junit.Test;\n@@ -3,1 +2,0 @@\nimport org.junit.Rule;\nimport org.junit.Test;\n-import org.powermock.modules.junit4.rule.PowerMockRule;\n\n@@ -6,2 +4,0 @@\n\npublic class MyTest {\n-   @Rule\n-   public PowerMockRule rule = new PowerMockRule();\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.RemovePowerMockRule","displayName":"Remove `PowerMockRule` fields","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

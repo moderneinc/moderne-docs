@@ -1,6 +1,6 @@
 ---
-title: "Find IEquatable&lt;T&gt; without Equals(object) override"
-sidebar_label: "Find IEquatable&lt;T&gt; without Equals(object) override"
+title: "Find IEquatable<T> without Equals(object) override"
+sidebar_label: "Find IEquatable<T> without Equals(object) override"
 hide_title: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Find `LoggerFactory.getLogger(&quot;some-name&quot;)` calls"
-sidebar_label: "Find `LoggerFactory.getLogger(&quot;some-name&quot;)` calls"
+title: "Find `LoggerFactory.getLogger(\"some-name\")` calls"
+sidebar_label: "Find `LoggerFactory.getLogger(\"some-name\")` calls"
 hide_title: true
 ---
 

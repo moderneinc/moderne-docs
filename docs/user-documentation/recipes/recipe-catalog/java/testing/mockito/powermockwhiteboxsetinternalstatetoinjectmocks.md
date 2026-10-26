@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"java","code":"class Converter {\n}\n\nclass Facade {\n    private Converter converter;\n}\n"},"variants":[{"language":"java","before":"import org.junit.Before;\nimport org.mockito.InjectMocks;\nimport org.mockito.Mock;\nimport org.powermock.reflect.Whitebox;\n\npublic class FacadeTest {\n\n    @InjectMocks\n    private Facade testObj;\n\n    @Mock\n    private Converter converter;\n\n    @Before\n    public void setUp() {\n        Whitebox.setInternalState(testObj, \"converter\", converter);\n    }\n}\n","after":"import org.junit.Before;\nimport org.mockito.InjectMocks;\nimport org.mockito.Mock;\n\npublic class FacadeTest {\n\n    @InjectMocks\n    private Facade testObj;\n\n    @Mock\n    private Converter converter;\n\n    @Before\n    public void setUp() {\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\nimport org.mockito.InjectMocks;\nimport org.mockito.Mock;\n-import org.powermock.reflect.Whitebox;\n\n@@ -16,1 +15,0 @@\n    @Before\n    public void setUp() {\n-       Whitebox.setInternalState(testObj, \"converter\", converter);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxSetInternalStateToInjectMocks","displayName":"Replace PowerMock `Whitebox.setInternalState()` with `@InjectMocks`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

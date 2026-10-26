@@ -1,6 +1,6 @@
 ---
-title: "Prefer `new LinkedHashMap&lt;&gt;()`"
-sidebar_label: "Prefer `new LinkedHashMap&lt;&gt;()`"
+title: "Prefer `new LinkedHashMap<>()`"
+sidebar_label: "Prefer `new LinkedHashMap<>()`"
 hide_title: true
 ---
 

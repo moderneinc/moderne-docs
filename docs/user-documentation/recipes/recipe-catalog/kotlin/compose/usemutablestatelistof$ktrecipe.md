@@ -1,6 +1,6 @@
 ---
-title: "Find `remember { mutableStateOf(emptyList&lt;T&gt;()) }` candidates for `mutableStateListOf`"
-sidebar_label: "Find `remember { mutableStateOf(emptyList&lt;T&gt;()) }` candidates for `mutableStateListOf`"
+title: "Find `remember { mutableStateOf(emptyList<T>()) }` candidates for `mutableStateListOf`"
+sidebar_label: "Find `remember { mutableStateOf(emptyList<T>()) }` candidates for `mutableStateListOf`"
 hide_title: true
 ---
 

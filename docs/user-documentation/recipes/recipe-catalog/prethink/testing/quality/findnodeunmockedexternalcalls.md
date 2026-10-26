@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find unmocked external calls in Node.js tests"}
-  description={"Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded."}
+  description={"Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded, as are calls whose dependency the file mocks with Jest, Vitest, sinon, nock, msw, fetch-mock, or axios-mock-adapter, and HTTP calls in files that start the server under test with listen()."}
   fqName={"io.moderne.prethink.testing.quality.FindNodeUnmockedExternalCalls"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find unmocked external calls in Node.js tests</RecipeHeader.Title>
 
-<RecipeHeader.Description>Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded.</RecipeHeader.Description>
+<RecipeHeader.Description>Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded, as are calls whose dependency the file mocks with Jest, Vitest, sinon, nock, msw, fetch-mock, or axios-mock-adapter, and HTTP calls in files that start the server under test with listen().</RecipeHeader.Description>
 
 </RecipeHeader>
 

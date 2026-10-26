@@ -1,6 +1,6 @@
 ---
-title: "Find `HostnameVerifier { _, _ -&gt; true }` lambdas"
-sidebar_label: "Find `HostnameVerifier { _, _ -&gt; true }` lambdas"
+title: "Find `HostnameVerifier { _, _ -> true }` lambdas"
+sidebar_label: "Find `HostnameVerifier { _, _ -> true }` lambdas"
 hide_title: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Replace `ICollectionFixture&lt;T&gt;` with `[ClassDataSource&lt;T&gt;]`"
-sidebar_label: "Replace `ICollectionFixture&lt;T&gt;` with `[ClassDataSource&lt;T&gt;]`"
+title: "Replace `ICollectionFixture<T>` with `[ClassDataSource<T>]`"
+sidebar_label: "Replace `ICollectionFixture<T>` with `[ClassDataSource<T>]`"
 hide_title: true
 ---
 

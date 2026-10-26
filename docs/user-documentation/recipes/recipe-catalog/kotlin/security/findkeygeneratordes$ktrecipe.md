@@ -1,6 +1,6 @@
 ---
-title: "Find `KeyGenerator.getInstance(&quot;DES&quot;)` calls"
-sidebar_label: "Find `KeyGenerator.getInstance(&quot;DES&quot;)` calls"
+title: "Find `KeyGenerator.getInstance(\"DES\")` calls"
+sidebar_label: "Find `KeyGenerator.getInstance(\"DES\")` calls"
 hide_title: true
 ---
 

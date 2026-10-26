@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate to Maven 3.10"}
-  description={"Migrates a project to Maven 3.10. Maven 3.10 rejects some POMs that earlier Maven 3 versions built with a warning, such as POMs with duplicate dependency or plugin declarations. This recipe fixes those POMs and updates an existing Maven wrapper to Maven 3.10."}
+  description={"Migrates a project to Maven 3.10. Maven 3.10 rejects some POMs that earlier Maven 3 versions built with a warning, such as POMs with duplicate dependency or plugin declarations, or with a parent `relativePath` that holds coordinates instead of a path. This recipe fixes those POMs, updates an existing Maven wrapper to Maven 3.10, and then removes encoding and output timestamp properties that equal the Maven 3.10 super POM defaults."}
   fqName={"org.openrewrite.maven.MigrateToMaven3_10"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate to Maven 3.10</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates a project to Maven 3.10. Maven 3.10 rejects some POMs that earlier Maven 3 versions built with a warning, such as POMs with duplicate dependency or plugin declarations. This recipe fixes those POMs and updates an existing Maven wrapper to Maven 3.10.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates a project to Maven 3.10. Maven 3.10 rejects some POMs that earlier Maven 3 versions built with a warning, such as POMs with duplicate dependency or plugin declarations, or with a parent `relativePath` that holds coordinates instead of a path. This recipe fixes those POMs, updates an existing Maven wrapper to Maven 3.10, and then removes encoding and output timestamp properties that equal the Maven 3.10 super POM defaults.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Remove duplicate plugin declarations","href":"/user-documentation/recipes/recipe-catalog/maven/removeduplicateplugindeclarations/"},{"name":"Remove duplicate Maven dependencies","href":"/user-documentation/recipes/recipe-catalog/maven/removeduplicatedependencies/"},{"name":"Update Maven wrapper","href":"/user-documentation/recipes/recipe-catalog/maven/updatemavenwrapper/"}]}>
+<RecipeList recipes={[{"name":"Remove duplicate plugin declarations","href":"/user-documentation/recipes/recipe-catalog/maven/removeduplicateplugindeclarations/"},{"name":"Remove duplicate Maven dependencies","href":"/user-documentation/recipes/recipe-catalog/maven/removeduplicatedependencies/"},{"name":"Remove invalid parent `relativePath`","href":"/user-documentation/recipes/recipe-catalog/maven/removeinvalidparentrelativepath/"},{"name":"Update Maven wrapper","href":"/user-documentation/recipes/recipe-catalog/maven/updatemavenwrapper/"},{"name":"Remove redundant properties","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantproperties/"},{"name":"Remove redundant properties","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantproperties/"},{"name":"Remove redundant properties","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantproperties/"}]}>
 
 ## Definition
 

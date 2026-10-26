@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.github.tomakehurst.wiremock.http.RequestMethod;\n\nclass Methods {\n    boolean readOnly(RequestMethod method) {\n        return method.isOneOf(RequestMethod.GET, RequestMethod.HEAD);\n    }\n}\n","after":"import com.github.tomakehurst.wiremock.http.RequestMethod;\n\nclass Methods {\n    boolean readOnly(RequestMethod method) {\n        return RequestMethod.isOneOf(RequestMethod.GET, RequestMethod.HEAD).match(method).isExactMatch();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Methods {\n    boolean readOnly(RequestMethod method) {\n-       return method.isOneOf(RequestMethod.GET, RequestMethod.HEAD);\n+       return RequestMethod.isOneOf(RequestMethod.GET, RequestMethod.HEAD).match(method).isExactMatch();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.wiremock.MigrateRequestMethodIsOneOf","displayName":"Migrate `RequestMethod.isOneOf` to the matcher it became","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

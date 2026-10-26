@@ -1,6 +1,6 @@
 ---
-title: "Find `s = s + &quot;...&quot;` string concatenation inside loops"
-sidebar_label: "Find `s = s + &quot;...&quot;` string concatenation inside loops"
+title: "Find `s = s + \"...\"` string concatenation inside loops"
+sidebar_label: "Find `s = s + \"...\"` string concatenation inside loops"
 hide_title: true
 ---
 

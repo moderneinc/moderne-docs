@@ -28,7 +28,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remediate server-side request forgery (SSRF)</RecipeHeader.Title>
 
-<RecipeHeader.Description>Inserts a guard that validates URLs constructed from user-controlled input do not resolve to internal, reserved, or otherwise unsafe network addresses, blocking server-side request forgery (SSRF) attacks. The block list covers IPv4 and IPv6, including IPv4-mapped IPv6 (`::ffff:0:0/96`), IPv6 ULA (`fc00::/7`), NAT64 (`64:ff9b::/96`), 6to4 (`2002::/16`), and Teredo (`2001::/32`) — all of which embed or translate to addresses that would otherwise bypass a naïve `isSiteLocalAddress` / `isLoopbackAddress` check.  The guard does not by itself prevent DNS rebinding. `URL.openConnection()` re-resolves the host at connect time, so a rapidly shifting authoritative DNS response can answer with a public IP during validation and an internal IP at connect time. Closing this time-of-check / time-of-use window requires binding the TCP connection to the validated IP literal — typically via a hardened HTTP client with a custom DNS resolver (`HttpClient.Builder`, Apache HttpClient's `DnsResolver`, OkHttp's `Dns`, etc.) — and is HTTP-client-specific, so it is out of scope for this recipe.  The block list reflects IANA special-use registries at the time of this recipe's release and is not, and cannot be, permanently complete. New special-use ranges are assigned periodically — `3fff::/20` was added as IPv6 documentation space in 2024 (RFC 9637), for example — so the list will need ongoing maintenance to keep pace with the IANA IPv4 and IPv6 Special-Purpose Address Registries.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Inserts a guard that validates URLs constructed from user-controlled input do not resolve to internal, reserved, or otherwise unsafe network addresses, blocking server-side request forgery (SSRF) attacks. The block list covers IPv4 and IPv6, including IPv4-mapped IPv6 (`::ffff:0:0/96`), IPv6 ULA (`fc00::/7`), NAT64 (`64:ff9b::/96`), 6to4 (`2002::/16`), and Teredo (`2001::/32`) — all of which embed or translate to addresses that would otherwise bypass a naïve `isSiteLocalAddress` / `isLoopbackAddress` check.
+
+The guard does not by itself prevent DNS rebinding. `URL.openConnection()` re-resolves the host at connect time, so a rapidly shifting authoritative DNS response can answer with a public IP during validation and an internal IP at connect time. Closing this time-of-check / time-of-use window requires binding the TCP connection to the validated IP literal — typically via a hardened HTTP client with a custom DNS resolver (`HttpClient.Builder`, Apache HttpClient's `DnsResolver`, OkHttp's `Dns`, etc.) — and is HTTP-client-specific, so it is out of scope for this recipe.
+
+The block list reflects IANA special-use registries at the time of this recipe's release and is not, and cannot be, permanently complete. New special-use ranges are assigned periodically — `3fff::/20` was added as IPv6 documentation space in 2024 (RFC 9637), for example — so the list will need ongoing maintenance to keep pace with the IANA IPv4 and IPv6 Special-Purpose Address Registries.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

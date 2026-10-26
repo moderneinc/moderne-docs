@@ -7033,7 +7033,7 @@ _138 recipes_
   * Identify security middleware in Node.js applications. Detects cors, helmet, passport, and JWT middleware usage.
 * [io.moderne.prethink.calm.FindNodeTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodetestcoverage.md)
   * **Find Node.js test coverage**
-  * Identify test methods in Jest, Mocha, and Vitest test files. Detects describe(), it(), and test() blocks and populates the TestMapping table.
+  * Identify test methods in Jest, Mocha, Vitest, Jasmine, node:test, and tap test files. Detects describe(), it(), and test() blocks, including .only, .skip, .concurrent, and .each variants and t.test() subtests, and populates the TestMapping table.
 * [io.moderne.prethink.calm.FindPrismaUsage](/user-documentation/recipes/recipe-catalog/prethink/calm/findprismausage.md)
   * **Find Prisma usage**
   * Identify Prisma ORM usage in Node.js applications. Detects prisma.model.findMany() and similar Prisma Client query patterns.
@@ -7213,22 +7213,22 @@ _138 recipes_
   * Detect net/http, os.Open, net.Dial, sql.Open calls directly in Go tests.
 * [io.moderne.prethink.testing.quality.FindNodeFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeflakytestpatterns.md)
   * **Find Node.js flaky test patterns**
-  * Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval), prototype mutation, and shared mutable state (module-scope let/var declarations).
+  * Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval) without fake timers, prototype mutation, and shared mutable state (module-scope let/var declarations).
 * [io.moderne.prethink.testing.quality.FindNodeFragileTestData](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodefragiletestdata.md)
   * **Find Node.js fragile test data**
   * Detect hardcoded dates, timing-dependent assertions, and hardcoded ports in JavaScript and TypeScript test files.
 * [io.moderne.prethink.testing.quality.FindNodeGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeghosttests.md)
   * **Find Node.js ghost tests**
-  * Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), test.skip(), it.skip(), and describe.skip() calls that lack a documented reason in their description.
+  * Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), xdescribe(), test.skip(), it.skip(), describe.skip() and their .each and chained forms, and node:test and tap tests registered with \{ skip: true \} or \{ todo: true \}, that lack a documented reason in their description.
 * [io.moderne.prethink.testing.quality.FindNodeSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodesilenttestfailures.md)
   * **Find Node.js silent test failures**
-  * Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions missing expect() calls.
+  * Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions without any assertion.
 * [io.moderne.prethink.testing.quality.FindNodeTestCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodetestcodesmells.md)
   * **Find Node.js test code smells**
   * Detect code smells in JavaScript and TypeScript test files including empty catch blocks and magic numbers.
 * [io.moderne.prethink.testing.quality.FindNodeUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeunmockedexternalcalls.md)
   * **Find unmocked external calls in Node.js tests**
-  * Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded.
+  * Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded, as are calls whose dependency the file mocks with Jest, Vitest, sinon, nock, msw, fetch-mock, or axios-mock-adapter, and HTTP calls in files that start the server under test with listen().
 * [io.moderne.prethink.testing.quality.FindOverlyBroadMocks](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findoverlybroadmocks.md)
   * **Find overly broad mocks**
   * Detect Mockito stubbing or verification calls that use 3 or more any() matchers, which can hide incorrect arguments and reduce test effectiveness.

@@ -1,6 +1,6 @@
 ---
-title: "Find `URI(&quot;...&quot;)` allocations inside loops"
-sidebar_label: "Find `URI(&quot;...&quot;)` allocations inside loops"
+title: "Find `URI(\"...\")` allocations inside loops"
+sidebar_label: "Find `URI(\"...\")` allocations inside loops"
 hide_title: true
 ---
 

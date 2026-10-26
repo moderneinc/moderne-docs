@@ -1,6 +1,6 @@
 ---
-title: "Find Spring Data repository methods returning `Optional&lt;T&gt;`"
-sidebar_label: "Find Spring Data repository methods returning `Optional&lt;T&gt;`"
+title: "Find Spring Data repository methods returning `Optional<T>`"
+sidebar_label: "Find Spring Data repository methods returning `Optional<T>`"
 hide_title: true
 ---
 

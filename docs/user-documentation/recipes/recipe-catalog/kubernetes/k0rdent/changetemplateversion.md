@@ -28,7 +28,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Change k0rdent template version</RecipeHeader.Title>
 
-<RecipeHeader.Description>Move a k0rdent `ClusterTemplate`, `ProviderTemplate` or `ServiceTemplate` to a new chart version, taking its name and everything that points at that name along with it.  k0rdent encodes the chart version in the template's `metadata.name`, so a version bump renames the resource: `aws-standalone-cp-1-0-42` becomes `aws-standalone-cp-1-0-43`. That name is referenced from `ClusterDeployment.spec.template`, from `services[].template` on a `ClusterDeployment` or `MultiClusterService`, from `Release.spec.kcm.template`, `spec.regional.template`, `spec.capi.template` and `spec.providers[].template`, from `spec.core.kcm.template`, `spec.core.capi.template` and `spec.providers[].template` on a `Management` or `Region`, and from the `supportedTemplates` of a `ClusterTemplateChain` or `ServiceTemplateChain`. All of them move together here, along with any file whose name encodes the template name, because a rename that misses one of them leaves a reference the controller cannot resolve.  A template in a file that renders through a template engine is reported and left alone, and so are its referrers: its name is whatever the engine produces, so nothing can be moved without stranding the rest.  This changes the template's own `spec.helm.chartSpec.version` too, but not the chart it points at. Run `org.openrewrite.kubernetes.helm.ChangeChartVersion` alongside it to move the chart's own `Chart.yaml`, the charts that depend on it, and any Flux `HelmRelease`.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Move a k0rdent `ClusterTemplate`, `ProviderTemplate` or `ServiceTemplate` to a new chart version, taking its name and everything that points at that name along with it.
+
+k0rdent encodes the chart version in the template's `metadata.name`, so a version bump renames the resource: `aws-standalone-cp-1-0-42` becomes `aws-standalone-cp-1-0-43`. That name is referenced from `ClusterDeployment.spec.template`, from `services[].template` on a `ClusterDeployment` or `MultiClusterService`, from `Release.spec.kcm.template`, `spec.regional.template`, `spec.capi.template` and `spec.providers[].template`, from `spec.core.kcm.template`, `spec.core.capi.template` and `spec.providers[].template` on a `Management` or `Region`, and from the `supportedTemplates` of a `ClusterTemplateChain` or `ServiceTemplateChain`. All of them move together here, along with any file whose name encodes the template name, because a rename that misses one of them leaves a reference the controller cannot resolve.
+
+A template in a file that renders through a template engine is reported and left alone, and so are its referrers: its name is whatever the engine produces, so nothing can be moved without stranding the rest.
+
+This changes the template's own `spec.helm.chartSpec.version` too, but not the chart it points at. Run `org.openrewrite.kubernetes.helm.ChangeChartVersion` alongside it to move the chart's own `Chart.yaml`, the charts that depend on it, and any Flux `HelmRelease`.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

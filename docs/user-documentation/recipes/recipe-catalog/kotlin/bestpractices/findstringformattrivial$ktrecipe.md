@@ -1,6 +1,6 @@
 ---
-title: "Find trivial `String.format(&quot;%s&quot;, x)` calls"
-sidebar_label: "Find trivial `String.format(&quot;%s&quot;, x)` calls"
+title: "Find trivial `String.format(\"%s\", x)` calls"
+sidebar_label: "Find trivial `String.format(\"%s\", x)` calls"
 hide_title: true
 ---
 

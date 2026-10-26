@@ -1,6 +1,6 @@
 ---
-title: "Simplify Nullable&lt;T&gt; to T?"
-sidebar_label: "Simplify Nullable&lt;T&gt; to T?"
+title: "Simplify Nullable<T> to T?"
+sidebar_label: "Simplify Nullable<T> to T?"
 hide_title: true
 ---
 

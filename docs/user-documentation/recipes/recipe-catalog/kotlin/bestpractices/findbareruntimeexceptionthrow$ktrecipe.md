@@ -1,6 +1,6 @@
 ---
-title: "Find `throw RuntimeException(&quot;…&quot;)` calls"
-sidebar_label: "Find `throw RuntimeException(&quot;…&quot;)` calls"
+title: "Find `throw RuntimeException(\"…\")` calls"
+sidebar_label: "Find `throw RuntimeException(\"…\")` calls"
 hide_title: true
 ---
 

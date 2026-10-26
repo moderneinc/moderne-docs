@@ -1,6 +1,6 @@
 ---
-title: "Find `mutableMapOf&lt;K, V&gt;()` allocations inside loops"
-sidebar_label: "Find `mutableMapOf&lt;K, V&gt;()` allocations inside loops"
+title: "Find `mutableMapOf<K, V>()` allocations inside loops"
+sidebar_label: "Find `mutableMapOf<K, V>()` allocations inside loops"
 hide_title: true
 ---
 

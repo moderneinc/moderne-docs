@@ -1,6 +1,6 @@
 ---
-title: "Find `IClassFixture&lt;T&gt;` needing TUnit migration"
-sidebar_label: "Find `IClassFixture&lt;T&gt;` needing TUnit migration"
+title: "Find `IClassFixture<T>` needing TUnit migration"
+sidebar_label: "Find `IClassFixture<T>` needing TUnit migration"
 hide_title: true
 ---
 

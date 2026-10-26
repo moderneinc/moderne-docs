@@ -1,6 +1,6 @@
 ---
-title: "Use `@Identifier(&quot;default-kafka-broker&quot;)`"
-sidebar_label: "Use `@Identifier(&quot;default-kafka-broker&quot;)`"
+title: "Use `@Identifier(\"default-kafka-broker\")`"
+sidebar_label: "Use `@Identifier(\"default-kafka-broker\")`"
 hide_title: true
 ---
 

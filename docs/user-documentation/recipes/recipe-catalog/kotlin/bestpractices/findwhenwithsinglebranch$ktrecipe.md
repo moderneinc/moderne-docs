@@ -1,6 +1,6 @@
 ---
-title: "Find `when (x) { A -&gt; … }` with a single branch"
-sidebar_label: "Find `when (x) { A -&gt; … }` with a single branch"
+title: "Find `when (x) { A -> … }` with a single branch"
+sidebar_label: "Find `when (x) { A -> … }` with a single branch"
 hide_title: true
 ---
 

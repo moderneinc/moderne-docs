@@ -1,6 +1,6 @@
 ---
-title: "Find Span&lt;char&gt; equality that should use SequenceEqual"
-sidebar_label: "Find Span&lt;char&gt; equality that should use SequenceEqual"
+title: "Find Span<char> equality that should use SequenceEqual"
+sidebar_label: "Find Span<char> equality that should use SequenceEqual"
 hide_title: true
 ---
 

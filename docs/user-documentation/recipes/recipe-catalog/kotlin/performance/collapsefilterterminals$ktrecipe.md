@@ -1,6 +1,6 @@
 ---
-title: "Collapse `filter { p }.&lt;terminal&gt;()` chains"
-sidebar_label: "Collapse `filter { p }.&lt;terminal&gt;()` chains"
+title: "Collapse `filter { p }.<terminal>()` chains"
+sidebar_label: "Collapse `filter { p }.<terminal>()` chains"
 hide_title: true
 ---
 

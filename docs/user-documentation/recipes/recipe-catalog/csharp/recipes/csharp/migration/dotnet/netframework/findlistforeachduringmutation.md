@@ -1,6 +1,6 @@
 ---
-title: "Find `List&lt;T&gt;.ForEach` modification-during-enumeration change"
-sidebar_label: "Find `List&lt;T&gt;.ForEach` modification-during-enumeration change"
+title: "Find `List<T>.ForEach` modification-during-enumeration change"
+sidebar_label: "Find `List<T>.ForEach` modification-during-enumeration change"
 hide_title: true
 ---
 

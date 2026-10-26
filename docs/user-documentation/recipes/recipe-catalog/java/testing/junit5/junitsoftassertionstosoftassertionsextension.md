@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.assertj.core.api.JUnitSoftAssertions;\nimport org.junit.Rule;\nimport org.junit.Test;\n\npublic class SoftlyTest {\n    @Rule\n    public final JUnitSoftAssertions softly = new JUnitSoftAssertions();\n\n    @Test\n    public void multipleAssertions() {\n        softly.assertThat(\"foo\").isEqualTo(\"bar\");\n    }\n}\n","after":"import org.assertj.core.api.SoftAssertions;\nimport org.assertj.core.api.junit.jupiter.InjectSoftAssertions;\nimport org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;\nimport org.junit.Test;\nimport org.junit.jupiter.api.extension.ExtendWith;\n\n@ExtendWith(SoftAssertionsExtension.class)\npublic class SoftlyTest {\n    @InjectSoftAssertions\n    public SoftAssertions softly;\n\n    @Test\n    public void multipleAssertions() {\n        softly.assertThat(\"foo\").isEqualTo(\"bar\");\n    }\n}\n","diff":"@@ -1,2 +1,3 @@\n-import org.assertj.core.api.JUnitSoftAssertions;\n-import org.junit.Rule;\n+import org.assertj.core.api.SoftAssertions;\n+import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;\n+import org.assertj.core.api.junit.jupiter.SoftAssertionsExtension;\nimport org.junit.Test;\n@@ -4,0 +5,1 @@\nimport org.junit.Rule;\nimport org.junit.Test;\n+import org.junit.jupiter.api.extension.ExtendWith;\n\n@@ -5,0 +7,1 @@\nimport org.junit.Test;\n\n+@ExtendWith(SoftAssertionsExtension.class)\npublic class SoftlyTest {\n@@ -6,2 +9,2 @@\n\npublic class SoftlyTest {\n-   @Rule\n-   public final JUnitSoftAssertions softly = new JUnitSoftAssertions();\n+   @InjectSoftAssertions\n+   public SoftAssertions softly;\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.JUnitSoftAssertionsToSoftAssertionsExtension","displayName":"AssertJ `@Rule` soft assertions to `SoftAssertionsExtension`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

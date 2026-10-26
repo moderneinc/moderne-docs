@@ -33,7 +33,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Extract complex `super(..)` and `this(..)` arguments into local variables</RecipeHeader.Title>
 
-<RecipeHeader.Description>[JEP 513](https://openjdk.org/jeps/513) allows statements before an explicit `super(..)` or `this(..)` constructor invocation. When such a call computes one of its arguments through a method invocation or object creation, this recipe extracts the non-trivial arguments into local variables declared right before the call, surfacing the work done before construction.  This is a strictly behavior-preserving transformation: argument expressions are already evaluated before the delegate constructor body runs, and such an argument can never reference the instance under construction, so hoisting them into preceding statements changes neither the order of side effects nor the set of legal references. Arguments are extracted in their original left-to-right order, and trivial arguments (literals and local variable references, which have no side effects) are left in place. Statements that follow the constructor invocation are deliberately *not* moved, as reordering them relative to the delegate constructor's side effects could change behavior.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+[JEP 513](https://openjdk.org/jeps/513) allows statements before an explicit `super(..)` or `this(..)` constructor invocation. When such a call computes one of its arguments through a method invocation or object creation, this recipe extracts the non-trivial arguments into local variables declared right before the call, surfacing the work done before construction.
+
+This is a strictly behavior-preserving transformation: argument expressions are already evaluated before the delegate constructor body runs, and such an argument can never reference the instance under construction, so hoisting them into preceding statements changes neither the order of side effects nor the set of legal references. Arguments are extracted in their original left-to-right order, and trivial arguments (literals and local variable references, which have no side effects) are left in place. Statements that follow the constructor invocation are deliberately *not* moved, as reordering them relative to the delegate constructor's side effects could change behavior.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

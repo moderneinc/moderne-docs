@@ -1,6 +1,6 @@
 ---
-title: "Prefer `new LinkedHashSet&lt;&gt;()`"
-sidebar_label: "Prefer `new LinkedHashSet&lt;&gt;()`"
+title: "Prefer `new LinkedHashSet<>()`"
+sidebar_label: "Prefer `new LinkedHashSet<>()`"
 hide_title: true
 ---
 

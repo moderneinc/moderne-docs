@@ -1,6 +1,6 @@
 ---
-title: "Migrate `.p-fluid` to `&lt;p-fluid&gt;` wrapper"
-sidebar_label: "Migrate `.p-fluid` to `&lt;p-fluid&gt;` wrapper"
+title: "Migrate `.p-fluid` to `<p-fluid>` wrapper"
+sidebar_label: "Migrate `.p-fluid` to `<p-fluid>` wrapper"
 hide_title: true
 ---
 

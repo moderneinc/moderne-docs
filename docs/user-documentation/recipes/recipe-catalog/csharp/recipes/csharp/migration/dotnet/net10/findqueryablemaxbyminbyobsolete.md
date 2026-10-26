@@ -1,6 +1,6 @@
 ---
-title: "Find obsolete `Queryable.MaxBy`/`MinBy` with `IComparer&lt;TSource&gt;` (SYSLIB0061)"
-sidebar_label: "Find obsolete `Queryable.MaxBy`/`MinBy` with `IComparer&lt;TSource&gt;` (SYSLIB0061)"
+title: "Find obsolete `Queryable.MaxBy`/`MinBy` with `IComparer<TSource>` (SYSLIB0061)"
+sidebar_label: "Find obsolete `Queryable.MaxBy`/`MinBy` with `IComparer<TSource>` (SYSLIB0061)"
 hide_title: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Enum values should be compared with &quot;==&quot;"
-sidebar_label: "Enum values should be compared with &quot;==&quot;"
+title: "Enum values should be compared with \"==\""
+sidebar_label: "Enum values should be compared with \"==\""
 hide_title: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Use %n instead of \n in format strings"
-sidebar_label: "Use %n instead of \n in format strings"
+title: "Use %n instead of \\n in format strings"
+sidebar_label: "Use %n instead of \\n in format strings"
 hide_title: true
 ---
 

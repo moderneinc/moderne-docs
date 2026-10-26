@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"json","before":"{\n  \"request\": {\n    \"method\": \"GET\",\n    \"url\": \"/user\"\n  },\n  \"response\": {\n    \"status\": 200,\n    \"headers\": {\n      \"Content-Type\": [ \"text/plain\", \"application/json\" ]\n    },\n    \"body\": \"{}\"\n  }\n}\n","after":"{\n  \"request\": {\n    \"method\": \"GET\",\n    \"url\": \"/user\"\n  },\n  \"response\": {\n    \"status\": 200,\n    \"headers\": {\n      \"Content-Type\": \"application/json\"\n    },\n    \"body\": \"{}\"\n  }\n}\n","diff":"--- src/test/resources/mappings/get-user.json\n+++ src/test/resources/mappings/get-user.json\n@@ -9,1 +9,1 @@\n    \"status\": 200,\n    \"headers\": {\n-     \"Content-Type\": [ \"text/plain\", \"application/json\" ]\n+     \"Content-Type\": \"application/json\"\n    },\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.wiremock.RemoveDuplicateContentTypeStubHeader","displayName":"Keep a single `Content-Type` response header in WireMock stub files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

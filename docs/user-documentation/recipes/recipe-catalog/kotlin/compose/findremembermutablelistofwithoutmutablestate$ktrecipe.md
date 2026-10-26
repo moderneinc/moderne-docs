@@ -1,6 +1,6 @@
 ---
-title: "Find `remember { mutableListOf&lt;T&gt;() }` patterns"
-sidebar_label: "Find `remember { mutableListOf&lt;T&gt;() }` patterns"
+title: "Find `remember { mutableListOf<T>() }` patterns"
+sidebar_label: "Find `remember { mutableListOf<T>() }` patterns"
 hide_title: true
 ---
 

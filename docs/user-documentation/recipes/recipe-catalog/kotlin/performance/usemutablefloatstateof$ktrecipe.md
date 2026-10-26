@@ -1,6 +1,6 @@
 ---
-title: "Use `mutableFloatStateOf` instead of `mutableStateOf&lt;Float&gt;` in Compose"
-sidebar_label: "Use `mutableFloatStateOf` instead of `mutableStateOf&lt;Float&gt;` in Compose"
+title: "Use `mutableFloatStateOf` instead of `mutableStateOf<Float>` in Compose"
+sidebar_label: "Use `mutableFloatStateOf` instead of `mutableStateOf<Float>` in Compose"
 hide_title: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Find `hiltViewModel&lt;X&gt;()` calls inside `@Composable`"
-sidebar_label: "Find `hiltViewModel&lt;X&gt;()` calls inside `@Composable`"
+title: "Find `hiltViewModel<X>()` calls inside `@Composable`"
+sidebar_label: "Find `hiltViewModel<X>()` calls inside `@Composable`"
 hide_title: true
 ---
 

@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.react.migrate.upgrade-to-react-19","displayName":"Upgrade to React 19","npmPackage":"@openrewrite/recipes-react"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.react.migrate.upgrade-to-react-19","displayName":"Upgrade to React 19","npmPackage":"@openrewrite/recipes-react","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT"}]}}>
 
 ## Usage
 

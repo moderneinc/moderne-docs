@@ -28,7 +28,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate deprecated k0rdent `serviceSpec` fields</RecipeHeader.Title>
 
-<RecipeHeader.Description>Move the fields k0rdent deprecated on `spec.serviceSpec` into the `spec.serviceSpec.provider.config` blob that supersedes them, on `ClusterDeployment` and `MultiClusterService`. The nine that move are `syncMode`, `templateResourceRefs`, `policyRefs`, `driftIgnore`, `driftExclusions`, `priority`, `stopOnConflict`, `reload` and `continueOnError`, plus `createNamespace` and `replace` on each service's `helmOptions`, which move into `helmOptions.installOptions`.  `reload` is renamed to `reloader` on the way, because that is the key the state management provider unmarshals; a hand migration that keeps the old spelling produces a manifest the apiserver accepts and the controller ignores.  Fields are left where they are, and reported in a data table, when the move would change what the resource does: the document renders through Helm, so what is written is not what is applied; `provider.name` or `provider.config` is already set, in which case the controller is already ignoring the deprecated fields and moving them would switch settings on; `installOptions` already declares a different value; or the resource is declared against `k0rdent.mirantis.com/v1alpha1`, whose schema has no `provider` field at all, so the apiserver would prune whatever was written there.  The `provider.name` case is the subtle one. `StateManagementProviderConfigFromServiceSpec` folds the deprecated fields into a config blob only when neither `provider.name` nor `provider.config` is set; name it, and every deprecated field is discarded. Moving them into `provider.config` would hand a named provider a `syncMode`, `priority` or `reloader` it is not acting on today.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Move the fields k0rdent deprecated on `spec.serviceSpec` into the `spec.serviceSpec.provider.config` blob that supersedes them, on `ClusterDeployment` and `MultiClusterService`. The nine that move are `syncMode`, `templateResourceRefs`, `policyRefs`, `driftIgnore`, `driftExclusions`, `priority`, `stopOnConflict`, `reload` and `continueOnError`, plus `createNamespace` and `replace` on each service's `helmOptions`, which move into `helmOptions.installOptions`.
+
+`reload` is renamed to `reloader` on the way, because that is the key the state management provider unmarshals; a hand migration that keeps the old spelling produces a manifest the apiserver accepts and the controller ignores.
+
+Fields are left where they are, and reported in a data table, when the move would change what the resource does: the document renders through Helm, so what is written is not what is applied; `provider.name` or `provider.config` is already set, in which case the controller is already ignoring the deprecated fields and moving them would switch settings on; `installOptions` already declares a different value; or the resource is declared against `k0rdent.mirantis.com/v1alpha1`, whose schema has no `provider` field at all, so the apiserver would prune whatever was written there.
+
+The `provider.name` case is the subtle one. `StateManagementProviderConfigFromServiceSpec` folds the deprecated fields into a config blob only when neither `provider.name` nor `provider.config` is set; name it, and every deprecated field is discarded. Moving them into `provider.config` would hand a named provider a `syncMode`, `priority` or `reloader` it is not acting on today.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

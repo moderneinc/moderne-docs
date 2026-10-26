@@ -1818,7 +1818,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindNodeTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/calm/findnodetestcoverage.md)
   * **Find Node.js test coverage**
-  * Identify test methods in Jest, Mocha, and Vitest test files. Detects describe(), it(), and test() blocks and populates the TestMapping table.
+  * Identify test methods in Jest, Mocha, Vitest, Jasmine, node:test, and tap test files. Detects describe(), it(), and test() blocks, including .only, .skip, .concurrent, and .each variants and t.test() subtests, and populates the TestMapping table.
 
 ##### Data tables:
 
@@ -2350,7 +2350,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.testing.quality.FindNodeFlakyTestPatterns](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeflakytestpatterns.md)
   * **Find Node.js flaky test patterns**
-  * Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval), prototype mutation, and shared mutable state (module-scope let/var declarations).
+  * Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval) without fake timers, prototype mutation, and shared mutable state (module-scope let/var declarations).
 
 ##### Data tables:
 
@@ -2368,7 +2368,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.testing.quality.FindNodeGhostTests](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeghosttests.md)
   * **Find Node.js ghost tests**
-  * Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), test.skip(), it.skip(), and describe.skip() calls that lack a documented reason in their description.
+  * Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), xdescribe(), test.skip(), it.skip(), describe.skip() and their .each and chained forms, and node:test and tap tests registered with \{ skip: true \} or \{ todo: true \}, that lack a documented reason in their description.
 
 ##### Data tables:
 
@@ -2377,7 +2377,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.testing.quality.FindNodeSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodesilenttestfailures.md)
   * **Find Node.js silent test failures**
-  * Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions missing expect() calls.
+  * Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions without any assertion.
 
 ##### Data tables:
 
@@ -2395,7 +2395,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.testing.quality.FindNodeUnmockedExternalCalls](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeunmockedexternalcalls.md)
   * **Find unmocked external calls in Node.js tests**
-  * Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded.
+  * Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded, as are calls whose dependency the file mocks with Jest, Vitest, sinon, nock, msw, fetch-mock, or axios-mock-adapter, and HTTP calls in files that start the server under test with listen().
 
 ##### Data tables:
 
@@ -3334,47 +3334,55 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.javascript.AddDependency](/user-documentation/recipes/recipe-catalog/javascript/adddependency.md)
   * **Add npm dependency**
-  * Add an npm dependency to `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Add an npm dependency to `package.json` and regenerate the lock file natively, without executing the package manager. In a pnpm workspace with catalogs it writes what `pnpm add` writes under the workspace's `catalogMode` and `saveCatalogName`. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
   * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+  * **org.openrewrite.javascript.table.NodeDependencyEditsDeclined**: *Edits a recipe did not make, or that the package manager applies only in part, and why.*
 
 
 #### [org.openrewrite.javascript.ChangeDependency](/user-documentation/recipes/recipe-catalog/javascript/changedependency.md)
   * **Change npm dependency**
-  * Renames an npm dependency in `package.json` and optionally updates its version constraint. After modifying the package.json, the lock file is regenerated natively, without executing the package manager. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Renames an npm dependency in `package.json` and optionally updates its version constraint. A `catalog:` reference keeps its catalog, which gains the new name's entry. After modifying the package.json, the lock file is regenerated natively, without executing the package manager. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
   * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+  * **org.openrewrite.javascript.table.NodeDependencyEditsDeclined**: *Edits a recipe did not make, or that the package manager applies only in part, and why.*
+  * **org.openrewrite.javascript.table.NodeDependencyProtocolsSkipped**: *Dependencies a recipe left unchanged because their value is not a version range.*
 
 
 #### [org.openrewrite.javascript.RemoveDependency](/user-documentation/recipes/recipe-catalog/javascript/removedependency.md)
   * **Remove npm dependency**
-  * Remove an npm dependency from `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency does not exist in any scope, the recipe is a no-op.
+  * Remove an npm dependency from `package.json` and regenerate the lock file natively, without executing the package manager. A pnpm workspace with `cleanupUnusedCatalogs` also loses the catalog entries no project references any more. If the dependency does not exist in any scope, the recipe is a no-op.
 
 ##### Data tables:
 
   * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+  * **org.openrewrite.javascript.table.NodeDependencyEditsDeclined**: *Edits a recipe did not make, or that the package manager applies only in part, and why.*
 
 
 #### [org.openrewrite.javascript.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion.md)
   * **Upgrade npm dependency version**
-  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file natively, without executing the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file natively, without executing the package manager. Matching is by exact package name or glob pattern. A version range is replaced when it admits a version below the new range's lowest; one that already starts at or above it is left, and so is a `peerDependencies` range that admits every version the new one does. A `catalog:` reference is upgraded in its catalog entry by the same rule, and any other value is left as it is. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
   * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+  * **org.openrewrite.javascript.table.NodeDependencyEditsDeclined**: *Edits a recipe did not make, or that the package manager applies only in part, and why.*
+  * **org.openrewrite.javascript.table.NodeDependencyProtocolsSkipped**: *Dependencies a recipe left unchanged because their value is not a version range.*
 
 
 #### [org.openrewrite.javascript.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradetransitivedependencyversion.md)
   * **Upgrade transitive npm dependency**
-  * Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file natively, without executing the package manager. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
   * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+  * **org.openrewrite.javascript.table.NodeDependencyProtocolsSkipped**: *Dependencies a recipe left unchanged because their value is not a version range.*
+  * **org.openrewrite.javascript.table.NodeDependencyEditsDeclined**: *Edits a recipe did not make, or that the package manager applies only in part, and why.*
 
 
 #### [org.openrewrite.javascript.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/javascript/search/dependencyinsight.md)
@@ -3532,7 +3540,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.maven.MigrateToMaven4](/user-documentation/recipes/recipe-catalog/maven/migratetomaven4.md)
   * **Migrate to Maven 4**
-  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, runs the Maven 3.10 migration (which removes duplicate plugin and dependency declarations and updates an existing Maven wrapper to Maven 3.10), updates lifecycle phases, upgrades plugins known to fail under Maven 4, switches repository URLs to HTTPS, and replaces removed properties to ensure compatibility with Maven 4.
+  * Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, runs the Maven 3.10 migration (which removes duplicate plugin and dependency declarations, fixes invalid parent relative paths, updates an existing Maven wrapper to Maven 3.10, and removes properties that equal the new super POM defaults), updates lifecycle phases, upgrades plugins known to fail under Maven 4, switches repository URLs to HTTPS, and replaces removed properties to ensure compatibility with Maven 4.
 
 ##### Data tables:
 

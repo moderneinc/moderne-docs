@@ -1,6 +1,6 @@
 ---
-title: "Use Array.Empty&lt;T&gt;() instead of new T[0]"
-sidebar_label: "Use Array.Empty&lt;T&gt;() instead of new T[0]"
+title: "Use Array.Empty<T>() instead of new T[0]"
+sidebar_label: "Use Array.Empty<T>() instead of new T[0]"
 hide_title: true
 ---
 

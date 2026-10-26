@@ -1,6 +1,6 @@
 ---
-title: "Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks"
-sidebar_label: "Modernize `BufferedWriter` creation &amp; prevent file descriptor leaks"
+title: "Modernize `BufferedWriter` creation & prevent file descriptor leaks"
+sidebar_label: "Modernize `BufferedWriter` creation & prevent file descriptor leaks"
 hide_title: true
 ---
 

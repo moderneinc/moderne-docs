@@ -1,6 +1,6 @@
 ---
-title: "Compare string to `&quot;&quot;` instead of checking `len()`"
-sidebar_label: "Compare string to `&quot;&quot;` instead of checking `len()`"
+title: "Compare string to `\"\"` instead of checking `len()`"
+sidebar_label: "Compare string to `\"\"` instead of checking `len()`"
 hide_title: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Use Any() instead of Count() &gt; 0"
-sidebar_label: "Use Any() instead of Count() &gt; 0"
+title: "Use Any() instead of Count() > 0"
+sidebar_label: "Use Any() instead of Count() > 0"
 hide_title: true
 ---
 

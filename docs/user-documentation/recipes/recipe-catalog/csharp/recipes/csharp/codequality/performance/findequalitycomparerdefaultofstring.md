@@ -1,6 +1,6 @@
 ---
-title: "Find EqualityComparer&lt;string&gt;.Default usage"
-sidebar_label: "Find EqualityComparer&lt;string&gt;.Default usage"
+title: "Find EqualityComparer<string>.Default usage"
+sidebar_label: "Find EqualityComparer<string>.Default usage"
 hide_title: true
 ---
 

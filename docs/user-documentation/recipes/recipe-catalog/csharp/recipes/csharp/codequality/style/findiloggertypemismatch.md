@@ -1,6 +1,6 @@
 ---
-title: "Find ILogger&lt;T&gt; type parameter mismatch"
-sidebar_label: "Find ILogger&lt;T&gt; type parameter mismatch"
+title: "Find ILogger<T> type parameter mismatch"
+sidebar_label: "Find ILogger<T> type parameter mismatch"
 hide_title: true
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Find `mockk&lt;X&gt;()` / `mockk(...)` calls"
-sidebar_label: "Find `mockk&lt;X&gt;()` / `mockk(...)` calls"
+title: "Find `mockk<X>()` / `mockk(...)` calls"
+sidebar_label: "Find `mockk<X>()` / `mockk(...)` calls"
 hide_title: true
 ---
 

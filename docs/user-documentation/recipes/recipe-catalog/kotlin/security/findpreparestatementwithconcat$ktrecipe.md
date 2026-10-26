@@ -1,6 +1,6 @@
 ---
-title: "Find `prepareStatement(&quot;... &quot; + x)` calls"
-sidebar_label: "Find `prepareStatement(&quot;... &quot; + x)` calls"
+title: "Find `prepareStatement(\"... \" + x)` calls"
+sidebar_label: "Find `prepareStatement(\"... \" + x)` calls"
 hide_title: true
 ---
 

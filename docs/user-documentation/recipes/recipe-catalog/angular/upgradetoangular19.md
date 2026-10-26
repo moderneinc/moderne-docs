@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.angular.UpgradeToAngular19","displayName":"Upgrade to Angular 19","npmPackage":"@openrewrite/recipes-angular"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.angular.UpgradeToAngular19","displayName":"Upgrade to Angular 19","npmPackage":"@openrewrite/recipes-angular","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT"}]}}>
 
 ## Usage
 

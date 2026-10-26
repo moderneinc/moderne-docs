@@ -1,6 +1,6 @@
 ---
-title: "Find `Flow&lt;T&gt;` / `StateFlow&lt;T&gt;` parameters on `@Composable` functions"
-sidebar_label: "Find `Flow&lt;T&gt;` / `StateFlow&lt;T&gt;` parameters on `@Composable` functions"
+title: "Find `Flow<T>` / `StateFlow<T>` parameters on `@Composable` functions"
+sidebar_label: "Find `Flow<T>` / `StateFlow<T>` parameters on `@Composable` functions"
 hide_title: true
 ---
 

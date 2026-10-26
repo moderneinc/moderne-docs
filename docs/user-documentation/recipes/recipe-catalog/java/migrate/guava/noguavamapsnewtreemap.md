@@ -1,6 +1,6 @@
 ---
-title: "Prefer `new TreeMap&lt;&gt;()`"
-sidebar_label: "Prefer `new TreeMap&lt;&gt;()`"
+title: "Prefer `new TreeMap<>()`"
+sidebar_label: "Prefer `new TreeMap<>()`"
 hide_title: true
 ---
 

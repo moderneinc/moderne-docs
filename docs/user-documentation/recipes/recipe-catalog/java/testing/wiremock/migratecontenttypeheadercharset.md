@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.github.tomakehurst.wiremock.http.ContentTypeHeader;\n\nimport java.nio.charset.Charset;\n\nclass Headers {\n    Charset of(ContentTypeHeader header) {\n        return header.charset();\n    }\n}\n","after":"import com.github.tomakehurst.wiremock.http.ContentTypeHeader;\n\nimport java.nio.charset.Charset;\nimport java.nio.charset.StandardCharsets;\n\nclass Headers {\n    Charset of(ContentTypeHeader header) {\n        return header.charset().orElse(StandardCharsets.UTF_8);\n    }\n}\n","diff":"@@ -4,0 +4,1 @@\n\nimport java.nio.charset.Charset;\n+import java.nio.charset.StandardCharsets;\n\n@@ -7,1 +8,1 @@\nclass Headers {\n    Charset of(ContentTypeHeader header) {\n-       return header.charset();\n+       return header.charset().orElse(StandardCharsets.UTF_8);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.wiremock.MigrateContentTypeHeaderCharset","displayName":"Preserve the UTF-8 default of `ContentTypeHeader.charset()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

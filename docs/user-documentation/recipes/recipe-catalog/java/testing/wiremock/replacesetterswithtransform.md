@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.github.tomakehurst.wiremock.matching.RequestPattern;\nimport com.github.tomakehurst.wiremock.stubbing.StubMapping;\n\nclass Stubs {\n    StubMapping retarget(StubMapping mapping, RequestPattern pattern) {\n        mapping.setRequest(pattern);\n        return mapping;\n    }\n}\n","after":"import com.github.tomakehurst.wiremock.matching.RequestPattern;\nimport com.github.tomakehurst.wiremock.stubbing.StubMapping;\n\nclass Stubs {\n    StubMapping retarget(StubMapping mapping, RequestPattern pattern) {\n        mapping = mapping.transform(builder -> builder.setRequest(pattern));\n        return mapping;\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Stubs {\n    StubMapping retarget(StubMapping mapping, RequestPattern pattern) {\n-       mapping.setRequest(pattern);\n+       mapping = mapping.transform(builder -> builder.setRequest(pattern));\n        return mapping;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.wiremock.ReplaceSettersWithTransform","displayName":"Replace WireMock setter calls with `transform()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

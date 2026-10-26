@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find Node.js flaky test patterns"}
-  description={"Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval), prototype mutation, and shared mutable state (module-scope let/var declarations)."}
+  description={"Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval) without fake timers, prototype mutation, and shared mutable state (module-scope let/var declarations)."}
   fqName={"io.moderne.prethink.testing.quality.FindNodeFlakyTestPatterns"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find Node.js flaky test patterns</RecipeHeader.Title>
 
-<RecipeHeader.Description>Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval), prototype mutation, and shared mutable state (module-scope let/var declarations).</RecipeHeader.Description>
+<RecipeHeader.Description>Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval) without fake timers, prototype mutation, and shared mutable state (module-scope let/var declarations).</RecipeHeader.Description>
 
 </RecipeHeader>
 

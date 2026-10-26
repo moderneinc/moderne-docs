@@ -1,6 +1,6 @@
 ---
-title: "Replace PowerMockito `doX().when(instance, &quot;method&quot;)` with Mockito-compatible stubbing"
-sidebar_label: "Replace PowerMockito `doX().when(instance, &quot;method&quot;)` with Mockito-compatible stubbing"
+title: "Replace PowerMockito `doX().when(instance, \"method\")` with Mockito-compatible stubbing"
+sidebar_label: "Replace PowerMockito `doX().when(instance, \"method\")` with Mockito-compatible stubbing"
 hide_title: true
 ---
 

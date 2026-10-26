@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;\n\nimport com.github.tomakehurst.wiremock.client.ResponseDefinitionBuilder;\n\nclass Stubs {\n    ResponseDefinitionBuilder response() {\n        return aResponse()\n                .withStatus(200)\n                .withHeader(\"Content-Type\", \"text/plain\", \"application/json\")\n                .withBody(\"{}\");\n    }\n}\n","after":"import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;\n\nimport com.github.tomakehurst.wiremock.client.ResponseDefinitionBuilder;\n\nclass Stubs {\n    ResponseDefinitionBuilder response() {\n        return aResponse()\n                .withStatus(200)\n                .withHeader(\"Content-Type\", \"application/json\")\n                .withBody(\"{}\");\n    }\n}\n","diff":"@@ -9,1 +9,1 @@\n        return aResponse()\n                .withStatus(200)\n-               .withHeader(\"Content-Type\", \"text/plain\", \"application/json\")\n+               .withHeader(\"Content-Type\", \"application/json\")\n                .withBody(\"{}\");\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.wiremock.RemoveDuplicateContentTypeHeader","displayName":"Keep a single `Content-Type` response header on WireMock stubs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

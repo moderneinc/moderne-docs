@@ -1,6 +1,6 @@
 ---
-title: "Find `mutableMapOf&lt;K,V&gt;().also { it.put(...) }` patterns"
-sidebar_label: "Find `mutableMapOf&lt;K,V&gt;().also { it.put(...) }` patterns"
+title: "Find `mutableMapOf<K,V>().also { it.put(...) }` patterns"
+sidebar_label: "Find `mutableMapOf<K,V>().also { it.put(...) }` patterns"
 hide_title: true
 ---
 

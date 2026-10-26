@@ -1,6 +1,6 @@
 ---
-title: "Prefer `new LinkedList&lt;&gt;()`"
-sidebar_label: "Prefer `new LinkedList&lt;&gt;()`"
+title: "Prefer `new LinkedList<>()`"
+sidebar_label: "Prefer `new LinkedList<>()`"
 hide_title: true
 ---
 

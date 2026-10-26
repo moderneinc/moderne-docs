@@ -1,6 +1,6 @@
 ---
-title: "Find `SecretKeySpec(_, &quot;DES&quot;)` constructions"
-sidebar_label: "Find `SecretKeySpec(_, &quot;DES&quot;)` constructions"
+title: "Find `SecretKeySpec(_, \"DES\")` constructions"
+sidebar_label: "Find `SecretKeySpec(_, \"DES\")` constructions"
 hide_title: true
 ---
 

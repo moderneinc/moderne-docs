@@ -9,5 +9,6 @@ _Recipes for Node.js codebases._
 ## Categories
 
 * [Dependencies](/user-documentation/recipes/recipe-catalog/node/dependencies)
+* [Migrate](/user-documentation/recipes/recipe-catalog/node/migrate)
 
 

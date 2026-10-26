@@ -76,6 +76,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Remove duplicate Maven dependencies](./removeduplicatedependencies.md)
 * [Remove duplicate plugin declarations](./removeduplicateplugindeclarations.md)
 * [Remove exclusion](./removeexclusion.md)
+* [Remove invalid parent `relativePath`](./removeinvalidparentrelativepath.md)
 * [Remove redundant explicit dependency and plugin versions](./removeredundantdependencyversions.md)
 * [Remove redundant properties](./removeredundantproperties.md)
 * [Remove repository](./removerepository.md)

@@ -28,7 +28,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate `HorizontalPodAutoscaler` to `autoscaling/v2`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Move `HorizontalPodAutoscaler` off the `autoscaling` beta APIs — `v2beta1`, removed in Kubernetes v1.25, and `v2beta2`, removed in v1.26 — onto `autoscaling/v2`, restructuring the metric targets `v2beta1` wrote inline.  `v2beta2` is `autoscaling/v2` under another name, so those resources only change version. A `v2beta1` resource is rewritten the way the apiserver itself converted it: `targetAverageUtilization` becomes `target.averageUtilization` under `target.type: Utilization` and `targetAverageValue` becomes `target.averageValue` under `target.type: AverageValue`; `metricName` and its selector become the `metric` identifier; and for an `object` metric the `target` naming the described object becomes `describedObject`, freeing `target` for the metric target built from `targetValue` and `averageValue`.  A metric that sets a combination `autoscaling/v2` validation rejects — a resource metric targeting both a utilization and a raw value, or an external metric targeting both a total and a per-pod value — is left on its old API version and marked with the reason.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Move `HorizontalPodAutoscaler` off the `autoscaling` beta APIs — `v2beta1`, removed in Kubernetes v1.25, and `v2beta2`, removed in v1.26 — onto `autoscaling/v2`, restructuring the metric targets `v2beta1` wrote inline.
+
+`v2beta2` is `autoscaling/v2` under another name, so those resources only change version. A `v2beta1` resource is rewritten the way the apiserver itself converted it: `targetAverageUtilization` becomes `target.averageUtilization` under `target.type: Utilization` and `targetAverageValue` becomes `target.averageValue` under `target.type: AverageValue`; `metricName` and its selector become the `metric` identifier; and for an `object` metric the `target` naming the described object becomes `describedObject`, freeing `target` for the metric target built from `targetValue` and `averageValue`.
+
+A metric that sets a combination `autoscaling/v2` validation rejects — a resource metric targeting both a utilization and a raw value, or an external metric targeting both a total and a per-pod value — is left on its old API version and marked with the reason.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

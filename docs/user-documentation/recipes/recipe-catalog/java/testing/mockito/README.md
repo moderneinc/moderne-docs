@@ -27,6 +27,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Add mockito-junit-jupiter dependency](./addmockitojupiterdependency.md)
 * [Adds Mockito extensions to Mockito tests](./addmockitoextensionifannotationsused.md)
 * [Call to Mockito method &quot;verify&quot;, &quot;when&quot; or &quot;given&quot; should be simplified](./simplifymockitoverifywhengiven.md)
+* [Change `mockito-all` to `mockito-core` along with the Mockito that replaces PowerMock](./changemockitoalltomockitocorereplacingpowermock.md)
 * [Cleanup Mockito imports](./cleanupmockitoimports.md)
 * [Cleanup PowerMock imports](./cleanuppowermockimports.md)
 * [Close unclosed static mocks](./closeunclosedstaticmocks.md)

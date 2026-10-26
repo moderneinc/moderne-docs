@@ -33,7 +33,14 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `java.util.Stack` with `java.util.Deque`</RecipeHeader.Title>
 
-<RecipeHeader.Description>From the Javadoc of `Stack`: > A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class.  `Stack` inherits from `Vector`, which carries unnecessary synchronization overhead in single-threaded contexts and exposes non-stack operations like random index access.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+From the Javadoc of `Stack`:
+> A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class.
+
+`Stack` inherits from `Vector`, which carries unnecessary synchronization overhead in single-threaded contexts and exposes non-stack operations like random index access.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

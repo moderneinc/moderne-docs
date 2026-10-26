@@ -1,6 +1,6 @@
 ---
-title: "Flag deprecated `ChunkListener` callbacks for manual migration to `ChunkListener&lt;I, O&gt;`"
-sidebar_label: "Flag deprecated `ChunkListener` callbacks for manual migration to `ChunkListener&lt;I, O&gt;`"
+title: "Flag deprecated `ChunkListener` callbacks for manual migration to `ChunkListener<I, O>`"
+sidebar_label: "Flag deprecated `ChunkListener` callbacks for manual migration to `ChunkListener<I, O>`"
 hide_title: true
 ---
 

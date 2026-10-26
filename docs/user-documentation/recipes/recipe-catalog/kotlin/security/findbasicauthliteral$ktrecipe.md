@@ -1,6 +1,6 @@
 ---
-title: "Find `&quot;Basic &lt;base64&gt;&quot;` literals in source"
-sidebar_label: "Find `&quot;Basic &lt;base64&gt;&quot;` literals in source"
+title: "Find `\"Basic <base64>\"` literals in source"
+sidebar_label: "Find `\"Basic <base64>\"` literals in source"
 hide_title: true
 ---
 

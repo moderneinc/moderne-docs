@@ -1,6 +1,6 @@
 ---
-title: "Find `Result&lt;T&gt;` API ergonomics opportunities"
-sidebar_label: "Find `Result&lt;T&gt;` API ergonomics opportunities"
+title: "Find `Result<T>` API ergonomics opportunities"
+sidebar_label: "Find `Result<T>` API ergonomics opportunities"
 hide_title: true
 ---
 

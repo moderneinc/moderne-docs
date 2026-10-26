@@ -28,7 +28,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate `Ingress` to `networking.k8s.io/v1`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Move `Ingress` from `extensions/v1beta1` and `networking.k8s.io/v1beta1`, both removed in Kubernetes v1.22, to `networking.k8s.io/v1`, restructuring the body the new version requires. `spec.backend` becomes `spec.defaultBackend`, every `backend.serviceName` and `backend.servicePort` pair becomes `backend.service.name` and `backend.service.port`, and every path gains the explicit `pathType: ImplementationSpecific` that `v1beta1` used to default to.  `servicePort` is an int-or-string, so how it is written decides where it lands: an unquoted `8080` is the port number and becomes `port.number`, while a quoted `"8080"` or a bare `http` is the port's name and becomes `port.name`.  An Ingress the restructuring cannot carry over in full is left on its old API version and marked with the reason, rather than being handed to the apiserver in a shape it rejects.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Move `Ingress` from `extensions/v1beta1` and `networking.k8s.io/v1beta1`, both removed in Kubernetes v1.22, to `networking.k8s.io/v1`, restructuring the body the new version requires. `spec.backend` becomes `spec.defaultBackend`, every `backend.serviceName` and `backend.servicePort` pair becomes `backend.service.name` and `backend.service.port`, and every path gains the explicit `pathType: ImplementationSpecific` that `v1beta1` used to default to.
+
+`servicePort` is an int-or-string, so how it is written decides where it lands: an unquoted `8080` is the port number and becomes `port.number`, while a quoted `"8080"` or a bare `http` is the port's name and becomes `port.name`.
+
+An Ingress the restructuring cannot carry over in full is left on its old API version and marked with the reason, rather than being handed to the apiserver in a shape it rejects.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

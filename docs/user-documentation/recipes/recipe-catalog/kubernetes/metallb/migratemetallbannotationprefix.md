@@ -28,7 +28,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate MetalLB annotations to the `metallb.io` domain</RecipeHeader.Title>
 
-<RecipeHeader.Description>Rename the [MetalLB](https://metallb.io) `Service` annotations that moved from the `metallb.universe.tf` domain to `metallb.io` in MetalLB 0.14.9. The old domain still works, but the controller now raises a `deprecatedAnnotation` event against every service using it and the release notes reserve the right to drop the compatibility shim. Only the four annotations that genuinely moved are renamed — `address-pool`, `loadBalancerIPs`, `allow-shared-ip` and the controller-written `ip-allocated-from-pool` — so an unrelated `metallb.universe.tf` key keeps its domain.  MetalLB prefers the `metallb.io` spelling wherever both are present, which makes the deprecated twin dead weight. Such a twin is dropped when it carries the same value and reported otherwise, rather than renamed into a duplicate key.  This is MetalLB's own annotation domain, not a Kubernetes API migration; a cluster load balanced by anything else is unaffected.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Rename the [MetalLB](https://metallb.io) `Service` annotations that moved from the `metallb.universe.tf` domain to `metallb.io` in MetalLB 0.14.9. The old domain still works, but the controller now raises a `deprecatedAnnotation` event against every service using it and the release notes reserve the right to drop the compatibility shim. Only the four annotations that genuinely moved are renamed — `address-pool`, `loadBalancerIPs`, `allow-shared-ip` and the controller-written `ip-allocated-from-pool` — so an unrelated `metallb.universe.tf` key keeps its domain.
+
+MetalLB prefers the `metallb.io` spelling wherever both are present, which makes the deprecated twin dead weight. Such a twin is dropped when it carries the same value and reported otherwise, rather than renamed into a duplicate key.
+
+This is MetalLB's own annotation domain, not a Kubernetes API migration; a cluster load balanced by anything else is unaffected.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

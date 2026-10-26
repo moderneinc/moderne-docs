@@ -1,6 +1,6 @@
 ---
-title: "Find `Statement.executeQuery(&quot;... &quot; + x)` calls"
-sidebar_label: "Find `Statement.executeQuery(&quot;... &quot; + x)` calls"
+title: "Find `Statement.executeQuery(\"... \" + x)` calls"
+sidebar_label: "Find `Statement.executeQuery(\"... \" + x)` calls"
 hide_title: true
 ---
 

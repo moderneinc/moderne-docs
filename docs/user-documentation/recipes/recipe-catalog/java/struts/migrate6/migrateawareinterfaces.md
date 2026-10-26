@@ -1,6 +1,6 @@
 ---
-title: "Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces"
-sidebar_label: "Migrate Struts 2.0 interceptors to action &quot;aware&quot; interfaces"
+title: "Migrate Struts 2.0 interceptors to action \"aware\" interfaces"
+sidebar_label: "Migrate Struts 2.0 interceptors to action \"aware\" interfaces"
 hide_title: true
 ---
 

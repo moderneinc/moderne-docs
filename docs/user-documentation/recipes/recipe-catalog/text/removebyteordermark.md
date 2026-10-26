@@ -33,7 +33,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove byte order mark (BOM)</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes UTF-8 byte order marks from the beginning of files.  The BOM character (U+FEFF) is generally unnecessary in UTF-8 files and can cause issues with some tools.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Removes UTF-8 byte order marks from the beginning of files.
+
+The BOM character (U+FEFF) is generally unnecessary in UTF-8 files and can cause issues with some tools.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -297,6 +297,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.prethink.testing.coverage.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestgaps.md)
   * **Find test coverage gaps**
   * Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.
+* [io.moderne.prethink.testing.quality.FindNodeSilentTestFailures](/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodesilenttestfailures.md)
+  * **Find Node.js silent test failures**
+  * Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions without any assertion.
 
 ### rewrite-program-analysis
 
@@ -471,12 +474,18 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.csharp.msbuild.AlignPathCasing](/user-documentation/recipes/recipe-catalog/csharp/msbuild/alignpathcasing.md)
   * **Align MSBuild path casing with the repository**
   * MSBuild resolves paths case-insensitively on Windows, so a solution can reference `assemblies/WPFToolkit/WPFToolkit.csproj` while the directory committed to git is actually named `assemblies/Wpftoolkit`. The same reference fails with `MSB3202` or `Project file not found` on a case-sensitive file system. This recipe rewrites path references in `.sln` and `.slnx` solutions, in `.props` and `.targets` files, and in MSBuild project files such as `.csproj`, `.vbproj`, `.fsproj`, `.vcxproj`, `.sqlproj`, `.shproj`, and `.projitems`, so that every segment matches the casing of the file or directory that is actually in the repository. References that already resolve exactly, that cannot be resolved at all, or whose casing is ambiguous — because two files or directories differ only by case — are left untouched.
+* [org.openrewrite.csharp.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/csharp/search/modulehasdependency.md)
+  * **Module has dependency**
+  * Searches for .NET projects that have a NuGet package dependency matching the specified package id. Places a `SearchResult` marker on all sources within a project with a matching dependency. A source belongs to the project file (`.csproj`, `.vbproj`, `.fsproj`) in its nearest enclosing directory. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a migration to only projects that use a specific version of a package. If the search result you want is instead just the project file referencing the package, use the `FindNuGetPackageReference` recipe instead.
 
 ### rewrite-go
 
 * [org.openrewrite.golang.RegenerateGoSum](/user-documentation/recipes/recipe-catalog/golang/regenerategosum.md)
   * **Regenerate `go.sum`**
   * Regenerate a Go module's `go.sum` from its `go.mod` by running `go mod download`, recomputing checksums for the whole module graph, including creating it when absent. Useful after a dependency version change to bring `go.sum` back in sync. Requires the `go` toolchain to be installed; otherwise `go.sum` is left unchanged.
+* [org.openrewrite.golang.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/golang/search/modulehasdependency.md)
+  * **Module has dependency**
+  * Searches for Go modules that have a dependency matching the specified module path. Places a `SearchResult` marker on all sources within a module with a matching dependency. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a migration to only modules that use a specific version of a library. If the search result you want is instead just the `require` directive in `go.mod`, use the `DependencyInsight` recipe instead.
 
 ### rewrite-gradle
 
@@ -554,19 +563,22 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 
 * [org.openrewrite.javascript.AddDependency](/user-documentation/recipes/recipe-catalog/javascript/adddependency.md)
   * **Add npm dependency**
-  * Add an npm dependency to `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Add an npm dependency to `package.json` and regenerate the lock file natively, without executing the package manager. In a pnpm workspace with catalogs it writes what `pnpm add` writes under the workspace's `catalogMode` and `saveCatalogName`. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.ChangeDependency](/user-documentation/recipes/recipe-catalog/javascript/changedependency.md)
   * **Change npm dependency**
-  * Renames an npm dependency in `package.json` and optionally updates its version constraint. After modifying the package.json, the lock file is regenerated natively, without executing the package manager. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Renames an npm dependency in `package.json` and optionally updates its version constraint. A `catalog:` reference keeps its catalog, which gains the new name's entry. After modifying the package.json, the lock file is regenerated natively, without executing the package manager. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.RemoveDependency](/user-documentation/recipes/recipe-catalog/javascript/removedependency.md)
   * **Remove npm dependency**
-  * Remove an npm dependency from `package.json` and regenerate the lock file natively, without executing the package manager. If the dependency does not exist in any scope, the recipe is a no-op.
+  * Remove an npm dependency from `package.json` and regenerate the lock file natively, without executing the package manager. A pnpm workspace with `cleanupUnusedCatalogs` also loses the catalog entries no project references any more. If the dependency does not exist in any scope, the recipe is a no-op.
 * [org.openrewrite.javascript.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion.md)
   * **Upgrade npm dependency version**
-  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file natively, without executing the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file natively, without executing the package manager. Matching is by exact package name or glob pattern. A version range is replaced when it admits a version below the new range's lowest; one that already starts at or above it is left, and so is a `peerDependencies` range that admits every version the new one does. A `catalog:` reference is upgraded in its catalog entry by the same rule, and any other value is left as it is. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradetransitivedependencyversion.md)
   * **Upgrade transitive npm dependency**
-  * Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file natively, without executing the package manager. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+* [org.openrewrite.javascript.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/javascript/search/modulehasdependency.md)
+  * **Module has dependency**
+  * Searches for Node.js packages that have an npm dependency matching the specified package name. Places a `SearchResult` marker on all sources within a package with a matching dependency. A source belongs to the `package.json` in its nearest enclosing directory, so each member of a workspace is its own module. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a migration to only packages that use a specific version of a library. If the search result you want is instead just the dependency entry in `package.json`, use the `DependencyInsight` recipe instead.
 
 ### rewrite-json
 
@@ -663,6 +675,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.python.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/python/upgradetransitivedependencyversion.md)
   * **Upgrade transitive Python dependency version**
   * Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. For `pyproject.toml`, `uv.lock`, `poetry.lock`, and `pdm.lock` are regenerated natively without executing the package manager. For `Pipfile`, `Pipfile.lock` is regenerated natively by consulting the project's package index over the network. Not safe to use as a precondition: consults the package index over the network and publishes per-project state shared with other dependency recipes.
+* [org.openrewrite.python.search.ModuleHasDependency](/user-documentation/recipes/recipe-catalog/python/search/modulehasdependency.md)
+  * **Module has dependency**
+  * Searches for Python projects that have a dependency matching the specified package name. Places a `SearchResult` marker on all sources within a project with a matching dependency. A source belongs to the dependency manifest (`pyproject.toml`, `Pipfile`, `setup.cfg`, `setup.py` or `requirements.txt`) in its nearest enclosing directory. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a migration to only projects that use a specific version of a library. If the search result you want is instead just the dependency entry in the manifest, use the `DependencyInsight` recipe instead.
 
 ### rewrite-toml
 
@@ -1149,6 +1164,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.java.testing.junit5.SystemRulesDependencies](/user-documentation/recipes/recipe-catalog/java/testing/junit5/systemrulesdependencies.md)
   * **Update dependencies for the System Rules migration**
   * Adds System Stubs and JUnit Pioneer where the System Rules migration introduces them, upgrades JUnit Pioneer to 2.x in modules that get its `@RestoreSystemProperties`, and removes System Rules from modules that no longer use it.
+* [org.openrewrite.java.testing.junit5.WireMockRuleToWireMockServer](/user-documentation/recipes/recipe-catalog/java/testing/junit5/wiremockruletowiremockserver.md)
+  * **Use `WireMockServer` for a `WireMockRule` used as a server**
+  * Replace a `WireMockRule` that is started, stopped or passed on as a `WireMockServer` with a plain `WireMockServer`, as the JUnit 5 `WireMockExtension` has no such methods. The server is started and stopped around each test, or around all tests for a `@ClassRule`.
 * [org.openrewrite.java.testing.mockito.AddMockitoJupiterDependency](/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitojupiterdependency.md)
   * **Add mockito-junit-jupiter dependency**
   * Adds `org.mockito:mockito-junit-jupiter` dependency if `@ExtendWith(MockitoExtension.class)` will be added to any test class, i.e. when Mockito annotations are used in JUnit 5 tests without the extension already present.

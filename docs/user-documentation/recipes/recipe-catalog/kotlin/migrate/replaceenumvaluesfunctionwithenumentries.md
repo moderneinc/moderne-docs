@@ -1,6 +1,6 @@
 ---
-title: "Replace `enumValues&lt;T&gt;()` with `enumEntries&lt;T&gt;()`"
-sidebar_label: "Replace `enumValues&lt;T&gt;()` with `enumEntries&lt;T&gt;()`"
+title: "Replace `enumValues<T>()` with `enumEntries<T>()`"
+sidebar_label: "Replace `enumValues<T>()` with `enumEntries<T>()`"
 hide_title: true
 ---
 

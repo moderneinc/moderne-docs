@@ -1,6 +1,6 @@
 ---
-title: "Use \e escape sequence"
-sidebar_label: "Use \e escape sequence"
+title: "Use \\e escape sequence"
+sidebar_label: "Use \\e escape sequence"
 hide_title: true
 ---
 

@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.angular.UpgradeToAngular22","displayName":"Upgrade to Angular 22","npmPackage":"@openrewrite/recipes-angular"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.angular.UpgradeToAngular22","displayName":"Upgrade to Angular 22","npmPackage":"@openrewrite/recipes-angular","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT"}]}}>
 
 ## Usage
 

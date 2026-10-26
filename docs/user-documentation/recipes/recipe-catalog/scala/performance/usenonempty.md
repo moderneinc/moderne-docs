@@ -1,6 +1,6 @@
 ---
-title: "Use `nonEmpty` instead of `size &gt; 0`"
-sidebar_label: "Use `nonEmpty` instead of `size &gt; 0`"
+title: "Use `nonEmpty` instead of `size > 0`"
+sidebar_label: "Use `nonEmpty` instead of `size > 0`"
 hide_title: true
 ---
 

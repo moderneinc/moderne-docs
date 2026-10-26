@@ -28,7 +28,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate `Service` `spec.loadBalancerIP` to the MetalLB annotation</RecipeHeader.Title>
 
-<RecipeHeader.Description>Move the address a `type: LoadBalancer` `Service` pins in `spec.loadBalancerIP`, deprecated in Kubernetes 1.24, into the `metallb.io/loadBalancerIPs` annotation [MetalLB](https://metallb.io) reads in its place. `spec.loadBalancerIP` holds a single address, so a dual stack service can name only one of its two families there and silently takes whatever MetalLB allocates for the other; the annotation takes a comma separated list and is the only way to pin both.  MetalLB refuses to allocate at all for a service that sets both the annotation and `spec.loadBalancerIP`. Where the annotation is already present this therefore drops `spec.loadBalancerIP` when the two agree, and reports it when they disagree rather than picking an address on the author's behalf.  This annotation means nothing to a cloud provider's load balancer controller, so run it only against manifests MetalLB serves.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Move the address a `type: LoadBalancer` `Service` pins in `spec.loadBalancerIP`, deprecated in Kubernetes 1.24, into the `metallb.io/loadBalancerIPs` annotation [MetalLB](https://metallb.io) reads in its place. `spec.loadBalancerIP` holds a single address, so a dual stack service can name only one of its two families there and silently takes whatever MetalLB allocates for the other; the annotation takes a comma separated list and is the only way to pin both.
+
+MetalLB refuses to allocate at all for a service that sets both the annotation and `spec.loadBalancerIP`. Where the annotation is already present this therefore drops `spec.loadBalancerIP` when the two agree, and reports it when they disagree rather than picking an address on the author's behalf.
+
+This annotation means nothing to a cloud provider's load balancer controller, so run it only against manifests MetalLB serves.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

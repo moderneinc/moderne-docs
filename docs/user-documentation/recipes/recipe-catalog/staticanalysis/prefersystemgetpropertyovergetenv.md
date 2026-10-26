@@ -1,6 +1,6 @@
 ---
-title: "Prefer `System.getProperty(&quot;user.home&quot;)` over `System.getenv(&quot;HOME&quot;)`"
-sidebar_label: "Prefer `System.getProperty(&quot;user.home&quot;)` over `System.getenv(&quot;HOME&quot;)`"
+title: "Prefer `System.getProperty(\"user.home\")` over `System.getenv(\"HOME\")`"
+sidebar_label: "Prefer `System.getProperty(\"user.home\")` over `System.getenv(\"HOME\")`"
 hide_title: true
 ---
 

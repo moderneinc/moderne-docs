@@ -1,6 +1,6 @@
 ---
-title: "Use `emptyMap&lt;K, V&gt;()` instead of `mapOf&lt;K, V&gt;()`"
-sidebar_label: "Use `emptyMap&lt;K, V&gt;()` instead of `mapOf&lt;K, V&gt;()`"
+title: "Use `emptyMap<K, V>()` instead of `mapOf<K, V>()`"
+sidebar_label: "Use `emptyMap<K, V>()` instead of `mapOf<K, V>()`"
 hide_title: true
 ---
 

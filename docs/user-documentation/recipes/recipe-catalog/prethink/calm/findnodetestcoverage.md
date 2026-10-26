@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find Node.js test coverage"}
-  description={"Identify test methods in Jest, Mocha, and Vitest test files. Detects describe(), it(), and test() blocks and populates the TestMapping table."}
+  description={"Identify test methods in Jest, Mocha, Vitest, Jasmine, node:test, and tap test files. Detects describe(), it(), and test() blocks, including .only, .skip, .concurrent, and .each variants and t.test() subtests, and populates the TestMapping table."}
   fqName={"io.moderne.prethink.calm.FindNodeTestCoverage"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find Node.js test coverage</RecipeHeader.Title>
 
-<RecipeHeader.Description>Identify test methods in Jest, Mocha, and Vitest test files. Detects describe(), it(), and test() blocks and populates the TestMapping table.</RecipeHeader.Description>
+<RecipeHeader.Description>Identify test methods in Jest, Mocha, Vitest, Jasmine, node:test, and tap test files. Detects describe(), it(), and test() blocks, including .only, .skip, .concurrent, and .each variants and t.test() subtests, and populates the TestMapping table.</RecipeHeader.Description>
 
 </RecipeHeader>
 

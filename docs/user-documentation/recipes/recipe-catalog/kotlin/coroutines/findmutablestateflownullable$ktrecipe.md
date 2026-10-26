@@ -1,6 +1,6 @@
 ---
-title: "Find `MutableStateFlow&lt;T?&gt;(null)` declarations"
-sidebar_label: "Find `MutableStateFlow&lt;T?&gt;(null)` declarations"
+title: "Find `MutableStateFlow<T?>(null)` declarations"
+sidebar_label: "Find `MutableStateFlow<T?>(null)` declarations"
 hide_title: true
 ---
 

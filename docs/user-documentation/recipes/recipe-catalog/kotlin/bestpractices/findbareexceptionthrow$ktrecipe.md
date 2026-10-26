@@ -1,6 +1,6 @@
 ---
-title: "Find `throw Exception(&quot;…&quot;)` calls"
-sidebar_label: "Find `throw Exception(&quot;…&quot;)` calls"
+title: "Find `throw Exception(\"…\")` calls"
+sidebar_label: "Find `throw Exception(\"…\")` calls"
 hide_title: true
 ---
 

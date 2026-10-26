@@ -1,6 +1,6 @@
 ---
-title: "Find `Paths.get(&quot;...&quot; + input)` calls"
-sidebar_label: "Find `Paths.get(&quot;...&quot; + input)` calls"
+title: "Find `Paths.get(\"...\" + input)` calls"
+sidebar_label: "Find `Paths.get(\"...\" + input)` calls"
 hide_title: true
 ---
 

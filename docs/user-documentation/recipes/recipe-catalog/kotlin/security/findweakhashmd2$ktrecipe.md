@@ -1,6 +1,6 @@
 ---
-title: "Find `MessageDigest.getInstance(&quot;MD2&quot;)` calls"
-sidebar_label: "Find `MessageDigest.getInstance(&quot;MD2&quot;)` calls"
+title: "Find `MessageDigest.getInstance(\"MD2\")` calls"
+sidebar_label: "Find `MessageDigest.getInstance(\"MD2\")` calls"
 hide_title: true
 ---
 

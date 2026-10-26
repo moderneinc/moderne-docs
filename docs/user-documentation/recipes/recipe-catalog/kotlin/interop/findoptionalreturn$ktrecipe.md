@@ -1,6 +1,6 @@
 ---
-title: "Find functions returning `Optional&lt;T&gt;`"
-sidebar_label: "Find functions returning `Optional&lt;T&gt;`"
+title: "Find functions returning `Optional<T>`"
+sidebar_label: "Find functions returning `Optional<T>`"
 hide_title: true
 ---
 

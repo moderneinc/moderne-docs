@@ -1,6 +1,6 @@
 ---
-title: "Find functions returning `Triple&lt;A, B, C&gt;`"
-sidebar_label: "Find functions returning `Triple&lt;A, B, C&gt;`"
+title: "Find functions returning `Triple<A, B, C>`"
+sidebar_label: "Find functions returning `Triple<A, B, C>`"
 hide_title: true
 ---
 

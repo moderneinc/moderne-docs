@@ -1,6 +1,6 @@
 ---
-title: "Find function parameters typed `Optional&lt;T&gt;`"
-sidebar_label: "Find function parameters typed `Optional&lt;T&gt;`"
+title: "Find function parameters typed `Optional<T>`"
+sidebar_label: "Find function parameters typed `Optional<T>`"
 hide_title: true
 ---
 

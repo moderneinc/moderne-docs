@@ -28,7 +28,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Change Helm chart version</RecipeHeader.Title>
 
-<RecipeHeader.Description>Propagate a Helm chart version across every file that restates it: the chart's own `Chart.yaml`, the `dependencies` of the charts that consume it, Flux `HelmRelease` resources, k0rdent `ClusterTemplate`, `ProviderTemplate` and `ServiceTemplate` resources, and optionally files whose name encodes the version. `dependencies[].version` is a range, so by default a range that the new version already satisfies is left alone rather than pinned. `Chart.lock` is never edited, because its digest cannot be recomputed here; it is reported instead. Files under a chart's `templates` directory are Go template text and are left alone.  A k0rdent template's `metadata.name` also encodes the chart version, but a name is an identity that `ClusterDeployment`, `Release` and `*TemplateChain` resources point at. Renaming it here would leave those references dangling, so this recipe changes only version fields; `org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion` moves the name and everything that references it together.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Propagate a Helm chart version across every file that restates it: the chart's own `Chart.yaml`, the `dependencies` of the charts that consume it, Flux `HelmRelease` resources, k0rdent `ClusterTemplate`, `ProviderTemplate` and `ServiceTemplate` resources, and optionally files whose name encodes the version. `dependencies[].version` is a range, so by default a range that the new version already satisfies is left alone rather than pinned. `Chart.lock` is never edited, because its digest cannot be recomputed here; it is reported instead. Files under a chart's `templates` directory are Go template text and are left alone.
+
+A k0rdent template's `metadata.name` also encodes the chart version, but a name is an identity that `ClusterDeployment`, `Release` and `*TemplateChain` resources point at. Renaming it here would leave those references dangling, so this recipe changes only version fields; `org.openrewrite.kubernetes.k0rdent.ChangeTemplateVersion` moves the name and everything that references it together.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

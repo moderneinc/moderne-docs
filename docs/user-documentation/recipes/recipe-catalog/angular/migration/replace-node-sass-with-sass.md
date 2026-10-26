@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-node-sass-with-sass","displayName":"Replace `node-sass` with `sass`","npmPackage":"@openrewrite/recipes-angular"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-node-sass-with-sass","displayName":"Replace `node-sass` with `sass`","npmPackage":"@openrewrite/recipes-angular","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-javascript","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT"}]}}>
 
 ## Usage
 

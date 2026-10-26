@@ -1,6 +1,6 @@
 ---
-title: "Find IComparable&lt;T&gt; without IEquatable&lt;T&gt;"
-sidebar_label: "Find IComparable&lt;T&gt; without IEquatable&lt;T&gt;"
+title: "Find IComparable<T> without IEquatable<T>"
+sidebar_label: "Find IComparable<T> without IEquatable<T>"
 hide_title: true
 ---
 

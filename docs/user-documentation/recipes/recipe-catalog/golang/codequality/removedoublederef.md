@@ -1,6 +1,6 @@
 ---
-title: "Remove redundant *&amp; (deref of address-of)"
-sidebar_label: "Remove redundant *&amp; (deref of address-of)"
+title: "Remove redundant *& (deref of address-of)"
+sidebar_label: "Remove redundant *& (deref of address-of)"
 hide_title: true
 ---
 
