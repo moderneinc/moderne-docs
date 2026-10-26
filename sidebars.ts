@@ -89,6 +89,7 @@ const platform = {
           keywords: ['references'],
         },
         items: [
+          'user-documentation/moderne-platform/references/changesets',
           'user-documentation/moderne-platform/references/moderne-tokens',
           'user-documentation/moderne-platform/references/create-scm-access-tokens',
           'user-documentation/moderne-platform/references/graphql-api-reference',

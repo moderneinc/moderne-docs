@@ -80,6 +80,7 @@ Some tips to keep in mind when writing or modifying search queries:
   * npm packages use an `@` instead: `dependency:lodash@4.x`.
 * **You can mix `dependency:` with the other filters.**
   * For example, `dependency:guava:29.x call:*..ImmutableList.of` finds every call to `ImmutableList.of` - but only where it came from Guava 29.
+* **Add `select:file` when you only care about which files matched.** It leaves the individual lines out of the results, which keeps things manageable when a query matches thousands of them.
 * **The [Trigrep query reference](../../agent-tools/trigrep.md#query-reference) has documentation for additional filters.**
 
 :::warning
@@ -101,7 +102,7 @@ Your saved search will also show up in the [activity view](./activity-view.md) a
 
 If you click on it, you'll be taken to a results page where you can see which repositories matched and download the data table again.
 
-Behind the scenes, a saved search is a _changeset_. That means an agent, or anyone using the CLI, can [pull down exactly the repositories that matched](../../moderne-cli/cli-reference.md#mod-git-sync-moderne) and get to work on them.
+Behind the scenes, a saved search is a [changeset](../references/changesets.md), the same kind of thing a recipe run produces. That means an agent, or anyone using the CLI, can [pull down exactly the repositories that matched](../../moderne-cli/cli-reference.md#mod-git-sync-moderne) and get to work on them.
 
 ## Searching from the CLI
 
@@ -115,7 +116,9 @@ If you want to save the search so that other people can see it, add the `--save`
 
 ## Code search for agents
 
-Agents can also take advantage of Moderne's code search via our [remote MCP server](../../agent-tools/mcp/remote-server.md). The MCP server has access to the LST search index, scoped to whatever organizations and repositories your token can read. If the agent needs to count search results or get a breakdown by repository rather than a list of matches, it can use our [SQL tool](../../agent-tools/mcp/remote-server.md#codesearchsql).
+Agents can also take advantage of Moderne's code search via our [remote MCP server](../../agent-tools/mcp/remote-server.md). The MCP server has access to the LST search index, scoped to whatever organizations and repositories your token can read. Once a search turns something up, the agent can use the [`readFile` tool](../../agent-tools/mcp/remote-server.md#readfile) to pull up more of that file around the match. If it needs to count search results or get a breakdown by repository rather than a list of matches, it can use our [SQL tool](../../agent-tools/mcp/remote-server.md#codesearchsql).
+
+If your agent can't reach the remote MCP server, it can still run the same searches [through the CLI](#searching-from-the-cli), as long as the CLI is installed and logged in to the Platform.
 
 ## When to use a recipe instead
 
