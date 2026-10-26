@@ -39,11 +39,9 @@ rewrite-prethink
 rewrite-program-analysis
 rewrite-react
 rewrite-reactive-streams
-rewrite-release-metromap
 rewrite-spring
 rewrite-sql
 rewrite-static-analysis
 rewrite-struts
 rewrite-tapestry
 rewrite-terraform
-rewrite-vulncheck
