@@ -1,7 +1,7 @@
 ---
 title: Changesets
 sidebar_label: Changesets
-description: What a changeset is in the Moderne Platform, the kinds there are, and what you can do with one.
+description: What a changeset is, where changesets come from, how to work with one in the Platform, CLI, and API, and how to find a changeset's ID.
 ---
 
 # Changesets
