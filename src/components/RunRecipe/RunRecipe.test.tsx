@@ -137,6 +137,42 @@ describe('RunRecipe', () => {
     expect(tabText('LATEST').match(/:LATEST/g)).toHaveLength(2);
   });
 
+  it('installs only the npm package when a JavaScript recipe has no companion jar', () => {
+    renderRecipe({
+      recipeName: 'org.openrewrite.react.UpgradeToReact17',
+      displayName: 'Upgrade to React 17',
+      npmPackage: '@openrewrite/recipes-react',
+    });
+
+    expect(text()).toContain('mod config recipes npm install @openrewrite/recipes-react');
+    expect(text()).not.toContain('jar install');
+    expect(tabText('Pinned version')).toEqual('');
+  });
+
+  it('installs the jar a JavaScript recipe delegates into alongside its npm package', () => {
+    renderRecipe({
+      recipeName: 'org.openrewrite.angular.UpgradeToAngular10',
+      displayName: 'Upgrade to Angular 10',
+      npmPackage: '@openrewrite/recipes-angular',
+      companionJars: [
+        {
+          groupId: 'org.openrewrite',
+          artifactId: 'rewrite-javascript',
+          versionKey: 'VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT',
+        },
+      ],
+    });
+
+    // The upgrade delegates to the Java-side org.openrewrite.javascript.UpgradeDependencyVersion, which
+    // only the rewrite-javascript jar provides (moderneinc/customer-requests#2868).
+    expect(text()).toContain('mod config recipes npm install @openrewrite/recipes-angular');
+    expect(tabText('RELEASE')).toContain('mod config recipes jar install org.openrewrite:rewrite-javascript:RELEASE');
+    expect(tabText('LATEST')).toContain('mod config recipes jar install org.openrewrite:rewrite-javascript:LATEST');
+    expect(tabText('Pinned version')).toContain('mod config recipes npm install @openrewrite/recipes-angular\n');
+    expect(tabText('Pinned version')).toMatch(/jar install org\.openrewrite:rewrite-javascript:[\d.]+/);
+    expect(text()).toContain('mod run . --recipe org.openrewrite.angular.UpgradeToAngular10');
+  });
+
   it('installs only the NuGet package when a C# recipe has no companion jar', () => {
     renderRecipe({
       recipeName: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet.FindCsprojMarker',
