@@ -399,6 +399,7 @@ java -jar connector-{version}.jar \
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_ENCRYPT`                  | `false`  | `true`  | Whether the Connector fetches each LST from this source, encrypts it with your symmetric key, and uploads it to Moderne. See [LST encryption](./configure-lst-encryption.md) for the rules that apply per source type.                               |
 | `MODERNE_ORGANIZATION_SOURCES_S3_{index}_URI`                        | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos-lock.csv`). For the full set of S3 auth/region/endpoint arguments, please see [S3 organization source](./configure-a-connector-with-s3-access.md).                                           |
 | `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_URI`                       | `false`  |         | The Cloud Storage URI of a CSV object (e.g., `gs://my-bucket/repos-lock.csv`). For the full set of Cloud Storage auth/project/endpoint arguments, please see [Google Cloud Storage organization source](./configure-a-connector-with-gcs-access.md). |
+| `MODERNE_ORGANIZATION_SOURCES_AZURE_{index}_URI`                     | `false`  |         | The URL of a CSV blob in Azure Blob Storage (e.g., `https://myaccount.blob.core.windows.net/mycontainer/repos-lock.csv`). For auth arguments, please see [Azure Blob Storage organization source](./configure-a-connector-with-azure-blob-access.md).|
 
 **Example using a local file:**
 
@@ -438,6 +439,7 @@ docker run \
 | `--moderne.organization.sources.http[{index}].encrypt`                    | `false`  | `true`  | Whether the Connector fetches each LST from this source, encrypts it with your symmetric key, and uploads it to Moderne. See [LST encryption](./configure-lst-encryption.md) for the rules that apply per source type.                               |
 | `--moderne.organization.sources.s3[{index}].uri`                          | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos-lock.csv`). For the full set of S3 auth/region/endpoint arguments, please see [S3 organization source](./configure-a-connector-with-s3-access.md).                                           |
 | `--moderne.organization.sources.gcs[{index}].uri`                         | `false`  |         | The Cloud Storage URI of a CSV object (e.g., `gs://my-bucket/repos-lock.csv`). For the full set of Cloud Storage auth/project/endpoint arguments, please see [Google Cloud Storage organization source](./configure-a-connector-with-gcs-access.md). |
+| `--moderne.organization.sources.azure[{index}].uri`                       | `false`  |         | The URL of a CSV blob in Azure Blob Storage (e.g., `https://myaccount.blob.core.windows.net/mycontainer/repos-lock.csv`). For auth arguments, please see [Azure Blob Storage organization source](./configure-a-connector-with-azure-blob-access.md).|
 
 **Example using a local file:**
 
@@ -1106,6 +1108,55 @@ docker run \
 java -jar connector-{version}.jar \
 # ... Existing arguments
 --moderne.organization.sources.gcs[0].uri=gs://my-lst-bucket/repos-lock.csv \
+# ... Additional arguments
+```
+</TabItem>
+
+</Tabs>
+
+## Azure Blob Storage container variables
+
+You can configure multiple Azure Blob Storage containers by including multiple entries, each with a different `{index}`. For a full walkthrough, including the permissions the Connector needs, please see the [Azure Blob Storage organization source guide](./configure-a-connector-with-azure-blob-access.md).
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                                                         | Required | Default | Description                                                                                                                                                          |
+|-----------------------------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_ORGANIZATION_SOURCES_AZURE_{index}_URI`                      | `true`   |         | The URL of the CSV blob (e.g., `https://myaccount.blob.core.windows.net/mycontainer/repos-lock.csv`).                                                                |
+| `MODERNE_ORGANIZATION_SOURCES_AZURE_{index}_SASTOKEN`                 | `false`  |         | A container-scoped SAS token with **Read** permission. Omit to use Microsoft Entra ID.                                                                               |
+| `MODERNE_ORGANIZATION_SOURCES_AZURE_{index}_CONNECTIONSTRING`         | `false`  |         | The storage account's connection string. Takes precedence over the SAS token. Omit to use Microsoft Entra ID.                                                        |
+| `MODERNE_ORGANIZATION_SOURCES_AZURE_{index}_SKIPVALIDATECONNECTIVITY` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can read the CSV blob and fails to start if it cannot. Set this to `true` to skip that validation. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_ORGANIZATION_SOURCES_AZURE_0_URI=https://mylstaccount.blob.core.windows.net/lsts/repos-lock.csv \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                                                              | Required | Default | Description                                                                                                                                                          |
+|----------------------------------------------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--moderne.organization.sources.azure[{index}].uri`                        | `true`   |         | The URL of the CSV blob (e.g., `https://myaccount.blob.core.windows.net/mycontainer/repos-lock.csv`).                                                                |
+| `--moderne.organization.sources.azure[{index}].sas-token`                  | `false`  |         | A container-scoped SAS token with **Read** permission. Omit to use Microsoft Entra ID.                                                                               |
+| `--moderne.organization.sources.azure[{index}].connection-string`          | `false`  |         | The storage account's connection string. Takes precedence over the SAS token. Omit to use Microsoft Entra ID.                                                        |
+| `--moderne.organization.sources.azure[{index}].skip-validate-connectivity` | `false`  | `false` | By default, on Connector startup, the Connector validates that it can read the CSV blob and fails to start if it cannot. Set this to `true` to skip that validation. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.organization.sources.azure[0].uri=https://mylstaccount.blob.core.windows.net/lsts/repos-lock.csv \
 # ... Additional arguments
 ```
 </TabItem>
