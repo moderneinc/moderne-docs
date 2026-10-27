@@ -1,6 +1,6 @@
 ---
-title: "Make lifecycle methods non private"
-sidebar_label: "Make lifecycle methods non private"
+title: "Make lifecycle methods non-private"
+sidebar_label: "Make lifecycle methods non-private"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Make lifecycle methods non private"}
-  description={"Make JUnit 5's `@AfterAll`, `@AfterEach`, `@BeforeAll` and `@BeforeEach` non private."}
+  displayName={"Make lifecycle methods non-private"}
+  description={"Make JUnit 5's `@AfterAll`, `@AfterEach`, `@BeforeAll` and `@BeforeEach` methods non-private."}
   fqName={"org.openrewrite.java.testing.junit5.LifecycleNonPrivate"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/lifecyclenonprivate.md"}
 >
 
-<RecipeHeader.Title>Make lifecycle methods non private</RecipeHeader.Title>
+<RecipeHeader.Title>Make lifecycle methods non-private</RecipeHeader.Title>
 
-<RecipeHeader.Description>Make JUnit 5's `@AfterAll`, `@AfterEach`, `@BeforeAll` and `@BeforeEach` non private.</RecipeHeader.Description>
+<RecipeHeader.Description>Make JUnit 5's `@AfterAll`, `@AfterEach`, `@BeforeAll` and `@BeforeEach` methods non-private.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.LifecycleNonPrivate","displayName":"Make lifecycle methods non private","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.LifecycleNonPrivate","displayName":"Make lifecycle methods non-private","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

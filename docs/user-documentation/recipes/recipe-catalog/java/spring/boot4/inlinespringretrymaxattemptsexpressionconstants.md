@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Inline `maxAttemptsExpression` constants ahead of the Spring Framework 7 migration"}
-  description={"Replace a `static final String` constant referenced by spring-retry's `@Retryable(maxAttemptsExpression = ...)` with its literal value, so that the migration to Spring Framework 7's `maxRetriesString` can apply the required `maxAttempts`-to-`maxRetries` decrement instead of leaving a TODO. Only constants declared in the sources being migrated are resolved."}
+  description={"Replace a `static final String` constant referenced by spring-retry's `@Retryable(maxAttemptsExpression = ...)` with its literal value, so that the migration to Spring Framework 7's `maxRetriesString` can apply the required `maxAttempts`-to-`maxRetries` decrement instead of moving the annotation to the generated compat class. Only constants declared in the sources being migrated are resolved."}
   fqName={"io.moderne.java.spring.boot4.InlineSpringRetryMaxAttemptsExpressionConstants"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Inline `maxAttemptsExpression` constants ahead of the Spring Framework 7 migration</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace a `static final String` constant referenced by spring-retry's `@Retryable(maxAttemptsExpression = ...)` with its literal value, so that the migration to Spring Framework 7's `maxRetriesString` can apply the required `maxAttempts`-to-`maxRetries` decrement instead of leaving a TODO. Only constants declared in the sources being migrated are resolved.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace a `static final String` constant referenced by spring-retry's `@Retryable(maxAttemptsExpression = ...)` with its literal value, so that the migration to Spring Framework 7's `maxRetriesString` can apply the required `maxAttempts`-to-`maxRetries` decrement instead of moving the annotation to the generated compat class. Only constants declared in the sources being migrated are resolved.</RecipeHeader.Description>
 
 </RecipeHeader>
 

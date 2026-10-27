@@ -1,6 +1,6 @@
 ---
-title: "Migrate Spring Cloud Gateway Proxy Webflux Properties"
-sidebar_label: "Migrate Spring Cloud Gateway Proxy Webflux Properties"
+title: "Migrate Spring Cloud Gateway Proxy WebFlux properties"
+sidebar_label: "Migrate Spring Cloud Gateway Proxy WebFlux properties"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate Spring Cloud Gateway Proxy Webflux Properties"}
+  displayName={"Migrate Spring Cloud Gateway Proxy WebFlux properties"}
   description={"Migrate Spring Cloud Gateway Proxy Webflux properties for Spring Cloud 2025 release."}
   fqName={"org.openrewrite.java.spring.cloud2025.SpringCloudGatewayProxyWebfluxProperties"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewayproxywebfluxproperties.md"}
 >
 
-<RecipeHeader.Title>Migrate Spring Cloud Gateway Proxy Webflux Properties</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate Spring Cloud Gateway Proxy WebFlux properties</RecipeHeader.Title>
 
 <RecipeHeader.Description>Migrate Spring Cloud Gateway Proxy Webflux properties for Spring Cloud 2025 release.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.cloud2025.SpringCloudGatewayProxyWebfluxProperties","displayName":"Migrate Spring Cloud Gateway Proxy Webflux Properties","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.cloud2025.SpringCloudGatewayProxyWebfluxProperties","displayName":"Migrate Spring Cloud Gateway Proxy WebFlux properties","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

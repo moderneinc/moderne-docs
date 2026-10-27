@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaIterablesAll"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/guava/NoGuavaIterablesAll.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/no-guava.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\n\nimport com.google.common.base.Predicate;\nimport com.google.common.collect.Iterables;\n\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n        return Iterables.all(collection, aPredicate);\n    }\n}\n","after":"import java.util.Collection;\n\nimport com.google.common.base.Predicate;\n\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n        return collection.stream().allMatch(aPredicate);\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nimport com.google.common.base.Predicate;\n-import com.google.common.collect.Iterables;\n\n@@ -8,1 +7,1 @@\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n-       return Iterables.all(collection, aPredicate);\n+       return collection.stream().allMatch(aPredicate);\n    }\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Prefer `Collection.stream().allMatch(Predicate)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$iterablesallrecipe/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\n\nimport com.google.common.base.Predicate;\nimport com.google.common.collect.Iterables;\n\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n        return Iterables.all(collection, aPredicate);\n    }\n}\n","after":"import java.util.Collection;\n\nimport com.google.common.base.Predicate;\n\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n        return collection.stream().allMatch(aPredicate);\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nimport com.google.common.base.Predicate;\n-import com.google.common.collect.Iterables;\n\n@@ -8,1 +7,1 @@\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n-       return Iterables.all(collection, aPredicate);\n+       return collection.stream().allMatch(aPredicate);\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.util.Collection;\n\nimport com.google.common.base.Predicate;\nimport com.google.common.collect.Iterables;\n\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n        return Iterables.all(collection, aPredicate);\n    }\n}\n","after":"import java.util.Collection;\n\nimport com.google.common.base.Predicate;\n\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n        return collection.stream().allMatch(aPredicate);\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nimport com.google.common.base.Predicate;\n-import com.google.common.collect.Iterables;\n\n@@ -8,1 +7,1 @@\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n-       return Iterables.all(collection, aPredicate);\n+       return collection.stream().allMatch(aPredicate);\n    }\n","newFile":false}]}]}>
 
 ## Examples
 

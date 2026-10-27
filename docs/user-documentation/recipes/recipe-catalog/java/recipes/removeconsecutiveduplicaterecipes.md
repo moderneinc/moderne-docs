@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"type: specs.openrewrite.org/v1beta/recipe\nname: com.example.MyRecipe\ndisplayName: My recipe\ndescription: Does something useful.\nrecipeList:\n  - org.openrewrite.maven.UpgradePluginVersion:\n      groupId: org.springframework.boot\n      artifactId: spring-boot-maven-plugin\n      newVersion: 4.0.x\n  - org.openrewrite.maven.UpgradePluginVersion:\n      groupId: org.springframework.boot\n      artifactId: spring-boot-maven-plugin\n      newVersion: 4.0.x\n  - org.openrewrite.java.OrderImports\n","after":"type: specs.openrewrite.org/v1beta/recipe\nname: com.example.MyRecipe\ndisplayName: My recipe\ndescription: Does something useful.\nrecipeList:\n  - org.openrewrite.maven.UpgradePluginVersion:\n      groupId: org.springframework.boot\n      artifactId: spring-boot-maven-plugin\n      newVersion: 4.0.x\n  - org.openrewrite.java.OrderImports\n","diff":"@@ -10,4 +10,0 @@\n      artifactId: spring-boot-maven-plugin\n      newVersion: 4.0.x\n- - org.openrewrite.maven.UpgradePluginVersion:\n-     groupId: org.springframework.boot\n-     artifactId: spring-boot-maven-plugin\n-     newVersion: 4.0.x\n  - org.openrewrite.java.OrderImports\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.recipes.RemoveConsecutiveDuplicateRecipes","displayName":"Remove consecutive duplicate entries from declarative recipe lists","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
 
 ## Usage

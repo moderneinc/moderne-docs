@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `@CommonsLog` instead of explicit fields"}
-  description={"Prefer the lombok annotation `@CommonsLog` over explicitly written out `org.apache.commons.logging.Log` fields."}
+  description={"Prefer the Lombok annotation `@CommonsLog` over explicitly written out `org.apache.commons.logging.Log` fields."}
   fqName={"org.openrewrite.java.migrate.lombok.log.UseCommonsLog"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `@CommonsLog` instead of explicit fields</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer the lombok annotation `@CommonsLog` over explicitly written out `org.apache.commons.logging.Log` fields.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer the Lombok annotation `@CommonsLog` over explicitly written out `org.apache.commons.logging.Log` fields.</RecipeHeader.Description>
 
 </RecipeHeader>
 

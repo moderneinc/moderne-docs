@@ -1,6 +1,6 @@
 ---
-title: "Substitute removed Faces Managed Beans"
-sidebar_label: "Substitute removed Faces Managed Beans"
+title: "Substitute removed Faces managed beans"
+sidebar_label: "Substitute removed Faces managed beans"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Substitute removed Faces Managed Beans"}
+  displayName={"Substitute removed Faces managed beans"}
   description={"This recipe substitutes Faces Managed Beans, which were deprecated in JavaServer Faces 2.3 and have been removed from Jakarta Faces 4.0."}
   fqName={"org.openrewrite.java.migrate.jakarta.FacesManagedBeansRemoved"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/facesmanagedbeansremoved.md"}
 >
 
-<RecipeHeader.Title>Substitute removed Faces Managed Beans</RecipeHeader.Title>
+<RecipeHeader.Title>Substitute removed Faces managed beans</RecipeHeader.Title>
 
 <RecipeHeader.Description>This recipe substitutes Faces Managed Beans, which were deprecated in JavaServer Faces 2.3 and have been removed from Jakarta Faces 4.0.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.FacesManagedBeansRemoved","displayName":"Substitute removed Faces Managed Beans","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.FacesManagedBeansRemoved","displayName":"Substitute removed Faces managed beans","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

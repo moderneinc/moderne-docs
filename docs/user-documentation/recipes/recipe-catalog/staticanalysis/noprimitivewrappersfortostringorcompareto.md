@@ -1,6 +1,6 @@
 ---
-title: "No primitive wrappers for #toString() or #compareTo(..)"
-sidebar_label: "No primitive wrappers for #toString() or #compareTo(..)"
+title: "No primitive wrappers for `#toString()` or `#compareTo(..)`"
+sidebar_label: "No primitive wrappers for `#toString()` or `#compareTo(..)`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"No primitive wrappers for #toString() or #compareTo(..)"}
+  displayName={"No primitive wrappers for `#toString()` or `#compareTo(..)`"}
   description={"Primitive wrappers should not be instantiated only for `#toString()` or `#compareTo(..)` invocations. Allocating a wrapper object just to call a method that has a static equivalent is wasteful; the static versions avoid the unnecessary object creation."}
   fqName={"org.openrewrite.staticanalysis.NoPrimitiveWrappersForToStringOrCompareTo"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/noprimitivewrappersfortostringorcompareto.md"}
 >
 
-<RecipeHeader.Title>No primitive wrappers for #toString() or #compareTo(..)</RecipeHeader.Title>
+<RecipeHeader.Title>No primitive wrappers for `#toString()` or `#compareTo(..)`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Primitive wrappers should not be instantiated only for `#toString()` or `#compareTo(..)` invocations. Allocating a wrapper object just to call a method that has a static equivalent is wasteful; the static versions avoid the unnecessary object creation.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.NoPrimitiveWrappersForToStringOrCompareTo","displayName":"No primitive wrappers for #toString() or #compareTo(..)","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.NoPrimitiveWrappersForToStringOrCompareTo","displayName":"No primitive wrappers for `#toString()` or `#compareTo(..)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

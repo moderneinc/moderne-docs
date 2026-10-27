@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Map values should not be replaced unconditionally"}
-  description={"When `map.put(key, value)` is called twice in a row with the same key, the first call is dead code because its value is immediately overwritten. Remove the first call to make the intent clear."}
+  description={"When `map.put(key, value)` is called twice in a row with the same key, or the same array element or Python `dict` entry is assigned twice in a row, the first write is dead code because its value is immediately overwritten. Remove the first write to make the intent clear."}
   fqName={"org.openrewrite.staticanalysis.RemoveUnconditionalValueOverwrite"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Map values should not be replaced unconditionally</RecipeHeader.Title>
 
-<RecipeHeader.Description>When `map.put(key, value)` is called twice in a row with the same key, the first call is dead code because its value is immediately overwritten. Remove the first call to make the intent clear.</RecipeHeader.Description>
+<RecipeHeader.Description>When `map.put(key, value)` is called twice in a row with the same key, or the same array element or Python `dict` entry is assigned twice in a row, the first write is dead code because its value is immediately overwritten. Remove the first write to make the intent clear.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace fs-extra's re-exported `fs` methods with `node:fs`"}
-  description={"fs-extra re-exports every `fs` method, with the async ones returning a promise when no callback is passed. Promise-form calls move to `node:fs/promises`; callback-form calls, `*Sync` methods, streams, watchers and `constants` move to `node:fs`. fd-based methods keep their promise form on fs-extra, as `node:fs/promises` has no fd-number equivalents."}
+  description={"fs-extra re-exports every `fs` method, with the async ones returning a promise when no callback is passed. Promise-form calls move to `node:fs/promises`; callback-form calls, `*Sync` methods, streams, watchers and `constants` move to `node:fs`. fd-based methods, `open` and `glob` keep their promise form on fs-extra, as `node:fs/promises` has no fd-number equivalents and its `open` and `glob` resolve to a `FileHandle` and an async iterator rather than an fd and an array."}
   fqName={"org.openrewrite.node.migrate.fs-extra.replace-fs-extra-native-methods"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace fs-extra's re-exported `fs` methods with `node:fs`</RecipeHeader.Title>
 
-<RecipeHeader.Description>fs-extra re-exports every `fs` method, with the async ones returning a promise when no callback is passed. Promise-form calls move to `node:fs/promises`; callback-form calls, `*Sync` methods, streams, watchers and `constants` move to `node:fs`. fd-based methods keep their promise form on fs-extra, as `node:fs/promises` has no fd-number equivalents.</RecipeHeader.Description>
+<RecipeHeader.Description>fs-extra re-exports every `fs` method, with the async ones returning a promise when no callback is passed. Promise-form calls move to `node:fs/promises`; callback-form calls, `*Sync` methods, streams, watchers and `constants` move to `node:fs`. fd-based methods, `open` and `glob` keep their promise form on fs-extra, as `node:fs/promises` has no fd-number equivalents and its `open` and `glob` resolve to a `FileHandle` and an async iterator rather than an fd and an array.</RecipeHeader.Description>
 
 </RecipeHeader>
 

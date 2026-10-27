@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"`@Type` annotation type parameter migration"}
-  description={"Hibernate 6.x has 'type' parameter of type String replaced with 'value' of type class."}
+  description={"Migrate Hibernate type class references and supported basic type registry names to Hibernate 6 annotations. Unrecognized registry names are retained for manual migration."}
   fqName={"org.openrewrite.hibernate.TypeAnnotationParameter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>`@Type` annotation type parameter migration</RecipeHeader.Title>
 
-<RecipeHeader.Description>Hibernate 6.x has 'type' parameter of type String replaced with 'value' of type class.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate Hibernate type class references and supported basic type registry names to Hibernate 6 annotations. Unrecognized registry names are retained for manual migration.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -1,6 +1,6 @@
 ---
-title: "Remove unnecessary `use-authorization-manager` for message security in Spring security 6"
-sidebar_label: "Remove unnecessary `use-authorization-manager` for message security in Spring security 6"
+title: "Remove unnecessary `use-authorization-manager` for message security in Spring Security 6"
+sidebar_label: "Remove unnecessary `use-authorization-manager` for message security in Spring Security 6"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove unnecessary `use-authorization-manager` for message security in Spring security 6"}
+  displayName={"Remove unnecessary `use-authorization-manager` for message security in Spring Security 6"}
   description={"In Spring Security 6, `<websocket-message-broker>` defaults `use-authorization-manager` to `true`. So, the `use-authorization-manager` attribute for message security is no longer needed and can be removed."}
   fqName={"org.openrewrite.java.spring.security6.RemoveUseAuthorizationManager"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/removeuseauthorizationmanager.md"}
 >
 
-<RecipeHeader.Title>Remove unnecessary `use-authorization-manager` for message security in Spring security 6</RecipeHeader.Title>
+<RecipeHeader.Title>Remove unnecessary `use-authorization-manager` for message security in Spring Security 6</RecipeHeader.Title>
 
 <RecipeHeader.Description>In Spring Security 6, `<websocket-message-broker>` defaults `use-authorization-manager` to `true`. So, the `use-authorization-manager` attribute for message security is no longer needed and can be removed.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.security6.RemoveUseAuthorizationManager","displayName":"Remove unnecessary `use-authorization-manager` for message security in Spring security 6","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.security6.RemoveUseAuthorizationManager","displayName":"Remove unnecessary `use-authorization-manager` for message security in Spring Security 6","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

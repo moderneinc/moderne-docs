@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaMapsNewHashMap"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/guava/NoGuavaMapsNewHashMap.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/no-guava.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = Maps.newHashMap();\n}\n","after":"import java.util.HashMap;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = new HashMap<>();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.google.common.collect.*;\n+import java.util.HashMap;\nimport java.util.Map;\n@@ -5,1 +5,1 @@\n\nclass Test {\n-   Map<Integer, Integer> cardinalsWorldSeries = Maps.newHashMap();\n+   Map<Integer, Integer> cardinalsWorldSeries = new HashMap<>();\n}\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Prefer `new HashMap<>()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$mapsnewhashmaprecipe/"},{"name":"Prefer `new HashMap<>(Map)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$mapsnewhashmapfrommaprecipe/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = Maps.newHashMap();\n}\n","after":"import java.util.HashMap;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = new HashMap<>();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.google.common.collect.*;\n+import java.util.HashMap;\nimport java.util.Map;\n@@ -5,1 +5,1 @@\n\nclass Test {\n-   Map<Integer, Integer> cardinalsWorldSeries = Maps.newHashMap();\n+   Map<Integer, Integer> cardinalsWorldSeries = new HashMap<>();\n}\n","newFile":false}]},{"variants":[{"language":"java","before":"import com.google.common.collect.*;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = Maps.newHashMap();\n}\n","after":"import java.util.HashMap;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = new HashMap<>();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.google.common.collect.*;\n+import java.util.HashMap;\nimport java.util.Map;\n@@ -5,1 +5,1 @@\n\nclass Test {\n-   Map<Integer, Integer> cardinalsWorldSeries = Maps.newHashMap();\n+   Map<Integer, Integer> cardinalsWorldSeries = new HashMap<>();\n}\n","newFile":false}]}]}>
 
 ## Examples
 

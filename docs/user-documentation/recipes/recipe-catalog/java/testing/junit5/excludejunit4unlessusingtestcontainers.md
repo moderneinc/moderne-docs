@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Exclude JUnit 4, unless a test library requires it"}
-  description={"Excludes JUnit 4 unless Testcontainers 1.x or Guava testlib requires it at runtime, even when tests use JUnit Jupiter."}
+  description={"Excludes JUnit 4 unless Testcontainers 1.x, Guava testlib or JUnit Jupiter migrationsupport requires it at runtime, even when tests use JUnit Jupiter."}
   fqName={"org.openrewrite.java.testing.junit5.ExcludeJUnit4UnlessUsingTestcontainers"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Exclude JUnit 4, unless a test library requires it</RecipeHeader.Title>
 
-<RecipeHeader.Description>Excludes JUnit 4 unless Testcontainers 1.x or Guava testlib requires it at runtime, even when tests use JUnit Jupiter.</RecipeHeader.Description>
+<RecipeHeader.Description>Excludes JUnit 4 unless Testcontainers 1.x, Guava testlib or JUnit Jupiter migrationsupport requires it at runtime, even when tests use JUnit Jupiter.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Exclude Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/excludedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Does not include Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/doesnotincludedependency/"},{"name":"Does not include Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/doesnotincludedependency/"}]}>
+<RecipeList recipes={[{"name":"Exclude Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/excludedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Does not include Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/doesnotincludedependency/"},{"name":"Does not include Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/doesnotincludedependency/"},{"name":"Does not include Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/doesnotincludedependency/"}]}>
 
 ## Definition
 

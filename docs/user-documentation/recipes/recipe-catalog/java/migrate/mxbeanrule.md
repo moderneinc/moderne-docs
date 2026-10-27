@@ -1,6 +1,6 @@
 ---
-title: "MBean and MXBean interfaces must be public"
-sidebar_label: "MBean and MXBean interfaces must be public"
+title: "Make MBean and MXBean interfaces public"
+sidebar_label: "Make MBean and MXBean interfaces public"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"MBean and MXBean interfaces must be public"}
+  displayName={"Make MBean and MXBean interfaces public"}
   description={"Sets visibility of MBean and MXBean interfaces to public."}
   fqName={"org.openrewrite.java.migrate.MXBeanRule"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/mxbeanrule.md"}
 >
 
-<RecipeHeader.Title>MBean and MXBean interfaces must be public</RecipeHeader.Title>
+<RecipeHeader.Title>Make MBean and MXBean interfaces public</RecipeHeader.Title>
 
 <RecipeHeader.Description>Sets visibility of MBean and MXBean interfaces to public.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.MXBeanRule","displayName":"MBean and MXBean interfaces must be public","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.MXBeanRule","displayName":"Make MBean and MXBean interfaces public","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"rule","value":"category/java/errorprone.xml/EmptyCatchBlock"}],"variants":[{"language":"xml","before":"<?xml version=\"1.0\"?>\n<ruleset name=\"custom\">\n    <rule ref=\"category/java/errorprone.xml/AvoidBranchingStatementAsLastInLoop\"/>\n</ruleset>\n","after":"<?xml version=\"1.0\"?>\n<ruleset name=\"custom\">\n    <rule ref=\"category/java/errorprone.xml/AvoidBranchingStatementAsLastInLoop\"/>\n    <rule ref=\"category/java/errorprone.xml/EmptyCatchBlock\"/>\n</ruleset>\n","diff":"@@ -4,0 +4,1 @@\n<ruleset name=\"custom\">\n    <rule ref=\"category/java/errorprone.xml/AvoidBranchingStatementAsLastInLoop\"/>\n+   <rule ref=\"category/java/errorprone.xml/EmptyCatchBlock\"/>\n</ruleset>\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.pmd.AddPmdRule","displayName":"Add a PMD rule to a ruleset","groupId":"org.openrewrite.recipe","artifactId":"rewrite-pmd","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PMD","requiresConfiguration":true,"cliOptions":" --recipe-option \"rule=category/java/errorprone.xml/EmptyCatchBlock\""}}>
 
 ## Usage

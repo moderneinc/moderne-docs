@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `langchain_community` imports with provider packages"}
-  description={"Migrate provider-specific imports from `langchain_community` to dedicated provider packages like `langchain_openai`, `langchain_anthropic`, etc."}
+  description={"Migrate provider-specific imports from `langchain_community` to dedicated provider packages like `langchain_openai`, `langchain_anthropic`, etc. Only the classes this recipe lists move, and the provider package is not added as a dependency."}
   fqName={"org.openrewrite.python.migrate.langchain.ReplaceLangchainProviderImports"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `langchain_community` imports with provider packages</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate provider-specific imports from `langchain_community` to dedicated provider packages like `langchain_openai`, `langchain_anthropic`, etc.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate provider-specific imports from `langchain_community` to dedicated provider packages like `langchain_openai`, `langchain_anthropic`, etc. Only the classes this recipe lists move, and the provider package is not added as a dependency.</RecipeHeader.Description>
 
 </RecipeHeader>
 

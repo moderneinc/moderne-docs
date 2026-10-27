@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Boolean checks should not be inverted"}
-  description={"Ensures that boolean checks are not unnecessarily inverted. Also fixes double negative boolean expressions. Negating a comparison and then inverting it adds cognitive overhead; using the direct operator (e.g., `>=` instead of `!(... < ...)`) is clearer and easier to reason about."}
+  description={"Ensures that boolean checks are not unnecessarily inverted. Also fixes double negative boolean expressions. Negating a comparison and then inverting it adds cognitive overhead; using the direct operator (e.g., `>=` instead of `!(... < ...)`) is clearer and easier to reason about. Ordered floating-point comparisons retain their negation to preserve NaN behavior."}
   fqName={"org.openrewrite.staticanalysis.BooleanChecksNotInverted"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Boolean checks should not be inverted</RecipeHeader.Title>
 
-<RecipeHeader.Description>Ensures that boolean checks are not unnecessarily inverted. Also fixes double negative boolean expressions. Negating a comparison and then inverting it adds cognitive overhead; using the direct operator (e.g., `>=` instead of `!(... < ...)`) is clearer and easier to reason about.</RecipeHeader.Description>
+<RecipeHeader.Description>Ensures that boolean checks are not unnecessarily inverted. Also fixes double negative boolean expressions. Negating a comparison and then inverting it adds cognitive overhead; using the direct operator (e.g., `>=` instead of `!(... < ...)`) is clearer and easier to reason about. Ordered floating-point comparisons retain their negation to preserve NaN behavior.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.internal.ListUtils;\nimport org.openrewrite.java.tree.J;\n\nimport java.util.List;\n\nclass A {\n    List<J.Import> withoutList(List<J.Import> imports) {\n        return ListUtils.map(imports, i -> \"java.util.List\".equals(i.getTypeName()) ? null : i);\n    }\n}\n","after":"import org.openrewrite.internal.ListUtils;\nimport org.openrewrite.java.tree.J;\n\nimport java.util.List;\n\nclass A {\n    List<J.Import> withoutList(List<J.Import> imports) {\n        return ListUtils.filter(imports, i -> !\"java.util.List\".equals(i.getTypeName()));\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\nclass A {\n    List<J.Import> withoutList(List<J.Import> imports) {\n-       return ListUtils.map(imports, i -> \"java.util.List\".equals(i.getTypeName()) ? null : i);\n+       return ListUtils.filter(imports, i -> !\"java.util.List\".equals(i.getTypeName()));\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.recipes.ListUtilsFilterOverMapToNull","displayName":"Use `ListUtils.filter` instead of mapping elements to `null`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
 
 ## Usage

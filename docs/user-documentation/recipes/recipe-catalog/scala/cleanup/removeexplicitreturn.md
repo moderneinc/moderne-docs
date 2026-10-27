@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove explicit `return` statements"}
-  description={"Removes explicit `return` statements in Scala code. In Scala, the last expression in a method is automatically the return value, so explicit `return` is not idiomatic."}
+  description={"Removes explicit `return` statements in tail position in Scala code. In Scala, the last expression in a method is automatically the return value, so explicit `return` is not idiomatic. Early returns and returns inside lambdas are left unchanged."}
   fqName={"org.openrewrite.scala.cleanup.RemoveExplicitReturn"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove explicit `return` statements</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes explicit `return` statements in Scala code. In Scala, the last expression in a method is automatically the return value, so explicit `return` is not idiomatic.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes explicit `return` statements in tail position in Scala code. In Scala, the last expression in a method is automatically the return value, so explicit `return` is not idiomatic. Early returns and returns inside lambdas are left unchanged.</RecipeHeader.Description>
 
 </RecipeHeader>
 

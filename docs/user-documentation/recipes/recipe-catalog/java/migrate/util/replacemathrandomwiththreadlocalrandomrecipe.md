@@ -1,6 +1,6 @@
 ---
-title: "Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`"
-sidebar_label: "Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`"
+title: "Replace `Math.random()` with `ThreadLocalRandom.current().nextDouble()`"
+sidebar_label: "Replace `Math.random()` with `ThreadLocalRandom.current().nextDouble()`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`"}
-  description={"Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()` to reduce contention."}
+  displayName={"Replace `Math.random()` with `ThreadLocalRandom.current().nextDouble()`"}
+  description={"Replace `Math.random()` with `ThreadLocalRandom.current().nextDouble()` to reduce contention."}
   fqName={"org.openrewrite.java.migrate.util.ReplaceMathRandomWithThreadLocalRandomRecipe"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/replacemathrandomwiththreadlocalrandomrecipe.md"}
 >
 
-<RecipeHeader.Title>Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `Math.random()` with `ThreadLocalRandom.current().nextDouble()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()` to reduce contention.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `Math.random()` with `ThreadLocalRandom.current().nextDouble()` to reduce contention.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.util.ReplaceMathRandomWithThreadLocalRandomRecipe","displayName":"Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.util.ReplaceMathRandomWithThreadLocalRandomRecipe","displayName":"Replace `Math.random()` with `ThreadLocalRandom.current().nextDouble()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

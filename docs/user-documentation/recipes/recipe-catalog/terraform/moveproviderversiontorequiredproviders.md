@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Move provider version to `required_providers`"}
-  description={"In Terraform 0.13+, version constraints should be specified in the `terraform { required_providers { ... } }` block instead of the `provider` block. This recipe removes the `version` attribute from `provider` blocks and adds it to `required_providers`."}
+  description={"In Terraform 0.13+, version constraints should be specified in the `terraform { required_providers { ... } }` block instead of the `provider` block. This recipe removes the `version` attribute from `provider` blocks and records it in the `required_providers` block of the same module (directory), creating that block when it is missing. A provider version which conflicts with the one already declared in `required_providers` is left in place."}
   fqName={"org.openrewrite.terraform.MoveProviderVersionToRequiredProviders"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Move provider version to `required_providers`</RecipeHeader.Title>
 
-<RecipeHeader.Description>In Terraform 0.13+, version constraints should be specified in the `terraform { required_providers { ... } }` block instead of the `provider` block. This recipe removes the `version` attribute from `provider` blocks and adds it to `required_providers`.</RecipeHeader.Description>
+<RecipeHeader.Description>In Terraform 0.13+, version constraints should be specified in the `terraform { required_providers { ... } }` block instead of the `provider` block. This recipe removes the `version` attribute from `provider` blocks and records it in the `required_providers` block of the same module (directory), creating that block when it is missing. A provider version which conflicts with the one already declared in `required_providers` is left in place.</RecipeHeader.Description>
 
 </RecipeHeader>
 

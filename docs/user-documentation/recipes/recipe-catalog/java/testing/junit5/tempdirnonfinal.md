@@ -1,6 +1,6 @@
 ---
-title: "Make `@TempDir` fields non final"
-sidebar_label: "Make `@TempDir` fields non final"
+title: "Make `@TempDir` fields non-final"
+sidebar_label: "Make `@TempDir` fields non-final"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Make `@TempDir` fields non final"}
-  description={"Make JUnit 5's `org.junit.jupiter.api.io.TempDir` fields non final."}
+  displayName={"Make `@TempDir` fields non-final"}
+  description={"Make JUnit 5's `org.junit.jupiter.api.io.TempDir` fields non-final."}
   fqName={"org.openrewrite.java.testing.junit5.TempDirNonFinal"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/tempdirnonfinal.md"}
 >
 
-<RecipeHeader.Title>Make `@TempDir` fields non final</RecipeHeader.Title>
+<RecipeHeader.Title>Make `@TempDir` fields non-final</RecipeHeader.Title>
 
-<RecipeHeader.Description>Make JUnit 5's `org.junit.jupiter.api.io.TempDir` fields non final.</RecipeHeader.Description>
+<RecipeHeader.Description>Make JUnit 5's `org.junit.jupiter.api.io.TempDir` fields non-final.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.TempDirNonFinal","displayName":"Make `@TempDir` fields non final","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.TempDirNonFinal","displayName":"Make `@TempDir` fields non-final","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

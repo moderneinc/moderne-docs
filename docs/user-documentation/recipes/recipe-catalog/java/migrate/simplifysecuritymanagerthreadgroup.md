@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Simplify the removed security manager's thread group fallback"}
-  description={"Remove a null SecurityManager local used only by the immediately following thread group conditional."}
+  description={"Remove a `null` `SecurityManager` local used only by the immediately following thread group conditional."}
   fqName={"org.openrewrite.java.migrate.SimplifySecurityManagerThreadGroup"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Simplify the removed security manager's thread group fallback</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove a null SecurityManager local used only by the immediately following thread group conditional.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove a `null` `SecurityManager` local used only by the immediately following thread group conditional.</RecipeHeader.Description>
 
 </RecipeHeader>
 

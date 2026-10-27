@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Do not package `java.xml.bind` and `java.activation` modules in WebSphere Liberty applications"}
-  description={"The `java.xml.bind` and `java.activation` modules were removed in Java11. Websphere Liberty provides its own implementation of the modules, which can be used by specifying the `jaxb-2.2` feature in the server.xml file. This recipe updates the `javax.xml.bind` and `javax.activation` dependencies to use the `provided` scope to avoid class loading issues."}
+  description={"The `java.xml.bind` and `java.activation` modules were removed in Java 11. WebSphere Liberty provides its own implementation of the modules, which can be used by specifying the `jaxb-2.2` feature in the server.xml file. This recipe updates the `javax.xml.bind` and `javax.activation` dependencies to use the `provided` scope to avoid class loading issues."}
   fqName={"org.openrewrite.java.migrate.RemovedJaxBModuleProvided"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Do not package `java.xml.bind` and `java.activation` modules in WebSphere Liberty applications</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `java.xml.bind` and `java.activation` modules were removed in Java11. Websphere Liberty provides its own implementation of the modules, which can be used by specifying the `jaxb-2.2` feature in the server.xml file. This recipe updates the `javax.xml.bind` and `javax.activation` dependencies to use the `provided` scope to avoid class loading issues.</RecipeHeader.Description>
+<RecipeHeader.Description>The `java.xml.bind` and `java.activation` modules were removed in Java 11. WebSphere Liberty provides its own implementation of the modules, which can be used by specifying the `jaxb-2.2` feature in the server.xml file. This recipe updates the `javax.xml.bind` and `javax.activation` dependencies to use the `provided` scope to avoid class loading issues.</RecipeHeader.Description>
 
 </RecipeHeader>
 

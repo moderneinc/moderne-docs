@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find deprecated LangChain agent patterns"}
-  description={"Find usage of deprecated LangChain agent patterns including `initialize_agent`, `AgentExecutor`, and `LLMChain`. These were deprecated in LangChain v0.2 and removed in v1.0."}
+  description={"Find usage of deprecated LangChain agent patterns including `initialize_agent`, `AgentExecutor`, and `LLMChain`. These were deprecated in LangChain v0.2 and moved out of `langchain` into `langchain_classic` in v1.0. Only `from langchain... import ...` statements are marked."}
   fqName={"org.openrewrite.python.migrate.langchain.FindDeprecatedLangchainAgents"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find deprecated LangChain agent patterns</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find usage of deprecated LangChain agent patterns including `initialize_agent`, `AgentExecutor`, and `LLMChain`. These were deprecated in LangChain v0.2 and removed in v1.0.</RecipeHeader.Description>
+<RecipeHeader.Description>Find usage of deprecated LangChain agent patterns including `initialize_agent`, `AgentExecutor`, and `LLMChain`. These were deprecated in LangChain v0.2 and moved out of `langchain` into `langchain_classic` in v1.0. Only `from langchain... import ...` statements are marked.</RecipeHeader.Description>
 
 </RecipeHeader>
 

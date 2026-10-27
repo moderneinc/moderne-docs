@@ -1,6 +1,6 @@
 ---
-title: "Replace  deprecated Jakarta Servlet methods and classes"
-sidebar_label: "Replace  deprecated Jakarta Servlet methods and classes"
+title: "Replace deprecated Jakarta Servlet methods and classes"
+sidebar_label: "Replace deprecated Jakarta Servlet methods and classes"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace  deprecated Jakarta Servlet methods and classes"}
+  displayName={"Replace deprecated Jakarta Servlet methods and classes"}
   description={"This recipe replaces the classes and methods deprecated in Jakarta Servlet 6.0."}
   fqName={"org.openrewrite.java.migrate.jakarta.RemovalsServletJakarta10"}
   languages={["Java"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md"}
 >
 
-<RecipeHeader.Title>Replace  deprecated Jakarta Servlet methods and classes</RecipeHeader.Title>
+<RecipeHeader.Title>Replace deprecated Jakarta Servlet methods and classes</RecipeHeader.Title>
 
 <RecipeHeader.Description>This recipe replaces the classes and methods deprecated in Jakarta Servlet 6.0.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"},{"name":"Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updategetrealpath/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"},{"name":"Replace `ServletRequest.getRealPath(String)` with `getServletContext().getRealPath(String)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updategetrealpath/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.RemovalsServletJakarta10","displayName":"Replace  deprecated Jakarta Servlet methods and classes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.RemovalsServletJakarta10","displayName":"Replace deprecated Jakarta Servlet methods and classes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

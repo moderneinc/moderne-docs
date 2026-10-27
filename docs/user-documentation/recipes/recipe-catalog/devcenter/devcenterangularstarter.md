@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"DevCenter for Angular"}
-  description={"A default DevCenter configuration for Angular repositories. Track Angular version adoption across your organization."}
+  description={"A default DevCenter configuration for Angular repositories.\nTrack Angular version adoption across your organization.\n\n**Move to Angular 22**<br/>\nThe `@angular/core` version each repository depends on.<br/><br/>\n`10+ major versions behind` → `5-9 major versions behind` → `2-4 major versions behind` → `1 major version behind` → `Completed` · fix with [`UpgradeToAngular22`](https://codegenomeproject.org/recipes/org.openrewrite.angular.UpgradeToAngular22)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.DevCenterAngularStarter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,18 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>DevCenter for Angular</RecipeHeader.Title>
 
-<RecipeHeader.Description>A default DevCenter configuration for Angular repositories. Track Angular version adoption across your organization.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+A default DevCenter configuration for Angular repositories.
+Track Angular version adoption across your organization.
+
+**Move to Angular 22**<br />
+The `@angular/core` version each repository depends on.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==" alt="10+ major versions behind to Completed" /><br />
+`10+ major versions behind` → `5-9 major versions behind` → `2-4 major versions behind` → `1 major version behind` → `Completed` · fix with [`UpgradeToAngular22`](https://codegenomeproject.org/recipes/org.openrewrite.angular.UpgradeToAngular22)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

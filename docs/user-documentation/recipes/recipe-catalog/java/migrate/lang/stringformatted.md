@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"Boolean","name":"addParentheses","required":false,"description":"Add parentheses around the first argument if it is not a simple expression. Default true; if false no change will be made. "}]}>
+<OptionsTable options={[{"type":"Boolean","name":"addParentheses","required":false,"description":"Add parentheses around the first argument if it is not a simple expression. Default true; if false, calls whose first argument would need parentheses are left unchanged."}]}>
 
 ## Options
 

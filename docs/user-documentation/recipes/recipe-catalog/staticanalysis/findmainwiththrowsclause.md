@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    public static void main(String[] args) throws Exception {\n        System.out.println(\"hello\");\n    }\n}\n","after":"class A {\n    /*~~(`main` declares `throws`; uncaught exceptions propagate to the JVM's default handler. Handle them explicitly and exit with a meaningful code.)~~>*/public static void main(String[] args) throws Exception {\n        System.out.println(\"hello\");\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass A {\n-   public static void main(String[] args) throws Exception {\n+   /*~~(`main` declares `throws`; uncaught exceptions propagate to the JVM's default handler. Handle them explicitly and exit with a meaningful code.)~~>*/public static void main(String[] args) throws Exception {\n        System.out.println(\"hello\");\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.FindMainWithThrowsClause","displayName":"Find `main` methods with a `throws` clause","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

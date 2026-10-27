@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace PowerMockito `doX().when(instance, \"method\")` with Mockito-compatible stubbing"}
-  description={"Replaces PowerMockito's private method stubbing pattern `doNothing().when(instance, \"methodName\", args...)` with the standard Mockito pattern `doNothing().when(instance).methodName(args...)`."}
+  description={"Replaces PowerMockito's `doNothing().when(instance, \"methodName\", args...)` stubbing (and that of the other `doX()` methods) with the standard Mockito pattern `doNothing().when(instance).methodName(args...)`. Mockito can not stub private methods, so stubbing of a private method is left unchanged and gets a comment."}
   fqName={"org.openrewrite.java.testing.mockito.PowerMockitoDoStubbingToMockito"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace PowerMockito `doX().when(instance, "method")` with Mockito-compatible stubbing</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces PowerMockito's private method stubbing pattern `doNothing().when(instance, "methodName", args...)` with the standard Mockito pattern `doNothing().when(instance).methodName(args...)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces PowerMockito's `doNothing().when(instance, "methodName", args...)` stubbing (and that of the other `doX()` methods) with the standard Mockito pattern `doNothing().when(instance).methodName(args...)`. Mockito can not stub private methods, so stubbing of a private method is left unchanged and gets a comment.</RecipeHeader.Description>
 
 </RecipeHeader>
 

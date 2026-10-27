@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `ast.NameConstant` with `ast.Constant`"}
-  description={"The `ast.NameConstant` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `node.value in (True, False, None)`."}
+  description={"The `ast.NameConstant` node type was deprecated in Python 3.8 and removed in Python 3.14. Rename it to `ast.Constant`. An `isinstance` check against `ast.Constant` accepts every constant, and the recipe adds no `node.value in (True, False, None)` guard to narrow it."}
   fqName={"org.openrewrite.python.migrate.ReplaceAstNameConstant"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Python"]}
-  tags={[]}
+  tags={["python","ast","migration","3.14","3.8"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceAstNameConstant"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `ast.NameConstant` with `ast.Constant`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `ast.NameConstant` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `node.value in (True, False, None)`.</RecipeHeader.Description>
+<RecipeHeader.Description>The `ast.NameConstant` node type was deprecated in Python 3.8 and removed in Python 3.14. Rename it to `ast.Constant`. An `isinstance` check against `ast.Constant` accepts every constant, and the recipe adds no `node.value in (True, False, None)` guard to narrow it.</RecipeHeader.Description>
 
 </RecipeHeader>
 

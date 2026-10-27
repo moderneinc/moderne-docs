@@ -1,6 +1,6 @@
 ---
-title: "Use `@Slf4` instead of explicit fields"
-sidebar_label: "Use `@Slf4` instead of explicit fields"
+title: "Use `@Slf4j` instead of explicit fields"
+sidebar_label: "Use `@Slf4j` instead of explicit fields"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Use `@Slf4` instead of explicit fields"}
-  description={"Prefer the lombok annotation `@Slf4` over explicitly written out `org.slf4j.Logger` fields."}
+  displayName={"Use `@Slf4j` instead of explicit fields"}
+  description={"Prefer the Lombok annotation `@Slf4j` over explicitly written out `org.slf4j.Logger` fields."}
   fqName={"org.openrewrite.java.migrate.lombok.log.UseSlf4j"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/useslf4j.md"}
 >
 
-<RecipeHeader.Title>Use `@Slf4` instead of explicit fields</RecipeHeader.Title>
+<RecipeHeader.Title>Use `@Slf4j` instead of explicit fields</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer the lombok annotation `@Slf4` over explicitly written out `org.slf4j.Logger` fields.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer the Lombok annotation `@Slf4j` over explicitly written out `org.slf4j.Logger` fields.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lombok.log.UseSlf4j","displayName":"Use `@Slf4` instead of explicit fields","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"fieldName=LOGGER\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lombok.log.UseSlf4j","displayName":"Use `@Slf4j` instead of explicit fields","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"fieldName=LOGGER\""}}>
 
 ## Usage
 

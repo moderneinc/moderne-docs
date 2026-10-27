@@ -1,6 +1,6 @@
 ---
-title: "Upgrade Surefire Plugin"
-sidebar_label: "Upgrade Surefire Plugin"
+title: "Upgrade the Maven Surefire plugin"
+sidebar_label: "Upgrade the Maven Surefire plugin"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Upgrade Surefire Plugin"}
+  displayName={"Upgrade the Maven Surefire plugin"}
   description={"Upgrades the Maven Surefire Plugin to the latest version if still using an older Maven version."}
   fqName={"org.openrewrite.java.testing.junit5.UpgradeSurefirePlugin"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradesurefireplugin.md"}
 >
 
-<RecipeHeader.Title>Upgrade Surefire Plugin</RecipeHeader.Title>
+<RecipeHeader.Title>Upgrade the Maven Surefire plugin</RecipeHeader.Title>
 
 <RecipeHeader.Description>Upgrades the Maven Surefire Plugin to the latest version if still using an older Maven version.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.UpgradeSurefirePlugin","displayName":"Upgrade Surefire Plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.UpgradeSurefirePlugin","displayName":"Upgrade the Maven Surefire plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

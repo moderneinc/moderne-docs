@@ -1,6 +1,6 @@
 ---
-title: "Remove Security Policy"
-sidebar_label: "Remove Security Policy"
+title: "Remove `Policy.setPolicy(..)` calls"
+sidebar_label: "Remove `Policy.setPolicy(..)` calls"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove Security Policy"}
-  description={"The Security Manager API is unsupported in Java 24. This recipe will remove the use of `java.security.Policy`."}
+  displayName={"Remove `Policy.setPolicy(..)` calls"}
+  description={"The Security Manager API is unsupported in Java 24. This recipe removes calls to `java.security.Policy#setPolicy(..)`."}
   fqName={"org.openrewrite.java.migrate.RemoveSecurityPolicy"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removesecuritypolicy.md"}
 >
 
-<RecipeHeader.Title>Remove Security Policy</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `Policy.setPolicy(..)` calls</RecipeHeader.Title>
 
-<RecipeHeader.Description>The Security Manager API is unsupported in Java 24. This recipe will remove the use of `java.security.Policy`.</RecipeHeader.Description>
+<RecipeHeader.Description>The Security Manager API is unsupported in Java 24. This recipe removes calls to `java.security.Policy#setPolicy(..)`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemoveSecurityPolicy","displayName":"Remove Security Policy","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemoveSecurityPolicy","displayName":"Remove `Policy.setPolicy(..)` calls","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -1,6 +1,6 @@
 ---
-title: "Use `StandardCharset` constants"
-sidebar_label: "Use `StandardCharset` constants"
+title: "Use `StandardCharsets` constants"
+sidebar_label: "Use `StandardCharsets` constants"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Use `StandardCharset` constants"}
-  description={"Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharset` constant. Using the predefined constants is both compile-time safe and avoids the need to handle `UnsupportedEncodingException` for charsets that are guaranteed to exist on every JVM."}
+  displayName={"Use `StandardCharsets` constants"}
+  description={"Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharsets` constant. Using the predefined constants is compile-time safe and avoids looking up by name the charsets that are guaranteed to exist on every JVM."}
   fqName={"org.openrewrite.staticanalysis.UseStandardCharset"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/usestandardcharset.md"}
 >
 
-<RecipeHeader.Title>Use `StandardCharset` constants</RecipeHeader.Title>
+<RecipeHeader.Title>Use `StandardCharsets` constants</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharset` constant. Using the predefined constants is both compile-time safe and avoids the need to handle `UnsupportedEncodingException` for charsets that are guaranteed to exist on every JVM.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharsets` constant. Using the predefined constants is compile-time safe and avoids looking up by name the charsets that are guaranteed to exist on every JVM.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UseStandardCharset","displayName":"Use `StandardCharset` constants","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UseStandardCharset","displayName":"Use `StandardCharsets` constants","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -1,6 +1,6 @@
 ---
-title: "Remove trailing slash from `jakarta.ws.rs.ApplicationPath` values"
-sidebar_label: "Remove trailing slash from `jakarta.ws.rs.ApplicationPath` values"
+title: "Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values"
+sidebar_label: "Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove trailing slash from `jakarta.ws.rs.ApplicationPath` values"}
+  displayName={"Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values"}
   description={"Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values."}
   fqName={"org.openrewrite.java.migrate.jakarta.ApplicationPathWildcardNoLongerAccepted"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/applicationpathwildcardnolongeraccepted.md"}
 >
 
-<RecipeHeader.Title>Remove trailing slash from `jakarta.ws.rs.ApplicationPath` values</RecipeHeader.Title>
+<RecipeHeader.Title>Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values</RecipeHeader.Title>
 
 <RecipeHeader.Description>Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.ApplicationPathWildcardNoLongerAccepted","displayName":"Remove trailing slash from `jakarta.ws.rs.ApplicationPath` values","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.ApplicationPathWildcardNoLongerAccepted","displayName":"Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

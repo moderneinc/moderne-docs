@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Finalize classes with private constructors"}
-  description={"Adds the `final` modifier to classes that expose no public or package-private constructors. If a class cannot be instantiated from the outside, marking it `final` communicates that it was not designed for inheritance and prevents accidental subclassing."}
+  description={"Adds the `final` modifier to classes whose constructors are all `private`. If a class cannot be instantiated from the outside, marking it `final` communicates that it was not designed for inheritance and prevents accidental subclassing."}
   fqName={"org.openrewrite.staticanalysis.FinalClass"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Finalize classes with private constructors</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adds the `final` modifier to classes that expose no public or package-private constructors. If a class cannot be instantiated from the outside, marking it `final` communicates that it was not designed for inheritance and prevents accidental subclassing.</RecipeHeader.Description>
+<RecipeHeader.Description>Adds the `final` modifier to classes whose constructors are all `private`. If a class cannot be instantiated from the outside, marking it `final` communicates that it was not designed for inheritance and prevents accidental subclassing.</RecipeHeader.Description>
 
 </RecipeHeader>
 

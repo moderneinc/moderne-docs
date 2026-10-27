@@ -1,6 +1,6 @@
 ---
-title: "`Stream<Optional>` idiom recipe"
-sidebar_label: "`Stream<Optional>` idiom recipe"
+title: "Replace `filter(Optional::isPresent).map(Optional::get)` with `flatMap(Optional::stream)`"
+sidebar_label: "Replace `filter(Optional::isPresent).map(Optional::get)` with `flatMap(Optional::stream)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"`Stream<Optional>` idiom recipe"}
-  description={"Migrate Java 8 `Optional<Stream>.filter(Optional::isPresent).map(Optional::get)` to Java 11 `.flatMap(Optional::stream)`."}
+  displayName={"Replace `filter(Optional::isPresent).map(Optional::get)` with `flatMap(Optional::stream)`"}
+  description={"Replace `Stream<Optional>.filter(Optional::isPresent).map(Optional::get)` with `.flatMap(Optional::stream)` in Java 9 or higher."}
   fqName={"org.openrewrite.java.migrate.util.OptionalStreamRecipe"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/optionalstreamrecipe.md"}
 >
 
-<RecipeHeader.Title>`Stream<Optional>` idiom recipe</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `filter(Optional::isPresent).map(Optional::get)` with `flatMap(Optional::stream)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate Java 8 `Optional<Stream>.filter(Optional::isPresent).map(Optional::get)` to Java 11 `.flatMap(Optional::stream)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `Stream<Optional>.filter(Optional::isPresent).map(Optional::get)` with `.flatMap(Optional::stream)` in Java 9 or higher.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.util.OptionalStreamRecipe","displayName":"`Stream<Optional>` idiom recipe","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.util.OptionalStreamRecipe","displayName":"Replace `filter(Optional::isPresent).map(Optional::get)` with `flatMap(Optional::stream)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

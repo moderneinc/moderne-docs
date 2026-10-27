@@ -1,6 +1,6 @@
 ---
-title: "Update Plugins for Jakarta EE 11"
-sidebar_label: "Update Plugins for Jakarta EE 11"
+title: "Update plugins for Jakarta EE 11"
+sidebar_label: "Update plugins for Jakarta EE 11"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Update Plugins for Jakarta EE 11"}
+  displayName={"Update plugins for Jakarta EE 11"}
   description={"Update plugins to be compatible with Jakarta EE 11."}
   fqName={"org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta11"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta11.md"}
 >
 
-<RecipeHeader.Title>Update Plugins for Jakarta EE 11</RecipeHeader.Title>
+<RecipeHeader.Title>Update plugins for Jakarta EE 11</RecipeHeader.Title>
 
 <RecipeHeader.Description>Update plugins to be compatible with Jakarta EE 11.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta11","displayName":"Update Plugins for Jakarta EE 11","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta11","displayName":"Update plugins for Jakarta EE 11","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

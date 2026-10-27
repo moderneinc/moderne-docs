@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `while` over `for` loops"}
-  description={"When only the condition expression is defined in a for loop, and the initialization and increment expressions are missing, a while loop should be used instead to increase readability. A `for` loop with empty init and update sections signals iteration mechanics that do not exist, whereas `while` clearly communicates a simple conditional loop."}
+  description={"When only the condition expression is defined in a `for` loop, and the initialization and increment expressions are missing, a `while` loop should be used instead to increase readability. A `for` loop with empty init and update sections signals iteration mechanics that do not exist, whereas `while` clearly communicates a simple conditional loop."}
   fqName={"org.openrewrite.staticanalysis.WhileInsteadOfFor"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `while` over `for` loops</RecipeHeader.Title>
 
-<RecipeHeader.Description>When only the condition expression is defined in a for loop, and the initialization and increment expressions are missing, a while loop should be used instead to increase readability. A `for` loop with empty init and update sections signals iteration mechanics that do not exist, whereas `while` clearly communicates a simple conditional loop.</RecipeHeader.Description>
+<RecipeHeader.Description>When only the condition expression is defined in a `for` loop, and the initialization and increment expressions are missing, a `while` loop should be used instead to increase readability. A `for` loop with empty init and update sections signals iteration mechanics that do not exist, whereas `while` clearly communicates a simple conditional loop.</RecipeHeader.Description>
 
 </RecipeHeader>
 

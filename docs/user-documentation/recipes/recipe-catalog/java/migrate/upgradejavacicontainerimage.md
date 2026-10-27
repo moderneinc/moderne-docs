@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade CircleCI OpenJDK job images"}
-  description={"Upgrade cimg/openjdk job containers in GitHub Actions and CircleCI to the target Java version, preserving newer versions and unrelated service images."}
+  description={"Upgrade `cimg/openjdk` job containers in GitHub Actions and CircleCI to the target Java version, preserving newer versions and unrelated service images."}
   fqName={"org.openrewrite.java.migrate.UpgradeJavaCiContainerImage"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade CircleCI OpenJDK job images</RecipeHeader.Title>
 
-<RecipeHeader.Description>Upgrade cimg/openjdk job containers in GitHub Actions and CircleCI to the target Java version, preserving newer versions and unrelated service images.</RecipeHeader.Description>
+<RecipeHeader.Description>Upgrade `cimg/openjdk` job containers in GitHub Actions and CircleCI to the target Java version, preserving newer versions and unrelated service images.</RecipeHeader.Description>
 
 </RecipeHeader>
 

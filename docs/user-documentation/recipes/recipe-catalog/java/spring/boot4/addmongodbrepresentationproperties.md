@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Add a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty/"},{"name":"Add a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
+<RecipeList recipes={[{"name":"Add a Spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty/"},{"name":"Add a Spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

@@ -1,14 +1,14 @@
 ---
-title: "Migrate `RestTemplate` constructor calls to `RestClient.create()`"
-sidebar_label: "Migrate `RestTemplate` constructor calls to `RestClient.create()`"
+title: "Migrate `RestTemplate` constructor calls to `RestClient`"
+sidebar_label: "Migrate `RestTemplate` constructor calls to `RestClient`"
 hide_title: true
 ---
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate `RestTemplate` constructor calls to `RestClient.create()`"}
-  description={"Migrates Spring's `RestTemplate` constructor invocations to the modern `RestClient` API `create()` introduced in Spring Framework 6.1. `RestClient` provides a fluent, synchronous API that is the recommended approach."}
+  displayName={"Migrate `RestTemplate` constructor calls to `RestClient`"}
+  description={"Migrates Spring's `RestTemplate` constructor invocations to the modern `RestClient` API introduced in Spring Framework 6.1. `RestClient` provides a fluent, synchronous API that is the recommended approach. `new RestTemplate()` becomes `RestClient.create()`, while `new RestTemplate(ClientHttpRequestFactory)` and `new RestTemplate(List<HttpMessageConverter<?>>)` become `RestClient.builder()` calls, as `RestClient` is an interface."}
   fqName={"io.moderne.java.spring.boot3.MigrateToRestClientConstructor"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -26,13 +26,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   moderneOnly
 >
 
-<RecipeHeader.Title>Migrate `RestTemplate` constructor calls to `RestClient.create()`</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate `RestTemplate` constructor calls to `RestClient`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates Spring's `RestTemplate` constructor invocations to the modern `RestClient` API `create()` introduced in Spring Framework 6.1. `RestClient` provides a fluent, synchronous API that is the recommended approach.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates Spring's `RestTemplate` constructor invocations to the modern `RestClient` API introduced in Spring Framework 6.1. `RestClient` provides a fluent, synchronous API that is the recommended approach. `new RestTemplate()` becomes `RestClient.create()`, while `new RestTemplate(ClientHttpRequestFactory)` and `new RestTemplate(List<HttpMessageConverter<?>>)` become `RestClient.builder()` calls, as `RestClient` is an interface.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"io.moderne.java.spring.boot3.MigrateToRestClientConstructor","displayName":"Migrate `RestTemplate` constructor calls to `RestClient.create()`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.java.spring.boot3.MigrateToRestClientConstructor","displayName":"Migrate `RestTemplate` constructor calls to `RestClient`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

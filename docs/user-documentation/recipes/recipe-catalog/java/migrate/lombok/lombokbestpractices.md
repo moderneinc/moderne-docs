@@ -1,6 +1,6 @@
 ---
-title: "Lombok Best Practices"
-sidebar_label: "Lombok Best Practices"
+title: "Lombok best practices"
+sidebar_label: "Lombok best practices"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Lombok Best Practices"}
+  displayName={"Lombok best practices"}
   description={"Applies all recipes that enforce best practices for using Lombok."}
   fqName={"org.openrewrite.java.migrate.lombok.LombokBestPractices"}
   languages={["Java"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokbestpractices.md"}
 >
 
-<RecipeHeader.Title>Lombok Best Practices</RecipeHeader.Title>
+<RecipeHeader.Title>Lombok best practices</RecipeHeader.Title>
 
 <RecipeHeader.Description>Applies all recipes that enforce best practices for using Lombok.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate Lombok to a Java 11 compatible version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/updatelomboktojava11/"},{"name":"Use Lombok logger annotations instead of explicit fields","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/uselomboklogannotations/"},{"name":"Convert getter methods to annotations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/uselombokgetter/"},{"name":"Convert setter methods to annotations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/uselomboksetter/"},{"name":"Use `@NoArgsConstructor` where applicable","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/usenoargsconstructor/"},{"name":"Use `@RequiredArgsConstructor` where applicable","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/userequiredargsconstructor/"},{"name":"Use `@AllArgsConstructor` where applicable","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/useallargsconstructor/"},{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"},{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"},{"name":"Exclude Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/excludedependency/"},{"name":"Enable Lombok annotation processor","href":"/user-documentation/recipes/recipe-catalog/java/migrate/enablelombokannotationprocessor/"},{"name":"Append to text file","href":"/user-documentation/recipes/recipe-catalog/text/appendtotextfile/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Enable Lombok annotation processor","href":"/user-documentation/recipes/recipe-catalog/java/migrate/enablelombokannotationprocessor/"},{"name":"Migrate Lombok to a Java 11 compatible version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/updatelomboktojava11/"},{"name":"Use Lombok logger annotations instead of explicit fields","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/uselomboklogannotations/"},{"name":"Convert getter methods to annotations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/uselombokgetter/"},{"name":"Convert setter methods to annotations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/uselomboksetter/"},{"name":"Use `@NoArgsConstructor` where applicable","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/usenoargsconstructor/"},{"name":"Use `@RequiredArgsConstructor` where applicable","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/userequiredargsconstructor/"},{"name":"Use `@AllArgsConstructor` where applicable","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/useallargsconstructor/"},{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"},{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"},{"name":"Exclude Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/excludedependency/"},{"name":"Append to text file","href":"/user-documentation/recipes/recipe-catalog/text/appendtotextfile/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lombok.LombokBestPractices","displayName":"Lombok Best Practices","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lombok.LombokBestPractices","displayName":"Lombok best practices","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

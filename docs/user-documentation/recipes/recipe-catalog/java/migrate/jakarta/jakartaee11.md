@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate to Jakarta EE 11"}
-  description={"These recipes help with the Migration to Jakarta EE 11, flagging and updating deprecated methods."}
+  description={"Migrate to Jakarta EE 11 by applying the Jakarta EE 10 migration, and then upgrading the Jakarta EE platform, Jakarta Faces and Maven plugins to their Jakarta EE 11 versions."}
   fqName={"org.openrewrite.java.migrate.jakarta.JakartaEE11"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate to Jakarta EE 11</RecipeHeader.Title>
 
-<RecipeHeader.Description>These recipes help with the Migration to Jakarta EE 11, flagging and updating deprecated methods.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate to Jakarta EE 11 by applying the Jakarta EE 10 migration, and then upgrading the Jakarta EE platform, Jakarta Faces and Maven plugins to their Jakarta EE 11 versions.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Jakarta EE 10","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10/"},{"name":"Jakarta Faces 4.0 to 4.1","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces4xmigrationtofaces41x/"},{"name":"Update Jakarta EE Platform Dependencies to 11.0.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaplatform11/"},{"name":"Update Plugins for Jakarta EE 11","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta11/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Jakarta EE 10","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10/"},{"name":"Jakarta Faces 4.0 to 4.1","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces4xmigrationtofaces41x/"},{"name":"Update Jakarta EE platform dependencies to 11.0.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaplatform11/"},{"name":"Update plugins for Jakarta EE 11","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta11/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

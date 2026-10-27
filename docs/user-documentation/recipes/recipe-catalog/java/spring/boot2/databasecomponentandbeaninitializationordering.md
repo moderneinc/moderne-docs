@@ -1,6 +1,6 @@
 ---
-title: "Adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`"
-sidebar_label: "Adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`"
+title: "Add `@DependsOnDatabaseInitialization` to Spring beans and components depending on `javax.sql.DataSource`"
+sidebar_label: "Add `@DependsOnDatabaseInitialization` to Spring beans and components depending on `javax.sql.DataSource`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`"}
+  displayName={"Add `@DependsOnDatabaseInitialization` to Spring beans and components depending on `javax.sql.DataSource`"}
   description={"Beans of certain well-known types, such as `JdbcTemplate`, will be ordered so that they are initialized after the database has been initialized. If you have a bean that works with the `DataSource` directly, annotate its class or `@Bean` method with `@DependsOnDatabaseInitialization` to ensure that it too is initialized after the database has been initialized. See the [release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#initialization-ordering) for more."}
   fqName={"org.openrewrite.java.spring.boot2.DatabaseComponentAndBeanInitializationOrdering"}
   languages={["Java"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/databasecomponentandbeaninitializationordering.md"}
 >
 
-<RecipeHeader.Title>Adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`</RecipeHeader.Title>
+<RecipeHeader.Title>Add `@DependsOnDatabaseInitialization` to Spring beans and components depending on `javax.sql.DataSource`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Beans of certain well-known types, such as `JdbcTemplate`, will be ordered so that they are initialized after the database has been initialized. If you have a bean that works with the `DataSource` directly, annotate its class or `@Bean` method with `@DependsOnDatabaseInitialization` to ensure that it too is initialized after the database has been initialized. See the [release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#initialization-ordering) for more.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Unconditionally adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/databasecomponentandbeaninitializationorderingunconditionally/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Unconditionally add `@DependsOnDatabaseInitialization` to Spring beans and components depending on `javax.sql.DataSource`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/databasecomponentandbeaninitializationorderingunconditionally/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.DatabaseComponentAndBeanInitializationOrdering","displayName":"Adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.DatabaseComponentAndBeanInitializationOrdering","displayName":"Add `@DependsOnDatabaseInitialization` to Spring beans and components depending on `javax.sql.DataSource`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

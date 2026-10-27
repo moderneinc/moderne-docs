@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate quarkus-cxf to 3.39"}
-  description={"quarkus-cxf 3.39.0 no longer pulls io.quarkus:quarkus-jackson transitively. Adds an explicit quarkus-jackson dependency to applications that use Jackson classes in their sources and do not get the dependency from elsewhere."}
+  description={"quarkus-cxf 3.39.0 no longer pulls io.quarkus:quarkus-jackson transitively. Adds an explicit quarkus-jackson dependency to applications that use Jackson classes in their sources and do not declare it directly."}
   fqName={"io.quarkus.updates.cxf.cxf339.UpdateAll"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate quarkus-cxf to 3.39</RecipeHeader.Title>
 
-<RecipeHeader.Description>quarkus-cxf 3.39.0 no longer pulls io.quarkus:quarkus-jackson transitively. Adds an explicit quarkus-jackson dependency to applications that use Jackson classes in their sources and do not get the dependency from elsewhere.</RecipeHeader.Description>
+<RecipeHeader.Description>quarkus-cxf 3.39.0 no longer pulls io.quarkus:quarkus-jackson transitively. Adds an explicit quarkus-jackson dependency to applications that use Jackson classes in their sources and do not declare it directly.</RecipeHeader.Description>
 
 </RecipeHeader>
 

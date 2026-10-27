@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Covariant equals"}
-  description={"Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`). Without a proper `equals(Object)` override, collections and other framework code that rely on the standard signature will silently use `Object.equals`, leading to incorrect behavior."}
+  description={"Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`). Without a proper `equals(Object)` override, collections and other framework code that rely on the standard signature will silently use `Object.equals`, leading to incorrect behavior. Adds an `equals(Object)` that delegates to the covariant `equals()`, so overrides and callers of the covariant method keep compiling. Classes that do not also declare `hashCode()` are left unchanged."}
   fqName={"org.openrewrite.staticanalysis.CovariantEquals"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S2162"]}
+  tags={["RSPEC-S1201"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.CovariantEquals"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Covariant equals</RecipeHeader.Title>
 
-<RecipeHeader.Description>Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`). Without a proper `equals(Object)` override, collections and other framework code that rely on the standard signature will silently use `Object.equals`, leading to incorrect behavior.</RecipeHeader.Description>
+<RecipeHeader.Description>Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`). Without a proper `equals(Object)` override, collections and other framework code that rely on the standard signature will silently use `Object.equals`, leading to incorrect behavior. Adds an `equals(Object)` that delegates to the covariant `equals()`, so overrides and callers of the covariant method keep compiling. Classes that do not also declare `hashCode()` are left unchanged.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int n;\n\n    public boolean equals(Test tee) {\n        return n == tee.n;\n    }\n}\n","after":"class Test {\n    int n;\n\n    @Override\n    public boolean equals(Object obj) {\n        if (obj == this) return true;\n        if (obj == null || getClass() != obj.getClass()) return false;\n        Test tee = (Test) obj;\n        return n == tee.n;\n    }\n}\n","diff":"@@ -4,1 +4,5 @@\n    int n;\n\n-   public boolean equals(Test tee) {\n+   @Override\n+   public boolean equals(Object obj) {\n+       if (obj == this) return true;\n+       if (obj == null || getClass() != obj.getClass()) return false;\n+       Test tee = (Test) obj;\n        return n == tee.n;\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int n;\n\n    public boolean equals(Test tee) {\n        return n == tee.n;\n    }\n\n    @Override\n    public int hashCode() {\n        return n;\n    }\n}\n","after":"class Test {\n    int n;\n\n    public boolean equals(Test tee) {\n        return n == tee.n;\n    }\n\n    @Override\n    public boolean equals(Object obj) {\n        return obj instanceof Test && equals((Test) obj);\n    }\n\n    @Override\n    public int hashCode() {\n        return n;\n    }\n}\n","diff":"@@ -9,0 +9,5 @@\n\n    @Override\n+   public boolean equals(Object obj) {\n+       return obj instanceof Test && equals((Test) obj);\n+   }\n+\n+   @Override\n    public int hashCode() {\n","newFile":false}]}]}>
 
 ## Examples
 

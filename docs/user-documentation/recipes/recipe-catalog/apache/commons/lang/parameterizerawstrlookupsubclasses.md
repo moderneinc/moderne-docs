@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.text.StrLookup;\n\nclass EnvironmentLookup extends StrLookup {\n    @Override\n    public String lookup(String key) {\n        return System.getenv(key);\n    }\n}\n","after":"import org.apache.commons.text.StrLookup;\n\nclass EnvironmentLookup extends StrLookup<String> {\n    @Override\n    public String lookup(String key) {\n        return System.getenv(key);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.apache.commons.text.StrLookup;\n\n-class EnvironmentLookup extends StrLookup {\n+class EnvironmentLookup extends StrLookup<String> {\n    @Override\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.apache.commons.lang.ParameterizeRawStrLookupSubclasses","displayName":"Parameterize raw `StrLookup` subclasses","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 
 ## Usage

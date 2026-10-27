@@ -1,6 +1,6 @@
 ---
-title: "Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0"
-sidebar_label: "Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0"
+title: "Call `HttpServletRequest.logout()` before `HttpSession.invalidate()`"
+sidebar_label: "Call `HttpServletRequest.logout()` before `HttpSession.invalidate()`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0"}
-  description={"Do not rely on HttpSession `invalidate` method for programmatic security logout. Add the HttpServletRequest `logout` method which was introduced in Java EE 6 as part of the Servlet 3.0 specification."}
+  displayName={"Call `HttpServletRequest.logout()` before `HttpSession.invalidate()`"}
+  description={"Add a call to `HttpServletRequest#logout()`, introduced in Servlet 3.0, before `HttpSession#invalidate()`, so that a programmatic logout also clears the authenticated user, not only the session. Only applies to standalone `invalidate()` statements in methods with an `HttpServletRequest` parameter where the `ServletException` thrown by `logout()` is already declared or caught."}
   fqName={"org.openrewrite.java.migrate.javax.HttpSessionInvalidate"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/httpsessioninvalidate.md"}
 >
 
-<RecipeHeader.Title>Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0</RecipeHeader.Title>
+<RecipeHeader.Title>Call `HttpServletRequest.logout()` before `HttpSession.invalidate()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Do not rely on HttpSession `invalidate` method for programmatic security logout. Add the HttpServletRequest `logout` method which was introduced in Java EE 6 as part of the Servlet 3.0 specification.</RecipeHeader.Description>
+<RecipeHeader.Description>Add a call to `HttpServletRequest#logout()`, introduced in Servlet 3.0, before `HttpSession#invalidate()`, so that a programmatic logout also clears the authenticated user, not only the session. Only applies to standalone `invalidate()` statements in methods with an `HttpServletRequest` parameter where the `ServletException` thrown by `logout()` is already declared or caught.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.HttpSessionInvalidate","displayName":"Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.HttpSessionInvalidate","displayName":"Call `HttpServletRequest.logout()` before `HttpSession.invalidate()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

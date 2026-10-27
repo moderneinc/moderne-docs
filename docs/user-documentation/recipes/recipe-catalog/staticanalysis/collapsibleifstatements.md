@@ -1,6 +1,6 @@
 ---
-title: "Mergeable \"if\" statements should be combined"
-sidebar_label: "Mergeable \"if\" statements should be combined"
+title: "Mergeable `if` statements should be combined"
+sidebar_label: "Mergeable `if` statements should be combined"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Mergeable \"if\" statements should be combined"}
+  displayName={"Mergeable `if` statements should be combined"}
   description={"When an `if` statement body contains only another `if` with no `else`, the two conditions can be combined with `&&`. Merging the conditions reduces nesting and makes the code easier to read."}
   fqName={"org.openrewrite.staticanalysis.CollapsibleIfStatements"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/collapsibleifstatements.md"}
 >
 
-<RecipeHeader.Title>Mergeable "if" statements should be combined</RecipeHeader.Title>
+<RecipeHeader.Title>Mergeable `if` statements should be combined</RecipeHeader.Title>
 
 <RecipeHeader.Description>When an `if` statement body contains only another `if` with no `else`, the two conditions can be combined with `&&`. Merging the conditions reduces nesting and makes the code easier to read.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CollapsibleIfStatements","displayName":"Mergeable \"if\" statements should be combined","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CollapsibleIfStatements","displayName":"Mergeable `if` statements should be combined","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

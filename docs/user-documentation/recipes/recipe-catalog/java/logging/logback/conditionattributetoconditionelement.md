@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"filePattern","value":"null"}],"variants":[{"language":"xml","before":"<configuration>\n    <if condition='property(\"pretty\").equals(\"false\")'>\n        <then>\n            <root level=\"INFO\">\n                <appender-ref ref=\"STDOUT\"/>\n            </root>\n        </then>\n    </if>\n</configuration>\n","after":"<configuration>\n    <condition class=\"ch.qos.logback.core.boolex.PropertyEqualityCondition\">\n        <key>pretty</key>\n        <value>false</value>\n    </condition>\n    <if>\n        <then>\n            <root level=\"INFO\">\n                <appender-ref ref=\"STDOUT\"/>\n            </root>\n        </then>\n    </if>\n</configuration>\n","diff":"--- logback.xml\n+++ logback.xml\n@@ -2,1 +2,5 @@\n<configuration>\n-   <if condition='property(\"pretty\").equals(\"false\")'>\n+   <condition class=\"ch.qos.logback.core.boolex.PropertyEqualityCondition\">\n+       <key>pretty</key>\n+       <value>false</value>\n+   </condition>\n+   <if>\n        <then>\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.logback.ConditionAttributeToConditionElement","displayName":"Replace the Logback `condition` attribute with the `condition` element","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"filePattern='**/logback-spring.xml'\""}}>
 
 ## Usage

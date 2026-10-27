@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate MockMvc `andExpect()` chains to AssertJ assertions"}
-  description={"Converts MockMvc Hamcrest-style `andExpect()` assertion chains to AssertJ-style fluent assertions using `assertThat()`. Handles status, content, JSON path, header, redirect, and forward assertions."}
+  description={"Converts MockMvc Hamcrest-style `andExpect()` assertion chains to AssertJ-style fluent assertions using `assertThat()`. Handles status, content, JSON path, header, redirect, and forward assertions, and keeps other result matchers and handlers through `matches(..)` and `apply(..)`."}
   fqName={"io.moderne.java.spring.boot4.MockMvcAssertionsToAssertJ"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate MockMvc `andExpect()` chains to AssertJ assertions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Converts MockMvc Hamcrest-style `andExpect()` assertion chains to AssertJ-style fluent assertions using `assertThat()`. Handles status, content, JSON path, header, redirect, and forward assertions.</RecipeHeader.Description>
+<RecipeHeader.Description>Converts MockMvc Hamcrest-style `andExpect()` assertion chains to AssertJ-style fluent assertions using `assertThat()`. Handles status, content, JSON path, header, redirect, and forward assertions, and keeps other result matchers and handlers through `matches(..)` and `apply(..)`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

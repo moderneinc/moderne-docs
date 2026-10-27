@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate MockMvc to AssertJ assertions"}
-  description={"Migrates Spring MockMvc tests from Hamcrest-style `andExpect()` assertions to AssertJ-style fluent assertions. Changes `MockMvc` to `MockMvcTester` and converts assertion chains."}
+  description={"Migrates Spring MockMvc tests from Hamcrest-style `andExpect()` assertions to AssertJ-style fluent assertions. Changes `MockMvc` to `MockMvcTester` and converts assertion chains. Leaves alone source files with `MockMvc` usages that cannot be migrated, and the source files that share a `MockMvc` field with them."}
   fqName={"io.moderne.java.spring.boot4.MigrateMockMvcToAssertJ"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate MockMvc to AssertJ assertions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates Spring MockMvc tests from Hamcrest-style `andExpect()` assertions to AssertJ-style fluent assertions. Changes `MockMvc` to `MockMvcTester` and converts assertion chains.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates Spring MockMvc tests from Hamcrest-style `andExpect()` assertions to AssertJ-style fluent assertions. Changes `MockMvc` to `MockMvcTester` and converts assertion chains. Leaves alone source files with `MockMvc` usages that cannot be migrated, and the source files that share a `MockMvc` field with them.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate MockMvc `andExpect()` chains to AssertJ assertions","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcassertionstoassertj/"},{"name":"Migrate `MockMvc` to `MockMvcTester`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvctomockmvctester/"},{"name":"Migrate `MockMvcRequestBuilders` to `MockMvcTester` request methods","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcrequestbuilderstomockmvctester/"}]}>
+<RecipeList recipes={[{"name":"Migrate MockMvc `andExpect()` chains to AssertJ assertions","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcassertionstoassertj/"},{"name":"Migrate `MockMvc` to `MockMvcTester`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvctomockmvctester/"},{"name":"Migrate `MockMvcRequestBuilders` to `MockMvcTester` request methods","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcrequestbuilderstomockmvctester/"}]} preconditions={[{"name":"Find `MockMvc` usages that can all migrate to `MockMvcTester`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/ismigratabletomockmvctester/"}]}>
 
 ## Definition
 

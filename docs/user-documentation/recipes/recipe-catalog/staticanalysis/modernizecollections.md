@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Replace `java.util.Hashtable` with `java.util.HashMap`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacehashtablewithhashmap/"},{"name":"Replace `java.util.Vector` with `java.util.ArrayList`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacevectorwitharraylist/"},{"name":"Replace `java.util.Stack` with `java.util.Deque`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacestackwithdeque/"},{"name":"Replace `java.lang.StringBuffer` with `java.lang.StringBuilder`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringbufferwithstringbuilder/"}]}>
+<RecipeList recipes={[{"name":"Replace `java.util.Hashtable` with `java.util.HashMap`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacehashtablewithhashmap/"},{"name":"Replace `java.util.Vector` with `java.util.ArrayList`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacevectorwitharraylist/"},{"name":"Replace `java.util.Stack` with `java.util.Deque`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacestackwithdeque/"},{"name":"Replace `java.lang.StringBuffer` with `java.lang.StringBuilder`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringbufferwithstringbuilder/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

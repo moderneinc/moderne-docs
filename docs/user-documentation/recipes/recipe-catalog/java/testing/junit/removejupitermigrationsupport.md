@@ -13,17 +13,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove JUnit Jupiter migrationsupport"}
-  description={"Remove JUnit Jupiter migrationsupport."}
+  description={"Removes `junit-jupiter-migrationsupport` from modules that don't use its `@EnableRuleMigrationSupport`, `ExternalResourceSupport` or other types, and its managed version once no module uses them."}
   fqName={"org.openrewrite.java.testing.junit.RemoveJupiterMigrationSupport"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/resources/META-INF/rewrite/junit-jupiter.yml"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/junit/RemoveJupiterMigrationSupport.java"}
 />
 
 <RecipeHeader
-  type={"Composite recipe"}
+  type={"Single recipe"}
   languages={["Java"]}
-  tags={["junit","testing"]}
+  tags={[]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.junit.RemoveJupiterMigrationSupport"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
@@ -33,17 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove JUnit Jupiter migrationsupport</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove JUnit Jupiter migrationsupport.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes `junit-jupiter-migrationsupport` from modules that don't use its `@EnableRuleMigrationSupport`, `ExternalResourceSupport` or other types, and its managed version once no module uses them.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove Maven managed dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removemanageddependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
-
-## Definition
-
-</RecipeList>
-
-<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.junit.jupiter</groupId>\n            <artifactId>junit-jupiter-migrationsupport</artifactId>\n            <version>5.9.3</version>\n            <scope>test</scope>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,8 +6,0 @@\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n-   <dependencies>\n-       <dependency>\n-           <groupId>org.junit.jupiter</groupId>\n-           <artifactId>junit-jupiter-migrationsupport</artifactId>\n-           <version>5.9.3</version>\n-           <scope>test</scope>\n-       </dependency>\n-   </dependencies>\n</project>\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.junit.jupiter</groupId>\n            <artifactId>junit-jupiter-migrationsupport</artifactId>\n            <version>5.9.3</version>\n            <scope>test</scope>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,8 +6,0 @@\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n-   <dependencies>\n-       <dependency>\n-           <groupId>org.junit.jupiter</groupId>\n-           <artifactId>junit-jupiter-migrationsupport</artifactId>\n-           <version>5.9.3</version>\n-           <scope>test</scope>\n-       </dependency>\n-   </dependencies>\n</project>\n","newFile":false}]}]}>
+<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.junit.jupiter</groupId>\n            <artifactId>junit-jupiter-migrationsupport</artifactId>\n            <version>5.9.3</version>\n            <scope>test</scope>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,8 +6,0 @@\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n-   <dependencies>\n-       <dependency>\n-           <groupId>org.junit.jupiter</groupId>\n-           <artifactId>junit-jupiter-migrationsupport</artifactId>\n-           <version>5.9.3</version>\n-           <scope>test</scope>\n-       </dependency>\n-   </dependencies>\n</project>\n","newFile":false}]}]}>
 
 ## Examples
 

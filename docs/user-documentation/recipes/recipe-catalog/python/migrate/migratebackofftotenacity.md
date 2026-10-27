@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate `backoff` to `tenacity`"}
-  description={"Replace `backoff`'s retry decorators with tenacity's `@retry`, and add the `tenacity` dependency to exactly the projects where a decorator converted -- a project whose every decorator needs a hand migration gains no dependency, and neither does a repository this leaves unchanged. `backoff` itself stays, because a decorator tenacity cannot reproduce still needs it. Run `org.openrewrite.python.migrate.FindBackoffDecoratorsNotMigrated` for the decorators left to migrate by hand, then drop `backoff` once that list is empty."}
+  description={"Replace `backoff`'s retry decorators with tenacity's `@retry`, and add the `tenacity` dependency to every project that uses `backoff`, including one whose every decorator needs a hand migration. `backoff` itself stays, because a decorator tenacity cannot reproduce still needs it. Run `org.openrewrite.python.migrate.FindBackoffDecoratorsNotMigrated` for the decorators left to migrate by hand, then drop `backoff` once that list is empty."}
   fqName={"org.openrewrite.python.migrate.MigrateBackoffToTenacity"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate `backoff` to `tenacity`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `backoff`'s retry decorators with tenacity's `@retry`, and add the `tenacity` dependency to exactly the projects where a decorator converted -- a project whose every decorator needs a hand migration gains no dependency, and neither does a repository this leaves unchanged. `backoff` itself stays, because a decorator tenacity cannot reproduce still needs it. Run `org.openrewrite.python.migrate.FindBackoffDecoratorsNotMigrated` for the decorators left to migrate by hand, then drop `backoff` once that list is empty.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `backoff`'s retry decorators with tenacity's `@retry`, and add the `tenacity` dependency to every project that uses `backoff`, including one whose every decorator needs a hand migration. `backoff` itself stays, because a decorator tenacity cannot reproduce still needs it. Run `org.openrewrite.python.migrate.FindBackoffDecoratorsNotMigrated` for the decorators left to migrate by hand, then drop `backoff` once that list is empty.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate `ItemWriter`"}
-  description={"In `ItemWriter` the signature of the `write()` method has changed in spring-batch 5.x."}
+  description={"In `ItemWriter` the signature of the `write()` method has changed in Spring Batch 5.x."}
   fqName={"org.openrewrite.java.spring.batch.MigrateItemWriterWrite"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate `ItemWriter`</RecipeHeader.Title>
 
-<RecipeHeader.Description>In `ItemWriter` the signature of the `write()` method has changed in spring-batch 5.x.</RecipeHeader.Description>
+<RecipeHeader.Description>In `ItemWriter` the signature of the `write()` method has changed in Spring Batch 5.x.</RecipeHeader.Description>
 
 </RecipeHeader>
 

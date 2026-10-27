@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate JUnit JRE conditions"}
-  description={"This recipe will:\n - Remove tests that are only active on JREs that are below the specified version.\n - Adjust ranges to use minimum the specified version."}
+  description={"Remove tests that can not run on the specified minimum JRE version or later, and drop JRE versions below that minimum from the `@EnabledOnJre`, `@DisabledOnJre`, `@EnabledForJreRange` and `@DisabledForJreRange` conditions of the remaining tests."}
   fqName={"org.openrewrite.java.testing.junit6.MinimumJreConditions"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,13 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate JUnit JRE conditions</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-This recipe will:
- - Remove tests that are only active on JREs that are below the specified version.
- - Adjust ranges to use minimum the specified version.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Remove tests that can not run on the specified minimum JRE version or later, and drop JRE versions below that minimum from the `@EnabledOnJre`, `@DisabledOnJre`, `@EnabledForJreRange` and `@DisabledForJreRange` conditions of the remaining tests.</RecipeHeader.Description>
 
 </RecipeHeader>
 

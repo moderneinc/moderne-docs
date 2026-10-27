@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\npublic class Simple {\n    public String doWork() {\n        return \"done\";\n    }\n}\n"},"variants":[]}]}>
+<ExampleList examples={[{"unchanged":{"language":"python","code":"def module_function(x):\n    return x\n\nclass GitHubAppScanner:\n    def get_organization_owners(self, org, token):\n        return org\n\n    @classmethod\n    def from_env(cls, env):\n        return env\n\n    @staticmethod\n    def normalize(name):\n        return name\n\n    async def fetch(self, url):\n        return url\n\n    class Report:\n        def render(self, rows):\n            return rows\n"},"variants":[]},{"unchanged":{"language":"java","code":"package com.example;\n\npublic class Simple {\n    public String doWork() {\n        return \"done\";\n    }\n}\n"},"variants":[]}]}>
 
 ## Examples
 

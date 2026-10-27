@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Constructors of an `abstract` class should not be declared `public`"}
-  description={"Constructors of `abstract` classes can only be called in constructors of their subclasses. Therefore the visibility of `public` constructors are reduced to `protected`. Declaring them `public` is misleading since it implies they could be invoked directly, which is never possible."}
+  description={"Constructors of `abstract` classes can only be called in constructors of their subclasses. Therefore, the visibility of `public` constructors is reduced to `protected`. Declaring them `public` is misleading since it implies they could be invoked directly, which is never possible."}
   fqName={"org.openrewrite.staticanalysis.AbstractClassPublicConstructor"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Constructors of an `abstract` class should not be declared `public`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Constructors of `abstract` classes can only be called in constructors of their subclasses. Therefore the visibility of `public` constructors are reduced to `protected`. Declaring them `public` is misleading since it implies they could be invoked directly, which is never possible.</RecipeHeader.Description>
+<RecipeHeader.Description>Constructors of `abstract` classes can only be called in constructors of their subclasses. Therefore, the visibility of `public` constructors is reduced to `protected`. Declaring them `public` is misleading since it implies they could be invoked directly, which is never possible.</RecipeHeader.Description>
 
 </RecipeHeader>
 

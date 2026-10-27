@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace deprecated `Runtime#exec()` methods"}
-  description={"Replace `Runtime#exec(String)` methods to use `exec(String[])` instead because the former is deprecated after Java 18 and is no longer recommended for use by the Java documentation."}
+  description={"Replace `Runtime#exec(String)` methods to use `exec(String[])` instead because the former is deprecated since Java 18 and is no longer recommended for use by the Java documentation."}
   fqName={"org.openrewrite.staticanalysis.ReplaceDeprecatedRuntimeExecMethods"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["RSPEC-S1874"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.ReplaceDeprecatedRuntimeExecMethods"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace deprecated `Runtime#exec()` methods</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `Runtime#exec(String)` methods to use `exec(String[])` instead because the former is deprecated after Java 18 and is no longer recommended for use by the Java documentation.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `Runtime#exec(String)` methods to use `exec(String[])` instead because the former is deprecated since Java 18 and is no longer recommended for use by the Java documentation.</RecipeHeader.Description>
 
 </RecipeHeader>
 

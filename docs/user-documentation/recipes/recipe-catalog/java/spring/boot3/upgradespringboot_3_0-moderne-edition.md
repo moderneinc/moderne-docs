@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate to Spring Boot 3.0"}
-  description={"Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations that are required as part of the migration to Spring Boot 3.0, including the Tomcat 10.1 upgrade which removes `LegacyCookieProcessor`."}
+  description={"Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations that are required as part of the migration to Spring Boot 3.0, including the Tomcat 10.1 upgrade which removes `LegacyCookieProcessor`, and the Spring WS 4.0 migration off Apache Axiom."}
   fqName={"io.moderne.java.spring.boot3.UpgradeSpringBoot_3_0"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate to Spring Boot 3.0</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations that are required as part of the migration to Spring Boot 3.0, including the Tomcat 10.1 upgrade which removes `LegacyCookieProcessor`.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations that are required as part of the migration to Spring Boot 3.0, including the Tomcat 10.1 upgrade which removes `LegacyCookieProcessor`, and the Spring WS 4.0 migration off Apache Axiom.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition/"},{"name":"Use `Rfc6265CookieProcessor` instead of `LegacyCookieProcessor`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/userfc6265cookieprocessor/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition/"},{"name":"Use `Rfc6265CookieProcessor` instead of `LegacyCookieProcessor`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/userfc6265cookieprocessor/"},{"name":"Migrate to Spring WS 4.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

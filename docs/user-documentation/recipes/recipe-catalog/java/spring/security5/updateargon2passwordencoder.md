@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use new `Argon2PasswordEncoder` factory methods"}
-  description={"In Spring Security 5.8 some `Argon2PasswordEncoder` constructors have been deprecated in favor of factory methods. Refer to the [ Spring Security migration docs](https://docs.spring.io/spring-security/reference/5.8/migration/index.html#_update_argon2passwordencoder) for more information."}
+  description={"In Spring Security 5.8 some `Argon2PasswordEncoder` constructors have been deprecated in favor of factory methods. Refer to the [Spring Security migration docs](https://docs.spring.io/spring-security/reference/5.8/migration/index.html#_update_argon2passwordencoder) for more information."}
   fqName={"org.openrewrite.java.spring.security5.UpdateArgon2PasswordEncoder"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use new `Argon2PasswordEncoder` factory methods</RecipeHeader.Title>
 
-<RecipeHeader.Description>In Spring Security 5.8 some `Argon2PasswordEncoder` constructors have been deprecated in favor of factory methods. Refer to the [ Spring Security migration docs](https://docs.spring.io/spring-security/reference/5.8/migration/index.html#_update_argon2passwordencoder) for more information.</RecipeHeader.Description>
+<RecipeHeader.Description>In Spring Security 5.8 some `Argon2PasswordEncoder` constructors have been deprecated in favor of factory methods. Refer to the [Spring Security migration docs](https://docs.spring.io/spring-security/reference/5.8/migration/index.html#_update_argon2passwordencoder) for more information.</RecipeHeader.Description>
 
 </RecipeHeader>
 

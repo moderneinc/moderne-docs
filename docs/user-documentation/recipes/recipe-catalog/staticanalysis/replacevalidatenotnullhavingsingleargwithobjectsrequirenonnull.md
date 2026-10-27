@@ -1,6 +1,6 @@
 ---
-title: "Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"
-sidebar_label: "Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"
+title: "Replace single-argument `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"
+sidebar_label: "Replace single-argument `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"}
+  displayName={"Replace single-argument `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"}
   description={"Replace `org.apache.commons.lang3.Validate.notNull(Object)` with `Objects.requireNonNull(Object)`."}
   fqName={"org.openrewrite.staticanalysis.ReplaceValidateNotNullHavingSingleArgWithObjectsRequireNonNull"}
   languages={["OpenRewrite"]}
@@ -31,19 +31,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingsingleargwithobjectsrequirenonnull.md"}
 >
 
-<RecipeHeader.Title>Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace single-argument `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replace `org.apache.commons.lang3.Validate.notNull(Object)` with `Objects.requireNonNull(Object)`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceValidateNotNullHavingSingleArgWithObjectsRequireNonNull","displayName":"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceValidateNotNullHavingSingleArgWithObjectsRequireNonNull","displayName":"Replace single-argument `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

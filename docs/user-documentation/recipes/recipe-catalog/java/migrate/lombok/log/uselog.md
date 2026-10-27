@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `@Log` instead of explicit fields"}
-  description={"Prefer the lombok annotation `@Log` over explicitly written out `java.util.logging.Logger` fields."}
+  description={"Prefer the Lombok annotation `@Log` over explicitly written out `java.util.logging.Logger` fields."}
   fqName={"org.openrewrite.java.migrate.lombok.log.UseLog"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `@Log` instead of explicit fields</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer the lombok annotation `@Log` over explicitly written out `java.util.logging.Logger` fields.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer the Lombok annotation `@Log` over explicitly written out `java.util.logging.Logger` fields.</RecipeHeader.Description>
 
 </RecipeHeader>
 

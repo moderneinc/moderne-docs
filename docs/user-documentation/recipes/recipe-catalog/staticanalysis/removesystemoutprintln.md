@@ -1,6 +1,6 @@
 ---
-title: "Remove `System.out#println` statements"
-sidebar_label: "Remove `System.out#println` statements"
+title: "Remove `System.out#println` and `System.err#println` statements"
+sidebar_label: "Remove `System.out#println` and `System.err#println` statements"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove `System.out#println` statements"}
+  displayName={"Remove `System.out#println` and `System.err#println` statements"}
   description={"Print statements are often left accidentally after debugging an issue. This recipe removes all `System.out#println` and `System.err#println` statements from the code. Production code should use a proper logging framework which provides consistent formatting, configurable log levels, and centralized output control."}
   fqName={"org.openrewrite.staticanalysis.RemoveSystemOutPrintln"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removesystemoutprintln.md"}
 >
 
-<RecipeHeader.Title>Remove `System.out#println` statements</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `System.out#println` and `System.err#println` statements</RecipeHeader.Title>
 
 <RecipeHeader.Description>Print statements are often left accidentally after debugging an issue. This recipe removes all `System.out#println` and `System.err#println` statements from the code. Production code should use a proper logging framework which provides consistent formatting, configurable log levels, and centralized output control.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveSystemOutPrintln","displayName":"Remove `System.out#println` statements","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveSystemOutPrintln","displayName":"Remove `System.out#println` and `System.err#println` statements","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

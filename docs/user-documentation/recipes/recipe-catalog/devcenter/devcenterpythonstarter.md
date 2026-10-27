@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"DevCenter for Python"}
-  description={"A default DevCenter configuration for Python repositories. Track Python version adoption across your organization."}
+  description={"A default DevCenter configuration for Python repositories.\nTrack Python version adoption across your organization.\n\n**Move to Python 3.15**<br/>\nThe minimum Python version each repository declares in `requires-python`.<br/><br/>\n`Python 2` → `Python 3.8+` → … → `Python 3.14+` → `Completed` · fix with [`UpgradeToPython315`](https://codegenomeproject.org/recipes/org.openrewrite.python.migrate.UpgradeToPython315)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.DevCenterPythonStarter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,18 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>DevCenter for Python</RecipeHeader.Title>
 
-<RecipeHeader.Description>A default DevCenter configuration for Python repositories. Track Python version adoption across your organization.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+A default DevCenter configuration for Python repositories.
+Track Python version adoption across your organization.
+
+**Move to Python 3.15**<br />
+The minimum Python version each repository declares in `requires-python`.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nMzEnIHdpZHRoPSczMCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGN0Y1QScvPjxyZWN0IHg9JzYzJyB3aWR0aD0nMjknIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRjhGNTInLz48cmVjdCB4PSc5NCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY5QjQ4Jy8+PHJlY3QgeD0nMTI1JyB3aWR0aD0nMzAnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkE4M0QnLz48cmVjdCB4PScxNTcnIHdpZHRoPScyOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQzA0NScvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZEMzREJy8+PHJlY3QgeD0nMjE5JyB3aWR0aD0nMzAnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48cmVjdCB4PScyNTEnIHdpZHRoPScyOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==" alt="Python 2 to Completed" /><br />
+`Python 2` → `Python 3.8+` → … → `Python 3.14+` → `Completed` · fix with [`UpgradeToPython315`](https://codegenomeproject.org/recipes/org.openrewrite.python.migrate.UpgradeToPython315)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -1,21 +1,21 @@
 ---
-title: "Upgrade Python version in project files"
-sidebar_label: "Upgrade Python version in project files"
+title: "Upgrade Python version"
+sidebar_label: "Upgrade Python version"
 hide_title: true
 ---
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Upgrade Python version in project files"}
-  description={"Update the Python version referenced in project metadata and packaging files to a target version. Updates `Pipfile` (`python_version` / `python_full_version`), `pyproject.toml` (`[project] requires-python` and Poetry's `[tool.poetry.dependencies] python`), `setup.cfg` (`python_requires`), and `.python-version` files. When a lock file (`uv.lock` or `Pipfile.lock`) is present, it is regenerated natively to match, without executing the package manager or requiring one on `PATH`. Only references older than the target are changed; a file already on a newer version is left as-is. `Dockerfile` base images are handled separately by `UpgradePythonDockerImage`, CloudFormation/SAM templates by `UpgradePythonCloudFormationRuntime`, Mend `.whitesource` files by `UpgradePythonWhitesourceConfig`, and `requirements.txt` is not modified because it pins package versions, not the interpreter version."}
+  displayName={"Upgrade Python version"}
+  description={"Update the Python version referenced in project metadata, packaging, CI, documentation, and infrastructure files to a target version: `pyproject.toml`, `Pipfile`, `setup.py`, `setup.cfg`, `.python-version`, Ruff's `target-version`, `Dockerfile` base images, GitHub Actions `setup-python` steps, CloudFormation/SAM template runtimes, Read the Docs configuration, and Mend `.whitesource` files. Only references older than the target are changed. Each file type is handled by its own recipe, so a team with its own process for some of them can compose the rest."}
   fqName={"org.openrewrite.python.migrate.UpgradePythonVersion"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Python"]}
   tags={[]}
   license={"Moderne Proprietary License"}
@@ -26,11 +26,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   moderneOnly
 >
 
-<RecipeHeader.Title>Upgrade Python version in project files</RecipeHeader.Title>
+<RecipeHeader.Title>Upgrade Python version</RecipeHeader.Title>
 
-<RecipeHeader.Description>Update the Python version referenced in project metadata and packaging files to a target version. Updates `Pipfile` (`python_version` / `python_full_version`), `pyproject.toml` (`[project] requires-python` and Poetry's `[tool.poetry.dependencies] python`), `setup.cfg` (`python_requires`), and `.python-version` files. When a lock file (`uv.lock` or `Pipfile.lock`) is present, it is regenerated natively to match, without executing the package manager or requiring one on `PATH`. Only references older than the target are changed; a file already on a newer version is left as-is. `Dockerfile` base images are handled separately by `UpgradePythonDockerImage`, CloudFormation/SAM templates by `UpgradePythonCloudFormationRuntime`, Mend `.whitesource` files by `UpgradePythonWhitesourceConfig`, and `requirements.txt` is not modified because it pins package versions, not the interpreter version.</RecipeHeader.Description>
+<RecipeHeader.Description>Update the Python version referenced in project metadata, packaging, CI, documentation, and infrastructure files to a target version: `pyproject.toml`, `Pipfile`, `setup.py`, `setup.cfg`, `.python-version`, Ruff's `target-version`, `Dockerfile` base images, GitHub Actions `setup-python` steps, CloudFormation/SAM template runtimes, Read the Docs configuration, and Mend `.whitesource` files. Only references older than the target are changed. Each file type is handled by its own recipe, so a team with its own process for some of them can compose the rest.</RecipeHeader.Description>
 
 </RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Python version in project files","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonprojectfiles/"},{"name":"Upgrade Python Docker base image","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythondockerimage/"},{"name":"Upgrade `actions/setup-python` `python-version`","href":"/user-documentation/recipes/recipe-catalog/github/setuppythonupgradepythonversion/"},{"name":"Upgrade Python runtime in CloudFormation templates","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythoncloudformationruntime/"},{"name":"Upgrade Python version in Read the Docs configuration","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonreadthedocsconfig/"},{"name":"Upgrade Python version in Mend `.whitesource` files","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonwhitesourceconfig/"}]}>
+
+## Definition
+
+</RecipeList>
 
 <OptionsTable options={[{"type":"String","name":"version","required":true,"description":"The target Python version as `MAJOR.MINOR` (for example `3.12`). Any patch component is dropped; the minor release is the upgrade target.","example":"3.12"}]}>
 
@@ -38,13 +44,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"version","value":"3.12"}],"variants":[{"language":"toml","before":"[project]\nname = \"demo\"\nrequires-python = \">=3.9\"\n","after":"[project]\nname = \"demo\"\nrequires-python = \">=3.12\"\n","diff":"--- pyproject.toml\n+++ pyproject.toml\n@@ -3,1 +3,1 @@\n[project]\nname = \"demo\"\n-requires-python = \">=3.9\"\n+requires-python = \">=3.12\"\n\n","newFile":false}]}]}>
-
-## Examples
-
-</ExampleList>
-
-<UsageList usage={{"recipeName":"org.openrewrite.python.migrate.UpgradePythonVersion","displayName":"Upgrade Python version in project files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","requiresConfiguration":true,"pipPackage":"openrewrite-migrate-python","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}],"cliOptions":" --recipe-option \"version=3.12\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.migrate.UpgradePythonVersion","displayName":"Upgrade Python version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","requiresConfiguration":true,"pipPackage":"openrewrite-migrate-python","companionJars":[{"groupId":"org.openrewrite","artifactId":"rewrite-python","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}],"cliOptions":" --recipe-option \"version=3.12\""}}>
 
 ## Usage
 

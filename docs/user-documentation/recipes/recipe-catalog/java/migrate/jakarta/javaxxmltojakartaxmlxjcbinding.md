@@ -1,6 +1,6 @@
 ---
-title: "Migrate XJC Bindings to Jakata XML"
-sidebar_label: "Migrate XJC Bindings to Jakata XML"
+title: "Migrate XJC bindings to Jakarta XML"
+sidebar_label: "Migrate XJC bindings to Jakarta XML"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate XJC Bindings to Jakata XML"}
+  displayName={"Migrate XJC bindings to Jakarta XML"}
   description={"Java EE has been rebranded to Jakarta EE, migrates the namespace and version in XJC bindings."}
   fqName={"org.openrewrite.java.migrate.jakarta.JavaxXmlToJakartaXmlXJCBinding"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmltojakartaxmlxjcbinding.md"}
 >
 
-<RecipeHeader.Title>Migrate XJC Bindings to Jakata XML</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate XJC bindings to Jakarta XML</RecipeHeader.Title>
 
 <RecipeHeader.Description>Java EE has been rebranded to Jakarta EE, migrates the namespace and version in XJC bindings.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JavaxXmlToJakartaXmlXJCBinding","displayName":"Migrate XJC Bindings to Jakata XML","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JavaxXmlToJakartaXmlXJCBinding","displayName":"Migrate XJC bindings to Jakarta XML","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

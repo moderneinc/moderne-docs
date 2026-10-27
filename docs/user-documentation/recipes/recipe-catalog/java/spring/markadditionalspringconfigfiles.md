@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Mark additional files as Spring configuration"}
-  description={"Attach a `SpringConfigFile` marker to YAML/properties files matching the provided glob patterns so that Spring property recipes such as `ChangeSpringPropertyKey`, `DeleteSpringProperty`, `ChangeSpringPropertyValue`, and `CommentOutSpringPropertyKey` will visit files that live outside standard resource source sets. Files that already pass the `SourceSet`-based check are skipped to avoid redundant markers."}
+  description={"Deprecated, and makes no changes. Spring property recipes such as `ChangeSpringPropertyKey`, `DeleteSpringProperty`, `ChangeSpringPropertyValue`, and `CommentOutSpringPropertyKey` now discover the Spring configuration files outside source sets themselves."}
   fqName={"org.openrewrite.java.spring.MarkAdditionalSpringConfigFiles"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Mark additional files as Spring configuration</RecipeHeader.Title>
 
-<RecipeHeader.Description>Attach a `SpringConfigFile` marker to YAML/properties files matching the provided glob patterns so that Spring property recipes such as `ChangeSpringPropertyKey`, `DeleteSpringProperty`, `ChangeSpringPropertyValue`, and `CommentOutSpringPropertyKey` will visit files that live outside standard resource source sets. Files that already pass the `SourceSet`-based check are skipped to avoid redundant markers.</RecipeHeader.Description>
+<RecipeHeader.Description>Deprecated, and makes no changes. Spring property recipes such as `ChangeSpringPropertyKey`, `DeleteSpringProperty`, `ChangeSpringPropertyValue`, and `CommentOutSpringPropertyKey` now discover the Spring configuration files outside source sets themselves.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"scala","before":"object Worker {\n  def poll(): Unit = {\n    Thread.sleep(1000)\n    println(\"polling\")\n  }\n}\n","after":"object Worker {\n  /*~~(Thread.sleep blocks the current thread; consider using scheduled executors or akka scheduler)~~>*/def poll(): Unit = {\n    Thread.sleep(1000)\n    println(\"polling\")\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Worker {\n- def poll(): Unit = {\n+ /*~~(Thread.sleep blocks the current thread; consider using scheduled executors or akka scheduler)~~>*/def poll(): Unit = {\n    Thread.sleep(1000)\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"scala","before":"object Worker {\n  def poll(): Unit = {\n    Thread.sleep(1000)\n    println(\"polling\")\n  }\n}\n","after":"object Worker {\n  def poll(): Unit = {\n    /*~~(Thread.sleep blocks the current thread; consider using scheduled executors or akka scheduler)~~>*/Thread.sleep(1000)\n    println(\"polling\")\n  }\n}\n","diff":"@@ -3,1 +3,1 @@\nobject Worker {\n  def poll(): Unit = {\n-   Thread.sleep(1000)\n+   /*~~(Thread.sleep blocks the current thread; consider using scheduled executors or akka scheduler)~~>*/Thread.sleep(1000)\n    println(\"polling\")\n","newFile":false}]}]}>
 
 ## Examples
 

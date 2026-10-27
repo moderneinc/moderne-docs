@@ -1,6 +1,6 @@
 ---
-title: "'Collection.toArray()' should be passed an array of the proper type"
-sidebar_label: "'Collection.toArray()' should be passed an array of the proper type"
+title: "`Collection.toArray()` should be passed an array of the proper type"
+sidebar_label: "`Collection.toArray()` should be passed an array of the proper type"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"'Collection.toArray()' should be passed an array of the proper type"}
+  displayName={"`Collection.toArray()` should be passed an array of the proper type"}
   description={"Using `Collection.toArray()` without parameters returns an `Object[]`, which requires casting. It is more efficient and clearer to use `Collection.toArray(new T[0])` instead. The parameterless form can cause a `ClassCastException` at runtime when the returned `Object[]` is cast to a more specific array type."}
   fqName={"org.openrewrite.staticanalysis.CollectionToArrayShouldHaveProperType"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/collectiontoarrayshouldhavepropertype.md"}
 >
 
-<RecipeHeader.Title>'Collection.toArray()' should be passed an array of the proper type</RecipeHeader.Title>
+<RecipeHeader.Title>`Collection.toArray()` should be passed an array of the proper type</RecipeHeader.Title>
 
 <RecipeHeader.Description>Using `Collection.toArray()` without parameters returns an `Object[]`, which requires casting. It is more efficient and clearer to use `Collection.toArray(new T[0])` instead. The parameterless form can cause a `ClassCastException` at runtime when the returned `Object[]` is cast to a more specific array type.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CollectionToArrayShouldHaveProperType","displayName":"'Collection.toArray()' should be passed an array of the proper type","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CollectionToArrayShouldHaveProperType","displayName":"`Collection.toArray()` should be passed an array of the proper type","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

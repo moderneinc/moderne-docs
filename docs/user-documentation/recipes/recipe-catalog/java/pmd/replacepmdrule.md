@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"oldRule","value":"category/java/errorprone.xml/MissingBreakInSwitch"},{"parameter":"newRule","value":"ImplicitSwitchFallThrough"}],"variants":[{"language":"xml","before":"<?xml version=\"1.0\"?>\n<ruleset name=\"custom\">\n    <rule ref=\"category/java/errorprone.xml/MissingBreakInSwitch\"/>\n    <rule ref=\"category/java/errorprone.xml/EmptyCatchBlock\"/>\n</ruleset>\n","after":"<?xml version=\"1.0\"?>\n<ruleset name=\"custom\">\n    <rule ref=\"category/java/errorprone.xml/ImplicitSwitchFallThrough\"/>\n    <rule ref=\"category/java/errorprone.xml/EmptyCatchBlock\"/>\n</ruleset>\n","diff":"@@ -3,1 +3,1 @@\n<?xml version=\"1.0\"?>\n<ruleset name=\"custom\">\n-   <rule ref=\"category/java/errorprone.xml/MissingBreakInSwitch\"/>\n+   <rule ref=\"category/java/errorprone.xml/ImplicitSwitchFallThrough\"/>\n    <rule ref=\"category/java/errorprone.xml/EmptyCatchBlock\"/>\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.pmd.ReplacePmdRule","displayName":"Replace a PMD rule in a ruleset","groupId":"org.openrewrite.recipe","artifactId":"rewrite-pmd","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PMD","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldRule=category/java/errorprone.xml/MissingBreakInSwitch\" --recipe-option \"newRule=ImplicitSwitchFallThrough\""}}>
 
 ## Usage

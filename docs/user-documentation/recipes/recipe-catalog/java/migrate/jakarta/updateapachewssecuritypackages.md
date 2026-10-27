@@ -1,6 +1,6 @@
 ---
-title: "Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to  `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages"
-sidebar_label: "Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to  `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages"
+title: "Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages"
+sidebar_label: "Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to  `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages"}
-  description={"Java EE has been rebranded to Jakarta EE.  This recipe replaces Apache security packages to migrate to Apache `wss4j`."}
+  displayName={"Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages"}
+  description={"Java EE has been rebranded to Jakarta EE. This recipe replaces Apache security packages to migrate to Apache `wss4j`."}
   fqName={"org.openrewrite.java.migrate.jakarta.UpdateApacheWSSecurityPackages"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateapachewssecuritypackages.md"}
 >
 
-<RecipeHeader.Title>Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to  `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages</RecipeHeader.Title>
 
-<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE.  This recipe replaces Apache security packages to migrate to Apache `wss4j`.</RecipeHeader.Description>
+<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE. This recipe replaces Apache security packages to migrate to Apache `wss4j`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,13 +43,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.ws.security.WSSecurityException;\nimport org.apache.ws.security.components.crypto.CryptoBase;\nclass Test {\n    void foo() {\n        WSSecurityException x = new WSSecurityException(1,\"\");\n        CryptoBase base = null;\n    }\n}\n","after":"import org.apache.wss4j.common.ext.WSSecurityException;\nimport org.apache.wss4j.common.ext.components.crypto.CryptoBase;\nclass Test {\n    void foo() {\n        WSSecurityException x = new WSSecurityException(1,\"\");\n        CryptoBase base = null;\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.apache.ws.security.WSSecurityException;\n-import org.apache.ws.security.components.crypto.CryptoBase;\n+import org.apache.wss4j.common.ext.WSSecurityException;\n+import org.apache.wss4j.common.ext.components.crypto.CryptoBase;\nclass Test {\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.apache.ws.security.WSSecurityException;\nimport org.apache.ws.security.components.crypto.CryptoBase;\nclass Test {\n    void foo() {\n        WSSecurityException x = new WSSecurityException(1,\"\");\n        CryptoBase base = null;\n    }\n}\n","after":"import org.apache.wss4j.common.ext.WSSecurityException;\nimport org.apache.wss4j.common.ext.components.crypto.CryptoBase;\nclass Test {\n    void foo() {\n        WSSecurityException x = new WSSecurityException(1,\"\");\n        CryptoBase base = null;\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.apache.ws.security.WSSecurityException;\n-import org.apache.ws.security.components.crypto.CryptoBase;\n+import org.apache.wss4j.common.ext.WSSecurityException;\n+import org.apache.wss4j.common.ext.components.crypto.CryptoBase;\nclass Test {\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.ws.security.WSSecurityException;\nimport org.apache.ws.security.components.crypto.CryptoBase;\nclass Test {\n    void foo() {\n        WSSecurityException x = new WSSecurityException(1,\"\");\n        CryptoBase base = null;\n    }\n}\n","after":"import org.apache.wss4j.common.ext.WSSecurityException;\nimport org.apache.wss4j.common.crypto.CryptoBase;\nclass Test {\n    void foo() {\n        WSSecurityException x = new WSSecurityException(1,\"\");\n        CryptoBase base = null;\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.apache.ws.security.WSSecurityException;\n-import org.apache.ws.security.components.crypto.CryptoBase;\n+import org.apache.wss4j.common.ext.WSSecurityException;\n+import org.apache.wss4j.common.crypto.CryptoBase;\nclass Test {\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.apache.ws.security.WSSecurityException;\nimport org.apache.ws.security.components.crypto.CryptoBase;\nclass Test {\n    void foo() {\n        WSSecurityException x = new WSSecurityException(1,\"\");\n        CryptoBase base = null;\n    }\n}\n","after":"import org.apache.wss4j.common.ext.WSSecurityException;\nimport org.apache.wss4j.common.crypto.CryptoBase;\nclass Test {\n    void foo() {\n        WSSecurityException x = new WSSecurityException(1,\"\");\n        CryptoBase base = null;\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.apache.ws.security.WSSecurityException;\n-import org.apache.ws.security.components.crypto.CryptoBase;\n+import org.apache.wss4j.common.ext.WSSecurityException;\n+import org.apache.wss4j.common.crypto.CryptoBase;\nclass Test {\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.UpdateApacheWSSecurityPackages","displayName":"Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to  `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.UpdateApacheWSSecurityPackages","displayName":"Migrate `org.apache.ws.security` and `org.apache.ws.security.components.crypto` packages to `org.apache.wss4j.common.ext` and `org.apache.wss4j.common.crypto` packages","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

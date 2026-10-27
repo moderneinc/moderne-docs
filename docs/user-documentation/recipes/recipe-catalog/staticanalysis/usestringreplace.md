@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `String::replace()` when first parameter is not a real regular expression"}
-  description={"When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex."}
+  description={"When `String::replaceAll` is used, the first argument should be a real regular expression. If that's not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex."}
   fqName={"org.openrewrite.staticanalysis.UseStringReplace"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `String::replace()` when first parameter is not a real regular expression</RecipeHeader.Title>
 
-<RecipeHeader.Description>When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex.</RecipeHeader.Description>
+<RecipeHeader.Description>When `String::replaceAll` is used, the first argument should be a real regular expression. If that's not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex.</RecipeHeader.Description>
 
 </RecipeHeader>
 

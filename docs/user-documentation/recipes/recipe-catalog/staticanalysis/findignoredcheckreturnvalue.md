@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["RSPEC-S2201","RSPEC-S2970"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.FindIgnoredCheckReturnValue"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -42,6 +42,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 ## Options
 
 </OptionsTable>
+
+<ExampleList examples={[{"parameters":[{"parameter":"checkReturnValuePackages","value":"null"}],"variants":[{"language":"java","before":"import com.example.Point;\nclass Test {\n    Point move(Point p) {\n        p.withX(1);\n        p.validate();\n        p.print();\n        return p.withX(2);\n    }\n}\n","after":"import com.example.Point;\nclass Test {\n    Point move(Point p) {\n        /*~~(Result of `withX` is ignored, but `@CheckReturnValue` on class `Point` requires using it. Use the returned value, remove the call, or annotate the method with `@CanIgnoreReturnValue` if ignoring the result is intended.)~~>*/p.withX(1);\n        p.validate();\n        p.print();\n        return p.withX(2);\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\nclass Test {\n    Point move(Point p) {\n-       p.withX(1);\n+       /*~~(Result of `withX` is ignored, but `@CheckReturnValue` on class `Point` requires using it. Use the returned value, remove the call, or annotate the method with `@CanIgnoreReturnValue` if ignoring the result is intended.)~~>*/p.withX(1);\n        p.validate();\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.FindIgnoredCheckReturnValue","displayName":"Find ignored results of `@CheckReturnValue` methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"checkReturnValuePackages=org.openrewrite.java.tree\""}}>
 

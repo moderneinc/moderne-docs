@@ -1,6 +1,6 @@
 ---
-title: "`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation"
-sidebar_label: "`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation"
+title: "Set `@Column(name = \"element\")` on `@ElementCollection` attributes"
+sidebar_label: "Set `@Column(name = \"element\")` on `@ElementCollection` attributes"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation"}
-  description={"When an attribute is annotated with `@ElementCollection`, a separate table is created for the attribute that includes the attribute \nID and value. In OpenJPA, the column for the annotated attribute is named element, whereas EclipseLink names the column based on \nthe name of the attribute. To remain compatible with tables that were created with OpenJPA, add a `@Column` annotation with the name \nattribute set to element."}
+  displayName={"Set `@Column(name = \"element\")` on `@ElementCollection` attributes"}
+  description={"When an attribute is annotated with `@ElementCollection`, a separate table is created for the attribute that includes the attribute ID and value. In OpenJPA, the column for the annotated attribute is named `element`, whereas EclipseLink names the column based on the name of the attribute. To remain compatible with tables that were created with OpenJPA, add a `@Column` annotation with the `name` attribute set to `element`."}
   fqName={"org.openrewrite.java.migrate.javax.AddColumnAnnotation"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addcolumnannotation.md"}
 >
 
-<RecipeHeader.Title>`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation</RecipeHeader.Title>
+<RecipeHeader.Title>Set `@Column(name = "element")` on `@ElementCollection` attributes</RecipeHeader.Title>
 
-<RecipeHeader.Description>When an attribute is annotated with `@ElementCollection`, a separate table is created for the attribute that includes the attribute  ID and value. In OpenJPA, the column for the annotated attribute is named element, whereas EclipseLink names the column based on  the name of the attribute. To remain compatible with tables that were created with OpenJPA, add a `@Column` annotation with the name  attribute set to element.</RecipeHeader.Description>
+<RecipeHeader.Description>When an attribute is annotated with `@ElementCollection`, a separate table is created for the attribute that includes the attribute ID and value. In OpenJPA, the column for the annotated attribute is named `element`, whereas EclipseLink names the column based on the name of the attribute. To remain compatible with tables that were created with OpenJPA, add a `@Column` annotation with the `name` attribute set to `element`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddColumnAnnotation","displayName":"`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddColumnAnnotation","displayName":"Set `@Column(name = \"element\")` on `@ElementCollection` attributes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

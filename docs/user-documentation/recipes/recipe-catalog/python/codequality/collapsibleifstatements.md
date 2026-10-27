@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Merge collapsible if statements"}
-  description={"Combine nested `if` statements that have no `else` branch into a single `if` joined with `and`."}
+  description={"Combine nested `if` statements that have no `else` branch into a single `if` joined with `and`. It only fires where the inner `if` is the outer one's only statement and each header starts a line of its own."}
   fqName={"org.openrewrite.python.codequality.CollapsibleIfStatements"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={["python","RSPEC-S1066","code-quality"]}
+  tags={["python","ruff","SIM102","RSPEC-S1066","code-quality"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.codequality.CollapsibleIfStatements"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Merge collapsible if statements</RecipeHeader.Title>
 
-<RecipeHeader.Description>Combine nested `if` statements that have no `else` branch into a single `if` joined with `and`.</RecipeHeader.Description>
+<RecipeHeader.Description>Combine nested `if` statements that have no `else` branch into a single `if` joined with `and`. It only fires where the inner `if` is the outer one's only statement and each header starts a line of its own.</RecipeHeader.Description>
 
 </RecipeHeader>
 

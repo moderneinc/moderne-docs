@@ -1,6 +1,6 @@
 ---
-title: "Migrate JAXB-WS Plugin"
-sidebar_label: "Migrate JAXB-WS Plugin"
+title: "Migrate the JAX-WS Maven plugin"
+sidebar_label: "Migrate the JAX-WS Maven plugin"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate JAXB-WS Plugin"}
+  displayName={"Migrate the JAX-WS Maven plugin"}
   description={"Upgrade the JAXB-WS Maven plugin to be compatible with Java 11."}
   fqName={"org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratejaxbwsplugin.md"}
 >
 
-<RecipeHeader.Title>Migrate JAXB-WS Plugin</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate the JAX-WS Maven plugin</RecipeHeader.Title>
 
 <RecipeHeader.Description>Upgrade the JAXB-WS Maven plugin to be compatible with Java 11.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin","displayName":"Migrate JAXB-WS Plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin","displayName":"Migrate the JAX-WS Maven plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

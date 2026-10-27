@@ -1,6 +1,6 @@
 ---
-title: "Migrate deprecated Spring-Boot `EmbeddedDatabaseConnection.HSQL`"
-sidebar_label: "Migrate deprecated Spring-Boot `EmbeddedDatabaseConnection.HSQL`"
+title: "Migrate deprecated Spring Boot `EmbeddedDatabaseConnection.HSQL`"
+sidebar_label: "Migrate deprecated Spring Boot `EmbeddedDatabaseConnection.HSQL`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate deprecated Spring-Boot `EmbeddedDatabaseConnection.HSQL`"}
-  description={"Spring-Boot `EmbeddedDatabaseConnection.HSQL` was deprecated in favor of `EmbeddedDatabaseConnection.HSQLDB` in 2.4."}
+  displayName={"Migrate deprecated Spring Boot `EmbeddedDatabaseConnection.HSQL`"}
+  description={"Spring Boot `EmbeddedDatabaseConnection.HSQL` was deprecated in favor of `EmbeddedDatabaseConnection.HSQLDB` in 2.4."}
   fqName={"org.openrewrite.java.spring.boot2.MigrateHsqlEmbeddedDatabaseConnection"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratehsqlembeddeddatabaseconnection.md"}
 >
 
-<RecipeHeader.Title>Migrate deprecated Spring-Boot `EmbeddedDatabaseConnection.HSQL`</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate deprecated Spring Boot `EmbeddedDatabaseConnection.HSQL`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Spring-Boot `EmbeddedDatabaseConnection.HSQL` was deprecated in favor of `EmbeddedDatabaseConnection.HSQLDB` in 2.4.</RecipeHeader.Description>
+<RecipeHeader.Description>Spring Boot `EmbeddedDatabaseConnection.HSQL` was deprecated in favor of `EmbeddedDatabaseConnection.HSQLDB` in 2.4.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.MigrateHsqlEmbeddedDatabaseConnection","displayName":"Migrate deprecated Spring-Boot `EmbeddedDatabaseConnection.HSQL`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.MigrateHsqlEmbeddedDatabaseConnection","displayName":"Migrate deprecated Spring Boot `EmbeddedDatabaseConnection.HSQL`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

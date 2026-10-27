@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S1217"]}
+  tags={[]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.CommonDeclarationSiteTypeVariances"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Properly use declaration-site type variance","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/declarationsitetypevariance/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Properly use declaration-site type variance","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/declarationsitetypevariance/"}]}>
 
 ## Definition
 

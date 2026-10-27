@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Class cohesion DevCenter"}
-  description={"A DevCenter that finds class quality metrics for repositories\nand buckets the average LCOM4 (Lack of Cohesion of Methods, version 4)\ninto HIGH / MEDIUM / LOW cohesion categories.\n"}
+  description={"A DevCenter that grades the maintainability, cohesion, and test gaps of each repository,\nbased on the class quality metrics and test gaps computed by Moderne Prethink.\n\n**Average Class Maintainability**<br/>\nThe maintainability index (0-100) averaged across all classes in each repository.<br/><br/>\n`F` (0+) → `D` (20+) → `C` (40+) → `B` (60+) → `A` (80+)\n\n**Average Class Cohesion**<br/>\nLCOM4 (Lack of Cohesion of Methods, version 4) averaged across all classes in each repository; lower is more cohesive.<br/><br/>\n`LOW` (10+) → `MEDIUM` (3+) → `HIGH` (0+)\n\n**Test Gaps Risk**<br/>\nThe risk scores of public, non-trivial methods without tests, summed per repository.<br/><br/>\n`LOW` (0+) → `MEDIUM` (3+) → `HIGH` (10+)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.ClassCohesionDevCenter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,26 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Class cohesion DevCenter</RecipeHeader.Title>
 
-<RecipeHeader.Description>A DevCenter that finds class quality metrics for repositories and buckets the average LCOM4 (Lack of Cohesion of Methods, version 4) into HIGH / MEDIUM / LOW cohesion categories.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+A DevCenter that grades the maintainability, cohesion, and test gaps of each repository,
+based on the class quality metrics and test gaps computed by Moderne Prethink.
+
+**Average Class Maintainability**<br />
+The maintainability index (0-100) averaged across all classes in each repository.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==" alt="F to A" /><br />
+`F` (0+) → `D` (20+) → `C` (40+) → `B` (60+) → `A` (80+)
+
+**Average Class Cohesion**<br />
+LCOM4 (Lack of Cohesion of Methods, version 4) averaged across all classes in each repository; lower is more cohesive.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+" alt="LOW to HIGH" /><br />
+`LOW` (10+) → `MEDIUM` (3+) → `HIGH` (0+)
+
+**Test Gaps Risk**<br />
+The risk scores of public, non-trivial methods without tests, summed per repository.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+" alt="LOW to HIGH" /><br />
+`LOW` (0+) → `MEDIUM` (3+) → `HIGH` (10+)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

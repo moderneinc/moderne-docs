@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `Collection#isEmpty()` instead of comparing `size()`"}
-  description={"Also check for _not_ `isEmpty()` when testing for not equal to zero size. Using `isEmpty()` communicates intent more clearly than comparing `size()` to zero, and for some collection implementations `isEmpty()` can be more efficient since `size()` may require traversal."}
+  description={"Replaces comparisons of `size()` to zero with `isEmpty()`, or with `!isEmpty()` when testing for a non-zero size. Using `isEmpty()` communicates intent more clearly than comparing `size()` to zero, and for some collection implementations `isEmpty()` can be more efficient since `size()` may require traversal."}
   fqName={"org.openrewrite.staticanalysis.IsEmptyCallOnCollections"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S1155","RSPEC-S3981"]}
+  tags={["RSPEC-S1155"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.IsEmptyCallOnCollections"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `Collection#isEmpty()` instead of comparing `size()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Also check for _not_ `isEmpty()` when testing for not equal to zero size. Using `isEmpty()` communicates intent more clearly than comparing `size()` to zero, and for some collection implementations `isEmpty()` can be more efficient since `size()` may require traversal.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces comparisons of `size()` to zero with `isEmpty()`, or with `!isEmpty()` when testing for a non-zero size. Using `isEmpty()` communicates intent more clearly than comparing `size()` to zero, and for some collection implementations `isEmpty()` can be more efficient since `size()` may require traversal.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -1,6 +1,6 @@
 ---
-title: "Migrate xmlns entries and javax. packages in `ejb-jar.xml` files"
-sidebar_label: "Migrate xmlns entries and javax. packages in `ejb-jar.xml` files"
+title: "Migrate xmlns entries and `javax` packages in `ejb-jar.xml` files"
+sidebar_label: "Migrate xmlns entries and `javax` packages in `ejb-jar.xml` files"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate xmlns entries and javax. packages in `ejb-jar.xml` files"}
+  displayName={"Migrate xmlns entries and `javax` packages in `ejb-jar.xml` files"}
   description={"Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation."}
   fqName={"org.openrewrite.java.migrate.jakarta.JavaxEjbJarXmlToJakartaEjbJarXml"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxejbjarxmltojakartaejbjarxml.md"}
 >
 
-<RecipeHeader.Title>Migrate xmlns entries and javax. packages in `ejb-jar.xml` files</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate xmlns entries and `javax` packages in `ejb-jar.xml` files</RecipeHeader.Title>
 
 <RecipeHeader.Description>Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JavaxEjbJarXmlToJakartaEjbJarXml","displayName":"Migrate xmlns entries and javax. packages in `ejb-jar.xml` files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JavaxEjbJarXmlToJakartaEjbJarXml","displayName":"Migrate xmlns entries and `javax` packages in `ejb-jar.xml` files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

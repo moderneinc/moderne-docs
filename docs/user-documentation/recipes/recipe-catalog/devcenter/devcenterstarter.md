@@ -1,14 +1,14 @@
 ---
-title: "DevCenter"
-sidebar_label: "DevCenter"
+title: "DevCenter Starter"
+sidebar_label: "DevCenter Starter"
 hide_title: true
 ---
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"DevCenter"}
-  description={"This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs.\nFor more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/)."}
+  displayName={"DevCenter Starter"}
+  description={"A starting point for your own DevCenter, combining upgrades, migrations, and security fixes.\nRun it as-is for a first overview of your organization, then copy and customize the configuration.\n\n**Move to Spring Boot 4.1**<br/>\nThe lowest version of any `org.springframework.boot` dependency in each repository, compared to 4.1.0.<br/><br/>\n`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeSpringBoot_4_1`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1)\n\n**Move to Java 25**<br/>\nThe Java version each repository compiles for.<br/><br/>\n`Java 8+` → `Java 11+` → `Java 17+` → `Java 21+` → `Completed` · fix with [`UpgradeToJava25`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)\n\n**Move to JUnit 6**<br/>\nThe test framework each repository uses.<br/><br/>\n`JUnit 4` → `JUnit 5` → `Completed` · fix with [`JUnit5to6Migration`](https://codegenomeproject.org/recipes/org.openrewrite.java.testing.junit6.JUnit5to6Migration)\n\n**OWASP top ten**<br/>\nIssue occurrences per category, counted across all repositories.<br/><br/>\n`A01 Broken access control` · `A02 Cryptographic failures` · `A03 Injection` · `A08 Software and data integrity failures` · fix with [`OwaspTopTen`](https://codegenomeproject.org/recipes/org.openrewrite.java.security.OwaspTopTen)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.DevCenterStarter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -26,9 +26,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   moderneOnly
 >
 
-<RecipeHeader.Title>DevCenter</RecipeHeader.Title>
+<RecipeHeader.Title>DevCenter Starter</RecipeHeader.Title>
 
-<RecipeHeader.Description>This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/).</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+A starting point for your own DevCenter, combining upgrades, migrations, and security fixes.
+Run it as-is for a first overview of your organization, then copy and customize the configuration.
+
+**Move to Spring Boot 4.1**<br />
+The lowest version of any `org.springframework.boot` dependency in each repository, compared to 4.1.0.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt="Major to Completed" /><br />
+`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeSpringBoot_4_1`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1)
+
+**Move to Java 25**<br />
+The Java version each repository compiles for.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==" alt="Java 8+ to Completed" /><br />
+`Java 8+` → `Java 11+` → `Java 17+` → `Java 21+` → `Completed` · fix with [`UpgradeToJava25`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)
+
+**Move to JUnit 6**<br />
+The test framework each repository uses.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+" alt="JUnit 4 to Completed" /><br />
+`JUnit 4` → `JUnit 5` → `Completed` · fix with [`JUnit5to6Migration`](https://codegenomeproject.org/recipes/org.openrewrite.java.testing.junit6.JUnit5to6Migration)
+
+**OWASP top ten**<br />
+Issue occurrences per category, counted across all repositories.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMmY0MmZmJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2VjYjgxZicvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjOGQ5OWZmJy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNmMGI0YWMnLz48L3N2Zz4=" alt="4 categories" /><br />
+`A01 Broken access control` · `A02 Cryptographic failures` · `A03 Injection` · `A08 Software and data integrity failures` · fix with [`OwaspTopTen`](https://codegenomeproject.org/recipes/org.openrewrite.java.security.OwaspTopTen)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -38,7 +61,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"io.moderne.devcenter.DevCenterStarter","displayName":"DevCenter","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.devcenter.DevCenterStarter","displayName":"DevCenter Starter","groupId":"io.moderne.recipe","artifactId":"rewrite-devcenter","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DEVCENTER","requiresConfiguration":false}}>
 
 ## Usage
 

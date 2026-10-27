@@ -1,6 +1,6 @@
 ---
-title: "Enable Virtual Threads on Java 21"
-sidebar_label: "Enable Virtual Threads on Java 21"
+title: "Enable virtual threads on Java 21"
+sidebar_label: "Enable virtual threads on Java 21"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Enable Virtual Threads on Java 21"}
+  displayName={"Enable virtual threads on Java 21"}
   description={"Set `spring.threads.virtual.enabled` to `true` in `application.properties` or `application.yml`."}
   fqName={"org.openrewrite.java.spring.boot3.EnableVirtualThreads"}
   languages={["Java"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/enablevirtualthreads.md"}
 >
 
-<RecipeHeader.Title>Enable Virtual Threads on Java 21</RecipeHeader.Title>
+<RecipeHeader.Title>Enable virtual threads on Java 21</RecipeHeader.Title>
 
 <RecipeHeader.Description>Set `spring.threads.virtual.enabled` to `true` in `application.properties` or `application.yml`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Add a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Add a Spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot3.EnableVirtualThreads","displayName":"Enable Virtual Threads on Java 21","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot3.EnableVirtualThreads","displayName":"Enable virtual threads on Java 21","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

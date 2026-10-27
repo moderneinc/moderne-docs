@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.data.domain.ScrollPosition;\nimport org.springframework.graphql.data.query.QuerydslDataFetcher;\nimport org.springframework.graphql.data.query.ScrollSubrange;\n\nclass Config {\n    QuerydslDataFetcher.Builder<Object, Object> configure(QuerydslDataFetcher.Builder<Object, Object> builder) {\n        return builder.defaultScrollSubrange(ScrollSubrange.create(ScrollPosition.offset(), 50, true));\n    }\n}\n","after":"import org.springframework.data.domain.ScrollPosition;\nimport org.springframework.graphql.data.query.QuerydslDataFetcher;\n\nclass Config {\n    QuerydslDataFetcher.Builder<Object, Object> configure(QuerydslDataFetcher.Builder<Object, Object> builder) {\n        return builder.defaultScrollSubrange(50, forward -> ScrollPosition.offset());\n    }\n}\n","diff":"@@ -3,1 +3,0 @@\nimport org.springframework.data.domain.ScrollPosition;\nimport org.springframework.graphql.data.query.QuerydslDataFetcher;\n-import org.springframework.graphql.data.query.ScrollSubrange;\n\n@@ -7,1 +6,1 @@\nclass Config {\n    QuerydslDataFetcher.Builder<Object, Object> configure(QuerydslDataFetcher.Builder<Object, Object> builder) {\n-       return builder.defaultScrollSubrange(ScrollSubrange.create(ScrollPosition.offset(), 50, true));\n+       return builder.defaultScrollSubrange(50, forward -> ScrollPosition.offset());\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.graphql.MigrateDefaultScrollSubrange","displayName":"Migrate `defaultScrollSubrange(ScrollSubrange)` to `defaultScrollSubrange(int, Function)`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

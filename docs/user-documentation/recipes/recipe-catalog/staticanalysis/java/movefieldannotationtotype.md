@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Move annotation to type instead of field"}
-  description={"Annotations that could be applied to either a field or a type are better applied to the type, because similar annotations may be more restrictive, leading to compile errors like 'scoping construct cannot be annotated with type-use annotation' when migrating later."}
+  description={"Annotations that could be applied to either a field or a type are better applied to the type, because similar annotations may be more restrictive, leading to compile errors like 'scoping construct cannot be annotated with type-use annotation' when migrating later. Applies to fields, local variables, method parameters and method return types."}
   fqName={"org.openrewrite.staticanalysis.java.MoveFieldAnnotationToType"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Move annotation to type instead of field</RecipeHeader.Title>
 
-<RecipeHeader.Description>Annotations that could be applied to either a field or a type are better applied to the type, because similar annotations may be more restrictive, leading to compile errors like 'scoping construct cannot be annotated with type-use annotation' when migrating later.</RecipeHeader.Description>
+<RecipeHeader.Description>Annotations that could be applied to either a field or a type are better applied to the type, because similar annotations may be more restrictive, leading to compile errors like 'scoping construct cannot be annotated with type-use annotation' when migrating later. Applies to fields, local variables, method parameters and method return types.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"annotationType","required":false,"description":"The type of annotation to move.","example":"org.openrewrite..*"}]}>
+<OptionsTable options={[{"type":"String","name":"annotationType","required":false,"description":"The type of annotation to move. Defaults to `org.openrewrite..*`.","example":"org.openrewrite..*"}]}>
 
 ## Options
 

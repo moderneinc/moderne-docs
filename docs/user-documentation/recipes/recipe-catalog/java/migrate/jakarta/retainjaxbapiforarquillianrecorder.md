@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Retain the JAXB 2 API for Arquillian Recorder 1.x"}
-  description={"Retain the legacy JAXB API in Maven modules using Arquillian Recorder 1.x binaries, which still reference javax.xml.bind classes after the application's Jakarta migration."}
+  description={"Retain the legacy JAXB API in Maven modules using Arquillian Recorder 1.x binaries, which still reference `javax.xml.bind` classes after the application's Jakarta migration."}
   fqName={"org.openrewrite.java.migrate.jakarta.RetainJaxbApiForArquillianRecorder"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Retain the JAXB 2 API for Arquillian Recorder 1.x</RecipeHeader.Title>
 
-<RecipeHeader.Description>Retain the legacy JAXB API in Maven modules using Arquillian Recorder 1.x binaries, which still reference javax.xml.bind classes after the application's Jakarta migration.</RecipeHeader.Description>
+<RecipeHeader.Description>Retain the legacy JAXB API in Maven modules using Arquillian Recorder 1.x binaries, which still reference `javax.xml.bind` classes after the application's Jakarta migration.</RecipeHeader.Description>
 
 </RecipeHeader>
 

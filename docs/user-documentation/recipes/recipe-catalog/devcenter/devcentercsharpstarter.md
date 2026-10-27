@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"DevCenter for C#"}
-  description={"A default DevCenter configuration for C# repositories. Track .NET version adoption across your organization."}
+  description={"A default DevCenter configuration for C# repositories.\nTrack .NET version adoption across your organization.\n\n**Move to .NET 10**<br/>\nThe lowest target framework across the projects in each repository.<br/><br/>\n`.NET Framework` → `.NET 6+` → `.NET 7+` → `.NET 8+` → `.NET 9+` → `Completed` · fix with [`UpgradeToDotNet10`](https://codegenomeproject.org/recipes/OpenRewrite.Recipes.CSharp.Migration.Dotnet.Net10.UpgradeToDotNet10)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.DevCenterCSharpStarter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,18 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>DevCenter for C#</RecipeHeader.Title>
 
-<RecipeHeader.Description>A default DevCenter configuration for C# repositories. Track .NET version adoption across your organization.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+A default DevCenter configuration for C# repositories.
+Track .NET version adoption across your organization.
+
+**Move to .NET 10**<br />
+The lowest target framework across the projects in each repository.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzQ1JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNDcnIHdpZHRoPSc0NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9Jzk0JyB3aWR0aD0nNDUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRjlCNDgnLz48cmVjdCB4PScxNDEnIHdpZHRoPSc0NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQzA0NScvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzQ1JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZEMzREJy8+PHJlY3QgeD0nMjM1JyB3aWR0aD0nNDUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt=".NET Framework to Completed" /><br />
+`.NET Framework` → `.NET 6+` → `.NET 7+` → `.NET 8+` → `.NET 9+` → `Completed` · fix with [`UpgradeToDotNet10`](https://codegenomeproject.org/recipes/OpenRewrite.Recipes.CSharp.Migration.Dotnet.Net10.UpgradeToDotNet10)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

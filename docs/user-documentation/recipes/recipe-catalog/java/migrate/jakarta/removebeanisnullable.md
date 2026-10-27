@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove `Bean.isNullable()`"}
-  description={"`Bean.isNullable()` has been removed in CDI 4.0.0, and now always returns `false`."}
+  description={"`Bean.isNullable()` was deprecated in CDI 1.1, after which implementations should always return `false`, and was removed in CDI 4.0. Replace calls with `false` and simplify the resulting conditionals."}
   fqName={"org.openrewrite.java.migrate.jakarta.RemoveBeanIsNullable"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove `Bean.isNullable()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>`Bean.isNullable()` has been removed in CDI 4.0.0, and now always returns `false`.</RecipeHeader.Description>
+<RecipeHeader.Description>`Bean.isNullable()` was deprecated in CDI 1.1, after which implementations should always return `false`, and was removed in CDI 4.0. Replace calls with `false` and simplify the resulting conditionals.</RecipeHeader.Description>
 
 </RecipeHeader>
 

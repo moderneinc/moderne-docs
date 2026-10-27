@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Equals avoids null"}
-  description={"Checks that any combination of String literals is on the left side of an `equals()` comparison. Also checks for String literals assigned to some field (such as `someString.equals(anotherString = \"text\"))`. And removes redundant null checks in conjunction with equals comparisons. Placing the literal on the left side prevents `NullPointerException`s, since a literal can never be null and its `equals` method handles null arguments safely."}
+  description={"Checks that any combination of `String` literals is on the left side of an `equals()` comparison. Also checks for `String` literals assigned to some field (such as `someString.equals(anotherString = \"text\")`). It also removes redundant null checks in conjunction with `equals()` comparisons. Placing the literal on the left side prevents `NullPointerException`s, since a literal can never be null and its `equals` method handles null arguments safely."}
   fqName={"org.openrewrite.staticanalysis.EqualsAvoidsNull"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Equals avoids null</RecipeHeader.Title>
 
-<RecipeHeader.Description>Checks that any combination of String literals is on the left side of an `equals()` comparison. Also checks for String literals assigned to some field (such as `someString.equals(anotherString = "text"))`. And removes redundant null checks in conjunction with equals comparisons. Placing the literal on the left side prevents `NullPointerException`s, since a literal can never be null and its `equals` method handles null arguments safely.</RecipeHeader.Description>
+<RecipeHeader.Description>Checks that any combination of `String` literals is on the left side of an `equals()` comparison. Also checks for `String` literals assigned to some field (such as `someString.equals(anotherString = "text")`). It also removes redundant null checks in conjunction with `equals()` comparisons. Placing the literal on the left side prevents `NullPointerException`s, since a literal can never be null and its `equals` method handles null arguments safely.</RecipeHeader.Description>
 
 </RecipeHeader>
 

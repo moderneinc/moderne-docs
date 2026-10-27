@@ -1,6 +1,6 @@
 ---
-title: "Remove redundant null checks before instanceof"
-sidebar_label: "Remove redundant null checks before instanceof"
+title: "Remove redundant null checks before `instanceof`"
+sidebar_label: "Remove redundant null checks before `instanceof`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove redundant null checks before instanceof"}
-  description={"Removes redundant null checks before instanceof operations since instanceof returns false for null. Removing the extra check simplifies the conditional and makes the null-safety guarantee of `instanceof` more visible to readers."}
+  displayName={"Remove redundant null checks before `instanceof`"}
+  description={"Removes redundant null checks before `instanceof` operations since `instanceof` returns `false` for `null`. Removing the extra check simplifies the conditional and makes the null-safety guarantee of `instanceof` more visible to readers."}
   fqName={"org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeInstanceof"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S1697"]}
+  tags={["RSPEC-S4201"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeInstanceof"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundantnullcheckbeforeinstanceof.md"}
 >
 
-<RecipeHeader.Title>Remove redundant null checks before instanceof</RecipeHeader.Title>
+<RecipeHeader.Title>Remove redundant null checks before `instanceof`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes redundant null checks before instanceof operations since instanceof returns false for null. Removing the extra check simplifies the conditional and makes the null-safety guarantee of `instanceof` more visible to readers.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes redundant null checks before `instanceof` operations since `instanceof` returns `false` for `null`. Removing the extra check simplifies the conditional and makes the null-safety guarantee of `instanceof` more visible to readers.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeInstanceof","displayName":"Remove redundant null checks before instanceof","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeInstanceof","displayName":"Remove redundant null checks before `instanceof`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

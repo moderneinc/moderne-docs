@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Chain `StringBuilder.append()` calls"}
-  description={"String concatenation within calls to `StringBuilder.append()` causes unnecessary memory allocation. Except for concatenations of String literals, which are joined together at compile time. Replaces inefficient concatenations with chained calls to `StringBuilder.append()`. Using `+` inside `append()` defeats the purpose of the `StringBuilder`, since the concatenation creates a temporary `String` before appending."}
+  description={"String concatenation within calls to `StringBuilder.append()` causes unnecessary memory allocation, except for concatenations of `String` literals, which are joined together at compile time. Replaces inefficient concatenations with chained calls to `StringBuilder.append()`. Using `+` inside `append()` defeats the purpose of the `StringBuilder`, since the concatenation creates a temporary `String` before appending."}
   fqName={"org.openrewrite.staticanalysis.ChainStringBuilderAppendCalls"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Chain `StringBuilder.append()` calls</RecipeHeader.Title>
 
-<RecipeHeader.Description>String concatenation within calls to `StringBuilder.append()` causes unnecessary memory allocation. Except for concatenations of String literals, which are joined together at compile time. Replaces inefficient concatenations with chained calls to `StringBuilder.append()`. Using `+` inside `append()` defeats the purpose of the `StringBuilder`, since the concatenation creates a temporary `String` before appending.</RecipeHeader.Description>
+<RecipeHeader.Description>String concatenation within calls to `StringBuilder.append()` causes unnecessary memory allocation, except for concatenations of `String` literals, which are joined together at compile time. Replaces inefficient concatenations with chained calls to `StringBuilder.append()`. Using `+` inside `append()` defeats the purpose of the `StringBuilder`, since the concatenation creates a temporary `String` before appending.</RecipeHeader.Description>
 
 </RecipeHeader>
 

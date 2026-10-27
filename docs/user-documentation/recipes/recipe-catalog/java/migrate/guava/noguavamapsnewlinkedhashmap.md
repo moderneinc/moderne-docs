@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaMapsNewLinkedHashMap"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/guava/NoGuavaMapsNewLinkedHashMap.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/no-guava.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = Maps.newLinkedHashMap();\n}\n","after":"import java.util.LinkedHashMap;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = new LinkedHashMap<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedHashMap;\nimport java.util.Map;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   Map<Integer, Integer> cardinalsWorldSeries = Maps.newLinkedHashMap();\n+   Map<Integer, Integer> cardinalsWorldSeries = new LinkedHashMap<>();\n}\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Prefer `new LinkedHashMap<>()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$mapsnewlinkedhashmaprecipe/"},{"name":"Prefer `new LinkedHashMap<>(Map)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$mapsnewlinkedhashmapfrommaprecipe/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = Maps.newLinkedHashMap();\n}\n","after":"import java.util.LinkedHashMap;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = new LinkedHashMap<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedHashMap;\nimport java.util.Map;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   Map<Integer, Integer> cardinalsWorldSeries = Maps.newLinkedHashMap();\n+   Map<Integer, Integer> cardinalsWorldSeries = new LinkedHashMap<>();\n}\n","newFile":false}]},{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = Maps.newLinkedHashMap();\n}\n","after":"import java.util.LinkedHashMap;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = new LinkedHashMap<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedHashMap;\nimport java.util.Map;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   Map<Integer, Integer> cardinalsWorldSeries = Maps.newLinkedHashMap();\n+   Map<Integer, Integer> cardinalsWorldSeries = new LinkedHashMap<>();\n}\n","newFile":false}]}]}>
 
 ## Examples
 

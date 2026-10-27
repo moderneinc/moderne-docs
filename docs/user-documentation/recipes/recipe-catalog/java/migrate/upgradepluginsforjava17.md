@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade plugins to Java 17 compatible versions"}
-  description={"Updates plugins to version compatible with Java 17."}
+  description={"Updates plugins to versions compatible with Java 17."}
   fqName={"org.openrewrite.java.migrate.UpgradePluginsForJava17"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade plugins to Java 17 compatible versions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Updates plugins to version compatible with Java 17.</RecipeHeader.Description>
+<RecipeHeader.Description>Updates plugins to versions compatible with Java 17.</RecipeHeader.Description>
 
 </RecipeHeader>
 

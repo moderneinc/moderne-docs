@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove a Gradle or Maven dependency"}
-  description={"For Gradle project, removes a single dependency from the dependencies section of the `build.gradle`.\nFor Maven project, removes a single dependency from the `<dependencies>` section of the pom.xml."}
+  description={"For a Gradle project, removes a single dependency from the `dependencies` section of the `build.gradle` or `build.gradle.kts`.\nFor a Maven project, removes a single dependency from the `<dependencies>` section of the `pom.xml`."}
   fqName={"org.openrewrite.java.dependencies.RemoveDependency"}
   languages={["Java"]}
   license={"Apache License Version 2.0"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove a Gradle or Maven dependency</RecipeHeader.Title>
 
-<RecipeHeader.Description>For Gradle project, removes a single dependency from the dependencies section of the `build.gradle`. For Maven project, removes a single dependency from the `<dependencies>` section of the pom.xml.</RecipeHeader.Description>
+<RecipeHeader.Description>For a Gradle project, removes a single dependency from the `dependencies` section of the `build.gradle` or `build.gradle.kts`. For a Maven project, removes a single dependency from the `<dependencies>` section of the `pom.xml`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"unlessUsing","required":false,"description":"Do not remove if type is in use. Supports glob expressions.","example":"org.aspectj.lang.*"},{"type":"String","name":"configuration","required":false,"description":"The dependency configuration to remove from.","example":"api"},{"type":"String","name":"scope","required":false,"description":"Only remove dependencies if they are in this scope. If 'runtime', this willalso remove dependencies in the 'compile' scope because 'compile' dependencies are part of the runtime dependency set","example":"compile"}]}>
+<OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"unlessUsing","required":false,"description":"Do not remove if type is in use. Supports glob expressions.","example":"org.aspectj.lang.*"},{"type":"String","name":"configuration","required":false,"description":"For Gradle only, the dependency configuration to remove from.","example":"api"},{"type":"String","name":"scope","required":false,"description":"For Maven only, only remove dependencies if they are in this scope. If `runtime`, this will also remove dependencies in the `compile` scope because `compile` dependencies are part of the runtime dependency set.","example":"compile"}]}>
 
 ## Options
 

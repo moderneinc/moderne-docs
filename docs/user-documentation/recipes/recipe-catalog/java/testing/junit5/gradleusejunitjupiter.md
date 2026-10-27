@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Gradle `Test` use JUnit Jupiter"}
-  description={"By default Gradle's `Test` tasks use JUnit 4. Gradle `Test` tasks must be configured with `useJUnitPlatform()` to run JUnit Jupiter tests. This recipe adds the `useJUnitPlatform()` method call to the `Test` task configuration."}
+  description={"By default Gradle's `Test` tasks use JUnit 4. Gradle `Test` tasks must be configured with `useJUnitPlatform()` to run JUnit Jupiter tests. This recipe adds the `useJUnitPlatform()` method call to the `Test` task configuration in `build.gradle` and `build.gradle.kts` files."}
   fqName={"org.openrewrite.java.testing.junit5.GradleUseJunitJupiter"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Gradle `Test` use JUnit Jupiter</RecipeHeader.Title>
 
-<RecipeHeader.Description>By default Gradle's `Test` tasks use JUnit 4. Gradle `Test` tasks must be configured with `useJUnitPlatform()` to run JUnit Jupiter tests. This recipe adds the `useJUnitPlatform()` method call to the `Test` task configuration.</RecipeHeader.Description>
+<RecipeHeader.Description>By default Gradle's `Test` tasks use JUnit 4. Gradle `Test` tasks must be configured with `useJUnitPlatform()` to run JUnit Jupiter tests. This recipe adds the `useJUnitPlatform()` method call to the `Test` task configuration in `build.gradle` and `build.gradle.kts` files.</RecipeHeader.Description>
 
 </RecipeHeader>
 

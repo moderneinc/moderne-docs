@@ -1,6 +1,6 @@
 ---
-title: "Adopt AssertJ Long Assertions"
-sidebar_label: "Adopt AssertJ Long Assertions"
+title: "Adopt AssertJ `Long` assertions"
+sidebar_label: "Adopt AssertJ `Long` assertions"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adopt AssertJ Long Assertions"}
-  description={"Adopt AssertJ Long Assertions. Favor semantically explicit methods (e.g. `myLong.isZero()` over `myLong.isEqualTo(0)`)."}
+  displayName={"Adopt AssertJ `Long` assertions"}
+  description={"Adopt AssertJ `Long` assertions. Favor semantically explicit methods (e.g. `myLong.isZero()` over `myLong.isEqualTo(0)`)."}
   fqName={"org.openrewrite.java.testing.assertj.AssertJLongRulesRecipes"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjlongrulesrecipes.md"}
 >
 
-<RecipeHeader.Title>Adopt AssertJ Long Assertions</RecipeHeader.Title>
+<RecipeHeader.Title>Adopt AssertJ `Long` assertions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adopt AssertJ Long Assertions. Favor semantically explicit methods (e.g. `myLong.isZero()` over `myLong.isEqualTo(0)`).</RecipeHeader.Description>
+<RecipeHeader.Description>Adopt AssertJ `Long` assertions. Favor semantically explicit methods (e.g. `myLong.isZero()` over `myLong.isEqualTo(0)`).</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJLongRulesRecipes","displayName":"Adopt AssertJ Long Assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJLongRulesRecipes","displayName":"Adopt AssertJ `Long` assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

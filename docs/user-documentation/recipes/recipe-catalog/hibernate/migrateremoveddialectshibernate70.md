@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"properties","before":"spring.jpa.database-platform=org.hibernate.dialect.DB2400Dialect\n","after":"spring.jpa.database-platform=org.hibernate.dialect.DB2iDialect\n","diff":"--- src/main/resources/application.properties\n+++ src/main/resources/application.properties\n@@ -1,1 +1,1 @@\n-spring.jpa.database-platform=org.hibernate.dialect.DB2400Dialect\n+spring.jpa.database-platform=org.hibernate.dialect.DB2iDialect\n\n","newFile":false}]},{"variants":[{"language":"properties","before":"spring.jpa.database-platform=org.hibernate.dialect.DB2400Dialect\n","after":"spring.jpa.database-platform=org.hibernate.dialect.DB2iDialect\n","diff":"--- src/main/resources/application.properties\n+++ src/main/resources/application.properties\n@@ -1,1 +1,1 @@\n-spring.jpa.database-platform=org.hibernate.dialect.DB2400Dialect\n+spring.jpa.database-platform=org.hibernate.dialect.DB2iDialect\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.hibernate.MigrateRemovedDialectsHibernate70","displayName":"Migrate dialects removed in Hibernate 7.0 to their generic equivalents","groupId":"org.openrewrite.recipe","artifactId":"rewrite-hibernate","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_HIBERNATE","requiresConfiguration":false}}>
 
 ## Usage

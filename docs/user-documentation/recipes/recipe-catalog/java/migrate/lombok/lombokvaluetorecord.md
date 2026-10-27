@@ -1,6 +1,6 @@
 ---
-title: "Convert `@lombok.Value` class to Record"
-sidebar_label: "Convert `@lombok.Value` class to Record"
+title: "Convert `@lombok.Value` class to record"
+sidebar_label: "Convert `@lombok.Value` class to record"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Convert `@lombok.Value` class to Record"}
-  description={"Convert Lombok `@Value` annotated classes to standard Java Records."}
+  displayName={"Convert `@lombok.Value` class to record"}
+  description={"Convert Lombok `@Value` annotated classes to standard Java records."}
   fqName={"org.openrewrite.java.migrate.lombok.LombokValueToRecord"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokvaluetorecord.md"}
 >
 
-<RecipeHeader.Title>Convert `@lombok.Value` class to Record</RecipeHeader.Title>
+<RecipeHeader.Title>Convert `@lombok.Value` class to record</RecipeHeader.Title>
 
-<RecipeHeader.Description>Convert Lombok `@Value` annotated classes to standard Java Records.</RecipeHeader.Description>
+<RecipeHeader.Description>Convert Lombok `@Value` annotated classes to standard Java records.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lombok.LombokValueToRecord","displayName":"Convert `@lombok.Value` class to Record","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"useExactToString=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lombok.LombokValueToRecord","displayName":"Convert `@lombok.Value` class to record","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"useExactToString=true\""}}>
 
 ## Usage
 

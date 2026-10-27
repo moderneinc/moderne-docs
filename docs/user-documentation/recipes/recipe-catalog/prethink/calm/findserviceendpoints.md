@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find service endpoints"}
-  description={"Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods."}
+  description={"Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also detects endpoints inherited from interfaces and base classes, such as OpenAPI-codegen-first projects where `@GetMapping` etc. live on the interface methods, or JAX-RS resources whose handlers are declared once on a generic base class."}
   fqName={"io.moderne.prethink.calm.FindServiceEndpoints"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find service endpoints</RecipeHeader.Title>
 
-<RecipeHeader.Description>Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods.</RecipeHeader.Description>
+<RecipeHeader.Description>Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also detects endpoints inherited from interfaces and base classes, such as OpenAPI-codegen-first projects where `@GetMapping` etc. live on the interface methods, or JAX-RS resources whose handlers are declared once on a generic base class.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc indexes per-module recipe lists. Click a groupId to see its recipes._
 
-Total recipes: 8231
+Total recipes: 8378
 
 
 ## io.moderne.recipe
@@ -14,6 +14,7 @@ Total recipes: 8231
 * [recipes-code-quality](all-recipes-io-moderne-recipe.md#recipes-code-quality)
 * [recipes-csharp-core](all-recipes-io-moderne-recipe.md#recipes-csharp-core)
 * [recipes-kotlin](all-recipes-io-moderne-recipe.md#recipes-kotlin)
+* [recipes-mainframe](all-recipes-io-moderne-recipe.md#recipes-mainframe)
 * [recipes-migrate-dotnet](all-recipes-io-moderne-recipe.md#recipes-migrate-dotnet)
 * [recipes-scala](all-recipes-io-moderne-recipe.md#recipes-scala)
 * [recipes-tunit](all-recipes-io-moderne-recipe.md#recipes-tunit)
@@ -32,10 +33,8 @@ Total recipes: 8231
 * [rewrite-prethink](all-recipes-io-moderne-recipe.md#rewrite-prethink)
 * [rewrite-program-analysis](all-recipes-io-moderne-recipe.md#rewrite-program-analysis)
 * [rewrite-react](all-recipes-io-moderne-recipe.md#rewrite-react)
-* [rewrite-release-metromap](all-recipes-io-moderne-recipe.md#rewrite-release-metromap)
 * [rewrite-spring](all-recipes-io-moderne-recipe.md#rewrite-spring)
 * [rewrite-tapestry](all-recipes-io-moderne-recipe.md#rewrite-tapestry)
-* [rewrite-vulncheck](all-recipes-io-moderne-recipe.md#rewrite-vulncheck)
 
 ## org.openrewrite
 
@@ -72,7 +71,6 @@ Total recipes: 8231
 * [rewrite-concourse](all-recipes-org-openrewrite-recipe.md#rewrite-concourse)
 * [rewrite-cucumber-jvm](all-recipes-org-openrewrite-recipe.md#rewrite-cucumber-jvm)
 * [rewrite-dotnet](all-recipes-org-openrewrite-recipe.md#rewrite-dotnet)
-* [rewrite-feature-flags](all-recipes-org-openrewrite-recipe.md#rewrite-feature-flags)
 * [rewrite-github-actions](all-recipes-org-openrewrite-recipe.md#rewrite-github-actions)
 * [rewrite-gitlab](all-recipes-org-openrewrite-recipe.md#rewrite-gitlab)
 * [rewrite-hibernate](all-recipes-org-openrewrite-recipe.md#rewrite-hibernate)

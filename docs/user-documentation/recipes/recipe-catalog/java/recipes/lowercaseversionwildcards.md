@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"type: specs.openrewrite.org/v1beta/recipe\nname: com.example.MyRecipe\ndisplayName: My recipe\ndescription: Does something useful.\nrecipeList:\n  - org.openrewrite.java.dependencies.ChangeDependency:\n      oldGroupId: org.acegisecurity\n      oldArtifactId: acegi-security\n      newGroupId: org.springframework.security\n      newArtifactId: spring-security-core\n      newVersion: 2.0.X\n  - org.openrewrite.java.dependencies.AddDependency:\n      groupId: org.springframework.security\n      artifactId: spring-security-web\n      version: 3.X\n      onlyIfUsing: org.springframework.security.web..*\n","after":"type: specs.openrewrite.org/v1beta/recipe\nname: com.example.MyRecipe\ndisplayName: My recipe\ndescription: Does something useful.\nrecipeList:\n  - org.openrewrite.java.dependencies.ChangeDependency:\n      oldGroupId: org.acegisecurity\n      oldArtifactId: acegi-security\n      newGroupId: org.springframework.security\n      newArtifactId: spring-security-core\n      newVersion: 2.0.x\n  - org.openrewrite.java.dependencies.AddDependency:\n      groupId: org.springframework.security\n      artifactId: spring-security-web\n      version: 3.x\n      onlyIfUsing: org.springframework.security.web..*\n","diff":"@@ -11,1 +11,1 @@\n      newGroupId: org.springframework.security\n      newArtifactId: spring-security-core\n-     newVersion: 2.0.X\n+     newVersion: 2.0.x\n  - org.openrewrite.java.dependencies.AddDependency:\n@@ -15,1 +15,1 @@\n      groupId: org.springframework.security\n      artifactId: spring-security-web\n-     version: 3.X\n+     version: 3.x\n      onlyIfUsing: org.springframework.security.web..*\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.recipes.LowercaseVersionWildcards","displayName":"Use a lowercase `x` as version wildcard in declarative recipes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
 
 ## Usage

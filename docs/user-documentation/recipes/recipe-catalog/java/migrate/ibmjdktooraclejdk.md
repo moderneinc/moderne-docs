@@ -1,6 +1,6 @@
 ---
-title: "Migrate from IBM Runtimes to Oracle Runtimes"
-sidebar_label: "Migrate from IBM Runtimes to Oracle Runtimes"
+title: "Migrate from IBM runtimes to Oracle runtimes"
+sidebar_label: "Migrate from IBM runtimes to Oracle runtimes"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate from IBM Runtimes to Oracle Runtimes"}
+  displayName={"Migrate from IBM runtimes to Oracle runtimes"}
   description={"This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions necessary for migrating from IBM Runtimes to Oracle Runtimes."}
   fqName={"org.openrewrite.java.migrate.IBMJDKtoOracleJDK"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/ibmjdktooraclejdk.md"}
 >
 
-<RecipeHeader.Title>Migrate from IBM Runtimes to Oracle Runtimes</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate from IBM runtimes to Oracle runtimes</RecipeHeader.Title>
 
 <RecipeHeader.Description>This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions necessary for migrating from IBM Runtimes to Oracle Runtimes.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.IBMJDKtoOracleJDK","displayName":"Migrate from IBM Runtimes to Oracle Runtimes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.IBMJDKtoOracleJDK","displayName":"Migrate from IBM runtimes to Oracle runtimes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -13,15 +13,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` with `getCurrentComponent()` and `getCurrentCompositeComponent()`"}
-  description={"Replace `jakarta.faces.component.UIComponent.CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` constants with `jakarta.faces.component.UIComponent.getCurrentComponent()` and `getCurrentCompositeComponent()`. that were added in JSF 2.0."}
+  description={"Replace lookups of the `jakarta.faces.component.UIComponent.CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` keys in the `FacesContext` attributes with `UIComponent.getCurrentComponent(FacesContext)` and `UIComponent.getCurrentCompositeComponent(FacesContext)`, which were added in JSF 2.0."}
   fqName={"org.openrewrite.java.migrate.jakarta.RemovedUIComponentConstant"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/jakarta-faces-3.yml"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/jakarta/RemovedUIComponentConstant.java"}
 />
 
 <RecipeHeader
-  type={"Composite recipe"}
+  type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
   license={"Moderne Source Available License"}
@@ -33,17 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` with `getCurrentComponent()` and `getCurrentCompositeComponent()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `jakarta.faces.component.UIComponent.CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` constants with `jakarta.faces.component.UIComponent.getCurrentComponent()` and `getCurrentCompositeComponent()`. that were added in JSF 2.0.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace lookups of the `jakarta.faces.component.UIComponent.CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` keys in the `FacesContext` attributes with `UIComponent.getCurrentComponent(FacesContext)` and `UIComponent.getCurrentCompositeComponent(FacesContext)`, which were added in JSF 2.0.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
-
-## Definition
-
-</RecipeList>
-
-<ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.faces.component.UIComponent;\n\nclass Bar {\n    void foo() {\n        String str = UIComponent.CURRENT_COMPONENT;\n        String str2 = UIComponent.CURRENT_COMPOSITE_COMPONENT;\n        System.out.println(str);\n        System.out.println(str2);\n    }\n}\n","after":"import jakarta.faces.component.UIComponent;\n\nclass Bar {\n    void foo() {\n        String str = UIComponent.getCurrentComponent();\n        String str2 = UIComponent.getCurrentCompositeComponent();\n        System.out.println(str);\n        System.out.println(str2);\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass Bar {\n    void foo() {\n-       String str = UIComponent.CURRENT_COMPONENT;\n-       String str2 = UIComponent.CURRENT_COMPOSITE_COMPONENT;\n+       String str = UIComponent.getCurrentComponent();\n+       String str2 = UIComponent.getCurrentCompositeComponent();\n        System.out.println(str);\n","newFile":false}]},{"variants":[{"language":"java","before":"import jakarta.faces.component.UIComponent;\n\nclass Bar {\n    void foo() {\n        String str = UIComponent.CURRENT_COMPONENT;\n        String str2 = UIComponent.CURRENT_COMPOSITE_COMPONENT;\n        System.out.println(str);\n        System.out.println(str2);\n    }\n}\n","after":"import jakarta.faces.component.UIComponent;\n\nclass Bar {\n    void foo() {\n        String str = UIComponent.getCurrentComponent();\n        String str2 = UIComponent.getCurrentCompositeComponent();\n        System.out.println(str);\n        System.out.println(str2);\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass Bar {\n    void foo() {\n-       String str = UIComponent.CURRENT_COMPONENT;\n-       String str2 = UIComponent.CURRENT_COMPOSITE_COMPONENT;\n+       String str = UIComponent.getCurrentComponent();\n+       String str2 = UIComponent.getCurrentCompositeComponent();\n        System.out.println(str);\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.faces.component.UIComponent;\nimport jakarta.faces.context.FacesContext;\n\nclass Bar {\n    void foo(FacesContext context) {\n        UIComponent component = (UIComponent) context.getAttributes().get(UIComponent.CURRENT_COMPONENT);\n        Object composite = FacesContext.getCurrentInstance().getAttributes().get(UIComponent.CURRENT_COMPOSITE_COMPONENT);\n        System.out.println(component);\n        System.out.println(composite);\n    }\n}\n","after":"import jakarta.faces.component.UIComponent;\nimport jakarta.faces.context.FacesContext;\n\nclass Bar {\n    void foo(FacesContext context) {\n        UIComponent component = UIComponent.getCurrentComponent(context);\n        Object composite = UIComponent.getCurrentCompositeComponent(FacesContext.getCurrentInstance());\n        System.out.println(component);\n        System.out.println(composite);\n    }\n}\n","diff":"@@ -6,2 +6,2 @@\nclass Bar {\n    void foo(FacesContext context) {\n-       UIComponent component = (UIComponent) context.getAttributes().get(UIComponent.CURRENT_COMPONENT);\n-       Object composite = FacesContext.getCurrentInstance().getAttributes().get(UIComponent.CURRENT_COMPOSITE_COMPONENT);\n+       UIComponent component = UIComponent.getCurrentComponent(context);\n+       Object composite = UIComponent.getCurrentCompositeComponent(FacesContext.getCurrentInstance());\n        System.out.println(component);\n","newFile":false}]}]}>
 
 ## Examples
 

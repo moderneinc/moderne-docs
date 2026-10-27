@@ -1,6 +1,6 @@
 ---
-title: "Migrate `org.springframework.util.Base64Utils` to `java.io.Base64`"
-sidebar_label: "Migrate `org.springframework.util.Base64Utils` to `java.io.Base64`"
+title: "Migrate `org.springframework.util.Base64Utils` to `java.util.Base64`"
+sidebar_label: "Migrate `org.springframework.util.Base64Utils` to `java.util.Base64`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate `org.springframework.util.Base64Utils` to `java.io.Base64`"}
+  displayName={"Migrate `org.springframework.util.Base64Utils` to `java.util.Base64`"}
   description={"Replaces usages of deprecated `org.springframework.util.Base64Utils` with `java.util.Base64`."}
   fqName={"org.openrewrite.java.spring.framework.MigrateBase64Utils"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratebase64utils.md"}
 >
 
-<RecipeHeader.Title>Migrate `org.springframework.util.Base64Utils` to `java.io.Base64`</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate `org.springframework.util.Base64Utils` to `java.util.Base64`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replaces usages of deprecated `org.springframework.util.Base64Utils` with `java.util.Base64`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.framework.MigrateBase64Utils","displayName":"Migrate `org.springframework.util.Base64Utils` to `java.io.Base64`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.framework.MigrateBase64Utils","displayName":"Migrate `org.springframework.util.Base64Utils` to `java.util.Base64`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

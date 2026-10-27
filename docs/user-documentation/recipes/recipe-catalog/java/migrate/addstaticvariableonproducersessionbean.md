@@ -1,6 +1,6 @@
 ---
-title: "Adds `static` modifier to `@Produces` fields that are in session beans"
-sidebar_label: "Adds `static` modifier to `@Produces` fields that are in session beans"
+title: "Add `static` modifier to `@Produces` fields in session beans"
+sidebar_label: "Add `static` modifier to `@Produces` fields in session beans"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adds `static` modifier to `@Produces` fields that are in session beans"}
+  displayName={"Add `static` modifier to `@Produces` fields in session beans"}
   description={"Ensures that the fields annotated with `@Produces` which is inside the session bean (`@Stateless`, `@Stateful`, or `@Singleton`) are declared `static`."}
   fqName={"org.openrewrite.java.migrate.AddStaticVariableOnProducerSessionBean"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addstaticvariableonproducersessionbean.md"}
 >
 
-<RecipeHeader.Title>Adds `static` modifier to `@Produces` fields that are in session beans</RecipeHeader.Title>
+<RecipeHeader.Title>Add `static` modifier to `@Produces` fields in session beans</RecipeHeader.Title>
 
 <RecipeHeader.Description>Ensures that the fields annotated with `@Produces` which is inside the session bean (`@Stateless`, `@Stateful`, or `@Singleton`) are declared `static`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddStaticVariableOnProducerSessionBean","displayName":"Adds `static` modifier to `@Produces` fields that are in session beans","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddStaticVariableOnProducerSessionBean","displayName":"Add `static` modifier to `@Produces` fields in session beans","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

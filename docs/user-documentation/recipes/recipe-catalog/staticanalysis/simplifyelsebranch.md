@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Simplify `else` branch if it only has a single `if`"}
-  description={"Simplify `else` branch if it only has a single `if`."}
+  description={"Replaces an `else` block that contains only a single `if` statement with an `else if`."}
   fqName={"org.openrewrite.staticanalysis.SimplifyElseBranch"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Simplify `else` branch if it only has a single `if`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Simplify `else` branch if it only has a single `if`.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces an `else` block that contains only a single `if` statement with an `else if`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

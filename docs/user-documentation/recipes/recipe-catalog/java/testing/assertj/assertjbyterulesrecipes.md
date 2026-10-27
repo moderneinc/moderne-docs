@@ -1,6 +1,6 @@
 ---
-title: "Adopt AssertJ Byte Assertions"
-sidebar_label: "Adopt AssertJ Byte Assertions"
+title: "Adopt AssertJ `Byte` assertions"
+sidebar_label: "Adopt AssertJ `Byte` assertions"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adopt AssertJ Byte Assertions"}
-  description={"Adopt AssertJ Byte Assertions. Favor semantically explicit methods (e.g. `myByte.isZero()` over `myByte.isEqualTo(0)`)."}
+  displayName={"Adopt AssertJ `Byte` assertions"}
+  description={"Adopt AssertJ `Byte` assertions. Favor semantically explicit methods (e.g. `myByte.isZero()` over `myByte.isEqualTo(0)`)."}
   fqName={"org.openrewrite.java.testing.assertj.AssertJByteRulesRecipes"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjbyterulesrecipes.md"}
 >
 
-<RecipeHeader.Title>Adopt AssertJ Byte Assertions</RecipeHeader.Title>
+<RecipeHeader.Title>Adopt AssertJ `Byte` assertions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adopt AssertJ Byte Assertions. Favor semantically explicit methods (e.g. `myByte.isZero()` over `myByte.isEqualTo(0)`).</RecipeHeader.Description>
+<RecipeHeader.Description>Adopt AssertJ `Byte` assertions. Favor semantically explicit methods (e.g. `myByte.isZero()` over `myByte.isEqualTo(0)`).</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJByteRulesRecipes","displayName":"Adopt AssertJ Byte Assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJByteRulesRecipes","displayName":"Adopt AssertJ `Byte` assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

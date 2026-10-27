@@ -37,6 +37,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Recipe classes should not have mutable `static` fields](./nomutablestaticfieldsinrecipes.md)
 * [Refactor RewriteTest to use defaults method](./userewritetestdefaults.md)
 * [Remove `@NlsRewrite` annotations from `Recipe` classes](./removenlsrewriteannotations.md)
+* [Remove `RecipeSpec.cycles(int)` calls that restate the default](./simplifyrecipespeccycles.md)
 * [Remove consecutive duplicate entries from declarative recipe lists](./removeconsecutiveduplicaterecipes.md)
 * [Remove elements annotated with `@ToBeRemoved` past their date](./removetoberemoved.md)
 * [Remove the trailing colon from declarative recipe entries without options](./removeemptyrecipeoptions.md)

@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Build\ndescription: Composite action\nruns:\n  using: composite\n  steps:\n    - uses: actions/setup-java\n      with:\n        distribution: 'temurin'\n        java-version: '11'\n    - run: ./gradlew build\n      shell: bash\n","after":"name: Build\ndescription: Composite action\nruns:\n  using: composite\n  steps:\n    - uses: actions/setup-java\n      with:\n        distribution: 'temurin'\n        java-version: '11'\n        cache: 'gradle'\n    - run: ./gradlew build\n      shell: bash\n","diff":"--- .github/actions/build/action.yml\n+++ .github/actions/build/action.yml\n@@ -10,0 +10,1 @@\n        distribution: 'temurin'\n        java-version: '11'\n+       cache: 'gradle'\n    - run: ./gradlew build\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.github.SetupJavaCaching","displayName":"Setup Java dependency caching","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false}}>
 
 ## Usage

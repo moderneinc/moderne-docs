@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<OptionsTable options={[{"type":"String","name":"method_pattern","required":true,"description":"A method pattern that matches method invocations to reorder.","example":"datetime.datetime replace(..)"},{"type":"String","name":"new_parameter_names","required":true,"description":"The parameter names in the desired order.","example":"[\"year\", \"month\", \"day\"]"},{"type":"String","name":"old_parameter_names","required":false,"description":"The current parameter names (optional if using positional reordering)."}]}>
+
+## Options
+
+</OptionsTable>
+
 <UsageList usage={{"recipeName":"org.openrewrite.python.ReorderMethodArguments","displayName":"Reorder method arguments","pipPackage":"openrewrite","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}}>
 
 ## Usage

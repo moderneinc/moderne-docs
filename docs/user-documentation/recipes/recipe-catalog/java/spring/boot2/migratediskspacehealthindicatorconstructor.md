@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `DiskSpaceHealthIndicator(File, DataSize)`"}
-  description={"`DiskSpaceHealthIndicator(File, long)` was deprecated in Spring Data 2.1 for removal in 2.2."}
+  description={"`DiskSpaceHealthIndicator(File, long)` was deprecated in Spring Boot 2.1 for removal in 2.2."}
   fqName={"org.openrewrite.java.spring.boot2.MigrateDiskSpaceHealthIndicatorConstructor"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `DiskSpaceHealthIndicator(File, DataSize)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>`DiskSpaceHealthIndicator(File, long)` was deprecated in Spring Data 2.1 for removal in 2.2.</RecipeHeader.Description>
+<RecipeHeader.Description>`DiskSpaceHealthIndicator(File, long)` was deprecated in Spring Boot 2.1 for removal in 2.2.</RecipeHeader.Description>
 
 </RecipeHeader>
 

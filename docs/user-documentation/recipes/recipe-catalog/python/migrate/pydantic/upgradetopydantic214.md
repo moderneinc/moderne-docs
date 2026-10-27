@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade to Pydantic 2.14"}
-  description={"Migrate code affected by changes introduced in Pydantic 2.14 (and 2.10-2.13). Flags `eval_type_backport` usage, whose support 2.14 removed. Note: 2.14 is in prerelease; verify against the 2.14.0 GA release."}
+  description={"Migrate code affected by changes introduced in Pydantic 2.14 (and 2.10-2.13). Flags `eval_type_backport` usage, whose support 2.14 removed."}
   fqName={"org.openrewrite.python.migrate.pydantic.UpgradeToPydantic214"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade to Pydantic 2.14</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate code affected by changes introduced in Pydantic 2.14 (and 2.10-2.13). Flags `eval_type_backport` usage, whose support 2.14 removed. Note: 2.14 is in prerelease; verify against the 2.14.0 GA release.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate code affected by changes introduced in Pydantic 2.14 (and 2.10-2.13). Flags `eval_type_backport` usage, whose support 2.14 removed.</RecipeHeader.Description>
 
 </RecipeHeader>
 

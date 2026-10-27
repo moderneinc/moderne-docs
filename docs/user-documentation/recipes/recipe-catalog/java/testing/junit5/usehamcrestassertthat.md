@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `MatcherAssert#assertThat(..)`"}
-  description={"JUnit 4's `Assert#assertThat(..)` This method was deprecated in JUnit 4 and removed in JUnit Jupiter."}
+  description={"JUnit 4's `Assert#assertThat(..)` was deprecated in JUnit 4 and removed in JUnit Jupiter, so use Hamcrest's `MatcherAssert#assertThat(..)` instead."}
   fqName={"org.openrewrite.java.testing.junit5.UseHamcrestAssertThat"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `MatcherAssert#assertThat(..)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>JUnit 4's `Assert#assertThat(..)` This method was deprecated in JUnit 4 and removed in JUnit Jupiter.</RecipeHeader.Description>
+<RecipeHeader.Description>JUnit 4's `Assert#assertThat(..)` was deprecated in JUnit 4 and removed in JUnit Jupiter, so use Hamcrest's `MatcherAssert#assertThat(..)` instead.</RecipeHeader.Description>
 
 </RecipeHeader>
 

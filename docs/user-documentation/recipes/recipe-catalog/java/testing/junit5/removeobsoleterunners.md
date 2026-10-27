@@ -1,6 +1,6 @@
 ---
-title: "Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement"
-sidebar_label: "Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement"
+title: "Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendWith` replacement"
+sidebar_label: "Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendWith` replacement"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement"}
-  description={"Some JUnit 4 `@RunWith` annotations do not require replacement with an equivalent JUnit Jupiter `@ExtendsWith` annotation. This can be used to remove those runners that either do not have a JUnit Jupiter equivalent or do not require a replacement as part of JUnit 4 to 5 migration."}
+  displayName={"Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendWith` replacement"}
+  description={"Some JUnit 4 `@RunWith` annotations do not require replacement with an equivalent JUnit Jupiter `@ExtendWith` annotation. This can be used to remove those runners that either do not have a JUnit Jupiter equivalent or do not require a replacement as part of JUnit 4 to 5 migration."}
   fqName={"org.openrewrite.java.testing.junit5.RemoveObsoleteRunners"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/removeobsoleterunners.md"}
 >
 
-<RecipeHeader.Title>Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement</RecipeHeader.Title>
+<RecipeHeader.Title>Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendWith` replacement</RecipeHeader.Title>
 
-<RecipeHeader.Description>Some JUnit 4 `@RunWith` annotations do not require replacement with an equivalent JUnit Jupiter `@ExtendsWith` annotation. This can be used to remove those runners that either do not have a JUnit Jupiter equivalent or do not require a replacement as part of JUnit 4 to 5 migration.</RecipeHeader.Description>
+<RecipeHeader.Description>Some JUnit 4 `@RunWith` annotations do not require replacement with an equivalent JUnit Jupiter `@ExtendWith` annotation. This can be used to remove those runners that either do not have a JUnit Jupiter equivalent or do not require a replacement as part of JUnit 4 to 5 migration.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.RemoveObsoleteRunners","displayName":"Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"obsoleteRunners=org.junit.runners.JUnit4\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.RemoveObsoleteRunners","displayName":"Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendWith` replacement","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":true,"cliOptions":" --recipe-option \"obsoleteRunners=org.junit.runners.JUnit4\""}}>
 
 ## Usage
 

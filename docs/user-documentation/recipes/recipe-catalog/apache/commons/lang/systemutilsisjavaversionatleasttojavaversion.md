@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.lang.SystemUtils;\n\nclass A {\n    boolean atLeast14() {\n        return SystemUtils.isJavaVersionAtLeast(1.4f);\n    }\n}\n","after":"import org.apache.commons.lang.SystemUtils;\nimport org.apache.commons.lang3.JavaVersion;\n\nclass A {\n    boolean atLeast14() {\n        return SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_1_4);\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.apache.commons.lang.SystemUtils;\n+import org.apache.commons.lang3.JavaVersion;\n\n@@ -5,1 +6,1 @@\nclass A {\n    boolean atLeast14() {\n-       return SystemUtils.isJavaVersionAtLeast(1.4f);\n+       return SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_1_4);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.apache.commons.lang.SystemUtilsIsJavaVersionAtLeastToJavaVersion","displayName":"Replace `SystemUtils#isJavaVersionAtLeast(float)` and `(int)` with the `JavaVersion` overload","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 
 ## Usage

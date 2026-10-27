@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Simplify a call chain","href":"/user-documentation/recipes/recipe-catalog/java/simplifymethodchain/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Simplify a call chain","href":"/user-documentation/recipes/recipe-catalog/java/simplifymethodchain/"}]}>
 
 ## Definition
 

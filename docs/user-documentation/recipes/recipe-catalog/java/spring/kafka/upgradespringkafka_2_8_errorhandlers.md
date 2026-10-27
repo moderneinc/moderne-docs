@@ -1,6 +1,6 @@
 ---
-title: "Migrates Spring Kafka deprecated error handlers"
-sidebar_label: "Migrates Spring Kafka deprecated error handlers"
+title: "Migrate deprecated Spring Kafka error handlers"
+sidebar_label: "Migrate deprecated Spring Kafka error handlers"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrates Spring Kafka deprecated error handlers"}
+  displayName={"Migrate deprecated Spring Kafka error handlers"}
   description={"Migrate error handlers deprecated in Spring Kafka `2.8.x` to their replacements."}
   fqName={"org.openrewrite.java.spring.kafka.UpgradeSpringKafka_2_8_ErrorHandlers"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_2_8_errorhandlers.md"}
 >
 
-<RecipeHeader.Title>Migrates Spring Kafka deprecated error handlers</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate deprecated Spring Kafka error handlers</RecipeHeader.Title>
 
 <RecipeHeader.Description>Migrate error handlers deprecated in Spring Kafka `2.8.x` to their replacements.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.kafka.UpgradeSpringKafka_2_8_ErrorHandlers","displayName":"Migrates Spring Kafka deprecated error handlers","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.kafka.UpgradeSpringKafka_2_8_ErrorHandlers","displayName":"Migrate deprecated Spring Kafka error handlers","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

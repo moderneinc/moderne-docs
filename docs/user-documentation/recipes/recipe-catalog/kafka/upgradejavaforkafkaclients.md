@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"}]} preconditions={[{"name":"Find Maven and Gradle dependencies","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency/"}]}>
+<RecipeList recipes={[{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"}]} preconditions={[{"name":"Find Gradle or Maven dependencies","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency/"}]}>
 
 ## Definition
 

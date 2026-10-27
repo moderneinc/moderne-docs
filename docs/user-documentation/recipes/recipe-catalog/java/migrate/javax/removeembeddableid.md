@@ -1,6 +1,6 @@
 ---
-title: "`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation"
-sidebar_label: "`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation"
+title: "Remove `@Id` from `@Embeddable` classes referenced by an `@EmbeddedId`"
+sidebar_label: "Remove `@Id` from `@Embeddable` classes referenced by an `@EmbeddedId`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation"}
+  displayName={"Remove `@Id` from `@Embeddable` classes referenced by an `@EmbeddedId`"}
   description={"According to the Java Persistence API (JPA) specification, if an entity defines an attribute with an `@EmbeddedId` annotation, the embeddable class cannot contain an attribute with an `@Id` annotation. If both the `@EmbeddedId` annotation and the `@Id` annotation are defined, OpenJPA ignores the `@Id` annotation, whereas EclipseLink throws an exception."}
   fqName={"org.openrewrite.java.migrate.javax.RemoveEmbeddableId"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/removeembeddableid.md"}
 >
 
-<RecipeHeader.Title>`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `@Id` from `@Embeddable` classes referenced by an `@EmbeddedId`</RecipeHeader.Title>
 
 <RecipeHeader.Description>According to the Java Persistence API (JPA) specification, if an entity defines an attribute with an `@EmbeddedId` annotation, the embeddable class cannot contain an attribute with an `@Id` annotation. If both the `@EmbeddedId` annotation and the `@Id` annotation are defined, OpenJPA ignores the `@Id` annotation, whereas EclipseLink throws an exception.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.RemoveEmbeddableId","displayName":"`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.RemoveEmbeddableId","displayName":"Remove `@Id` from `@Embeddable` classes referenced by an `@EmbeddedId`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

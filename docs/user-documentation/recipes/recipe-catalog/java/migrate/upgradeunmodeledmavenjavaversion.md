@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade Java version in alternate Maven builds"}
-  description={"Update explicit Java version properties and compiler settings in pom.xml files parsed as XML without a Maven model, for example in a repository built with Gradle. Property references are left intact."}
+  description={"Update explicit Java version properties and compiler settings in `pom.xml` files parsed as XML without a Maven model, for example in a repository built with Gradle. Property references are left intact."}
   fqName={"org.openrewrite.java.migrate.UpgradeUnmodeledMavenJavaVersion"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade Java version in alternate Maven builds</RecipeHeader.Title>
 
-<RecipeHeader.Description>Update explicit Java version properties and compiler settings in pom.xml files parsed as XML without a Maven model, for example in a repository built with Gradle. Property references are left intact.</RecipeHeader.Description>
+<RecipeHeader.Description>Update explicit Java version properties and compiler settings in `pom.xml` files parsed as XML without a Maven model, for example in a repository built with Gradle. Property references are left intact.</RecipeHeader.Description>
 
 </RecipeHeader>
 

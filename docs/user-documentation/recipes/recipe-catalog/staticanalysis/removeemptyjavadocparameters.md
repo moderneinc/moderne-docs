@@ -1,6 +1,6 @@
 ---
-title: "Remove JavaDoc `@param`, `@return`, and `@throws` with no description"
-sidebar_label: "Remove JavaDoc `@param`, `@return`, and `@throws` with no description"
+title: "Remove Javadoc `@param`, `@return`, and `@throws` with no description"
+sidebar_label: "Remove Javadoc `@param`, `@return`, and `@throws` with no description"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove JavaDoc `@param`, `@return`, and `@throws` with no description"}
-  description={"Removes `@param`, `@return`, and `@throws` with no description from JavaDocs."}
+  displayName={"Remove Javadoc `@param`, `@return`, and `@throws` with no description"}
+  description={"Removes `@param` and `@return` tags with no description, and `@throws` tags with neither an exception type nor a description, from Javadoc comments."}
   fqName={"org.openrewrite.staticanalysis.RemoveEmptyJavaDocParameters"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeemptyjavadocparameters.md"}
 >
 
-<RecipeHeader.Title>Remove JavaDoc `@param`, `@return`, and `@throws` with no description</RecipeHeader.Title>
+<RecipeHeader.Title>Remove Javadoc `@param`, `@return`, and `@throws` with no description</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes `@param`, `@return`, and `@throws` with no description from JavaDocs.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes `@param` and `@return` tags with no description, and `@throws` tags with neither an exception type nor a description, from Javadoc comments.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveEmptyJavaDocParameters","displayName":"Remove JavaDoc `@param`, `@return`, and `@throws` with no description","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveEmptyJavaDocParameters","displayName":"Remove Javadoc `@param`, `@return`, and `@throws` with no description","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

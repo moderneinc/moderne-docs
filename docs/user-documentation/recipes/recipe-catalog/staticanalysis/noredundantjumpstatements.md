@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Jump statements should not be redundant"}
-  description={"Jump statements such as return and continue let you change the default flow of program execution, but jump statements that direct the control flow to the original direction are just a waste of keystrokes."}
+  description={"Jump statements such as `return` and `continue` let you change the default flow of program execution, but jump statements that direct the control flow to the original direction are just a waste of keystrokes."}
   fqName={"org.openrewrite.staticanalysis.NoRedundantJumpStatements"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Jump statements should not be redundant</RecipeHeader.Title>
 
-<RecipeHeader.Description>Jump statements such as return and continue let you change the default flow of program execution, but jump statements that direct the control flow to the original direction are just a waste of keystrokes.</RecipeHeader.Description>
+<RecipeHeader.Description>Jump statements such as `return` and `continue` let you change the default flow of program execution, but jump statements that direct the control flow to the original direction are just a waste of keystrokes.</RecipeHeader.Description>
 
 </RecipeHeader>
 

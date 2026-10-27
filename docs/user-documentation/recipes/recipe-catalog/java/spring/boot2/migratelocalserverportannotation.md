@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `org.springframework.boot.web.server.LocalServerPort`"}
-  description={"Updates the package and adds the necessary dependency if `LocalServerPort` is in use. The package of `LocalServerPort` was changed in Spring Boot 2.0, necessitating changes."}
+  description={"Updates the package of `LocalServerPort`, which changed in Spring Boot 2.0."}
   fqName={"org.openrewrite.java.spring.boot2.MigrateLocalServerPortAnnotation"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -21,7 +21,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  type={"Composite recipe"}
+  type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
   license={"Moderne Source Available License"}
@@ -33,15 +33,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `org.springframework.boot.web.server.LocalServerPort`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Updates the package and adds the necessary dependency if `LocalServerPort` is in use. The package of `LocalServerPort` was changed in Spring Boot 2.0, necessitating changes.</RecipeHeader.Description>
+<RecipeHeader.Description>Updates the package of `LocalServerPort`, which changed in Spring Boot 2.0.</RecipeHeader.Description>
 
 </RecipeHeader>
-
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]}>
-
-## Definition
-
-</RecipeList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.MigrateLocalServerPortAnnotation","displayName":"Use `org.springframework.boot.web.server.LocalServerPort`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

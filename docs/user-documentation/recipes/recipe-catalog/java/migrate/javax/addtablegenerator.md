@@ -1,6 +1,6 @@
 ---
-title: "Attributes with automatically generated values require configuration"
-sidebar_label: "Attributes with automatically generated values require configuration"
+title: "Add a `@TableGenerator` to automatically generated `@GeneratedValue` attributes"
+sidebar_label: "Add a `@TableGenerator` to automatically generated `@GeneratedValue` attributes"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Attributes with automatically generated values require configuration"}
+  displayName={"Add a `@TableGenerator` to automatically generated `@GeneratedValue` attributes"}
   description={"Adds missing `@TableGenerator` annotation and updates the `@GeneratedValue` annotation values when it uses automatically generated values."}
   fqName={"org.openrewrite.java.migrate.javax.AddTableGenerator"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtablegenerator.md"}
 >
 
-<RecipeHeader.Title>Attributes with automatically generated values require configuration</RecipeHeader.Title>
+<RecipeHeader.Title>Add a `@TableGenerator` to automatically generated `@GeneratedValue` attributes</RecipeHeader.Title>
 
 <RecipeHeader.Description>Adds missing `@TableGenerator` annotation and updates the `@GeneratedValue` annotation values when it uses automatically generated values.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddTableGenerator","displayName":"Attributes with automatically generated values require configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddTableGenerator","displayName":"Add a `@TableGenerator` to automatically generated `@GeneratedValue` attributes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"DevCenter Kotlin"}
-  description={"This is a DevCenter helping you to track general Kotlin Modernisations."}
+  description={"A DevCenter that tracks general Kotlin modernizations across your organization.\n\n**Move to Spring Boot 4.1**<br/>\nThe lowest version of any `org.springframework.boot` dependency in each repository, compared to 4.1.0.<br/><br/>\n`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeSpringBoot_4_1`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1)\n\n**Move to Kotlin 2.1**<br/>\nThe `kotlin-stdlib` version each repository depends on.<br/><br/>\n`Kotlin 1.4+` → `Kotlin 1.6+` → `Kotlin 1.8+` → `Kotlin 2.0+` → `Completed` · fix with [`Kotlin1To2$KtRecipe`](https://codegenomeproject.org/recipes/org.openrewrite.kotlin.migrate.Kotlin1To2%24KtRecipe)\n\n**Move to JUnit 6**<br/>\nThe test framework each repository uses.<br/><br/>\n`JUnit 4` → `JUnit 5` → `Completed` · fix with [`JUnit5to6Migration`](https://codegenomeproject.org/recipes/org.openrewrite.java.testing.junit6.JUnit5to6Migration)\n\n**OWASP top ten**<br/>\nIssue occurrences per category, counted across all repositories.<br/><br/>\n`A01 Broken access control` · `A02 Cryptographic failures` · `A03 Injection` · `A08 Software and data integrity failures` · fix with [`OwaspTopTen`](https://codegenomeproject.org/recipes/org.openrewrite.java.security.OwaspTopTen)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.DevCenterKotlin"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,29 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>DevCenter Kotlin</RecipeHeader.Title>
 
-<RecipeHeader.Description>This is a DevCenter helping you to track general Kotlin Modernisations.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+A DevCenter that tracks general Kotlin modernizations across your organization.
+
+**Move to Spring Boot 4.1**<br />
+The lowest version of any `org.springframework.boot` dependency in each repository, compared to 4.1.0.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt="Major to Completed" /><br />
+`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeSpringBoot_4_1`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1)
+
+**Move to Kotlin 2.1**<br />
+The `kotlin-stdlib` version each repository depends on.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==" alt="Kotlin 1.4+ to Completed" /><br />
+`Kotlin 1.4+` → `Kotlin 1.6+` → `Kotlin 1.8+` → `Kotlin 2.0+` → `Completed` · fix with [`Kotlin1To2$KtRecipe`](https://codegenomeproject.org/recipes/org.openrewrite.kotlin.migrate.Kotlin1To2%24KtRecipe)
+
+**Move to JUnit 6**<br />
+The test framework each repository uses.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+" alt="JUnit 4 to Completed" /><br />
+`JUnit 4` → `JUnit 5` → `Completed` · fix with [`JUnit5to6Migration`](https://codegenomeproject.org/recipes/org.openrewrite.java.testing.junit6.JUnit5to6Migration)
+
+**OWASP top ten**<br />
+Issue occurrences per category, counted across all repositories.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMmY0MmZmJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2VjYjgxZicvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjOGQ5OWZmJy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNmMGI0YWMnLz48L3N2Zz4=" alt="4 categories" /><br />
+`A01 Broken access control` · `A02 Cryptographic failures` · `A03 Injection` · `A08 Software and data integrity failures` · fix with [`OwaspTopTen`](https://codegenomeproject.org/recipes/org.openrewrite.java.security.OwaspTopTen)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

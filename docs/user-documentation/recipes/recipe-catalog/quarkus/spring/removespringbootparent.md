@@ -1,6 +1,6 @@
 ---
-title: "Remove Spring Boot 3.x parent POM"
-sidebar_label: "Remove Spring Boot 3.x parent POM"
+title: "Remove Spring Boot parent POM"
+sidebar_label: "Remove Spring Boot parent POM"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove Spring Boot 3.x parent POM"}
-  description={"Removes the Spring Boot 3.x starter parent POM from Maven projects."}
+  displayName={"Remove Spring Boot parent POM"}
+  description={"Removes the Spring Boot 3.x or 4.x starter parent POM from Maven projects."}
   fqName={"org.openrewrite.quarkus.spring.RemoveSpringBootParent"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/removespringbootparent.md"}
 >
 
-<RecipeHeader.Title>Remove Spring Boot 3.x parent POM</RecipeHeader.Title>
+<RecipeHeader.Title>Remove Spring Boot parent POM</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes the Spring Boot 3.x starter parent POM from Maven projects.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes the Spring Boot 3.x or 4.x starter parent POM from Maven projects.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.quarkus.spring.RemoveSpringBootParent","displayName":"Remove Spring Boot 3.x parent POM","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring-to-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING_TO_QUARKUS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.quarkus.spring.RemoveSpringBootParent","displayName":"Remove Spring Boot parent POM","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring-to-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING_TO_QUARKUS","requiresConfiguration":false}}>
 
 ## Usage
 

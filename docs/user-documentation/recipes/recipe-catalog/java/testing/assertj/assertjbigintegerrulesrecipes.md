@@ -1,6 +1,6 @@
 ---
-title: "Adopt AssertJ BigInteger Assertions"
-sidebar_label: "Adopt AssertJ BigInteger Assertions"
+title: "Adopt AssertJ `BigInteger` assertions"
+sidebar_label: "Adopt AssertJ `BigInteger` assertions"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adopt AssertJ BigInteger Assertions"}
-  description={"Adopt AssertJ BigInteger Assertions. Favor semantically explicit methods (e.g. `myBigInteger.isZero()` over `myBigInteger.isEqualTo(0)`)."}
+  displayName={"Adopt AssertJ `BigInteger` assertions"}
+  description={"Adopt AssertJ `BigInteger` assertions. Favor semantically explicit methods (e.g. `myBigInteger.isZero()` over `myBigInteger.isEqualTo(0)`)."}
   fqName={"org.openrewrite.java.testing.assertj.AssertJBigIntegerRulesRecipes"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjbigintegerrulesrecipes.md"}
 >
 
-<RecipeHeader.Title>Adopt AssertJ BigInteger Assertions</RecipeHeader.Title>
+<RecipeHeader.Title>Adopt AssertJ `BigInteger` assertions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adopt AssertJ BigInteger Assertions. Favor semantically explicit methods (e.g. `myBigInteger.isZero()` over `myBigInteger.isEqualTo(0)`).</RecipeHeader.Description>
+<RecipeHeader.Description>Adopt AssertJ `BigInteger` assertions. Favor semantically explicit methods (e.g. `myBigInteger.isZero()` over `myBigInteger.isEqualTo(0)`).</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJBigIntegerRulesRecipes","displayName":"Adopt AssertJ BigInteger Assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJBigIntegerRulesRecipes","displayName":"Adopt AssertJ `BigInteger` assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

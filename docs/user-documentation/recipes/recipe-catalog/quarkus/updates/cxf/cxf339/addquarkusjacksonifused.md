@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Add quarkus-jackson if Jackson is used"}
-  description={"Adds io.quarkus:quarkus-jackson to applications that use Jackson types in their sources, because quarkus-cxf stopped pulling quarkus-jackson transitively in 3.39.0. The detection is source based only: the dependency is not added when it is already available directly or transitively through another extension. The update tooling applies this recipe only to projects depending on io.quarkiverse.cxf:quarkus-cxf."}
+  description={"Adds io.quarkus:quarkus-jackson to applications that use Jackson types in their sources, because quarkus-cxf stopped pulling quarkus-jackson transitively in 3.39.0. The detection is source based only: the dependency is not added when it is already declared directly. The update tooling applies this recipe only to projects depending on io.quarkiverse.cxf:quarkus-cxf."}
   fqName={"io.quarkus.updates.cxf.cxf339.AddQuarkusJacksonIfUsed"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Add quarkus-jackson if Jackson is used</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adds io.quarkus:quarkus-jackson to applications that use Jackson types in their sources, because quarkus-cxf stopped pulling quarkus-jackson transitively in 3.39.0. The detection is source based only: the dependency is not added when it is already available directly or transitively through another extension. The update tooling applies this recipe only to projects depending on io.quarkiverse.cxf:quarkus-cxf.</RecipeHeader.Description>
+<RecipeHeader.Description>Adds io.quarkus:quarkus-jackson to applications that use Jackson types in their sources, because quarkus-cxf stopped pulling quarkus-jackson transitively in 3.39.0. The detection is source based only: the dependency is not added when it is already declared directly. The update tooling applies this recipe only to projects depending on io.quarkiverse.cxf:quarkus-cxf.</RecipeHeader.Description>
 
 </RecipeHeader>
 

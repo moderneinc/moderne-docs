@@ -1,6 +1,6 @@
 ---
-title: "Delete a spring configuration property"
-sidebar_label: "Delete a spring configuration property"
+title: "Delete a Spring configuration property"
+sidebar_label: "Delete a Spring configuration property"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Delete a spring configuration property"}
+  displayName={"Delete a Spring configuration property"}
   description={"Delete a spring configuration property from any configuration file that contains a matching key."}
   fqName={"org.openrewrite.java.spring.DeleteSpringProperty"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/deletespringproperty.md"}
 >
 
-<RecipeHeader.Title>Delete a spring configuration property</RecipeHeader.Title>
+<RecipeHeader.Title>Delete a Spring configuration property</RecipeHeader.Title>
 
 <RecipeHeader.Description>Delete a spring configuration property from any configuration file that contains a matching key.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.DeleteSpringProperty","displayName":"Delete a spring configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.endpoint.configprops.*\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.DeleteSpringProperty","displayName":"Delete a Spring configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.endpoint.configprops.*\""}}>
 
 ## Usage
 

@@ -1,6 +1,6 @@
 ---
-title: "Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`"
-sidebar_label: "Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`"
+title: "Replace `ServletRequest.getRealPath(String)` with `getServletContext().getRealPath(String)`"
+sidebar_label: "Replace `ServletRequest.getRealPath(String)` with `getServletContext().getRealPath(String)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`"}
-  description={"Updates `getRealPath()` for `jakarta.servlet.ServletRequest` and `jakarta.servlet.ServletRequestWrapper` to use `ServletContext.getRealPath(String)`."}
+  displayName={"Replace `ServletRequest.getRealPath(String)` with `getServletContext().getRealPath(String)`"}
+  description={"Replace the removed `getRealPath(String)` on `jakarta.servlet.ServletRequest` and `jakarta.servlet.ServletRequestWrapper` with `getServletContext().getRealPath(String)`."}
   fqName={"org.openrewrite.java.migrate.jakarta.UpdateGetRealPath"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updategetrealpath.md"}
 >
 
-<RecipeHeader.Title>Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `ServletRequest.getRealPath(String)` with `getServletContext().getRealPath(String)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Updates `getRealPath()` for `jakarta.servlet.ServletRequest` and `jakarta.servlet.ServletRequestWrapper` to use `ServletContext.getRealPath(String)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace the removed `getRealPath(String)` on `jakarta.servlet.ServletRequest` and `jakarta.servlet.ServletRequestWrapper` with `getServletContext().getRealPath(String)`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.UpdateGetRealPath","displayName":"Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.UpdateGetRealPath","displayName":"Replace `ServletRequest.getRealPath(String)` with `getServletContext().getRealPath(String)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

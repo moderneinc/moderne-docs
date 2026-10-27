@@ -1,6 +1,6 @@
 ---
-title: "Replace String concatenation with `String.valueOf()`"
-sidebar_label: "Replace String concatenation with `String.valueOf()`"
+title: "Replace `String` concatenation with `String.valueOf()`"
+sidebar_label: "Replace `String` concatenation with `String.valueOf()`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace String concatenation with `String.valueOf()`"}
+  displayName={"Replace `String` concatenation with `String.valueOf()`"}
   description={"Replace inefficient string concatenation patterns like `\"\" + ...` with `String.valueOf(...)`. This improves code readability and may have minor performance benefits. The empty string prefix `\"\" +` is an indirect way to convert a value to a `String`, while `String.valueOf()` clearly communicates the conversion intent."}
   fqName={"org.openrewrite.staticanalysis.ReplaceStringConcatenationWithStringValueOf"}
   languages={["OpenRewrite"]}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S1153"]}
+  tags={["RSPEC-S9433"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.ReplaceStringConcatenationWithStringValueOf"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringconcatenationwithstringvalueof.md"}
 >
 
-<RecipeHeader.Title>Replace String concatenation with `String.valueOf()`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `String` concatenation with `String.valueOf()`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replace inefficient string concatenation patterns like `"" + ...` with `String.valueOf(...)`. This improves code readability and may have minor performance benefits. The empty string prefix `"" +` is an indirect way to convert a value to a `String`, while `String.valueOf()` clearly communicates the conversion intent.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceStringConcatenationWithStringValueOf","displayName":"Replace String concatenation with `String.valueOf()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceStringConcatenationWithStringValueOf","displayName":"Replace `String` concatenation with `String.valueOf()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

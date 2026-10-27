@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingvarargswithobjectsrequirenonnull/"},{"name":"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingsingleargwithobjectsrequirenonnull/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Replace varargs `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingvarargswithobjectsrequirenonnull/"},{"name":"Replace single-argument `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingsingleargwithobjectsrequirenonnull/"}]}>
 
 ## Definition
 

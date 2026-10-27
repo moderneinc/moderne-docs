@@ -1,6 +1,6 @@
 ---
-title: "Remove author tags from JavaDocs"
-sidebar_label: "Remove author tags from JavaDocs"
+title: "Remove author tags from Javadoc"
+sidebar_label: "Remove author tags from Javadoc"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove author tags from JavaDocs"}
-  description={"Removes author tags from JavaDocs to reduce code maintenance."}
+  displayName={"Remove author tags from Javadoc"}
+  description={"Removes author tags from Javadoc comments to reduce code maintenance."}
   fqName={"org.openrewrite.staticanalysis.RemoveJavaDocAuthorTag"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removejavadocauthortag.md"}
 >
 
-<RecipeHeader.Title>Remove author tags from JavaDocs</RecipeHeader.Title>
+<RecipeHeader.Title>Remove author tags from Javadoc</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes author tags from JavaDocs to reduce code maintenance.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes author tags from Javadoc comments to reduce code maintenance.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveJavaDocAuthorTag","displayName":"Remove author tags from JavaDocs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveJavaDocAuthorTag","displayName":"Remove author tags from Javadoc","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

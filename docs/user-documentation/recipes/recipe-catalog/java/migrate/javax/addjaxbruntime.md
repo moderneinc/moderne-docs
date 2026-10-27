@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use latest JAXB API and runtime for Jakarta EE 8"}
-  description={"Update build files to use the latest JAXB runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAXB run-time, in Gradle `compileOnly`+`testImplementation` and Maven `provided` scope, to any project that has a transitive dependency on the JAXB API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**."}
+  description={"Update build files to use the latest JAXB runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAXB run-time, in Gradle `runtimeOnly` and Maven `runtime` scope, to any project that uses `javax.xml.bind` and has a transitive dependency on the JAXB API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**."}
   fqName={"org.openrewrite.java.migrate.javax.AddJaxbRuntime"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,15 +33,21 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use latest JAXB API and runtime for Jakarta EE 8</RecipeHeader.Title>
 
-<RecipeHeader.Description>Update build files to use the latest JAXB runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAXB run-time, in Gradle `compileOnly`+`testImplementation` and Maven `provided` scope, to any project that has a transitive dependency on the JAXB API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**.</RecipeHeader.Description>
+<RecipeHeader.Description>Update build files to use the latest JAXB runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAXB run-time, in Gradle `runtimeOnly` and Maven `runtime` scope, to any project that uses `javax.xml.bind` and has a transitive dependency on the JAXB API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"runtime","required":true,"description":"Which implementation of the JAXB run-time that will be added to maven projects that have transitive dependencies on the JAXB API","example":"glassfish"}]}>
+<OptionsTable options={[{"type":"String","name":"runtime","required":true,"description":"Which implementation of the JAXB run-time to add to projects that have transitive dependencies on the JAXB API.","example":"glassfish"}]}>
 
 ## Options
 
 </OptionsTable>
+
+<ExampleList examples={[{"parameters":[{"parameter":"runtime","value":"glassfish"}],"unchanged":{"language":"mavenProject","code":"child"},"variants":[{"language":"xml","before":"<project>\n    <groupId>com.example</groupId>\n    <artifactId>parent</artifactId>\n    <version>1.0.0</version>\n    <packaging>pom</packaging>\n    <properties>\n        <jaxb.version>2.2.11</jaxb.version>\n    </properties>\n    <modules>\n        <module>child</module>\n    </modules>\n</project>\n","after":"<project>\n    <groupId>com.example</groupId>\n    <artifactId>parent</artifactId>\n    <version>1.0.0</version>\n    <packaging>pom</packaging>\n    <properties>\n        <jaxb.version>2.3.9</jaxb.version>\n    </properties>\n    <modules>\n        <module>child</module>\n    </modules>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -7,1 +7,1 @@\n    <packaging>pom</packaging>\n    <properties>\n-       <jaxb.version>2.2.11</jaxb.version>\n+       <jaxb.version>2.3.9</jaxb.version>\n    </properties>\n","newFile":false},{"language":"xml","before":"<project>\n    <parent>\n        <groupId>com.example</groupId>\n        <artifactId>parent</artifactId>\n        <version>1.0.0</version>\n    </parent>\n    <artifactId>child</artifactId>\n    <dependencies>\n        <dependency>\n            <groupId>com.sun.xml.bind</groupId>\n            <artifactId>jaxb-impl</artifactId>\n            <version>${jaxb.version}</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <parent>\n        <groupId>com.example</groupId>\n        <artifactId>parent</artifactId>\n        <version>1.0.0</version>\n    </parent>\n    <artifactId>child</artifactId>\n    <dependencies>\n        <dependency>\n            <groupId>org.glassfish.jaxb</groupId>\n            <artifactId>jaxb-runtime</artifactId>\n            <version>${jaxb.version}</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -10,2 +10,2 @@\n    <dependencies>\n        <dependency>\n-           <groupId>com.sun.xml.bind</groupId>\n-           <artifactId>jaxb-impl</artifactId>\n+           <groupId>org.glassfish.jaxb</groupId>\n+           <artifactId>jaxb-runtime</artifactId>\n            <version>${jaxb.version}</version>\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddJaxbRuntime","displayName":"Use latest JAXB API and runtime for Jakarta EE 8","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"runtime=glassfish\""}}>
 

@@ -1,6 +1,6 @@
 ---
-title: "Replace deprecated methods in`SecurityManager`"
-sidebar_label: "Replace deprecated methods in`SecurityManager`"
+title: "Replace deprecated methods in `SecurityManager`"
+sidebar_label: "Replace deprecated methods in `SecurityManager`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace deprecated methods in`SecurityManager`"}
+  displayName={"Replace deprecated methods in `SecurityManager`"}
   description={"Replace `SecurityManager` methods `checkAwtEventQueueAccess()`, `checkSystemClipboardAccess()`, `checkMemberAccess()` and `checkTopLevelWindow()` deprecated in Java SE 11 by `checkPermission(new java.security.AllPermission())`."}
   fqName={"org.openrewrite.java.migrate.RemovedSecurityManagerMethods"}
   languages={["Java"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedsecuritymanagermethods.md"}
 >
 
-<RecipeHeader.Title>Replace deprecated methods in`SecurityManager`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace deprecated methods in `SecurityManager`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replace `SecurityManager` methods `checkAwtEventQueueAccess()`, `checkSystemClipboardAccess()`, `checkMemberAccess()` and `checkTopLevelWindow()` deprecated in Java SE 11 by `checkPermission(new java.security.AllPermission())`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemovedSecurityManagerMethods","displayName":"Replace deprecated methods in`SecurityManager`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemovedSecurityManagerMethods","displayName":"Replace deprecated methods in `SecurityManager`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

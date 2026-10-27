@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace instance access of `model_fields` / `model_computed_fields`"}
-  description={"Pydantic 2.11 deprecated accessing `model_fields` and `model_computed_fields` on a model instance; these are removed in Pydantic 3.0. Replace `<instance>.model_fields` with `type(<instance>).model_fields` (and likewise for `model_computed_fields`) when the receiver resolves to a Pydantic model, so the attribute is accessed on the class. Class access and `cls` access are left untouched."}
+  description={"Pydantic 2.11 deprecated accessing `model_fields` and `model_computed_fields` on a model instance; these are removed in Pydantic 3.0. Replace `<instance>.model_fields` with `type(<instance>).model_fields` (and likewise for `model_computed_fields`) when the receiver resolves to a Pydantic model instance, so the attribute is accessed on the class. Only fires where the receiver is a variable, attribute or call result whose type resolves. Class access, including through `cls` or a `type[...]` value, is left untouched."}
   fqName={"org.openrewrite.python.migrate.pydantic.ReplaceModelFieldsInstanceAccess"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace instance access of `model_fields` / `model_computed_fields`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Pydantic 2.11 deprecated accessing `model_fields` and `model_computed_fields` on a model instance; these are removed in Pydantic 3.0. Replace `<instance>.model_fields` with `type(<instance>).model_fields` (and likewise for `model_computed_fields`) when the receiver resolves to a Pydantic model, so the attribute is accessed on the class. Class access and `cls` access are left untouched.</RecipeHeader.Description>
+<RecipeHeader.Description>Pydantic 2.11 deprecated accessing `model_fields` and `model_computed_fields` on a model instance; these are removed in Pydantic 3.0. Replace `<instance>.model_fields` with `type(<instance>).model_fields` (and likewise for `model_computed_fields`) when the receiver resolves to a Pydantic model instance, so the attribute is accessed on the class. Only fires where the receiver is a variable, attribute or call result whose type resolves. Class access, including through `cls` or a `type[...]` value, is left untouched.</RecipeHeader.Description>
 
 </RecipeHeader>
 

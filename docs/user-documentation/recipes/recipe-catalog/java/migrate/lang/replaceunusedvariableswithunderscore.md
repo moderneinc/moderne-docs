@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace unused variables with underscore"}
-  description={"Replace unused variable declarations with underscore (_) for Java 22+. This includes unused variables in enhanced for loops, catch blocks, and lambda parameters where the variable is never referenced."}
+  description={"Replace unused variable declarations with underscore (`_`) for Java 22+. This includes unused variables in enhanced for loops, catch blocks, and lambda parameters where the variable is never referenced."}
   fqName={"org.openrewrite.java.migrate.lang.ReplaceUnusedVariablesWithUnderscore"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace unused variables with underscore</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace unused variable declarations with underscore (_) for Java 22+. This includes unused variables in enhanced for loops, catch blocks, and lambda parameters where the variable is never referenced.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace unused variable declarations with underscore (`_`) for Java 22+. This includes unused variables in enhanced for loops, catch blocks, and lambda parameters where the variable is never referenced.</RecipeHeader.Description>
 
 </RecipeHeader>
 

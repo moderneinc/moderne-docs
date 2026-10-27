@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove unnecessary `assertEquals` delta argument for integral types"}
-  description={"Remove the delta argument from `assertEquals()` when both expected and actual are `int` or `long` types, since the delta is meaningless for exact integer comparison. Integer arguments get unnecessarily upcasted to `double` when a delta is provided."}
+  description={"Remove a literal zero delta argument from `assertEquals()` when both expected and actual are `int` or `long` types, since a zero delta already asks for an exact comparison. Integer arguments get unnecessarily upcasted to `double` when a delta is provided; a non-zero delta is a tolerance and is kept."}
   fqName={"org.openrewrite.java.testing.cleanup.AssertEqualsIntegralDeltaToAssertEquals"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove unnecessary `assertEquals` delta argument for integral types</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove the delta argument from `assertEquals()` when both expected and actual are `int` or `long` types, since the delta is meaningless for exact integer comparison. Integer arguments get unnecessarily upcasted to `double` when a delta is provided.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove a literal zero delta argument from `assertEquals()` when both expected and actual are `int` or `long` types, since a zero delta already asks for an exact comparison. Integer arguments get unnecessarily upcasted to `double` when a delta is provided; a non-zero delta is a tolerance and is kept.</RecipeHeader.Description>
 
 </RecipeHeader>
 

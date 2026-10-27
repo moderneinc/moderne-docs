@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace invocations of `Collections#sort(List, Comparator)` with `List#sort(Comparator)`"}
-  description={"The `java.util.Collections#sort(..)` implementation defers to the `java.util.List#sort(Comparator)`, replaced it with the `java.util.List#sort(Comparator)` implementation for better readability."}
+  description={"The `java.util.Collections#sort(..)` implementation defers to `java.util.List#sort(Comparator)`, so call `java.util.List#sort(Comparator)` directly for better readability."}
   fqName={"org.openrewrite.staticanalysis.UseListSort"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["RSPEC-S9412"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.UseListSort"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace invocations of `Collections#sort(List, Comparator)` with `List#sort(Comparator)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `java.util.Collections#sort(..)` implementation defers to the `java.util.List#sort(Comparator)`, replaced it with the `java.util.List#sort(Comparator)` implementation for better readability.</RecipeHeader.Description>
+<RecipeHeader.Description>The `java.util.Collections#sort(..)` implementation defers to `java.util.List#sort(Comparator)`, so call `java.util.List#sort(Comparator)` directly for better readability.</RecipeHeader.Description>
 
 </RecipeHeader>
 

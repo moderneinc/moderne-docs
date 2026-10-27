@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"packageName","value":"jakarta.xml.bind"},{"parameter":"groupId","value":"jakarta.xml.bind"},{"parameter":"artifactId","value":"jakarta.xml.bind-api"},{"parameter":"version","value":"3.0.1"}],"unchanged":{"language":"mavenProject","code":"app"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddApiDependencyForImports","displayName":"Add an API dependency for explicit imports","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"packageName=jakarta.xml.bind\" --recipe-option \"groupId=jakarta.xml.bind\" --recipe-option \"artifactId=jakarta.xml.bind-api\" --recipe-option \"version=3.0.x\""}}>
 
 ## Usage

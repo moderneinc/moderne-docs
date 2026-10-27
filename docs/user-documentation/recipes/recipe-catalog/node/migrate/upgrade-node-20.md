@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade to Node.js 20"}
-  description={"Migrate deprecated APIs for Node.js 20 compatibility. Addresses deprecations that are end-of-life in Node 20."}
+  description={"Migrate deprecated APIs for Node.js 20 compatibility. Addresses deprecations that are end-of-life in Node 20, plus runtime deprecations from earlier versions."}
   fqName={"org.openrewrite.node.migrate.upgrade-node-20"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade to Node.js 20</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate deprecated APIs for Node.js 20 compatibility. Addresses deprecations that are end-of-life in Node 20.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate deprecated APIs for Node.js 20 compatibility. Addresses deprecations that are end-of-life in Node 20, plus runtime deprecations from earlier versions.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Increase Node.js engine version","href":"/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version/"},{"name":"Increase Node.js version in GitHub Actions","href":"/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version-in-github-actions/"},{"name":"org.openrewrite.nodejs.migrate.UpgradeNodeVersion","href":"/user-documentation/recipes/recipe-catalog/nodejs/migrate/upgradenodeversion/"},{"name":"Coerce `process.exit()` and `process.exitCode` to integer","href":"/user-documentation/recipes/recipe-catalog/node/migrate/process/coerce-process-exit-code/"},{"name":"Find deprecated `crypto.DEFAULT_ENCODING` usage","href":"/user-documentation/recipes/recipe-catalog/node/migrate/find-crypto-default-encoding/"}]}>
+<RecipeList recipes={[{"name":"Increase Node.js engine version","href":"/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version/"},{"name":"Increase Node.js version in GitHub Actions","href":"/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version-in-github-actions/"},{"name":"org.openrewrite.nodejs.migrate.UpgradeNodeVersion","href":"/user-documentation/recipes/recipe-catalog/nodejs/migrate/upgradenodeversion/"},{"name":"Coerce `process.exit()` and `process.exitCode` to integer","href":"/user-documentation/recipes/recipe-catalog/node/migrate/process/coerce-process-exit-code/"},{"name":"Find deprecated `crypto.DEFAULT_ENCODING` usage","href":"/user-documentation/recipes/recipe-catalog/node/migrate/find-crypto-default-encoding/"},{"name":"Replace deprecated `Buffer()` constructor with `Buffer.alloc()` and `Buffer.from()`","href":"/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-deprecated-constructor/"}]}>
 
 ## Definition
 

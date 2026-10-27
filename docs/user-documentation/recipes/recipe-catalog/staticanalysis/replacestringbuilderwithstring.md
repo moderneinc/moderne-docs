@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `StringBuilder#append` with `String`"}
-  description={"Replace `StringBuilder.append()` with String if you are only concatenating a small number of strings and the code is simple and easy to read, as the compiler can optimize simple string concatenation expressions into a single String object, which can be more efficient than using StringBuilder."}
+  description={"Replace `StringBuilder.append()` with `String` concatenation if you are only concatenating a small number of strings and the code is simple and easy to read, as the compiler can optimize simple string concatenation expressions into a single `String` object, which can be more efficient than using `StringBuilder`."}
   fqName={"org.openrewrite.staticanalysis.ReplaceStringBuilderWithString"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `StringBuilder#append` with `String`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `StringBuilder.append()` with String if you are only concatenating a small number of strings and the code is simple and easy to read, as the compiler can optimize simple string concatenation expressions into a single String object, which can be more efficient than using StringBuilder.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `StringBuilder.append()` with `String` concatenation if you are only concatenating a small number of strings and the code is simple and easy to read, as the compiler can optimize simple string concatenation expressions into a single `String` object, which can be more efficient than using `StringBuilder`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

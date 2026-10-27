@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find removed `@angular/http` usage"}
-  description={"Finds imports from the `@angular/http` module, which was deprecated in Angular 5 and removed in Angular 8. Use `@angular/common/http` (`HttpClient`, `HttpClientModule`) instead."}
+  description={"Finds imports from the `@angular/http` and `@angular/http/testing` modules, which were deprecated in Angular 5 and removed in Angular 8. Use `@angular/common/http` (`HttpClient`, `HttpClientModule`) and `@angular/common/http/testing` (`HttpClientTestingModule`, `HttpTestingController`) instead."}
   fqName={"org.openrewrite.angular.search.find-angular-http-usage"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find removed `@angular/http` usage</RecipeHeader.Title>
 
-<RecipeHeader.Description>Finds imports from the `@angular/http` module, which was deprecated in Angular 5 and removed in Angular 8. Use `@angular/common/http` (`HttpClient`, `HttpClientModule`) instead.</RecipeHeader.Description>
+<RecipeHeader.Description>Finds imports from the `@angular/http` and `@angular/http/testing` modules, which were deprecated in Angular 5 and removed in Angular 8. Use `@angular/common/http` (`HttpClient`, `HttpClientModule`) and `@angular/common/http/testing` (`HttpClientTestingModule`, `HttpTestingController`) instead.</RecipeHeader.Description>
 
 </RecipeHeader>
 

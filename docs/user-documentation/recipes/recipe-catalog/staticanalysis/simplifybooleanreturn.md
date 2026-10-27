@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Simplify boolean return"}
-  description={"Simplifies Boolean expressions by removing redundancies. For example, `a && true` simplifies to `a`. Wrapping a boolean expression in an if-then-else just to return `true` or `false` adds unnecessary control flow that obscures the straightforward intent of the expression."}
+  description={"Simplifies `if` statements that only return `true` or `false` to a single `return`. For example, `if (a) { return true; } return false;` simplifies to `return a;`. Wrapping a boolean expression in an if-then-else just to return `true` or `false` adds unnecessary control flow that obscures the straightforward intent of the expression."}
   fqName={"org.openrewrite.staticanalysis.SimplifyBooleanReturn"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Simplify boolean return</RecipeHeader.Title>
 
-<RecipeHeader.Description>Simplifies Boolean expressions by removing redundancies. For example, `a && true` simplifies to `a`. Wrapping a boolean expression in an if-then-else just to return `true` or `false` adds unnecessary control flow that obscures the straightforward intent of the expression.</RecipeHeader.Description>
+<RecipeHeader.Description>Simplifies `if` statements that only return `true` or `false` to a single `return`. For example, `if (a) { return true; } return false;` simplifies to `return a;`. Wrapping a boolean expression in an if-then-else just to return `true` or `false` adds unnecessary control flow that obscures the straightforward intent of the expression.</RecipeHeader.Description>
 
 </RecipeHeader>
 

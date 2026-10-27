@@ -1,6 +1,6 @@
 ---
-title: "Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`"
-sidebar_label: "Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`"
+title: "Prefer `java.util.Optional#or(Supplier<? extends Optional<? extends T>>)`"
+sidebar_label: "Prefer `java.util.Optional#or(Supplier<? extends Optional<? extends T>>)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`"}
-  description={"Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)` over `com.google.common.base.Optional#or(com.google.common.base.Optional)."}
+  displayName={"Prefer `java.util.Optional#or(Supplier<? extends Optional<? extends T>>)`"}
+  description={"Prefer `java.util.Optional#or(Supplier<? extends Optional<? extends T>>)` over `com.google.common.base.Optional#or(com.google.common.base.Optional)`."}
   fqName={"org.openrewrite.java.migrate.guava.PreferJavaUtilOptionalOrSupplier"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptionalorsupplier.md"}
 >
 
-<RecipeHeader.Title>Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `java.util.Optional#or(Supplier<? extends Optional<? extends T>>)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)` over `com.google.common.base.Optional#or(com.google.common.base.Optional).</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `java.util.Optional#or(Supplier<? extends Optional<? extends T>>)` over `com.google.common.base.Optional#or(com.google.common.base.Optional)`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.PreferJavaUtilOptionalOrSupplier","displayName":"Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.PreferJavaUtilOptionalOrSupplier","displayName":"Prefer `java.util.Optional#or(Supplier<? extends Optional<? extends T>>)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

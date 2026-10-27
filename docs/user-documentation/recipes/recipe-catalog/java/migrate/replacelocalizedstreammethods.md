@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"localizedInputStreamMethodMatcher","required":false,"description":"The method pattern to match and replace.","example":"java.lang.Runtime getLocalizedInputStream(java.io.InputStream)"},{"type":"String","name":"localizedOutputStreamMethodMatcher","required":false,"description":"The method pattern to match and replace.","example":"java.lang.Runtime getLocalizedOutputStream(java.io.OutputStream)"}]}>
+<OptionsTable options={[{"type":"String","name":"localizedInputStreamMethodMatcher","required":false,"description":"A method pattern matching the `getLocalizedInputStream(InputStream)` method to replace. Defaults to the method on `java.lang.Runtime`.","example":"java.lang.Runtime getLocalizedInputStream(java.io.InputStream)"},{"type":"String","name":"localizedOutputStreamMethodMatcher","required":false,"description":"A method pattern matching the `getLocalizedOutputStream(OutputStream)` method to replace. Defaults to the method on `java.lang.Runtime`.","example":"java.lang.Runtime getLocalizedOutputStream(java.io.OutputStream)"}]}>
 
 ## Options
 

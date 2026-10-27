@@ -1,6 +1,6 @@
 ---
-title: "Simplify constant if branch execution"
-sidebar_label: "Simplify constant if branch execution"
+title: "Simplify constant `if` branch execution"
+sidebar_label: "Simplify constant `if` branch execution"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Simplify constant if branch execution"}
-  description={"Checks for if expressions that are always `true` or `false` and simplifies them. Branches that can never execute are dead code that misleads readers and may mask logic errors introduced during refactoring."}
+  displayName={"Simplify constant `if` branch execution"}
+  description={"Checks for `if` conditions that are always `true` or `false` and simplifies them. Branches that can never execute are dead code that misleads readers and may mask logic errors introduced during refactoring."}
   fqName={"org.openrewrite.staticanalysis.SimplifyConstantIfBranchExecution"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S6646"]}
+  tags={["RSPEC-S2589"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.SimplifyConstantIfBranchExecution"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconstantifbranchexecution.md"}
 >
 
-<RecipeHeader.Title>Simplify constant if branch execution</RecipeHeader.Title>
+<RecipeHeader.Title>Simplify constant `if` branch execution</RecipeHeader.Title>
 
-<RecipeHeader.Description>Checks for if expressions that are always `true` or `false` and simplifies them. Branches that can never execute are dead code that misleads readers and may mask logic errors introduced during refactoring.</RecipeHeader.Description>
+<RecipeHeader.Description>Checks for `if` conditions that are always `true` or `false` and simplifies them. Branches that can never execute are dead code that misleads readers and may mask logic errors introduced during refactoring.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.SimplifyConstantIfBranchExecution","displayName":"Simplify constant if branch execution","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.SimplifyConstantIfBranchExecution","displayName":"Simplify constant `if` branch execution","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

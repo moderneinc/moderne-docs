@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<OptionsTable options={[{"type":"String","name":"method_pattern","required":true,"description":"A method pattern that matches method invocations to modify.","example":"datetime.datetime now()"},{"type":"String","name":"argument_index","required":true,"description":"The zero-based position where to insert the argument.","example":"0"},{"type":"String","name":"literal","required":true,"description":"The literal value to add as an argument.","example":"datetime.UTC"}]}>
+
+## Options
+
+</OptionsTable>
+
 <UsageList usage={{"recipeName":"org.openrewrite.python.AddLiteralMethodArgument","displayName":"Add literal method argument","pipPackage":"openrewrite","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}}>
 
 ## Usage

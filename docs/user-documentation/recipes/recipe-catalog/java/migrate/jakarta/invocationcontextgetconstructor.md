@@ -1,6 +1,6 @@
 ---
-title: "Complete InvocationContext decorators"
-sidebar_label: "Complete InvocationContext decorators"
+title: "Complete `InvocationContext` decorators"
+sidebar_label: "Complete `InvocationContext` decorators"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Complete InvocationContext decorators"}
-  description={"Delegate getConstructor() when a legacy InvocationContext wrapper delegates getMethod()."}
+  displayName={"Complete `InvocationContext` decorators"}
+  description={"Delegate `getConstructor()` when a legacy `InvocationContext` wrapper delegates `getMethod()`."}
   fqName={"org.openrewrite.java.migrate.jakarta.InvocationContextGetConstructor"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,13 +31,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/invocationcontextgetconstructor.md"}
 >
 
-<RecipeHeader.Title>Complete InvocationContext decorators</RecipeHeader.Title>
+<RecipeHeader.Title>Complete `InvocationContext` decorators</RecipeHeader.Title>
 
-<RecipeHeader.Description>Delegate getConstructor() when a legacy InvocationContext wrapper delegates getMethod().</RecipeHeader.Description>
+<RecipeHeader.Description>Delegate `getConstructor()` when a legacy `InvocationContext` wrapper delegates `getMethod()`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.InvocationContextGetConstructor","displayName":"Complete InvocationContext decorators","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.interceptor.InvocationContext;\nimport java.lang.reflect.Method;\n\nclass A {\n    InvocationContext wrap(InvocationContext delegate) {\n        return new InvocationContext() {\n            @Override\n            public Method getMethod() {\n                return delegate.getMethod();\n            }\n        };\n    }\n}\n","after":"import jakarta.interceptor.InvocationContext;\n\nimport java.lang.reflect.Constructor;\nimport java.lang.reflect.Method;\n\nclass A {\n    InvocationContext wrap(InvocationContext delegate) {\n        return new InvocationContext() {\n            @Override\n            public Method getMethod() {\n                return delegate.getMethod();\n            }\n\n            @Override\n            public Constructor<?> getConstructor() {\n                return delegate.getConstructor();\n            }\n        };\n    }\n}\n","diff":"@@ -2,0 +2,2 @@\nimport jakarta.interceptor.InvocationContext;\n+\n+import java.lang.reflect.Constructor;\nimport java.lang.reflect.Method;\n@@ -11,0 +13,5 @@\n                return delegate.getMethod();\n            }\n+\n+           @Override\n+           public Constructor<?> getConstructor() {\n+               return delegate.getConstructor();\n+           }\n        };\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.InvocationContextGetConstructor","displayName":"Complete `InvocationContext` decorators","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

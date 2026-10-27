@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"DevCenter for Apache Maven"}
-  description={"A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices. This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of best practices for Maven POMs."}
+  description={"A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices.\nThis DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of\nbest practices for Maven POMs.\n\n**Move to the latest `maven-parent`**<br/>\nThe version of the `org.apache.maven:maven-parent` parent POM, compared to version 50.<br/><br/>\n`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeMavenParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeMavenParent)\n\n**Move to the latest `maven-plugins`**<br/>\nThe version of the `org.apache.maven.plugins:maven-plugins` parent POM, compared to version 50.<br/><br/>\n`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeMavenPluginsParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeMavenPluginsParent)\n\n**Move to the latest `maven-shared-components`**<br/>\nThe version of the `org.apache.maven.shared:maven-shared-components` parent POM, compared to version 50.<br/><br/>\n`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeMavenSharedParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeMavenSharedParent)\n\n**Move to Java 17**<br/>\nThe Java version each repository compiles for.<br/><br/>\n`Java 8+` → `Java 11+` → `Completed` · fix with [`UpgradeToJava17`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava17)\n\n**Apache Maven best practices**<br/>\nPOM issue occurrences per check, counted across all repositories.<br/><br/>\n`Add explicit groupId to Maven plugins` · `Add explicit plugin versions` · `Drop prefixless expressions in POM` · `Order POM elements` · `Remove duplicate Maven dependencies` · `Remove redundant explicit dependency and plugin versions` · `Remove redundant properties` · `Migrate to maven-dependency-plugin goal resolve-sources` · `Update SCM with Git origin` · fix with [`BestPractices`](https://codegenomeproject.org/recipes/org.openrewrite.maven.BestPractices)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.ApacheMavenDevCenter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,35 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>DevCenter for Apache Maven</RecipeHeader.Title>
 
-<RecipeHeader.Description>A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices. This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of best practices for Maven POMs.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices.
+This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of
+best practices for Maven POMs.
+
+**Move to the latest `maven-parent`**<br />
+The version of the `org.apache.maven:maven-parent` parent POM, compared to version 50.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt="Major to Completed" /><br />
+`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeMavenParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeMavenParent)
+
+**Move to the latest `maven-plugins`**<br />
+The version of the `org.apache.maven.plugins:maven-plugins` parent POM, compared to version 50.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt="Major to Completed" /><br />
+`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeMavenPluginsParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeMavenPluginsParent)
+
+**Move to the latest `maven-shared-components`**<br />
+The version of the `org.apache.maven.shared:maven-shared-components` parent POM, compared to version 50.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt="Major to Completed" /><br />
+`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeMavenSharedParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeMavenSharedParent)
+
+**Move to Java 17**<br />
+The Java version each repository compiles for.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+" alt="Java 8+ to Completed" /><br />
+`Java 8+` → `Java 11+` → `Completed` · fix with [`UpgradeToJava17`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava17)
+
+**Apache Maven best practices**<br />
+POM issue occurrences per check, counted across all repositories.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMmY0MmZmJy8+PHJlY3QgeD0nMzEnIHdpZHRoPSczMCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzI3YWE4OCcvPjxyZWN0IHg9JzYzJyB3aWR0aD0nMjknIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyM5ZDViZTgnLz48cmVjdCB4PSc5NCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjZWQ0YTVkJy8+PHJlY3QgeD0nMTI1JyB3aWR0aD0nMzAnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyM0Y2E3NWEnLz48cmVjdCB4PScxNTcnIHdpZHRoPScyOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2ZmYjgwMCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjN2ZmZmRlJy8+PHJlY3QgeD0nMjE5JyB3aWR0aD0nMzAnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNjMjgyZDUnLz48cmVjdCB4PScyNTEnIHdpZHRoPScyOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2YwYjRhYycvPjwvc3ZnPg==" alt="9 categories" /><br />
+`Add explicit groupId to Maven plugins` · `Add explicit plugin versions` · `Drop prefixless expressions in POM` · `Order POM elements` · `Remove duplicate Maven dependencies` · `Remove redundant explicit dependency and plugin versions` · `Remove redundant properties` · `Migrate to maven-dependency-plugin goal resolve-sources` · `Update SCM with Git origin` · fix with [`BestPractices`](https://codegenomeproject.org/recipes/org.openrewrite.maven.BestPractices)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

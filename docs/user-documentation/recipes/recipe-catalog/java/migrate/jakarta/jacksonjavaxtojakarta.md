@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate Jackson from javax to jakarta namespace"}
-  description={"Java EE has been rebranded to Jakarta EE.  This recipe replaces existing Jackson dependencies with their counterparts that are compatible with Jakarta EE 9."}
+  description={"Java EE has been rebranded to Jakarta EE. This recipe replaces existing Jackson dependencies with their counterparts that are compatible with Jakarta EE 9."}
   fqName={"org.openrewrite.java.migrate.jakarta.JacksonJavaxToJakarta"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate Jackson from javax to jakarta namespace</RecipeHeader.Title>
 
-<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE.  This recipe replaces existing Jackson dependencies with their counterparts that are compatible with Jakarta EE 9.</RecipeHeader.Description>
+<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE. This recipe replaces existing Jackson dependencies with their counterparts that are compatible with Jakarta EE 9.</RecipeHeader.Description>
 
 </RecipeHeader>
 

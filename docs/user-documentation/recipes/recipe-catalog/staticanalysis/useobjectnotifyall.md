@@ -1,6 +1,6 @@
 ---
-title: "Replaces `Object.notify()` with `Object.notifyAll()`"
-sidebar_label: "Replaces `Object.notify()` with `Object.notifyAll()`"
+title: "Replace `Object.notify()` with `Object.notifyAll()`"
+sidebar_label: "Replace `Object.notify()` with `Object.notifyAll()`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replaces `Object.notify()` with `Object.notifyAll()`"}
+  displayName={"Replace `Object.notify()` with `Object.notifyAll()`"}
   description={"`Object.notifyAll()` and `Object.notify()` both wake up sleeping threads, but `Object.notify()` only rouses one while `Object.notifyAll()` rouses all of them. Since `Object.notify()` might not wake up the right thread, `Object.notifyAll()` should be used instead. See [this](https://wiki.sei.cmu.edu/confluence/display/java/THI02-J.+Notify+all+waiting+threads+rather+than+a+single+thread) for more information. Using `notify()` in a multi-waiter scenario risks leaving threads permanently stalled when the wrong one is awakened."}
   fqName={"org.openrewrite.staticanalysis.UseObjectNotifyAll"}
   languages={["OpenRewrite"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/useobjectnotifyall.md"}
 >
 
-<RecipeHeader.Title>Replaces `Object.notify()` with `Object.notifyAll()`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `Object.notify()` with `Object.notifyAll()`</RecipeHeader.Title>
 
 <RecipeHeader.Description>`Object.notifyAll()` and `Object.notify()` both wake up sleeping threads, but `Object.notify()` only rouses one while `Object.notifyAll()` rouses all of them. Since `Object.notify()` might not wake up the right thread, `Object.notifyAll()` should be used instead. See [this](https://wiki.sei.cmu.edu/confluence/display/java/THI02-J.+Notify+all+waiting+threads+rather+than+a+single+thread) for more information. Using `notify()` in a multi-waiter scenario risks leaving threads permanently stalled when the wrong one is awakened.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UseObjectNotifyAll","displayName":"Replaces `Object.notify()` with `Object.notifyAll()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UseObjectNotifyAll","displayName":"Replace `Object.notify()` with `Object.notifyAll()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

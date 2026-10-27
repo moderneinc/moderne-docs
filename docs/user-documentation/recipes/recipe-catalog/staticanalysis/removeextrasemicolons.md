@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove extra semicolons"}
-  description={"Removes not needed semicolons. Semicolons are considered not needed:\n * Optional semicolons at the end of try-with-resources,\n * after the last enum value if no field or method is defined,\n * no statement between two semicolon.\n\nStray semicolons are typically typos or remnants of refactoring and can mislead readers into thinking a statement is present."}
+  description={"Removes unnecessary semicolons. Semicolons are considered unnecessary:\n * at the end of try-with-resources,\n * after the last enum value if no field or method is defined,\n * when there is no statement between two semicolons.\n\nStray semicolons are typically typos or remnants of refactoring and can mislead readers into thinking a statement is present."}
   fqName={"org.openrewrite.staticanalysis.RemoveExtraSemicolons"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -35,10 +35,10 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Description>
 
-Removes not needed semicolons. Semicolons are considered not needed:
- * Optional semicolons at the end of try-with-resources,
+Removes unnecessary semicolons. Semicolons are considered unnecessary:
+ * at the end of try-with-resources,
  * after the last enum value if no field or method is defined,
- * no statement between two semicolon.
+ * when there is no statement between two semicolons.
 
 Stray semicolons are typically typos or remnants of refactoring and can mislead readers into thinking a statement is present.
 

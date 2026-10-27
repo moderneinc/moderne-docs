@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Apply `var` to generic method invocations"}
-  description={"Apply `var` to variables initialized by invocations of generic methods. This recipe ignores generic factory methods without parameters, because open rewrite cannot handle them correctly ATM."}
+  description={"Apply `var` to variables initialized by invocations of generic methods. Invocations with neither type nor method arguments are left alone, as their type arguments are inferred from the declared type, which `var` would lose."}
   fqName={"org.openrewrite.java.migrate.lang.var.UseVarForGenericMethodInvocations"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Apply `var` to generic method invocations</RecipeHeader.Title>
 
-<RecipeHeader.Description>Apply `var` to variables initialized by invocations of generic methods. This recipe ignores generic factory methods without parameters, because open rewrite cannot handle them correctly ATM.</RecipeHeader.Description>
+<RecipeHeader.Description>Apply `var` to variables initialized by invocations of generic methods. Invocations with neither type nor method arguments are left alone, as their type arguments are inferred from the declared type, which `var` would lose.</RecipeHeader.Description>
 
 </RecipeHeader>
 

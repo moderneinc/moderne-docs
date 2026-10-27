@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Rename packages to lowercase"}
-  description={"By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase. Consistent package naming prevents confusion and potential issues on case-insensitive file systems."}
+  description={"By convention all Java package names should contain only lowercase letters, numbers, and underscores. This recipe converts any uppercase letters in package names to be lowercase. Consistent package naming prevents confusion and potential issues on case-insensitive file systems."}
   fqName={"org.openrewrite.staticanalysis.LowercasePackage"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Rename packages to lowercase</RecipeHeader.Title>
 
-<RecipeHeader.Description>By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase. Consistent package naming prevents confusion and potential issues on case-insensitive file systems.</RecipeHeader.Description>
+<RecipeHeader.Description>By convention all Java package names should contain only lowercase letters, numbers, and underscores. This recipe converts any uppercase letters in package names to be lowercase. Consistent package naming prevents confusion and potential issues on case-insensitive file systems.</RecipeHeader.Description>
 
 </RecipeHeader>
 

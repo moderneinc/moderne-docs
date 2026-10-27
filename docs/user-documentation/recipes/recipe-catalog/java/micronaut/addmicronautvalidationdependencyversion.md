@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins { id 'java' }\nrepositories { mavenCentral() }\ndependencies {\n    implementation 'io.micronaut.validation:micronaut-validation:4.0.0'\n    annotationProcessor 'io.micronaut.validation:micronaut-validation-processor'\n}\n","after":"plugins { id 'java' }\nrepositories { mavenCentral() }\ndependencies {\n    implementation 'io.micronaut.validation:micronaut-validation:4.0.0'\n    annotationProcessor 'io.micronaut.validation:micronaut-validation-processor:4.0.0'\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -5,1 +5,1 @@\ndependencies {\n    implementation 'io.micronaut.validation:micronaut-validation:4.0.0'\n-   annotationProcessor 'io.micronaut.validation:micronaut-validation-processor'\n+   annotationProcessor 'io.micronaut.validation:micronaut-validation-processor:4.0.0'\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.AddMicronautValidationDependencyVersion","displayName":"Add missing Micronaut validation dependency versions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":false}}>
 
 ## Usage

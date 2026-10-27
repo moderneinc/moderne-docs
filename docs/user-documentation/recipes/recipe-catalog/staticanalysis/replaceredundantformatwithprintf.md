@@ -1,6 +1,6 @@
 ---
-title: "Replace redundant String format invocations that are wrapped with PrintStream operations"
-sidebar_label: "Replace redundant String format invocations that are wrapped with PrintStream operations"
+title: "Replace redundant `String.format()` invocations that are wrapped with `PrintStream` operations"
+sidebar_label: "Replace redundant `String.format()` invocations that are wrapped with `PrintStream` operations"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace redundant String format invocations that are wrapped with PrintStream operations"}
+  displayName={"Replace redundant `String.format()` invocations that are wrapped with `PrintStream` operations"}
   description={"Replaces `PrintStream.print(String.format(format, ...args))` with `PrintStream.printf(format, ...args)` (and for `println`, appends a newline to the format string)."}
   fqName={"org.openrewrite.staticanalysis.ReplaceRedundantFormatWithPrintf"}
   languages={["OpenRewrite"]}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["RSPEC-S9413"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.ReplaceRedundantFormatWithPrintf"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceredundantformatwithprintf.md"}
 >
 
-<RecipeHeader.Title>Replace redundant String format invocations that are wrapped with PrintStream operations</RecipeHeader.Title>
+<RecipeHeader.Title>Replace redundant `String.format()` invocations that are wrapped with `PrintStream` operations</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replaces `PrintStream.print(String.format(format, ...args))` with `PrintStream.printf(format, ...args)` (and for `println`, appends a newline to the format string).</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceRedundantFormatWithPrintf","displayName":"Replace redundant String format invocations that are wrapped with PrintStream operations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceRedundantFormatWithPrintf","displayName":"Replace redundant `String.format()` invocations that are wrapped with `PrintStream` operations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

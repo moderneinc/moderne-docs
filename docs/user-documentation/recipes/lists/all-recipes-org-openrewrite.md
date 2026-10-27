@@ -215,14 +215,14 @@ _3 recipes_
 
 _License: Apache License Version 2.0_
 
-_87 recipes_
+_88 recipes_
 
 * [org.openrewrite.gradle.AddDependency](/user-documentation/recipes/recipe-catalog/gradle/adddependency.md)
   * **Add Gradle dependency**
   * Add a gradle dependency to a `build.gradle` file in the correct configuration based on where it is used.
 * [org.openrewrite.gradle.AddJUnitPlatformLauncher](/user-documentation/recipes/recipe-catalog/gradle/addjunitplatformlauncher.md)
   * **Add JUnit Platform Launcher**
-  * Add the JUnit Platform Launcher to the buildscript dependencies.
+  * Add the JUnit Platform Launcher to the test runtime dependencies, aligned with the resolved JUnit Platform version.
 * [org.openrewrite.gradle.AddPlatformDependency](/user-documentation/recipes/recipe-catalog/gradle/addplatformdependency.md)
   * **Add Gradle platform dependency**
   * Add a gradle platform dependency to a `build.gradle` file in the correct configuration based on where it is used.
@@ -313,6 +313,9 @@ _87 recipes_
 * [org.openrewrite.gradle.RemoveEnableFeaturePreview](/user-documentation/recipes/recipe-catalog/gradle/removeenablefeaturepreview.md)
   * **Remove an enabled Gradle preview feature**
   * Remove an enabled Gradle preview feature from `settings.gradle`.
+* [org.openrewrite.gradle.RemoveExclusion](/user-documentation/recipes/recipe-catalog/gradle/removeexclusion.md)
+  * **Remove Gradle dependency exclusion**
+  * Removes `exclude` declarations of the given dependency from Gradle build scripts, the inverse of `ExcludeDependency`. Covers excludes on a dependency declaration and on configurations, in both the Groovy and Kotlin DSL. An exclude that leaves out the group also matches, as it excludes the given artifact as well. An exclude of a whole group only matches when the artifact is left out, as removing it would bring back every other module of the group too. A closure the removal leaves empty is removed too.
 * [org.openrewrite.gradle.RemoveExtension](/user-documentation/recipes/recipe-catalog/gradle/removeextension.md)
   * **Remove build extension by name**
   * Remove a Gradle build extension from `settings.gradle(.kts)` or `build.gradle(.kts)` files.
@@ -502,11 +505,17 @@ _4 recipes_
 
 _License: Apache License Version 2.0_
 
-_12 recipes_
+_14 recipes_
 
+* [org.openrewrite.hcl.AddContent](/user-documentation/recipes/recipe-catalog/hcl/addcontent.md)
+  * **Add content**
+  * Add an attribute or a block to HCL blocks selected by a JSONPath expression, unless an attribute with the same name or a block with the same type and labels is already there. Existing values are left unchanged, use `ChangeValue` to change them.
 * [org.openrewrite.hcl.ChangeKey](/user-documentation/recipes/recipe-catalog/hcl/changekey.md)
   * **Change key**
   * Rename an HCL attribute while leaving its value intact. Attributes with a computed key, or with a sibling attribute or block already named `newKey`, are left unchanged.
+* [org.openrewrite.hcl.ChangeValue](/user-documentation/recipes/recipe-catalog/hcl/changevalue.md)
+  * **Change value**
+  * Change the value of an HCL attribute while leaving its key intact. The new value replaces the whole existing expression, unless `regex` is enabled.
 * [org.openrewrite.hcl.DeleteContent](/user-documentation/recipes/recipe-catalog/hcl/deletecontent.md)
   * **Delete content**
   * Delete HCL content by path.
@@ -871,7 +880,7 @@ _20 recipes_
   * Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file natively, without executing the package manager. Matching is by exact package name or glob pattern. A version range is replaced when it admits a version below the new range's lowest; one that already starts at or above it is left, and so is a `peerDependencies` range that admits every version the new one does. A `catalog:` reference is upgraded in its catalog entry by the same rule, and any other value is left as it is. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradetransitivedependencyversion.md)
   * **Upgrade transitive npm dependency**
-  * Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. None is written for a package the lock does not resolve. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 * [org.openrewrite.javascript.change-import](/user-documentation/recipes/recipe-catalog/javascript/change-import.md)
   * **Change import**
   * Changes an import from one module/member to another, updating all type attributions.
@@ -1030,7 +1039,7 @@ _7 recipes_
 
 _License: Apache License Version 2.0_
 
-_96 recipes_
+_97 recipes_
 
 * [org.openrewrite.maven.AddAnnotationProcessor](/user-documentation/recipes/recipe-catalog/maven/addannotationprocessor.md)
   * **Add an annotation processor to `maven-compiler-plugin`**
@@ -1215,6 +1224,9 @@ _96 recipes_
 * [org.openrewrite.maven.UpdateMavenWrapper](/user-documentation/recipes/recipe-catalog/maven/updatemavenwrapper.md)
   * **Update Maven wrapper**
   * Update the version of Maven used in an existing Maven wrapper.
+* [org.openrewrite.maven.UpdateProjectUrlFromGitOrigin](/user-documentation/recipes/recipe-catalog/maven/updateprojecturlfromgitorigin.md)
+  * **Update project URL with Git origin**
+  * Updates the Maven project `&lt;url&gt;` based on the Git remote origin. Only POMs whose parent is not in the same repository are updated, as modules typically inherit or extend the parent's URL.
 * [org.openrewrite.maven.UpdateScmFromGitOrigin](/user-documentation/recipes/recipe-catalog/maven/updatescmfromgitorigin.md)
   * **Update SCM with Git origin**
   * Updates or adds the Maven `&lt;scm&gt;` tag based on the Git remote origin. By default, only existing Source Control Management (SCM) sections are updated. Set `addIfMissing` to `true` to also add missing SCM sections to root POMs (POMs without a parent element).

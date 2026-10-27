@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade AWS Aurora MySQL to version 3 (MySQL 8.0)"}
-  description={"Upgrade `engine_version` to Aurora MySQL version 3 (MySQL 8.0 compatible) on `aws_rds_cluster` resources and set `allow_major_version_upgrade = true` to permit the major version change."}
+  description={"Upgrade `engine_version` from Aurora MySQL version 2 (MySQL 5.7 compatible) to version 3 (MySQL 8.0 compatible) on `aws_rds_cluster` resources with `engine = \"aurora-mysql\"` and set `allow_major_version_upgrade = true` to permit the major version change."}
   fqName={"org.openrewrite.terraform.aws.UpgradeAwsAuroraMySqlToV3"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade AWS Aurora MySQL to version 3 (MySQL 8.0)</RecipeHeader.Title>
 
-<RecipeHeader.Description>Upgrade `engine_version` to Aurora MySQL version 3 (MySQL 8.0 compatible) on `aws_rds_cluster` resources and set `allow_major_version_upgrade = true` to permit the major version change.</RecipeHeader.Description>
+<RecipeHeader.Description>Upgrade `engine_version` from Aurora MySQL version 2 (MySQL 5.7 compatible) to version 3 (MySQL 8.0 compatible) on `aws_rds_cluster` resources with `engine = "aurora-mysql"` and set `allow_major_version_upgrade = true` to permit the major version change.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change Terraform resource attribute","href":"/user-documentation/recipes/recipe-catalog/terraform/changeresourceattribute/"},{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
+<RecipeList recipes={[{"name":"Add content","href":"/user-documentation/recipes/recipe-catalog/hcl/addcontent/"},{"name":"Change value","href":"/user-documentation/recipes/recipe-catalog/hcl/changevalue/"},{"name":"Change value","href":"/user-documentation/recipes/recipe-catalog/hcl/changevalue/"}]}>
 
 ## Definition
 

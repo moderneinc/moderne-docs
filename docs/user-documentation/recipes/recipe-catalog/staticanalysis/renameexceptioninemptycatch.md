@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Rename caught exceptions in empty catch blocks to `ignored`"}
-  description={"Renames caught exceptions in empty catch blocks to `ignored`. `ignored` will be incremented by 1 if a namespace conflict exists."}
+  description={"Renames caught exceptions in empty catch blocks to `ignored`. A numeric suffix is appended to `ignored` if that name is already taken."}
   fqName={"org.openrewrite.staticanalysis.RenameExceptionInEmptyCatch"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Rename caught exceptions in empty catch blocks to `ignored`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Renames caught exceptions in empty catch blocks to `ignored`. `ignored` will be incremented by 1 if a namespace conflict exists.</RecipeHeader.Description>
+<RecipeHeader.Description>Renames caught exceptions in empty catch blocks to `ignored`. A numeric suffix is appended to `ignored` if that name is already taken.</RecipeHeader.Description>
 
 </RecipeHeader>
 

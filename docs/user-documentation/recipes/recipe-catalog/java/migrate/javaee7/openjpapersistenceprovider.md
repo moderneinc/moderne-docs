@@ -1,6 +1,6 @@
 ---
-title: "Removed OpenJPA providers in the persistence.xml file"
-sidebar_label: "Removed OpenJPA providers in the persistence.xml file"
+title: "Replace the OpenJPA persistence provider with EclipseLink in `persistence.xml`"
+sidebar_label: "Replace the OpenJPA persistence provider with EclipseLink in `persistence.xml`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Removed OpenJPA providers in the persistence.xml file"}
-  description={"When migrating  to EclipseLink, using OpenJPA providers in EclipseLink results in runtime errors. To resolve these errors, the recipe removes the flagged OpenJPA provider from the persistence.xml."}
+  displayName={"Replace the OpenJPA persistence provider with EclipseLink in `persistence.xml`"}
+  description={"When migrating to EclipseLink, using OpenJPA providers in EclipseLink results in runtime errors. To resolve these errors, this recipe replaces the OpenJPA `PersistenceProviderImpl` in `persistence.xml` with the EclipseLink `PersistenceProvider`."}
   fqName={"org.openrewrite.java.migrate.javaee7.OpenJPAPersistenceProvider"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javaee7/openjpapersistenceprovider.md"}
 >
 
-<RecipeHeader.Title>Removed OpenJPA providers in the persistence.xml file</RecipeHeader.Title>
+<RecipeHeader.Title>Replace the OpenJPA persistence provider with EclipseLink in `persistence.xml`</RecipeHeader.Title>
 
-<RecipeHeader.Description>When migrating  to EclipseLink, using OpenJPA providers in EclipseLink results in runtime errors. To resolve these errors, the recipe removes the flagged OpenJPA provider from the persistence.xml.</RecipeHeader.Description>
+<RecipeHeader.Description>When migrating to EclipseLink, using OpenJPA providers in EclipseLink results in runtime errors. To resolve these errors, this recipe replaces the OpenJPA `PersistenceProviderImpl` in `persistence.xml` with the EclipseLink `PersistenceProvider`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javaee7.OpenJPAPersistenceProvider","displayName":"Removed OpenJPA providers in the persistence.xml file","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javaee7.OpenJPAPersistenceProvider","displayName":"Replace the OpenJPA persistence provider with EclipseLink in `persistence.xml`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -1,6 +1,6 @@
 ---
-title: "Remove Security SecurityManager"
-sidebar_label: "Remove Security SecurityManager"
+title: "Remove `SecurityManager` permission checks"
+sidebar_label: "Remove `SecurityManager` permission checks"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove Security SecurityManager"}
-  description={"The Security Manager API is unsupported in Java 24. This recipe will remove the usage of `java.security.SecurityManager`."}
+  displayName={"Remove `SecurityManager` permission checks"}
+  description={"The Security Manager API is unsupported in Java 24. This recipe removes calls to the `java.lang.SecurityManager#check*(..)` methods."}
   fqName={"org.openrewrite.java.migrate.RemoveSecurityManager"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removesecuritymanager.md"}
 >
 
-<RecipeHeader.Title>Remove Security SecurityManager</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `SecurityManager` permission checks</RecipeHeader.Title>
 
-<RecipeHeader.Description>The Security Manager API is unsupported in Java 24. This recipe will remove the usage of `java.security.SecurityManager`.</RecipeHeader.Description>
+<RecipeHeader.Description>The Security Manager API is unsupported in Java 24. This recipe removes calls to the `java.lang.SecurityManager#check*(..)` methods.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemoveSecurityManager","displayName":"Remove Security SecurityManager","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemoveSecurityManager","displayName":"Remove `SecurityManager` permission checks","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

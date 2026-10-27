@@ -1,6 +1,6 @@
 ---
-title: "Set `maven-ejb-plugin` ejbVersion to 4.0"
-sidebar_label: "Set `maven-ejb-plugin` ejbVersion to 4.0"
+title: "Set `maven-ejb-plugin` `ejbVersion` to `4.0`"
+sidebar_label: "Set `maven-ejb-plugin` `ejbVersion` to `4.0`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Set `maven-ejb-plugin` ejbVersion to 4.0"}
+  displayName={"Set `maven-ejb-plugin` `ejbVersion` to `4.0`"}
   description={"Updates the `<ejbVersion>` configuration of `maven-ejb-plugin` to `4.0` when the current value (or its resolved Maven property) indicates EJB 3.x. Handles the common pattern where `<ejbVersion>` is coupled to the `javax.ejb-api` dependency version via a shared property, decoupling them after migration."}
   fqName={"org.openrewrite.java.migrate.jakarta.UpgradeMavenEjbPluginConfiguration"}
   languages={["Java"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgrademavenejbpluginconfiguration.md"}
 >
 
-<RecipeHeader.Title>Set `maven-ejb-plugin` ejbVersion to 4.0</RecipeHeader.Title>
+<RecipeHeader.Title>Set `maven-ejb-plugin` `ejbVersion` to `4.0`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Updates the `<ejbVersion>` configuration of `maven-ejb-plugin` to `4.0` when the current value (or its resolved Maven property) indicates EJB 3.x. Handles the common pattern where `<ejbVersion>` is coupled to the `javax.ejb-api` dependency version via a shared property, decoupling them after migration.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.UpgradeMavenEjbPluginConfiguration","displayName":"Set `maven-ejb-plugin` ejbVersion to 4.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.UpgradeMavenEjbPluginConfiguration","displayName":"Set `maven-ejb-plugin` `ejbVersion` to `4.0`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

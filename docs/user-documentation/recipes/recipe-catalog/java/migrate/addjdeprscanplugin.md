@@ -1,6 +1,6 @@
 ---
-title: "Add `JDeprScan` Maven Plug-in"
-sidebar_label: "Add `JDeprScan` Maven Plug-in"
+title: "Add `JDeprScan` Maven plugin"
+sidebar_label: "Add `JDeprScan` Maven plugin"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Add `JDeprScan` Maven Plug-in"}
+  displayName={"Add `JDeprScan` Maven plugin"}
   description={"Add the `JDeprScan` Maven plugin to scan class files for uses of deprecated APIs."}
   fqName={"org.openrewrite.java.migrate.AddJDeprScanPlugin"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addjdeprscanplugin.md"}
 >
 
-<RecipeHeader.Title>Add `JDeprScan` Maven Plug-in</RecipeHeader.Title>
+<RecipeHeader.Title>Add `JDeprScan` Maven plugin</RecipeHeader.Title>
 
 <RecipeHeader.Description>Add the `JDeprScan` Maven plugin to scan class files for uses of deprecated APIs.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddJDeprScanPlugin","displayName":"Add `JDeprScan` Maven Plug-in","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"release=11\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddJDeprScanPlugin","displayName":"Add `JDeprScan` Maven plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"release=11\""}}>
 
 ## Usage
 

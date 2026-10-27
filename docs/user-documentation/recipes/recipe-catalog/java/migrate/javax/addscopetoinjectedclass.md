@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Add scope annotation to injected classes"}
-  description={"Finds member variables annotated with `@Inject' and applies `@Dependent` scope annotation to the variable's type."}
+  description={"Finds member variables annotated with `@Inject` and applies `@Dependent` scope annotation to the variable's type."}
   fqName={"org.openrewrite.java.migrate.javax.AddScopeToInjectedClass"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Add scope annotation to injected classes</RecipeHeader.Title>
 
-<RecipeHeader.Description>Finds member variables annotated with `@Inject' and applies `@Dependent` scope annotation to the variable's type.</RecipeHeader.Description>
+<RecipeHeader.Description>Finds member variables annotated with `@Inject` and applies `@Dependent` scope annotation to the variable's type.</RecipeHeader.Description>
 
 </RecipeHeader>
 

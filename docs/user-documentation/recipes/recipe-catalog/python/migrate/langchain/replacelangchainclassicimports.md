@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `langchain` legacy imports with `langchain_classic`"}
-  description={"Migrate legacy chain, retriever, and indexing imports from `langchain` to `langchain_classic`. These were moved in LangChain v1.0."}
+  description={"Migrate legacy chain, retriever, and indexing imports from `langchain` to `langchain_classic`. These were moved in LangChain v1.0. Only `from langchain... import ...` statements are rewritten. `import langchain.chains` and the references made through it are left unchanged."}
   fqName={"org.openrewrite.python.migrate.langchain.ReplaceLangchainClassicImports"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `langchain` legacy imports with `langchain_classic`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate legacy chain, retriever, and indexing imports from `langchain` to `langchain_classic`. These were moved in LangChain v1.0.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate legacy chain, retriever, and indexing imports from `langchain` to `langchain_classic`. These were moved in LangChain v1.0. Only `from langchain... import ...` statements are rewritten. `import langchain.chains` and the references made through it are left unchanged.</RecipeHeader.Description>
 
 </RecipeHeader>
 

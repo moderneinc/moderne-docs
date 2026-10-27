@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove unused variable bindings"}
-  description={"Removes variable declarations whose name starts with `_` (underscore-prefixed binding). This removes unused variables that represent dead code."}
+  description={"Removes unused local variables and `private` members whose name starts with `_` (underscore-prefixed binding) and whose initializer is a literal. Declarations that are referenced, visible outside the source file, or have any other initializer are kept."}
   fqName={"org.openrewrite.scala.cleanup.RemoveUnusedBinding"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove unused variable bindings</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes variable declarations whose name starts with `_` (underscore-prefixed binding). This removes unused variables that represent dead code.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes unused local variables and `private` members whose name starts with `_` (underscore-prefixed binding) and whose initializer is a literal. Declarations that are referenced, visible outside the source file, or have any other initializer are kept.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  val _unused = 42\n}\n","after":"object Test {\n}\n","diff":"@@ -2,1 +2,0 @@\nobject Test {\n- val _unused = 42\n}\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  def f(): Int = {\n    val _unused = 42\n    1\n  }\n}\n","after":"object Test {\n  def f(): Int = {\n    1\n  }\n}\n","diff":"@@ -3,1 +3,0 @@\nobject Test {\n  def f(): Int = {\n-   val _unused = 42\n    1\n","newFile":false}]}]}>
 
 ## Examples
 

@@ -1,6 +1,6 @@
 ---
-title: "Apply `var` to Generic Constructors"
-sidebar_label: "Apply `var` to Generic Constructors"
+title: "Apply `var` to generic constructors"
+sidebar_label: "Apply `var` to generic constructors"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Apply `var` to Generic Constructors"}
+  displayName={"Apply `var` to generic constructors"}
   description={"Apply `var` to generics variables initialized by constructor calls."}
   fqName={"org.openrewrite.java.migrate.lang.var.UseVarForGenericsConstructors"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforgenericsconstructors.md"}
 >
 
-<RecipeHeader.Title>Apply `var` to Generic Constructors</RecipeHeader.Title>
+<RecipeHeader.Title>Apply `var` to generic constructors</RecipeHeader.Title>
 
 <RecipeHeader.Description>Apply `var` to generics variables initialized by constructor calls.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.var.UseVarForGenericsConstructors","displayName":"Apply `var` to Generic Constructors","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.var.UseVarForGenericsConstructors","displayName":"Apply `var` to generic constructors","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -1,6 +1,6 @@
 ---
-title: "Migrate GraalVM resource-config.json to glob patterns"
-sidebar_label: "Migrate GraalVM resource-config.json to glob patterns"
+title: "Migrate GraalVM `resource-config.json` to glob patterns"
+sidebar_label: "Migrate GraalVM `resource-config.json` to glob patterns"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate GraalVM resource-config.json to glob patterns"}
-  description={"Migrates GraalVM native-image resource-config.json files from the legacy regex pattern format (JDK 21 and earlier) to the new glob pattern format (JDK 23+). Converts `pattern` entries to `glob` entries and restructures the format. Note: `excludes` are no longer supported in the new format and will be removed."}
+  displayName={"Migrate GraalVM `resource-config.json` to glob patterns"}
+  description={"Migrates GraalVM `native-image` `resource-config.json` files from the legacy regex pattern format (JDK 21 and earlier) to the new glob pattern format (JDK 23+). Converts `pattern` entries to `glob` entries and restructures the format. Note: `excludes` are no longer supported in the new format and will be removed."}
   fqName={"org.openrewrite.java.migrate.MigrateGraalVMResourceConfig"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/migrategraalvmresourceconfig.md"}
 >
 
-<RecipeHeader.Title>Migrate GraalVM resource-config.json to glob patterns</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate GraalVM `resource-config.json` to glob patterns</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates GraalVM native-image resource-config.json files from the legacy regex pattern format (JDK 21 and earlier) to the new glob pattern format (JDK 23+). Converts `pattern` entries to `glob` entries and restructures the format. Note: `excludes` are no longer supported in the new format and will be removed.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates GraalVM `native-image` `resource-config.json` files from the legacy regex pattern format (JDK 21 and earlier) to the new glob pattern format (JDK 23+). Converts `pattern` entries to `glob` entries and restructures the format. Note: `excludes` are no longer supported in the new format and will be removed.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.MigrateGraalVMResourceConfig","displayName":"Migrate GraalVM resource-config.json to glob patterns","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.MigrateGraalVMResourceConfig","displayName":"Migrate GraalVM `resource-config.json` to glob patterns","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

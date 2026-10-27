@@ -1,6 +1,6 @@
 ---
-title: "JUnit fail to AssertJ"
-sidebar_label: "JUnit fail to AssertJ"
+title: "JUnit `fail` to AssertJ"
+sidebar_label: "JUnit `fail` to AssertJ"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"JUnit fail to AssertJ"}
+  displayName={"JUnit `fail` to AssertJ"}
   description={"Convert JUnit-style `fail()` to AssertJ's `fail()`."}
   fqName={"org.openrewrite.java.testing.assertj.JUnitFailToAssertJFail"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/junitfailtoassertjfail.md"}
 >
 
-<RecipeHeader.Title>JUnit fail to AssertJ</RecipeHeader.Title>
+<RecipeHeader.Title>JUnit `fail` to AssertJ</RecipeHeader.Title>
 
 <RecipeHeader.Description>Convert JUnit-style `fail()` to AssertJ's `fail()`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.JUnitFailToAssertJFail","displayName":"JUnit fail to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.JUnitFailToAssertJFail","displayName":"JUnit `fail` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

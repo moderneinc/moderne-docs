@@ -37,11 +37,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"boolean","name":"convertStringsWithoutNewlines","required":false,"description":"Whether or not strings without newlines should be converted to text block when processing code. The default value is true.","example":"true"},{"type":"boolean","name":"avoidLineContinuations","required":false,"description":"When enabled, the recipe avoids using `\\` line continuation escapes in text blocks where the content contains newlines. Non-newline-joined strings are placed on the same text block line instead. The default value is false.","example":"true"}]}>
+<OptionsTable options={[{"type":"boolean","name":"convertStringsWithoutNewlines","required":false,"description":"Whether strings without newlines should be converted to text blocks. The default value is true.","example":"true"},{"type":"boolean","name":"avoidLineContinuations","required":false,"description":"When enabled, the recipe avoids using `\\` line continuation escapes in text blocks where the content contains newlines. Non-newline-joined strings are placed on the same text block line instead. The default value is false.","example":"true"}]}>
 
 ## Options
 
 </OptionsTable>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    String query = \"SELECT * FROM\\n\" +\n            \"my_table\\n\" +\n            \"WHERE something = 1;\";\n}\n","after":"class Test {\n    String query = \"\"\"\n            SELECT * FROM\n            my_table\n            WHERE something = 1;\\\n            \"\"\";\n}\n","diff":"@@ -2,3 +2,5 @@\nclass Test {\n-   String query = \"SELECT * FROM\\n\" +\n-           \"my_table\\n\" +\n-           \"WHERE something = 1;\";\n+   String query = \"\"\"\n+           SELECT * FROM\n+           my_table\n+           WHERE something = 1;\\\n+           \"\"\";\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.UseTextBlocks","displayName":"Use text blocks","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"convertStringsWithoutNewlines=true\" --recipe-option \"avoidLineContinuations=true\""}}>
 

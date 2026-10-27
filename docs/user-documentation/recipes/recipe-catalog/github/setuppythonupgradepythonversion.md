@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade `actions/setup-python` `python-version`"}
-  description={"Update the Python version used by `actions/setup-python` if it is below the expected version number."}
+  description={"Update the Python version used by `actions/setup-python` if it is below the expected version number. A `strategy.matrix` axis that feeds `python-version` gets the expected version added when none of its values reach it."}
   fqName={"org.openrewrite.github.SetupPythonUpgradePythonVersion"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade `actions/setup-python` `python-version`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Update the Python version used by `actions/setup-python` if it is below the expected version number.</RecipeHeader.Description>
+<RecipeHeader.Description>Update the Python version used by `actions/setup-python` if it is below the expected version number. A `strategy.matrix` axis that feeds `python-version` gets the expected version added when none of its values reach it.</RecipeHeader.Description>
 
 </RecipeHeader>
 

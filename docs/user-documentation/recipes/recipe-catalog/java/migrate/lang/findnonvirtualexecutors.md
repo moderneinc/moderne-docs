@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find non-virtual `ExecutorService` creation"}
-  description={"Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search fro `ExecutorService` that can be replaced by Virtual Thread executor."}
+  description={"Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search for `ExecutorService` that can be replaced by a virtual thread executor."}
   fqName={"org.openrewrite.java.migrate.lang.FindNonVirtualExecutors"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find non-virtual `ExecutorService` creation</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search fro `ExecutorService` that can be replaced by Virtual Thread executor.</RecipeHeader.Description>
+<RecipeHeader.Description>Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search for `ExecutorService` that can be replaced by a virtual thread executor.</RecipeHeader.Description>
 
 </RecipeHeader>
 

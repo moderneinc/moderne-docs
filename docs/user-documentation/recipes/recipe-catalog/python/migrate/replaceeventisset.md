@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `Event.isSet()` with `Event.is_set()`"}
-  description={"Replace `isSet()` method calls with `is_set()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12. Only fires where the receiver's type resolves to `threading.Event` or a subclass."}
+  description={"Replace `isSet()` method calls with `is_set()`. The camelCase version was deprecated in Python 3.10. Only fires where the receiver's type resolves to `threading.Event` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceEventIsSet"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={["python","migration","threading","3.12","3.10"]}
+  tags={["python","migration","threading","3.10"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceEventIsSet"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `Event.isSet()` with `Event.is_set()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `isSet()` method calls with `is_set()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12. Only fires where the receiver's type resolves to `threading.Event` or a subclass.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `isSet()` method calls with `is_set()`. The camelCase version was deprecated in Python 3.10. Only fires where the receiver's type resolves to `threading.Event` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

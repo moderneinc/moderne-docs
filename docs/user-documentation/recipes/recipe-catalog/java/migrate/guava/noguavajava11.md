@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer the Java 11 standard library instead of Guava"}
-  description={"Guava filled in important gaps in the Java standard library and still does. But at least some of Guava's API surface area is covered by the Java standard library now, and some projects may be able to remove Guava altogether if they migrate to standard library for these functions."}
+  description={"Replace Guava's `ImmutableList`, `ImmutableMap` and `ImmutableSet` `of` and `copyOf` factories, and `MoreObjects.firstNonNull`, with their Java standard library equivalents on Java 11 or higher."}
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaJava11"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer the Java 11 standard library instead of Guava</RecipeHeader.Title>
 
-<RecipeHeader.Description>Guava filled in important gaps in the Java standard library and still does. But at least some of Guava's API surface area is covered by the Java standard library now, and some projects may be able to remove Guava altogether if they migrate to standard library for these functions.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace Guava's `ImmutableList`, `ImmutableMap` and `ImmutableSet` `of` and `copyOf` factories, and `MoreObjects.firstNonNull`, with their Java standard library equivalents on Java 11 or higher.</RecipeHeader.Description>
 
 </RecipeHeader>
 

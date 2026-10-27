@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade AWS Aurora PostgreSQL to 17"}
-  description={"Upgrade `engine_version` to Aurora PostgreSQL 17 on `aws_rds_cluster` resources and set `allow_major_version_upgrade = true` to permit the major version change."}
+  description={"Upgrade `engine_version` from Aurora PostgreSQL 11 to 16 to 17 on `aws_rds_cluster` resources with `engine = \"aurora-postgresql\"` and set `allow_major_version_upgrade = true` to permit the major version change."}
   fqName={"org.openrewrite.terraform.aws.UpgradeAwsAuroraPostgresToV17"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade AWS Aurora PostgreSQL to 17</RecipeHeader.Title>
 
-<RecipeHeader.Description>Upgrade `engine_version` to Aurora PostgreSQL 17 on `aws_rds_cluster` resources and set `allow_major_version_upgrade = true` to permit the major version change.</RecipeHeader.Description>
+<RecipeHeader.Description>Upgrade `engine_version` from Aurora PostgreSQL 11 to 16 to 17 on `aws_rds_cluster` resources with `engine = "aurora-postgresql"` and set `allow_major_version_upgrade = true` to permit the major version change.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change Terraform resource attribute","href":"/user-documentation/recipes/recipe-catalog/terraform/changeresourceattribute/"},{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
+<RecipeList recipes={[{"name":"Add content","href":"/user-documentation/recipes/recipe-catalog/hcl/addcontent/"},{"name":"Change value","href":"/user-documentation/recipes/recipe-catalog/hcl/changevalue/"},{"name":"Change value","href":"/user-documentation/recipes/recipe-catalog/hcl/changevalue/"}]}>
 
 ## Definition
 

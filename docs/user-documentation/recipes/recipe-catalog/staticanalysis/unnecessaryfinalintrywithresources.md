@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.ByteArrayInputStream;\nimport java.io.IOException;\n\nclass Test {\n    void method() throws IOException {\n        try (final var input = new ByteArrayInputStream(new byte[0])) {\n            int x = input.read();\n        }\n    }\n}\n","after":"import java.io.ByteArrayInputStream;\nimport java.io.IOException;\n\nclass Test {\n    void method() throws IOException {\n        try (var input = new ByteArrayInputStream(new byte[0])) {\n            int x = input.read();\n        }\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Test {\n    void method() throws IOException {\n-       try (final var input = new ByteArrayInputStream(new byte[0])) {\n+       try (var input = new ByteArrayInputStream(new byte[0])) {\n            int x = input.read();\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UnnecessaryFinalInTryWithResources","displayName":"Unnecessary `final` in try-with-resources","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

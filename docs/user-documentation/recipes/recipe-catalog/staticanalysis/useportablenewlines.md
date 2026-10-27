@@ -1,6 +1,6 @@
 ---
-title: "Use %n instead of \\n in format strings"
-sidebar_label: "Use %n instead of \\n in format strings"
+title: "Use `%n` instead of `\\n` in format strings"
+sidebar_label: "Use `%n` instead of `\\n` in format strings"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Use %n instead of \\n in format strings"}
-  description={"Format strings should use %n rather than \\n to produce platform-specific line separators. Hard-coded `\\n` characters produce incorrect line endings on Windows, whereas `%n` adapts to the runtime platform automatically."}
+  displayName={"Use `%n` instead of `\\n` in format strings"}
+  description={"Format strings should use `%n` rather than `\\n` to produce platform-specific line separators. Hard-coded `\\n` characters produce incorrect line endings on Windows, whereas `%n` adapts to the runtime platform automatically."}
   fqName={"org.openrewrite.staticanalysis.UsePortableNewlines"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/useportablenewlines.md"}
 >
 
-<RecipeHeader.Title>Use %n instead of \n in format strings</RecipeHeader.Title>
+<RecipeHeader.Title>Use `%n` instead of `\n` in format strings</RecipeHeader.Title>
 
-<RecipeHeader.Description>Format strings should use %n rather than \n to produce platform-specific line separators. Hard-coded `\n` characters produce incorrect line endings on Windows, whereas `%n` adapts to the runtime platform automatically.</RecipeHeader.Description>
+<RecipeHeader.Description>Format strings should use `%n` rather than `\n` to produce platform-specific line separators. Hard-coded `\n` characters produce incorrect line endings on Windows, whereas `%n` adapts to the runtime platform automatically.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UsePortableNewlines","displayName":"Use %n instead of \\n in format strings","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UsePortableNewlines","displayName":"Use `%n` instead of `\\n` in format strings","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

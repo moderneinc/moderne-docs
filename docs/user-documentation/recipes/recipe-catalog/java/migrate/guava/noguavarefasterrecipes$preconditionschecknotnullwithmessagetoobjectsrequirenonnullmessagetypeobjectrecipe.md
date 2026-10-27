@@ -1,6 +1,6 @@
 ---
-title: "`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`"
-sidebar_label: "`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`"
+title: "Replace `Preconditions.checkNotNull` taking an `Object` message with `Objects.requireNonNull` and `String.valueOf`"
+sidebar_label: "Replace `Preconditions.checkNotNull` taking an `Object` message with `Objects.requireNonNull` and `String.valueOf`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`"}
+  displayName={"Replace `Preconditions.checkNotNull` taking an `Object` message with `Objects.requireNonNull` and `String.valueOf`"}
   description={"Migrate from Guava `Preconditions.checkNotNull` to Java 8 `java.util.Objects.requireNonNull`."}
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaRefasterRecipes$PreconditionsCheckNotNullWithMessageToObjectsRequireNonNullMessageTypeObjectRecipe"}
   languages={["Java"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$preconditionschecknotnullwithmessagetoobjectsrequirenonnullmessagetypeobjectrecipe.md"}
 >
 
-<RecipeHeader.Title>`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `Preconditions.checkNotNull` taking an `Object` message with `Objects.requireNonNull` and `String.valueOf`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Migrate from Guava `Preconditions.checkNotNull` to Java 8 `java.util.Objects.requireNonNull`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.NoGuavaRefasterRecipes$PreconditionsCheckNotNullWithMessageToObjectsRequireNonNullMessageTypeObjectRecipe","displayName":"`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.NoGuavaRefasterRecipes$PreconditionsCheckNotNullWithMessageToObjectsRequireNonNullMessageTypeObjectRecipe","displayName":"Replace `Preconditions.checkNotNull` taking an `Object` message with `Objects.requireNonNull` and `String.valueOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

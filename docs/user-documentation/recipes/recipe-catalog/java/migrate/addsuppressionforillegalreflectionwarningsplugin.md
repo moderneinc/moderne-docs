@@ -1,6 +1,6 @@
 ---
-title: "Add maven jar plugin to suppress illegal reflection warnings"
-sidebar_label: "Add maven jar plugin to suppress illegal reflection warnings"
+title: "Add `maven-jar-plugin` to suppress illegal reflection warnings"
+sidebar_label: "Add `maven-jar-plugin` to suppress illegal reflection warnings"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Add maven jar plugin to suppress illegal reflection warnings"}
-  description={"Adds a maven jar plugin that's configured to suppress Illegal Reflection Warnings."}
+  displayName={"Add `maven-jar-plugin` to suppress illegal reflection warnings"}
+  description={"Adds a `maven-jar-plugin` with `Add-Opens` manifest entries to `war` and `ear` modules to suppress illegal reflection warnings."}
   fqName={"org.openrewrite.java.migrate.AddSuppressionForIllegalReflectionWarningsPlugin"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addsuppressionforillegalreflectionwarningsplugin.md"}
 >
 
-<RecipeHeader.Title>Add maven jar plugin to suppress illegal reflection warnings</RecipeHeader.Title>
+<RecipeHeader.Title>Add `maven-jar-plugin` to suppress illegal reflection warnings</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adds a maven jar plugin that's configured to suppress Illegal Reflection Warnings.</RecipeHeader.Description>
+<RecipeHeader.Description>Adds a `maven-jar-plugin` with `Add-Opens` manifest entries to `war` and `ear` modules to suppress illegal reflection warnings.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddSuppressionForIllegalReflectionWarningsPlugin","displayName":"Add maven jar plugin to suppress illegal reflection warnings","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"version=29.X\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddSuppressionForIllegalReflectionWarningsPlugin","displayName":"Add `maven-jar-plugin` to suppress illegal reflection warnings","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"version=29.X\""}}>
 
 ## Usage
 

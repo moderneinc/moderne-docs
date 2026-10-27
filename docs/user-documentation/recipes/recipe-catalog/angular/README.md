@@ -13,6 +13,7 @@ description: Angular OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
+* [Migrate `@angular/http` to `@angular/common/http`](./migrateangularhttptocommonhttp.md)
 * [Upgrade to Angular 10](./upgradetoangular10.md)
 * [Upgrade to Angular 11](./upgradetoangular11.md)
 * [Upgrade to Angular 12](./upgradetoangular12.md)

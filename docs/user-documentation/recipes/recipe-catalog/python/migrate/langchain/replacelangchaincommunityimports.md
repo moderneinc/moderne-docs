@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `langchain` imports with `langchain_community`"}
-  description={"Migrate third-party integration imports from `langchain` to `langchain_community`. These integrations were moved in LangChain v0.2."}
+  description={"Migrate third-party integration imports from `langchain` to `langchain_community`. These integrations were moved in LangChain v0.2. Only `from langchain... import ...` statements are rewritten, and only when every name they import moved."}
   fqName={"org.openrewrite.python.migrate.langchain.ReplaceLangchainCommunityImports"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `langchain` imports with `langchain_community`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate third-party integration imports from `langchain` to `langchain_community`. These integrations were moved in LangChain v0.2.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate third-party integration imports from `langchain` to `langchain_community`. These integrations were moved in LangChain v0.2. Only `from langchain... import ...` statements are rewritten, and only when every name they import moved.</RecipeHeader.Description>
 
 </RecipeHeader>
 

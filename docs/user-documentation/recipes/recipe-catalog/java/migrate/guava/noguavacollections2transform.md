@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaCollections2Transform"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/guava/NoGuavaCollections2Transform.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/no-guava.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\n\nimport com.google.common.base.Function;\nimport com.google.common.collect.Collections2;\n\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n        return Collections2.transform(collection, toSize);\n    }\n}\n","after":"import java.util.Collection;\nimport java.util.stream.Collectors;\n\nimport com.google.common.base.Function;\n\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n        return collection.stream().map(toSize).collect(Collectors.toList());\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport java.util.Collection;\n+import java.util.stream.Collectors;\n\n@@ -4,1 +5,0 @@\n\nimport com.google.common.base.Function;\n-import com.google.common.collect.Collections2;\n\n@@ -8,1 +8,1 @@\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n-       return Collections2.transform(collection, toSize);\n+       return collection.stream().map(toSize).collect(Collectors.toList());\n    }\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Prefer `Collection.stream().map(Function)` over `Collections2.transform`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$collections2transformrecipe/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\n\nimport com.google.common.base.Function;\nimport com.google.common.collect.Collections2;\n\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n        return Collections2.transform(collection, toSize);\n    }\n}\n","after":"import java.util.Collection;\nimport java.util.stream.Collectors;\n\nimport com.google.common.base.Function;\n\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n        return collection.stream().map(toSize).collect(Collectors.toList());\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport java.util.Collection;\n+import java.util.stream.Collectors;\n\n@@ -4,1 +5,0 @@\n\nimport com.google.common.base.Function;\n-import com.google.common.collect.Collections2;\n\n@@ -8,1 +8,1 @@\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n-       return Collections2.transform(collection, toSize);\n+       return collection.stream().map(toSize).collect(Collectors.toList());\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.util.Collection;\n\nimport com.google.common.base.Function;\nimport com.google.common.collect.Collections2;\n\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n        return Collections2.transform(collection, toSize);\n    }\n}\n","after":"import java.util.Collection;\nimport java.util.stream.Collectors;\n\nimport com.google.common.base.Function;\n\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n        return collection.stream().map(toSize).collect(Collectors.toList());\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport java.util.Collection;\n+import java.util.stream.Collectors;\n\n@@ -4,1 +5,0 @@\n\nimport com.google.common.base.Function;\n-import com.google.common.collect.Collections2;\n\n@@ -8,1 +8,1 @@\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n-       return Collections2.transform(collection, toSize);\n+       return collection.stream().map(toSize).collect(Collectors.toList());\n    }\n","newFile":false}]}]}>
 
 ## Examples
 

@@ -1,6 +1,6 @@
 ---
-title: "Remove `InvocationInterceptor.interceptDynamicTest`"
-sidebar_label: "Remove `InvocationInterceptor.interceptDynamicTest`"
+title: "Migrate the two-argument `InvocationInterceptor.interceptDynamicTest`"
+sidebar_label: "Migrate the two-argument `InvocationInterceptor.interceptDynamicTest`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove `InvocationInterceptor.interceptDynamicTest`"}
-  description={"JUnit 6 removed the `interceptDynamicTest(Invocation, ExtensionContext)` method from `InvocationInterceptor`. This recipe removes implementations of this deprecated method."}
+  displayName={"Migrate the two-argument `InvocationInterceptor.interceptDynamicTest`"}
+  description={"JUnit 6 removed the deprecated `InvocationInterceptor#interceptDynamicTest(Invocation, ExtensionContext)`. Java overrides gain a `DynamicTestInvocationContext` parameter, so they keep their body and override the remaining three-argument overload. Overrides in classes that already override the three-argument overload, and non-Java overrides, are removed."}
   fqName={"org.openrewrite.java.testing.junit6.RemoveInterceptDynamicTest"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit6/removeinterceptdynamictest.md"}
 >
 
-<RecipeHeader.Title>Remove `InvocationInterceptor.interceptDynamicTest`</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate the two-argument `InvocationInterceptor.interceptDynamicTest`</RecipeHeader.Title>
 
-<RecipeHeader.Description>JUnit 6 removed the `interceptDynamicTest(Invocation, ExtensionContext)` method from `InvocationInterceptor`. This recipe removes implementations of this deprecated method.</RecipeHeader.Description>
+<RecipeHeader.Description>JUnit 6 removed the deprecated `InvocationInterceptor#interceptDynamicTest(Invocation, ExtensionContext)`. Java overrides gain a `DynamicTestInvocationContext` parameter, so they keep their body and override the remaining three-argument overload. Overrides in classes that already override the three-argument overload, and non-Java overrides, are removed.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit6.RemoveInterceptDynamicTest","displayName":"Remove `InvocationInterceptor.interceptDynamicTest`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit6.RemoveInterceptDynamicTest","displayName":"Migrate the two-argument `InvocationInterceptor.interceptDynamicTest`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

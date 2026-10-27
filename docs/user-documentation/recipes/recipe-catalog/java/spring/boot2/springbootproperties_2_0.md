@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"app"},"variants":[{"language":"properties","before":"management.context-path=/management","after":"management.endpoints.web.base-path=/management","diff":"@@ -1,1 +1,1 @@\n-management.context-path=/management\n+management.endpoints.web.base-path=/management\n","newFile":false},{"language":"yaml","before":"management:\n  context-path: /management\n","after":"management:\n  endpoints:\n    web:\n      base-path: /management\n","diff":"@@ -2,1 +2,3 @@\nmanagement:\n- context-path: /management\n+ endpoints:\n+   web:\n+     base-path: /management\n\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"app"},"variants":[{"language":"properties","before":"management.context-path=/management","after":"management.endpoints.web.base-path=/management","diff":"@@ -1,1 +1,1 @@\n-management.context-path=/management\n+management.endpoints.web.base-path=/management\n","newFile":false},{"language":"yaml","before":"management:\n  context-path: /management\n","after":"management:\n  endpoints:\n    web:\n      base-path: /management\n","diff":"@@ -2,1 +2,3 @@\nmanagement:\n- context-path: /management\n+ endpoints:\n+   web:\n+     base-path: /management\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.SpringBootProperties_2_0","displayName":"Migrate Spring Boot properties to 2.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

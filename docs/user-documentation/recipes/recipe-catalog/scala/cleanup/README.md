@@ -17,7 +17,7 @@ description: Cleanup OpenRewrite recipes.
 * [Inventory scala-logging usage](./inventoryscalalogging.md)
 * [Keep classes small (max 30 members)](./keepclassessmall.md)
 * [Keep methods short (max 20 statements)](./keepmethodsshort.md)
-* [Prefer `Option` over `null`](./preferoption.md)
+* [Prefer `None` over `null` for `Option`](./preferoption.md)
 * [Prefer Scala-style property access over Java getters](./preferscalapropertyaccess.md)
 * [Prefer explicit imports over wildcards](./preferexplicitimports.md)
 * [Prefer immutable collections](./preferimmutablecollections.md)

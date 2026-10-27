@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaSetsNewLinkedHashSet"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/guava/NoGuavaSetsNewLinkedHashSet.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/no-guava.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Sets.newLinkedHashSet();\n}\n","after":"import java.util.LinkedHashSet;\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = new LinkedHashSet<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedHashSet;\nimport java.util.Set;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   Set<Integer> cardinalsWorldSeries = Sets.newLinkedHashSet();\n+   Set<Integer> cardinalsWorldSeries = new LinkedHashSet<>();\n}\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Prefer `new LinkedHashSet<>()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$setsnewlinkedhashsetrecipe/"},{"name":"Prefer `new LinkedHashSet<>(Collection)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$setsnewlinkedhashsetfromcollectionrecipe/"},{"name":"Prefer `new LinkedHashSet<>(int)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$setsnewlinkedhashsetwithexpectedsizerecipe/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Sets.newLinkedHashSet();\n}\n","after":"import java.util.LinkedHashSet;\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = new LinkedHashSet<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedHashSet;\nimport java.util.Set;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   Set<Integer> cardinalsWorldSeries = Sets.newLinkedHashSet();\n+   Set<Integer> cardinalsWorldSeries = new LinkedHashSet<>();\n}\n","newFile":false}]},{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Sets.newLinkedHashSet();\n}\n","after":"import java.util.LinkedHashSet;\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = new LinkedHashSet<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedHashSet;\nimport java.util.Set;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   Set<Integer> cardinalsWorldSeries = Sets.newLinkedHashSet();\n+   Set<Integer> cardinalsWorldSeries = new LinkedHashSet<>();\n}\n","newFile":false}]}]}>
 
 ## Examples
 

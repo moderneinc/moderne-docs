@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import liquibase.integration.spring.SpringLiquibase;\n\nclass Config {\n    String getContexts() { return \"test\"; }\n    void configure(SpringLiquibase liquibase) {\n        liquibase.setContexts(getContexts());\n        liquibase.setLabels(\"test\");\n    }\n}\n","after":"import liquibase.integration.spring.SpringLiquibase;\n\nclass Config {\n    String getContexts() { return \"test\"; }\n    void configure(SpringLiquibase liquibase) {\n        liquibase.setContexts(getContexts());\n        liquibase.setLabelFilter(\"test\");\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    void configure(SpringLiquibase liquibase) {\n        liquibase.setContexts(getContexts());\n-       liquibase.setLabels(\"test\");\n+       liquibase.setLabelFilter(\"test\");\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot4.MigrateLiquibasePropertiesApi","displayName":"Migrate Liquibase property values passed to SpringLiquibase","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

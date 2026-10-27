@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S1125"]}
+  tags={["RSPEC-S1125","RSPEC-S1940","RSPEC-S9435"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.SimplifyBooleanExpression"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}

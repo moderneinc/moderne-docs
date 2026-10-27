@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"scala","before":"object App {\n  def shutdown(): Unit = {\n    System.exit(1)\n  }\n}\n","after":"object App {\n  /*~~(System.exit/sys.exit found; avoid in library code)~~>*/def shutdown(): Unit = {\n    System.exit(1)\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject App {\n- def shutdown(): Unit = {\n+ /*~~(System.exit/sys.exit found; avoid in library code)~~>*/def shutdown(): Unit = {\n    System.exit(1)\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"scala","before":"object App {\n  def shutdown(): Unit = {\n    System.exit(1)\n  }\n}\n","after":"object App {\n  def shutdown(): Unit = {\n    /*~~(System.exit/sys.exit found; avoid in library code)~~>*/System.exit(1)\n  }\n}\n","diff":"@@ -3,1 +3,1 @@\nobject App {\n  def shutdown(): Unit = {\n-   System.exit(1)\n+   /*~~(System.exit/sys.exit found; avoid in library code)~~>*/System.exit(1)\n  }\n","newFile":false}]}]}>
 
 ## Examples
 

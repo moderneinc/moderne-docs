@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate `spring-retry` to Spring Framework resilience"}
-  description={"Migrate `spring-retry`s `@Retryable` and `@Backoff` annotation to Spring Framework 7 Resilience annotations."}
+  description={"Migrate `spring-retry`s `@Retryable` and `@Backoff` annotation to Spring Framework 7 Resilience annotations. Files using attributes without a Spring Framework 7 equivalent, `@Recover` or `@CircuitBreaker`, and projects declaring `RetryListener` beans, are left to `MigrateSpringRetryToCompat`, which preserves their spring-retry semantics."}
   fqName={"io.moderne.java.spring.boot4.MigrateSpringRetryToSpringFramework7"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate `spring-retry` to Spring Framework resilience</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate `spring-retry`s `@Retryable` and `@Backoff` annotation to Spring Framework 7 Resilience annotations.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate `spring-retry`s `@Retryable` and `@Backoff` annotation to Spring Framework 7 Resilience annotations. Files using attributes without a Spring Framework 7 equivalent, `@Recover` or `@CircuitBreaker`, and projects declaring `RetryListener` beans, are left to `MigrateSpringRetryToCompat`, which preserves their spring-retry semantics.</RecipeHeader.Description>
 
 </RecipeHeader>
 

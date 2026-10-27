@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Rename final method declarations `getSuppressed()` and `addSuppressed(Throwable exception)` in classes that extend `Throwable`"}
-  description={"The recipe renames  `getSuppressed()` and `addSuppressed(Throwable exception)` methods  in classes that extend `java.lang.Throwable` to `myGetSuppressed` and `myAddSuppressed(Throwable)`. These methods were added to Throwable in Java 7 and are marked final which cannot be overridden."}
+  description={"The recipe renames `getSuppressed()` and `addSuppressed(Throwable exception)` methods in classes that extend `java.lang.Throwable` to `myGetSuppressed` and `myAddSuppressed(Throwable)`. These methods were added to `Throwable` in Java 7 and are marked final which cannot be overridden."}
   fqName={"org.openrewrite.java.migrate.JREThrowableFinalMethods"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,17 +33,23 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Rename final method declarations `getSuppressed()` and `addSuppressed(Throwable exception)` in classes that extend `Throwable`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The recipe renames  `getSuppressed()` and `addSuppressed(Throwable exception)` methods  in classes that extend `java.lang.Throwable` to `myGetSuppressed` and `myAddSuppressed(Throwable)`. These methods were added to Throwable in Java 7 and are marked final which cannot be overridden.</RecipeHeader.Description>
+<RecipeHeader.Description>The recipe renames `getSuppressed()` and `addSuppressed(Throwable exception)` methods in classes that extend `java.lang.Throwable` to `myGetSuppressed` and `myAddSuppressed(Throwable)`. These methods were added to `Throwable` in Java 7 and are marked final which cannot be overridden.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.test.ThrowableWithIllegalOverrrides;\nclass ClassUsingException {\n    void methodUsingException(ThrowableWithIllegalOverrrides t1) {\n        t1.add1Suppressed(null);\n        t1.get1Suppressed();\n    }\n}\n","after":"import com.test.ThrowableWithIllegalOverrrides;\nclass ClassUsingException {\n    void methodUsingException(ThrowableWithIllegalOverrrides t1) {\n        t1.myAddSuppressed(null);\n        t1.myGetSuppressed();\n    }\n}\n","diff":"@@ -4,2 +4,2 @@\nclass ClassUsingException {\n    void methodUsingException(ThrowableWithIllegalOverrrides t1) {\n-       t1.add1Suppressed(null);\n-       t1.get1Suppressed();\n+       t1.myAddSuppressed(null);\n+       t1.myGetSuppressed();\n    }\n","newFile":false},{"language":"java","before":"package com.test;\npublic class ThrowableWithIllegalOverrrides extends Throwable {\n    public void add1Suppressed(Throwable exception) {\n    }\n\n    public Throwable[] get1Suppressed() {\n        return null;\n    }\n}\n","after":"package com.test;\npublic class ThrowableWithIllegalOverrrides extends Throwable {\n    public void myAddSuppressed(Throwable exception) {\n    }\n\n    public Throwable[] myGetSuppressed() {\n        return null;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.test;\npublic class ThrowableWithIllegalOverrrides extends Throwable {\n-   public void add1Suppressed(Throwable exception) {\n+   public void myAddSuppressed(Throwable exception) {\n    }\n@@ -6,1 +6,1 @@\n    }\n\n-   public Throwable[] get1Suppressed() {\n+   public Throwable[] myGetSuppressed() {\n        return null;\n","newFile":false}]}]}>
+<OptionsTable options={[{"type":"String","name":"methodPatternAddSuppressed","required":false,"description":"A method pattern matching the `addSuppressed(Throwable)` declarations and invocations to rename to `myAddSuppressed`.","example":"*..* addSuppressed(Throwable)"},{"type":"String","name":"methodPatternGetSuppressed","required":false,"description":"A method pattern matching the `getSuppressed()` declarations and invocations to rename to `myGetSuppressed`.","example":"*..* getSuppressed()"}]}>
+
+## Options
+
+</OptionsTable>
+
+<ExampleList examples={[{"parameters":[{"parameter":"methodPatternAddSuppressed","value":"*..* add1Suppressed(Throwable)"},{"parameter":"methodPatternGetSuppressed","value":"*..* get1Suppressed()"}],"variants":[{"language":"java","before":"import com.test.ThrowableWithIllegalOverrrides;\nclass ClassUsingException {\n    void methodUsingException(ThrowableWithIllegalOverrrides t1) {\n        t1.add1Suppressed(null);\n        t1.get1Suppressed();\n    }\n}\n","after":"import com.test.ThrowableWithIllegalOverrrides;\nclass ClassUsingException {\n    void methodUsingException(ThrowableWithIllegalOverrrides t1) {\n        t1.myAddSuppressed(null);\n        t1.myGetSuppressed();\n    }\n}\n","diff":"@@ -4,2 +4,2 @@\nclass ClassUsingException {\n    void methodUsingException(ThrowableWithIllegalOverrrides t1) {\n-       t1.add1Suppressed(null);\n-       t1.get1Suppressed();\n+       t1.myAddSuppressed(null);\n+       t1.myGetSuppressed();\n    }\n","newFile":false},{"language":"java","before":"package com.test;\npublic class ThrowableWithIllegalOverrrides extends Throwable {\n    public void add1Suppressed(Throwable exception) {\n    }\n\n    public Throwable[] get1Suppressed() {\n        return null;\n    }\n}\n","after":"package com.test;\npublic class ThrowableWithIllegalOverrrides extends Throwable {\n    public void myAddSuppressed(Throwable exception) {\n    }\n\n    public Throwable[] myGetSuppressed() {\n        return null;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.test;\npublic class ThrowableWithIllegalOverrrides extends Throwable {\n-   public void add1Suppressed(Throwable exception) {\n+   public void myAddSuppressed(Throwable exception) {\n    }\n@@ -6,1 +6,1 @@\n    }\n\n-   public Throwable[] get1Suppressed() {\n+   public Throwable[] myGetSuppressed() {\n        return null;\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.JREThrowableFinalMethods","displayName":"Rename final method declarations `getSuppressed()` and `addSuppressed(Throwable exception)` in classes that extend `Throwable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.JREThrowableFinalMethods","displayName":"Rename final method declarations `getSuppressed()` and `addSuppressed(Throwable exception)` in classes that extend `Throwable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"methodPatternAddSuppressed='*..* addSuppressed(Throwable)'\" --recipe-option \"methodPatternGetSuppressed='*..* getSuppressed()'\""}}>
 
 ## Usage
 

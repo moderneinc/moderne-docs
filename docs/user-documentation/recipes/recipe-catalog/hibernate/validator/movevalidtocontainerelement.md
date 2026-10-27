@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Move `@Valid` from the container to its element type"}
-  description={"Hibernate Validator 9.1 deprecates requesting cascaded validation at the container level, and warns while building the metadata for declarations such as `@Valid List<Order> orders`. Rewrites those to the type argument form `List<@Valid Order> orders` that has been available since Bean Validation 2.0. The element type argument is annotated for `Iterable` and `Optional` containers, and the value type argument for `Map`, matching where the built-in value extractors cascade to. `@Valid` on anything other than one of those containers is left alone, as are wildcard, raw, qualified and array type arguments."}
+  description={"Hibernate Validator 9.1 deprecates requesting cascaded validation at the container level, and warns while building the metadata for declarations such as `@Valid List<Order> orders`. Rewrites those to the type argument form `List<@Valid Order> orders` that has been available since Bean Validation 2.0. The element type argument is annotated for `Iterable` and `Optional` containers, and the value type argument for `Map`, matching where the built-in value extractors cascade to. `@Valid` on anything other than one of those containers is left alone, as are wildcard, raw and array type arguments."}
   fqName={"org.openrewrite.hibernate.validator.MoveValidToContainerElement"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Move `@Valid` from the container to its element type</RecipeHeader.Title>
 
-<RecipeHeader.Description>Hibernate Validator 9.1 deprecates requesting cascaded validation at the container level, and warns while building the metadata for declarations such as `@Valid List<Order> orders`. Rewrites those to the type argument form `List<@Valid Order> orders` that has been available since Bean Validation 2.0. The element type argument is annotated for `Iterable` and `Optional` containers, and the value type argument for `Map`, matching where the built-in value extractors cascade to. `@Valid` on anything other than one of those containers is left alone, as are wildcard, raw, qualified and array type arguments.</RecipeHeader.Description>
+<RecipeHeader.Description>Hibernate Validator 9.1 deprecates requesting cascaded validation at the container level, and warns while building the metadata for declarations such as `@Valid List<Order> orders`. Rewrites those to the type argument form `List<@Valid Order> orders` that has been available since Bean Validation 2.0. The element type argument is annotated for `Iterable` and `Optional` containers, and the value type argument for `Map`, matching where the built-in value extractors cascade to. `@Valid` on anything other than one of those containers is left alone, as are wildcard, raw and array type arguments.</RecipeHeader.Description>
 
 </RecipeHeader>
 

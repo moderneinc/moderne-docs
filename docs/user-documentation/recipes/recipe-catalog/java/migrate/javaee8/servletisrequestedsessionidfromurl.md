@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`"}
-  description={"The  method `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` is deprecated in JavaEE8 and is replaced by `HttpServletRequestWrapper.isRequestedSessionIdFromURL()`."}
+  description={"The method `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` is deprecated in Java EE 8 and is replaced by `HttpServletRequestWrapper.isRequestedSessionIdFromURL()`."}
   fqName={"org.openrewrite.java.migrate.javaee8.ServletIsRequestedSessionIdFromURL"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The  method `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` is deprecated in JavaEE8 and is replaced by `HttpServletRequestWrapper.isRequestedSessionIdFromURL()`.</RecipeHeader.Description>
+<RecipeHeader.Description>The method `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` is deprecated in Java EE 8 and is replaced by `HttpServletRequestWrapper.isRequestedSessionIdFromURL()`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

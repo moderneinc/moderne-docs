@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"JUnit 6 best practices"}
-  description={"Applies best practices to tests."}
+  description={"Migrates JUnit 5 tests to JUnit 6 and applies the JUnit Jupiter best practices."}
   fqName={"org.openrewrite.java.testing.junit.JUnit6BestPractices"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>JUnit 6 best practices</RecipeHeader.Title>
 
-<RecipeHeader.Description>Applies best practices to tests.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrates JUnit 5 tests to JUnit 6 and applies the JUnit Jupiter best practices.</RecipeHeader.Description>
 
 </RecipeHeader>
 

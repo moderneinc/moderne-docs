@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"namePattern","required":false,"description":"Property name glob expression pattern used to match properties that should be checked.","example":"*.version"},{"type":"Boolean","name":"onlyIfValuesMatch","required":false,"description":"Only remove the property if its value exactly matches the property value in the parent pom. Default `false`."}]}>
+<OptionsTable options={[{"type":"String","name":"namePattern","required":false,"description":"Property name glob expression pattern used to match properties that should be checked.","example":"*.version"},{"type":"Boolean","name":"onlyIfValuesMatch","required":false,"description":"Deprecated; use `onlyIfParentValueIs` instead. Only remove the property if its value exactly matches the property value in the parent pom. Default `false`."},{"type":"Comparator","name":"onlyIfParentValueIs","required":false,"description":"Only remove the property if the value it would inherit from the parent POM has the specified comparative relationship to its own value. For example, `gte` only removes properties pinned to a version that is the same as or older than the parent's. Ordering comparisons only apply when both values are versions; other values only match when they are equal. Default `any`."}]}>
 
 ## Options
 

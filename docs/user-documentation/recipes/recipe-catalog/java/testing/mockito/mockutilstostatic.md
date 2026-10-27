@@ -21,7 +21,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
   license={"Moderne Source Available License"}
@@ -36,6 +36,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader.Description>Best-effort attempt to remove Mockito `MockUtil` instances.</RecipeHeader.Description>
 
 </RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"}]}>
+
+## Definition
+
+</RecipeList>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package mockito.example;\n\nimport org.mockito.internal.util.MockUtil;\n\npublic class MockitoMockUtils {\n    public void isMockExample() {\n        new MockUtil().isMock(\"I am a real String\");\n    }\n}\n","after":"package mockito.example;\n\nimport org.mockito.internal.util.MockUtil;\n\npublic class MockitoMockUtils {\n    public void isMockExample() {\n        MockUtil.isMock(\"I am a real String\");\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\npublic class MockitoMockUtils {\n    public void isMockExample() {\n-       new MockUtil().isMock(\"I am a real String\");\n+       MockUtil.isMock(\"I am a real String\");\n    }\n","newFile":false}]}]}>
 

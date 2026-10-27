@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove potentially unused imports (heuristic)"}
-  description={"Removes imports where the imported simple name does not appear in the rest of the file. This is an approximate heuristic and may produce false positives."}
+  description={"Removes imports where the imported simple name does not appear in the rest of the file. Imports of implicit definitions and imports that can't be resolved are kept, since they may be used implicitly. This is an approximate heuristic and may produce false positives."}
   fqName={"org.openrewrite.scala.safety.RemoveUnusedImport"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove potentially unused imports (heuristic)</RecipeHeader.Title>
 
-<RecipeHeader.Description>Removes imports where the imported simple name does not appear in the rest of the file. This is an approximate heuristic and may produce false positives.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes imports where the imported simple name does not appear in the rest of the file. Imports of implicit definitions and imports that can't be resolved are kept, since they may be used implicitly. This is an approximate heuristic and may produce false positives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

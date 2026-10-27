@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `Optional#isPresent()` with `Optional#ifPresent()`"}
-  description={"Replace `Optional#isPresent()` with `Optional#ifPresent()`. Please note that this recipe is only suitable for if-blocks that lack an Else-block and have a single condition applied."}
+  description={"Replace `Optional#isPresent()` with `Optional#ifPresent()`. This recipe only applies to `if` statements without an `else` branch and with a single condition."}
   fqName={"org.openrewrite.staticanalysis.ReplaceOptionalIsPresentWithIfPresent"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `Optional#isPresent()` with `Optional#ifPresent()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `Optional#isPresent()` with `Optional#ifPresent()`. Please note that this recipe is only suitable for if-blocks that lack an Else-block and have a single condition applied.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `Optional#isPresent()` with `Optional#ifPresent()`. This recipe only applies to `if` statements without an `else` branch and with a single condition.</RecipeHeader.Description>
 
 </RecipeHeader>
 

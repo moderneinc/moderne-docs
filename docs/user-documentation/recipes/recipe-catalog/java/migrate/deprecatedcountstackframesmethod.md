@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove `Thread.countStackFrames()` method"}
-  description={"`Thread.countStackFrames()` has been removed in Java SE 14 and has been changed in this release to unconditionally throw `UnsupportedOperationException`\n This recipe removes the usage of this method in your application as long as the method is not assigned to a variable.\n For more information on the Java SE 14 deprecation of this method, see https://bugs.java.com/bugdatabase/view_bug?bug_id=8205132."}
+  description={"`Thread.countStackFrames()` has been removed in Java SE 14 and has been changed in this release to unconditionally throw `UnsupportedOperationException`. This recipe removes the usage of this method in your application as long as the method is not assigned to a variable. For more information on the Java SE 14 deprecation of this method, see https://bugs.java.com/bugdatabase/view_bug?bug_id=8205132."}
   fqName={"org.openrewrite.java.migrate.DeprecatedCountStackFramesMethod"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove `Thread.countStackFrames()` method</RecipeHeader.Title>
 
-<RecipeHeader.Description>`Thread.countStackFrames()` has been removed in Java SE 14 and has been changed in this release to unconditionally throw `UnsupportedOperationException`  This recipe removes the usage of this method in your application as long as the method is not assigned to a variable.  For more information on the Java SE 14 deprecation of this method, see https://bugs.java.com/bugdatabase/view_bug?bug_id=8205132.</RecipeHeader.Description>
+<RecipeHeader.Description>`Thread.countStackFrames()` has been removed in Java SE 14 and has been changed in this release to unconditionally throw `UnsupportedOperationException`. This recipe removes the usage of this method in your application as long as the method is not assigned to a variable. For more information on the Java SE 14 deprecation of this method, see https://bugs.java.com/bugdatabase/view_bug?bug_id=8205132.</RecipeHeader.Description>
 
 </RecipeHeader>
 

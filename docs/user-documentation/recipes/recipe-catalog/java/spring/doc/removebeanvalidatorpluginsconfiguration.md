@@ -1,6 +1,6 @@
 ---
-title: "Removes @Import(BeanValidatorPluginsConfiguration.class)"
-sidebar_label: "Removes @Import(BeanValidatorPluginsConfiguration.class)"
+title: "Remove `@Import(BeanValidatorPluginsConfiguration.class)`"
+sidebar_label: "Remove `@Import(BeanValidatorPluginsConfiguration.class)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Removes @Import(BeanValidatorPluginsConfiguration.class)"}
-  description={"As Springdoc OpenAPI supports Bean Validation out of the box, the BeanValidatorPluginsConfiguration is no longer supported nor needed. Thus remove @Import(BeanValidatorPluginsConfiguration.class)."}
+  displayName={"Remove `@Import(BeanValidatorPluginsConfiguration.class)`"}
+  description={"As Springdoc OpenAPI supports Bean Validation out of the box, the `BeanValidatorPluginsConfiguration` is no longer supported nor needed. Thus remove `@Import(BeanValidatorPluginsConfiguration.class)`."}
   fqName={"org.openrewrite.java.spring.doc.RemoveBeanValidatorPluginsConfiguration"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/doc/removebeanvalidatorpluginsconfiguration.md"}
 >
 
-<RecipeHeader.Title>Removes @Import(BeanValidatorPluginsConfiguration.class)</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `@Import(BeanValidatorPluginsConfiguration.class)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>As Springdoc OpenAPI supports Bean Validation out of the box, the BeanValidatorPluginsConfiguration is no longer supported nor needed. Thus remove @Import(BeanValidatorPluginsConfiguration.class).</RecipeHeader.Description>
+<RecipeHeader.Description>As Springdoc OpenAPI supports Bean Validation out of the box, the `BeanValidatorPluginsConfiguration` is no longer supported nor needed. Thus remove `@Import(BeanValidatorPluginsConfiguration.class)`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.doc.RemoveBeanValidatorPluginsConfiguration","displayName":"Removes @Import(BeanValidatorPluginsConfiguration.class)","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.doc.RemoveBeanValidatorPluginsConfiguration","displayName":"Remove `@Import(BeanValidatorPluginsConfiguration.class)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

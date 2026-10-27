@@ -1,6 +1,6 @@
 ---
-title: "Change `java.lang.reflect.Modifier` and ` java.lang.invoke.ConstantBootstraps` method calls to static"
-sidebar_label: "Change `java.lang.reflect.Modifier` and ` java.lang.invoke.ConstantBootstraps` method calls to static"
+title: "Change `java.lang.reflect.Modifier` and `java.lang.invoke.ConstantBootstraps` method calls to static"
+sidebar_label: "Change `java.lang.reflect.Modifier` and `java.lang.invoke.ConstantBootstraps` method calls to static"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Change `java.lang.reflect.Modifier` and ` java.lang.invoke.ConstantBootstraps` method calls to static"}
-  description={"The `java.lang.reflect.Modifier()` and `java.lang.invoke.ConstantBootstraps()` constructors have been removed in Java SE 15 because both classes only contain static methods. This recipe converts the usage of all methods in the two classes to be  static. See https://docs.oracle.com/en/java/javase/15/migrate/index.html#GUID-233853B8-0782-429E-BEF7-7532EE610E63 for more information on these changes."}
+  displayName={"Change `java.lang.reflect.Modifier` and `java.lang.invoke.ConstantBootstraps` method calls to static"}
+  description={"The `java.lang.reflect.Modifier()` and `java.lang.invoke.ConstantBootstraps()` constructors have been removed in Java SE 15 because both classes only contain static methods. This recipe converts the usage of all methods in the two classes to be static. See https://docs.oracle.com/en/java/javase/15/migrate/index.html#GUID-233853B8-0782-429E-BEF7-7532EE610E63 for more information on these changes."}
   fqName={"org.openrewrite.java.migrate.RemovedModifierAndConstantBootstrapsConstructors"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedmodifierandconstantbootstrapsconstructors.md"}
 >
 
-<RecipeHeader.Title>Change `java.lang.reflect.Modifier` and ` java.lang.invoke.ConstantBootstraps` method calls to static</RecipeHeader.Title>
+<RecipeHeader.Title>Change `java.lang.reflect.Modifier` and `java.lang.invoke.ConstantBootstraps` method calls to static</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `java.lang.reflect.Modifier()` and `java.lang.invoke.ConstantBootstraps()` constructors have been removed in Java SE 15 because both classes only contain static methods. This recipe converts the usage of all methods in the two classes to be  static. See https://docs.oracle.com/en/java/javase/15/migrate/index.html#GUID-233853B8-0782-429E-BEF7-7532EE610E63 for more information on these changes.</RecipeHeader.Description>
+<RecipeHeader.Description>The `java.lang.reflect.Modifier()` and `java.lang.invoke.ConstantBootstraps()` constructors have been removed in Java SE 15 because both classes only contain static methods. This recipe converts the usage of all methods in the two classes to be static. See https://docs.oracle.com/en/java/javase/15/migrate/index.html#GUID-233853B8-0782-429E-BEF7-7532EE610E63 for more information on these changes.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemovedModifierAndConstantBootstrapsConstructors","displayName":"Change `java.lang.reflect.Modifier` and ` java.lang.invoke.ConstantBootstraps` method calls to static","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemovedModifierAndConstantBootstrapsConstructors","displayName":"Change `java.lang.reflect.Modifier` and `java.lang.invoke.ConstantBootstraps` method calls to static","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

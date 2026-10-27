@@ -1,6 +1,6 @@
 ---
-title: "Does not include dependency for Gradle and Maven"
-sidebar_label: "Does not include dependency for Gradle and Maven"
+title: "Does not include Gradle or Maven dependency"
+sidebar_label: "Does not include Gradle or Maven dependency"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Does not include dependency for Gradle and Maven"}
-  description={"A precondition which returns false if visiting a Gradle file / Maven pom which includes the specified dependency in the classpath of some Gradle configuration / Maven scope. For compatibility with multimodule projects, this should most often be applied as a precondition."}
+  displayName={"Does not include Gradle or Maven dependency"}
+  description={"A precondition which returns false if visiting a Gradle build file or Maven `pom.xml` which includes the specified dependency in the classpath of some Gradle configuration or Maven scope. For compatibility with multi-module projects, this should most often be applied as a precondition."}
   fqName={"org.openrewrite.java.dependencies.search.DoesNotIncludeDependency"}
   languages={["Java"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/search/doesnotincludedependency.md"}
 >
 
-<RecipeHeader.Title>Does not include dependency for Gradle and Maven</RecipeHeader.Title>
+<RecipeHeader.Title>Does not include Gradle or Maven dependency</RecipeHeader.Title>
 
-<RecipeHeader.Description>A precondition which returns false if visiting a Gradle file / Maven pom which includes the specified dependency in the classpath of some Gradle configuration / Maven scope. For compatibility with multimodule projects, this should most often be applied as a precondition.</RecipeHeader.Description>
+<RecipeHeader.Description>A precondition which returns false if visiting a Gradle build file or Maven `pom.xml` which includes the specified dependency in the classpath of some Gradle configuration or Maven scope. For compatibility with multi-module projects, this should most often be applied as a precondition.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob.","example":"guava"},{"type":"String","name":"version","required":false,"description":"Match only dependencies with the specified resolved version. Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used. All versions are searched by default.","example":"1.x"},{"type":"Boolean","name":"onlyDirect","required":false,"description":"Default false. If enabled, transitive dependencies will not be considered.","example":"true"},{"type":"String","name":"scope","required":false,"description":"Default any. If specified, only the requested scope's classpaths will be checked.","example":"compile"},{"type":"String","name":"configuration","required":false,"description":"Match dependencies with the specified configuration. If not specified, all configurations will be searched.","example":"compileClasspath"}]}>
+<OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob expressions.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob expressions.","example":"guava"},{"type":"String","name":"version","required":false,"description":"Match only dependencies with the specified resolved version. Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used. All versions are searched by default.","example":"1.x"},{"type":"Boolean","name":"onlyDirect","required":false,"description":"For Maven only, if enabled, transitive dependencies will not be considered. Defaults to `false`."},{"type":"String","name":"scope","required":false,"description":"For Maven only, if specified, only the requested scope's classpaths will be checked. All scopes are checked by default.","example":"compile"},{"type":"String","name":"configuration","required":false,"description":"For Gradle only, match dependencies with the specified configuration. If not specified, all configurations will be searched.","example":"compileClasspath"}]}>
 
 ## Options
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.search.DoesNotIncludeDependency","displayName":"Does not include dependency for Gradle and Maven","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\"","optionalCliOptions":" --recipe-option \"version=1.x\" --recipe-option \"onlyDirect=true\" --recipe-option \"scope=compile\" --recipe-option \"configuration=compileClasspath\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.search.DoesNotIncludeDependency","displayName":"Does not include Gradle or Maven dependency","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":true,"cliOptions":" --recipe-option \"groupId=com.google.guava\" --recipe-option \"artifactId=guava\"","optionalCliOptions":" --recipe-option \"version=1.x\" --recipe-option \"onlyDirect=true\" --recipe-option \"scope=compile\" --recipe-option \"configuration=compileClasspath\""}}>
 
 ## Usage
 

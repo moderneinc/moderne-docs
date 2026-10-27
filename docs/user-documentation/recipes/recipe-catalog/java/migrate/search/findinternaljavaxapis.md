@@ -1,6 +1,6 @@
 ---
-title: "Find uses of internal javax APIs"
-sidebar_label: "Find uses of internal javax APIs"
+title: "Find uses of internal `javax` APIs"
+sidebar_label: "Find uses of internal `javax` APIs"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Find uses of internal javax APIs"}
+  displayName={"Find uses of internal `javax` APIs"}
   description={"The libraries that define these APIs will have to be migrated before any of the repositories that use them."}
   fqName={"org.openrewrite.java.migrate.search.FindInternalJavaxApis"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/search/findinternaljavaxapis.md"}
 >
 
-<RecipeHeader.Title>Find uses of internal javax APIs</RecipeHeader.Title>
+<RecipeHeader.Title>Find uses of internal `javax` APIs</RecipeHeader.Title>
 
 <RecipeHeader.Description>The libraries that define these APIs will have to be migrated before any of the repositories that use them.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.search.FindInternalJavaxApis","displayName":"Find uses of internal javax APIs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"methodPattern=java.util.List add(..)\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.search.FindInternalJavaxApis","displayName":"Find uses of internal `javax` APIs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"methodPattern=java.util.List add(..)\""}}>
 
 ## Usage
 

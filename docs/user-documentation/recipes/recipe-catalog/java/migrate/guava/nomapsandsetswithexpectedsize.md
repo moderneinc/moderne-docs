@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer JDK methods for Maps and Sets of an expected size"}
-  description={"Prefer Java 19+ methods to create Maps and Sets of an expected size instead of using Guava methods."}
+  description={"Replace Guava's `Maps.newHashMapWithExpectedSize(int)`, `Maps.newLinkedHashMapWithExpectedSize(int)`, `Sets.newHashSetWithExpectedSize(int)` and `Sets.newLinkedHashSetWithExpectedSize(int)` with the JDK `HashMap`, `LinkedHashMap`, `HashSet` and `LinkedHashSet` constructors."}
   fqName={"org.openrewrite.java.migrate.guava.NoMapsAndSetsWithExpectedSize"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer JDK methods for Maps and Sets of an expected size</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer Java 19+ methods to create Maps and Sets of an expected size instead of using Guava methods.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace Guava's `Maps.newHashMapWithExpectedSize(int)`, `Maps.newLinkedHashMapWithExpectedSize(int)`, `Sets.newHashSetWithExpectedSize(int)` and `Sets.newLinkedHashSetWithExpectedSize(int)` with the JDK `HashMap`, `LinkedHashMap`, `HashSet` and `LinkedHashSet` constructors.</RecipeHeader.Description>
 
 </RecipeHeader>
 

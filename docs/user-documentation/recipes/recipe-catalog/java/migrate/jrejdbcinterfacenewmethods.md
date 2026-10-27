@@ -1,6 +1,6 @@
 ---
-title: "Adds missing JDBC interface methods"
-sidebar_label: "Adds missing JDBC interface methods"
+title: "Add missing JDBC interface methods"
+sidebar_label: "Add missing JDBC interface methods"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adds missing JDBC interface methods"}
+  displayName={"Add missing JDBC interface methods"}
   description={"Add method implementations stubs to classes that implement JDBC interfaces."}
   fqName={"org.openrewrite.java.migrate.JREJdbcInterfaceNewMethods"}
   languages={["Java"]}
@@ -31,19 +31,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jrejdbcinterfacenewmethods.md"}
 >
 
-<RecipeHeader.Title>Adds missing JDBC interface methods</RecipeHeader.Title>
+<RecipeHeader.Title>Add missing JDBC interface methods</RecipeHeader.Title>
 
 <RecipeHeader.Description>Add method implementations stubs to classes that implement JDBC interfaces.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.JREJdbcInterfaceNewMethods","displayName":"Adds missing JDBC interface methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.JREJdbcInterfaceNewMethods","displayName":"Add missing JDBC interface methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use local variable type inference"}
-  description={"Apply local variable type inference (`var`) for primitives and objects. These recipes can cause unused imports, be advised to run `org.openrewrite.java.RemoveUnusedImports afterwards."}
+  description={"Apply local variable type inference (`var`) for primitives and objects. This can leave imports of the replaced types unused, so remove unused imports afterwards."}
   fqName={"org.openrewrite.java.migrate.lang.UseVar"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use local variable type inference</RecipeHeader.Title>
 
-<RecipeHeader.Description>Apply local variable type inference (`var`) for primitives and objects. These recipes can cause unused imports, be advised to run `org.openrewrite.java.RemoveUnusedImports afterwards.</RecipeHeader.Description>
+<RecipeHeader.Description>Apply local variable type inference (`var`) for primitives and objects. This can leave imports of the replaced types unused, so remove unused imports afterwards.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Use `var` for reference-typed variables","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforobject/"},{"name":"Use `var` for variables initialized with type casts","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarfortypecast/"},{"name":"Use `var` for constructor call assignments","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforconstructors/"},{"name":"Use `var` for primitive and String variables","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforprimitive/"},{"name":"Apply `var` to Generic Constructors","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforgenericsconstructors/"},{"name":"Apply `var` to generic method invocations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforgenericmethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Use `var` for reference-typed variables","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforobject/"},{"name":"Use `var` for variables initialized with type casts","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarfortypecast/"},{"name":"Use `var` for constructor call assignments","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforconstructors/"},{"name":"Use `var` for primitive and String variables","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforprimitive/"},{"name":"Apply `var` to generic constructors","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforgenericsconstructors/"},{"name":"Apply `var` to generic method invocations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforgenericmethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `%` formatting with f-string"}
-  description={"Replace `\"...\" % (...)` expressions with f-strings (Python 3.6+). Only converts `%s` and `%r` specifiers where the format string is a literal and the conversion is safe. A single operand that is not a tuple literal must have a type that resolves to a non-tuple, such as `str` or `int`, since a tuple would be spread over the specifiers."}
+  description={"Replace `\"...\" % (...)` expressions with f-strings (Python 3.6+). Only converts `%s` and `%r` specifiers where the format string is a literal and the conversion is safe. A single operand that is not a tuple literal must have a type that resolves to a non-tuple, such as `str` or `int`, since a tuple would be spread over the specifiers. An expression with a comment inside it is left alone, since the f-string would drop it."}
   fqName={"org.openrewrite.python.migrate.ReplacePercentFormatWithFString"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={["python","migration","3.6","f-string"]}
+  tags={["UP031","python","ruff","migration","3.6","f-string"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplacePercentFormatWithFString"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `%` formatting with f-string</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `"..." % (...)` expressions with f-strings (Python 3.6+). Only converts `%s` and `%r` specifiers where the format string is a literal and the conversion is safe. A single operand that is not a tuple literal must have a type that resolves to a non-tuple, such as `str` or `int`, since a tuple would be spread over the specifiers.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `"..." % (...)` expressions with f-strings (Python 3.6+). Only converts `%s` and `%r` specifiers where the format string is a literal and the conversion is safe. A single operand that is not a tuple literal must have a type that resolves to a non-tuple, such as `str` or `int`, since a tuple would be spread over the specifiers. An expression with a comment inside it is left alone, since the f-string would drop it.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaListsNewArrayList"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/guava/NoGuavaListsNewArrayList.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/no-guava.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newArrayList();\n}\n","after":"import java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new ArrayList<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.ArrayList;\nimport java.util.List;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newArrayList();\n+   List<Integer> cardinalsWorldSeries = new ArrayList<>();\n}\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Prefer `new ArrayList<>()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$listsnewarraylistrecipe/"},{"name":"Prefer `new ArrayList<>(Collection)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$listsnewarraylistfromcollectionrecipe/"},{"name":"Prefer `new ArrayList<>(int)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$listsnewarraylistwithcapacityrecipe/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newArrayList();\n}\n","after":"import java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new ArrayList<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.ArrayList;\nimport java.util.List;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newArrayList();\n+   List<Integer> cardinalsWorldSeries = new ArrayList<>();\n}\n","newFile":false}]},{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newArrayList();\n}\n","after":"import java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new ArrayList<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.ArrayList;\nimport java.util.List;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newArrayList();\n+   List<Integer> cardinalsWorldSeries = new ArrayList<>();\n}\n","newFile":false}]}]}>
 
 ## Examples
 

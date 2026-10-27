@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `HTMLParser.unescape()` with `html.unescape()`"}
-  description={"`HTMLParser.unescape()` was removed in Python 3.9. Use `html.unescape()` instead. Only fires where the parser's type resolves, and leaves the call alone where `html` already names something other than the module."}
+  description={"`HTMLParser.unescape()` was removed in Python 3.9. Use `html.unescape()` instead. Only fires where the parser's type resolves, and leaves the call alone where `html` already names something other than the module, or where the parser is an expression with side effects, such as a call, that the rewrite would drop. A call holding a comment is left alone too."}
   fqName={"org.openrewrite.python.migrate.ReplaceHtmlParserUnescape"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `HTMLParser.unescape()` with `html.unescape()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>`HTMLParser.unescape()` was removed in Python 3.9. Use `html.unescape()` instead. Only fires where the parser's type resolves, and leaves the call alone where `html` already names something other than the module.</RecipeHeader.Description>
+<RecipeHeader.Description>`HTMLParser.unescape()` was removed in Python 3.9. Use `html.unescape()` instead. Only fires where the parser's type resolves, and leaves the call alone where `html` already names something other than the module, or where the parser is an expression with side effects, such as a call, that the rewrite would drop. A call holding a comment is left alone too.</RecipeHeader.Description>
 
 </RecipeHeader>
 

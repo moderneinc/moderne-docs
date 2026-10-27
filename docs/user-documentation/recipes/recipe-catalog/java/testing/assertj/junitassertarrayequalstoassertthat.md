@@ -1,6 +1,6 @@
 ---
-title: "JUnit `assertArrayEquals` to assertJ"
-sidebar_label: "JUnit `assertArrayEquals` to assertJ"
+title: "JUnit `assertArrayEquals` to AssertJ"
+sidebar_label: "JUnit `assertArrayEquals` to AssertJ"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"JUnit `assertArrayEquals` to assertJ"}
-  description={"Convert JUnit-style `assertArrayEquals()` to AssertJ's `assertThat().contains()` equivalents."}
+  displayName={"JUnit `assertArrayEquals` to AssertJ"}
+  description={"Convert JUnit-style `assertArrayEquals()` to AssertJ's `assertThat().containsExactly()` equivalents."}
   fqName={"org.openrewrite.java.testing.assertj.JUnitAssertArrayEqualsToAssertThat"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/junitassertarrayequalstoassertthat.md"}
 >
 
-<RecipeHeader.Title>JUnit `assertArrayEquals` to assertJ</RecipeHeader.Title>
+<RecipeHeader.Title>JUnit `assertArrayEquals` to AssertJ</RecipeHeader.Title>
 
-<RecipeHeader.Description>Convert JUnit-style `assertArrayEquals()` to AssertJ's `assertThat().contains()` equivalents.</RecipeHeader.Description>
+<RecipeHeader.Description>Convert JUnit-style `assertArrayEquals()` to AssertJ's `assertThat().containsExactly()` equivalents.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.JUnitAssertArrayEqualsToAssertThat","displayName":"JUnit `assertArrayEquals` to assertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.JUnitAssertArrayEqualsToAssertThat","displayName":"JUnit `assertArrayEquals` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

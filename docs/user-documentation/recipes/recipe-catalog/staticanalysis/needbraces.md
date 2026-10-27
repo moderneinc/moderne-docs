@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S121"]}
+  tags={["RSPEC-S121","RSPEC-S5261"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.NeedBraces"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}

@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    private final Object outer = new Object();\n    private final Object inner = new Object();\n\n    void await() throws InterruptedException {\n        synchronized (outer) {\n            synchronized (inner) {\n                inner.wait();\n            }\n        }\n    }\n}\n","after":"class A {\n    private final Object outer = new Object();\n    private final Object inner = new Object();\n\n    void await() throws InterruptedException {\n        synchronized (outer) {\n            synchronized (inner) {\n                /*~~(`wait()` called while holding multiple monitors. Only the receiver's monitor is released; other held monitors continue to block their waiters and can deadlock.)~~>*/inner.wait();\n            }\n        }\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\n        synchronized (outer) {\n            synchronized (inner) {\n-               inner.wait();\n+               /*~~(`wait()` called while holding multiple monitors. Only the receiver's monitor is released; other held monitors continue to block their waiters and can deadlock.)~~>*/inner.wait();\n            }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.FindWaitWithMultipleLocksHeld","displayName":"Find `Object.wait()` calls made while holding multiple monitors","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

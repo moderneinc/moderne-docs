@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Test methods should have void return type"}
-  description={"Test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `void` return type. Non-void return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `void` and removes `return` statements."}
+  description={"Test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `void` return type. Non-void return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `void` and drops the returned values. Test methods that override a method or are called elsewhere in the same file are left unchanged."}
   fqName={"org.openrewrite.java.testing.cleanup.TestMethodsShouldBeVoid"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Test methods should have void return type</RecipeHeader.Title>
 
-<RecipeHeader.Description>Test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `void` return type. Non-void return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `void` and removes `return` statements.</RecipeHeader.Description>
+<RecipeHeader.Description>Test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `void` return type. Non-void return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `void` and drops the returned values. Test methods that override a method or are called elsewhere in the same file are left unchanged.</RecipeHeader.Description>
 
 </RecipeHeader>
 

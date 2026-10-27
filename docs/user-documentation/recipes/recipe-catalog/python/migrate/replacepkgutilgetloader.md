@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `pkgutil.get_loader()` with `importlib.util.find_spec()`"}
-  description={"The `pkgutil.get_loader()` function was deprecated in Python 3.12. Replace with `importlib.util.find_spec()`. Note: returns ModuleSpec, use .loader for loader."}
+  description={"The `pkgutil.get_loader()` function was deprecated in Python 3.12 and removed in 3.14. Replace with `importlib.util.find_spec()`, which returns a `ModuleSpec`, so code that needs the loader reads its `.loader`. A call passing the name as a keyword is left alone. `get_loader()` also accepted a module object, which `find_spec()` does not."}
   fqName={"org.openrewrite.python.migrate.ReplacePkgutilGetLoader"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={[]}
+  tags={["python","migration","3.14","3.12","pkgutil"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplacePkgutilGetLoader"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `pkgutil.get_loader()` with `importlib.util.find_spec()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `pkgutil.get_loader()` function was deprecated in Python 3.12. Replace with `importlib.util.find_spec()`. Note: returns ModuleSpec, use .loader for loader.</RecipeHeader.Description>
+<RecipeHeader.Description>The `pkgutil.get_loader()` function was deprecated in Python 3.12 and removed in 3.14. Replace with `importlib.util.find_spec()`, which returns a `ModuleSpec`, so code that needs the loader reads its `.loader`. A call passing the name as a keyword is left alone. `get_loader()` also accepted a module object, which `find_spec()` does not.</RecipeHeader.Description>
 
 </RecipeHeader>
 

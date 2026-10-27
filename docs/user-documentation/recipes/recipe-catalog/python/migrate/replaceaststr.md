@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `ast.Str` with `ast.Constant`"}
-  description={"The `ast.Str` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, str)`."}
+  description={"The `ast.Str` node type was deprecated in Python 3.8 and removed in Python 3.14. Rename it to `ast.Constant`. An `isinstance` check against `ast.Constant` accepts every constant, and the recipe adds no `isinstance(node.value, str)` guard to narrow it."}
   fqName={"org.openrewrite.python.migrate.ReplaceAstStr"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Python"]}
-  tags={[]}
+  tags={["python","ast","migration","3.14","3.8"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceAstStr"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `ast.Str` with `ast.Constant`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `ast.Str` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, str)`.</RecipeHeader.Description>
+<RecipeHeader.Description>The `ast.Str` node type was deprecated in Python 3.8 and removed in Python 3.14. Rename it to `ast.Constant`. An `isinstance` check against `ast.Constant` accepts every constant, and the recipe adds no `isinstance(node.value, str)` guard to narrow it.</RecipeHeader.Description>
 
 </RecipeHeader>
 

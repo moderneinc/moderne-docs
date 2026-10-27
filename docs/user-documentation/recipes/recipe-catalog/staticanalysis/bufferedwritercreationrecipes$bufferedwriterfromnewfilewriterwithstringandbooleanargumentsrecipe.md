@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["RSPEC-S1943"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.BufferedWriterCreationRecipes$BufferedWriterFromNewFileWriterWithStringAndBooleanArgumentsRecipe"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}

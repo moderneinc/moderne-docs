@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"DevCenter for JavaScript and TypeScript"}
-  description={"A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend. Track Node.js version adoption and the move to ECMAScript 6 across your organization."}
+  description={"A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend.\nTrack Node.js version adoption and the move to ECMAScript 6 across your organization.\n\n**Move to Node.js 26**<br/>\nThe Node.js version each repository declares under `engines` in `package.json`.<br/><br/>\n`Node.js 14+` → `Node.js 16+` → `Node.js 18+` → `Node.js 20+` → `Node.js 22+` → `Node.js 24+` → `Completed` · fix with [`upgrade-node-26`](https://codegenomeproject.org/recipes/org.openrewrite.node.migrate.upgrade-node-26)\n\n**Move to ECMAScript 6**<br/>\nThe share of JavaScript and TypeScript variable declarations that still use `var`.<br/><br/>\n`Mostly var` → `Partly var` → `Little var` → `Completed` · fix with [`ModernizeToES6`](https://codegenomeproject.org/recipes/org.openrewrite.javascript.migrate.es6.ModernizeToES6)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.DevCenterNodeStarter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,22 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>DevCenter for JavaScript and TypeScript</RecipeHeader.Title>
 
-<RecipeHeader.Description>A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend. Track Node.js version adoption and the move to ECMAScript 6 across your organization.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend.
+Track Node.js version adoption and the move to ECMAScript 6 across your organization.
+
+**Move to Node.js 26**<br />
+The Node.js version each repository declares under `engines` in `package.json`.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzM4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNDAnIHdpZHRoPSczOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzgxJyB3aWR0aD0nMzgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRjlCNDgnLz48cmVjdCB4PScxMjEnIHdpZHRoPSczOCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE2MScgd2lkdGg9JzM4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjAxJyB3aWR0aD0nMzknIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyNDInIHdpZHRoPSczOCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==" alt="Node.js 14+ to Completed" /><br />
+`Node.js 14+` → `Node.js 16+` → `Node.js 18+` → `Node.js 20+` → `Node.js 22+` → `Node.js 24+` → `Completed` · fix with [`upgrade-node-26`](https://codegenomeproject.org/recipes/org.openrewrite.node.migrate.upgrade-node-26)
+
+**Move to ECMAScript 6**<br />
+The share of JavaScript and TypeScript variable declarations that still use `var`.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt="Mostly var to Completed" /><br />
+`Mostly var` → `Partly var` → `Little var` → `Completed` · fix with [`ModernizeToES6`](https://codegenomeproject.org/recipes/org.openrewrite.javascript.migrate.es6.ModernizeToES6)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

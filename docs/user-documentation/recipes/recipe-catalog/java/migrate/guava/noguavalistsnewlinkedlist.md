@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaListsNewLinkedList"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/guava/NoGuavaListsNewLinkedList.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/no-guava.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newLinkedList();\n}\n","after":"import java.util.LinkedList;\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new LinkedList<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedList;\nimport java.util.List;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newLinkedList();\n+   List<Integer> cardinalsWorldSeries = new LinkedList<>();\n}\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Prefer `new LinkedList<>()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$listsnewlinkedlistrecipe/"},{"name":"Prefer `new LinkedList<>(Collection)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$listsnewlinkedlistfromcollectionrecipe/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newLinkedList();\n}\n","after":"import java.util.LinkedList;\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new LinkedList<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedList;\nimport java.util.List;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newLinkedList();\n+   List<Integer> cardinalsWorldSeries = new LinkedList<>();\n}\n","newFile":false}]},{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newLinkedList();\n}\n","after":"import java.util.LinkedList;\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new LinkedList<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedList;\nimport java.util.List;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newLinkedList();\n+   List<Integer> cardinalsWorldSeries = new LinkedList<>();\n}\n","newFile":false}]}]}>
 
 ## Examples
 

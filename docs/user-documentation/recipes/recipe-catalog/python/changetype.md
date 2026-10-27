@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<OptionsTable options={[{"type":"String","name":"old_fully_qualified_type_name","required":true,"description":"Fully-qualified class name of the original type.","example":"ast.Num"},{"type":"String","name":"new_fully_qualified_type_name","required":true,"description":"Fully-qualified class name of the replacement type.","example":"ast.Constant"},{"type":"String","name":"ignore_definition","required":false,"description":"When set to True, the definition of the old type will be left untouched. This is useful when you're renaming the type itself."}]}>
+
+## Options
+
+</OptionsTable>
+
 <UsageList usage={{"recipeName":"org.openrewrite.python.ChangeType","displayName":"Change type","pipPackage":"openrewrite","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}}>
 
 ## Usage

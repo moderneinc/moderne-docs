@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/removeobsoleterunners/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendWith` replacement","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/removeobsoleterunners/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Include an assertion in tests"}
-  description={"For tests not having any assertions, wrap the statements with JUnit Jupiter's `Assertions#assertDoesNotThrow(..)`."}
+  description={"For tests not having any assertions, wrap the statements with JUnit Jupiter's `Assertions#assertDoesNotThrow(..)`. Tests that make an assumption are left unchanged, as wrapping them would report a skipped test as a failure."}
   fqName={"org.openrewrite.java.testing.cleanup.TestsShouldIncludeAssertions"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Include an assertion in tests</RecipeHeader.Title>
 
-<RecipeHeader.Description>For tests not having any assertions, wrap the statements with JUnit Jupiter's `Assertions#assertDoesNotThrow(..)`.</RecipeHeader.Description>
+<RecipeHeader.Description>For tests not having any assertions, wrap the statements with JUnit Jupiter's `Assertions#assertDoesNotThrow(..)`. Tests that make an assumption are left unchanged, as wrapping them would report a skipped test as a failure.</RecipeHeader.Description>
 
 </RecipeHeader>
 

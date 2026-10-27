@@ -1,6 +1,6 @@
 ---
-title: "Spring security best practices"
-sidebar_label: "Spring security best practices"
+title: "Spring Security best practices"
+sidebar_label: "Spring Security best practices"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Spring security best practices"}
+  displayName={"Spring Security best practices"}
   description={"Applies security best practices to Spring applications, including TLS for database and message broker connections."}
   fqName={"org.openrewrite.java.spring.security.SpringSecurityBestPractices"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security/springsecuritybestpractices.md"}
 >
 
-<RecipeHeader.Title>Spring security best practices</RecipeHeader.Title>
+<RecipeHeader.Title>Spring Security best practices</RecipeHeader.Title>
 
 <RecipeHeader.Description>Applies security best practices to Spring applications, including TLS for database and message broker connections.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.security.SpringSecurityBestPractices","displayName":"Spring security best practices","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.security.SpringSecurityBestPractices","displayName":"Spring Security best practices","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

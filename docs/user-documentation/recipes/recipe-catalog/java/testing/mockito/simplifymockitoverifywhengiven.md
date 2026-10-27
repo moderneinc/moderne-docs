@@ -1,6 +1,6 @@
 ---
-title: "Call to Mockito method \"verify\", \"when\" or \"given\" should be simplified"
-sidebar_label: "Call to Mockito method \"verify\", \"when\" or \"given\" should be simplified"
+title: "Remove `eq()` matchers from Mockito `verify`, `when` and `given` calls"
+sidebar_label: "Remove `eq()` matchers from Mockito `verify`, `when` and `given` calls"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Call to Mockito method \"verify\", \"when\" or \"given\" should be simplified"}
+  displayName={"Remove `eq()` matchers from Mockito `verify`, `when` and `given` calls"}
   description={"Fixes Sonar issue `java:S6068`: Call to Mockito method \"verify\", \"when\" or \"given\" should be simplified."}
   fqName={"org.openrewrite.java.testing.mockito.SimplifyMockitoVerifyWhenGiven"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/simplifymockitoverifywhengiven.md"}
 >
 
-<RecipeHeader.Title>Call to Mockito method "verify", "when" or "given" should be simplified</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `eq()` matchers from Mockito `verify`, `when` and `given` calls</RecipeHeader.Title>
 
 <RecipeHeader.Description>Fixes Sonar issue `java:S6068`: Call to Mockito method "verify", "when" or "given" should be simplified.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.SimplifyMockitoVerifyWhenGiven","displayName":"Call to Mockito method \"verify\", \"when\" or \"given\" should be simplified","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.SimplifyMockitoVerifyWhenGiven","displayName":"Remove `eq()` matchers from Mockito `verify`, `when` and `given` calls","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

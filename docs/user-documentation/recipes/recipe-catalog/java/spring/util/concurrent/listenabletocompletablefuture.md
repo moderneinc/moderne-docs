@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate `ListenableFuture` to `CompletableFuture`"}
-  description={"Spring Framework 6.0 removed `org.springframework.util.concurrent.ListenableFuture` in favor of `java.util.concurrent.CompletableFuture`. This recipe migrates `ListenableFuture` types, along with their `addCallback` invocations and `ListenableFutureCallback` implementations, to `CompletableFuture`."}
+  description={"Spring Framework 6.0 removed `org.springframework.util.concurrent.ListenableFuture` in favor of `java.util.concurrent.CompletableFuture`. This recipe migrates `ListenableFuture` types, along with their `addCallback` invocations and `ListenableFutureCallback` implementations, to `CompletableFuture`. Files with an `addCallback` invocation that can't be converted are left unchanged."}
   fqName={"org.openrewrite.java.spring.util.concurrent.ListenableToCompletableFuture"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate `ListenableFuture` to `CompletableFuture`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Spring Framework 6.0 removed `org.springframework.util.concurrent.ListenableFuture` in favor of `java.util.concurrent.CompletableFuture`. This recipe migrates `ListenableFuture` types, along with their `addCallback` invocations and `ListenableFutureCallback` implementations, to `CompletableFuture`.</RecipeHeader.Description>
+<RecipeHeader.Description>Spring Framework 6.0 removed `org.springframework.util.concurrent.ListenableFuture` in favor of `java.util.concurrent.CompletableFuture`. This recipe migrates `ListenableFuture` types, along with their `addCallback` invocations and `ListenableFutureCallback` implementations, to `CompletableFuture`. Files with an `addCallback` invocation that can't be converted are left unchanged.</RecipeHeader.Description>
 
 </RecipeHeader>
 

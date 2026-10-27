@@ -1,6 +1,6 @@
 ---
-title: "Changes code to use Java 17's `instanceof` pattern matching"
-sidebar_label: "Changes code to use Java 17's `instanceof` pattern matching"
+title: "Change code to use Java 17's `instanceof` pattern matching"
+sidebar_label: "Change code to use Java 17's `instanceof` pattern matching"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Changes code to use Java 17's `instanceof` pattern matching"}
+  displayName={"Change code to use Java 17's `instanceof` pattern matching"}
   description={"Adds pattern variables to `instanceof` expressions wherever the same (side effect free) expression is referenced in a corresponding type cast expression within the flow scope of the `instanceof`. Currently, this recipe supports `if` statements and ternary operator expressions. Pattern matching for `instanceof` collapses the type check, cast, and variable declaration into a single expression, reducing boilerplate and eliminating the risk of an incorrect cast."}
   fqName={"org.openrewrite.staticanalysis.InstanceOfPatternMatch"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/instanceofpatternmatch.md"}
 >
 
-<RecipeHeader.Title>Changes code to use Java 17's `instanceof` pattern matching</RecipeHeader.Title>
+<RecipeHeader.Title>Change code to use Java 17's `instanceof` pattern matching</RecipeHeader.Title>
 
 <RecipeHeader.Description>Adds pattern variables to `instanceof` expressions wherever the same (side effect free) expression is referenced in a corresponding type cast expression within the flow scope of the `instanceof`. Currently, this recipe supports `if` statements and ternary operator expressions. Pattern matching for `instanceof` collapses the type check, cast, and variable declaration into a single expression, reducing boilerplate and eliminating the risk of an incorrect cast.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.InstanceOfPatternMatch","displayName":"Changes code to use Java 17's `instanceof` pattern matching","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.InstanceOfPatternMatch","displayName":"Change code to use Java 17's `instanceof` pattern matching","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

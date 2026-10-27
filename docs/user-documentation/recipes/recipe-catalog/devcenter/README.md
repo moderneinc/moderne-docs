@@ -10,8 +10,8 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Apache Maven best practices](./apachemavenbestpractices.md)
 * [Class cohesion DevCenter](./classcohesiondevcenter.md)
-* [DevCenter](./devcenterstarter.md)
 * [DevCenter Kotlin](./devcenterkotlin.md)
+* [DevCenter Starter](./devcenterstarter.md)
 * [DevCenter for Angular](./devcenterangularstarter.md)
 * [DevCenter for Apache](./apachedevcenter.md)
 * [DevCenter for Apache Maven](./apachemavendevcenter.md)
@@ -23,7 +23,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [DevCenter for Quarkus](./quarkusdevcenter.md)
 * [DevCenter for Vulnerability Management](./vulnerabilitiesdevcenter.md)
 * [OWASP top ten](./securitystarter.md)
-* [Upgrade to Quarkus 3.26](./upgradequarkus3_x.md)
 
 ## Recipes
 

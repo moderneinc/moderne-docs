@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Code cleanup"}
-  description={"Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions."}
+  description={"Automatically clean up code, e.g. remove unnecessary parentheses, add missing braces and fix whitespace."}
   fqName={"org.openrewrite.staticanalysis.CodeCleanup"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Code cleanup</RecipeHeader.Title>
 
-<RecipeHeader.Description>Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions.</RecipeHeader.Description>
+<RecipeHeader.Description>Automatically clean up code, e.g. remove unnecessary parentheses, add missing braces and fix whitespace.</RecipeHeader.Description>
 
 </RecipeHeader>
 

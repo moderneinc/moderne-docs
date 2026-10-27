@@ -1,6 +1,6 @@
 ---
-title: "Maven repository order"
-sidebar_label: "Maven repository order"
+title: "Gradle or Maven repository order"
+sidebar_label: "Gradle or Maven repository order"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Maven repository order"}
-  description={"Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories and effective settings."}
+  displayName={"Gradle or Maven repository order"}
+  description={"Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories. For Maven, the effective `settings.xml` is also taken into account."}
   fqName={"org.openrewrite.java.dependencies.FindRepositoryOrder"}
   languages={["Java"]}
   license={"Apache License Version 2.0"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/findrepositoryorder.md"}
 >
 
-<RecipeHeader.Title>Maven repository order</RecipeHeader.Title>
+<RecipeHeader.Title>Gradle or Maven repository order</RecipeHeader.Title>
 
-<RecipeHeader.Description>Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories and effective settings.</RecipeHeader.Description>
+<RecipeHeader.Description>Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories. For Maven, the effective `settings.xml` is also taken into account.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.FindRepositoryOrder","displayName":"Maven repository order","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.FindRepositoryOrder","displayName":"Gradle or Maven repository order","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":false}}>
 
 ## Usage
 

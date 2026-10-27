@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Add missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Add a Jakarta JAXB runtime for Maven applications"}
-  description={"Add a Jakarta JAXB 3 runtime when a Maven module calls JAXBContext.newInstance and has no explicit JAXB provider or provided Jakarta platform. Java 8's built-in javax provider cannot serve Jakarta calls. Annotation-only modules are left alone and test-only calls receive a test dependency."}
+  description={"Add a Jakarta JAXB 3 runtime when a Maven module calls `JAXBContext.newInstance` and has no explicit JAXB provider or provided Jakarta platform. Java 8's built-in `javax` provider cannot serve Jakarta calls. Annotation-only modules are left alone and test-only calls receive a test dependency."}
   fqName={"org.openrewrite.java.migrate.jakarta.AddJakartaXmlBindRuntime"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Add a Jakarta JAXB runtime for Maven applications</RecipeHeader.Title>
 
-<RecipeHeader.Description>Add a Jakarta JAXB 3 runtime when a Maven module calls JAXBContext.newInstance and has no explicit JAXB provider or provided Jakarta platform. Java 8's built-in javax provider cannot serve Jakarta calls. Annotation-only modules are left alone and test-only calls receive a test dependency.</RecipeHeader.Description>
+<RecipeHeader.Description>Add a Jakarta JAXB 3 runtime when a Maven module calls `JAXBContext.newInstance` and has no explicit JAXB provider or provided Jakarta platform. Java 8's built-in `javax` provider cannot serve Jakarta calls. Annotation-only modules are left alone and test-only calls receive a test dependency.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -1,6 +1,6 @@
 ---
-title: "Rewrite JMockit MockUp to Mockito statements"
-sidebar_label: "Rewrite JMockit MockUp to Mockito statements"
+title: "Rewrite JMockit `MockUp` to Mockito statements"
+sidebar_label: "Rewrite JMockit `MockUp` to Mockito statements"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Rewrite JMockit MockUp to Mockito statements"}
-  description={"Rewrites JMockit `MockUp` blocks to Mockito statements. This recipe will not rewrite private methods in MockUp."}
+  displayName={"Rewrite JMockit `MockUp` to Mockito statements"}
+  description={"Rewrites JMockit `MockUp` blocks that are statements in a method body to Mockito `mockStatic` and `mockConstructionWithAnswer` calls. `@Mock` methods that fake a private method can not be stubbed with Mockito and are dropped."}
   fqName={"org.openrewrite.java.testing.jmockit.JMockitMockUpToMockito"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockitmockuptomockito.md"}
 >
 
-<RecipeHeader.Title>Rewrite JMockit MockUp to Mockito statements</RecipeHeader.Title>
+<RecipeHeader.Title>Rewrite JMockit `MockUp` to Mockito statements</RecipeHeader.Title>
 
-<RecipeHeader.Description>Rewrites JMockit `MockUp` blocks to Mockito statements. This recipe will not rewrite private methods in MockUp.</RecipeHeader.Description>
+<RecipeHeader.Description>Rewrites JMockit `MockUp` blocks that are statements in a method body to Mockito `mockStatic` and `mockConstructionWithAnswer` calls. `@Mock` methods that fake a private method can not be stubbed with Mockito and are dropped.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.jmockit.JMockitMockUpToMockito","displayName":"Rewrite JMockit MockUp to Mockito statements","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.jmockit.JMockitMockUpToMockito","displayName":"Rewrite JMockit `MockUp` to Mockito statements","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

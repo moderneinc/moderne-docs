@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Use `kafkaAwareTransactionManager` setter","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacekafkatransactionmanagersetter/"},{"name":"Migrates Spring Kafka deprecated error handlers","href":"/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_2_8_errorhandlers/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Use `kafkaAwareTransactionManager` setter","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacekafkatransactionmanagersetter/"},{"name":"Migrate deprecated Spring Kafka error handlers","href":"/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_2_8_errorhandlers/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

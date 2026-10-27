@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Collapse `if`/`else` returning boolean literals"}
-  description={"Replace `if cond: return True / else: return False` with `return cond` and the inverse with `return not cond`, including the fallthrough variant without an explicit `else`. A condition other than a comparison, a `not`, or an `and`/`or` of those is returned as `bool(cond)`. The rewrite is declined where `bool` is not the builtin or the removed statements hold comments."}
+  description={"Replace `if cond: return True / else: return False` with `return cond` and the inverse with `return not cond`, including the fallthrough variant without an explicit `else`. A condition other than a comparison, a `not`, or an `and`/`or` of those is returned as `bool(cond)`. The rewrite is declined on an `elif`, where `bool` is not the builtin, or where the removed statements hold comments."}
   fqName={"org.openrewrite.python.cleanup.SimplifyBooleanReturn"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Collapse `if`/`else` returning boolean literals</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `if cond: return True / else: return False` with `return cond` and the inverse with `return not cond`, including the fallthrough variant without an explicit `else`. A condition other than a comparison, a `not`, or an `and`/`or` of those is returned as `bool(cond)`. The rewrite is declined where `bool` is not the builtin or the removed statements hold comments.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `if cond: return True / else: return False` with `return cond` and the inverse with `return not cond`, including the fallthrough variant without an explicit `else`. A condition other than a comparison, a `not`, or an `and`/`or` of those is returned as `bool(cond)`. The rewrite is declined on an `elif`, where `bool` is not the builtin, or where the removed statements hold comments.</RecipeHeader.Description>
 
 </RecipeHeader>
 

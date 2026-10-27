@@ -87,6 +87,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Update Maven Java project properties](./updatemavenprojectpropertyjavaversion.md)
 * [Update Maven wrapper](./updatemavenwrapper.md)
 * [Update SCM with Git origin](./updatescmfromgitorigin.md)
+* [Update project URL with Git origin](./updateprojecturlfromgitorigin.md)
 * [Upgrade Maven dependency version](./upgradedependencyversion.md)
 * [Upgrade Maven parent project version](./upgradeparentversion.md)
 * [Upgrade Maven plugin version](./upgradepluginversion.md)

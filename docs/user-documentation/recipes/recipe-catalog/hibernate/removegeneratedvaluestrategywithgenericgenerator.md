@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.Entity;\nimport jakarta.persistence.GeneratedValue;\nimport jakarta.persistence.GenerationType;\nimport jakarta.persistence.Id;\nimport org.hibernate.annotations.GenericGenerator;\nimport org.hibernate.annotations.Parameter;\n\n@Entity\nclass A {\n    @Id\n    @GenericGenerator(name = \"MY_ID_GEN\", strategy = \"com.example.MyTableGenerator\",\n        parameters = { @Parameter(name = \"table\", value = \"MY_ID_SEQ\") })\n    @GeneratedValue(strategy = GenerationType.TABLE, generator = \"MY_ID_GEN\")\n    Long id;\n}\n","after":"import jakarta.persistence.Entity;\nimport jakarta.persistence.GeneratedValue;\nimport jakarta.persistence.Id;\nimport org.hibernate.annotations.GenericGenerator;\nimport org.hibernate.annotations.Parameter;\n\n@Entity\nclass A {\n    @Id\n    @GenericGenerator(name = \"MY_ID_GEN\", strategy = \"com.example.MyTableGenerator\",\n        parameters = { @Parameter(name = \"table\", value = \"MY_ID_SEQ\") })\n    @GeneratedValue(generator = \"MY_ID_GEN\")\n    Long id;\n}\n","diff":"@@ -3,1 +3,0 @@\nimport jakarta.persistence.Entity;\nimport jakarta.persistence.GeneratedValue;\n-import jakarta.persistence.GenerationType;\nimport jakarta.persistence.Id;\n@@ -13,1 +12,1 @@\n    @GenericGenerator(name = \"MY_ID_GEN\", strategy = \"com.example.MyTableGenerator\",\n        parameters = { @Parameter(name = \"table\", value = \"MY_ID_SEQ\") })\n-   @GeneratedValue(strategy = GenerationType.TABLE, generator = \"MY_ID_GEN\")\n+   @GeneratedValue(generator = \"MY_ID_GEN\")\n    Long id;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.hibernate.RemoveGeneratedValueStrategyWithGenericGenerator","displayName":"Remove `@GeneratedValue` strategy when a custom `@GenericGenerator` is used","groupId":"org.openrewrite.recipe","artifactId":"rewrite-hibernate","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_HIBERNATE","requiresConfiguration":false}}>
 
 ## Usage

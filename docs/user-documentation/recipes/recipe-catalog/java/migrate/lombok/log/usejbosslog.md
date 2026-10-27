@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `@JBossLog` instead of explicit fields"}
-  description={"Prefer the lombok annotation `@JBossLog` over explicitly written out `org.jboss.logging.Logger` fields."}
+  description={"Prefer the Lombok annotation `@JBossLog` over explicitly written out `org.jboss.logging.Logger` fields."}
   fqName={"org.openrewrite.java.migrate.lombok.log.UseJBossLog"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `@JBossLog` instead of explicit fields</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer the lombok annotation `@JBossLog` over explicitly written out `org.jboss.logging.Logger` fields.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer the Lombok annotation `@JBossLog` over explicitly written out `org.jboss.logging.Logger` fields.</RecipeHeader.Description>
 
 </RecipeHeader>
 

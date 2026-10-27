@@ -1,6 +1,6 @@
 ---
-title: "Update SDKMan Java version"
-sidebar_label: "Update SDKMan Java version"
+title: "Update SDKMAN! Java version"
+sidebar_label: "Update SDKMAN! Java version"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Update SDKMan Java version"}
-  description={"Update the SDKMAN JDK version in the `.sdkmanrc` file. Given a major release (e.g., 17), the recipe will update the current distribution to the current default SDKMAN version of the specified major release. The distribution option can be used to specify a specific JVM distribution. Note that these must correspond to valid SDKMAN distributions."}
+  displayName={"Update SDKMAN! Java version"}
+  description={"Update the SDKMAN! JDK version in the `.sdkmanrc` file. Given a major release (e.g., 17), the recipe will update the current distribution to the current default SDKMAN! version of the specified major release. The distribution option can be used to specify a specific JVM distribution. Note that these must correspond to valid SDKMAN! distributions."}
   fqName={"org.openrewrite.java.migrate.UpdateSdkMan"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/updatesdkman.md"}
 >
 
-<RecipeHeader.Title>Update SDKMan Java version</RecipeHeader.Title>
+<RecipeHeader.Title>Update SDKMAN! Java version</RecipeHeader.Title>
 
-<RecipeHeader.Description>Update the SDKMAN JDK version in the `.sdkmanrc` file. Given a major release (e.g., 17), the recipe will update the current distribution to the current default SDKMAN version of the specified major release. The distribution option can be used to specify a specific JVM distribution. Note that these must correspond to valid SDKMAN distributions.</RecipeHeader.Description>
+<RecipeHeader.Description>Update the SDKMAN! JDK version in the `.sdkmanrc` file. Given a major release (e.g., 17), the recipe will update the current distribution to the current default SDKMAN! version of the specified major release. The distribution option can be used to specify a specific JVM distribution. Note that these must correspond to valid SDKMAN! distributions.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.UpdateSdkMan","displayName":"Update SDKMan Java version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"newVersion=17\" --recipe-option \"newDistribution=tem\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.UpdateSdkMan","displayName":"Update SDKMAN! Java version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"newVersion=17\" --recipe-option \"newDistribution=tem\""}}>
 
 ## Usage
 

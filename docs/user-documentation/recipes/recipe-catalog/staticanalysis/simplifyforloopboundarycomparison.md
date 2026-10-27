@@ -1,6 +1,6 @@
 ---
-title: "Simplify for loop boundary comparisons"
-sidebar_label: "Simplify for loop boundary comparisons"
+title: "Simplify `for` loop boundary comparisons"
+sidebar_label: "Simplify `for` loop boundary comparisons"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Simplify for loop boundary comparisons"}
+  displayName={"Simplify `for` loop boundary comparisons"}
   description={"Replace `<=` with `<` in for loop conditions by adjusting the comparison operands. For example, `i <= n - 1` simplifies to `i < n`, and `i <= n` becomes `i < n + 1`."}
   fqName={"org.openrewrite.staticanalysis.SimplifyForLoopBoundaryComparison"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyforloopboundarycomparison.md"}
 >
 
-<RecipeHeader.Title>Simplify for loop boundary comparisons</RecipeHeader.Title>
+<RecipeHeader.Title>Simplify `for` loop boundary comparisons</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replace `<=` with `<` in for loop conditions by adjusting the comparison operands. For example, `i <= n - 1` simplifies to `i < n`, and `i <= n` becomes `i < n + 1`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.SimplifyForLoopBoundaryComparison","displayName":"Simplify for loop boundary comparisons","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.SimplifyForLoopBoundaryComparison","displayName":"Simplify `for` loop boundary comparisons","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

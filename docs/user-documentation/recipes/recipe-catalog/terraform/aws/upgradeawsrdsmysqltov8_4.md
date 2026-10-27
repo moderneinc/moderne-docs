@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade AWS RDS MySQL to 8.4"}
-  description={"Upgrade `engine_version` to MySQL 8.4 on `aws_db_instance` resources and set `allow_major_version_upgrade = true` to permit the major version change."}
+  description={"Upgrade `engine_version` from MySQL 8.0 to 8.4 on `aws_db_instance` resources with `engine = \"mysql\"` and set `allow_major_version_upgrade = true` to permit the major version change."}
   fqName={"org.openrewrite.terraform.aws.UpgradeAwsRdsMySqlToV8_4"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade AWS RDS MySQL to 8.4</RecipeHeader.Title>
 
-<RecipeHeader.Description>Upgrade `engine_version` to MySQL 8.4 on `aws_db_instance` resources and set `allow_major_version_upgrade = true` to permit the major version change.</RecipeHeader.Description>
+<RecipeHeader.Description>Upgrade `engine_version` from MySQL 8.0 to 8.4 on `aws_db_instance` resources with `engine = "mysql"` and set `allow_major_version_upgrade = true` to permit the major version change.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change Terraform resource attribute","href":"/user-documentation/recipes/recipe-catalog/terraform/changeresourceattribute/"},{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
+<RecipeList recipes={[{"name":"Add content","href":"/user-documentation/recipes/recipe-catalog/hcl/addcontent/"},{"name":"Change value","href":"/user-documentation/recipes/recipe-catalog/hcl/changevalue/"},{"name":"Change value","href":"/user-documentation/recipes/recipe-catalog/hcl/changevalue/"}]}>
 
 ## Definition
 

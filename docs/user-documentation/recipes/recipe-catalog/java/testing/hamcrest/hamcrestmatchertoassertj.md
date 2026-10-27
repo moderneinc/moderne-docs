@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"matcher","required":false,"description":"The Hamcrest `Matcher` to migrate to JUnit5.","example":"equalTo"},{"type":"String","name":"assertion","required":false,"description":"The AssertJ method to migrate to.","example":"isEqualTo"},{"type":"String","name":"argumentType","required":false,"description":"The type of the argument to the Hamcrest `Matcher`.","example":"java.math.BigDecimal"}]}>
+<OptionsTable options={[{"type":"String","name":"matcher","required":false,"description":"The Hamcrest `Matcher` to migrate to AssertJ.","example":"equalTo"},{"type":"String","name":"assertion","required":false,"description":"The AssertJ method to migrate to.","example":"isEqualTo"},{"type":"String","name":"argumentType","required":false,"description":"The type of the argument to the Hamcrest `Matcher`.","example":"java.math.BigDecimal"}]}>
 
 ## Options
 

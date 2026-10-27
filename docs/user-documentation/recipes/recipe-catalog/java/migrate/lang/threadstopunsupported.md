@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` with `throw new UnsupportedOperationException()`"}
-  description={"`Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` always throws a `new UnsupportedOperationException` in Java 21+. This recipe makes that explicit, as the migration is more complicated. See https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/doc-files/threadPrimitiveDeprecation.html ."}
+  description={"`Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` always throw an `UnsupportedOperationException` in Java 21+. This recipe makes that explicit, and adds a comment pointing to the [migration guide](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/doc-files/threadPrimitiveDeprecation.html), as the migration is more complicated. On earlier Java versions only the comment is added."}
   fqName={"org.openrewrite.java.migrate.lang.ThreadStopUnsupported"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` with `throw new UnsupportedOperationException()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>`Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` always throws a `new UnsupportedOperationException` in Java 21+. This recipe makes that explicit, as the migration is more complicated. See https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/doc-files/threadPrimitiveDeprecation.html .</RecipeHeader.Description>
+<RecipeHeader.Description>`Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` always throw an `UnsupportedOperationException` in Java 21+. This recipe makes that explicit, and adds a comment pointing to the [migration guide](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/doc-files/threadPrimitiveDeprecation.html), as the migration is more complicated. On earlier Java versions only the comment is added.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use explicit `this.field` and `this.method()`"}
-  description={"Add explicit 'this.' prefix to field and method access."}
+  description={"Add explicit `this.` prefix to field and method access."}
   fqName={"org.openrewrite.staticanalysis.ExplicitThis"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use explicit `this.field` and `this.method()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Add explicit 'this.' prefix to field and method access.</RecipeHeader.Description>
+<RecipeHeader.Description>Add explicit `this.` prefix to field and method access.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -1,6 +1,6 @@
 ---
-title: "Keep the default RequestCache querying behavior in Spring Security 5"
-sidebar_label: "Keep the default RequestCache querying behavior in Spring Security 5"
+title: "Keep the Spring Security 5 `RequestCache` querying behavior"
+sidebar_label: "Keep the Spring Security 5 `RequestCache` querying behavior"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Keep the default RequestCache querying behavior in Spring Security 5"}
-  description={"By default, Spring Security 5 queries the saved request on every request, which means that in a typical setup, the HttpSession is queried on every request to use the RequestCache. In Spring Security 6, the default behavior has changed, and RequestCache will only be queried for a cached request if the HTTP parameter \"continue\" is defined. To maintain the same default behavior as Spring Security 5, either explicitly add the HTTP parameter \"continue\" to every request or use NullRequestCache to override the default behavior."}
+  displayName={"Keep the Spring Security 5 `RequestCache` querying behavior"}
+  description={"By default, Spring Security 5 queries the saved request on every request, which means that in a typical setup, the `HttpSession` is queried on every request to use the `RequestCache`. In Spring Security 6, the default behavior has changed, and `RequestCache` will only be queried for a cached request if the HTTP parameter `continue` is defined. To maintain the Spring Security 5 behavior, `setMatchingRequestParameterName(null)` is called on `HttpSessionRequestCache` instances assigned to a local variable."}
   fqName={"org.openrewrite.java.spring.security6.UpdateRequestCache"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/updaterequestcache.md"}
 >
 
-<RecipeHeader.Title>Keep the default RequestCache querying behavior in Spring Security 5</RecipeHeader.Title>
+<RecipeHeader.Title>Keep the Spring Security 5 `RequestCache` querying behavior</RecipeHeader.Title>
 
-<RecipeHeader.Description>By default, Spring Security 5 queries the saved request on every request, which means that in a typical setup, the HttpSession is queried on every request to use the RequestCache. In Spring Security 6, the default behavior has changed, and RequestCache will only be queried for a cached request if the HTTP parameter "continue" is defined. To maintain the same default behavior as Spring Security 5, either explicitly add the HTTP parameter "continue" to every request or use NullRequestCache to override the default behavior.</RecipeHeader.Description>
+<RecipeHeader.Description>By default, Spring Security 5 queries the saved request on every request, which means that in a typical setup, the `HttpSession` is queried on every request to use the `RequestCache`. In Spring Security 6, the default behavior has changed, and `RequestCache` will only be queried for a cached request if the HTTP parameter `continue` is defined. To maintain the Spring Security 5 behavior, `setMatchingRequestParameterName(null)` is called on `HttpSessionRequestCache` instances assigned to a local variable.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.security6.UpdateRequestCache","displayName":"Keep the default RequestCache querying behavior in Spring Security 5","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.security6.UpdateRequestCache","displayName":"Keep the Spring Security 5 `RequestCache` querying behavior","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

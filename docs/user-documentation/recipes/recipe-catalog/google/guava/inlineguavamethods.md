@@ -1,6 +1,6 @@
 ---
-title: "Inline `guava` methods annotated with `@InlineMe`"
-sidebar_label: "Inline `guava` methods annotated with `@InlineMe`"
+title: "Inline Guava methods annotated with `@InlineMe`"
+sidebar_label: "Inline Guava methods annotated with `@InlineMe`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Inline `guava` methods annotated with `@InlineMe`"}
+  displayName={"Inline Guava methods annotated with `@InlineMe`"}
   description={"Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table."}
   fqName={"com.google.guava.InlineGuavaMethods"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/google/guava/inlineguavamethods.md"}
 >
 
-<RecipeHeader.Title>Inline `guava` methods annotated with `@InlineMe`</RecipeHeader.Title>
+<RecipeHeader.Title>Inline Guava methods annotated with `@InlineMe`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"com.google.guava.InlineGuavaMethods","displayName":"Inline `guava` methods annotated with `@InlineMe`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"com.google.guava.InlineGuavaMethods","displayName":"Inline Guava methods annotated with `@InlineMe`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

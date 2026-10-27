@@ -1,6 +1,6 @@
 ---
-title: "Simplify WebTestClient expressions"
-sidebar_label: "Simplify WebTestClient expressions"
+title: "Simplify `WebTestClient` expressions"
+sidebar_label: "Simplify `WebTestClient` expressions"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Simplify WebTestClient expressions"}
-  description={"Simplifies various types of WebTestClient expressions to improve code readability."}
+  displayName={"Simplify `WebTestClient` expressions"}
+  description={"Simplifies various types of `WebTestClient` expressions to improve code readability."}
   fqName={"org.openrewrite.java.spring.http.SimplifyWebTestClientCalls"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/http/simplifywebtestclientcalls.md"}
 >
 
-<RecipeHeader.Title>Simplify WebTestClient expressions</RecipeHeader.Title>
+<RecipeHeader.Title>Simplify `WebTestClient` expressions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Simplifies various types of WebTestClient expressions to improve code readability.</RecipeHeader.Description>
+<RecipeHeader.Description>Simplifies various types of `WebTestClient` expressions to improve code readability.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.http.SimplifyWebTestClientCalls","displayName":"Simplify WebTestClient expressions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.http.SimplifyWebTestClientCalls","displayName":"Simplify `WebTestClient` expressions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

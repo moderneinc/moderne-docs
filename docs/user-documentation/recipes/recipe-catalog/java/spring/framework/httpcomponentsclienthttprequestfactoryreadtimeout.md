@@ -1,6 +1,6 @@
 ---
-title: "Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`"
-sidebar_label: "Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`"
+title: "Migrate `setReadTimeout(int)` to SocketConfig `setSoTimeout(..)`"
+sidebar_label: "Migrate `setReadTimeout(int)` to SocketConfig `setSoTimeout(..)`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`"}
+  displayName={"Migrate `setReadTimeout(int)` to SocketConfig `setSoTimeout(..)`"}
   description={"`setReadTimeout(..)` was removed in Spring Framework 6.1."}
   fqName={"org.openrewrite.java.spring.framework.HttpComponentsClientHttpRequestFactoryReadTimeout"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/httpcomponentsclienthttprequestfactoryreadtimeout.md"}
 >
 
-<RecipeHeader.Title>Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate `setReadTimeout(int)` to SocketConfig `setSoTimeout(..)`</RecipeHeader.Title>
 
 <RecipeHeader.Description>`setReadTimeout(..)` was removed in Spring Framework 6.1.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.framework.HttpComponentsClientHttpRequestFactoryReadTimeout","displayName":"Migrate `setReadTimeout(java.lang.int)` to SocketConfig `setSoTimeout(..)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.framework.HttpComponentsClientHttpRequestFactoryReadTimeout","displayName":"Migrate `setReadTimeout(int)` to SocketConfig `setSoTimeout(..)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

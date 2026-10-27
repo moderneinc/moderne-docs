@@ -1,6 +1,6 @@
 ---
-title: "JUnit 4 `Assert` To JUnit Jupiter `Assertions`"
-sidebar_label: "JUnit 4 `Assert` To JUnit Jupiter `Assertions`"
+title: "JUnit 4 `Assert` to JUnit Jupiter `Assertions`"
+sidebar_label: "JUnit 4 `Assert` to JUnit Jupiter `Assertions`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"JUnit 4 `Assert` To JUnit Jupiter `Assertions`"}
+  displayName={"JUnit 4 `Assert` to JUnit Jupiter `Assertions`"}
   description={"Change JUnit 4's `org.junit.Assert` into JUnit Jupiter's `org.junit.jupiter.api.Assertions`."}
   fqName={"org.openrewrite.java.testing.junit5.AssertToAssertions"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/asserttoassertions.md"}
 >
 
-<RecipeHeader.Title>JUnit 4 `Assert` To JUnit Jupiter `Assertions`</RecipeHeader.Title>
+<RecipeHeader.Title>JUnit 4 `Assert` to JUnit Jupiter `Assertions`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Change JUnit 4's `org.junit.Assert` into JUnit Jupiter's `org.junit.jupiter.api.Assertions`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.AssertToAssertions","displayName":"JUnit 4 `Assert` To JUnit Jupiter `Assertions`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.AssertToAssertions","displayName":"JUnit 4 `Assert` to JUnit Jupiter `Assertions`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

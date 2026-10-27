@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace calls to `Thread.run()` with `Thread.start()`"}
-  description={"`Thread.run()` should not be called directly."}
+  description={"Replaces calls to `Thread.run()` with `Thread.start()`, so that the code runs on a new thread instead of the calling thread."}
   fqName={"org.openrewrite.staticanalysis.ReplaceThreadRunWithThreadStart"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace calls to `Thread.run()` with `Thread.start()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>`Thread.run()` should not be called directly.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces calls to `Thread.run()` with `Thread.start()`, so that the code runs on a new thread instead of the calling thread.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

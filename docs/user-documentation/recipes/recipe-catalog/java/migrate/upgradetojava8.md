@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Java 7","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava7/"},{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"},{"name":"MBean and MXBean interfaces must be public","href":"/user-documentation/recipes/recipe-catalog/java/migrate/mxbeanrule/"},{"name":"Migrate Bouncy Castle to `jdk18on`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/bouncecastlefromjdk15ontojdk18on/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Java 7","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava7/"},{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"},{"name":"Make MBean and MXBean interfaces public","href":"/user-documentation/recipes/recipe-catalog/java/migrate/mxbeanrule/"},{"name":"Migrate Bouncy Castle to `jdk18on`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/bouncecastlefromjdk15ontojdk18on/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

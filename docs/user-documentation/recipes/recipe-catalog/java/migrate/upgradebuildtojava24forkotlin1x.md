@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade build to Java 24 for Kotlin 1.x"}
-  description={"Kotlin versions before 2.3 only support up to Java 24, and Kotlin 1.x cannot be safely upgraded automatically because crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change. Such modules are therefore capped at Java 24 and annotated with an explanation. Modules already on Kotlin 2.0-2.2 are instead bumped to Kotlin 2.3 by `UpgradeKotlinForJava25` so they can reach Java 25. Applies only to modules that actually compile Kotlin (i.e. contain `.kt` source files), so transitive `kotlin-stdlib` dependencies do not trigger the cap."}
+  description={"Kotlin versions before 2.3 only support up to Java 24, and Kotlin 1.x cannot be safely upgraded automatically because crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change. Such modules are therefore capped at Java 24. Modules already on Kotlin 2.0-2.2 are not capped, as they can be upgraded to Kotlin 2.3 and reach Java 25 instead. Applies only to modules that actually compile Kotlin (i.e. contain `.kt` source files), so transitive `kotlin-stdlib` dependencies do not trigger the cap."}
   fqName={"org.openrewrite.java.migrate.UpgradeBuildToJava24ForKotlin1x"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade build to Java 24 for Kotlin 1.x</RecipeHeader.Title>
 
-<RecipeHeader.Description>Kotlin versions before 2.3 only support up to Java 24, and Kotlin 1.x cannot be safely upgraded automatically because crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change. Such modules are therefore capped at Java 24 and annotated with an explanation. Modules already on Kotlin 2.0-2.2 are instead bumped to Kotlin 2.3 by `UpgradeKotlinForJava25` so they can reach Java 25. Applies only to modules that actually compile Kotlin (i.e. contain `.kt` source files), so transitive `kotlin-stdlib` dependencies do not trigger the cap.</RecipeHeader.Description>
+<RecipeHeader.Description>Kotlin versions before 2.3 only support up to Java 24, and Kotlin 1.x cannot be safely upgraded automatically because crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change. Such modules are therefore capped at Java 24. Modules already on Kotlin 2.0-2.2 are not capped, as they can be upgraded to Kotlin 2.3 and reach Java 25 instead. Applies only to modules that actually compile Kotlin (i.e. contain `.kt` source files), so transitive `kotlin-stdlib` dependencies do not trigger the cap.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={["python","datetime","migration","3.12"]}
+  tags={["python","datetime","ruff","migration","DTZ004","3.12"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceDatetimeUtcFromTimestamp"}
   artifact={"openrewrite-migrate-python"}

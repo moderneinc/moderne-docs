@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"type: specs.openrewrite.org/v1beta/recipe\nname: com.example.MyRecipe\ndisplayName: My recipe\ndescription: Does something useful with `Foo`\nrecipeList:\n  - org.openrewrite.java.OrderImports\n","after":"type: specs.openrewrite.org/v1beta/recipe\nname: com.example.MyRecipe\ndisplayName: My recipe\ndescription: Does something useful with `Foo`.\nrecipeList:\n  - org.openrewrite.java.OrderImports\n","diff":"@@ -4,1 +4,1 @@\nname: com.example.MyRecipe\ndisplayName: My recipe\n-description: Does something useful with `Foo`\n+description: Does something useful with `Foo`.\nrecipeList:\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.recipes.EndDeclarativeRecipeDescriptionsWithPeriod","displayName":"End declarative recipe descriptions with a period","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
 
 ## Usage

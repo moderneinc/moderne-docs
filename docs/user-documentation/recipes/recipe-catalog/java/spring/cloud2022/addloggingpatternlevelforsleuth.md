@@ -1,6 +1,6 @@
 ---
-title: "Add logging.pattern.level for traceId and spanId"
-sidebar_label: "Add logging.pattern.level for traceId and spanId"
+title: "Add `logging.pattern.level` for `traceId` and `spanId`"
+sidebar_label: "Add `logging.pattern.level` for `traceId` and `spanId`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Add logging.pattern.level for traceId and spanId"}
-  description={"Add `logging.pattern.level` for traceId and spanId which was previously set by default, if not already set."}
+  displayName={"Add `logging.pattern.level` for `traceId` and `spanId`"}
+  description={"Add `logging.pattern.level` for `traceId` and `spanId` which was previously set by default, if not already set."}
   fqName={"org.openrewrite.java.spring.cloud2022.AddLoggingPatternLevelForSleuth"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/addloggingpatternlevelforsleuth.md"}
 >
 
-<RecipeHeader.Title>Add logging.pattern.level for traceId and spanId</RecipeHeader.Title>
+<RecipeHeader.Title>Add `logging.pattern.level` for `traceId` and `spanId`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Add `logging.pattern.level` for traceId and spanId which was previously set by default, if not already set.</RecipeHeader.Description>
+<RecipeHeader.Description>Add `logging.pattern.level` for `traceId` and `spanId` which was previously set by default, if not already set.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.cloud2022.AddLoggingPatternLevelForSleuth","displayName":"Add logging.pattern.level for traceId and spanId","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.cloud2022.AddLoggingPatternLevelForSleuth","displayName":"Add `logging.pattern.level` for `traceId` and `spanId`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

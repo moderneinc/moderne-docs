@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find minimum JUnit version"}
-  description={"A recipe to find the minimum version of JUnit dependencies. This recipe is designed to return the minimum version of JUnit in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the minimum version of JUnit 4.\nIf a minimumVersion is provided, the recipe will search to see if the minimum version of JUnit used by the project is no lower than the minimumVersion.\nFor example: if the minimumVersion is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will return JUnit 5.7.\nAnother example: if the minimumVersion is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results."}
+  description={"Finds the minimum version of JUnit dependencies in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the JUnit 4 version.\nIf a `minimumVersion` is provided, the recipe only returns results when that is the minimum version of JUnit used by the project.\nFor example: if the `minimumVersion` is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will not return any results.\nAnother example: if the `minimumVersion` is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results."}
   fqName={"org.openrewrite.java.dependencies.search.FindMinimumJUnitVersion"}
   languages={["Java"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find minimum JUnit version</RecipeHeader.Title>
 
-<RecipeHeader.Description>A recipe to find the minimum version of JUnit dependencies. This recipe is designed to return the minimum version of JUnit in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the minimum version of JUnit 4. If a minimumVersion is provided, the recipe will search to see if the minimum version of JUnit used by the project is no lower than the minimumVersion. For example: if the minimumVersion is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will return JUnit 5.7. Another example: if the minimumVersion is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results.</RecipeHeader.Description>
+<RecipeHeader.Description>Finds the minimum version of JUnit dependencies in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the JUnit 4 version. If a `minimumVersion` is provided, the recipe only returns results when that is the minimum version of JUnit used by the project. For example: if the `minimumVersion` is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will not return any results. Another example: if the `minimumVersion` is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results.</RecipeHeader.Description>
 
 </RecipeHeader>
 

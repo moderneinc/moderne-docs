@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={["python","code-quality","RSPEC-S1940"]}
+  tags={["python","ruff","SIM201","SIM202","SIM208","code-quality","RSPEC-S1940"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.codequality.BooleanChecksNotInverted"}
   artifact={"openrewrite-migrate-python"}

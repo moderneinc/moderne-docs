@@ -1,6 +1,6 @@
 ---
-title: "Enable Spring Batch Annotation"
-sidebar_label: "Enable Spring Batch Annotation"
+title: "Remove `@EnableBatchProcessing` from Spring Boot applications"
+sidebar_label: "Remove `@EnableBatchProcessing` from Spring Boot applications"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Enable Spring Batch Annotation"}
-  description={"Add or remove the `@EnableBatchProcessing` annotation from a Spring Boot application."}
+  displayName={"Remove `@EnableBatchProcessing` from Spring Boot applications"}
+  description={"Remove `@EnableBatchProcessing` from classes annotated with `@SpringBootApplication`, as in Spring Boot 3 it makes the batch auto-configuration back off. An annotation with attributes is kept, so its configuration is not lost."}
   fqName={"org.openrewrite.java.spring.boot3.RemoveEnableBatchProcessing"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/removeenablebatchprocessing.md"}
 >
 
-<RecipeHeader.Title>Enable Spring Batch Annotation</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `@EnableBatchProcessing` from Spring Boot applications</RecipeHeader.Title>
 
-<RecipeHeader.Description>Add or remove the `@EnableBatchProcessing` annotation from a Spring Boot application.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove `@EnableBatchProcessing` from classes annotated with `@SpringBootApplication`, as in Spring Boot 3 it makes the batch auto-configuration back off. An annotation with attributes is kept, so its configuration is not lost.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot3.RemoveEnableBatchProcessing","displayName":"Enable Spring Batch Annotation","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot3.RemoveEnableBatchProcessing","displayName":"Remove `@EnableBatchProcessing` from Spring Boot applications","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

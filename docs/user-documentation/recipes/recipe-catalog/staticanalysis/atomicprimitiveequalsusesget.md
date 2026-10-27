@@ -1,6 +1,6 @@
 ---
-title: "Atomic Boolean, Integer, and Long equality checks compare their values"
-sidebar_label: "Atomic Boolean, Integer, and Long equality checks compare their values"
+title: "`AtomicBoolean`, `AtomicInteger`, and `AtomicLong` equality checks compare their values"
+sidebar_label: "`AtomicBoolean`, `AtomicInteger`, and `AtomicLong` equality checks compare their values"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Atomic Boolean, Integer, and Long equality checks compare their values"}
+  displayName={"`AtomicBoolean`, `AtomicInteger`, and `AtomicLong` equality checks compare their values"}
   description={"`AtomicBoolean#equals(Object)`, `AtomicInteger#equals(Object)` and `AtomicLong#equals(Object)` are only equal to their instance. This recipe converts `a.equals(b)` to `a.get() == b.get()`. These atomic classes do not override `equals` from `Object`, so calling it compares object identity rather than the wrapped value, which is almost never the intended behavior."}
   fqName={"org.openrewrite.staticanalysis.AtomicPrimitiveEqualsUsesGet"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/atomicprimitiveequalsusesget.md"}
 >
 
-<RecipeHeader.Title>Atomic Boolean, Integer, and Long equality checks compare their values</RecipeHeader.Title>
+<RecipeHeader.Title>`AtomicBoolean`, `AtomicInteger`, and `AtomicLong` equality checks compare their values</RecipeHeader.Title>
 
 <RecipeHeader.Description>`AtomicBoolean#equals(Object)`, `AtomicInteger#equals(Object)` and `AtomicLong#equals(Object)` are only equal to their instance. This recipe converts `a.equals(b)` to `a.get() == b.get()`. These atomic classes do not override `equals` from `Object`, so calling it compares object identity rather than the wrapped value, which is almost never the intended behavior.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.AtomicPrimitiveEqualsUsesGet","displayName":"Atomic Boolean, Integer, and Long equality checks compare their values","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.AtomicPrimitiveEqualsUsesGet","displayName":"`AtomicBoolean`, `AtomicInteger`, and `AtomicLong` equality checks compare their values","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.jaxrs.base.ProviderBase;\nimport java.lang.annotation.Annotation;\n\nclass CustomProvider extends ProviderBase {\n    @Override\n    protected Object _configForWriting(ObjectMapper mapper, Annotation[] annotations) {\n        mapper.configure();\n        return super._configForWriting(mapper, annotations);\n    }\n}\n","after":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.jaxrs.base.ProviderBase;\nimport java.lang.annotation.Annotation;\n\nclass CustomProvider extends ProviderBase {\n    @Override\n    protected Object _configForWriting(ObjectMapper mapper, Annotation[] annotations, Class<?> defaultView) {\n        mapper.configure();\n        return super._configForWriting(mapper, annotations, defaultView);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass CustomProvider extends ProviderBase {\n    @Override\n-   protected Object _configForWriting(ObjectMapper mapper, Annotation[] annotations) {\n+   protected Object _configForWriting(ObjectMapper mapper, Annotation[] annotations, Class<?> defaultView) {\n        mapper.configure();\n@@ -9,1 +9,1 @@\n    protected Object _configForWriting(ObjectMapper mapper, Annotation[] annotations) {\n        mapper.configure();\n-       return super._configForWriting(mapper, annotations);\n+       return super._configForWriting(mapper, annotations, defaultView);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JacksonProviderOverrides","displayName":"Migrate Jackson provider configuration overrides","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Update Faces `@ManagedBean` to use CDI `@Named`"}
-  description={"Faces ManagedBean was deprecated in JSF 2.3 (EE8) and removed in Jakarta Faces 4.0 (EE10). Replace `@ManagedBean` with `@Named` for CDI-based bean management."}
+  description={"Faces `@ManagedBean` was deprecated in JSF 2.3 (EE8) and removed in Jakarta Faces 4.0 (EE10). Replace `@ManagedBean` with `@Named` for CDI-based bean management."}
   fqName={"org.openrewrite.java.migrate.jakarta.UpdateManagedBeanToNamed"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Update Faces `@ManagedBean` to use CDI `@Named`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Faces ManagedBean was deprecated in JSF 2.3 (EE8) and removed in Jakarta Faces 4.0 (EE10). Replace `@ManagedBean` with `@Named` for CDI-based bean management.</RecipeHeader.Description>
+<RecipeHeader.Description>Faces `@ManagedBean` was deprecated in JSF 2.3 (EE8) and removed in Jakarta Faces 4.0 (EE10). Replace `@ManagedBean` with `@Named` for CDI-based bean management.</RecipeHeader.Description>
 
 </RecipeHeader>
 

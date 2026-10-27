@@ -1,6 +1,6 @@
 ---
-title: "Redundant file creation"
-sidebar_label: "Redundant file creation"
+title: "Redundant `File` creation"
+sidebar_label: "Redundant `File` creation"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Redundant file creation"}
-  description={"Remove unnecessary intermediate creations of files."}
+  displayName={"Redundant `File` creation"}
+  description={"Removes the unnecessary intermediate `File` from `new FileInputStream(new File(name))`."}
   fqName={"org.openrewrite.staticanalysis.RedundantFileCreation"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/redundantfilecreation.md"}
 >
 
-<RecipeHeader.Title>Redundant file creation</RecipeHeader.Title>
+<RecipeHeader.Title>Redundant `File` creation</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove unnecessary intermediate creations of files.</RecipeHeader.Description>
+<RecipeHeader.Description>Removes the unnecessary intermediate `File` from `new FileInputStream(new File(name))`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RedundantFileCreation","displayName":"Redundant file creation","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RedundantFileCreation","displayName":"Redundant `File` creation","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

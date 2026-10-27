@@ -13,15 +13,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `java.net.MulticastSocket#getTimeToLive()`"}
-  description={"Use `java.net.MulticastSocket#getTimeToLive()` instead of the deprecated `java.net.MulticastSocket#getTTL()` in Java 1.2 or higher."}
+  description={"Use `java.net.MulticastSocket#getTimeToLive()` instead of the deprecated `java.net.MulticastSocket#getTTL()` in Java 1.2 or higher. Where the result is used, it is cast back to `byte`, so that the value and the expression type stay the same."}
   fqName={"org.openrewrite.java.migrate.net.MigrateMulticastSocketGetTTLToGetTimeToLive"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-net-apis.yml"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/net/MigrateMulticastSocketGetTTLToGetTimeToLive.java"}
 />
 
 <RecipeHeader
-  type={"Composite recipe"}
+  type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
   license={"Moderne Source Available License"}
@@ -33,15 +33,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `java.net.MulticastSocket#getTimeToLive()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Use `java.net.MulticastSocket#getTimeToLive()` instead of the deprecated `java.net.MulticastSocket#getTTL()` in Java 1.2 or higher.</RecipeHeader.Description>
+<RecipeHeader.Description>Use `java.net.MulticastSocket#getTimeToLive()` instead of the deprecated `java.net.MulticastSocket#getTTL()` in Java 1.2 or higher. Where the result is used, it is cast back to `byte`, so that the value and the expression type stay the same.</RecipeHeader.Description>
 
 </RecipeHeader>
-
-<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
-
-## Definition
-
-</RecipeList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.net.MigrateMulticastSocketGetTTLToGetTimeToLive","displayName":"Use `java.net.MulticastSocket#getTimeToLive()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

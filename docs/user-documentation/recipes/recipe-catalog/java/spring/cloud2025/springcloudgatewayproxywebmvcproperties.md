@@ -1,6 +1,6 @@
 ---
-title: "Migrate Spring Cloud Gateway Proxy WebMvc Properties"
-sidebar_label: "Migrate Spring Cloud Gateway Proxy WebMvc Properties"
+title: "Migrate Spring Cloud Gateway Proxy WebMvc properties"
+sidebar_label: "Migrate Spring Cloud Gateway Proxy WebMvc properties"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate Spring Cloud Gateway Proxy WebMvc Properties"}
+  displayName={"Migrate Spring Cloud Gateway Proxy WebMvc properties"}
   description={"Migrate Spring Cloud Gateway Proxy WebMvc properties for Spring Cloud 2025 release."}
   fqName={"org.openrewrite.java.spring.cloud2025.SpringCloudGatewayProxyWebMvcProperties"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewayproxywebmvcproperties.md"}
 >
 
-<RecipeHeader.Title>Migrate Spring Cloud Gateway Proxy WebMvc Properties</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate Spring Cloud Gateway Proxy WebMvc properties</RecipeHeader.Title>
 
 <RecipeHeader.Description>Migrate Spring Cloud Gateway Proxy WebMvc properties for Spring Cloud 2025 release.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.cloud2025.SpringCloudGatewayProxyWebMvcProperties","displayName":"Migrate Spring Cloud Gateway Proxy WebMvc Properties","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.cloud2025.SpringCloudGatewayProxyWebMvcProperties","displayName":"Migrate Spring Cloud Gateway Proxy WebMvc properties","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

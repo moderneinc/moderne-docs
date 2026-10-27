@@ -1,6 +1,6 @@
 ---
-title: "Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ"
-sidebar_label: "Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ"
+title: "Migrate Hamcrest `assertThat(String, boolean)` to AssertJ"
+sidebar_label: "Migrate Hamcrest `assertThat(String, boolean)` to AssertJ"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ"}
+  displayName={"Migrate Hamcrest `assertThat(String, boolean)` to AssertJ"}
   description={"Replace Hamcrest `assertThat(String, boolean)` with AssertJ `assertThat(boolean).as(String).isTrue()`."}
   fqName={"org.openrewrite.java.testing.hamcrest.AssertThatBooleanToAssertJ"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/assertthatbooleantoassertj.md"}
 >
 
-<RecipeHeader.Title>Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate Hamcrest `assertThat(String, boolean)` to AssertJ</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replace Hamcrest `assertThat(String, boolean)` with AssertJ `assertThat(boolean).as(String).isTrue()`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.hamcrest.AssertThatBooleanToAssertJ","displayName":"Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.hamcrest.AssertThatBooleanToAssertJ","displayName":"Migrate Hamcrest `assertThat(String, boolean)` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

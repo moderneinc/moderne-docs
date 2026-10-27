@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Worker {\n    private final Thread thread;\n\n    Worker(Runnable r) {\n        thread = new Thread(r);\n        thread.start();\n    }\n}\n","after":"class Worker {\n    private final Thread thread;\n\n    Worker(Runnable r) {\n        thread = new Thread(r);\n        /*~~(`Thread.start()` called during construction of a non-final class. The new thread can observe a partially-initialised object, and any subclass' fields are guaranteed unset. Move the call to a separate method or declare the class `final`.)~~>*/thread.start();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    Worker(Runnable r) {\n        thread = new Thread(r);\n-       thread.start();\n+       /*~~(`Thread.start()` called during construction of a non-final class. The new thread can observe a partially-initialised object, and any subclass' fields are guaranteed unset. Move the call to a separate method or declare the class `final`.)~~>*/thread.start();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.FindThreadStartInConstructor","displayName":"Find `Thread.start()` calls made during construction of a non-final class","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage

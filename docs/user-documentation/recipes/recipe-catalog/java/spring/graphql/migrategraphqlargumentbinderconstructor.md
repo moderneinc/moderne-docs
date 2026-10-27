@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.core.convert.ConversionService;\nimport org.springframework.graphql.data.GraphQlArgumentBinder;\n\nclass Resolver {\n    GraphQlArgumentBinder binder(ConversionService conversionService) {\n        return new GraphQlArgumentBinder(conversionService, true);\n    }\n}\n","after":"import org.springframework.core.convert.ConversionService;\nimport org.springframework.graphql.data.GraphQlArgumentBinder;\n\nclass Resolver {\n    GraphQlArgumentBinder binder(ConversionService conversionService) {\n        return new GraphQlArgumentBinder(GraphQlArgumentBinder.Options.create().conversionService(conversionService).fallBackOnDirectFieldAccess(true));\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Resolver {\n    GraphQlArgumentBinder binder(ConversionService conversionService) {\n-       return new GraphQlArgumentBinder(conversionService, true);\n+       return new GraphQlArgumentBinder(GraphQlArgumentBinder.Options.create().conversionService(conversionService).fallBackOnDirectFieldAccess(true));\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.graphql.MigrateGraphQlArgumentBinderConstructor","displayName":"Migrate `GraphQlArgumentBinder` constructors to `GraphQlArgumentBinder.Options`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

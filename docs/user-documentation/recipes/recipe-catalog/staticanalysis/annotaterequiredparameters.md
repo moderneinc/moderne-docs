@@ -37,13 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"nonNullAnnotationClass","required":false,"description":"The fully qualified name of the @NonNull annotation. The annotation should be meta annotated with `@Target(TYPE_USE)`. Defaults to `org.jspecify.annotations.NonNull`","example":"org.jspecify.annotations.NonNull"}]}>
+<OptionsTable options={[{"type":"String","name":"nonNullAnnotationClass","required":false,"description":"The fully qualified name of the `@NonNull` annotation. The annotation should be meta annotated with `@Target(TYPE_USE)`. Defaults to `org.jspecify.annotations.NonNull`.","example":"org.jspecify.annotations.NonNull"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"nonNullAnnotationClass","value":"null"}],"variants":[{"language":"java","before":"class Test {\n    public void process(String value) {\n        if (value == null) {\n            throw new IllegalArgumentException(\"value cannot be null\");\n        }\n        System.out.println(value);\n    }\n}\n","after":"import org.jspecify.annotations.NonNull;\n\nclass Test {\n    public void process(@NonNull String value) {\n        System.out.println(value);\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.NonNull;\n+\nclass Test {\n@@ -2,4 +4,1 @@\nclass Test {\n-   public void process(String value) {\n-       if (value == null) {\n-           throw new IllegalArgumentException(\"value cannot be null\");\n-       }\n+   public void process(@NonNull String value) {\n        System.out.println(value);\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"nonNullAnnotationClass","value":"null"}],"variants":[{"language":"java","before":"class Test {\n    public void process(String value) {\n        if (value == null) {\n            throw new IllegalArgumentException();\n        }\n        System.out.println(value);\n    }\n}\n","after":"import org.jspecify.annotations.NonNull;\n\nclass Test {\n    public void process(@NonNull String value) {\n        System.out.println(value);\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.NonNull;\n+\nclass Test {\n@@ -2,4 +4,1 @@\nclass Test {\n-   public void process(String value) {\n-       if (value == null) {\n-           throw new IllegalArgumentException();\n-       }\n+   public void process(@NonNull String value) {\n        System.out.println(value);\n","newFile":false}]}]}>
 
 ## Examples
 

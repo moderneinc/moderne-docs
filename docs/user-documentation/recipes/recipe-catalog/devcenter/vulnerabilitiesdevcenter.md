@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"DevCenter for Vulnerability Management"}
-  description={"Recipes to analyze and manage dependency vulnerabilities using Moderne DevCenter."}
+  description={"Analyze and manage dependency vulnerabilities across your organization.\nEach card looks at known vulnerabilities with an available fix, in direct and transitive dependencies.\n\n**Vulnerabilities status by Severity**<br/>\nThe most severe vulnerability in each repository.<br/><br/>\n`Critical` → `High` → `Moderate` → `Low` → `No fixable vulnerabilities` · fix with [`DependencyVulnerabilityCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)\n\n**Vulnerabilities status by UpgradeDelta**<br/>\nThe largest version bump needed to fix the vulnerable dependencies in each repository.<br/><br/>\n`Major` → `Minor` → `Patch` → `No vulnerabilities` · fix with [`DependencyVulnerabilityCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)\n\n**Vulnerabilities status by RiskScore**<br/>\nThe highest EPSS score, the probability of exploitation in the next 30 days, in each repository.<br/><br/>\n`Critical` (>50%) → `High` (10-50%) → `Medium` (1-10%) → `Low` (<1%) → `No vulnerability scores` · fix with [`DependencyVulnerabilityCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.VulnerabilitiesDevCenter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,26 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>DevCenter for Vulnerability Management</RecipeHeader.Title>
 
-<RecipeHeader.Description>Recipes to analyze and manage dependency vulnerabilities using Moderne DevCenter.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Analyze and manage dependency vulnerabilities across your organization.
+Each card looks at known vulnerabilities with an available fix, in direct and transitive dependencies.
+
+**Vulnerabilities status by Severity**<br />
+The most severe vulnerability in each repository.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==" alt="Critical to No fixable vulnerabilities" /><br />
+`Critical` → `High` → `Moderate` → `Low` → `No fixable vulnerabilities` · fix with [`DependencyVulnerabilityCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
+
+**Vulnerabilities status by UpgradeDelta**<br />
+The largest version bump needed to fix the vulnerable dependencies in each repository.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt="Major to No vulnerabilities" /><br />
+`Major` → `Minor` → `Patch` → `No vulnerabilities` · fix with [`DependencyVulnerabilityCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
+
+**Vulnerabilities status by RiskScore**<br />
+The highest EPSS score, the probability of exploitation in the next 30 days, in each repository.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==" alt="Critical to No vulnerability scores" /><br />
+`Critical` (>50%) → `High` (10-50%) → `Medium` (1-10%) → `Low` (&lt;1%) → `No vulnerability scores` · fix with [`DependencyVulnerabilityCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

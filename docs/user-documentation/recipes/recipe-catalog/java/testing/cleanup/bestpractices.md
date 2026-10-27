@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Testing best practices"}
-  description={"Applies best practices to tests."}
+  description={"Wraps the statements of tests without assertions in `assertDoesNotThrow(..)` and removes the `test` prefix from JUnit 5 test method names."}
   fqName={"org.openrewrite.java.testing.cleanup.BestPractices"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Testing best practices</RecipeHeader.Title>
 
-<RecipeHeader.Description>Applies best practices to tests.</RecipeHeader.Description>
+<RecipeHeader.Description>Wraps the statements of tests without assertions in `assertDoesNotThrow(..)` and removes the `test` prefix from JUnit 5 test method names.</RecipeHeader.Description>
 
 </RecipeHeader>
 

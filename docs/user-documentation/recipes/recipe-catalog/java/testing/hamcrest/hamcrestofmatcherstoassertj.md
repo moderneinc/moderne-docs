@@ -1,6 +1,6 @@
 ---
-title: "Migrate `anyOf` Hamcrest Matcher to AssertJ"
-sidebar_label: "Migrate `anyOf` Hamcrest Matcher to AssertJ"
+title: "Migrate `anyOf` and `allOf` Hamcrest matchers to AssertJ"
+sidebar_label: "Migrate `anyOf` and `allOf` Hamcrest matchers to AssertJ"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate `anyOf` Hamcrest Matcher to AssertJ"}
-  description={"Migrate the `anyOf` Hamcrest Matcher to AssertJ's `satisfiesAnyOf` assertion."}
+  displayName={"Migrate `anyOf` and `allOf` Hamcrest matchers to AssertJ"}
+  description={"Migrate Hamcrest `assertThat(actual, anyOf(..))` to AssertJ's `satisfiesAnyOf(..)` and `assertThat(actual, allOf(..))` to `satisfies(..)`, keeping each nested matcher as a Hamcrest `assertThat` inside a lambda. Matchers that take an `Iterable` are left unchanged."}
   fqName={"org.openrewrite.java.testing.hamcrest.HamcrestOfMatchersToAssertJ"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcrestofmatcherstoassertj.md"}
 >
 
-<RecipeHeader.Title>Migrate `anyOf` Hamcrest Matcher to AssertJ</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate `anyOf` and `allOf` Hamcrest matchers to AssertJ</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate the `anyOf` Hamcrest Matcher to AssertJ's `satisfiesAnyOf` assertion.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate Hamcrest `assertThat(actual, anyOf(..))` to AssertJ's `satisfiesAnyOf(..)` and `assertThat(actual, allOf(..))` to `satisfies(..)`, keeping each nested matcher as a Hamcrest `assertThat` inside a lambda. Matchers that take an `Iterable` are left unchanged.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.hamcrest.HamcrestOfMatchersToAssertJ","displayName":"Migrate `anyOf` Hamcrest Matcher to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.hamcrest.HamcrestOfMatchersToAssertJ","displayName":"Migrate `anyOf` and `allOf` Hamcrest matchers to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `finalize` method in `java.util.zip.ZipFile`, `java.util.zip.Inflater` and `java.util.zip.Deflater`"}
-  description={"The `finalize` method in `java.util.zip.ZipFile` is replaced with the `close` method and is replaced by the `end` method in\n `java.util.zip.Inflater` and `java.util.zip.Deflater` as it is no longer available in Java SE 12 and later."}
+  description={"The `finalize` method in `java.util.zip.ZipFile` is replaced with the `close` method and is replaced by the `end` method in `java.util.zip.Inflater` and `java.util.zip.Deflater` as it is no longer available in Java SE 12 and later."}
   fqName={"org.openrewrite.java.migrate.RemovedZipFinalizeMethods"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `finalize` method in `java.util.zip.ZipFile`, `java.util.zip.Inflater` and `java.util.zip.Deflater`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `finalize` method in `java.util.zip.ZipFile` is replaced with the `close` method and is replaced by the `end` method in  `java.util.zip.Inflater` and `java.util.zip.Deflater` as it is no longer available in Java SE 12 and later.</RecipeHeader.Description>
+<RecipeHeader.Description>The `finalize` method in `java.util.zip.ZipFile` is replaced with the `close` method and is replaced by the `end` method in `java.util.zip.Inflater` and `java.util.zip.Deflater` as it is no longer available in Java SE 12 and later.</RecipeHeader.Description>
 
 </RecipeHeader>
 

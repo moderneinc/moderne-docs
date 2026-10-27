@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `str.format()` with f-string"}
-  description={"Replace `\"...\".format(...)` calls with f-strings (Python 3.6+). Only converts cases where the format string is a literal and the conversion is safe."}
+  description={"Replace `\"...\".format(...)` calls with f-strings (Python 3.6+). Only converts cases where the format string is a literal and the conversion is safe. A format string with a backslash escape, a raw or bytes prefix, or a field reading an attribute or index is left alone. So is a call with an unpacked argument, a string literal argument, or an argument that has side effects and is used more than once, and a call with a comment inside it, which the f-string would drop."}
   fqName={"org.openrewrite.python.migrate.ReplaceStrFormatWithFString"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={["python","migration","3.6","f-string"]}
+  tags={["python","ruff","UP032","migration","3.6","f-string"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceStrFormatWithFString"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `str.format()` with f-string</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `"...".format(...)` calls with f-strings (Python 3.6+). Only converts cases where the format string is a literal and the conversion is safe.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `"...".format(...)` calls with f-strings (Python 3.6+). Only converts cases where the format string is a literal and the conversion is safe. A format string with a backslash escape, a raw or bytes prefix, or a field reading an attribute or index is left alone. So is a call with an unpacked argument, a string literal argument, or an argument that has side effects and is used more than once, and a call with a comment inside it, which the f-string would drop.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    /** The field name. */\n    private String fieldName;\n\n    /** The request. */\n    // private transient Object request = null;\n\n    /** Instantiates a new A. */\n    A() {\n    }\n}\n","after":"class A {\n    /** The field name. */\n    private String fieldName;\n\n    /* The request. */\n    // private transient Object request = null;\n\n    /** Instantiates a new A. */\n    A() {\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n    private String fieldName;\n\n-   /** The request. */\n+   /* The request. */\n    // private transient Object request = null;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.DanglingDocCommentToBlockComment","displayName":"Turn dangling documentation comments into block comments","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage

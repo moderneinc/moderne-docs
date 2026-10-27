@@ -32,12 +32,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[]} preconditions={[{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]}>
-
-## Definition
-
-</RecipeList>
-
 <OptionsTable options={[{"type":"String","name":"MethodPattern","required":true,"description":"A method pattern used to find matching method invocations to remove.","example":"Microsoft.AspNetCore.Builder.SwaggerBuilderExtensions UseSwagger(..)"}]}>
 
 ## Options

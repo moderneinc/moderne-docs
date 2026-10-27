@@ -1,6 +1,6 @@
 ---
-title: "Convert assigning Switch statements to Switch expressions"
-sidebar_label: "Convert assigning Switch statements to Switch expressions"
+title: "Convert assigning switch statements to switch expressions"
+sidebar_label: "Convert assigning switch statements to switch expressions"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Convert assigning Switch statements to Switch expressions"}
+  displayName={"Convert assigning switch statements to switch expressions"}
   description={"Switch statements for which each case is assigning a value to the same variable can be converted to a switch expression that returns the value of the variable. This recipe is only applicable for Java 21 and later."}
   fqName={"org.openrewrite.java.migrate.lang.SwitchCaseAssignmentsToSwitchExpression"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/switchcaseassignmentstoswitchexpression.md"}
 >
 
-<RecipeHeader.Title>Convert assigning Switch statements to Switch expressions</RecipeHeader.Title>
+<RecipeHeader.Title>Convert assigning switch statements to switch expressions</RecipeHeader.Title>
 
 <RecipeHeader.Description>Switch statements for which each case is assigning a value to the same variable can be converted to a switch expression that returns the value of the variable. This recipe is only applicable for Java 21 and later.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.SwitchCaseAssignmentsToSwitchExpression","displayName":"Convert assigning Switch statements to Switch expressions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.SwitchCaseAssignmentsToSwitchExpression","displayName":"Convert assigning switch statements to switch expressions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

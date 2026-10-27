@@ -1,14 +1,14 @@
 ---
-title: "Prefer `Option` over `null`"
-sidebar_label: "Prefer `Option` over `null`"
+title: "Prefer `None` over `null` for `Option`"
+sidebar_label: "Prefer `None` over `null` for `Option`"
 hide_title: true
 ---
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `Option` over `null`"}
-  description={"Replaces `null` literal with `None`. Idiomatic Scala uses `Option` instead of null."}
+  displayName={"Prefer `None` over `null` for `Option`"}
+  description={"Replaces a `null` literal with `None` where an `Option` is expected: as the initializer of an `Option` variable, when assigned to one, when passed as an `Option` argument, or when returned from a method declared to return `Option`."}
   fqName={"org.openrewrite.scala.cleanup.PreferOption"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -26,9 +26,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   moderneOnly
 >
 
-<RecipeHeader.Title>Prefer `Option` over `null`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `None` over `null` for `Option`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces `null` literal with `None`. Idiomatic Scala uses `Option` instead of null.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces a `null` literal with `None` where an `Option` is expected: as the initializer of an `Option` variable, when assigned to one, when passed as an `Option` argument, or when returned from a method declared to return `Option`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.scala.cleanup.PreferOption","displayName":"Prefer `Option` over `null`","groupId":"io.moderne.recipe","artifactId":"recipes-scala","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_SCALA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.scala.cleanup.PreferOption","displayName":"Prefer `None` over `null` for `Option`","groupId":"io.moderne.recipe","artifactId":"recipes-scala","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_SCALA","requiresConfiguration":false}}>
 
 ## Usage
 

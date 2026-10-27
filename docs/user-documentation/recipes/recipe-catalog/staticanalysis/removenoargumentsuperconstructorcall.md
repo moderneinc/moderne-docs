@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S3253"]}
+  tags={[]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.RemoveNoArgumentSuperConstructorCall"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}

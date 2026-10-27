@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaListsNewCopyOnWriteArrayList"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/guava/NoGuavaListsNewCopyOnWriteArrayList.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/no-guava.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newCopyOnWriteArrayList();\n}\n","after":"import java.util.List;\nimport java.util.concurrent.CopyOnWriteArrayList;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new CopyOnWriteArrayList<>();\n}\n","diff":"@@ -1,2 +1,0 @@\n-import com.google.common.collect.*;\n-\nimport java.util.List;\n@@ -4,0 +2,1 @@\n\nimport java.util.List;\n+import java.util.concurrent.CopyOnWriteArrayList;\n\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newCopyOnWriteArrayList();\n+   List<Integer> cardinalsWorldSeries = new CopyOnWriteArrayList<>();\n}\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Prefer `new CopyOnWriteArrayList<>()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$listsnewcopyonwritearraylistrecipe/"},{"name":"Prefer `new CopyOnWriteArrayList<>(Collection)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$listsnewcopyonwritearraylistfromcollectionrecipe/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newCopyOnWriteArrayList();\n}\n","after":"import java.util.List;\nimport java.util.concurrent.CopyOnWriteArrayList;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new CopyOnWriteArrayList<>();\n}\n","diff":"@@ -1,2 +1,0 @@\n-import com.google.common.collect.*;\n-\nimport java.util.List;\n@@ -4,0 +2,1 @@\n\nimport java.util.List;\n+import java.util.concurrent.CopyOnWriteArrayList;\n\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newCopyOnWriteArrayList();\n+   List<Integer> cardinalsWorldSeries = new CopyOnWriteArrayList<>();\n}\n","newFile":false}]},{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newCopyOnWriteArrayList();\n}\n","after":"import java.util.List;\nimport java.util.concurrent.CopyOnWriteArrayList;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new CopyOnWriteArrayList<>();\n}\n","diff":"@@ -1,2 +1,0 @@\n-import com.google.common.collect.*;\n-\nimport java.util.List;\n@@ -4,0 +2,1 @@\n\nimport java.util.List;\n+import java.util.concurrent.CopyOnWriteArrayList;\n\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newCopyOnWriteArrayList();\n+   List<Integer> cardinalsWorldSeries = new CopyOnWriteArrayList<>();\n}\n","newFile":false}]}]}>
 
 ## Examples
 

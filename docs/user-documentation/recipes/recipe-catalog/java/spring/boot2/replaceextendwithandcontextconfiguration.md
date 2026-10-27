@@ -1,6 +1,6 @@
 ---
-title: "Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`"
-sidebar_label: "Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`"
+title: "Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJUnitConfig`"
+sidebar_label: "Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJUnitConfig`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`"}
-  description={"Replaces `@ExtendWith(SpringRunner.class)` and `@ContextConfiguration` with `@SpringJunitConfig`, preserving attributes on `@ContextConfiguration`, unless `@ContextConfiguration(loader = ...)` is used."}
+  displayName={"Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJUnitConfig`"}
+  description={"Replaces `@ExtendWith(SpringRunner.class)` and `@ContextConfiguration` with `@SpringJUnitConfig`, preserving attributes on `@ContextConfiguration`, unless `@ContextConfiguration(loader = ...)` is used."}
   fqName={"org.openrewrite.java.spring.boot2.ReplaceExtendWithAndContextConfiguration"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/replaceextendwithandcontextconfiguration.md"}
 >
 
-<RecipeHeader.Title>Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJUnitConfig`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces `@ExtendWith(SpringRunner.class)` and `@ContextConfiguration` with `@SpringJunitConfig`, preserving attributes on `@ContextConfiguration`, unless `@ContextConfiguration(loader = ...)` is used.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces `@ExtendWith(SpringRunner.class)` and `@ContextConfiguration` with `@SpringJUnitConfig`, preserving attributes on `@ContextConfiguration`, unless `@ContextConfiguration(loader = ...)` is used.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.ReplaceExtendWithAndContextConfiguration","displayName":"Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.ReplaceExtendWithAndContextConfiguration","displayName":"Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJUnitConfig`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

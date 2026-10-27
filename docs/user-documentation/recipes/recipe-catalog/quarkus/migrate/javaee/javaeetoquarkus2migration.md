@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate JavaEE Maven Dependencies to Quarkus 2","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2mavenplugins/"},{"name":"Add Quarkus 2 dependencies","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2dependencies/"},{"name":"Remove JavaEE dependencies","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/removejavaeedependencies/"},{"name":"Migrate JavaEE Code to Quarkus 2","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration/"}]}>
+<RecipeList recipes={[{"name":"Migrate JavaEE Maven Dependencies to Quarkus 2","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2mavenplugins/"},{"name":"Add Quarkus 2 dependencies","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2dependencies/"},{"name":"Remove JavaEE dependencies","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/removejavaeedependencies/"},{"name":"Sort dependencies","href":"/user-documentation/recipes/recipe-catalog/maven/sortdependencies/"},{"name":"Migrate JavaEE Code to Quarkus 2","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration/"}]}>
 
 ## Definition
 

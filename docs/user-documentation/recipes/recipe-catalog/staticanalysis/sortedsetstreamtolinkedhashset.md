@@ -1,6 +1,6 @@
 ---
-title: "Sorted set stream should be collected to LinkedHashSet"
-sidebar_label: "Sorted set stream should be collected to LinkedHashSet"
+title: "Sorted set stream should be collected to `LinkedHashSet`"
+sidebar_label: "Sorted set stream should be collected to `LinkedHashSet`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Sorted set stream should be collected to LinkedHashSet"}
-  description={"Converts `set.stream().sorted().collect(Collectors.toSet())` to `set.stream().sorted().collect(LinkedHashSet::new)`."}
+  displayName={"Sorted set stream should be collected to `LinkedHashSet`"}
+  description={"Converts `stream.sorted().collect(Collectors.toSet())` to `stream.sorted().collect(Collectors.toCollection(LinkedHashSet::new))`, so that the sort order is preserved."}
   fqName={"org.openrewrite.staticanalysis.SortedSetStreamToLinkedHashSet"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/sortedsetstreamtolinkedhashset.md"}
 >
 
-<RecipeHeader.Title>Sorted set stream should be collected to LinkedHashSet</RecipeHeader.Title>
+<RecipeHeader.Title>Sorted set stream should be collected to `LinkedHashSet`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Converts `set.stream().sorted().collect(Collectors.toSet())` to `set.stream().sorted().collect(LinkedHashSet::new)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Converts `stream.sorted().collect(Collectors.toSet())` to `stream.sorted().collect(Collectors.toCollection(LinkedHashSet::new))`, so that the sort order is preserved.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.SortedSetStreamToLinkedHashSet","displayName":"Sorted set stream should be collected to LinkedHashSet","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.SortedSetStreamToLinkedHashSet","displayName":"Sorted set stream should be collected to `LinkedHashSet`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

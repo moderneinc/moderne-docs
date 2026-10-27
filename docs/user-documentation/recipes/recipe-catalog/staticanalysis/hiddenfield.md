@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S1117","RSPEC-S2387"]}
+  tags={["RSPEC-S1117"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.HiddenField"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}

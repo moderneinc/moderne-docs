@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `ZipException` instead of `ZipError`"}
-  description={"Use `ZipException` instead of the deprecated `ZipError` in Java 9 or higher."}
+  description={"Use `ZipException` instead of the deprecated `ZipError` in Java 25 or higher."}
   fqName={"org.openrewrite.java.migrate.MigrateZipErrorToZipException"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `ZipException` instead of `ZipError`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Use `ZipException` instead of the deprecated `ZipError` in Java 9 or higher.</RecipeHeader.Description>
+<RecipeHeader.Description>Use `ZipException` instead of the deprecated `ZipError` in Java 25 or higher.</RecipeHeader.Description>
 
 </RecipeHeader>
 

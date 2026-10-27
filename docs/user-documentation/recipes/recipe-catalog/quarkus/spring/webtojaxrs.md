@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Convert Spring Web annotations to JAX-RS"}
-  description={"Converts Spring Web annotations such as `@RestController`, `@RequestMapping`, `@GetMapping`, etc., to their JAX-RS equivalents like `@Path`, `@GET`, etc."}
+  description={"Converts Spring Web annotations such as `@RestController`, `@RequestMapping`, `@GetMapping`, etc., to their JAX-RS equivalents like `@Path`, `@GET`, etc. MVC view controllers, and handler methods that have no single JAX-RS equivalent, are left unchanged and marked for manual migration."}
   fqName={"org.openrewrite.quarkus.spring.WebToJaxRs"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Convert Spring Web annotations to JAX-RS</RecipeHeader.Title>
 
-<RecipeHeader.Description>Converts Spring Web annotations such as `@RestController`, `@RequestMapping`, `@GetMapping`, etc., to their JAX-RS equivalents like `@Path`, `@GET`, etc.</RecipeHeader.Description>
+<RecipeHeader.Description>Converts Spring Web annotations such as `@RestController`, `@RequestMapping`, `@GetMapping`, etc., to their JAX-RS equivalents like `@Path`, `@GET`, etc. MVC view controllers, and handler methods that have no single JAX-RS equivalent, are left unchanged and marked for manual migration.</RecipeHeader.Description>
 
 </RecipeHeader>
 

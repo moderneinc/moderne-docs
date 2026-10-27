@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use constructor injection for `DaoAuthenticationProvider`"}
-  description={"Spring Security 7.0 removed the no-arg `DaoAuthenticationProvider()` constructor and the `setUserDetailsService(UserDetailsService)` setter; `UserDetailsService` is now a required constructor argument. This recipe folds `setUserDetailsService(x)` into the constructor (`new DaoAuthenticationProvider(x)`) and removes the setter when the provider is created with the no-arg constructor in the same block, for both Java and Kotlin sources. `setPasswordEncoder(...)` and other configuration are preserved. When the setter cannot be safely folded, a TODO comment with migration guidance is added instead."}
+  description={"Spring Security 7.0 removed the no-arg `DaoAuthenticationProvider()` constructor and the `setUserDetailsService(UserDetailsService)` setter; `UserDetailsService` is now a required constructor argument. This recipe folds `setUserDetailsService(x)` into the constructor (`new DaoAuthenticationProvider(x)`) and removes the setter when the provider is created with the no-arg constructor in the same block, for both Java and Kotlin sources. Declarations that the argument needs are moved in front of the provider when nothing else lies in between. In a constructor of a `DaoAuthenticationProvider` subclass, a leading `setUserDetailsService(x)` becomes `super(x)` (Java only). `setPasswordEncoder(...)` and other configuration are preserved. When the setter cannot be safely folded, a TODO comment with migration guidance is added instead."}
   fqName={"io.moderne.java.spring.security7.MigrateDaoAuthenticationProviderConstructor"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use constructor injection for `DaoAuthenticationProvider`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Spring Security 7.0 removed the no-arg `DaoAuthenticationProvider()` constructor and the `setUserDetailsService(UserDetailsService)` setter; `UserDetailsService` is now a required constructor argument. This recipe folds `setUserDetailsService(x)` into the constructor (`new DaoAuthenticationProvider(x)`) and removes the setter when the provider is created with the no-arg constructor in the same block, for both Java and Kotlin sources. `setPasswordEncoder(...)` and other configuration are preserved. When the setter cannot be safely folded, a TODO comment with migration guidance is added instead.</RecipeHeader.Description>
+<RecipeHeader.Description>Spring Security 7.0 removed the no-arg `DaoAuthenticationProvider()` constructor and the `setUserDetailsService(UserDetailsService)` setter; `UserDetailsService` is now a required constructor argument. This recipe folds `setUserDetailsService(x)` into the constructor (`new DaoAuthenticationProvider(x)`) and removes the setter when the provider is created with the no-arg constructor in the same block, for both Java and Kotlin sources. Declarations that the argument needs are moved in front of the provider when nothing else lies in between. In a constructor of a `DaoAuthenticationProvider` subclass, a leading `setUserDetailsService(x)` becomes `super(x)` (Java only). `setPasswordEncoder(...)` and other configuration are preserved. When the setter cannot be safely folded, a TODO comment with migration guidance is added instead.</RecipeHeader.Description>
 
 </RecipeHeader>
 

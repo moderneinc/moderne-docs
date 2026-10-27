@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"DevCenter for Go"}
-  description={"A default DevCenter configuration for Go repositories. Track Go version adoption across your organization."}
+  description={"A default DevCenter configuration for Go repositories.\nTrack Go version adoption across your organization.\n\n**Move to Go 1.26**<br/>\nThe Go version declared in each repository's `go.mod`.<br/><br/>\n`Go 1.17 or earlier` → `Go 1.18+` → … → `Go 1.25+` → `Completed` · fix with [`UpgradeGoTo126`](https://codegenomeproject.org/recipes/org.openrewrite.golang.migration.UpgradeGoTo126)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.DevCenterGoStarter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,18 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>DevCenter for Go</RecipeHeader.Title>
 
-<RecipeHeader.Description>A default DevCenter configuration for Go repositories. Track Go version adoption across your organization.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+A default DevCenter configuration for Go repositories.
+Track Go version adoption across your organization.
+
+**Move to Go 1.26**<br />
+The Go version declared in each repository's `go.mod`.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzI2JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nMjgnIHdpZHRoPScyNicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGN0Y1QScvPjxyZWN0IHg9JzU2JyB3aWR0aD0nMjcnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRjhGNTInLz48cmVjdCB4PSc4NScgd2lkdGg9JzI2JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY5QjQ4Jy8+PHJlY3QgeD0nMTEzJyB3aWR0aD0nMjYnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkE4M0QnLz48cmVjdCB4PScxNDEnIHdpZHRoPScyNicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE2OScgd2lkdGg9JzI2JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMTk3JyB3aWR0aD0nMjcnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPScyNicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjxyZWN0IHg9JzI1NCcgd2lkdGg9JzI2JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+" alt="Go 1.17 or earlier to Completed" /><br />
+`Go 1.17 or earlier` → `Go 1.18+` → … → `Go 1.25+` → `Completed` · fix with [`UpgradeGoTo126`](https://codegenomeproject.org/recipes/org.openrewrite.golang.migration.UpgradeGoTo126)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

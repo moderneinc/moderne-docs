@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use the latest JAX-WS API and runtime for Jakarta EE 8"}
-  description={"Update Gradle build files to use the latest JAX-WS runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater.  The recipe will add a JAX-WS run-time, in `compileOnly`+`testImplementation` configurations, to any project that has a transitive dependency on the JAX-WS API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**."}
+  description={"Update Gradle build files to use the latest JAX-WS runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAX-WS run-time, in `compileOnly`+`testImplementation` configurations, to any project that has a transitive dependency on the JAX-WS API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**."}
   fqName={"org.openrewrite.java.migrate.javax.AddJaxwsRuntime$AddJaxwsRuntimeGradle"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use the latest JAX-WS API and runtime for Jakarta EE 8</RecipeHeader.Title>
 
-<RecipeHeader.Description>Update Gradle build files to use the latest JAX-WS runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater.  The recipe will add a JAX-WS run-time, in `compileOnly`+`testImplementation` configurations, to any project that has a transitive dependency on the JAX-WS API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**.</RecipeHeader.Description>
+<RecipeHeader.Description>Update Gradle build files to use the latest JAX-WS runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAX-WS run-time, in `compileOnly`+`testImplementation` configurations, to any project that has a transitive dependency on the JAX-WS API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**.</RecipeHeader.Description>
 
 </RecipeHeader>
 

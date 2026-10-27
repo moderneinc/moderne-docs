@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Do not package `java.xml.ws` module in WebSphere Liberty applications"}
-  description={"The `java.xml.ws` module was removed in Java11. Websphere Liberty provides its own implementation of the module, which can be used by specifying the `jaxws-2.2` feature in the server.xml file. This recipe updates the `javax.xml.ws` dependency to use the `provided` scope to avoid class loading issues."}
+  description={"The `java.xml.ws` module was removed in Java 11. WebSphere Liberty provides its own implementation of the module, which can be used by specifying the `jaxws-2.2` feature in the server.xml file. This recipe updates the `javax.xml.ws` dependency to use the `provided` scope to avoid class loading issues."}
   fqName={"org.openrewrite.java.migrate.RemovedJavaXMLWSModuleProvided"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Do not package `java.xml.ws` module in WebSphere Liberty applications</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `java.xml.ws` module was removed in Java11. Websphere Liberty provides its own implementation of the module, which can be used by specifying the `jaxws-2.2` feature in the server.xml file. This recipe updates the `javax.xml.ws` dependency to use the `provided` scope to avoid class loading issues.</RecipeHeader.Description>
+<RecipeHeader.Description>The `java.xml.ws` module was removed in Java 11. WebSphere Liberty provides its own implementation of the module, which can be used by specifying the `jaxws-2.2` feature in the server.xml file. This recipe updates the `javax.xml.ws` dependency to use the `provided` scope to avoid class loading issues.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Fix `String#format` and `String#formatted` expressions"}
-  description={"Fix `String#format` and `String#formatted` expressions by replacing `\\n` newline characters with `%n` and removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index. Using `%n` ensures the correct platform-specific line separator, and removing unused arguments eliminates dead code that may mask a mismatch between the format string and its parameters."}
+  description={"Fix `String#format` and `String#formatted` expressions by removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index. Removing unused arguments eliminates dead code that may mask a mismatch between the format string and its parameters."}
   fqName={"org.openrewrite.staticanalysis.FixStringFormatExpressions"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Fix `String#format` and `String#formatted` expressions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Fix `String#format` and `String#formatted` expressions by replacing `\n` newline characters with `%n` and removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index. Using `%n` ensures the correct platform-specific line separator, and removing unused arguments eliminates dead code that may mask a mismatch between the format string and its parameters.</RecipeHeader.Description>
+<RecipeHeader.Description>Fix `String#format` and `String#formatted` expressions by removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index. Removing unused arguments eliminates dead code that may mask a mismatch between the format string and its parameters.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"class T {\n    static {\n        String s = String.format(\"hello world\\n%s\", \"again\");\n        String s2 = \"hello world\\n%s\".formatted(\"again\");\n    }\n}\n","after":"class T {\n    static {\n        String s = String.format(\"hello world%n%s\", \"again\");\n        String s2 = \"hello world%n%s\".formatted(\"again\");\n    }\n}\n","diff":"@@ -3,2 +3,2 @@\nclass T {\n    static {\n-       String s = String.format(\"hello world\\n%s\", \"again\");\n-       String s2 = \"hello world\\n%s\".formatted(\"again\");\n+       String s = String.format(\"hello world%n%s\", \"again\");\n+       String s2 = \"hello world%n%s\".formatted(\"again\");\n    }\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"class T {\n    static {\n        String s = String.format(\"count: %d, %d, %d, %d\", 1, 3, 2, 4, 5);\n        String f = \"count: %d, %d, %d, %d\".formatted(1, 3, 2, 4, 5);\n    }\n}\n","after":"class T {\n    static {\n        String s = String.format(\"count: %d, %d, %d, %d\", 1, 3, 2, 4);\n        String f = \"count: %d, %d, %d, %d\".formatted(1, 3, 2, 4);\n    }\n}\n","diff":"@@ -3,2 +3,2 @@\nclass T {\n    static {\n-       String s = String.format(\"count: %d, %d, %d, %d\", 1, 3, 2, 4, 5);\n-       String f = \"count: %d, %d, %d, %d\".formatted(1, 3, 2, 4, 5);\n+       String s = String.format(\"count: %d, %d, %d, %d\", 1, 3, 2, 4);\n+       String f = \"count: %d, %d, %d, %d\".formatted(1, 3, 2, 4);\n    }\n","newFile":false}]}]}>
 
 ## Examples
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade plugins to Java 21 compatible versions"}
-  description={"Updates plugins and dependencies to version compatible with Java 21."}
+  description={"Updates plugins and dependencies to versions compatible with Java 21."}
   fqName={"org.openrewrite.java.migrate.UpgradePluginsForJava21"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade plugins to Java 21 compatible versions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Updates plugins and dependencies to version compatible with Java 21.</RecipeHeader.Description>
+<RecipeHeader.Description>Updates plugins and dependencies to versions compatible with Java 21.</RecipeHeader.Description>
 
 </RecipeHeader>
 

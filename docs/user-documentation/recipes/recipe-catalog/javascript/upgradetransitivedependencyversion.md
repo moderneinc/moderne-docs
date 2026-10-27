@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade transitive npm dependency"}
-  description={"Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes."}
+  description={"Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. None is written for a package the lock does not resolve. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes."}
   fqName={"org.openrewrite.javascript.UpgradeTransitiveDependencyVersion"}
   languages={["JavaScript"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade transitive npm dependency</RecipeHeader.Title>
 
-<RecipeHeader.Description>Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+<RecipeHeader.Description>Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. None is written for a package the lock does not resolve. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
 
 </RecipeHeader>
 

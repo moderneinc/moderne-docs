@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Simplify redundant logical expressions"}
-  description={"Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake."}
+  description={"Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake. Operands that may have side effects, such as a call, are left alone, since dropping one changes how often it runs. An expression holding comments is left alone too."}
   fqName={"org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Simplify redundant logical expressions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `x and x` with `x` and `x or x` with `x`. Identical operands in a logical expression are redundant and often indicate a copy-paste mistake. Operands that may have side effects, such as a call, are left alone, since dropping one changes how often it runs. An expression holding comments is left alone too.</RecipeHeader.Description>
 
 </RecipeHeader>
 

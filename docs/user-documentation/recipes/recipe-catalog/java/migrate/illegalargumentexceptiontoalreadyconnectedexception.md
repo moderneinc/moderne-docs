@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `IllegalArgumentException` with `AlreadyConnectedException` in `DatagramChannel.send()` method"}
-  description={"Replace `IllegalArgumentException` with `AlreadyConnectedException` for DatagramChannel.send() to ensure compatibility with Java 11+."}
+  description={"Replace `IllegalArgumentException` with `AlreadyConnectedException` for `DatagramChannel.send()` to ensure compatibility with Java 11+."}
   fqName={"org.openrewrite.java.migrate.IllegalArgumentExceptionToAlreadyConnectedException"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `IllegalArgumentException` with `AlreadyConnectedException` in `DatagramChannel.send()` method</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `IllegalArgumentException` with `AlreadyConnectedException` for DatagramChannel.send() to ensure compatibility with Java 11+.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `IllegalArgumentException` with `AlreadyConnectedException` for `DatagramChannel.send()` to ensure compatibility with Java 11+.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -1,6 +1,6 @@
 ---
-title: "URL Equals and Hash Code"
-sidebar_label: "URL Equals and Hash Code"
+title: "`URL#equals()` and `URL#hashCode()`"
+sidebar_label: "`URL#equals()` and `URL#hashCode()`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"URL Equals and Hash Code"}
+  displayName={"`URL#equals()` and `URL#hashCode()`"}
   description={"Uses of `equals()` and `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`."}
   fqName={"org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes"}
   languages={["OpenRewrite"]}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-2112"]}
+  tags={["RSPEC-S2112"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes.md"}
 >
 
-<RecipeHeader.Title>URL Equals and Hash Code</RecipeHeader.Title>
+<RecipeHeader.Title>`URL#equals()` and `URL#hashCode()`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Uses of `equals()` and `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"URL Equals","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlequalsrecipe/"},{"name":"URL Hash Code","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlhashcoderecipe/"}]}>
+<RecipeList recipes={[{"name":"`URL#equals()`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlequalsrecipe/"},{"name":"`URL#hashCode()`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlhashcoderecipe/"}]}>
 
 ## Definition
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes","displayName":"URL Equals and Hash Code","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes","displayName":"`URL#equals()` and `URL#hashCode()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

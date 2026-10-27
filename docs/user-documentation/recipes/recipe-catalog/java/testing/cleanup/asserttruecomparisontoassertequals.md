@@ -1,6 +1,6 @@
 ---
-title: "Junit `assertTrue(a == b)` to `assertEquals(a,b)`"
-sidebar_label: "Junit `assertTrue(a == b)` to `assertEquals(a,b)`"
+title: "Replace JUnit `assertTrue(a == b)` with `assertEquals(a, b)`"
+sidebar_label: "Replace JUnit `assertTrue(a == b)` with `assertEquals(a, b)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Junit `assertTrue(a == b)` to `assertEquals(a,b)`"}
-  description={"Using `assertEquals(a,b)` is simpler and more clear."}
+  displayName={"Replace JUnit `assertTrue(a == b)` with `assertEquals(a, b)`"}
+  description={"Using `assertEquals(a, b)` is simpler and more clear."}
   fqName={"org.openrewrite.java.testing.cleanup.AssertTrueComparisonToAssertEquals"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruecomparisontoassertequals.md"}
 >
 
-<RecipeHeader.Title>Junit `assertTrue(a == b)` to `assertEquals(a,b)`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace JUnit `assertTrue(a == b)` with `assertEquals(a, b)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Using `assertEquals(a,b)` is simpler and more clear.</RecipeHeader.Description>
+<RecipeHeader.Description>Using `assertEquals(a, b)` is simpler and more clear.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.cleanup.AssertTrueComparisonToAssertEquals","displayName":"Junit `assertTrue(a == b)` to `assertEquals(a,b)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.cleanup.AssertTrueComparisonToAssertEquals","displayName":"Replace JUnit `assertTrue(a == b)` with `assertEquals(a, b)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Merge consecutive branches with identical bodies"}
-  description={"Combine consecutive `if`/`elif` branches that have the same body into a single branch with conditions joined by `or`."}
+  description={"Combine consecutive `if`/`elif` branches that have the same body into a single branch with conditions joined by `or`. Branches separated by a comment are left alone."}
   fqName={"org.openrewrite.python.codequality.MergeIdenticalBranches"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={["python","code-quality","RSPEC-S1871"]}
+  tags={["python","ruff","SIM114","code-quality","RSPEC-S1871"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.codequality.MergeIdenticalBranches"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Merge consecutive branches with identical bodies</RecipeHeader.Title>
 
-<RecipeHeader.Description>Combine consecutive `if`/`elif` branches that have the same body into a single branch with conditions joined by `or`.</RecipeHeader.Description>
+<RecipeHeader.Description>Combine consecutive `if`/`elif` branches that have the same body into a single branch with conditions joined by `or`. Branches separated by a comment are left alone.</RecipeHeader.Description>
 
 </RecipeHeader>
 

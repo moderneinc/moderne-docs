@@ -1,6 +1,6 @@
 ---
-title: "Find Virtual Thread opportunities"
-sidebar_label: "Find Virtual Thread opportunities"
+title: "Find virtual thread opportunities"
+sidebar_label: "Find virtual thread opportunities"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Find Virtual Thread opportunities"}
-  description={"Find opportunities to convert existing code to use Virtual Threads."}
+  displayName={"Find virtual thread opportunities"}
+  description={"Find opportunities to convert existing code to use virtual threads."}
   fqName={"org.openrewrite.java.migrate.lang.FindVirtualThreadOpportunities"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/findvirtualthreadopportunities.md"}
 >
 
-<RecipeHeader.Title>Find Virtual Thread opportunities</RecipeHeader.Title>
+<RecipeHeader.Title>Find virtual thread opportunities</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find opportunities to convert existing code to use Virtual Threads.</RecipeHeader.Description>
+<RecipeHeader.Description>Find opportunities to convert existing code to use virtual threads.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.FindVirtualThreadOpportunities","displayName":"Find Virtual Thread opportunities","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.FindVirtualThreadOpportunities","displayName":"Find virtual thread opportunities","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

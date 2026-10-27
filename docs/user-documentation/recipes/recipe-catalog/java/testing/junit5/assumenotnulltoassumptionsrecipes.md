@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Transform singlar `assumeNotNull(object)` to `assumeFalse(object == null)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/assumenotnulltoassumptionsrecipes$singleargrecipe/"},{"name":"Transform variadic `assumeNotNull(objects...)` to a stream of `assumeFalse(object == null)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/assumenotnulltoassumptionsrecipes$varargsrecipe/"}]}>
+<RecipeList recipes={[{"name":"Transform single-argument `assumeNotNull(object)` to `assumeFalse(object == null)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/assumenotnulltoassumptionsrecipes$singleargrecipe/"},{"name":"Transform variadic `assumeNotNull(objects...)` to a stream of `assumeFalse(object == null)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/assumenotnulltoassumptionsrecipes$varargsrecipe/"}]}>
 
 ## Definition
 

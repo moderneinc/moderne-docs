@@ -1,6 +1,6 @@
 ---
-title: "Enum values should be compared with \"==\""
-sidebar_label: "Enum values should be compared with \"==\""
+title: "Enum values should be compared with `==`"
+sidebar_label: "Enum values should be compared with `==`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Enum values should be compared with \"==\""}
-  description={"Replaces `Enum equals(java.lang.Object)` with `Enum == java.lang.Object`. An `!Enum equals(java.lang.Object)` will change to `!=`. Using `==` for enum comparison is null-safe, catches type mismatches at compile time, and is idiomatic since each enum constant is guaranteed to be a singleton."}
+  displayName={"Enum values should be compared with `==`"}
+  description={"Replaces `a.equals(b)` with `a == b` when `a` is an enum, and `!a.equals(b)` with `a != b`. Using `==` for enum comparison is null-safe, catches type mismatches at compile time, and is idiomatic since each enum constant is guaranteed to be a singleton."}
   fqName={"org.openrewrite.staticanalysis.CompareEnumsWithEqualityOperator"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/compareenumswithequalityoperator.md"}
 >
 
-<RecipeHeader.Title>Enum values should be compared with "=="</RecipeHeader.Title>
+<RecipeHeader.Title>Enum values should be compared with `==`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces `Enum equals(java.lang.Object)` with `Enum == java.lang.Object`. An `!Enum equals(java.lang.Object)` will change to `!=`. Using `==` for enum comparison is null-safe, catches type mismatches at compile time, and is idiomatic since each enum constant is guaranteed to be a singleton.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces `a.equals(b)` with `a == b` when `a` is an enum, and `!a.equals(b)` with `a != b`. Using `==` for enum comparison is null-safe, catches type mismatches at compile time, and is idiomatic since each enum constant is guaranteed to be a singleton.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CompareEnumsWithEqualityOperator","displayName":"Enum values should be compared with \"==\"","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CompareEnumsWithEqualityOperator","displayName":"Enum values should be compared with `==`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

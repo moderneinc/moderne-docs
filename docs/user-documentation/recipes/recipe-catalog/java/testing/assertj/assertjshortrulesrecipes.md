@@ -1,6 +1,6 @@
 ---
-title: "Adopt AssertJ Short Assertions"
-sidebar_label: "Adopt AssertJ Short Assertions"
+title: "Adopt AssertJ `Short` assertions"
+sidebar_label: "Adopt AssertJ `Short` assertions"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adopt AssertJ Short Assertions"}
-  description={"Adopt AssertJ Short Assertions. Favor semantically explicit methods (e.g. `myShort.isZero()` over `myShort.isEqualTo(0)`)."}
+  displayName={"Adopt AssertJ `Short` assertions"}
+  description={"Adopt AssertJ `Short` assertions. Favor semantically explicit methods (e.g. `myShort.isZero()` over `myShort.isEqualTo(0)`)."}
   fqName={"org.openrewrite.java.testing.assertj.AssertJShortRulesRecipes"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjshortrulesrecipes.md"}
 >
 
-<RecipeHeader.Title>Adopt AssertJ Short Assertions</RecipeHeader.Title>
+<RecipeHeader.Title>Adopt AssertJ `Short` assertions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adopt AssertJ Short Assertions. Favor semantically explicit methods (e.g. `myShort.isZero()` over `myShort.isEqualTo(0)`).</RecipeHeader.Description>
+<RecipeHeader.Description>Adopt AssertJ `Short` assertions. Favor semantically explicit methods (e.g. `myShort.isZero()` over `myShort.isEqualTo(0)`).</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJShortRulesRecipes","displayName":"Adopt AssertJ Short Assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJShortRulesRecipes","displayName":"Adopt AssertJ `Short` assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

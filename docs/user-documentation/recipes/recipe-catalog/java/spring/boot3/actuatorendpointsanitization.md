@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Delete a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/deletespringproperty/"},{"name":"Delete a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/deletespringproperty/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Delete a Spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/deletespringproperty/"},{"name":"Delete a Spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/deletespringproperty/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

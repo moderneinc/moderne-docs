@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use `String.CASE_INSENSITIVE_ORDER`"}
-  description={"Replaces case-insensitive string comparator lambdas and method references with the JDK constant `String.CASE_INSENSITIVE_ORDER`. Improves readability and removes one closure allocation per call site."}
+  description={"Replaces case-insensitive string comparator lambdas and method references with the JDK constant `String.CASE_INSENSITIVE_ORDER`. Improves readability."}
   fqName={"org.openrewrite.staticanalysis.UseStringCaseInsensitiveOrderRecipe"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use `String.CASE_INSENSITIVE_ORDER`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces case-insensitive string comparator lambdas and method references with the JDK constant `String.CASE_INSENSITIVE_ORDER`. Improves readability and removes one closure allocation per call site.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces case-insensitive string comparator lambdas and method references with the JDK constant `String.CASE_INSENSITIVE_ORDER`. Improves readability.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"xml","before":"<persistence xmlns=\"http://java.sun.com/xml/ns/persistence\" version=\"2.0\"/>\n","after":"<persistence xmlns=\"https://jakarta.ee/xml/ns/persistence\" version=\"3.0\"/>\n","diff":"--- src/test/resources/test-persistence.xml\n+++ src/test/resources/test-persistence.xml\n@@ -1,1 +1,1 @@\n-<persistence xmlns=\"http://java.sun.com/xml/ns/persistence\" version=\"2.0\"/>\n+<persistence xmlns=\"https://jakarta.ee/xml/ns/persistence\" version=\"3.0\"/>\n\n","newFile":false}]},{"variants":[{"language":"xml","before":"<persistence xmlns=\"http://java.sun.com/xml/ns/persistence\" version=\"2.0\"/>\n","after":"<persistence xmlns=\"https://jakarta.ee/xml/ns/persistence\" version=\"3.0\"/>\n","diff":"--- src/test/resources/test-persistence.xml\n+++ src/test/resources/test-persistence.xml\n@@ -1,1 +1,1 @@\n-<persistence xmlns=\"http://java.sun.com/xml/ns/persistence\" version=\"2.0\"/>\n+<persistence xmlns=\"https://jakarta.ee/xml/ns/persistence\" version=\"3.0\"/>\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JavaxPersistenceXmlToJakartaPersistenceXml","displayName":"Migrate xmlns entries in `persistence.xml` files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage

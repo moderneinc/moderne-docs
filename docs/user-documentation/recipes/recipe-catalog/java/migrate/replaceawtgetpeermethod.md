@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"getPeerMethodPattern","required":false,"description":"The method pattern to match and replace.","example":"java.awt.* getPeer()"},{"type":"String","name":"lightweightPeerFQCN","required":false,"description":"The fully qualified class name of the LightweightPeer interface to replace in `instanceof`.","example":"java.awt.peer.LightweightPeer"}]}>
+<OptionsTable options={[{"type":"String","name":"getPeerMethodPattern","required":false,"description":"A method pattern matching the `getPeer()` method to replace.","example":"java.awt.* getPeer()"},{"type":"String","name":"lightweightPeerFQCN","required":false,"description":"The fully qualified name of the `LightweightPeer` interface to replace in `instanceof`.","example":"java.awt.peer.LightweightPeer"}]}>
 
 ## Options
 

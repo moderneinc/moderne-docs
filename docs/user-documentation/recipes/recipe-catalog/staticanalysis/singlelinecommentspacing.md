@@ -1,6 +1,6 @@
 ---
-title: "Add space after // in single-line comments"
-sidebar_label: "Add space after // in single-line comments"
+title: "Add space after `//` in single-line comments"
+sidebar_label: "Add space after `//` in single-line comments"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Add space after // in single-line comments"}
-  description={"Ensures there is exactly one space after // in single-line comments when missing."}
+  displayName={"Add space after `//` in single-line comments"}
+  description={"Adds a space after `//` in single-line comments that do not start with one."}
   fqName={"org.openrewrite.staticanalysis.SingleLineCommentSpacing"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/singlelinecommentspacing.md"}
 >
 
-<RecipeHeader.Title>Add space after // in single-line comments</RecipeHeader.Title>
+<RecipeHeader.Title>Add space after `//` in single-line comments</RecipeHeader.Title>
 
-<RecipeHeader.Description>Ensures there is exactly one space after // in single-line comments when missing.</RecipeHeader.Description>
+<RecipeHeader.Description>Adds a space after `//` in single-line comments that do not start with one.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.SingleLineCommentSpacing","displayName":"Add space after // in single-line comments","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.SingleLineCommentSpacing","displayName":"Add space after `//` in single-line comments","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

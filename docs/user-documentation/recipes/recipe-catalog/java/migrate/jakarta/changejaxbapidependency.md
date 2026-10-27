@@ -1,6 +1,6 @@
 ---
-title: "Migrate the JAXB API dependency unless Recorder still needs it"
-sidebar_label: "Migrate the JAXB API dependency unless Recorder still needs it"
+title: "Migrate the JAXB API dependency unless Recorder or Jackson still needs it"
+sidebar_label: "Migrate the JAXB API dependency unless Recorder or Jackson still needs it"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate the JAXB API dependency unless Recorder still needs it"}
-  description={"Migrate JAXB API coordinates while preserving the legacy API needed alongside Jakarta JAXB by external Arquillian Recorder 1.x binaries. Recorder modules migrated in the same reactor are excluded."}
+  displayName={"Migrate the JAXB API dependency unless Recorder or Jackson still needs it"}
+  description={"Migrate JAXB API coordinates while preserving the legacy API needed alongside Jakarta JAXB by external Arquillian Recorder 1.x binaries or by Jackson's JAXB annotations module. Recorder modules migrated in the same reactor are excluded."}
   fqName={"org.openrewrite.java.migrate.jakarta.ChangeJaxbApiDependency"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/changejaxbapidependency.md"}
 >
 
-<RecipeHeader.Title>Migrate the JAXB API dependency unless Recorder still needs it</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate the JAXB API dependency unless Recorder or Jackson still needs it</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate JAXB API coordinates while preserving the legacy API needed alongside Jakarta JAXB by external Arquillian Recorder 1.x binaries. Recorder modules migrated in the same reactor are excluded.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate JAXB API coordinates while preserving the legacy API needed alongside Jakarta JAXB by external Arquillian Recorder 1.x binaries or by Jackson's JAXB annotations module. Recorder modules migrated in the same reactor are excluded.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.ChangeJaxbApiDependency","displayName":"Migrate the JAXB API dependency unless Recorder still needs it","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.ChangeJaxbApiDependency","displayName":"Migrate the JAXB API dependency unless Recorder or Jackson still needs it","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

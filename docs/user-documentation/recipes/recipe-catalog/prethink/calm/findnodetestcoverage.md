@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"javascript","code":"describe(\"user\", () => {\n    describe(\"save\", () => {\n        it(\"stores the name\", () => {\n            expect(save(\"Ada\").name).toBe(\"Ada\");\n        });\n    });\n    test(\"is valid\", () => {\n        expect(valid()).toBe(true);\n    });\n});\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindNodeTestCoverage","displayName":"Find Node.js test coverage","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 
 ## Usage

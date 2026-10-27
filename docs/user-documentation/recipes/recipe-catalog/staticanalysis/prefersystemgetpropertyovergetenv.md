@@ -1,6 +1,6 @@
 ---
-title: "Prefer `System.getProperty(\"user.home\")` over `System.getenv(\"HOME\")`"
-sidebar_label: "Prefer `System.getProperty(\"user.home\")` over `System.getenv(\"HOME\")`"
+title: "Prefer `System.getProperty(..)` over `System.getenv(..)`"
+sidebar_label: "Prefer `System.getProperty(..)` over `System.getenv(..)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `System.getProperty(\"user.home\")` over `System.getenv(\"HOME\")`"}
-  description={"Replaces `System.getenv(\"HOME\")` with `System.getProperty(\"user.home\")` for better portability."}
+  displayName={"Prefer `System.getProperty(..)` over `System.getenv(..)`"}
+  description={"Replaces `System.getenv(..)` for `USER`, `USERNAME`, `HOME`, `USERPROFILE`, `TMPDIR`, `TEMP` and `TMP` with `System.getProperty(..)` for `user.name`, `user.home` or `java.io.tmpdir`, for better portability."}
   fqName={"org.openrewrite.staticanalysis.PreferSystemGetPropertyOverGetenv"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/prefersystemgetpropertyovergetenv.md"}
 >
 
-<RecipeHeader.Title>Prefer `System.getProperty("user.home")` over `System.getenv("HOME")`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `System.getProperty(..)` over `System.getenv(..)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replaces `System.getenv("HOME")` with `System.getProperty("user.home")` for better portability.</RecipeHeader.Description>
+<RecipeHeader.Description>Replaces `System.getenv(..)` for `USER`, `USERNAME`, `HOME`, `USERPROFILE`, `TMPDIR`, `TEMP` and `TMP` with `System.getProperty(..)` for `user.name`, `user.home` or `java.io.tmpdir`, for better portability.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.PreferSystemGetPropertyOverGetenv","displayName":"Prefer `System.getProperty(\"user.home\")` over `System.getenv(\"HOME\")`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.PreferSystemGetPropertyOverGetenv","displayName":"Prefer `System.getProperty(..)` over `System.getenv(..)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -22,7 +22,6 @@ description: Dotnet OpenRewrite recipes.
 
 ## Recipes
 
-* [Add NuGet package reference when namespace is used](./addnugetpackagereferenceiftypeused.md)
 * [Change method name](./changemethodname.md)
 * [Change type](./changetype.md)
 * [Delete method argument](./deletemethodargument.md)

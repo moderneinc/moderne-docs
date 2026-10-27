@@ -1,6 +1,6 @@
 ---
-title: "Adopt AssertJ Integer Assertions"
-sidebar_label: "Adopt AssertJ Integer Assertions"
+title: "Adopt AssertJ `Integer` assertions"
+sidebar_label: "Adopt AssertJ `Integer` assertions"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adopt AssertJ Integer Assertions"}
-  description={"Adopt AssertJ Integer Assertions. Favor semantically explicit methods (e.g. `myInteger.isZero()` over `myInteger.isEqualTo(0)`)."}
+  displayName={"Adopt AssertJ `Integer` assertions"}
+  description={"Adopt AssertJ `Integer` assertions. Favor semantically explicit methods (e.g. `myInteger.isZero()` over `myInteger.isEqualTo(0)`)."}
   fqName={"org.openrewrite.java.testing.assertj.AssertJIntegerRulesRecipes"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjintegerrulesrecipes.md"}
 >
 
-<RecipeHeader.Title>Adopt AssertJ Integer Assertions</RecipeHeader.Title>
+<RecipeHeader.Title>Adopt AssertJ `Integer` assertions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adopt AssertJ Integer Assertions. Favor semantically explicit methods (e.g. `myInteger.isZero()` over `myInteger.isEqualTo(0)`).</RecipeHeader.Description>
+<RecipeHeader.Description>Adopt AssertJ `Integer` assertions. Favor semantically explicit methods (e.g. `myInteger.isZero()` over `myInteger.isEqualTo(0)`).</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJIntegerRulesRecipes","displayName":"Adopt AssertJ Integer Assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJIntegerRulesRecipes","displayName":"Adopt AssertJ `Integer` assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

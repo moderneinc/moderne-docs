@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find deprecated `urllib.parse.to_bytes()` usage"}
-  description={"Find usage of `urllib.parse.to_bytes()` which was deprecated in Python 3.8 and removed in 3.14. Use str.encode() directly."}
+  description={"Find usage of `urllib.parse.to_bytes()` which was deprecated in Python 3.8. Use str.encode() directly."}
   fqName={"org.openrewrite.python.migrate.FindUrllibParseToBytes"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find deprecated `urllib.parse.to_bytes()` usage</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find usage of `urllib.parse.to_bytes()` which was deprecated in Python 3.8 and removed in 3.14. Use str.encode() directly.</RecipeHeader.Description>
+<RecipeHeader.Description>Find usage of `urllib.parse.to_bytes()` which was deprecated in Python 3.8. Use str.encode() directly.</RecipeHeader.Description>
 
 </RecipeHeader>
 

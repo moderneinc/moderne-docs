@@ -1,6 +1,6 @@
 ---
-title: "Adds missing method implementations"
-sidebar_label: "Adds missing method implementations"
+title: "Add missing method implementations"
+sidebar_label: "Add missing method implementations"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adds missing method implementations"}
-  description={"Check for missing methods required by interfaces and adds them."}
+  displayName={"Add missing method implementations"}
+  description={"Add a method to classes that implement the given interface but are missing the method."}
   fqName={"org.openrewrite.java.migrate.AddMissingMethodImplementation"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation.md"}
 >
 
-<RecipeHeader.Title>Adds missing method implementations</RecipeHeader.Title>
+<RecipeHeader.Title>Add missing method implementations</RecipeHeader.Title>
 
-<RecipeHeader.Description>Check for missing methods required by interfaces and adds them.</RecipeHeader.Description>
+<RecipeHeader.Description>Add a method to classes that implement the given interface but are missing the method.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"fullyQualifiedClassName","required":true,"description":"A fully qualified class being implemented with missing method.","example":"com.yourorg.FooBar"},{"type":"String","name":"methodPattern","required":true,"description":"A method pattern for matching required method definition.","example":"*..* hello(..)"},{"type":"String","name":"methodTemplateString","required":true,"description":"Template of method to add","example":"public String hello() { return \\\"Hello from #{}!\\\"; }"}]}>
+<OptionsTable options={[{"type":"String","name":"fullyQualifiedClassName","required":true,"description":"The fully qualified name of the interface whose method may be missing from its implementations.","example":"com.yourorg.FooBar"},{"type":"String","name":"methodPattern","required":true,"description":"A method pattern matching the required method declaration.","example":"*..* hello(..)"},{"type":"String","name":"methodTemplateString","required":true,"description":"Template of the method to add.","example":"public String hello() { return \\\"Hello from #{}!\\\"; }"}]}>
 
 ## Options
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddMissingMethodImplementation","displayName":"Adds missing method implementations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedClassName=com.yourorg.FooBar\" --recipe-option \"methodPattern='*..* hello(..)'\" --recipe-option \"methodTemplateString=public String hello() { return \\\"Hello from #{}!\\\"; }\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddMissingMethodImplementation","displayName":"Add missing method implementations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"fullyQualifiedClassName=com.yourorg.FooBar\" --recipe-option \"methodPattern='*..* hello(..)'\" --recipe-option \"methodTemplateString=public String hello() { return \\\"Hello from #{}!\\\"; }\""}}>
 
 ## Usage
 

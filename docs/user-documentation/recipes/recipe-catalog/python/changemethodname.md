@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<OptionsTable options={[{"type":"String","name":"method_pattern","required":true,"description":"A method pattern that matches method invocations to rename.","example":"datetime.datetime utcnow()"},{"type":"String","name":"new_method_name","required":true,"description":"The new name for the method.","example":"now"},{"type":"String","name":"match_overrides","required":false,"description":"When enabled, also match method overrides."},{"type":"String","name":"ignore_definition","required":false,"description":"When enabled, the method definition itself will not be renamed."}]}>
+
+## Options
+
+</OptionsTable>
+
 <UsageList usage={{"recipeName":"org.openrewrite.python.ChangeMethodName","displayName":"Change method name","pipPackage":"openrewrite","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}}>
 
 ## Usage

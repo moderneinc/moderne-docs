@@ -1,6 +1,6 @@
 ---
-title: "Clean Up Assertions"
-sidebar_label: "Clean Up Assertions"
+title: "Clean up assertions"
+sidebar_label: "Clean up assertions"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Clean Up Assertions"}
+  displayName={"Clean up assertions"}
   description={"Simplifies JUnit Jupiter assertions to their most-direct equivalents."}
   fqName={"org.openrewrite.java.testing.junit5.CleanupAssertions"}
   languages={["Java"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/cleanupassertions.md"}
 >
 
-<RecipeHeader.Title>Clean Up Assertions</RecipeHeader.Title>
+<RecipeHeader.Title>Clean up assertions</RecipeHeader.Title>
 
 <RecipeHeader.Description>Simplifies JUnit Jupiter assertions to their most-direct equivalents.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Replace JUnit `assertTrue(!<boolean>)` to `assertFalse(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruenegationtoassertfalse/"},{"name":"Replace JUnit `assertFalse(!<boolean>)` to `assertTrue(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalsenegationtoasserttrue/"},{"name":"Replace JUnit `assertTrue(a.equals(b))` to `assertEquals(a,b)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttrueequalstoassertequals/"},{"name":"Junit `assertTrue(a == b)` to `assertEquals(a,b)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruecomparisontoassertequals/"},{"name":"Replace JUnit `assertFalse(a.equals(b))` to `assertNotEquals(a,b)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalseequalstoassertnotequals/"},{"name":"`assertEquals(a, null)` to `assertNull(a)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertequalsnulltoassertnull/"},{"name":"Replace JUnit `assertFalse(a == null)` to `assertNotNull(a)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalsenulltoassertnotnull/"},{"name":"Replace JUnit `assertTrue(a == null)` to `assertNull(a)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruenulltoassertnull/"},{"name":"Replace JUnit `assertEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertequalsbooleantoassertboolean/"},{"name":"Replace JUnit `assertNotEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertnotequalsbooleantoassertboolean/"},{"name":"Assertion arguments should be passed in the correct order","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertionsargumentorder/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Replace JUnit `assertTrue(!<boolean>)` to `assertFalse(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruenegationtoassertfalse/"},{"name":"Replace JUnit `assertFalse(!<boolean>)` to `assertTrue(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalsenegationtoasserttrue/"},{"name":"Replace JUnit `assertTrue(a.equals(b))` to `assertEquals(a,b)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttrueequalstoassertequals/"},{"name":"Replace JUnit `assertTrue(a == b)` with `assertEquals(a, b)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruecomparisontoassertequals/"},{"name":"Replace JUnit `assertFalse(a.equals(b))` to `assertNotEquals(a,b)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalseequalstoassertnotequals/"},{"name":"`assertEquals(a, null)` to `assertNull(a)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertequalsnulltoassertnull/"},{"name":"Replace JUnit `assertFalse(a == null)` to `assertNotNull(a)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalsenulltoassertnotnull/"},{"name":"Replace JUnit `assertTrue(a == null)` to `assertNull(a)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruenulltoassertnull/"},{"name":"Replace JUnit `assertEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertequalsbooleantoassertboolean/"},{"name":"Replace JUnit `assertNotEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertnotequalsbooleantoassertboolean/"},{"name":"Assertion arguments should be passed in the correct order","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertionsargumentorder/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.CleanupAssertions","displayName":"Clean Up Assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.CleanupAssertions","displayName":"Clean up assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

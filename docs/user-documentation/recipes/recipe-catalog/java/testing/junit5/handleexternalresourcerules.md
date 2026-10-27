@@ -1,6 +1,6 @@
 ---
-title: "Handle the usage of ExternalResourceRule fields using @ExtendWith(ExternalResourceSupport.class)"
-sidebar_label: "Handle the usage of ExternalResourceRule fields using @ExtendWith(ExternalResourceSupport.class)"
+title: "Handle the usage of `ExternalResource` rule fields using `@ExtendWith(ExternalResourceSupport.class)`"
+sidebar_label: "Handle the usage of `ExternalResource` rule fields using `@ExtendWith(ExternalResourceSupport.class)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Handle the usage of ExternalResourceRule fields using @ExtendWith(ExternalResourceSupport.class)"}
-  description={"Handles the usage of the ExternalResourceRule fields by adding the @ExtendWith(ExternalResourceSupport.class) annotation to the test class."}
+  displayName={"Handle the usage of `ExternalResource` rule fields using `@ExtendWith(ExternalResourceSupport.class)`"}
+  description={"Handles the usage of `ExternalResource` rule fields by adding the `@ExtendWith(ExternalResourceSupport.class)` annotation to the test class."}
   fqName={"org.openrewrite.java.testing.junit5.HandleExternalResourceRules"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/handleexternalresourcerules.md"}
 >
 
-<RecipeHeader.Title>Handle the usage of ExternalResourceRule fields using @ExtendWith(ExternalResourceSupport.class)</RecipeHeader.Title>
+<RecipeHeader.Title>Handle the usage of `ExternalResource` rule fields using `@ExtendWith(ExternalResourceSupport.class)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Handles the usage of the ExternalResourceRule fields by adding the @ExtendWith(ExternalResourceSupport.class) annotation to the test class.</RecipeHeader.Description>
+<RecipeHeader.Description>Handles the usage of `ExternalResource` rule fields by adding the `@ExtendWith(ExternalResourceSupport.class)` annotation to the test class.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.HandleExternalResourceRules","displayName":"Handle the usage of ExternalResourceRule fields using @ExtendWith(ExternalResourceSupport.class)","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.HandleExternalResourceRules","displayName":"Handle the usage of `ExternalResource` rule fields using `@ExtendWith(ExternalResourceSupport.class)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

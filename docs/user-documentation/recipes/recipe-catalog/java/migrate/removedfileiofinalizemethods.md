@@ -1,6 +1,6 @@
 ---
-title: "Replace `finalize` method in `java.io.FileInputStream`  and `java.io.FileOutputStream`"
-sidebar_label: "Replace `finalize` method in `java.io.FileInputStream`  and `java.io.FileOutputStream`"
+title: "Replace `finalize` method in `java.io.FileInputStream` and `java.io.FileOutputStream`"
+sidebar_label: "Replace `finalize` method in `java.io.FileInputStream` and `java.io.FileOutputStream`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace `finalize` method in `java.io.FileInputStream`  and `java.io.FileOutputStream`"}
+  displayName={"Replace `finalize` method in `java.io.FileInputStream` and `java.io.FileOutputStream`"}
   description={"The `finalize` method in `java.io.FileInputStream` and `java.io.FileOutputStream` is no longer available in Java SE 12 and later. The recipe replaces it with the `close` method."}
   fqName={"org.openrewrite.java.migrate.RemovedFileIOFinalizeMethods"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedfileiofinalizemethods.md"}
 >
 
-<RecipeHeader.Title>Replace `finalize` method in `java.io.FileInputStream`  and `java.io.FileOutputStream`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `finalize` method in `java.io.FileInputStream` and `java.io.FileOutputStream`</RecipeHeader.Title>
 
 <RecipeHeader.Description>The `finalize` method in `java.io.FileInputStream` and `java.io.FileOutputStream` is no longer available in Java SE 12 and later. The recipe replaces it with the `close` method.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemovedFileIOFinalizeMethods","displayName":"Replace `finalize` method in `java.io.FileInputStream`  and `java.io.FileOutputStream`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemovedFileIOFinalizeMethods","displayName":"Replace `finalize` method in `java.io.FileInputStream` and `java.io.FileOutputStream`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

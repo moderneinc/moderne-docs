@@ -1,6 +1,6 @@
 ---
-title: "Removes from code Java 14's `instanceof` pattern matching"
-sidebar_label: "Removes from code Java 14's `instanceof` pattern matching"
+title: "Remove Java 14's `instanceof` pattern matching"
+sidebar_label: "Remove Java 14's `instanceof` pattern matching"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Removes from code Java 14's `instanceof` pattern matching"}
-  description={"Adds an explicit variable declaration at the beginning of `if` statement instead of `instanceof` pattern matching."}
+  displayName={"Remove Java 14's `instanceof` pattern matching"}
+  description={"Adds an explicit variable declaration at the beginning of the `if` statement instead of `instanceof` pattern matching."}
   fqName={"org.openrewrite.staticanalysis.RemoveInstanceOfPatternMatch"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeinstanceofpatternmatch.md"}
 >
 
-<RecipeHeader.Title>Removes from code Java 14's `instanceof` pattern matching</RecipeHeader.Title>
+<RecipeHeader.Title>Remove Java 14's `instanceof` pattern matching</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adds an explicit variable declaration at the beginning of `if` statement instead of `instanceof` pattern matching.</RecipeHeader.Description>
+<RecipeHeader.Description>Adds an explicit variable declaration at the beginning of the `if` statement instead of `instanceof` pattern matching.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveInstanceOfPatternMatch","displayName":"Removes from code Java 14's `instanceof` pattern matching","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveInstanceOfPatternMatch","displayName":"Remove Java 14's `instanceof` pattern matching","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

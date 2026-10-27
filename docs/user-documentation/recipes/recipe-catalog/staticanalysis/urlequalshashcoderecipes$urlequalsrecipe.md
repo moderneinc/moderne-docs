@@ -1,6 +1,6 @@
 ---
-title: "URL Equals"
-sidebar_label: "URL Equals"
+title: "`URL#equals()`"
+sidebar_label: "`URL#equals()`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"URL Equals"}
+  displayName={"`URL#equals()`"}
   description={"Uses of `equals()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`."}
   fqName={"org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes$URLEqualsRecipe"}
   languages={["OpenRewrite"]}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-2112"]}
+  tags={["RSPEC-S2112"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes$URLEqualsRecipe"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlequalsrecipe.md"}
 >
 
-<RecipeHeader.Title>URL Equals</RecipeHeader.Title>
+<RecipeHeader.Title>`URL#equals()`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Uses of `equals()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes$URLEqualsRecipe","displayName":"URL Equals","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes$URLEqualsRecipe","displayName":"`URL#equals()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

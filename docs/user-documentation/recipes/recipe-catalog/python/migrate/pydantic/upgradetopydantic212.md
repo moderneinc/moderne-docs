@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade to Pydantic 2.12"}
-  description={"Migrate code affected by changes introduced in Pydantic 2.12 (and 2.10/2.11). Flags `serialize_as_any` usage affected by the 2.12 unification with the `SerializeAsAny` annotation."}
+  description={"Migrate code affected by changes introduced in Pydantic 2.12 (and 2.10/2.11). Flags `serialize_as_any` usage affected by the 2.12 unification with the `SerializeAsAny` annotation, and `@model_validator(mode='after')` on a classmethod."}
   fqName={"org.openrewrite.python.migrate.pydantic.UpgradeToPydantic212"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade to Pydantic 2.12</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrate code affected by changes introduced in Pydantic 2.12 (and 2.10/2.11). Flags `serialize_as_any` usage affected by the 2.12 unification with the `SerializeAsAny` annotation.</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate code affected by changes introduced in Pydantic 2.12 (and 2.10/2.11). Flags `serialize_as_any` usage affected by the 2.12 unification with the `SerializeAsAny` annotation, and `@model_validator(mode='after')` on a classmethod.</RecipeHeader.Description>
 
 </RecipeHeader>
 

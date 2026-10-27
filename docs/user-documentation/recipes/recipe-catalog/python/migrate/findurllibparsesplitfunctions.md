@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find deprecated urllib.parse split functions"}
-  description={"Find usage of deprecated urllib.parse split functions (splithost, splitport, etc.) removed in Python 3.14. Use urlparse() instead."}
+  description={"Find usage of deprecated urllib.parse split functions (splithost, splitport, etc.), deprecated since Python 3.8. Use urlparse() instead."}
   fqName={"org.openrewrite.python.migrate.FindUrllibParseSplitFunctions"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find deprecated urllib.parse split functions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Find usage of deprecated urllib.parse split functions (splithost, splitport, etc.) removed in Python 3.14. Use urlparse() instead.</RecipeHeader.Description>
+<RecipeHeader.Description>Find usage of deprecated urllib.parse split functions (splithost, splitport, etc.), deprecated since Python 3.8. Use urlparse() instead.</RecipeHeader.Description>
 
 </RecipeHeader>
 

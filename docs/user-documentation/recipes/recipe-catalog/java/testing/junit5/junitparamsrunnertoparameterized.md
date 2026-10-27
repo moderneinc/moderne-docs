@@ -1,6 +1,6 @@
 ---
-title: "Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@Parameterized` tests"
-sidebar_label: "Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@Parameterized` tests"
+title: "Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@ParameterizedTest` tests"
+sidebar_label: "Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@ParameterizedTest` tests"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@Parameterized` tests"}
-  description={"Convert Pragmatists Parameterized test to the JUnit Jupiter ParameterizedTest equivalent."}
+  displayName={"Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@ParameterizedTest` tests"}
+  description={"Convert Pragmatists JUnitParams tests to the JUnit Jupiter `@ParameterizedTest` equivalent."}
   fqName={"org.openrewrite.java.testing.junit5.JUnitParamsRunnerToParameterized"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/junitparamsrunnertoparameterized.md"}
 >
 
-<RecipeHeader.Title>Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@Parameterized` tests</RecipeHeader.Title>
+<RecipeHeader.Title>Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@ParameterizedTest` tests</RecipeHeader.Title>
 
-<RecipeHeader.Description>Convert Pragmatists Parameterized test to the JUnit Jupiter ParameterizedTest equivalent.</RecipeHeader.Description>
+<RecipeHeader.Description>Convert Pragmatists JUnitParams tests to the JUnit Jupiter `@ParameterizedTest` equivalent.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.JUnitParamsRunnerToParameterized","displayName":"Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@Parameterized` tests","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.JUnitParamsRunnerToParameterized","displayName":"Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@ParameterizedTest` tests","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"DevCenter for Gradle and Maven"}
-  description={"Track and automate upgrades for Gradle, Maven, and Java versions."}
+  description={"Track and automate upgrades for Gradle, Maven, and Java versions.\n\n**Upgrade to Gradle 9**<br/>\nThe Gradle version each repository builds with, compared to 9.0.0.<br/><br/>\n`Major` → `Minor` → `Patch` → `Completed` · fix with [`MigrateToGradle9`](https://codegenomeproject.org/recipes/org.openrewrite.gradle.MigrateToGradle9)\n\n**Upgrade to Maven 4**<br/>\nThe Maven version each repository builds with, compared to 4.0.0.<br/><br/>\n`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpdateMavenWrapper`](https://codegenomeproject.org/recipes/org.openrewrite.maven.UpdateMavenWrapper)\n\n**Move to Java 25**<br/>\nThe Java version each repository compiles for.<br/><br/>\n`Java 8+` → `Java 11+` → `Java 17+` → `Java 21+` → `Completed` · fix with [`UpgradeToJava25`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)\n\nThe DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize."}
   fqName={"io.moderne.devcenter.BuildToolStarter"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -28,7 +28,25 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>DevCenter for Gradle and Maven</RecipeHeader.Title>
 
-<RecipeHeader.Description>Track and automate upgrades for Gradle, Maven, and Java versions.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Track and automate upgrades for Gradle, Maven, and Java versions.
+
+**Upgrade to Gradle 9**<br />
+The Gradle version each repository builds with, compared to 9.0.0.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt="Major to Completed" /><br />
+`Major` → `Minor` → `Patch` → `Completed` · fix with [`MigrateToGradle9`](https://codegenomeproject.org/recipes/org.openrewrite.gradle.MigrateToGradle9)
+
+**Upgrade to Maven 4**<br />
+The Maven version each repository builds with, compared to 4.0.0.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=" alt="Major to Completed" /><br />
+`Major` → `Minor` → `Patch` → `Completed` · fix with [`UpdateMavenWrapper`](https://codegenomeproject.org/recipes/org.openrewrite.maven.UpdateMavenWrapper)
+
+**Move to Java 25**<br />
+The Java version each repository compiles for.<br /><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==" alt="Java 8+ to Completed" /><br />
+`Java 8+` → `Java 11+` → `Java 17+` → `Java 21+` → `Completed` · fix with [`UpgradeToJava25`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)
+
+The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

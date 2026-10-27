@@ -1,6 +1,6 @@
 ---
-title: "Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`"
-sidebar_label: "Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`"
+title: "Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods"
+sidebar_label: "Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`"}
+  displayName={"Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods"}
   description={"Replaces the `javax.security.auth.Subject.getSubject()` and `javax.security.auth.Subject.doAs()` methods with `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()`."}
   fqName={"org.openrewrite.java.migrate.RemovedSubjectMethods"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedsubjectmethods.md"}
 >
 
-<RecipeHeader.Title>Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`</RecipeHeader.Title>
+<RecipeHeader.Title>Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replaces the `javax.security.auth.Subject.getSubject()` and `javax.security.auth.Subject.doAs()` methods with `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemovedSubjectMethods","displayName":"Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemovedSubjectMethods","displayName":"Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.3","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.3","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3/"},{"name":"Spring Boot 3.3 best practices (only)","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpracticesonly/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

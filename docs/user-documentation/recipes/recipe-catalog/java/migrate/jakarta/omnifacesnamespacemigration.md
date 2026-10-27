@@ -1,6 +1,6 @@
 ---
-title: "OmniFaces Namespace Migration"
-sidebar_label: "OmniFaces Namespace Migration"
+title: "Migrate OmniFaces namespaces"
+sidebar_label: "Migrate OmniFaces namespaces"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"OmniFaces Namespace Migration"}
+  displayName={"Migrate OmniFaces namespaces"}
   description={"Find and replace legacy OmniFaces namespaces."}
   fqName={"org.openrewrite.java.migrate.jakarta.OmniFacesNamespaceMigration"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/omnifacesnamespacemigration.md"}
 >
 
-<RecipeHeader.Title>OmniFaces Namespace Migration</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate OmniFaces namespaces</RecipeHeader.Title>
 
 <RecipeHeader.Description>Find and replace legacy OmniFaces namespaces.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.OmniFacesNamespaceMigration","displayName":"OmniFaces Namespace Migration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.OmniFacesNamespaceMigration","displayName":"Migrate OmniFaces namespaces","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

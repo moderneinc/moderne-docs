@@ -1,6 +1,6 @@
 ---
-title: "Migrate to JavaEE6"
-sidebar_label: "Migrate to JavaEE6"
+title: "Migrate to Java EE 6"
+sidebar_label: "Migrate to Java EE 6"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate to JavaEE6"}
-  description={"These recipes help with the Migration to Java EE 6, flagging and updating deprecated methods."}
+  displayName={"Migrate to Java EE 6"}
+  description={"Apply changes needed when migrating to Java EE 6, such as calling `HttpServletRequest.logout()` before `HttpSession.invalidate()`."}
   fqName={"org.openrewrite.java.migrate.javaee6"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,19 +31,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javaee6.md"}
 >
 
-<RecipeHeader.Title>Migrate to JavaEE6</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate to Java EE 6</RecipeHeader.Title>
 
-<RecipeHeader.Description>These recipes help with the Migration to Java EE 6, flagging and updating deprecated methods.</RecipeHeader.Description>
+<RecipeHeader.Description>Apply changes needed when migrating to Java EE 6, such as calling `HttpServletRequest.logout()` before `HttpSession.invalidate()`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/httpsessioninvalidate/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Call `HttpServletRequest.logout()` before `HttpSession.invalidate()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/httpsessioninvalidate/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javaee6","displayName":"Migrate to JavaEE6","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javaee6","displayName":"Migrate to Java EE 6","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

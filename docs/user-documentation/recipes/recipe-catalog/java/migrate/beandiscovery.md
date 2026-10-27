@@ -1,6 +1,6 @@
 ---
-title: "Behavior change to bean discovery in modules with `beans.xml` file with no version specified"
-sidebar_label: "Behavior change to bean discovery in modules with `beans.xml` file with no version specified"
+title: "Add `version` and `bean-discovery-mode` to `beans.xml` files without a version"
+sidebar_label: "Add `version` and `bean-discovery-mode` to `beans.xml` files without a version"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Behavior change to bean discovery in modules with `beans.xml` file with no version specified"}
-  description={"Alters beans with missing version attribute to include this attribute as well as the bean-discovery-mode=\"all\" attribute to maintain an explicit bean archive."}
+  displayName={"Add `version` and `bean-discovery-mode` to `beans.xml` files without a version"}
+  description={"Alters `beans.xml` files with a missing `version` attribute to include this attribute as well as `bean-discovery-mode=\"all\"`, to maintain an explicit bean archive."}
   fqName={"org.openrewrite.java.migrate.BeanDiscovery"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/beandiscovery.md"}
 >
 
-<RecipeHeader.Title>Behavior change to bean discovery in modules with `beans.xml` file with no version specified</RecipeHeader.Title>
+<RecipeHeader.Title>Add `version` and `bean-discovery-mode` to `beans.xml` files without a version</RecipeHeader.Title>
 
-<RecipeHeader.Description>Alters beans with missing version attribute to include this attribute as well as the bean-discovery-mode="all" attribute to maintain an explicit bean archive.</RecipeHeader.Description>
+<RecipeHeader.Description>Alters `beans.xml` files with a missing `version` attribute to include this attribute as well as `bean-discovery-mode="all"`, to maintain an explicit bean archive.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.BeanDiscovery","displayName":"Behavior change to bean discovery in modules with `beans.xml` file with no version specified","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.BeanDiscovery","displayName":"Add `version` and `bean-discovery-mode` to `beans.xml` files without a version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

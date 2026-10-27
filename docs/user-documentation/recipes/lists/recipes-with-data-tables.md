@@ -10,6 +10,831 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ## io.moderne.recipe
 
 
+### recipes-mainframe
+
+#### [io.moderne.mainframe.analysis.FindCopybookDrift](/user-documentation/recipes/recipe-catalog/mainframe/analysis/findcopybookdrift.md)
+  * **Find copybook drift**
+  * Report fields that a copybook declares differently, or not at all, in different programs. A copybook is supposed to be one declaration shared by every program that copies it, and when that stops being true — a private copy taken years ago, a `REPLACING` that reaches into the picture, a field added to the library and not picked up — nothing announces it. The programs still compile and the copies still look alike. This is the check that a shared record is still shared.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.CopybookDrift**: *Fields that a copybook declares differently, or not at all, in different programs.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.analysis.FindMainframeMigrationBlockers](/user-documentation/recipes/recipe-catalog/mainframe/analysis/findmainframemigrationblockers.md)
+  * **Find CICS and IMS migration blockers**
+  * Find the CICS and IMS constructs that a mechanical COBOL to Java translation carries over without making them work: non-local control flow registered by `HANDLE`, state that outlives a transaction, serialisation and shared storage that pins a transaction to one region, resources named only at run time, and checkpoint/restart. Each of these needs a design decision rather than a translation, so finding them early is what makes a migration estimate real.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.MainframeMigrationBlockers**: *CICS and IMS constructs that need a design decision before a program can be moved.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.analysis.FindMainframeRelationships](/user-documentation/recipes/recipe-catalog/mainframe/analysis/findmainframerelationships.md)
+  * **Find the relationships of a program**
+  * Record what each program is built from and what it reaches, as relationship rows for diagramming and exploration: the copybooks it copies and includes, the programs it hands control to with `CALL`, `LINK` and `XCTL`, the CICS files, queues, maps and transactions it uses, the DB2 tables its embedded SQL touches and the verb it touches each with, and the IMS segments and message queue it reads, along with the PCB each segment was reached through and the database the PSB puts behind that position, which the call itself never names. A DB2 read is spread over declare, open, fetch and close and only the declaration names a table, so the cursor is the join and a fetch is reported as an access to the table it reads. A copybook that declares a table with DCLGEN gets a row of its own, since that is the one member where the table and the record layout standing in for it are written together. An assembler member is read the same way, for the copy members and shop macros it is built from, the control sections and entry points it defines, the programs it calls and the DL/I calls it issues; a macro invocation is an edge only where the estate writes the prototype, the rest being IBM's out of a library no repository holds. A SAS program is read for the members it includes and the DB2 tables it reads through a connection, a name out of a SAS library being a data set of that library and not a table any catalog has heard of. A CLIST and a REXX exec are read for the jobs they submit, the programs they run and the scripts they call, which is the one place an estate writes down how anything is started by hand; a name the script computed is left out, since the job `CLMSUB` really submits is a fact about two members and a parameter rather than about a statement. Every row carries the file and line of the statement that made it, so a relationship can be opened where it was written. Resource and program names supplied by a data item are resolved through the literals that reach them where exactly one does, and otherwise marked as missing, because the target is only known at run time.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.analysis.FindProgramComplexity](/user-documentation/recipes/recipe-catalog/mainframe/analysis/findprogramcomplexity.md)
+  * **Measure program complexity**
+  * Measure size and complexity per program: source and comment lines as written and with copybooks inlined, McCabe cyclomatic complexity, statement and paragraph counts, copybook and call coupling, Halstead volume and a maintainability index. The point is triage — which of several thousand programs are the risky, expensive ones, and which are small enough to move without ceremony. Programs crossing thresholds drawn from published operating experience are flagged.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ProgramComplexity**: *Size and complexity per program, for ranking a portfolio by risk and effort.*
+
+
+#### [io.moderne.mainframe.analysis.FindReferences](/user-documentation/recipes/recipe-catalog/mainframe/analysis/findreferences.md)
+  * **Find references to a name**
+  * Report every place a data name, program, copybook, data set, DD name or paragraph is declared or referred to, with the file and line, and mark each one in the source. A search over the text finds the name wherever its letters appear; this finds the thing: a `CALL` through a field whose `VALUE` names the program, a condition name standing for the item it qualifies, a declaration copied in from a copybook, the DD a `SELECT` binds and the step that allocates it. What the rest of the portfolio knows about the name — what a program does with a field and where it reaches, who calls a program, who copies a copybook — is written beside its declaration.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.References**: *Every place a named data item, program, copybook, data set, DD name or paragraph is declared or referred to, with the line it is on.*
+
+
+#### [io.moderne.mainframe.analysis.FindResourceCrud](/user-documentation/recipes/recipe-catalog/mainframe/analysis/findresourcecrud.md)
+  * **Build the resource CRUD matrix**
+  * Report which programs create, read, update and delete which files, queues, DB2 tables and IMS segments. A mainframe program reaches its data four different ways — CICS commands, DL/I calls, embedded SQL and native file I/O — and each is normally reported on its own, which is what makes &quot;who else writes this&quot; hard to answer. Here a VSAM file read through CICS in one program and through `READ` in another is one resource with two readers.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ResourceCrud**: *Which programs create, read, update and delete which files, queues, DB2 tables and IMS segments, across CICS, DL/I, SQL and native file I/O.*
+
+
+#### [io.moderne.mainframe.analysis.FindResourceUsage](/user-documentation/recipes/recipe-catalog/mainframe/analysis/findresourceusage.md)
+  * **Build the resource side of the CRUD matrix**
+  * Report which programs and jobs reach each file, queue, DB2 table, data set and IMS segment, one row per resource and program carrying the letters of everything done to it. This is the matrix `FindResourceCrud` and `FindBatchCrud` build, turned on its side: theirs answers what one program touches, this one answers who else touches a store, which is the question asked before a file is changed or retired. The same rows are pivoted rather than the portfolio being read again, so a VSAM file read through CICS in one program, read natively in another and allocated by a job under its real data set name is three rows about one store — and every segment a DL/I call names carries its own letters, the last one written and the ones above it read to reach it.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ResourceUsage**: *Which programs and jobs reach each file, queue, DB2 table, data set and IMS segment, one row per resource and program, with the letters of everything they do to it.*
+
+
+#### [io.moderne.mainframe.analysis.ListRelationshipKinds](/user-documentation/recipes/recipe-catalog/mainframe/analysis/listrelationshipkinds.md)
+  * **List relationship kinds**
+  * Write out every relationship each kind of mainframe resource can have, both ways round, as the schema the relationship rows are read against. A view of a program can then show that nothing calls it, rather than showing nothing — which is the difference between an answer and a gap. This is a fixed vocabulary and does not depend on what is in the repository, so it reports the same rows over any source.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.RelationshipKinds**: *Every relationship a resource of each type can have, both ways round. This is the schema the relationship rows are read against, so a view of one component can show each relationship it is capable of even when it has none — an empty section says &quot;nothing calls this&quot;, where a missing section says nothing at all.*
+
+
+#### [io.moderne.mainframe.analysis.controlflow.FindControlFlowEdges](/user-documentation/recipes/recipe-catalog/mainframe/analysis/controlflow/findcontrolflowedges.md)
+  * **Find the control flow between paragraphs and sections**
+  * Report every transfer of control between the procedures of a program as edges from `MAINLINE`, the statements before the first paragraph, down: `PERFORM` and each further procedure its `THRU` range runs through, `GO TO` including `DEPENDING ON`, the branch targets `EXEC CICS HANDLE` registers, and the fall-through from a paragraph that does not transfer away into the next. Each edge carries the line it is written at and whether it leads to a procedure that abends, with `EXEC CICS ABEND` or a call to `CEE3ABD`, so the error paths can be drawn apart from the rest. The graph is the one `FindUnreachableProcedures` walks, and programs containing `ALTER` are skipped for the same reason: `ALTER` retargets a `GO TO` at run time and leaves the program with no static control flow.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ControlFlowEdges**: *Every transfer of control between the paragraphs and sections of a program, from `MAINLINE` down: the flowchart, as edges.*
+
+
+#### [io.moderne.mainframe.analysis.controlflow.FindProcedureRangePathology](/user-documentation/recipes/recipe-catalog/mainframe/analysis/controlflow/findprocedurerangepathology.md)
+  * **Find PERFORM THRU range pathology**
+  * Find `PERFORM ... THRU` ranges that overlap without nesting, and jumps that leave a range before its exit paragraph. Both make a program resist restructuring: control can enter one range and leave through another's exit, so neither range can be reasoned about, extracted or converted on its own. These are the constructs that make a mechanical translation produce something nobody can maintain, and they are invisible when reading the source in order.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ProcedureRangePathology**: *Ranges that overlap without nesting, and jumps that leave a range part-way through.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.analysis.controlflow.FindUnreachableProcedures](/user-documentation/recipes/recipe-catalog/mainframe/analysis/controlflow/findunreachableprocedures.md)
+  * **Find unreachable paragraphs and sections**
+  * Find paragraphs and sections that no path from the program's entry point reaches, by building a control flow graph over the procedure division and walking it. The graph follows fall-through between adjacent paragraphs, `GO TO` including `DEPENDING ON`, `PERFORM` including the full `THRU` range, and the branch targets registered by `EXEC CICS HANDLE`; it treats `XCTL`, `RETURN` and `ABEND` as ending the program. Programs containing `ALTER` are skipped, because `ALTER` retargets a `GO TO` at run time and leaves the program with no static control flow.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.UnreachableProcedures**: *Paragraphs and sections that no path from the program's entry point reaches.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.batch.AnalyzeDataSets](/user-documentation/recipes/recipe-catalog/mainframe/batch/analyzedatasets.md)
+  * **List every data set the portfolio names**
+  * Record each data set as a component of its own — what kind of file it is, the control card member whose IDCAMS `DEFINE` creates it, the jobs that allocate it new, and how many jobs, steps and programs touch it — with who touches each file, a row per job and program, and the chain each file goes through in order, from the card that defines it through the job that creates it to the jobs that read it. `FindDataSets` answers the same question and marks the DD cards and `DEFINE` commands that make a file; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.DataSetIndex**: *Every data set the portfolio names, as a component of its own: what kind of file it is, the control card member that defines it, the jobs that create it, and how many jobs, steps and programs touch it. A data set has no source file, so nothing else in an estate reports one; it is named by every DD that allocates it and belongs to none of them.*
+  * **io.moderne.mainframe.analysis.table.DataSetAccess**: *Who touches each data set: one row per file, job and program, with the steps and DDs it is reached through. Asking a file who reads it is the question a change to it starts with, and it is a row per accessor rather than a list in a cell because a file an installation shares has hundreds of them.*
+  * **io.moderne.mainframe.analysis.table.DataSetLifecycle**: *The chain each data set goes through, in order: the control card that defines it, the job that creates it, the jobs that rewrite it and the jobs that read it. Nothing in an estate says this — each job knows only its own DD — so the chain is put together from the dispositions and from the order the schedule runs the jobs in.*
+
+
+#### [io.moderne.mainframe.batch.AnalyzeExecutionPaths](/user-documentation/recipes/recipe-catalog/mainframe/batch/analyzeexecutionpaths.md)
+  * **List how far each job step can be read**
+  * Record every job step with the program it runs, the procedure it came through, what its `PARM` passes position by position, where the control cards it is handed are written, and a verdict on whether all of that could be read from the source supplied. `RESOLVED` says every name the step is written with was followed and everything it does is written in what was read; `INHERITED` says every name was followed and part of what it does is a setting written outside the application libraries; `UNRESOLVED` says a name was not followed at all. Each verdict's reasons are a row apiece, so an estate can be counted by what blocks it. `FindExecutionPaths` answers the same question and marks the `EXEC` cards in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ExecutionPaths**: *Every job step with the program it runs, the procedure it came through, what its PARM passes, where its control cards are written, and the verdict on whether all of that could be read from the source supplied.*
+  * **io.moderne.mainframe.analysis.table.ExecutionPathGaps**: *One row per reason a job step's execution path is not fully determined by the source supplied: the kind of gap, the step and DD it was found under, and what it is about.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.batch.AnalyzeJclStepDetail](/user-documentation/recipes/recipe-catalog/mainframe/batch/analyzejclstepdetail.md)
+  * **List each job step and the data sets it allocates**
+  * Record each job step in the order it runs and every DD it allocates: the data set, whether it is a generation, its disposition, and the record format, record length, block size, space and unit it is allocated with. Read with the procedure library supplied, the steps are the ones the job actually runs — a step that calls a procedure is replaced by the procedure's own steps, each naming the procedure it came from, with the job's DD overrides applied and its symbols filled in. `FindJclStepDetail` answers the same question and marks the DD cards in the source; this one produces the table and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.JclStepDetail**: *Every data set each job step allocates, with the procedure the step came from and the attributes the data set is allocated with.*
+
+
+#### [io.moderne.mainframe.batch.FindBatchCrud](/user-documentation/recipes/recipe-catalog/mainframe/batch/findbatchcrud.md)
+  * **Build the batch CRUD matrix**
+  * Report which job step runs which program against which data set, and what the program does with it. Neither source says this on its own: `//ACCTDD DD DSN=PROD.ACCOUNT.MASTER` names a data set without saying what happens to it, and `SELECT ACCT-FILE ASSIGN TO ACCTDD` says what happens without saying to what. The DD name is the only word both files contain, so joining on it is what turns a pile of jobs and a pile of programs into a batch application. Every `ASSIGN` and every DD appears, bound or with the reason it is not: a step is a run unit rather than a program, so a subprogram's files are bound by the step that runs its caller.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.BatchCrud**: *Which job step runs which program against which data set, and what the program does with it.*
+
+
+#### [io.moderne.mainframe.batch.FindBatchRelationships](/user-documentation/recipes/recipe-catalog/mainframe/batch/findbatchrelationships.md)
+  * **Find batch data set relationships**
+  * Add the batch edges to the same relationship graph `FindRelationships` builds for copybooks, program calls, DB2 tables, link-edit cards and schedules: which procedures and INCLUDE members a job pulls in, which program each step runs, which PSB an IMS region runs under, which data sets a job allocates, and — the edge neither source carries on its own — which data sets a program creates, reads, updates and deletes. A program's `ASSIGN` clause names a DD and the JCL binds that DD to a data set, so only the two read together say what a program touches. A step that calls a procedure runs the procedure's steps, and the program it passed on `PGM=` or `MBR=` is a symbol until those are read against it, so the edge says the job runs `CLMB010` rather than `&amp;PGM` and is anchored at the card that passed it.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.batch.FindDataSets](/user-documentation/recipes/recipe-catalog/mainframe/batch/finddatasets.md)
+  * **Find every data set the portfolio names**
+  * Report each data set as a component of its own — what kind of file it is, the control card member whose IDCAMS `DEFINE` creates it, the jobs that allocate it new, and how many jobs, steps and programs touch it — and mark the DD cards and the `DEFINE` commands that make one. A data set is the one component of an estate with no source file: nothing declares it, the JCL names it on a DD without saying where it came from, and the COBOL names only the DD, so the object is built by joining all three. Two more tables come out of the same join: who touches each file, a row per job and program rather than a list in a cell, because a file an installation shares has hundreds of them; and the chain each file goes through in order, from the card that defines it through the job that creates it to the jobs that read it, ordered by what the dispositions say and by the order the Control-M conditions run the jobs in. `AnalyzeDataSets` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.DataSetIndex**: *Every data set the portfolio names, as a component of its own: what kind of file it is, the control card member that defines it, the jobs that create it, and how many jobs, steps and programs touch it. A data set has no source file, so nothing else in an estate reports one; it is named by every DD that allocates it and belongs to none of them.*
+  * **io.moderne.mainframe.analysis.table.DataSetAccess**: *Who touches each data set: one row per file, job and program, with the steps and DDs it is reached through. Asking a file who reads it is the question a change to it starts with, and it is a row per accessor rather than a list in a cell because a file an installation shares has hundreds of them.*
+  * **io.moderne.mainframe.analysis.table.DataSetLifecycle**: *The chain each data set goes through, in order: the control card that defines it, the job that creates it, the jobs that rewrite it and the jobs that read it. Nothing in an estate says this — each job knows only its own DD — so the chain is put together from the dispositions and from the order the schedule runs the jobs in.*
+
+
+#### [io.moderne.mainframe.batch.FindExecutionPaths](/user-documentation/recipes/recipe-catalog/mainframe/batch/findexecutionpaths.md)
+  * **Find how far each job step can be read**
+  * Report every job step with the program it runs, the procedure it came through, what its `PARM` passes position by position, where the control cards it is handed are written, and a verdict on whether all of that could be read from the source supplied — marking each `EXEC` card with the verdict its step reached. A step is a chain of names: the `EXEC` names a procedure, the procedure's cards name symbols, a symbol names the member a DD reads, and that member holds the cards the program really runs. `RESOLVED` says every link held and everything the step does is written in what was read; `INHERITED` says every link held and part of what it does is a setting written outside the application libraries; `UNRESOLVED` says a name was not followed at all. Only `RESOLVED` is safe to rewrite without asking anyone anything, which is what makes this the gate any change to a job has to pass first. `AnalyzeExecutionPaths` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ExecutionPaths**: *Every job step with the program it runs, the procedure it came through, what its PARM passes, where its control cards are written, and the verdict on whether all of that could be read from the source supplied.*
+  * **io.moderne.mainframe.analysis.table.ExecutionPathGaps**: *One row per reason a job step's execution path is not fully determined by the source supplied: the kind of gap, the step and DD it was found under, and what it is about.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.batch.FindJclStepDetail](/user-documentation/recipes/recipe-catalog/mainframe/batch/findjclstepdetail.md)
+  * **Find every data set a job step allocates**
+  * Report each job step in the order it runs and every DD it allocates, and mark the DD cards the report is drawn from: the data set, whether it is a generation, its disposition, and the record format, record length, block size, space and unit it is allocated with. Read with the procedure library supplied, the steps are the ones the job actually runs — a step that calls a procedure is replaced by the procedure's own steps, each naming the procedure it came from, with the job's DD overrides applied and its symbols filled in, so `DSN=&amp;HLQ..CLMMAST` reads as the data set the catalog holds. What the programs do with each data set is carried across from the batch join. `AnalyzeJclStepDetail` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.JclStepDetail**: *Every data set each job step allocates, with the procedure the step came from and the attributes the data set is allocated with.*
+
+
+#### [io.moderne.mainframe.calltree.FindCallTree](/user-documentation/recipes/recipe-catalog/mainframe/calltree/findcalltree.md)
+  * **Build the call tree**
+  * Lay out every job, procedure, program and subprogram of the portfolio as a tree from what runs it: a job's steps, the procedure or program each step runs, the steps of that procedure, and the programs each program reaches by `CALL`, `EXEC CICS LINK` or `XCTL`, one row per position and depth first so the rows alone draw the tree. A step names a load module rather than a program, and where a link-edit deck says what is bound into it the module is a position of its own with every program it holds beneath it. A target named by a data item is resolved through the one literal the item is given where there is one, and flagged as dynamic either way. A tree starts from each job and from each procedure and program nothing reaches; a node already in its tree is written where it is reached again and not expanded, which is what keeps a cycle finite. Every step and every `CALL`, `LINK` and `XCTL` is marked.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.CallTree**: *Every job, procedure, program and subprogram as a tree from what runs it, one row per position and depth first, so the rows alone lay the tree out.*
+
+
+#### [io.moderne.mainframe.cics.FindCicsCommands](/user-documentation/recipes/recipe-catalog/mainframe/cics/findcicscommands.md)
+  * **Find CICS commands**
+  * Locate `EXEC CICS` commands and record what each one does. The LST holds a CICS block as an opaque run of words, so this decomposes each block into its verb, qualifier and options first. The resulting inventory is what sizing and API replacement decisions are made against.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.CicsCommandUsages**: *Every EXEC CICS command, with the options it was given.*
+
+
+#### [io.moderne.mainframe.cics.FindCicsResources](/user-documentation/recipes/recipe-catalog/mainframe/cics/findcicsresources.md)
+  * **Find CICS resource access**
+  * Build the program to resource matrix for CICS: which files, temporary storage and transient data queues, programs, transactions and maps each program touches, and whether it reads, writes or transfers to them. This is the input to decomposition work, because two programs that write the same file cannot be separated without deciding who owns it. Resource names supplied by a data item are resolved through the literals that reach it where exactly one does, and reported as dynamic otherwise.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.CicsResourceUsages**: *Which CICS resources each program touches, and how.*
+
+
+#### [io.moderne.mainframe.controlcard.AnalyzeControlCards](/user-documentation/recipes/recipe-catalog/mainframe/controlcard/analyzecontrolcards.md)
+  * **Say what each control card deck is and what it defines**
+  * Record what kind of deck each control card member holds — DFSORT or ICETOOL statements, IDCAMS commands, Db2 utility control statements, a DSN command deck, or cards no grammar here reads yet — with the steps that read it, the member each `SYSIN` resolves to, and the data sets an IDCAMS `DEFINE` creates. A deck written in a job stream is typed the same way and reported under the job it is written in. `FindControlCards` answers the same question and marks each statement in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ControlCardKind**: *What each control card deck is, and which steps read it. A control card library holds sort cards, IDCAMS cards, DSN command decks and parm cards side by side, and nothing in a member's name says which is which — the kind here is read off the deck's first statement. A deck written in a job stream is here too, under the job it is written in, where what it says types it.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.controlcard.FindControlCards](/user-documentation/recipes/recipe-catalog/mainframe/controlcard/findcontrolcards.md)
+  * **Find what each control card deck is**
+  * Report what kind of deck each control card member holds — DFSORT or ICETOOL statements, IDCAMS commands, Db2 utility control statements, a DSN command deck, or cards no grammar here reads yet — with the steps that read it, and mark each statement in the source. A control card library is one library holding several languages, and a member's name says nothing about which it is, so each is typed by its first statement; a deck written in a job stream is typed the same way, under the job it is written in. Two kinds of edge come out of it: the member each `SYSIN` resolves to, which is the only word the DD and the library share, and the data sets an IDCAMS `DEFINE` creates — the one place a VSAM file's existence, key and record size are written down, since the JCL that reads the file names only a DD and the COBOL names only that. `AnalyzeControlCards` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ControlCardKind**: *What each control card deck is, and which steps read it. A control card library holds sort cards, IDCAMS cards, DSN command decks and parm cards side by side, and nothing in a member's name says which is which — the kind here is read off the deck's first statement. A deck written in a job stream is here too, under the job it is written in, where what it says types it.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.controlm.AnalyzeControlMSchedules](/user-documentation/recipes/recipe-catalog/mainframe/controlm/analyzecontrolmschedules.md)
+  * **Say when each job runs, what has to end first, and on which days**
+  * Record every job Control-M runs: the JCL member it submits and the library it is taken from, the table and application it is ordered under, the calendars its days are read against, and the definition as written. A second table is the order the night runs in, joined from the condition one job adds and the next waits for, and a third decodes each calendar into the days it actually has. `FindControlMSchedules` answers the same question and marks the member each job submits; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ControlMSchedule**: *Every job the scheduler runs, with the JCL member it submits. A JCL member says what a job does and nothing anywhere else says when it runs, out of which library the member is taken, or under which table and application it is ordered — so this is the far end of the batch estate, and the row carries the definition as written for the Scheduler Info report.*
+  * **io.moderne.mainframe.analysis.table.ControlMDependencies**: *Which job the scheduler runs before which, one row per pair. Nothing in a schedule names another job: a job adds a condition when it ends and another job waits for that name, so the order the night runs in is only readable by joining the two — and the join holds across tables and across applications without either side saying so.*
+  * **io.moderne.mainframe.analysis.table.ControlMCalendars**: *The days each calendar has, a row per year it carries. A schedule writes the days a job is a candidate to run on and the calendar decides which of those the shop is open for, so the days a job really runs are only readable by decoding the year as exported: twelve months of thirty-one positions, `Y` or `N`, a position past the end of a month being `N`.*
+
+
+#### [io.moderne.mainframe.controlm.AnalyzeScheduleGaps](/user-documentation/recipes/recipe-catalog/mainframe/controlm/analyzeschedulegaps.md)
+  * **Say which build orders the scheduler does not enforce, and which jobs nobody orders**
+  * Reconcile the scheduler against the build and against the JCL library. A link-edit deck that includes an object binds whatever the object library held when the binder ran, so the job that compiles the object has to have run before the job that links the module: a row per order the build requires, with the job that writes the object, the job that reads it, the schedules that submit each, and whether a condition puts them in that order. The second table is the library from the job's side: every JCL member with the schedules that submit it, and the members nobody orders. A third finding is the reference no deck accounts for: a name an assembler member uses and defines nowhere that no `INCLUDE` card names is one the binder's autocall resolves, so what the module holds is whatever `SYSLIB` held on the day it ran. `FindScheduleGaps` answers the same question and marks the cards and job names it was answered from; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.BuildOrder**: *Every order the build requires between two jobs, with what the scheduler does about it. A link-edit deck that includes an object binds whatever the object library held when the binder ran, so the job that compiles the object has to have run first — and no one file says so: the deck names a member, the JCL names the library it is written to and read from, and only the scheduler can make one job wait for another.*
+  * **io.moderne.mainframe.analysis.table.ScheduleCoverage**: *Every job of the JCL library with the schedules that order it. A JCL member says what a job does and never says when it runs, so a member with no schedule is one somebody submits by hand, or one nothing runs at all — and either way it is outside everything the operations side of the estate is documented and monitored by.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.controlm.FindControlMSchedules](/user-documentation/recipes/recipe-catalog/mainframe/controlm/findcontrolmschedules.md)
+  * **Find what the scheduler runs, in what order, and on which days**
+  * Report every job Control-M runs and mark the member each one submits: the JCL member and the library it is taken from, the table and application it is ordered under, the calendars its days are read against, and the definition as written for the Scheduler Info report. A second table is the order the night runs in — nothing in a schedule names another job, so a predecessor and its successor are joined only by the condition one adds and the other waits for, which is why a chain crosses tables without saying so. A third decodes each calendar into the days it actually has. `AnalyzeControlMSchedules` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ControlMSchedule**: *Every job the scheduler runs, with the JCL member it submits. A JCL member says what a job does and nothing anywhere else says when it runs, out of which library the member is taken, or under which table and application it is ordered — so this is the far end of the batch estate, and the row carries the definition as written for the Scheduler Info report.*
+  * **io.moderne.mainframe.analysis.table.ControlMDependencies**: *Which job the scheduler runs before which, one row per pair. Nothing in a schedule names another job: a job adds a condition when it ends and another job waits for that name, so the order the night runs in is only readable by joining the two — and the join holds across tables and across applications without either side saying so.*
+  * **io.moderne.mainframe.analysis.table.ControlMCalendars**: *The days each calendar has, a row per year it carries. A schedule writes the days a job is a candidate to run on and the calendar decides which of those the shop is open for, so the days a job really runs are only readable by decoding the year as exported: twelve months of thirty-one positions, `Y` or `N`, a position past the end of a month being `N`.*
+
+
+#### [io.moderne.mainframe.controlm.FindScheduleGaps](/user-documentation/recipes/recipe-catalog/mainframe/controlm/findschedulegaps.md)
+  * **Find what the scheduler does not enforce**
+  * Reconcile the scheduler against the build and against the JCL library, and mark what it has missed. A link-edit deck that includes an object binds whatever the object library held when the binder ran, so the job that compiles the object has to have run before the job that links the module — a row per order the build requires, with the job that writes the object, the job that reads it, the schedules that submit each, and whether a condition puts them in that order, directly or through another job. The second table is the library from the job's side: every JCL member with the schedules that submit it, and the members nobody orders, which are the jobs somebody remembers to run. A third finding is the reference no deck accounts for: a name an assembler member uses and defines nowhere that no `INCLUDE` card names is one the binder's autocall resolves, so what the module holds is whatever `SYSLIB` held on the day it ran. All three are findings as well. `AnalyzeScheduleGaps` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.BuildOrder**: *Every order the build requires between two jobs, with what the scheduler does about it. A link-edit deck that includes an object binds whatever the object library held when the binder ran, so the job that compiles the object has to have run first — and no one file says so: the deck names a member, the JCL names the library it is written to and read from, and only the scheduler can make one job wait for another.*
+  * **io.moderne.mainframe.analysis.table.ScheduleCoverage**: *Every job of the JCL library with the schedules that order it. A JCL member says what a job does and never says when it runs, so a member with no schedule is one somebody submits by hand, or one nothing runs at all — and either way it is outside everything the operations side of the estate is documented and monitored by.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.db2.AnalyzeBindChain](/user-documentation/recipes/recipe-catalog/mainframe/db2/analyzebindchain.md)
+  * **Join each plan to the packages and programs bound under it**
+  * Record the chain a bind deck writes down: the plan, the packages its `PKLIST` may run, the collection each package lands in, the DBRM it is bound from and the program that DBRM was precompiled from, with the job whose step reads the deck. A second table reads the same binds from the package's side, expanding a `PKLIST` that names a whole collection, so that which plans may run a package is a lookup. `FindBindChain` answers the same question and marks each card in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.Db2BindChain**: *What each bind card declares, one row per plan or package it names: the deck it is written in, the job that runs that deck, the collection the package lands in, the DBRM it is bound from and the program that DBRM was precompiled from. The deck is the only place the chain from a plan to the program that runs under it is written down — neither the COBOL nor the JCL says any of it.*
+  * **io.moderne.mainframe.analysis.table.Db2PackagePlans**: *The bind chain read from the package's side: which plans may run each package, and so which plans a change to the program behind it is felt under. A plan lists either the package outright or the whole collection with `*`, so the plans a package runs under are written down nowhere one name at a time.*
+
+
+#### [io.moderne.mainframe.db2.AnalyzeDb2Catalog](/user-documentation/recipes/recipe-catalog/mainframe/db2/analyzedb2catalog.md)
+  * **Read the schema the DDL creates, and who reaches each table**
+  * Record the DB2 schema the portfolio creates: each table with its columns, primary key, foreign keys and indexes, anchored at the member and line it is created on, from both places DDL is written — a member of a DDL library, and the `SYSIN` stream of the job that submits it. The summary joins each table to the programs whose `EXEC SQL` names it and to the packages and plans those programs are bound into, an unqualified name resolved against the qualifier its package was bound with, and a foreign key becomes a relationship between the two tables so the model diagram is the same graph everything else is drawn from. `FindDb2Catalog` answers the same question and marks each statement in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.Db2Tables**: *One row per table the DDL creates: where it is defined, what it is made of, and who reaches it. This is the summary a person opens a table on — the columns, the primary key, the foreign keys either way and the indexes, with the programs, packages and plans that use it — so the question &quot;what is this table and what would a change to it break&quot; is one row rather than a search.*
+  * **io.moderne.mainframe.analysis.table.Db2Columns**: *Every column of every table the DDL creates, in the order a `SELECT *` and a host structure both take: what it holds, whether it may be absent, where it sits in the primary key, the table it points at through a foreign key, and the indexes it is a key of. The last is what says whether a predicate written on the column has an access path or a table space scan behind it.*
+  * **io.moderne.mainframe.analysis.table.Db2Keys**: *The primary key of each table, one row per key column in key order, with the unique index that enforces it. DB2 will not accept a primary key without one, so a key whose index is missing here is DDL that would not run — and the index is also the access path every foreign key check and every keyed read goes through.*
+  * **io.moderne.mainframe.analysis.table.Db2Indexes**: *Every index the DDL creates, with the table it is on and the key it holds. An index is how a batch job reaches a table cheaply, so which columns it is keyed on is which predicates the schema was designed to answer — and an index no program writes a predicate for is maintenance nothing collects on.*
+  * **io.moderne.mainframe.analysis.table.Db2ForeignKeys**: *One table pointing at another, which is the referential arrow of the model diagram and the one relationship between two tables that can be read without reading a program. A key is written either in the `CREATE TABLE` or in an `ALTER TABLE` afterwards, and both are read here.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.db2.AnalyzeHpuUsage](/user-documentation/recipes/recipe-catalog/mainframe/db2/analyzehpuusage.md)
+  * **List the Db2 unloads and what each would cost to move**
+  * Record every Db2 unload the portfolio runs: the dialect its control cards are written in, what in the deck proved that rather than the program name on the `EXEC` card, the table space and tables it reads, the DDs it writes, how it reads them and at what consistency, and what moving it off the High Performance Unload product would take — `ALREADY_THE_TARGET`, `MAPS_KEYWORD_FOR_KEYWORD` by IBM's own option table, `NEEDS_REDESIGN` where the base utility has no answer, or `NOT_DECIDABLE` where the source does not say enough to judge. Each unload also makes the one edge no other analysis makes, a Db2 table reached from a control card rather than from `EXEC SQL`, anchored at the `EXEC` card and at the `CREATE TABLE`. `FindHpuUsage` answers the same question and marks the `EXEC` cards in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.Db2Unloads**: *Every unload a job runs, the dialect its control cards are written in, what it unloads and where it writes it, and what it would take to run the same unload on the base Db2 utility.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.db2.FindBindChain](/user-documentation/recipes/recipe-catalog/mainframe/db2/findbindchain.md)
+  * **Find the plans and packages the bind decks declare**
+  * Report the chain a bind deck writes down and mark every card that writes it: the plan, the packages its `PKLIST` may run, the collection each package lands in, the DBRM it is bound from and the program that DBRM was precompiled from, with the job whose step reads the deck. Nothing else in an estate holds the chain — the COBOL never names its package and the JCL never names its plan — and a deck bound in the job stream is read as one too. A second table reads the same binds from the package's side, so that which plans may run a package is a lookup rather than a search: a plan lists either the package outright or its whole collection with `*`, and only expanding the second says what a package change reaches. `AnalyzeBindChain` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.Db2BindChain**: *What each bind card declares, one row per plan or package it names: the deck it is written in, the job that runs that deck, the collection the package lands in, the DBRM it is bound from and the program that DBRM was precompiled from. The deck is the only place the chain from a plan to the program that runs under it is written down — neither the COBOL nor the JCL says any of it.*
+  * **io.moderne.mainframe.analysis.table.Db2PackagePlans**: *The bind chain read from the package's side: which plans may run each package, and so which plans a change to the program behind it is felt under. A plan lists either the package outright or the whole collection with `*`, so the plans a package runs under are written down nowhere one name at a time.*
+
+
+#### [io.moderne.mainframe.db2.FindDb2Catalog](/user-documentation/recipes/recipe-catalog/mainframe/db2/finddb2catalog.md)
+  * **Find the tables the DDL creates and who reaches them**
+  * Report the DB2 schema the portfolio creates and mark every statement that creates part of it: each table with its columns, primary key, foreign keys and indexes, anchored at the member and line it is created on. DDL is written in two places and neither stands for the other — a member of a DDL library, and the `SYSIN` stream of the job that submits it, which is where an index added to a live table years later usually ends up — so both are read and the job that carries a stream is marked in place of statements that are not its own. The summary joins each table to the programs whose `EXEC SQL` names it and to the packages and plans those programs are bound into, which is what a change to the table has to be rebound into; an unqualified table name in a program is resolved against the qualifier its package was bound with, because that is written in the bind deck and nowhere else. A foreign key becomes a relationship between the two tables, so the model diagram is the same graph everything else is drawn from. `AnalyzeDb2Catalog` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.Db2Tables**: *One row per table the DDL creates: where it is defined, what it is made of, and who reaches it. This is the summary a person opens a table on — the columns, the primary key, the foreign keys either way and the indexes, with the programs, packages and plans that use it — so the question &quot;what is this table and what would a change to it break&quot; is one row rather than a search.*
+  * **io.moderne.mainframe.analysis.table.Db2Columns**: *Every column of every table the DDL creates, in the order a `SELECT *` and a host structure both take: what it holds, whether it may be absent, where it sits in the primary key, the table it points at through a foreign key, and the indexes it is a key of. The last is what says whether a predicate written on the column has an access path or a table space scan behind it.*
+  * **io.moderne.mainframe.analysis.table.Db2Keys**: *The primary key of each table, one row per key column in key order, with the unique index that enforces it. DB2 will not accept a primary key without one, so a key whose index is missing here is DDL that would not run — and the index is also the access path every foreign key check and every keyed read goes through.*
+  * **io.moderne.mainframe.analysis.table.Db2Indexes**: *Every index the DDL creates, with the table it is on and the key it holds. An index is how a batch job reaches a table cheaply, so which columns it is keyed on is which predicates the schema was designed to answer — and an index no program writes a predicate for is maintenance nothing collects on.*
+  * **io.moderne.mainframe.analysis.table.Db2ForeignKeys**: *One table pointing at another, which is the referential arrow of the model diagram and the one relationship between two tables that can be read without reading a program. A key is written either in the `CREATE TABLE` or in an `ALTER TABLE` afterwards, and both are read here.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.db2.FindHpuUsage](/user-documentation/recipes/recipe-catalog/mainframe/db2/findhpuusage.md)
+  * **Find the Db2 unloads and what it would take to run them on the base utility**
+  * Report every Db2 unload the portfolio runs and mark the `EXEC` card each is reached from with what moving it off the High Performance Unload product would take. The classification is by the dialect the control cards are written in and never by `PGM=`: a shop may alias `DSNUTILB` to the product's compatibility entry point `INZUTILC`, and the product reads three vendors' dialects through one program name of its own, so the row says what in the deck proved the engine. Each unload lands in one of four: `ALREADY_THE_TARGET` for a deck already written in the base utility's language, `MAPS_KEYWORD_FOR_KEYWORD` where IBM's own option table covers every keyword — `OUTDDN` to `UNLDDN`, `LOADDDN` to `PUNCHDDN`, `LOCK YES QUIESCE YES` to `SHRLEVEL REFERENCE` — `NEEDS_REDESIGN` where the deck reads a table space once and writes several files, orders rows, joins tables, unloads an image copy or calls an exit, and `NOT_DECIDABLE` where a name in the job was not followed or the deck leaves what it writes to the site parmlib. The findings beside them are the changes that would alter the bytes downstream readers get without anybody noticing: the access mode, a lock and quiesce pair no `SHRLEVEL` matches, output DDs the base utility would default elsewhere, and a deck carrying both JES symbols and the product's own template variables. `AnalyzeHpuUsage` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.Db2Unloads**: *Every unload a job runs, the dialect its control cards are written in, what it unloads and where it writes it, and what it would take to run the same unload on the base Db2 utility.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.db2.MigrateHpuToBaseUnload](/user-documentation/recipes/recipe-catalog/mainframe/db2/migratehputobaseunload.md)
+  * **Migrate a Db2 unload job to the base UNLOAD utility**
+  * Rewrite an unload job that runs on the High Performance Unload product so that it runs on the base Db2 `UNLOAD` utility instead, by IBM's own option table read backwards: `OUTDDN` becomes `UNLDDN`, `LOADDDN` becomes `PUNCHDDN`, `SELECT ... FROM` becomes `FROM TABLE`, `WHERE` becomes `WHEN`, `OUTMAXROWS` becomes `LIMIT`, `OUTFREQROWS` becomes `SAMPLE`, `PARALLELISM` becomes `PARALLEL`, and the `LOCK` and `QUIESCE` pair becomes the one `SHRLEVEL` the base utility has for it. The `EXEC` card is rewritten to `PGM=DSNUTILB` with it, because the two programs read different dialects and a job with one rewritten and not the other fails on its first card.  Only a step that `FindHpuUsage` buckets `MAPS_KEYWORD_FOR_KEYWORD` and whose execution path resolves completely is touched. A step that leaves what it writes to the site parmlib is never rewritten, because the file it writes today is not decided in the source. A procedure or a control card member that several jobs share is rewritten only when every one of those jobs qualifies, and otherwise nothing that job set touches changes at all. Every step visited gets a row saying what was rewritten keyword by keyword, or which of those rules stopped it — including the keywords that were dropped because the base utility has nothing to write them as, which is where the file a downstream reader gets changes shape.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.Db2UnloadMigrations**: *Every unload step a migration to the base Db2 utility visited: what was rewritten, keyword by keyword, and for a step that was left alone, what stopped it.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.documentation.AnalyzeRunBooks](/user-documentation/recipes/recipe-catalog/mainframe/documentation/analyzerunbooks.md)
+  * **Analyze what the run books document**
+  * Record what a documentation library says about the estate around it: one relationship row per name a run book member writes that the portfolio answers to, typed by what the name turned out to be, and one coverage row per program and job saying which member documents it. A run book is prose written in upper case, so what makes a name a reference is looking it up among the members, data sets, tables, databases and load modules the portfolio holds rather than anything the sentence says. A program with no run book and a run book whose subject nothing answers to are both findings. `FindRunBooks` answers the same question and marks every line that writes a name that resolved; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+  * **io.moderne.mainframe.analysis.table.RunBookCoverage**: *Every program and job of the portfolio with the run book member that documents it, and every run book with the component it is about.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.documentation.FindRunBooks](/user-documentation/recipes/recipe-catalog/mainframe/documentation/findrunbooks.md)
+  * **Find what the run books document**
+  * Report what a documentation library says about the estate around it: one relationship row per name a run book member writes that the portfolio answers to, typed by what the name turned out to be, and one coverage row per program and job saying which member documents it. A run book is prose written in upper case, so a name-shaped token in it is any word of eight characters or fewer and no rule tells `MASTER` in a sentence from `MASTER` in a library: what makes a name a reference is looking it up among the members, data sets, tables, databases and load modules the portfolio holds, which is a join rather than something one member says. The row for what a member is about carries its shape — `DOCJOB`, `DOCPGM`, `DOCFICH`, `DOCAPPL` or `DOCOPER` — as the action metadata, so the component it documents can be told from a name it merely mentions. Both directions are findings as well: a program with no run book, which is worth knowing before touching the program, and a run book whose subject nothing answers to, which is a member a rename left behind. Every line writing a name that resolved is marked, which is what a reader is looking for in a page of prose.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+  * **io.moderne.mainframe.analysis.table.RunBookCoverage**: *Every program and job of the portfolio with the run book member that documents it, and every run book with the component it is about.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.ims.AnalyzeImsChain](/user-documentation/recipes/recipe-catalog/mainframe/ims/analyzeimschain.md)
+  * **Join each IMS transaction and job step to the segments behind it**
+  * Record what an IMS estate reaches, from whatever starts a program down to the segment: the transaction code or job step, the PSB, each of its PCBs, the database that PCB opens and the segments the program's calls name through it. A DL/I call names a position and never names a database, so the PSB is what closes it and which PSB a program runs under is written in a third file again. The DBDs and their segment hierarchies are reported alongside, with the field offsets a copybook reading a segment has to agree with, and so is what a field-sensitive PCB hands a program: where a PCB carries `SENFLD`s the I/O area is that field list and not the segment, so the copybook the program reads it with is a different length. `FindImsChain` answers the same questions and marks the calls and definitions in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ImsSegmentAccess**: *Every DL/I call with the database it reaches, which the COBOL never names: the call gives a PCB and the PSB turns that into a database, and only then does the segment name mean something.*
+  * **io.moderne.mainframe.analysis.table.ImsChain**: *One row per path from something that starts a program to a database it may reach: a transaction code or a job step, the program, the PSB it runs under, one PCB of that PSB, and the database and segments behind it.*
+  * **io.moderne.mainframe.analysis.table.ImsDatabases**: *One row per DBD: how it is organised, the DD names a job has to supply for it, and what it holds.*
+  * **io.moderne.mainframe.analysis.table.ImsSegments**: *The segment hierarchy of each DBD: the parent, the length, the sequence field and the fields with their offsets, which is the layout the copybook a program reads it into has to agree with.*
+  * **io.moderne.mainframe.analysis.table.ImsFieldSensitiveAreas**: *What a field-sensitive PCB hands a program, against the copybook the program reads it with. Where a PCB carries `SENFLD`s the I/O area is not the segment: it holds those fields, at those offsets, and a program using the whole segment's layout reads every field after the first omission out of the wrong bytes.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.ims.FindImsChain](/user-documentation/recipes/recipe-catalog/mainframe/ims/findimschain.md)
+  * **Find what each IMS transaction and job step reaches**
+  * Follow an IMS estate from whatever starts a program down to the segment, and mark every DL/I call and definition on the way. A call names a PCB and a segment and never names a database, so on its own it says a program read `CLMROOT` without saying which claim database that is; the PSB closes it, by turning the position the call names into a database. Which PSB a program runs under is written in a third file again — the `PARM` of the region step for a batch program, the `APPLCTN` macro of the stage 1 deck for a message driven one — so nothing short of the whole estate answers the question. All three ways a program names a PCB are followed: a mask counted in the entry list, a `PCBNAME` carried in an AIB, and a number among the database PCBs at the command level. The DBDs and their segment hierarchies are reported alongside, with the field offsets a copybook reading a segment has to agree with, and three mismatches are reported as findings: a call asking for a segment its PCB cannot see, a mask past the end of the PSB's list, and a field- sensitive PCB read into an area of another length — where a PCB carries `SENFLD`s the I/O area is that field list and not the segment. `AnalyzeImsChain` answers the same questions and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ImsSegmentAccess**: *Every DL/I call with the database it reaches, which the COBOL never names: the call gives a PCB and the PSB turns that into a database, and only then does the segment name mean something.*
+  * **io.moderne.mainframe.analysis.table.ImsChain**: *One row per path from something that starts a program to a database it may reach: a transaction code or a job step, the program, the PSB it runs under, one PCB of that PSB, and the database and segments behind it.*
+  * **io.moderne.mainframe.analysis.table.ImsDatabases**: *One row per DBD: how it is organised, the DD names a job has to supply for it, and what it holds.*
+  * **io.moderne.mainframe.analysis.table.ImsSegments**: *The segment hierarchy of each DBD: the parent, the length, the sequence field and the fields with their offsets, which is the layout the copybook a program reads it into has to agree with.*
+  * **io.moderne.mainframe.analysis.table.ImsFieldSensitiveAreas**: *What a field-sensitive PCB hands a program, against the copybook the program reads it with. Where a PCB carries `SENFLD`s the I/O area is not the segment: it holds those fields, at those offsets, and a program using the whole segment's layout reads every field after the first omission out of the wrong bytes.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.ims.FindImsDliCalls](/user-documentation/recipes/recipe-catalog/mainframe/ims/findimsdlicalls.md)
+  * **Find IMS DL/I calls**
+  * Locate IMS database and message calls, written either as `CALL 'CBLTDLI'` and its siblings or as `EXEC DLI`. A DL/I call is an ordinary COBOL `CALL`, so recognising one means applying the convention that the first argument is the function code, the second names a PCB and the rest are segment search arguments. Function codes held in a data item are resolved through the literals moved into it, since programs rarely pass the literal directly.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ImsDliCalls**: *Every DL/I database and message call, however it was written.*
+
+
+#### [io.moderne.mainframe.ingestion.CheckParseQuality](/user-documentation/recipes/recipe-catalog/mainframe/ingestion/checkparsequality.md)
+  * **Check parse quality**
+  * Everything an ingestion has to answer for before its analyses are believed, in one run: the files that failed to parse with the stack trace of each (`ParseFailures`), what every `COPY` resolved to (`CopybookSource`), and the verdict over both with what nothing else records — the procedure, include and SYSIN members a job names that were not supplied, and the files whose type looks wrong (`ParseQuality`). The `SourcesFileErrors` and `DeserializationErrorTable` tables the framework fills alongside complete the picture: a recipe that threw on a source, and an LST that could not be read back.
+
+##### Data tables:
+
+  * **org.openrewrite.table.ParseFailures**: *A list of files that failed to parse along with stack traces of their failures.*
+  * **io.moderne.mainframe.analysis.table.ParseQuality**: *Every source the parsers could not read, could not read as what it was taken for, or read with a member missing, with a verdict on what to do about it.*
+  * **org.openrewrite.mainframe.cobol.table.CopybookSource**: *Information about copybook references in a COBOL source.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.ingestion.FindParseProblems](/user-documentation/recipes/recipe-catalog/mainframe/ingestion/findparseproblems.md)
+  * **Find parse problems**
+  * Report every source the parsers could not read, could not read as what it was taken for, or read with a member missing, and mark each where it prints. A file that did not parse is a `FAILURE` when the parser should have read it, and `MISCLASSIFIED` when it is not what its name says — a control card kept as `.cbl`, a member with no card beginning `//` — which the parser reports under an exception of its own. A program whose `COPY` found no member, and a job whose step, `INCLUDE` or input DD names a procedure or member that was not supplied, is `UNRESOLVED`: it parsed, and every analysis reads it as though the member were empty. A member no parser claimed is read as text, and is reported when it has no extension or looks like code. Every `COPY` also gets its `CopybookSource` row, and every failure a `Findings` row.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ParseQuality**: *Every source the parsers could not read, could not read as what it was taken for, or read with a member missing, with a verdict on what to do about it.*
+  * **org.openrewrite.mainframe.cobol.table.CopybookSource**: *Information about copybook references in a COBOL source.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.inventory.AnalyzeEnvironmentCopies](/user-documentation/recipes/recipe-catalog/mainframe/inventory/analyzeenvironmentcopies.md)
+  * **Compare the copies of a member across environments**
+  * Record every member an environment library holds a copy of, one row from each copy to each of the others, saying whether the two still agree and by how many lines they differ, and a `COPIED_TO` relationship between the two copies as library members. A bind deck differing only in the DB2 subsystem it binds on, the collection its packages land in and the library it reads its DBRMs from is reported as bound elsewhere rather than as drift. `FindEnvironmentCopies` answers the same question and marks each copy in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.EnvironmentCopies**: *The same member held in more than one environment's libraries, and whether the copies still agree. Read from one copy's side, so a member promoted through three environments has a row from each of the three to each of the other two.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.inventory.AnalyzePortfolioInventory](/user-documentation/recipes/recipe-catalog/mainframe/inventory/analyzeportfolioinventory.md)
+  * **Count each application's files by type**
+  * Report how many files of each type every application supplied and how many lines they hold, one row per application and type, which is the shape an inventory report is read in and what a volumetry check reconciles against. Every file counts under one type, so the counts add up to the files received: a data set has no file of its own and a map lives in its map set's file, so `ComponentIndex` names both and neither is a file here. A file no parser could read is not counted either, and `CheckParseQuality` is what says which. Comment lines are counted where each language marks them — column 7 of COBOL and of a copybook, a JCL card beginning `//*`, column 1 of BMS and the control cards.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.PortfolioInventory**: *How many files of each type each application supplied, and how many lines they hold. One row per application and type, which is the shape a files-received summary is read in.*
+
+
+#### [io.moderne.mainframe.inventory.FindEnvironmentCopies](/user-documentation/recipes/recipe-catalog/mainframe/inventory/findenvironmentcopies.md)
+  * **Find members held in more than one environment**
+  * Report every member an environment library holds a copy of, one row from each copy to each of the others, saying whether the two still agree and by how many lines they differ. Promotion is supposed to leave the same member in each environment, and when it stops doing so nothing announces it: the copy that was fixed in production and never merged back reads like every other. A bind deck is the one member meant to differ — it names the DB2 subsystem it binds on, the collection its packages land in and the library it reads its DBRMs from — so a deck differing in exactly those names is reported as bound elsewhere rather than as drift. Each pair is also a `COPIED_TO` relationship between the two copies as library members, and every copy with company is marked.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.EnvironmentCopies**: *The same member held in more than one environment's libraries, and whether the copies still agree. Read from one copy's side, so a member promoted through three environments has a row from each of the three to each of the other two.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.inventory.FindNames](/user-documentation/recipes/recipe-catalog/mainframe/inventory/findnames.md)
+  * **Find components and identifiers by name**
+  * Report every program, copybook, JCL member, control card, data set, BMS map set and map, Control-M schedule, group and calendar, assembler member, macro library member, SAS program, DDL member, link-edit deck, module listing, load module, table, plan, package, DBRM, IMS database, segment, PSB and transaction, MFS format and message, data name, paragraph, section, control section, field and macro whose name matches, and mark each where it is declared. One name is often several things — a program to COBOL, a member to JCL, a `MEMNAME` to Control-M — and each is a row of its own type, placed in the library member it lives in so that two of a name in different libraries are told apart. A data name is placed in the copybook that declares it where one does, with how often the program names it, so a field nothing refers to can be left out of a search.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ComponentIndex**: *Every component of the portfolio by name and type, with the library member it lives in.*
+  * **io.moderne.mainframe.analysis.table.IdentifierIndex**: *Every data name, paragraph, section, control section, field and macro a program declares, with where it is declared and how often the program names it.*
+
+
+#### [io.moderne.mainframe.java.AnalyzeMainframeReferences](/user-documentation/recipes/recipe-catalog/mainframe/java/analyzemainframereferences.md)
+  * **Analyze the mainframe a Java source reaches**
+  * Record the COBOL programs Java calls and the DB2 tables its SQL reads, on the same relationship table the COBOL, batch and scheduler analyses fill, so a program and a table carry their Java callers beside their COBOL ones. Three call shapes are matched, and they are the three real applications write: a JCICS `Program` given a name and linked to; a URL handed to an HTTP client, joined through the z/OS Connect service definition beside it, since the Java says only the path and the definition says which program that path runs; and a SQL statement written as a string, read by the same parser the SQL embedded in COBOL is read by, including one spelled as several literals joined together. A program name held in a constant is followed to the one value that constant holds, and otherwise the row is marked as a name only known at run time. The Java end of every row carries the file and the line it was written on, and the COBOL end carries the file where an analysed repository holds that program. A path written in an annotation is the endpoint the Java serves rather than one it calls, and is not an edge. An operation that names an IMS transaction code rather than a program has no row: nothing here joins a transaction code to the program that runs it. The `Find` recipe answers the same question and marks what it found in the source; this one produces the table and changes nothing.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.java.FindMainframeReferences](/user-documentation/recipes/recipe-catalog/mainframe/java/findmainframereferences.md)
+  * **Find the mainframe a Java source reaches**
+  * Record the COBOL programs Java calls and the DB2 tables its SQL reads, on the same relationship table the COBOL, batch and scheduler analyses fill, so a program and a table carry their Java callers beside their COBOL ones. Three call shapes are matched, and they are the three real applications write: a JCICS `Program` given a name and linked to; a URL handed to an HTTP client, joined through the z/OS Connect service definition beside it, since the Java says only the path and the definition says which program that path runs; and a SQL statement written as a string, read by the same parser the SQL embedded in COBOL is read by, including one spelled as several literals joined together. A program name held in a constant is followed to the one value that constant holds, and otherwise the row is marked as a name only known at run time. The Java end of every row carries the file and the line it was written on, and the COBOL end carries the file where an analysed repository holds that program. A path written in an annotation is the endpoint the Java serves rather than one it calls, and is not an edge. An operation that names an IMS transaction code rather than a program has no row: nothing here joins a transaction code to the program that runs it.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.layout.AnalyzeRecordLayouts](/user-documentation/recipes/recipe-catalog/mainframe/layout/analyzerecordlayouts.md)
+  * **Compare each record with the other language that describes it**
+  * Record every assembler `DSECT` and every SAS `INPUT` statement against the COBOL record describing the same bytes, field by field, with where the two descriptions disagree. `FindRecordLayoutDrift` answers the same question and marks the members compared; this one produces the table and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.RecordLayouts**: *The same record described in two languages, field by field, with where the two descriptions disagree.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.layout.FindRecordLayoutDrift](/user-documentation/recipes/recipe-catalog/mainframe/layout/findrecordlayoutdrift.md)
+  * **Find records described in two languages that disagree**
+  * Compare every assembler `DSECT` and every SAS `INPUT` statement with the COBOL record describing the same bytes, field by field, and mark the members compared. A shop that calls assembler from COBOL keeps a `DSECT` beside the copybook with a banner on both saying they have to match, and a shop that reports on a tape in SAS writes the copybook's offsets again as column numbers; nothing checks either, and a field added to one side and not the other points every field after it at the wrong data. The two joins differ: a `DSECT` names the copybook in the comment written above it, which is the only place the pairing is written down, and a SAS `INPUT` names a DD, so the COBOL record is the one an `FD` lays over the file that DD is assigned to. A record described the same on both sides still gets its rows, so an unchecked layout can be told from a checked one.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.RecordLayouts**: *The same record described in two languages, field by field, with where the two descriptions disagree.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.lineage.AnalyzeVariableChain](/user-documentation/recipes/recipe-catalog/mainframe/lineage/analyzevariablechain.md)
+  * **List what runs a variable**
+  * Record every way a variable reaches the scheduler: the copybook that declares it, each program that uses it, the load module the program is bound into, the procedure and job step that run that module, and the Control-M definition that submits the job. A chain that stops short is reported as far as it got, so a field that reaches no batch job is a row saying so rather than a gap. `FindVariableChain` answers the same question and marks each source at the link it contributes; this one produces the table and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.VariableChain**: *One row per way a variable reaches the scheduler: the copybook that declares it, the program that uses it, the load module the program is bound into, the procedure and job step that run that module, and the Control-M definition that submits the job. Six sources have to be joined to say what runs tonight if a field is widened, and each holds only its own link — the copybook does not know its programs, the program does not know its module, the module does not know its job, and the job does not say when it runs. A chain that stops short is reported as far as it got, so a field that reaches no batch job at all is a row and not a gap.*
+
+
+#### [io.moderne.mainframe.lineage.FindColumnLineage](/user-documentation/recipes/recipe-catalog/mainframe/lineage/findcolumnlineage.md)
+  * **Find column lineage**
+  * Report every field the program writes out and the field outside the program that fed it, in the shape a data catalog wants it. Each row is one entry of OpenLineage's column lineage facet: the program is the job, a file, queue, map, IMS segment, SQL table or terminal is the dataset, and the COBOL field is the column. The route between the two boundaries comes with it, so the claim can be checked, along with the exact position of the statement that wrote the value out — which is what a catalog needs to show the code behind a lineage edge rather than merely assert it. Where the map sets are on disk, a row about a screen names the field the mapset declares rather than the data item BMS generated from it, so both ends of the row read as a person would name them.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ColumnLineage**: *Which input field feeds each field the program writes out, in the shape OpenLineage's column lineage facet asks for, with the statement that did it.*
+
+
+#### [io.moderne.mainframe.lineage.FindCopybookImpact](/user-documentation/recipes/recipe-catalog/mainframe/lineage/findcopybookimpact.md)
+  * **Assess the impact of a copybook change**
+  * For every program that copies a copybook, report what it does with each field and what those fields reach there. A copybook is the closest thing a COBOL portfolio has to a shared schema, and changing one is the change teams are least able to size: the answer is not the list of programs that copy it but the much shorter list that actually use the fields being changed. Fields reported as unused are the difference between the two.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.CopybookImpact**: *Every program that copies a copybook, what it does with each field, and what those fields reach there.*
+
+
+#### [io.moderne.mainframe.lineage.FindCrossProgramLineage](/user-documentation/recipes/recipe-catalog/mainframe/lineage/findcrossprogramlineage.md)
+  * **Trace field lineage across programs**
+  * Follow a field out of the program that declares it, through every `CALL` that passes it, into the files, queues, maps and IMS segments it reaches in the programs it is passed to. COBOL binds arguments to parameters by position and carries no names across the boundary, so this is the join no repository scan or regular expression can make. Each answer carries the chain of programs and argument positions it was derived from, so it can be checked rather than trusted.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.CrossProgramLineage**: *Where a field's value goes once it leaves the program that declares it, followed through CALL boundaries into every program it reaches.*
+
+
+#### [io.moderne.mainframe.lineage.FindDeadData](/user-documentation/recipes/recipe-catalog/mainframe/lineage/finddeaddata.md)
+  * **Find dead data**
+  * Find declared fields that nothing reads, and fields written but never read back. Carrying data nobody uses is the cheapest thing to drop from a migration, and unused fields accumulate over decades because nothing makes them visible. Reading is counted through the record structure — a field read as part of a group move counts — and includes being tested in a condition, which moves no value. FILE and LINKAGE items are excluded, since something outside the program supplies and consumes them.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.DeadData**: *Declared fields that nothing reads, and fields written but never read back.*
+
+
+#### [io.moderne.mainframe.lineage.FindFieldLineage](/user-documentation/recipes/recipe-catalog/mainframe/lineage/findfieldlineage.md)
+  * **Trace field lineage**
+  * Trace where a field's value comes from and where it goes, following it through moves, computations and the records that carry it, out to the files, queues, maps, IMS segments and screens on the program's boundary. This answers the question impact analysis and regulatory reporting both ask: what feeds this value, and where does it end up. Each answer carries the route it took, so it can be checked rather than trusted.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.FieldLineage**: *Where a field's value comes from and where it goes, with the route it takes.*
+
+
+#### [io.moderne.mainframe.lineage.FindSensitiveDataFlow](/user-documentation/recipes/recipe-catalog/mainframe/lineage/findsensitivedataflow.md)
+  * **Find sensitive data leaving the program**
+  * Find fields holding personal or financial data whose values reach somewhere outside the program: a file, a queue, a screen, a report, an IMS segment or a called program. Names are matched conventionally, then each candidate is traced through the moves and records that carry it, so a field that reaches a report only inside a copied record is still found. The route is reported alongside each hit, because a name is evidence rather than proof and every result needs to be judged.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.FieldLineage**: *Where a field's value comes from and where it goes, with the route it takes.*
+
+
+#### [io.moderne.mainframe.lineage.FindVariableChain](/user-documentation/recipes/recipe-catalog/mainframe/lineage/findvariablechain.md)
+  * **Find what runs a variable**
+  * Report every way a variable reaches the scheduler — the copybook that declares it, each program that uses it, the load module the program is bound into, the procedure and job step that run that module, and the Control-M definition that submits the job — and mark each source at the link it contributes. Six sources have to be joined to answer it and each holds only its own link: the copybook does not know its programs, the program does not know its module, the module does not know its job, and the job does not say when it runs. A chain that stops short is reported as far as it got, so a field that reaches no batch job is a row saying so rather than a gap. `AnalyzeVariableChain` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.VariableChain**: *One row per way a variable reaches the scheduler: the copybook that declares it, the program that uses it, the load module the program is bound into, the procedure and job step that run that module, and the Control-M definition that submits the job. Six sources have to be joined to say what runs tonight if a field is widened, and each holds only its own link — the copybook does not know its programs, the program does not know its module, the module does not know its job, and the job does not say when it runs. A chain that stops short is reported as far as it got, so a field that reaches no batch job at all is a row and not a gap.*
+
+
+#### [io.moderne.mainframe.linkedit.AnalyzeLoadModuleComposition](/user-documentation/recipes/recipe-catalog/mainframe/linkedit/analyzeloadmodulecomposition.md)
+  * **Join each load module to the programs bound into it**
+  * Record what the binder puts in each load module: the program the module is named for, the subroutines and map sets bound in with it, where control enters, the other names it answers to, the step that links it and the steps that run it. The link-edit deck and the module listing are reconciled against each other, so a module that has drifted from its deck is told apart from one whose listing is older than the last build. `FindLoadModuleComposition` answers the same question and marks each deck and listing in the source; this one produces the table and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.LoadModuleComposition**: *What each load module is built from, one row per program, map set or external routine bound into it, read from the link-edit deck that declares the module and from the listing that reports the module as built. Neither the COBOL nor the JCL says which programs share a module: a step names a module and runs whatever the binder last put in it, so a change to a statically bound subroutine is felt by every module holding a copy and by nothing else.*
+
+
+#### [io.moderne.mainframe.linkedit.AnalyzeLoadModuleRelationships](/user-documentation/recipes/recipe-catalog/mainframe/linkedit/analyzeloadmodulerelationships.md)
+  * **Analyze the relationships of a load module**
+  * Record what each load module is built from as relationship rows: the module a link-edit deck defines and the other names it answers to, the objects its `INCLUDE` cards bind in, and the entry point and control sections a module listing reports. These are the edges that put a module on the architecture document holding the programs bound into it, which nothing in the COBOL or the JCL says — a step names a module and gets whatever was last bound into it. `AnalyzeLoadModuleComposition` reconciles the same two readers into a table, one row per part, with the declared composition against the observed.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.linkedit.FindLoadModuleComposition](/user-documentation/recipes/recipe-catalog/mainframe/linkedit/findloadmodulecomposition.md)
+  * **Find what each load module is built from**
+  * Report what the binder puts in each load module and mark every deck and listing that says so: the program the module is named for, the subroutines and map sets bound in with it, where control enters, the other names it answers to, the step that links it and the steps that run it. Nothing in the COBOL or the JCL carries this — a step names a module and gets whatever was last bound into it — so a statically called subroutine is felt by every module holding a copy and by nothing else. The link-edit deck and the module listing are reconciled against each other, which is what separates a module that has drifted from its deck from one whose listing is simply older than the last build. `AnalyzeLoadModuleComposition` answers the same question and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.LoadModuleComposition**: *What each load module is built from, one row per program, map set or external routine bound into it, read from the link-edit deck that declares the module and from the listing that reports the module as built. Neither the COBOL nor the JCL says which programs share a module: a step names a module and runs whatever the binder last put in it, so a change to a statically bound subroutine is felt by every module holding a copy and by nothing else.*
+
+
+#### [io.moderne.mainframe.listing.ExpandSource](/user-documentation/recipes/recipe-catalog/mainframe/listing/expandsource.md)
+  * **Expand copybooks and procedures**
+  * Report every COBOL program and every job line by line as it runs rather than as it was written: each `COPY` and `EXEC SQL INCLUDE` replaced by what it brings in with `REPLACING` applied, each procedure and INCLUDE member exploded between `//*+` lines with its DD overrides merged in and its symbols filled in. Every line says which member supplied it, which is what tells a line somebody can change in this file from a line that belongs to a copybook thirty programs share.  Both expansions happened at parse time and nothing is read a second time: a copied word carries the copybook that wrote it and a resolved body is part of the job's tree, so this is a second printing of the same tree. The tree itself is untouched and still prints back byte for byte the way the file was written, which is what makes the two readings comparable rather than a substitute for one another.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ExpandedSource**: *A program or job line by line as it runs rather than as it was written: every copybook in place with `REPLACING` applied, every procedure and INCLUDE member exploded and every symbol filled in, each line saying which member supplied it.*
+
+
+#### [io.moderne.mainframe.prethink.AnalyzeBusinessRules](/user-documentation/recipes/recipe-catalog/mainframe/prethink/analyzebusinessrules.md)
+  * **Analyze the business rules a portfolio applies**
+  * Record what each program decides and the conditions that decide it, as decision tables, along with the rules whose conditions exclude each other or leave a case unhandled. `FindBusinessRules` answers the same question and marks the deciding `IF` and `EVALUATE` statements; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.BusinessRules**: *One row per decision: a condition a program tests, and everything that follows from it. A record copied field by field is one decision here, not one per field — the individual assignments are in the rule actions table.*
+  * **io.moderne.mainframe.analysis.table.RuleActions**: *One row per statement a rule decides, which is the grain impact analysis and lineage want: every field the program assigns under a condition, and the condition. Rows sharing a subject are the rows of one decision table; rows sharing a condition are one row of the business rules table.*
+  * **io.moderne.mainframe.analysis.table.DecisionTableAnomalies**: *Rules that cannot do what they appear to, found by checking the normalised table rather than by reading the code.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.prethink.AnalyzeCallTree](/user-documentation/recipes/recipe-catalog/mainframe/prethink/analyzecalltree.md)
+  * **Lay out the portfolio's call trees**
+  * Record every job, procedure, program and subprogram as a tree from what runs it: a job's steps, the procedure or program each step runs, and the programs each program reaches by `CALL`, `EXEC CICS LINK` or `XCTL`, one row per position and depth first. A step names a load module, which is a position of its own with every program a link-edit deck says is bound into it beneath it. A target named by a data item resolved through the one literal it is given and flagged as dynamic, and a node already in its tree flagged as repeated. `FindCallTree` answers the same question and marks each step and transfer in the source; this one produces the table and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.CallTree**: *Every job, procedure, program and subprogram as a tree from what runs it, one row per position and depth first, so the rows alone lay the tree out.*
+
+
+#### [io.moderne.mainframe.prethink.AnalyzeControlFlow](/user-documentation/recipes/recipe-catalog/mainframe/prethink/analyzecontrolflow.md)
+  * **Record the control flow of each program**
+  * Record every transfer of control between the paragraphs and sections of each program, from `MAINLINE` down: `PERFORM` with the procedures its `THRU` range runs through, `GO TO`, the branches `EXEC CICS HANDLE` registers, and the fall-through from one paragraph into the next, each with the line it is written at and whether it leads to a procedure that abends. `FindControlFlowEdges` answers the same question and marks what it found in the source; this one produces the table and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ControlFlowEdges**: *Every transfer of control between the paragraphs and sections of a program, from `MAINLINE` down: the flowchart, as edges.*
+
+
+#### [io.moderne.mainframe.prethink.AnalyzeCopybooks](/user-documentation/recipes/recipe-catalog/mainframe/prethink/analyzecopybooks.md)
+  * **Analyze the portfolio's copybooks**
+  * Record which library member each `COPY` resolved to, what every program that copies a copybook does with each of its fields, and the fields a copybook declares differently, or not at all, in the programs that copy it. `FindCopybook`, `FindCopybookImpact` and `FindCopybookDrift` answer the same questions and mark what they found; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CopybookSource**: *Information about copybook references in a COBOL source.*
+  * **io.moderne.mainframe.analysis.table.CopybookDrift**: *Fields that a copybook declares differently, or not at all, in different programs.*
+  * **io.moderne.mainframe.analysis.table.CopybookImpact**: *Every program that copies a copybook, what it does with each field, and what those fields reach there.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.prethink.AnalyzeDataAccess](/user-documentation/recipes/recipe-catalog/mainframe/prethink/analyzedataaccess.md)
+  * **Analyze how the portfolio reaches its data**
+  * Record which programs create, read, update and delete which files, queues, DB2 tables and IMS segments, the job steps that bind those files to real data sets, and the CICS commands and DL/I calls the matrix was derived from. `FindResourceCrud`, `FindBatchCrud`, `FindCicsResources` and `FindImsDliCalls` answer the same questions and mark what they found in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ResourceCrud**: *Which programs create, read, update and delete which files, queues, DB2 tables and IMS segments, across CICS, DL/I, SQL and native file I/O.*
+  * **io.moderne.mainframe.analysis.table.BatchCrud**: *Which job step runs which program against which data set, and what the program does with it.*
+  * **io.moderne.mainframe.analysis.table.CicsResourceUsages**: *Which CICS resources each program touches, and how.*
+  * **io.moderne.mainframe.analysis.table.ImsDliCalls**: *Every DL/I database and message call, however it was written.*
+
+
+#### [io.moderne.mainframe.prethink.AnalyzeInventory](/user-documentation/recipes/recipe-catalog/mainframe/prethink/analyzeinventory.md)
+  * **Index the portfolio's components and identifiers**
+  * Record every program, copybook, JCL member, control card, data set, BMS map set and map, Control-M schedule, group and calendar, assembler member, macro library member, SAS program, DDL member, link-edit deck, module listing, load module, table, plan, package, DBRM, IMS database, segment, PSB and transaction and MFS format and message with the library member it lives in, and every data name, paragraph, section, control section, field and macro with where it is declared and how often its program names it. `FindNames` answers the same question for one name and marks what it found; this one indexes everything and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ComponentIndex**: *Every component of the portfolio by name and type, with the library member it lives in.*
+  * **io.moderne.mainframe.analysis.table.IdentifierIndex**: *Every data name, paragraph, section, control section, field and macro a program declares, with where it is declared and how often the program names it.*
+
+
+#### [io.moderne.mainframe.prethink.AnalyzeMainframeArchitecture](/user-documentation/recipes/recipe-catalog/mainframe/prethink/analyzemainframearchitecture.md)
+  * **Analyze the mainframe architecture**
+  * Record which programs and procedures each job runs, which data sets it allocates, which copybooks each program is built from, which programs it hands control to, and which CICS resources, DB2 tables and IMS segments it reaches, as one typed edge list anchored at the statement that makes each edge. A program is one written in COBOL, in assembler or in SAS, so the copy members and macros an assembler subroutine is built from and the members a SAS report includes are edges of the same graph. The `Find` recipes answer the same question and mark what they found in the source; this one produces the table and changes nothing, which is what a run whose deliverable is a document needs.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.prethink.AnalyzeMigrationBlockers](/user-documentation/recipes/recipe-catalog/mainframe/prethink/analyzemigrationblockers.md)
+  * **Analyze the mainframe migration blockers**
+  * Record the CICS and IMS constructs that need a design decision before a program can move: non-local control flow, state that outlives a transaction, region affinity, resources named only at run time, and checkpoint/restart, with the whole `EXEC CICS` inventory beside them, which is what the size of the work is estimated from. `FindMainframeMigrationBlockers` and `FindCicsCommands` answer the same questions and mark what they found in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.MainframeMigrationBlockers**: *CICS and IMS constructs that need a design decision before a program can be moved.*
+  * **io.moderne.mainframe.analysis.table.CicsCommandUsages**: *Every EXEC CICS command, with the options it was given.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.prethink.AnalyzeProgramMetrics](/user-documentation/recipes/recipe-catalog/mainframe/prethink/analyzeprogrammetrics.md)
+  * **Measure each program and its control flow**
+  * Record what each program costs to change: size, cyclomatic complexity, Halstead volume and a maintainability index, the fields nothing reads, the paragraphs and sections no path from the entry point reaches, and the `PERFORM ... THRU` ranges that overlap without nesting or are jumped out of. `FindProgramComplexity`, `FindDeadData`, `FindUnreachableProcedures` and `FindProcedureRangePathology` answer the same questions and mark what they found in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ProgramComplexity**: *Size and complexity per program, for ranking a portfolio by risk and effort.*
+  * **io.moderne.mainframe.analysis.table.DeadData**: *Declared fields that nothing reads, and fields written but never read back.*
+  * **io.moderne.mainframe.analysis.table.UnreachableProcedures**: *Paragraphs and sections that no path from the program's entry point reaches.*
+  * **io.moderne.mainframe.analysis.table.ProcedureRangePathology**: *Ranges that overlap without nesting, and jumps that leave a range part-way through.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.prethink.UpdateMainframePrethinkContext](/user-documentation/recipes/recipe-catalog/mainframe/prethink/updatemainframeprethinkcontext.md)
+  * **Update mainframe Prethink context**
+  * Generate Prethink context for a mainframe estate: a FINOS CALM architecture document covering the jobs, programs, data sets, DB2 tables, CICS resources and IMS segments and how they reach each other, a ranked findings report, and the data tables both are derived from. Everything is written under `.moderne/context/` to be committed, so an agent reading the repository starts from what the analysis found rather than from the source.
+
+##### Data tables:
+
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+  * **io.moderne.mainframe.analysis.table.RelationshipKinds**: *Every relationship a resource of each type can have, both ways round. This is the schema the relationship rows are read against, so a view of one component can show each relationship it is capable of even when it has none — an empty section says &quot;nothing calls this&quot;, where a missing section says nothing at all.*
+  * **io.moderne.mainframe.analysis.table.BusinessRules**: *One row per decision: a condition a program tests, and everything that follows from it. A record copied field by field is one decision here, not one per field — the individual assignments are in the rule actions table.*
+  * **io.moderne.mainframe.analysis.table.RuleActions**: *One row per statement a rule decides, which is the grain impact analysis and lineage want: every field the program assigns under a condition, and the condition. Rows sharing a subject are the rows of one decision table; rows sharing a condition are one row of the business rules table.*
+  * **io.moderne.mainframe.analysis.table.DecisionTableAnomalies**: *Rules that cannot do what they appear to, found by checking the normalised table rather than by reading the code.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+  * **io.moderne.mainframe.analysis.table.ProgramComplexity**: *Size and complexity per program, for ranking a portfolio by risk and effort.*
+  * **io.moderne.mainframe.analysis.table.DeadData**: *Declared fields that nothing reads, and fields written but never read back.*
+  * **io.moderne.mainframe.analysis.table.UnreachableProcedures**: *Paragraphs and sections that no path from the program's entry point reaches.*
+  * **io.moderne.mainframe.analysis.table.ProcedureRangePathology**: *Ranges that overlap without nesting, and jumps that leave a range part-way through.*
+  * **io.moderne.mainframe.analysis.table.MainframeMigrationBlockers**: *CICS and IMS constructs that need a design decision before a program can be moved.*
+  * **io.moderne.mainframe.analysis.table.CicsCommandUsages**: *Every EXEC CICS command, with the options it was given.*
+  * **org.openrewrite.mainframe.cobol.table.CopybookSource**: *Information about copybook references in a COBOL source.*
+  * **io.moderne.mainframe.analysis.table.CopybookDrift**: *Fields that a copybook declares differently, or not at all, in different programs.*
+  * **io.moderne.mainframe.analysis.table.CopybookImpact**: *Every program that copies a copybook, what it does with each field, and what those fields reach there.*
+  * **io.moderne.mainframe.analysis.table.ResourceCrud**: *Which programs create, read, update and delete which files, queues, DB2 tables and IMS segments, across CICS, DL/I, SQL and native file I/O.*
+  * **io.moderne.mainframe.analysis.table.BatchCrud**: *Which job step runs which program against which data set, and what the program does with it.*
+  * **io.moderne.mainframe.analysis.table.CicsResourceUsages**: *Which CICS resources each program touches, and how.*
+  * **io.moderne.mainframe.analysis.table.ImsDliCalls**: *Every DL/I database and message call, however it was written.*
+  * **io.moderne.mainframe.analysis.table.JclStepDetail**: *Every data set each job step allocates, with the procedure the step came from and the attributes the data set is allocated with.*
+  * **io.moderne.mainframe.analysis.table.ExecutionPaths**: *Every job step with the program it runs, the procedure it came through, what its PARM passes, where its control cards are written, and the verdict on whether all of that could be read from the source supplied.*
+  * **io.moderne.mainframe.analysis.table.ExecutionPathGaps**: *One row per reason a job step's execution path is not fully determined by the source supplied: the kind of gap, the step and DD it was found under, and what it is about.*
+  * **io.moderne.mainframe.analysis.table.ControlCardKind**: *What each control card deck is, and which steps read it. A control card library holds sort cards, IDCAMS cards, DSN command decks and parm cards side by side, and nothing in a member's name says which is which — the kind here is read off the deck's first statement. A deck written in a job stream is here too, under the job it is written in, where what it says types it.*
+  * **io.moderne.mainframe.analysis.table.LoadModuleComposition**: *What each load module is built from, one row per program, map set or external routine bound into it, read from the link-edit deck that declares the module and from the listing that reports the module as built. Neither the COBOL nor the JCL says which programs share a module: a step names a module and runs whatever the binder last put in it, so a change to a statically bound subroutine is felt by every module holding a copy and by nothing else.*
+  * **io.moderne.mainframe.analysis.table.Db2BindChain**: *What each bind card declares, one row per plan or package it names: the deck it is written in, the job that runs that deck, the collection the package lands in, the DBRM it is bound from and the program that DBRM was precompiled from. The deck is the only place the chain from a plan to the program that runs under it is written down — neither the COBOL nor the JCL says any of it.*
+  * **io.moderne.mainframe.analysis.table.Db2PackagePlans**: *The bind chain read from the package's side: which plans may run each package, and so which plans a change to the program behind it is felt under. A plan lists either the package outright or the whole collection with `*`, so the plans a package runs under are written down nowhere one name at a time.*
+  * **io.moderne.mainframe.analysis.table.Db2Tables**: *One row per table the DDL creates: where it is defined, what it is made of, and who reaches it. This is the summary a person opens a table on — the columns, the primary key, the foreign keys either way and the indexes, with the programs, packages and plans that use it — so the question &quot;what is this table and what would a change to it break&quot; is one row rather than a search.*
+  * **io.moderne.mainframe.analysis.table.Db2Columns**: *Every column of every table the DDL creates, in the order a `SELECT *` and a host structure both take: what it holds, whether it may be absent, where it sits in the primary key, the table it points at through a foreign key, and the indexes it is a key of. The last is what says whether a predicate written on the column has an access path or a table space scan behind it.*
+  * **io.moderne.mainframe.analysis.table.Db2Keys**: *The primary key of each table, one row per key column in key order, with the unique index that enforces it. DB2 will not accept a primary key without one, so a key whose index is missing here is DDL that would not run — and the index is also the access path every foreign key check and every keyed read goes through.*
+  * **io.moderne.mainframe.analysis.table.Db2Indexes**: *Every index the DDL creates, with the table it is on and the key it holds. An index is how a batch job reaches a table cheaply, so which columns it is keyed on is which predicates the schema was designed to answer — and an index no program writes a predicate for is maintenance nothing collects on.*
+  * **io.moderne.mainframe.analysis.table.Db2ForeignKeys**: *One table pointing at another, which is the referential arrow of the model diagram and the one relationship between two tables that can be read without reading a program. A key is written either in the `CREATE TABLE` or in an `ALTER TABLE` afterwards, and both are read here.*
+  * **io.moderne.mainframe.analysis.table.Db2Unloads**: *Every unload a job runs, the dialect its control cards are written in, what it unloads and where it writes it, and what it would take to run the same unload on the base Db2 utility.*
+  * **io.moderne.mainframe.analysis.table.ControlMSchedule**: *Every job the scheduler runs, with the JCL member it submits. A JCL member says what a job does and nothing anywhere else says when it runs, out of which library the member is taken, or under which table and application it is ordered — so this is the far end of the batch estate, and the row carries the definition as written for the Scheduler Info report.*
+  * **io.moderne.mainframe.analysis.table.ControlMDependencies**: *Which job the scheduler runs before which, one row per pair. Nothing in a schedule names another job: a job adds a condition when it ends and another job waits for that name, so the order the night runs in is only readable by joining the two — and the join holds across tables and across applications without either side saying so.*
+  * **io.moderne.mainframe.analysis.table.ControlMCalendars**: *The days each calendar has, a row per year it carries. A schedule writes the days a job is a candidate to run on and the calendar decides which of those the shop is open for, so the days a job really runs are only readable by decoding the year as exported: twelve months of thirty-one positions, `Y` or `N`, a position past the end of a month being `N`.*
+  * **io.moderne.mainframe.analysis.table.BuildOrder**: *Every order the build requires between two jobs, with what the scheduler does about it. A link-edit deck that includes an object binds whatever the object library held when the binder ran, so the job that compiles the object has to have run first — and no one file says so: the deck names a member, the JCL names the library it is written to and read from, and only the scheduler can make one job wait for another.*
+  * **io.moderne.mainframe.analysis.table.ScheduleCoverage**: *Every job of the JCL library with the schedules that order it. A JCL member says what a job does and never says when it runs, so a member with no schedule is one somebody submits by hand, or one nothing runs at all — and either way it is outside everything the operations side of the estate is documented and monitored by.*
+  * **io.moderne.mainframe.analysis.table.ImsSegmentAccess**: *Every DL/I call with the database it reaches, which the COBOL never names: the call gives a PCB and the PSB turns that into a database, and only then does the segment name mean something.*
+  * **io.moderne.mainframe.analysis.table.ImsChain**: *One row per path from something that starts a program to a database it may reach: a transaction code or a job step, the program, the PSB it runs under, one PCB of that PSB, and the database and segments behind it.*
+  * **io.moderne.mainframe.analysis.table.ImsDatabases**: *One row per DBD: how it is organised, the DD names a job has to supply for it, and what it holds.*
+  * **io.moderne.mainframe.analysis.table.ImsSegments**: *The segment hierarchy of each DBD: the parent, the length, the sequence field and the fields with their offsets, which is the layout the copybook a program reads it into has to agree with.*
+  * **io.moderne.mainframe.analysis.table.ImsFieldSensitiveAreas**: *What a field-sensitive PCB hands a program, against the copybook the program reads it with. Where a PCB carries `SENFLD`s the I/O area is not the segment: it holds those fields, at those offsets, and a program using the whole segment's layout reads every field after the first omission out of the wrong bytes.*
+  * **io.moderne.mainframe.analysis.table.ScreenFields**: *Every field of every screen, where it is drawn and which COBOL data item reaches it. CICS generates a symbolic map the program moves values into, and IMS supplies an area the program lays a copybook over, so the two halves are joined differently and both are here.*
+  * **io.moderne.mainframe.analysis.table.ScreenLines**: *Each screen as the terminal paints it, one row per line: the literals where they are written and an underscore for every character the program supplies. This is what a green screen viewer draws, and what makes a map set readable without a terminal.*
+  * **io.moderne.mainframe.analysis.table.RecordLayouts**: *The same record described in two languages, field by field, with where the two descriptions disagree.*
+  * **io.moderne.mainframe.analysis.table.RunBookCoverage**: *Every program and job of the portfolio with the run book member that documents it, and every run book with the component it is about.*
+  * **io.moderne.mainframe.analysis.table.EnvironmentCopies**: *The same member held in more than one environment's libraries, and whether the copies still agree. Read from one copy's side, so a member promoted through three environments has a row from each of the three to each of the other two.*
+  * **io.moderne.mainframe.analysis.table.ColumnLineage**: *Which input field feeds each field the program writes out, in the shape OpenLineage's column lineage facet asks for, with the statement that did it.*
+  * **org.openrewrite.prethink.table.ContextRegistry**: *Registry of available context files for coding agents.*
+
+
+#### [io.moderne.mainframe.rules.FindBusinessRules](/user-documentation/recipes/recipe-catalog/mainframe/rules/findbusinessrules.md)
+  * **Find business rules as decision tables**
+  * Extract the rules a program applies, as normalised decision tables. Each action worth calling a business rule — a field whose value leaves the program, a record written, a program called, a segment inserted — is sliced backwards to the conditions that decide it: the `IF` and `EVALUATE` branches it sits under, and the conditions its paragraph inherits from wherever control reached it. Conditions are normalised so that the same test written three ways becomes one column: 88 level condition names are expanded to the test they stand for, `NOT` is folded into the operator, `OR` is multiplied out so each rule is a conjunction, and a field is named where its value came from rather than the work field it was copied into. Because the result is a table rather than prose, it can be checked: rules whose conditions exclude each other, rules nothing reaches, and rules an earlier one has already decided are reported. A condition too tangled to decompose is kept as written rather than dropped, since a table that quietly omitted one would be worse than no table.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.BusinessRules**: *One row per decision: a condition a program tests, and everything that follows from it. A record copied field by field is one decision here, not one per field — the individual assignments are in the rule actions table.*
+  * **io.moderne.mainframe.analysis.table.RuleActions**: *One row per statement a rule decides, which is the grain impact analysis and lineage want: every field the program assigns under a condition, and the condition. Rows sharing a subject are the rows of one decision table; rows sharing a condition are one row of the business rules table.*
+  * **io.moderne.mainframe.analysis.table.DecisionTableAnomalies**: *Rules that cannot do what they appear to, found by checking the normalised table rather than by reading the code.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+
+
+#### [io.moderne.mainframe.screen.AnalyzeScreenFields](/user-documentation/recipes/recipe-catalog/mainframe/screen/analyzescreenfields.md)
+  * **Join every screen field to the COBOL behind it**
+  * Record every field of every CICS map set and IMS format set — where it is drawn, how long it is, how it is protected, what it is drawn with — and the COBOL data item that reaches it. BMS generates a symbolic map, so the program names an item per field and the join is a name; MFS generates nothing, so the program is handed an area and lays a copybook of its own over it, and the join is a displacement matched by order and length. Each screen is written out as the terminal paints it as well, one row per line, which is what a green screen viewer draws. `FindScreenFields` answers the same questions and marks the definitions in the source; this one produces the tables and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ScreenFields**: *Every field of every screen, where it is drawn and which COBOL data item reaches it. CICS generates a symbolic map the program moves values into, and IMS supplies an area the program lays a copybook over, so the two halves are joined differently and both are here.*
+  * **io.moderne.mainframe.analysis.table.ScreenLines**: *Each screen as the terminal paints it, one row per line: the literals where they are written and an underscore for every character the program supplies. This is what a green screen viewer draws, and what makes a map set readable without a terminal.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.screen.FindScreenFields](/user-documentation/recipes/recipe-catalog/mainframe/screen/findscreenfields.md)
+  * **Find every screen field and the COBOL behind it**
+  * Report every field of every CICS map set and IMS format set — where it is drawn, how long it is, how it is protected, what it is drawn with — and the COBOL data item that reaches it, and mark the definitions the report was read from. The two technologies join to the program at opposite ends: BMS generates a symbolic map, so the program names an item per field and the join is a name; MFS generates nothing, so the program is handed an area and lays a copybook of its own over it, and the join is a displacement matched by order and length. Each screen is also written out as the terminal paints it, one row per line with the literals in place and an underscore where a field goes, which is what a green screen viewer draws. Three ways the two halves can disagree are reported as findings: a message longer or shorter than the area a program sends it from, a copybook item no message field lands on, and a field drawn on the screen that no message carries. `AnalyzeScreenFields` answers the same questions and changes nothing.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.ScreenFields**: *Every field of every screen, where it is drawn and which COBOL data item reaches it. CICS generates a symbolic map the program moves values into, and IMS supplies an area the program lays a copybook over, so the two halves are joined differently and both are here.*
+  * **io.moderne.mainframe.analysis.table.ScreenLines**: *Each screen as the terminal paints it, one row per line: the literals where they are written and an underscore for every character the program supplies. This is what a green screen viewer draws, and what makes a map set readable without a terminal.*
+  * **io.moderne.mainframe.analysis.table.Findings**: *Everything the mainframe analyses found wrong, ranked, with the evidence for each and the line it is on. Sort on priority.*
+  * **org.openrewrite.mainframe.cobol.table.CobolRelationships**: *Relationships between different COBOL resources.*
+
+
+#### [io.moderne.mainframe.search.FindText](/user-documentation/recipes/recipe-catalog/mainframe/search/findtext.md)
+  * **Find a search term in the source or by name**
+  * Report every place a search term matches, with the file and the line, and mark each one in the source. The interactive search is the trigram index the CLI builds, and this is not a second engine: it is the same question asked so that the answer can be counted and exported, which is what a parity run against an existing search tool compares. What it has that an index over printed text does not is the tree — a literal continued across a column-7 break is one string, a comment is text rather than a line to skip, and a variable name resolves to the item, so a search for a quoted name finds where it is used and not where it is declared. Searching by name instead finds the declaration: a data name nothing in the program refers to is not a result, and a `SET` of a level-88 condition refers to the item it is declared under. Names of programs, copybooks and the other components are `FindNames`, which types them; this reports the identifiers and the text.
+
+##### Data tables:
+
+  * **io.moderne.mainframe.analysis.table.SearchMatches**: *Every place a search term matches, with the line it is on. Core `TextMatches` says which file matched and what the match read; a parity count is compared per member and per line, which is what this adds.*
+
+
+
 ### rewrite-ai
 
 #### [io.moderne.ai.FindAgentsInUse](/user-documentation/recipes/recipe-catalog/ai/findagentsinuse.md)
@@ -28,6 +853,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.maven.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.maven.table.ExplainDependenciesInUse**: *A dependency graph explainer similar to that shown by `gradle dependencyInsight` for each matching dependency. This table will contain a row per matching dependency per configuration per (sub)project.*
 
 
 #### [io.moderne.ai.FindModelsInUse](/user-documentation/recipes/recipe-catalog/ai/findmodelsinuse.md)
@@ -475,7 +1301,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.ApacheDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md)
   * **DevCenter for Apache**
-  * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices.
+  * A DevCenter that tracks the latest Apache parent POM version and applies best practices.  **Move to the latest `apache` parent POM**&lt;br/&gt; The version of the `org.apache:apache` parent POM, compared to version 40.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeApacheParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeApacheParent)  **Move to Java 25**&lt;br/&gt; The Java version each repository compiles for.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;Java 8+ to Completed&quot; /&gt;&lt;br/&gt; `Java 8+` → `Java 11+` → `Java 17+` → `Java 21+` → `Completed` · fix with [`UpgradeToJava25`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)  **Move to JUnit 6**&lt;br/&gt; The test framework each repository uses.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+&quot; alt=&quot;JUnit 4 to Completed&quot; /&gt;&lt;br/&gt; `JUnit 4` → `JUnit 5` → `Completed` · fix with [`JUnit5to6Migration`](https://codegenomeproject.org/recipes/org.openrewrite.java.testing.junit6.JUnit5to6Migration)  **OWASP top ten**&lt;br/&gt; Issue occurrences per category, counted across all repositories.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMmY0MmZmJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2VjYjgxZicvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjOGQ5OWZmJy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNmMGI0YWMnLz48L3N2Zz4=&quot; alt=&quot;4 categories&quot; /&gt;&lt;br/&gt; `A01 Broken access control` · `A02 Cryptographic failures` · `A03 Injection` · `A08 Software and data integrity failures` · fix with [`OwaspTopTen`](https://codegenomeproject.org/recipes/org.openrewrite.java.security.OwaspTopTen)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -499,7 +1325,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.ApacheMavenDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter.md)
   * **DevCenter for Apache Maven**
-  * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices. This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of best practices for Maven POMs.
+  * A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices. This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of best practices for Maven POMs.  **Move to the latest `maven-parent`**&lt;br/&gt; The version of the `org.apache.maven:maven-parent` parent POM, compared to version 50.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeMavenParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeMavenParent)  **Move to the latest `maven-plugins`**&lt;br/&gt; The version of the `org.apache.maven.plugins:maven-plugins` parent POM, compared to version 50.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeMavenPluginsParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeMavenPluginsParent)  **Move to the latest `maven-shared-components`**&lt;br/&gt; The version of the `org.apache.maven.shared:maven-shared-components` parent POM, compared to version 50.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeMavenSharedParent`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeMavenSharedParent)  **Move to Java 17**&lt;br/&gt; The Java version each repository compiles for.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+&quot; alt=&quot;Java 8+ to Completed&quot; /&gt;&lt;br/&gt; `Java 8+` → `Java 11+` → `Completed` · fix with [`UpgradeToJava17`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava17)  **Apache Maven best practices**&lt;br/&gt; POM issue occurrences per check, counted across all repositories.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMmY0MmZmJy8+PHJlY3QgeD0nMzEnIHdpZHRoPSczMCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzI3YWE4OCcvPjxyZWN0IHg9JzYzJyB3aWR0aD0nMjknIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyM5ZDViZTgnLz48cmVjdCB4PSc5NCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjZWQ0YTVkJy8+PHJlY3QgeD0nMTI1JyB3aWR0aD0nMzAnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyM0Y2E3NWEnLz48cmVjdCB4PScxNTcnIHdpZHRoPScyOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2ZmYjgwMCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjN2ZmZmRlJy8+PHJlY3QgeD0nMjE5JyB3aWR0aD0nMzAnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNjMjgyZDUnLz48cmVjdCB4PScyNTEnIHdpZHRoPScyOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2YwYjRhYycvPjwvc3ZnPg==&quot; alt=&quot;9 categories&quot; /&gt;&lt;br/&gt; `Add explicit groupId to Maven plugins` · `Add explicit plugin versions` · `Drop prefixless expressions in POM` · `Order POM elements` · `Remove duplicate Maven dependencies` · `Remove redundant explicit dependency and plugin versions` · `Remove redundant properties` · `Migrate to maven-dependency-plugin goal resolve-sources` · `Update SCM with Git origin` · fix with [`BestPractices`](https://codegenomeproject.org/recipes/org.openrewrite.maven.BestPractices)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -530,7 +1356,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.BuildToolStarter](/user-documentation/recipes/recipe-catalog/devcenter/buildtoolstarter.md)
   * **DevCenter for Gradle and Maven**
-  * Track and automate upgrades for Gradle, Maven, and Java versions.
+  * Track and automate upgrades for Gradle, Maven, and Java versions.  **Upgrade to Gradle 9**&lt;br/&gt; The Gradle version each repository builds with, compared to 9.0.0.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`MigrateToGradle9`](https://codegenomeproject.org/recipes/org.openrewrite.gradle.MigrateToGradle9)  **Upgrade to Maven 4**&lt;br/&gt; The Maven version each repository builds with, compared to 4.0.0.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`UpdateMavenWrapper`](https://codegenomeproject.org/recipes/org.openrewrite.maven.UpdateMavenWrapper)  **Move to Java 25**&lt;br/&gt; The Java version each repository compiles for.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;Java 8+ to Completed&quot; /&gt;&lt;br/&gt; `Java 8+` → `Java 11+` → `Java 17+` → `Java 21+` → `Completed` · fix with [`UpgradeToJava25`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -551,7 +1377,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.ClassCohesionDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/classcohesiondevcenter.md)
   * **Class cohesion DevCenter**
-  * A DevCenter that finds class quality metrics for repositories and buckets the average LCOM4 (Lack of Cohesion of Methods, version 4) into HIGH / MEDIUM / LOW cohesion categories.
+  * A DevCenter that grades the maintainability, cohesion, and test gaps of each repository, based on the class quality metrics and test gaps computed by Moderne Prethink.  **Average Class Maintainability**&lt;br/&gt; The maintainability index (0-100) averaged across all classes in each repository.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;F to A&quot; /&gt;&lt;br/&gt; `F` (0+) → `D` (20+) → `C` (40+) → `B` (60+) → `A` (80+)  **Average Class Cohesion**&lt;br/&gt; LCOM4 (Lack of Cohesion of Methods, version 4) averaged across all classes in each repository; lower is more cohesive.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+&quot; alt=&quot;LOW to HIGH&quot; /&gt;&lt;br/&gt; `LOW` (10+) → `MEDIUM` (3+) → `HIGH` (0+)  **Test Gaps Risk**&lt;br/&gt; The risk scores of public, non-trivial methods without tests, summed per repository.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+&quot; alt=&quot;LOW to HIGH&quot; /&gt;&lt;br/&gt; `LOW` (0+) → `MEDIUM` (3+) → `HIGH` (10+)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -574,7 +1400,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.DevCenterAngularStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterangularstarter.md)
   * **DevCenter for Angular**
-  * A default DevCenter configuration for Angular repositories. Track Angular version adoption across your organization.
+  * A default DevCenter configuration for Angular repositories. Track Angular version adoption across your organization.  **Move to Angular 22**&lt;br/&gt; The `@angular/core` version each repository depends on.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;10+ major versions behind to Completed&quot; /&gt;&lt;br/&gt; `10+ major versions behind` → `5-9 major versions behind` → `2-4 major versions behind` → `1 major version behind` → `Completed` · fix with [`UpgradeToAngular22`](https://codegenomeproject.org/recipes/org.openrewrite.angular.UpgradeToAngular22)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -586,7 +1412,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.DevCenterCSharpStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcentercsharpstarter.md)
   * **DevCenter for C#**
-  * A default DevCenter configuration for C# repositories. Track .NET version adoption across your organization.
+  * A default DevCenter configuration for C# repositories. Track .NET version adoption across your organization.  **Move to .NET 10**&lt;br/&gt; The lowest target framework across the projects in each repository.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzQ1JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNDcnIHdpZHRoPSc0NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9Jzk0JyB3aWR0aD0nNDUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRjlCNDgnLz48cmVjdCB4PScxNDEnIHdpZHRoPSc0NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQzA0NScvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzQ1JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZEMzREJy8+PHJlY3QgeD0nMjM1JyB3aWR0aD0nNDUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;.NET Framework to Completed&quot; /&gt;&lt;br/&gt; `.NET Framework` → `.NET 6+` → `.NET 7+` → `.NET 8+` → `.NET 9+` → `Completed` · fix with [`UpgradeToDotNet10`](https://codegenomeproject.org/recipes/OpenRewrite.Recipes.CSharp.Migration.Dotnet.Net10.UpgradeToDotNet10)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -598,7 +1424,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.DevCenterGoStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcentergostarter.md)
   * **DevCenter for Go**
-  * A default DevCenter configuration for Go repositories. Track Go version adoption across your organization.
+  * A default DevCenter configuration for Go repositories. Track Go version adoption across your organization.  **Move to Go 1.26**&lt;br/&gt; The Go version declared in each repository's `go.mod`.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzI2JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nMjgnIHdpZHRoPScyNicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGN0Y1QScvPjxyZWN0IHg9JzU2JyB3aWR0aD0nMjcnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRjhGNTInLz48cmVjdCB4PSc4NScgd2lkdGg9JzI2JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY5QjQ4Jy8+PHJlY3QgeD0nMTEzJyB3aWR0aD0nMjYnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkE4M0QnLz48cmVjdCB4PScxNDEnIHdpZHRoPScyNicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE2OScgd2lkdGg9JzI2JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMTk3JyB3aWR0aD0nMjcnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPScyNicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjxyZWN0IHg9JzI1NCcgd2lkdGg9JzI2JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+&quot; alt=&quot;Go 1.17 or earlier to Completed&quot; /&gt;&lt;br/&gt; `Go 1.17 or earlier` → `Go 1.18+` → … → `Go 1.25+` → `Completed` · fix with [`UpgradeGoTo126`](https://codegenomeproject.org/recipes/org.openrewrite.golang.migration.UpgradeGoTo126)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -610,7 +1436,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.DevCenterKotlin](/user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin.md)
   * **DevCenter Kotlin**
-  * This is a DevCenter helping you to track general Kotlin Modernisations.
+  * A DevCenter that tracks general Kotlin modernizations across your organization.  **Move to Spring Boot 4.1**&lt;br/&gt; The lowest version of any `org.springframework.boot` dependency in each repository, compared to 4.1.0.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeSpringBoot_4_1`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1)  **Move to Kotlin 2.1**&lt;br/&gt; The `kotlin-stdlib` version each repository depends on.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;Kotlin 1.4+ to Completed&quot; /&gt;&lt;br/&gt; `Kotlin 1.4+` → `Kotlin 1.6+` → `Kotlin 1.8+` → `Kotlin 2.0+` → `Completed` · fix with [`Kotlin1To2$KtRecipe`](https://codegenomeproject.org/recipes/org.openrewrite.kotlin.migrate.Kotlin1To2%24KtRecipe)  **Move to JUnit 6**&lt;br/&gt; The test framework each repository uses.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+&quot; alt=&quot;JUnit 4 to Completed&quot; /&gt;&lt;br/&gt; `JUnit 4` → `JUnit 5` → `Completed` · fix with [`JUnit5to6Migration`](https://codegenomeproject.org/recipes/org.openrewrite.java.testing.junit6.JUnit5to6Migration)  **OWASP top ten**&lt;br/&gt; Issue occurrences per category, counted across all repositories.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMmY0MmZmJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2VjYjgxZicvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjOGQ5OWZmJy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNmMGI0YWMnLz48L3N2Zz4=&quot; alt=&quot;4 categories&quot; /&gt;&lt;br/&gt; `A01 Broken access control` · `A02 Cryptographic failures` · `A03 Injection` · `A08 Software and data integrity failures` · fix with [`OwaspTopTen`](https://codegenomeproject.org/recipes/org.openrewrite.java.security.OwaspTopTen)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -625,7 +1451,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.DevCenterNodeStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenternodestarter.md)
   * **DevCenter for JavaScript and TypeScript**
-  * A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend. Track Node.js version adoption and the move to ECMAScript 6 across your organization.
+  * A default DevCenter configuration for JavaScript and TypeScript repositories, both frontend and backend. Track Node.js version adoption and the move to ECMAScript 6 across your organization.  **Move to Node.js 26**&lt;br/&gt; The Node.js version each repository declares under `engines` in `package.json`.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzM4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNDAnIHdpZHRoPSczOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzgxJyB3aWR0aD0nMzgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRjlCNDgnLz48cmVjdCB4PScxMjEnIHdpZHRoPSczOCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE2MScgd2lkdGg9JzM4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjAxJyB3aWR0aD0nMzknIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyNDInIHdpZHRoPSczOCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;Node.js 14+ to Completed&quot; /&gt;&lt;br/&gt; `Node.js 14+` → `Node.js 16+` → `Node.js 18+` → `Node.js 20+` → `Node.js 22+` → `Node.js 24+` → `Completed` · fix with [`upgrade-node-26`](https://codegenomeproject.org/recipes/org.openrewrite.node.migrate.upgrade-node-26)  **Move to ECMAScript 6**&lt;br/&gt; The share of JavaScript and TypeScript variable declarations that still use `var`.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Mostly var to Completed&quot; /&gt;&lt;br/&gt; `Mostly var` → `Partly var` → `Little var` → `Completed` · fix with [`ModernizeToES6`](https://codegenomeproject.org/recipes/org.openrewrite.javascript.migrate.es6.ModernizeToES6)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -637,7 +1463,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.DevCenterPythonStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterpythonstarter.md)
   * **DevCenter for Python**
-  * A default DevCenter configuration for Python repositories. Track Python version adoption across your organization.
+  * A default DevCenter configuration for Python repositories. Track Python version adoption across your organization.  **Move to Python 3.15**&lt;br/&gt; The minimum Python version each repository declares in `requires-python`.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nMzEnIHdpZHRoPSczMCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGN0Y1QScvPjxyZWN0IHg9JzYzJyB3aWR0aD0nMjknIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRjhGNTInLz48cmVjdCB4PSc5NCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY5QjQ4Jy8+PHJlY3QgeD0nMTI1JyB3aWR0aD0nMzAnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkE4M0QnLz48cmVjdCB4PScxNTcnIHdpZHRoPScyOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQzA0NScvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzI5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZEMzREJy8+PHJlY3QgeD0nMjE5JyB3aWR0aD0nMzAnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48cmVjdCB4PScyNTEnIHdpZHRoPScyOScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;Python 2 to Completed&quot; /&gt;&lt;br/&gt; `Python 2` → `Python 3.8+` → … → `Python 3.14+` → `Completed` · fix with [`UpgradeToPython315`](https://codegenomeproject.org/recipes/org.openrewrite.python.migrate.UpgradeToPython315)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -648,8 +1474,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [io.moderne.devcenter.DevCenterStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md)
-  * **DevCenter**
-  * This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/).
+  * **DevCenter Starter**
+  * A starting point for your own DevCenter, combining upgrades, migrations, and security fixes. Run it as-is for a first overview of your organization, then copy and customize the configuration.  **Move to Spring Boot 4.1**&lt;br/&gt; The lowest version of any `org.springframework.boot` dependency in each repository, compared to 4.1.0.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeSpringBoot_4_1`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1)  **Move to Java 25**&lt;br/&gt; The Java version each repository compiles for.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;Java 8+ to Completed&quot; /&gt;&lt;br/&gt; `Java 8+` → `Java 11+` → `Java 17+` → `Java 21+` → `Completed` · fix with [`UpgradeToJava25`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)  **Move to JUnit 6**&lt;br/&gt; The test framework each repository uses.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nOTQnIHdpZHRoPSc5MicgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGQTgzRCcvPjxyZWN0IHg9JzE4OCcgd2lkdGg9JzkyJyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMzBGMjg0Jy8+PC9zdmc+&quot; alt=&quot;JUnit 4 to Completed&quot; /&gt;&lt;br/&gt; `JUnit 4` → `JUnit 5` → `Completed` · fix with [`JUnit5to6Migration`](https://codegenomeproject.org/recipes/org.openrewrite.java.testing.junit6.JUnit5to6Migration)  **OWASP top ten**&lt;br/&gt; Issue occurrences per category, counted across all repositories.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMmY0MmZmJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2VjYjgxZicvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjOGQ5OWZmJy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNmMGI0YWMnLz48L3N2Zz4=&quot; alt=&quot;4 categories&quot; /&gt;&lt;br/&gt; `A01 Broken access control` · `A02 Cryptographic failures` · `A03 Injection` · `A08 Software and data integrity failures` · fix with [`OwaspTopTen`](https://codegenomeproject.org/recipes/org.openrewrite.java.security.OwaspTopTen)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -773,7 +1599,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.devcenter.QuarkusDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter.md)
   * **DevCenter for Quarkus**
-  * A DevCenter that tracks the latest Quarkus framework versions and applies best practices. This DevCenter includes recipes to upgrade Quarkus versions, migrate from deprecated APIs, and ensure compatibility with the latest Java versions and testing frameworks.
+  * A DevCenter that tracks the latest Quarkus framework versions and applies best practices. This DevCenter includes recipes to upgrade Quarkus versions, migrate from deprecated APIs, and ensure compatibility with the latest Java versions.  **Move to Quarkus 4.0**&lt;br/&gt; The lowest version of any `io.quarkus:quarkus-*` dependency in each repository, compared to 4.0.x.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`MigrateToQuarkus_v4_0_0`](https://codegenomeproject.org/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v4_0_0)  **Move to the latest Quarkus Universe BOM**&lt;br/&gt; The version of the `io.quarkus:quarkus-universe-bom` parent POM, compared to 4.0.x.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to Completed&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `Completed` · fix with [`UpgradeQuarkusUniverseBom`](https://codegenomeproject.org/recipes/io.moderne.devcenter.UpgradeQuarkusUniverseBom)  **Move to Java 25**&lt;br/&gt; The Java version each repository compiles for.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;Java 8+ to Completed&quot; /&gt;&lt;br/&gt; `Java 8+` → `Java 11+` → `Java 17+` → `Java 21+` → `Completed` · fix with [`UpgradeToJava25`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)  **OWASP top ten**&lt;br/&gt; Issue occurrences per category, counted across all repositories.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjMmY0MmZmJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI2VjYjgxZicvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjOGQ5OWZmJy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNmMGI0YWMnLz48L3N2Zz4=&quot; alt=&quot;4 categories&quot; /&gt;&lt;br/&gt; `A01 Broken access control` · `A02 Cryptographic failures` · `A03 Injection` · `A08 Software and data integrity failures` · fix with [`OwaspTopTen`](https://codegenomeproject.org/recipes/org.openrewrite.java.security.OwaspTopTen)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -815,18 +1641,9 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.devcenter.table.SecurityIssues**: *Security issues in the repository.*
 
 
-#### [io.moderne.devcenter.UpgradeQuarkus3_x](/user-documentation/recipes/recipe-catalog/devcenter/upgradequarkus3_x.md)
-  * **Upgrade to Quarkus 3.26**
-  * Upgrades Quarkus dependencies to version 3.26.x, including core, extensions, and tooling.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
 #### [io.moderne.devcenter.VulnerabilitiesDevCenter](/user-documentation/recipes/recipe-catalog/devcenter/vulnerabilitiesdevcenter.md)
   * **DevCenter for Vulnerability Management**
-  * Recipes to analyze and manage dependency vulnerabilities using Moderne DevCenter.
+  * Analyze and manage dependency vulnerabilities across your organization. Each card looks at known vulnerabilities with an available fix, in direct and transitive dependencies.  **Vulnerabilities status by Severity**&lt;br/&gt; The most severe vulnerability in each repository.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;Critical to No fixable vulnerabilities&quot; /&gt;&lt;br/&gt; `Critical` → `High` → `Moderate` → `Low` → `No fixable vulnerabilities` · fix with [`DependencyVulnerabilityCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)  **Vulnerabilities status by UpgradeDelta**&lt;br/&gt; The largest version bump needed to fix the vulnerable dependencies in each repository.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzY4JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNzAnIHdpZHRoPSc2OScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOUI0OCcvPjxyZWN0IHg9JzE0MScgd2lkdGg9JzY5JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZDMDQ1Jy8+PHJlY3QgeD0nMjEyJyB3aWR0aD0nNjgnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyMzMEYyODQnLz48L3N2Zz4=&quot; alt=&quot;Major to No vulnerabilities&quot; /&gt;&lt;br/&gt; `Major` → `Minor` → `Patch` → `No vulnerabilities` · fix with [`DependencyVulnerabilityCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)  **Vulnerabilities status by RiskScore**&lt;br/&gt; The highest EPSS score, the probability of exploitation in the next 30 days, in each repository.&lt;br/&gt;&lt;img src=&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyODAnIGhlaWdodD0nOCc+PHJlY3QgeD0nMCcgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkY2RjYxJy8+PHJlY3QgeD0nNTYnIHdpZHRoPSc1NScgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nI0ZGOEY1MicvPjxyZWN0IHg9JzExMycgd2lkdGg9JzU0JyBoZWlnaHQ9JzgnIHJ4PScyJyBmaWxsPScjRkZBODNEJy8+PHJlY3QgeD0nMTY5JyB3aWR0aD0nNTUnIGhlaWdodD0nOCcgcng9JzInIGZpbGw9JyNGRkQzNEQnLz48cmVjdCB4PScyMjYnIHdpZHRoPSc1NCcgaGVpZ2h0PSc4JyByeD0nMicgZmlsbD0nIzMwRjI4NCcvPjwvc3ZnPg==&quot; alt=&quot;Critical to No vulnerability scores&quot; /&gt;&lt;br/&gt; `Critical` (&gt;50%) → `High` (10-50%) → `Medium` (1-10%) → `Low` (&lt;1%) → `No vulnerability scores` · fix with [`DependencyVulnerabilityCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)  The DevCenter also counts lines of code per repository and committers active in the last 90 days. See the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter/) to customize.
 
 ##### Data tables:
 
@@ -859,7 +1676,91 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 
+### rewrite-elastic
+
+#### [io.moderne.elastic.elastic9.MigrateToElasticsearch9](/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratetoelasticsearch9.md)
+  * **Migrate from Elasticsearch 8 to 9**
+  * This recipe performs a comprehensive migration from Elasticsearch 8 to Elasticsearch 9, addressing breaking changes, API removals, deprecations, and required code modifications. Migrates to the `co.elastic.clients:elasticsearch-rest5-client` transport (Apache HttpClient 5.x), which is Elastic's recommended path for the 9.x line. To retain the legacy Apache HttpClient 4.x transport, run `io.moderne.elastic.elastic9.MigrateToElasticsearch9LegacyTransport` instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.elastic.elastic9.MigrateToElasticsearch9Core](/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratetoelasticsearch9core.md)
+  * **Migrate from Elasticsearch 8 to 9 (API renames, transport-agnostic)**
+  * The transport-agnostic portion of the Elasticsearch 8 to 9 migration — API renames, field renames, numeric type changes, and removed-class comments. Used as a building block by `io.moderne.elastic.elastic9.MigrateToElasticsearch9` and `io.moderne.elastic.elastic9.MigrateToElasticsearch9LegacyTransport`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.elastic.elastic9.MigrateToElasticsearch9LegacyTransport](/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratetoelasticsearch9legacytransport.md)
+  * **Migrate from Elasticsearch 8 to 9 (legacy Apache HttpClient 4.x transport)**
+  * Same API/type migrations as `io.moderne.elastic.elastic9.MigrateToElasticsearch9`, but keeps the legacy `org.elasticsearch.client:elasticsearch-rest-client` transport (Apache HttpClient 4.x). Use this only when you intentionally cannot adopt Apache HttpClient 5.x. Not safe to chain inside the Spring Boot 4 migration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+
 ### rewrite-hibernate
+
+#### [io.moderne.hibernate.MigrateToHibernate40](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate40.md)
+  * **Migrate to Hibernate 4.0.x**
+  * This recipe will apply changes commonly needed when migrating from Hibernate 3.x to 4.0.x, including migration of collection annotations to their JPA 2.0 equivalents.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.hibernate.MigrateToHibernate60](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-moderne-edition.md)
+  * **Migrate to Hibernate 6.0.x (Moderne Edition)**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.0.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.hibernate.MigrateToHibernate66](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-moderne-edition.md)
+  * **Migrate to Hibernate 6.6.x (Moderne Edition)**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.6.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.hibernate.MigrateToHibernate70](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-moderne-edition.md)
+  * **Migrate to Hibernate 7.0.x (Moderne Edition)**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 7.0.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.hibernate.MigrateToHibernate71](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate71-moderne-edition.md)
+  * **Migrate to Hibernate 7.1.x (Moderne Edition)**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 7.0.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.hibernate.MigrateToHibernate72](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate72.md)
+  * **Migrate to Hibernate 7.2.x**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 7.2.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
 
 #### [io.moderne.hibernate.search.FindJPQLDefinitions](/user-documentation/recipes/recipe-catalog/hibernate/search/findjpqldefinitions.md)
   * **Find JPQL definitions**
@@ -868,6 +1769,36 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.hibernate.search.JPQLQueries**: *Shows matching JPQL queries.*
+
+
+#### [io.moderne.hibernate.update70.MigrateJacksonDatatypeHibernate6To7](/user-documentation/recipes/recipe-catalog/hibernate/update70/migratejacksondatatypehibernate6to7.md)
+  * **Migrate `jackson-datatype-hibernate6` to `jackson-datatype-hibernate7`**
+  * Swaps the `jackson-datatype-hibernate6` dependency for `jackson-datatype-hibernate7`, along with the types it provides. Both the Jackson 2 (`com.fasterxml.jackson.datatype`) and Jackson 3 (`tools.jackson.datatype`) coordinates are handled, such that this recipe is applicable both before and after a migration to Jackson 3.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+
+### rewrite-jasperreports
+
+#### [io.moderne.jasperreports.UpgradeToJasperReports5](/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports5.md)
+  * **Migrate to JasperReports 5.6.x**
+  * Migrates JasperReports from 4.6.0 to 5.6.x. This recipe includes minimal breaking changes, allowing teams to test and validate the migration before proceeding to version 6.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.jasperreports.UpgradeToJasperReports6](/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports6.md)
+  * **Migrate to JasperReports 6**
+  * Migrates JasperReports from 5.x to 6.x with the new exporter API, XLS to XLSX move, and removal of Spring JasperReports views.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 
@@ -882,6 +1813,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.java.server.jboss.PlanJBossMigration$JBossProjects**: *Summary of JBoss descriptor files found in the repository.*
 
 
+#### [io.moderne.java.server.jboss.jetty.MigrateJBossToJetty](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty.md)
+  * **Migrate JBoss to Jetty**
+  * Comprehensive migration from JBoss to Jetty.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard](/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard.md)
   * **JBoss to Jetty migration**
   * Measures the progress of migrating applications from JBoss to Jetty. Analyzes the presence of JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and Jetty jetty-env.xml configuration files to determine migration state.
@@ -889,6 +1829,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+
+
+#### [io.moderne.java.server.jboss.tomcat.MigrateJBossToTomcat](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/migratejbosstotomcat.md)
+  * **Migrate JBoss to Tomcat**
+  * Comprehensive migration from JBoss to embedded Tomcat.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [io.moderne.java.server.jboss.tomcat.devcenter.JBossToTomcatMigrationCard](/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/devcenter/jbosstotomcatmigrationcard.md)
@@ -902,6 +1851,96 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 ### rewrite-kafka
+
+#### [io.moderne.kafka.MigrateToKafka23](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka23.md)
+  * **Migrate to Kafka 2.3**
+  * Migrate applications to the latest Kafka 2.3 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.kafka.MigrateToKafka24](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka24.md)
+  * **Migrate to Kafka 2.4**
+  * Migrate applications to the latest Kafka 2.4 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.kafka.MigrateToKafka25](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka25.md)
+  * **Migrate to Kafka 2.5**
+  * Migrate applications to the latest Kafka 2.5 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.kafka.MigrateToKafka26](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka26.md)
+  * **Migrate to Kafka 2.6**
+  * Migrate applications to the latest Kafka 2.6 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.kafka.MigrateToKafka27](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka27.md)
+  * **Migrate to Kafka 2.7**
+  * Migrate applications to the latest Kafka 2.7 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.kafka.MigrateToKafka28](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka28.md)
+  * **Migrate to Kafka 2.8**
+  * Migrate applications to the latest Kafka 2.8 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.kafka.MigrateToKafka30](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka30.md)
+  * **Migrate to Kafka 3.0**
+  * Migrate applications to the latest Kafka 3.0 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.kafka.MigrateToKafka31](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka31.md)
+  * **Migrate to Kafka 3.1**
+  * Migrate applications to the latest Kafka 3.1 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.kafka.MigrateToKafka32](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka32.md)
+  * **Migrate to Kafka 3.2**
+  * Migrate applications to the latest Kafka 3.2 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.kafka.MigrateToKafka33](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka33.md)
+  * **Migrate to Kafka 3.3**
+  * Migrate applications to the latest Kafka 3.3 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
 
 #### [io.moderne.kafka.MigrateToKafka40](/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40.md)
   * **Migrate to Kafka 4.0**
@@ -1187,7 +2226,16 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
+  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies.*
+
+
+#### [io.moderne.prethink.FindAuthorizationDeclarations](/user-documentation/recipes/recipe-catalog/prethink/findauthorizationdeclarations.md)
+  * **Find authorization declarations**
+  * Report directly declared, type-attributed Spring Security and jakarta/javax security annotations on Java types and methods, including declarations without endpoints. Preserves source positions, overload signatures, and explicit raw attributes with resolution states. Does not change source or infer inherited, composed, effective, route, or runtime authorization behavior.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.AuthorizationDeclarations**: *Direct, type-attributed authorization annotations on Java type and method declarations. Declaration evidence only; does not establish effective protection, route coverage, or runtime interception.*
 
 
 #### [io.moderne.prethink.FindGoCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findgocodingconventions.md)
@@ -1206,6 +2254,142 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
+
+
+#### [io.moderne.prethink.FindJavaAnnotationArguments](/user-documentation/recipes/recipe-catalog/prethink/findjavaannotationarguments.md)
+  * **Find Java annotation arguments**
+  * Report every explicit Java annotation member expression and attributed source static-final String field. Resolves only String literals/text blocks, parentheses, String+String, typed source field references within the same known project and source-set marker identities/name, and fully resolved String arrays. Preserves exact source spans and auditable typed dependencies without changing sources. Does not evaluate SpEL, full JLS constant expressions, annotation defaults, or runtime permissions.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaAnnotationArguments**: *Every explicit Java annotation member expression, including unsupported values; no omitted/default, inherited, or meta-annotation expansion.*
+  * **io.moderne.prethink.table.JavaStringConstants**: *Attributed source-declared static final String fields, including implicit interface constants. No local, nonfinal, nonString, external, or inferred constants.*
+
+
+#### [io.moderne.prethink.FindJavaCallSites](/user-documentation/recipes/recipe-catalog/prethink/findjavacallsites.md)
+  * **Find Java call sites**
+  * Report every syntactic Java method invocation, explicit new expression, and member reference, preserving repeated sites, lexical caller and target signatures, unknown attribution, and exact source spans. Does not change source or infer runtime execution, dispatch, or transitive reachability.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaCallSites**: *Every syntactic Java method invocation, explicit new expression, and member reference, including repeated sites and missing attribution. Lexical source evidence only; does not establish runtime execution or dispatch.*
+
+
+#### [io.moderne.prethink.FindJavaConstructorArguments](/user-documentation/recipes/recipe-catalog/prethink/findjavaconstructorarguments.md)
+  * **Find Java constructor arguments**
+  * Report every written argument of explicit Java new expressions with original node IDs, lexical construction and written argument ordinals, source spans, actual expression types and bounded source String evidence. An optional constructor pattern selects attributed matching targets. Zero-argument constructions supply no argument rows. Constructor signatures remain in the existing call-site table; written argument indices do not identify target formals. Does not change sources or evaluate runtime values.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaConstructorArguments**: *Every written non-placeholder argument of eligible explicit Java new expressions, with original node IDs, source spans, expression types and bounded source String evidence. IDs require exact VCS/input and producer scope. No implicit enum constructor, constructor-reference, array-allocation or this/super delegation rows; no target-formal mapping.*
+
+
+#### [io.moderne.prethink.FindJavaConstructorFieldAssignments](/user-documentation/recipes/recipe-catalog/prethink/findjavaconstructorfieldassignments.md)
+  * **Find Java constructor field assignments**
+  * Report written immediate constructor-body assignments from an explicit formal parameter to an owned non-static field. Retain actual original-model constructor, parameter, field-reference and assignment identities and source ranges. Named nested/local constructors retain their own identities; eligible direct writes after delegation remain source facts. Source facts only; no property evaluation, delegation propagation, runtime injection or execution inference.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaConstructorFieldAssignments**: *Written immediate constructor-body assignments from a bare explicit formal parameter to an owned non-static field. One row per source occurrence, without deduplication. Actual UUIDs are original-model-local; joins require verified VCS/input/producer namespaces and unique source inventory. No JavaType.Variable object identity binding, String/property evaluation or runtime state inference.*
+
+
+#### [io.moderne.prethink.FindJavaEnumArguments](/user-documentation/recipes/recipe-catalog/prethink/findjavaenumarguments.md)
+  * **Find Java enum arguments**
+  * Report written enum constant arguments with original occurrence and argument IDs, actual enum owner attribution, per-enum lexical and written argument ordinals, printed source spans, expression types and bounded source String evidence. Zero-argument constants participate in enum ordinals but emit no rows. Retains annotated, anonymous-body and nested enum occurrences without formal binding or runtime evaluation. Does not change sources.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaEnumArguments**: *Written non-placeholder arguments of actual printed Java enum constants, with original occurrence and argument IDs, attributed enum owner, source spans, expression types and bounded source String evidence. Equal values remain distinct occurrences; IDs require exact VCS/input and producer scope. No synthetic new/type-token coordinates, target-formal binding or runtime destination inference.*
+
+
+#### [io.moderne.prethink.FindJavaExpressionWrappers](/user-documentation/recipes/recipe-catalog/prethink/findjavaexpressionwrappers.md)
+  * **Find Java expression wrappers**
+  * Report each explicit Java cast or expression parentheses with its actual direct operand UUID, source range and independently nullable type. Preserve nested wrappers and repeated physical occurrences without flattening expressions or changing their direct kinds. Include ControlParentheses only as the actual direct TypeCast expression operand; exclude cast-type and control-statement delimiters and documentation. Does not evaluate values, change source, infer taint or establish runtime flow or dispatch.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaExpressionWrappers**: *Direct written TypeCast, expression Parentheses or verified cast-operand ControlParentheses edges with actual UUIDs, independently nullable types and original source ranges. Preserve each physical occurrence and intermediate wrapper without flattening. Cast-type and control-statement delimiters and documentation are excluded. No evaluation, value identity, taint or runtime-flow claim.*
+
+
+#### [io.moderne.prethink.FindJavaInvocationArguments](/user-documentation/recipes/recipe-catalog/prethink/findjavainvocationarguments.md)
+  * **Find Java invocation arguments**
+  * Report every explicit argument occurrence of ordinary written Java method invocations, with original IDs, source spans, attributed target and bounded source String evidence. An optional method pattern selects only attributed matching targets. Constructors and member references are excluded; zero-argument invocations have no argument rows. Does not change source or interpret runtime policy.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaInvocationArguments**: *Every explicit argument occurrence of ordinary written Java method invocations. IDs are original-model-local; joins require the exact VCS/input and producer namespace. No constructors, member references or zero-argument placeholders.*
+
+
+#### [io.moderne.prethink.FindJavaInvocationSelects](/user-documentation/recipes/recipe-catalog/prethink/findjavainvocationselects.md)
+  * **Find Java invocation selects**
+  * Report ordinary written Java invocations, including zero-argument calls, with original invocation and outer select identities, source spans, recorded static types and separate method-owner evidence. Preserve absent and unknown select types without inferring an implicit receiver, generic binding, declaration identity or runtime dispatch.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaInvocationSelects**: *Ordinary written Java invocation occurrences and their explicit select expression identities, source ranges and recorded static types. Includes zero-argument calls and absent or unknown select evidence without synthesizing a receiver. Actual UUIDs require exact original input and producer namespaces; nominal types and method owners do not prove runtime dispatch.*
+
+
+#### [io.moderne.prethink.FindJavaLambdaReceiverReferences](/user-documentation/recipes/recipe-catalog/prethink/findjavalambdareceiverreferences.md)
+  * **Find Java lambda receiver references**
+  * Report bare ordinary invocation selects that reference a formal declared by their nearest owning lambda, with original node identities, individual formal declaration ranges and recorded opaque types. Reassignment retains the lexical declaration; static calls written through a formal remain lexical qualifier references. Excludes outer captures, class or method boundary crossing, field or chained receivers, target formal mapping and runtime dispatch. Does not change sources.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaLambdaReceiverReferences**: *Own nearest-lambda formal declarations referenced by bare ordinary invocation selects, with actual node identities, source ranges and nullable opaque static types. Retains occurrence multiplicity within one exact input and producer namespace. Excludes outer captures and class or method boundary crossing; no runtime dispatch, functional-formal mapping or ID normalization.*
+
+
+#### [io.moderne.prethink.FindJavaLocalVariableReferences](/user-documentation/recipes/recipe-catalog/prethink/findjavalocalvariablereferences.md)
+  * **Find Java local variable references**
+  * Report regular block-local declarations referenced by bare ordinary invocation argument, select or direct method-return identifiers, with original declaration and reference identities, source ranges and explicit binding states. Binding follows lexical visibility and declarator order in the same nearest ordinary method; reassignment retains declaration identity. Excludes fields, formals, lambda bodies, captures, constructors, initializers and assignment-target context. Does not change sources or establish initializer values, reaching definitions, taint or runtime flow.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaLocalVariableReferences**: *Regular block-local declarations referenced by bare ordinary invocation argument, select or direct return identifiers in their own ordinary method. Retains original node identities, individual declaration and reference ranges, occurrence multiplicity and explicit binding states. Unknown or ambiguous bindings have null declaration cells. No fields, formal parameters, captures, assignment-target context, initializer evaluation, reaching-value, taint or runtime-flow inference.*
+
+
+#### [io.moderne.prethink.FindJavaLocalVariableWrites](/user-documentation/recipes/recipe-catalog/prethink/findjavalocalvariablewrites.md)
+  * **Find Java local variable writes**
+  * Report written initializers and bare-target simple assignments for regular block locals in their own ordinary method, with original declaration, variable, write, target and direct RHS identities, raw nullable types and source ranges. Preserve individual declarator order, repeated and nested write sites, explicit binding states and direct RHS roots without unwrapping. Excludes fields, formals, lambda-body locals, captures and constructor or initializer bodies; nested ordinary methods own their locals. Does not change sources, evaluate RHS values or infer reaching definitions, taint or runtime flow.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaLocalVariableWrites**: *Written INITIALIZER or SIMPLE_ASSIGNMENT sites for supported regular block locals in their own ordinary method. Retains original declaration, individual variable, write, target and direct RHS identities and ranges, raw nullable types, occurrence multiplicity and explicit binding states. Unknown or ambiguous bindings retain written site facts with null declaration cells. No initializer evaluation, reaching-write selection, value identity, taint or runtime-flow inference.*
+
+
+#### [io.moderne.prethink.FindJavaMethodReturns](/user-documentation/recipes/recipe-catalog/prethink/findjavamethodreturns.md)
+  * **Find Java method returns**
+  * Report explicit return sites owned by ordinary methods with bodies, retaining actual method, body, return and direct expression identities, independently nullable attribution and original printer ranges. Preserve bare returns, explicit null expressions and repeated physical sites without unwrapping expressions. Exclude lambda-owned returns and constructor or initializer bodies; independent nested ordinary methods own their returns. Does not change sources, bind returned locals, select unique source targets or infer reaching values or runtime flow.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaMethodReturns**: *Explicit return sites owned by an ordinary method with a body, preserving actual method, body, return and direct expression UUIDs, nullable attribution and original source ranges. Lambda-owned returns and constructor or initializer bodies are excluded; independent nested ordinary methods own their returns. Repeated physical nodes remain distinct. No local-declaration binding, reaching-value inference, unique source-target resolution or runtime-flow claim.*
+
+
+#### [io.moderne.prethink.FindJavaParameterArgumentReferences](/user-documentation/recipes/recipe-catalog/prethink/findjavaparameterargumentreferences.md)
+  * **Find Java parameter argument references**
+  * Report bare ordinary invocation arguments that reference an explicitly written formal of their own method or constructor. Retain original declaration, body, parameter, invocation and identifier identities and written source ranges. Written argument ordinals are not target formal ordinals; no incoming-value, execution or runtime-flow inference.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaParameterArgumentReferences**: *Written bare ordinary-call arguments referring to an explicit formal of their own method or constructor body. One row per source occurrence, without deduplication. Actual UUIDs are original-input/producer-local; cross-table joins require verified namespaces and unique known source inventory. No JavaType.Variable object identity, generic signature parsing, target-formal mapping or runtime value flow.*
+
+
+#### [io.moderne.prethink.FindJavaProjectPublications](/user-documentation/recipes/recipe-catalog/prethink/findjavaprojectpublications.md)
+  * **Find Java project publications**
+  * Report every JavaProject marker occurrence on .java compilation units, including raw nullable publication fields. Retains independent source-set marker cardinality and a row when the project marker is missing, without changing sources. Recorded marker IDs and raw publication payloads never establish unique module identity or authorize ID remapping.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaProjectPublications**: *Per-compilation-unit JavaProject marker occurrences, independent source-set scope and raw nullable publication fields. Includes a missing-project row and preserves duplicate occurrences without equating names, payloads or UUIDs with unique module identity.*
+
+
+#### [io.moderne.prethink.FindJavaSourceInventory](/user-documentation/recipes/recipe-catalog/prethink/findjavasourceinventory.md)
+  * **Find Java source inventory**
+  * Report every SourceFile whose raw source path ends exactly in .java, including parse errors and other source types. Retains actual source-file and sole project/source-set marker identities and exact marker cardinalities without changing sources. Scope state describes recorded markers only, not runtime visibility or successful compilation. Identities are opaque and original-model/run-local; project names and paths never supply missing scope. Semantic Java joins additionally require a unique JAVA_COMPILATION_UNIT occurrence in the same original payload.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.JavaSourceInventory**: *Every SourceFile occurrence whose raw path ends exactly in .java, including parse errors and other source types. Actual source/marker identities are opaque and local to the original model/run. No path/name-based scope or visibility inference; duplicate paths are not unique joins.*
 
 
 #### [io.moderne.prethink.FindNodeCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/findnodecodingconventions.md)
@@ -1244,13 +2428,32 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
 
 
+#### [io.moderne.prethink.FindSpringHttpAuthorizationRules](/user-documentation/recipes/recipe-catalog/prethink/findspringhttpauthorizationrules.md)
+  * **Find Spring HTTP authorization rules**
+  * Report typed modern HttpSecurity.authorizeHttpRequests roots and requestMatchers/anyRequest occurrences in inline customizers, preserving raw arguments, original identities, exact source positions, unsupported states and lexical context. Pairs only immediate typed fluent select edges. Does not infer receiver ownership, effective permissions, runtime precedence or endpoint coverage.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.SpringHttpAuthorizationConfigurations**: *Every attributed modern HttpSecurity.authorizeHttpRequests root occurrence, including unsupported or dynamic customizers. Lexical source evidence, not effective policy or endpoint coverage.*
+  * **io.moderne.prethink.table.SpringHttpAuthorizationRules**: *Typed requestMatchers/anyRequest occurrences lexically inside supported modern inline customizers, with only immediate typed select-edge action proof. No ownership, runtime permissions, exposure, or coverage inference.*
+
+
+#### [io.moderne.prethink.FindTransactionDeclarations](/user-documentation/recipes/recipe-catalog/prethink/findtransactiondeclarations.md)
+  * **Find transaction declarations**
+  * Report directly declared, type-attributed Spring and jakarta/javax Transactional annotations on Java types and methods. Preserves source positions, overload signatures, and explicit raw attributes with resolution states. Does not change source or infer inherited, composed, effective, proxy, or rollback behavior.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.TransactionDeclarations**: *Direct, type-attributed transaction annotations on Java type and method declarations. Declaration evidence only; does not establish effective transaction or rollback behavior.*
+
+
 #### [io.moderne.prethink.PythonDependencyReport](/user-documentation/recipes/recipe-catalog/prethink/pythondependencyreport.md)
   * **Python dependency report**
   * Read the dependency graph attached to Python manifests (pyproject.toml, Pipfile, requirements.txt, setup.cfg) by the parser and emit rows into the shared dependency-list-report table, mirroring the JVM dependency inventory. Includes declared (direct) dependencies and, when a lock file resolved them, transitive dependencies with concrete versions.
 
 ##### Data tables:
 
-  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
+  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies.*
 
 
 #### [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
@@ -1289,7 +2492,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
   * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
   * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
+  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
   * **org.openrewrite.prethink.table.ContextRegistry**: *Registry of available context files for coding agents.*
@@ -1331,7 +2534,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
   * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
   * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
+  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
   * **org.openrewrite.prethink.table.ContextRegistry**: *Registry of available context files for coding agents.*
@@ -1566,7 +2769,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindEndpointSecurity](/user-documentation/recipes/recipe-catalog/prethink/calm/findendpointsecurity.md)
   * **Find endpoint security**
-  * Per-endpoint security requirements (roles, scopes, raw expressions) extracted from Spring Security (@PreAuthorize/@PostAuthorize/@Secured) and JAX-RS/Jakarta EE (@RolesAllowed/@PermitAll/@DenyAll, jakarta + javax) annotations at method or class level. Joins to service-endpoints.csv via endpointId.
+  * Per-endpoint security requirements (roles, scopes, raw expressions) extracted from Spring Security (@PreAuthorize/@PostAuthorize/@Secured) and JAX-RS/Jakarta EE (@RolesAllowed/@PermitAll/@DenyAll, jakarta + javax) annotations at method or class level. Joins to service-endpoints.csv via exact Java method signatures within the same repository, input and source path. Preserves declaration layers without inferring effective authorization.
 
 ##### Data tables:
 
@@ -1998,7 +3201,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md)
   * **Find service endpoints**
-  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods.
+  * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also detects endpoints inherited from interfaces and base classes, such as OpenAPI-codegen-first projects where `@GetMapping` etc. live on the interface methods, or JAX-RS resources whose handlers are declared once on a generic base class.
 
 ##### Data tables:
 
@@ -2616,67 +3819,43 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 
-### rewrite-release-metromap
-
-#### [io.moderne.recipe.releasemetro.FindGradleParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleparentrelationships.md)
-  * **Find Gradle root project to subproject relationships**
-  * Gradle has no parent-project concept like Maven. The closest analog is the root project of a multi-project build, so this recipe records the GAV coordinates of each subproject paired with the root project.
-
-##### Data tables:
-
-  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between Maven child modules and their parent POMs, or Gradle subprojects and their root project.*
-
-
-#### [io.moderne.recipe.releasemetro.FindGradleProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleprojectids.md)
-  * **Find Gradle project IDs**
-  * Find Gradle project IDs in build.gradle files to determine the project ID.
-
-##### Data tables:
-
-  * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
-
-
-#### [io.moderne.recipe.releasemetro.FindMavenParentRelationships](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenparentrelationships.md)
-  * **Find Maven parent relationships**
-  * Find Maven parent POM relationships to understand project hierarchies in multi-module builds.
-
-##### Data tables:
-
-  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between Maven child modules and their parent POMs, or Gradle subprojects and their root project.*
-
-
-#### [io.moderne.recipe.releasemetro.FindMavenProjectIDs](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenprojectids.md)
-  * **Find maven project IDs**
-  * Find Maven group Id and artifactId in pom.xml files to determine the project ID.
-
-##### Data tables:
-
-  * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
-
-
-#### [io.moderne.recipe.releasemetro.FindPotentiallyUnusedDependencies](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findpotentiallyunuseddependencies.md)
-  * **Find potentially unused dependencies**
-  * Collects import information to help identify potentially unused dependencies.
-
-##### Data tables:
-
-  * **io.moderne.recipe.releasemetro.table.UnusedDependencies**: *Dependencies that are declared in build files but may not be used based on import analysis.*
-
-
-#### [io.moderne.recipe.releasemetro.ReleaseMetroPlan](/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan.md)
-  * **Analyse Organization's Release Train Metro Plan**
-  * Gathers the basic information to create and understand the organizations release train metro plan.
-
-##### Data tables:
-
-  * **io.moderne.recipe.releasemetro.table.ProjectCoordinates**: *Maven Modules or Gradle (sub-)project groupId and artifactId.*
-  * **io.moderne.recipe.releasemetro.table.ParentRelationships**: *Relationships between Maven child modules and their parent POMs, or Gradle subprojects and their root project.*
-  * **io.moderne.recipe.releasemetro.table.UnusedDependencies**: *Dependencies that are declared in build files but may not be used based on import analysis.*
-  * **org.openrewrite.maven.table.DependenciesDeclared**: *Direct (first-order) dependencies declared by the project.*
-
-
-
 ### rewrite-spring
+
+#### [io.moderne.java.jsf.MigrateToJsf_2_3](/user-documentation/recipes/recipe-catalog/java/jsf/migratetojsf_2_3.md)
+  * **Migrate to JSF 2.3**
+  * Complete migration to JSF 2.3, including associated technologies like RichFaces. Updates dependencies, transforms XHTML views, and migrates Java APIs.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.jsf.richfaces.MigrateRichFaces_4_5](/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/migraterichfaces_4_5.md)
+  * **Migrate RichFaces 3.x to 4.5**
+  * Complete RichFaces 3.x to 4.5 migration including tag renames, attribute migrations, and Java API updates.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot.ReplaceSpringFrameworkDepsWithBootStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot/replacespringframeworkdepswithbootstarters.md)
+  * **Replace Spring Framework dependencies with Spring Boot starters**
+  * Replace common Spring Framework dependencies with their Spring Boot starter equivalents. This recipe handles the direct dependency replacement; any remaining Spring Framework dependencies that become transitively available through starters are cleaned up separately by RemoveRedundantDependencies.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot.SpringToSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/boot/springtospringboot.md)
+  * **Migrate Spring Framework to Spring Boot**
+  * Migrate non Spring Boot applications to the latest compatible Spring Boot release. This recipe will modify an application's build files introducing Maven dependency management for Spring Boot, or adding the Gradle Spring Boot build plugin.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
 
 #### [io.moderne.java.spring.boot3.SpringBoot3BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices.md)
   * **Spring Boot 3.5 best practices**
@@ -2688,9 +3867,18 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
-#### [io.moderne.java.spring.boot3.UpgradeGradle8Spring34](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradegradle8spring34.md)
-  * **Upgrade Gradle 8 to 8.4+ for Spring Boot 3.4**
-  * Spring Boot 3.4 requires Gradle 8.4+.
+#### [io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_4.md)
+  * **Upgrade MyBatis to Spring Boot 3.4**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.4.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_5](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_5.md)
+  * **Upgrade MyBatis to Spring Boot 3.5**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.5.
 
 ##### Data tables:
 
@@ -2699,7 +3887,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.java.spring.boot3.UpgradeSpringBoot_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-moderne-edition.md)
   * **Migrate to Spring Boot 3.0 (Moderne Edition)**
-  * Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations that are required as part of the migration to Spring Boot 3.0, including the Tomcat 10.1 upgrade which removes `LegacyCookieProcessor`.
+  * Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations that are required as part of the migration to Spring Boot 3.0, including the Tomcat 10.1 upgrade which removes `LegacyCookieProcessor`, and the Spring WS 4.0 migration off Apache Axiom.
 
 ##### Data tables:
 
@@ -2727,6 +3915,159 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
+#### [io.moderne.java.spring.boot3.UpgradeSpringCloudAWSToSpringBoot_3_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringcloudawstospringboot_3_4.md)
+  * **Upgrade Spring Cloud AWS to Spring Boot 3.4 compatible version**
+  * Upgrade the Spring Cloud AWS dependency to a version compatible with Spring Boot 3.4.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot3.UpgradeSpringCloudAzure_6](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringcloudazure_6.md)
+  * **Migrate Spring Cloud Azure to 6.x**
+  * Upgrade `com.azure.spring` dependencies to the 6.x line, the Spring Cloud Azure release aligned with Spring Boot 3.5. Migrates code off the deprecated `ServiceBusJmsConnectionFactoryCustomizer` interface removed in 6.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.AddFlywayStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addflywaystarters.md)
+  * **Add Flyway starters**
+  * Adds the spring-boot-starter-flyway dependency when Flyway usage is detected in the module.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.AddGrpcStarters_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addgrpcstarters_4_1.md)
+  * **Add Spring Boot 4.1 gRPC starters to modules using Spring gRPC**
+  * Add the Spring Boot 4.1 gRPC server and client starters based on the use of `io.grpc` types, but only to modules that already use Spring gRPC. Plain `io.grpc` usage is not enough: Boot's gRPC auto-configuration would start a second gRPC server in projects that run their own, such as competing gRPC starters.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.AddJackson2ForJerseyJson](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addjackson2forjerseyjson.md)
+  * **Add Jackson2 for Jersey using JSON**
+  * Check whether a module uses Jersey on combination with JSON and adds the needed `spring-boot-jackson` dependency and conditionally `spring-boot-jackson2` dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.AddLiquibaseStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addliquibasestarters.md)
+  * **Add Liquibase starters**
+  * Adds the spring-boot-starter-liquibase dependency when Liquibase usage is detected in the module.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.AddModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarters.md)
+  * **Add Spring Boot 4.0 modular starters**
+  * Add Spring Boot 4.0 starter dependencies based on package usage. Usage of Spring Boot's own types is matched to the Spring Boot 4 module the type belongs to, using tables generated from the published Spring Boot artifacts. Spring Boot 3 types are first mapped to their Spring Boot 4 names. Note: Higher-level starters (like data-jpa) include lower-level ones (like jdbc) transitively, so only the highest-level detected starter is added for each technology. A `-test` starter is only added when the module actually uses the test support it provides, such as a test slice annotation like `@DataJpaTest`. Production usage alone does not pull one in, so `-test` starters without a matching test-side trigger are skipped.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.AddValidationStarterDependency](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addvalidationstarterdependency.md)
+  * **Add `spring-boot-starter-validation` dependency**
+  * In Spring Boot 4, validation is no longer auto-included from the web starter. This recipe adds the `spring-boot-starter-validation` dependency when Jakarta Validation annotations are used in the project.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.AdoptJackson3](/user-documentation/recipes/recipe-catalog/java/spring/boot4/adoptjackson3.md)
+  * **Adopt Jackson 3**
+  * Adopt Jackson 3 which is supported by Spring Boot 4 and Jackson 2 support is deprecated.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.MigrateHazelcastSpringSession](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratehazelcastspringsession.md)
+  * **Migrate Spring Session Hazelcast to Hazelcast Spring Session**
+  * Spring Boot 4.0 removed direct support for Spring Session Hazelcast. The Hazelcast team now maintains their own Spring Session integration. This recipe changes the dependency from `org.springframework.session:spring-session-hazelcast` to `com.hazelcast.spring:hazelcast-spring-session` and updates the package from `org.springframework.session.hazelcast` to `com.hazelcast.spring.session`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.MigrateRestAssured](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migraterestassured.md)
+  * **Add explicit version for REST Assured**
+  * REST Assured is no longer managed by Spring Boot 4.0. This recipe adds an explicit version to REST Assured dependencies.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.MigrateSpringGrpc_1_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringgrpc_1_1.md)
+  * **Migrate from standalone Spring gRPC 1.0 to Spring Boot 4.1 (Spring gRPC 1.1)**
+  * Migrate applications from the standalone Spring gRPC project (`org.springframework.grpc:*`, Spring gRPC 1.0) to the version bundled with Spring Boot 4.1 (Spring gRPC 1.1). Spring gRPC graduated into Spring Boot in 4.1, so its starters, BOM, configuration properties, and test annotations move under `org.springframework.boot`. Following the [Spring gRPC 1.1 Migration Guide](https://github.com/spring-projects/spring-grpc/wiki/Spring-gRPC-1.1-Migration-Guide), this recipe swaps the `org.springframework.grpc` starters for the Spring Boot `spring-boot-starter-grpc-*` starters (splitting the combined runtime and test starters) and removes the standalone `spring-grpc-dependencies` BOM; renames the `spring.grpc.server.*` and per-channel `spring.grpc.client.channels.&lt;name&gt;.*` properties that changed in 1.1 and splits `spring.grpc.server.address: host:port` into separate `address` and `port`; renames the `@AutoConfigureInProcessTransport` and `@LocalGrpcPort` test annotations; and, because 1.1 no longer auto-scans generated proto stubs, flags classes that inject gRPC client stubs with a TODO so an explicit `@ImportGrpcClients` annotation can be added by hand. Not automated: pinning the `reactor-grpc-stub` version. Spring gRPC 1.1 no longer manages it, so a version-less declaration must be given an explicit version once the standalone BOM is removed (Spring gRPC 1.0 managed `1.2.4`).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.MigrateToModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition.md)
+  * **Migrate to Spring Boot 4.0 modular starters (Moderne Edition)**
+  * Adds Spring Boot 4.0 modular starter dependencies based on package usage and rewrites the classic starters to the minimal `spring-boot-starter` / `spring-boot-starter-test`. The minimal starter is retained so that modules whose code only references core Spring annotations (e.g. `@SpringBootApplication`, `@Configuration`, `@Component`) still compile after migration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.MigrateToModularStarters_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters_4_1.md)
+  * **Migrate to Spring Boot 4.1 modular starters**
+  * Add Spring Boot 4.1 starter dependencies for modules introduced in 4.1 (gRPC server, gRPC client, and Spring Batch with MongoDB support). The gRPC starters are only added to modules that already use Spring gRPC. This recipe complements `MigrateToModularStarters` from 4.0 and only adds the new starters; it does not rewrite or remove anything else.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.ModularizeLegacyRawSpringDataRedis](/user-documentation/recipes/recipe-catalog/java/spring/boot4/modularizelegacyrawspringdataredis.md)
+  * **Modularize legacy raw Spring Data Redis dependency**
+  * In modules that directly declare `org.springframework.data:spring-data-redis`, add `spring-boot-starter-data-redis` (no-op if already present transitively — for example via `spring-boot-starter-session-data-redis` after its rename) and remove the raw dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.SplitSpringGrpcCombinedStarter](/user-documentation/recipes/recipe-catalog/java/spring/boot4/splitspringgrpccombinedstarter.md)
+  * **Split the combined Spring gRPC starter into server and client starters**
+  * The combined `org.springframework.grpc:spring-grpc-spring-boot-starter` was removed in Spring gRPC 1.1. Replace it with the Spring Boot 4.1 `spring-boot-starter-grpc-server` starter and add the matching `spring-boot-starter-grpc-client` starter so both the server and client remain available.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.SplitSpringGrpcCombinedTestStarter](/user-documentation/recipes/recipe-catalog/java/spring/boot4/splitspringgrpccombinedteststarter.md)
+  * **Split the Spring gRPC test starter into server-test and client-test starters**
+  * The standalone `org.springframework.grpc:spring-grpc-test` artifact split into the Spring Boot 4.1 `spring-boot-starter-grpc-server-test` and `spring-boot-starter-grpc-client-test` starters. Replace it with the server-test starter and add the matching client-test starter, both at test scope.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.moderne.java.spring.boot4.SpringBoot4BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot4/springboot4bestpractices.md)
   * **Spring Boot 4.0 best practices**
   * Applies best practices to Spring Boot 4.+ applications.
@@ -2735,6 +4076,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [io.moderne.java.spring.boot4.UpgradeAwspringCloud_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradeawspringcloud_4_0.md)
+  * **Migrate Spring Cloud AWS (awspring) to 4.0**
+  * Upgrade `io.awspring.cloud` dependencies to 4.0.x and migrate code for the breaking API changes in Spring Cloud AWS 4.0. Spring Cloud AWS 4.0 aligns with Spring Boot 4 / Spring Framework 7 and adopts Jackson 3 by default; this recipe moves usages off the deprecated Jackson 2 variants to their Jackson 3 replacements and migrates the SQS default-converter `setObjectMapper` configurer. Run after the Jackson 2 to 3 migration so user mappers are already `tools.jackson` `JsonMapper`s.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.UpgradeMyBatisToSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgrademybatistospringboot_4_0.md)
+  * **Upgrade MyBatis to Spring Boot 4.0**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 4.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md)
@@ -2767,9 +4126,54 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
+#### [io.moderne.java.spring.boot4.UpgradeSpringCloudAzure_7](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringcloudazure_7.md)
+  * **Migrate Spring Cloud Azure to 7.x**
+  * Upgrade `com.azure.spring` dependencies to the 7.x line, the Spring Cloud Azure release aligned with Spring Boot 4.0. The 6.x to 7.x transition is a version alignment with Spring Boot 4 / Spring Framework 7 / Spring Cloud 2025.1 and introduces no breaking API changes on top of the migrations already performed by the Boot 3.5 chain via `UpgradeSpringCloudAzure_6`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.UpgradeSpringGraphQl_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringgraphql_2_0.md)
+  * **Migrate to Spring for GraphQL 2.0**
+  * Migrate applications to Spring for GraphQL 2.0. This upgrades explicitly versioned Spring for GraphQL, GraphQL Java, Java DataLoader and Apollo Federation dependencies to the versions Spring for GraphQL 2.0 requires, and rewrites APIs deprecated for removal to their replacements.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.UpgradeSpringHateoas_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringhateoas_3_0.md)
+  * **Migrate to Spring HATEOAS 3.0**
+  * Migrate applications to Spring HATEOAS 3.0, which ships with Spring Boot 4.0. Spring HATEOAS 3.0 moves to Jackson 3, renaming the `Jackson2*` media type modules and message converter, and removes APIs that were deprecated in the 1.x and 2.x lines. Removed APIs without a mechanical replacement are flagged with a comment.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.moderne.java.spring.boot4.UpgradeToJava21WhenUsingJooq](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradetojava21whenusingjooq.md)
   * **Upgrade to Java 21 when using jOOQ**
   * Spring Boot 4.1 keeps a Java 17 baseline, but the jOOQ version it manages (3.21) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.1 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.cloud.contract.MigrateWireMockToWireMockSpringBoot](/user-documentation/recipes/recipe-catalog/java/spring/cloud/contract/migratewiremocktowiremockspringboot.md)
+  * **Migrate from `spring-cloud-contract-wiremock` to `wiremock-spring-boot`**
+  * Spring Cloud Contract 5.0 removed the entire `spring-cloud-contract-wiremock` autoconfig package (including `@AutoConfigureWireMock`, `WireMockConfiguration`, `WireMockConfigurationCustomizer`, `WireMockApplicationListener`, and `WireMockTestExecutionListener`). Migrate to the official `wiremock-spring-boot` integration for Spring Boot 4, rewriting `@AutoConfigureWireMock` to `@EnableWireMock(@ConfigureWireMock(...))` with the stub and body root it used to serve, moving extension-only `WireMockConfigurationCustomizer` beans onto `@ConfigureWireMock(extensions = ...)`, adding the `wiremock-spring-boot` test dependency, and removing configuration properties that no longer have any effect.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.cloud20251.UpgradeSpringCloud_2025_1](/user-documentation/recipes/recipe-catalog/java/spring/cloud20251/upgradespringcloud_2025_1.md)
+  * **Upgrade to Spring Cloud 2025.1**
+  * Upgrade to Spring Cloud 2025.1 (Oakwood). This release is based on Spring Framework 7 and Spring Boot 4. Each Spring Cloud project has been updated to version 5.0.0, and renamed or removed properties are migrated.
 
 ##### Data tables:
 
@@ -2783,6 +4187,51 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
+
+
+#### [io.moderne.java.spring.framework.ModularSpringFrameworkDependencies](/user-documentation/recipes/recipe-catalog/java/spring/framework/modularspringframeworkdependencies.md)
+  * **Add Spring Framework modular dependencies**
+  * Adds Spring Framework modular dependencies based on package usage, replacing legacy monolithic `org.springframework:spring`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.framework.UpgradeSpringFramework_3_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_3_0.md)
+  * **Migrate to Spring Framework 3.x**
+  * Migrate applications to the latest Spring Framework 3 release, pulling in additional proprietary Moderne recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.framework.UpgradeSpringFramework_4_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_4_0.md)
+  * **Migrate to Spring Framework 4.0**
+  * Migrate applications to the latest Spring Framework 4.0 release. This composite focuses on dependency upgrades and the mechanical package moves that accompanied the 3.x to 4.0 transition. Removed APIs that do not have a 1:1 replacement (for example `JpaTemplate`, the `AbstractCommandController` family, Hibernate 3 support classes) still require code changes that this recipe does not perform.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.framework.UpgradeSpringFramework_5_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_0-moderne-edition.md)
+  * **Migrate to Spring Framework 5.0 (Moderne Edition)**
+  * Migrate applications to Spring Framework 5.0, layering proprietary Moderne recipes on top of the OSS `org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_0`. Chains through `UpgradeSpringFramework_4_0` (and transitively `_3_0`) so a customer on Spring 3.x lands on a 5.0 baseline after one composite run.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.framework.UpgradeSpringFramework_5_3](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-moderne-edition.md)
+  * **Migrate to Spring Framework 5.3 (Moderne Edition)**
+  * Migrate applications to the latest Spring Framework 5.3 release, pulling in additional proprietary Moderne recipes.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [io.moderne.java.spring.framework.UpgradeSpringFramework_6_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-moderne-edition.md)
@@ -2803,18 +4252,97 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-
-### rewrite-vulncheck
-
-#### [io.moderne.vulncheck.FixVulnCheckVulnerabilities](/user-documentation/recipes/recipe-catalog/vulncheck/fixvulncheckvulnerabilities.md)
-  * **Use VulnCheck Exploit Intelligence to fix vulnerabilities**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from VulnCheck Vulnerability Intelligence. The recipe has an option to limit fixes to only those vulnerabilities that have evidence of exploitation at various levels of severity.
+#### [io.moderne.java.spring.orm.SpringORM5](/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5.md)
+  * **Migrate to Spring ORM to 5**
+  * Migrate applications using Spring ORM Hibernate Support to Hibernate 5 compatible version. This will enable a further migration by the Spring Framework migration past 5.
 
 ##### Data tables:
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-  * **org.openrewrite.java.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
-  * **io.moderne.vulncheck.table.VulnerabilityReportWithExploits**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs and enriched by VulnCheck exploit data.*
+
+
+#### [io.moderne.java.spring.security.MigrateAcegiToSpringSecurity_5_0](/user-documentation/recipes/recipe-catalog/java/spring/security/migrateacegitospringsecurity_5_0.md)
+  * **Migrate from Acegi Security 1.0.x to Spring Security 5.0**
+  * Migrates Acegi Security 1.0.x directly to Spring Security 5.0. This recipe handles dependency changes, type renames, XML configuration updates, web.xml filter migration, and adds TODO comments for password encoders that require manual migration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.security.oauth.MigrateSpringSecurityOAuth](/user-documentation/recipes/recipe-catalog/java/spring/security/oauth/migratespringsecurityoauth.md)
+  * **Migrate from Spring Security OAuth to Spring Security**
+  * Migrates the client and resource server halves of the end-of-life `org.springframework.security.oauth:spring-security-oauth2` project onto the modules that replaced them in Spring Security, and drops the legacy dependencies; code that could not be migrated is marked and will fail to compile against the removed dependency, which is preferable to failing silently at runtime. Authorization servers built on `@EnableAuthorizationServer` are deliberately out of scope: Spring Authorization Server uses a different configuration model, moves the token endpoints, and drops the password grant, so those need a manual migration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.security.oauth.MigrateSpringSecurityOAuthClient](/user-documentation/recipes/recipe-catalog/java/spring/security/oauth/migratespringsecurityoauthclient.md)
+  * **Migrate Spring Security OAuth clients to Spring Security**
+  * Migrates the client half of the end-of-life `org.springframework.security.oauth:spring-security-oauth2` project to the `spring-security-oauth2-client` module. Flat `security.oauth2.client.*` properties and the settings that built an `OAuth2RestTemplate` in Java both become a single `default` client registration; rename it to something meaningful when a project has more than one client. Beans whose settings cannot all be read at compile time are left untouched and marked, since a template stripped of its credentials would compile but fail at runtime. Requires Spring Security 6.4 or later for `OAuth2ClientHttpRequestInterceptor`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.security.oauth.MigrateSpringSecurityOAuthResourceServer](/user-documentation/recipes/recipe-catalog/java/spring/security/oauth/migratespringsecurityoauthresourceserver.md)
+  * **Migrate Spring Security OAuth resource servers to Spring Security**
+  * Migrates the resource server half of the end-of-life `org.springframework.security.oauth:spring-security-oauth2` project to the `spring-security-oauth2-resource-server` module. Note that the legacy project shares the `org.springframework.security.oauth2` package root with its replacement, so every type here is matched by exact name rather than by package. Configuration classes that cannot be migrated faithfully are left exactly as they are and marked for a manual migration rather than partially rewritten.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.security6.UpgradeSpringSecurity_6_5](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-moderne-edition.md)
+  * **Migrate to Spring Security 6.5 (Moderne Edition)**
+  * Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.security7.ModularizeSpringSecurity7](/user-documentation/recipes/recipe-catalog/java/spring/security7/modularizespringsecurity7.md)
+  * **Spring Security 7 modularization**
+  * Spring Security Core was modularized in version 7, deprecated classes that are still a crucial part of some applications are moved to `spring-security-access`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.ws.UpgradeSpringWs_5_0](/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_5_0.md)
+  * **Migrate to Spring WS 5.0**
+  * Migrate applications to Spring WS 5.0. This upgrades Spring WS dependencies to 5.x and migrates usages of APIs that were removed in 5.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+
+### rewrite-tapestry
+
+#### [org.openrewrite.tapestry.MigrateTapestry4To5](/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5.md)
+  * **Migrate Tapestry 4 to Tapestry 5**
+  * Migrates Apache Tapestry 4 applications to Tapestry 5. This includes package renames, removing base class inheritance, converting listener interfaces to annotations, and updating dependencies.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.tapestry.UpdateTapestryDependencies](/user-documentation/recipes/recipe-catalog/tapestry/updatetapestrydependencies.md)
+  * **Update Tapestry dependencies**
+  * Updates dependencies from Tapestry 4 to Tapestry 5.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 
@@ -3019,15 +4547,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.openrewrite.gradle.AddJUnitPlatformLauncher](/user-documentation/recipes/recipe-catalog/gradle/addjunitplatformlauncher.md)
-  * **Add JUnit Platform Launcher**
-  * Add the JUnit Platform Launcher to the buildscript dependencies.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
 #### [org.openrewrite.gradle.AddPlatformDependency](/user-documentation/recipes/recipe-catalog/gradle/addplatformdependency.md)
   * **Add Gradle platform dependency**
   * Add a gradle platform dependency to a `build.gradle` file in the correct configuration based on where it is used.
@@ -3058,15 +4577,6 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.gradle.GradleBestPractices](/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md)
   * **Apply Gradle best practices**
   * Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and idiomatic builds.
-
-##### Data tables:
-
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-
-
-#### [org.openrewrite.gradle.MigrateToGradle8](/user-documentation/recipes/recipe-catalog/gradle/migratetogradle8.md)
-  * **Migrate to Gradle 8 from Gradle 7**
-  * Migrate to version 8.x. See the Gradle upgrade guide from [version 7.x to 8.0](https://docs.gradle.org/current/userguide/upgrading_version_7.html) and [version 8.x to latest](https://docs.gradle.org/current/userguide/upgrading_version_8.html) for more information.
 
 ##### Data tables:
 
@@ -3376,7 +4886,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.javascript.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/javascript/upgradetransitivedependencyversion.md)
   * **Upgrade transitive npm dependency**
-  * Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
+  * Pins or upgrades a transitive npm dependency with an override at the workspace root, where its package manager reads it, and regenerates the lock file natively, without executing the package manager: npm's `overrides`, Bun's `overrides` or `resolutions`, Yarn's `resolutions`, and for pnpm `pnpm-workspace.yaml` or `pnpm.overrides` by the pnpm release the project names. An override the package manager cannot read is not written, and the reason is recorded. None is written for a package the lock does not resolve. Not safe to use as a precondition: consults the package registry over the network and publishes per-project state shared with other dependency recipes.
 
 ##### Data tables:
 
@@ -4009,6 +5519,144 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 
+### rewrite-apache
+
+#### [org.openrewrite.apache.ApacheBestPractices](/user-documentation/recipes/recipe-catalog/apache/apachebestpractices.md)
+  * **Apache best practices**
+  * Apply best practices to code that uses [Apache](https://apache.org/) libraries. This migrates Apache Commons, [HttpClient](https://hc.apache.org/) and [POI](https://poi.apache.org/) off their end-of-life major versions, replaces deprecated APIs with their supported replacements, and prefers the Java standard library where it now offers an equivalent.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.commons.ApacheCommonsBestPractices](/user-documentation/recipes/recipe-catalog/apache/commons/apachecommonsbestpractices.md)
+  * **Apache Commons best practices**
+  * Apply best practices to code that uses [Apache Commons](https://commons.apache.org/) libraries: migrate off the end-of-life Commons Lang 2.x, Commons Collections 3.x and Commons Math 2.x major versions, correct the `commons-io` coordinates, replace deprecated APIs with their supported replacements, make character encodings explicit, and prefer the Java standard library where it now offers an equivalent.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4](/user-documentation/recipes/recipe-catalog/apache/commons/collections/upgradeapachecommonscollections_3_4.md)
+  * **Migrates to Apache Commons Collections 4.x**
+  * Migrate applications to the latest Apache Commons Collections 4.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.commons.io.RelocateApacheCommonsIo](/user-documentation/recipes/recipe-catalog/apache/commons/io/relocateapachecommonsio.md)
+  * **Relocate `org.apache.commons:commons-io` to `commons-io:commons-io`**
+  * The deployment of `org.apache.commons:commons-io` [was a publishing mistake around 2012](https://issues.sonatype.org/browse/MVNCENTRAL-244) which was corrected by changing the deployment GAV to be located under `commons-io:commons-io`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.commons.lang.UpgradeApacheCommonsLang_2_3](/user-documentation/recipes/recipe-catalog/apache/commons/lang/upgradeapachecommonslang_2_3.md)
+  * **Migrates to Apache Commons Lang 3.x**
+  * Migrate applications to the latest Apache Commons Lang 3.x release. This recipe modifies application's build files, and changes the package as per [the migration release notes](https://commons.apache.org/proper/commons-lang/article3_0.html).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.commons.lang.WordUtilsToCommonsText](/user-documentation/recipes/recipe-catalog/apache/commons/lang/wordutilstocommonstext.md)
+  * **Migrate `WordUtils` to Apache Commons Text**
+  * Migrate `org.apache.commons.lang.WordUtils` to `org.apache.commons.text.WordUtils` and add the Commons Text dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.commons.math.UpgradeApacheCommonsMath_2_3](/user-documentation/recipes/recipe-catalog/apache/commons/math/upgradeapachecommonsmath_2_3.md)
+  * **Migrates to Apache Commons Math 3.x**
+  * Migrate applications to the latest Apache Commons Math 3.x release. This recipe modifies  application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.httpclient4.UpgradeApacheHttpClient_4_5](/user-documentation/recipes/recipe-catalog/apache/httpclient4/upgradeapachehttpclient_4_5.md)
+  * **Migrates to ApacheHttpClient 4.5.x**
+  * Migrate applications to the latest Apache HttpClient 4.5.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.httpclient5.UpgradeApacheHttpClientDependencies](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclientdependencies.md)
+  * **Migrate from org.apache.httpcomponents to ApacheHttpClient 5.x dependencies**
+  * Adopt `org.apache.httpcomponents.client5:httpclient5` from `org.apache.httpcomponents`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5.md)
+  * **Migrate to ApacheHttpClient 5.x**
+  * Migrate applications to the latest Apache HttpClient 5.x release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.httpclient5.UpgradeApacheHttpCoreNioDependencies](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcoreniodependencies.md)
+  * **Migrate from httpcore-nio to ApacheHttpClient 5.x core dependency**
+  * Adopt `org.apache.httpcomponents.core5:httpcore5` from `org.apache.httpcomponents:httpcore-nio`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.httpclient5.UpgradeApacheHttpCore_5_NioClassMapping](/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioclassmapping.md)
+  * **Migrate to Apache HttpCore Nio Classes to Apache HttpCore 5.x**
+  * Mapping of all the compatible classes of Apache HttpCore 5.x from Apache HttpCore Nio 4.4.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.poi.UpgradeApachePoi_3_17](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_3_17.md)
+  * **Migrates to Apache POI 3.17**
+  * Migrates to the last Apache POI 3.x release. This recipe modifies build files and makes changes to deprecated/preferred APIs that have changed between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.poi.UpgradeApachePoi_4_1](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_4_1.md)
+  * **Migrates to Apache POI 4.1.2**
+  * Migrates to the last Apache POI 4.x release. This recipe modifies build files and makes changes to deprecated/preferred APIs that have changed between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.apache.poi.UpgradeApachePoi_5](/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_5.md)
+  * **Migrates to Apache POI 5.x**
+  * Migrates to the latest Apache POI 5.x release. This recipe modifies build files to account for artifact renames and upgrades dependency versions. It also chains the 4.1 recipe to handle all prior API migrations.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+
 ### rewrite-compiled-analysis
 
 #### [io.moderne.compiled.verification.ChangeListMethodAndVerify](/user-documentation/recipes/recipe-catalog/compiled/verification/changelistmethodandverify.md)
@@ -4029,6 +5677,63 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **io.moderne.compiled.table.ABITraces**: *ASM trace of the ABI of types needed to perform compile verification.*
   * **io.moderne.compiled.table.CompilationFailures**: *Elements that no longer compile after a preceding recipe made changes to the file.*
+
+
+
+### rewrite-cucumber-jvm
+
+#### [org.openrewrite.cucumber.jvm.CucumberJava8ToJava](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md)
+  * **Migrate `cucumber-java8` to `cucumber-java`**
+  * Migrates `cucumber-java8` step definitions, `LambdaGlue` hooks and `LambdaGlue` type registrations to `cucumber-java` annotated methods.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.cucumber.jvm.CucumberToJunitPlatformSuite](/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumbertojunitplatformsuite.md)
+  * **Cucumber to JUnit test `@Suite`**
+  * Migrates Cucumber tests run by the `@Cucumber` annotation or the JUnit 4 `@RunWith(Cucumber.class)` runner to a JUnit Platform `@Suite`, and swaps `cucumber-junit` for `cucumber-junit-platform-engine` 7.x. Each Cucumber-JVM module depends on the `cucumber-core` of its own release, and the engine fails to run against any other, so the rest of the Cucumber-JVM dependencies move to that same 7.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.cucumber.jvm.UpgradeCucumber2x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber2x.md)
+  * **Upgrade to Cucumber-JVM 2.x**
+  * Upgrade to Cucumber-JVM 2.x from any previous version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.cucumber.jvm.UpgradeCucumber5x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber5x.md)
+  * **Upgrade to Cucumber-JVM 5.x**
+  * Upgrade to Cucumber-JVM 5.x from any previous version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.cucumber.jvm.UpgradeCucumber6x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber6x.md)
+  * **Upgrade to Cucumber-JVM 6.x**
+  * Upgrade to Cucumber-JVM 6.x from any previous version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.cucumber.jvm.UpgradeCucumber7x](/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber7x.md)
+  * **Upgrade to Cucumber-JVM 7.x**
+  * Upgrade to Cucumber-JVM 7.x from any previous version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 
@@ -4055,16 +5760,338 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.table.TextMatches**: *Lines matching simple text search.*
 
 
+#### [org.openrewrite.github.security.PinGitHubActionsToSha](/user-documentation/recipes/recipe-catalog/github/security/pingithubactionstosha.md)
+  * **Pin GitHub Actions to commit SHAs**
+  * Replaces mutable tag or branch references in GitHub Actions `uses:` declarations with immutable commit SHAs, using a built-in mapping of well-known actions. The recipe makes no network calls; references not found in the mapping are left unchanged and listed in a data table. By default only third-party actions are pinned; set `pinOfficialActions` to include actions from the `actions` and `github` organizations. To pin only a subset of the mapped actions, set `includedActions`.
+
+##### Data tables:
+
+  * **org.openrewrite.github.table.UnresolvedActionShas**: *Action references that were eligible for pinning, but not found in the built-in mapping of known action SHAs.*
+
+
+
+### rewrite-hibernate
+
+#### [org.openrewrite.hibernate.MigrateToHibernate60](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-community-edition.md)
+  * **Migrate to Hibernate 6.0.x (Community Edition)**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.0.x. The hibernate dependencies will be updated to use the new `org.hibernate.orm` group ID and the recipe will make changes necessary to use Hibernate with Jakarta EE 9.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHibernate61](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate61.md)
+  * **Migrate to Hibernate 6.1.x**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.1.x. The hibernate dependencies will   be updated to use the new org.hibernate.orm group ID and the recipe will make changes necessary to use Hibernate with Jakarta EE 9.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHibernate62](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate62.md)
+  * **Migrate to Hibernate 6.2.x**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.2.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHibernate63](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate63.md)
+  * **Migrate to Hibernate 6.3.x**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.3.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHibernate64](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate64.md)
+  * **Migrate to Hibernate 6.4.x**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.4.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHibernate65](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate65.md)
+  * **Migrate to Hibernate 6.5.x**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.5.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHibernate66](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-community-edition.md)
+  * **Migrate to Hibernate 6.6.x (Community Edition)**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 6.6.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHibernate70](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-community-edition.md)
+  * **Migrate to Hibernate 7.0.x (Community Edition)**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 7.0.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHibernate71](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate71-community-edition.md)
+  * **Migrate to Hibernate 7.1.x (Community Edition)**
+  * This recipe will apply changes commonly needed when migrating to Hibernate 7.1.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHibernateDependencies60](/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernatedependencies60.md)
+  * **Migrate Hibernate dependencies to 6.0.x**
+  * This recipe will migrate any existing dependencies on Hibernate 5.x to the latest 6.0.x release. This migration will include the adjustment to the new `org.hibernate.orm` group ID. It accounts for artifacts names that both do and do not include the `jakarta` suffix and it will change both dependencies and managed dependencies.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate60](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate60.md)
+  * **Migrate Hibernate Types to Hypersistence Utils 6.0**
+  * This recipe will migrate any existing dependencies on `com.vladmihalcea:hibernate-types` to `io.hypersistence:hypersistence-utils-hibernate-60`. This migration will include the adjustment from the `com.vladmihalcea.hibernate` and `com.vladmihalcea.spring` packages to `io.hypersistence.utils.hibernate` and `io.hypersistence.utils.spring`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate62](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate62.md)
+  * **Migrate Hibernate Types to Hypersistence Utils 6.2**
+  * This recipe will migrate any existing dependencies on `io.hypersistence:hypersistence-utils-hibernate-60` to `io.hypersistence:hypersistence-utils-hibernate-62`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate63](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate63.md)
+  * **Migrate Hibernate Types to Hypersistence Utils 6.3**
+  * This recipe will migrate any existing dependencies on `io.hypersistence:hypersistence-utils-hibernate-62` to `io.hypersistence:hypersistence-utils-hibernate-63`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate70](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate70.md)
+  * **Migrate Hibernate Types to Hypersistence Utils for Hibernate 7.0**
+  * This recipe will migrate any existing dependencies on `io.hypersistence:hypersistence-utils-hibernate-63` to `io.hypersistence:hypersistence-utils-hibernate-70`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.MigrateToHypersistenceUtilsHibernate71](/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate71.md)
+  * **Migrate Hibernate Types to Hypersistence Utils for Hibernate 7.1**
+  * This recipe will migrate any existing dependencies on `io.hypersistence:hypersistence-utils-hibernate-70` to `io.hypersistence:hypersistence-utils-hibernate-71`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.validator.HibernateValidator_8_0](/user-documentation/recipes/recipe-catalog/hibernate/validator/hibernatevalidator_8_0.md)
+  * **Migrate to Hibernate Validator 8.0.x**
+  * This recipe will apply changes commonly needed when migrating to Hibernate Validator 8.0.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.hibernate.validator.HibernateValidator_9_1](/user-documentation/recipes/recipe-catalog/hibernate/validator/hibernatevalidator_9_1.md)
+  * **Migrate to Hibernate Validator 9.1.x**
+  * This recipe will apply changes commonly needed when migrating to Hibernate Validator 9.1.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+
+### rewrite-jackson
+
+#### [org.openrewrite.java.jackson.AddMissingJacksonDependencies](/user-documentation/recipes/recipe-catalog/java/jackson/addmissingjacksondependencies.md)
+  * **Add missing Jackson dataformat dependencies**
+  * Adds Jackson dataformat dependencies when code uses types from their packages but the dependency is not declared. For example, adds `jackson-dataformat-xml` when code uses `XmlMapper`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.CodehausToFasterXML](/user-documentation/recipes/recipe-catalog/java/jackson/codehaustofasterxml.md)
+  * **Migrate from Jackson Codehaus (legacy) to Jackson FasterXML**
+  * In Jackson 2, the package and dependency coordinates moved from Codehaus to FasterXML.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.JacksonBestPractices](/user-documentation/recipes/recipe-catalog/java/jackson/jacksonbestpractices.md)
+  * **Jackson best practices**
+  * Apply best practices for using Jackson library, including upgrade to Jackson 2.x and removing redundant annotations.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3.md)
+  * **Migrates from Jackson 2.x to Jackson 3.x**
+  * Migrate applications to the latest Jackson 3.x release. This recipe handles package changes (`com.fasterxml.jackson` -&gt; `tools.jackson`), dependency updates, core class renames, exception renames, and method renames (e.g., `JsonGenerator.writeObject()` -&gt; `writePOJO()`, `JsonParser.getCurrentValue()` -&gt; `currentValue()`).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDatabindDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddatabinddependency.md)
+  * **Add Jackson 3 `jackson-databind` for sources that use it transitively**
+  * Add `tools.jackson.core:jackson-databind` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.core:jackson-databind` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatAvroDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatavrodependency.md)
+  * **Add Jackson 3 `jackson-dataformat-avro` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-avro` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-avro` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatCborDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatcbordependency.md)
+  * **Add Jackson 3 `jackson-dataformat-cbor` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-cbor` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-cbor` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatCsvDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatcsvdependency.md)
+  * **Add Jackson 3 `jackson-dataformat-csv` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-csv` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-csv` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatIonDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformationdependency.md)
+  * **Add Jackson 3 `jackson-dataformat-ion` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-ion` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-ion` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatProtobufDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatprotobufdependency.md)
+  * **Add Jackson 3 `jackson-dataformat-protobuf` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-protobuf` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-protobuf` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatSmileDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatsmiledependency.md)
+  * **Add Jackson 3 `jackson-dataformat-smile` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-smile` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-smile` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatXmlDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatxmldependency.md)
+  * **Add Jackson 3 `jackson-dataformat-xml` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-xml` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-xml` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_AddDataformatYamlDependency](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_adddataformatyamldependency.md)
+  * **Add Jackson 3 `jackson-dataformat-yaml` for sources that use it transitively**
+  * Add `tools.jackson.dataformat:jackson-dataformat-yaml` to modules whose sources use its Jackson 2 types, but only get `com.fasterxml.jackson.dataformat:jackson-dataformat-yaml` transitively. Jackson 2 artifacts that are declared directly are upgraded instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.UpgradeJackson_2_3_Dependencies](/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_dependencies.md)
+  * **Upgrade Jackson 2.x dependencies to 3.x**
+  * Upgrade Jackson Maven dependencies from 2.x to 3.x versions and update group IDs. Modules that already resolve Jackson 3 and no longer use Jackson 2 types in their sources are left as-is, as any Jackson 2 dependencies they still declare are there on purpose.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jackson.codehaus.CodehausDependencyToFasterXML](/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/codehausdependencytofasterxml.md)
+  * **Migrate dependencies from Jackson Codehaus (legacy) to FasterXML**
+  * Replace Codehaus Jackson dependencies with FasterXML Jackson dependencies, and add databind if needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 
 ### rewrite-java-dependencies
 
+#### [org.openrewrite.java.dependencies.AddDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency.md)
+  * **Add Gradle or Maven dependency**
+  * For a Gradle project, add a dependency to a `build.gradle` or `build.gradle.kts` file in the correct configuration based on where it is used. For a Maven project, add a dependency to a `pom.xml` file in the correct scope based on where it is used.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.dependencies.ChangeDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency.md)
+  * **Change Gradle or Maven dependency**
+  * Change the group ID, artifact ID, and/or the version of a specified Gradle or Maven dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight.md)
-  * **Dependency insight for Gradle and Maven**
+  * **Gradle or Maven dependency insight**
   * Finds dependencies, including transitive dependencies, in both Gradle and Maven projects. Matches within all Gradle dependency configurations and Maven scopes.
 
 ##### Data tables:
 
   * **org.openrewrite.maven.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.maven.table.ExplainDependenciesInUse**: *A dependency graph explainer similar to that shown by `gradle dependencyInsight` for each matching dependency. This table will contain a row per matching dependency per configuration per (sub)project.*
 
 
 #### [org.openrewrite.java.dependencies.DependencyList](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencylist.md)
@@ -4073,23 +6100,32 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
+  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.dependencies.DependencyResolutionDiagnostic](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyresolutiondiagnostic.md)
   * **Dependency resolution diagnostic**
-  * Recipes which manipulate dependencies must be able to successfully access the artifact repositories and resolve dependencies from them. This recipe produces two data tables used to understand the state of dependency resolution.   The Repository accessibility report lists all the artifact repositories known to the project and whether respond to network access. The network access is attempted while the recipe is run and so is representative of current conditions.   The Gradle dependency configuration errors lists all the dependency configurations that failed to resolve one or more dependencies when the project was parsed. This is representative of conditions at the time the LST was parsed.
+  * Recipes which manipulate dependencies must be able to successfully access the artifact repositories and resolve dependencies from them. This recipe produces two data tables used to understand the state of dependency resolution.  The Repository accessibility report lists all the artifact repositories known to the project and whether they respond to network access. The network access is attempted while the recipe is run and so is representative of current conditions.  The Gradle dependency configuration errors lists all the dependency configurations that failed to resolve one or more dependencies when the project was parsed. This is representative of conditions at the time the LST was parsed.
 
 ##### Data tables:
 
   * **org.openrewrite.java.dependencies.table.RepositoryAccessibilityReport**: *Listing of all dependency repositories and whether they are accessible.*
-  * **org.openrewrite.java.dependencies.table.GradleDependencyConfigurationErrors**: *Records Gradle dependency configurations which failed to resolve during parsing. Partial success/failure is common, a failure in this list does not mean that every dependency failed to resolve.*
+  * **org.openrewrite.java.dependencies.table.GradleDependencyConfigurationErrors**: *Records Gradle dependency configurations which failed to resolve during parsing. Partial success/failure is common; a failure in this list does not mean that every dependency failed to resolve.*
+
+
+#### [org.openrewrite.java.dependencies.FindDependency](/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency.md)
+  * **Find Gradle or Maven dependencies**
+  * Finds direct dependencies declared in Gradle and Maven build files. This does *not* search transitive dependencies. To detect both direct and transitive dependencies use `org.openrewrite.java.dependencies.DependencyInsight`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.DependenciesDeclared**: *Direct (first-order) dependencies declared by the project.*
 
 
 #### [org.openrewrite.java.dependencies.FindRepositoryOrder](/user-documentation/recipes/recipe-catalog/java/dependencies/findrepositoryorder.md)
-  * **Maven repository order**
-  * Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories and effective settings.
+  * **Gradle or Maven repository order**
+  * Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories. For Maven, the effective `settings.xml` is also taken into account.
 
 ##### Data tables:
 
@@ -4098,25 +6134,43 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.RelocatedDependencyCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/relocateddependencycheck.md)
   * **Find relocated dependencies**
-  * Find Maven and Gradle dependencies and Maven plugins that have relocated to a new `groupId` or `artifactId`. Relocation information comes from the [oga-maven-plugin](https://github.com/jonathanlermitage/oga-maven-plugin/) maintained by Jonathan Lermitage, Filipe Roque and others.  This recipe makes no changes to any source file by default. Add `changeDependencies=true` to change dependencies, but note that you might need to run additional recipes to update imports and adopt other breaking changes.
+  * Find Maven and Gradle dependencies, version catalog entries, Maven plugins, parents and extensions that have relocated to a new `groupId` or `artifactId`. Relocation information comes from the [oga-maven-plugin](https://github.com/jonathanlermitage/oga-maven-plugin/) maintained by Jonathan Lermitage, Filipe Roque and others.  This recipe makes no changes to any source file by default. Add `changeDependencies=true` to change dependencies whose relocated artifact publishes the same version, but note that you might need to run additional recipes to update imports and adopt other breaking changes.
 
 ##### Data tables:
 
   * **org.openrewrite.java.dependencies.table.RelocatedDependencyReport**: *A list of dependencies in use that have relocated.*
 
 
-#### [org.openrewrite.java.dependencies.search.FindDuplicateClasses](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findduplicateclasses.md)
-  * **Find duplicate classes on the classpath**
-  * Detects classes that appear in multiple dependencies on the classpath. This is similar to what the Maven duplicate-finder-maven-plugin does. Duplicate classes can cause runtime issues when different versions of the same class are loaded.
+#### [org.openrewrite.java.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion.md)
+  * **Upgrade Gradle or Maven dependency versions**
+  * For Gradle projects, upgrade the version of a dependency in a `build.gradle` or `build.gradle.kts` file. Supports updating dependency declarations of various forms:  * `String` notation: `&quot;group:artifact:version&quot;`  * `Map` notation: `group: 'group', name: 'artifact', version: 'version'` It is possible to update version numbers which are defined earlier in the same file in variable declarations, in `gradle.properties`, or in a version catalog.  For Maven projects, upgrade the version of a dependency by specifying a group ID and an artifact ID using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases.
 
 ##### Data tables:
 
-  * **org.openrewrite.java.dependencies.table.DuplicateClassesReport**: *Lists classes that appear in multiple dependencies on the classpath*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.dependencies.UpgradeTransitiveDependencyVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/upgradetransitivedependencyversion.md)
+  * **Upgrade transitive Gradle or Maven dependencies**
+  * Upgrades the version of a transitive dependency in a Maven `pom.xml` or Gradle `build.gradle` or `build.gradle.kts`. Leaves direct dependencies unmodified. Can be paired with `UpgradeDependencyVersion` to upgrade a dependency everywhere, regardless of whether it is direct or transitive.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.dependencies.search.FindDuplicateClasses](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findduplicateclasses.md)
+  * **Find duplicate classes on the classpath**
+  * Detects classes that appear in multiple dependencies on the classpath. This is similar to what the Maven `duplicate-finder-maven-plugin` does. Duplicate classes can cause runtime issues when different versions of the same class are loaded.
+
+##### Data tables:
+
+  * **org.openrewrite.java.dependencies.table.DuplicateClassesReport**: *Lists classes that appear in multiple dependencies on the classpath.*
 
 
 #### [org.openrewrite.java.dependencies.search.FindMinimumDependencyVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findminimumdependencyversion.md)
   * **Find the oldest matching dependency version in use**
-  * The oldest dependency version in use is the lowest dependency version in use in any source set of any subproject of a repository. It is possible that, for example, the main source set of a project uses Jackson 2.11, but a test source set uses Jackson 2.16. In this case, the oldest Jackson version in use is Java 2.11.
+  * The oldest dependency version in use is the lowest dependency version in use in any source set of any subproject of a repository. It is possible that, for example, the main source set of a project uses Jackson 2.11, but a test source set uses Jackson 2.16. In this case, the oldest Jackson version in use is Jackson 2.11.
 
 ##### Data tables:
 
@@ -4125,7 +6179,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.search.FindMinimumJUnitVersion](/user-documentation/recipes/recipe-catalog/java/dependencies/search/findminimumjunitversion.md)
   * **Find minimum JUnit version**
-  * A recipe to find the minimum version of JUnit dependencies. This recipe is designed to return the minimum version of JUnit in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the minimum version of JUnit 4. If a minimumVersion is provided, the recipe will search to see if the minimum version of JUnit used by the project is no lower than the minimumVersion. For example: if the minimumVersion is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will return JUnit 5.7. Another example: if the minimumVersion is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results.
+  * Finds the minimum version of JUnit dependencies in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the JUnit 4 version. If a `minimumVersion` is provided, the recipe only returns results when that is the minimum version of JUnit used by the project. For example: if the `minimumVersion` is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will not return any results. Another example: if the `minimumVersion` is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results.
 
 ##### Data tables:
 
@@ -4146,7 +6200,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. Both direct and transitive dependencies are checked using the full dependency graph captured when the project's LST was built. Vulnerable direct dependencies are upgraded in place; vulnerable transitive dependencies are added as direct dependencies pinned to a fixed version. The target version is controlled with the `versionSelection` option. Before any change, the version constraints declared by every other package in the dependency graph are validated; when an upgrade would violate a constraint, an error marker describing the conflicting dependency path is added instead and no change is made. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Last updated: 2026-10-05T1104.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. Both direct and transitive dependencies are checked using the full dependency graph captured when the project's LST was built. Vulnerable direct dependencies are upgraded in place; vulnerable transitive dependencies are added as direct dependencies pinned to a fixed version. The target version is controlled with the `versionSelection` option. Before any change, the version constraints declared by every other package in the dependency graph are validated; when an upgrade would violate a constraint, an error marker describing the conflicting dependency path is added instead and no change is made. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Last updated: 2026-10-25T2010.
 
 ##### Data tables:
 
@@ -4247,7 +6301,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-10-05T1104.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-10-25T2010.
 
 ##### Data tables:
 
@@ -4572,6 +6626,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-jenkins
 
+#### [org.openrewrite.java.testing.htmlunit.UpgradeHtmlUnit_3](/user-documentation/recipes/recipe-catalog/java/testing/htmlunit/upgradehtmlunit_3.md)
+  * **Migrate to HtmlUnit 3.x**
+  * Automates the HtmlUnit [migration guide](https://htmlunit.sourceforge.io/migration.html) from 2.x to 3.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.jenkins.ModernizePlugin](/user-documentation/recipes/recipe-catalog/jenkins/modernizeplugin.md)
   * **Modernize a Jenkins plugin to the latest recommended versions**
   * This recipe is intended to change over time to reflect the recommended tooling and [recommended Jenkins baseline](https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/).
@@ -4584,6 +6647,18 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.jenkins.ModernizePluginForJava8](/user-documentation/recipes/recipe-catalog/jenkins/modernizepluginforjava8.md)
   * **Modernize a Jenkins plugin to the latest versions supported by Java 8**
   * This recipe is intended to break down the modernization of very old plugins into distinct steps. It allows modernizing all tooling up to the last versions that supported Java 8. This can then be followed by another recipe that makes the jump to Java 11.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+
+### rewrite-joda
+
+#### [org.openrewrite.java.joda.time.NoJodaTime](/user-documentation/recipes/recipe-catalog/java/joda/time/nojodatime.md)
+  * **Prefer the Java standard library instead of Joda-Time**
+  * Before Java 8, Java lacked a robust date and time library, leading to the widespread use of Joda-Time to fill this gap. With the release of Java 8, the `java.time` package was introduced, incorporating most of Joda-Time's concepts. Features deemed too specialized or bulky for `java.time` were included in the ThreeTen-Extra library.  This recipe migrates Joda-Time types to `java.time` and `threeten-extra` types.
 
 ##### Data tables:
 
@@ -4890,6 +6965,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-logging-frameworks
 
+#### [org.openrewrite.java.logging.log4j.Log4j1ToLog4j2](/user-documentation/recipes/recipe-catalog/java/logging/log4j/log4j1tolog4j2.md)
+  * **Migrate Log4j 1.x to Log4j 2.x**
+  * Migrates Log4j 1.x to Log4j 2.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.logging.log4j.Slf4jToLog4j](/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md)
+  * **Migrate SLF4J to Log4j 2.x API**
+  * Transforms code written using SLF4J to use Log4j 2.x API.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.logging.log4j.UpgradeLog4J2DependencyVersion](/user-documentation/recipes/recipe-catalog/java/logging/log4j/upgradelog4j2dependencyversion.md)
+  * **Upgrade Log4j 2.x dependency version**
+  * Upgrades the Log4j 2.x dependencies to the latest 2.x version. Mitigates the [Log4Shell and other Log4j2-related vulnerabilities](https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-356a).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.logging.logback.ConditionAttributeToConditionElement](/user-documentation/recipes/recipe-catalog/java/logging/logback/conditionattributetoconditionelement.md)
   * **Replace the Logback `condition` attribute with the `condition` element**
   * Logback 1.5.37 removed the Janino based `&lt;if condition=&quot;...&quot;&gt;` attribute that 1.5.20 deprecated, so configuration files still using it fail to select the intended appenders. Replaces the attribute with the `&lt;condition class=&quot;...&quot;/&gt;` element that precedes `&lt;if&gt;`, using the conditions shipped in `ch.qos.logback.core.boolex`. Conditions that require custom Java logic are left unchanged and reported in a data table.
@@ -4899,8 +7001,80 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.logging.logback.table.UnmigratedJaninoConditions**: *Janino conditions that have no equivalent among the conditions shipped with logback-core, and so have to be migrated by hand to a custom `PropertyCondition`.*
 
 
+#### [org.openrewrite.java.logging.logback.Log4jToLogback](/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jtologback.md)
+  * **Migrate Log4j 2.x to Logback**
+  * Migrates usage of Apache Log4j 2.x to using `logback` as an SLF4J implementation directly. Note, this currently does not modify `log4j.properties` files.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.logging.slf4j.AddJBossLogManagerSlf4jProviderDependency](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/addjbosslogmanagerslf4jproviderdependency.md)
+  * **Add JBoss LogManager's SLF4J provider**
+  * When JBoss LogManager is the logging backend, add its SLF4J provider so we can migrate to SLF4J as a logging facade.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.logging.slf4j.CommonsLogging1ToSlf4j1](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/commonslogging1toslf4j1.md)
+  * **Migrate Apache Commons Logging 1.x to SLF4J 1.x**
+  * Transforms usages of Apache Commons Logging 1.x to leveraging SLF4J 1.x directly.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.logging.slf4j.JBossLoggingToSlf4j](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jbossloggingtoslf4j.md)
+  * **Migrate JBoss Logging to SLF4J**
+  * Migrates usage of the JBoss Logging facade to using SLF4J.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.logging.slf4j.Log4j1ToSlf4j1](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j1toslf4j1.md)
+  * **Migrate Log4j 1.x to SLF4J 1.x**
+  * Transforms usages of Log4j 1.x to leveraging SLF4J 1.x directly. Note, this currently does not modify `log4j.properties` files.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.logging.slf4j.Log4jToSlf4j](/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4jtoslf4j.md)
+  * **Migrate Log4j to SLF4J**
+  * Migrates usage of Apache Log4j to using SLF4J directly. Use of the traditional Log4j to SLF4J bridge can result in loss of performance, as the Log4j messages must be formatted before they can be passed to SLF4J. Note, this currently does not modify `log4j.properties` files.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 
 ### rewrite-micrometer
+
+#### [org.openrewrite.micrometer.MicrometerBestPractices](/user-documentation/recipes/recipe-catalog/micrometer/micrometerbestpractices.md)
+  * **Micrometer best practices**
+  * This recipe will apply a set of best practice refactorings for Micrometer, like adopting `Observations` instead of `Timers`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.micrometer.UpgradeMicrometer_1_13](/user-documentation/recipes/recipe-catalog/micrometer/upgrademicrometer_1_13.md)
+  * **Migrate to Micrometer 1.13**
+  * Migrate applications to the latest Micrometer 1.13 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions as described in the [Micrometer 1.13 migration guide](https://github.com/micrometer-metrics/micrometer/wiki/1.13-Migration-Guide).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
 
 #### [org.openrewrite.micrometer.dropwizard.FindDropwizardMetrics](/user-documentation/recipes/recipe-catalog/micrometer/dropwizard/finddropwizardmetrics.md)
   * **Find Dropwizard metrics**
@@ -4914,9 +7088,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-micronaut
 
+#### [org.openrewrite.java.micronaut.AddMicronautRetryDependencyIfNeeded](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautretrydependencyifneeded.md)
+  * **Update the Micronaut Retry support**
+  * This recipe will add the explicit Micronaut Retry dependency if needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.micronaut.AddMicronautValidationDependencyVersion](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautvalidationdependencyversion.md)
   * **Add missing Micronaut validation dependency versions**
   * Supply a compatible version for unmanaged Gradle validation dependencies, reusing the validation version already in use when possible.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.micronaut.AddMicronautWebsocketDependencyIfNeeded](/user-documentation/recipes/recipe-catalog/java/micronaut/addmicronautwebsocketdependencyifneeded.md)
+  * **Update the Micronaut Websocket support**
+  * This recipe will add the explicit Micronaut Websocket dependency if needed.
 
 ##### Data tables:
 
@@ -4968,6 +7160,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.micronaut.UpdateJakartaAnnotations](/user-documentation/recipes/recipe-catalog/java/micronaut/updatejakartaannotations.md)
+  * **Update jakarta annotations dependency**
+  * This recipe will remove jakarta annotations dependency as it is a transitive dependency of micronaut-inject, and migrate from javax.annotation if needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.micronaut.UpdateMicronautPlatformBom](/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautplatformbom.md)
   * **Update to Micronaut 4.x platform BOM**
   * This recipe will update a Gradle or Maven build to reference the Micronaut 4 platform BOM.
@@ -4998,6 +7199,87 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-migrate-java
 
+#### [org.openrewrite.java.jspecify.JSpecifyBestPractices](/user-documentation/recipes/recipe-catalog/java/jspecify/jspecifybestpractices.md)
+  * **JSpecify best practices**
+  * Apply JSpecify best practices, such as migrating off of alternatives, and adding missing `@Nullable` annotations.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jspecify.MigrateFromJakartaAnnotationApi](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromjakartaannotationapi.md)
+  * **Migrate from Jakarta annotation API to JSpecify**
+  * Replace the `jakarta.annotation` `@Nullable` and `@Nonnull` annotations with their JSpecify equivalents, adding the JSpecify dependency where needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jspecify.MigrateFromJavaxAnnotationApi](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromjavaxannotationapi.md)
+  * **Migrate from javax annotation API to JSpecify**
+  * Replace the `javax.annotation` `@Nullable`, `@CheckForNull`, `@Nonnull` and `@ParametersAreNonnullByDefault` annotations with their JSpecify equivalents, adding the JSpecify dependency where needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jspecify.MigrateFromJetbrainsAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromjetbrainsannotations.md)
+  * **Migrate from JetBrains annotations to JSpecify**
+  * Replace the `org.jetbrains.annotations` `@Nullable` and `@NotNull` annotations with their JSpecify equivalents, adding the JSpecify dependency where needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jspecify.MigrateFromMicrometerAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefrommicrometerannotations.md)
+  * **Migrate from Micrometer annotations to JSpecify**
+  * Replace the `io.micrometer.core.lang` `@Nullable` and `@NonNull` annotations with their JSpecify equivalents, adding the JSpecify dependency where needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jspecify.MigrateFromMicronautAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefrommicronautannotations.md)
+  * **Migrate from Micronaut Framework annotations to JSpecify**
+  * Replace the `io.micronaut.core.annotation` `@Nullable` and `@NonNull` annotations with their JSpecify equivalents, adding the JSpecify dependency where needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jspecify.MigrateFromSpotBugsAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromspotbugsannotations.md)
+  * **Migrate from SpotBugs annotations to JSpecify**
+  * Migrate from SpotBugs `edu.umd.cs.findbugs.annotations` annotations to JSpecify.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jspecify.MigrateFromSpringFrameworkAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromspringframeworkannotations.md)
+  * **Migrate from Spring Framework annotations to JSpecify**
+  * Replace the `org.springframework.lang` `@Nullable` and `@NonNull` annotations with their JSpecify equivalents, adding the JSpecify dependency where needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.jspecify.MigrateToJSpecify](/user-documentation/recipes/recipe-catalog/java/jspecify/migratetojspecify.md)
+  * **Migrate to JSpecify**
+  * This recipe will migrate to JSpecify annotations from various other nullability annotation standards.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.migrate.AddLombokMapstructBinding](/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbinding.md)
   * **Add `lombok-mapstruct-binding` when both MapStruct and Lombok are used**
   * Add the `lombok-mapstruct-binding` annotation processor as needed when both MapStruct and Lombok are used.
@@ -5007,9 +7289,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
-#### [org.openrewrite.java.migrate.AddLombokMapstructBindingMavenDependencyOnly](/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbindingmavendependencyonly.md)
-  * **Add `lombok-mapstruct-binding` dependency for Maven when both MapStruct and Lombok are used**
-  * Add the `lombok-mapstruct-binding` when both MapStruct and Lombok are used, and the dependency does not already exist. Only to be called from `org.openrewrite.java.migrate.AddLombokMapstructBinding` to reduce redundant checks.
+#### [org.openrewrite.java.migrate.BounceCastleFromJdk15OntoJdk18On](/user-documentation/recipes/recipe-catalog/java/migrate/bouncecastlefromjdk15ontojdk18on.md)
+  * **Migrate Bouncy Castle to `jdk18on`**
+  * This recipe will upgrade Bouncy Castle dependencies from any of the legacy artifact suffixes `-jdk12`, `-jdk14`, `-jdk15`, `-jdk15+`, `-jdk16`, `-jdk15on` or `-jdk15to18` to `-jdk18on`. The `bctsp` artifacts map onto `bcpkix`, which absorbed the time stamp protocol support in 1.47.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.BouncyCastleFromJdk15OnToJdk15to18](/user-documentation/recipes/recipe-catalog/java/migrate/bouncycastlefromjdk15ontojdk15to18.md)
+  * **Migrate Bouncy Castle to `jdk15to18` for Java &lt; 8**
+  * This recipe replaces the Bouncy Castle artifacts from any of the legacy artifact suffixes `-jdk12`, `-jdk14`, `-jdk15`, `-jdk15+`, `-jdk16` or `-jdk15on` to `-jdk15to18`. Those artifacts aren't maintained anymore and `jdk18on` is only for Java 8 and above. The `jdk15to18` artifact is the up-to-date replacement for Java &lt; 8. The `bctsp` artifacts map onto `bcpkix`, which absorbed the time stamp protocol support in 1.47.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.ComIntelliJAnnotationsToOrgJetbrainsAnnotations](/user-documentation/recipes/recipe-catalog/java/migrate/comintellijannotationstoorgjetbrainsannotations.md)
+  * **Migrate `com.intellij:annotations` to `org.jetbrains:annotations`**
+  * This recipe will upgrade old dependency of com.intellij:annotations to the newer org.jetbrains:annotations.
 
 ##### Data tables:
 
@@ -5027,7 +7327,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.Java8toJava11](/user-documentation/recipes/recipe-catalog/java/migrate/java8tojava11.md)
   * **Migrate to Java 11**
-  * This recipe will apply changes commonly needed when upgrading to Java 11. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 11 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 11.
+  * This recipe will apply changes commonly needed when upgrading to Java 11. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 11 as the target/source and plugins will also be upgraded to versions that are compatible with Java 11.
 
 ##### Data tables:
 
@@ -5054,7 +7354,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.UpgradePluginsForJava11](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava11.md)
   * **Upgrade plugins to Java 11 compatible versions**
-  * Updates plugins to version compatible with Java 11.
+  * Updates plugins to versions compatible with Java 11.
 
 ##### Data tables:
 
@@ -5063,7 +7363,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.UpgradePluginsForJava17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava17.md)
   * **Upgrade plugins to Java 17 compatible versions**
-  * Updates plugins to version compatible with Java 17.
+  * Updates plugins to versions compatible with Java 17.
 
 ##### Data tables:
 
@@ -5072,7 +7372,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.UpgradePluginsForJava21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradepluginsforjava21.md)
   * **Upgrade plugins to Java 21 compatible versions**
-  * Updates plugins and dependencies to version compatible with Java 21.
+  * Updates plugins and dependencies to versions compatible with Java 21.
 
 ##### Data tables:
 
@@ -5090,7 +7390,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.UpgradeToJava17](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17.md)
   * **Migrate to Java 17**
-  * This recipe will apply changes commonly needed when migrating to Java 17. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 17 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 17.
+  * This recipe will apply changes commonly needed when migrating to Java 17. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 17 as the target/source and plugins will also be upgraded to versions that are compatible with Java 17.
 
 ##### Data tables:
 
@@ -5099,7 +7399,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.UpgradeToJava21](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava21.md)
   * **Migrate to Java 21**
-  * This recipe will apply changes commonly needed when migrating to Java 21. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 21 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 21.
+  * This recipe will apply changes commonly needed when migrating to Java 21. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 21 as the target/source and plugins will also be upgraded to versions that are compatible with Java 21.
 
 ##### Data tables:
 
@@ -5108,7 +7408,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.UpgradeToJava25](/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava25.md)
   * **Migrate to Java 25**
-  * This recipe will apply changes commonly needed when migrating to Java 25. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 25 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 25.
+  * This recipe will apply changes commonly needed when migrating to Java 25. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 25 as the target/source and plugins will also be upgraded to versions that are compatible with Java 25.
 
 ##### Data tables:
 
@@ -5151,6 +7451,51 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.migrate.datanucleus.UpgradeDataNucleus_4_0](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_4_0.md)
+  * **Migrate to DataNucleus 4.0**
+  * Migrate DataNucleus 3.x applications to 4.0. This recipe handles package relocations, type renames, property key changes, and dependency updates introduced in AccessPlatform 4.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.datanucleus.UpgradeDataNucleus_5_0](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_0.md)
+  * **Migrate to DataNucleus 5.0**
+  * Migrate DataNucleus 4.x applications to 5.0. This recipe handles package relocations, type renames, property key changes, and dependency updates.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.datanucleus.UpgradeDataNucleus_5_1](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_1.md)
+  * **Migrate to DataNucleus 5.1**
+  * Migrate DataNucleus applications to 5.1. This recipe first applies the 5.0 migration, then handles the transaction namespace reorganization and other property renames introduced in 5.1.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.datanucleus.UpgradeDataNucleus_5_2](/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_2.md)
+  * **Migrate to DataNucleus 5.2**
+  * Migrate DataNucleus applications to 5.2. This recipe first applies the 5.1 migration, then handles the column mapping package move and query-related property renames introduced in 5.2.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.guava.NoGuava](/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguava.md)
+  * **Prefer the Java standard library instead of Guava**
+  * Guava filled in important gaps in the Java standard library and still does. But at least some of Guava's API surface area is covered by the Java standard library now, and some projects may be able to remove Guava altogether if they migrate to standard library for these functions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.migrate.jacoco.UpgradeJaCoCo](/user-documentation/recipes/recipe-catalog/java/migrate/jacoco/upgradejacoco.md)
   * **Upgrade JaCoCo**
   * This recipe will upgrade JaCoCo to the latest patch version, which traditionally advertises full backwards compatibility for older Java versions.
@@ -5160,9 +7505,117 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.migrate.jakarta.AddJakartaAnnotationDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartaannotationdependency.md)
+  * **Add the Jakarta Annotation API when needed**
+  * Add the migrated API without promoting an explicitly provided or compile-only dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.AddJakartaCdiDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartacdidependency.md)
+  * **Add the Jakarta CDI API when needed**
+  * Add the Jakarta CDI API for migrated source without promoting an explicitly provided or compile-only API to a runtime dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.AddJakartaEjbDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartaejbdependency.md)
+  * **Add the Jakarta EJB API when needed**
+  * Add the migrated API without promoting an explicitly provided or compile-only dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.AddJakartaElDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartaeldependency.md)
+  * **Add the Jakarta EL API when needed**
+  * Add the migrated API without promoting an explicitly provided or compile-only dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.AddJakartaInjectDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartainjectdependency.md)
+  * **Add the `jakarta.inject` API when needed**
+  * Add a standalone API only when no explicitly provided API or full platform already supplies it.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.AddJakartaMailDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartamaildependency.md)
+  * **Add the Jakarta Mail API when needed**
+  * Add the migrated API without promoting an explicitly provided or compile-only dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.AddJakartaRestDependency](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/addjakartarestdependency.md)
+  * **Add the `jakarta.ws.rs` API when needed**
+  * Add a standalone API only when no explicitly provided API or full platform already supplies it.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.EhcacheJavaxToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/ehcachejavaxtojakarta.md)
+  * **Migrate Ehcache from javax to jakarta namespace**
+  * Java EE has been rebranded to Jakarta EE. This recipe replaces existing Ehcache dependencies with their counterparts that are compatible with Jakarta EE 9.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.Faces2xMigrationToJakartaFaces3x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces2xmigrationtojakartafaces3x.md)
+  * **JSF 2.x to Jakarta Faces 3.x**
+  * Jakarta EE 9 uses Faces 3.0, a major upgrade to Jakarta packages and XML namespaces.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.Faces3xMigrationToFaces4x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces3xmigrationtofaces4x.md)
+  * **Upgrade to Jakarta Faces 4.x**
+  * Jakarta EE 10 uses Faces 4.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.Faces4xMigrationToFaces41x](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces4xmigrationtofaces41x.md)
+  * **Jakarta Faces 4.0 to 4.1**
+  * Jakarta EE 11 uses Faces 4.1, a minor upgrade.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.FileuploadToFileUpload2](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/fileuploadtofileupload2.md)
+  * **Migrate `commons-fileupload` to `commons-fileupload2-jakarta-servlet5`**
+  * Migrate Apache Commons FileUpload 1.x and the `commons-fileupload2-jakarta` milestone to `commons-fileupload2-jakarta-servlet5`, moving `org.apache.commons.fileupload` packages and servlet types to their FileUpload 2 equivalents.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.migrate.jakarta.JacksonJavaxToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jacksonjavaxtojakarta.md)
   * **Migrate Jackson from javax to jakarta namespace**
-  * Java EE has been rebranded to Jakarta EE.  This recipe replaces existing Jackson dependencies with their counterparts that are compatible with Jakarta EE 9.
+  * Java EE has been rebranded to Jakarta EE. This recipe replaces existing Jackson dependencies with their counterparts that are compatible with Jakarta EE 9.
 
 ##### Data tables:
 
@@ -5171,7 +7624,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.jakarta.JakartaEE10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10.md)
   * **Migrate to Jakarta EE 10**
-  * These recipes help with the Migration to Jakarta EE 10, flagging and updating deprecated methods.
+  * Migrate to Jakarta EE 10 from Java EE 8 or Jakarta EE 9. Moves `javax` packages to `jakarta`, upgrades the Jakarta EE APIs, implementations and Maven plugins to their Jakarta EE 10 versions, and replaces APIs that were deprecated or removed in Jakarta EE 10.
 
 ##### Data tables:
 
@@ -5180,7 +7633,70 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.jakarta.JakartaEE11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee11.md)
   * **Migrate to Jakarta EE 11**
-  * These recipes help with the Migration to Jakarta EE 11, flagging and updating deprecated methods.
+  * Migrate to Jakarta EE 11 by applying the Jakarta EE 10 migration, and then upgrading the Jakarta EE platform, Jakarta Faces and Maven plugins to their Jakarta EE 11 versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxActivationMigrationToJakartaActivation](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxactivationmigrationtojakartaactivation.md)
+  * **Migrate deprecated `javax.activation` packages to `jakarta.activation`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxAnnotationMigrationToJakartaAnnotation](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxannotationmigrationtojakartaannotation.md)
+  * **Migrate deprecated `javax.annotation` to `jakarta.annotation`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxAuthenticationMigrationToJakartaAuthentication](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxauthenticationmigrationtojakartaauthentication.md)
+  * **Migrate deprecated `javax.security.auth.message` packages to `jakarta.security.auth.message`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxAuthorizationMigrationToJakartaAuthorization](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxauthorizationmigrationtojakartaauthorization.md)
+  * **Migrate deprecated `javax.security.jacc` packages to `jakarta.security.jacc`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxBatchMigrationToJakartaBatch](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxbatchmigrationtojakartabatch.md)
+  * **Migrate deprecated `javax.batch` packages to `jakarta.batch`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxDecoratorToJakartaDecorator](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxdecoratortojakartadecorator.md)
+  * **Migrate deprecated `javax.decorator` packages to `jakarta.decorator`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxEEApiToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxeeapitojakarta.md)
+  * **Migrate deprecated `javaee-api` dependencies to `jakarta.platform`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
 
 ##### Data tables:
 
@@ -5189,6 +7705,87 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.jakarta.JavaxEjbToJakartaEjb](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxejbtojakartaejb.md)
   * **Migrate deprecated `javax.ejb` packages to `jakarta.ejb`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxElToJakartaEl](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxeltojakartael.md)
+  * **Migrate deprecated `javax.el` packages to `jakarta.el`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxEnterpriseToJakartaEnterprise](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxenterprisetojakartaenterprise.md)
+  * **Migrate deprecated `javax.enterprise` packages to `jakarta.enterprise`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxInjectMigrationToJakartaInject](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxinjectmigrationtojakartainject.md)
+  * **Migrate deprecated `javax.inject` packages to `jakarta.inject`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxInterceptorToJakartaInterceptor](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxinterceptortojakartainterceptor.md)
+  * **Migrate deprecated `javax.interceptor` packages to `jakarta.interceptor`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxJmsToJakartaJms](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxjmstojakartajms.md)
+  * **Migrate deprecated `javax.jms` packages to `jakarta.jms`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxJsonToJakartaJson](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxjsontojakartajson.md)
+  * **Migrate deprecated `javax.json` packages to `jakarta.json`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxJspToJakartaJsp](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxjsptojakartajsp.md)
+  * **Migrate deprecated `javax.jsp` packages to `jakarta.jsp`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxJwsToJakartaJws](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxjwstojakartajws.md)
+  * **Migrate deprecated `javax.jws` packages to `jakarta.jws`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxMailToJakartaMail](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxmailtojakartamail.md)
+  * **Migrate deprecated `javax.mail` packages to `jakarta.mail`**
   * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
 
 ##### Data tables:
@@ -5205,6 +7802,78 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.migrate.jakarta.JavaxPersistenceToJakartaPersistence](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxpersistencetojakartapersistence.md)
+  * **Migrate deprecated `javax.persistence` packages to `jakarta.persistence`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxResourceToJakartaResource](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxresourcetojakartaresource.md)
+  * **Migrate deprecated `javax.resource` packages to `jakarta.resource`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxSecurityToJakartaSecurity](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxsecuritytojakartasecurity.md)
+  * **Migrate deprecated `javax.security.enterprise` packages to `jakarta.security.enterprise`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxServletToJakartaServlet](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxservlettojakartaservlet.md)
+  * **Migrate deprecated `javax.servlet` packages to `jakarta.servlet`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxTransactionMigrationToJakartaTransaction](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxtransactionmigrationtojakartatransaction.md)
+  * **Migrate deprecated `javax.transaction` packages to `jakarta.transaction`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxValidationMigrationToJakartaValidation](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxvalidationmigrationtojakartavalidation.md)
+  * **Migrate deprecated `javax.validation` packages to `jakarta.validation`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxWebsocketToJakartaWebsocket](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxwebsockettojakartawebsocket.md)
+  * **Migrate deprecated `javax.websocket` packages to `jakarta.websocket`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxWsToJakartaWs](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxwstojakartaws.md)
+  * **Migrate deprecated `javax.ws` packages to `jakarta.ws`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.migrate.jakarta.JavaxXmlBindMigrationToJakartaXmlBind](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlbindmigrationtojakartaxmlbind.md)
   * **Migrate deprecated `javax.xml.bind` packages to `jakarta.xml.bind`**
   * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
@@ -5214,9 +7883,63 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.migrate.jakarta.JavaxXmlSoapToJakartaXmlSoap](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlsoaptojakartaxmlsoap.md)
+  * **Migrate deprecated `javax.soap` packages to `jakarta.soap`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JavaxXmlWsMigrationToJakartaXmlWs](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlwsmigrationtojakartaxmlws.md)
+  * **Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JettyUpgradeEE10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jettyupgradeee10.md)
+  * **Update Jetty EE9 to Jetty EE10**
+  * Update Jetty dependencies from EE9 to EE10, changing the groupId and artifactIds as needed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JettyUpgradeEE9](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jettyupgradeee9.md)
+  * **Update Jetty 9 to Jetty 12**
+  * Update Jetty dependencies from version 9 to version 12.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.JohnzonJavaxToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/johnzonjavaxtojakarta.md)
+  * **Migrate Johnzon from javax to jakarta namespace**
+  * Java EE has been rebranded to Jakarta EE. This recipe replaces existing Johnzon dependencies with their counterparts that are compatible with Jakarta EE 9.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.MigrateFastjsonForJakarta10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratefastjsonforjakarta10.md)
+  * **Update Fastjson for Jakarta EE 10**
+  * Update Fastjson to be compatible with Jakarta EE 10.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta10.md)
-  * **Update Plugins for Jakarta EE 10**
-  * Update plugin to be compatible with Jakarta EE 10.
+  * **Update plugins for Jakarta EE 10**
+  * Update plugins to be compatible with Jakarta EE 10.
 
 ##### Data tables:
 
@@ -5224,7 +7947,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta11.md)
-  * **Update Plugins for Jakarta EE 11**
+  * **Update plugins for Jakarta EE 11**
   * Update plugins to be compatible with Jakarta EE 11.
 
 ##### Data tables:
@@ -5233,8 +7956,242 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta9](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta9.md)
-  * **Update Plugins for Jakarta EE 9**
+  * **Update plugins for Jakarta EE 9**
   * Update plugins to be compatible with Jakarta EE 9.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.MigrationToJakarta10Apis](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migrationtojakarta10apis.md)
+  * **Migrate Jakarta EE 9 API dependencies to Jakarta EE 10 versions**
+  * Upgrade the Jakarta EE 9 API dependencies to their Jakarta EE 10 versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.ReplaceJakartaJwsWithJakartaXmlWs](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/replacejakartajwswithjakartaxmlws.md)
+  * **Replace `jakarta.jws-api` with `jakarta.xml.ws-api`**
+  * Starting with Jakarta EE 10, the standalone `jakarta.jws-api` artifact was retired and its content was merged into `jakarta.xml.ws-api`. This recipe replaces a declared `jakarta.jws:jakarta.jws-api` dependency in place with `jakarta.xml.ws:jakarta.xml.ws-api`, and adds `jakarta.xml.ws:jakarta.xml.ws-api` directly when `jakarta.jws` was only available transitively.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.RestAssuredJavaxToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/restassuredjavaxtojakarta.md)
+  * **Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with Jakarta EE 9**
+  * Java EE has been rebranded to Jakarta EE. This recipe replaces existing RestAssured dependencies with their counterparts that are compatible with Jakarta EE 9.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.RetainJaxbApiForJackson](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/retainjaxbapiforjackson.md)
+  * **Retain `javax.xml.bind:jaxb-api` when `jackson-module-jaxb-annotations` is present**
+  * When migrating from `javax.xml.bind` to `jakarta.xml.bind` 3.0+, the `javax.xml.bind:jaxb-api` dependency is normally replaced. However, if `jackson-module-jaxb-annotations` is on the classpath (and still uses the `javax.xml.bind` namespace), this recipe ensures `javax.xml.bind:jaxb-api` remains available as a runtime dependency to prevent `NoClassDefFoundError`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateApacheCommonsEmailDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateapachecommonsemaildependencies.md)
+  * **Update Apache Commons Email to Email2 for Jakarta**
+  * Replace `commons-email` with `commons-email2-jakarta` 2.0.x, and move the `org.apache.commons.mail` types to their Email2 packages.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateApacheShiroDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateapacheshirodependencies.md)
+  * **Update Apache Shiro dependencies to 2.0.x**
+  * Upgrade Apache Shiro to the 2.0.x `jakarta` classifier artifacts and move the relocated codec and utility types, and upgrade `buji-pac4j` and pac4j to their Jakarta EE versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateEclipseLinkDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateeclipselinkdependencies.md)
+  * **Update EclipseLink dependencies to 4.x**
+  * Upgrade the `org.eclipse.persistence` dependencies to EclipseLink 4.x, which implements Jakarta Persistence 3.1.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateFileupload2Dependencies](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatefileupload2dependencies.md)
+  * **Update Apache Commons FileUpload2 package for Jakarta EE 10**
+  * Replace the `commons-fileupload2-jakarta-servlet5` artifact and package with their `servlet6` counterparts, which target Jakarta Servlet 6.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateJakartaFacesApi3](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartafacesapi3.md)
+  * **Migrate deprecated `javax.faces` packages to `jakarta.faces`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation and upgrade.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateJakartaFacesApi4](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartafacesapi4.md)
+  * **Update Jakarta Faces dependencies to 4.0.x**
+  * Upgrade the Jakarta Faces API and the `org.glassfish:jakarta.faces` implementation to 4.0.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateJakartaFacesApi41](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartafacesapi41.md)
+  * **Update Jakarta Faces dependencies to 4.1.x**
+  * Upgrade the Jakarta Faces API to 4.1.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaplatform10.md)
+  * **Update Jakarta EE platform dependencies to 10.0.0**
+  * Upgrade the `jakarta.platform` dependencies to 10.0.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaplatform11.md)
+  * **Update Jakarta EE platform dependencies to 11.0.x**
+  * Upgrade the `jakarta.platform` dependencies to 11.0.x, along with the Jakarta Annotations and Jakarta Server Pages APIs.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateJakartaXmlWsEE10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaxmlwsee10.md)
+  * **Update Jakarta XML Web Services dependencies for Jakarta EE 10**
+  * Upgrade the Jakarta XML Binding, SOAP and XML Web Services APIs and the `jaxws-rt` implementation to their Jakarta EE 10 versions, replacing the retired `jakarta.jws-api` artifact with `jakarta.xml.ws-api`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateJerseyDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejerseydependencies.md)
+  * **Update GlassFish Jersey dependencies to 3.1.x**
+  * Upgrade the GlassFish Jersey dependencies to 3.1.x, and Tyrus to 2.1.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateRestLet2_6](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updaterestlet2_6.md)
+  * **Update Restlet to 2.6.x**
+  * Upgrade Restlet dependencies to 2.6.x, moving the `org.restlet.jee` artifacts to the `org.restlet` group and removing the `org.restlet.ext.httpclient` extension.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpdateYassonDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateyassondependencies.md)
+  * **Update Eclipse Yasson dependencies to 3.0.x**
+  * Upgrade the `org.eclipse:yasson` dependency to 3.0.x, which implements Jakarta JSON Binding 3.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpgradeFaces3OpenSourceLibraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces3opensourcelibraries.md)
+  * **Upgrade Faces open source libraries**
+  * Upgrade PrimeFaces, OmniFaces, and MyFaces libraries to Jakarta EE 9 versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpgradeFaces41OpenSourceLibraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces41opensourcelibraries.md)
+  * **Upgrade Faces open source libraries**
+  * Upgrade OmniFaces and MyFaces/Mojarra libraries to Jakarta EE 11 versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpgradeFaces4OpenSourceLibraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces4opensourcelibraries.md)
+  * **Upgrade Faces open source libraries**
+  * Upgrade PrimeFaces, OmniFaces, and MyFaces libraries to Jakarta EE 10 versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.UpgradeJettyCoreDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradejettycoredependencies.md)
+  * **Align legacy Jetty core dependencies with Jetty 12**
+  * Upgrade explicitly declared Jetty core dependencies alongside the relocated servlet dependencies.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.WeldToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/weldtojakarta.md)
+  * **Migrate Weld implementations to Jakarta CDI**
+  * Replace legacy Weld core artifacts and upgrade javax-based Weld implementations to Weld 4, which implements Jakarta CDI 3.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.javaee8](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8-recipe.md)
+  * **Migrate to Java EE 8**
+  * Apply changes needed when migrating to Java EE 8, such as upgrading the Java Servlet dependency, replacing deprecated Servlet methods, and moving Bean Validation configuration from Apache BVal to Hibernate Validator. Includes the Java EE 7 migration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.javaee8.MigrateToServlet3x](/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/migratetoservlet3x.md)
+  * **Update Java Servlet dependencies to 3.x**
+  * Replace the legacy `javax.servlet:servlet-api` dependency with `javax.servlet:javax.servlet-api` 3.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.javax.AddCommonAnnotationsDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addcommonannotationsdependencies.md)
+  * **Add explicit Common Annotations dependencies**
+  * Add the necessary `annotation-api` dependency from Jakarta EE 8 to maintain compatibility with Java version 11 or greater.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.javax.AddInjectDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addinjectdependencies.md)
+  * **Add explicit Inject dependencies**
+  * Add the necessary `inject-api` dependency from Jakarta EE 8 to maintain compatibility with Java version 11 or greater.
 
 ##### Data tables:
 
@@ -5268,9 +8225,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.migrate.javax.AddJaxwsDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsdependencies.md)
+  * **Add explicit JAX-WS dependencies**
+  * This recipe will add explicit dependencies for Jakarta EE 8 when a Java 8 application is using JAX-WS. Any existing dependencies will be upgraded to the latest version of Jakarta EE 8. The artifacts are moved to Jakarta EE 8 but the application can continue to use the `javax.xml.ws` namespace.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratejaxbwsplugin.md)
-  * **Migrate JAXB-WS Plugin**
+  * **Migrate the JAX-WS Maven plugin**
   * Upgrade the JAXB-WS Maven plugin to be compatible with Java 11.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.javax.MigrateOneGfwJaxbDependencies](/user-documentation/recipes/recipe-catalog/java/migrate/javax/migrateonegfwjaxbdependencies.md)
+  * **Replace `one.gfw` JAXB artifacts with their official coordinates**
+  * The `one.gfw` group republishes unmodified copies of the JAXB API and runtime artifacts under its own group ID. This recipe replaces them with the official artifacts they were copied from, so that subsequent JAXB and Jakarta migrations recognize them.
 
 ##### Data tables:
 
@@ -5279,7 +8254,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.migrate.lang.FindNonVirtualExecutors](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findnonvirtualexecutors.md)
   * **Find non-virtual `ExecutorService` creation**
-  * Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search fro `ExecutorService` that can be replaced by Virtual Thread executor.
+  * Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search for `ExecutorService` that can be replaced by a virtual thread executor.
 
 ##### Data tables:
 
@@ -5287,8 +8262,8 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.openrewrite.java.migrate.lang.FindVirtualThreadOpportunities](/user-documentation/recipes/recipe-catalog/java/migrate/lang/findvirtualthreadopportunities.md)
-  * **Find Virtual Thread opportunities**
-  * Find opportunities to convert existing code to use Virtual Threads.
+  * **Find virtual thread opportunities**
+  * Find opportunities to convert existing code to use virtual threads.
 
 ##### Data tables:
 
@@ -5296,8 +8271,17 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.openrewrite.java.migrate.lombok.LombokBestPractices](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokbestpractices.md)
-  * **Lombok Best Practices**
+  * **Lombok best practices**
   * Applies all recipes that enforce best practices for using Lombok.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.lombok.UpdateLombokToJava11](/user-documentation/recipes/recipe-catalog/java/migrate/lombok/updatelomboktojava11.md)
+  * **Migrate Lombok to a Java 11 compatible version**
+  * Update Lombok dependency to a version that is compatible with Java 11 and migrate experimental Lombok types that have been promoted.
 
 ##### Data tables:
 
@@ -5323,7 +8307,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.openrewrite.java.migrate.search.FindInternalJavaxApis](/user-documentation/recipes/recipe-catalog/java/migrate/search/findinternaljavaxapis.md)
-  * **Find uses of internal javax APIs**
+  * **Find uses of internal `javax` APIs**
   * The libraries that define these APIs will have to be migrated before any of the repositories that use them.
 
 ##### Data tables:
@@ -5349,12 +8333,75 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.migrate.table.JavaVersionMigrationPlan**: *A per-repository view of the current state of Java versions and associated build tools*
 
 
+#### [org.openrewrite.scala.migrate.UpgradeScala_2_12](/user-documentation/recipes/recipe-catalog/scala/migrate/upgradescala_2_12.md)
+  * **Migrate to Scala 2.12.+**
+  * Upgrade the Scala version for compatibility with newer Java versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 
 ### rewrite-migrate-kotlin
+
+#### [org.openrewrite.kotlin.exposed.ExposedUpgradeGradleDependencies](/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedupgradegradledependencies.md)
+  * **Upgrade Exposed Gradle dependencies to 1.0**
+  * Update JetBrains Exposed Gradle dependencies for the 1.0.0 migration. Upgrades dependency versions and handles the `exposed-migration` module split.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.kotlin.exposed.UpgradeToExposed_1](/user-documentation/recipes/recipe-catalog/kotlin/exposed/upgradetoexposed_1.md)
+  * **Migrate to JetBrains Exposed 1.0**
+  * Migrate from JetBrains Exposed 0.x to 1.0.0. This includes package reorganization (adding `v1` prefix), type moves between modules, class renames, method renames, and Gradle dependency updates. Some changes require manual intervention and are not covered by this recipe: `Table.uuid()` should be changed to `Table.javaUUID()` for `java.util.UUID` values, `DateColumnType` with constructor parameter `time=false` or `time=true` should be split into `JodaLocalDateColumnType` or `JodaLocalDateTimeColumnType`, `SqlExpressionBuilder.*` usages should be replaced with top-level function imports, and `Statement.execute()` calls should use `BlockingExecutable` wrapping.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.kotlin.kotlinx.ReplaceDeprecatedKotlinxMethods](/user-documentation/recipes/recipe-catalog/kotlin/kotlinx/replacedeprecatedkotlinxmethods.md)
+  * **Replace deprecated `kotlinx` methods**
+  * Replace deprecated Kotlin extension library method calls with their recommended replacements, based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
 
 #### [org.openrewrite.kotlin.migrate.UpgradeKotlinGradlePlugins](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlingradleplugins.md)
   * **Upgrade Kotlin Gradle plugins to 2.x**
   * Upgrade all `org.jetbrains.kotlin.*` Gradle plugins to Kotlin 2.x. This includes the core kotlin-jvm plugin as well as all official Kotlin Gradle plugins such as serialization, Spring, allopen, noarg, JPA, and parcelize.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.kotlin.migrate.UpgradeKotlinxCoroutines_1_10](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxcoroutines_1_10.md)
+  * **Upgrade to `kotlinx-coroutines` 1.10**
+  * Upgrade kotlinx-coroutines to 1.10.x and replace deprecated method calls.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.kotlin.migrate.UpgradeKotlinxDatetime_0_7](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxdatetime_0_7.md)
+  * **Migrate to `kotlinx-datetime` 0.7**
+  * Migrate from kotlinx-datetime 0.6.x to 0.7.x. This includes replacing `kotlinx.datetime.Instant` and `kotlinx.datetime.Clock` with their `kotlin.time` equivalents and replacing deprecated method calls.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.kotlin.migrate.UpgradeKotlinxSerialization_1_8](/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxserialization_1_8.md)
+  * **Upgrade to `kotlinx-serialization` 1.8**
+  * Upgrade kotlinx-serialization to 1.8.x and replace deprecated method calls.
 
 ##### Data tables:
 
@@ -5393,7 +8440,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.python.migrate.FindBackoffDecoratorsNotMigrated](/user-documentation/recipes/recipe-catalog/python/migrate/findbackoffdecoratorsnotmigrated.md)
   * **Find `backoff` decorators that need a hand migration**
-  * Mark every `@backoff.on_exception` and `@backoff.on_predicate` that `org.openrewrite.python.migrate.ReplaceBackoffDecoratorsWithTenacity` declines to rewrite, with the reason, and record it in a data table. This changes no behaviour; it scopes the hand migration left after the mechanical one. The markup it prints is not valid Python, so run it for a report rather than as part of a migration.
+  * Mark every `backoff.on_exception` and `backoff.on_predicate`, applied with an `@` or called, that `org.openrewrite.python.migrate.ReplaceBackoffDecoratorsWithTenacity` declines to rewrite, with the reason, and record it in a data table. This changes no behaviour; it scopes the hand migration left after the mechanical one. The markup it prints is not valid Python, so run it for a report rather than as part of a migration.
 
 ##### Data tables:
 
@@ -5433,6 +8480,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.netty.UpgradeNetty_3_2_to_4_1](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_3_2_to_4_1.md)
   * **Migrates from Netty 3.2.x to Netty 4.1.x**
   * Migrate applications to the latest Netty 4.1.x release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.netty.UpgradeNetty_4_1_to_4_2](/user-documentation/recipes/recipe-catalog/netty/upgradenetty_4_1_to_4_2.md)
+  * **Migrates from Netty 4.1.x to Netty 4.2.x**
+  * Migrate applications to the latest Netty 4.2.x release.
 
 ##### Data tables:
 
@@ -5552,11 +8608,128 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.nodejs.security.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/nodejs/security/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable npm dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest patch version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the GitHub Security Advisory Database, which aggregates vulnerability data from several public databases.  ## Customizing Vulnerability Data  Extend this recipe and override `baselineVulnerabilities(ctx)` to replace the bundled advisory database, or override `supplementalVulnerabilities(ctx)` to add organisation-specific advisories alongside the bundled data.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest patch version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the GitHub Security Advisory Database, which aggregates vulnerability data from several public databases. Every change to `package.json` is followed by regenerating its lock file.  ## Customizing Vulnerability Data  Extend this recipe and override `baselineVulnerabilities(ctx)` to replace the bundled advisory database, or override `supplementalVulnerabilities(ctx)` to add organisation-specific advisories alongside the bundled data.
 
 ##### Data tables:
 
   * **org.openrewrite.nodejs.table.VulnerabilityReport**: *Lists all vulnerabilities found in project dependencies.*
+  * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+  * **org.openrewrite.javascript.table.NodeDependencyEditsDeclined**: *Edits a recipe did not make, or that the package manager applies only in part, and why.*
+
+
+#### [org.openrewrite.nodejs.security.RemoveRedundantOverrides](/user-documentation/recipes/recipe-catalog/nodejs/security/removeredundantoverrides.md)
+  * **Remove redundant dependency overrides**
+  * Removes overrides/resolutions from `package.json` that are redundant because the dependency tree already resolves to the overridden version (or higher) without the override. For each project, the recipe resolves the dependency closure with all overrides stripped and compares the resolved versions against the original override pins. Overrides matching or below the natural resolution are dropped along with any parallel `//overrides`, `//resolutions`, or `//pnpm.overrides` comment entries, and the lock file is regenerated.
+
+##### Data tables:
+
+  * **org.openrewrite.javascript.table.NodeLockRegenerationFailures**: *Lock files that could not be regenerated after a dependency edit, and why.*
+  * **org.openrewrite.javascript.table.NodeDependencyEditsDeclined**: *Edits a recipe did not make, or that the package manager applies only in part, and why.*
+
+
+
+### rewrite-okhttp
+
+#### [org.openrewrite.okhttp.UpgradeMockWebServer3](/user-documentation/recipes/recipe-catalog/okhttp/upgrademockwebserver3.md)
+  * **Migrate to MockWebServer3 (core module)**
+  * Migrate from the legacy `mockwebserver` artifact to `mockwebserver3` core module without JUnit dependency.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.okhttp.UpgradeMockWebServer3JUnit4](/user-documentation/recipes/recipe-catalog/okhttp/upgrademockwebserver3junit4.md)
+  * **Migrate to MockWebServer3 with JUnit 4**
+  * Migrate from the legacy `mockwebserver` artifact to `mockwebserver3-junit4` with JUnit 4 integration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.okhttp.UpgradeMockWebServer3JUnit5](/user-documentation/recipes/recipe-catalog/okhttp/upgrademockwebserver3junit5.md)
+  * **Migrate to MockWebServer3 with JUnit 5**
+  * Migrate from the legacy `mockwebserver` artifact to `mockwebserver3-junit5` with JUnit 5 integration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.okhttp.UpgradeOkHttp4](/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp4.md)
+  * **Migrate to OkHttp 4.x**
+  * This recipe will apply changes commonly needed when migrating to OkHttp 4.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.okhttp.UpgradeOkHttp4Dependencies](/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp4dependencies.md)
+  * **Migrate OkHttp dependencies to 4.x**
+  * Migrate OkHttp dependencies to 4.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.okhttp.UpgradeOkHttp5](/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp5.md)
+  * **Migrate to OkHttp 5.x**
+  * This recipe will apply changes commonly needed when migrating to OkHttp 5.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.okhttp.UpgradeOkHttp5Dependencies](/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp5dependencies.md)
+  * **Migrate OkHttp dependencies to 5.x**
+  * Migrate OkHttp dependencies to 5.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.okio.UpgradeOkio3](/user-documentation/recipes/recipe-catalog/okio/upgradeokio3.md)
+  * **Migrate to Okio 3.x**
+  * This recipe will apply changes commonly needed when migrating to Okio 3.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.okio.UpgradeOkio3Dependencies](/user-documentation/recipes/recipe-catalog/okio/upgradeokio3dependencies.md)
+  * **Migrate Okio dependencies to 3.x**
+  * Migrate Okio dependencies to 3.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+
+### rewrite-openapi
+
+#### [org.openrewrite.openapi.swagger.SwaggerToOpenAPI](/user-documentation/recipes/recipe-catalog/openapi/swagger/swaggertoopenapi.md)
+  * **Migrate from Swagger to OpenAPI**
+  * Migrate from Swagger to OpenAPI.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.openapi.swagger.UseJakartaSwaggerArtifacts](/user-documentation/recipes/recipe-catalog/openapi/swagger/usejakartaswaggerartifacts.md)
+  * **Use Jakarta Swagger Artifacts**
+  * Migrate from javax Swagger artifacts to Jakarta versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 
@@ -5582,6 +8755,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 ### rewrite-quarkus
+
+#### [org.openrewrite.quarkus.migrate.javaee.AddQuarkus2Dependencies](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2dependencies.md)
+  * **Add Quarkus 2 dependencies**
+  * Add Quarkus 2 dependencies to the project.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
 
 #### [org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins](/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2mavenplugins.md)
   * **Migrate JavaEE Maven Dependencies to Quarkus 2**
@@ -5611,7 +8793,28 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 
+### rewrite-reactive-streams
+
+#### [org.openrewrite.reactive.reactor.UpgradeReactor_3_5](/user-documentation/recipes/recipe-catalog/reactive/reactor/upgradereactor_3_5.md)
+  * **Migrate to Reactor 3.5**
+  * Adopt to [breaking changes in Reactor 3.5](https://projectreactor.io/docs/core/3.4.26/api/deprecated-list.html).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+
 ### rewrite-rewrite
+
+#### [org.openrewrite.java.jspecify.MigrateFromOpenRewriteAnnotations](/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromopenrewriteannotations.md)
+  * **Migrate from OpenRewrite annotations to JSpecify**
+  * Migrate from OpenRewrite's JSR-305 meta-annotations to JSpecify.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
 
 #### [org.openrewrite.java.recipes.FindRecipes](/user-documentation/recipes/recipe-catalog/java/recipes/findrecipes.md)
   * **Find OpenRewrite recipes**
@@ -5629,6 +8832,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.recipes.DeprecatedMethodDelegations**: *Deprecated methods that delegate to another method in the same class, suitable for inlining via `InlineMethodCalls`.*
+
+
+#### [org.openrewrite.java.recipes.RecipeNullabilityBestPractices](/user-documentation/recipes/recipe-catalog/java/recipes/recipenullabilitybestpractices.md)
+  * **Recipe nullability best practices**
+  * Use JSpecify nullable annotations; drop Nonnull annotations; use `NullMarked` on `package-info.java` instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.recipes.RecipeTestingBestPractices](/user-documentation/recipes/recipe-catalog/java/recipes/recipetestingbestpractices.md)
@@ -5664,13 +8876,121 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-spring
 
+#### [org.openrewrite.java.flyway.AddFlywayModuleMySQL](/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymodulemysql.md)
+  * **Add missing Flyway module for MySQL**
+  * Database modules for Flyway 10 have been split out into separate modules for maintainability. Add the `flyway-mysql` dependency if you are using MySQL with Flyway 10, as detailed on https://github.com/flyway/flyway/issues/3780.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.flyway.AddFlywayModuleOracle](/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymoduleoracle.md)
+  * **Add missing Flyway module for Oracle**
+  * Database modules for Flyway 10 have been split out into separate modules for maintainability. Add the `flyway-database-oracle` dependency if you are using Oracle with Flyway 10, as detailed on https://github.com/flyway/flyway/issues/3780.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.flyway.AddFlywayModulePostgreSQL](/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymodulepostgresql.md)
+  * **Add missing Flyway module for PostgreSQL**
+  * Database modules for Flyway 10 have been split out in to separate modules for maintainability. Add the `flyway-database-postgresql` dependency if you are using PostgreSQL with Flyway 10, as detailed on https://github.com/flyway/flyway/issues/3780.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.flyway.AddFlywayModuleSqlServer](/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymodulesqlserver.md)
+  * **Add missing Flyway module for SQL Server**
+  * Database modules for Flyway 10 have been split out into separate modules for maintainability. Add the `flyway-sqlserver` dependency if you are using SQL Server with Flyway 10, as detailed on https://github.com/flyway/flyway/issues/3780.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.flyway.MigrateToFlyway10](/user-documentation/recipes/recipe-catalog/java/flyway/migratetoflyway10.md)
+  * **Migrate to Flyway 10**
+  * Migrate to Flyway 10. See details at [Flyway V10 has landed](https://documentation.red-gate.com/fd/flyway-v10-has-landed-222627771.html).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.batch.SpringBatch4To5Migration](/user-documentation/recipes/recipe-catalog/java/spring/batch/springbatch4to5migration.md)
+  * **Migrate to Spring Batch 5.0 from 4.3**
+  * Migrate applications built on Spring Batch 4.3 to the latest Spring Batch 5.0 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.batch.SpringBatch5To6Migration](/user-documentation/recipes/recipe-catalog/java/spring/batch/springbatch5to6migration.md)
+  * **Migrate to Spring Batch 6.0 from 5.2**
+  * Migrate applications built on Spring Batch 5.2 to the latest Spring Batch 6.0 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot2.AddSpringBootStarterValidation](/user-documentation/recipes/recipe-catalog/java/spring/boot2/addspringbootstartervalidation.md)
+  * **Add `spring-boot-starter-validation` if needed**
+  * Add `spring-boot-starter-validation` when validation constraints are used, unless the project already declares `jakarta.validation-api` or `hibernate-validator` directly.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot2.MaybeAddJavaxValidationApi](/user-documentation/recipes/recipe-catalog/java/spring/boot2/maybeaddjavaxvalidationapi.md)
+  * **Add `javax.validation-api` dependency**
+  * Conditional on the application using a version of Spring Boot which uses javax but provides a hibernate-validator version which exports the jakarta.validation-api instead.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot2.MaybeAddSpringBootStarterActuator](/user-documentation/recipes/recipe-catalog/java/spring/boot2/maybeaddspringbootstarteractuator.md)
+  * **Replace `micrometer-spring-legacy` with `spring-boot-starter-actuator`**
+  * Replace deprecated `micrometer-spring-legacy` with `spring-boot-starter-actuator`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot2.MigrateHibernateConstraintsToJavax](/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratehibernateconstraintstojavax.md)
+  * **Use `javax.validation.constraints`**
+  * Use `javax.validation.constraints` instead of the deprecated `org.hibernate.validator.constraints` in Spring Boot 2.0 or higher.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.spring.boot2.SpringBoot2JUnit4to5Migration](/user-documentation/recipes/recipe-catalog/java/spring/boot2/springboot2junit4to5migration.md)
   * **Migrate Spring Boot 2.x projects to JUnit 5 from JUnit 4**
   * This recipe will migrate a Spring Boot application's tests from JUnit 4 to JUnit 5. This spring-specific migration includes conversion of Spring Test runners to Spring Test extensions and awareness of the composable Spring Test annotations.
 
 ##### Data tables:
 
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.spring.boot2.UpgradeSpockToGroovy3](/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespocktogroovy3.md)
+  * **Upgrade Spock to a Groovy 3 compatible variant**
+  * Upgrade Spock dependencies to a Groovy 3 compatible 2.0 variant when Groovy 3 is on the classpath.
+
+##### Data tables:
+
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
@@ -5768,6 +9088,42 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.DependenciesDeclared**: *Direct (first-order) dependencies declared by the project.*
 
 
+#### [org.openrewrite.java.spring.boot3.ChangeCassandraGroupId](/user-documentation/recipes/recipe-catalog/java/spring/boot3/changecassandragroupid.md)
+  * **Change `com.datastax.oss` to `org.apache.cassandra`**
+  * Change `groupId` from `com.datastax.oss` to `org.apache.cassandra` and adopt the Spring Boot 3.3 managed version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.MigrateDropWizardDependencies](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratedropwizarddependencies.md)
+  * **Migrate Dropwizard dependencies to Spring Boot 3.x**
+  * Migrate dropWizard dependencies to the new artifactId, since these are changed with Spring Boot 3.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.MigrateSapCfJavaLoggingSupport](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratesapcfjavaloggingsupport.md)
+  * **Migrate SAP Cloud Foundry logging support to Spring Boot 3.x**
+  * Migrate SAP cloud foundry logging support from `cf-java-logging-support-servlet` to `cf-java-logging-support-servlet-jakarta`, to use Jakarta with Spring Boot 3.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.MigrateThymeleafDependencies](/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratethymeleafdependencies.md)
+  * **Migrate Thymeleaf dependencies to Spring Boot 3.x**
+  * Migrate thymeleaf dependencies to the new artifactId, since these are changed with Spring Boot 3.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.spring.boot3.SpringBoot33BestPractices](/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot33bestpractices.md)
   * **Spring Boot 3.3 best practices**
   * Applies best practices to Spring Boot 3 applications.
@@ -5778,9 +9134,108 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
+#### [org.openrewrite.java.spring.boot3.UpdatePrometheusPushgateway](/user-documentation/recipes/recipe-catalog/java/spring/boot3/updateprometheuspushgateway.md)
+  * **Update Prometheus Pushgateway dependency coordinates**
+  * Update the Prometheus Pushgateway artifact ID for Spring Boot 3.5 compatibility.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_0.md)
+  * **Upgrade MyBatis to Spring Boot 2.0**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_1.md)
+  * **Upgrade MyBatis to Spring Boot 2.1**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.1.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_2.md)
+  * **Upgrade MyBatis to Spring Boot 2.2**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.2.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_3.md)
+  * **Upgrade MyBatis to Spring Boot 2.3**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.3.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_4](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_4.md)
+  * **Upgrade MyBatis to Spring Boot 2.4**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.4.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_5](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_5.md)
+  * **Upgrade MyBatis to Spring Boot 2.5**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.5.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_6](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_6.md)
+  * **Upgrade MyBatis to Spring Boot 2.6**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.6.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_7](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_7.md)
+  * **Upgrade MyBatis to Spring Boot 2.7**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.7.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_0.md)
+  * **Upgrade MyBatis to Spring Boot 3.0**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_3_2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_3_2.md)
+  * **Upgrade MyBatis to Spring Boot 3.2**
+  * Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 3.2.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition.md)
   * **Migrate to Spring Boot 3.0 (Community Edition)**
-  * Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.7.
+  * Migrate applications to the latest Spring Boot 3.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.0.
 
 ##### Data tables:
 
@@ -5790,7 +9245,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_1.md)
   * **Migrate to Spring Boot 3.1**
-  * Migrate applications to the latest Spring Boot 3.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.0.
+  * Migrate applications to the latest Spring Boot 3.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.1.
 
 ##### Data tables:
 
@@ -5800,7 +9255,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_2.md)
   * **Migrate to Spring Boot 3.2**
-  * Migrate applications to the latest Spring Boot 3.2 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.1.
+  * Migrate applications to the latest Spring Boot 3.2 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.2.
 
 ##### Data tables:
 
@@ -5810,7 +9265,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3](/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3.md)
   * **Migrate to Spring Boot 3.3**
-  * Migrate applications to the latest Spring Boot 3.3 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.2.
+  * Migrate applications to the latest Spring Boot 3.3 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.3.
 
 ##### Data tables:
 
@@ -5838,6 +9293,42 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
+#### [org.openrewrite.java.spring.boot4.AddModularStarterDependencies](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarterdependencies.md)
+  * **Add Spring Boot 4.0 modular starter dependencies**
+  * Adds the Spring Boot 4.0 modular starter dependencies implied by a module's Spring Boot 3 package usage, without relocating any source. Split out from `MigrateToModularStarters` so that it can be sequenced ahead of `MigrateAutoconfigurePackages` when composed into a larger migration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot4.AddSpringBootStarterDataMongoDbReactiveTest](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addspringbootstarterdatamongodbreactivetest.md)
+  * **Add `spring-boot-starter-data-mongodb-reactive-test` for reactive MongoDB tests**
+  * Adds the dedicated Spring Boot 4.0 reactive Spring Data MongoDB test starter when the application directly uses the reactive Spring Data MongoDB starter and MongoDB test slices.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot4.AddSpringBootStarterDataMongoDbTest](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addspringbootstarterdatamongodbtest.md)
+  * **Add `spring-boot-starter-data-mongodb-test` for imperative MongoDB tests**
+  * Adds the dedicated Spring Boot 4.0 imperative Spring Data MongoDB test starter when the application directly uses the imperative Spring Data MongoDB starter and MongoDB test slices.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot4.AddSpringBootStarterFlyway](/user-documentation/recipes/recipe-catalog/java/spring/boot4/addspringbootstarterflyway.md)
+  * **Add `spring-boot-starter-flyway` if using Flyway**
+  * Adds the necessary Spring Boot 4.0 Flyway starter for autoconfiguration based on dependency usage.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.spring.boot4.MigrateJsonschema2PojoToSpringBoot4](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratejsonschema2pojotospringboot4.md)
   * **Migrate jsonschema2pojo configuration to Spring Boot 4**
   * Update `jsonschema2pojo-maven-plugin` to generate Jackson 3 and Jakarta Validation annotations compatible with Spring Boot 4. The `jackson3` annotation style was introduced in jsonschema2pojo 1.3.0, so the plugin is upgraded to at least that version first.
@@ -5856,6 +9347,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.spring.boot4.MigrateToModularStarters](/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-community-edition.md)
+  * **Migrate to Spring Boot 4.0 modular starters (Community Edition)**
+  * Adds the necessary Spring Boot 4.0 starter dependencies based on package usage. Spring Boot 4.0 has a modular design requiring explicit starters for each feature. This recipe detects feature usage via package imports and adds the appropriate starters. Note: Higher-level starters (like data-jpa) include lower-level ones (like jdbc) transitively, so only the highest-level detected starter is added for each technology.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.boot4.RenameDeprecatedStartersManagedVersions](/user-documentation/recipes/recipe-catalog/java/spring/boot4/renamedeprecatedstartersmanagedversions.md)
+  * **Rename Spring Boot 4.0 starters with managed versions**
+  * Renames deprecated Spring Boot starters to their new names without adding explicit versions, for use in projects where the `io.spring.dependency-management` plugin manages versions via BOM.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.spring.boot4.UpgradeSpringBoot_4_0](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-community-edition.md)
   * **Migrate to Spring Boot 4.0 (Community Edition)**
   * Migrate applications to the latest Spring Boot 4.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs.
@@ -5864,6 +9373,69 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.spring.cloud2022.DependencyUpgrades](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/dependencyupgrades.md)
+  * **Upgrade dependencies to Spring Cloud 2022**
+  * Upgrade dependencies to Spring Cloud 2022 from prior 2021.x version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2022.MigrateCloudSleuthToMicrometerTracing](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing.md)
+  * **Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0**
+  * Spring Cloud Sleuth has been discontinued and only compatible with Spring Boot 2.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2022.UpgradeSpringCloud_2022](/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/upgradespringcloud_2022.md)
+  * **Migrate to Spring Cloud 2022**
+  * Migrate applications to the latest Spring Cloud 2022 (Kilburn) release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2023.DependencyUpgrades](/user-documentation/recipes/recipe-catalog/java/spring/cloud2023/dependencyupgrades.md)
+  * **Upgrade dependencies to Spring Cloud 2023**
+  * Upgrade dependencies to Spring Cloud 2023 from prior 2022.x version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2023.UpgradeSpringCloud_2023](/user-documentation/recipes/recipe-catalog/java/spring/cloud2023/upgradespringcloud_2023.md)
+  * **Migrate to Spring Cloud 2023**
+  * Migrate applications to the latest Spring Cloud 2023 (Leyton) release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2024.DependencyUpgrades](/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/dependencyupgrades.md)
+  * **Upgrade dependencies to Spring Cloud 2024**
+  * Upgrade dependencies to Spring Cloud 2024 from prior 2023.x version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2024.UpgradeSpringCloud_2024](/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/upgradespringcloud_2024.md)
+  * **Migrate to Spring Cloud 2024**
+  * Migrate applications to the latest Spring Cloud 2024 (Moorgate) release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.spring.cloud2025.AddSpringCloudDependenciesBom](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/addspringclouddependenciesbom.md)
@@ -5875,9 +9447,135 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.spring.cloud2025.DependencyUpgrades](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/dependencyupgrades.md)
+  * **Upgrade dependencies to Spring Cloud 2025**
+  * Upgrade dependencies to Spring Cloud 2025 from prior 2024.x version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2025.SpringCloudGatewayDeprecatedModulesAndStarters](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewaydeprecatedmodulesandstarters.md)
+  * **Migrate to new Spring Cloud Gateway modules and starters**
+  * Migrate to new Spring Cloud Gateway modules and starters for Spring Cloud 2025.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.cloud2025.UpgradeSpringCloud_2025](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025.md)
+  * **Migrate to Spring Cloud 2025**
+  * Migrate applications to the latest Spring Cloud 2025 (Northfields) release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.spring.cloud2025.UpgradeSpringCloud_2025_1](/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025_1.md)
   * **Migrate to Spring Cloud 2025.1**
   * Migrate applications to the latest Spring Cloud 2025.1 release, compatible with Spring Boot 4.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.data.UpgradeSpringDataMongoDb_5_0](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdatamongodb_5_0.md)
+  * **Migrate to Spring Data MongoDB 5.0**
+  * Align explicitly versioned Spring Data MongoDB and supported MongoDB JVM driver dependencies with Spring Data MongoDB 5.0. Managed, versionless dependencies remain managed.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.data.UpgradeSpringData_2_3](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_3.md)
+  * **Migrate to Spring Data 2.3**
+  * Migrate applications to the latest Spring Data 2.3 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.data.UpgradeSpringData_2_5](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_5.md)
+  * **Migrate to Spring Data JPA 2.5**
+  * Migrate applications to the latest Spring Data 2.5 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.data.UpgradeSpringData_2_7](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_7.md)
+  * **Migrate to Spring Data JPA 2.7**
+  * Migrate applications to the latest Spring Data JPA 2.7 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.data.UpgradeSpringData_3_0](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_3_0.md)
+  * **Migrate to Spring Data 3.0**
+  * Migrate applications to Spring Data 3.0. Handles the PagingAndSortingRepository hierarchy change where it no longer extends CrudRepository, and chains prior deprecation fixes from Spring Data 2.7.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.data.UpgradeSpringData_3_4](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_3_4.md)
+  * **Migrate to Spring Data JPA 3.4**
+  * Migrate applications to the latest Spring Data JPA 3.4 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.data.UpgradeSpringData_4_0](/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_4_0.md)
+  * **Migrate to Spring Data 4.0**
+  * Migrate applications to the Spring Data 2025.1 release train. Datastore-specific migration support is added incrementally.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_0](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_0-community-edition.md)
+  * **Migrate to Spring Framework 5.0 (Community Edition)**
+  * Migrate applications to the latest Spring Framework 5.0 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_1](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_1.md)
+  * **Migrate to Spring Framework 5.1**
+  * Migrate applications to the latest Spring Framework 5.1 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_2](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_2.md)
+  * **Migrate to Spring Framework 5.2**
+  * Migrate applications to the latest Spring Framework 5.2 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_3](/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-community-edition.md)
+  * **Migrate to Spring Framework 5.3 (Community Edition)**
+  * Migrate applications to the latest Spring Framework 5.3 release.
 
 ##### Data tables:
 
@@ -5930,6 +9628,78 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.ExplainDependenciesInUse**: *A dependency graph explainer similar to that shown by `gradle dependencyInsight` for each matching dependency. This table will contain a row per matching dependency per configuration per (sub)project.*
 
 
+#### [org.openrewrite.java.spring.kafka.UpgradeSpringKafka_3_0](/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_3_0.md)
+  * **Migrate to Spring Kafka 3.0**
+  * Migrate applications to the latest Spring Kafka 3.0 release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.opentelemetry.MigrateBraveToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratebravetoopentelemetry.md)
+  * **Migrate Brave API to OpenTelemetry API**
+  * Migrate Java code using Brave (Zipkin) tracing API to OpenTelemetry API. This recipe handles the migration of Brave Tracer, Span, and related classes to OpenTelemetry equivalents.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.opentelemetry.MigrateDatadogToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratedatadogtoopentelemetry.md)
+  * **Migrate Datadog tracing to OpenTelemetry**
+  * Migrate from Datadog Java tracing annotations to OpenTelemetry annotations. Replace Datadog @Trace annotations with @WithSpan annotations.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.opentelemetry.MigrateFromZipkinToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratefromzipkintoopentelemetry.md)
+  * **Migrate from Zipkin to OpenTelemetry OTLP**
+  * Migrate from Zipkin tracing to OpenTelemetry OTLP. This recipe replaces Zipkin dependencies with OpenTelemetry OTLP exporter and updates the related configuration properties.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.opentelemetry.MigrateNewRelicToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratenewrelictoopentelemetry.md)
+  * **Migrate New Relic Agent to OpenTelemetry**
+  * Migrate from New Relic Java Agent annotations to OpenTelemetry annotations. Replace @Trace annotations with @WithSpan annotations.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.opentelemetry.MigrateOpenTracingToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migrateopentracingtoopentelemetry.md)
+  * **Migrate OpenTracing API to OpenTelemetry API**
+  * Migrate Java code using OpenTracing API to OpenTelemetry API. OpenTracing has been superseded by OpenTelemetry and is no longer actively maintained.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.opentelemetry.MigrateSleuthToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratesleuthtoopentelemetry.md)
+  * **Migrate from Spring Cloud Sleuth to OpenTelemetry**
+  * Migrate from Spring Cloud Sleuth to OpenTelemetry. [Spring Cloud Sleuth has been deprecated](https://github.com/spring-cloud/spring-cloud-sleuth#spring-cloud-sleuth) and is replaced by Micrometer Tracing with OpenTelemetry as a backend. This recipe removes Sleuth dependencies and adds OpenTelemetry instrumentation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.opentelemetry.MigrateToOpenTelemetry](/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratetoopentelemetry.md)
+  * **Complete migration to OpenTelemetry**
+  * Comprehensive migration to OpenTelemetry including dependencies, configuration properties, and Java code changes. This recipe handles migration from Spring Cloud Sleuth, Brave/Zipkin, and OpenTracing to OpenTelemetry.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.spring.search.FindApiCalls](/user-documentation/recipes/recipe-catalog/java/spring/search/findapicalls.md)
   * **Find HTTP API calls via `RestTemplate`**
   * Find outbound HTTP API calls made via Spring's `RestTemplate` class.
@@ -5967,6 +9737,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.spring.table.SpringComponentRelationships**: *A table of relationships between Spring components.*
 
 
+#### [org.openrewrite.java.spring.security5.RenameNimbusdsJsonObjectPackageName](/user-documentation/recipes/recipe-catalog/java/spring/security5/renamenimbusdsjsonobjectpackagename.md)
+  * **Rename the package name from `com.nimbusds.jose.shaded.json` to `net.minidev.json`**
+  * Rename the package name from `com.nimbusds.jose.shaded.json` to `net.minidev.json`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.security5.UpgradeSpringSecurity_5_7](/user-documentation/recipes/recipe-catalog/java/spring/security5/upgradespringsecurity_5_7.md)
+  * **Migrate to Spring Security 5.7**
+  * Migrate applications to the latest Spring Security 5.7 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.security5.UpgradeSpringSecurity_5_8](/user-documentation/recipes/recipe-catalog/java/spring/security5/upgradespringsecurity_5_8.md)
+  * **Migrate to Spring Security 5.8**
+  * Migrate applications to the latest Spring Security 5.8 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.spring.security5.search.FindEncryptorsQueryableTextUses](/user-documentation/recipes/recipe-catalog/java/spring/security5/search/findencryptorsqueryabletextuses.md)
   * **Finds uses of `Encryptors.queryableText()`**
   * `Encryptors.queryableText()` is insecure and is removed in Spring Security 6.
@@ -5976,8 +9773,161 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
 
 
+#### [org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_0](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_0.md)
+  * **Migrate to Spring Security 6.0**
+  * Migrate applications to the latest Spring Security 6.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_1](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_1.md)
+  * **Migrate to Spring Security 6.1**
+  * Migrate applications to the latest Spring Security 6.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_2](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_2.md)
+  * **Migrate to Spring Security 6.2**
+  * Migrate applications to the latest Spring Security 6.2 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_3](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_3.md)
+  * **Migrate to Spring Security 6.3**
+  * Migrate applications to the latest Spring Security 6.3 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_4](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_4.md)
+  * **Migrate to Spring Security 6.4**
+  * Migrate applications to the latest Spring Security 6.4 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_5](/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-community-edition.md)
+  * **Migrate to Spring Security 6.5 (Community Edition)**
+  * Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.spring.security7.UpgradeSpringSecurity_7_0](/user-documentation/recipes/recipe-catalog/java/spring/security7/upgradespringsecurity_7_0.md)
+  * **Migrate to Spring Security 7.0**
+  * Migrate applications to the latest Spring Security 7.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.springdoc.ReplaceSpringFoxDependencies](/user-documentation/recipes/recipe-catalog/java/springdoc/replacespringfoxdependencies.md)
+  * **Replace SpringFox dependencies**
+  * Replace SpringFox Dependencies.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.springdoc.SpringFoxToSpringDoc](/user-documentation/recipes/recipe-catalog/java/springdoc/springfoxtospringdoc.md)
+  * **Migrate from SpringFox Swagger to SpringDoc and OpenAPI**
+  * Migrate from SpringFox Swagger to SpringDoc and OpenAPI.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.springdoc.SwaggerToSpringDoc](/user-documentation/recipes/recipe-catalog/java/springdoc/swaggertospringdoc.md)
+  * **Migrate from Swagger to SpringDoc and OpenAPI**
+  * Migrate from Swagger to SpringDoc and OpenAPI.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.springdoc.UpgradeSpringDoc_2](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2.md)
+  * **Upgrade to SpringDoc 2.1**
+  * Upgrade to SpringDoc v2.1, as described in the [upgrade guide](https://springdoc.org/#migrating-from-springdoc-v1).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.springdoc.UpgradeSpringDoc_2_2](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_2.md)
+  * **Upgrade to SpringDoc 2.2**
+  * Upgrade to SpringDoc v2.2.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.springdoc.UpgradeSpringDoc_2_5](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_5.md)
+  * **Upgrade to SpringDoc 2.5**
+  * Upgrade to SpringDoc v2.5.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.springdoc.UpgradeSpringDoc_2_6](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_6.md)
+  * **Upgrade to SpringDoc 2.6**
+  * Upgrade to SpringDoc v2.6.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.springdoc.UpgradeSpringDoc_2_8](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_8.md)
+  * **Upgrade to SpringDoc 2.8**
+  * Upgrade to SpringDoc v2.8.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.springdoc.UpgradeSpringDoc_3_0](/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_3_0.md)
+  * **Upgrade to SpringDoc 3.0**
+  * Upgrade to SpringDoc v3.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 
 ### rewrite-spring-to-quarkus
+
+#### [org.openrewrite.quarkus.spring.AddSpringCompatibilityExtensions](/user-documentation/recipes/recipe-catalog/quarkus/spring/addspringcompatibilityextensions.md)
+  * **Add Spring compatibility extensions for commonly used annotations**
+  * Adds Quarkus Spring compatibility extensions when Spring annotations are detected in the codebase.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
 
 #### [org.openrewrite.quarkus.spring.CustomizeQuarkusVersion](/user-documentation/recipes/recipe-catalog/quarkus/spring/customizequarkusversion.md)
   * **Customize Quarkus BOM Version**
@@ -5988,9 +9938,405 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.quarkus.spring.DerbyDriverToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/derbydrivertoquarkus.md)
+  * **Replace Derby driver with Quarkus JDBC Derby**
+  * Migrates `org.apache.derby:derby` or `derbyclient` to `io.quarkus:quarkus-jdbc-derby` (excludes test scope).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.DerbyTestDriverToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/derbytestdrivertoquarkus.md)
+  * **Replace Derby test driver with Quarkus JDBC Derby (test scope)**
+  * Migrates `org.apache.derby:derby` with test scope to `io.quarkus:quarkus-jdbc-derby` with test scope.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.EnableAnnotationsToQuarkusDependencies](/user-documentation/recipes/recipe-catalog/quarkus/spring/enableannotationstoquarkusdependencies.md)
+  * **Migrate `@EnableXyz` annotations to Quarkus extensions**
+  * Removes Spring `@EnableXyz` annotations and adds the corresponding Quarkus extensions as dependencies.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.H2DriverToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/h2drivertoquarkus.md)
+  * **Replace H2 driver with Quarkus JDBC H2**
+  * Migrates `com.h2database:h2` to `io.quarkus:quarkus-jdbc-h2` (excludes test scope).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.H2TestDriverToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/h2testdrivertoquarkus.md)
+  * **Replace H2 test driver with Quarkus JDBC H2 (test scope)**
+  * Migrates `com.h2database:h2` with test scope to `io.quarkus:quarkus-jdbc-h2` with test scope.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateBootStarters](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratebootstarters.md)
+  * **Replace Spring Boot starter dependencies with Quarkus equivalents**
+  * Migrates Spring Boot starter dependencies to their Quarkus equivalents, removing version tags as Quarkus manages versions through its BOM.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateConfigurationProperties](/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateconfigurationproperties.md)
+  * **Migrate @ConfigurationProperties to Quarkus @ConfigMapping**
+  * Migrates Spring Boot @ConfigurationProperties to Quarkus @ConfigMapping. This recipe converts configuration property classes to the native Quarkus pattern.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateDatabaseDrivers](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratedatabasedrivers.md)
+  * **Migrate database drivers to Quarkus JDBC extensions**
+  * Replaces Spring Boot database driver dependencies with their Quarkus JDBC extension equivalents.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateEntitiesToPanache](/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateentitiestopanache.md)
+  * **Migrate JPA Entities to Panache Entities**
+  * Converts standard JPA entities to Quarkus Panache entities using the Active Record pattern. Entities will extend PanacheEntity and gain built-in CRUD operations.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateSpringActuator](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringactuator.md)
+  * **Migrate Spring Boot Actuator to Quarkus Health and Metrics**
+  * Migrates Spring Boot Actuator to Quarkus SmallRye Health and Metrics extensions. Converts HealthIndicator implementations to Quarkus HealthCheck pattern.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateSpringCloudConfig](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudconfig.md)
+  * **Migrate Spring Cloud Config Client to Quarkus Config**
+  * Migrates Spring Cloud Config Client to Quarkus configuration sources. Converts bootstrap.yml/properties patterns to Quarkus config.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateSpringCloudServiceDiscovery](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudservicediscovery.md)
+  * **Migrate Spring Cloud Service Discovery to Quarkus**
+  * Migrates Spring Cloud Service Discovery annotations and configurations to Quarkus equivalents. Converts @EnableDiscoveryClient and related patterns to Quarkus Stork service discovery.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateSpringDataMongodb](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringdatamongodb.md)
+  * **Migrate Spring Data MongoDB to Quarkus Panache MongoDB**
+  * Migrates Spring Data MongoDB repositories to Quarkus MongoDB with Panache. Converts MongoRepository interfaces to PanacheMongoRepository pattern.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateSpringTesting](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringtesting.md)
+  * **Migrate Spring Boot Testing to Quarkus Testing**
+  * Migrates Spring Boot test annotations and utilities to Quarkus test equivalents. Converts @SpringBootTest to @QuarkusTest, @MockBean to @InjectMock, etc.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateSpringTransactional](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringtransactional.md)
+  * **Migrate Spring @Transactional to Jakarta @Transactional**
+  * Migrates Spring's @Transactional annotation to Jakarta's @Transactional. Maps propagation attributes to TxType and removes Spring-specific attributes.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.MigrateSpringValidation](/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringvalidation.md)
+  * **Migrate Spring Validation to Quarkus**
+  * Migrates Spring Boot validation to Quarkus Hibernate Validator. Adds the quarkus-hibernate-validator dependency and handles validation annotation imports.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootActiveMQToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootactivemqtoquarkus.md)
+  * **Replace Spring Boot ActiveMQ with Quarkus Artemis JMS**
+  * Migrates `spring-boot-starter-activemq` to `quarkus-artemis-jms`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootActuatorToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootactuatortoquarkus.md)
+  * **Replace Spring Boot Actuator with Quarkus SmallRye Health**
+  * Migrates `spring-boot-starter-actuator` to `quarkus-smallrye-health`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootAmqpToQuarkusClassic](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootamqptoquarkusclassic.md)
+  * **Replace Spring Boot AMQP with Quarkus Messaging RabbitMQ**
+  * Migrates `spring-boot-starter-amqp` to `quarkus-messaging-rabbitmq` when no reactor dependencies are present.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootAmqpToQuarkusReactive](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootamqptoquarkusreactive.md)
+  * **Replace Spring Boot AMQP with Quarkus Messaging AMQP**
+  * Migrates `spring-boot-starter-amqp` to `quarkus-messaging-amqp` when reactor dependencies are present.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootArtemisToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootartemistoquarkus.md)
+  * **Replace Spring Boot Artemis with Quarkus Artemis JMS**
+  * Migrates `spring-boot-starter-artemis` to `quarkus-artemis-jms`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootBatchToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootbatchtoquarkus.md)
+  * **Replace Spring Boot Batch with Quarkus Scheduler**
+  * Migrates `spring-boot-starter-batch` to `quarkus-scheduler`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootCacheToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootcachetoquarkus.md)
+  * **Replace Spring Boot Cache with Quarkus Cache**
+  * Migrates `spring-boot-starter-cache` to `quarkus-cache`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootDataJpaToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootdatajpatoquarkus.md)
+  * **Replace Spring Boot Data JPA with Quarkus Hibernate ORM Panache**
+  * Migrates `spring-boot-starter-data-jpa` to `quarkus-hibernate-orm-panache`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootDataMongoToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootdatamongotoquarkus.md)
+  * **Replace Spring Boot Data MongoDB with Quarkus MongoDB Panache**
+  * Migrates `spring-boot-starter-data-mongodb` to `quarkus-mongodb-panache`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootDataRedisToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootdataredistoquarkus.md)
+  * **Replace Spring Boot Data Redis with Quarkus Redis Client**
+  * Migrates `spring-boot-starter-data-redis` to `quarkus-redis-client`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootDataRestToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootdataresttoquarkus.md)
+  * **Replace Spring Boot Data REST with Quarkus REST**
+  * Migrates `spring-boot-starter-data-rest` to `quarkus-rest-jackson`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootElasticsearchToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootelasticsearchtoquarkus.md)
+  * **Replace Spring Boot Elasticsearch with Quarkus Elasticsearch REST Client**
+  * Migrates `spring-boot-starter-data-elasticsearch` to `quarkus-elasticsearch-rest-client`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootIntegrationToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootintegrationtoquarkus.md)
+  * **Replace Spring Boot Integration with Camel Quarkus**
+  * Migrates `spring-boot-starter-integration` to `camel-quarkus-core`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootJdbcToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootjdbctoquarkus.md)
+  * **Replace Spring Boot JDBC with Quarkus Agroal**
+  * Migrates `spring-boot-starter-jdbc` to `quarkus-agroal`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootMailToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootmailtoquarkus.md)
+  * **Replace Spring Boot Mail with Quarkus Mailer**
+  * Migrates `spring-boot-starter-mail` to `quarkus-mailer`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootOAuth2ClientToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootoauth2clienttoquarkus.md)
+  * **Replace Spring Boot OAuth2 Client with Quarkus OIDC Client**
+  * Migrates spring-boot-starter-oauth2-client` to `quarkus-oidc-client`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootOAuth2ResourceServerToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootoauth2resourceservertoquarkus.md)
+  * **Replace Spring Boot OAuth2 Resource Server with Quarkus OIDC**
+  * Migrates `spring-boot-starter-oauth2-resource-server` to `quarkus-oidc`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootQuartzToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootquartztoquarkus.md)
+  * **Replace Spring Boot Quartz with Quarkus Quartz**
+  * Migrates `spring-boot-starter-quartz` to `quarkus-quartz`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootsecuritytoquarkus.md)
+  * **Replace Spring Boot Security with Quarkus Security**
+  * Migrates `spring-boot-starter-security` to `quarkus-security`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootTestToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springboottesttoquarkus.md)
+  * **Replace Spring Boot Test with Quarkus JUnit 5**
+  * Migrates `spring-boot-starter-test` to `quarkus-junit5`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootThymeleafToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootthymeleaftoquarkus.md)
+  * **Replace Spring Boot Thymeleaf with Quarkus Qute**
+  * Migrates `spring-boot-starter-thymeleaf` to `quarkus-qute`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.quarkus.spring.SpringBootToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springboottoquarkus.md)
   * **Migrate Spring Boot to Quarkus**
   * Replace Spring Boot with Quarkus.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootValidationToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootvalidationtoquarkus.md)
+  * **Replace Spring Boot Validation with Quarkus Hibernate Validator**
+  * Migrates `spring-boot-starter-validation` to `quarkus-hibernate-validator`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootWebFluxToQuarkusReactive](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootwebfluxtoquarkusreactive.md)
+  * **Replace Spring Boot WebFlux with Quarkus REST Client**
+  * Migrates `spring-boot-starter-webflux` to `quarkus-rest-client-jackson` when reactor dependencies are present.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootWebSocketToQuarkus](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootwebsockettoquarkus.md)
+  * **Replace Spring Boot WebSocket with Quarkus WebSockets**
+  * Migrates `spring-boot-starter-websocket` to `quarkus-websockets`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootWebToQuarkusClassic](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootwebtoquarkusclassic.md)
+  * **Replace Spring Boot Web with Quarkus RESTEasy Classic**
+  * Migrates `spring-boot-starter-web` to `quarkus-resteasy-jackson` when no reactor dependencies are present.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringBootWebToQuarkusReactive](/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootwebtoquarkusreactive.md)
+  * **Replace Spring Boot Web with Quarkus REST**
+  * Migrates `spring-boot-starter-web` to `quarkus-rest-jackson` when reactor dependencies are present.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringKafkaToQuarkusClassic](/user-documentation/recipes/recipe-catalog/quarkus/spring/springkafkatoquarkusclassic.md)
+  * **Replace Spring Kafka with Quarkus Kafka Client**
+  * Migrates `spring-kafka` to `quarkus-kafka-client` when no reactor dependencies are present.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.quarkus.spring.SpringKafkaToQuarkusReactive](/user-documentation/recipes/recipe-catalog/quarkus/spring/springkafkatoquarkusreactive.md)
+  * **Replace Spring Kafka with Quarkus Messaging Kafka**
+  * Migrates `spring-kafka` to `quarkus-messaging-kafka` when reactor dependencies are present.
 
 ##### Data tables:
 
@@ -6354,6 +10700,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-struts
 
+#### [org.openrewrite.java.struts.migrate2.MigrateStruts2](/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestruts2.md)
+  * **Migrate to Struts 2.x from Struts 1.x**
+  * Comprehensive migration from Struts 1.x to Struts 2.x framework.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.struts.migrate6.MigrateStaticOgnlMethodAccess](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestaticognlmethodaccess.md)
   * **Migrate static OGNL method access to action wrapper methods**
   * Migrates OGNL expressions using static method access (e.g., `@com.app.Util@makeCode()`) to use action wrapper methods instead. Static method access is disabled by default in Struts 6 for security reasons.
@@ -6369,7 +10724,17 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.struts.table.StaticOgnlMethodAccess**: *Locations where OGNL expressions use static method access, which is disabled by default in Struts 6.*
+
+
+#### [org.openrewrite.java.struts.migrate6.UpgradeStruts6Dependencies](/user-documentation/recipes/recipe-catalog/java/struts/migrate6/upgradestruts6dependencies.md)
+  * **Upgrade Struts 6.0 dependencies**
+  * Upgrade Struts 2.x dependencies to Struts 6.0.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.struts.migrate7.MigrateStruts7](/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7.md)
@@ -6414,13 +10779,40 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-testing-frameworks
 
+#### [org.openrewrite.java.testing.archunit.ArchUnit0to1Migration](/user-documentation/recipes/recipe-catalog/java/testing/archunit/archunit0to1migration.md)
+  * **ArchUnit 0.x upgrade**
+  * Upgrade ArchUnit from 0.x to 1.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.arquillian.ArquillianJUnit4ToArquillianJUnit5](/user-documentation/recipes/recipe-catalog/java/testing/arquillian/arquillianjunit4toarquillianjunit5.md)
+  * **Use Arquillian JUnit 5 extension**
+  * Migrates Arquillian JUnit 4 to JUnit 5.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.testing.assertj.Assertj](/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertj-best-practices.md)
   * **AssertJ best practices**
   * Migrates JUnit asserts to AssertJ and applies best practices to assertions.
 
 ##### Data tables:
 
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.assertj.FestToAssertj](/user-documentation/recipes/recipe-catalog/java/testing/assertj/festtoassertj.md)
+  * **Migrate Fest 2.x to AssertJ**
+  * AssertJ provides a rich set of assertions, truly helpful error messages, improves test code readability. Converts Fest 2.x imports to AssertJ imports.
+
+##### Data tables:
+
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
@@ -6430,31 +10822,69 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.byteman.BytemanJUnit4ToBytemanJUnit5](/user-documentation/recipes/recipe-catalog/java/testing/byteman/bytemanjunit4tobytemanjunit5.md)
+  * **Use Byteman JUnit 5 dependency**
+  * Migrates Byteman JUnit 4 to JUnit 5.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.datafaker.JavaFakerToDataFaker](/user-documentation/recipes/recipe-catalog/java/testing/datafaker/javafakertodatafaker.md)
+  * **Migrate from Java Faker to Datafaker**
+  * Change imports and dependencies related to Java Faker to Datafaker replacements.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.dbrider.MigrateDbRiderSpringToDbRiderJUnit5](/user-documentation/recipes/recipe-catalog/java/testing/dbrider/migratedbriderspringtodbriderjunit5.md)
+  * **Migrate rider-spring (JUnit4) to rider-junit5 (JUnit5)**
+  * Migrates the DbRider dependency and annotations from `rider-spring` (JUnit 4) to `rider-junit5` (JUnit 5) in a Spring application.
+
+##### Data tables:
+
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.testing.easymock.EasyMockToMockito](/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymocktomockito.md)
   * **Migrate from EasyMock to Mockito**
-  * This recipe will apply changes commonly needed when migrating from EasyMock to Mockito.
+  * Applies changes commonly needed when migrating from EasyMock to Mockito.
 
 ##### Data tables:
 
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.hamcrest.MigrateHamcrestToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/migratehamcresttoassertj.md)
+  * **Migrate Hamcrest assertions to AssertJ**
+  * Migrate Hamcrest `assertThat(..)` to AssertJ `Assertions`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.testing.jmockit.JMockitToMockito](/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockittomockito.md)
   * **Migrate from JMockit to Mockito**
-  * This recipe will apply changes commonly needed when migrating from JMockit to Mockito.
+  * Applies changes commonly needed when migrating from JMockit to Mockito.
 
 ##### Data tables:
 
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.testing.junit.JUnit6BestPractices](/user-documentation/recipes/recipe-catalog/java/testing/junit/junit6bestpractices.md)
   * **JUnit 6 best practices**
-  * Applies best practices to tests.
+  * Migrates JUnit 5 tests to JUnit 6 and applies the JUnit Jupiter best practices.
 
 ##### Data tables:
 
@@ -6467,17 +10897,53 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
 
 
 #### [org.openrewrite.java.testing.junit5.JUnit5BestPractices](/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit5bestpractices.md)
   * **JUnit 5 best practices**
-  * Applies best practices to tests.
+  * Migrates JUnit 4 tests to JUnit 5, upgrades to JUnit 5.14 and applies the JUnit Jupiter best practices.
 
 ##### Data tables:
 
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+
+
+#### [org.openrewrite.java.testing.junit5.UpdateMockWebServer](/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebserver.md)
+  * **OkHttp 3.x `MockWebServer` `@Rule` to 4.x `MockWebServer`**
+  * Replace usages of OkHttp 3.x `@Rule MockWebServer` with 4.x `MockWebServer`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.junit5.UpgradeOkHttpMockWebServer](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradeokhttpmockwebserver.md)
+  * **Use OkHttp 3 MockWebServer for JUnit 5**
+  * Migrates OkHttp 3 `MockWebServer` to enable JUnit Jupiter Extension support.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.junit5.UpgradeToJUnit513](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit513.md)
+  * **Upgrade to JUnit 5.13**
+  * Upgrades JUnit 5 to 5.13.x and replaces the deprecated `ParameterizedTest` placeholder constants with those of `ParameterizedInvocationConstants`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.junit5.UpgradeToJUnit514](/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit514.md)
+  * **Upgrade to JUnit 5.14**
+  * Upgrades JUnit 5 to 5.14.x, including the 5.13 changes, and replaces deprecated types and methods such as `OutputDirectoryProvider` and `DiscoverySelectors.selectClasspathResource(Set)` with their successors.
+
+##### Data tables:
+
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
@@ -6488,11 +10954,48 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.junit5.UseXMLUnitLegacy](/user-documentation/recipes/recipe-catalog/java/testing/junit5/usexmlunitlegacy.md)
+  * **Use XMLUnit legacy for JUnit 5**
+  * Migrates XMLUnit 1.x to XMLUnit legacy 2.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.junit5.VertxUnitToVertxJunit5](/user-documentation/recipes/recipe-catalog/java/testing/junit5/vertxunittovertxjunit5.md)
+  * **Use Vert.x JUnit 5 extension**
+  * Migrates Vert.x `@RunWith` `VertxUnitRunner` to the JUnit Jupiter `@ExtendWith` `VertxExtension`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.testing.junit6.JUnit5to6Migration](/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration.md)
   * **JUnit 6 migration from JUnit 5.x**
   * Migrates JUnit 5.x tests to JUnit 6.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.mockito.AddJUnit4ReplacingPowerMockModule](/user-documentation/recipes/recipe-catalog/java/testing/mockito/addjunit4replacingpowermockmodule.md)
+  * **Add JUnit 4 where the PowerMock JUnit 4 module provided it**
+  * Adds `junit:junit` to modules that use JUnit 4 and depend on `powermock-module-junit4`, which brings JUnit 4 in transitively, so that their tests still compile once the PowerMock dependencies are removed. A module that declares `junit:junit` itself is left as it is.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.mockito.ChangeMockitoAllToMockitoCoreReplacingPowerMock](/user-documentation/recipes/recipe-catalog/java/testing/mockito/changemockitoalltomockitocorereplacingpowermock.md)
+  * **Change `mockito-all` to `mockito-core` along with the Mockito that replaces PowerMock**
+  * Changes a declared `mockito-all` into `mockito-core`, as `mockito-all` is a 1.x-only uber jar with no 3.x release to upgrade to. This runs before the PowerMock dependencies are replaced, so that a module which declared `mockito-all` is seen to declare `mockito-core` and does not get it a second time.
 
 ##### Data tables:
 
@@ -6509,30 +11012,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 
 #### [org.openrewrite.java.testing.mockito.Mockito1to3Migration](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration.md)
-  * **Mockito 3.x migration from 1.x**
+  * **Upgrade Mockito from 1.x to 3.x**
   * Upgrade Mockito from 1.x to 3.x.
 
 ##### Data tables:
 
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.testing.mockito.Mockito1to4Migration](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to4migration.md)
-  * **Mockito 4.x upgrade**
+  * **Upgrade to Mockito 4.x**
   * Upgrade Mockito from 1.x to 4.x.
 
 ##### Data tables:
 
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.testing.mockito.Mockito1to5Migration](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to5migration.md)
-  * **Mockito 5.x upgrade**
+  * **Upgrade to Mockito 5.x**
   * Upgrade Mockito from 1.x to 5.x.
 
 ##### Data tables:
 
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.testing.mockito.Mockito4to5Only](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito4to5only.md)
@@ -6542,6 +11048,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.testing.mockito.MockitoBestPractices](/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitobestpractices.md)
@@ -6551,15 +11058,116 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.mockito.RemovePowerMockDependencies](/user-documentation/recipes/recipe-catalog/java/testing/mockito/removepowermockdependencies.md)
+  * **Swap the PowerMock dependencies for Mockito**
+  * Replaces and then removes the PowerMock dependencies. Usage that cannot be migrated has been commented out by `DisableUnsupportedPowerMockTests`, so no code refers to PowerMock by the time this runs. Leaving PowerMock on the classpath is not an option: it registers its own `MockMaker`, which cannot create the static and construction mocks the migrated tests rely on.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [org.openrewrite.java.testing.mockito.ReplacePowerMockito](/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacepowermockito.md)
   * **Replace PowerMock with raw Mockito**
-  * PowerMockito with raw Mockito; best executed as part of a Mockito upgrade.  Tests that mock, stub or verify private members are disabled rather than migrated. Mockito does not support reaching into private state by design, and a test that depends on it is testing an implementation detail, so the intended follow-up is a review that reworks each one to exercise the type through its public API -- not a like-for-like translation. Each disabled test keeps its original body as a comment for that review, is annotated `@Disabled`, `@Ignore` or TestNG's `@Ignore`, and is listed as an action item in the `PowerMockTestsDisabled` data table. Commenting the body out is what lets the PowerMock dependency be removed, so the rest of the repository moves off PowerMock and its tests keep running: PowerMock registers its own Mockito `MockMaker`, which cannot create the static and construction mocks the migrated tests rely on, so the two cannot share a classpath.
+  * Replace PowerMockito with raw Mockito; best executed as part of a Mockito upgrade.  Tests that mock, stub or verify private members are disabled rather than migrated. Mockito does not support reaching into private state by design, and a test that depends on it is testing an implementation detail, so the intended follow-up is a review that reworks each one to exercise the type through its public API -- not a like-for-like translation. Each disabled test keeps its original body as a comment for that review, is annotated `@Disabled`, `@Ignore` or TestNG's `@Ignore`, and is listed as an action item in the `PowerMockTestsDisabled` data table. Commenting the body out is what lets the PowerMock dependency be removed, so the rest of the repository moves off PowerMock and its tests keep running: PowerMock registers its own Mockito `MockMaker`, which cannot create the static and construction mocks the migrated tests rely on, so the two cannot share a classpath.
 
 ##### Data tables:
 
   * **org.openrewrite.java.testing.mockito.table.PowerMockTestsDisabled**: *Tests disabled because they use a PowerMock feature with no Mockito equivalent. Each row is an action item: rework the test so it does not reach into private members, then re-enable it.*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.mockito.UpgradeMockitoCoreReplacingPowerMock](/user-documentation/recipes/recipe-catalog/java/testing/mockito/upgrademockitocorereplacingpowermock.md)
+  * **Upgrade `mockito-core` along with the Mockito that replaces PowerMock**
+  * Upgrades a declared `mockito-core` to at least the Mockito 3.x that replaces the PowerMock Mockito API. An older `mockito-core` would otherwise take precedence over the one `mockito-inline` depends on, so that `Mockito.mockStatic` and `MockedStatic` do not resolve. A declared `mockito-inline` is upgraded as well, as before 3.4 it depends on a `mockito-core` without `Mockito.mockStatic`. This runs after the PowerMock dependencies are replaced, so that it also upgrades the Mockito artifact that replaces them. A version managed by a BOM, such as the Mockito 3.3 of Spring Boot 2.2 and 2.3, is overridden as well, through its `mockito.version` property where the BOM uses one, so that the other Mockito artifacts it manages stay aligned.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.testcontainers.MigrateToOracleFree](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/migratetooraclefree.md)
+  * **Migrate from `oracle-xe` to `oracle-free`**
+  * Oracle Database Free is the successor of Oracle XE. Migrate from `org.testcontainers:oracle-xe` to `org.testcontainers:oracle-free`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.testcontainers.TestContainersBestPractices](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainersbestpractices.md)
+  * **Testcontainers best practices**
+  * Apply best practices to Testcontainers usage.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.testcontainers.Testcontainers2Dependencies](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2dependencies.md)
+  * **Rename Testcontainers dependencies**
+  * Change Testcontainers dependencies to adopt the new consistent `testcontainers-` prefix.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.testcontainers.Testcontainers2Migration](/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2migration.md)
+  * **Migrate to testcontainers-java 2.x**
+  * Change dependencies and types to migrate to testcontainers-java 2.x.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.testng.TestNgToAssertj](/user-documentation/recipes/recipe-catalog/java/testing/testng/testngtoassertj.md)
+  * **Migrate TestNG assertions to AssertJ**
+  * Convert assertions from `org.testng.Assert` to `org.assertj.core.api.Assertions`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.truth.MigrateTruthToAssertJ](/user-documentation/recipes/recipe-catalog/java/testing/truth/migratetruthtoassertj.md)
+  * **Migrate Google Truth to AssertJ**
+  * Migrate Google Truth assertions to AssertJ assertions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.wiremock.MigrateJettyEE10ToEE11](/user-documentation/recipes/recipe-catalog/java/testing/wiremock/migratejettyee10toee11.md)
+  * **Move Jetty EE10 usages to EE11 alongside `wiremock-jetty12`**
+  * WireMock 3's `wiremock-jetty12` module ran on Jetty's EE10 servlet environment, whereas WireMock 4.x runs on EE11, so EE10 types such as the `ServletContextHandler` handed to `NotFoundHandler` no longer line up. Move EE10 packages and dependencies over to their EE11 counterparts, but only in modules depending on `wiremock-jetty12`, where EE10 arrived through WireMock in the first place.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.wiremock.UpgradeWiremockDependencyVersion](/user-documentation/recipes/recipe-catalog/java/testing/wiremock/upgradewiremockdependencyversion.md)
+  * **Upgrade WireMock to 3.x**
+  * Migrate WireMock dependencies from the old `com.github.tomakehurst` coordinates to the new `org.wiremock` coordinates. WireMock 3.x changed its Maven coordinates and requires Java 11 or higher. Old 2.x versions contain CVE-2023-44487.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.testing.wiremock.Wiremock3to4Migration](/user-documentation/recipes/recipe-catalog/java/testing/wiremock/wiremock3to4migration.md)
+  * **Upgrade WireMock to 4.x**
+  * Upgrade WireMock to 4.x, which requires Java 17, ships Jetty 12.1 by default, splits JUnit support out into separate modules and makes the primary domain classes immutable. Note that `RequestMethod.GET_OR_HEAD` is a multi method matcher in 4.x rather than a method named `GET_OR_HEAD`, so code reading a name off that particular constant needs a look.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 
@@ -6610,6 +11218,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
+
+
+#### [com.oracle.weblogic.rewrite.FacesMigrationToJakartaFaces2x](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/facesmigrationtojakartafaces2x.md)
+  * **JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older**
+  * Jakarta EE 8 uses Faces 2.3 a major upgrade to Jakarta packages and XML namespaces. This recipe will migrate JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
 #### [com.oracle.weblogic.rewrite.JakartaEE9_1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakartaee9_1.md)
@@ -6668,6 +11285,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md)
+  * **Upgrade Jakarta JPA to 3.1 and Hibernate 6.6**
+  * This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10).
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [com.oracle.weblogic.rewrite.UpgradeTo1411](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1411.md)
   * **Migrate to WebLogic 14.1.1**
   * This recipe will apply changes required for migrating to WebLogic 14.1.1
@@ -6699,6 +11325,159 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.java.table.TypeUses**: *The source code of matching type uses.*
 
 
+#### [com.oracle.weblogic.rewrite.WebLogic1412JavaXmlBindMitigation](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogic1412javaxmlbindmitigation.md)
+  * **Mitigation of Java XML Bind Deprecation in Java 11 vs WebLogic 14.1.2**
+  * This recipe will mitigate the Javax XML Bind deprecation in Java 11 vs WebLogic 14.1.2
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.hibernate.AddHibernateOrmCore61](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/addhibernateormcore61.md)
+  * **Add Hibernate ORM Core if has dependencies**
+  * This recipe will add Hibernate ORM Core if has dependencies.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.hibernate.MigrateHibernateToJakartaEE9](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/migratehibernatetojakartaee9.md)
+  * **Migrate to Hibernate for Jakarta EE 9**
+  * Upgrade hibernate libraries to Jakarta EE9 versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.hibernate.UpgradeHibernateTo66](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md)
+  * **Upgrade Hibernate to 6.6**
+  * This recipe upgrades Hibernate to version 6.6, which is compatible with Jakarta EE 10 and JPA 3.1. It also upgrades a few of the commonly used Hibernate add-ons.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.AddJakartaEE9ServletDependencyIfUsingServletContext](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/addjakartaee9servletdependencyifusingservletcontext.md)
+  * **Add Jakarta EE 9 Servlet Dependency**
+  * Add Jakarta EE 9 Servlet Dependency if using jakarta.servlet.ServletContext
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.Faces2xMigrationToJakartaFaces3x](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/faces2xmigrationtojakartafaces3x.md)
+  * **JSF 2.x to Jakarta Server Faces 3.x**
+  * Jakarta EE 9 uses Faces 3.0 a major upgrade to Jakarta packages and XML namespaces.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.JavaxAnnotationMigrationToJakarta9Annotation](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/javaxannotationmigrationtojakarta9annotation.md)
+  * **Migrate deprecated `javax.annotation` to `jakarta.annotation`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.MigrateJavaxMVCToJakartaEE9](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/migratejavaxmvctojakartaee9.md)
+  * **Migrate javax.mvc to 2.0 (Jakarta EE 9)**
+  * Upgrade Jakarta Model-View-Controller libraries to 2.0 (Jakarta EE9) versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.MigrateJavaxWebToJakartaWeb9](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/migratejavaxwebtojakartaweb9.md)
+  * **Migrate javax.javaee-web-api to jakarta.jakartaee-web-api (Jakarta EE 9)**
+  * Update Java EE Web API dependency to Jakarta EE Web Profile API 9.1
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.MigrateTagLibsToJakartaEE9](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/migratetaglibstojakartaee9.md)
+  * **Migrate Tag Libraries to 2.0 (Jakarta EE 9)**
+  * Upgrade Jakarta Standard Tag libraries to 2.0 (Jakarta EE9) versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.OrgGlassfishJavaxElToJakartaEl](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/orgglassfishjavaxeltojakartael.md)
+  * **Migrate deprecated `org.glassfish.javax.el` packages to `jakarta.el`**
+  * Package relocation for rebranded Javax to Jakarta EE.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPersistenceTo31](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto31.md)
+  * **Update Jakarta Persistence to 3.1**
+  * Update Jakarta Persistence to 3.1.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPersistenceTo32](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto32.md)
+  * **Update Jakarta Persistence to 3.2**
+  * Update Jakarta Persistence to 3.2.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPlatform9_1](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartaplatform9_1.md)
+  * **Update Jakarta EE Platform Dependencies to 9.1.0**
+  * Update Jakarta EE Platform Dependencies to 9.1.0
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.UpgradeCommonOpenSourceLibraries](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgradecommonopensourcelibraries.md)
+  * **Upgrade Common open source libraries**
+  * Upgrade Common open source libraries libraries to Jakarta EE9 versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.UpgradeFacesOpenSourceLibraries2](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgradefacesopensourcelibraries2.md)
+  * **Upgrade Faces open source libraries**
+  * Upgrade PrimeFaces, OmniFaces, and MyFaces libraries to Jakarta EE9 versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.jakarta.UpgradeFacesOpenSourceLibraries3](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgradefacesopensourcelibraries3.md)
+  * **Upgrade Faces open source libraries**
+  * Upgrade PrimeFaces, OmniFaces, and MyFaces libraries to Jakarta EE9 versions.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [com.oracle.weblogic.rewrite.jakarta.UpgradeMavenPluginArtifactItems](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgrademavenpluginartifactitems.md)
   * **Upgrade group, artifact ID and version of an artifactItem, of a maven plugin execution configuration**
   * Change the groupId and the artifactId of an artifactItem in the configuration section of a plugin's execution. This recipe does not perform any validation and assumes all values passed are valid.
@@ -6711,6 +11490,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [com.oracle.weblogic.rewrite.jakarta.UpgradeMavenPluginConfigurationArtifacts](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgrademavenpluginconfigurationartifacts.md)
   * **Change artifacts for a Maven plugin configuration**
   * Change artifacts for a Maven plugin configuration artifacts.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.spring.data.UpgradeSpringDataBom](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/data/upgradespringdatabom.md)
+  * **Upgrade Spring Data BOM to 2024.1.x**
+  * Upgrade Spring Data BOM to 2024.1.x version.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [com.oracle.weblogic.rewrite.spring.data.UpgradeSpringDataJpa](/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/data/upgradespringdatajpa.md)
+  * **Upgrade Spring Data JPA to 3.4.6**
+  * Upgrade Spring Data JPA to 3.4.6 version, which is the version used by spring-data-bom v2024.1.x
 
 ##### Data tables:
 
@@ -6747,6 +11544,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [io.quarkus.updates.camel.camel413.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel413/camelquarkusmigrationrecipe.md)
   * **Migrates `camel 4.12` application to `camel 4.13`**
   * Migrates `camel 4.12` Quarkus application to `camel 4.13`.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.camel.camel417.CamelQuarkusMigrationRecipe](/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel417/camelquarkusmigrationrecipe.md)
+  * **Migrates `camel 4.16` application to `camel 4.17`**
+  * Migrates `camel 4.16` Quarkus application to `camel 4.17`.
 
 ##### Data tables:
 
@@ -6978,6 +11784,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.quarkus.updates.core.quarkus30.JavaxToJakartaAdditionalMigration](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxtojakartaadditionalmigration.md)
+  * **io.quarkus.updates.core.quarkus30.JavaxToJakartaAdditionalMigration**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.quarkus.updates.core.quarkus30.JavaxTransactionMigrationToJakartaTransaction](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxtransactionmigrationtojakartatransaction.md)
   * **Migrate deprecated `javax.transaction` packages to `jakarta.transaction`**
   * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
@@ -7104,6 +11919,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.quarkus.updates.core.quarkus311.WebDependencyLocatorRelocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus311/webdependencylocatorrelocations.md)
+  * **io.quarkus.updates.core.quarkus311.WebDependencyLocatorRelocations**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.quarkus.updates.core.quarkus312.SyncHibernateJpaModelgenVersionWithBOM](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus312/synchibernatejpamodelgenversionwithbom.md)
   * **io.quarkus.updates.core.quarkus312.SyncHibernateJpaModelgenVersionWithBOM**
   * 
@@ -7140,6 +11964,51 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.quarkus.updates.core.quarkus325.DevUiSpiRelocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus325/devuispirelocations.md)
+  * **io.quarkus.updates.core.quarkus325.DevUiSpiRelocations**
+  * Rename the Dev UI SPI artifacts quarkus-vertx-http-dev-ui-spi to quarkus-devui-deployment-spi and quarkus-vertx-http-dev-ui-tests to quarkus-devui-test-spi.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus33.GraalVMSubstitutionsArtifact](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus33/graalvmsubstitutionsartifact.md)
+  * **io.quarkus.updates.core.quarkus33.GraalVMSubstitutionsArtifact**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus331.JUnitRelocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/junitrelocations.md)
+  * **io.quarkus.updates.core.quarkus331.JUnitRelocations**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus331.Testcontainers2](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/testcontainers2.md)
+  * **io.quarkus.updates.core.quarkus331.Testcontainers2**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus337.PanacheNextRelocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus337/panachenextrelocations.md)
+  * **io.quarkus.updates.core.quarkus337.PanacheNextRelocations**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.quarkus.updates.core.quarkus339.ReplaceHibernateProcessorAnnotationProcessor](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus339/replacehibernateprocessorannotationprocessor.md)
   * **io.quarkus.updates.core.quarkus339.ReplaceHibernateProcessorAnnotationProcessor**
   * 
@@ -7167,9 +12036,27 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.quarkus.updates.core.quarkus36.JaegerSmallRyeOpenTracing](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus36/jaegersmallryeopentracing.md)
+  * **io.quarkus.updates.core.quarkus36.JaegerSmallRyeOpenTracing**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.quarkus.updates.core.quarkus37.ChangeMavenCompilerAnnotationProcessorGroupIdAndArtifactId](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/changemavencompilerannotationprocessorgroupidandartifactid.md)
   * **Change Maven Compiler plugin annotation processor groupId, artifactId and/or the version**
   * Change the groupId, artifactId and/or the version of a specified Maven Compiler plugin annotation processor.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus37.HibernateSearchOutboxPolling](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/hibernatesearchoutboxpolling.md)
+  * **io.quarkus.updates.core.quarkus37.HibernateSearchOutboxPolling**
+  * 
 
 ##### Data tables:
 
@@ -7187,6 +12074,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.quarkus.updates.core.quarkus37.ReplaceJpaModelgenAnnotationProcessor](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/replacejpamodelgenannotationprocessor.md)
   * **io.quarkus.updates.core.quarkus37.ReplaceJpaModelgenAnnotationProcessor**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus37.ResteasyClientRenaming](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/resteasyclientrenaming.md)
+  * **io.quarkus.updates.core.quarkus37.ResteasyClientRenaming**
   * 
 
 ##### Data tables:
@@ -7230,6 +12126,33 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.quarkus.updates.core.quarkus383.GraalSDK](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus383/graalsdk.md)
+  * **io.quarkus.updates.core.quarkus383.GraalSDK**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus39.GraalSDK](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus39/graalsdk.md)
+  * **io.quarkus.updates.core.quarkus39.GraalSDK**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus39.Relocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus39/relocations.md)
+  * **io.quarkus.updates.core.quarkus39.Relocations**
+  * 
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.quarkus.updates.core.quarkus39.SyncHibernateJpaModelgenVersionWithBOM](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus39/synchibernatejpamodelgenversionwithbom.md)
   * **io.quarkus.updates.core.quarkus39.SyncHibernateJpaModelgenVersionWithBOM**
   * 
@@ -7239,9 +12162,36 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [io.quarkus.updates.core.quarkus40.DroppedRelocations](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/droppedrelocations.md)
+  * **Handle dropped relocations in Quarkus 4.0**
+  * Rename artifacts whose relocations have been dropped in Quarkus 4.0. These relocations were introduced in Quarkus 3.x and are no longer available.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus40.FlywayMongoDBDependencyRename](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/flywaymongodbdependencyrename.md)
+  * **Rename Flyway MongoDB artifact**
+  * Flyway renamed flyway-database-mongodb to flyway-database-nc-mongodb in version 13.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.quarkus.updates.core.quarkus40.Jackson3Migration](/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus40/jackson3migration.md)
+  * **Migrate Jackson from 2.x to 3.x**
+  * Jackson 3.x uses new package names (tools.jackson instead of com.fasterxml.jackson), new group IDs, and includes various API changes. This recipe applies the OpenRewrite Jackson 2 to 3 migration.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [io.quarkus.updates.cxf.cxf339.AddQuarkusJacksonIfUsed](/user-documentation/recipes/recipe-catalog/quarkus/updates/cxf/cxf339/addquarkusjacksonifused.md)
   * **Add quarkus-jackson if Jackson is used**
-  * Adds io.quarkus:quarkus-jackson to applications that use Jackson types in their sources, because quarkus-cxf stopped pulling quarkus-jackson transitively in 3.39.0. The detection is source based only: the dependency is not added when it is already available directly or transitively through another extension. The update tooling applies this recipe only to projects depending on io.quarkiverse.cxf:quarkus-cxf.
+  * Adds io.quarkus:quarkus-jackson to applications that use Jackson types in their sources, because quarkus-cxf stopped pulling quarkus-jackson transitively in 3.39.0. The detection is source based only: the dependency is not added when it is already declared directly. The update tooling applies this recipe only to projects depending on io.quarkiverse.cxf:quarkus-cxf.
 
 ##### Data tables:
 
@@ -7250,7 +12200,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.quarkus.updates.cxf.cxf339.UpdateAll](/user-documentation/recipes/recipe-catalog/quarkus/updates/cxf/cxf339/updateall.md)
   * **Migrate quarkus-cxf to 3.39**
-  * quarkus-cxf 3.39.0 no longer pulls io.quarkus:quarkus-jackson transitively. Adds an explicit quarkus-jackson dependency to applications that use Jackson classes in their sources and do not get the dependency from elsewhere.
+  * quarkus-cxf 3.39.0 no longer pulls io.quarkus:quarkus-jackson transitively. Adds an explicit quarkus-jackson dependency to applications that use Jackson classes in their sources and do not declare it directly.
 
 ##### Data tables:
 
@@ -7800,6 +12750,42 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [sh.stubborn.contract.migration.UpdateDependencies](/user-documentation/recipes/recipe-catalog/sh/stubborn/contract/migration/updatedependencies.md)
   * **Update Spring Cloud Contract coordinates to Stubborn Contract**
   * Replaces org.springframework.cloud:spring-cloud-contract-* GAVs with sh.stubborn:stubborn-* equivalents, migrates the spring-cloud-contract-dependencies BOM, and swaps both build plugins, in Maven and Gradle builds alike. The com.toomuchcoding JSON/XML assertion coordinates are swapped alongside the sh.stubborn.jsonassert / sh.stubborn.xmlassert package renames. Every coordinate is repinned to latest.release.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [software.amazon.awssdk.v2migration.AddS3EventNotificationDependency](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/adds3eventnotificationdependency.md)
+  * **Add AWS SDK for Java v2 S3 Event Notification dependency if needed**
+  * This recipe will add the Java v2 S3 Event Notification dependency if v1 S3EventNotification is used
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [software.amazon.awssdk.v2migration.AddTransferManagerDependency](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/addtransfermanagerdependency.md)
+  * **Add AWS SDK for Java v2 S3 Transfer Manager dependency if needed**
+  * This recipe will add the Java v2 S3 Transfer Manager dependency if v1 Transfer Manager is used
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [software.amazon.awssdk.v2migration.AwsSdkJavaV1ToV2](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/awssdkjavav1tov2.md)
+  * **Migrate from the AWS SDK for Java v1 to the AWS SDK for Java v2**
+  * This recipe will apply changes required for migrating from the AWS SDK for Java v1 to the AWS SDK for Java v2.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [software.amazon.awssdk.v2migration.UpgradeSdkDependencies](/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/upgradesdkdependencies.md)
+  * **Change v1 Maven/Gradle dependencies to v2**
+  * Change v1 Maven/Gradle dependencies to v2.
 
 ##### Data tables:
 

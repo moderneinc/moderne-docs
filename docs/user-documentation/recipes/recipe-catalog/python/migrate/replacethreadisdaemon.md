@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `Thread.isDaemon()` with `Thread.daemon`"}
-  description={"Replace `isDaemon()` method calls with the `daemon` property. Deprecated in Python 3.10, removed in 3.12. Only fires where the receiver's type resolves to `threading.Thread` or a subclass."}
+  description={"Replace `isDaemon()` method calls with the `daemon` property. Deprecated in Python 3.10. Only fires where the receiver's type resolves to `threading.Thread` or a subclass."}
   fqName={"org.openrewrite.python.migrate.ReplaceThreadIsDaemon"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={["python","migration","threading","3.12","3.10"]}
+  tags={["python","migration","threading","3.10"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceThreadIsDaemon"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `Thread.isDaemon()` with `Thread.daemon`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `isDaemon()` method calls with the `daemon` property. Deprecated in Python 3.10, removed in 3.12. Only fires where the receiver's type resolves to `threading.Thread` or a subclass.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `isDaemon()` method calls with the `daemon` property. Deprecated in Python 3.10. Only fires where the receiver's type resolves to `threading.Thread` or a subclass.</RecipeHeader.Description>
 
 </RecipeHeader>
 

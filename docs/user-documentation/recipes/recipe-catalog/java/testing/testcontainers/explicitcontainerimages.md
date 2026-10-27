@@ -1,6 +1,6 @@
 ---
-title: "Explicit container images and versions"
-sidebar_label: "Explicit container images and versions"
+title: "Use explicit container images and versions"
+sidebar_label: "Use explicit container images and versions"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Explicit container images and versions"}
+  displayName={"Use explicit container images and versions"}
   description={"Replace implicit default container images and versions with explicit versions."}
   fqName={"org.openrewrite.java.testing.testcontainers.ExplicitContainerImages"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/explicitcontainerimages.md"}
 >
 
-<RecipeHeader.Title>Explicit container images and versions</RecipeHeader.Title>
+<RecipeHeader.Title>Use explicit container images and versions</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replace implicit default container images and versions with explicit versions.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.testcontainers.ExplicitContainerImages","displayName":"Explicit container images and versions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.testcontainers.ExplicitContainerImages","displayName":"Use explicit container images and versions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

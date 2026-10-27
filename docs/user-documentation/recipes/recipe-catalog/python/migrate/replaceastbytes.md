@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `ast.Bytes` with `ast.Constant`"}
-  description={"The `ast.Bytes` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, bytes)`."}
+  description={"The `ast.Bytes` node type was deprecated in Python 3.8 and removed in Python 3.14. Rename it to `ast.Constant`. An `isinstance` check against `ast.Constant` accepts every constant, and the recipe adds no `isinstance(node.value, bytes)` guard to narrow it."}
   fqName={"org.openrewrite.python.migrate.ReplaceAstBytes"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Python"]}
-  tags={[]}
+  tags={["python","ast","migration","3.14","3.8"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceAstBytes"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `ast.Bytes` with `ast.Constant`</RecipeHeader.Title>
 
-<RecipeHeader.Description>The `ast.Bytes` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, bytes)`.</RecipeHeader.Description>
+<RecipeHeader.Description>The `ast.Bytes` node type was deprecated in Python 3.8 and removed in Python 3.14. Rename it to `ast.Constant`. An `isinstance` check against `ast.Constant` accepts every constant, and the recipe adds no `isinstance(node.value, bytes)` guard to narrow it.</RecipeHeader.Description>
 
 </RecipeHeader>
 

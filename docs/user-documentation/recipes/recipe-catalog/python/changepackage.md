@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<OptionsTable options={[{"type":"String","name":"old_package_name","required":true,"description":"The package/module name to change from.","example":"collections"},{"type":"String","name":"new_package_name","required":true,"description":"The package/module name to change to.","example":"collections.abc"},{"type":"String","name":"recursive","required":false,"description":"When enabled, also rename subpackages."}]}>
+
+## Options
+
+</OptionsTable>
+
 <UsageList usage={{"recipeName":"org.openrewrite.python.ChangePackage","displayName":"Change package","pipPackage":"openrewrite","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_PYTHON"}}>
 
 ## Usage

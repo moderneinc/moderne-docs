@@ -1,6 +1,6 @@
 ---
-title: "Prefer `EnumSet of(..)`"
-sidebar_label: "Prefer `EnumSet of(..)`"
+title: "Prefer `EnumSet.of(..)`"
+sidebar_label: "Prefer `EnumSet.of(..)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `EnumSet of(..)`"}
-  description={"Prefer `EnumSet of(..)` instead of using `Set of(..)` when the arguments are enums in Java 9 or higher."}
+  displayName={"Prefer `EnumSet.of(..)`"}
+  description={"Prefer `EnumSet.of(..)` instead of using `Set.of(..)` when the arguments are enums in Java 9 or higher."}
   fqName={"org.openrewrite.java.migrate.util.UseEnumSetOf"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/useenumsetof.md"}
 >
 
-<RecipeHeader.Title>Prefer `EnumSet of(..)`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `EnumSet.of(..)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `EnumSet of(..)` instead of using `Set of(..)` when the arguments are enums in Java 9 or higher.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `EnumSet.of(..)` instead of using `Set.of(..)` when the arguments are enums in Java 9 or higher.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.util.UseEnumSetOf","displayName":"Prefer `EnumSet of(..)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"convertEmptySet=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.util.UseEnumSetOf","displayName":"Prefer `EnumSet.of(..)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false,"optionalCliOptions":" --recipe-option \"convertEmptySet=true\""}}>
 
 ## Usage
 

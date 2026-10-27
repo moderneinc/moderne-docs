@@ -1,6 +1,6 @@
 ---
-title: "Simplify AssertJ assertions on SequencedCollection"
-sidebar_label: "Simplify AssertJ assertions on SequencedCollection"
+title: "Simplify AssertJ assertions on `SequencedCollection`"
+sidebar_label: "Simplify AssertJ assertions on `SequencedCollection`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Simplify AssertJ assertions on SequencedCollection"}
-  description={"Simplify AssertJ assertions on SequencedCollection by using dedicated assertion methods. For example, `assertThat(sequencedCollection.getLast())` can be simplified to `assertThat(sequencedCollection).last()`."}
+  displayName={"Simplify AssertJ assertions on `SequencedCollection`"}
+  description={"Simplify AssertJ assertions on `SequencedCollection` by using dedicated assertion methods. For example, `assertThat(sequencedCollection.getLast())` can be simplified to `assertThat(sequencedCollection).last()`."}
   fqName={"org.openrewrite.java.testing.assertj.SimplifySequencedCollectionAssertions"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifysequencedcollectionassertions.md"}
 >
 
-<RecipeHeader.Title>Simplify AssertJ assertions on SequencedCollection</RecipeHeader.Title>
+<RecipeHeader.Title>Simplify AssertJ assertions on `SequencedCollection`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Simplify AssertJ assertions on SequencedCollection by using dedicated assertion methods. For example, `assertThat(sequencedCollection.getLast())` can be simplified to `assertThat(sequencedCollection).last()`.</RecipeHeader.Description>
+<RecipeHeader.Description>Simplify AssertJ assertions on `SequencedCollection` by using dedicated assertion methods. For example, `assertThat(sequencedCollection.getLast())` can be simplified to `assertThat(sequencedCollection).last()`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifySequencedCollectionAssertions","displayName":"Simplify AssertJ assertions on SequencedCollection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifySequencedCollectionAssertions","displayName":"Simplify AssertJ assertions on `SequencedCollection`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

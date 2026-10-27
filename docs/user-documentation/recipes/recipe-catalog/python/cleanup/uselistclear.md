@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `del x[:]` with `x.clear()`"}
-  description={"Use `.clear()` instead of `del x[:]` to empty a list. The method call is more explicit and idiomatic. Only a receiver whose type resolves to `list` or `bytearray` is rewritten, since `del x[:]` raises on a dict or deque that `.clear()` would empty."}
+  description={"Use `.clear()` instead of `del x[:]` to empty a list. The method call is more explicit and idiomatic. Only a receiver whose type resolves to `list` or `bytearray` is rewritten, since `del x[:]` raises on a dict or deque that `.clear()` would empty. A statement holding comments is left alone."}
   fqName={"org.openrewrite.python.cleanup.UseListClear"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `del x[:]` with `x.clear()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Use `.clear()` instead of `del x[:]` to empty a list. The method call is more explicit and idiomatic. Only a receiver whose type resolves to `list` or `bytearray` is rewritten, since `del x[:]` raises on a dict or deque that `.clear()` would empty.</RecipeHeader.Description>
+<RecipeHeader.Description>Use `.clear()` instead of `del x[:]` to empty a list. The method call is more explicit and idiomatic. Only a receiver whose type resolves to `list` or `bytearray` is rewritten, since `del x[:]` raises on a dict or deque that `.clear()` would empty. A statement holding comments is left alone.</RecipeHeader.Description>
 
 </RecipeHeader>
 

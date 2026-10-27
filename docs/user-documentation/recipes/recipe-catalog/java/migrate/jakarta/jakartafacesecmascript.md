@@ -1,6 +1,6 @@
 ---
-title: "Migrate JSF values inside EcmaScript files"
-sidebar_label: "Migrate JSF values inside EcmaScript files"
+title: "Migrate JSF values inside ECMAScript files"
+sidebar_label: "Migrate JSF values inside ECMAScript files"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate JSF values inside EcmaScript files"}
-  description={"Convert JSF to Faces values inside JavaScript,TypeScript, and Properties files."}
+  displayName={"Migrate JSF values inside ECMAScript files"}
+  description={"Convert JSF to Faces values inside JavaScript, TypeScript, and properties files."}
   fqName={"org.openrewrite.java.migrate.jakarta.JakartaFacesEcmaScript"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,19 +31,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartafacesecmascript.md"}
 >
 
-<RecipeHeader.Title>Migrate JSF values inside EcmaScript files</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate JSF values inside ECMAScript files</RecipeHeader.Title>
 
-<RecipeHeader.Description>Convert JSF to Faces values inside JavaScript,TypeScript, and Properties files.</RecipeHeader.Description>
+<RecipeHeader.Description>Convert JSF to Faces values inside JavaScript, TypeScript, and properties files.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JakartaFacesEcmaScript","displayName":"Migrate JSF values inside EcmaScript files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JakartaFacesEcmaScript","displayName":"Migrate JSF values inside ECMAScript files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

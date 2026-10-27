@@ -1,6 +1,6 @@
 ---
-title: "Remove Security AccessController"
-sidebar_label: "Remove Security AccessController"
+title: "Remove `AccessController.checkPermission(..)` calls"
+sidebar_label: "Remove `AccessController.checkPermission(..)` calls"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove Security AccessController"}
-  description={"The Security Manager API is unsupported in Java 24. This recipe will remove the usage of `java.security.AccessController`."}
+  displayName={"Remove `AccessController.checkPermission(..)` calls"}
+  description={"The Security Manager API is unsupported in Java 24. This recipe removes calls to `java.security.AccessController#checkPermission(..)`."}
   fqName={"org.openrewrite.java.migrate.AccessController"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/accesscontroller.md"}
 >
 
-<RecipeHeader.Title>Remove Security AccessController</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `AccessController.checkPermission(..)` calls</RecipeHeader.Title>
 
-<RecipeHeader.Description>The Security Manager API is unsupported in Java 24. This recipe will remove the usage of `java.security.AccessController`.</RecipeHeader.Description>
+<RecipeHeader.Description>The Security Manager API is unsupported in Java 24. This recipe removes calls to `java.security.AccessController#checkPermission(..)`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AccessController","displayName":"Remove Security AccessController","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AccessController","displayName":"Remove `AccessController.checkPermission(..)` calls","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

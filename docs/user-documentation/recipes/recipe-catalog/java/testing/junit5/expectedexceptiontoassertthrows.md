@@ -1,6 +1,6 @@
 ---
-title: "JUnit 4 `ExpectedException` To JUnit Jupiter's `assertThrows()`"
-sidebar_label: "JUnit 4 `ExpectedException` To JUnit Jupiter's `assertThrows()`"
+title: "JUnit 4 `ExpectedException` to JUnit Jupiter's `assertThrows()`"
+sidebar_label: "JUnit 4 `ExpectedException` to JUnit Jupiter's `assertThrows()`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"JUnit 4 `ExpectedException` To JUnit Jupiter's `assertThrows()`"}
+  displayName={"JUnit 4 `ExpectedException` to JUnit Jupiter's `assertThrows()`"}
   description={"Replace usages of JUnit 4's `@Rule ExpectedException` with JUnit 5's `Assertions.assertThrows()`."}
   fqName={"org.openrewrite.java.testing.junit5.ExpectedExceptionToAssertThrows"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/expectedexceptiontoassertthrows.md"}
 >
 
-<RecipeHeader.Title>JUnit 4 `ExpectedException` To JUnit Jupiter's `assertThrows()`</RecipeHeader.Title>
+<RecipeHeader.Title>JUnit 4 `ExpectedException` to JUnit Jupiter's `assertThrows()`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replace usages of JUnit 4's `@Rule ExpectedException` with JUnit 5's `Assertions.assertThrows()`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.ExpectedExceptionToAssertThrows","displayName":"JUnit 4 `ExpectedException` To JUnit Jupiter's `assertThrows()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.ExpectedExceptionToAssertThrows","displayName":"JUnit 4 `ExpectedException` to JUnit Jupiter's `assertThrows()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

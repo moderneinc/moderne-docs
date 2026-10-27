@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>1.0.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.springframework.cloud</groupId>\n                <artifactId>spring-cloud-contract-maven-plugin</artifactId>\n                <version>4.1.4</version>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n"},"variants":[]},{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>1.0.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.springframework.cloud</groupId>\n                <artifactId>spring-cloud-contract-maven-plugin</artifactId>\n                <version>4.1.4</version>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"sh.stubborn.contract.migration.MigrateFromSpringCloudContract","displayName":"Migrate from Spring Cloud Contract to Stubborn Contract","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Properly use declaration-site type variance"}
-  description={"Currently, Java requires use-site type variance, so if someone has `Function<IN, OUT>` method parameter, it should rather be `Function<? super IN, ? extends OUT>`. Unfortunately, it is not easy to notice that `? super` and `? extends` is missing, so this recipe adds it where that would improve the situation."}
+  description={"Java requires use-site type variance, so a `Function<IN, OUT>` method parameter should rather be `Function<? super IN, ? extends OUT>`. It is easy to miss that `? super` and `? extends` are absent, so this recipe adds them where that improves the situation."}
   fqName={"org.openrewrite.staticanalysis.DeclarationSiteTypeVariance"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Properly use declaration-site type variance</RecipeHeader.Title>
 
-<RecipeHeader.Description>Currently, Java requires use-site type variance, so if someone has `Function<IN, OUT>` method parameter, it should rather be `Function<? super IN, ? extends OUT>`. Unfortunately, it is not easy to notice that `? super` and `? extends` is missing, so this recipe adds it where that would improve the situation.</RecipeHeader.Description>
+<RecipeHeader.Description>Java requires use-site type variance, so a `Function<IN, OUT>` method parameter should rather be `Function<? super IN, ? extends OUT>`. It is easy to miss that `? super` and `? extends` are absent, so this recipe adds them where that improves the situation.</RecipeHeader.Description>
 
 </RecipeHeader>
 

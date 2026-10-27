@@ -1,6 +1,6 @@
 ---
-title: "`@Entity` objects with constructors must also have a default constructor"
-sidebar_label: "`@Entity` objects with constructors must also have a default constructor"
+title: "Add a default constructor to `@Entity` and `@MappedSuperclass` classes"
+sidebar_label: "Add a default constructor to `@Entity` and `@MappedSuperclass` classes"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"`@Entity` objects with constructors must also have a default constructor"}
+  displayName={"Add a default constructor to `@Entity` and `@MappedSuperclass` classes"}
   description={"When a Java Persistence API (JPA) entity class has a constructor with arguments, the class must also have a default, no-argument constructor. The OpenJPA implementation automatically generates the no-argument constructor, but the EclipseLink implementation does not."}
   fqName={"org.openrewrite.java.migrate.javax.AddDefaultConstructorToEntityClass"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/adddefaultconstructortoentityclass.md"}
 >
 
-<RecipeHeader.Title>`@Entity` objects with constructors must also have a default constructor</RecipeHeader.Title>
+<RecipeHeader.Title>Add a default constructor to `@Entity` and `@MappedSuperclass` classes</RecipeHeader.Title>
 
 <RecipeHeader.Description>When a Java Persistence API (JPA) entity class has a constructor with arguments, the class must also have a default, no-argument constructor. The OpenJPA implementation automatically generates the no-argument constructor, but the EclipseLink implementation does not.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddDefaultConstructorToEntityClass","displayName":"`@Entity` objects with constructors must also have a default constructor","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddDefaultConstructorToEntityClass","displayName":"Add a default constructor to `@Entity` and `@MappedSuperclass` classes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

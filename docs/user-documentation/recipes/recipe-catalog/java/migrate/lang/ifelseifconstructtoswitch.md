@@ -1,6 +1,6 @@
 ---
-title: "If-else-if-else to switch"
-sidebar_label: "If-else-if-else to switch"
+title: "Replace if-else-if-else with switch"
+sidebar_label: "Replace if-else-if-else with switch"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"If-else-if-else to switch"}
+  displayName={"Replace if-else-if-else with switch"}
   description={"Replace if-else-if-else with switch statements. In order to be replaced with a switch, all conditions must be on the same variable and there must be at least three cases."}
   fqName={"org.openrewrite.java.migrate.lang.IfElseIfConstructToSwitch"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/ifelseifconstructtoswitch.md"}
 >
 
-<RecipeHeader.Title>If-else-if-else to switch</RecipeHeader.Title>
+<RecipeHeader.Title>Replace if-else-if-else with switch</RecipeHeader.Title>
 
 <RecipeHeader.Description>Replace if-else-if-else with switch statements. In order to be replaced with a switch, all conditions must be on the same variable and there must be at least three cases.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.IfElseIfConstructToSwitch","displayName":"If-else-if-else to switch","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.IfElseIfConstructToSwitch","displayName":"Replace if-else-if-else with switch","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

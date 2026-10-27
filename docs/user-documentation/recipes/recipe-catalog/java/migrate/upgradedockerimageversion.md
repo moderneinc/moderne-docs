@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade Docker image Java version"}
-  description={"Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including eclipse-temurin, amazoncorretto, azul/zulu-openjdk, and others. Also migrates deprecated images (openjdk, adoptopenjdk) to eclipse-temurin, preserving any tag suffix such as `-jre-alpine`. When a `FROM` is built from a build argument, the default value of the corresponding global `ARG` is upgraded instead, such that `ARG java_version=17` used as `FROM eclipse-temurin:${java_version}` becomes `ARG java_version=25`. Image references built from arguments without a default value are left untouched, as their value can not be determined statically. A digest pin is dropped when the tag is upgraded, as the stale digest would otherwise keep resolving to the old image."}
+  description={"Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including `eclipse-temurin`, `amazoncorretto`, `azul/zulu-openjdk`, and others. Also migrates deprecated images (`openjdk`, `adoptopenjdk`) to `eclipse-temurin`, preserving any tag suffix such as `-jre-alpine`. A pinned patch or update version is dropped, as in `17.0.9_9-jdk` becoming `25-jdk`, as images are not published for that patch of the new version. When a `FROM` is built from a build argument, the default value of the corresponding global `ARG` is upgraded instead, such that `ARG java_version=17` used as `FROM eclipse-temurin:${java_version}` becomes `ARG java_version=25`. Image references built from arguments without a default value are left untouched, as their value can not be determined statically. A digest pin is dropped when the tag is upgraded, as the stale digest would otherwise keep resolving to the old image."}
   fqName={"org.openrewrite.java.migrate.UpgradeDockerImageVersion"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade Docker image Java version</RecipeHeader.Title>
 
-<RecipeHeader.Description>Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including eclipse-temurin, amazoncorretto, azul/zulu-openjdk, and others. Also migrates deprecated images (openjdk, adoptopenjdk) to eclipse-temurin, preserving any tag suffix such as `-jre-alpine`. When a `FROM` is built from a build argument, the default value of the corresponding global `ARG` is upgraded instead, such that `ARG java_version=17` used as `FROM eclipse-temurin:${java_version}` becomes `ARG java_version=25`. Image references built from arguments without a default value are left untouched, as their value can not be determined statically. A digest pin is dropped when the tag is upgraded, as the stale digest would otherwise keep resolving to the old image.</RecipeHeader.Description>
+<RecipeHeader.Description>Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including `eclipse-temurin`, `amazoncorretto`, `azul/zulu-openjdk`, and others. Also migrates deprecated images (`openjdk`, `adoptopenjdk`) to `eclipse-temurin`, preserving any tag suffix such as `-jre-alpine`. A pinned patch or update version is dropped, as in `17.0.9_9-jdk` becoming `25-jdk`, as images are not published for that patch of the new version. When a `FROM` is built from a build argument, the default value of the corresponding global `ARG` is upgraded instead, such that `ARG java_version=17` used as `FROM eclipse-temurin:${java_version}` becomes `ARG java_version=25`. Image references built from arguments without a default value are left untouched, as their value can not be determined statically. A digest pin is dropped when the tag is upgraded, as the stale digest would otherwise keep resolving to the old image.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -42,6 +42,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 ## Options
 
 </OptionsTable>
+
+<ExampleList examples={[{"parameters":[{"parameter":"version","value":"25"}],"variants":[{"language":"docker","before":"FROM maven:3.9.9-eclipse-temurin-23 AS builder","after":"FROM maven:3.9-eclipse-temurin-25 AS builder","diff":"@@ -1,1 +1,1 @@\n-FROM maven:3.9.9-eclipse-temurin-23 AS builder\n+FROM maven:3.9-eclipse-temurin-25 AS builder\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.UpgradeDockerImageVersion","displayName":"Upgrade Docker image Java version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=11\""}}>
 

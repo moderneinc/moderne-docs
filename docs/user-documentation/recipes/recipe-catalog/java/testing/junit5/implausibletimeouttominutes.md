@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Make implausibly long `@Timeout` values explicit in minutes"}
-  description={"JUnit Jupiter's `@Timeout` defaults to `TimeUnit.SECONDS`, so a value such as `@Timeout(10000)` is interpreted as almost three hours, which is most likely a mistake where milliseconds were intended. This recipe rewrites such implausibly large second-based timeouts to the equivalent number of minutes, for instance `@Timeout(value = 167, unit = TimeUnit.MINUTES)`, preserving the original (likely erroneous) semantics while making the mistake far more visible for review."}
+  description={"JUnit Jupiter's `@Timeout` defaults to `TimeUnit.SECONDS`, so a value such as `@Timeout(7200)` is interpreted as two hours, which is most likely a mistake where milliseconds were intended. This recipe rewrites such implausibly large second-based timeouts to the equivalent number of minutes, for instance `@Timeout(value = 120, unit = TimeUnit.MINUTES)`, preserving the original (likely erroneous) semantics while making the mistake far more visible for review. Other attributes such as `threadMode` are kept, and values that are not a whole number of minutes are left unchanged, since rounding them would change the timeout."}
   fqName={"org.openrewrite.java.testing.junit5.ImplausibleTimeoutToMinutes"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,17 +33,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Make implausibly long `@Timeout` values explicit in minutes</RecipeHeader.Title>
 
-<RecipeHeader.Description>JUnit Jupiter's `@Timeout` defaults to `TimeUnit.SECONDS`, so a value such as `@Timeout(10000)` is interpreted as almost three hours, which is most likely a mistake where milliseconds were intended. This recipe rewrites such implausibly large second-based timeouts to the equivalent number of minutes, for instance `@Timeout(value = 167, unit = TimeUnit.MINUTES)`, preserving the original (likely erroneous) semantics while making the mistake far more visible for review.</RecipeHeader.Description>
+<RecipeHeader.Description>JUnit Jupiter's `@Timeout` defaults to `TimeUnit.SECONDS`, so a value such as `@Timeout(7200)` is interpreted as two hours, which is most likely a mistake where milliseconds were intended. This recipe rewrites such implausibly large second-based timeouts to the equivalent number of minutes, for instance `@Timeout(value = 120, unit = TimeUnit.MINUTES)`, preserving the original (likely erroneous) semantics while making the mistake far more visible for review. Other attributes such as `threadMode` are kept, and values that are not a whole number of minutes are left unchanged, since rounding them would change the timeout.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"Integer","name":"thresholdSeconds","required":false,"description":"Timeouts of at least this many seconds (when the time unit is the default `SECONDS`) are considered implausibly long and are rewritten to the equivalent number of minutes. Defaults to `1000` seconds, about 17 minutes.","example":"1000"}]}>
+<OptionsTable options={[{"type":"Integer","name":"thresholdSeconds","required":false,"description":"Timeouts of at least this many seconds (when the time unit is the default `SECONDS`) are considered implausibly long and are rewritten to the equivalent number of minutes, when they are a whole number of minutes. Defaults to `1000` seconds, about 17 minutes.","example":"1000"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"thresholdSeconds","value":"null"}],"variants":[{"language":"java","before":"import org.junit.jupiter.api.Timeout;\n\nclass MyTest {\n    @Timeout(10000)\n    void test() {\n    }\n}\n","after":"import org.junit.jupiter.api.Timeout;\n\nimport java.util.concurrent.TimeUnit;\n\nclass MyTest {\n    @Timeout(value = 167, unit = TimeUnit.MINUTES)\n    void test() {\n    }\n}\n","diff":"@@ -3,0 +3,2 @@\nimport org.junit.jupiter.api.Timeout;\n\n+import java.util.concurrent.TimeUnit;\n+\nclass MyTest {\n@@ -4,1 +6,1 @@\n\nclass MyTest {\n-   @Timeout(10000)\n+   @Timeout(value = 167, unit = TimeUnit.MINUTES)\n    void test() {\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"thresholdSeconds","value":"null"}],"variants":[{"language":"java","before":"import org.junit.jupiter.api.Timeout;\n\nclass MyTest {\n    @Timeout(7200)\n    void test() {\n    }\n}\n","after":"import org.junit.jupiter.api.Timeout;\n\nimport java.util.concurrent.TimeUnit;\n\nclass MyTest {\n    @Timeout(value = 120, unit = TimeUnit.MINUTES)\n    void test() {\n    }\n}\n","diff":"@@ -3,0 +3,2 @@\nimport org.junit.jupiter.api.Timeout;\n\n+import java.util.concurrent.TimeUnit;\n+\nclass MyTest {\n@@ -4,1 +6,1 @@\n\nclass MyTest {\n-   @Timeout(7200)\n+   @Timeout(value = 120, unit = TimeUnit.MINUTES)\n    void test() {\n","newFile":false}]}]}>
 
 ## Examples
 

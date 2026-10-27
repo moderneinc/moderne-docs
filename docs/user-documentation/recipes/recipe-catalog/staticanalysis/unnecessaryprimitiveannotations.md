@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove `@Nullable` and `@CheckForNull` annotations from primitives"}
-  description={"Primitives can't be null anyway, so these annotations are not useful in this context. Leaving them in place gives the false impression that a null value is possible, which can confuse readers and static analysis tools alike."}
+  description={"Primitives can't be null anyway, so the `javax.annotation.Nullable` and `javax.annotation.CheckForNull` annotations are not useful in this context. Leaving them in place gives the false impression that a null value is possible, which can confuse readers and static analysis tools alike."}
   fqName={"org.openrewrite.staticanalysis.UnnecessaryPrimitiveAnnotations"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove `@Nullable` and `@CheckForNull` annotations from primitives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Primitives can't be null anyway, so these annotations are not useful in this context. Leaving them in place gives the false impression that a null value is possible, which can confuse readers and static analysis tools alike.</RecipeHeader.Description>
+<RecipeHeader.Description>Primitives can't be null anyway, so the `javax.annotation.Nullable` and `javax.annotation.CheckForNull` annotations are not useful in this context. Leaving them in place gives the false impression that a null value is possible, which can confuse readers and static analysis tools alike.</RecipeHeader.Description>
 
 </RecipeHeader>
 

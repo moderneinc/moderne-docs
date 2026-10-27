@@ -1,6 +1,6 @@
 ---
-title: "Unannotated collection attributes require a Transient annotation"
-sidebar_label: "Unannotated collection attributes require a Transient annotation"
+title: "Add `@Transient` to unannotated collection attributes"
+sidebar_label: "Add `@Transient` to unannotated collection attributes"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Unannotated collection attributes require a Transient annotation"}
+  displayName={"Add `@Transient` to unannotated collection attributes"}
   description={"In OpenJPA, attributes that inherit from the `java.util.Collection<E>` interface are not a default persistent type, so these attributes are not persisted unless they are annotated. EclipseLink has a different default behavior and attempts to persist these attributes to the database. To keep the OpenJPA behavior of ignoring unannotated collection attributes, add the `javax.persistence.Transient` annotation to these attributes in EclipseLink."}
   fqName={"org.openrewrite.java.migrate.javax.AddTransientAnnotationToCollections"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtransientannotationtocollections.md"}
 >
 
-<RecipeHeader.Title>Unannotated collection attributes require a Transient annotation</RecipeHeader.Title>
+<RecipeHeader.Title>Add `@Transient` to unannotated collection attributes</RecipeHeader.Title>
 
 <RecipeHeader.Description>In OpenJPA, attributes that inherit from the `java.util.Collection<E>` interface are not a default persistent type, so these attributes are not persisted unless they are annotated. EclipseLink has a different default behavior and attempts to persist these attributes to the database. To keep the OpenJPA behavior of ignoring unannotated collection attributes, add the `javax.persistence.Transient` annotation to these attributes in EclipseLink.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddTransientAnnotationToCollections","displayName":"Unannotated collection attributes require a Transient annotation","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddTransientAnnotationToCollections","displayName":"Add `@Transient` to unannotated collection attributes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

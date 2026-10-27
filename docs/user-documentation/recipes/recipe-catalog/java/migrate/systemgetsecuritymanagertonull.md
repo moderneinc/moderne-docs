@@ -37,11 +37,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Replace method invocation with constant","href":"/user-documentation/recipes/recipe-catalog/java/replacemethodinvocationwithconstant/"},{"name":"Simplify the removed security manager's thread group fallback","href":"/user-documentation/recipes/recipe-catalog/java/migrate/simplifysecuritymanagerthreadgroup/"},{"name":"Simplify constant if branch execution","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconstantifbranchexecution/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Replace method invocation with constant","href":"/user-documentation/recipes/recipe-catalog/java/replacemethodinvocationwithconstant/"},{"name":"Simplify the removed security manager's thread group fallback","href":"/user-documentation/recipes/recipe-catalog/java/migrate/simplifysecuritymanagerthreadgroup/"},{"name":"Simplify constant `if` branch execution","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconstantifbranchexecution/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
 </RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    ThreadGroup group;\n    Test() {\n        SecurityManager s = System.getSecurityManager();\n        group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();\n    }\n}\n","after":"class Test {\n    ThreadGroup group;\n    Test() {\n        group = Thread.currentThread().getThreadGroup();\n    }\n}\n","diff":"@@ -4,2 +4,1 @@\n    ThreadGroup group;\n    Test() {\n-       SecurityManager s = System.getSecurityManager();\n-       group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();\n+       group = Thread.currentThread().getThreadGroup();\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"class Test {\n    ThreadGroup group;\n    Test() {\n        SecurityManager s = System.getSecurityManager();\n        group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();\n    }\n}\n","after":"class Test {\n    ThreadGroup group;\n    Test() {\n        group = Thread.currentThread().getThreadGroup();\n    }\n}\n","diff":"@@ -4,2 +4,1 @@\n    ThreadGroup group;\n    Test() {\n-       SecurityManager s = System.getSecurityManager();\n-       group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();\n+       group = Thread.currentThread().getThreadGroup();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.SystemGetSecurityManagerToNull","displayName":"Replace `System.getSecurityManager()` with `null`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

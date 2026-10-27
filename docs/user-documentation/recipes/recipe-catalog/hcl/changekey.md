@@ -37,13 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"oldKeyPath","required":true,"description":"A JSONPath expression locating the attribute to rename.","example":"$.resource.name"},{"type":"String","name":"newKey","required":true,"description":"The new name of the attribute selected by `oldKeyPath`.","example":"db_name"}]}>
+<OptionsTable options={[{"type":"String","name":"oldKeyPath","required":true,"description":"A JSONPath expression locating the attribute to rename.","example":"$.resource.aws_db_instance.name"},{"type":"String","name":"newKey","required":true,"description":"The new name of the attribute selected by `oldKeyPath`.","example":"db_name"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<UsageList usage={{"recipeName":"org.openrewrite.hcl.ChangeKey","displayName":"Change key","groupId":"org.openrewrite","artifactId":"rewrite-hcl","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_HCL","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldKeyPath=$.resource.name\" --recipe-option \"newKey=db_name\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.hcl.ChangeKey","displayName":"Change key","groupId":"org.openrewrite","artifactId":"rewrite-hcl","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_HCL","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldKeyPath=$.resource.aws_db_instance.name\" --recipe-option \"newKey=db_name\""}}>
 
 ## Usage
 

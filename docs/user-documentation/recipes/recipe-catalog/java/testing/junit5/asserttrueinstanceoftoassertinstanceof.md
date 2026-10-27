@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"`assertTrue(x instanceof y)` to `assertInstanceOf(y.class, x)`"}
-  description={"Migration of JUnit4 (or potentially JUnit5) test case in form of assertTrue(x instanceof y) to assertInstanceOf(y.class, x)."}
+  description={"Migrate JUnit 4 (or JUnit 5) assertions in the form of `assertTrue(x instanceof y)` to `assertInstanceOf(y.class, x)`."}
   fqName={"org.openrewrite.java.testing.junit5.AssertTrueInstanceofToAssertInstanceOf"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>`assertTrue(x instanceof y)` to `assertInstanceOf(y.class, x)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migration of JUnit4 (or potentially JUnit5) test case in form of assertTrue(x instanceof y) to assertInstanceOf(y.class, x).</RecipeHeader.Description>
+<RecipeHeader.Description>Migrate JUnit 4 (or JUnit 5) assertions in the form of `assertTrue(x instanceof y)` to `assertInstanceOf(y.class, x)`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

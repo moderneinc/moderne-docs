@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Use modernized `java.util.concurrent` APIs"}
-  description={"The Java concurrent APIs were updated in Java 9 and those changes resulted in certain APIs being deprecated. This recipe update an application to replace the deprecated APIs with their modern alternatives."}
+  description={"The Java concurrent APIs were updated in Java 9 and those changes resulted in certain APIs being deprecated. This recipe updates an application to replace the deprecated APIs with their modern alternatives."}
   fqName={"org.openrewrite.java.migrate.concurrent.JavaConcurrentAPIs"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Use modernized `java.util.concurrent` APIs</RecipeHeader.Title>
 
-<RecipeHeader.Description>The Java concurrent APIs were updated in Java 9 and those changes resulted in certain APIs being deprecated. This recipe update an application to replace the deprecated APIs with their modern alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>The Java concurrent APIs were updated in Java 9 and those changes resulted in certain APIs being deprecated. This recipe updates an application to replace the deprecated APIs with their modern alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

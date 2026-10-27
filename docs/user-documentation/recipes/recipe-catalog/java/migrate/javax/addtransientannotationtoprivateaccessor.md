@@ -1,6 +1,6 @@
 ---
-title: "Private accessor methods must have a `@Transient` annotation"
-sidebar_label: "Private accessor methods must have a `@Transient` annotation"
+title: "Add `@Transient` to private accessor methods"
+sidebar_label: "Add `@Transient` to private accessor methods"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Private accessor methods must have a `@Transient` annotation"}
+  displayName={"Add `@Transient` to private accessor methods"}
   description={"According to the JPA 2.1 specification, when property access is used, the property accessor methods must be public or protected. OpenJPA ignores any private accessor methods, whereas EclipseLink persists those attributes. To ignore private accessor methods in EclipseLink, the methods must have a `@Transient` annotation."}
   fqName={"org.openrewrite.java.migrate.javax.AddTransientAnnotationToPrivateAccessor"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtransientannotationtoprivateaccessor.md"}
 >
 
-<RecipeHeader.Title>Private accessor methods must have a `@Transient` annotation</RecipeHeader.Title>
+<RecipeHeader.Title>Add `@Transient` to private accessor methods</RecipeHeader.Title>
 
 <RecipeHeader.Description>According to the JPA 2.1 specification, when property access is used, the property accessor methods must be public or protected. OpenJPA ignores any private accessor methods, whereas EclipseLink persists those attributes. To ignore private accessor methods in EclipseLink, the methods must have a `@Transient` annotation.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddTransientAnnotationToPrivateAccessor","displayName":"Private accessor methods must have a `@Transient` annotation","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddTransientAnnotationToPrivateAccessor","displayName":"Add `@Transient` to private accessor methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

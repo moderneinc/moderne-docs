@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import javax.swing.JDialog;\nimport javax.swing.JFrame;\n\nclass Test {\n    void toggle(JFrame frame, JDialog dialog, boolean visible) {\n        frame.show();\n        dialog.show();\n        frame.show(visible);\n        dialog.hide();\n    }\n}\n","after":"import javax.swing.JDialog;\nimport javax.swing.JFrame;\n\nclass Test {\n    void toggle(JFrame frame, JDialog dialog, boolean visible) {\n        frame.setVisible(true);\n        dialog.setVisible(true);\n        frame.setVisible(visible);\n        dialog.setVisible(false);\n    }\n}\n","diff":"@@ -6,4 +6,4 @@\nclass Test {\n    void toggle(JFrame frame, JDialog dialog, boolean visible) {\n-       frame.show();\n-       dialog.show();\n-       frame.show(visible);\n-       dialog.hide();\n+       frame.setVisible(true);\n+       dialog.setVisible(true);\n+       frame.setVisible(visible);\n+       dialog.setVisible(false);\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import javax.swing.JDialog;\nimport javax.swing.JFrame;\n\nclass Test {\n    void toggle(JFrame frame, JDialog dialog, boolean visible) {\n        frame.show();\n        dialog.show();\n        frame.show(visible);\n        dialog.hide();\n    }\n}\n","after":"import javax.swing.JDialog;\nimport javax.swing.JFrame;\n\nclass Test {\n    void toggle(JFrame frame, JDialog dialog, boolean visible) {\n        frame.setVisible(true);\n        dialog.setVisible(true);\n        frame.setVisible(visible);\n        dialog.setVisible(false);\n    }\n}\n","diff":"@@ -6,4 +6,4 @@\nclass Test {\n    void toggle(JFrame frame, JDialog dialog, boolean visible) {\n-       frame.show();\n-       dialog.show();\n-       frame.show(visible);\n-       dialog.hide();\n+       frame.setVisible(true);\n+       dialog.setVisible(true);\n+       frame.setVisible(visible);\n+       dialog.setVisible(false);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.awt.JavaAwtAPIs","displayName":"Use modernized `java.awt` APIs","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage

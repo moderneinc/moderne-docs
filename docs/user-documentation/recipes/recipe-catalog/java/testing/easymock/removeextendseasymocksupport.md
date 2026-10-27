@@ -1,6 +1,6 @@
 ---
-title: "Migrate Test classes that extend `org.easymock.EasyMockSupport` to use Mockito"
-sidebar_label: "Migrate Test classes that extend `org.easymock.EasyMockSupport` to use Mockito"
+title: "Remove `extends EasyMockSupport` from test classes"
+sidebar_label: "Remove `extends EasyMockSupport` from test classes"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate Test classes that extend `org.easymock.EasyMockSupport` to use Mockito"}
-  description={"Modify test classes by removing extends EasyMockSupport and replacing EasyMock methods with Mockito equivalents."}
+  displayName={"Remove `extends EasyMockSupport` from test classes"}
+  description={"Remove the `extends` clause from test classes that extend `org.easymock.EasyMockSupport` or one of its subclasses. Calls to the inherited EasyMock methods are left to the other EasyMock to Mockito recipes."}
   fqName={"org.openrewrite.java.testing.easymock.RemoveExtendsEasyMockSupport"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/easymock/removeextendseasymocksupport.md"}
 >
 
-<RecipeHeader.Title>Migrate Test classes that extend `org.easymock.EasyMockSupport` to use Mockito</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `extends EasyMockSupport` from test classes</RecipeHeader.Title>
 
-<RecipeHeader.Description>Modify test classes by removing extends EasyMockSupport and replacing EasyMock methods with Mockito equivalents.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove the `extends` clause from test classes that extend `org.easymock.EasyMockSupport` or one of its subclasses. Calls to the inherited EasyMock methods are left to the other EasyMock to Mockito recipes.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.easymock.RemoveExtendsEasyMockSupport","displayName":"Migrate Test classes that extend `org.easymock.EasyMockSupport` to use Mockito","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.easymock.RemoveExtendsEasyMockSupport","displayName":"Remove `extends EasyMockSupport` from test classes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

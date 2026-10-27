@@ -1,6 +1,6 @@
 ---
-title: "Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"
-sidebar_label: "Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"
+title: "Replace varargs `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"
+sidebar_label: "Replace varargs `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"}
-  description={"Replace `org.apache.commons.lang3.Validate.notNull(Object, String, Object[])` with `Objects.requireNonNull(Object, String)`."}
+  displayName={"Replace varargs `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"}
+  description={"Replace `org.apache.commons.lang3.Validate.notNull(Object, String, Object[])` with `Objects.requireNonNull(Object, String)`, or with `Objects.requireNonNull(Object, Supplier<String>)` to format the message lazily when format arguments are passed."}
   fqName={"org.openrewrite.staticanalysis.ReplaceValidateNotNullHavingVarargsWithObjectsRequireNonNull"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingvarargswithobjectsrequirenonnull.md"}
 >
 
-<RecipeHeader.Title>Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace varargs `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `org.apache.commons.lang3.Validate.notNull(Object, String, Object[])` with `Objects.requireNonNull(Object, String)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `org.apache.commons.lang3.Validate.notNull(Object, String, Object[])` with `Objects.requireNonNull(Object, String)`, or with `Objects.requireNonNull(Object, Supplier<String>)` to format the message lazily when format arguments are passed.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceValidateNotNullHavingVarargsWithObjectsRequireNonNull","displayName":"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceValidateNotNullHavingVarargsWithObjectsRequireNonNull","displayName":"Replace varargs `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

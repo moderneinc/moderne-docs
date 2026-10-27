@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.logging.MigrateLoggerGlobalToGetGlobal"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/logging/MigrateLoggerGlobalToGetGlobal.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-logging-apis.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport java.util.logging.Logger;\n\npublic class Test {\n    public static void method() {\n        Logger logger = Logger.global;\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport java.util.logging.Logger;\n\npublic class Test {\n    public static void method() {\n        Logger logger = Logger.getGlobal();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\npublic class Test {\n    public static void method() {\n-       Logger logger = Logger.global;\n+       Logger logger = Logger.getGlobal();\n    }\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport java.util.logging.Logger;\n\npublic class Test {\n    public static void method() {\n        Logger logger = Logger.global;\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport java.util.logging.Logger;\n\npublic class Test {\n    public static void method() {\n        Logger logger = Logger.getGlobal();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\npublic class Test {\n    public static void method() {\n-       Logger logger = Logger.global;\n+       Logger logger = Logger.getGlobal();\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport java.util.logging.Logger;\n\npublic class Test {\n    public static void method() {\n        Logger logger = Logger.global;\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport java.util.logging.Logger;\n\npublic class Test {\n    public static void method() {\n        Logger logger = Logger.getGlobal();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\npublic class Test {\n    public static void method() {\n-       Logger logger = Logger.global;\n+       Logger logger = Logger.getGlobal();\n    }\n","newFile":false}]}]}>
 
 ## Examples
 

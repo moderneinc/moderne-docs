@@ -1,6 +1,6 @@
 ---
-title: "Remove `@SpringExtension`"
-sidebar_label: "Remove `@SpringExtension`"
+title: "Remove redundant `@ExtendWith(SpringExtension.class)`"
+sidebar_label: "Remove redundant `@ExtendWith(SpringExtension.class)`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove `@SpringExtension`"}
-  description={"`@SpringBootTest` and all test slice annotations already applies `@SpringExtension` as of Spring Boot 2.1.0."}
+  displayName={"Remove redundant `@ExtendWith(SpringExtension.class)`"}
+  description={"`@SpringBootTest` and all test slice annotations already apply `@ExtendWith(SpringExtension.class)` as of Spring Boot 2.1.0."}
   fqName={"org.openrewrite.java.spring.boot2.UnnecessarySpringExtension"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/unnecessaryspringextension.md"}
 >
 
-<RecipeHeader.Title>Remove `@SpringExtension`</RecipeHeader.Title>
+<RecipeHeader.Title>Remove redundant `@ExtendWith(SpringExtension.class)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>`@SpringBootTest` and all test slice annotations already applies `@SpringExtension` as of Spring Boot 2.1.0.</RecipeHeader.Description>
+<RecipeHeader.Description>`@SpringBootTest` and all test slice annotations already apply `@ExtendWith(SpringExtension.class)` as of Spring Boot 2.1.0.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.UnnecessarySpringExtension","displayName":"Remove `@SpringExtension`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.UnnecessarySpringExtension","displayName":"Remove redundant `@ExtendWith(SpringExtension.class)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

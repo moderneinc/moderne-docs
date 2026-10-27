@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find `backoff` decorators that need a hand migration"}
-  description={"Mark every `@backoff.on_exception` and `@backoff.on_predicate` that `org.openrewrite.python.migrate.ReplaceBackoffDecoratorsWithTenacity` declines to rewrite, with the reason, and record it in a data table. This changes no behaviour; it scopes the hand migration left after the mechanical one. The markup it prints is not valid Python, so run it for a report rather than as part of a migration."}
+  description={"Mark every `backoff.on_exception` and `backoff.on_predicate`, applied with an `@` or called, that `org.openrewrite.python.migrate.ReplaceBackoffDecoratorsWithTenacity` declines to rewrite, with the reason, and record it in a data table. This changes no behaviour; it scopes the hand migration left after the mechanical one. The markup it prints is not valid Python, so run it for a report rather than as part of a migration."}
   fqName={"org.openrewrite.python.migrate.FindBackoffDecoratorsNotMigrated"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={["python","search","backoff","tenacity","retry"]}
+  tags={["python","search","backoff","tenacity","migration","retry"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.FindBackoffDecoratorsNotMigrated"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find `backoff` decorators that need a hand migration</RecipeHeader.Title>
 
-<RecipeHeader.Description>Mark every `@backoff.on_exception` and `@backoff.on_predicate` that `org.openrewrite.python.migrate.ReplaceBackoffDecoratorsWithTenacity` declines to rewrite, with the reason, and record it in a data table. This changes no behaviour; it scopes the hand migration left after the mechanical one. The markup it prints is not valid Python, so run it for a report rather than as part of a migration.</RecipeHeader.Description>
+<RecipeHeader.Description>Mark every `backoff.on_exception` and `backoff.on_predicate`, applied with an `@` or called, that `org.openrewrite.python.migrate.ReplaceBackoffDecoratorsWithTenacity` declines to rewrite, with the reason, and record it in a data table. This changes no behaviour; it scopes the hand migration left after the mechanical one. The markup it prints is not valid Python, so run it for a report rather than as part of a migration.</RecipeHeader.Description>
 
 </RecipeHeader>
 

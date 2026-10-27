@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"builderType","required":true,"description":"Fully qualified name of the Builder","example":"org.example.Buildable.Builder"},{"type":"Boolean","name":"immutable","required":false,"description":"The builder is immutable if you must assign the result of calls to intermediate variables or use directly. Defaults to true as many purpose-built builders will be immutable."},{"type":"String","name":"builderCreator","required":false,"description":"The method that creates the builder instance, which may not be a method of the builder itself.","example":"org.example.Buildable builder()"}]}>
+<OptionsTable options={[{"type":"String","name":"builderType","required":true,"description":"Fully qualified name of the builder.","example":"org.example.Buildable.Builder"},{"type":"Boolean","name":"immutable","required":false,"description":"The builder is immutable if you must assign the result of calls to intermediate variables or use directly. Defaults to true as many purpose-built builders will be immutable."},{"type":"String","name":"builderCreator","required":false,"description":"The method that creates the builder instance, which may not be a method of the builder itself.","example":"org.example.Buildable builder()"}]}>
 
 ## Options
 

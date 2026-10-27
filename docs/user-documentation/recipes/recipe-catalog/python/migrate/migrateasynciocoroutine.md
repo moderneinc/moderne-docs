@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Python"]}
-  tags={[]}
+  tags={["python","asyncio","migration","3.11"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.MigrateAsyncioCoroutine"}
   artifact={"openrewrite-migrate-python"}

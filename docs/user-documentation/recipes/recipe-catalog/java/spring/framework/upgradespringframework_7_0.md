@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;\n\nclass A {\n    int status() {\n        return UNPROCESSABLE_ENTITY.value();\n    }\n}\n","after":"import static org.springframework.http.HttpStatus.UNPROCESSABLE_CONTENT;\n\nclass A {\n    int status() {\n        return UNPROCESSABLE_CONTENT.value();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;\n+import static org.springframework.http.HttpStatus.UNPROCESSABLE_CONTENT;\n\n@@ -5,1 +5,1 @@\nclass A {\n    int status() {\n-       return UNPROCESSABLE_ENTITY.value();\n+       return UNPROCESSABLE_CONTENT.value();\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;\n\nclass A {\n    int status() {\n        return UNPROCESSABLE_ENTITY.value();\n    }\n}\n","after":"import static org.springframework.http.HttpStatus.UNPROCESSABLE_CONTENT;\n\nclass A {\n    int status() {\n        return UNPROCESSABLE_CONTENT.value();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;\n+import static org.springframework.http.HttpStatus.UNPROCESSABLE_CONTENT;\n\n@@ -5,1 +5,1 @@\nclass A {\n    int status() {\n-       return UNPROCESSABLE_ENTITY.value();\n+       return UNPROCESSABLE_CONTENT.value();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0","displayName":"Migrate to Spring Framework 7.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

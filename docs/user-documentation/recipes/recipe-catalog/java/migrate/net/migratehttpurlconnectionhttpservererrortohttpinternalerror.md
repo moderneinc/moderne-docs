@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.net.MigrateHttpURLConnectionHttpServerErrorToHttpInternalError"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/net/MigrateHttpURLConnectionHttpServerErrorToHttpInternalError.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-net-apis.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import java.net.HttpURLConnection;\n\nclass Test {\n    private static final int ERROR = HttpURLConnection.HTTP_SERVER_ERROR;\n\n    public static int method() {\n        return HttpURLConnection.HTTP_SERVER_ERROR;\n    }\n}\n","after":"import java.net.HttpURLConnection;\n\nclass Test {\n    private static final int ERROR = HttpURLConnection.HTTP_INTERNAL_ERROR;\n\n    public static int method() {\n        return HttpURLConnection.HTTP_INTERNAL_ERROR;\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n\nclass Test {\n-   private static final int ERROR = HttpURLConnection.HTTP_SERVER_ERROR;\n+   private static final int ERROR = HttpURLConnection.HTTP_INTERNAL_ERROR;\n\n@@ -7,1 +7,1 @@\n\n    public static int method() {\n-       return HttpURLConnection.HTTP_SERVER_ERROR;\n+       return HttpURLConnection.HTTP_INTERNAL_ERROR;\n    }\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.net.HttpURLConnection;\n\nclass Test {\n    private static final int ERROR = HttpURLConnection.HTTP_SERVER_ERROR;\n\n    public static int method() {\n        return HttpURLConnection.HTTP_SERVER_ERROR;\n    }\n}\n","after":"import java.net.HttpURLConnection;\n\nclass Test {\n    private static final int ERROR = HttpURLConnection.HTTP_INTERNAL_ERROR;\n\n    public static int method() {\n        return HttpURLConnection.HTTP_INTERNAL_ERROR;\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n\nclass Test {\n-   private static final int ERROR = HttpURLConnection.HTTP_SERVER_ERROR;\n+   private static final int ERROR = HttpURLConnection.HTTP_INTERNAL_ERROR;\n\n@@ -7,1 +7,1 @@\n\n    public static int method() {\n-       return HttpURLConnection.HTTP_SERVER_ERROR;\n+       return HttpURLConnection.HTTP_INTERNAL_ERROR;\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.net.HttpURLConnection;\n\nclass Test {\n    private static final int ERROR = HttpURLConnection.HTTP_SERVER_ERROR;\n\n    public static int method() {\n        return HttpURLConnection.HTTP_SERVER_ERROR;\n    }\n}\n","after":"import java.net.HttpURLConnection;\n\nclass Test {\n    private static final int ERROR = HttpURLConnection.HTTP_INTERNAL_ERROR;\n\n    public static int method() {\n        return HttpURLConnection.HTTP_INTERNAL_ERROR;\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n\nclass Test {\n-   private static final int ERROR = HttpURLConnection.HTTP_SERVER_ERROR;\n+   private static final int ERROR = HttpURLConnection.HTTP_INTERNAL_ERROR;\n\n@@ -7,1 +7,1 @@\n\n    public static int method() {\n-       return HttpURLConnection.HTTP_SERVER_ERROR;\n+       return HttpURLConnection.HTTP_INTERNAL_ERROR;\n    }\n","newFile":false}]}]}>
 
 ## Examples
 

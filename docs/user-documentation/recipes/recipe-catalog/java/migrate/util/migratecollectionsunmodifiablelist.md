@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `List.of(..)`"}
-  description={"Prefer `List.Of(..)` instead of using `unmodifiableList(java.util.Arrays asList(<args>))` in Java 9 or higher."}
+  description={"Prefer `List.of(..)` instead of using `Collections.unmodifiableList(Arrays.asList(..))` in Java 9 or higher."}
   fqName={"org.openrewrite.java.migrate.util.MigrateCollectionsUnmodifiableList"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `List.of(..)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `List.Of(..)` instead of using `unmodifiableList(java.util.Arrays asList(<args>))` in Java 9 or higher.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `List.of(..)` instead of using `Collections.unmodifiableList(Arrays.asList(..))` in Java 9 or higher.</RecipeHeader.Description>
 
 </RecipeHeader>
 

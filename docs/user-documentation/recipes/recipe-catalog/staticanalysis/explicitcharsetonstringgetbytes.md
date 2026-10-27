@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S4719"]}
+  tags={["RSPEC-S1943"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.ExplicitCharsetOnStringGetBytes"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"encoding","required":false,"description":"The default encoding to supply to the `getBytes` call","example":"UTF_8"}]}>
+<OptionsTable options={[{"type":"String","name":"encoding","required":false,"description":"The default encoding to supply to the `getBytes` call.","example":"UTF_8"}]}>
 
 ## Options
 

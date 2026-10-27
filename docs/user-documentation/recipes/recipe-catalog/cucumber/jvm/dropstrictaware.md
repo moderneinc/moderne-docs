@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.plugin.ConcurrentEventListener;\nimport io.cucumber.plugin.StrictAware;\nimport io.cucumber.plugin.event.EventPublisher;\n\npublic class ReportPlugin implements ConcurrentEventListener, StrictAware {\n\n    @Override\n    public void setEventPublisher(EventPublisher publisher) {\n    }\n\n    @Override\n    public void setStrict(boolean strict) {\n    }\n}\n","after":"package com.example.app;\n\nimport io.cucumber.plugin.ConcurrentEventListener;\nimport io.cucumber.plugin.event.EventPublisher;\n\npublic class ReportPlugin implements ConcurrentEventListener {\n\n    @Override\n    public void setEventPublisher(EventPublisher publisher) {\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nimport io.cucumber.plugin.ConcurrentEventListener;\n-import io.cucumber.plugin.StrictAware;\nimport io.cucumber.plugin.event.EventPublisher;\n@@ -7,1 +6,1 @@\nimport io.cucumber.plugin.event.EventPublisher;\n\n-public class ReportPlugin implements ConcurrentEventListener, StrictAware {\n+public class ReportPlugin implements ConcurrentEventListener {\n\n@@ -12,4 +11,0 @@\n    public void setEventPublisher(EventPublisher publisher) {\n    }\n-\n-   @Override\n-   public void setStrict(boolean strict) {\n-   }\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.DropStrictAware","displayName":"Drop `StrictAware`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 
 ## Usage

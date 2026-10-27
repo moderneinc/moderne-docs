@@ -1,6 +1,6 @@
 ---
-title: "Adopt AssertJ Float Assertions"
-sidebar_label: "Adopt AssertJ Float Assertions"
+title: "Adopt AssertJ `Float` assertions"
+sidebar_label: "Adopt AssertJ `Float` assertions"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Adopt AssertJ Float Assertions"}
-  description={"Adopt AssertJ Float Assertions. Favor semantically explicit methods (e.g. `myFloat.isZero()` over `myFloat.isEqualTo(0.0f)`)."}
+  displayName={"Adopt AssertJ `Float` assertions"}
+  description={"Adopt AssertJ `Float` assertions. Favor semantically explicit methods (e.g. `myFloat.isZero()` over `myFloat.isEqualTo(0.0f)`)."}
   fqName={"org.openrewrite.java.testing.assertj.AssertJFloatRulesRecipes"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjfloatrulesrecipes.md"}
 >
 
-<RecipeHeader.Title>Adopt AssertJ Float Assertions</RecipeHeader.Title>
+<RecipeHeader.Title>Adopt AssertJ `Float` assertions</RecipeHeader.Title>
 
-<RecipeHeader.Description>Adopt AssertJ Float Assertions. Favor semantically explicit methods (e.g. `myFloat.isZero()` over `myFloat.isEqualTo(0.0f)`).</RecipeHeader.Description>
+<RecipeHeader.Description>Adopt AssertJ `Float` assertions. Favor semantically explicit methods (e.g. `myFloat.isZero()` over `myFloat.isEqualTo(0.0f)`).</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJFloatRulesRecipes","displayName":"Adopt AssertJ Float Assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJFloatRulesRecipes","displayName":"Adopt AssertJ `Float` assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

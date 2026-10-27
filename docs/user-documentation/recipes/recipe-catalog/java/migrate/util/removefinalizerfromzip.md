@@ -1,6 +1,6 @@
 ---
-title: "Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile"
-sidebar_label: "Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile"
+title: "Remove `finalize()` invocations on `Deflater`, `Inflater` and `ZipFile`"
+sidebar_label: "Remove `finalize()` invocations on `Deflater`, `Inflater` and `ZipFile`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile "}
-  description={"Remove invocations of finalize() deprecated invocations from Deflater, Inflater, ZipFile."}
+  displayName={"Remove `finalize()` invocations on `Deflater`, `Inflater` and `ZipFile`"}
+  description={"Remove invocations of the deprecated `finalize()` method on `Deflater`, `Inflater` and `ZipFile`."}
   fqName={"org.openrewrite.java.migrate.util.RemoveFinalizerFromZip"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/removefinalizerfromzip.md"}
 >
 
-<RecipeHeader.Title>Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile</RecipeHeader.Title>
+<RecipeHeader.Title>Remove `finalize()` invocations on `Deflater`, `Inflater` and `ZipFile`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove invocations of finalize() deprecated invocations from Deflater, Inflater, ZipFile.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove invocations of the deprecated `finalize()` method on `Deflater`, `Inflater` and `ZipFile`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.util.RemoveFinalizerFromZip","displayName":"Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.util.RemoveFinalizerFromZip","displayName":"Remove `finalize()` invocations on `Deflater`, `Inflater` and `ZipFile`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

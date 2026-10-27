@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.glassfish.jersey.filter.LoggingFilter;\nimport java.util.logging.Logger;\nimport javax.ws.rs.core.Configurable;\n\nclass Test {\n    Object filter(Configurable<?> config, Logger logger, boolean entities) {\n        return config.register(new LoggingFilter(logger, entities));\n    }\n}\n","after":"import java.util.logging.Level;\nimport java.util.logging.Logger;\n\nimport javax.ws.rs.core.Configurable;\n\nimport org.glassfish.jersey.logging.LoggingFeature;\n\nclass Test {\n    Object filter(Configurable<?> config, Logger logger, boolean entities) {\n        return config.register(new LoggingFeature(logger, Level.INFO, entities ? LoggingFeature.Verbosity.PAYLOAD_ANY : LoggingFeature.Verbosity.HEADERS_ONLY, 8192));\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.glassfish.jersey.filter.LoggingFilter;\n+import java.util.logging.Level;\nimport java.util.logging.Logger;\n@@ -3,0 +3,1 @@\nimport org.glassfish.jersey.filter.LoggingFilter;\nimport java.util.logging.Logger;\n+\nimport javax.ws.rs.core.Configurable;\n@@ -5,0 +6,2 @@\nimport javax.ws.rs.core.Configurable;\n\n+import org.glassfish.jersey.logging.LoggingFeature;\n+\nclass Test {\n@@ -7,1 +10,1 @@\nclass Test {\n    Object filter(Configurable<?> config, Logger logger, boolean entities) {\n-       return config.register(new LoggingFilter(logger, entities));\n+       return config.register(new LoggingFeature(logger, Level.INFO, entities ? LoggingFeature.Verbosity.PAYLOAD_ANY : LoggingFeature.Verbosity.HEADERS_ONLY, 8192));\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JerseyLoggingFilterToFeature","displayName":"Replace Jersey logging filter with logging feature","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage

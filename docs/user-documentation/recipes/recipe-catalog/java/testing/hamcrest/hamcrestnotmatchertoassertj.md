@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"notMatcher","required":false,"description":"The Hamcrest `not(Matcher)` to migrate to JUnit5.","example":"equalTo"},{"type":"String","name":"assertion","required":false,"description":"The AssertJ method to migrate to.","example":"isNotEqualTo"}]}>
+<OptionsTable options={[{"type":"String","name":"notMatcher","required":false,"description":"The Hamcrest `not(Matcher)` to migrate to AssertJ.","example":"equalTo"},{"type":"String","name":"assertion","required":false,"description":"The AssertJ method to migrate to.","example":"isNotEqualTo"}]}>
 
 ## Options
 

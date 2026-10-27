@@ -1,6 +1,6 @@
 ---
-title: "`@JoinColumn` annotations must be used with relationship mappings"
-sidebar_label: "`@JoinColumn` annotations must be used with relationship mappings"
+title: "Replace `@Column` with `@JoinColumn` on relationship mappings"
+sidebar_label: "Replace `@Column` with `@JoinColumn` on relationship mappings"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"`@JoinColumn` annotations must be used with relationship mappings"}
+  displayName={"Replace `@Column` with `@JoinColumn` on relationship mappings"}
   description={"In OpenJPA, when a relationship attribute has either a `@OneToOne` or a `@ManyToOne` annotation with a `@Column` annotation, the `@Column` annotation is treated as a `@JoinColumn` annotation. EclipseLink throws an exception that indicates that the entity class must use `@JoinColumn` instead of `@Column` to map a relationship attribute."}
   fqName={"org.openrewrite.java.migrate.javax.UseJoinColumnForMapping"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/usejoincolumnformapping.md"}
 >
 
-<RecipeHeader.Title>`@JoinColumn` annotations must be used with relationship mappings</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `@Column` with `@JoinColumn` on relationship mappings</RecipeHeader.Title>
 
 <RecipeHeader.Description>In OpenJPA, when a relationship attribute has either a `@OneToOne` or a `@ManyToOne` annotation with a `@Column` annotation, the `@Column` annotation is treated as a `@JoinColumn` annotation. EclipseLink throws an exception that indicates that the entity class must use `@JoinColumn` instead of `@Column` to map a relationship attribute.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.UseJoinColumnForMapping","displayName":"`@JoinColumn` annotations must be used with relationship mappings","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.UseJoinColumnForMapping","displayName":"Replace `@Column` with `@JoinColumn` on relationship mappings","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

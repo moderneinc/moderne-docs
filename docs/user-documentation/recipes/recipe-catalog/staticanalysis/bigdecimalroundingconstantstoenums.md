@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S2111"]}
+  tags={["RSPEC-S1874"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.BigDecimalRoundingConstantsToEnums"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}

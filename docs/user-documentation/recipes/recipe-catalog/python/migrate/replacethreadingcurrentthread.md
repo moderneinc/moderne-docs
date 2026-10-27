@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `threading.currentThread()` with `threading.current_thread()`"}
-  description={"Replace `threading.currentThread()` with `threading.current_thread()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12."}
+  description={"Replace `threading.currentThread()` with `threading.current_thread()`. The camelCase version was deprecated in Python 3.10."}
   fqName={"org.openrewrite.python.migrate.ReplaceThreadingCurrentThread"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Python"]}
-  tags={["python","migration","threading","3.12","3.10"]}
+  tags={["python","migration","threading","3.10"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.migrate.ReplaceThreadingCurrentThread"}
   artifact={"openrewrite-migrate-python"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `threading.currentThread()` with `threading.current_thread()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Replace `threading.currentThread()` with `threading.current_thread()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.</RecipeHeader.Description>
+<RecipeHeader.Description>Replace `threading.currentThread()` with `threading.current_thread()`. The camelCase version was deprecated in Python 3.10.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -1,6 +1,6 @@
 ---
-title: "Add Mockito Java Agent to Maven Surefire Plugin"
-sidebar_label: "Add Mockito Java Agent to Maven Surefire Plugin"
+title: "Add Mockito Java agent to Maven Surefire plugin"
+sidebar_label: "Add Mockito Java agent to Maven Surefire plugin"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Add Mockito Java Agent to Maven Surefire Plugin"}
+  displayName={"Add Mockito Java agent to Maven Surefire plugin"}
   description={"Mockito attaches its Byte Buddy agent to the running JVM at test time, which the JDK has warned about since Java 21 and intends to disallow. This recipe instead loads the agent up front through the Maven Surefire plugin, adding the `maven-dependency-plugin` `properties` goal to resolve the agent jar path, to silence the warning and stay ahead of the JDK change."}
   fqName={"org.openrewrite.java.migrate.AddMockitoJavaAgentToMavenSurefirePlugin"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addmockitojavaagenttomavensurefireplugin.md"}
 >
 
-<RecipeHeader.Title>Add Mockito Java Agent to Maven Surefire Plugin</RecipeHeader.Title>
+<RecipeHeader.Title>Add Mockito Java agent to Maven Surefire plugin</RecipeHeader.Title>
 
 <RecipeHeader.Description>Mockito attaches its Byte Buddy agent to the running JVM at test time, which the JDK has warned about since Java 21 and intends to disallow. This recipe instead loads the agent up front through the Maven Surefire plugin, adding the `maven-dependency-plugin` `properties` goal to resolve the agent jar path, to silence the warning and stay ahead of the JDK change.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddMockitoJavaAgentToMavenSurefirePlugin","displayName":"Add Mockito Java Agent to Maven Surefire Plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddMockitoJavaAgentToMavenSurefirePlugin","displayName":"Add Mockito Java agent to Maven Surefire plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

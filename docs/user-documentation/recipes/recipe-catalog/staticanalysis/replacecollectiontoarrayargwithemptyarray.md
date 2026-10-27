@@ -1,6 +1,6 @@
 ---
-title: "Use Empty Array for `Collection.toArray()`"
-sidebar_label: "Use Empty Array for `Collection.toArray()`"
+title: "Use empty array for `Collection.toArray()`"
+sidebar_label: "Use empty array for `Collection.toArray()`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Use Empty Array for `Collection.toArray()`"}
+  displayName={"Use empty array for `Collection.toArray()`"}
   description={"Changes new array creation with `Collection#toArray(T[])` to use an empty array argument, which is better for performance.\n\nAccording to the `Collection#toArray(T[])` documentation:\n\n> If the collection fits in the specified array, it is returned therein.\n\nHowever, although it's not intuitive, allocating a right-sized array ahead of time to pass to the API appears to be [generally worse for performance](https://shipilev.net/blog/2016/arrays-wisdom-ancients/#_conclusion) according to benchmarking and JVM developers due to a number of implementation details in both Java and the virtual machine.\n\nH2 achieved significant performance gains by [switching to empty arrays instead pre-sized ones](https://github.com/h2database/h2database/issues/311)."}
   fqName={"org.openrewrite.staticanalysis.ReplaceCollectionToArrayArgWithEmptyArray"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacecollectiontoarrayargwithemptyarray.md"}
 >
 
-<RecipeHeader.Title>Use Empty Array for `Collection.toArray()`</RecipeHeader.Title>
+<RecipeHeader.Title>Use empty array for `Collection.toArray()`</RecipeHeader.Title>
 
 <RecipeHeader.Description>
 
@@ -55,7 +55,7 @@ H2 achieved significant performance gains by [switching to empty arrays instead 
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceCollectionToArrayArgWithEmptyArray","displayName":"Use Empty Array for `Collection.toArray()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.ReplaceCollectionToArrayArgWithEmptyArray","displayName":"Use empty array for `Collection.toArray()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

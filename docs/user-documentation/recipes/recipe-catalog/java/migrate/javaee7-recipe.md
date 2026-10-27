@@ -1,6 +1,6 @@
 ---
-title: "Migrate to JavaEE7"
-sidebar_label: "Migrate to JavaEE7"
+title: "Migrate to Java EE 7"
+sidebar_label: "Migrate to Java EE 7"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate to JavaEE7"}
-  description={"These recipes help with the Migration to Java EE 7, flagging and updating deprecated methods."}
+  displayName={"Migrate to Java EE 7"}
+  description={"Apply changes needed when migrating to Java EE 7, such as replacing the OpenJPA persistence provider with EclipseLink, setting an explicit JPA shared cache mode, aligning the `beans.xml` schema location, and making `@Produces` fields in session beans `static`. Includes the Java EE 6 migration."}
   fqName={"org.openrewrite.java.migrate.javaee7"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,19 +31,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javaee7-recipe.md"}
 >
 
-<RecipeHeader.Title>Migrate to JavaEE7</RecipeHeader.Title>
+<RecipeHeader.Title>Migrate to Java EE 7</RecipeHeader.Title>
 
-<RecipeHeader.Description>These recipes help with the Migration to Java EE 7, flagging and updating deprecated methods.</RecipeHeader.Description>
+<RecipeHeader.Description>Apply changes needed when migrating to Java EE 7, such as replacing the OpenJPA persistence provider with EclipseLink, setting an explicit JPA shared cache mode, aligning the `beans.xml` schema location, and making `@Produces` fields in session beans `static`. Includes the Java EE 6 migration.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to JavaEE6","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee6/"},{"name":"Removed OpenJPA providers in the persistence.xml file","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee7/openjpapersistenceprovider/"},{"name":"Disable the persistence unit second-level cache","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jpacacheproperties/"},{"name":"Change `beans.xml` `schemaLocation` to match XML namespace","href":"/user-documentation/recipes/recipe-catalog/java/migrate/beansxmlnamespace/"},{"name":"Adds `static` modifier to `@Produces` fields that are in session beans","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addstaticvariableonproducersessionbean/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Java EE 6","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee6/"},{"name":"Replace the OpenJPA persistence provider with EclipseLink in `persistence.xml`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee7/openjpapersistenceprovider/"},{"name":"Disable the persistence unit second-level cache","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jpacacheproperties/"},{"name":"Change `beans.xml` `schemaLocation` to match XML namespace","href":"/user-documentation/recipes/recipe-catalog/java/migrate/beansxmlnamespace/"},{"name":"Add `static` modifier to `@Produces` fields in session beans","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addstaticvariableonproducersessionbean/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javaee7","displayName":"Migrate to JavaEE7","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javaee7","displayName":"Migrate to Java EE 7","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

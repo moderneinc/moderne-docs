@@ -1,6 +1,6 @@
 ---
-title: "Prefer `new ConcurrentHashMap<>()`"
-sidebar_label: "Prefer `new ConcurrentHashMap<>()`"
+title: "Prefer `Collections.newSetFromMap(new ConcurrentHashMap<>())`"
+sidebar_label: "Prefer `Collections.newSetFromMap(new ConcurrentHashMap<>())`"
 hide_title: true
 ---
 
@@ -12,16 +12,16 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `new ConcurrentHashMap<>()`"}
+  displayName={"Prefer `Collections.newSetFromMap(new ConcurrentHashMap<>())`"}
   description={"Prefer the Java standard library over third-party usage of Guava in simple cases like this."}
   fqName={"org.openrewrite.java.migrate.guava.NoGuavaSetsNewConcurrentHashSet"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/guava/NoGuavaSetsNewConcurrentHashSet.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/no-guava.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
   license={"Moderne Source Available License"}
@@ -31,19 +31,25 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavasetsnewconcurrenthashset.md"}
 >
 
-<RecipeHeader.Title>Prefer `new ConcurrentHashMap<>()`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Collections.newSetFromMap(new ConcurrentHashMap<>())`</RecipeHeader.Title>
 
 <RecipeHeader.Description>Prefer the Java standard library over third-party usage of Guava in simple cases like this.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Sets.newConcurrentHashSet();\n}\n","after":"import java.util.Collections;\nimport java.util.Set;\nimport java.util.concurrent.ConcurrentHashMap;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Collections.newSetFromMap(new ConcurrentHashMap<>());\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.Collections;\nimport java.util.Set;\n@@ -4,0 +3,1 @@\n\nimport java.util.Set;\n+import java.util.concurrent.ConcurrentHashMap;\n\n@@ -6,1 +6,1 @@\n\nclass Test {\n-   Set<Integer> cardinalsWorldSeries = Sets.newConcurrentHashSet();\n+   Set<Integer> cardinalsWorldSeries = Collections.newSetFromMap(new ConcurrentHashMap<>());\n}\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Prefer `Collections.newSetFromMap(new ConcurrentHashMap<>())`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$setsnewconcurrenthashsetrecipe/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Sets.newConcurrentHashSet();\n}\n","after":"import java.util.Collections;\nimport java.util.Set;\nimport java.util.concurrent.ConcurrentHashMap;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Collections.newSetFromMap(new ConcurrentHashMap<>());\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.Collections;\nimport java.util.Set;\n@@ -4,0 +3,1 @@\n\nimport java.util.Set;\n+import java.util.concurrent.ConcurrentHashMap;\n\n@@ -6,1 +6,1 @@\n\nclass Test {\n-   Set<Integer> cardinalsWorldSeries = Sets.newConcurrentHashSet();\n+   Set<Integer> cardinalsWorldSeries = Collections.newSetFromMap(new ConcurrentHashMap<>());\n}\n","newFile":false}]},{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Sets.newConcurrentHashSet();\n}\n","after":"import java.util.Collections;\nimport java.util.Set;\nimport java.util.concurrent.ConcurrentHashMap;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Collections.newSetFromMap(new ConcurrentHashMap<>());\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.Collections;\nimport java.util.Set;\n@@ -4,0 +3,1 @@\n\nimport java.util.Set;\n+import java.util.concurrent.ConcurrentHashMap;\n\n@@ -6,1 +6,1 @@\n\nclass Test {\n-   Set<Integer> cardinalsWorldSeries = Sets.newConcurrentHashSet();\n+   Set<Integer> cardinalsWorldSeries = Collections.newSetFromMap(new ConcurrentHashMap<>());\n}\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.NoGuavaSetsNewConcurrentHashSet","displayName":"Prefer `new ConcurrentHashMap<>()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.NoGuavaSetsNewConcurrentHashSet","displayName":"Prefer `Collections.newSetFromMap(new ConcurrentHashMap<>())`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

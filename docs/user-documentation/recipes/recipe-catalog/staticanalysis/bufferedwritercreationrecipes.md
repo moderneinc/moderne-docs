@@ -1,6 +1,6 @@
 ---
-title: "Modernize `BufferedWriter` creation & prevent file descriptor leaks"
-sidebar_label: "Modernize `BufferedWriter` creation & prevent file descriptor leaks"
+title: "Modernize `BufferedWriter` creation and prevent file descriptor leaks"
+sidebar_label: "Modernize `BufferedWriter` creation and prevent file descriptor leaks"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Modernize `BufferedWriter` creation & prevent file descriptor leaks"}
+  displayName={"Modernize `BufferedWriter` creation and prevent file descriptor leaks"}
   description={"The code `new BufferedWriter(new FileWriter(f))` creates a `BufferedWriter` that does not close the underlying `FileWriter` when it is closed. This can lead to file descriptor leaks as per [CWE-755](https://cwe.mitre.org/data/definitions/755.html). Use `Files.newBufferedWriter` to create a `BufferedWriter` that closes the underlying file descriptor when it is closed."}
   fqName={"org.openrewrite.staticanalysis.BufferedWriterCreationRecipes"}
   languages={["OpenRewrite"]}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={[]}
+  tags={["RSPEC-S1943"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.staticanalysis.BufferedWriterCreationRecipes"}
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes.md"}
 >
 
-<RecipeHeader.Title>Modernize `BufferedWriter` creation & prevent file descriptor leaks</RecipeHeader.Title>
+<RecipeHeader.Title>Modernize `BufferedWriter` creation and prevent file descriptor leaks</RecipeHeader.Title>
 
 <RecipeHeader.Description>The code `new BufferedWriter(new FileWriter(f))` creates a `BufferedWriter` that does not close the underlying `FileWriter` when it is closed. This can lead to file descriptor leaks as per [CWE-755](https://cwe.mitre.org/data/definitions/755.html). Use `Files.newBufferedWriter` to create a `BufferedWriter` that closes the underlying file descriptor when it is closed.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.BufferedWriterCreationRecipes","displayName":"Modernize `BufferedWriter` creation & prevent file descriptor leaks","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.BufferedWriterCreationRecipes","displayName":"Modernize `BufferedWriter` creation and prevent file descriptor leaks","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

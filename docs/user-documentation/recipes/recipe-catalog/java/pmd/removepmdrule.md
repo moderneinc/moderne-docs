@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"rule","value":"category/java/codestyle.xml/AvoidFinalLocalVariable"}],"variants":[{"language":"xml","before":"<?xml version=\"1.0\"?>\n<ruleset name=\"custom\">\n    <rule ref=\"category/java/codestyle.xml/AvoidFinalLocalVariable\"/>\n    <rule ref=\"category/java/codestyle.xml/ControlStatementBraces\"/>\n</ruleset>\n","after":"<?xml version=\"1.0\"?>\n<ruleset name=\"custom\">\n    <rule ref=\"category/java/codestyle.xml/ControlStatementBraces\"/>\n</ruleset>\n","diff":"@@ -3,1 +3,0 @@\n<?xml version=\"1.0\"?>\n<ruleset name=\"custom\">\n-   <rule ref=\"category/java/codestyle.xml/AvoidFinalLocalVariable\"/>\n    <rule ref=\"category/java/codestyle.xml/ControlStatementBraces\"/>\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.pmd.RemovePmdRule","displayName":"Remove a PMD rule from a ruleset","groupId":"org.openrewrite.recipe","artifactId":"rewrite-pmd","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PMD","requiresConfiguration":true,"cliOptions":" --recipe-option \"rule=category/java/codestyle.xml/AvoidFinalLocalVariable\""}}>
 
 ## Usage

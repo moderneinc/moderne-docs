@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `Set.of(..)`"}
-  description={"Prefer `Set.Of(..)` instead of using `unmodifiableSet(java.util.Set(java.util.Arrays asList(<args>)))` in Java 9 or higher."}
+  description={"Prefer `Set.of(..)` instead of using `Collections.unmodifiableSet(new HashSet<>(Arrays.asList(..)))` in Java 9 or higher."}
   fqName={"org.openrewrite.java.migrate.util.MigrateCollectionsUnmodifiableSet"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `Set.of(..)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Set.Of(..)` instead of using `unmodifiableSet(java.util.Set(java.util.Arrays asList(<args>)))` in Java 9 or higher.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Set.of(..)` instead of using `Collections.unmodifiableSet(new HashSet<>(Arrays.asList(..)))` in Java 9 or higher.</RecipeHeader.Description>
 
 </RecipeHeader>
 

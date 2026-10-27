@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Kotlin test methods should have return type `Unit`"}
-  description={"Kotlin test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `Unit` return type. Other return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `Unit` and removes `return` statements."}
+  description={"Kotlin test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `Unit` return type. Other return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `Unit` and drops the returned values. Test methods that override a method or are called elsewhere in the same file are left unchanged."}
   fqName={"org.openrewrite.java.testing.cleanup.KotlinTestMethodsShouldReturnUnit"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Kotlin test methods should have return type `Unit`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Kotlin test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `Unit` return type. Other return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `Unit` and removes `return` statements.</RecipeHeader.Description>
+<RecipeHeader.Description>Kotlin test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `Unit` return type. Other return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `Unit` and drops the returned values. Test methods that override a method or are called elsewhere in the same file are left unchanged.</RecipeHeader.Description>
 
 </RecipeHeader>
 

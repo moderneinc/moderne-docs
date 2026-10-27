@@ -1,6 +1,6 @@
 ---
-title: "Add a spring configuration property"
-sidebar_label: "Add a spring configuration property"
+title: "Add a Spring configuration property"
+sidebar_label: "Add a Spring configuration property"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Add a spring configuration property"}
+  displayName={"Add a Spring configuration property"}
   description={"Add a spring configuration property to a configuration file if it does not already exist in that file."}
   fqName={"org.openrewrite.java.spring.AddSpringProperty"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty.md"}
 >
 
-<RecipeHeader.Title>Add a spring configuration property</RecipeHeader.Title>
+<RecipeHeader.Title>Add a Spring configuration property</RecipeHeader.Title>
 
 <RecipeHeader.Description>Add a spring configuration property to a configuration file if it does not already exist in that file.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.AddSpringProperty","displayName":"Add a spring configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"property=management.metrics.enable.process.files\" --recipe-option \"value=true\"","optionalCliOptions":" --recipe-option \"comment=This is a comment\" --recipe-option \"pathExpressions=[\"**/application.yml\"]\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.AddSpringProperty","displayName":"Add a Spring configuration property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"property=management.metrics.enable.process.files\" --recipe-option \"value=true\"","optionalCliOptions":" --recipe-option \"comment=This is a comment\" --recipe-option \"pathExpressions=[\"**/application.yml\"]\""}}>
 
 ## Usage
 

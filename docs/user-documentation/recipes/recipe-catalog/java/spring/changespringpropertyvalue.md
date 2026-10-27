@@ -1,6 +1,6 @@
 ---
-title: "Change the value of a spring application property"
-sidebar_label: "Change the value of a spring application property"
+title: "Change the value of a Spring application property"
+sidebar_label: "Change the value of a Spring application property"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Change the value of a spring application property"}
+  displayName={"Change the value of a Spring application property"}
   description={"Change Spring application property values existing in either Properties or YAML files, and in `@Value`, `@ConditionalOnProperty`, `@SpringBootTest`, or `@TestPropertySource` annotations."}
   fqName={"org.openrewrite.java.spring.ChangeSpringPropertyValue"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/changespringpropertyvalue.md"}
 >
 
-<RecipeHeader.Title>Change the value of a spring application property</RecipeHeader.Title>
+<RecipeHeader.Title>Change the value of a Spring application property</RecipeHeader.Title>
 
 <RecipeHeader.Description>Change Spring application property values existing in either Properties or YAML files, and in `@Value`, `@ConditionalOnProperty`, `@SpringBootTest`, or `@TestPropertySource` annotations.</RecipeHeader.Description>
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.spring.ChangeSpringPropertyValue","displayName":"Change the value of a spring application property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.files.enabled\" --recipe-option \"newValue=management.metrics.enable.process.files\"","optionalCliOptions":" --recipe-option \"oldValue=false\" --recipe-option \"regex=true\" --recipe-option \"relaxedBinding=true\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.spring.ChangeSpringPropertyValue","displayName":"Change the value of a Spring application property","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":true,"cliOptions":" --recipe-option \"propertyKey=management.metrics.binders.files.enabled\" --recipe-option \"newValue=management.metrics.enable.process.files\"","optionalCliOptions":" --recipe-option \"oldValue=false\" --recipe-option \"regex=true\" --recipe-option \"relaxedBinding=true\""}}>
 
 ## Usage
 

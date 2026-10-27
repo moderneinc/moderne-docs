@@ -1,6 +1,6 @@
 ---
-title: "Remove deprecated API's not supported in CDI4.0"
-sidebar_label: "Remove deprecated API's not supported in CDI4.0"
+title: "Remove deprecated APIs not supported in CDI 4.0"
+sidebar_label: "Remove deprecated APIs not supported in CDI 4.0"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Remove deprecated API's not supported in CDI4.0"}
+  displayName={"Remove deprecated APIs not supported in CDI 4.0"}
   description={"Deprecated APIs have been removed in CDI 4.0. This recipe removes and updates the corresponding deprecated methods."}
   fqName={"org.openrewrite.java.migrate.jakarta.DeprecatedCDIAPIsRemoved40"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/deprecatedcdiapisremoved40.md"}
 >
 
-<RecipeHeader.Title>Remove deprecated API's not supported in CDI4.0</RecipeHeader.Title>
+<RecipeHeader.Title>Remove deprecated APIs not supported in CDI 4.0</RecipeHeader.Title>
 
 <RecipeHeader.Description>Deprecated APIs have been removed in CDI 4.0. This recipe removes and updates the corresponding deprecated methods.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.DeprecatedCDIAPIsRemoved40","displayName":"Remove deprecated API's not supported in CDI4.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.DeprecatedCDIAPIsRemoved40","displayName":"Remove deprecated APIs not supported in CDI 4.0","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

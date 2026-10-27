@@ -1,6 +1,6 @@
 ---
-title: "Prefer `java.lang.Char#compare`"
-sidebar_label: "Prefer `java.lang.Char#compare`"
+title: "Prefer `Character#compare`"
+sidebar_label: "Prefer `Character#compare`"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `java.lang.Char#compare`"}
-  description={"Prefer `java.lang.Char#compare` instead of using `com.google.common.primitives.Chars#compare`."}
+  displayName={"Prefer `Character#compare`"}
+  description={"Prefer `java.lang.Character#compare` instead of using `com.google.common.primitives.Chars#compare`."}
   fqName={"org.openrewrite.java.migrate.guava.PreferCharCompare"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -31,9 +31,9 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefercharcompare.md"}
 >
 
-<RecipeHeader.Title>Prefer `java.lang.Char#compare`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Character#compare`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `java.lang.Char#compare` instead of using `com.google.common.primitives.Chars#compare`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `java.lang.Character#compare` instead of using `com.google.common.primitives.Chars#compare`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.PreferCharCompare","displayName":"Prefer `java.lang.Char#compare`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.PreferCharCompare","displayName":"Prefer `Character#compare`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -1,6 +1,6 @@
 ---
-title: "Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`"
-sidebar_label: "Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`"
+title: "Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` with `isCloseTo(Date, long)`"
+sidebar_label: "Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` with `isCloseTo(Date, long)`"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`"}
+  displayName={"Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` with `isCloseTo(Date, long)`"}
   description={"`isEqualToIgnoringMillis()` is deprecated in favor of `isCloseTo()`."}
   fqName={"org.openrewrite.java.testing.assertj.IsEqualToIgnoringMillisToIsCloseToRecipe"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/isequaltoignoringmillistoisclosetorecipe.md"}
 >
 
-<RecipeHeader.Title>Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`</RecipeHeader.Title>
+<RecipeHeader.Title>Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` with `isCloseTo(Date, long)`</RecipeHeader.Title>
 
 <RecipeHeader.Description>`isEqualToIgnoringMillis()` is deprecated in favor of `isCloseTo()`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.IsEqualToIgnoringMillisToIsCloseToRecipe","displayName":"Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.IsEqualToIgnoringMillisToIsCloseToRecipe","displayName":"Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` with `isCloseTo(Date, long)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -1,6 +1,6 @@
 ---
-title: "Rename CDI Extension to Jakarta"
-sidebar_label: "Rename CDI Extension to Jakarta"
+title: "Rename CDI extension service files to Jakarta"
+sidebar_label: "Rename CDI extension service files to Jakarta"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Rename CDI Extension to Jakarta"}
+  displayName={"Rename CDI extension service files to Jakarta"}
   description={"Rename `javax.enterprise.inject.spi.Extension` to `jakarta.enterprise.inject.spi.Extension`."}
   fqName={"org.openrewrite.java.migrate.jakarta.JavaxToJakartaCdiExtensions"}
   languages={["Java"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxtojakartacdiextensions.md"}
 >
 
-<RecipeHeader.Title>Rename CDI Extension to Jakarta</RecipeHeader.Title>
+<RecipeHeader.Title>Rename CDI extension service files to Jakarta</RecipeHeader.Title>
 
 <RecipeHeader.Description>Rename `javax.enterprise.inject.spi.Extension` to `jakarta.enterprise.inject.spi.Extension`.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JavaxToJakartaCdiExtensions","displayName":"Rename CDI Extension to Jakarta","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JavaxToJakartaCdiExtensions","displayName":"Rename CDI extension service files to Jakarta","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage
 

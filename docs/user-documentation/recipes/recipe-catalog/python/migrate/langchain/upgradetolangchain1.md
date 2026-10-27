@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Upgrade to LangChain 0.2","href":"/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain02/"},{"name":"Replace `langchain` legacy imports with `langchain_classic`","href":"/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchainclassicimports/"},{"name":"Find `create_react_agent` usage (replace with `create_agent`)","href":"/user-documentation/recipes/recipe-catalog/python/migrate/langchain/findlangchaincreatereactagent/"},{"name":"Find deprecated LangChain agent patterns","href":"/user-documentation/recipes/recipe-catalog/python/migrate/langchain/finddeprecatedlangchainagents/"}]}>
+<RecipeList recipes={[{"name":"Find deprecated LangChain agent patterns","href":"/user-documentation/recipes/recipe-catalog/python/migrate/langchain/finddeprecatedlangchainagents/"},{"name":"Upgrade to LangChain 0.2","href":"/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain02/"},{"name":"Replace `langchain` legacy imports with `langchain_classic`","href":"/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchainclassicimports/"},{"name":"Find `create_react_agent` usage (replace with `create_agent`)","href":"/user-documentation/recipes/recipe-catalog/python/migrate/langchain/findlangchaincreatereactagent/"}]}>
 
 ## Definition
 

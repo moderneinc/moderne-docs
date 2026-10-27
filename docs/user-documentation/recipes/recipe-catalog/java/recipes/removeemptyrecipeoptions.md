@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"type: specs.openrewrite.org/v1beta/recipe\nname: com.example.MyRecipe\ndisplayName: My recipe\ndescription: Does something useful.\nrecipeList:\n  - org.openrewrite.java.OrderImports:\n  - org.openrewrite.java.ChangeType:\n      oldFullyQualifiedTypeName: com.example.Foo\n      newFullyQualifiedTypeName: com.example.Bar\n  - org.openrewrite.java.RemoveUnusedImports:\n","after":"type: specs.openrewrite.org/v1beta/recipe\nname: com.example.MyRecipe\ndisplayName: My recipe\ndescription: Does something useful.\nrecipeList:\n  - org.openrewrite.java.OrderImports\n  - org.openrewrite.java.ChangeType:\n      oldFullyQualifiedTypeName: com.example.Foo\n      newFullyQualifiedTypeName: com.example.Bar\n  - org.openrewrite.java.RemoveUnusedImports\n","diff":"@@ -6,1 +6,1 @@\ndescription: Does something useful.\nrecipeList:\n- - org.openrewrite.java.OrderImports:\n+ - org.openrewrite.java.OrderImports\n  - org.openrewrite.java.ChangeType:\n@@ -10,1 +10,1 @@\n      oldFullyQualifiedTypeName: com.example.Foo\n      newFullyQualifiedTypeName: com.example.Bar\n- - org.openrewrite.java.RemoveUnusedImports:\n+ - org.openrewrite.java.RemoveUnusedImports\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.recipes.RemoveEmptyRecipeOptions","displayName":"Remove the trailing colon from declarative recipe entries without options","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
 
 ## Usage

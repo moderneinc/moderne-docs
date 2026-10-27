@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change Gradle dependency group","href":"/user-documentation/recipes/recipe-catalog/gradle/changedependencygroupid/"},{"name":"Change Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid/"}]}>
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]}>
 
 ## Definition
 

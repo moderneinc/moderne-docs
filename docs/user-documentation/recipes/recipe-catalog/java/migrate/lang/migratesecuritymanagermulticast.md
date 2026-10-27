@@ -17,11 +17,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   fqName={"org.openrewrite.java.migrate.lang.MigrateSecurityManagerMulticast"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
-  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/java/org/openrewrite/java/migrate/lang/MigrateSecurityManagerMulticast.java"}
+  sourceUrl={"https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/main/resources/META-INF/rewrite/java-lang-apis.yml"}
 />
 
 <RecipeHeader
-  type={"Single recipe"}
+  type={"Composite recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
   license={"Moderne Source Available License"}
@@ -37,7 +37,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite;\n\nimport java.net.InetAddress;\nimport java.lang.SecurityManager;\n\nclass Test {\n    public void method() {\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n        new SecurityManager().checkMulticast(maddr, b);\n    }\n}\n","after":"package org.openrewrite;\n\nimport java.net.InetAddress;\nimport java.lang.SecurityManager;\n\nclass Test {\n    public void method() {\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n        new SecurityManager().checkMulticast(maddr);\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n-       new SecurityManager().checkMulticast(maddr, b);\n+       new SecurityManager().checkMulticast(maddr);\n    }\n","newFile":false}]}]}>
+<RecipeList recipes={[{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+
+## Definition
+
+</RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite;\n\nimport java.net.InetAddress;\nimport java.lang.SecurityManager;\n\nclass Test {\n    public void method() {\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n        new SecurityManager().checkMulticast(maddr, b);\n    }\n}\n","after":"package org.openrewrite;\n\nimport java.net.InetAddress;\nimport java.lang.SecurityManager;\n\nclass Test {\n    public void method() {\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n        new SecurityManager().checkMulticast(maddr);\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n-       new SecurityManager().checkMulticast(maddr, b);\n+       new SecurityManager().checkMulticast(maddr);\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"package org.openrewrite;\n\nimport java.net.InetAddress;\nimport java.lang.SecurityManager;\n\nclass Test {\n    public void method() {\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n        new SecurityManager().checkMulticast(maddr, b);\n    }\n}\n","after":"package org.openrewrite;\n\nimport java.net.InetAddress;\nimport java.lang.SecurityManager;\n\nclass Test {\n    public void method() {\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n        new SecurityManager().checkMulticast(maddr);\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n-       new SecurityManager().checkMulticast(maddr, b);\n+       new SecurityManager().checkMulticast(maddr);\n    }\n","newFile":false}]}]}>
 
 ## Examples
 

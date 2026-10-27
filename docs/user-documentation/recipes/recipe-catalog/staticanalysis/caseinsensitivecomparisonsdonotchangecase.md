@@ -1,6 +1,6 @@
 ---
-title: "CaseInsensitive comparisons do not alter case"
-sidebar_label: "CaseInsensitive comparisons do not alter case"
+title: "Case-insensitive comparisons do not alter case"
+sidebar_label: "Case-insensitive comparisons do not alter case"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"CaseInsensitive comparisons do not alter case"}
+  displayName={"Case-insensitive comparisons do not alter case"}
   description={"Remove `String#toLowerCase()` or `String#toUpperCase()` from `String#equalsIgnoreCase(..)` comparisons. Changing case before a case-insensitive comparison is redundant and allocates unnecessary intermediate `String` objects."}
   fqName={"org.openrewrite.staticanalysis.CaseInsensitiveComparisonsDoNotChangeCase"}
   languages={["OpenRewrite"]}
@@ -31,7 +31,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/caseinsensitivecomparisonsdonotchangecase.md"}
 >
 
-<RecipeHeader.Title>CaseInsensitive comparisons do not alter case</RecipeHeader.Title>
+<RecipeHeader.Title>Case-insensitive comparisons do not alter case</RecipeHeader.Title>
 
 <RecipeHeader.Description>Remove `String#toLowerCase()` or `String#toUpperCase()` from `String#equalsIgnoreCase(..)` comparisons. Changing case before a case-insensitive comparison is redundant and allocates unnecessary intermediate `String` objects.</RecipeHeader.Description>
 
@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CaseInsensitiveComparisonsDoNotChangeCase","displayName":"CaseInsensitive comparisons do not alter case","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CaseInsensitiveComparisonsDoNotChangeCase","displayName":"Case-insensitive comparisons do not alter case","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage
 

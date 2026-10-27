@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Replace `zip(d.keys(), d.values())` with `d.items()`"}
-  description={"When both `.keys()` and `.values()` are zipped together, replace with `.items()` which yields key-value pairs directly. Only a `zip` that a for-loop or comprehension iterates directly is replaced, and only where the receiver is a name or attribute read whose type resolves to `dict`."}
+  description={"When both `.keys()` and `.values()` are zipped together, replace with `.items()` which yields key-value pairs directly. Only a `zip` that a for-loop or comprehension iterates directly is replaced, and only where the receiver is a name or attribute read whose type resolves to `dict`. A `zip` holding comments is left alone."}
   fqName={"org.openrewrite.python.cleanup.UseItemsForKeyValueIteration"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Replace `zip(d.keys(), d.values())` with `d.items()`</RecipeHeader.Title>
 
-<RecipeHeader.Description>When both `.keys()` and `.values()` are zipped together, replace with `.items()` which yields key-value pairs directly. Only a `zip` that a for-loop or comprehension iterates directly is replaced, and only where the receiver is a name or attribute read whose type resolves to `dict`.</RecipeHeader.Description>
+<RecipeHeader.Description>When both `.keys()` and `.values()` are zipped together, replace with `.items()` which yields key-value pairs directly. Only a `zip` that a for-loop or comprehension iterates directly is replaced, and only where the receiver is a name or attribute read whose type resolves to `dict`. A `zip` holding comments is left alone.</RecipeHeader.Description>
 
 </RecipeHeader>
 

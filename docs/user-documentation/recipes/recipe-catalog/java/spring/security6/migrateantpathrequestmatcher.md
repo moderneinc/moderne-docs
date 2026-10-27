@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Migrate antPathRequestMatcher to pathPatternRequestMatcher"}
-  description={"In Spring Security 6.5, `AntPathRequestMatcher` is deprecated in favor of `PathPatternRequestMatcher`. This recipe migrates static method calls and constructor usage to the new pattern in both Java and Kotlin sources."}
+  description={"In Spring Security 6.5, `AntPathRequestMatcher` is deprecated in favor of `PathPatternRequestMatcher`. This recipe migrates static method calls, constructor usage and their method references to the new pattern in both Java and Kotlin sources."}
   fqName={"io.moderne.java.spring.security6.MigrateAntPathRequestMatcher"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Migrate antPathRequestMatcher to pathPatternRequestMatcher</RecipeHeader.Title>
 
-<RecipeHeader.Description>In Spring Security 6.5, `AntPathRequestMatcher` is deprecated in favor of `PathPatternRequestMatcher`. This recipe migrates static method calls and constructor usage to the new pattern in both Java and Kotlin sources.</RecipeHeader.Description>
+<RecipeHeader.Description>In Spring Security 6.5, `AntPathRequestMatcher` is deprecated in favor of `PathPatternRequestMatcher`. This recipe migrates static method calls, constructor usage and their method references to the new pattern in both Java and Kotlin sources.</RecipeHeader.Description>
 
 </RecipeHeader>
 
