@@ -7,7 +7,7 @@ description: How the Moderne CLI keeps tokens and passwords out of moderne.yml, 
 
 When you set up the CLI, you'll need a variety of secrets such as a tenant token, a license key, and passwords to your artifact repositories. If those were stored in plain text in your `moderne.yml` file, any coding agent or tool that reads it to see how the CLI is set up could read them too.
 
-To keep that from happening, staring in CLI 4.10.0, the CLI will automatically store all of these secrets in your OS keychain or in a separate secrets file. Then, it will update the `moderne.yml` file and leave placeholders behind.
+To keep that from happening, starting in CLI 4.10.0, the CLI will automatically store all of these secrets in your OS keychain or in a separate secrets file. Then, it will update the `moderne.yml` file and leave placeholders behind.
 
 In this guide, we'll walk you through what those placeholders look like, where the CLI stores your secrets, and how to change that.
 
