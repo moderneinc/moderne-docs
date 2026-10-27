@@ -35,7 +35,7 @@ The CLI treats the following values as secrets:
 * The authorization, password, and JFrog API token of an artifact repository.
 * The connection string and SAS token of an Azure Blob Storage location.
 
-The first time CLI 4.10.0 or later reads or writes your configuration, it moves every secret in `moderne.yml` to the secret store.
+You don't need to do anything to convert an existing configuration. The first time CLI 4.10.0 or later reads or writes your configuration, it moves every secret in `moderne.yml` to the secret store.
 
 :::note
 If the CLI can't move a secret, for example because `moderne.yml` is read-only or the keychain is locked, the secret stays in the file and your commands keep working. Run `mod config secrets store edit` to try again and see why the move failed.
