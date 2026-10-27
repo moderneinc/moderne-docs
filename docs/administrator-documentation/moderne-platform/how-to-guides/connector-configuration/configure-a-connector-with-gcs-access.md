@@ -9,15 +9,19 @@ import TabItem from '@theme/TabItem';
 
 # Configure a Connector with a Google Cloud Storage organization source
 
-This guide explains how to point the Moderne Connector at a repository CSV stored in a Google Cloud Storage bucket. On each polling cycle, the Connector fetches that CSV to discover your repositories. When the CSV includes `publishUri` values, the Connector uses them to locate each repository's LST artifact.
+This guide explains how to point the Moderne Connector at the `repos-lock.csv` file that [`mod publish` maintains](#publishing-lsts-to-the-bucket) in a Google Cloud Storage bucket. On each cycle, the Connector fetches that file to discover your repositories, then fetches each repository's LST from the bucket at the location given in its `publishUri` column.
 
-Any of the CSV variants documented in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md) work here, as long as the CSV defines your [organizational hierarchy](./configure-organizations-hierarchy.md): a minimal CSV with `origin`, `path`, `branch`, and at least one `org` column, or a full `repos-lock.csv` produced by Mass Ingest's `mod publish`.
+Your LSTs need to live in the same bucket as the `repos-lock.csv` file, which is where `mod publish` puts them. The [organizational hierarchy](./configure-organizations-hierarchy.md) comes from the `org` columns of the `repos.csv` file you publish from, as described in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
+
+:::note
+A row without a `publishUri` still appears in your organizational hierarchy, but the Connector has no LST to fetch for it, so you won't be able to run recipes against that repository.
+:::
 
 For background on how the Connector uses CSV sources, please see [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts).
 
 ## Prerequisites
 
-* A repository CSV stored as a single object in a Cloud Storage bucket. The `uri` you configure must point at that object (e.g., `gs://my-bucket/repos-lock.csv`), not at a bucket or prefix.
+* A `repos-lock.csv` file stored as a single object in a Cloud Storage bucket, alongside the LSTs it lists. The `uri` you configure must point at that object (e.g., `gs://my-bucket/repos-lock.csv`), not at a bucket or prefix.
 * A way for the Connector to authenticate, which will be either Application Default Credentials or a service account key. Both are covered in [authentication options](#authentication-options) below.
 * A service account that can read the CSV object and the LST objects alongside it. The Connector only ever reads individual objects, so `storage.objects.get` is the only permission it needs. You can grant it through the predefined **Storage Object Viewer** (`roles/storage.objectViewer`) role, or through a custom role if you'd prefer. It never needs permission to list the bucket.
 
@@ -30,13 +34,11 @@ You have two options here, and we'd recommend the first:
 
 ## Which artifacts the Connector will fetch
 
-The Connector only fetches LST artifacts that live under the same prefix as the CSV itself. If you publish with the Moderne CLI, your CSV sits at the root of the bucket (`gs://my-bucket/repos-lock.csv`), so the Connector can reach anything in that bucket. If you place the CSV yourself at, say, `gs://my-bucket/lsts/repos-lock.csv`, then the Connector is limited to objects under `lsts/`.
-
-Either way, a row that points outside that prefix, or at a different bucket, is refused. A bucket is often shared by unrelated teams, so the Connector won't use one source's credentials to reach into another's.
+The Connector only fetches LST artifacts that live in the same bucket as your `repos-lock.csv` file. `mod publish` always writes that file at the root of the bucket (`gs://my-bucket/repos-lock.csv`), so every LST that `mod publish` uploads is within the Connector's reach.
 
 ## Encrypting LSTs before they reach Moderne
 
-By default, the Connector fetches each LST from the bucket, encrypts it, and uploads it to Moderne. If you turn encryption off without configuring a `poll` block, the Connector will refuse to start. Please see [LST encryption](./configure-lst-encryption.md) for how `encrypt` behaves across source types.
+Encryption is mandatory for Cloud Storage sources, so you will need to configure the Connector with a symmetric key, as described in [step 1 of the Connector configuration guide](./connector-config.md#step-1-generate-your-symmetric-key).
 
 ## Configuring the Moderne Connector
 
@@ -120,6 +122,8 @@ mod publish /path/to/your/repos
 ```
 
 `mod publish` uploads each LST under a `yyyy/MM/dd/HH/` prefix and maintains a merged `repos-lock.csv` at the root of the bucket. That merged file is the object you'll want to point the Connector at.
+
+To keep your LSTs up to date, you'll want to run `mod publish` every day through a [mass ingest](../mass-ingest.md) pipeline rather than by hand. Mass ingest runs `mod publish --sync-csv`, which reads the `repos.csv` you put at the root of the bucket, publishes each repository, and records the results in the same `repos-lock.csv`.
 
 You can safely publish from several machines at once. Each update to `repos-lock.csv` only lands if the file hasn't changed since it was read, so a machine that loses the race will retry. If it keeps losing, `mod publish` fails rather than overwriting another machine's rows.
 
