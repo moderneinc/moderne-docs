@@ -37,7 +37,7 @@ If you set both, the Connector uses the connection string and ignores the SAS to
 
 ## Which artifacts the Connector will fetch
 
-The Connector only fetches LST artifacts that live in the same container as your `repos-lock.csv` file. `mod publish` always writes that file at the root of the container (`https://myaccount.blob.core.windows.net/mycontainer/repos-lock.csv`), so every LST that `mod publish` uploads is within the Connector's reach.
+The Connector refuses to fetch an LST from anywhere other than the container that holds your `repos-lock.csv`. You won't run into this with `mod publish`, which writes the file at the root of the container (`https://myaccount.blob.core.windows.net/mycontainer/repos-lock.csv`) and uploads the LSTs alongside it. It only matters if you edit `publishUri` values by hand to point at another container or storage account.
 
 ## Encrypting LSTs before they reach Moderne
 
@@ -130,6 +130,6 @@ Like the Connector, the CLI uses Microsoft Entra ID unless you pass `--connectio
 
 To keep your LSTs up to date, you'll want to run `mod publish` every day through a [mass ingest](../mass-ingest.md) pipeline rather than by hand. Mass ingest runs `mod publish --sync-csv`, which reads the `repos.csv` you put at the root of the container, publishes each repository, and records the results in the same `repos-lock.csv`. The Connector re-reads that file every ten minutes by default. You can change that with the [`moderne.connector.organization.interval`](./connector-variables.md#organization-sync-variables) setting.
 
-You can safely publish from several machines at once. Each update to `repos-lock.csv` only lands if the file hasn't changed since it was read, so a machine that loses the race will retry. If it keeps losing, `mod publish` fails rather than overwriting another machine's rows.
+If you shard mass ingest across several machines, they can all publish to the same container at once. Each one adds its own rows to `repos-lock.csv` without touching the others'. If a machine can't get its rows in, its `mod publish` fails and leaves the file as the other machines wrote it.
 
 See the [repos-lock.csv guide](../../../../user-documentation/moderne-cli/how-to-guides/repos-lock-csv.md) for the full publishing workflow.
