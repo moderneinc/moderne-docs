@@ -5,9 +5,11 @@ description: How the Moderne CLI keeps tokens and passwords out of moderne.yml, 
 
 # Storing CLI secrets outside moderne.yml
 
-Your CLI configuration includes credentials such as your tenant token, your license key, and the passwords for your artifact repositories. Coding agents and other tools often read `moderne.yml` to see how the CLI is set up. Any credential written in that file in plain text is visible to them.
+When you set up the CLI, you'll need a variety of secrets such as a tenant token, a license key, and passwords to your artifact repositories. If those were stored in plain text in your `moderne.yml` file, any coding agent or tool that reads it to see how the CLI is set up could read them too.
 
-The CLI stores credentials in your OS keychain or in a separate secrets file, and leaves only a placeholder in `moderne.yml`. In this guide, we'll walk you through what the placeholders look like, where the CLI stores secrets, and how to change that.
+To keep that from happening, staring in CLI 4.10.0, the CLI will automatically store all of these secrets in your OS keychain or in a separate secrets file. Then, it will update the `moderne.yml` file and leave placeholders behind.
+
+In this guide, we'll walk you through what those placeholders look like, where the CLI stores your secrets, and how to change that.
 
 ## How secrets appear in moderne.yml
 
@@ -33,7 +35,7 @@ The CLI treats the following values as secrets:
 * The authorization, password, and JFrog API token of an artifact repository.
 * The connection string and SAS token of an Azure Blob Storage location.
 
-You don't need to do anything to convert an existing configuration. The first time CLI 4.10.0 or later reads or writes your configuration, it moves every secret in `moderne.yml` to the secret store.
+The first time CLI 4.10.0 or later reads or writes your configuration, it moves every secret in `moderne.yml` to the secret store.
 
 :::note
 If the CLI can't move a secret, for example because `moderne.yml` is read-only or the keychain is locked, the secret stays in the file and your commands keep working. Run `mod config secrets store edit` to try again and see why the move failed.
