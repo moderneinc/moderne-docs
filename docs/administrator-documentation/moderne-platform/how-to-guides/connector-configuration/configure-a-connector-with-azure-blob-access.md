@@ -9,12 +9,12 @@ import TabItem from '@theme/TabItem';
 
 # Configure a Connector with an Azure Blob Storage organization source
 
-This guide explains how to point the Moderne Connector at the `repos-lock.csv` file that [`mod publish` maintains](#publishing-lsts-to-the-container) in an Azure Blob Storage container. On each cycle, the Connector fetches that file to discover your repositories, then fetches each repository's LST from the container at the location given in its `publishUri` column.
+If you publish LSTs to Azure Blob Storage, the container already holds everything the Connector needs. [`mod publish` keeps a `repos-lock.csv` there](#publishing-lsts-to-the-container) that lists every repository and where its LST lives. Point the Connector at that file and it will discover your repositories and fetch their LSTs from the same container, with no separate CSV to host or keep in sync.
 
-Your LSTs need to live in the same container as the `repos-lock.csv` file, which is where `mod publish` puts them. The [organizational hierarchy](./configure-organizations-hierarchy.md) comes from the `org` columns of the `repos.csv` file you publish from, as described in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
+The [organizational hierarchy](./configure-organizations-hierarchy.md) comes from the `org` columns of the `repos.csv` file you publish from, as described in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
 
 :::note
-A row without a `publishUri` still appears in your organizational hierarchy, but the Connector has no LST to fetch for it, so you won't be able to run recipes against that repository.
+A row without a `publishUri` still shows up in your organizational hierarchy, but you won't be able to run recipes against it because the Connector has no LST to fetch.
 :::
 
 For background on how the Connector uses CSV sources, please see [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts).
@@ -22,18 +22,18 @@ For background on how the Connector uses CSV sources, please see [how the Connec
 ## Prerequisites
 
 * A `repos-lock.csv` file stored as a single blob in an Azure Blob Storage container, alongside the LSTs it lists. The `uri` you configure must point at that blob (e.g., `https://myaccount.blob.core.windows.net/mycontainer/repos-lock.csv`), not at the container.
-* A way for the Connector to authenticate, which will be a Microsoft Entra ID identity, a container-scoped shared access signature (SAS) token, or a storage account connection string. All three are covered in [authentication options](#authentication-options) below.
-* Read access to the CSV blob and the LST blobs alongside it. The Connector only ever reads individual blobs, so it never needs permission to write to the container or to list it.
+* A way for the Connector to authenticate, using any of the [authentication options](#authentication-options) below.
+* Read access to the CSV blob and the LST blobs alongside it. The Connector never needs to write to the container or list its contents.
 
 ## Authentication options
 
 You have three options here, and we'd recommend the first:
 
-* **Microsoft Entra ID**: configure only the `uri`, and the Connector authenticates with whatever identity its environment provides, such as a managed identity on Azure VMs and AKS, or a service principal set through the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables. That identity needs the **Storage Blob Data Reader** role on the container or the storage account. Management roles such as **Owner** or **Contributor** on the subscription do not grant access to blob data. No key material ends up in the Connector's configuration.
+* **Microsoft Entra ID**: configure only the `uri`, and the Connector authenticates with whatever identity its environment provides. That can be a managed identity on Azure VMs and AKS, or a service principal set through the `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET` environment variables. Either way, the identity needs the **Storage Blob Data Reader** role on the container or the storage account. Management roles such as **Owner** or **Contributor** on the subscription do not grant access to blob data. No key material ends up in the Connector's configuration.
 * **SAS token**: set `sas-token` to a container-scoped SAS that grants **Read** permission. Provide the query-string portion only, with or without the leading `?`.
-* **Connection string**: set `connection-string` to the storage account's connection string, found on the account's **Access keys** page. A connection string carries the account key, which grants full access to every container in the account.
+* **Connection string**: set `connection-string` to the storage account's connection string, found on the account's **Access keys** page. A connection string includes the account key. That key grants full access to every container in the account, not just this one.
 
-If you set more than one, the connection string takes precedence over the SAS token. You should treat both values as secrets and supply them through your platform's secret mechanism rather than an inline environment variable wherever you can.
+If you set both, the Connector uses the connection string and ignores the SAS token. You should treat both values as secrets and supply them through your platform's secret mechanism rather than an inline environment variable wherever you can.
 
 ## Which artifacts the Connector will fetch
 
@@ -116,7 +116,7 @@ java -jar connector-{version}.jar \
 
 ## Publishing LSTs to the container
 
-The CSV and the LSTs it points at are produced by the Moderne CLI, so you'll want to configure the CLI to publish to the same container:
+The Moderne CLI produces both the CSV and the LSTs it points at. Configure it to publish to the same container:
 
 ```bash
 mod config lsts artifacts azure-blob edit https://myaccount.blob.core.windows.net/mycontainer
@@ -128,7 +128,7 @@ Like the Connector, the CLI uses Microsoft Entra ID unless you pass `--connectio
 
 `mod publish` uploads each LST under a `yyyy/MM/dd/HH/` prefix and maintains a merged `repos-lock.csv` at the root of the container. That merged file is the blob you'll want to point the Connector at.
 
-To keep your LSTs up to date, you'll want to run `mod publish` every day through a [mass ingest](../mass-ingest.md) pipeline rather than by hand. Mass ingest runs `mod publish --sync-csv`, which reads the `repos.csv` you put at the root of the container, publishes each repository, and records the results in the same `repos-lock.csv`.
+To keep your LSTs up to date, you'll want to run `mod publish` every day through a [mass ingest](../mass-ingest.md) pipeline rather than by hand. Mass ingest runs `mod publish --sync-csv`, which reads the `repos.csv` you put at the root of the container, publishes each repository, and records the results in the same `repos-lock.csv`. The Connector re-reads that file every ten minutes by default. You can change that with the [`moderne.connector.organization.interval`](./connector-variables.md#organization-sync-variables) setting.
 
 You can safely publish from several machines at once. Each update to `repos-lock.csv` only lands if the file hasn't changed since it was read, so a machine that loses the race will retry. If it keeps losing, `mod publish` fails rather than overwriting another machine's rows.
 

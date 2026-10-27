@@ -9,12 +9,12 @@ import TabItem from '@theme/TabItem';
 
 # Configure a Connector with a Google Cloud Storage organization source
 
-This guide explains how to point the Moderne Connector at the `repos-lock.csv` file that [`mod publish` maintains](#publishing-lsts-to-the-bucket) in a Google Cloud Storage bucket. On each cycle, the Connector fetches that file to discover your repositories, then fetches each repository's LST from the bucket at the location given in its `publishUri` column.
+If you publish LSTs to Google Cloud Storage, the bucket already holds everything the Connector needs. [`mod publish` keeps a `repos-lock.csv` there](#publishing-lsts-to-the-bucket) that lists every repository and where its LST lives. Point the Connector at that file and it will discover your repositories and fetch their LSTs from the same bucket, with no separate CSV to host or keep in sync.
 
-Your LSTs need to live in the same bucket as the `repos-lock.csv` file, which is where `mod publish` puts them. The [organizational hierarchy](./configure-organizations-hierarchy.md) comes from the `org` columns of the `repos.csv` file you publish from, as described in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
+The [organizational hierarchy](./configure-organizations-hierarchy.md) comes from the `org` columns of the `repos.csv` file you publish from, as described in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
 
 :::note
-A row without a `publishUri` still appears in your organizational hierarchy, but the Connector has no LST to fetch for it, so you won't be able to run recipes against that repository.
+A row without a `publishUri` still shows up in your organizational hierarchy, but you won't be able to run recipes against it because the Connector has no LST to fetch.
 :::
 
 For background on how the Connector uses CSV sources, please see [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts).
@@ -113,7 +113,7 @@ java -jar connector-{version}.jar \
 
 ## Publishing LSTs to the bucket
 
-The CSV and the LSTs it points at are produced by the Moderne CLI, so you'll want to configure the CLI to publish to the same bucket:
+The Moderne CLI produces both the CSV and the LSTs it points at. Configure it to publish to the same bucket:
 
 ```bash
 mod config lsts artifacts gcs edit gs://my-bucket
@@ -123,7 +123,7 @@ mod publish /path/to/your/repos
 
 `mod publish` uploads each LST under a `yyyy/MM/dd/HH/` prefix and maintains a merged `repos-lock.csv` at the root of the bucket. That merged file is the object you'll want to point the Connector at.
 
-To keep your LSTs up to date, you'll want to run `mod publish` every day through a [mass ingest](../mass-ingest.md) pipeline rather than by hand. Mass ingest runs `mod publish --sync-csv`, which reads the `repos.csv` you put at the root of the bucket, publishes each repository, and records the results in the same `repos-lock.csv`.
+To keep your LSTs up to date, you'll want to run `mod publish` every day through a [mass ingest](../mass-ingest.md) pipeline rather than by hand. Mass ingest runs `mod publish --sync-csv`, which reads the `repos.csv` you put at the root of the bucket, publishes each repository, and records the results in the same `repos-lock.csv`. The Connector re-reads that file every ten minutes by default. You can change that with the [`moderne.connector.organization.interval`](./connector-variables.md#organization-sync-variables) setting.
 
 You can safely publish from several machines at once. Each update to `repos-lock.csv` only lands if the file hasn't changed since it was read, so a machine that loses the race will retry. If it keeps losing, `mod publish` fails rather than overwriting another machine's rows.
 
