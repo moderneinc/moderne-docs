@@ -31,7 +31,6 @@ The CLI treats the following values as secrets:
 * The tenant token and the license key.
 * The HTTP proxy password.
 * The trust store and key store passwords.
-* The Slack, webhook, and SMS tokens.
 * The authorization, password, and JFrog API token of an artifact repository.
 * The connection string and SAS token of an Azure Blob Storage location.
 

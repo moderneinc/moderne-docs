@@ -583,19 +583,19 @@ mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
 
 To learn more about what changed, you can command/ctrl click on the `Fix results` link in the output.
 
-#### Running recipes in Moderne
+#### Running recipes in the Moderne Platform
 
-If an organization's LSTs are already in the Moderne Platform, you can run a recipe on it in Moderne instead of syncing every repository first. Pass a `moderne://` URI in place of the directory:
+If an organization's LSTs are already in the Moderne Platform, you can run a recipe on it there instead of syncing every repository first. Pass a `moderne://` URI in place of the directory:
 
 ```bash
 mod run "moderne://Sample Estate" --recipe org.openrewrite.gradle.UpdateGradleWrapper
 ```
 
-The CLI waits for the run to finish and prints the diff for each repository the recipe changed or found something in. Nothing is downloaded to your machine. The recipe must be in your tenant's recipe marketplace. To try a recipe you're still developing, upload it with `mod config recipes bundle push` and pass the id it prints to `--bundle`.
+The CLI waits for the run to finish and prints the diff for each repository the recipe changed or found something in. Nothing is downloaded to your machine. The recipe must be in your tenant's recipe marketplace. To try a recipe you're still developing, upload it with `mod config recipes bundle push` and pass the ID it prints to `--bundle`.
 
-You can name the organization by its full id (such as `ALL/Open Source/Sample Estate`), by its name, or by part of either. Quote the URI if the name has spaces. If the name matches more than one organization, the CLI lists the matches so you can pick one.
+You can name the organization by its full ID (such as `ALL/Open Source/Sample Estate`), by its name (such as `Sample Estate`), or by part of its name or ID. Quote the URI if the name has spaces. If the name matches more than one organization, the CLI lists the matches so you can pick one.
 
-Moderne saves the run as a [changeset](../../moderne-platform/references/changesets.md). You can [read its data tables or download only the repositories it changed](../../moderne-platform/references/changesets.md#moderne-cli) without syncing the whole organization.
+The Moderne Platform saves the run as a [changeset](../../moderne-platform/references/changesets.md). You can [read its data tables or download only the repositories it changed](../../moderne-platform/references/changesets.md#moderne-cli) without syncing the whole organization.
 
 ### Working with data tables
 
