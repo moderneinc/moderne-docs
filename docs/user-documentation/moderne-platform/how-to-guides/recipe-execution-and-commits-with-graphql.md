@@ -102,7 +102,7 @@ Each recipe option is provided as a `name` and `value` pair. The `value` accepts
 
 ### Verify recipe completion
 
-In the Moderne API, a recipe run is a changeset that belongs to the organization it ran against. Rather than a separate `state` field, the run's current state is encoded in its `__typename` (for example, `OrganizationRecipeRunRunning` or `OrganizationRecipeRunFinished`). To poll a run, you will need both the `organizationId` you ran against and the run `id` from the previous step.
+In the Moderne API, a recipe run is a [changeset](../references/changesets.md) that belongs to the organization it ran against. Rather than a separate `state` field, the run's current state is encoded in its `__typename` (for example, `OrganizationRecipeRunRunning` or `OrganizationRecipeRunFinished`). To poll a run, you will need both the `organizationId` you ran against and the run `id` from the previous step.
 
 1. Poll (Moderne's web interface uses a 3-second interval) with the query below. Every state writer advances the `lastUpdatedAt` high-water mark, so you can poll `__typename` and `lastUpdatedAt` cheaply and only fetch the heavier results once the run reaches a terminal state.
 
