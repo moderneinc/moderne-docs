@@ -8,30 +8,15 @@ import TabItem from '@theme/TabItem';
 
 # Remote Moderne MCP server
 
-The Moderne Platform hosts a remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents access to your platform's recipes, recipe results, and code search. Unlike the [local MCP server](./overview.md), which runs on your workstation and operates on repositories you have checked out, the remote server runs on the platform and operates on the repositories already ingested into your tenant.
+The Moderne Platform hosts a remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents access to your platform's recipes, recipe results, and code search. It operates on the repositories already ingested into your tenant, so your agent can run a recipe or search code across an entire organization without checking anything out.
 
 :::info[Beta]
-The remote MCP server is in beta. Tools will be added, reshaped, and occasionally removed as we learn how agents use them. That being said, it's only the tools themselves that are in beta - not the platform underneath it. Authentication and access scoping work exactly as they do for the rest of the Moderne API (as described under [Security](#security).
+The remote MCP server is in beta. Tools will be added, reshaped, and occasionally removed as we learn how agents use them. That being said, it's only the tools themselves that are in beta - not the platform underneath it. Authentication and access scoping work exactly as they do for the rest of the Moderne API (as described under [Security](#security)).
 
-None of the changes to the tools requires anything from you, because your agents reads the current list of tools from the server each time it connects.
+None of the changes to the tools requires anything from you, because your agent reads the current list of tools from the server each time it connects.
 :::
 
-This page covers when to use the remote server, how to connect your coding agents to it, how to try it out via the MCP explorer, how it authenticates and scopes access, and the [tools it provides](#available-tools).
-
-## Local vs remote
-
-Moderne offers two MCP servers, and they complement each other:
-
-|                         | Local MCP server                                                     | Remote MCP server                                              |
-|-------------------------|----------------------------------------------------------------------|----------------------------------------------------------------|
-| **Maturity**            | [Experimental](./overview.md)                                        | Beta                                                           |
-| **Where it runs**       | On your workstation, as a subprocess of your coding agent            | On the Moderne Platform                                        |
-| **What it operates on** | Repositories checked out locally                                     | Repositories ingested into your tenant, scoped by organization |
-| **Setup**               | [`mod config agent-tools install`](./getting-started.md)             | Point your agent at a URL with an access token (below)         |
-| **Transport**           | stdio (local subprocess)                                             | Streamable HTTP (remote)                                       |
-| **Best for**            | Semantic search, navigation, and refactoring of code you are editing | Running recipes and analyzing results at an organization scale |
-
-For semantic code intelligence on the repository in front of you, use the local server. To run recipes and explore their results across an entire organization without checking the repositories out, use the remote server.
+This page covers how to connect your coding agents to the remote server, how to try it out via the MCP explorer, how it authenticates and scopes access, and the [tools it provides](#available-tools).
 
 ## Before you begin
 
@@ -604,9 +589,11 @@ The remote MCP server has the same security posture as the [Moderne API](../../m
 * **Identity**: the server derives your identity from your token. An agent cannot impersonate another user, because any caller-supplied identity is ignored and replaced with the verified token identity.
 * **Authorization**: your token carries your account's permissions, so an agent can only search, run recipes, and read results for organizations and repositories you can already access.
 
-Because it reuses the API's authentication and authorization, permitting the remote MCP server does not grant any access beyond what a user with a personal access token already has.
+Because it reuses the API's authentication and authorization, permitting the remote MCP server does not grant any access beyond what a user with a personal access token already has. 
+
+Since none of its tools commits code or opens pull requests, the server never needs an SCM access token. To deliver a changeset's results to your repositories, use the Moderne Platform or trigger a commit through the [API's `commit` mutation](../../moderne-platform/how-to-guides/recipe-execution-and-commits-with-graphql.md).
 
 ## Next steps
 
-* [Set up the local MCP server](./overview.md) for semantic code intelligence on your workstation.
+* [Try the experimental local MCP server](./overview.md), which runs through the CLI on repositories you have checked out.
 * [Get started with code search](../../moderne-platform/getting-started/code-search.md) to learn the query syntax the search tools take.
