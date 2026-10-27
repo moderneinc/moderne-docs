@@ -7,13 +7,20 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.314 |
+| Connector | 0.151.324 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.314/connector-0.151.314.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.324/connector-0.151.324.jar)
 
 ## Changelog
 
 ## October 2026
+
+### v0.151.324 – 2026-10-26
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.324/connector-0.151.324.jar)
+
+* Accept an Azure Blob Storage container as an organization source (#1883)
+* Drop direct commits on dev and app, and default to pull requests (#2778)
 
 ### v0.151.314 – 2026-10-23
 
