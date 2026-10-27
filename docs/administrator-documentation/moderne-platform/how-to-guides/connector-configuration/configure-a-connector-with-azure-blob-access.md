@@ -37,11 +37,11 @@ If you set both, the Connector uses the connection string and ignores the SAS to
 
 ## Which artifacts the Connector will fetch
 
-The Connector refuses to fetch an LST from anywhere other than the container that holds your `repos-lock.csv`. You won't run into this with `mod publish`, which writes the file at the root of the container (`https://myaccount.blob.core.windows.net/mycontainer/repos-lock.csv`) and uploads the LSTs alongside it. It only matters if you edit `publishUri` values by hand to point at another container or storage account.
+The Connector only fetches LST artifacts that live in the same container as your `repos-lock.csv` file. `mod publish` always writes that file at the root of the container (`https://myaccount.blob.core.windows.net/mycontainer/repos-lock.csv`), so every LST that `mod publish` uploads is within the Connector's reach.
 
 ## Encrypting LSTs before they reach Moderne
 
-Encryption is mandatory for Azure Blob Storage sources, so you will need to configure the Connector with a symmetric key, as described in [step 1 of the Connector configuration guide](./connector-config.md#step-1-generate-your-symmetric-key).
+The Connector fetches your LSTs from the container, so it has to encrypt them before uploading them to Moderne. You will need to configure the Connector with a symmetric key, as described in [step 1 of the Connector configuration guide](./connector-config.md#step-1-generate-your-symmetric-key).
 
 ## Configuring the Moderne Connector
 

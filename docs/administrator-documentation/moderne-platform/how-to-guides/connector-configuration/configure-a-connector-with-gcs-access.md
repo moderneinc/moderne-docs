@@ -34,11 +34,11 @@ You have two options here, and we'd recommend the first:
 
 ## Which artifacts the Connector will fetch
 
-The Connector refuses to fetch an LST from anywhere other than the bucket that holds your `repos-lock.csv`. You won't run into this with `mod publish`, which writes the file at the root of the bucket (`gs://my-bucket/repos-lock.csv`) and uploads the LSTs alongside it. It only matters if you edit `publishUri` values by hand to point at another bucket.
+The Connector only fetches LST artifacts that live in the same bucket as your `repos-lock.csv` file. `mod publish` always writes that file at the root of the bucket (`gs://my-bucket/repos-lock.csv`), so every LST that `mod publish` uploads is within the Connector's reach.
 
 ## Encrypting LSTs before they reach Moderne
 
-Encryption is mandatory for Cloud Storage sources, so you will need to configure the Connector with a symmetric key, as described in [step 1 of the Connector configuration guide](./connector-config.md#step-1-generate-your-symmetric-key).
+The Connector fetches your LSTs from the bucket, so it has to encrypt them before uploading them to Moderne. You will need to configure the Connector with a symmetric key, as described in [step 1 of the Connector configuration guide](./connector-config.md#step-1-generate-your-symmetric-key).
 
 ## Configuring the Moderne Connector
 

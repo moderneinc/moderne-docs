@@ -78,7 +78,7 @@ java -jar connector-{version}.jar \
 
 </Tabs>
 
-## Azure variables
+## Azure DevOps variables
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
