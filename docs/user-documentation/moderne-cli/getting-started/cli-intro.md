@@ -497,6 +497,39 @@ If a project fails to build, it might require additional configuration. See [mod
 Make sure the build tools your projects use are on your `PATH`. Run `mod doctor` to see which toolchains the CLI finds on this machine.
 :::
 
+When a repository fails to build, the CLI shows the error that caused it, so you usually don't need to open `build.log`. The reason for the first failure appears under `Cause:`.
+
+When you build more than one repository, each failed repository also shows its reason under the failure. `What went wrong` then lists the failures grouped by reason, with the most common reason first:
+
+```bash
+▶ broken/gradle-bad-wrapper@main
+    ✗ Failed to build an LST. See file:///…/build.log
+      Unknown host artifactory.acme.invalid
+▶ broken/gradle-missing-plugin@main
+    ✗ Failed to build an LST. See file:///…/build.log
+      Gradle plugin com.acme.conventions version 4.5.6 was not found
+▶ broken/maven-missing-parent@main
+    ✗ Failed to build an LST. See file:///…/build.log
+      Could not find artifact com.acme.platform:acme-parent:pom:7.3.1
+
+...
+
+● Cause:
+Unknown host artifactory.acme.invalid
+
+● What went wrong:
+13 repositories failed to build. The first failure was on broken/gradle-bad-wrapper@main, as shown above.
+
+Failures by reason:
+  2  Could not find a version of Java that met the requirements of the repository
+  2  Could not find artifact com.acme.platform:acme-parent:pom:7.3.1
+  2  Gradle plugin com.acme.conventions version 4.5.6 was not found
+  1  Unknown host artifactory.acme.invalid
+  ...
+```
+
+If a build succeeds even though one of its steps failed, the CLI shows that step's error as a warning.
+
 ### Analyzing build results locally
 
 When building LSTs for many repositories, some may fail due to unique build requirements. The Moderne CLI includes a built-in analytics dashboard for visualizing build failures. Launch it with:
@@ -510,7 +543,7 @@ mod trace builds analyze . --last-build
   <figcaption>_Build telemetry dashboard view_</figcaption>
 </figure>
 
-The dashboard displays build metadata and lets you drill into individual repositories to view logs and troubleshooting suggestions.
+The dashboard displays build metadata and lets you drill into individual repositories to view logs and troubleshooting suggestions. Its build page lists failures by reason with the number of builds that failed for each, and you can click a reason to filter the table to those builds.
 
 ### Running recipes {/* #running */}
 
@@ -549,6 +582,20 @@ mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
 #### Examining results
 
 To learn more about what changed, you can command/ctrl click on the `Fix results` link in the output.
+
+#### Running recipes in the Moderne Platform
+
+If an organization's LSTs are already in the Moderne Platform, you can run a recipe on it there instead of syncing every repository first. Pass a `moderne://` URI in place of the directory:
+
+```bash
+mod run "moderne://Sample Estate" --recipe org.openrewrite.gradle.UpdateGradleWrapper
+```
+
+The CLI waits for the run to finish and prints the diff for each repository the recipe changed or found something in. Nothing is downloaded to your machine. The recipe must be in your tenant's recipe marketplace. To try a recipe you're still developing, upload it with `mod config recipes bundle push` and pass the ID it prints to `--bundle`.
+
+You can name the organization by its full ID (such as `ALL/Open Source/Sample Estate`), by its name (such as `Sample Estate`), or by part of its name or ID. Quote the URI if the name has spaces. If the name matches more than one organization, the CLI lists the matches so you can pick one.
+
+The Moderne Platform saves the run as a [changeset](../../moderne-platform/references/changesets.md). You can [read its data tables or download only the repositories it changed](../../moderne-platform/references/changesets.md#moderne-cli) without syncing the whole organization.
 
 ### Working with data tables
 
