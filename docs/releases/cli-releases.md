@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.11.0           |
+| CLI version | 4.12.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,94 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.12.0 (2026-10-28) {/* #v4.12.0 */}
+
+_Based on OpenRewrite 8.95.0_
+
+#### What's Changed
+* Push the Chocolatey package with a deploy key instead of a personal access token
+* Name recipe() among what --syntax=sql reads, in mod search's help and the factory guide
+* Assert jmods on the obfuscate task instead of at configuration time
+* Write a canceled run's Canceled trace rows in batches
+* Bound the V2 LST fragments mod run holds in memory to the heap it was given
+* Remove incubation notes
+* Revert "Bound the V2 LST fragments mod run holds in memory to the heap it was given (#4929)"
+* Link changesets under their organization's id
+* Rename the recipe project template `package.json` file
+* Match DuckDB 2.x macOS native name when stripping platform natives
+* Fold mod \<agent> factory and team join into mod \<agent> chat
+* Compile and check Gradle platforms and composite roots instead of failing on a missing task
+* Give the JavaScript and C# RPC servers their own logs, and bundle RPC logs
+* Run a recipe in Moderne over the repositories a changeset found
+* Ignore engines.node in the JavaScript dependency install
+* Rejoin a run in Moderne that the same mod run already queued
+* Normalize line endings in RemoteRunTest rejoin assertion for Windows
+* Keep Gradle 9's JDK 17 floor when the build declares a Java toolchain
+* Support the Pi coding agent in mod pi chat and mod config agent-tools
+* Size an agent's builds and sessions to the machine it runs on
+* Record the failing build step, and read a crashed process's cause into the failure reason
+* Give each CLI changelog release a stable anchor and replace it on re-runs
+* Fail the build when a default JavaScript, Python or .NET build step fails
+* Preserve complete CSV records when copying and aggregating data tables
+* Let call: name a type alone, and suggest ..* when a .* glob finds nothing
+* Keep mod build from stalling and running out of heap while recording git line history on large monorepos
+* Look for error markers only in files the edit pass writes
+* Resolve Maven Central as Maven does and make no-maven-central a no-op
+* Remove the LST download sync trace test, which races its stub server
+* Find a call to an inherited method by its receiver's type with ref.call:
+* Let mod's Maven tests pass on a machine whose settings.xml mirrors Central
+* Keep a V3 file whose negated precondition its header can't decide
+* Keep V3 files that reach a precondition's type through an import or a subtype
+* Stop deeply nested expressions from failing Bazel LST builds
+* Send the encrypted password doctor test's Maven Central probe to its own server
+* Count every call through an ancestor's method, and note the method it resolved to
+* Tell overloads apart with an argument list in call:
+* Suggest mod login, and separate its bullet lines from the text above them
+* Honor a Maven resource's includes, and emit a file two source sets share once
+* Record the LST each shard holds a repository from, and digest an index by what it holds
+* Build every CLI distribution in Gradle, so CGP publishes the snapshots
+* Cap a V2 LST fragment by estimated heap when it is written
+* Take the tag trigger and the steps that released a tag out of release.yml, so that CGP releases the CLI
+* Keep each Bazel mini-build to its own target when actions share an exec root, as on Windows
+* Skip the build of a step whose validation failed, rather than failing it with an NPE
+* Bind JVM and system metrics off the main thread
+* Load sqlite-jdbc's native library from the CLI home
+* Resolve a source-type filter's root classes on first lookup
+* Read each V3 source set's trees from the names discovery listed
+* Release type-table readers that finished writes and index parts still hold
+* Convert a V2 LST to V3 a source file at a time
+* Read CSV on the calling thread with an 8K buffer
+* Prefer the JDK a repository's GitHub Actions build workflow sets up
+* Stop rewriting a repository's global.json during mod build
+* Bump Jackson to 2.21.8 for CVE-2026-110879
+* Put the Android Gradle Plugin DSL jars on Android modules' buildscript classpath
+* Say what each repository's push to a changeset came to, ref by ref
+* Say what a run in Moderne and a sync came to in counts that carry their units
+* Document releasing the CLI from CGP instead of a tag
+* Expose full code search and recipe guidance in CLI help
+* Time Maven repositories, recipe metadata and the artifact store in doctor
+* Add CLI option to allow starting coding agents through a launcher script
+* Check a session can work before the agent starts, and keep startup out of the way
+* Let a parent see, steer and stop agent sessions through Moderne
+* Write the CLI reference with \n line endings on Windows too
+* Escape the working set's path in CodexRolloutTest's rollouts so they parse on Windows
+* Verify with mod exec's commands, and bundle any recipe project with errors that say why
+* Tell a session that starts others how to drive them
+* Remove `mod git clone`, which has been broken since v4.2.2, in favor of `mod git sync`
+* Keep the push receipt's field names through obfuscation
+* Ask for no telemetry flush once the JVM is shutting down
+* Keep tests from saving the CLI's configuration in the developer's own CLI home
+* Read a file's body only when a recipe needs it
+* Generate the lazy tree proxies' overrides in a fixed order, the same on every platform
+* Let a fresh checkout take the generated V3 tree code from the build cache
+* Ship the bundled JDK type tables in a jar of their own, so no test waits on generating them
+* Check pull requests with build-windows and cgp alone, and run the integration tests in a nightly workflow
+* Read and write CGP's build cache from build-windows, with the OS in each test task's cache key
+* Keep only the stretch of a very long line around each search match
+* Request Intel macOS 10.15 wheels so the Python engine bundle resolves orjson
+* Run the CLI reference push only when dispatched, as CGP's release does at its tag
+* Find the installed CLI's AOT cache in the wrapper's slot
 
 ### CLI / DX v4.11.0 (2026-10-18) {/* #v4.11.0 */}
 

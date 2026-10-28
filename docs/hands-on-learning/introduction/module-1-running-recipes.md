@@ -125,7 +125,7 @@ mod --help
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.11.0
+Moderne CLI 4.12.0
 
 Usage:
 
@@ -234,7 +234,7 @@ You'll also need the source if there are no pre-existing LSTs to download. In th
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.11.0
+Moderne CLI 4.12.0
 
 ⏺ Retrieving organization from Moderne
 
@@ -349,7 +349,7 @@ mod list .
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.11.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
@@ -397,7 +397,7 @@ If you don't know the exact name of the recipe you want to run, you can use `mod
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.11.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
@@ -491,7 +491,7 @@ mod git checkout . -b refactor/common-static-analysis --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.11.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
@@ -552,7 +552,7 @@ mod git apply . --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.11.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
@@ -618,7 +618,7 @@ mod git commit . -m "Test common static analysis changes" --last-recipe-run
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.11.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
@@ -666,7 +666,7 @@ MOD SUCCEEDED in 6s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.11.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
