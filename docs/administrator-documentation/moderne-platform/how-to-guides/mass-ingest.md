@@ -67,7 +67,7 @@ The example's Dockerfile contains the build tools for JVM, JavaScript, Python, .
 
 You will need to do three things to configure the container (via environment variables and one mounted file):
 
-* **Tell the container where to publish the LSTs.** Set the environment variables for your artifact repository, which the example's [S3](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/s3.md) and [Artifactory](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/artifactory.md) pages list. The Artifactory page also covers [Nexus and other Maven repositories](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/artifactory.md#nexus-and-other-maven-repositories).
+* **Tell the container where to publish the LSTs.** Set the environment variables for your artifact store, which the example's [Artifact stores](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/stores.md) page lists for S3, Google Cloud Storage, Azure Blob Storage, Artifactory, and Nexus or other Maven repositories.
 * **Connect it to your Moderne tenant.** Set `MOD_TENANT_HOST` and `MOD_TENANT_AUTHORIZATION` to your tenant's URL and an access token.
 * **Give it credentials for private repositories.** The CLI clones with Git, which reads credentials from a `.git-credentials` file in the home directory of the container's user. You will need to mount yours at `/home/moderne/.git-credentials`. The example's Kubernetes Job mounts it from a secret, and its single-machine script mounts it from your home directory. If every repository is public, an empty file is enough.
 
