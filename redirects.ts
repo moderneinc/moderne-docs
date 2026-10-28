@@ -10,6 +10,7 @@
 // Notes:
 //   * Paths are site-root-relative (this site serves docs at "/").
 //   * `to` must resolve to a real page; the build fails on a dangling target.
+//     It may also be an absolute URL, which the build does not check.
 //
 // Testing redirects locally:
 //   This plugin only emits redirect files during a production build. `yarn start`
@@ -83,6 +84,20 @@ const redirects: RedirectRule[] = [
   { from: '/hands-on-learning/fundamentals/module-3-refaster-recipes', to: '/hands-on-learning/fundamentals/module-3-kotlin-dsl-recipes' },
   { from: '/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project', to: '/user-documentation/recipes/accessing-the-code-genome-project' },
   { from: '/user-documentation/moderne-platform/how-to-guides/introduction-to-type-aware-code-search', to: '/user-documentation/moderne-platform/getting-started/code-search' },
+  {
+    from: [
+      '/user-documentation/recipes/lists',
+      '/user-documentation/recipes/lists/all-recipes',
+      '/user-documentation/recipes/lists/all-recipes-io-moderne-recipe',
+      '/user-documentation/recipes/lists/all-recipes-org-openrewrite',
+      '/user-documentation/recipes/lists/all-recipes-org-openrewrite-recipe',
+      '/user-documentation/recipes/lists/recipes-by-tag',
+      '/user-documentation/recipes/lists/recipes-with-data-tables',
+      '/user-documentation/recipes/lists/scanning-recipes',
+      '/user-documentation/recipes/lists/standalone-recipes',
+    ],
+    to: 'https://codegenomeproject.org/recipes',
+  },
 ];
 
 export default redirects;
