@@ -1186,6 +1186,26 @@ type CodeSearchContextLine
   line: String!
 }
 
+type CodeSearchCoverage
+  @join__type(graph: CODESEARCH)
+{
+  """How many repositories the organization has."""
+  repositories: Int!
+
+  """
+  How many of them the index holds at their current commit. A repository whose LST is new
+  is added to the index within minutes.
+  """
+  indexed: Int!
+
+  """
+  How many cannot be as things stand: they have no LST, or one the service cannot read or that
+  carries no search index. The rest are on their way into the index. A republished LST is
+  looked at afresh.
+  """
+  notIndexable: Int!
+}
+
 """The part of a line that matched."""
 type CodeSearchFragment
   @join__type(graph: CODESEARCH)
@@ -1210,20 +1230,6 @@ type CodeSearchLineMatch
   Empty for a line outside any, and for a file the index records no declarations in.
   """
   enclosing: [CodeSearchContextLine!]!
-}
-
-enum CodeSearchPreparePhase
-  @join__type(graph: CODESEARCH)
-{
-  """Waiting for another organization to finish preparing."""
-  QUEUED @join__enumValue(graph: CODESEARCH)
-
-  """Downloading the LSTs of the organization's repositories."""
-  SYNCING @join__enumValue(graph: CODESEARCH)
-
-  """Building the search index from those LSTs."""
-  INDEXING @join__enumValue(graph: CODESEARCH)
-  OPENING @join__enumValue(graph: CODESEARCH)
 }
 
 """A file with at least one match."""
@@ -1251,6 +1257,9 @@ type CodeSearchResultConnection
   """
   pageInfo: PageInfo!
 
+  """How much of the organization the search covered."""
+  coverage: CodeSearchCoverage!
+
   """
   What to know about how the query was read or how far the search got, such as a
   filter that is not supported.
@@ -1263,126 +1272,6 @@ type CodeSearchResultEdge
 {
   node: CodeSearchResult!
   cursor: String!
-}
-
-"""
-A session belongs to the user who opened it: nobody else can get it or search with it.
-"""
-interface CodeSearchSession
-  @join__type(graph: CODESEARCH)
-{
-  id: ID!
-  organization: Organization!
-  user: User!
-
-  """
-  The service instance that holds the session's index. Sessions do not move between
-  instances, so one whose instance is gone is closed with reason `INSTANCE_REPLACED`.
-  """
-  instance: String!
-  startedAt: DateTime!
-}
-
-type CodeSearchSessionClosed implements CodeSearchSession
-  @join__implements(graph: CODESEARCH, interface: "CodeSearchSession")
-  @join__type(graph: CODESEARCH)
-{
-  id: ID!
-  organization: Organization!
-  user: User!
-  instance: String!
-  startedAt: DateTime!
-  finishedAt: DateTime!
-  reason: CodeSearchSessionCloseReason!
-
-  """Why preparing the session failed, when `reason` is `FAILED`."""
-  message: String
-}
-
-enum CodeSearchSessionCloseReason
-  @join__type(graph: CODESEARCH)
-{
-  """Closed with `closeCodeSearchSession`."""
-  USER @join__enumValue(graph: CODESEARCH)
-
-  """It went too long without a search."""
-  IDLE_TIMEOUT @join__enumValue(graph: CODESEARCH)
-
-  """
-  The instance serving it was replaced, as happens on every deployment. Open a new session.
-  """
-  INSTANCE_REPLACED @join__enumValue(graph: CODESEARCH)
-
-  """The organization could not be made ready to search."""
-  FAILED @join__enumValue(graph: CODESEARCH)
-}
-
-type CodeSearchSessionConnection
-  @join__type(graph: CODESEARCH)
-{
-  edges: [CodeSearchSessionEdge!]!
-  pageInfo: PageInfo!
-  count: Int!
-}
-
-type CodeSearchSessionEdge
-  @join__type(graph: CODESEARCH)
-{
-  node: CodeSearchSession!
-  cursor: String!
-}
-
-"""
-The organization is being made ready to search. Sessions for the same organization share
-this work, and organizations are prepared one at a time.
-"""
-type CodeSearchSessionPreparing implements CodeSearchSession
-  @join__implements(graph: CODESEARCH, interface: "CodeSearchSession")
-  @join__type(graph: CODESEARCH)
-{
-  id: ID!
-  organization: Organization!
-  user: User!
-  instance: String!
-  startedAt: DateTime!
-  phase: CodeSearchPreparePhase!
-
-  """How many repositories the organization has, once that is known."""
-  repositoryCount: Int
-}
-
-"""The session can be searched."""
-type CodeSearchSessionReady implements CodeSearchSession
-  @join__implements(graph: CODESEARCH, interface: "CodeSearchSession")
-  @join__type(graph: CODESEARCH)
-{
-  id: ID!
-  organization: Organization!
-  user: User!
-  instance: String!
-  startedAt: DateTime!
-
-  """How many repositories the organization has."""
-  repositoryCount: Int!
-
-  """
-  How many of them are in the index. The rest have no LST, or one that could not be
-  downloaded or indexed, and a search does not cover them.
-  """
-  indexedRepositoryCount: Int!
-}
-
-input CodeSearchSessionWhereInput
-  @join__type(graph: CODESEARCH)
-{
-  id: IDFilter
-
-  """Only an admin has other users' sessions to filter."""
-  user: UserWhereInput
-  organization: IDFilter
-  _and: [CodeSearchSessionWhereInput!]
-  _or: [CodeSearchSessionWhereInput!]
-  _not: CodeSearchSessionWhereInput
 }
 
 """The coding agent behind `mod <agent> chat`."""
@@ -3260,7 +3149,6 @@ type Mutation
   @join__type(graph: CHANGESETCOMMITTER)
   @join__type(graph: CHANGESETREADER)
   @join__type(graph: CHANGESETVISUALIZER)
-  @join__type(graph: CODESEARCH)
   @join__type(graph: MODDY)
   @join__type(graph: ORGANIZATION)
   @join__type(graph: RECIPEMARKETPLACE)
@@ -3468,38 +3356,6 @@ type Mutation
   otherwise queues a new visualization run.
   """
   runVisualization(organizationId: ID!, visualizationId: ID!, options: [VisualizationOptionInput!]): Visualization! @join__field(graph: CHANGESETVISUALIZER)
-
-  """
-  Open a session for searching the code of an organization's repositories. The session
-  starts as a `CodeSearchSessionPreparing` while the organization's LSTs are downloaded
-  and indexed, which takes from seconds, when another session prepared the organization
-  recently, to much longer for an organization seen for the first time.
-  """
-  openCodeSearchSession(organizationId: ID!): CodeSearchSession! @join__field(graph: CODESEARCH)
-
-  """
-  Search a ready session. Fails, saying why, on a session that is still preparing or is
-  closed. Results are files with their matching lines, limited to repositories the
-  caller can read, in a stable order that `after` resumes.
-  
-  The query is a Sourcegraph-style expression: plain text and `/regular expressions/`,
-  combined with `AND`, `OR` and `NOT`, and narrowed by path and language with `file:`
-  and `lang:`. The index is built from LSTs, so the other filters match resolved types
-  rather than text: `call:` (the call sites of a method, such as
-  `call:java.util.List.add`, calls on subtypes included), `ref:` (the uses of a type),
-  `dependency:` (the calls and references that come from a dependency, by name and
-  optionally the version resolved, such as `dependency:com.fasterxml.*:jackson*:2.15.x`),
-  `sym:` (a declared name), and `extends:`, `implements:`, `annotated:`, `returns:` and
-  `throws:` (declarations).
-  """
-  codeSearch(sessionId: ID!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
-
-  """
-  Close a session, which only the user who opened it or an admin can do. An
-  organization's index is released once its last session closes. A session that goes
-  too long without a search closes on its own.
-  """
-  closeCodeSearchSession(id: ID!): CodeSearchSession! @join__field(graph: CODESEARCH)
 
   """
   Set the universal (default) system prompt. Admin-only — the universal prompt steers Moddy tenant-wide.
@@ -5261,16 +5117,22 @@ type Query
   bulkPullRequestAction(id: ID!): BulkPullRequestAction @join__field(graph: CHANGESETCOMMITTER)
 
   """
-  One of the caller's code search sessions, or null when they have none with this id.
-  Poll it after `openCodeSearchSession` until it is a `CodeSearchSessionReady`.
+  Search the code of an organization's repositories. Results are files with their matching
+  lines, limited to repositories the caller can read, in a stable order that `after` resumes.
+  The index is kept in step with the organization's LSTs on its own, so a search answers at
+  once; `coverage` says how many of the organization's repositories it covers.
+  
+  The query is a Sourcegraph-style expression: plain text and `/regular expressions/`,
+  combined with `AND`, `OR` and `NOT`, and narrowed by path and language with `file:`
+  and `lang:`. The index is built from LSTs, so the other filters match resolved types
+  rather than text: `call:` (the call sites of a method, such as
+  `call:java.util.List.add`, calls on subtypes included), `ref:` (the uses of a type),
+  `dependency:` (the calls and references that come from a dependency, by name and
+  optionally the version resolved, such as `dependency:com.fasterxml.*:jackson*:2.15.x`),
+  `sym:` (a declared name), and `extends:`, `implements:`, `annotated:`, `returns:` and
+  `throws:` (declarations).
   """
-  codeSearchSession(id: ID!): CodeSearchSession @join__field(graph: CODESEARCH)
-
-  """
-  The caller's code search sessions, newest first, including those that closed recently.
-  An admin gets every user's sessions and can narrow them with `where.user`.
-  """
-  codeSearchSessions(first: Int = 50, after: String, where: CodeSearchSessionWhereInput): CodeSearchSessionConnection! @join__field(graph: CODESEARCH) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  codeSearch(organizationId: ID!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """
   Look up a single conversation by id. Returns null when no conversation
@@ -5450,6 +5312,13 @@ type RecipeDescriptor
   null for all other recipes.
   """
   sourceUrl: String @join__field(graph: RECIPEMARKETPLACE)
+
+  """
+  Where the bundle that provides this recipe was installed. Only user-scope installs are
+  attributed, so this is a `UserInstallScope` or null; null means the recipe came from an
+  organization or the universal marketplace.
+  """
+  scope: RecipeInstallationScope @join__field(graph: RECIPEMARKETPLACE)
 
   """
   Expensive recipe detail fields that require resolving the full recipe bundle.

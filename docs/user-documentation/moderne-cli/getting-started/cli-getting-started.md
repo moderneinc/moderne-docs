@@ -5,18 +5,21 @@ description: Install the Moderne CLI, point a coding agent at a sample organizat
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Quickstart: Modernizing multiple repositories with an agent
 
 Nowadays, when a migration such as Java 17 to 25 is required, many teams reach for an AI agent to handle that. This _can_ work for one repository at a time - but extending that to even tens of repositories can be problematic. AI agents will need to read every repository, make similar edits by hand, and will then return different results for every repository.
 
-This is where Moderne comes into play. AI agents equipped with the Moderne CLI can consistently and quickly modernize every repository you have at once. For that same Java 17 to 25 migration, agents can simply use the [OpenRewrite migrate to Java 25 recipe](../../recipes/recipe-catalog/java/migrate/upgradetojava25.md) rather than needing to start by searching for everything that's changed in Java 25.
+This is where Moderne comes into play. AI agents equipped with the Moderne CLI can consistently and quickly modernize every repository you have at once. For that same Java 17 to 25 migration, agents can simply use the [OpenRewrite migrate to Java 25 recipe](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25) rather than needing to start by searching for everything that's changed in Java 25.
 
 In this guide, we will walk you through this process. We'll start by installing the CLI and connecting it to Moderne before moving on to asking a coding agent to upgrade five sample open source repositories to Java 25. Along the way, you'll see what the agent does with the CLI and what types of results you get back at the end.
 
 :::info
-While this quickstart guide uses Claude Code, you are free to use [any of our supported agents](../../agent-tools/agent-chat.md#supported-agents). The steps are the same regardless of which agent you pick.
+While this quickstart guide uses Claude Code, you are free to use [any of our supported agents](../../agent-tools/agent-chat.md#quick-start). The steps are the same regardless of which agent you pick.
 :::
+
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=maZDbrvc3u0' controls="true" />
 
 ## Before you begin
 
@@ -54,9 +57,9 @@ You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin ar
 </TabItem>
 </Tabs>
 
-The script installs a small wrapper that downloads the CLI on first use. It then points the CLI at app.moderne.io and runs `mod login`, which opens your browser. If you aren't already signed in to app.moderne.io, you'll first be asked to sign in to Moderne (via GitHub). Once you're signed in, you'll be taken to a page that asks whether the CLI can create a personal access token on your behalf. Click **Yes**.
+The script installs a small wrapper that downloads the CLI on first use. It makes `mod` available in your terminal, points the CLI to app.moderne.io, and then opens your browser so you can authorize it. Sign in if you aren't already (via GitHub), then click **Yes** when asked whether the CLI can create a personal access token on your behalf.
 
-The CLI stores the token on your machine, where it stays valid for a year, and then syncs the recipe marketplace so the agent can search and run recipes locally. You can check everything worked by running `mod --version`.
+Once you've confirmed, the CLI stores the token on your machine, where it stays valid for a year, and then syncs the recipe marketplace so the agent can search and run recipes locally. The sync takes a few minutes. You can check everything worked by running `mod --version`.
 
 <details>
 <summary>If the browser didn't open</summary>
@@ -122,12 +125,89 @@ The `Legacy Java Apps` org is small enough that fully upgrading to Java 25, and 
 
 ## Step 3: Start the agent
 
-You're now ready to start the agent. The Moderne CLI includes a command that will set up a local workspace, clone repositories, and then prompt the agent all at once:
+You're now ready to start the agent. The Moderne CLI includes a command that will set up a local workspace, clone repositories, and then prompt the agent all at once.
+
+Below you can find example commands for starting the agents:
+
+<Tabs groupId="agent">
+<TabItem value="claude-code" label="Claude Code" default>
 
 ```bash
 mod claude chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
+
+</TabItem>
+<TabItem value="codex" label="Codex">
+
+```bash
+mod codex chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="copilot-cli" label="Copilot">
+
+```bash
+mod copilot chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="cursor" label="Cursor">
+
+```bash
+mod cursor chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="kiro" label="Kiro">
+
+```bash
+mod kiro chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="amp" label="Amp">
+
+```bash
+mod amp chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="opencode" label="OpenCode">
+
+```bash
+mod opencode chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="vscode" label="VS Code">
+
+```bash
+mod vscode chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="windsurf" label="Windsurf">
+
+```bash
+mod windsurf chat legacy-java-apps --org "Legacy Java Apps"
+```
+
+Windsurf does not take `--prompt`. Once the IDE opens, paste this prompt into the chat panel:
+
+```text
+Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build.
+```
+
+</TabItem>
+</Tabs>
 
 Let's break the command down:
 

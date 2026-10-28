@@ -1,4 +1,82 @@
 # Platform changelog
+### UI v14.41.1 (2026/10/26)
+
+- Bug fixes and other improvements.
+
+### UI v14.41.0 (2026/10/26)
+
+- render marker-only lines as search results inside diffs
+
+### UI v14.40.0 (2026/10/23)
+
+- offer draft pull requests for every SCM provider
+- show recipe name in browser tab title
+- pin each file's header while its diff scrolls
+
+### UI v14.39.0 (2026/10/21)
+
+- Bug fixes and other improvements.
+
+### UI v14.38.0 (2026/10/19)
+
+- highlight COBOL and JCL
+- open what a match matched, as a results page opens a search result
+- filter
+- step back through searches with the browser's Back button
+
+### UI v14.37.0 (2026/10/16)
+
+- reveal the lines a result hides, at the commit searched
+
+### UI v14.36.0 (2026/10/16)
+
+- Bug fixes and other improvements.
+
+### UI v14.35.0 (2026/10/16)
+
+- copy a credentialed git clone command
+- show saved code searches in the Activity view
+
+### UI v14.34.0 (2026/10/15)
+
+- link repositories, files and line numbers to the SCM
+- highlight example queries and tighten the landing
+
+### UI v14.33.1 (2026/10/14)
+
+- Bug fixes and other improvements.
+
+### UI v14.33.0 (2026/10/13)
+
+- make nav beta label configurable; Code search is Preview
+
+### UI v14.32.0 (2026/10/12)
+
+- Bug fixes and other improvements.
+
+### UI v14.31.0 (2026/10/09)
+
+- filters
+- color run badges by author
+- mark recipes authored by me and edit them in Builder
+
+### UI v14.30.2 (2026/10/07)
+
+- Bug fixes and other improvements.
+
+### UI v14.30.1 (2026/10/07)
+
+- move code highlighting to Shiki, fixing the long-line crash
+
+### UI v14.30.0 (2026/10/07)
+
+- collapsible tool description with copy markdown
+
+### UI v14.29.0 (2026/10/07)
+
+- move code search above Moddy
+- render tool descriptions as markdown
+
 ### UI v14.28.0 (2026/10/07)
 
 - highlight query syntax in the search input

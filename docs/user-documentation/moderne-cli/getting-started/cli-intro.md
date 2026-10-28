@@ -28,9 +28,9 @@ Choose the installation path that matches your setup:
 
 > These instructions apply to Standard Edition customers and users of the public [app.moderne.io](https://app.moderne.io/marketplace) instance.
 
-#### Step 1: Download the CLI
+#### Install the CLI and log in
 
-The recommended way to install the Moderne CLI is via the install script:
+Run the install script for your operating system:
 
 <Tabs groupId="cli-install-os" queryString="os">
 <TabItem value="linux-macos" label="Linux / macOS" default>
@@ -47,20 +47,21 @@ irm https://app.moderne.io/cli/windows | iex
 ```
 
 :::warning
-You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported — the `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
+You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported. The `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
 :::
 
 </TabItem>
 </Tabs>
 
-Alternatively, you can install via a package manager:
+The script installs a lightweight wrapper called `modw`, with `mod` as a symlink to it. It makes `mod` available in your terminal, points the CLI to app.moderne.io, and then opens your browser so you can authorize it. Sign in if you aren't already, then click **Yes** when asked whether the CLI can create a personal access token on your behalf.
 
-* **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
-* **Chocolatey** (Windows): `choco install mod --prerelease`
+Once you've confirmed, the CLI stores the token on your machine and then syncs the recipe marketplace so you can search and run recipes locally. The sync takes a few minutes.
 
-Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the platform-specific CLI installer (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
+:::info
+By default, the token is valid for 365 days. When it expires, run `mod login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod login --expiration P180D` for 180 days).
+:::
 
-After installation, verify by running `mod` in your terminal:
+On its first run, the wrapper [downloads the CLI distribution for your platform and keeps it up to date](../how-to-guides/cli-wrapper.md). Verify the installation by running `mod` in your terminal:
 
 <details>
 
@@ -69,7 +70,7 @@ After installation, verify by running `mod` in your terminal:
 ```bash
 ➜ mod
 
-Moderne CLI 4.9.0
+Moderne CLI 4.12.0
 
 Usage:
 
@@ -85,114 +86,108 @@ Options:
       --version   Display version info.
 Commands:
 
-  audit                (INCUBATING) Perform an audit of recent activity.
-  batch                Add batch changes to the Moderne platform.
-  build                Generates LST artifacts for one or more repositories.
-  clean                Clean build and run artifacts produced by the CLI.
-  config               Global configuration options that are required by some
-                         CLI commands.
-  devcenter            Generate DevCenter dashboards.
-  exec                 Execute an arbitrary shell command on selected
-                         repositories and partitions.
-  generate-completion  Generate bash/zsh completion script for mod.
-  git                  Multi-repository git operations.
-  log                  Manages a log aggregate.
-  list                 Lists the repositories that can be built and published.
-  mcp                  Starts an MCP server for code intelligence.
-  monitor              (INCUBATING) Launches an HTTP server used to monitor the
-                         CLI.
-  postbuild            Post-build operations on LST artifacts.
-  publish              Publishes the LST artifacts for one or more projects.
-  run                  Runs an OpenRewrite recipe locally on pre-built LSTs.
-  run-history          Get information about the most recent recipe runs. This
-                         will be transitioning to mod audit runs list
-                         eventually. A deprecation notice will be added here
-                         when we suggest adopting the alternative.
-  search               Search repositories using trigram indexes.
-  study                Produces studies from OpenRewrite recipe data tables
-                         locally.
-  trace                Manages trace analysis tools.
-  wrapper              Create or configure a Moderne wrapper.
+  audit        (INCUBATING) Perform an audit of recent activity.
+  build        Generates LST artifacts for one or more repositories.
+  clean        Clean build and run artifacts produced by the CLI.
+  config       Global configuration options that are required by some CLI
+                 commands.
+  doctor       Checks that this machine and the CLI's configuration can build
+                 and publish LSTs.
+  devcenter    Generate DevCenter dashboards.
+  exec         Execute an arbitrary shell command on selected repositories and
+                 partitions.
+  git          Multi-repository git operations.
+  log          Manages a log aggregate.
+  list         Lists the repositories that can be built and published.
+  login        Logs the CLI into Moderne
+  monitor      (INCUBATING) Launches an HTTP server used to monitor the CLI.
+  prebuild     Extracts build metadata without parsing source files.
+  publish      Publishes the LST artifacts for one or more projects.
+  run          Runs an OpenRewrite recipe locally on pre-built LSTs.
+  run-history  Get information about the most recent recipe runs. This will be
+                 transitioning to mod audit runs list eventually. A deprecation
+                 notice will be added here when we suggest adopting the
+                 alternative.
+  search       Search repositories using trigram indexes.
+  study        Produces studies from OpenRewrite recipe data tables locally.
+  telemetry    Manage CLI telemetry pushed to the configured Moderne tenant.
+  trace        Manages trace analysis tools.
+  wrapper      Create or configure a Moderne wrapper.
+
+Agent Commands:
+
+  amp          (INCUBATING) Launches an Amp session configured to use mod for
+                 deterministic multi-repository work.
+  claude       (INCUBATING) Launches a Claude Code session configured to use
+                 mod for deterministic multi-repository work.
+  codex        (INCUBATING) Launches a Codex session configured to use mod for
+                 deterministic multi-repository work.
+  copilot      (INCUBATING) Launches a GitHub Copilot session configured to use
+                 mod for deterministic multi-repository work.
+  cursor       (INCUBATING) Launches a Cursor session configured to use mod for
+                 deterministic multi-repository work.
+  kiro         (INCUBATING) Launches a Kiro session configured to use mod for
+                 deterministic multi-repository work.
+  opencode     (INCUBATING) Launches an opencode session configured to use mod
+                 for deterministic multi-repository work.
+  vscode       (INCUBATING) Launches a Visual Studio Code Chat session
+                 configured to use mod for deterministic multi-repository work.
+  windsurf     (INCUBATING) Launches a Windsurf session configured to use mod
+                 for deterministic multi-repository work.
 ```
 
 </details>
 
-#### Step 2: (Optional) Set up auto-completion in your terminal (Unix terminals only)
+The script also sets up tab completion for bash, zsh, and PowerShell. This means that if you open a new terminal and type `mod` and then press tab, you can see the list of available commands.
 
-The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
+You can also install the CLI with Homebrew or Chocolatey. You will need to configure a few things yourself if you do.
 
-![Terminal showing mod config auto-complete suggestions such as build, java, moderne, and recipes](./assets/cli-auto-complete.png)
+<details>
+<summary>Homebrew and Chocolatey instructions</summary>
 
-To configure this for the terminal you're using, please enter the following command in your terminal:
+* **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
+* **Chocolatey** (Windows): `choco install mod --prerelease`
 
-```bash
-source <(mod generate-completion)
-```
-
-Or, if you want to configure auto-completion so that it works for _every_ terminal instance you make, please update your `~/.zshrc` or `~/.bashrc` file and add this command to the bottom of it:
-
-```bash
-# The next line enables shell command completion for mod
-source <(mod generate-completion)
-```
-
-#### Step 3: Connect the CLI to Moderne
-
-Connecting the CLI to Moderne is necessary to:
-
-* Quickly sync the recipe catalog from Moderne to your local machine
-* Download pre-built LSTs from Moderne so you can quickly run recipes locally
-* Receive organizational information, so you can clone/build/run groups of repositories more easily
-
-To set up this connection:
-
-1. Direct the CLI to the Moderne Platform:
+A package manager installs only the wrapper. You will need to connect the CLI to app.moderne.io and authorize it yourself:
 
 ```bash
 mod config moderne edit https://app.moderne.io
+mod login
 ```
 
-2. Authenticate with Moderne:
+The login command opens your browser for the same authorization, then syncs the recipe marketplace.
+
+Shell completion is not set up for you either. To enable it for the current terminal, run:
 
 ```bash
-mod config moderne login
+source <(mod generate-completion)
 ```
 
-This command will open up a web page where you'll grant the CLI access to things like:
+To enable it for every terminal you open, add that command to the bottom of your `~/.zshrc` or `~/.bashrc` file.
+</details>
 
-* Your email address
-* Your user profile
-* Your user roles
-* The ability to create Personal Access Tokens (PAT)
+#### Refreshing the recipe marketplace
 
-After granting access, the CLI will automatically configure and store your token locally. You should see a success message indicating your token is valid for 365 days.
+Authorizing the CLI syncs the recipe marketplace once. When Moderne publishes new recipes, you can sync it again:
+
+```bash
+mod config recipes moderne sync -y
+```
+
+Without `-y`, the command asks for confirmation before replacing the recipes you already have.
 
 :::info
-The token is valid for 365 days by default. When it expires, simply run `mod config moderne login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod config moderne login --expiration P180D` for 180 days).
+Occasionally, a few of the recipes may fail to sync properly and return the message `! Failed to install`. If the majority of the recipes installed successfully, however, you will see the `MOD PARTIALLY SUCCEEDED` message when the command completes. Feel free to ignore that and continue with the tutorial.
 :::
-
-#### Step 4: Install recipes
-
-With the Moderne connection established, you can download recipes to your local machine by running the following command:
-
-```bash
-mod config recipes moderne sync
-```
-
-:::info
-Occasionally, a few of the recipes may fail to sync properly and return the message `! Failed to install`. If the majority of the recipes installed successfully, however, you will see the `MOD PARTIALLY SUCCEEDED` message when the command completes, and you can still continue on without a problem for the purposes of this tutorial.
-::: 
-
-This will grab _all_ of the recipes from the tenant you specified in `mod config` – so please expect this command to take a few minutes to download the recipes.
 
 </TabItem>
 <TabItem value="enterprise" label="Enterprise Edition">
 
 > If your organization is paying for the Enterprise Edition of Moderne and you have a private Moderne instance (e.g., `https://yourcompany.moderne.io`), please follow these instructions.
 
-#### Step 1: Download the CLI
+#### Install the CLI and log in
 
-The recommended way to install the Moderne CLI is via the install script. Replace `<TENANT>` with your actual tenant name (e.g., `yourcompany`):
+Run the install script for your operating system. Replace `<TENANT>` with your actual tenant name (e.g., `yourcompany`):
 
 <Tabs groupId="cli-install-os" queryString="os">
 <TabItem value="linux-macos" label="Linux / macOS" default>
@@ -209,160 +204,84 @@ irm https://<TENANT>.moderne.io/cli/windows | iex
 ```
 
 :::warning
-You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported — the `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
+You must use PowerShell for Windows installation. Git Bash, MSYS2, and Cygwin are not supported. The `curl ... | bash` command from the Linux / macOS tab will not work correctly in these environments.
 :::
 
 </TabItem>
 </Tabs>
 
-Alternatively, you can install via a package manager:
+The script installs a lightweight wrapper called `modw`, with `mod` as a symlink to it. It makes `mod` available in your terminal, points the CLI to your tenant, and then opens your browser so you can authorize it. Sign in if you aren't already, then click **Yes** when asked whether the CLI can create a personal access token on your behalf.
+
+Once you've confirmed, the CLI stores the token on your machine and then syncs the recipe marketplace from your tenant so you can search and run recipes locally. The sync takes a few minutes.
+
+:::info
+By default, the token is valid for 365 days. When it expires, run `mod login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod login --expiration P180D` for 180 days).
+:::
+
+On its first run, the wrapper [downloads the CLI distribution for your platform and keeps it up to date](../how-to-guides/cli-wrapper.md). Verify the installation by running `mod --version` in your terminal.
+
+The script also sets up tab completion for bash, zsh, and PowerShell. This means that, if you open a new terminal, type `mod`, and then press Tab - you should see a list of available commands that you can auto-complete.
+
+You can also install the CLI with Homebrew or Chocolatey. You will need to configure a few things yourself if you do.
+
+<details>
+<summary>Homebrew and Chocolatey instructions</summary>
 
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
 
-Each of these methods installs a lightweight wrapper script called `modw`. The `mod` command is a symlink to this wrapper. On first run, the wrapper automatically downloads the platform-specific CLI installer (JAR + JRE) for your system. For details on how the wrapper manages versions and updates, see [CLI wrapper and version management](../how-to-guides/cli-wrapper.md).
-
-After installation, verify by running `mod` in your terminal:
-
-<details>
-
-<summary>mod command results</summary>
-
-```bash
-➜ mod
-
-Moderne CLI 4.9.0
-
-Usage:
-
-mod [-h] [--version] [COMMAND]
-
-Description:
-
-Automated code remediation.
-
-Options:
-
-  -h, --help      Display this help message.
-      --version   Display version info.
-Commands:
-
-  audit                (INCUBATING) Perform an audit of recent activity.
-  batch                Add batch changes to the Moderne platform.
-  build                Generates LST artifacts for one or more repositories.
-  clean                Clean build and run artifacts produced by the CLI.
-  config               Global configuration options that are required by some
-                         CLI commands.
-  devcenter            Generate DevCenter dashboards.
-  exec                 Execute an arbitrary shell command on selected
-                         repositories and partitions.
-  generate-completion  Generate bash/zsh completion script for mod.
-  git                  Multi-repository git operations.
-  log                  Manages a log aggregate.
-  list                 Lists the repositories that can be built and published.
-  mcp                  Starts an MCP server for code intelligence.
-  monitor              (INCUBATING) Launches an HTTP server used to monitor the
-                         CLI.
-  postbuild            Post-build operations on LST artifacts.
-  publish              Publishes the LST artifacts for one or more projects.
-  run                  Runs an OpenRewrite recipe locally on pre-built LSTs.
-  run-history          Get information about the most recent recipe runs. This
-                         will be transitioning to mod audit runs list
-                         eventually. A deprecation notice will be added here
-                         when we suggest adopting the alternative.
-  search               Search repositories using trigram indexes.
-  study                Produces studies from OpenRewrite recipe data tables
-                         locally.
-  trace                Manages trace analysis tools.
-  wrapper              Create or configure a Moderne wrapper.
-```
-
-</details>
-
-#### Step 2: (Optional) Set up auto-completion in your terminal (Unix terminals only)
-
-The Moderne CLI offers a command which generates a completion script that can be used to set up auto-completion in your terminal. After initializing this script, you can type `mod config` and press tab and then your terminal will offer suggestions for the sub-commands or parameters:
-
-![Terminal showing mod config auto-complete suggestions such as build, java, moderne, and recipes](./assets/cli-auto-complete.png)
-
-To configure this for the terminal you're using, please enter the following command in your terminal:
-
-```bash
-source <(mod generate-completion)
-```
-
-Or, if you want to configure auto-completion so that it works for _every_ terminal instance you make, please update your `~/.zshrc` or `~/.bashrc` file and add this command to the bottom of it:
-
-```bash
-# The next line enables shell command completion for mod
-source <(mod generate-completion)
-```
-
-#### Step 3: Connect the CLI to your tenant
-
-Connecting the CLI to your Moderne tenant is necessary to:
-
-* Quickly sync the recipe catalog from your tenant to your local machine
-* Download pre-built LSTs from your tenant so you can quickly run recipes locally
-* Receive organizational information specific to your company, so you can clone/build/run groups of repositories more easily
-
-To set up this connection:
-
-1. Direct the CLI to your Moderne tenant:
+A package manager installs only the wrapper. You will need to connect the CLI to your tenant and authorize it yourself:
 
 ```bash
 mod config moderne edit https://<TENANT>.moderne.io
+mod login
 ```
 
-Replace `<TENANT>` with your actual tenant name.
+The login command opens your browser for the same authorization, then syncs the recipe marketplace.
 
-2. Authenticate with Moderne (recommended method):
+Shell completion is not set up for you either. To enable it for the current terminal, run:
 
 ```bash
-mod config moderne login
+source <(mod generate-completion)
 ```
 
-This command will open up a web page where you'll grant the CLI access to things like:
+To enable it for every terminal you open, add that command to the bottom of your `~/.zshrc` or `~/.bashrc` file.
+</details>
 
-* Your email address
-* Your user profile
-* Your user roles
-* The ability to create Personal Access Tokens (PAT)
-
-After granting access, the CLI will automatically configure and store your token locally. You should see a success message indicating your token is valid for 365 days.
-
-:::info
-The token is valid for 365 days by default. When it expires, simply run `mod config moderne login` again to renew it. If you need a different expiration period, you can use the `--expiration` option (e.g., `mod config moderne login --expiration P180D` for 180 days).
-:::
+In a CI job or a container, there is no browser for the script to open. You can install and authorize the CLI unattended instead.
 
 <details>
-<summary>Alternative: Manual token configuration for automation/CI scenarios</summary>
-
-If you're configuring the CLI in a non-interactive environment (such as CI/CD pipelines), you can manually provide a token:
+<summary>Unattended installation instructions</summary>
 
 1. Navigate to `https://<TENANT>.moderne.io/settings/access-token` (replace `<TENANT>` with your tenant name)
 2. Enter a human-readable name for the token (e.g., cli-token)
 3. Press **Generate**
-4. Copy the generated token and use it with the login command:
+4. Copy the generated token and set it as the `MOD_TENANT_AUTHORIZATION` environment variable when you run the install script:
 
 ```bash
-mod config moderne login --with-token mat-YOUR_TOKEN_HERE
+curl https://<TENANT>.moderne.io/cli | MOD_TENANT_AUTHORIZATION=mat-YOUR_TOKEN_HERE bash
+```
+
+If the CLI is already installed, you can log in with the token directly. The command reads the token from standard input:
+
+```bash
+echo mat-YOUR_TOKEN_HERE | mod login --with-token
 ```
 </details>
 
-#### Step 4: Install recipes
+#### Refreshing the recipe marketplace
 
-With the Moderne connection established, you can download recipes to your local machine by running the following command:
+Authorizing the CLI syncs the recipe marketplace once. When your tenant publishes new recipes, you can sync it again:
 
 ```bash
-mod config recipes moderne sync
+mod config recipes moderne sync -y
 ```
 
-:::info
-Occasionally, a few of the recipes may fail to sync properly and return the message `! Failed to install`. If the majority of the recipes installed successfully, however, you will see the `MOD PARTIALLY SUCCEEDED` message when the command completes, and you can still continue on without a problem for the purposes of this tutorial.
-::: 
+Without `-y`, the command asks for confirmation before replacing the recipes you already have.
 
-This will grab _all_ of the recipes from your tenant – so please expect this command to take a few minutes to download the recipes.
+:::info
+Occasionally, a few of the recipes may fail to sync properly and return the message `! Failed to install`. If the majority of the recipes installed successfully, however, you will see the `MOD PARTIALLY SUCCEEDED` message when the command completes. Feel free to ignore that and continue with the tutorial.
+:::
 
 </TabItem>
 <TabItem value="dx" label="Moderne DX">
@@ -428,7 +347,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 4.9.0
+Moderne CLI 4.12.0
 
 ⏺ Retrieving the configured organizations
 
@@ -494,7 +413,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 4.9.0
+Moderne CLI 4.12.0
 
 ⏺ Retrieving the configured organizations
 
@@ -578,6 +497,39 @@ If a project fails to build, it might require additional configuration. See [mod
 Make sure the build tools your projects use are on your `PATH`. Run `mod doctor` to see which toolchains the CLI finds on this machine.
 :::
 
+When a repository fails to build, the CLI shows the error that caused it, so you usually don't need to open `build.log`. The reason for the first failure appears under `Cause:`.
+
+When you build more than one repository, each failed repository also shows its reason under the failure. `What went wrong` then lists the failures grouped by reason, with the most common reason first:
+
+```bash
+▶ broken/gradle-bad-wrapper@main
+    ✗ Failed to build an LST. See file:///…/build.log
+      Unknown host artifactory.acme.invalid
+▶ broken/gradle-missing-plugin@main
+    ✗ Failed to build an LST. See file:///…/build.log
+      Gradle plugin com.acme.conventions version 4.5.6 was not found
+▶ broken/maven-missing-parent@main
+    ✗ Failed to build an LST. See file:///…/build.log
+      Could not find artifact com.acme.platform:acme-parent:pom:7.3.1
+
+...
+
+● Cause:
+Unknown host artifactory.acme.invalid
+
+● What went wrong:
+13 repositories failed to build. The first failure was on broken/gradle-bad-wrapper@main, as shown above.
+
+Failures by reason:
+  2  Could not find a version of Java that met the requirements of the repository
+  2  Could not find artifact com.acme.platform:acme-parent:pom:7.3.1
+  2  Gradle plugin com.acme.conventions version 4.5.6 was not found
+  1  Unknown host artifactory.acme.invalid
+  ...
+```
+
+If a build succeeds even though one of its steps failed, the CLI shows that step's error as a warning.
+
 ### Analyzing build results locally
 
 When building LSTs for many repositories, some may fail due to unique build requirements. The Moderne CLI includes a built-in analytics dashboard for visualizing build failures. Launch it with:
@@ -591,7 +543,7 @@ mod trace builds analyze . --last-build
   <figcaption>_Build telemetry dashboard view_</figcaption>
 </figure>
 
-The dashboard displays build metadata and lets you drill into individual repositories to view logs and troubleshooting suggestions.
+The dashboard displays build metadata and lets you drill into individual repositories to view logs and troubleshooting suggestions. Its build page lists failures by reason with the number of builds that failed for each, and you can click a reason to filter the table to those builds.
 
 ### Running recipes {/* #running */}
 
@@ -630,6 +582,20 @@ mod run . --recipe FindMethods -PmethodPattern="java.util.List add(..)"
 #### Examining results
 
 To learn more about what changed, you can command/ctrl click on the `Fix results` link in the output.
+
+#### Running recipes in the Moderne Platform
+
+If an organization's LSTs are already in the Moderne Platform, you can run a recipe on it there instead of syncing every repository first. Pass a `moderne://` URI in place of the directory:
+
+```bash
+mod run "moderne://Sample Estate" --recipe org.openrewrite.gradle.UpdateGradleWrapper
+```
+
+The CLI waits for the run to finish and prints the diff for each repository the recipe changed or found something in. Nothing is downloaded to your machine. The recipe must be in your tenant's recipe marketplace. To try a recipe you're still developing, upload it with `mod config recipes bundle push` and pass the ID it prints to `--bundle`.
+
+You can name the organization by its full ID (such as `ALL/Open Source/Sample Estate`), by its name (such as `Sample Estate`), or by part of its name or ID. Quote the URI if the name has spaces. If the name matches more than one organization, the CLI lists the matches so you can pick one.
+
+The Moderne Platform saves the run as a [changeset](../../moderne-platform/references/changesets.md). You can [read its data tables or download only the repositories it changed](../../moderne-platform/references/changesets.md#moderne-cli) without syncing the whole organization.
 
 ### Working with data tables
 
@@ -737,6 +703,49 @@ mod exec . --last-recipe-run -- gh pr create --title "<PR title>"
 ```
 
 For more options, see the [CLI reference documentation](../cli-reference.md#mod-git-push).
+
+## Uninstalling the CLI
+
+How you remove the CLI depends on how you installed it.
+
+<Tabs groupId="cli-uninstall-method" queryString="uninstall">
+<TabItem value="script" label="macOS/Linux" default>
+
+1. Delete the CLI directory:
+
+    ```bash
+    rm -rf ~/.moderne/cli
+    ```
+
+2. Delete any `mod` and `modw` links the installer created in `~/.local/bin`, `~/bin`, or `/usr/local/bin`:
+
+    ```bash
+    rm -f ~/.local/bin/mod ~/.local/bin/modw
+    ```
+
+3. If the installer added `~/.moderne/cli/bin` to your `PATH`, remove that line and the `completion.bash` line from your shell configuration file (such as `~/.zshrc` or `~/.bashrc`).
+
+</TabItem>
+<TabItem value="windows" label="Windows">
+
+1. Delete the CLI directory:
+
+    ```powershell
+    Remove-Item -Recurse -Force "$env:USERPROFILE\.moderne\cli"
+    ```
+
+2. Remove `%USERPROFILE%\.moderne\cli\bin` from your user `Path` environment variable.
+
+</TabItem>
+<TabItem value="package-manager" label="Homebrew or Chocolatey">
+
+* **Homebrew**: `brew uninstall mod`
+* **Chocolatey**: `choco uninstall mod`
+
+</TabItem>
+</Tabs>
+
+Removing the CLI leaves your access tokens and other data in the `~/.moderne` directory (`%USERPROFILE%\.moderne` on Windows). Delete that directory too if you want a clean slate.
 
 ## Additional information
 

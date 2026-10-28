@@ -9,7 +9,7 @@ description: Explains what build steps are and the various ways you can configur
 
 The Moderne CLI detects build tools, produces a list of build “steps”, and executes each of those steps to produce LSTs. Any file parsed by a previous build step is skipped by its successors.
 
-In the default configuration, the CLI first looks for Gradle build files, then Bazel, then Maven, and then sbt. These external build tool steps are followed by the JavaScript, Python, .NET, and Go language steps, and finally by a resource parsing step.
+In the default configuration, the CLI first looks for Gradle build files, then Bazel, then Maven, and then sbt. These external build tool steps are followed by the JavaScript, Python, .NET, Go, and Ruby language steps, and finally by a resource parsing step.
 
 The resource step scoops up any files that weren't parsed by the preceding steps, because not every file in a repository is part of a source set managed by a build tool. For example, the top level `README.md` in a repository is generally parsed by the resource parsing step because it isn't located where it would be part of a source set defined by an external build tool.
 
@@ -18,10 +18,10 @@ The resource step scoops up any files that weren't parsed by the preceding steps
 The CLI supports the following build step types:
 
 * **External build tool steps**: `maven`, `gradle`, `bazel`, and `sbt`. These invoke the respective build tool to extract build metadata — the project structure, source sets, and classpaths — and then the CLI parses the source code itself with full type attribution. The build tool is used only for discovery. The CLI does the parsing (see [discovery and parsing](#discovery-and-parsing)).
-* **Language-specific steps**: `python`, `javascript`, `dotnet`, `go`, and `mainframe`. These use dedicated parsers to handle their respective language ecosystems.
+* **Language-specific steps**: `python`, `javascript`, `dotnet`, `go`, `ruby`, and `mainframe`. These use dedicated parsers to handle their respective language ecosystems.
 * **Resource step**: `resource`. A catch-all step that parses files not handled by other steps (YAML, XML, JSON, Terraform, properties, etc.).
 
-In the default configuration, the external build tool steps, the `javascript`, `python`, `dotnet`, and `go` language steps, and the resource step all run automatically. JavaScript and Python were added to the default pipeline in CLI v4.3.0, and .NET and Go in CLI v4.5.0. On earlier versions, they required explicit configuration. The `mainframe` step must always be [explicitly configured](#configuring-build-steps-explicitly) in your `moderne.yml` file.
+In the default configuration, the external build tool steps, the `javascript`, `python`, `dotnet`, `go`, and `ruby` language steps, and the resource step all run automatically. JavaScript and Python were added to the default pipeline in CLI v4.3.0, .NET and Go in CLI v4.5.0, and Ruby in CLI v4.6.0. On earlier versions, they required explicit configuration. The `mainframe` step must always be [explicitly configured](#configuring-build-steps-explicitly) in your `moderne.yml` file.
 
 :::tip
 For a JVM build tool the CLI does not natively support, such as a homegrown or internal build system, you can hand-author the prebuild tree yourself and the CLI will parse it with full type attribution. See [authoring a prebuild for a custom JVM build tool](./custom-build-tool-prebuild.md).
@@ -78,12 +78,15 @@ insurance-policy-administration/
 
 ### Language-specific steps
 
-Language-specific steps use dedicated parsers via RPC to handle their respective ecosystems. The `javascript` and `python` steps run in the default pipeline as of CLI v4.3.0, and the `dotnet` and `go` steps as of CLI v4.5.0. In that default configuration, a failure in any of these steps does not stop the build. Instead, the affected files fall through to the resource step and are parsed as plain text. The `mainframe` step must be explicitly configured.
+Language-specific steps use dedicated parsers to handle their respective ecosystems. Most run their parser via RPC, while the `ruby` step parses within the CLI itself. The `javascript` and `python` steps run in the default pipeline as of CLI v4.3.0, the `dotnet` and `go` steps as of CLI v4.5.0, and the `ruby` step as of CLI v4.6.0. The `mainframe` step must be explicitly configured.
 
-* **`python`** - Parses Python projects. Detects projects via `pyproject.toml`, `setup.py`, or `.py` files. Requires Python 3.9+. See [Python configuration](./python.md) for setup details.
+In the default configuration, a failure in the `javascript`, `python`, or `dotnet` step fails the build. A failure in the `go` or `ruby` step does not stop the build. Instead, the affected files fall through to the resource step and are parsed as plain text. To let the build continue past a failure in any other step, list the steps explicitly and set [`continueOnError: true`](#continuing-the-build-when-a-step-fails) on it.
+
+* **`python`** - Parses Python projects. Detects projects via `pyproject.toml`, `setup.py`, or `.py` files. Requires Python 3.12+. See [Python configuration](./python.md) for setup details.
 * **`javascript`** - Parses JavaScript and TypeScript projects. Detects projects via `package.json` files. Automatically discovers the appropriate package manager (npm, yarn, pnpm, or bun) and Node.js version. See [JavaScript configuration](./javascript.md) for setup details.
 * **`dotnet`** - Parses C# projects. Detects projects via `.sln`, `.slnx`, or `.csproj` files. Requires .NET SDK 10.0+. See [C# configuration](./csharp.md) for setup details.
 * **`go`** - Parses Go projects. Detects projects via `go.mod` files. Uses the Go installation on your `$PATH`. See [Go configuration](./go.md) for setup details.
+* **`ruby`** - Parses Ruby projects. Detects projects via `Gemfile`, `Rakefile`, `config.ru`, `.gemspec`, or `.rb` files. Does not require a Ruby installation. The step does not resolve gem dependencies.
 * **`mainframe`** - Parses COBOL, JCL, and Control-M code.
 
 ### Resource step
@@ -125,12 +128,11 @@ build:
     - type: maven
     - type: sbt
     - type: javascript
-      continueOnError: true
     - type: python
-      continueOnError: true
     - type: dotnet
-      continueOnError: true
     - type: go
+      continueOnError: true
+    - type: ruby
       continueOnError: true
     - type: resource
       inclusion: |-
@@ -154,12 +156,12 @@ build:
         **/*
 ```
 
-The available step types are: `maven`, `gradle`, `bazel`, `sbt`, `python`, `javascript`, `dotnet`, `go`, `mainframe`, and `resource`.
+The available step types are: `maven`, `gradle`, `bazel`, `sbt`, `python`, `javascript`, `dotnet`, `go`, `ruby`, `mainframe`, and `resource`.
 
 :::danger
 An explicit `build.steps` list fully replaces the default pipeline rather than extending it, so any step type you leave out will never run. For instance, if your configuration omits the `bazel` step, Bazel files are parsed as plain text by the `resource` step, even when Bazel files are present.
 
-When you add a step, start from the default list above and add to it rather than listing only the steps you want. An explicit configuration written for an older CLI can also disable steps that newer versions run by default, such as `javascript`, `python`, `dotnet`, and `go`, so revisit your explicit configurations when you upgrade.
+When you add a step, start from the default list above and add to it rather than listing only the steps you want. An explicit configuration written for an older CLI can also disable steps that newer versions run by default, such as `javascript`, `python`, `dotnet`, `go`, and `ruby`, so revisit your explicit configurations when you upgrade.
 :::
 
 ### Add a resource step to cause files/folders to be skipped by external build tools

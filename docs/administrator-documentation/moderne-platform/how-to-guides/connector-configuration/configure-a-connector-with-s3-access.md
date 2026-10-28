@@ -9,15 +9,19 @@ import TabItem from '@theme/TabItem';
 
 # Configure a Connector with an S3 organization source
 
-This guide explains how to point the Moderne Connector at a repository CSV stored in Amazon S3 or an S3-compatible service (e.g., MinIO). On each polling cycle, the Connector fetches that CSV to discover your repositories. When the CSV includes `publishUri` values, the Connector uses them to locate each repository's LST artifact. 
+If you publish LSTs to Amazon S3 or an S3-compatible service (e.g., MinIO), the bucket already holds everything the Connector needs. [`mod publish` keeps a `repos-lock.csv` there](#publishing-lsts-to-the-bucket) that lists every repository and where its LST lives. Point the Connector at that file and it will discover your repositories and their LSTs in the same bucket, with no separate CSV to host or keep in sync.
 
-Any of the CSV variants documented in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md) work here, as long as the CSV defines your [organizational hierarchy](./configure-organizations-hierarchy.md): a minimal CSV with `origin`, `path`, `branch`, and at least one `org` column, or a full `repos-lock.csv` produced by Mass Ingest's `mod publish`.
+The [organizational hierarchy](./configure-organizations-hierarchy.md) comes from the `org` columns of the `repos.csv` file you publish from, as described in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
+
+:::note
+A row without a `publishUri` still shows up in your organizational hierarchy, but you won't be able to run recipes against it because the Connector has no LST to fetch.
+:::
 
 For background on how the Connector uses CSV sources and how S3 fits into the overall Connector configuration, please see [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts).
 
 ## Prerequisites
 
-* A repository CSV stored as a single object in an S3 bucket. The `uri` you configure must point at that object (e.g., `s3://my-bucket/repos-lock.csv`), not at a bucket or prefix.
+* A `repos-lock.csv` file stored as a single object in an S3 bucket, alongside the LSTs it lists. The `uri` you configure must point at that object (e.g., `s3://my-bucket/repos-lock.csv`), not at a bucket or prefix.
 * One of the following authentication methods:
   * IAM role (when running on AWS infrastructure)
   * An AWS profile configured on the machine running the Connector
@@ -187,6 +191,24 @@ java -jar connector-{version}.jar \
 </TabItem>
 
 </Tabs>
+
+## Publishing LSTs to the bucket
+
+The Moderne CLI produces both the CSV and the LSTs it points at. Configure it to publish to the same bucket:
+
+```bash
+mod config lsts artifacts s3 edit s3://my-bucket
+mod build /path/to/your/repos
+mod publish /path/to/your/repos
+```
+
+`mod publish` uploads each LST under a `yyyy/MM/dd/HH/` prefix and maintains a merged `repos-lock.csv` at the root of the bucket. That merged file is the object you'll want to point the Connector at.
+
+To keep your LSTs up to date, you'll want to run `mod publish` every day through a [mass ingest](../mass-ingest.md) pipeline rather than by hand. Mass ingest runs `mod publish --sync-csv`, which reads the `repos.csv` you put at the root of the bucket, publishes each repository, and records the results in the same `repos-lock.csv`. The Connector re-reads that file every ten minutes by default. You can change that with the [`moderne.connector.organization.interval`](./connector-variables.md#organization-sync-variables) setting.
+
+If you shard mass ingest across several machines, they can all publish to the same bucket at once. Each one adds its own rows to `repos-lock.csv` without touching the others'. If a machine can't get its rows in, its `mod publish` fails and leaves the file as the other machines wrote it.
+
+See the [repos-lock.csv guide](../../../../user-documentation/moderne-cli/how-to-guides/repos-lock-csv.md) for the full publishing workflow.
 
 ## Using IAM roles on AWS
 

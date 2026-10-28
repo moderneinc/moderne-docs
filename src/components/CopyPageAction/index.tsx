@@ -7,20 +7,16 @@ import CopyPageButton from 'docusaurus-plugin-copy-page-button/react';
  */
 export const SuppressCopyPageContext = createContext(false);
 
-const GITHUB_RAW_DOCS = 'https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs';
 const DOCS_BASE_URL = 'https://docs.moderne.io';
 
 /**
- * Where the View / Open-in-ChatGPT / Open-in-Claude actions fetch markdown from:
- * - Recipe-catalog pages are generated React-component MDX, so DOM-scraping is noisy — point at the
- *   committed markdown source on GitHub (always exists on `main`; no extra files to build/serve).
- * - Every other page reuses the per-page markdown that `docusaurus-plugin-llms` already publishes at
- *   `/<path>.md`.
+ * Where the View / Open-in-ChatGPT / Open-in-Claude actions fetch markdown from: the per-page markdown
+ * that `docusaurus-plugin-llms` already publishes at `/<path>.md`.
  * (The clipboard "Copy" action always DOM-scrapes; this only redirects View + the AI links.)
  */
 const markdownUrlFor = (pageUrl: string): string => {
   const path = new URL(pageUrl, DOCS_BASE_URL).pathname.replace(/\/$/, '');
-  return path.includes('/recipe-catalog/') ? `${GITHUB_RAW_DOCS}${path}.md` : `${DOCS_BASE_URL}${path}.md`;
+  return `${DOCS_BASE_URL}${path}.md`;
 };
 
 /**

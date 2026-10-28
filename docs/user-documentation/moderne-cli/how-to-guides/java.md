@@ -406,7 +406,7 @@ mod config recipes jar install org.openrewrite.recipe:rewrite-migrate-java:LATES
 ```
 
 :::tip
-You can find the specific installation command for any recipe on its page in the [recipe catalog](../../recipes/recipe-catalog).
+You can find the specific installation command for any recipe on its page in the [recipe catalog](https://codegenomeproject.org/recipes).
 :::
 
 ## Step 8: Run recipes

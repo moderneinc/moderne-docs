@@ -47,7 +47,27 @@ Two practical consequences follow from that shared model:
 
 ## Setting up your project
 
-The DSL needs a Gradle build with the Kotlin plugin applied, because the compiler plugin has to be on the Kotlin compiler's plugin classpath. Here are the pieces that matter in a `build.gradle.kts` file:
+The DSL needs a Gradle build with the Kotlin plugin applied, because the compiler plugin has to be on the Kotlin compiler's plugin classpath.
+
+The OpenRewrite build plugins and the rewrite core libraries are distributed through the [Code Genome Project](../../accessing-the-code-genome-project.md), which requires authentication. Put your username in `~/.gradle/gradle.properties` as `codegenomeUsername` and your token as `codegenomePassword`. Gradle resolves plugins from `pluginManagement` in `settings.gradle.kts` before any project is evaluated, so the Code Genome Project has to be declared there for `org.openrewrite.build.recipe-library-base` to resolve:
+
+```kotlin title="settings.gradle.kts"
+pluginManagement {
+    repositories {
+        maven {
+            url = uri("https://artifacts.codegenomeproject.org/maven")
+            credentials {
+                username = providers.gradleProperty("codegenomeUsername").get()
+                password = providers.gradleProperty("codegenomePassword").get()
+            }
+        }
+        // Keep the portal for any other plugins your build applies
+        gradlePluginPortal()
+    }
+}
+```
+
+Here are the pieces that matter in a `build.gradle.kts` file:
 
 ```kotlin title="build.gradle.kts"
 plugins {
@@ -59,6 +79,17 @@ plugins {
 
 group = "com.yourorg"
 description = "OpenRewrite recipes for Kotlin, authored with the Kotlin recipe DSL."
+
+repositories {
+    maven {
+        url = uri("https://artifacts.codegenomeproject.org/maven")
+        credentials {
+            username = providers.gradleProperty("codegenomeUsername").get()
+            password = providers.gradleProperty("codegenomePassword").get()
+        }
+    }
+    mavenCentral()
+}
 
 dependencies {
     // The bom aligns every org.openrewrite module - including rewrite-kotlin - to one version.
@@ -479,7 +510,7 @@ Now that you've written your first Kotlin recipe, you can go deeper:
 
 * Clone the [`kotlin-recipe-starter` repository](https://github.com/moderneinc/kotlin-recipe-starter) for a complete, runnable project containing every recipe in this guide
 * Read [Kotlin recipes for OpenRewrite](https://moderne.ai/blog/kotlin-recipes-for-openrewrite) for the design rationale behind the DSL, along with the migration, performance, and Android recipe catalogs built on top of it
-* Browse the [Kotlin recipes in the Moderne recipe catalog](../../recipe-catalog/kotlin/README.md) for real-world examples to learn from and build on
+* Browse the [Kotlin recipes in the Moderne recipe catalog](https://codegenomeproject.org/recipes?q=org.openrewrite.kotlin) for real-world examples to learn from and build on
 * Read the [Java refactoring recipe guide](./writing-a-java-refactoring-recipe.md) for deeper coverage of visitors, preconditions, and templates that carry over to the shared LST model
 * Review the [recipe conventions and best practices guide](../testing-and-best-practices/recipe-conventions-and-best-practices.md) to make sure your recipes are reliable and scalable
 * Explore the [`rewrite-kotlin` source](https://github.com/openrewrite/rewrite/tree/main/rewrite-kotlin) to see how the Kotlin LST, parser, and DSL compiler plugin are implemented

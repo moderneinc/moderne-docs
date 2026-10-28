@@ -277,15 +277,9 @@ describe('no-consecutive-blank-lines', () => {
     expect(issues.filter(i => i.rule === 'no-consecutive-blank-lines')).toHaveLength(0);
   });
 
-  it('does not flag consecutive blank lines in recipe-catalog files (generated content)', async () => {
-    const md = 'Paragraph one.\n\n\nParagraph two.';
-    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/recipe-catalog/SomeRecipe.md');
-    expect(issues.filter(i => i.rule === 'no-consecutive-blank-lines')).toHaveLength(0);
-  });
-
   it('does not flag consecutive blank lines in recipe lists files (generated content)', async () => {
     const md = 'Paragraph one.\n\n\nParagraph two.';
-    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/lists/all-recipes.md');
+    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module.md');
     expect(issues.filter(i => i.rule === 'no-consecutive-blank-lines')).toHaveLength(0);
   });
 
@@ -309,13 +303,7 @@ describe('no-consecutive-blank-lines', () => {
 describe('unordered-list-marker-style (generated exclusions)', () => {
   it('does not flag dash bullets in recipe lists files (generated content)', async () => {
     const md = '- Item one\n- Item two';
-    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/lists/all-recipes.md');
-    expect(issues.filter(i => i.rule === 'unordered-list-marker-style')).toHaveLength(0);
-  });
-
-  it('does not flag dash bullets in recipe-catalog files (generated content)', async () => {
-    const md = '- Item one\n- Item two';
-    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/recipe-catalog/SomeRecipe.md');
+    const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module.md');
     expect(issues.filter(i => i.rule === 'unordered-list-marker-style')).toHaveLength(0);
   });
 

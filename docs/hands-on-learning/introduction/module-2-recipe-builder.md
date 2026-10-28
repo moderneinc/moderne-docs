@@ -210,7 +210,7 @@ mod config recipes yaml install ~/moderne-workshop/stringutils.yml
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.9.0
+Moderne CLI 4.12.0
 
 ⏺ Installing recipes from YAML files
 
@@ -246,7 +246,7 @@ Again, you may see `The latest LST is not up to date` messages for some reposito
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.9.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
@@ -316,7 +316,7 @@ MOD SUCCEEDED in 17s
 </details>
 
 :::tip
-You also need the recipes referenced in your YAML to be available. If you've already synced recipes with `mod config recipes moderne sync`, they should be available.
+You also need the recipes referenced in your YAML to be available. The recipe marketplace that `mod login` syncs includes them.
 :::
 
 Once again, you can open any of the `Fix results` links and review the diffs to see exactly what would change in each repository from this recipe if you were to apply the patch.

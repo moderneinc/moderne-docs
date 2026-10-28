@@ -65,7 +65,7 @@ Your organization's administrator may configure a maximum token lifetime through
   ![Access token creation form with expiration duration dropdown options](./assets/access-token-expiration.png)
 </figure>
 
-The Moderne CLI creates tokens on your behalf when you run `mod config moderne login`, and those tokens default to 365 days. Pass `--expiration` with an ISO-8601 duration to choose a different lifetime, such as `--expiration P90D` for 90 days.
+The Moderne CLI creates tokens on your behalf when you run `mod login`. By default, the tokens last for 365 days. Pass `--expiration` with an ISO-8601 duration to choose a different lifetime, such as `--expiration P90D` for 90 days.
 
 ### Further reading
 

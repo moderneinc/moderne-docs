@@ -137,6 +137,42 @@ describe('RunRecipe', () => {
     expect(tabText('LATEST').match(/:LATEST/g)).toHaveLength(2);
   });
 
+  it('installs only the npm package when a JavaScript recipe has no companion jar', () => {
+    renderRecipe({
+      recipeName: 'org.openrewrite.react.UpgradeToReact17',
+      displayName: 'Upgrade to React 17',
+      npmPackage: '@openrewrite/recipes-react',
+    });
+
+    expect(text()).toContain('mod config recipes npm install @openrewrite/recipes-react');
+    expect(text()).not.toContain('jar install');
+    expect(tabText('Pinned version')).toEqual('');
+  });
+
+  it('installs the jar a JavaScript recipe delegates into alongside its npm package', () => {
+    renderRecipe({
+      recipeName: 'org.openrewrite.angular.UpgradeToAngular10',
+      displayName: 'Upgrade to Angular 10',
+      npmPackage: '@openrewrite/recipes-angular',
+      companionJars: [
+        {
+          groupId: 'org.openrewrite',
+          artifactId: 'rewrite-javascript',
+          versionKey: 'VERSION_ORG_OPENREWRITE_REWRITE_JAVASCRIPT',
+        },
+      ],
+    });
+
+    // The upgrade delegates to the Java-side org.openrewrite.javascript.UpgradeDependencyVersion, which
+    // only the rewrite-javascript jar provides (moderneinc/customer-requests#2868).
+    expect(text()).toContain('mod config recipes npm install @openrewrite/recipes-angular');
+    expect(tabText('RELEASE')).toContain('mod config recipes jar install org.openrewrite:rewrite-javascript:RELEASE');
+    expect(tabText('LATEST')).toContain('mod config recipes jar install org.openrewrite:rewrite-javascript:LATEST');
+    expect(tabText('Pinned version')).toContain('mod config recipes npm install @openrewrite/recipes-angular\n');
+    expect(tabText('Pinned version')).toMatch(/jar install org\.openrewrite:rewrite-javascript:[\d.]+/);
+    expect(text()).toContain('mod run . --recipe org.openrewrite.angular.UpgradeToAngular10');
+  });
+
   it('installs only the NuGet package when a C# recipe has no companion jar', () => {
     renderRecipe({
       recipeName: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet.FindCsprojMarker',
@@ -211,5 +247,147 @@ describe('RunRecipe', () => {
     expect(text()).toContain('mod config recipes go install github.com/moderneinc/recipes-go');
     expect(text()).not.toContain('@v');
     expect(tabText('Pinned version')).toEqual('');
+  });
+
+  describe('optional settings', () => {
+    const upgradeDependencyVersion = {
+      recipeName: 'org.openrewrite.java.dependencies.UpgradeDependencyVersion',
+      displayName: 'Upgrade Gradle or Maven dependency versions',
+      groupId: 'org.openrewrite.recipe',
+      artifactId: 'rewrite-java-dependencies',
+      versionKey: 'VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES',
+      requiresConfiguration: true,
+      cliOptions: ' --recipe-option "groupId=com.fasterxml.jackson*" --recipe-option "artifactId=jackson-module*"',
+    };
+
+    const dependencyVulnerabilityCheck = {
+      recipeName: 'org.openrewrite.java.dependencies.DependencyVulnerabilityCheck',
+      displayName: 'Find and fix vulnerable Maven/Gradle dependencies',
+      groupId: 'org.openrewrite.recipe',
+      artifactId: 'rewrite-java-security',
+      versionKey: 'VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY',
+      optionalCliOptions:
+        ' --recipe-option "scope=runtime" --recipe-option "overrideTransitive=false" --recipe-option "maximumUpgradeDelta=patch"',
+    };
+
+    it('runs with only the required options when a recipe has no optional examples', () => {
+      renderRecipe(upgradeDependencyVersion);
+
+      expect(text()).toContain(
+        'mod run . --recipe UpgradeDependencyVersion --recipe-option "groupId=com.fasterxml.jackson*" --recipe-option "artifactId=jackson-module*"'
+      );
+      expect(text()).not.toContain('optional settings');
+    });
+
+    it('keeps the plain command runnable and offers optional example values as a second command', () => {
+      renderRecipe(dependencyVulnerabilityCheck);
+
+      const [plain, withOptional] = Array.from(screen.getByRole('main').querySelectorAll('pre'), (pre) => pre.textContent);
+      expect(plain).toEqual('mod run . --recipe DependencyVulnerabilityCheck');
+      expect(withOptional).toEqual(
+        [
+          'mod run . --recipe DependencyVulnerabilityCheck \\',
+          '  --recipe-option "scope=runtime" \\',
+          '  --recipe-option "overrideTransitive=false" \\',
+          '  --recipe-option "maximumUpgradeDelta=patch"',
+        ].join('\n')
+      );
+      expect(text()).toContain('examples, not recommendations');
+    });
+
+    it('adds optional options after the required ones', () => {
+      renderRecipe({
+        ...upgradeDependencyVersion,
+        optionalCliOptions: ' --recipe-option "versionPattern=-jre"',
+      });
+
+      expect(text()).toContain(
+        'mod run . --recipe UpgradeDependencyVersion --recipe-option "groupId=com.fasterxml.jackson*" --recipe-option "artifactId=jackson-module*"'
+      );
+      expect(text()).toContain(
+        [
+          'mod run . --recipe UpgradeDependencyVersion \\',
+          '  --recipe-option "groupId=com.fasterxml.jackson*" \\',
+          '  --recipe-option "artifactId=jackson-module*" \\',
+          '  --recipe-option "versionPattern=-jre"',
+        ].join('\n')
+      );
+    });
+
+    it.each([
+      ['npm', { npmPackage: '@openrewrite/recipes-npm' }],
+      ['pip', { pipPackage: 'openrewrite-migrate-python' }],
+      ['NuGet', { nugetPackage: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet' }],
+      ['Go', { goPackage: 'github.com/moderneinc/recipes-go' }],
+    ])('offers optional settings for a %s recipe', (_, packageProps) => {
+      renderRecipe({
+        recipeName: 'org.openrewrite.example.FindDependency',
+        displayName: 'Find dependency',
+        ...packageProps,
+        cliOptions: ' --recipe-option "packageName=lodash"',
+        optionalCliOptions: ' --recipe-option "version=4.x"',
+      });
+
+      expect(text()).toMatch(/mod run \. --recipe \S*FindDependency --recipe-option "packageName=lodash"/);
+      expect(text()).toMatch(/--recipe-option "packageName=lodash" \\\n {2}--recipe-option "version=4\.x"/);
+    });
+
+    // Unresolvable version keys keep these snapshots independent of the versions in latest-versions.js.
+    it.each([
+      [
+        'jar',
+        {
+          recipeName: 'org.openrewrite.java.dependencies.UpgradeDependencyVersion',
+          displayName: 'Upgrade Gradle or Maven dependency versions',
+          groupId: 'org.openrewrite.recipe',
+          artifactId: 'rewrite-java-dependencies',
+          versionKey: 'VERSION_NOT_A_REAL_KEY',
+          requiresConfiguration: true,
+          cliOptions: ' --recipe-option "groupId=com.fasterxml.jackson*" --recipe-option "artifactId=jackson-module*"',
+        },
+      ],
+      [
+        'jar without options',
+        {
+          recipeName: 'org.openrewrite.java.format.AutoFormat',
+          displayName: 'Format Java code',
+          groupId: 'org.openrewrite',
+          artifactId: 'rewrite-java',
+          versionKey: 'VERSION_NOT_A_REAL_KEY',
+        },
+      ],
+      ['npm', { recipeName: 'org.openrewrite.npm.Find', displayName: 'Find', npmPackage: '@openrewrite/recipes-npm' }],
+      [
+        'pip',
+        {
+          ...pythonProps,
+          versionKey: 'VERSION_NOT_A_REAL_KEY',
+          requiresConfiguration: true,
+          cliOptions: ' --recipe-option "methodPattern=dumps(..)"',
+        },
+      ],
+      [
+        'NuGet',
+        {
+          recipeName: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet.FindCsprojMarker',
+          displayName: 'Find csproj marker',
+          nugetPackage: 'OpenRewrite.Recipes.CSharp.Migration.Dotnet',
+        },
+      ],
+      [
+        'Go',
+        {
+          recipeName: 'org.openrewrite.go.search.FindTypes',
+          displayName: 'Find Go types',
+          goPackage: 'github.com/moderneinc/recipes-go',
+          versionKey: 'VERSION_NOT_A_REAL_KEY',
+          cliOptions: ' --recipe-option "typePattern=*"',
+        },
+      ],
+    ])('renders a %s recipe unchanged without optional settings', (_, props) => {
+      const { asFragment } = renderRecipe(props);
+
+      expect(asFragment()).toMatchSnapshot();
+    });
   });
 });

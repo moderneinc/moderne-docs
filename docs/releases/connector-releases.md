@@ -7,13 +7,39 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.215 |
+| Connector | 0.151.324 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.215/connector-0.151.215.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.324/connector-0.151.324.jar)
 
 ## Changelog
 
 ## October 2026
+
+### v0.151.324 – 2026-10-26
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.324/connector-0.151.324.jar)
+
+* Accept an Azure Blob Storage container as an organization source (#1883)
+* Drop direct commits on dev and app, and default to pull requests (#2778)
+
+### v0.151.314 – 2026-10-23
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.314/connector-0.151.314.jar)
+
+* Let the connector read responses with more than 8 KB of headers (#2764)
+* Validate connector configuration at startup instead of one sync interval later (#2722)
+* Upgrade to Gradle 9.8.2 (#2727)
+* Check LLM tools with the auth the proxy sends, not a hand-built Authorization (#2685)
+* Let the gateway turn down an LST build it already holds (#2635)
+* Delete a cancelled LST download's temp file, not only a failed one (#2612)
+* Stop the disk rules firing on a path that doesn't exist (#2568)
+* Take public Maven repositories out of the dev and devaz connectors (#2491)
+
+### v0.151.225 – 2026-10-08
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.225/connector-0.151.225.jar)
+
+* Fix(connector): tag metrics with a persisted instance.id (#2406)
 
 ### v0.151.215 – 2026-10-04
 

@@ -231,6 +231,23 @@ function findShallowestProductCategoryInTree(
 }
 
 /**
+ * Check whether a link item is the sidebar entry a page belongs to
+ *
+ * Docusaurus gives doc entries a docId when it builds the sidebar props, and
+ * hand-written `type: 'link'` items never get one. A hand-written link points
+ * at a page that lives in some other section, so it must not make its own
+ * section look like the page's home.
+ */
+function isOwningDocLink(item: PropSidebarItem, targetPath: string): boolean {
+  if (item.type !== 'link') {
+    return false;
+  }
+
+  const link = item as PropSidebarItemLink;
+  return Boolean(link.docId) && link.href === targetPath;
+}
+
+/**
  * Check if a category contains a page/category with the given permalink
  * Permalinks are unique and stable identifiers
  */
@@ -251,11 +268,8 @@ function categoryContainsPermalink(
         if (categoryContainsPermalink(childCategory, targetPermalink)) {
           return true;
         }
-      } else if (item.type === 'link') {
-        const link = item as PropSidebarItemLink;
-        if (link.href === targetPermalink) {
-          return true;
-        }
+      } else if (isOwningDocLink(item, targetPermalink)) {
+        return true;
       }
     }
   }
@@ -469,11 +483,8 @@ function categoryContainsPath(
         if (categoryContainsPath(item as PropSidebarItemCategory, currentPath)) {
           return true;
         }
-      } else if (item.type === 'link') {
-        const link = item as PropSidebarItemLink;
-        if (link.href === currentPath) {
-          return true;
-        }
+      } else if (isOwningDocLink(item, currentPath)) {
+        return true;
       }
     }
   }

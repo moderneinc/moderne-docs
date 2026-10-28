@@ -21,6 +21,8 @@ When editing any documentation in this repository, ALWAYS follow the rules in ST
 * Do not open a section by restating its header (Rule 25)
 * Use a list or table when prose enumerates three or more conditions or paths; keep a simple either/or as prose (Rule 22)
 * Address the reader ("you will need to", "you can"), not impersonal declarative phrasing (Rule 11)
+* State facts plainly: no rule-then-"so" deductions, announced points, colon lists in prose, or sentences that only carry a link (Rule 26)
+* Describe outcomes, not implementation mechanics or parser vocabulary (Rule 27)
 
 These are summaries. For the full rule and its examples, grep STYLE_GUIDE.md for `### <number>` rather than reading the whole file.
 
