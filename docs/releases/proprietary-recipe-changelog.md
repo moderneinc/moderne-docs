@@ -12,11 +12,143 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## October 28, 2026
 
+#### recipes-csharp - 0.12.0
+
+* Report AddNuGetPackageReferenceIfTypeUsed option error once, not per file
+* Remove matched C# calls instead of delegating RemoveMethodInvocations
+* Stop publishing the empty Maven artifact
+* Read referenced projects from MSBuildProject.ProjectReferences
+* Upgrade to Gradle 9.8.2
+
+#### recipes-go - 0.15.0
+
+* Bump rewrite-go to v0.0.40
+
+#### recipes-javascript - 0.6.0
+
+* Type-check test sources as part of `npm test` and `ci:test`
+* Fix unsafe relational inversion in `BooleanChecksNotInverted`
+
+#### recipes-kotlin - 0.9.0
+
+* Add recipes.csv
+
+#### recipes-mainframe - 0.3.0
+
+* Apply OpenRewrite recipe best practices
+
+#### rewrite-compiled-analysis - 0.19.0
+
+* Opt breaksParsing test out of parser-shaped tree validation
+* Compare types with TypeUtils.isOfType instead of JavaType.equals
+
+#### rewrite-cryptography - 0.20.0
+
+* Move BouncyCastle test jars to a test type table
+
+#### rewrite-devcenter - 1.36.0
+
+* Rename BuildToolCard's fixRecipeId option to upgradeRecipe
+* Drop the fixRecipeId alias from BuildToolCard
+
+#### rewrite-dotnet - 0.21.0
+
+* Upgrade to Gradle 9.8.2
+
+#### rewrite-dropwizard - 0.11.0
+
+* Move test-only parser dependencies to type tables
+* Preserve valid overrides after removing a superclass
+* Type Health in the Result.healthy/unhealthy replacement templates
+
+#### rewrite-elastic - 0.12.0
+
+* Compare types with TypeUtils.isOfType instead of JavaType.equals
+
+#### rewrite-hibernate - 0.33.0
+
+* Move test-only parser dependencies to type tables
+
+#### rewrite-java-security - 3.46.0
+
+* Keep DES/DESede key sizes and infer the floor from key size when the …
+* Move test-only parser jars to the test type table
+* Compare versions with core's Version now that rewrite-java-dependencies dropped its internal parser
+
+#### rewrite-mainframe - 3.6.0
+
+* Share copybook trees and copied-word markers, so a COBOL LST takes 42% less heap
+
+#### rewrite-migrate-kotlin - 0.13.0
+
+* Parse Exposed 0.x test sources from a test type table instead of jars
+
+#### rewrite-migrate-python - 0.19.0
+
+* Python: prepare recipes for OpenRewrite 8.94
+* Fix recipe bugs found by cross-checking the Python recipe skill, and correct the skill
+
+#### rewrite-nodejs - 0.55.0
+
+* Replace `SlowBuffer` and the `fs` access constants in UpgradeNode26, since Node.js 25 removed both
+
+#### rewrite-nullability - 0.10.0
+
+* Resolve template parser classpath from the type table
+
+#### rewrite-prethink - 0.20.0
+
+* Analyze field-rooted receiver and argument call placements
+* Relate written resilience settings to Duration arguments
+* Report invocation arguments in their lexical method context
+* Compose builder settings and Duration arguments by method context
+* Compose ordinary calls and same-CU method metadata candidates
+* Collect same-CU invocation method metadata candidates
+* Use the element returned by singleElement() instead of re-fetching it
+* Collect coding conventions in a per-run scanning accumulator
+
+#### rewrite-program-analysis - 0.22.0
+
+* Compare types with TypeUtils.isOfType instead of JavaType.equals
+* Move test parser jars to a test type table
+
+#### rewrite-reactive-streams - 0.24.0
+
+* Move test-only parser dependencies to type tables
+
+#### rewrite-spring - 0.47.0
+
+* Qualify ambiguous type table lookups in recipe templates
+
+#### rewrite-sql - 2.23.0
+
+* Stop renaming Oracle functions into invalid Postgres, and map more Oracle types
+* Convert data types that carry a precision or length semantics
+* Convert Oracle's `MINUS` to `EXCEPT` when migrating to Postgres
+* Stop renaming SQL Server functions into invalid Postgres
+* Leave SQL untouched when `ChangeFunctionName` renames nothing
+* Keep formatting when `ChangeFunctionName` renames a function
+* Convert SQL Server's `TOP` to `LIMIT` when migrating to Postgres
+* Only rename two-argument `INSTR` to `STRPOS`
+* Convert Oracle `SYSDATE` and drop `FROM DUAL` when migrating to Postgres
+* Convert Oracle `LONG RAW` and `FLOAT(p)` when migrating to Postgres
+* Group no-change tests into nested `NoChange` classes
+
+#### rewrite-static-analysis - 0.4.0
+
+* Add io.moderne.java.staticanalysis.CommonStaticAnalysis, which runs the proprietary remediations and then the open source CommonStaticAnalysis
+* Name the Java recipes io.moderne.staticanalysis, as the open source ones are named org.openrewrite.staticanalysis, so that both are in one category, and say that CommonStaticAnalysis builds on the open source one
+* Remove the Python recipes, which moved to rewrite-migrate-python, with the build and publishing of their package, openrewrite-static-analysis
+
 #### rewrite-static-analysis - 0.3.1
 
 * Add io.moderne.java.staticanalysis.CommonStaticAnalysis, which runs the proprietary remediations and then the open source CommonStaticAnalysis
 * Name the Java recipes io.moderne.staticanalysis, as the open source ones are named org.openrewrite.staticanalysis, so that both are in one category, and say that CommonStaticAnalysis builds on the open source one
 * Remove the Python recipes, which moved to rewrite-migrate-python, with the build and publishing of their package, openrewrite-static-analysis
+
+#### rewrite-struts - 0.33.0
+
+* Move test-only parser dependencies to type tables
 
 ## October 27, 2026
 
