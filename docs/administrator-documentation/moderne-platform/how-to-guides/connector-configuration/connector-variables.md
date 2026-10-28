@@ -1078,7 +1078,6 @@ You can configure multiple Cloud Storage buckets by including multiple entries, 
 | `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_CREDENTIALSJSON` | `false` (Required if not using Application Default Credentials) |         | The contents of a service account key file.                                                                                                                                                                            |
 | `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_PROJECT`         | `false`                                                         |         | The project to bill requests to. Only needed for requester-pays buckets.                                                                                                                                               |
 | `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_ENDPOINTURL`     | `false`                                                         |         | Overrides the default `storage.googleapis.com` endpoint (e.g., a Private Service Connect endpoint).                                                                                                                    |
-| `MODERNE_ORGANIZATION_SOURCES_GCS_{index}_ENCRYPT`         | `false`                                                         | `true`  | Whether the Connector fetches each LST from this source, encrypts it with your symmetric key, and uploads it to Moderne. See [LST encryption](./configure-lst-encryption.md) for the rules that apply per source type. |
 
 **Example:**
 
@@ -1100,7 +1099,6 @@ docker run \
 | `--moderne.organization.sources.gcs[{index}].credentials-json` | `false` (Required if not using Application Default Credentials) |         | The contents of a service account key file.                                                                                                                                                                            |
 | `--moderne.organization.sources.gcs[{index}].project`          | `false`                                                         |         | The project to bill requests to. Only needed for requester-pays buckets.                                                                                                                                               |
 | `--moderne.organization.sources.gcs[{index}].endpoint-url`     | `false`                                                         |         | Overrides the default `storage.googleapis.com` endpoint (e.g., a Private Service Connect endpoint).                                                                                                                    |
-| `--moderne.organization.sources.gcs[{index}].encrypt`          | `false`                                                         | `true`  | Whether the Connector fetches each LST from this source, encrypts it with your symmetric key, and uploads it to Moderne. See [LST encryption](./configure-lst-encryption.md) for the rules that apply per source type. |
 
 **Example:**
 
