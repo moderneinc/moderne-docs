@@ -17,12 +17,18 @@
 //   (the dev server) ignores it, so redirects never work there. To test them,
 //   build the site and serve the output:
 //
-//     EXAMPLE_RECIPES_ONLY=1 yarn build   # build + generate the redirect files
-//     npm run serve                       # serve build/ at http://localhost:3000
+//     yarn build      # build + generate the redirect files
+//     npm run serve   # serve build/ at http://localhost:3000
 //
 //   Then open an old path (e.g. http://localhost:3000/releases/cli-dx) and confirm
-//   it lands on the new page. EXAMPLE_RECIPES_ONLY skips the ~5,700 recipe-catalog
-//   pages for a much faster build; every redirect is still generated.
+//   it lands on the new page.
+//
+// The recipe catalog moved to the Code Genome Project. Its ~9,000 redirects send each
+// old recipe page to the same recipe on CGP by recipe ID, and each category page to a
+// CGP search on its package. They're generated, so they live in
+// src/config/recipe-catalog-redirects.json rather than in this list.
+
+import recipeCatalogRedirects from './src/config/recipe-catalog-redirects.json';
 
 type RedirectRule = { from: string | string[]; to: string };
 
@@ -98,6 +104,7 @@ const redirects: RedirectRule[] = [
     ],
     to: 'https://codegenomeproject.org/recipes',
   },
+  ...(recipeCatalogRedirects as RedirectRule[]),
 ];
 
 export default redirects;
