@@ -74,7 +74,6 @@ jobs:
         if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
-      # Separate namespace: this build sets SKIP_RECIPE_CATALOG.
       - name: Cache build compilation artifacts
         uses: actions/cache@v6
         with:
@@ -89,9 +88,24 @@ jobs:
           yarn build 2>&1 | { grep --line-buffered -v "^Generated markdown file:" || true; }
         env:
           DOCUSAURUS_SSG_WORKER_THREAD_COUNT: "2"
-          SKIP_RECIPE_CATALOG: "1"
           CI_STRICT_LINKS: "1"
           DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY: "512000000"
           DOCUSAURUS_SSR_CONCURRENCY: "16"
           NODE_OPTIONS: "--max-old-space-size=1536 --max-semi-space-size=64"
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
+
+  gradle:
+    name: Gradle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: gradle/actions/setup-gradle@v5
+
+      - name: Test the latest versions task
+        run: ./gradlew -p buildSrc test

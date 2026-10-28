@@ -54,27 +54,28 @@ changelogBulkPullRequestAction(id: ID!): ChangelogBulkPullRequestAction
 
 Get a bulk pull request action by ID to poll for progress.
 
-#### `codeSearchSession`
+#### `codeSearch`
 
 ```graphql
-codeSearchSession(id: ID!): CodeSearchSession
+codeSearch(organizationId: ID!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection!
 ```
 
-**Returns:** [CodeSearchSession](#codesearchsession)
+**Returns:** [CodeSearchResultConnection](#codesearchresultconnection)!
 
-One of the caller's code search sessions, or null when they have none with this id.
-Poll it after `openCodeSearchSession` until it is a `CodeSearchSessionReady`.
+Search the code of an organization's repositories. Results are files with their matching
+lines, limited to repositories the caller can read, in a stable order that `after` resumes.
+The index is kept in step with the organization's LSTs on its own, so a search answers at
+once; `coverage` says how many of the organization's repositories it covers.
 
-#### `codeSearchSessions`
-
-```graphql
-codeSearchSessions(first: Int = 50, after: String, where: CodeSearchSessionWhereInput): CodeSearchSessionConnection!
-```
-
-**Returns:** [CodeSearchSessionConnection](#codesearchsessionconnection)!
-
-The caller's code search sessions, newest first, including those that closed recently.
-An admin gets every user's sessions and can narrow them with `where.user`.
+The query is a Sourcegraph-style expression: plain text and `/regular expressions/`,
+combined with `AND`, `OR` and `NOT`, and narrowed by path and language with `file:`
+and `lang:`. The index is built from LSTs, so the other filters match resolved types
+rather than text: `call:` (the call sites of a method, such as
+`call:java.util.List.add`, calls on subtypes included), `ref:` (the uses of a type),
+`dependency:` (the calls and references that come from a dependency, by name and
+optionally the version resolved, such as `dependency:com.fasterxml.*:jackson*:2.15.x`),
+`sym:` (a declared name), and `extends:`, `implements:`, `annotated:`, `returns:` and
+`throws:` (declarations).
 
 #### `connectors`
 
@@ -304,18 +305,6 @@ closeChangelogPullRequests(organizationId: ID!, selection: PullRequestSelectionI
 
 Close pull requests in bulk. Returns the queued action for polling.
 
-#### `closeCodeSearchSession`
-
-```graphql
-closeCodeSearchSession(id: ID!): CodeSearchSession!
-```
-
-**Returns:** [CodeSearchSession](#codesearchsession)!
-
-Close a session, which only the user who opened it or an admin can do. An
-organization's index is released once its last session closes. A session that goes
-too long without a search closes on its own.
-
 #### `closePullRequests`
 
 ```graphql
@@ -326,28 +315,6 @@ closePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositor
 
 Close, in bulk, the pull requests the committer created from a changeset.
 Returns the queued action for polling.
-
-#### `codeSearch`
-
-```graphql
-codeSearch(sessionId: ID!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection!
-```
-
-**Returns:** [CodeSearchResultConnection](#codesearchresultconnection)!
-
-Search a ready session. Fails, saying why, on a session that is still preparing or is
-closed. Results are files with their matching lines, limited to repositories the
-caller can read, in a stable order that `after` resumes.
-
-The query is a Sourcegraph-style expression: plain text and `/regular expressions/`,
-combined with `AND`, `OR` and `NOT`, and narrowed by path and language with `file:`
-and `lang:`. The index is built from LSTs, so the other filters match resolved types
-rather than text: `call:` (the call sites of a method, such as
-`call:java.util.List.add`, calls on subtypes included), `ref:` (the uses of a type),
-`dependency:` (the calls and references that come from a dependency, by name and
-optionally the version resolved, such as `dependency:com.fasterxml.*:jackson*:2.15.x`),
-`sym:` (a declared name), and `extends:`, `implements:`, `annotated:`, `returns:` and
-`throws:` (declarations).
 
 #### `commit`
 
@@ -524,19 +491,6 @@ mergePullRequests(organizationId: ID!, changesetId: ID!, commitId: ID, repositor
 
 Merge, in bulk, the pull requests the committer created from a changeset.
 Returns the queued action for polling.
-
-#### `openCodeSearchSession`
-
-```graphql
-openCodeSearchSession(organizationId: ID!): CodeSearchSession!
-```
-
-**Returns:** [CodeSearchSession](#codesearchsession)!
-
-Open a session for searching the code of an organization's repositories. The session
-starts as a `CodeSearchSessionPreparing` while the organization's LSTs are downloaded
-and indexed, which takes from seconds, when another session prepared the organization
-recently, to much longer for an organization seen for the first time.
 
 #### `reindexChangelog`
 
@@ -1283,6 +1237,14 @@ The installation is a recipe repository kept with a changeset, in effect for tha
 | `lineNumber` | Int! |  |
 | `line` | String! |  |
 
+##### `CodeSearchCoverage`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `repositories` | Int! | How many repositories the organization has. |
+| `indexed` | Int! | How many of them the index holds at their current commit. A repository whose LST is new is added to the index within minutes. |
+| `notIndexable` | Int! | How many cannot be as things stand: they have no LST, or one the service cannot read or that carries no search index. The rest are on their way into the index. A republished LST is looked at afresh. |
+
 ##### `CodeSearchFragment`
 
 The part of a line that matched.
@@ -1320,6 +1282,7 @@ A file with at least one match.
 |-------|------|-------------|
 | `edges` | [[CodeSearchResultEdge](#codesearchresultedge)!]! |  |
 | `pageInfo` | [PageInfo](#pageinfo)! | A page can come back short, or empty, with `hasNextPage` still true: the search ran out of time before filling it. `endCursor` is then where to resume. |
+| `coverage` | [CodeSearchCoverage](#codesearchcoverage)! | How much of the organization the search covered. |
 | `warnings` | [String!]! | What to know about how the query was read or how far the search got, such as a filter that is not supported. |
 
 ##### `CodeSearchResultEdge`
@@ -1328,69 +1291,6 @@ A file with at least one match.
 |-------|------|-------------|
 | `node` | [CodeSearchResult](#codesearchresult)! |  |
 | `cursor` | String! |  |
-
-##### `CodeSearchSessionClosed`
-
-**Implements:** [CodeSearchSession](#codesearchsession)
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `organization` | [Organization](#organization)! |  |
-| `user` | [User](#user)! |  |
-| `instance` | String! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `finishedAt` | [DateTime](#datetime)! |  |
-| `reason` | [CodeSearchSessionCloseReason](#codesearchsessionclosereason)! |  |
-| `message` | String | Why preparing the session failed, when `reason` is `FAILED`. |
-
-##### `CodeSearchSessionConnection`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `edges` | [[CodeSearchSessionEdge](#codesearchsessionedge)!]! |  |
-| `pageInfo` | [PageInfo](#pageinfo)! |  |
-| `count` | Int! |  |
-
-##### `CodeSearchSessionEdge`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `node` | [CodeSearchSession](#codesearchsession)! |  |
-| `cursor` | String! |  |
-
-##### `CodeSearchSessionPreparing`
-
-**Implements:** [CodeSearchSession](#codesearchsession)
-
-The organization is being made ready to search. Sessions for the same organization share
-this work, and organizations are prepared one at a time.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `organization` | [Organization](#organization)! |  |
-| `user` | [User](#user)! |  |
-| `instance` | String! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `phase` | [CodeSearchPreparePhase](#codesearchpreparephase)! |  |
-| `repositoryCount` | Int | How many repositories the organization has, once that is known. |
-
-##### `CodeSearchSessionReady`
-
-**Implements:** [CodeSearchSession](#codesearchsession)
-
-The session can be searched.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `organization` | [Organization](#organization)! |  |
-| `user` | [User](#user)! |  |
-| `instance` | String! |  |
-| `startedAt` | [DateTime](#datetime)! |  |
-| `repositoryCount` | Int! | How many repositories the organization has. |
-| `indexedRepositoryCount` | Int! | How many of them are in the index. The rest have no LST, or one that could not be downloaded or indexed, and a search does not cover them. |
 
 ##### `Column`
 
@@ -2816,6 +2716,7 @@ Pull request commit completed successfully.
 | `options` | [[Option](#option)!]! |  |
 | `dataTables` | [[DataTableDescriptor](#datatabledescriptor)!]! |  |
 | `sourceUrl` | String | URL to the recipe's source file on GitHub, used to power the "Go to sources" link. Currently only OpenRewrite (org.openrewrite) recipes have a source URL; null for all other recipes. |
+| `scope` | [RecipeInstallationScope](#recipeinstallationscope) | Where the bundle that provides this recipe was installed. Only user-scope installs are attributed, so this is a `UserInstallScope` or null; null means the recipe came from an organization or the universal marketplace. |
 | `detail` | [RecipeDetail](#recipedetail)! | Expensive recipe detail fields that require resolving the full recipe bundle. Returns a state machine: query once to trigger resolution, poll until Finished. |
 | `devCenterCards` | [[DevCenterCardDescriptor](#devcentercarddescriptor)!] | DevCenter card descriptors for this recipe, or null if not a DevCenter recipe. |
 
@@ -3760,18 +3661,6 @@ Use `__typename` to determine the current state.
 |-------|------|-------------|
 | `pullRequest` | [ChangelogPullRequestRef](#changelogpullrequestref)! |  |
 
-##### `CodeSearchSession`
-
-A session belongs to the user who opened it: nobody else can get it or search with it.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | ID! |  |
-| `organization` | [Organization](#organization)! |  |
-| `user` | [User](#user)! |  |
-| `instance` | String! | The service instance that holds the session's index. Sessions do not move between instances, so one whose instance is gone is closed with reason `INSTANCE_REPLACED`. |
-| `startedAt` | [DateTime](#datetime)! |  |
-
 ##### `CommitOptions`
 
 | Field | Type | Description |
@@ -4095,20 +3984,6 @@ Discriminator for filtering by entry type.
 * `APPROVE`
 * `MERGE`
 * `CLOSE`
-
-##### `CodeSearchPreparePhase`
-
-* `QUEUED`
-* `SYNCING`
-* `INDEXING`
-* `OPENING`
-
-##### `CodeSearchSessionCloseReason`
-
-* `USER`
-* `IDLE_TIMEOUT`
-* `INSTANCE_REPLACED`
-* `FAILED`
 
 ##### `CodingAgent`
 
@@ -4775,17 +4650,6 @@ Filter input for participants.
 | `_and` | [[ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput)!] |  |
 | `_or` | [[ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput)!] |  |
 | `_not` | [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput) |  |
-
-##### `CodeSearchSessionWhereInput`
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | [IDFilter](#idfilter) |  |
-| `user` | [UserWhereInput](#userwhereinput) | Only an admin has other users' sessions to filter. |
-| `organization` | [IDFilter](#idfilter) |  |
-| `_and` | [[CodeSearchSessionWhereInput](#codesearchsessionwhereinput)!] |  |
-| `_or` | [[CodeSearchSessionWhereInput](#codesearchsessionwhereinput)!] |  |
-| `_not` | [CodeSearchSessionWhereInput](#codesearchsessionwhereinput) |  |
 
 ##### `CommitInput`
 

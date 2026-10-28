@@ -217,5 +217,5 @@ Once the style has been specified as an `activeStyle`, the next time any OpenRew
 
 ## Reformatting your code
 
-If you want to reformat your code to conform to your configured style so you can ensure consistency throughout your code base, you can use the [format Java code recipe](../../recipe-catalog/java/format/autoformat.md).
+If you want to reformat your code to conform to your configured style so you can ensure consistency throughout your code base, you can use the [format Java code recipe](https://codegenomeproject.org/recipes/org.openrewrite.java.format.AutoFormat).
 

@@ -29,14 +29,14 @@ You saw from the analysis earlier that these projects all use a variety of Sprin
 </figure>
 
 3. Add the following recipes in order:
-   * **`Apache Maven best practices`** ([`org.openrewrite.maven.BestPractices`](https://docs.openrewrite.org/recipes/maven/bestpractices))
-   * **`Migrate to Java 8`** ([`org.openrewrite.java.migrate.UpgradeToJava8`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava8))
-   * **`Migrate to Spring Boot 2.7`** ([`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`](https://docs.openrewrite.org/recipes/java/spring/boot2/upgradespringboot_2_7))
-   * **`Exclude Maven dependency`** ([`org.openrewrite.maven.ExcludeDependency`](https://docs.openrewrite.org/recipes/maven/excludedependency))
+   * **`Apache Maven best practices`** ([`org.openrewrite.maven.BestPractices`](https://codegenomeproject.org/recipes/org.openrewrite.maven.BestPractices))
+   * **`Migrate to Java 8`** ([`org.openrewrite.java.migrate.UpgradeToJava8`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava8))
+   * **`Migrate to Spring Boot 2.7`** ([`org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7`](https://codegenomeproject.org/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7))
+   * **`Exclude Maven dependency`** ([`org.openrewrite.maven.ExcludeDependency`](https://codegenomeproject.org/recipes/org.openrewrite.maven.ExcludeDependency))
       * **groupId:** `org.hibernate.javax.persistence`
       * **artifactId:** `hibernate-jpa-2.0-api`
       * **scope:** `compile`
-   * **`Change Maven dependency`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://docs.openrewrite.org/recipes/maven/changedependencygroupidandartifactid))
+   * **`Change Maven dependency`** ([`org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId`](https://codegenomeproject.org/recipes/org.openrewrite.maven.ChangeDependencyGroupIdAndArtifactId))
       * **Old groupId:** `org.springframework.cloud`
       * **Old artifactId:** `spring-cloud-starter-zipkin`
       * **New artifactId:** `spring-cloud-sleuth-zipkin`
@@ -102,7 +102,7 @@ mod git status $WORKSPACE
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.9.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
@@ -175,7 +175,7 @@ Build complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.9.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
@@ -222,7 +222,7 @@ MOD SUCCEEDED in 1s
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.9.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 
@@ -393,7 +393,7 @@ Mass Release Complete!
    ▛▀▀█▀▛▀▀▀▀▜
    ▌▟▀  ▛▀▀▀▀▜
    ▀▀▀▀▀▀▀▀▀▀▀
-Moderne CLI 4.9.0
+Moderne CLI 4.12.0
 
 ⏺ Reading organization
 

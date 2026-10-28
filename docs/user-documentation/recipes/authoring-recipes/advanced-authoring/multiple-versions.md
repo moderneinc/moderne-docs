@@ -28,6 +28,23 @@ plugins {
 }
 ```
 
+The plugin and the `rewrite-core` libraries it depends on are distributed through the [Code Genome Project](../../accessing-the-code-genome-project.md), which requires authentication. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so declare the repository there, with your username as `codegenomeUsername` and your token as `codegenomePassword` in `~/.gradle/gradle.properties`:
+
+```groovy title="settings.gradle"
+pluginManagement {
+    repositories {
+        maven {
+            url = "https://artifacts.codegenomeproject.org/maven"
+            credentials {
+                username = providers.gradleProperty("codegenomeUsername").get()
+                password = providers.gradleProperty("codegenomePassword").get()
+            }
+        }
+        gradlePluginPortal()
+    }
+}
+```
+
 With the `recipe-library` plugin added, you can then add a `recipeDependencies` section in your `build.gradle` file. In there, you can add a `parserClasspath` that specifies a dependency and its corresponding version:
 
 ```groovy

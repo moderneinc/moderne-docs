@@ -55,7 +55,7 @@ The recipes below progress from simple to complex. Links go to the [public Moder
 </TabItem>
 <TabItem value="cli" label="Moderne CLI">
 
-1. **Install the Moderne CLI** – Follow the [installation steps in the getting started guide](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration) to install the CLI for your platform.
+1. **Install the Moderne CLI** – Follow the [installation steps in the CLI documentation](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration) to install the CLI for your platform.
     * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipes JARs. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
 
 2. **Install the .NET SDK** – The CLI uses `dotnet` to restore and parse C# projects, so a few things need to be in place:
@@ -207,7 +207,7 @@ mod devcenter . --last-recipe-run
 </figure>
 
 :::tip
-`DevCenterCSharpStarter` is the default C# configuration. DevCenters are available for many other ecosystems too, including Java, Python, Node.js, Angular, Kotlin, Quarkus, and Apache Maven. Browse the full set in the [DevCenter recipe catalog](../../recipes/recipe-catalog/devcenter/README.md), or learn how to [create a custom DevCenter recipe](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
+`DevCenterCSharpStarter` is the default C# configuration. DevCenters are available for many other ecosystems too, including Java, Python, Node.js, Angular, Kotlin, Quarkus, and Apache Maven. Browse the full set in the [DevCenter recipe catalog](https://codegenomeproject.org/recipes?q=io.moderne.devcenter), or learn how to [create a custom DevCenter recipe](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
 :::
 
 ## Dependency management

@@ -27,12 +27,12 @@ Before running the Spring Boot 4 recipe, make sure:
 
 `UpgradeSpringBoot_4_0` is a composite recipe that bundles many smaller transformations. Some of the most visible changes this recipe makes to your code include:
 
-* [Adopt the modular starter layout](../recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition.md) – renames Spring Boot starters that have been split or moved (for example, `spring-boot-starter-web` becomes `spring-boot-starter-webmvc`, and the OAuth2 starters move under the `security` prefix).
-* [Replace `@MockBean` and `@SpyBean`](../recipe-catalog/java/spring/boot4/replacemockbeanandspybean.md) – swaps the removed Spring Boot Test annotations for the `@MockitoBean` and `@MockitoSpyBean` equivalents from Spring Test.
-* [Update renamed Spring Boot configuration properties](../recipe-catalog/java/spring/boot4/springbootproperties_4_0.md) – rewrites entries in `application.properties` and `application.yml` for keys that changed in Spring Boot 4.
-* **Apply the supporting framework upgrades** – chains the [Spring Framework 7](../recipe-catalog/java/spring/framework7/upgradespringframework_7_0.md) and [Spring Security 7](../recipe-catalog/java/spring/security7/upgradespringsecurity_7_0.md) migrations, along with Spring Cloud 2025.1, Hibernate 7.1, Testcontainers 2, and SpringDoc 3 upgrades needed for Spring Boot 4 compatibility.
+* [Adopt the modular starter layout](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.MigrateToModularStarters) – renames Spring Boot starters that have been split or moved (for example, `spring-boot-starter-web` becomes `spring-boot-starter-webmvc`, and the OAuth2 starters move under the `security` prefix).
+* [Replace `@MockBean` and `@SpyBean`](https://codegenomeproject.org/recipes/org.openrewrite.java.spring.boot4.ReplaceMockBeanAndSpyBean) – swaps the removed Spring Boot Test annotations for the `@MockitoBean` and `@MockitoSpyBean` equivalents from Spring Test.
+* [Update renamed Spring Boot configuration properties](https://codegenomeproject.org/recipes/org.openrewrite.java.spring.boot4.SpringBootProperties_4_0) – rewrites entries in `application.properties` and `application.yml` for keys that changed in Spring Boot 4.
+* **Apply the supporting framework upgrades** – chains the [Spring Framework 7](https://codegenomeproject.org/recipes/io.moderne.java.spring.framework7.UpgradeSpringFramework_7_0) and [Spring Security 7](https://codegenomeproject.org/recipes/org.openrewrite.java.spring.security7.UpgradeSpringSecurity_7_0) migrations, along with Spring Cloud 2025.1, Hibernate 7.1, Testcontainers 2, and SpringDoc 3 upgrades needed for Spring Boot 4 compatibility.
 
-Beyond your code, the recipe also bumps Spring Boot dependency, parent POM, plugin, and Gradle plugin versions in your Maven and Gradle build files. It also bumps Kotlin to 2.2.x and updates the Gradle wrapper to 8.14 or later when present. For the complete list of sub-recipes, see the [recipe catalog page](../recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition.md).
+Beyond your code, the recipe also bumps Spring Boot dependency, parent POM, plugin, and Gradle plugin versions in your Maven and Gradle build files. It also bumps Kotlin to 2.2.x and updates the Gradle wrapper to 8.14 or later when present. For the complete list of sub-recipes, see the [recipe catalog page](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0).
 
 ### Example
 
@@ -105,7 +105,7 @@ Running the recipe never modifies your source repositories directly. Instead, th
 
 Spring Boot 3 brought one of the most significant breaking changes in the framework's history: the move from `javax.*` to `jakarta.*`, alongside renamed configuration properties, a rewritten Spring Security configuration model, and a baseline bump to Java 17. Every Spring Boot 2 codebase is touched by these changes, so complete this upgrade first, then return to [What this recipe does](#what-this-recipe-does) to continue on to Spring Boot 4.
 
-The [`UpgradeSpringBoot_3_5`](../recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition.md) recipe migrates the Jakarta namespace, updates configuration settings, modernizes deprecated APIs, and chains the supporting framework upgrades (Spring Framework, Spring Data, Spring Security, Spring Cloud) so everything lands on compatible versions.
+The [`UpgradeSpringBoot_3_5`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5) recipe migrates the Jakarta namespace, updates configuration settings, modernizes deprecated APIs, and chains the supporting framework upgrades (Spring Framework, Spring Data, Spring Security, Spring Cloud) so everything lands on compatible versions.
 
 ```java title="Before"
 import javax.servlet.http.HttpServletRequest;

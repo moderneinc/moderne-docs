@@ -307,16 +307,17 @@ All of these things can come from a CSV file that you point the Connector to.
 
 #### Configure where your CSV lives
 
-The CSV can live in a few different places - pick whichever fits your environment. All four options sit under `moderne.organization.sources.*`:
+The CSV can live in a few different places - pick whichever fits your environment. All five options sit under `moderne.organization.sources.*`:
 
-| Source type          | Description                             | Configuration prefix                   |
-|----------------------|-----------------------------------------|----------------------------------------|
-| File                 | A CSV on the Connector's filesystem.    | `moderne.organization.sources.file[*]` |
-| HTTP(S)              | A URL serving a CSV.                    | `moderne.organization.sources.http[*]` |
-| S3 object            | An S3 URI pointing to a CSV object.     | `moderne.organization.sources.s3[*]`   |
-| Cloud Storage object | A `gs://` URI pointing to a CSV object. | `moderne.organization.sources.gcs[*]`  |
+| Source type             | Description                                       | Configuration prefix                    | Guide                                                                                       |
+|-------------------------|---------------------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------|
+| File                    | A CSV on the Connector's filesystem.              | `moderne.organization.sources.file[*]`  | [Organizational hierarchy configuration](./configure-organizations-hierarchy.md)            |
+| HTTP(S)                 | A URL serving a CSV.                              | `moderne.organization.sources.http[*]`  | [Organizational hierarchy configuration](./configure-organizations-hierarchy.md)            |
+| S3 object               | An S3 URI pointing to a CSV object.               | `moderne.organization.sources.s3[*]`    | [S3 organization source](./configure-a-connector-with-s3-access.md)                         |
+| Cloud Storage object    | A `gs://` URI pointing to a CSV object.           | `moderne.organization.sources.gcs[*]`   | [Google Cloud Storage organization source](./configure-a-connector-with-gcs-access.md)      |
+| Azure Blob Storage blob | An Azure Blob Storage URL pointing to a CSV blob. | `moderne.organization.sources.azure[*]` | [Azure Blob Storage organization source](./configure-a-connector-with-azure-blob-access.md) |
 
-For `file` and `http` sources, please see the [organizational hierarchy configuration guide](./configure-organizations-hierarchy.md). For `s3` sources, please see the [S3 organization source guide](./configure-a-connector-with-s3-access.md), and for `gcs` sources, please see the [Google Cloud Storage organization source guide](./configure-a-connector-with-gcs-access.md). For details on the CSV format itself (such as required and optional columns, how to express an organizational hierarchy), please see the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
+For details on the CSV format itself (such as required and optional columns, how to express an organizational hierarchy), please see the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md).
 
 #### Configure where your LSTs live
 

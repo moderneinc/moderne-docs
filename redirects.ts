@@ -10,18 +10,29 @@
 // Notes:
 //   * Paths are site-root-relative (this site serves docs at "/").
 //   * `to` must resolve to a real page; the build fails on a dangling target.
+//     It may also be an absolute URL, which the build does not check.
 //
 // Testing redirects locally:
 //   This plugin only emits redirect files during a production build. `yarn start`
 //   (the dev server) ignores it, so redirects never work there. To test them,
 //   build the site and serve the output:
 //
-//     EXAMPLE_RECIPES_ONLY=1 yarn build   # build + generate the redirect files
-//     npm run serve                       # serve build/ at http://localhost:3000
+//     yarn build      # build + generate the redirect files
+//     npm run serve   # serve build/ at http://localhost:3000
 //
 //   Then open an old path (e.g. http://localhost:3000/releases/cli-dx) and confirm
-//   it lands on the new page. EXAMPLE_RECIPES_ONLY skips the ~5,700 recipe-catalog
-//   pages for a much faster build; every redirect is still generated.
+//   it lands on the new page.
+//
+// The recipe catalog moved to the Code Genome Project. Its ~9,000 redirects live in
+// src/config/recipe-catalog-redirects.json rather than in this list. Each old recipe
+// page goes to the same recipe on CGP by recipe ID. Each category page goes to a CGP
+// search: on the full package when every recipe in the category shares one, otherwise
+// on the vendor-neutral segments (e.g. `java.spring.boot3` covers both
+// org.openrewrite.java.spring.boot3 and io.moderne.java.spring.boot3). A few recipe
+// pages whose recipes aren't in CGP yet are grouped under their category's search.
+// The file was generated once from the catalog before it was deleted; edit it by hand.
+
+import recipeCatalogRedirects from './src/config/recipe-catalog-redirects.json';
 
 type RedirectRule = { from: string | string[]; to: string };
 
@@ -82,6 +93,22 @@ const redirects: RedirectRule[] = [
   { from: '/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-strict-recipe-sources', to: '/administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-the-pom-cache' },
   { from: '/hands-on-learning/fundamentals/module-3-refaster-recipes', to: '/hands-on-learning/fundamentals/module-3-kotlin-dsl-recipes' },
   { from: '/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project', to: '/user-documentation/recipes/accessing-the-code-genome-project' },
+  { from: '/user-documentation/moderne-platform/how-to-guides/introduction-to-type-aware-code-search', to: '/user-documentation/moderne-platform/getting-started/code-search' },
+  {
+    from: [
+      '/user-documentation/recipes/lists',
+      '/user-documentation/recipes/lists/all-recipes',
+      '/user-documentation/recipes/lists/all-recipes-io-moderne-recipe',
+      '/user-documentation/recipes/lists/all-recipes-org-openrewrite',
+      '/user-documentation/recipes/lists/all-recipes-org-openrewrite-recipe',
+      '/user-documentation/recipes/lists/recipes-by-tag',
+      '/user-documentation/recipes/lists/recipes-with-data-tables',
+      '/user-documentation/recipes/lists/scanning-recipes',
+      '/user-documentation/recipes/lists/standalone-recipes',
+    ],
+    to: 'https://codegenomeproject.org/recipes',
+  },
+  ...(recipeCatalogRedirects as RedirectRule[]),
 ];
 
 export default redirects;

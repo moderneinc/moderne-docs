@@ -30,7 +30,7 @@ A declarative YAML recipe consists of [at least] metadata fields (`type`, `name`
 The recipe starter project already contains a migration recipe for replacing Spring string utilities with Apache string utilities, but it's just a start and is missing some cases that still need to be covered. For one, you'll want to change from Spring's `trimWhitespace(String)` to Apache Common's `StringUtils.strip(String)`.
 
 1. Open [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml) from your project in your IDE.
-2. Add [`org.openrewrite.java.ChangeMethodName`](https://docs.openrewrite.org/recipes/java/changemethodname) to the end of `recipeList`.
+2. Add [`org.openrewrite.java.ChangeMethodName`](https://codegenomeproject.org/recipes/org.openrewrite.java.ChangeMethodName) to the end of `recipeList`.
 3. Set the options for this recipe as follows:
     * `methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)`
     * `newMethodName: strip`
@@ -129,7 +129,7 @@ mod run . --recipe=com.yourorg.UseApacheStringUtils
 
 You may not necessarily always want recipes to affect every file in a codebase. For example, a recipe intended for test code should only run on files that are tests, and a recipe that updates `ArrayList` usage should only run where `ArrayList` appears. Preconditions are recipes themselves, used to narrow the scope of another recipe so it only runs where it makes sense. This keeps runs focused and fast while also making the recipe easier to understand, debug, and maintain. For additional guidance, check out the [Use preconditions](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices.md#use-preconditions) section of the recipe conventions guide.
 
-In this exercise, you will update the `stringutils.yml` recipe to only run on sources that are likely tests by adding a precondition that uses [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
+In this exercise, you will update the `stringutils.yml` recipe to only run on sources that are likely tests by adding a precondition that uses [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://codegenomeproject.org/recipes/org.openrewrite.java.search.IsLikelyTest).
 
 ### Goals for this exercise
 
@@ -272,9 +272,9 @@ class UseApacheStringUtilsTest implements RewriteTest {
 #### Step 3: _(Optional)_ Experiment with other preconditions
 
 You may be interested in exploring other Find recipes in the OpenRewrite recipe catalog. These are often used as preconditions for recipes:
-* [org.openrewrite.FindSourceFiles](https://docs.openrewrite.org/recipes/core/findsourcefiles), to match specific files or directories.
-* [org.openrewrite.java.migrate.search.FindJavaVersion](https://docs.openrewrite.org/recipes/java/migrate/search/findjavaversion), to match specific Java versions.
-* [org.openrewrite.java.search.FindTypes](https://docs.openrewrite.org/recipes/java/search/findtypes), to find type references by name.
+* [org.openrewrite.FindSourceFiles](https://codegenomeproject.org/recipes/org.openrewrite.FindSourceFiles), to match specific files or directories.
+* [org.openrewrite.java.migrate.search.FindJavaVersion](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.search.FindJavaVersion), to match specific Java versions.
+* [org.openrewrite.java.search.FindTypes](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes), to find type references by name.
 
 ### Takeaways
 

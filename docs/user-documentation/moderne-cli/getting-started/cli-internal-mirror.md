@@ -45,7 +45,7 @@ Download the platform-appropriate distribution from your internal mirror. For ex
 
 ```bash
 curl -fL -o moderne-cli.sh \
-    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.8.4/moderne-cli-linux-4.9.0.sh"
+    "https://internal-mirror.example.com/io/moderne/moderne-cli-linux/4.8.4/moderne-cli-linux-4.12.0.sh"
 ```
 
 Replace the version with the one you intend to install, and adjust the artifact name to match your platform (`moderne-cli-linux` or `moderne-cli-osx`).
@@ -65,7 +65,7 @@ Download the Windows distribution from your internal mirror:
 
 ```powershell
 Invoke-WebRequest `
-    -Uri "https://internal-mirror.example.com/io/moderne/moderne-cli-windows/4.8.4/moderne-cli-windows-4.9.0.zip" `
+    -Uri "https://internal-mirror.example.com/io/moderne/moderne-cli-windows/4.8.4/moderne-cli-windows-4.12.0.zip" `
     -OutFile moderne-cli.zip
 ```
 
@@ -104,4 +104,4 @@ Run the `mod config recipes jar install` command and provide it with the JARs yo
 * **Activate your license** — see the [Moderne CLI license documentation](./moderne-cli-license.md) for the activation command.
 * **Configure the CLI to integrate with your other internal tools** — for example, pointing at a non-default Maven settings file or an internal Artifactory for recipe artifacts. See [configuring the CLI to work with internal tools](./cli-internal-tools.md).
 * **Standardize CLI installation across your team** — commit a project wrapper to a shared repository so every developer and CI job uses a consistent, version-pinned CLI from your internal mirror. See the [project wrapper section of the CLI wrapper guide](../how-to-guides/cli-wrapper.md#project-wrapper).
-* **Run your first multi-repo build** — create a `repos.csv`, clone repositories, build LSTs, and run a recipe. See the [getting started with the Moderne CLI guide](./cli-intro.md#using-the-cli) and the [repos.csv reference](../references/repos-csv.md).
+* **Run your first multi-repo build** — create a `repos.csv`, clone repositories, build LSTs, and run a recipe. See the [Using the Moderne CLI guide](./cli-intro.md#using-the-cli) and the [repos.csv reference](../references/repos-csv.md).

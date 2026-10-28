@@ -17,7 +17,7 @@ The agent runs the recipes across every repository at once, checks the results w
 
 Agent chat needs no setup beyond the two commands in the [quick start](#quick-start): one installs the CLI, and one clones the organization with its prebuilt LSTs and tells the agent how to use them. The rest of this page is reference for when you want to know more.
 
-<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=ExcahLrnN2U' controls="true" />
+<ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=maZDbrvc3u0' controls="true" />
 
 ## Quick start
 
@@ -40,18 +40,93 @@ irm https://app.moderne.io/cli/windows | iex
 </TabItem>
 </Tabs>
 
-Then point your agent at an organization and give it a prompt. The following example uses GitHub Copilot. You can use `claude`, `codex`, or any other [supported agent](#supported-agents) in place of `copilot`:
+Then pick your agent and point it at an organization with a prompt:
+
+<Tabs groupId="agent">
+<TabItem value="claude-code" label="Claude Code" default>
+
+```bash
+mod claude chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
+
+</TabItem>
+<TabItem value="codex" label="Codex">
+
+```bash
+mod codex chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
+
+</TabItem>
+<TabItem value="copilot-cli" label="Copilot">
 
 ```bash
 mod copilot chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
 
-The CLI clones every repository in the organization into the `./work` directory along with its prebuilt LSTs. It then opens whatever agent you specified in that directory with your prompt already submitted. From there, you work with the agent as you normally would. If you leave off `--prompt`, the session starts empty and you type your first request yourself.
+</TabItem>
+<TabItem value="cursor" label="Cursor">
+
+```bash
+mod cursor chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
+
+</TabItem>
+<TabItem value="kiro" label="Kiro">
+
+```bash
+mod kiro chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
+
+</TabItem>
+<TabItem value="amp" label="Amp">
+
+```bash
+mod amp chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
+
+</TabItem>
+<TabItem value="opencode" label="OpenCode">
+
+```bash
+mod opencode chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
+
+</TabItem>
+<TabItem value="vscode" label="VS Code">
+
+```bash
+mod vscode chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
+
+</TabItem>
+<TabItem value="windsurf" label="Windsurf">
+
+```bash
+mod windsurf chat ./work --org "Legacy Java Apps"
+```
+
+Windsurf does not take `--prompt`. Type your request in the chat panel once the IDE opens.
+
+</TabItem>
+</Tabs>
+
+The CLI clones every repository in the organization into the `./work` directory along with its prebuilt LSTs. It then opens whatever agent you specified in that directory with your prompt already submitted. From there, you work with the agent as you normally would. If you leave off `--prompt`, the session starts empty and you type your first request yourself. 
+
+:::info
+We'll use `mod claude chat` for the rest of this doc. Feel free to swap in another agent if you'd prefer to test with that one instead.
+:::
 
 ## Requirements
 
-You need the Moderne CLI 4.8.4 or later and a supported agent installed on your `PATH`.
+You need the Moderne CLI 4.8.4 or later and a supported agent installed on your `PATH`. For Claude Code, use 2.1.286 or later. Earlier releases do not read the `AGENTS.md` file the CLI writes, so the agent starts without knowing how to use `mod`.
 
 :::warning
 Agent chat does not work together with the [Moderne skills](./skills.md) or [local MCP server](./mcp/overview.md). These tools are designed to steer the agent toward working on only one repository at a time instead.
@@ -66,6 +141,8 @@ You can always reinstall them later with `mod config agent-tools install`.
 
 To remove them for only one agent, see [per-agent installation](./skills.md#per-agent-installation).
 :::
+
+The same goes for anything else your agent loads at startup: global instruction files, plugins, skills, and MCP servers. `AGENTS.md` tells the agent to reach for `mod` first, and a plugin that tells it to explore and ask clarifying questions first, or an MCP server that offers its own way to run recipes, competes with that. If the agent starts a session by reading files one at a time or searching the web instead of running `mod`, check what else it has loaded and disable it for the session.
 
 ## Choosing what to sync
 
@@ -108,7 +185,7 @@ mod claude chat ./work --prompt "Upgrade all of these repositories to Java 25."
 | Cursor                  | `mod cursor chat`     | `cursor-agent`  |
 | Kiro                    | `mod kiro chat`       | `kiro-cli chat` |
 | Sourcegraph Amp         | `mod amp chat`        | `amp`           |
-| opencode                | `mod opencode chat`   | `opencode`      |
+| OpenCode                | `mod opencode chat`   | `opencode`      |
 | Visual Studio Code Chat | `mod vscode chat`     | `code chat`     |
 | Windsurf                | `mod windsurf chat`   | `windsurf`      |
 
@@ -147,4 +224,5 @@ mod claude chat ./work --org "Legacy Java Apps" \
 
 ## Next steps
 
+* [Follow the quickstart](../moderne-cli/getting-started/cli-getting-started.md), a complete agent chat session that upgrades an organization to Java 25
 * [Learn how to sync organizations](../moderne-cli/getting-started/cli-intro.md#syncing-moderne-organizations) with the Moderne CLI

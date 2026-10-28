@@ -6,7 +6,7 @@ description: How to create a DevCenter recipe.
 
 # Creating a DevCenter recipe
 
-Moderne DevCenters can be defined and configured via a standard OpenRewrite recipe. This approach delivers significantly better performance and greater flexibility in the generation process compared to the old way of defining a DevCenter (JSON).
+Moderne DevCenters are defined and configured via a standard OpenRewrite recipe. Each card in the DevCenter comes from a recipe in its recipe list, so you can track anything a recipe can measure.
 
 In this doc, we'll walk you through how to create a DevCenter recipe and deploy it to your tenant. By the end, you should be ready to [configure a recipe-based DevCenter in your tenant](./recipe-based-devcenter.md).
 
@@ -39,17 +39,17 @@ See [Accessing the Code Genome Project](../../../user-documentation/recipes/acce
 
 We've provided a [devcenter-starter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) that you can copy to your own repository to get started. You can also create your own if you desire. Check out the [understanding DevCenter recipes section](#understanding-devcenter-recipes) below for more information on how to create your own.
 
-The [rewrite-devcenter repository](https://github.com/moderneinc/rewrite-devcenter) contains common card recipe that you may want to use or modify such as the [LibraryUpgrade card recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java).
+The [rewrite-devcenter repository](https://github.com/moderneinc/rewrite-devcenter) contains common card recipes that you may want to use or modify, such as the [LibraryUpgrade card recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java). See [Card recipes](#card-recipes) below for an overview.
 
 Any recipe that meets the following requirements can be displayed as a DevCenter card:
 
 * Requires no input options
 * Outputs the `UpgradesAndMigrations` and/or `SecurityIssues` data tables (either or both)
-* Includes the correct columns for those tables (see [DevCenterStarter data table definitions](../../../user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md#data-tables) for details)
+* Includes the correct columns for those tables (see the [data table definitions](https://github.com/moderneinc/rewrite-devcenter/tree/main/src/main/java/io/moderne/devcenter/table) for details)
 
 ### Step 4: Deploy the recipe artifact
 
-Once you're satisfied with your recipe(s), you will need to [deploy them to your tenant](./importing-external-recipes.md)
+Once you're satisfied with your recipe(s), you will need to [deploy them to your tenant](./importing-external-recipes.md).
 
 ## Understanding DevCenter recipes
 
@@ -62,13 +62,10 @@ The top of this recipe begins with standard metadata (e.g., `name` and `descript
 ```yaml
 type: specs.openrewrite.org/v1beta/recipe
 name: io.moderne.devcenter.DevCenterStarter
-displayName: DevCenter
-description: >-
-  This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration.
-  It includes a combination of upgrades, migrations, and security fixes.
-  You can customize this configuration to suit your needs.
-  
-  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](../../../user-documentation/moderne-platform/getting-started/dev-center.md).
+displayName: DevCenter Starter
+description: |-
+  A starting point for your own DevCenter, combining upgrades, migrations, and security fixes.
+  Run it as-is for a first overview of your organization, then copy and customize the configuration.
 ```
 
 ### Recipe list
@@ -78,24 +75,25 @@ After that, it lists out the recipes that will be run to build the DevCenter das
 ```yaml
 recipeList:
   - io.moderne.devcenter.LibraryUpgrade:
-      cardName: Move to Spring Boot 3.5.0
+      cardName: Move to Spring Boot 4.1
       groupIdPattern: org.springframework.boot
       artifactIdPattern: '*'
-      version: 3.5.0
-      upgradeRecipe: io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5
+      version: 4.1.0
+      upgradeRecipe: io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1
   - io.moderne.devcenter.JavaVersionUpgrade:
-      majorVersion: 21
-      upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava21
+      majorVersion: 25
+      upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava25
   - io.moderne.devcenter.JUnitJupiterUpgrade:
-      upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
+      upgradeRecipe: org.openrewrite.java.testing.junit6.JUnit5to6Migration
   - io.moderne.devcenter.SecurityStarter
   - io.moderne.devcenter.FindOrganizationStatistics
-  - org.openrewrite.search.FindCommitters
+  - io.moderne.devcenter.FindActiveCommitters
 ```
+
 DevCenter recipes have two notable properties worth calling out:
 
-* `cardName` is a property that allows you to customize what the name of the card should be. Not all recipes have a `cardName` property. For instance, the [LibraryUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java#L35-L38) has a `cardName` property – whereas the [JavaVersionUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JavaVersionUpgrade.java) does not.
-* `upgradeRecipe` is a property that defines the recipe that should be run to upgrade your repositories. It is the recipe that will get executed when you press the `Upgrade` button on a card.
+* `cardName` is a property that allows you to customize what the name of the card should be. Not all recipes have a `cardName` property. For instance, the [LibraryUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java) has a `cardName` property – whereas the [JavaVersionUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JavaVersionUpgrade.java) does not.
+* `upgradeRecipe` is a property that defines the recipe that should be run to upgrade your repositories. It is the recipe that will get executed when you press the `Upgrade` button on a card. On `PackageMigration` cards, this property is called `migrationRecipe`.
 
 <figure>
   ![DevCenter card for Move to Java 21 showing a donut chart with repo categories and an Upgrade button](./assets/example-card.png)
@@ -104,11 +102,15 @@ DevCenter recipes have two notable properties worth calling out:
 
 ### Organizational ownership recipes
 
-The last two recipes in the list, `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters`, do not produce cards. They populate the **Lines of code** and **Contributing developers** cards in the DevCenter's Organizational ownership section. Include both in every DevCenter recipe. Without them, those two cards remain empty. The canonical recipe list that includes both is the [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml).
+The last two recipes in the list, `io.moderne.devcenter.FindOrganizationStatistics` and `io.moderne.devcenter.FindActiveCommitters`, do not produce cards. They populate the **Lines of code** and **Contributing developers** cards in the DevCenter's Organizational ownership section. Include both in every DevCenter recipe. Without them, those two cards remain empty. The canonical recipe list that includes both is the [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml).
+
+:::warning
+If your DevCenter recipe lists `org.openrewrite.search.FindCommitters`, replace it with `io.moderne.devcenter.FindActiveCommitters`. `FindCommitters` counts everyone who ever committed to a repository, which inflates the **Contributing developers** card. `FindActiveCommitters` only counts committers from the last 90 days.
+:::
 
 ### Security card
 
-It's also possible to create recipes in your `devcenter.yml` file. For instance, at the bottom of our example, you will find a recipe that is used to create a security card in the DevCenter:
+You can also define recipes in the same YAML file as your DevCenter recipe. For instance, the starter file defines the `SecurityStarter` recipe that creates a security card in the DevCenter:
 
 ```yaml
 ---
@@ -118,16 +120,11 @@ displayName: OWASP top ten
 description: >-
   This recipe is a starter card to reveal common OWASP Top 10 issues in your source code.
   You can customize this configuration to suit your needs.
-  
-  For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](../../../user-documentation/moderne-platform/getting-started/dev-center.md).
 recipeList:
   - org.openrewrite.java.security.OwaspA01
   - org.openrewrite.java.security.OwaspA02
   - org.openrewrite.java.security.OwaspA03
   - org.openrewrite.java.security.OwaspA08
-  - org.openrewrite.java.security.RegularExpressionDenialOfService
-  - org.openrewrite.java.security.ZipSlip
-  - org.openrewrite.java.security.SecureTempFileCreation
   # Changes made by recipes above this one in the recipe list are reported as occurrences
   # in the Security DevCenter card.
   - io.moderne.devcenter.ReportAsSecurityIssues:
@@ -143,54 +140,94 @@ This recipe takes in a `fixRecipe` property that defines the recipe that can be 
   <figcaption>_An example of a security section in a DevCenter._</figcaption>
 </figure>
 
+## Card recipes
+
+The following card recipes are among the most commonly used. Each one places every repository in a category, such as how far it is from a target version, and the card shows how many repositories fall in each category.
+
+| Card recipe | What the card tracks |
+|-------------|----------------------|
+| [`LibraryUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java) | The lowest version of the matching Maven or Gradle dependencies, compared to a target version. |
+| [`ParentPomUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/ParentPomUpgrade.java) | The version of a Maven parent POM, compared to a target version. |
+| [`PackageUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/PackageUpgrade.java) | The version of an npm, PyPI, or NuGet package or a Go module, compared to a target version. |
+| [`PackageMigration`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/PackageMigration.java) | Whether repositories have moved from one npm, PyPI, or NuGet package or Go module to another. |
+| [`JavaVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JavaVersionUpgrade.java) | The Java version each repository compiles for. |
+| [`JUnitJupiterUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JUnitJupiterUpgrade.java) | Whether each repository tests with JUnit 4, JUnit 5, or JUnit 6. |
+| [`BuildToolCard`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/BuildToolCard.java) | The Gradle or Maven version each repository builds with. |
+| [`DependencyVulnerabilityCheck`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/DependencyVulnerabilityCheck.java) | Known dependency vulnerabilities, measured by severity, by the size of the upgrade that fixes them, or by risk score. |
+| [`BucketedMetricCard`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/BucketedMetricCard.java) | A numeric column from a data table that an earlier recipe in the list produces, aggregated per repository and sorted into the categories you define. |
+| [`EcmaScriptModernization`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/EcmaScriptModernization.java) | How many JavaScript and TypeScript variable declarations still use `var`. |
+| [`ReportAsSecurityIssues`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/ReportAsSecurityIssues.java) | Issues found by the recipes listed before it, shown in the security section. |
+
+There are also version cards for other languages and frameworks:
+
+* [`AngularVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/AngularVersionUpgrade.java)
+* [`CSharpVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/CSharpVersionUpgrade.java)
+* [`GoVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/GoVersionUpgrade.java)
+* [`GroovyVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/GroovyVersionUpgrade.java)
+* [`KotlinVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/KotlinVersionUpgrade.java)
+* [`NodeVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/NodeVersionUpgrade.java)
+* [`PythonVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/PythonVersionUpgrade.java)
+* [`ScalaVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/ScalaVersionUpgrade.java)
+
+The [rewrite-devcenter repository](https://github.com/moderneinc/rewrite-devcenter) has the complete set, including [card recipes](https://github.com/moderneinc/rewrite-devcenter/tree/main/src/main/java/io/moderne/devcenter) and [DevCenters](https://github.com/moderneinc/rewrite-devcenter/tree/main/src/main/resources/META-INF/rewrite) added after this guide was written.
+
 ## More DevCenter recipe examples
 
-To help you get a better idea of how you can customize this to meet your own needs, let's walk through a few more examples.
+Besides the starter, `rewrite-devcenter` ships complete DevCenter recipes that you can deploy as they are or copy as a starting point:
+
+* [DevCenter for Quarkus](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/quarkus-devcenter.yml)
+* [DevCenter for Apache](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/apache-maven-devcenter.yml) and [DevCenter for Apache Maven](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/apache-maven-devcenter.yml)
+* [DevCenter for Gradle and Maven](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/build-tool-devcenter.yml)
+* [DevCenter for Vulnerability Management](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/vulnerabilities-devcenter.yml)
+* [Class cohesion DevCenter](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/code-quality-devcenter.yml)
+* DevCenters for [Angular](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/angular-devcenter.yml), [C#](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/csharp-devcenter.yml), [Go](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/go-devcenter.yml), [JavaScript and TypeScript](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/node-devcenter.yml), [Kotlin](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-kotlin.yml), [Python](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/python-devcenter.yml), and [React](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/react-devcenter.yml)
+
+The following examples, taken from those recipes, show how you can customize a DevCenter to meet your own needs.
 
 ### Quarkus example
 
-In the following example, you will see that we:
+The [DevCenter for Quarkus](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/quarkus-devcenter.yml) recipe:
 
-* Adjusted the `LibraryUpgrade` recipe to target `io.quarkus` dependencies instead of `org.springframework.boot`.
-* Created a new `UpgradeQuarkus` recipe (as a generic one doesn't exist) to upgrade all Quarkus dependencies to the latest version.
+* Points the `LibraryUpgrade` recipe at `io.quarkus` dependencies instead of `org.springframework.boot`.
+* Uses a `ParentPomUpgrade` recipe to track the Quarkus Universe BOM parent POM.
+* Defines its own `UpgradeQuarkusUniverseBom` recipe to upgrade that parent POM, as no such recipe exists elsewhere.
 
 ```yaml
-# An example DevCenter configuration for a Quarkus application.
-# Includes a named custom upgrade recipe.
 type: specs.openrewrite.org/v1beta/recipe
-name: io.moderne.devcenter.DevCenterQuarkus
-displayName: DevCenter
+name: io.moderne.devcenter.QuarkusDevCenter
+displayName: DevCenter for Quarkus
 description: >-
-  DevCenter for organizations that use Quarkus.
-  Also includes Java and JUnit upgrades and security findings.
+  A DevCenter that tracks the latest Quarkus framework versions and applies best practices.
 recipeList:
-  - io.moderne.devcenter.LibraryUpgrade:
-      cardName: Move to Quarkus 3.23.0
-      groupIdPattern: io.quarkus
-      artifactIdPattern: '*'
-      version: 3.23.0
-      upgradeRecipe: io.moderne.devcenter.UpgradeQuarkus
-  - io.moderne.devcenter.JavaVersionUpgrade:
-      majorVersion: 21
-      upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava21
-  - io.moderne.devcenter.JUnitJupiterUpgrade:
-      upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
-  - io.moderne.devcenter.SecurityStarter
-  # Required in every DevCenter recipe (they do not produce cards).
-  # See "Organizational ownership recipes" above.
   - io.moderne.devcenter.FindOrganizationStatistics
-  - org.openrewrite.search.FindCommitters
+  - io.moderne.devcenter.FindActiveCommitters
+  - io.moderne.devcenter.LibraryUpgrade:
+      cardName: Move to Quarkus 4.0
+      groupIdPattern: io.quarkus
+      artifactIdPattern: quarkus-*
+      version: 4.0.x
+      upgradeRecipe: org.openrewrite.quarkus.MigrateToQuarkus_v4_0_0
+  - io.moderne.devcenter.ParentPomUpgrade:
+      cardName: Move to the latest Quarkus Universe BOM
+      groupIdPattern: io.quarkus
+      artifactIdPattern: quarkus-universe-bom
+      version: 4.0.x
+      upgradeRecipe: io.moderne.devcenter.UpgradeQuarkusUniverseBom
+  - io.moderne.devcenter.JavaVersionUpgrade:
+      majorVersion: 25
+      upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava25
+  - io.moderne.devcenter.SecurityStarter
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: io.moderne.devcenter.UpgradeQuarkus
-displayName: DevCenter
+name: io.moderne.devcenter.UpgradeQuarkusUniverseBom
+displayName: Upgrade Quarkus Universe BOM
 description: >-
-  This recipe upgrades all Quarkus dependencies to the latest 3.23 version.
+  Upgrades the Quarkus Universe BOM parent to the latest version.
 recipeList:
-  - org.openrewrite.java.dependencies.UpgradeDependencyVersion:
+  - org.openrewrite.maven.UpgradeParentVersion:
       groupId: io.quarkus
-      artifactId: '*'
-      newVersion: 3.23.x
+      artifactId: quarkus-universe-bom
+      newVersion: x
 ```
 
 :::tip
@@ -199,45 +236,41 @@ Additional recipes do not have to be in the same file or even the same module.
 
 ### Custom parent example
 
-In the following example, you will see that we:
+The [DevCenter for Apache](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/apache-maven-devcenter.yml) recipe:
 
-* Use a `ParentPomUpgrade` recipe to target the Apache Maven parent POM instead of using a `LibraryUpgrade` recipe.
-* Created a custom recipe that specifies the `groupId` and `artifactId` of the parent POM we want to upgrade.
+* Uses a `ParentPomUpgrade` recipe to track the Apache parent POM instead of a `LibraryUpgrade` recipe.
+* Defines its own `UpgradeApacheParent` recipe that specifies the `groupId` and `artifactId` of the parent POM to upgrade.
 
 ```yaml
-# An example DevCenter tracking Parent POM versions, illustrated by using the Apache Maven parent POM
 type: specs.openrewrite.org/v1beta/recipe
-name: io.moderne.devcenter.DevCenterApacheParent
-displayName: DevCenter
+name: io.moderne.devcenter.ApacheDevCenter
+displayName: DevCenter for Apache
 description: >-
-  DevCenter for organizations that use the apache maven parent.
-  Also includes Java and JUnit upgrades and security findings.
+  A DevCenter that tracks the latest Apache parent POM version and applies best practices.
 recipeList:
-  - io.moderne.devcenter.ParentPomUpgrade:
-      cardName: Move to the latest Apache Maven parent POM
-      groupIdPattern: org.apache.maven
-      artifactIdPattern: maven-parent
-      version: x
-      upgradeRecipe: io.moderne.devcenter.UpgradeApacheMavenParent
-  - io.moderne.devcenter.JavaVersionUpgrade:
-      majorVersion: 21
-      upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava21
-  - io.moderne.devcenter.JUnitJupiterUpgrade:
-      upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
-  - io.moderne.devcenter.SecurityStarter
-  # Required in every DevCenter recipe (they do not produce cards).
-  # See "Organizational ownership recipes" above.
   - io.moderne.devcenter.FindOrganizationStatistics
-  - org.openrewrite.search.FindCommitters
+  - io.moderne.devcenter.FindActiveCommitters
+  - io.moderne.devcenter.ParentPomUpgrade:
+      cardName: Move to the latest `apache` parent POM
+      groupIdPattern: org.apache
+      artifactIdPattern: apache
+      version: 40
+      upgradeRecipe: io.moderne.devcenter.UpgradeApacheParent
+  - io.moderne.devcenter.JavaVersionUpgrade:
+      majorVersion: 25
+      upgradeRecipe: org.openrewrite.java.migrate.UpgradeToJava25
+  - io.moderne.devcenter.JUnitJupiterUpgrade:
+      upgradeRecipe: org.openrewrite.java.testing.junit6.JUnit5to6Migration
+  - io.moderne.devcenter.SecurityStarter
 ---
 type: specs.openrewrite.org/v1beta/recipe
-name: io.moderne.devcenter.UpgradeApacheMavenParent
-displayName: Upgrade Apache Maven Parent
+name: io.moderne.devcenter.UpgradeApacheParent
+displayName: Upgrade Apache Parent POM
 description: >-
-  Upgrades the Apache Maven parent POM to the latest version.
+  Upgrades the Apache parent POM to the latest version.
 recipeList:
   - org.openrewrite.maven.UpgradeParentVersion:
-      groupId: org.apache.maven
-      artifactId: maven-parent
+      groupId: org.apache
+      artifactId: apache
       newVersion: x
 ```

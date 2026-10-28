@@ -27,6 +27,7 @@ Without a `poll` block, the source is pass-through. The Connector leaves it alon
 | `http`      | Supported           | Moderne reads the endpoint through the Connector's tunnel.                                                         |
 | `s3`        | Supported           | Moderne reads the bucket through the Connector's tunnel.                                                           |
 | `gcs`       | Rejected at startup | Cloud Storage sources cannot be tunneled.                                                                          |
+| `azure`     | Rejected at startup | Azure Blob Storage sources cannot be tunneled.                                                                     |
 | `file`      | Reaches nothing     | A file on the Connector's disk is not reachable from Moderne. Use a `poll` block instead, and leave encryption on. |
 
 With a `poll` block, the source is not pass-through. The Connector still polls the configured repositories to discover LSTs, but it publishes their locations to Moderne instead of uploading encrypted copies.

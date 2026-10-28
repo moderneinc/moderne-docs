@@ -101,13 +101,13 @@ export const AboutModerneSection: FunctionComponent = () => {
       <h2 className={styles.sectionTitle}>More about Moderne</h2>
       <div className={styles.platformContent}>
         <p>
-          Moderne delivers a coordinated set of tools that coding agents and developers use to understand software systems, discover relevant code, and safely execute large-scale engineering changes. Your organization can run <Link href="/user-documentation/recipes/recipe-catalog">existing recipes</Link> from our extensive catalog or create your own. Moderne offers several tools to help you do this:
+          Moderne delivers a coordinated set of tools that coding agents and developers use to understand software systems, discover relevant code, and safely execute large-scale engineering changes. Your organization can run <Link href="https://codegenomeproject.org/recipes">existing recipes</Link> from our extensive catalog or create your own. Moderne offers several tools to help you do this:
         </p>
         <p>
           The <Link href="/user-documentation/moderne-platform/getting-started/running-your-first-recipe"><strong>Moderne Platform</strong></Link> is an enterprise-ready, private SaaS solution that enables anyone in your organization to run recipes, create pull requests, and generate detailed reports across all of your repositories - all without writing a line of code.
         </p>
         <p>
-          The <Link href="/user-documentation/moderne-cli/getting-started/cli-intro"><strong>Moderne CLI</strong></Link> is a command line tool that complements the Platform, enabling you to build LST artifacts across many repositories and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
+          The <Link href="/user-documentation/moderne-cli/getting-started/cli-getting-started"><strong>Moderne CLI</strong></Link> is a command line tool that complements the Platform, enabling you to build LST artifacts across many repositories and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
         </p>
         <p>
           <Link href="/administrator-documentation/moderne-dx/getting-started/overview"><strong>Moderne DX</strong></Link> brings the power of large-scale code insights and remediations into air-gapped or highly secure environments. It gives you the tools to build as much or as little as you need while ensuring all of your code and data remains under your own security controls.

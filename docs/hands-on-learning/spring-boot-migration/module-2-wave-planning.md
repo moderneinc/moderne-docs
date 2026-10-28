@@ -116,7 +116,7 @@ mod config recipes jar install \
 ```
 
 :::info
-Installing recipes locally can sometimes take a few minutes, so this list of recipe packages is limited to only the ones required for this workshop. You can find a [list of recipes by module in the OpenRewrite documentation](https://docs.openrewrite.org/reference/all-recipes).
+Installing recipes locally can sometimes take a few minutes, so this list of recipe packages is limited to only the ones required for this workshop. You can find the coordinates of every other recipe module on the [latest versions of every OpenRewrite module](../../user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module.md) page.
 :::
 
 #### Step 4: Build LSTs

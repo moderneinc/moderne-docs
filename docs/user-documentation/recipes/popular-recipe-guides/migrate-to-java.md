@@ -24,12 +24,12 @@ Codebases on Java 8, 11, 17, or 21 are all valid starting points. `UpgradeToJava
 
 `UpgradeToJava25` is a composite recipe that bundles many smaller transformations. Some of the most visible changes this recipe makes to your code include:
 
-* [Migrate `public static void main(String[] args)` to instance `void main()`](../recipe-catalog/java/migrate/lang/migratemainmethodtoinstancemain.md) – takes advantage of JEP 512 to drop the `static` modifier and the unused `args` parameter from main methods.
-* [Migrate `System.out.print` to Java 25 IO utility class](../recipe-catalog/java/migrate/io/replacesystemoutwithioprint.md) – swaps `System.out.print(ln)` calls for the new `IO.print(ln)` methods.
-* [Use `Process#waitFor(Duration)`](../recipe-catalog/java/migrate/lang/migrateprocesswaitforduration.md) – replaces the legacy `(timeout, TimeUnit)` overload with the type-safe `Duration` overload.
-* [Replace unused variables with underscore](../recipe-catalog/java/migrate/lang/replaceunusedvariableswithunderscore.md) – uses the `_` placeholder for unused lambda parameters and exception variables (JEP 456).
+* [Migrate `public static void main(String[] args)` to instance `void main()`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.lang.MigrateMainMethodToInstanceMain) – takes advantage of JEP 512 to drop the `static` modifier and the unused `args` parameter from main methods.
+* [Migrate `System.out.print` to Java 25 IO utility class](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.io.ReplaceSystemOutWithIOPrint) – swaps `System.out.print(ln)` calls for the new `IO.print(ln)` methods.
+* [Use `Process#waitFor(Duration)`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.lang.MigrateProcessWaitForDuration) – replaces the legacy `(timeout, TimeUnit)` overload with the type-safe `Duration` overload.
+* [Replace unused variables with underscore](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.lang.ReplaceUnusedVariablesWithUnderscore) – uses the `_` placeholder for unused lambda parameters and exception variables (JEP 456).
 
-Beyond the source code, the recipe also updates Maven and Gradle build files to target Java 25 and bumps build plugins to Java 25-compatible versions. For the complete list of sub-recipes, see the [recipe catalog page](../recipe-catalog/java/migrate/upgradetojava25.md).
+Beyond the source code, the recipe also updates Maven and Gradle build files to target Java 25 and bumps build plugins to Java 25-compatible versions. For the complete list of sub-recipes, see the [recipe catalog page](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25).
 
 ### Example
 
@@ -99,7 +99,7 @@ Most teams should migrate straight to Java 25. If you need to stop at an interme
 <Tabs groupId="java-lts">
 <TabItem value="java21" label="Java 21" default>
 
-The [`UpgradeToJava21`](../recipe-catalog/java/migrate/upgradetojava21.md) recipe adopts new APIs such as sequenced collections and pattern matching for `switch`, replaces APIs that have been deprecated for removal, and updates build files and CI configuration to target Java 21.
+The [`UpgradeToJava21`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava21) recipe adopts new APIs such as sequenced collections and pattern matching for `switch`, replaces APIs that have been deprecated for removal, and updates build files and CI configuration to target Java 21.
 
 ```java title="Before"
 import java.net.URL;
@@ -151,7 +151,7 @@ On the Moderne Platform, search for the `Migrate to Java 21` recipe ([Moderne Pl
 </TabItem>
 <TabItem value="java17" label="Java 17">
 
-The [`UpgradeToJava17`](../recipe-catalog/java/migrate/upgradetojava17.md) recipe adopts records, sealed classes, `instanceof` pattern matching, and text blocks, replaces deprecated APIs with their modern equivalents, and updates build files to target Java 17. For codebases coming from Java 8, it also adds explicit dependencies for J2EE libraries like JAXB that are no longer bundled with the JDK.
+The [`UpgradeToJava17`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava17) recipe adopts records, sealed classes, `instanceof` pattern matching, and text blocks, replaces deprecated APIs with their modern equivalents, and updates build files to target Java 17. For codebases coming from Java 8, it also adds explicit dependencies for J2EE libraries like JAXB that are no longer bundled with the JDK.
 
 ```java title="Before"
 class Greeter {

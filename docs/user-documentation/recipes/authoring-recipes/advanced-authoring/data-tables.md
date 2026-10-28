@@ -19,10 +19,6 @@ This is where data tables come in. In addition to modifying the code directly, r
 
 To help you get started with data tables, let's walk through how to create a recipe that produces a data table – and the steps needed to make said recipe produce a data table. After that, we'll talk about some of the limitations of data tables and how you can potentially get around them.
 
-:::info
-If you want to see what recipes have data tables and what those tables are, check out our [recipes with data tables doc](../../lists/recipes-with-data-tables.md).
-:::
-
 ## Writing a recipe that produces a data table
 
 _All of the code in the below steps can be found in the [rewrite-recipe-starter project](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/ClassHierarchy.java)._
@@ -279,7 +275,7 @@ By default, OpenRewrite recipes will **not** produce a data table. In order for 
 2. Next, you will either need to update build file or modify your command for running a recipe:
 
 :::info
-OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. The snippets below use `USERNAME` and `TOKEN` as placeholders. Replace them with your own credentials.
+OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. For Gradle, put your username in `~/.gradle/gradle.properties` as `codegenomeUsername` and your token as `codegenomePassword`, which the snippets below read.
 
 For Maven, put the credentials in your `settings.xml`. See [Accessing the Code Genome Project](../../accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
 :::
@@ -287,7 +283,24 @@ For Maven, put the credentials in your `settings.xml`. See [Accessing the Code G
 <Tabs>
 
 <TabItem value="build.gradle" label="build.gradle">
-Add `exportDatatables = true` to your `build.gradle` file such as in the following example:
+The `org.openrewrite.rewrite` plugin is resolved from the Code Genome Project. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so declare the repository there:
+
+```groovy title="settings.gradle"
+pluginManagement {
+    repositories {
+        maven {
+            url = "https://artifacts.codegenomeproject.org/maven"
+            credentials {
+                username = providers.gradleProperty("codegenomeUsername").get()
+                password = providers.gradleProperty("codegenomePassword").get()
+            }
+        }
+        gradlePluginPortal()
+    }
+}
+```
+
+Then add `exportDatatables = true` to your `build.gradle` file such as in the following example:
 
 ```groovy
 plugins {
@@ -304,8 +317,8 @@ repositories {
     maven {
         url = "https://artifacts.codegenomeproject.org/maven"
         credentials {
-            username = "USERNAME"
-            password = "TOKEN"
+            username = providers.gradleProperty("codegenomeUsername").get()
+            password = providers.gradleProperty("codegenomePassword").get()
         }
     }
 }

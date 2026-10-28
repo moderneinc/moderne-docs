@@ -6,19 +6,17 @@
  */
 
 /**
- * Ejected from @docusaurus/theme-search-algolia (v3.9.2) to add
- * faceted "Search in" tabs (All / Documentation / Recipes).
+ * Ejected from @docusaurus/theme-search-algolia (v3.9.2).
  *
  * Modifications from upstream:
- * - Added SearchTab state and SearchFacetTabs component
- * - Modified useSearchParameters to merge tab-specific facet filters
- * - Reset activeTab to 'documentation' in closeModal
- * - Render SearchFacetTabs alongside DocSearchModal in the portal
+ * - Backport the DocSearch insights fix in useTransformSearchClient
+ * - Type `askAi` from the theme config and pass it through to useAlgoliaAskAi
+ * - Let every Cmd/Ctrl combo through to useDocSearchKeyboardEvents in
+ *   handleInput, not only Ctrl+F
  */
 
 import React, {
   useCallback,
-  useEffect,
   useMemo,
   useRef,
   useState,
@@ -43,7 +41,6 @@ import {
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import translations from '@theme/SearchTranslations';
-import SearchFacetTabs, {type SearchTab} from './SearchFacetTabs';
 import type {
   InternalDocSearchHit,
   DocSearchModal as DocSearchModalType,
@@ -215,25 +212,10 @@ function ResultsFooter({state, onClose}: ResultsFooterProps) {
   );
 }
 
-/**
- * Algolia `filters` string for each search tab.
- *
- * Uses `filters` (SQL-like syntax) instead of `facetFilters` because
- * a negative facetFilter like `-category:recipes` also excludes records
- * missing the attribute entirely, while `NOT category:recipes` only
- * excludes records that explicitly have category:recipes.
- */
-const tabFilters: Record<SearchTab, string> = {
-  all: '',
-  documentation: 'NOT category:recipes',
-  recipes: 'category:recipes',
-};
-
 function useSearchParameters({
   contextualSearch,
-  activeTab,
   ...props
-}: DocSearchV4Props & {activeTab: SearchTab}): DocSearchProps['searchParameters'] {
+}: DocSearchV4Props): DocSearchProps['searchParameters'] {
   const contextualSearchFacetFilters = useAlgoliaContextualFacetFilters();
 
   const configFacetFilters: FacetFilters =
@@ -245,85 +227,11 @@ function useSearchParameters({
     : // ... or use config facetFilters
       configFacetFilters;
 
-  const filterString = tabFilters[activeTab];
-
   // We let users override default searchParameters if they want to
   return {
     ...props.searchParameters,
     facetFilters,
-    ...(filterString && {filters: filterString}),
   };
-}
-
-/**
- * Creates a mount point div inside .DocSearch-Modal (between SearchBar and
- * Dropdown) and keeps a reference to it. We portal SearchFacetTabs into this
- * mount point so the tabs live inside the modal's own DOM tree and survive
- * DocSearch's internal React reconciliation.
- */
-function useTabsMountPoint(
-  isOpen: boolean,
-  activeTab: SearchTab,
-): HTMLDivElement | null {
-  const [mountPoint, setMountPoint] = useState<HTMLDivElement | null>(null);
-  const mountRef = useRef<HTMLDivElement | null>(null);
-
-  // Re-run when isOpen or activeTab changes (activeTab change causes modal
-  // remount via key prop, which destroys the old mount point)
-  useEffect(() => {
-    if (!isOpen) {
-      mountRef.current?.remove();
-      mountRef.current = null;
-      setMountPoint(null);
-      return;
-    }
-
-    function ensureMountPoint() {
-      // Already created and still in the DOM
-      if (mountRef.current?.isConnected) {
-        return;
-      }
-
-      const modal = document.querySelector('.DocSearch-Modal');
-      const dropdown = document.querySelector('.DocSearch-Dropdown');
-      if (!modal || !dropdown) return;
-
-      // Clean up any stale mount points (e.g. from React Strict Mode double-runs)
-      modal.querySelectorAll('[data-facet-tabs]').forEach((el) => el.remove());
-
-      const div = document.createElement('div');
-      div.setAttribute('data-facet-tabs', '');
-      modal.insertBefore(div, dropdown);
-      mountRef.current = div;
-      setMountPoint(div);
-    }
-
-    // Try immediately (modal may already be rendered)
-    ensureMountPoint();
-
-    // Watch for the modal/dropdown appearing if not yet in the DOM.
-    // Once the mount point is created, disconnect — no need to keep
-    // observing every DOM mutation while the modal is open.
-    let observer: MutationObserver | null = null;
-    if (!mountRef.current?.isConnected) {
-      observer = new MutationObserver(() => {
-        ensureMountPoint();
-        if (mountRef.current?.isConnected) {
-          observer?.disconnect();
-          observer = null;
-        }
-      });
-      observer.observe(document.body, {childList: true, subtree: true});
-    }
-
-    return () => {
-      observer?.disconnect();
-      mountRef.current?.remove();
-      mountRef.current = null;
-    };
-  }, [isOpen, activeTab]);
-
-  return mountPoint;
 }
 
 function DocSearch({externalUrlRegex, askAi, ...props}: DocSearchV4Props) {
@@ -331,17 +239,7 @@ function DocSearch({externalUrlRegex, askAi, ...props}: DocSearchV4Props) {
   const transformItems = useTransformItems(props);
   const transformSearchClient = useTransformSearchClient();
 
-  const [activeTab, setActiveTab] = useState<SearchTab>('documentation');
-  const searchParameters = useSearchParameters({...props, activeTab});
-
-  const handleTabChange = useCallback((tab: SearchTab) => {
-    // Capture the current query so it persists across the modal remount
-    const input = document.querySelector<HTMLInputElement>('.DocSearch-Input');
-    if (input?.value) {
-      setInitialQuery(input.value);
-    }
-    setActiveTab(tab);
-  }, []);
+  const searchParameters = useSearchParameters(props);
 
   const searchContainer = useRef<HTMLDivElement | null>(null);
   const searchButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -349,8 +247,6 @@ function DocSearch({externalUrlRegex, askAi, ...props}: DocSearchV4Props) {
   const [initialQuery, setInitialQuery] = useState<string | undefined>(
     undefined,
   );
-
-  const tabsMountPoint = useTabsMountPoint(isOpen, activeTab);
 
   const {isAskAiActive, currentPlaceholder, onAskAiToggle, extraAskAiProps} =
     useAlgoliaAskAi({...props, askAi});
@@ -372,7 +268,6 @@ function DocSearch({externalUrlRegex, askAi, ...props}: DocSearchV4Props) {
     setIsOpen(false);
     searchButtonRef.current?.focus();
     setInitialQuery(undefined);
-    setActiveTab('documentation');
     onAskAiToggle(false);
   }, [onAskAiToggle]);
 
@@ -434,7 +329,6 @@ function DocSearch({externalUrlRegex, askAi, ...props}: DocSearchV4Props) {
         searchContainer.current &&
         createPortal(
           <DocSearchModal
-            key={activeTab}
             onClose={closeModal}
             initialScrollY={window.scrollY}
             initialQuery={initialQuery}
@@ -452,15 +346,6 @@ function DocSearch({externalUrlRegex, askAi, ...props}: DocSearchV4Props) {
             {...extraAskAiProps}
           />,
           searchContainer.current,
-        )}
-
-      {tabsMountPoint &&
-        createPortal(
-          <SearchFacetTabs
-            activeTab={activeTab}
-            onTabChange={handleTabChange}
-          />,
-          tabsMountPoint,
         )}
     </>
   );

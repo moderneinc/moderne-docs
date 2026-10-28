@@ -47,6 +47,7 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/changelog',
           'user-documentation/moderne-platform/getting-started/prethink',
           'user-documentation/moderne-platform/getting-started/activity-view',
+          'user-documentation/moderne-platform/getting-started/code-search',
         ],
       },
       {
@@ -65,7 +66,6 @@ const platform = {
           'user-documentation/moderne-platform/how-to-guides/vulnerable-dependencies',
           'user-documentation/moderne-platform/how-to-guides/addressing-cves',
           'user-documentation/moderne-platform/how-to-guides/new-recipe-builder',
-          'user-documentation/moderne-platform/how-to-guides/introduction-to-type-aware-code-search',
           'user-documentation/moderne-platform/how-to-guides/moderne-platform-search',
           'user-documentation/moderne-platform/how-to-guides/accessing-the-moderne-api',
           'user-documentation/moderne-platform/how-to-guides/recipe-execution-and-commits-with-graphql',
@@ -89,6 +89,7 @@ const platform = {
           keywords: ['references'],
         },
         items: [
+          'user-documentation/moderne-platform/references/changesets',
           'user-documentation/moderne-platform/references/moderne-tokens',
           'user-documentation/moderne-platform/references/create-scm-access-tokens',
           'user-documentation/moderne-platform/references/graphql-api-reference',
@@ -175,6 +176,7 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-s3-access',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-gcs-access',
+              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-blob-access',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-pypi-access-visualizations',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-llm-for-moddy',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy',
@@ -185,10 +187,12 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-a-moderne-tenant-ssl-certificate',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-to-connect-to-moderne-via-an-http-proxy',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-cli-download-instructions-override',
+              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-cli-distribution-repositories',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-ui-customizations',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-variables',
             ],
           },
+          'administrator-documentation/moderne-platform/how-to-guides/restricting-network-access',
           'administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe',
           'administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter',
           'administrator-documentation/moderne-platform/how-to-guides/org-service',
@@ -307,7 +311,7 @@ const cli = {
   customProps: {
     gemIcon: 'blue-block',
     megaMenu: true,
-    homepageHref: '/user-documentation/moderne-cli/getting-started/cli-intro',
+    homepageHref: '/user-documentation/moderne-cli/getting-started/cli-getting-started',
   },
   link: {
     type: 'generated-index' as const,
@@ -328,6 +332,7 @@ const cli = {
         keywords: ['guides'],
       },
       items: [
+        'user-documentation/moderne-cli/getting-started/cli-getting-started',
         'user-documentation/moderne-cli/getting-started/cli-intro',
         {
           type: 'link' as const,
@@ -369,6 +374,7 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/parallelism',
         'user-documentation/moderne-cli/how-to-guides/ssh-key',
         'user-documentation/moderne-cli/how-to-guides/layer-config-cli',
+        'user-documentation/moderne-cli/how-to-guides/cli-secrets',
         'user-documentation/moderne-cli/how-to-guides/code-style-config',
         'user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands',
         'user-documentation/moderne-cli/how-to-guides/on-prem-scm-config',
@@ -404,6 +410,11 @@ const cli = {
         'user-documentation/moderne-cli/references/cli-3-44-0-changes',
       ],
     },
+    {
+      type: 'link' as const,
+      label: 'CLI releases',
+      href: '/releases/cli-releases',
+    },
   ],
 };
 
@@ -433,7 +444,7 @@ const agentTools = {
       link: {
         type: 'generated-index' as const,
         title: 'Moderne MCP',
-        description: 'Give AI coding agents Moderne\'s tools through the Model Context Protocol. The local server runs on your workstation for semantic code search, navigation, and refactoring; the remote server, hosted on the Moderne Platform, runs recipes across an entire organization.',
+        description: 'Give AI coding agents Moderne\'s tools through the Model Context Protocol. The remote server, hosted on the Moderne Platform, runs recipes and searches code across an entire organization. An experimental local server runs through the CLI on repositories you have checked out.',
         slug: '/user-documentation/agent-tools/mcp',
         keywords: ['mcp', 'model context protocol', 'security', 'architecture', 'remote', 'local'],
       },
@@ -660,38 +671,12 @@ const recipes = {
       ],
     },
     {
-      type: 'category' as const,
+      type: 'link' as const,
       label: 'Catalog',
-      link: {
-        type: 'generated-index' as const,
-        title: 'Catalog',
-        description: 'Browse all available OpenRewrite and Moderne recipes.',
-        slug: '/user-documentation/recipes/recipe-catalog',
-        keywords: ['recipes', 'catalog'],
-      },
-      items: [
-        { type: 'autogenerated' as const, dirName: 'user-documentation/recipes/recipe-catalog' }
-      ],
+      description: 'Browse all available OpenRewrite and Moderne recipes in the Code Genome Project.',
+      href: 'https://codegenomeproject.org/recipes',
     },
-    {
-      type: 'category' as const,
-      label: 'Lists',
-      link: {
-        type: 'generated-index' as const,
-        title: 'Recipe lists',
-        description: 'Browse recipes organized by module, tag, and more.',
-        slug: '/user-documentation/recipes/lists',
-        keywords: ['recipes', 'lists'],
-      },
-      items: [
-        'user-documentation/recipes/lists/all-recipes',
-        'user-documentation/recipes/lists/recipes-by-tag',
-        'user-documentation/recipes/lists/recipes-with-data-tables',
-        'user-documentation/recipes/lists/scanning-recipes',
-        'user-documentation/recipes/lists/standalone-recipes',
-        'user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module',
-      ],
-    },
+    'user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module',
   ],
 };
 

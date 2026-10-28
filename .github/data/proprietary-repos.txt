@@ -3,9 +3,9 @@ recipes-csharp
 recipes-go
 recipes-javascript
 recipes-kotlin
+recipes-mainframe
 recipes-scala
 rewrite-ai
-rewrite-ai-search
 rewrite-android
 rewrite-android-studio
 rewrite-angular
@@ -39,11 +39,9 @@ rewrite-prethink
 rewrite-program-analysis
 rewrite-react
 rewrite-reactive-streams
-rewrite-release-metromap
 rewrite-spring
 rewrite-sql
 rewrite-static-analysis
 rewrite-struts
 rewrite-tapestry
 rewrite-terraform
-rewrite-vulncheck

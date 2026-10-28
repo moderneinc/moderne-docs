@@ -42,29 +42,33 @@ irm https://app.moderne.io/cli/windows | iex
 </TabItem>
 </Tabs>
 
-Alternatively, you can install via a package manager:
+The script makes `mod` available in your terminal, points the CLI to app.moderne.io, and then opens your browser so you can authorize it. Sign in if you aren't already, then click **Yes** when asked whether the CLI can create a personal access token on your behalf. Once you've confirmed, the CLI stores the token on your machine and then syncs the recipe marketplace. The sync takes a few minutes.
+
+<details>
+<summary>Installing with Homebrew or Chocolatey</summary>
+
+You can also install the wrapper with a package manager:
 
 * **Homebrew** (macOS/Linux): `brew install moderneinc/moderne/mod`
 * **Chocolatey** (Windows): `choco install mod --prerelease`
 
-For more installation options, including Enterprise and Moderne DX setups, see [Getting started with the Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md#installation-and-configuration).
+A package manager installs only the wrapper. You will need to connect the CLI to app.moderne.io and authorize it yourself:
+
+```bash
+mod config moderne edit https://app.moderne.io
+mod login
+```
+
+The login command opens your browser for the same authorization, then syncs the recipe marketplace.
+</details>
+
+The CLI documentation also covers [installing on an Enterprise tenant or Moderne DX](../../user-documentation/moderne-cli/getting-started/cli-intro.md#installation-and-configuration).
 
 Verify the install:
 
 ```bash
 mod --version
 ```
-
-#### Step 2: Connect the CLI to Moderne
-
-Point the CLI at the public Moderne tenant and log in:
-
-```bash
-mod config moderne edit https://app.moderne.io
-mod config moderne login
-```
-
-The login command opens a browser, asks you to grant the CLI access to your account, and stores a token locally that's valid for 365 days. If you're running on an Enterprise tenant, replace the URL with your tenant's hostname.
 
 :::tip[Restrictive networks]
 On corporate networks with proxies or limited internet / Moderne SaaS access, see [Deploying the CLI from an internal artifact repository](../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) for installation, and [Configuring the CLI to work with internal tools](../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md) for related integrations, before continuing. Without a properly configured setup, you'll commonly see:
@@ -83,18 +87,29 @@ For the workshop you only need a handful of repos to succeed. **Don't try to fix
 
 ---
 
-## Exercise 1-2: Install the recipe modules
+## Exercise 1-2: Confirm the recipes are available
 
 ### Goals for this exercise
 
-* Install the recipe JARs needed for Prethink and the rest of this workshop
-* Understand the difference between `mod config recipes jar install` and a full catalog sync
+* Confirm the Prethink recipe is in your local marketplace
+* Know how to add a recipe module the marketplace doesn't have
 
 ### Steps
 
-#### Step 1: Install the workshop recipe JARs
+#### Step 1: Search for the Prethink recipe
 
-Instead of syncing the entire recipe catalog, install just the JARs you need:
+```bash
+mod config recipes search UpdatePrethinkContext
+```
+
+The CLI lists the closest matches and asks you to pick one. You should see `io.moderne.prethink.UpdatePrethinkContextStarter` in the list. Enter its number to see the recipe's description and options, or press `Enter` on its own to leave the list. You'll choose recipes explicitly with `--recipe` later.
+
+The `rewrite-prethink` artifact is the focus of this workshop. It uses an open-source `org.openrewrite.recipe` module for building blocks, while `io.moderne.recipe:rewrite-prethink` adds pre-configured discovery for Spring, JPA, Kafka, and other common frameworks. See [Recipe modules](../../user-documentation/agent-tools/prethink.md#recipe-modules) for the full breakdown.
+
+<details>
+<summary>If the search finds nothing</summary>
+
+The marketplace sync didn't complete. The usual cause is a network that can't reach the marketplace. You can install the modules this workshop needs directly from the artifact repository instead:
 
 <Tabs groupId="cli-install-os" queryString="os">
 <TabItem value="linux-macos" label="Linux / macOS" default>
@@ -119,28 +134,13 @@ mod config recipes jar install `
 </TabItem>
 </Tabs>
 
-The `rewrite-prethink` artifact is the focus of this workshop: it uses an open-source `org.openrewrite.recipe` module for building blocks, while `io.moderne.recipe:rewrite-prethink` adds pre-configured discovery for Spring, JPA, Kafka, and other common frameworks. See [Recipe modules](../../user-documentation/agent-tools/prethink.md#recipe-modules) for the full breakdown.
-
-The other two JARs are useful warm-up recipes you'll touch later when verifying everything works.
-
-:::tip
-If you'd rather have the entire catalog available, run `mod config recipes moderne sync` instead. That takes a few minutes and downloads every recipe Moderne ships.
-:::
-
-#### Step 2: Confirm the recipes are installed
-
-Search for the Prethink recipe to confirm it resolved:
-
-```bash
-mod config recipes search UpdatePrethinkContext
-```
-
-The CLI walks through each matching recipe interactively and asks whether to set it as the active recipe. You should see at least the `io.moderne.prethink.UpdatePrethinkContextStarter` recipe show up. Press `n` (or just `Enter`) at each prompt to skip — you'll select recipes explicitly with `--recipe` later.
+Then run the search again.
+</details>
 
 ### Takeaways
 
-* `mod config recipes jar install <coords>` is a fast way to grab a known recipe pack without syncing the full catalog.
 * The Moderne Prethink module depends on the OpenRewrite Prethink module. Installing both is the safe default.
+* `mod config recipes jar install <coords>` adds a recipe module your marketplace doesn't have.
 
 ---
 

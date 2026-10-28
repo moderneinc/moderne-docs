@@ -5,13 +5,15 @@ const path = require('path');
 const ALLOWED_EXTENSIONS = new Set([
   '.md', '.mdx', '.tsx', '.ts', '.js', '.mjs', '.sh', '.css', '.json', '.graphql',
   '.png', '.gif', '.jpg', '.jpeg', '.svg', '.ico',
-  '.yaml', '.yml', '.toml', '.lock', '.txt', '.csv', '.excalidraw',
+  '.yaml', '.yml', '.toml', '.lock', '.txt', '.csv', '.excalidraw', '.snap',
+  '.kt', '.kts', '.properties',
 ]);
 
 const ALLOWED_FILENAMES = new Set([
   'LICENSE', 'Makefile', 'Dockerfile',
   '.gitignore', '.gitattributes', '.nvmrc', '.node-version',
   '.editorconfig', '.prettierignore', '.eslintignore',
+  'gradlew', 'gradlew.bat', 'gradle-wrapper.jar',
 ]);
 
 const ALLOWED_DIRECTORIES = new Set([

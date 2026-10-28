@@ -8,7 +8,7 @@ keywords: [python recipe, python refactoring, openrewrite python, write a python
 
 Across a large codebase, you often need to make the same change many times over: renaming a deprecated function, swapping an import, modernizing a pattern. When you run into this situation, the best thing you can do is write a recipe so that these changes can be made consistently and accurately. Then, you can use Moderne to apply these changes to thousands of repositories at once.
 
-While we've done our best to provide you with [a wide variety of Python recipes](../../recipe-catalog/python/README.md), you may find it useful to write your own. In this guide, we will walk you through everything you need to know to get started with creating and publishing your own Python recipe. 
+While we've done our best to provide you with [a wide variety of Python recipes](https://codegenomeproject.org/recipes?q=org.openrewrite.python), you may find it useful to write your own. In this guide, we will walk you through everything you need to know to get started with creating and publishing your own Python recipe. 
 
 :::info
 This guide focuses on authoring recipes in **Python**. If you would rather write recipes in another language, there are companion guides for [writing a Java refactoring recipe](./writing-a-java-refactoring-recipe.md), [writing a JavaScript refactoring recipe](./writing-a-javascript-refactoring-recipe.md), and [writing Kotlin recipes](./writing-kotlin-recipes.md). The core concepts carry over closely, since Python recipes build on the same Java model those guides use.
@@ -22,7 +22,7 @@ If you would rather start from working code, the [`python-recipe-starter` reposi
 
 This guide assumes that:
 
-* You have Python 3.10 or higher installed
+* You have Python 3.12 or higher installed
 * You are comfortable writing and running Python tests
 * You have [installed and configured the Moderne CLI](../../../moderne-cli/getting-started/cli-intro.md) so you can test your recipe against real repositories
 * You have [configured the Moderne CLI to work for Python projects](../../../moderne-cli/how-to-guides/python.md)
@@ -467,7 +467,7 @@ def activate(marketplace: RecipeMarketplace) -> None:
 Now that you've written your first Python recipe, you can go deeper:
 
 * Clone the [`python-recipe-starter` repository](https://github.com/moderneinc/python-recipe-starter) for a complete, runnable project: it includes the `RenameFunctionCall` recipe from this guide alongside a `RemoveRedundantPass` example that demonstrates deleting nodes - with tests, packaging, and CI already set up
-* Browse the [Python recipes in the Moderne recipe catalog](../../recipe-catalog/python/README.md) for real-world examples to learn from and build on
+* Browse the [Python recipes in the Moderne recipe catalog](https://codegenomeproject.org/recipes?q=org.openrewrite.python) for real-world examples to learn from and build on
 * Read the [Java refactoring recipe guide](./writing-a-java-refactoring-recipe.md) and [JavaScript refactoring recipe guide](./writing-a-javascript-refactoring-recipe.md) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
 * Learn how to [call Java and YAML recipes from your recipe](../advanced-authoring/combining-recipes-across-ecosystems.md#calling-java-recipes-from-other-ecosystems)
 * Explore the [`rewrite-python` source](https://github.com/openrewrite/rewrite/tree/main/rewrite-python) to see how the Python LST and its built-in recipes are implemented

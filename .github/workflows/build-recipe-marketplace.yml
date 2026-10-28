@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v7
 
       # Toolchains needed by the CLI (Java runs the CLI itself; pip/npm/go back
-      # the non-jar recipe ecosystems). Versions mirror update-docs.yml.
+      # the non-jar recipe ecosystems).
       - uses: actions/setup-java@v5
         with:
           distribution: temurin
