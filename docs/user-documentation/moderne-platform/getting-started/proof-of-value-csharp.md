@@ -207,7 +207,7 @@ mod devcenter . --last-recipe-run
 </figure>
 
 :::tip
-`DevCenterCSharpStarter` is the default C# configuration. DevCenters are available for many other ecosystems too, including Java, Python, Node.js, Angular, Kotlin, Quarkus, and Apache Maven. Browse the full set in the [DevCenter recipe catalog](../../recipes/recipe-catalog/devcenter/README.md), or learn how to [create a custom DevCenter recipe](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
+`DevCenterCSharpStarter` is the default C# configuration. DevCenters are available for many other ecosystems too, including Java, Python, Node.js, Angular, Kotlin, Quarkus, and Apache Maven. Browse the full set in the [DevCenter recipe catalog](https://codegenomeproject.org/recipes?q=io.moderne.devcenter), or learn how to [create a custom DevCenter recipe](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
 :::
 
 ## Dependency management

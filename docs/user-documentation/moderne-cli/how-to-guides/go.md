@@ -130,7 +130,7 @@ mod config recipes go install github.com/moderneinc/recipes-go
 ```
 
 :::tip
-You can find the specific installation command for any recipe on its page in the [recipe catalog](../../recipes/recipe-catalog).
+You can find the specific installation command for any recipe on its page in the [recipe catalog](https://codegenomeproject.org/recipes).
 :::
 
 ## Step 5: Run recipes

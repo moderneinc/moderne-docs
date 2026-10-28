@@ -79,7 +79,7 @@ In this module, you will run the Spring Boot 4 migration recipe in the Moderne P
   <figcaption>_Add recipes from the recipe list_</figcaption>
 </figure>
 
-5. Search for `Migrate to Spring Boot 4.0` ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition)) and select it.
+5. Search for `Migrate to Spring Boot 4.0` ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0)) and select it.
 6. Click **Add recipe**.
 
 <figure>
@@ -87,7 +87,7 @@ In this module, you will run the Spring Boot 4 migration recipe in the Moderne P
   <figcaption>_Add 'Migrate to Spring Boot 4.0' recipe_</figcaption>
 </figure>
 
-7. Click the `+` next to the root node in the recipe list again and search for `Verify compilation` ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) this time. Click **Add recipe** to add it.
+7. Click the `+` next to the root node in the recipe list again and search for `Verify compilation` ([`io.moderne.compiled.verification.VerifyCompilation`](https://codegenomeproject.org/recipes/io.moderne.compiled.verification.VerifyCompilation)) this time. Click **Add recipe** to add it.
 
 <figure>
   ![Recipe list with Migrate to Spring Boot 4.0 and Verify compilation sub-recipes](./assets/try-spring-boot-4-custom-recipe.png)
@@ -121,7 +121,7 @@ These are common migration speed bumps. The rest of the workshop is structured t
 </figure>
 
 :::tip
-A migration dry run plus the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) gives you a quick picture of what will break before you start the real work.
+A migration dry run plus the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://codegenomeproject.org/recipes/io.moderne.compiled.verification.VerifyCompilation)) gives you a quick picture of what will break before you start the real work.
 :::
 
 ## Exercise 1-3: Run code insight recipes
@@ -136,7 +136,7 @@ A migration dry run plus the `Verify compilation` recipe ([`io.moderne.compiled.
 
 #### Step 1: Understand your Java adoption
 
-1. Click **Marketplace** in the left navigation to browse available recipes. Search for and select `Plan a Java version migration` ([`org.openrewrite.java.migrate.search.PlanJavaMigration`](https://docs.openrewrite.org/recipes/java/migrate/search/planjavamigration)).
+1. Click **Marketplace** in the left navigation to browse available recipes. Search for and select `Plan a Java version migration` ([`org.openrewrite.java.migrate.search.PlanJavaMigration`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.search.PlanJavaMigration)).
 2. Make sure **Moderne - Training** is still selected and click **Dry run** to run the recipe against the org.
 3. After the recipe run, click on the **Data tables** tab. Some recipes do not modify code — instead they analyze it and produce structured output called "data tables." Download and open the `Java version migration plan` data table as a CSV or Excel file.
 
@@ -153,7 +153,7 @@ This helps you confirm the baseline Java versions and build tooling in use so yo
 
 #### Step 2: Inspect Spring Boot versions
 
-1. From the Marketplace, search for and select `Dependency insight for Gradle and Maven` ([`org.openrewrite.java.dependencies.DependencyInsight`](https://docs.openrewrite.org/recipes/java/dependencies/dependencyinsight)).
+1. From the Marketplace, search for and select `Dependency insight for Gradle and Maven` ([`org.openrewrite.java.dependencies.DependencyInsight`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyInsight)).
 2. Configure the options:
    * **Group pattern:** `org.springframework.boot`
    * **Artifact pattern:** `*`
@@ -172,7 +172,7 @@ The data table and visualization give you a distribution view of current Spring 
 
 While you can run libraries compiled with an older version of Java in newer versions of JVM, the Java runtime has deprecated specific APIs and ultimately removed or refactored those as it has evolved. Perhaps the most prominent example of this is the many `javax.*` APIs that were moved out of the JVM and into the Jakarta namespace. When you see high `javax.*` usage, expect more work to move to `jakarta.*` during the Spring Boot 4 upgrade. 
 
-1. From the Marketplace, search for and select `Find types` ([`org.openrewrite.java.search.FindTypes`](https://docs.openrewrite.org/recipes/java/search/findtypes)).
+1. From the Marketplace, search for and select `Find types` ([`org.openrewrite.java.search.FindTypes`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes)).
 2. Configure the option:
    * **Fully qualified type name:** `javax..*`
 3. Click **Dry run**.
@@ -184,7 +184,7 @@ You can see that some of these projects use the validation and persistence APIs.
 
 Code generators like QueryDSL are often the hardest blockers because they can emit code that is tightly coupled to older Java and Spring APIs.
 
-1. From the Marketplace, search for and select `Find Maven plugins` ([`org.openrewrite.maven.search.FindPlugin`](https://docs.openrewrite.org/recipes/maven/search/findplugin)).
+1. From the Marketplace, search for and select `Find Maven plugins` ([`org.openrewrite.maven.search.FindPlugin`](https://codegenomeproject.org/recipes/org.openrewrite.maven.search.FindPlugin)).
 2. Configure the options:
    * **Group ID:** `com.mysema.maven`
    * **Artifact ID:** `apt-maven-plugin`
@@ -194,7 +194,7 @@ Code generators like QueryDSL are often the hardest blockers because they can em
 You should see four services that are using QueryDSL as part of their persistence layer.
 
 :::tip
-Other useful code insight recipes you may want to explore later: `FindInternalJavaxApis` ([`org.openrewrite.java.migrate.search.FindInternalJavaxApis`](https://docs.openrewrite.org/recipes/java/migrate/search/findinternaljavaxapis)), `FindDeprecatedUses` ([`org.openrewrite.java.search.FindDeprecatedUses`](https://docs.openrewrite.org/recipes/java/search/finddeprecateduses)), and `RelocatedDependencyCheck` ([`org.openrewrite.java.dependencies.RelocatedDependencyCheck`](https://docs.openrewrite.org/recipes/java/dependencies/relocateddependencycheck)).
+Other useful code insight recipes you may want to explore later: `FindInternalJavaxApis` ([`org.openrewrite.java.migrate.search.FindInternalJavaxApis`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.search.FindInternalJavaxApis)), `FindDeprecatedUses` ([`org.openrewrite.java.search.FindDeprecatedUses`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindDeprecatedUses)), and `RelocatedDependencyCheck` ([`org.openrewrite.java.dependencies.RelocatedDependencyCheck`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.RelocatedDependencyCheck)).
 :::
 
 ## Takeaways

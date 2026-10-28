@@ -23,7 +23,7 @@ Additionally, since you will be upgrading in waves to ensure that custom library
 This is an example of a migration recipe _freight train_. You will often build a custom recipe that runs the out-of-the-box recipes and then applies some additional ones that are needed in your particular environment. In this workshop, the composite recipe upgrades internal dependencies, applies the Spring Boot 4 recipe, and then runs the QueryDSL upgrade.
 :::
 
-1. Create a local YAML recipe file in your `$WORKSHOP` directory. This composite recipe is named `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://docs.openrewrite.org/recipes/java/dependencies/upgradedependencyversion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition), and `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`. If you prefer, you can copy and paste the YAML directly into a new file instead of using the command.
+1. Create a local YAML recipe file in your `$WORKSHOP` directory. This composite recipe is named `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` and combines [`org.openrewrite.java.dependencies.UpgradeDependencyVersion`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.UpgradeDependencyVersion), [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0), and `org.openrewrite.recipe.querydsl.UpgradeToQueryDsl5`. If you prefer, you can copy and paste the YAML directly into a new file instead of using the command.
 
 ```bash
 cat <<'EOF' > $WORKSHOP/CustomUpgradeSpringBoot_4_0.yml
@@ -129,7 +129,7 @@ At the end of Module 1, you used an organizational DevCenter to see the status o
 mod build $WORKSPACE
 ```
 
-2. With the LSTs up-to-date, you can run the DevCenter recipe ([`io.moderne.devcenter.DevCenterStarter`](https://docs.openrewrite.org/recipes/devcenter/devcenterstarter)) and then the `mod devcenter` command to generate the dashboard:
+2. With the LSTs up-to-date, you can run the DevCenter recipe ([`io.moderne.devcenter.DevCenterStarter`](https://codegenomeproject.org/recipes/io.moderne.devcenter.DevCenterStarter)) and then the `mod devcenter` command to generate the dashboard:
 
 ```bash
 mod run $WORKSPACE --recipe io.moderne.devcenter.DevCenterStarter

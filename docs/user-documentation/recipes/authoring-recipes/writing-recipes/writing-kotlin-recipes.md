@@ -510,7 +510,7 @@ Now that you've written your first Kotlin recipe, you can go deeper:
 
 * Clone the [`kotlin-recipe-starter` repository](https://github.com/moderneinc/kotlin-recipe-starter) for a complete, runnable project containing every recipe in this guide
 * Read [Kotlin recipes for OpenRewrite](https://moderne.ai/blog/kotlin-recipes-for-openrewrite) for the design rationale behind the DSL, along with the migration, performance, and Android recipe catalogs built on top of it
-* Browse the [Kotlin recipes in the Moderne recipe catalog](../../recipe-catalog/kotlin/README.md) for real-world examples to learn from and build on
+* Browse the [Kotlin recipes in the Moderne recipe catalog](https://codegenomeproject.org/recipes?q=org.openrewrite.kotlin) for real-world examples to learn from and build on
 * Read the [Java refactoring recipe guide](./writing-a-java-refactoring-recipe.md) for deeper coverage of visitors, preconditions, and templates that carry over to the shared LST model
 * Review the [recipe conventions and best practices guide](../testing-and-best-practices/recipe-conventions-and-best-practices.md) to make sure your recipes are reliable and scalable
 * Explore the [`rewrite-kotlin` source](https://github.com/openrewrite/rewrite/tree/main/rewrite-kotlin) to see how the Kotlin LST, parser, and DSL compiler plugin are implemented

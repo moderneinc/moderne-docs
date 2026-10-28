@@ -118,8 +118,8 @@ For other issues, though, you'll need to consider larger and more complex recipe
 
 Some notable migration/refactoring recipes include:
 
-* [Migrating to Spring Boot 3.4](../../recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-moderne-edition.md)
-* [Migrating from Micronaut 3.x to 4.x](../../recipes/recipe-catalog/java/micronaut/micronaut3to4migration.md)
-* [Migrating from Quarkus 1 to 2](../../recipes/recipe-catalog/quarkus/quarkus2/quarkus1to2migration.md)
+* [Migrating to Spring Boot 3.4](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot3.UpgradeSpringBoot_3_4)
+* [Migrating from Micronaut 3.x to 4.x](https://codegenomeproject.org/recipes/org.openrewrite.java.micronaut.Micronaut3to4Migration)
+* [Migrating from Quarkus 1 to 2](https://codegenomeproject.org/recipes/org.openrewrite.quarkus.quarkus2.Quarkus1to2Migration)
 
 If we don't offer a recipe that can fix your issue, you should consider [writing your own](./writing-and-installing-recipes.md) so that you can automate fixes across many repositories and potentially share the solution with others.

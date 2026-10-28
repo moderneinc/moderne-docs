@@ -8,7 +8,7 @@ keywords: [csharp recipe, c# recipe, csharp refactoring, openrewrite csharp, wri
 
 Across a large codebase, you often need to make the same change many times over: replacing a deprecated API, tightening up a sloppy pattern, modernizing an idiom. When you run into this situation, the best thing you can do is write a recipe so that these changes can be made consistently and accurately. Then, you can use Moderne to apply these changes to thousands of repositories at once.
 
-While we've done our best to provide you with [a wide variety of C# recipes](../../recipe-catalog/csharp/README.md), you may find it useful to write your own. In this guide, we will walk you through everything you need to know to get started with creating and publishing your own C# recipe.
+While we've done our best to provide you with [a wide variety of C# recipes](https://codegenomeproject.org/recipes?q=OpenRewrite.Recipes.CSharp), you may find it useful to write your own. In this guide, we will walk you through everything you need to know to get started with creating and publishing your own C# recipe.
 
 :::info
 This guide focuses on authoring recipes in **C#**. If you would rather write recipes in another language, there are companion guides for [writing a Java refactoring recipe](./writing-a-java-refactoring-recipe.md), [writing a JavaScript refactoring recipe](./writing-a-javascript-refactoring-recipe.md), [writing a Python refactoring recipe](./writing-python-recipes.md), and [writing Kotlin recipes](./writing-kotlin-recipes.md). The core concepts carry over closely, since C# recipes build on the same Java model those guides use.
@@ -412,7 +412,7 @@ If the feed requires credentials, register it with the CLI first using [`mod con
 
 Now that you've written your first C# recipe, you can go deeper:
 
-* Browse the [C# recipes in the Moderne recipe catalog](../../recipe-catalog/csharp/README.md) for real-world examples to learn from and build on
+* Browse the [C# recipes in the Moderne recipe catalog](https://codegenomeproject.org/recipes?q=OpenRewrite.Recipes.CSharp) for real-world examples to learn from and build on
 * Read the [Java refactoring recipe guide](./writing-a-java-refactoring-recipe.md) and [JavaScript refactoring recipe guide](./writing-a-javascript-refactoring-recipe.md) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
 * Learn more about [setting up and using C# LSTs with the Moderne CLI](../../../moderne-cli/how-to-guides/csharp.md)
 * Work through the [recipe authoring fundamentals workshop](../../../../hands-on-learning/fundamentals/workshop-overview.md) for a hands-on introduction to recipe development

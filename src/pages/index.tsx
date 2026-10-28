@@ -101,7 +101,7 @@ export const AboutModerneSection: FunctionComponent = () => {
       <h2 className={styles.sectionTitle}>More about Moderne</h2>
       <div className={styles.platformContent}>
         <p>
-          Moderne delivers a coordinated set of tools that coding agents and developers use to understand software systems, discover relevant code, and safely execute large-scale engineering changes. Your organization can run <Link href="/user-documentation/recipes/recipe-catalog">existing recipes</Link> from our extensive catalog or create your own. Moderne offers several tools to help you do this:
+          Moderne delivers a coordinated set of tools that coding agents and developers use to understand software systems, discover relevant code, and safely execute large-scale engineering changes. Your organization can run <Link href="https://codegenomeproject.org/recipes">existing recipes</Link> from our extensive catalog or create your own. Moderne offers several tools to help you do this:
         </p>
         <p>
           The <Link href="/user-documentation/moderne-platform/getting-started/running-your-first-recipe"><strong>Moderne Platform</strong></Link> is an enterprise-ready, private SaaS solution that enables anyone in your organization to run recipes, create pull requests, and generate detailed reports across all of your repositories - all without writing a line of code.
