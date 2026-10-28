@@ -39,7 +39,7 @@ See [Accessing the Code Genome Project](../../../user-documentation/recipes/acce
 
 We've provided a [devcenter-starter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) that you can copy to your own repository to get started. You can also create your own if you desire. Check out the [understanding DevCenter recipes section](#understanding-devcenter-recipes) below for more information on how to create your own.
 
-The [rewrite-devcenter repository](https://github.com/moderneinc/rewrite-devcenter) contains common card recipes that you may want to use or modify, such as the [LibraryUpgrade card recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java). See [Card recipes](#card-recipes) below for the full set.
+The [rewrite-devcenter repository](https://github.com/moderneinc/rewrite-devcenter) contains common card recipes that you may want to use or modify, such as the [LibraryUpgrade card recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java). See [Card recipes](#card-recipes) below for an overview.
 
 Any recipe that meets the following requirements can be displayed as a DevCenter card:
 
@@ -142,7 +142,7 @@ This recipe takes in a `fixRecipe` property that defines the recipe that can be 
 
 ## Card recipes
 
-The `rewrite-devcenter` module provides the following card recipes. Each one places every repository in a category, such as how far it is from a target version, and the card shows how many repositories fall in each category.
+The following card recipes are among the most commonly used. Each one places every repository in a category, such as how far it is from a target version, and the card shows how many repositories fall in each category.
 
 | Card recipe | What the card tracks |
 |-------------|----------------------|
@@ -158,7 +158,7 @@ The `rewrite-devcenter` module provides the following card recipes. Each one pla
 | [`EcmaScriptModernization`](../../../user-documentation/recipes/recipe-catalog/devcenter/ecmascriptmodernization.md) | How many JavaScript and TypeScript variable declarations still use `var`. |
 | [`ReportAsSecurityIssues`](../../../user-documentation/recipes/recipe-catalog/devcenter/reportassecurityissues.md) | Issues found by the recipes listed before it, shown in the security section. |
 
-The module also has version cards for other languages and frameworks:
+There are also version cards for other languages and frameworks:
 
 * [`AngularVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/angularversionupgrade.md)
 * [`CSharpVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/csharpversionupgrade.md)
@@ -168,6 +168,8 @@ The module also has version cards for other languages and frameworks:
 * [`NodeVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/nodeversionupgrade.md)
 * [`PythonVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/pythonversionupgrade.md)
 * [`ScalaVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/scalaversionupgrade.md)
+
+The [DevCenter recipe catalog](../../../user-documentation/recipes/recipe-catalog/devcenter/README.md) lists every card recipe and DevCenter in the module, including ones added after this guide was written.
 
 ## More DevCenter recipe examples
 
