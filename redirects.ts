@@ -10,6 +10,7 @@
 // Notes:
 //   * Paths are site-root-relative (this site serves docs at "/").
 //   * `to` must resolve to a real page; the build fails on a dangling target.
+//     It may also be an absolute URL, which the build does not check.
 //
 // Testing redirects locally:
 //   This plugin only emits redirect files during a production build. `yarn start`
@@ -95,7 +96,7 @@ const redirects: RedirectRule[] = [
       '/user-documentation/recipes/lists/scanning-recipes',
       '/user-documentation/recipes/lists/standalone-recipes',
     ],
-    to: '/user-documentation/recipes/recipe-catalog',
+    to: 'https://codegenomeproject.org/recipes',
   },
 ];
 
