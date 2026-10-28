@@ -1,10 +1,14 @@
-# Emergency fallback: single-job deploy. Superseded by pages-sharded.yml as
-# the primary deploy path; kept here as a manually-dispatched backup in case
-# the sharded build needs to be bypassed.
-name: Deploy Moderne docs to Pages (emergency fallback)
+name: Deploy Moderne docs to Pages
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Update docs"]
+    types:
+      - completed
+  push:
+    branches:
+      - main
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -17,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      # fetch-depth: 0 is required by showLastUpdateTime. Do not add
+      # filter: blob:none — future.v4 makes Docusaurus read dates with
+      # `git log --name-status`, whose rename detection needs historical blobs,
+      # so the build lazily refetches them from the promisor remote mid-build.
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
@@ -24,9 +32,10 @@ jobs:
         with:
           node-version: 24
 
-      - name: Restore node_modules
+      # Saved here on main so that pr-validation.yml can restore it.
+      - name: Cache node_modules
         id: node-modules
-        uses: actions/cache/restore@v6
+        uses: actions/cache@v6
         with:
           path: |
             node_modules
@@ -36,6 +45,9 @@ jobs:
       - name: Install dependencies
         if: steps.node-modules.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
+
+      - name: Lint markdown
+        run: yarn lint:markdown
 
       - name: Cache build compilation artifacts
         uses: actions/cache@v6
