@@ -1,4 +1,11 @@
 # Platform changelog
+### UI v14.42.0 (2026/10/28)
+
+- show the active file filter and apply edits made just before the menu closes
+- render saved searches as search by node type
+- migrate GraphQL error, Global org and chat fallback copy to ERROR_MESSAGES
+- show "X of Y" repositories when the table is filtered
+
 ### UI v14.41.1 (2026/10/26)
 
 - Bug fixes and other improvements.
