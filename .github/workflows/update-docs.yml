@@ -1,5 +1,5 @@
 # Keep the latest versions page in sync with the latest OpenRewrite releases.
-# The name is load-bearing: pages-sharded.yml deploys when a run of "Update docs" completes.
+# The name is load-bearing: pages.yml deploys when a run of "Update docs" completes.
 name: Update docs
 
 on:

@@ -23,7 +23,7 @@ jobs:
 
       # Restore only: a cache saved on a pull request ref cannot be read by any
       # other pull request, so writing here would just fill the quota. The entry
-      # this restores is published by the lint job of pages-sharded.yml on main.
+      # this restores is published by pages.yml on main.
       - name: Restore node_modules
         id: node-modules
         uses: actions/cache/restore@v6
