@@ -11,7 +11,7 @@ import ReactPlayer from '@site/src/components/VideoPlayer';
 
 Nowadays, when a migration such as Java 17 to 25 is required, many teams reach for an AI agent to handle that. This _can_ work for one repository at a time - but extending that to even tens of repositories can be problematic. AI agents will need to read every repository, make similar edits by hand, and will then return different results for every repository.
 
-This is where Moderne comes into play. AI agents equipped with the Moderne CLI can consistently and quickly modernize every repository you have at once. For that same Java 17 to 25 migration, agents can simply use the [OpenRewrite migrate to Java 25 recipe](../../recipes/recipe-catalog/java/migrate/upgradetojava25.md) rather than needing to start by searching for everything that's changed in Java 25.
+This is where Moderne comes into play. AI agents equipped with the Moderne CLI can consistently and quickly modernize every repository you have at once. For that same Java 17 to 25 migration, agents can simply use the [OpenRewrite migrate to Java 25 recipe](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25) rather than needing to start by searching for everything that's changed in Java 25.
 
 In this guide, we will walk you through this process. We'll start by installing the CLI and connecting it to Moderne before moving on to asking a coding agent to upgrade five sample open source repositories to Java 25. Along the way, you'll see what the agent does with the CLI and what types of results you get back at the end.
 

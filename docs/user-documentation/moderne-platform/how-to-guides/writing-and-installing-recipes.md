@@ -6,14 +6,14 @@ description: How to create your own recipes and how to deploy them to the Modern
 
 # Writing and installing recipes
 
-As a user of the Moderne Platform, you've probably run quite a few [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes). However, what if none of the recipes in [the catalog](https://docs.openrewrite.org/recipes) do what you want to do? In that case, you will need to write your own. 
+As a user of the Moderne Platform, you've probably run quite a few [recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes). However, what if none of the recipes in [the catalog](https://codegenomeproject.org/recipes) do what you want to do? In that case, you will need to write your own. 
 
 In this short guide, we will walk through how to get started with writing recipes, and the steps you need to take after to make them appear in your Moderne Platform instance.
 
 ## Step 1: Write a recipe
 
 :::tip
-Before writing a new recipe, it's a good idea to double-check that the [recipe catalog](https://docs.openrewrite.org/recipes) doesn't have any recipes that do what you want or can be easily modified to meet your needs.
+Before writing a new recipe, it's a good idea to double-check that the [recipe catalog](https://codegenomeproject.org/recipes) doesn't have any recipes that do what you want or can be easily modified to meet your needs.
 :::
 
 If your new recipe idea can be composed of many other recipes or if it can be created by taking an existing recipe and removing pieces of it, check out our doc on [creating custom recipes with the recipe builder](./new-recipe-builder.md).

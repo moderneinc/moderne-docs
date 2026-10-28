@@ -17,12 +17,22 @@
 //   (the dev server) ignores it, so redirects never work there. To test them,
 //   build the site and serve the output:
 //
-//     EXAMPLE_RECIPES_ONLY=1 yarn build   # build + generate the redirect files
-//     npm run serve                       # serve build/ at http://localhost:3000
+//     yarn build      # build + generate the redirect files
+//     npm run serve   # serve build/ at http://localhost:3000
 //
 //   Then open an old path (e.g. http://localhost:3000/releases/cli-dx) and confirm
-//   it lands on the new page. EXAMPLE_RECIPES_ONLY skips the ~5,700 recipe-catalog
-//   pages for a much faster build; every redirect is still generated.
+//   it lands on the new page.
+//
+// The recipe catalog moved to the Code Genome Project. Its ~9,000 redirects live in
+// src/config/recipe-catalog-redirects.json rather than in this list. Each old recipe
+// page goes to the same recipe on CGP by recipe ID. Each category page goes to a CGP
+// search: on the full package when every recipe in the category shares one, otherwise
+// on the vendor-neutral segments (e.g. `java.spring.boot3` covers both
+// org.openrewrite.java.spring.boot3 and io.moderne.java.spring.boot3). A few recipe
+// pages whose recipes aren't in CGP yet are grouped under their category's search.
+// The file was generated once from the catalog before it was deleted; edit it by hand.
+
+import recipeCatalogRedirects from './src/config/recipe-catalog-redirects.json';
 
 type RedirectRule = { from: string | string[]; to: string };
 
@@ -98,6 +108,7 @@ const redirects: RedirectRule[] = [
     ],
     to: 'https://codegenomeproject.org/recipes',
   },
+  ...(recipeCatalogRedirects as RedirectRule[]),
 ];
 
 export default redirects;

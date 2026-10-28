@@ -18,7 +18,7 @@ In this module, you will raise the Java baseline to 17 and run a controlled Spri
 ### Steps
 
 1. Back in the [Moderne Platform](https://app.moderne.io), relogin if needed, then click **Activity** in the left navigation. The Activity page shows a history of all recipe runs, including their status and results.
-2. Open the failed run of your custom `Try Spring Boot 4 Upgrade` recipe from Module 1 that included [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition) and [`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation).
+2. Open the failed run of your custom `Try Spring Boot 4 Upgrade` recipe from Module 1 that included [`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0) and [`io.moderne.compiled.verification.VerifyCompilation`](https://codegenomeproject.org/recipes/io.moderne.compiled.verification.VerifyCompilation).
 3. Click the **Visualizations** tab and run the **Composite recipe results** visualization.
 
 <figure>
@@ -39,7 +39,7 @@ The `Composite recipe results` view breaks the run down by recipe so you can see
 
 #### Step 1: Run the Java 17 recipe
 
-Spring Framework 6+ and Spring Boot 3+ require Java 17 or higher. Upgrading Java first narrows the change surface and makes the Spring Boot upgrade easier to reason about. Run the `Migrate to Java 17` recipe ([`org.openrewrite.java.migrate.UpgradeToJava17`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava17)) from the command line and apply the changes:
+Spring Framework 6+ and Spring Boot 3+ require Java 17 or higher. Upgrading Java first narrows the change surface and makes the Spring Boot upgrade easier to reason about. Run the `Migrate to Java 17` recipe ([`org.openrewrite.java.migrate.UpgradeToJava17`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava17)) from the command line and apply the changes:
 
 ```bash
 mod run $WORKSPACE --recipe org.openrewrite.java.migrate.UpgradeToJava17
@@ -47,7 +47,7 @@ mod git apply $WORKSPACE --last-recipe-run
 ```
 
 :::note
-Spring Boot 2.7 doesn't support Java 25. If you try `UpgradeToJava25` ([`org.openrewrite.java.migrate.UpgradeToJava25`](https://docs.openrewrite.org/recipes/java/migrate/upgradetojava25)) at this stage, you'll hit compatibility issues. That is expected and a useful reminder to step through intermediate baselines.
+Spring Boot 2.7 doesn't support Java 25. If you try `UpgradeToJava25` ([`org.openrewrite.java.migrate.UpgradeToJava25`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)) at this stage, you'll hit compatibility issues. That is expected and a useful reminder to step through intermediate baselines.
 :::
 
 #### Step 2: Build and commit
@@ -297,7 +297,7 @@ Now that your repositories are upgraded to Java 17, you can run another quick sm
 
 #### Step 1: Run the upgrade recipe
 
-In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://docs.openrewrite.org/recipes/compiled/verification/verifycompilation)) to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://docs.openrewrite.org/recipes/java/spring/boot4/upgradespringboot_4_0-moderne-edition)) by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes.
+In Module 1, you ran the recipe in the platform and used the `Verify compilation` recipe ([`io.moderne.compiled.verification.VerifyCompilation`](https://codegenomeproject.org/recipes/io.moderne.compiled.verification.VerifyCompilation)) to check for build failures. Now, you can run the Spring Boot 4 Upgrade recipe ([`io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.UpgradeSpringBoot_4_0)) by itself with the CLI and verify the build directly to isolate any remaining obstacles that may require custom fixes.
 
 First, run the recipe and apply the changes:
 

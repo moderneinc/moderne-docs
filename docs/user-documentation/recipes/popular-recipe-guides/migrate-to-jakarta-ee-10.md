@@ -14,7 +14,7 @@ Jakarta EE 10 is the enterprise Java baseline that modern application servers, S
 
 For a codebase still on the `javax.*` APIs, that is a sprawling change: every enterprise import, every annotation attribute, every deployment descriptor, and every API dependency has to move in lockstep, and the deprecated-method removals are easy to miss until something fails at runtime.
 
-The [`JakartaEE10`](../recipe-catalog/java/migrate/jakarta/jakartaee10.md) recipe applies these changes automatically: it migrates the `javax.*` namespace to `jakarta.*`, updates the Jakarta EE API and platform dependencies to their EE 10 versions, replaces deprecated APIs, and updates the XML descriptors and third-party libraries that need to move alongside them.
+The [`JakartaEE10`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.jakarta.JakartaEE10) recipe applies these changes automatically: it migrates the `javax.*` namespace to `jakarta.*`, updates the Jakarta EE API and platform dependencies to their EE 10 versions, replaces deprecated APIs, and updates the XML descriptors and third-party libraries that need to move alongside them.
 
 In this guide, we will show you how to run this recipe on the Moderne Platform or with the Moderne CLI.
 
@@ -22,19 +22,19 @@ In this guide, we will show you how to run this recipe on the Moderne Platform o
 
 Before running this recipe, make sure:
 
-* Your codebase currently uses the `javax.*` enterprise APIs (Java EE or Jakarta EE 8) or an earlier Jakarta EE 9 release. `JakartaEE10` includes the [Jakarta EE 9 namespace migration](../recipe-catalog/java/migrate/jakarta/javaxmigrationtojakarta.md) transitively, so the `javax` to `jakarta` rename and the EE 10 updates are applied in a single run – you do not need to migrate to Jakarta EE 9 first.
+* Your codebase currently uses the `javax.*` enterprise APIs (Java EE or Jakarta EE 8) or an earlier Jakarta EE 9 release. `JakartaEE10` includes the [Jakarta EE 9 namespace migration](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta) transitively, so the `javax` to `jakarta` rename and the EE 10 updates are applied in a single run – you do not need to migrate to Jakarta EE 9 first.
 * Your build environment uses **Java 11 or later**. Jakarta EE 10 sets its baseline at Java SE 11 and also supports Java SE 17. If you are still on Java 8, run [Migrate to Java 17](./migrate-to-java.md) first and verify everything still builds.
 
 ## What this recipe does
 
 `JakartaEE10` is a composite recipe that bundles many smaller transformations. Some of the most visible changes this recipe makes to your code include:
 
-* [Migrate the `javax.*` namespace to `jakarta.*`](../recipe-catalog/java/migrate/jakarta/javaxmigrationtojakarta.md) – the foundational rename covering Servlet, Persistence, Validation, CDI, JMS, and JAX-RS APIs, along with the `xmlns` declarations in deployment descriptors like `web.xml`, `beans.xml`, and `ejb-jar.xml`.
-* [Update Jakarta EE API dependencies to their EE 10 versions](../recipe-catalog/java/migrate/jakarta/migrationtojakarta10apis.md) – bumps API artifacts such as `jakarta.servlet-api` to 6.0.x, `jakarta.persistence-api` to 3.1.x, and `jakarta.validation-api` to 3.0.x.
-* [Replace deprecated Jakarta Servlet methods and classes](../recipe-catalog/java/migrate/jakarta/removalsservletjakarta10.md) – swaps out APIs removed in Servlet 6.0, renaming calls like `encodeUrl(..)` to `encodeURL(..)` and `HttpSession.putValue(..)` to `setAttribute(..)`.
-* [Update `javax`-valued annotation attributes](../recipe-catalog/java/migrate/jakarta/updateannotationattributejavaxtojakarta.md) – rewrites string attributes that still reference `javax`, such as `interfaceName = "javax.jms.Topic"` on a `@JMSDestinationDefinition`.
+* [Migrate the `javax.*` namespace to `jakarta.*`](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta) – the foundational rename covering Servlet, Persistence, Validation, CDI, JMS, and JAX-RS APIs, along with the `xmlns` declarations in deployment descriptors like `web.xml`, `beans.xml`, and `ejb-jar.xml`.
+* [Update Jakarta EE API dependencies to their EE 10 versions](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.jakarta.MigrationToJakarta10Apis) – bumps API artifacts such as `jakarta.servlet-api` to 6.0.x, `jakarta.persistence-api` to 3.1.x, and `jakarta.validation-api` to 3.0.x.
+* [Replace deprecated Jakarta Servlet methods and classes](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.jakarta.RemovalsServletJakarta10) – swaps out APIs removed in Servlet 6.0, renaming calls like `encodeUrl(..)` to `encodeURL(..)` and `HttpSession.putValue(..)` to `setAttribute(..)`.
+* [Update `javax`-valued annotation attributes](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.jakarta.UpdateAnnotationAttributeJavaxToJakarta) – rewrites string attributes that still reference `javax`, such as `interfaceName = "javax.jms.Topic"` on a `@JMSDestinationDefinition`.
 
-Beyond these source changes, the recipe also raises the [Jakarta EE platform dependencies to 10.0.0](../recipe-catalog/java/migrate/jakarta/updatejakartaplatform10.md), removes [deprecated CDI 4.0 APIs](../recipe-catalog/java/migrate/jakarta/deprecatedcdiapisremoved40.md), upgrades supporting libraries (Jersey 3.1, EclipseLink 4.x, Apache Shiro 2.0, Eclipse Yasson 3.0, and Apache Commons Email2 and FileUpload2), migrates Jakarta Faces to 4.x, upgrades Jetty EE9 to EE10, and updates build plugins in your Maven and Gradle files. For the complete list of sub-recipes, see the [recipe catalog page](../recipe-catalog/java/migrate/jakarta/jakartaee10.md).
+Beyond these source changes, the recipe also raises the [Jakarta EE platform dependencies to 10.0.0](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.jakarta.UpdateJakartaPlatform10), removes [deprecated CDI 4.0 APIs](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.jakarta.DeprecatedCDIAPIsRemoved40), upgrades supporting libraries (Jersey 3.1, EclipseLink 4.x, Apache Shiro 2.0, Eclipse Yasson 3.0, and Apache Commons Email2 and FileUpload2), migrates Jakarta Faces to 4.x, upgrades Jetty EE9 to EE10, and updates build plugins in your Maven and Gradle files. For the complete list of sub-recipes, see the [recipe catalog page](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.jakarta.JakartaEE10).
 
 ### Example
 

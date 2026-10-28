@@ -4,7 +4,7 @@ description: Changelog for Moderne proprietary OpenRewrite recipes.
 
 # Proprietary recipe changelog
 
-This page contains release notes for [Moderne proprietary OpenRewrite recipes](https://docs.openrewrite.org/reference/moderne-recipes).
+This page contains release notes for [Moderne proprietary OpenRewrite recipes](https://codegenomeproject.org/recipes?license=proprietary).
 
 :::info
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
