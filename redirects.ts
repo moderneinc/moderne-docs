@@ -23,10 +23,14 @@
 //   Then open an old path (e.g. http://localhost:3000/releases/cli-dx) and confirm
 //   it lands on the new page.
 //
-// The recipe catalog moved to the Code Genome Project. Its ~9,000 redirects send each
-// old recipe page to the same recipe on CGP by recipe ID, and each category page to a
-// CGP search on its package. They're generated, so they live in
-// src/config/recipe-catalog-redirects.json rather than in this list.
+// The recipe catalog moved to the Code Genome Project. Its ~9,000 redirects live in
+// src/config/recipe-catalog-redirects.json rather than in this list. Each old recipe
+// page goes to the same recipe on CGP by recipe ID. Each category page goes to a CGP
+// search: on the full package when every recipe in the category shares one, otherwise
+// on the vendor-neutral segments (e.g. `java.spring.boot3` covers both
+// org.openrewrite.java.spring.boot3 and io.moderne.java.spring.boot3). A few recipe
+// pages whose recipes aren't in CGP yet are grouped under their category's search.
+// The file was generated once from the catalog before it was deleted; edit it by hand.
 
 import recipeCatalogRedirects from './src/config/recipe-catalog-redirects.json';
 

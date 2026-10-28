@@ -202,12 +202,13 @@ const config: Config = {
     faster: {
       // SSG worker threads parallelise per-page rendering; each worker
       // holds a React render tree and a copy of the server bundle,
-      // multiplying sustained memory across pages in flight. With the
-      // full recipe-catalog build (~7,500 routes) on ubuntu-latest's
-      // 16 GB the kernel SIGTERMs the job mid-build. Locally we keep
-      // parallel SSG for speed; on CI we serialise to keep sustained
-      // memory bounded. Rspack/SWC keep their own internal parallelism
-      // for the bundling/minimising work either way.
+      // multiplying sustained memory across pages in flight. Locally we
+      // keep parallel SSG for speed; on CI we serialise to keep sustained
+      // memory bounded. This dates from the ~7,500-route recipe catalog,
+      // which has since moved to the Code Genome Project; the site is now
+      // small enough that parallel SSG would save little on CI anyway.
+      // Rspack/SWC keep their own internal parallelism for the
+      // bundling/minimising work either way.
       ssgWorkerThreads: !process.env.CI,
       swcJsLoader: true,
       swcJsMinimizer: true,

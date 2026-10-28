@@ -10,6 +10,9 @@
  *
  * Modifications from upstream:
  * - Backport the DocSearch insights fix in useTransformSearchClient
+ * - Type `askAi` from the theme config and pass it through to useAlgoliaAskAi
+ * - Let every Cmd/Ctrl combo through to useDocSearchKeyboardEvents in
+ *   handleInput, not only Ctrl+F
  */
 
 import React, {
