@@ -44,3 +44,8 @@ docs/plans/
 storybook-static
 .env
 .env*.local
+
+# Gradle
+.gradle/
+.kotlin/
+buildSrc/build/
