@@ -1,1 +1,0 @@
-export { OptionsTable } from './OptionsTable';

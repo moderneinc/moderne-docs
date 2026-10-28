@@ -1,27 +1,9 @@
 import type * as Preset from '@docusaurus/preset-classic';
 import type { Config } from '@docusaurus/types';
 import { themes as prismThemes } from 'prism-react-renderer';
-import { readdirSync } from 'node:fs';
 import latestVersions from "./src/plugins/latest-versions";
 import remarkTokenReplacer from "./src/plugins/replace-tokens";
 import redirects from "./redirects";
-
-// Fast iteration on the redesigned recipe pages: when EXAMPLE_RECIPES_ONLY is set, exclude the entire
-// recipe-catalog EXCEPT the handful of example pages we're actively developing, so a build/start only
-// compiles those (plus the rest of the non-catalog docs) instead of all ~5,700 catalog pages.
-const RECIPE_CATALOG = 'user-documentation/recipes/recipe-catalog';
-const EXAMPLE_RECIPE_PAGES = [
-  `${RECIPE_CATALOG}/staticanalysis/replaceduplicatestringliterals.md`,
-  `${RECIPE_CATALOG}/staticanalysis/commonstaticanalysis.md`,
-  `${RECIPE_CATALOG}/quarkus/quarkus1to1_13migration.md`,
-];
-
-function exampleRecipesExclude(): string[] {
-  const keep = new Set(EXAMPLE_RECIPE_PAGES);
-  return readdirSync(`docs/${RECIPE_CATALOG}`, { recursive: true })
-    .map((f) => `${RECIPE_CATALOG}/${String(f).replace(/\\/g, '/')}`)
-    .filter((f) => /\.mdx?$/.test(f) && !keep.has(f));
-}
 
 const config: Config = {
   title: 'Moderne Docs',
@@ -33,8 +15,7 @@ const config: Config = {
   organizationName: 'moderneinc',
   projectName: 'moderne-docs',
 
-  // Only throw on broken links when the full site (including recipe catalog) is built.
-  onBrokenLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG && !process.env.EXAMPLE_RECIPES_ONLY) ? 'throw' : 'warn',
+  onBrokenLinks: process.env.CI_STRICT_LINKS ? 'throw' : 'warn',
 
   i18n: {
     defaultLocale: 'en',
@@ -120,10 +101,6 @@ const config: Config = {
             '**/*.stories.ts',
             '**/*.stories.jsx',
             '**/*.stories.js',
-            // Skip 5,700+ recipe-catalog pages for faster local rebuilds.
-            // Use `yarn start:fast` to enable this; `yarn start` includes everything.
-            ...(process.env.SKIP_RECIPE_CATALOG ? ['user-documentation/recipes/recipe-catalog/**'] : []),
-            ...(process.env.EXAMPLE_RECIPES_ONLY ? exampleRecipesExclude() : []),
           ],
           remarkPlugins: [
             [
@@ -155,9 +132,7 @@ const config: Config = {
   markdown: {
     mermaid: true,
     hooks: {
-      // Only throw on broken markdown links when the full site (including recipe catalog) is built.
-      // When SKIP_RECIPE_CATALOG is set, recipe list pages will have expected broken links.
-      onBrokenMarkdownLinks: (process.env.CI_STRICT_LINKS && !process.env.SKIP_RECIPE_CATALOG) ? 'throw' : 'warn',
+      onBrokenMarkdownLinks: process.env.CI_STRICT_LINKS ? 'throw' : 'warn',
       onBrokenMarkdownImages: process.env.CI_STRICT_LINKS ? 'throw' : 'warn',
     }
   },
@@ -190,7 +165,6 @@ const config: Config = {
         description: 'Large-scale automated source code refactoring',
         excludeImports: true,
         removeDuplicateHeadings: true,
-        ignoreFiles: ['**/recipe-catalog/**'],
         customLLMFiles: [
           {
             filename: 'llms-platform.txt',
@@ -251,7 +225,6 @@ const config: Config = {
       appId: "MEFFK0HGO6",
       apiKey: "15eb9c9f6f3147b1cf82b1b7f93cace8",
       indexName: "moderne",
-      // Search filtering is handled by SearchFacetTabs (src/theme/SearchBar)
       insights: true,
       searchParameters: {
         clickAnalytics: true,
