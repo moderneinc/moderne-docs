@@ -45,7 +45,7 @@ Any recipe that meets the following requirements can be displayed as a DevCenter
 
 * Requires no input options
 * Outputs the `UpgradesAndMigrations` and/or `SecurityIssues` data tables (either or both)
-* Includes the correct columns for those tables (see [DevCenterStarter data table definitions](../../../user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md#data-tables) for details)
+* Includes the correct columns for those tables (see the [data table definitions](https://github.com/moderneinc/rewrite-devcenter/tree/main/src/main/java/io/moderne/devcenter/table) for details)
 
 ### Step 4: Deploy the recipe artifact
 
@@ -146,41 +146,41 @@ The following card recipes are among the most commonly used. Each one places eve
 
 | Card recipe | What the card tracks |
 |-------------|----------------------|
-| [`LibraryUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/libraryupgrade.md) | The lowest version of the matching Maven or Gradle dependencies, compared to a target version. |
-| [`ParentPomUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/parentpomupgrade.md) | The version of a Maven parent POM, compared to a target version. |
+| [`LibraryUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java) | The lowest version of the matching Maven or Gradle dependencies, compared to a target version. |
+| [`ParentPomUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/ParentPomUpgrade.java) | The version of a Maven parent POM, compared to a target version. |
 | [`PackageUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/PackageUpgrade.java) | The version of an npm, PyPI, or NuGet package or a Go module, compared to a target version. |
 | [`PackageMigration`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/PackageMigration.java) | Whether repositories have moved from one npm, PyPI, or NuGet package or Go module to another. |
-| [`JavaVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/javaversionupgrade.md) | The Java version each repository compiles for. |
-| [`JUnitJupiterUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/junitjupiterupgrade.md) | Whether each repository tests with JUnit 4, JUnit 5, or JUnit 6. |
-| [`BuildToolCard`](../../../user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard.md) | The Gradle or Maven version each repository builds with. |
-| [`DependencyVulnerabilityCheck`](../../../user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck.md) | Known dependency vulnerabilities, measured by severity, by the size of the upgrade that fixes them, or by risk score. |
-| [`BucketedMetricCard`](../../../user-documentation/recipes/recipe-catalog/devcenter/bucketedmetriccard.md) | A numeric column from a data table that an earlier recipe in the list produces, aggregated per repository and sorted into the categories you define. |
-| [`EcmaScriptModernization`](../../../user-documentation/recipes/recipe-catalog/devcenter/ecmascriptmodernization.md) | How many JavaScript and TypeScript variable declarations still use `var`. |
-| [`ReportAsSecurityIssues`](../../../user-documentation/recipes/recipe-catalog/devcenter/reportassecurityissues.md) | Issues found by the recipes listed before it, shown in the security section. |
+| [`JavaVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JavaVersionUpgrade.java) | The Java version each repository compiles for. |
+| [`JUnitJupiterUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JUnitJupiterUpgrade.java) | Whether each repository tests with JUnit 4, JUnit 5, or JUnit 6. |
+| [`BuildToolCard`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/BuildToolCard.java) | The Gradle or Maven version each repository builds with. |
+| [`DependencyVulnerabilityCheck`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/DependencyVulnerabilityCheck.java) | Known dependency vulnerabilities, measured by severity, by the size of the upgrade that fixes them, or by risk score. |
+| [`BucketedMetricCard`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/BucketedMetricCard.java) | A numeric column from a data table that an earlier recipe in the list produces, aggregated per repository and sorted into the categories you define. |
+| [`EcmaScriptModernization`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/EcmaScriptModernization.java) | How many JavaScript and TypeScript variable declarations still use `var`. |
+| [`ReportAsSecurityIssues`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/ReportAsSecurityIssues.java) | Issues found by the recipes listed before it, shown in the security section. |
 
 There are also version cards for other languages and frameworks:
 
-* [`AngularVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/angularversionupgrade.md)
-* [`CSharpVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/csharpversionupgrade.md)
-* [`GoVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/goversionupgrade.md)
-* [`GroovyVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/groovyversionupgrade.md)
-* [`KotlinVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/kotlinversionupgrade.md)
-* [`NodeVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/nodeversionupgrade.md)
-* [`PythonVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/pythonversionupgrade.md)
-* [`ScalaVersionUpgrade`](../../../user-documentation/recipes/recipe-catalog/devcenter/scalaversionupgrade.md)
+* [`AngularVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/AngularVersionUpgrade.java)
+* [`CSharpVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/CSharpVersionUpgrade.java)
+* [`GoVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/GoVersionUpgrade.java)
+* [`GroovyVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/GroovyVersionUpgrade.java)
+* [`KotlinVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/KotlinVersionUpgrade.java)
+* [`NodeVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/NodeVersionUpgrade.java)
+* [`PythonVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/PythonVersionUpgrade.java)
+* [`ScalaVersionUpgrade`](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/ScalaVersionUpgrade.java)
 
-The [DevCenter recipe catalog](../../../user-documentation/recipes/recipe-catalog/devcenter/README.md) lists every card recipe and DevCenter in the module, including ones added after this guide was written.
+The [rewrite-devcenter repository](https://github.com/moderneinc/rewrite-devcenter) has the complete set, including [card recipes](https://github.com/moderneinc/rewrite-devcenter/tree/main/src/main/java/io/moderne/devcenter) and [DevCenters](https://github.com/moderneinc/rewrite-devcenter/tree/main/src/main/resources/META-INF/rewrite) added after this guide was written.
 
 ## More DevCenter recipe examples
 
 Besides the starter, `rewrite-devcenter` ships complete DevCenter recipes that you can deploy as they are or copy as a starting point:
 
-* [DevCenter for Quarkus](../../../user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter.md)
-* [DevCenter for Apache](../../../user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md) and [DevCenter for Apache Maven](../../../user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter.md)
-* [DevCenter for Gradle and Maven](../../../user-documentation/recipes/recipe-catalog/devcenter/buildtoolstarter.md)
-* [DevCenter for Vulnerability Management](../../../user-documentation/recipes/recipe-catalog/devcenter/vulnerabilitiesdevcenter.md)
-* [Class cohesion DevCenter](../../../user-documentation/recipes/recipe-catalog/devcenter/classcohesiondevcenter.md)
-* DevCenters for [Angular](../../../user-documentation/recipes/recipe-catalog/devcenter/devcenterangularstarter.md), [C#](../../../user-documentation/recipes/recipe-catalog/devcenter/devcentercsharpstarter.md), [Go](../../../user-documentation/recipes/recipe-catalog/devcenter/devcentergostarter.md), [JavaScript and TypeScript](../../../user-documentation/recipes/recipe-catalog/devcenter/devcenternodestarter.md), [Kotlin](../../../user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin.md), and [Python](../../../user-documentation/recipes/recipe-catalog/devcenter/devcenterpythonstarter.md)
+* [DevCenter for Quarkus](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/quarkus-devcenter.yml)
+* [DevCenter for Apache](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/apache-maven-devcenter.yml) and [DevCenter for Apache Maven](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/apache-maven-devcenter.yml)
+* [DevCenter for Gradle and Maven](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/build-tool-devcenter.yml)
+* [DevCenter for Vulnerability Management](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/vulnerabilities-devcenter.yml)
+* [Class cohesion DevCenter](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/code-quality-devcenter.yml)
+* DevCenters for [Angular](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/angular-devcenter.yml), [C#](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/csharp-devcenter.yml), [Go](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/go-devcenter.yml), [JavaScript and TypeScript](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/node-devcenter.yml), [Kotlin](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-kotlin.yml), [Python](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/python-devcenter.yml), and [React](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/react-devcenter.yml)
 
 The following examples, taken from those recipes, show how you can customize a DevCenter to meet your own needs.
 
