@@ -20,14 +20,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## October 27, 2026
 
-#### recipes-csharp - 0.11.0
-
-* Report AddNuGetPackageReferenceIfTypeUsed option error once, not per file
-* Remove matched C# calls instead of delegating RemoveMethodInvocations
-* Stop publishing the empty Maven artifact
-* Read referenced projects from MSBuildProject.ProjectReferences
-* Upgrade to Gradle 9.8.2
-
 #### recipes-csharp - 0.10.0
 
 * Report AddNuGetPackageReferenceIfTypeUsed option error once, not per file
@@ -36,18 +28,8 @@ This changelog is automatically generated from GitHub releases and only contains
 * Read referenced projects from MSBuildProject.ProjectReferences
 * Upgrade to Gradle 9.8.2
 
-#### recipes-go - 0.14.0
-
-* Upgrade to Gradle 9.8.2
-
 #### recipes-go - 0.13.0
 
-* Upgrade to Gradle 9.8.2
-
-#### recipes-javascript - 0.5.0
-
-* Stop publishing the empty Maven artifact
-* Overhaul of the moment-to-temporal recipe
 * Upgrade to Gradle 9.8.2
 
 #### recipes-javascript - 0.4.0
@@ -56,10 +38,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Overhaul of the moment-to-temporal recipe
 * Upgrade to Gradle 9.8.2
 
-#### recipes-kotlin - 0.8.0
-
-* Add recipes.csv
-
 #### recipes-kotlin - 0.7.1
 
 * Add recipes.csv
@@ -67,21 +45,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### recipes-kotlin - 0.7.0
 
 * Upgrade to Gradle 9.8.2
-
-#### recipes-mainframe - 0.2.0
-
-* Resolve rewrite-cobol from the Code Genome Project, and stop caching against a dead host
-* Resolve org.openrewrite build plugins from the Code Genome Project
-* Return the single decision table from the assertion that checks it
-* OpenRewrite recipe best practices
-* Add a guide that takes analysts from a legacy mainframe tool to Moderne
-* Read EXEC SQL through rewrite-mainframe's SQL trait
-* Bring the analyst guide up to date with the search that landed on 2026-10-18
-* Send the analyst guide's conversations through coding agents, drop its dates, and describe the code search page as it ships
-* expectedCyclesThatMakeChanges=2
-* Upgrade to Gradle 9.8.2
-* Keep values, not trees or traits, in the mainframe indexes' accumulators
-* Let rewriteRun verify recipes settle instead of pinning cycles
 
 #### recipes-mainframe - 0.1.0
 
@@ -172,10 +135,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Describe the cards of each DevCenter in its description
 * Show a colored bar for each card in the DevCenter descriptions
 * Resolve DependencyVulnerabilityCheckLeakTest's POMs through the machine's Maven settings
-
-#### rewrite-dotnet - 0.20.0
-
-* Upgrade to Gradle 9.8.2
 
 #### rewrite-dotnet - 0.19.0
 
@@ -1471,10 +1430,6 @@ Renamed to `rewrite-mainframe` to reflect the expanding language support beyond 
 * Apply the dependency-check plugin at the root project
 * Expect the taint-tracking recipes to settle on the first cycle
 
-#### rewrite-devcenter - 1.31.5
-
-* Updated repository to use OpenRewrite version v8.91.0
-
 #### rewrite-devcenter - 1.31.4
 
 * Updated repository to use OpenRewrite version v8.91.0
@@ -1514,13 +1469,6 @@ Renamed to `rewrite-mainframe` to reflect the expanding language support beyond 
 #### rewrite-java-security - 3.39.0
 
 * Let the CLI smoke test resolve snapshots from the Code Genome Project
-
-#### rewrite-java-security - 3.38.3
-
-* Add FindJdbcEmptyPassword (Sonar S2115)
-* Add FindWaitNotifyOnThread (Sonar S2236)
-* Remove duplicate org.openrewrite.golang category descriptor
-* Add OWASP LLM01 prompt-injection recipes
 
 #### rewrite-kafka - 0.7.6
 
@@ -2127,13 +2075,6 @@ Pick up latest rewrite-java-security.
 
 ## July 23, 2026
 
-#### rewrite-devcenter - 1.29.0
-
-* Show CD/LoC counts on the Vulnerabilities DevCenter
-* Show CD/LoC counts on all remaining DevCenters
-* Count lines of code in-process without printing the LST
-* Fix broken DevCenter documentation link
-
 #### rewrite-devcenter - 1.28.2
 
 * Show CD/LoC counts on the Vulnerabilities DevCenter
@@ -2277,10 +2218,6 @@ Pick up latest rewrite-java-security.
 * Add Go version upgrade card
 
 #### rewrite-dotnet - 0.17.1
-
-* Updated repository to use OpenRewrite version v8.87.0
-
-#### rewrite-dropwizard - 0.5.5
 
 * Updated repository to use OpenRewrite version v8.87.0
 
@@ -2468,29 +2405,9 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.86.0
 
-#### rewrite-cryptography - 0.14.8
-
-* Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-cryptography - 0.14.7
-
-* Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-cryptography - 0.14.6
-
-* Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-cryptography - 0.14.5
-
-* Updated repository to use OpenRewrite version v8.86.0
-
 #### rewrite-cryptography - 0.14.4
 
 * Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-devcenter - 1.27.2
-
-* Add upgradeRecipe call to action to language DevCenters
 
 #### rewrite-devcenter - 1.27.1
 
@@ -2503,10 +2420,6 @@ Pick up latest rewrite-java-security.
 #### rewrite-dotnet - 0.17.0
 
 * Add recipe to migrate .NET install URLs from retiring Azure CDN domains
-
-#### rewrite-dropwizard - 0.5.3
-
-* Updated repository to use OpenRewrite version v8.86.0
 
 #### rewrite-dropwizard - 0.5.2
 
@@ -2529,23 +2442,7 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.86.0
 
-#### rewrite-java-application-server - 0.7.7
-
-* Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-java-application-server - 0.7.6
-
-* Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-java-application-server - 0.7.5
-
-* Updated repository to use OpenRewrite version v8.86.0
-
 #### rewrite-java-application-server - 0.7.4
-
-* Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-java-security - 3.34.2
 
 * Updated repository to use OpenRewrite version v8.86.0
 
@@ -2601,14 +2498,6 @@ Pick up latest rewrite-java-security.
 * perf(flow): dirtiness-sentinel flow cache + dead-guard reorder + flow diagnostics
 * perf: disk-backed NullabilityIndex, cross-file scan indexing, and @NullMarked template cache
 
-#### rewrite-prethink - 0.8.1
-
-* Emit sourcePath in the EndpointSecurity data table
-* Remove the AI-based Prethink recipe and the langchain4j dependency
-* Expect two cycles for the ExportContext + mermaid pipeline
-* Support C#/.NET in the quality and test-gap recipes
-* Handle C# catch clauses without an exception variable
-
 #### rewrite-prethink - 0.8.0
 
 * Emit sourcePath in the EndpointSecurity data table
@@ -2616,11 +2505,6 @@ Pick up latest rewrite-java-security.
 * Expect two cycles for the ExportContext + mermaid pipeline
 * Support C#/.NET in the quality and test-gap recipes
 * Handle C# catch clauses without an exception variable
-
-#### rewrite-program-analysis - 0.13.4
-
-* perf(dataflow): lazy PathCondition variable index + memoized isFeasible (apex edit 649.8s→81.4s)
-* perf(dataflow): faster path-sensitive null analysis (lazy index, fixpoint hashing, structural tree equality)
 
 #### rewrite-program-analysis - 0.13.3
 
@@ -2749,10 +2633,6 @@ Pick up latest rewrite-java-security.
 
 * Updated repository to use OpenRewrite version v8.85.0
 
-#### rewrite-cryptography - 0.14.3
-
-* Updated repository to use OpenRewrite version v8.85.0
-
 #### rewrite-cryptography - 0.14.2
 
 * Updated repository to use OpenRewrite version v8.85.0
@@ -2831,10 +2711,6 @@ Pick up latest rewrite-java-security.
 * Expand Pydantic migration recipes to cover 2.10–2.14
 
 #### rewrite-nodejs - 0.46.2
-
-* Updated repository to use OpenRewrite version v8.85.0
-
-#### rewrite-prethink - 0.7.3
 
 * Updated repository to use OpenRewrite version v8.85.0
 
@@ -2968,10 +2844,6 @@ Pick up latest rewrite-java-security.
 
 * Regenerate recipes.csv
 
-#### rewrite-cryptography - 0.14.1
-
-* Update rewriteVersion handling in build.gradle.kts
-
 #### rewrite-cryptography - 0.14.0
 
 * Update rewriteVersion handling in build.gradle.kts
@@ -3003,10 +2875,6 @@ Pick up latest rewrite-java-security.
 #### rewrite-jasperreports - 0.6.0
 
 * Regenerate recipes.csv
-
-#### rewrite-java-application-server - 0.7.2
-
-* Updated repository to use OpenRewrite version v8.84.0
 
 #### rewrite-java-application-server - 0.7.1
 
@@ -3216,13 +3084,6 @@ Pick up latest rewrite-java-security.
 #### rewrite-dotnet - 0.15.4
 
 * Updated repository to use OpenRewrite version v8.83.0
-
-#### rewrite-dropwizard - 0.3.1
-
-* Replace DropwizardAppExtension call sites with Spring Boot injected fields
-* Route Maven through Moderne Artifactory cache to avoid HTTP 429
-* Fix RemoveSuperTypeByTypeTest expected output for @Override removal
-* Revert inline Maven mirror (now in gh-automation#95)
 
 #### rewrite-dropwizard - 0.3.0
 
@@ -3444,10 +3305,6 @@ First release.
 
 * OpenRewrite v8.81.6
 
-#### rewrite-dropwizard - v0.2.4
-
-* Add @SpringBootTest for DropwizardAppExtension; fix RemoveVariablesByPackage scope check
-
 #### rewrite-dropwizard - v0.2.3
 
 * OpenRewrite v8.81.6
@@ -3464,13 +3321,6 @@ First release.
 #### rewrite-jasperreports - v0.5.3
 
 * OpenRewrite v8.81.6
-
-#### rewrite-java-security - v3.29.5
-
-* Update SsrfGuardInsertion reference to FixCwe918
-* Move "Last updated" timestamp out of recipe instance name
-* Adopt new rewrite-python lock regeneration API
-* Use default Gradle Tooling API version in tests
 
 #### rewrite-java-security - v3.29.4
 
@@ -3529,11 +3379,6 @@ First release.
 #### rewrite-reactive-streams - v0.19.3
 
 * OpenRewrite v8.81.6
-
-#### rewrite-spring - v0.32.3
-
-* OpenRewrite recipe best practices
-* Strip Kotlin nullability from Spring HTTP entity type arguments
 
 #### rewrite-spring - v0.32.2
 
@@ -3770,10 +3615,6 @@ First release.
 
 * Updated repository to use OpenRewrite version v8.80.0
 
-#### rewrite-elastic - 0.6.2
-
-* Updated repository to use OpenRewrite version v8.80.0
-
 #### rewrite-elastic - 0.6.1
 
 * Updated repository to use OpenRewrite version v8.80.0
@@ -3796,10 +3637,6 @@ First release.
 * Update expected tomcat-embed-core version in tests
 * OpenRewrite recipe best practices
 * Update springBootBomPreventsTransitiveFix expectations for 2026-04-20 advisories
-
-#### rewrite-kafka - 0.5.2
-
-* Updated repository to use OpenRewrite version v8.80.0
 
 #### rewrite-kafka - 0.5.1
 
