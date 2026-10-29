@@ -45,7 +45,9 @@ If you do not have the catalog installed locally, or you want a canonical copy t
 curl -fLo recipes-v5.csv https://artifacts.codegenomeproject.org/recipes.csv
 ```
 
-You will still need a Code Genome Project token to install the recipe packages that either file names.
+:::note
+If you want to install or download the recipe packages listed in these files, you will need a Code Genome Project token.
+:::
 
 Point the queries below at whichever file you started from. For example, to extract just the "Migrate to Java 25" row into a new file:
 
