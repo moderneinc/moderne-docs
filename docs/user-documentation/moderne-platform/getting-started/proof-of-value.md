@@ -125,6 +125,7 @@ The deck tells one story, and each step asks for more than the last:
 | The loop              | The agent gets better at this work by writing recipes, not by changing the model                           | The recipe count when the proof of value started and when it ended                                           |
 | Cost                  | The proof of value took `{{hours}}` of a person's time and `{{dollars}}` of agent usage                    | The sessions' usage reports, and what a recipe costs to run again                                            |
 | What you keep running | What `{{Customer}}` keeps running                                                                          | The factories, with an owner and a machine for each                                                          |
+| Who already runs Moderne | Used by the companies running the world's largest codebases                                             | Nothing: the customer logos from moderne.ai stay as they are                                                 |
 
 When the session ends, the deck in the directory is filled in, the steps' changesets or runs are there to review, and `board/` holds each step's summary. Review the deck as you would the agent's pull requests.
 
