@@ -37,9 +37,10 @@ This is why every scenario below works on a whole organization and never on a re
 You will need:
 
 * **Your repositories, in Moderne or on the machine.** With a tenant, the [prerequisites](./proof-of-value-prerequisites.md) cover mass ingest and the Connector for the Moderne Platform, and Moderne DX has [a checklist of its own](../../../administrator-documentation/moderne-dx/getting-started/proof-of-value-prerequisites.md). Start with 100 or more diverse repositories. The agent searches and runs recipes in Moderne, and clones a repository only when it has something to build. Without a tenant yet, as in the first weeks of a Moderne DX installation, you sync the repositories to the machine instead and the agent works on those.
-* **The Moderne CLI, logged in to your tenant when you have one.** Install it with the script for your operating system. With a tenant, point the CLI at it and log in.
+* **The Moderne CLI, logged in to your tenant when you have one.** Install it with the script for your operating system. With a tenant, point the CLI at it and log in. The account you log in with opens the pull requests, so it needs push access to the repositories.
 * **A supported coding agent on your `PATH`.** Agent chat [lists the agents and the versions it needs](../../agent-tools/agent-chat.md#supported-agents). If you installed the Moderne skills or the local MCP server for that agent, [remove them first](../../agent-tools/agent-chat.md#requirements), since they steer the agent toward one repository at a time.
 * **The JDKs and build tools your repositories use.** The agent verifies a change with each repository's own build. The CLI finds JDKs from [SDKMAN, Homebrew and system installs](../../moderne-cli/how-to-guides/java.md), and `mod config java installation list` shows what it sees.
+* **A directory outside any repository, in a terminal allowed to record the screen.** The session runs each step in a terminal window of its own and captures the window for the deck. On macOS the first capture asks for the permission, so approve it while you are there. A step that runs git in a directory that is not a repository climbs into the repository above it, so keep the directory out of any checkout.
 
 To install the CLI and log in:
 
@@ -109,7 +110,7 @@ A session you want to watch runs in your terminal. A session you want to leave a
 
 ## Running the POV and filling in the value deck
 
-The value deck is a short presentation for your leadership, built the way Moderne builds its own: one sentence per slide and one visual under it. It is also the script of the proof of value. Where a slide shows a command, that command is a step. The session runs it as a session of its own and fills the slide from what the step did. [Download the value deck](pathname:///decks/moderne-pov.pptx) and put it in the directory the session will start in:
+The value deck is a short presentation for your leadership, built the way Moderne builds its own: one sentence per slide and one visual under it. It is also the script of the proof of value. Where a slide shows a command, that command is a step. The session runs it as a session of its own and fills the slide from what the step did. [Download the value deck](pathname:///decks/moderne-pov.pptx) and put it in the directory the session will start in, which must not be inside a git repository:
 
 ```bash
 mkdir pov
@@ -118,9 +119,9 @@ curl -o pov/moderne-pov.pptx https://docs.moderne.io/decks/moderne-pov.pptx
 
 Then start the agent with the deck scenario from the picker above. The notes on the title slide tell it how to work:
 
-* It runs the steps one at a time, each in a terminal window of its own, so the people watching see the step's transcript: the agent searching for a recipe, running it over every repository, syncing what it changed and building it. With a tenant, each step runs in a subdirectory with `--org`. Without one, each step runs in the same directory, on the repositories synced there.
-* Every step's prompt ends with the same instruction: when done, write a summary to `board/<step>.md` with the changeset or run id, what changed, what built, the pull requests opened and the recipes written. The session waits for that file, reads it, and ends the step with `mod agent stop`. The transcript stays in its window.
-* It replaces each `{{placeholder}}` with what it measured, puts a capture of the step's window where a slide asks for one, and leaves a slide out rather than guess. Every number traces to a changeset or run id, a data table or a session, written under "Source:" in the slide's notes.
+* It runs the steps one at a time, each in a terminal window of its own, so the people watching see the step's transcript: the agent searching for a recipe, running it over every repository, syncing what it changed and building it. It captures the window every 45 seconds while the step runs, so a slide can show the moment it asks for. With a tenant, each step runs in a subdirectory with `--org`. Without one, each step runs in the same directory, on the repositories synced there.
+* Every step's prompt ends with the same instruction: when done, write a summary to `board/<step>.md` with the changeset or run id, what changed, what built, the pull requests opened, the recipes written and the usage the step's harness reports. A step that cannot open pull requests says why and goes on. The session waits for that file, reads it, and ends the step with `mod agent stop`. The transcript stays in its window.
+* It replaces each `{{placeholder}}` with what it measured, puts a capture of the step's window where a slide asks for one, and leaves a slide out rather than guess. It does not stop to ask: the title slide's notes answer every choice a step can raise. Every number traces to a changeset or run id, a data table or a session, written under "Source:" in the slide's notes.
 
 The deck tells one story, and each step asks for more than the last:
 
