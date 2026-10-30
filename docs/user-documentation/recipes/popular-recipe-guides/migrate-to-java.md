@@ -192,3 +192,4 @@ On the Moderne Platform, search for the `Migrate to Java 17` recipe ([Moderne Pl
 ## Additional reading
 
 * [Tracking migrations](../../moderne-platform/how-to-guides/track-migrations.md) – use data tables and visualizations to track the rollout of a Java upgrade across many repositories.
+* [Scoping recipes with preconditions](./scoping-recipes-with-preconditions.md) – wrap the upgrade recipe so it skips repositories that are pinned to an older JDK by a runtime dependency.
