@@ -1,19 +1,22 @@
 import React, { useState, type FunctionComponent } from 'react';
 import CodeBlock from '@theme/CodeBlock';
-import { AGENTS, SCENARIOS, chatCommand, wrapPrompt } from './scenarios';
+import { AGENTS, CODE_LOCATIONS, SCENARIOS, chatCommand, syncCommand, wrapPrompt } from './scenarios';
 import styles from './PovScenarios.module.css';
 
 const KIND_LABEL = { episodic: 'Runs once', 'always-on': 'Always on' } as const;
 
 /**
- * Agent and scenario pickers over the `mod <agent> chat` command a proof of value starts with.
- * The command updates as the reader picks, and the code block's own copy button copies it.
+ * Agent, scenario and code-location pickers over the `mod <agent> chat` command a proof of value
+ * starts with. The command updates as the reader picks, and the code block's own copy button
+ * copies it.
  */
 export const PovScenarios: FunctionComponent = () => {
   const [agentId, setAgentId] = useState(AGENTS[0].id);
   const [scenarioId, setScenarioId] = useState(SCENARIOS[0].id);
+  const [whereId, setWhereId] = useState(CODE_LOCATIONS[0].id);
   const agent = AGENTS.find((a) => a.id === agentId) ?? AGENTS[0];
   const scenario = SCENARIOS.find((s) => s.id === scenarioId) ?? SCENARIOS[0];
+  const where = CODE_LOCATIONS.find((w) => w.id === whereId) ?? CODE_LOCATIONS[0];
 
   return (
     <div className={styles.scenarios}>
@@ -42,8 +45,31 @@ export const PovScenarios: FunctionComponent = () => {
             ))}
           </select>
         </label>
+        <label className={styles.field}>
+          <span className={styles.label}>Where the code is</span>
+          <select
+            className={styles.select}
+            value={where.id}
+            onChange={(e) => setWhereId(e.target.value as typeof whereId)}
+          >
+            {CODE_LOCATIONS.map((w) => (
+              <option key={w.id} value={w.id}>
+                {w.label}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
-      <CodeBlock language="bash">{chatCommand(agent, scenario)}</CodeBlock>
+      {where.id === 'local' && (
+        <>
+          <p className={styles.summary}>
+            Without a tenant, the session works on the repositories in the directory. Sync them from a CSV of
+            clone URLs and build them once before you start:
+          </p>
+          <CodeBlock language="bash">{syncCommand(scenario)}</CodeBlock>
+        </>
+      )}
+      <CodeBlock language="bash">{chatCommand(agent, scenario, where.id)}</CodeBlock>
       {!agent.takesPrompt && (
         <>
           <p className={styles.summary}>

@@ -14,9 +14,9 @@ import { PovScenarios } from '@site/src/components/PovScenarios';
 Before starting the POV process, make sure your team has completed the [prerequisites checklist](./proof-of-value-prerequisites.md).
 :::
 
-Moderne automates code maintenance tasks like framework migrations, security vulnerability fixes, and code quality improvements. A coding agent equipped with the Moderne CLI applies that automation across every repository you have at once. It searches your whole organization for where a change is needed, runs recipes over all of it in Moderne, checks the result with each repository's own build, and writes a recipe for whatever no recipe covers yet.
+Moderne automates code maintenance tasks like framework migrations, security vulnerability fixes, and code quality improvements. A coding agent equipped with the Moderne CLI applies that automation across every repository you have at once. It searches your whole organization for where a change is needed, runs recipes over all of it in Moderne, checks the result with each repository's own build, and writes a recipe for whatever no recipe covers yet. The same session works on repositories synced to one machine, so a proof of value can start before your tenant does.
 
-This guide gives you scenarios to run during a proof of value. Each scenario is a prompt you start with `mod <agent> chat` on an organization of your repositories. The first runs the POV itself and fills in a value deck you can take to leadership. The others are standing objectives you leave running, so the proof of value shows what Moderne looks like in daily use rather than in a one-off demonstration.
+This guide gives you scenarios to run during a proof of value. Each scenario is a prompt you start with `mod <agent> chat` on your repositories. The first runs the POV itself, step by step in terminal windows you can watch, and fills in a value deck you can take to leadership. The others are standing objectives you leave running, so the proof of value shows what Moderne looks like in daily use rather than in a one-off demonstration.
 
 Moderne's value lies in working horizontally across all of your repositories at once. Consider a modernization task that needs to happen across 125 repositories:
 
@@ -36,8 +36,8 @@ This is why every scenario below works on a whole organization and never on a re
 
 You will need:
 
-* **A Moderne tenant with your repositories ingested.** The [prerequisites](./proof-of-value-prerequisites.md) cover mass ingest and the Connector for the Moderne Platform, and Moderne DX has [a checklist of its own](../../../administrator-documentation/moderne-dx/getting-started/proof-of-value-prerequisites.md). Start with 100 or more diverse repositories. The agent searches and runs recipes in Moderne, and clones a repository only when it has something to build.
-* **The Moderne CLI, logged in to your tenant.** Install it with the script for your operating system, point it at your tenant, and log in.
+* **Your repositories, in Moderne or on the machine.** With a tenant, the [prerequisites](./proof-of-value-prerequisites.md) cover mass ingest and the Connector for the Moderne Platform, and Moderne DX has [a checklist of its own](../../../administrator-documentation/moderne-dx/getting-started/proof-of-value-prerequisites.md). Start with 100 or more diverse repositories. The agent searches and runs recipes in Moderne, and clones a repository only when it has something to build. Without a tenant yet, as in the first weeks of a Moderne DX installation, you sync the repositories to the machine instead and the agent works on those.
+* **The Moderne CLI, logged in to your tenant when you have one.** Install it with the script for your operating system. With a tenant, point the CLI at it and log in.
 * **A supported coding agent on your `PATH`.** Agent chat [lists the agents and the versions it needs](../../agent-tools/agent-chat.md#supported-agents). If you installed the Moderne skills or the local MCP server for that agent, [remove them first](../../agent-tools/agent-chat.md#requirements), since they steer the agent toward one repository at a time.
 * **The JDKs and build tools your repositories use.** The agent verifies a change with each repository's own build. The CLI finds JDKs from [SDKMAN, Homebrew and system installs](../../moderne-cli/how-to-guides/java.md), and `mod config java installation list` shows what it sees.
 
@@ -64,11 +64,20 @@ mod login
 </TabItem>
 </Tabs>
 
+Without a tenant, run only the first line. Then sync the repositories into the directory the scenario names, from a CSV with `cloneUrl` and `branch` columns, and build their LSTs once:
+
+```bash
+mod git sync csv ./pov repos.csv --with-sources
+mod build ./pov
+```
+
+The session then works on what is in the directory, and its command leaves `--org` off.
+
 ## Choosing a scenario
 
 <PovScenarios />
 
-Replace `<organization>` with the name or the id of the organization in Moderne, as `mod config moderne organizations show` lists it. The command creates the directory if it is missing, writes an `AGENTS.md` file there that teaches the agent how to use `mod`, and starts the agent with the prompt submitted. If you leave off `--prompt`, the session starts empty and you type the first request yourself.
+Replace `<organization>` with the name or the id of the organization in Moderne, as `mod config moderne organizations show` lists it. With the code on this machine there is no `--org`, and the directory already holds the repositories. The command creates the directory if it is missing, writes an `AGENTS.md` file there that teaches the agent how to use `mod`, and starts the agent with the prompt submitted. If you leave off `--prompt`, the session starts empty and you type the first request yourself.
 
 Whatever the scenario, the session follows the same path:
 
@@ -79,38 +88,45 @@ Whatever the scenario, the session follows the same path:
 * It ships through Moderne. The agent pushes each repository as it passes and opens pull requests for people to merge, and it records what it learned in data tables on the changeset.
 * It starts more sessions when the work is larger than one machine. Each one is a `mod <agent> chat` of its own on the same changeset.
 
+Without a tenant, the same path runs against the directory. `mod search .` and `mod run .` work over the synced repositories, a run leaves a patch and a run id under `.moderne/run` rather than a changeset, and the agent applies, builds and pushes from the directory. The message board and `mod agent sessions <changeset>` need Moderne. `mod agent sessions` on its own lists the sessions on this machine either way.
+
 :::tip
 A session you want to watch runs in your terminal. A session you want to leave alone takes `--unattended`, which approves the agent's tool use and runs the prompt to completion. [Running a factory continuously](#running-a-factory-continuously) covers how to keep one going.
 :::
 
 ## Running the POV and filling in the value deck
 
-The value deck is a short presentation for your leadership, built the way Moderne builds its own: one sentence per slide and one visual under it. [Download the value deck](pathname:///decks/moderne-pov.pptx) and put it in the directory the session will start in:
+The value deck is a short presentation for your leadership, built the way Moderne builds its own: one sentence per slide and one visual under it. It is also the script of the proof of value. Where a slide shows a command, that command is a step. The session runs it as a session of its own and fills the slide from what the step did. [Download the value deck](pathname:///decks/moderne-pov.pptx) and put it in the directory the session will start in:
 
 ```bash
 mkdir pov
 curl -o pov/moderne-pov.pptx https://docs.moderne.io/decks/moderne-pov.pptx
 ```
 
-Then start the agent with the deck scenario from the picker above. The deck is the agent's checklist as much as it is the result. Every slide carries one headline with placeholders such as `{{N}}` and speaker notes that say what the number is, which command or data table produces it, and which screenshot to attach. The agent replaces each placeholder with what it measured and leaves a slide out rather than guess.
+Then start the agent with the deck scenario from the picker above. The notes on the title slide tell it how to work:
 
-| Slide                 | What it says                                                                                | What the agent measures                                                   |
-|-----------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-| Title                 | `{{Customer}}` and Moderne                                                                  | The customer's name and the month                                         |
-| The estate            | `{{N}}` repositories and `{{LOC}}` lines of code, by language                               | The organization's size, with the language composition recipe             |
-| Horizontal progress   | A change landed in 80% of `{{N}}` repositories moves 80% of the estate                      | Fixed, with your repository count                                         |
-| Determinism           | The agent chooses or writes a recipe, and the recipe makes the change                       | Fixed                                                                     |
-| One command           | How the session was started                                                                 | A screenshot of the agent's first turn                                    |
-| Search                | A question about the code, answered across `{{N}}` repositories in seconds                  | A type-aware search and its match counts                                  |
-| The run               | `{{files}}` files changed in `{{n}}` of `{{N}}` repositories in `{{duration}}`              | The main recipe run and its changeset                                     |
-| Verification          | `{{k}}` of `{{n}}` changed repositories build and pass their own tests                      | The builds the agent ran on the changeset, before and after the change    |
-| Recipes written       | What no recipe covered became `{{w}}` recipes rather than hand edits                        | The recipes the agent wrote or fixed, and how many repositories each reached |
-| Vulnerabilities       | `{{v}}` vulnerable dependencies across `{{m}}` repositories, `{{f}}` fixed in one run       | The vulnerability report of a dependency check over the organization      |
-| Cost                  | Agent usage, a person's time, and the hours the recipes report saving                       | The session's own usage report and the output of each run                 |
-| The factory           | Left running, the same session is a factory for `{{objective}}`                             | The objective you name                                                    |
-| What you keep running | The factories you keep after the POV                                                        | The scenarios below, with an owner for each                               |
+* It runs the steps one at a time, each in a terminal window of its own, so the people watching see the step's transcript: the agent searching for a recipe, running it over the estate, syncing what it changed and building it. With a tenant, each step runs in a subdirectory with `--org`. Without one, each step runs in the same directory, on the repositories synced there.
+* Every step's prompt ends with the same instruction: when done, write a summary to `board/<step>.md` with the changeset or run id, what changed, what built, the pull requests opened and the recipes written. The session waits for that file, reads it, and ends the step with `mod agent stop`. The transcript stays in its window.
+* It replaces each `{{placeholder}}` with what it measured, puts a capture of the step's window where a slide asks for one, and leaves a slide out rather than guess. Every number traces to a changeset or run id, a data table or a session, written under "Source:" in the slide's notes.
 
-When the session ends, the deck in the directory is filled in, the changesets it created are in Moderne for review, and every number in the deck names the changeset, data table or session it came from. Review the deck as you would the agent's pull requests.
+The deck tells one story, and each step asks for more than the last:
+
+| Slide                 | Headline                                                                                                   | What fills it                                                                                                |
+|-----------------------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| Title                 | `{{Customer}}` and Moderne                                                                                 | The customer's name and the month                                                                            |
+| The estate            | Every number in this deck comes from `{{N}}` repositories worked on at once                                | The language composition recipe                                                                              |
+| The first prompt      | The first prompt was deliberately ordinary                                                                 | The step `Fix code quality issues`, and a capture of its window                                              |
+| What it did           | That one prompt fixed `{{files}}` files in `{{n}}` of `{{N}}` repositories, and a recipe made every change | The step's changeset or run, its builds and its pull requests                                                |
+| The factory           | The same prompt, asked never to stop, is a factory                                                         | The same step run twice as a standing objective, and the scheduler line that keeps it going                  |
+| Recipes written       | Where no recipe covered a fix, the factory wrote one, so the next pass is deterministic                    | The recipes the passes wrote, and the first pass against the second                                          |
+| Spring Boot           | `{{n}}` repositories moved to Spring Boot `{{version}}`, each verified by its own build                    | The step `Keep every repository on the latest Spring Boot release`                                           |
+| Vulnerabilities       | `{{f}}` vulnerable dependencies fixed everywhere in one run, `{{t}}%` of them transitive                   | The step `Watch for newly disclosed vulnerabilities that affect this code and fix them everywhere`, and the vulnerability report |
+| Data flow             | Asked a question no recipe could answer, the agent wrote the recipe that answers it                        | The step `Build what it takes to answer where data flows through this code`                                  |
+| The loop              | The agent gets better at this work by writing recipes, not by changing the model                           | The recipe count when the proof of value started and when it ended                                           |
+| Cost                  | The proof of value took `{{hours}}` of a person's time and `{{dollars}}` of agent usage                    | The sessions' usage reports, and what a recipe costs to run again                                            |
+| What you keep running | What `{{Customer}}` keeps running                                                                          | The factories, with an owner and a machine for each                                                          |
+
+When the session ends, the deck in the directory is filled in, the steps' changesets or runs are there to review, and `board/` holds each step's summary. Review the deck as you would the agent's pull requests.
 
 :::note
 The agent edits the deck with a library such as `python-pptx`, which it installs itself. If it reports that it cannot edit the file, ask it to write the results as a markdown report with the same headlines, and fill the deck in yourself.
@@ -143,7 +159,13 @@ A session ends when the agent judges the objective met for now. A factory is tha
 0 2 * * * cd /srv/factories && mod copilot chat ./factory-spring-boot --org "<organization>" --unattended --prompt "$(cat spring-boot.prompt)"
 ```
 
-The session keeps no state on the machine. What the estate looks like is the code in Moderne, and what is underway is the organization's changesets, so a session that starts after a crash, or on another machine, reads the same picture and continues. It leaves alone work that is underway and finishes work that stalled.
+Without a tenant, the entry refreshes the sources and their LSTs first, since no changeset brings them:
+
+```bash
+0 2 * * * cd /srv/factories && mod git sync csv ./factory-spring-boot repos.csv --with-sources && mod build ./factory-spring-boot && mod copilot chat ./factory-spring-boot --unattended --prompt "$(cat spring-boot.prompt)"
+```
+
+With a tenant, the session keeps no state on the machine. What the estate looks like is the code in Moderne, and what is underway is the organization's changesets, so a session that starts after a crash, or on another machine, reads the same picture and continues. It leaves alone work that is underway and finishes work that stalled. Without one, the state is the directory itself: the synced repositories, their branches, and the patches under `.moderne/run`.
 
 :::warning
 `--unattended` lets the agent run tools without asking you first. Run it in a directory and on a machine you are comfortable letting the agent change, with credentials that can push to your repositories and nothing more.
@@ -151,7 +173,7 @@ The session keeps no state on the machine. What the estate looks like is the cod
 
 To see and steer what is running:
 
-* `mod agent sessions` lists the sessions on this machine, and `mod agent sessions <changeset>` lists the sessions on a changeset wherever they run, with the machine, the directory, the state and the command each one is running.
+* `mod agent sessions` lists the sessions on this machine, with no tenant needed, and `mod agent sessions <changeset>` lists the sessions on a changeset wherever they run, with the machine, the directory, the state and the command each one is running.
 * The changesets a factory creates are in Moderne's activity view, with their data tables, pull requests and the agents that worked on them.
 * `mod agent stop <session>` ends a session. It stops the agent, closes the session in Moderne, and gives the terminal its prompt back.
 * `mod agent send <session> "<message>"` hands a message to an interactive Codex session as its next turn. For other agents, and for unattended sessions, change the prompt and start the session again.

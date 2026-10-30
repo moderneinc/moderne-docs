@@ -25,6 +25,17 @@ export const AGENTS: Agent[] = [
   { id: 'windsurf', label: 'Windsurf', cli: 'windsurf', takesPrompt: false },
 ];
 
+/** Where the repositories are: an organization in a Moderne tenant, or synced to the machine. */
+export interface CodeLocation {
+  id: 'moderne' | 'local';
+  label: string;
+}
+
+export const CODE_LOCATIONS: CodeLocation[] = [
+  { id: 'moderne', label: 'An organization in Moderne' },
+  { id: 'local', label: 'Repositories synced to this machine' },
+];
+
 export interface Scenario {
   id: string;
   label: string;
@@ -46,13 +57,15 @@ export const SCENARIOS: Scenario[] = [
     kind: 'episodic',
     directory: './pov',
     prompt:
-      'Run the proof of value on this organization and fill in the deck at ./moderne-pov.pptx. ' +
-      'The notes on each slide say what it needs and how to measure it. Replace every ' +
-      '{{placeholder}} with what you measured and add the screenshots the notes ask for. Leave ' +
-      'a slide out rather than guess. Every number in the finished deck must trace to a ' +
-      'changeset, a data table or a session you can name.',
+      'Run the proof of value and fill in the deck at ./moderne-pov.pptx. Start with the notes ' +
+      'on the title slide: they say how to run each slide\'s command as a session of its own, in ' +
+      'a terminal window the people watching can see, and how to know when it is done. Replace ' +
+      'every {{placeholder}} with what you measured, put a capture of the window or its ' +
+      'transcript where a slide asks for one, and leave a slide out rather than guess. Every ' +
+      'number in the finished deck must trace to a changeset or a run id, a data table or a ' +
+      'session you can name.',
     summary:
-      'The agent runs the proof of value end to end and fills in a deck for leadership, one measured result per slide.',
+      'The agent runs the proof of value step by step, each step a session of its own in a window you can watch, and fills in a deck for leadership.',
     anchor: '#running-the-pov-and-filling-in-the-value-deck',
   },
   {
@@ -124,11 +137,21 @@ export function wrapPrompt(prompt: string): string[] {
   return lines;
 }
 
-/** The `mod <agent> chat` command for an agent and a scenario, with the prompt in place. */
-export function chatCommand(agent: Agent, scenario: Scenario): string {
-  const start = `mod ${agent.cli} chat ${scenario.directory} --org "<organization>"`;
+/**
+ * The `mod <agent> chat` command for an agent, a scenario and where the code is, with the prompt
+ * in place. `--org` names the organization in Moderne; without a tenant the directory already
+ * holds the repositories and the option is left off.
+ */
+export function chatCommand(agent: Agent, scenario: Scenario, where: CodeLocation['id']): string {
+  const org = where === 'moderne' ? ' --org "<organization>"' : '';
+  const start = `mod ${agent.cli} chat ${scenario.directory}${org}`;
   if (!agent.takesPrompt) return start;
   const [first, ...rest] = wrapPrompt(scenario.prompt);
   const prompt = [`--prompt "${first}`, ...rest.map((l) => `  ${l}`)].join('\n');
   return `${start} \\\n  ${prompt}"`;
+}
+
+/** Without a tenant, the repositories are synced and built into the directory before the session starts. */
+export function syncCommand(scenario: Scenario): string {
+  return `mod git sync csv ${scenario.directory} repos.csv --with-sources\nmod build ${scenario.directory}`;
 }
