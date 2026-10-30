@@ -123,6 +123,6 @@ You will need to have [specific permissions](../../../administrator-documentatio
 
 You now know how to run recipes and commit results 🎉.
 
-* Check out our [proof of value doc](./proof-of-value.md) for a list of popular recipes to run.
+* Browse the [proof of value recipe reference](./proof-of-value-recipes.md) for popular recipes to run.
 * Work through our [Moderne CLI workshop](../../moderne-cli/getting-started/moderne-cli-workshop.md) to get a better understanding of how you can use the power of Moderne and OpenRewrite locally on your computer.
 * If you want to learn how to create your own recipes, read through our [fundamentals of recipe development workshop](../../../hands-on-learning/fundamentals/workshop-overview.md).

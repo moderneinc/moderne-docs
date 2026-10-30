@@ -1,24 +1,24 @@
 ---
 title: Proof of value (POV) process
 sidebar_label: Proof of value process
-description: Describes what a typical proof of value process looks like.
+description: "Run a proof of value with a coding agent: the scenarios to start with mod <agent> chat, the value deck the first one fills in, and how to keep a factory running."
 ---
 
-import ReactPlayer from '@site/src/components/VideoPlayer';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import { PovScenarios } from '@site/src/components/PovScenarios';
 
 # Proof of value (POV) process
 
 :::info
-Before starting the PoV process, make sure your team has completed the [prerequisites checklist](./proof-of-value-prerequisites.md).
+Before starting the POV process, make sure your team has completed the [prerequisites checklist](./proof-of-value-prerequisites.md).
 :::
 
-Moderne automates code maintenance tasks like framework migrations, security vulnerability fixes, and code quality improvements. Work that traditionally takes months can be completed in minutes, freeing developers to focus on delivering business value.
+Moderne automates code maintenance tasks like framework migrations, security vulnerability fixes, and code quality improvements. A coding agent equipped with the Moderne CLI applies that automation across every repository you have at once. It searches your whole organization for where a change is needed, runs recipes over all of it in Moderne, checks the result with each repository's own build, and writes a recipe for whatever no recipe covers yet.
 
-This guide walks through a typical proof of value (POV) process to help you evaluate Moderne's capabilities. To demonstrate Moderne's value, we start with lower-complexity tasks like code quality improvements and then explore what happens with more complex migrations. It's important to note that we won't try to complete an entire migration during the proof of value phase. The goal is to demonstrate to you and your leadership that your developers, armed with the Moderne toolset (the CLI and Platform), _can_ get you all the way over the line. This applies not just to a specific migration, but to all future security and modernization efforts.
+This guide gives you scenarios to run during a proof of value. Each scenario is a prompt you start with `mod <agent> chat` on an organization of your repositories. The first runs the POV itself and fills in a value deck you can take to leadership. The others are standing objectives you leave running, so the proof of value shows what Moderne looks like in daily use rather than in a one-off demonstration.
 
-Moderne's value lies in working horizontally across all of your repositories simultaneously. Consider a modernization task that needs to happen across 125 repositories:
+Moderne's value lies in working horizontally across all of your repositories at once. Consider a modernization task that needs to happen across 125 repositories:
 
 <figure>
   ![Grid showing 80% modernized with 100 of 125 repositories completed horizontally](./assets/horizontal-moderne-way.png)
@@ -30,748 +30,135 @@ Moderne's value lies in working horizontally across all of your repositories sim
   <figcaption>**The traditional approach**: If you fully complete one repository before moving to the next, you achieve 100% on that single repo, but that's only 4% progress across the organization (5 of 125 tasks).</figcaption>
 </figure>
 
-This is why we focus on Moderne's multi-repo capabilities during the proof of value process. Rather than trying to get any single repository perfectly over the line, we demonstrate the power of applying changes across your entire codebase at once.
+This is why every scenario below works on a whole organization and never on a repository you pick out. Rather than getting any single repository perfectly over the line, you will see a change applied across your entire codebase at once, with the remaining gap closed by recipes the agent writes rather than by hand.
 
-During the proof of value process, we will teach you how to use building block recipes as well as how to develop your own custom recipes that will start to bridge the remaining 20% gap. After the proof of value process, we will continue to work with you to get that last 20% over the line.
+## Before you begin
 
-## Proof of value steps
+You will need:
 
-<Tabs>
-<TabItem value="platform" label="Moderne Platform">
+* **A Moderne tenant with your repositories ingested.** The [prerequisites](./proof-of-value-prerequisites.md) cover mass ingest and the Connector for the Moderne Platform, and Moderne DX has [a checklist of its own](../../../administrator-documentation/moderne-dx/getting-started/proof-of-value-prerequisites.md). Start with 100 or more diverse repositories. The agent searches and runs recipes in Moderne, and clones a repository only when it has something to build.
+* **The Moderne CLI, logged in to your tenant.** Install it with the script for your operating system, point it at your tenant, and log in.
+* **A supported coding agent on your `PATH`.** Agent chat [lists the agents and the versions it needs](../../agent-tools/agent-chat.md#supported-agents). If you installed the Moderne skills or the local MCP server for that agent, [remove them first](../../agent-tools/agent-chat.md#requirements), since they steer the agent toward one repository at a time.
+* **The JDKs and build tools your repositories use.** The agent verifies a change with each repository's own build. The CLI finds JDKs from [SDKMAN, Homebrew and system installs](../../moderne-cli/how-to-guides/java.md), and `mod config java installation list` shows what it sees.
 
-1. **Platform provisioning** - Moderne provisions an isolated platform in your chosen cloud provider and region (takes ~1 hour).
+To install the CLI and log in:
 
-2. **Mass Ingest** - Your team [sets up an ingestion pipeline](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md) to build and publish LST artifacts for your repositories. You should start with 100 or more diverse repositories for best results. This step does not require you to make any changes to the repositories themselves (such as installing build plugins).
+<Tabs groupId="cli-install-os" queryString="os">
+<TabItem value="linux-macos" label="Linux / macOS" default>
 
-3. **Connector setup** - Your team sets up the Moderne Connector following our [Connector configuration doc](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-config.md). The Connector runs as a Docker image or JAR and connects to your source code manager (SCM) and artifact repository using read-only service accounts (takes less than 1 hour with accounts ready).
-
-4. **Run recipes** - With everything set up, you can now run recipes against your code. We strongly recommend starting with simple code quality improvement recipes before progressing to complex migrations. You can find our recommended recipes to run and examples of what they do in the next section of this doc.
-
-5. **Study results** - After you've run a recipe, you should generate [data tables](./data-tables.md) and [visualizations](./visualizations.md) to learn more about what happened.
-
-:::note
-The recipes below progress from simple to complex. Each one links to its page in the [recipe catalog](https://codegenomeproject.org/recipes), where you can review what it does and see how to run it. You can run these recipes using the CLI commands provided in each section, or try them on the [public Moderne Platform](https://app.moderne.io) against open-source repositories.
-:::
+```bash
+curl https://app.moderne.io/cli | bash
+mod config moderne edit https://TENANT.moderne.io
+mod login
+```
 
 </TabItem>
-<TabItem value="cli" label="Moderne CLI">
+<TabItem value="windows" label="Windows">
 
-1. **Install the Moderne CLI** – Follow the [installation steps in the CLI documentation](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration) to install the CLI for your platform.
-    * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipes JARs. For example, the Spring migrations recipes have migrations going back a few major versions. Those versions call out now vulnerable dependencies – but those calls may get blocked by your firewall as it doesn't recognize what the purpose of the recipe is. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
-
-2. **Clone repos to your local machine** – In order for the CLI to run recipes against your code, you will need to provide it with [a repos.csv file](../../moderne-cli/references/repos-csv.md).
-    * Once you've created the `repos.csv` file, create a directory somewhere on your machine and run the following command:
-        ```bash
-        mod git sync csv . repos.csv --with-sources
-        ```
-
-3. **Build LSTs for the repos you cloned** – With all of the repositories cloned to your machine, you'll need to build the LSTs for them by running the following command:
-        ```bash
-        mod build .
-        ```
-    
-    * **Note**: All of your LSTs may not build successfully. This is a normal experience during initial ingestion as there are always unique configurations and environmental factors that need to be accounted for. We can work with you to investigate these issues on a call.
-      * The CLI stack trace will give some hints as to the issue. There is also a `build.log` file produced to every repo that will contain more context. You can also run the following command to aggregate the build logs:
-
-      ```bash
-      mod log builds add . logs.zip --last-build
-      ```
-      
-      * **Common reasons LSTs may fail to build:**
-        * Using Java versions older than Java 8
-        * Partially checked-in or outdated wrapper files that are not used in CI
-        * Builds that depend on system properties or environment variables that are set locally or in CI but not documented
-        * Using Gradle versions older than 4.10
-        * Non-standard locations for Maven's `settings.xml` or local repository
-        * Unusual Maven profile activation conditions
-
-4. **Add your CLI key** – By now, you should have received a CLI key for the purposes of this PoC. Run the following command to add the key, which will allow you to download and run recipes:
-
-    ```bash
-    mod config license edit <insert provided key here>
-    ```
-
-5. **Install the recipes** – Install the recipe modules used by the recommended recipes below. This single command covers every recipe in this guide:
-
-    ```bash
-    mod config recipes jar install org.openrewrite.recipe:rewrite-all:LATEST org.openrewrite.recipe:rewrite-static-analysis:LATEST org.openrewrite.recipe:rewrite-java-security:LATEST org.openrewrite.recipe:rewrite-java-dependencies:LATEST org.openrewrite.recipe:rewrite-sql:LATEST org.openrewrite.recipe:rewrite-spring:LATEST org.openrewrite.recipe:rewrite-logging-frameworks:LATEST org.openrewrite.recipe:rewrite-testing-frameworks:LATEST org.openrewrite.recipe:rewrite-migrate-java:LATEST io.moderne.recipe:rewrite-cryptography:LATEST io.moderne.recipe:rewrite-spring:LATEST io.moderne.recipe:rewrite-prethink:LATEST io.moderne.recipe:rewrite-devcenter:LATEST
-    ```
-
-    * **Note**: This installs only the modules needed for the proof of value recipes. To install every available recipe module instead, copy and run the [Moderne CLI command under CLI installation](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
-
-6. **Try your first recipe** – Try a simple recipe to test that you can execute successfully against the LSTs you built in step 3. We recommend the "Find empty classes" recipe, which will search through your repos to find empty classes that do not implement an interface or extend a class. To run this recipe, run the following command:
-
-      ```bash
-      mod run . --recipe org.openrewrite.java.search.FindEmptyClasses
-      ```
+```powershell
+irm https://app.moderne.io/cli/windows | iex
+mod config moderne edit https://TENANT.moderne.io
+mod login
+```
 
 </TabItem>
 </Tabs>
 
-## Code quality recipes
+## Choosing a scenario
 
-### [Common static analysis issues](https://codegenomeproject.org/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis)
+<PovScenarios />
 
-> Resolves common static analysis issues (SAST issues) to improve code quality, fix mistakes, eliminate legacy patterns, and resolve performance issues.
+Replace `<organization>` with the name or the id of the organization in Moderne, as `mod config moderne organizations show` lists it. The command creates the directory if it is missing, writes an `AGENTS.md` file there that teaches the agent how to use `mod`, and starts the agent with the prompt submitted. If you leave off `--prompt`, the session starts empty and you type the first request yourself.
 
-#### CLI commands
+Whatever the scenario, the session follows the same path:
 
-```bash
-mod run . --recipe org.openrewrite.staticanalysis.CommonStaticAnalysis
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Code diff showing static analysis fixes adding curly braces to if statements](./assets/code-quality-saas.png)
-  <figcaption>_Static analysis fixes_</figcaption>
-</figure>
-
-## Code search and impact analysis
-
-Many developers use Moderne every day for code search. Need to plan a refactor? Want to understand how an API is used? Trying to assess security concerns? All of these questions can be answered by running search recipes across your repositories.
-
-This is possible because Moderne treats your code like a data warehouse. Our type-aware search capabilities go far beyond simple text searches. They understand your code's structure, inheritance hierarchies, and semantic relationships. It's effectively like running a database query across your entire codebase.
-
-One of the most powerful applications of search is **impact analysis** – understanding what will be affected before you make changes. The search recipes below help you assess the scope and impact of potential transformations, giving you confidence before running large-scale refactors or migrations.
-
-To learn more about impact analysis and how to automate it, check out this video:
-
-<ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
-
-### [Language composition report](https://codegenomeproject.org/recipes/org.openrewrite.LanguageComposition)
-
-> Counts the lines of source code and data formats parsed across your repositories, broken down per repository, per folder, and per file. It makes no changes to your code, making it the fastest way to judge up front what kinds of projects you're dealing with — which languages and frameworks are present, and at what scale — before planning any deeper work.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.LanguageComposition
-
-mod study . --last-recipe-run --data-table LanguageCompositionPerRepository
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Language composition visualization showing the breakdown of programming languages and data file formats across repositories](./assets/language-composition-example.png)
-  <figcaption>_Understanding the language composition of your repositories_</figcaption>
-</figure>
-
-### [Find types](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes)
-
-> Identifies classes, interfaces, or enums matching a type pattern. Crucial for understanding class usage and inheritance hierarchies before performing refactoring or migrations.
+* It looks before it clones. `mod search moderne://<organization>` answers where the objective is not yet met, type-aware and across every repository, with nothing on disk.
+* It runs recipes over the whole organization in Moderne. A run creates a changeset that holds the changes and their data tables, and it leaves alone every repository that was already right.
+* It brings to disk only what it has to build. `mod git sync moderne` with the changeset's id syncs the repositories the run changed, and the agent verifies each one with its own build.
+* It fixes the recipe, not the repositories. Where the recipe fell short, the agent fixes it or writes a new one, in Java or TypeScript, and runs it again over everything, so that a gap found in one repository is closed in all of them.
+* It ships through Moderne. The agent pushes each repository as it passes and opens pull requests for people to merge, and it records what it learned in data tables on the changeset.
+* It starts more sessions when the work is larger than one machine. Each one is a `mod <agent> chat` of its own on the same changeset.
 
 :::tip
-If you don't remember the exact type, try replacing parts of the expression with `*` as a wildcard and go from there.
+A session you want to watch runs in your terminal. A session you want to leave alone takes `--unattended`, which approves the agent's tool use and runs the prompt to completion. [Running a factory continuously](#running-a-factory-continuously) covers how to keep one going.
 :::
 
-#### CLI commands
+## Running the POV and filling in the value deck
+
+The value deck is a short presentation for your leadership, built the way Moderne builds its own: one sentence per slide and one visual under it. [Download the value deck](pathname:///decks/moderne-pov.pptx) and put it in the directory the session will start in:
 
 ```bash
-# Example: Find all uses of Apache Commons StringUtils across your codebase
-mod run . --recipe org.openrewrite.java.search.FindTypes \
-    -P "fullyQualifiedTypeName=org.apache.commons.lang3.StringUtils" \
-    -P "checkAssignability=true"
-
-mod study . --last-recipe-run --data-table SourcesFileResults
+mkdir pov
+curl -o pov/moderne-pov.pptx https://docs.moderne.io/decks/moderne-pov.pptx
 ```
 
-#### Recipe results
+Then start the agent with the deck scenario from the picker above. The deck is the agent's checklist as much as it is the result. Every slide carries one headline with placeholders such as `{{N}}` and speaker notes that say what the number is, which command or data table produces it, and which screenshot to attach. The agent replaces each placeholder with what it measured and leaves a slide out rather than guess.
 
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Java code with highlighted StringUtils.split usages found by type-aware search](./assets/find-types-example.png)
-  <figcaption>_Discovering type usage patterns across repositories_</figcaption>
-</figure>
+| Slide                 | What it says                                                                                | What the agent measures                                                   |
+|-----------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| Title                 | `{{Customer}}` and Moderne                                                                  | The customer's name and the month                                         |
+| The estate            | `{{N}}` repositories and `{{LOC}}` lines of code, by language                               | The organization's size, with the language composition recipe             |
+| Horizontal progress   | A change landed in 80% of `{{N}}` repositories moves 80% of the estate                      | Fixed, with your repository count                                         |
+| Determinism           | The agent chooses or writes a recipe, and the recipe makes the change                       | Fixed                                                                     |
+| One command           | How the session was started                                                                 | A screenshot of the agent's first turn                                    |
+| Search                | A question about the code, answered across `{{N}}` repositories in seconds                  | A type-aware search and its match counts                                  |
+| The run               | `{{files}}` files changed in `{{n}}` of `{{N}}` repositories in `{{duration}}`              | The main recipe run and its changeset                                     |
+| Verification          | `{{k}}` of `{{n}}` changed repositories build and pass their own tests                      | The builds the agent ran on the changeset, before and after the change    |
+| Recipes written       | What no recipe covered became `{{w}}` recipes rather than hand edits                        | The recipes the agent wrote or fixed, and how many repositories each reached |
+| Vulnerabilities       | `{{v}}` vulnerable dependencies across `{{m}}` repositories, `{{f}}` fixed in one run       | The vulnerability report of a dependency check over the organization      |
+| Cost                  | Agent usage, a person's time, and the hours the recipes report saving                       | The session's own usage report and the output of each run                 |
+| The factory           | Left running, the same session is a factory for `{{objective}}`                             | The objective you name                                                    |
+| What you keep running | The factories you keep after the POV                                                        | The scenarios below, with an owner for each                               |
 
-### [Find methods](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindMethods)
+When the session ends, the deck in the directory is filled in, the changesets it created are in Moderne for review, and every number in the deck names the changeset, data table or session it came from. Review the deck as you would the agent's pull requests.
 
-> Locates method invocations matching a method pattern, even when methods are imported in different ways or invoked on subclasses. Essential for understanding API usage before refactoring.
-
-:::tip
-Unsure how to accurately identify methods? Check out our [documentation on method patterns](https://docs.openrewrite.org/reference/method-patterns#anatomy-of-a-method-pattern).
+:::note
+The agent edits the deck with a library such as `python-pptx`, which it installs itself. If it reports that it cannot edit the file, ask it to write the results as a markdown report with the same headlines, and fill the deck in yourself.
 :::
 
-#### CLI commands
+## Keeping every repository on the latest Spring Boot
+
+This scenario is a standing objective. The session finds the Spring Boot line each repository runs with one search, runs the Spring Boot upgrade recipe over everything that is behind, and syncs the repositories the run changed to build and test them. A repository that fails is a gap in the recipe before it is a change to make by hand. The agent fixes the recipe or writes a new one, runs it again over the whole organization, and pushes each repository as it passes. When every repository is current, the session says so and ends, and the next run starts over when a new release ships.
+
+Standing exceptions belong in the prompt. A sentence such as "acme/legacy stays on Spring Boot 3.3 until its reporting plugin is replaced" is all the session needs, and it records the exception in its data tables. The recipes this scenario draws on are under [major migrations](./proof-of-value-recipes.md#major-migrations) and [dependency management](./proof-of-value-recipes.md#dependency-management) in the recipe reference.
+
+## Watching for vulnerabilities and fixing them everywhere
+
+The session reads what was disclosed, maps it onto the estate, and remediates it everywhere at once. It researches newly disclosed vulnerabilities with web search, or with a research skill such as `last30days` where the agent has one. For each vulnerability, a `dependency:` search over the organization says which repositories the vulnerable range reaches, including through transitive dependencies. Where a version bump is the fix, the [dependency vulnerability check](./proof-of-value-recipes.md#find-and-fix-vulnerable-dependencies) makes it. Where the fix is a change to code, the agent writes a recipe for the vulnerable pattern and runs it over every repository the search found. Each fix is verified with the repository's own build and opened as a pull request.
+
+A fix the agent makes by hand in one repository is generalized into a recipe before the session moves on. The same vulnerability found later is then fixed by running the recipe again.
+
+## Building a data-flow understanding of the code
+
+This scenario is a longer piece of work than a single session, and it ends when the capability exists rather than when a release lands. The session builds recipes and data tables that answer where data goes. Which methods call which, where a value that enters an API endpoint ends up, and which third-party libraries it passes through are each a question one of them answers. It starts from the search and analysis recipes in the [recipe reference](./proof-of-value-recipes.md#code-search-and-impact-analysis), such as the call graph and the sensitive endpoint search, and writes what is missing as recipes of its own.
+
+Each capability is proved on a real question about your code before it counts, and the session records what it answers and where it falls short. What the session leaves behind runs again on demand, so a data flow question later is a query over the organization rather than a reading of the code.
+
+## Running a factory continuously
+
+A session ends when the agent judges the objective met for now. A factory is that same session, started again whenever you want it to look again. Start it with `--unattended` from a scheduler on a machine you keep for it. Keep the prompt in a file beside the directory, so the scheduler's entry stays short:
 
 ```bash
-# Example: Find all uses of methods in org.apache.commons
-mod run . --recipe org.openrewrite.java.search.FindMethods \
-    -P "methodPattern=org.apache.commons..*#*(..)" \
-    -P "matchOverrides=true"
-
-mod study . --last-recipe-run --data-table SourcesFileResults
+# Look again every night at 02:00
+0 2 * * * cd /srv/factories && mod copilot chat ./factory-spring-boot --org "<organization>" --unattended --prompt "$(cat spring-boot.prompt)"
 ```
 
-#### Recipe results
+The session keeps no state on the machine. What the estate looks like is the code in Moderne, and what is underway is the organization's changesets, so a session that starts after a crash, or on another machine, reads the same picture and continues. It leaves alone work that is underway and finishes work that stalled.
 
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Java code with highlighted method invocations on deployedWorkflow and Pair.of](./assets/find-methods-example.png)
-  <figcaption>_Finding method usage across repositories_</figcaption>
-</figure>
-
-### [Find sensitive API endpoints](https://codegenomeproject.org/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints)
-
-> Discovers REST API endpoints that handle sensitive data. Essential for security audits, understanding data exposure, and planning privacy improvements.
-
-#### CLI commands
-
-```bash
-# Find endpoints handling personal data fields like names and emails
-mod run . --recipe org.openrewrite.java.security.search.FindSensitiveApiEndpoints \
-    -P "fieldNames=firstName,lastName,email,emailAddress" \
-    -P "transitive=true"
-
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Spring controller with highlighted Owner return type on findOwner endpoint](./assets/find-sensitive-api-endpoints-1.png)
-  <figcaption>_Identifying sensitive API endpoints for security review_</figcaption>
-</figure>
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Search result popup showing Person getLastName and getFirstName as sensitive fields](./assets/find-sensitive-api-endpoints-2.png)
-  <figcaption>_Sensitive values can be found on super classes of types used in API endpoints_</figcaption>
-</figure>
-
-### [Find SQL statements](https://codegenomeproject.org/recipes/org.openrewrite.sql.FindSql)
-
-> Identifies SQL statements in your codebase, including those constructed through string concatenation. Useful for understanding database dependencies, finding potential SQL injection vulnerabilities, and planning schema changes.
-
-#### CLI commands
-
-```bash
-# Find all SQL statements, particularly useful for identifying dynamic SQL construction
-mod run . --recipe org.openrewrite.sql.FindSql
-
-mod study . --last-recipe-run --data-table DatabaseColumnsUsed
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Java code with highlighted SQL SELECT statements in JPA named query annotations](./assets/find-sql-example.png)
-  <figcaption>_Discovering SQL statements across the codebase_</figcaption>
-</figure>
-
-### [Find call graph](https://codegenomeproject.org/recipes/org.openrewrite.FindCallGraph)
-
-> Produces a data table where each row represents a method call.
-
-#### CLI commands
-
-```bash
-# Generates a data table where each row represents a method call.
-mod run . --recipe org.openrewrite.FindCallGraph
-
-mod study . --last-recipe-run --data-table CallGraph
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![JSON call graph data table showing caller and callee method relationships](./assets/call-graph.png)
-  <figcaption>_Example call graph._</figcaption>
-</figure>
-
-### [Find Spring API endpoints](https://codegenomeproject.org/recipes/org.openrewrite.java.spring.search.FindApiEndpoints)
-
-> Find all HTTP API endpoints exposed by Spring applications. More specifically, this marks method declarations annotated with `@RequestMapping`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` as search results.
-
-#### CLI commands
-
-```bash
-# Finds all HTTP API endpoints exposed by Spring applications.
-mod run . --recipe org.openrewrite.java.spring.search.FindApiEndpoints
-
-mod study . --last-recipe-run --data-table ApiEndpoints
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Spring controller with highlighted GetMapping and PostMapping endpoint annotations](./assets/spring-api-endpoints.png)
-  <figcaption>_Finding Spring API endpoints._</figcaption>
-</figure>
-
-### [Software bill of materials](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.SoftwareBillOfMaterials)
-
-> Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the CycloneDX XML format. Supports Gradle and Maven. Places a file named `sbom.xml` adjacent to the Gradle or Maven build file.
-
-#### CLI commands
-
-```bash
-# Produces a SBOM for the project
-mod run . --recipe org.openrewrite.java.dependencies.SoftwareBillOfMaterials
-
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Generated CycloneDX XML SBOM file showing component metadata and dependencies](./assets/sbom-example.png)
-  <figcaption>_Example of a SBOM file created from the recipe._</figcaption>
-</figure>
-
-### [Post quantum cryptography](https://codegenomeproject.org/recipes/io.moderne.cryptography.PostQuantumCryptography)
-
-> This recipe searches for instances in code that may be impacted by post quantum cryptography. Applications may need to support larger key sizes, different algorithms, or use crypto agility to handle the migration. The recipe includes detection of hardcoded values that affect behavior in a post-quantum world, programmatic configuration that may prevent algorithm changes, and general cryptographic usage patterns that should be reviewed.
-
-#### CLI commands
-
-```bash
-# Searches for code that may be impacted by post quantum cryptography.
-mod run . --recipe io.moderne.cryptography.PostQuantumCryptography
-
-mod study . --last-recipe-run --data-table SecurityIssues
-mod study . --last-recipe-run --data-table TaintFlowTable
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Java code with highlighted cryptographic usage patterns flagged for post-quantum review](./assets/post-quantum.png)
-  <figcaption>_Identifying code that will be affected by post quantum cryptography._</figcaption>
-</figure>
-
-### [Dependency insight for Gradle and Maven](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyInsight)
-
-> Finds all dependencies (including transitive) across Gradle and Maven projects. Useful for identifying version inconsistencies that can cause runtime issues.
-
-#### CLI commands
-
-```bash
-# Example: Find all Jackson library versions
-mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
-  -P "groupIdPattern=*" \
-  -P "artifactIdPattern=jackson*" \
-  -P "scope=runtime"
-
-mod study . --last-recipe-run --data-table org.openrewrite.maven.table.DependenciesInUse
-```
-
-#### Recipe results
-
-<figure>
-  ![DependenciesInUse data table with repository, group, artifact, version, and depth columns](./assets/dependency-insight-dt.png)
-  <figcaption>_A data table that includes information about what repositories use the dependency we specified above._</figcaption>
-</figure>
-
-<figure style={{maxWidth: '400px', margin: '0 auto'}}>
-  ![Violin chart showing Jackson artifact version distribution across repositories](./assets/dep-insight-vis.png)
-  <figcaption>_A visualization generated from the recipe results that shows the different versions of the specified dependencies across the selected repositories._</figcaption>
-</figure>
-
-## Logging improvements
-
-### [Parameterize SLF4J logging statements](https://codegenomeproject.org/recipes/org.openrewrite.java.logging.slf4j.ParameterizedLogging)
-
-> Converts string concatenation in log statements to parameterized logging for significant performance boosts, especially when log levels are disabled.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.logging.slf4j.ParameterizedLogging
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![Code diff replacing string concatenation in logger.debug with parameterized placeholders](./assets/parameterized-logging-saas.png)
-  <figcaption>_Logging improvements_</figcaption>
-</figure>
-
-### [Complete exception logging](https://codegenomeproject.org/recipes/org.openrewrite.java.logging.slf4j.CompleteExceptionLogging)
-
-> Ensures exceptions are logged with full stack traces rather than just messages. Many exception types lack useful messages, and stack traces are critical for debugging.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.logging.slf4j.CompleteExceptionLogging
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![Code diff adding ioException parameter to log.warn for complete stack trace logging](./assets/complete-exception-saas.png)
-  <figcaption>_Adding useful exceptions to logs_</figcaption>
-</figure>
-
-### [SLF4J best practices](https://codegenomeproject.org/recipes/org.openrewrite.java.logging.slf4j.Slf4jBestPractices)
-
-> Applies a comprehensive set of SLF4J logging best practices in a single recipe. Bundles both recipes above and adds more, including naming loggers for their enclosing class, making logger fields `private`, parameterizing `String.format()` and `MessageFormat.format()` calls, unpacking object arrays into varargs, guarding expensive log statements, stripping unnecessary `toString()` calls, and removing redundant log level guards. Because it captures more improvements in a single run, it surfaces greater estimated time savings during a proof of value.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.logging.slf4j.Slf4jBestPractices
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-## DevCenter
-
-A [DevCenter](https://codegenomeproject.org/recipes/io.moderne.devcenter.DevCenterStarter) gives you a high-level, single-page overview of where every repository in your organization stands. It tracks upgrade and migration progress (such as Spring Boot, Java, and JUnit versions), surfaces outstanding security issues, suggests how to upgrade, and reports organization statistics like repository counts, contributing developers, and lines of code. This makes it an effective way to frame a proof of value for leadership before diving into individual recipes.
-
-There are two ways to view a DevCenter:
-
-* **In the Moderne Platform** – organizations configured with a DevCenter display it via the `DevCenter` link in the left navigation. See [Understanding the Moderne DevCenter](./dev-center.md) for a walkthrough of each component.
-* **Locally with the CLI** – you can generate an HTML dashboard for any set of repositories you have cloned and built. See [Generating DevCenters locally](../../moderne-cli/how-to-guides/cli-dev-center.md) for the full guide.
-
-### [DevCenter starter](https://codegenomeproject.org/recipes/io.moderne.devcenter.DevCenterStarter)
-
-> Generates the data tables needed to build a DevCenter dashboard that tracks Spring Boot, Java, and JUnit upgrade progress, security issues, and organization statistics.
-
-#### CLI commands
-
-```bash
-# Install the DevCenter starter recipes
-mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
-
-# Run the DevCenterStarter recipe to produce the required data tables
-mod run . --recipe io.moderne.devcenter.DevCenterStarter
-
-# Generate the HTML DevCenter dashboard
-mod devcenter . --last-recipe-run
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '800px', margin: '0 auto'}}>
-  ![DevCenter dashboard showing organizational ownership, change campaigns, and security sections](./assets/large-devcenter.png)
-  <figcaption>_Example DevCenter dashboard_</figcaption>
-</figure>
-
-:::tip
-`DevCenterStarter` targets the JVM ecosystem by default, but DevCenters are available for many other ecosystems too – including Python, Node.js, C#/.NET, Angular, Kotlin, Quarkus, and Apache Maven. Browse the full set in the [DevCenter recipe catalog](https://codegenomeproject.org/recipes?q=io.moderne.devcenter), or learn how to [create a custom DevCenter recipe](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
+:::warning
+`--unattended` lets the agent run tools without asking you first. Run it in a directory and on a machine you are comfortable letting the agent change, with credentials that can push to your repositories and nothing more.
 :::
 
-## Dependency management
-
-### [Update Gradle wrapper](https://codegenomeproject.org/recipes/org.openrewrite.gradle.UpdateGradleWrapper)
-
-> Updates Gradle wrapper to the latest version, querying `services.gradle.org` for available releases while respecting your artifact repository configuration.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.gradle.UpdateGradleWrapper
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![Diff updating Gradle wrapper distributionUrl from 8.5 to 9.0.0 with new SHA-256 hash](./assets/gradle-wrapper-update-saas.png)
-  <figcaption>_Updating the Gradle wrapper_</figcaption>
-</figure>
-
-### [Update Gradle plugins](https://codegenomeproject.org/recipes/org.openrewrite.gradle.plugins.UpgradePluginVersion)
-
-> Updates Gradle plugins by ID to newer versions.
-
-#### CLI commands
-
-```bash
-# Update specific plugin - adjust parameters for your plugins
-mod run . --recipe org.openrewrite.gradle.plugins.UpgradePluginVersion \
-  --recipe-option "pluginIdPattern=org.springframework.boot" \
-  --recipe-option "newVersion=4.1.x"
-
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure>
-  ![Diff updating Spring Boot Gradle plugin version from 3.3.0 to 3.4.9](./assets/gradle-plugin-update.png)
-  <figcaption>_An example `build.gradle` change._</figcaption>
-</figure>
-
-### [Update Maven wrapper](https://codegenomeproject.org/recipes/org.openrewrite.maven.UpdateMavenWrapper)
-
-> Update the version of Maven used in an existing Maven wrapper.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.maven.UpdateMavenWrapper
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![Diff updating Maven wrapper properties with new distribution URL and SHA-256 hash](./assets/maven-wrapper-update.png)
-  <figcaption>_Updating the Maven wrapper_</figcaption>
-</figure>
-
-### [Update Maven plugins](https://codegenomeproject.org/recipes/org.openrewrite.maven.UpgradePluginVersion)
-
-> Upgrade the version of a plugin using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases.
-
-#### CLI commands
-
-```bash
-# Update specific plugin - adjust parameters for your plugins
-mod run . --recipe org.openrewrite.maven.UpgradePluginVersion \
-  --recipe-option "groupId=org.springframework.boot" \
-  --recipe-option "artifactId=spring-boot-maven-plugin" \
-  --recipe-option "newVersion=4.1.x"
-
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-## Security
-
-### [Find secrets](https://codegenomeproject.org/recipes/org.openrewrite.java.security.secrets.FindSecrets)
-
-> Locates secrets like passwords, API keys, and tokens stored in plain text.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.security.secrets.FindSecrets
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure>
-  ![Java test file with highlighted hardcoded JWT token string flagged as a secret](./assets/find-secrets-example.png)
-  <figcaption>_Example of a secret being found in the code._</figcaption>
-</figure>
-
-### [Use secure random](https://codegenomeproject.org/recipes/org.openrewrite.java.security.SecureRandom)
-
-> Replaces `java.util.Random` with cryptographically secure `java.security.SecureRandom`.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.security.SecureRandom
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '500px', margin: '0 auto'}}>
-  ![Code diff replacing new Random with new SecureRandom and adding import](./assets/secure-random-example.png)
-  <figcaption>_Example demonstrating `Random` being replaced with `SecureRandom`._</figcaption>
-</figure>
-
-### [Java security best practices](https://codegenomeproject.org/recipes/org.openrewrite.java.security.JavaSecurityBestPractices)
-
-> Applies multiple security improvements including XML parser XXE vulnerability fixes, secure temporary file creation, Zip slip vulnerability remediation, file descriptor leak prevention, and loop condition safety checks.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.security.JavaSecurityBestPractices
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure>
-  ![Code diff adding Zip slip path traversal check before extracting zip entries](./assets/java-security-example.png)
-  <figcaption>_Example demonstrating how this recipe handles security issues such as the Zip slip vulnerability._</figcaption>
-</figure>
-
-### [OWASP Top Ten](https://codegenomeproject.org/recipes/org.openrewrite.java.security.OwaspTopTen)
-
-> Identifies and remediates vulnerabilities from the OWASP Top Ten including broken access control, cryptographic failures, injection, security misconfiguration, vulnerable components, and data integrity failures.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.security.OwaspTopTen
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<div style={{display: 'flex'}}>
-  <figure style={{maxWidth: '400px'}}>
-    ![New SecurityConfig class with CSRF token repository configuration to prevent attacks](./assets/owasp-top-ten-example.png)
-    <figcaption>_Example demonstrating how this recipe fixes security issues such as CSRF attacks._</figcaption>
-  </figure>
-
-  <figure style={{maxWidth: '400px'}}>
-    ![Vulnerability report table with CVE IDs, artifact versions, fix versions, and severity](./assets/owasp-data-table-example.png)
-    <figcaption>_A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs._</figcaption>
-  </figure>
-</div>
-
-<figure style={{maxWidth: '400px', margin: '0 auto'}}>
-  ![Vulnerability report columns showing severity, depth, and CWE classifications](./assets/vuln-report-depth.png)
-  <figcaption>_The vulnerability report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
-</figure>
-
-### [Find and fix vulnerable dependencies](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck)
-
-> Software composition analysis (SCA) tool that detects and upgrades dependencies with known CVEs. Uses GitHub Security Advisory Database which aggregates multiple vulnerability databases including the National Vulnerability Database.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.dependencies.DependencyVulnerabilityCheck \
-  -P "scope=runtime" \
-  -P "overrideTransitive=True" \
-  -P "maximumUpgradeDelta=patch"
-
-mod study . --last-recipe-run --data-table VulnerabilityReport
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<div style={{display: 'flex'}}>
-  <figure style={{maxWidth: '400px'}}>
-    ![Pom.xml diff upgrading jose4j and xstream dependency versions for security fixes](./assets/vuln-report-example.png)
-    <figcaption>_Example demonstrating how this recipe updates minor versions to get critical security fixes._</figcaption>
-  </figure>
-
-  <figure style={{maxWidth: '400px'}}>
-    ![Vulnerability report table with CVE IDs, artifact versions, fix versions, and severity](./assets/owasp-data-table-example.png)
-    <figcaption>_A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs._</figcaption>
-  </figure>
-</div>
-
-<figure style={{maxWidth: '400px', margin: '0 auto'}}>
-  ![Vulnerability report columns showing severity, depth, and CWE classifications](./assets/vuln-report-depth.png)
-  <figcaption>_The vulnerability report also shows the severity of the CVE and the depth (transitivity) of the dependency. ~80% of vulnerable dependencies are transitive._</figcaption>
-</figure>
-
-## Test modernization
-
-### [JUnit 6 best practices](https://codegenomeproject.org/recipes/org.openrewrite.java.testing.junit.JUnit6BestPractices)
-
-> Migrates to JUnit 6 and applies best practices to tests. This recipe will: migrate from JUnit 4.x or 5.x to JUnit 6, statically import JUnit Jupiter assertions, remove the test prefix and public visibility from tests, add `@ParameterizedTest` annotations, and clean up assertions – among other things.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.testing.junit.JUnit6BestPractices
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![Code diff removing unused imports, dropping the test prefix from a method name, and replacing assertEquals with assertTrue and assertFalse](./assets/junit-best-practices-example.png)
-  <figcaption>_Applying best practices to JUnit tests._</figcaption>
-</figure>
-
-### [AssertJ best practices](https://codegenomeproject.org/recipes/org.openrewrite.java.testing.assertj.Assertj)
-
-> Migrates assertions to AssertJ for better readability. Migrates from JUnit, Hamcrest, Fest, and TestNG assertions, statically imports `assertThat`, simplifies chained assertions, and adopts type-specific assertions.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.testing.assertj.Assertj
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![Code diff migrating from JUnit assertions to AssertJ assertThatThrownBy pattern](./assets/assertj-best-practices-example.png)
-  <figcaption>_Applying AssertJ best practices to a test class._</figcaption>
-</figure>
-
-## Major migrations
-
-Major migrations are complex transformations that typically automate 80-90% of the work, with the remainder requiring manual developer intervention. They are typically composed of multiple, complex recipes.
-
-### [Migrate to Java 25](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)
-
-> Comprehensive migration from Java 8/11 to Java 25. Updates build files for Java 25 target/source, replaces deprecated APIs, adopts new language features, upgrades plugins to Java 25 compatible versions, and updates GitHub Actions configurations. Swap in the recipe for another target version (such as `org.openrewrite.java.migrate.UpgradeToJava17`) when you need to land on an earlier release.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.migrate.UpgradeToJava25
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<div style={{display: 'flex'}}>
-  <figure style={{maxWidth: '400px'}}>
-    ![Pom.xml diff changing javaVersion property from 8 to 25](./assets/java-version-change.png)
-    <figcaption>_Updating the Java version_</figcaption>
-  </figure>
-
-  <figure style={{maxWidth: '400px'}}>
-    ![Code diff replacing Runtime.exec(String) with Runtime.exec(String.split) for safety](./assets/java-deprecated-method.png)
-    <figcaption>_Fixing deprecated methods_</figcaption>
-  </figure>
-</div>
-
-### [Java best practices](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.JavaBestPractices)
-
-> Applies opinionated best practices for Java projects targeting Java 25. Includes the full Java 25 upgrade chain plus additional improvements to code style, API usage, and third-party dependency reduction that go beyond what the version migration recipes apply.
-
-#### CLI commands
-
-```bash
-mod run . --recipe org.openrewrite.java.migrate.JavaBestPractices
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-### [Spring Boot 4 best practices](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot4.SpringBoot4BestPractices)
-
-> Migrates to Spring Boot 4 and applies best practices. Includes upgrades from prior Spring Boot versions with configuration updates and dependency alignment.
-
-#### CLI commands
-
-```bash
-mod run . --recipe io.moderne.java.spring.boot4.SpringBoot4BestPractices
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '600px', margin: '0 auto'}}>
-  ![Code diff migrating javax to jakarta imports and updating Spring annotations](./assets/spring-boot-best-practice-example.png)
-  <figcaption>_Applying Spring Boot best practices to a Java class._</figcaption>
-</figure>
-
-## AI agent context
-
-AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when they have structured knowledge about your codebase rather than inferring architecture from raw code. Prethink generates this context automatically, mapping service endpoints, dependencies, test coverage, and architecture so agents reason over facts instead of guessing. To learn more, please [check out our Prethink documentation](../../agent-tools/prethink.md).
-
-### [Update Prethink context](https://codegenomeproject.org/recipes/io.moderne.prethink.UpdatePrethinkContextStarter)
-
-> Generates Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams.
-
-#### CLI commands
-
-```bash
-mod run . --recipe io.moderne.prethink.UpdatePrethinkContextStarter
-
-mod study . --last-recipe-run --data-table ClassQualityMetrics
-mod study . --last-recipe-run --data-table MethodQualityMetrics
-mod study . --last-recipe-run --data-table PackageQualityMetrics
-mod study . --last-recipe-run --data-table CodeSmells
-mod study . --last-recipe-run --data-table TestGaps
-mod study . --last-recipe-run --data-table TestQualityIssues
-
-mod git apply . --last-recipe-run
-```
-
-#### Recipe results
-
-<figure>
-  ![Recipe results listing generated .moderne/context files for architecture and conventions](./assets/prethink-noai-results.png)
-  <figcaption>_Context files generated by the Prethink recipe._</figcaption>
-</figure>
+To see and steer what is running:
+
+* `mod agent sessions` lists the sessions on this machine, and `mod agent sessions <changeset>` lists the sessions on a changeset wherever they run, with the machine, the directory, the state and the command each one is running.
+* The changesets a factory creates are in Moderne's activity view, with their data tables, pull requests and the agents that worked on them.
+* `mod agent stop <session>` ends a session. It stops the agent, closes the session in Moderne, and gives the terminal its prompt back.
+* `mod agent send <session> "<message>"` hands a message to an interactive Codex session as its next turn. For other agents, and for unattended sessions, change the prompt and start the session again.
+
+## Next steps
+
+* [Browse the recipe reference](./proof-of-value-recipes.md) for the recipes the scenarios draw on, with a CLI command and an example result for each.
+* [Read about agent chat](../../agent-tools/agent-chat.md) for the agents it supports and what a session does.
+* [Study the results](./data-tables.md) with data tables and [visualizations](./visualizations.md) after a run.
+* [Frame the estate for leadership with a DevCenter](./dev-center.md), the single-page view of where every repository stands.
