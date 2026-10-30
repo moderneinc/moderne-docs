@@ -73,6 +73,19 @@ mod build ./pov
 
 The session then works on what is in the directory, and its command leaves `--org` off.
 
+## Search your code first
+
+Before you start a session, run a search or two yourself, so you see what the agent will work from. Code search runs over the index of your LSTs rather than over text, so it knows which `isEmpty` is which, and it answers questions about dependencies, inheritance and annotations that a text search cannot. The first search over a repository writes its index and takes a while. Every search after that comes back in about a second.
+
+With a tenant, open **Code search** in Moderne's left nav, pick the organization and type a query. **Save and export** runs the search across the whole organization and keeps the matches as a data table in the [activity view](./activity-view.md). From the CLI, search the repositories on the machine or an organization in Moderne:
+
+```bash
+mod search . "System.out.println -file:src/test"
+mod search moderne://<organization> "dependency:junit:junit:4.x select:file" --output=summary
+```
+
+The [code search guide](./code-search.md#writing-queries) covers the query language, and the [recipe reference](./proof-of-value-recipes.md#code-search) has five questions worth asking first. What search cannot do, such as count lines or produce a bill of materials, is a recipe's job.
+
 ## Choosing a scenario
 
 <PovScenarios />

@@ -4,6 +4,8 @@ sidebar_label: POV recipe reference
 description: The recipes a proof of value draws on, from code quality fixes to major migrations, with the CLI command for each one and an example of its result.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Proof of value recipe reference
@@ -46,15 +48,65 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 ## Code search and impact analysis
 
-Many developers use Moderne every day for code search. Need to plan a refactor? Want to understand how an API is used? Trying to assess security concerns? All of these questions can be answered by running search recipes across your repositories.
+Many developers use Moderne every day for code search. Need to plan a refactor? Want to understand how an API is used? Trying to assess security concerns? All of these questions can be answered by searching across your repositories.
 
 This is possible because Moderne treats your code like a data warehouse. Our type-aware search capabilities go far beyond simple text searches. They understand your code's structure, inheritance hierarchies, and semantic relationships. It's effectively like running a database query across your entire codebase.
 
-One of the most powerful applications of search is **impact analysis** – understanding what will be affected before you make changes. The search recipes below help you assess the scope and impact of potential transformations, giving you confidence before running large-scale refactors or migrations.
+One of the most powerful applications of search is **impact analysis** – understanding what will be affected before you make changes. Checking the scope of a potential transformation ahead of time gives you confidence before running large-scale refactors or migrations.
 
 To learn more about impact analysis and how to automate it, check out this video:
 
 <ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
+
+### Code search
+
+Imagine you wanted to find every place you used `StringUtils.isEmpty`. A text search would give you matches from Apache Commons, Spring, and whatever else happened to define a method with that name.
+
+A better way to search for code is with Moderne's [code search](./code-search.md). Since it's built on an index of your LSTs, it knows which `isEmpty` is which - and it can answer questions about dependencies, inheritance, and annotations that text search can't.
+
+To explore code search further, select which product you're evaluating and then follow the instructions below:
+
+<Tabs>
+<TabItem value="platform" label="Moderne Platform">
+
+Navigate to your Moderne tenant and click on **Code search** in the left nav bar. Ensure you've selected the organization you want to search and type in a query (or select one of examples).
+
+<figure style={{maxWidth: '700px', margin: '0 auto'}}>
+  ![Navigating to Code Search and searching for code](./assets/FullCodeSearch.gif)
+  <figcaption>_Navigating to Code Search and searching for code_</figcaption>
+</figure>
+
+By default, searches disappear once you leave the page. If you find something worth sharing (say, every call to a deprecated API), click **Save and export**. Moderne will run the search across the whole organization, save the matches to a data table, and list the search in the [activity view](./activity-view.md) next to your recipe runs.
+
+Since a saved search is also a changeset, you can use the CLI to [pull down exactly the repositories that matched](../../moderne-cli/cli-reference.md#mod-git-sync-moderne) when you're ready to make changes.
+
+</TabItem>
+<TabItem value="cli" label="Moderne CLI/DX">
+
+Open up a terminal and navigate to the root directory of your repositories. Once you've built the LSTs, you can use `mod search` to run Moderne's code search across all of them:
+
+```bash
+mod search . "dependency:junit:junit:4.x select:file"
+```
+
+If you'd rather see counts than every matching line, add `--output=summary`. The [CLI reference](../../moderne-cli/cli-reference.md#mod-search) has the full set of options.
+
+</TabItem>
+</Tabs>
+
+Here are some ideas for how you might use code search to gain insights about your code:
+
+| Question                                         | Query                                                              |
+|--------------------------------------------------|--------------------------------------------------------------------|
+| Which repositories still depend on JUnit 4?      | `dependency:junit:junit:4.x select:file`                           |
+| Where is a specific API called?                  | `call:org.apache.commons.lang3.StringUtils.isEmpty`                |
+| Which classes extend a framework type?           | `extends:WebSecurityConfigurerAdapter`                             |
+| Which classes carry an annotation?               | `annotated:org.springframework.web.bind.annotation.RestController` |
+| Where does production code print to the console? | `System.out.println -file:src/test`                                |
+
+For more information on customizing queries, check out the [code search guide](./code-search.md#writing-queries) and the [Trigrep query reference](../../agent-tools/trigrep.md#query-reference).
+
+Code search isn't the answer to everything, though. It can't count lines or produce a structure report like a bill of materials. This is where recipes come in to play - such as the ones listed below.
 
 ### [Language composition report](https://codegenomeproject.org/recipes/org.openrewrite.LanguageComposition)
 
@@ -73,58 +125,6 @@ mod study . --last-recipe-run --data-table LanguageCompositionPerRepository
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![Language composition visualization showing the breakdown of programming languages and data file formats across repositories](./assets/language-composition-example.png)
   <figcaption>_Understanding the language composition of your repositories_</figcaption>
-</figure>
-
-### [Find types](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes)
-
-> Identifies classes, interfaces, or enums matching a type pattern. Crucial for understanding class usage and inheritance hierarchies before performing refactoring or migrations.
-
-:::tip
-If you don't remember the exact type, try replacing parts of the expression with `*` as a wildcard and go from there.
-:::
-
-#### CLI commands
-
-```bash
-# Example: Find all uses of Apache Commons StringUtils across your codebase
-mod run . --recipe org.openrewrite.java.search.FindTypes \
-    -P "fullyQualifiedTypeName=org.apache.commons.lang3.StringUtils" \
-    -P "checkAssignability=true"
-
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Java code with highlighted StringUtils.split usages found by type-aware search](./assets/find-types-example.png)
-  <figcaption>_Discovering type usage patterns across repositories_</figcaption>
-</figure>
-
-### [Find methods](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindMethods)
-
-> Locates method invocations matching a method pattern, even when methods are imported in different ways or invoked on subclasses. Essential for understanding API usage before refactoring.
-
-:::tip
-Unsure how to accurately identify methods? Check out our [documentation on method patterns](https://docs.openrewrite.org/reference/method-patterns#anatomy-of-a-method-pattern).
-:::
-
-#### CLI commands
-
-```bash
-# Example: Find all uses of methods in org.apache.commons
-mod run . --recipe org.openrewrite.java.search.FindMethods \
-    -P "methodPattern=org.apache.commons..*#*(..)" \
-    -P "matchOverrides=true"
-
-mod study . --last-recipe-run --data-table SourcesFileResults
-```
-
-#### Recipe results
-
-<figure style={{maxWidth: '700px', margin: '0 auto'}}>
-  ![Java code with highlighted method invocations on deployedWorkflow and Pair.of](./assets/find-methods-example.png)
-  <figcaption>_Finding method usage across repositories_</figcaption>
 </figure>
 
 ### [Find sensitive API endpoints](https://codegenomeproject.org/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints)
