@@ -105,7 +105,7 @@ curl -o pov/moderne-pov.pptx https://docs.moderne.io/decks/moderne-pov.pptx
 
 Then start the agent with the deck scenario from the picker above. The notes on the title slide tell it how to work:
 
-* It runs the steps one at a time, each in a terminal window of its own, so the people watching see the step's transcript: the agent searching for a recipe, running it over the estate, syncing what it changed and building it. With a tenant, each step runs in a subdirectory with `--org`. Without one, each step runs in the same directory, on the repositories synced there.
+* It runs the steps one at a time, each in a terminal window of its own, so the people watching see the step's transcript: the agent searching for a recipe, running it over every repository, syncing what it changed and building it. With a tenant, each step runs in a subdirectory with `--org`. Without one, each step runs in the same directory, on the repositories synced there.
 * Every step's prompt ends with the same instruction: when done, write a summary to `board/<step>.md` with the changeset or run id, what changed, what built, the pull requests opened and the recipes written. The session waits for that file, reads it, and ends the step with `mod agent stop`. The transcript stays in its window.
 * It replaces each `{{placeholder}}` with what it measured, puts a capture of the step's window where a slide asks for one, and leaves a slide out rather than guess. Every number traces to a changeset or run id, a data table or a session, written under "Source:" in the slide's notes.
 
@@ -114,7 +114,7 @@ The deck tells one story, and each step asks for more than the last:
 | Slide                 | Headline                                                                                                   | What fills it                                                                                                |
 |-----------------------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | Title                 | `{{Customer}}` and Moderne                                                                                 | The customer's name and the month                                                                            |
-| The estate            | Every number in this deck comes from `{{N}}` repositories worked on at once                                | The language composition recipe                                                                              |
+| The code              | Every number in this deck comes from `{{N}}` repositories worked on at once                                | The language composition recipe                                                                              |
 | The first prompt      | The first prompt was deliberately ordinary                                                                 | The step `Fix code quality issues`, and a capture of its window                                              |
 | What it did           | That one prompt fixed `{{files}}` files in `{{n}}` of `{{N}}` repositories, and a recipe made every change | The step's changeset or run, its builds and its pull requests                                                |
 | The factory           | The same prompt, asked never to stop, is a factory                                                         | The same step run twice as a standing objective, and the scheduler line that keeps it going                  |
@@ -140,7 +140,7 @@ Standing exceptions belong in the prompt. A sentence such as "acme/legacy stays 
 
 ## Watching for vulnerabilities and fixing them everywhere
 
-The session reads what was disclosed, maps it onto the estate, and remediates it everywhere at once. It researches newly disclosed vulnerabilities with web search, or with a research skill such as `last30days` where the agent has one. For each vulnerability, a `dependency:` search over the organization says which repositories the vulnerable range reaches, including through transitive dependencies. Where a version bump is the fix, the [dependency vulnerability check](./proof-of-value-recipes.md#find-and-fix-vulnerable-dependencies) makes it. Where the fix is a change to code, the agent writes a recipe for the vulnerable pattern and runs it over every repository the search found. Each fix is verified with the repository's own build and opened as a pull request.
+The session reads what was disclosed, finds which repositories it reaches, and remediates it everywhere at once. It researches newly disclosed vulnerabilities with web search, or with a research skill such as `last30days` where the agent has one. For each vulnerability, a `dependency:` search over the organization says which repositories the vulnerable range reaches, including through transitive dependencies. Where a version bump is the fix, the [dependency vulnerability check](./proof-of-value-recipes.md#find-and-fix-vulnerable-dependencies) makes it. Where the fix is a change to code, the agent writes a recipe for the vulnerable pattern and runs it over every repository the search found. Each fix is verified with the repository's own build and opened as a pull request.
 
 A fix the agent makes by hand in one repository is generalized into a recipe before the session moves on. The same vulnerability found later is then fixed by running the recipe again.
 
@@ -165,7 +165,7 @@ Without a tenant, the entry refreshes the sources and their LSTs first, since no
 0 2 * * * cd /srv/factories && mod git sync csv ./factory-spring-boot repos.csv --with-sources && mod build ./factory-spring-boot && mod copilot chat ./factory-spring-boot --unattended --prompt "$(cat spring-boot.prompt)"
 ```
 
-With a tenant, the session keeps no state on the machine. What the estate looks like is the code in Moderne, and what is underway is the organization's changesets, so a session that starts after a crash, or on another machine, reads the same picture and continues. It leaves alone work that is underway and finishes work that stalled. Without one, the state is the directory itself: the synced repositories, their branches, and the patches under `.moderne/run`.
+With a tenant, the session keeps no state on the machine. The code is in Moderne and the work underway is the organization's changesets, so a session that starts after a crash, or on another machine, reads the same picture and continues. It leaves alone work that is underway and finishes work that stalled. Without one, the state is the directory itself: the synced repositories, their branches, and the patches under `.moderne/run`.
 
 :::warning
 `--unattended` lets the agent run tools without asking you first. Run it in a directory and on a machine you are comfortable letting the agent change, with credentials that can push to your repositories and nothing more.
@@ -183,4 +183,4 @@ To see and steer what is running:
 * [Browse the recipe reference](./proof-of-value-recipes.md) for the recipes the scenarios draw on, with a CLI command and an example result for each.
 * [Read about agent chat](../../agent-tools/agent-chat.md) for the agents it supports and what a session does.
 * [Study the results](./data-tables.md) with data tables and [visualizations](./visualizations.md) after a run.
-* [Frame the estate for leadership with a DevCenter](./dev-center.md), the single-page view of where every repository stands.
+* [Give leadership a DevCenter](./dev-center.md), the single-page view of where every repository stands.

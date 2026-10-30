@@ -97,7 +97,7 @@ export const SCENARIOS: Scenario[] = [
       'verify with each repository\'s own build, and open pull requests. Generalize any fix you ' +
       'make by hand into a recipe so it applies everywhere. Keep going.',
     summary:
-      'A standing objective: the session reads what was disclosed, finds where it reaches the estate, and remediates it with a recipe that runs everywhere.',
+      'A standing objective: the session reads what was disclosed, finds which repositories it reaches, and remediates it with a recipe that runs everywhere.',
     anchor: '#watching-for-vulnerabilities-and-fixing-them-everywhere',
   },
   {
