@@ -67,6 +67,19 @@ jobs:
           NODE_OPTIONS: "--max-old-space-size=4096 --max-semi-space-size=64"
           DOCUSAURUS_IGNORE_SSG_WARNINGS: true
 
+      # Keep the marketplace URLs this site used to publish working, since Pages can't redirect them.
+      # A CGP outage must not block a deploy; the old paths 404 until the next one.
+      - name: Mirror the Code Genome Project's recipe marketplace CSVs
+        run: |
+          mkdir -p build/marketplace
+          mirror() {
+            curl -fsSL --retry 3 -o "$RUNNER_TEMP/$2" "https://artifacts.codegenomeproject.org/$1" &&
+              mv "$RUNNER_TEMP/$2" "build/marketplace/$2" ||
+              echo "::warning title=Marketplace mirror::Could not download $1 from the Code Genome Project"
+          }
+          mirror recipes.csv recipes-v5-released.csv
+          mirror recipes-snapshots.csv recipes-v5-snapshot.csv
+
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v5
         with:
