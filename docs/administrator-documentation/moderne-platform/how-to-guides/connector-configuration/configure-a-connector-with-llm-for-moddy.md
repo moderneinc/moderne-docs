@@ -311,7 +311,7 @@ Point the provider's `URI` at your proxy. Moddy sends each request in the provid
 
 * Your proxy can read the user identifier from the request body for OpenAI and Anthropic without configuration. For Google Gemini and Mistral, you will need to configure your proxy to read the `x-moderne-user-id` header. In LiteLLM, for example, add `header_name: x-moderne-user-id` with `litellm_user_role: customer` under `general_settings.user_header_mappings`.
 * Routing by country is a rule you add to your proxy that reads `x-moderne-user-country`. No proxy applies one by default.
-* Moddy asks your LLM for every answer as a stream. Your proxy will need to pass the stream through and end its response when the provider's stream ends.
+* Your proxy will need to end its response to the Connector as soon as the provider's stream ends. Moddy asks your LLM for every answer as a stream.
 
 ## Complete example with multiple configurations
 
