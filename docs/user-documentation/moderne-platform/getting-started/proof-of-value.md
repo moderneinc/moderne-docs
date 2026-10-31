@@ -117,31 +117,35 @@ mkdir pov
 curl -o pov/moderne-pov.pptx https://docs.moderne.io/decks/moderne-pov.pptx
 ```
 
-Then start the agent with the deck scenario from the picker above. The notes on the title slide tell it how to work:
+Then start the agent with the deck scenario from the picker above, with your objectives added to the end of the prompt in your own words, one sentence each, after "The objectives are:". The deck has room for three. Leave them off and the session picks up to three the code calls for, such as the scenarios below, and says in the notes that it chose them. The notes on the title slide tell it how to work:
 
 * It runs the steps one at a time, each in a terminal window of its own, so the people watching see the step's transcript: the agent searching for a recipe, running it over every repository, syncing what it changed and building it. It captures the window every 45 seconds while the step runs, so a slide can show the moment it asks for. With a tenant, each step runs in a subdirectory with `--org`. Without one, each step runs in the same directory, on the repositories synced there.
-* Every step's prompt ends with the same instruction: when done, write a summary to `board/<step>.md` with the changeset or run id, what changed, what built, the pull requests opened, the recipes written and the usage the step's harness reports. A step that cannot open pull requests says why and goes on. The session waits for that file, reads it, and ends the step with `mod agent stop`. The transcript stays in its window.
-* It replaces each `{{placeholder}}` with what it measured, puts a capture of the step's window where a slide asks for one, and leaves a slide out rather than guess. It does not stop to ask: the title slide's notes answer every choice a step can raise. Every number traces to a changeset or run id, a data table or a session, written under "Source:" in the slide's notes.
+* Every step's prompt ends with the same instruction: reach for the recipes that exist first, write a recipe only where none makes a change the objective needs and say what the gap was, say why when part of a recipe's result is left out, verify with each repository's own build, open pull requests or say why they cannot be opened and go on, and when done write a summary to `board/<step>.md` with the changeset or run ids, what changed, what built, the pull requests, the recipes written and the usage the step's harness reports. The session waits for that file, reads it, and ends the step with `mod agent stop`. The transcript stays in its window.
+* It fills the slides in plain words, puts a capture of the step's window where a slide asks for one, and leaves a slide out rather than guess. It does not stop to ask: the title slide's notes answer every choice a step can raise. A recipe is named on a slide by what it does; recipe ids, changeset ids and session ids go under "Source:" in the slide's notes, so every number traces to a changeset or run id, a data table or a session.
 
-The deck tells one story, and each step asks for more than the last:
+The deck fixes the form of every slide and leaves the content of the result slides to the run. The slides that frame the story keep their words. Every result slide, which is one per step, has the same five parts:
 
-| Slide                 | Headline                                                                                                   | What fills it                                                                                                |
-|-----------------------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| Title                 | `{{Customer}}` and Moderne                                                                                 | The customer's name and the month                                                                            |
-| The code              | Every number in this deck comes from `{{N}}` repositories worked on at once                                | The language composition recipe                                                                              |
-| The first prompt      | The first prompt was deliberately ordinary                                                                 | The step `Fix code quality issues`, and a capture of its window                                              |
-| What it did           | That one prompt fixed `{{files}}` files in `{{n}}` of `{{N}}` repositories, and a recipe made every change | The step's changeset or run, its builds and its pull requests                                                |
-| The factory           | The same prompt, asked never to stop, is a factory                                                         | The same step run twice as a standing objective, and the scheduler line that keeps it going                  |
-| Recipes written       | Where no recipe covered a fix, the factory wrote one, so the next pass is deterministic                    | The recipes the passes wrote, and the first pass against the second                                          |
-| Spring Boot           | `{{n}}` repositories moved to Spring Boot `{{version}}`, each verified by its own build                    | The step `Keep every repository on the latest Spring Boot release`                                           |
-| Vulnerabilities       | `{{f}}` vulnerable dependencies fixed everywhere in one run, `{{t}}%` of them transitive                   | The step `Watch for newly disclosed vulnerabilities that affect this code and fix them everywhere`, and the vulnerability report |
-| Data flow             | Asked a question no recipe could answer, the agent wrote the recipe that answers it                        | The step `Build what it takes to answer where data flows through this code`                                  |
-| The loop              | The agent gets better at this work by writing recipes, not by changing the model                           | The recipe count when the proof of value started and when it ended                                           |
-| Cost                  | The proof of value took `{{hours}}` of a person's time and `{{dollars}}` of agent usage                    | The sessions' usage reports, and what a recipe costs to run again                                            |
-| What you keep running | What `{{Customer}}` keeps running                                                                          | The factories, with an owner and a machine for each                                                          |
-| Who already runs Moderne | Used by the companies running the world's largest codebases                                             | Nothing: the customer logos from moderne.ai stay as they are                                                 |
+1. A headline the agent writes from what the step did: one sentence with one number the slide's own evidence carries, and no claim the evidence does not show.
+2. The command, on the objective slides, as the step was started.
+3. Before and after: one change in one file from the step's changeset, at most a dozen lines a side, the change a developer would recognise as a real fix. A step that changed nothing shows the line in its window that says so.
+4. The reach: how many repositories and files changed, how many built and passed their own tests, how many pull requests opened.
+5. Why, only where the agent left part of a recipe's result out or wrote a recipe of its own: one sentence on what the gap was.
 
-When the session ends, the deck in the directory is filled in, the steps' changesets or runs are there to review, and `board/` holds each step's summary. Review the deck as you would the agent's pull requests.
+| Slide                    | What it holds                                                                                            |
+|--------------------------|----------------------------------------------------------------------------------------------------------|
+| Title                    | `{{Customer}}` and Moderne, with the month                                                               |
+| The code                 | Every number in this deck comes from `{{N}}` repositories worked on at once: the language composition recipe |
+| The first prompt         | The first prompt was deliberately ordinary: the step `Fix code quality issues`, and a capture of its window |
+| What it did              | The result template, filled from that step                                                               |
+| The factory              | The same prompt, asked never to stop, is a factory: the one command, and a capture of its second pass    |
+| What the second pass did | The result template, filled from the second pass; the why sentence names the recipe it wrote and the gap |
+| Objectives 1 to 3        | The result template, one slide per objective in your words, with its command across the top             |
+| The loop                 | The agent gets better at this work by writing recipes, not by changing the model: the recipe count when the proof of value started and when it ended |
+| Cost                     | The proof of value took `{{hours}}` of a person's time and `{{dollars}}` of agent usage: the sessions' usage reports, and what a recipe costs to run again |
+| What you keep running    | The factory and each objective, with an owner and a machine for each                                     |
+| Who already runs Moderne | Used by the companies running the world's largest codebases: the customer logos from moderne.ai         |
+
+When the session ends, the deck in the directory is filled in, the steps' changesets or runs are there to review, and `board/` holds each step's summary. Review the deck as you would the agent's pull requests. The deck shows no scheduler: how to keep a factory going when nobody is watching is under [Running a factory continuously](#running-a-factory-continuously).
 
 :::note
 The agent edits the deck with a library such as `python-pptx`, which it installs itself. If it reports that it cannot edit the file, ask it to write the results as a markdown report with the same headlines, and fill the deck in yourself.

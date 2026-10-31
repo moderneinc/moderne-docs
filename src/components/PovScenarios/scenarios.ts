@@ -63,9 +63,11 @@ export const SCENARIOS: Scenario[] = [
       'every {{placeholder}} with what you measured, put a capture of the window or its ' +
       'transcript where a slide asks for one, and leave a slide out rather than guess. Every ' +
       'number in the finished deck must trace to a changeset or a run id, a data table or a ' +
-      'session you can name.',
+      'session you can name. The objectives are the customer\'s, listed at the end of this ' +
+      'prompt in their words, one per objective slide, at most three; when none are listed, ' +
+      'choose up to three the code calls for.',
     summary:
-      'The agent runs the proof of value step by step, each step a session of its own in a window you can watch, and fills in a deck for leadership.',
+      'The agent runs the proof of value step by step, each step a session of its own in a window you can watch, and fills in a deck for leadership around the objectives you add to the prompt in your own words.',
     anchor: '#running-the-pov-and-filling-in-the-value-deck',
   },
   {
