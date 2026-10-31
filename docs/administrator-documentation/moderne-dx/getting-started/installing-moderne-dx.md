@@ -402,7 +402,7 @@ mod config moderne edit https://moderne.acme.com \
 mod config moderne login
 ```
 
-{/* Once a CLI release reads the realm from DX's /cli/config (moderne-saas#2882), drop --auth-server-url here and below. */}
+{/* Once a CLI release carries moderne-cli#5104, which reads the realm from DX's /cli/config (moderne-saas#2882), drop --auth-server-url here and below. */}
 
 On a laptop, the URLs carry the port. CLI releases up to 4.12.0 also need the API's URL in that case:
 
