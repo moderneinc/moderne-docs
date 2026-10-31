@@ -68,6 +68,10 @@ const redirects: RedirectRule[] = [
     to: '/user-documentation/recipes/popular-recipe-guides/migrate-to-java',
   },
   // One-to-one moves.
+  {
+    from: '/administrator-documentation/moderne-dx/references/moderne-dx-architecture',
+    to: '/administrator-documentation/moderne-dx/getting-started/overview',
+  },
   { from: '/administrator-documentation/references/repos-csv', to: '/user-documentation/moderne-cli/references/repos-csv' },
   { from: '/user-documentation/community-office-hours', to: '/user-documentation/code-remix-sessions/2026' },
   { from: '/hands-on-learning/moderne-cli-workshop', to: '/user-documentation/moderne-cli/getting-started/moderne-cli-workshop' },

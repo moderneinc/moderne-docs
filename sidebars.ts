@@ -252,7 +252,7 @@ const dx = {
   link: {
     type: 'generated-index' as const,
     title: 'Moderne DX',
-    description: 'Air-gapped, on-prem unified refactoring CLI/IDE solution with recipes & reporting.',
+    description: 'The recipe marketplace, code search, and changesets on a machine you control, for the Moderne CLI.',
     slug: '/administrator-documentation/moderne-DX',
     keywords: ['guides'],
   },
@@ -269,6 +269,7 @@ const dx = {
       },
       items: [
         'administrator-documentation/moderne-dx/getting-started/overview',
+        'administrator-documentation/moderne-dx/getting-started/installing-moderne-dx',
         'administrator-documentation/moderne-dx/getting-started/proof-of-value-prerequisites',
       ],
     },
@@ -299,7 +300,7 @@ const dx = {
         keywords: ['reference'],
       },
       items: [
-        'administrator-documentation/moderne-dx/references/moderne-dx-architecture',
+        'administrator-documentation/moderne-dx/references/moderne-yml-reference',
       ],
     },
   ],
