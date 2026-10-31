@@ -1,161 +1,60 @@
 ---
 sidebar_label: Overview
-description: A comprehensive overview of Moderne DX.
+description: What Moderne DX is, what it runs on your own machine, and how it works with mass ingest and the Moderne CLI.
 ---
 
 # Moderne DX overview
 
-Moderne DX brings the power of large-scale code insights and remediations into air-gapped or highly secure environments. It enables organizations to modernize, secure, and maintain codebases with speed and precision, while ensuring all of their code and data remains under their own security controls.
+Moderne DX runs the Moderne Platform's recipe marketplace, code search, and changesets on a machine you control. Your source code, your Lossless Semantic Trees (LSTs), and everything your developers do with them stay inside your network.
 
-In this doc, we will help you understand what Moderne DX is and explain the components that make it up.
+DX is one jar that you start with one command. It runs the same way on a laptop and on a server, and a server adds only its own name and a certificate. You can try DX on your own machine, then move the same configuration to the machine your organization will use.
 
-## Understanding Moderne DX
+## How DX fits with mass ingest and the CLI
 
-Think of Moderne DX as a "platform development kit" - it gives you the tools and blueprints to build as much or as little as you need.
+DX does not build LSTs and does not run recipes. It works alongside two things you already have:
 
-With DX, you can achieve the exact same outcomes as with the [Moderne Platform](../../../user-documentation/moderne-platform/getting-started/running-your-first-recipe.md) since the LST building and recipe running capabilities are identical.
+* **[Mass ingest](../how-to-guides/mass-ingest-dx.md)** builds an [LST](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) for every repository and publishes it to your artifact repository. It also publishes a `repos-lock.csv` file that lists where each LST is.
+* **The [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md)** runs recipes on developers' machines, against LSTs it downloads from your artifact repository.
 
-The key difference is that DX relies more on developers to drive value and create reports for management - whereas the Moderne Platform makes it easier to see the status of and track improvements across your codebases. The Moderne Platform also handles access control automatically (aligning with your SCM permissions), whereas with DX, you manage access control yourself.
+DX reads the `repos-lock.csv` file. It builds your organizations from it and indexes each LST for code search. Developers point their CLI at DX to find recipes in the marketplace and to sync repositories. They push the changes their recipes made to DX as changesets, which others review in the UI.
 
-DX delivers these capabilities through two customizable pipelines:
+```mermaid
+flowchart TB
+    subgraph network["Your network"]
+        ingest["Mass ingest"] -->|publishes| artifacts[("Artifact repository")]
+        artifacts -->|repos-lock.csv and LSTs| dx["Moderne DX"]
+        artifacts -->|LSTs| cli["Developers' Moderne CLI"]
+        cli -->|recipes, sync, changesets| dx
+        dx -->|read access| scm[("Your SCM")]
+        dx -->|sign-in| idp[("Your identity provider")]
+    end
+    dx -->|recipes| cgp["Code Genome Project"]
+```
 
-* **Mass ingest** produces [LSTs](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) for all your repositories and publishes them to your artifact repository (e.g., Artifactory). You can then use this central data store to quickly answer questions like, "What's the impact of the Log4Shell vulnerability?" or "How are we doing migrating our services to Java 21?"
-* **Mass run** executes recipes at scale across those repositories, enabling large-scale remediation and reporting.
+DX shows a repository only to people who can read it on your source control management (SCM) system. Each user connects their SCM account in the UI once, and DX checks their access with it.
 
-Both pipelines are customizable blueprints that work with your existing infrastructure - no central service required.
+## What DX includes
 
-:::tip
-Moderne DX can also serve as a stepping stone towards a hybrid SaaS offering. The mass ingest process you set up as part of DX is exactly the same as what powers the Moderne Platform. This allows you to get started with Moderne without going through an internal cloud security review, while demonstrating the value of Moderne to your business.
-:::
+DX is a configuration of the Moderne Platform, not a separate product. The parts it runs work as they do on the Platform.
 
-## Components
+| Capability                                           |              Moderne DX                          |            Moderne Platform            |
+|------------------------------------------------------|:------------------------------------------------:|:--------------------------------------:|
+| Recipe marketplace                                   |                       Yes                        |                  Yes                   |
+| Code search across every repository                  |                       Yes                        |                  Yes                   |
+| Organizations from your `repos.csv` file             |                       Yes                        |                  Yes                   |
+| Changesets pushed from the CLI, reviewed in the UI   |                       Yes                        |                  Yes                   |
+| Sign-in through your identity provider               |                       Yes                        |                  Yes                   |
+| A status page with every service's metrics and logs  |                       Yes                        |                  Yes                   |
+| Recipe runs started from the UI                      | No. The marketplace shows the CLI command instead. |                  Yes                   |
+| Commits and pull requests made from the UI           |                       No                         |                  Yes                   |
+| Visualizations, DevCenter, and audit logs            |                       No                         |                  Yes                   |
+| Moddy                                                |                       No                         |                  Yes                   |
+| Where it runs                                        |             A machine you control                | A single-tenant SaaS hosted by Moderne |
 
-Now that you understand DX at a high level, let's talk about the various components that make it up. Below you'll find diagrams for both the central team and individual business units (BUs).
-
-<figure>
-  ![Central team architecture showing repos.csv flowing into mass ingest, publishing LSTs to Artifactory, and CLI telemetry feeding a central BI system](./assets/dx-central-team.png)
-  <figcaption>_Central team components._</figcaption>
-</figure>
-
-<figure>
-  ![Business unit architecture showing BU leaders using CLI with effective repos.csv and product team developers using CLI on local workstations](./assets/dx-business-unit.png)
-  <figcaption>_Business unit components._</figcaption>
-</figure>
-
-### Mass ingest
-
-Mass ingest serves two purposes:
-
-* It clones all of the repositories specified across the `repos.csv` files your business units have created. It then builds the LSTs for each of these repositories - which the Moderne CLI will use to run recipes against.
-* It writes a `repos-lock.csv` file that records where every built LST was published. This file is the effective `repos.csv` described below, which others use to download the LSTs and run recipes.
-
-:::warning
-It is very important that a central team owns mass ingest. This is because, when onboarding new teams, you don't want to have to wait for their repos to build and be published. With a central team owning it all, any time you onboard someone new, their LSTs and publish locations will already be available in the easily shareable effective `repos.csv` file.
-:::
-
-Mass ingest runs as a container. To scale it to tens or hundreds of thousands of repositories, you can run it on one large machine with Docker or as a Kubernetes Job, with a number of shards that you choose. The CLI assigns each repository to a shard on its own, and the example runs one container per shard.
-
-:::tip
-We recommend running mass ingest daily and ingesting every repository. The most important reason for this is that source code, CLI versions, and transitive dependencies can change from day to day - which could cause problems if a user attempts to run a recipe on an out-of-date LST.
-:::
-
-For more details on setting up and configuring mass ingest, please see our [mass ingest documentation](../how-to-guides/mass-ingest-dx.md). To understand why we recommend mass ingest over building LSTs in CI, see [mass ingest vs CI-integrated LST builds](../../moderne-platform/references/mass-ingest-vs-ci.md).
-
-### Mass run
-
-Mass run is a central worker (or set of workers) that uses the Moderne CLI to run recipes across all of your repositories at scale.
-
-With mass run, central teams and business unit leaders can do things like:
-
-* Run search recipes to extract org-wide insights
-* Push critical security fixes out to teams across the organization
-* Generate reports and DevCenter dashboards
-
-For more details on setting up and configuring mass run, please see our [mass run documentation](../how-to-guides/mass-run-dx.md).
-
-### Effective repos.csv
-
-The effective `repos.csv` is the `repos-lock.csv` file that mass ingest writes next to your `repos.csv`. It defines your repositories, their organizational structure, and the LSTs' publish locations. It is centrally hosted either as a static file or URL. There can be one single effective `repos.csv` for the entire company, or one per business unit. This file is used by end users to download and run recipes on the LSTs of the repositories they own and care about.
-
-For more details on the repos.csv format and columns, please see our [repos.csv documentation](../../../user-documentation/moderne-cli/references/repos-csv.md).
-
-### Moderne CLI
-
-The [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md) is what supercharges your developers and your leaders. It can do both large-scale impact analysis and perform upgrades, migrations, and automate maintenance tasks - all via recipes built on top of OpenRewrite.
-
-The CLI serves three distinct groups within your organization:
-
-**A central team**
-
-The central team uses the CLI to:
-
-* Extract org-wide insights across all repositories
-* Establish and measure change campaigns at the org level
-* Push critical changes across the entire organization (e.g., Log4Shell remediations)
-
-**Business unit leaders**
-
-BU leaders use the CLI to:
-
-* Extract BU-specific insights from their repositories
-* Create reports and [DevCenters](../../../user-documentation/moderne-cli/how-to-guides/cli-dev-center.md) for their teams
-* Test recipes at scale before rolling them out
-* Mass-issue PRs when appropriate
-* Automate best practices for their teams
-
-**Individual developers**
-
-Developers use the CLI on their local workstations to:
-
-* Build LSTs locally for their development branches (this is fast and doesn't require central team involvement)
-* Run recipes on their own repos and branches
-* Push both routine changes (such as remediating SonarQube issues) and not-so-routine changes (such as a Spring Boot or Angular upgrade)
-
-:::tip
-Developers typically build their own LSTs locally for the branches they're working on. This is not time-consuming, and these development branches are usually not covered by the central team's mass ingest anyway. This approach avoids the complexity of trying to secure access to centrally produced LSTs.
-:::
-
-### Telemetry
-
-On every LST build, recipe run, and git push, the Moderne CLI generates telemetry files. These files include information such as:
-
-* Whether or not the command succeeded or failed
-* How long it took to run the command
-* What user ran the command
-* The recipe details and results
-
-This information can be published to your central BI portal and used to verify that you're achieving your desired results. The telemetry can also be used to incentivize developers, teams, and business units to onboard onto Moderne and drive value across the platform.
-
-Because a DX deployment has no Moderne tenant to push telemetry to, publishing it yourself is the only path into BI. See [Configuring telemetry for Moderne DX](../how-to-guides/configure-telemetry-dx.md) for how to collect telemetry from the CLI wrapper and get it into your BI tools.
-
-## Pull-based vs push-based changes
-
-Now that you understand the components, it's important to know how changes flow through your organization. There are two types of changes you'll make with Moderne DX: pull-based and push-based.
-
-**Push-based changes** are centrally-initiated, small-scale updates that can be deployed rapidly across repositories. These work well when changes are:
-
-* Urgent and time-sensitive (e.g., security vulnerabilities)
-* Small and deterministic
-* Low-risk and easy to review
-
-Examples include Log4Shell remediations, security patches, and simple dependency updates.
-
-**Pull-based changes** are developer-driven transformations where product teams run recipes, examine results, and test locally. These are appropriate when changes are:
-
-* Complex or context-sensitive
-* Large in scope (framework migrations, major refactors)
-* Require team-specific testing and staged rollout
-
-Examples include Spring Boot upgrades, Angular migrations, and significant refactoring efforts.
-
-:::warning
-A common mistake is having a central team try to **push** large-scale migrations (like Spring Boot upgrades) as PRs across the entire org without context on the nuances of each codebase. Instead, these types of changes are better candidates to be **pulled** by the developer team.
-:::
-
-For more guidance on choosing between these approaches, see [our blog post on large-scale code changes](https://www.moderne.ai/blog/large-scale-code-changes).
+The marketplace's **Run with the CLI** button gives developers the commands that sync an organization and run a recipe with the options they picked.
 
 ## Next steps
 
-* [Deploy the Moderne CLI from an internal artifact repository](../../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) (the recommended install path for DX users)
-* [Set up mass ingest](../how-to-guides/mass-ingest-dx.md) to begin building LSTs for your repositories
-* [Learn about the architecture](../references/moderne-dx-architecture.md) and how Moderne DX compares to Moderne Platform
+* [Install and configure Moderne DX](./installing-moderne-dx.md).
+* [Set up mass ingest](../how-to-guides/mass-ingest-dx.md) to build the LSTs that DX reads.
+* Look up a setting in the [`moderne.yml` reference](../references/moderne-yml-reference.md).

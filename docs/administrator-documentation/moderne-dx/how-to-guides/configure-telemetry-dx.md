@@ -28,4 +28,4 @@ Because you own the wrapper, you can upload a different path structure if you pr
 ## Next steps
 
 * [Set up mass ingest](./mass-ingest-dx.md) to keep LSTs current for the repositories you report on.
-* [Learn about the architecture](../references/moderne-dx-architecture.md) and how Moderne DX compares to Moderne Platform.
+* [Learn what Moderne DX runs](../getting-started/overview.md) and how it compares to the Moderne Platform.
