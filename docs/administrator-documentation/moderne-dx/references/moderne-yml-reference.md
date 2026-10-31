@@ -25,7 +25,7 @@ Every command but `init` reads the `moderne.yml` file in the working directory, 
 
 | Setting                | Default  | Description                                                                                                         |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
-| `moderne.tenant.name`  | Required | The Keycloak realm users sign in to, and the tag on every metric. Lowercase letters, digits, and dashes.            |
+| `moderne.tenant.name`  | Required | The tag on every metric. Lowercase letters, digits, and dashes.                                                     |
 | `moderne.license.key`  |          | Your Moderne DX license key. Without a valid one, the CLIs connected to DX stop running recipes.                     |
 
 ## URLs and the proxy

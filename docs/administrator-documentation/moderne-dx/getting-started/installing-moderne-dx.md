@@ -94,7 +94,7 @@ moderne:
     name: acme
 ```
 
-Use lowercase letters, digits, and dashes. The name becomes the Keycloak realm that users sign in to. It also tags every metric. Choose it before the first start, since a new name later starts a new, empty realm.
+Use lowercase letters, digits, and dashes. DX tags every metric with the name.
 
 ### Resolving recipes
 
@@ -354,19 +354,19 @@ DX signs users in through Keycloak, as the Moderne Platform does. Keycloak broke
 
 1. Open `https://login.moderne.acme.com/auth/admin/`. On a laptop, open `http://login.moderne.localhost:8080/auth/admin/`.
 2. Sign in as `admin`, with the password in `data/permanent/dx/secrets/keycloak-admin-password`.
-3. Switch to the realm named after your deployment, such as `acme`.
+3. Switch to the `moderne` realm.
 4. Under **Identity providers**, add a **SAML v2.0** or **OpenID Connect v1.0** provider. Give it an alias, such as `corporate-sso`.
 5. Add the mappers in the Platform's [Keycloak IdP mapping table](../../moderne-platform/references/authentication.md#keycloak-idp-mapping). The `admin` mapper gives your administrators DX's `admin` role.
 
 Your identity provider will need DX's values for the new application:
 
-| Protocol | Field                       | Value                                                                            |
-|----------|-----------------------------|----------------------------------------------------------------------------------|
-| SAML     | Single sign-on URL          | `https://login.moderne.acme.com/auth/realms/acme/broker/corporate-sso/endpoint` |
-| SAML     | Audience URI (SP Entity ID) | `https://login.moderne.acme.com/auth/realms/acme`                               |
-| OIDC     | Redirect URI                | `https://login.moderne.acme.com/auth/realms/acme/broker/corporate-sso/endpoint` |
+| Protocol | Field                       | Value                                                                               |
+|----------|-----------------------------|-------------------------------------------------------------------------------------|
+| SAML     | Single sign-on URL          | `https://login.moderne.acme.com/auth/realms/moderne/broker/corporate-sso/endpoint` |
+| SAML     | Audience URI (SP Entity ID) | `https://login.moderne.acme.com/auth/realms/moderne`                               |
+| OIDC     | Redirect URI                | `https://login.moderne.acme.com/auth/realms/moderne/broker/corporate-sso/endpoint` |
 
-Replace `acme` with your deployment's name and `corporate-sso` with your provider's alias. Once your administrators can sign in through your identity provider, disable the `moderne` user under **Users**.
+Replace `moderne.acme.com` with DX's host and `corporate-sso` with your provider's alias. Once your administrators can sign in through your identity provider, disable the `moderne` user under **Users**.
 
 Keycloak keeps its realm in a database file under DX's permanent directory. To keep it in a PostgreSQL database instead, name the database in `moderne.yml`:
 
@@ -398,7 +398,7 @@ The CLI takes DX's URL, and the URL of DX's Keycloak realm:
 
 ```bash
 mod config moderne edit https://moderne.acme.com \
-  --auth-server-url https://login.moderne.acme.com/auth/realms/acme/
+  --auth-server-url https://login.moderne.acme.com/auth/realms/moderne/
 mod config moderne login
 ```
 
@@ -409,7 +409,7 @@ On a laptop, the URLs carry the port. CLI releases up to 4.12.0 also need the AP
 ```bash
 mod config moderne edit http://moderne.localhost:8080 \
   --api http://api.moderne.localhost:8080 \
-  --auth-server-url http://login.moderne.localhost:8080/auth/realms/acme/
+  --auth-server-url http://login.moderne.localhost:8080/auth/realms/moderne/
 mod config moderne login
 ```
 
