@@ -34,7 +34,7 @@ DX serves four names on one port, through a proxy inside it. The four URLs share
 
 | Setting                         | Default                                         | Description                                                                                       |
 |---------------------------------|-------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `moderne.dx.public-url`         | `http://moderne.localhost:8080`                 | Where people open the UI. An `http` or `https` URL with a host name and no path.                  |
+| `moderne.dx.public-url`         | `https://moderne.localhost:8443`                | Where people open the UI. An `http` or `https` URL with a host name and no path. DX's own certificate authority serves an `https` URL under `localhost`, `nip.io`, or `sslip.io`. |
 | `moderne.dx.api-url`            | `api.` before the public URL's host             | Where the CLI and the UI reach DX's API.                                                          |
 | `moderne.dx.login-url`          | `login.` before the public URL's host           | Where users sign in, through Keycloak.                                                            |
 | `moderne.dx.status-url`         | `status.` before the public URL's host          | Where the status page shows every service's metrics and logs.                                     |
@@ -42,6 +42,7 @@ DX serves four names on one port, through a proxy inside it. The four URLs share
 | `moderne.dx.tls.private-key`    |                                                 | The certificate's private key, as a PEM file.                                                     |
 | `moderne.dx.bind-address`       | `127.0.0.1` for a URL under `localhost`, `0.0.0.0` otherwise | The IP address the proxy listens on. Every other process listens on `127.0.0.1`.  |
 | `moderne.dx.ports.proxy`        | The public URL's port                           | The port the proxy listens on. Name it when a load balancer that ends TLS forwards to DX, and leave out `tls`. |
+| `moderne.dx.ports.proxy-http`   | `8080`                                          | With DX's own certificate authority, the port where the proxy hands out the authority's certificate and redirects http to https. |
 | `moderne.dx.logo`               | The Moderne icon                                | An SVG file that the UI shows as your deployment's icon.                                          |
 | `moderne.dx.java`               | The Java that runs the jar                      | The `java` executable that DX's services run on. It must be Java 25.                              |
 
@@ -181,4 +182,4 @@ Two more ports cannot be moved: 8099, where the router answers its health check,
 
 | Variable              | Description                                                                                                      |
 |-----------------------|------------------------------------------------------------------------------------------------------------------|
-| `NODE_EXTRA_CA_CERTS` | A PEM file of certificate authorities that the UI trusts beyond the public ones. Set it when your certificate comes from a private CA. |
+| `NODE_EXTRA_CA_CERTS` | A PEM file of certificate authorities that the UI trusts beyond the public ones. Set it when your certificate comes from a private CA. DX's own certificate authority needs no setting. |
