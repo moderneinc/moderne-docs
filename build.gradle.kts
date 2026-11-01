@@ -9,6 +9,7 @@ repositories {
         content {
             includeGroupAndSubgroups("org.openrewrite")
             includeGroupAndSubgroups("io.moderne")
+            includeVersionByRegex(".*", ".*", ".*-backpatch-.*")
         }
     }
     // For the BOMs that module POMs import
