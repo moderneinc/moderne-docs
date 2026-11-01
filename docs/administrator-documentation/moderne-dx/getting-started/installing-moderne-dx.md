@@ -72,7 +72,7 @@ java -jar moderne-dx.jar init
 
 It writes three files. It keeps any of them that is already there.
 
-* `moderne.yml` is DX's configuration. Each setting has a comment. The [`moderne.yml` reference](../references/moderne-yml-reference.md) lists every one.
+* `moderne.yml` is DX's configuration. The [`moderne.yml` reference](../references/moderne-yml-reference.md) lists every setting.
 * `moderne.env` holds secrets as `NAME=value` lines. `moderne.yml` refers to each one as `${NAME}`. `init` puts a new SCM token key in it.
 * `moderne-dx.service` is a systemd unit for [running DX as a service](#running-dx-as-a-service).
 
