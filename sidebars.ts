@@ -284,6 +284,9 @@ const dx = {
         keywords: ['guides'],
       },
       items: [
+        'administrator-documentation/moderne-dx/how-to-guides/serving-moderne-dx',
+        'administrator-documentation/moderne-dx/how-to-guides/identity-provider-dx',
+        'administrator-documentation/moderne-dx/how-to-guides/upgrading-and-backing-up-dx',
         'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx',
         'administrator-documentation/moderne-dx/how-to-guides/mass-run-dx',
         'administrator-documentation/moderne-dx/how-to-guides/configure-telemetry-dx',
@@ -301,6 +304,7 @@ const dx = {
       },
       items: [
         'administrator-documentation/moderne-dx/references/moderne-yml-reference',
+        'administrator-documentation/moderne-dx/references/troubleshooting-dx',
       ],
     },
   ],

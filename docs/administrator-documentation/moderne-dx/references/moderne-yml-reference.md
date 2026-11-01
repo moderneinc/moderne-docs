@@ -5,7 +5,7 @@ description: Every setting of Moderne DX's moderne.yml file, with its default, a
 
 # `moderne.yml` reference
 
-Moderne DX reads its configuration from a `moderne.yml` file, which `java -jar moderne-dx.jar init` writes with comments to fill in. This page lists every setting it reads. The [installation guide](../getting-started/installing-moderne-dx.md) explains when you need each one.
+Moderne DX reads its configuration from a `moderne.yml` file, which `java -jar moderne-dx.jar init` writes with comments to fill in. This page lists every setting it reads. The [installation guide](../getting-started/installing-moderne-dx.md) shows the ones every deployment needs.
 
 A value of the form `${NAME}` is an environment variable, or a `NAME=value` line of the `moderne.env` file beside `moderne.yml`. Only the user DX runs as may read `moderne.env`. A path that is not absolute resolves against the directory that holds `moderne.yml`, unless a setting below says otherwise.
 
@@ -20,6 +20,7 @@ Every command but `init` reads the `moderne.yml` file in the working directory, 
 | `java -jar moderne-dx.jar start`         | Starts DX in the foreground, and keeps every service running until it stops.                     |
 | `java -jar moderne-dx.jar status`        | Says whether DX runs, and which services are up.                                                 |
 | `java -jar moderne-dx.jar stop`          | Stops a running DX.                                                                              |
+| `java -jar moderne-dx.jar trust`         | Has this machine trust DX's own certificate authority. On macOS it adds the authority to your login keychain. On Linux it prints the commands that do. |
 
 ## Deployment
 
@@ -88,15 +89,23 @@ DX downloads each LST with the credentials of the source whose host serves it. E
 
 Users connect their SCM accounts through an OAuth app on each SCM, whose callback URL is DX's public URL. DX asks each SCM for read access alone.
 
-| Setting                               | One entry per | OAuth credentials                                           |
-|---------------------------------------|---------------|-------------------------------------------------------------|
-| `moderne.scm.github`                  | Server        | `oauth.client-id`, `oauth.client-secret`                    |
-| `moderne.scm.gitlab`                  | Server        | `oauth.client-id`, `oauth.client-secret`                    |
-| `moderne.scm.bitbucket-datacenter`    | Server        | `oauth.key`, `oauth.secret`                                 |
-| `moderne.scm.bitbucket-cloud`         | Not a list    | `oauth.key`, `oauth.secret`                                 |
-| `moderne.scm.azure-devops`            | Organization  | `oauth.client-id`, `oauth.client-secret`, `oauth.tenant-id` |
+| Setting                               | One entry per | OAuth credentials                                           | Access DX asks for                 |
+|---------------------------------------|---------------|-------------------------------------------------------------|------------------------------------|
+| `moderne.scm.github`                  | Server        | `oauth.client-id`, `oauth.client-secret`                    | `repo read:org`                    |
+| `moderne.scm.gitlab`                  | Server        | `oauth.client-id`, `oauth.client-secret`                    | `read_api read_user profile email` |
+| `moderne.scm.bitbucket-datacenter`    | Server        | `oauth.key`, `oauth.secret`                                 | `REPO_READ PUBLIC_REPOS`           |
+| `moderne.scm.bitbucket-cloud`         | Not a list    | `oauth.key`, `oauth.secret`                                 | `repository`                       |
+| `moderne.scm.azure-devops`            | Organization  | `oauth.client-id`, `oauth.client-secret`, `oauth.tenant-id` | What your app registration grants  |
 
-Each entry also takes an `id` and the server's `uri`. A Bitbucket Data Center entry takes `skip-ssl: true` for a server with a self-signed certificate.
+GitHub, GitLab, and Bitbucket Data Center entries also take the server's `uri`. A Bitbucket Data Center entry takes `skip-ssl: true` for a server with a self-signed certificate. GitHub's OAuth apps have no read-only scope for private repositories, which is why DX asks GitHub for `repo`.
+
+You create the OAuth app with the same steps as for the Moderne Connector. Those guides grant write permissions, for committing from the UI. DX needs read permissions alone.
+
+* [GitHub](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-github.md)
+* [GitLab](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-gitlab.md)
+* [Bitbucket Data Center](../../moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-to-connector.md)
+* [Bitbucket Cloud](../../moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-cloud-to-connector.md)
+* [Azure DevOps](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-devops-services.md)
 
 | Setting                                | Default              | Description                                                                                  |
 |----------------------------------------|----------------------|----------------------------------------------------------------------------------------------|
