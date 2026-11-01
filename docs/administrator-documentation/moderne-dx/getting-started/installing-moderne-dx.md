@@ -11,7 +11,6 @@ Moderne DX runs from a single jar. These steps start it on your own machine at `
 
 * macOS on Apple silicon or Linux, with Java 25 and the [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md).
 * A license key and a [Code Genome Project](../../../user-documentation/recipes/accessing-the-code-genome-project.md) (CGP) token from Moderne.
-* A `repos-lock.csv` file from [mass ingest](../how-to-guides/mass-ingest-dx.md).
 * An [OAuth app on your source control management (SCM) server](../references/moderne-yml-reference.md#scm-connections) whose callback URL is `https://moderne.localhost:8443`.
 
 ## Downloading Moderne DX
@@ -47,9 +46,12 @@ moderne:
   organization:
     sources:
       http:
-        - uri: https://artifactory.acme.com/artifactory/moderne-ingest/repos-lock.csv
-          username: moderne
-          password: ${ARTIFACTORY_PASSWORD}
+        - uri: https://moderne-lsts.s3.us-west-2.amazonaws.com/repos-lock.csv
+          organizations: [Netflix]  # public repositories to start with
+        # - uri: https://artifactory.acme.com/artifactory/moderne-ingest/repos-lock.csv
+        #   username: moderne
+        #   password: ${ARTIFACTORY_PASSWORD}
+        #   organizations: [Payments]
   scm:
     github:
       - id: github
@@ -83,11 +85,10 @@ Add the secrets to the `moderne.env` file beside it:
 ```bash title="moderne.env"
 MODERNE_LICENSE_KEY=…
 CGP_TOKEN=…
-ARTIFACTORY_PASSWORD=…
 GITHUB_OAUTH_SECRET=…
 ```
 
-The [`moderne.yml` reference](../references/moderne-yml-reference.md) lists every other setting.
+DX starts on Netflix's public repositories, from Moderne's mass ingest of open source. To index your own repositories, add the `repos-lock.csv` file your [mass ingest](../how-to-guides/mass-ingest-dx.md) publishes. The [`moderne.yml` reference](../references/moderne-yml-reference.md) lists every other setting.
 
 ## Starting Moderne DX
 

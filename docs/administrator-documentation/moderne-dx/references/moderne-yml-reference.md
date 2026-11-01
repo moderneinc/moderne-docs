@@ -68,15 +68,19 @@ Each entry of `moderne.organization.sources.http` reads a `repos-lock.csv` file 
 | `password`       |          | That user's password.                                                                                |
 | `bearer-token`   |          | A token to send in place of a user and password.                                                     |
 | `lst-version`    | `2`      | The LST format the source's mass ingest publishes, `2` or `3`. DX keeps a V3 copy of each V2 LST for code search. |
+| `organizations`  | All      | The organizations to keep, at any level of the file's org columns, with every repository under them. |
+
+The `init` command names Moderne's public mass ingest, `https://moderne-lsts.s3.us-west-2.amazonaws.com/repos-lock.csv`, with `organizations: [Netflix]`. A business unit can run a DX of its own by naming just its organizations.
 
 Each entry of `moderne.organization.sources.file` reads a file on the machine:
 
-| Setting       | Default  | Description                                                              |
-|---------------|----------|--------------------------------------------------------------------------|
-| `path`        | Required | The file's path, relative to `moderne.storage.permanent-dir`.            |
-| `lst-version` | `2`      | The LST format the source's mass ingest publishes, `2` or `3`.           |
+| Setting         | Default  | Description                                                              |
+|-----------------|----------|--------------------------------------------------------------------------|
+| `path`          | Required | The file's path, relative to `moderne.storage.permanent-dir`.            |
+| `lst-version`   | `2`      | The LST format the source's mass ingest publishes, `2` or `3`.           |
+| `organizations` | All      | The organizations to keep, as for an http source.                        |
 
-DX downloads each LST with the credentials of the source whose host serves it. Each entry of `moderne.lst.http` gives credentials for another host:
+DX downloads each LST with the credentials of the source whose host serves it. An `s3://` LST comes over HTTPS from its bucket, without credentials, when an organization source is in that bucket. Each entry of `moderne.lst.http` gives credentials for another host:
 
 | Setting        | Default  | Description                                            |
 |----------------|----------|--------------------------------------------------------|
