@@ -48,12 +48,13 @@ DX serves four names on one port, through a proxy inside it. The four URLs share
 
 ## Recipes
 
-| Setting                                    | Default | Description                                                                                       |
-|--------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
-| `moderne.tenant.code-genome-project.username` |         | Your Code Genome Project username.                                                             |
-| `moderne.tenant.code-genome-project.token`    |         | Your Code Genome Project token. The installer at DX's `/cli` downloads the Moderne CLI with it. |
-| `moderne.tenant.code-genome-project.recipes`  | `false` | Set it to `true` to resolve recipes from the Code Genome Project.                              |
-| `moderne.recipe.marketplace.repositories`  |         | Your own recipe repositories, with the same settings as the Moderne Connector's [recipe marketplace repositories](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md). |
+Name the Code Genome Project, your own repository that proxies it, or both. DX tries your own first.
+
+| Setting                                                                | Description                                                                                       |
+|------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| `moderne.recipe.marketplace.repositories.code-genome-project.username` | Your Code Genome Project username.                                                                |
+| `moderne.recipe.marketplace.repositories.code-genome-project.token`    | Your Code Genome Project token. DX resolves recipes from the Code Genome Project with it. The installer at DX's `/cli` downloads the Moderne CLI with it too, or anonymously without it. |
+| `moderne.recipe.marketplace.repositories.maven`, `npm`, `pypi`, `nuget`, `go` | Your own recipe repositories, with the same settings as the Moderne Connector's [recipe marketplace repositories](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md). |
 
 ## Organization sources
 

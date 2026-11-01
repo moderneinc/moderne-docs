@@ -108,15 +108,18 @@ Use lowercase letters, digits, and dashes. DX tags every metric with the name.
 
 ### Resolving recipes
 
-DX uses the Code Genome Project credentials Moderne gave you in two ways. The installer at DX's `/cli` downloads the Moderne CLI from the Code Genome Project. With `recipes: true`, DX also resolves recipes from it. Their dependencies come from Moderne's mirror of Maven Central.
+Moderne's recipes come from the Code Genome Project. DX reaches it with the credentials Moderne gave you, or through your own artifact repository that proxies it. Name at least one of them under `moderne.recipe.marketplace.repositories`. `doctor` fails when you name neither.
+
+To reach the Code Genome Project directly, name `code-genome-project`:
 
 ```yaml title="moderne.yml"
 moderne:
-  tenant:
-    code-genome-project:
-      username: <your CGP username>
-      token: ${CGP_TOKEN}
-      recipes: true
+  recipe:
+    marketplace:
+      repositories:
+        code-genome-project:
+          username: <your CGP username>
+          token: ${CGP_TOKEN}
 ```
 
 Add the token to `moderne.env`:
@@ -125,9 +128,22 @@ Add the token to `moderne.env`:
 CGP_TOKEN=<your CGP token>
 ```
 
-Once DX is running, an administrator installs recipes for everyone from the marketplace in the UI.
+To go through your own repository, name it beside `code-genome-project` or in its place. DX reads the same settings as the Moderne Connector, which the [recipe marketplace repositories guide](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md) describes.
 
-To install recipes from your own artifact repositories, list them under `moderne.recipe.marketplace.repositories`. DX reads the same settings as the Moderne Connector, which the [recipe marketplace repositories guide](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md) describes. If your repository serves Moderne's recipes too, set `recipes: false`. Keep the credentials for the CLI downloads.
+```yaml title="moderne.yml"
+moderne:
+  recipe:
+    marketplace:
+      repositories:
+        maven:
+          - uri: https://artifactory.acme.com/artifactory/moderne-recipes
+            username: moderne
+            password: ${ARTIFACTORY_PASSWORD}
+```
+
+DX tries your repositories first, then the Code Genome Project. Moderne's mirror of Maven Central supplies the dependencies that neither has.
+
+Once DX is running, an administrator installs recipes for everyone from the marketplace in the UI.
 
 ### Adding your organization sources
 
@@ -488,7 +504,7 @@ Start with `doctor`. It checks the configuration, and once DX runs, each name th
 | Sign-in fails with a certificate from your own CA       | Add your CA's PEM file to `moderne.env` as `NODE_EXTRA_CA_CERTS`.                                    |
 | Code search shows a user no repositories                | Have the user connect their SCM account under **Settings** > **SCM connections**.                   |
 | A repository with a V2 LST is missing from code search  | DX's log says why its conversion failed. Python, Go, and .NET LSTs need those tools on the machine. |
-| The marketplace has no recipes                          | Check the CGP token with `doctor`, then install recipes from the marketplace as an administrator.   |
+| The marketplace has no recipes                          | Check where recipes come from with `doctor`. Then install them from the marketplace as an administrator. |
 
 The status page at `https://status.moderne.acme.com` shows every service's metrics and logs from the last two days. Any user can open it.
 
