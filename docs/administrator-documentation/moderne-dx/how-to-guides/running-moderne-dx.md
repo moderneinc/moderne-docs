@@ -129,7 +129,7 @@ Choose the database before you configure the realm. Moving a realm between datab
 
 ## Connecting your developers
 
-Developers point their Moderne CLI at DX. Before they do, each developer should sign in to the UI once and connect their SCM account under **Settings** > **SCM connections**. Code search shows a repository to a user only after they connect an account that can read it.
+Developers point their Moderne CLI at DX. With [user-level repository access control](./repository-access-control.md) on, each developer should first sign in to the UI and connect their source control management (SCM) account under **Settings** > **SCM connections**. Code search shows them a repository on that SCM only after they connect an account that can read it.
 
 ### Installing the CLI from DX
 
@@ -176,7 +176,7 @@ Each push adds to the changeset. Everyone can review it in the UI.
 
 ## Changing the URL later
 
-You can change the public URL at any time, such as when you move DX from a laptop to a server. Set your SCM OAuth app's callback URL to the new URL too. DX updates Keycloak at its next start. Users then sign in again. Developers point their CLIs at the new URL. A machine that trusts DX's own certificate authority keeps trusting it for a new name under `localhost`, `nip.io`, or `sslip.io`.
+You can change the public URL at any time, such as when you move DX from a laptop to a server. If `moderne.yml` names an SCM's OAuth app, set the app's callback URL to the new URL too. DX updates Keycloak at its next start. Users then sign in again. Developers point their CLIs at the new URL. A machine that trusts DX's own certificate authority keeps trusting it for a new name under `localhost`, `nip.io`, or `sslip.io`.
 
 ## Upgrading
 
@@ -215,7 +215,7 @@ Start with `java -jar moderne-dx.jar doctor`. It checks the configuration, and o
 | The browser warns about DX's certificate                | Run `java -jar moderne-dx.jar trust` where DX runs. Elsewhere, open DX's http port, such as `http://moderne.192-168-1-20.nip.io:8080`. |
 | The CLI fails with a PKIX error                         | Have the CLI trust DX's certificate authority with `mod config http trust-store`.                    |
 | Sign-in fails with a certificate from your own CA       | Add your CA's PEM file to `moderne.env` as `NODE_EXTRA_CA_CERTS`.                                    |
-| Code search shows a user no repositories                | Have the user connect their SCM account under **Settings** > **SCM connections**.                   |
+| Code search shows a user none of an SCM's repositories  | Have the user connect their SCM account under **Settings** > **SCM connections**.                   |
 | A repository with a V2 LST is missing from code search  | DX's log says why its conversion failed. Python, Go, and .NET LSTs need those tools on the machine. |
 | The marketplace has no recipes                          | Check where recipes come from with `doctor`. Then install them from the marketplace as an administrator. |
 

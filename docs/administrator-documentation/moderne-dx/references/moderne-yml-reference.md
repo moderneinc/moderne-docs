@@ -89,31 +89,9 @@ DX downloads each LST with the credentials of the source whose host serves it. A
 | `password`     |          | That user's password.                                  |
 | `bearer-token` |          | A token to send in place of a user and password.       |
 
-## SCM connections
+## Repository access control
 
-Users connect their SCM accounts through an OAuth app on each SCM, whose callback URL is DX's public URL. DX asks each SCM for read access alone.
-
-| Setting                               | One entry per | OAuth credentials                                           | Access DX asks for                 |
-|---------------------------------------|---------------|-------------------------------------------------------------|------------------------------------|
-| `moderne.scm.github`                  | Server        | `oauth.client-id`, `oauth.client-secret`                    | `repo read:org`                    |
-| `moderne.scm.gitlab`                  | Server        | `oauth.client-id`, `oauth.client-secret`                    | `read_api read_user profile email` |
-| `moderne.scm.bitbucket-datacenter`    | Server        | `oauth.key`, `oauth.secret`                                 | `REPO_READ PUBLIC_REPOS`           |
-| `moderne.scm.bitbucket-cloud`         | Not a list    | `oauth.key`, `oauth.secret`                                 | `repository`                       |
-| `moderne.scm.azure-devops`            | Organization  | `oauth.client-id`, `oauth.client-secret`, `oauth.tenant-id` | What your app registration grants  |
-
-GitHub, GitLab, and Bitbucket Data Center entries also take the server's `uri`. A Bitbucket Data Center entry takes `skip-ssl: true` for a server with a self-signed certificate. GitHub's OAuth apps have no read-only scope for private repositories, which is why DX asks GitHub for `repo`.
-
-You create the OAuth app with the same steps as for the Moderne Connector. Those guides grant write permissions, for committing from the UI. DX needs read permissions alone.
-
-* [GitHub](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-github.md)
-* [GitLab](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-gitlab.md)
-* [Bitbucket Data Center](../../moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-to-connector.md)
-* [Bitbucket Cloud](../../moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-cloud-to-connector.md)
-* [Azure DevOps](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-devops-services.md)
-
-| Setting                                | Default              | Description                                                                                  |
-|----------------------------------------|----------------------|----------------------------------------------------------------------------------------------|
-| `moderne.authorization.scm-token-key`  | One made at each start | A base64 AES key of 32 bytes that seals users' SCM tokens on disk. Without one, users connect their SCM accounts again after every restart. `init` writes one to `moderne.env`. |
+Every user can read every repository until `moderne.scm` names an SCM's OAuth app. DX then shows that SCM's repositories only to the users who can read them. The [user-level repository access control](../how-to-guides/repository-access-control.md#settings-for-each-scm) guide lists the settings of each SCM, and `moderne.authorization.scm-token-key`.
 
 ## Sign-in
 

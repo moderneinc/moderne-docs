@@ -25,13 +25,13 @@ flowchart TB
         artifacts -->|repos-lock.csv and LSTs| dx["Moderne DX"]
         artifacts -->|LSTs| cli["Developers' Moderne CLI"]
         cli -->|recipes, sync, changesets| dx
-        dx -->|read access| scm[("Your SCM")]
+        dx -.->|read access, optional| scm[("Your SCM")]
         dx -->|sign-in| idp[("Your identity provider")]
     end
     dx -->|recipes| cgp["Code Genome Project"]
 ```
 
-DX shows a repository only to people who can read it on your source control management (SCM) system. Each user connects their SCM account in the UI once, and DX checks their access with it.
+Every user can read every repository in DX until you turn on [user-level repository access control](../how-to-guides/repository-access-control.md). DX then shows a repository only to people who can read it on your source control management (SCM) system.
 
 ## What DX includes
 

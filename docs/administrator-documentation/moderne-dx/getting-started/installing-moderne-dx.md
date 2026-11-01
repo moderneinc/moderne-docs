@@ -11,7 +11,6 @@ Moderne DX runs from a single jar. These steps start it on your own machine at `
 
 * macOS on Apple silicon or Linux, with Java 25 and the [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md).
 * A license key and a [Code Genome Project](../../../user-documentation/recipes/accessing-the-code-genome-project.md) (CGP) token from Moderne.
-* An [OAuth app on your source control management (SCM) server](../references/moderne-yml-reference.md#scm-connections) whose callback URL is `https://moderne.localhost:8443`.
 
 ## Downloading Moderne DX
 
@@ -52,32 +51,6 @@ moderne:
         #   username: moderne
         #   password: ${ARTIFACTORY_PASSWORD}
         #   organizations: [Payments]
-  scm:
-    github:
-      - id: github
-        uri: https://github.com
-        oauth:
-          client-id: <client-id>
-          client-secret: ${GITHUB_OAUTH_SECRET}
-    # gitlab:                     # or another SCM's OAuth app
-    #   - uri: https://gitlab.acme.com
-    #     oauth:
-    #       client-id: <client-id>
-    #       client-secret: ${GITLAB_OAUTH_SECRET}
-    # bitbucket-datacenter:
-    #   - uri: https://bitbucket.acme.com
-    #     oauth:
-    #       key: <key>
-    #       secret: ${BITBUCKET_OAUTH_SECRET}
-    # bitbucket-cloud:
-    #   oauth:
-    #     key: <key>
-    #     secret: ${BITBUCKET_OAUTH_SECRET}
-    # azure-devops:
-    #   - oauth:
-    #       client-id: <client-id>
-    #       client-secret: ${AZURE_DEVOPS_OAUTH_SECRET}
-    #       tenant-id: <tenant-id>
 ```
 
 Add the secrets to the `moderne.env` file beside it:
@@ -85,7 +58,6 @@ Add the secrets to the `moderne.env` file beside it:
 ```bash title="moderne.env"
 MODERNE_LICENSE_KEY=…
 CGP_TOKEN=…
-GITHUB_OAUTH_SECRET=…
 ```
 
 DX starts on Netflix's public repositories, from Moderne's mass ingest of open source. To index your own repositories, add the `repos-lock.csv` file your [mass ingest](../how-to-guides/mass-ingest-dx.md) publishes. The [`moderne.yml` reference](../references/moderne-yml-reference.md) lists every other setting.
@@ -97,7 +69,7 @@ java -jar moderne-dx.jar doctor
 java -jar moderne-dx.jar start
 ```
 
-Open `https://moderne.localhost:8443` and sign in as `moderne`. `start` prints where to find the password. Connect your SCM account under **Settings** > **SCM connections**. Install recipes from the marketplace.
+Open `https://moderne.localhost:8443` and sign in as `moderne`. `start` prints where to find the password. Install recipes from the marketplace.
 
 ## Connecting the CLI
 
@@ -113,6 +85,7 @@ The first line is for macOS. Elsewhere, [`mod config http trust-store`](../../..
 
 * [Serve DX to your organization](../how-to-guides/running-moderne-dx.md#choosing-its-name) with a name and certificate of its own.
 * [Connect your identity provider](../how-to-guides/running-moderne-dx.md#connecting-your-identity-provider).
+* [Show each user only the repositories they can read](../how-to-guides/repository-access-control.md).
 * [Connect your developers](../how-to-guides/running-moderne-dx.md#connecting-your-developers).
 * [Upgrade](../how-to-guides/running-moderne-dx.md#upgrading) and [back up](../how-to-guides/running-moderne-dx.md#backing-up) DX.
 * [Troubleshoot DX](../how-to-guides/running-moderne-dx.md#troubleshooting).

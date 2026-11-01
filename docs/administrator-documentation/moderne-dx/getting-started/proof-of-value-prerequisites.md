@@ -18,7 +18,7 @@ This page covers everything you need to do so nothing is missed on day one.
 | # | Requirement                                                                                 | Details                                                                                            |
 |---|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | 1 | [SCM service account](#source-control-access) with read access to all in-scope repositories | Used by the CLI and mass ingest to clone and build repositories                                    |
-| 2 | [SCM OAuth application](#source-control-access) (GitHub App, GitLab OAuth, etc.)            | Lets users connect their SCM accounts to Moderne DX, which checks their read access with them      |
+| 2 | An optional [SCM OAuth application](../how-to-guides/repository-access-control.md)           | Lets Moderne DX show each user only the repositories they can read                                 |
 | 3 | [Repository list](#preparing-your-repository-list) (repos.csv)                              | Generated with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers) |
 | 4 | A machine for Moderne DX, with Java 25 and the Moderne CLI                                  | macOS on Apple silicon or Linux. See the [installation guide](./installing-moderne-dx.md)          |
 
