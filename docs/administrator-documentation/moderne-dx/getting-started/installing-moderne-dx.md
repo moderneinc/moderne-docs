@@ -5,23 +5,28 @@ description: How to install and start Moderne DX on your own machine, and connec
 
 # Installing Moderne DX
 
-Moderne DX runs from a single jar. These steps start it on your own machine at `https://moderne.localhost:8443`. To serve it to your organization afterwards, see [serving Moderne DX](../how-to-guides/serving-moderne-dx.md).
+Moderne DX runs from a single jar. These steps start it on your own machine at `https://moderne.localhost:8443`. Serving it to your organization afterwards takes [a name and usually a certificate](../how-to-guides/running-moderne-dx.md#choosing-its-name).
 
-**You need:** macOS on Apple silicon or Linux, with Java 25 and the [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md). From Moderne: a license key and a [Code Genome Project](../../../user-documentation/recipes/accessing-the-code-genome-project.md) (CGP) token. From you: a `repos-lock.csv` from [mass ingest](../how-to-guides/mass-ingest-dx.md), and an [OAuth app on your SCM](../references/moderne-yml-reference.md#scm-connections) with callback `https://moderne.localhost:8443`.
+## Prerequisites
 
-## 1. Download
+* macOS on Apple silicon or Linux, with Java 25 and the [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md).
+* A license key and a [Code Genome Project](../../../user-documentation/recipes/accessing-the-code-genome-project.md) (CGP) token from Moderne.
+* A `repos-lock.csv` file from [mass ingest](../how-to-guides/mass-ingest-dx.md).
+* An [OAuth app on your source control management (SCM) server](../references/moderne-yml-reference.md#scm-connections) whose callback URL is `https://moderne.localhost:8443`.
+
+## Downloading Moderne DX
 
 ```bash
 curl -fL -u <cgp-user>:<cgp-token> -o moderne-dx.jar \
   https://artifacts.codegenomeproject.org/maven/io/moderne/moderne-dx/<version>/moderne-dx-<version>.jar
-java -jar moderne-dx.jar init    # macOS: say yes when it offers to trust DX's CA
+java -jar moderne-dx.jar init    # macOS: say yes when it offers to trust DX's certificate authority
 ```
 
 The [Maven metadata](https://artifacts.codegenomeproject.org/maven/io/moderne/moderne-dx/maven-metadata.xml) lists the versions. On Linux, run `java -jar moderne-dx.jar trust` and follow what it prints.
 
-## 2. Configure
+## Configuring Moderne DX
 
-Set these in the `moderne.yml` that `init` wrote:
+Set these in the `moderne.yml` file that `init` wrote:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -73,7 +78,7 @@ moderne:
     #       tenant-id: <tenant-id>
 ```
 
-Add the secrets to `moderne.env`:
+Add the secrets to the `moderne.env` file beside it:
 
 ```bash title="moderne.env"
 MODERNE_LICENSE_KEY=…
@@ -84,7 +89,7 @@ GITHUB_OAUTH_SECRET=…
 
 The [`moderne.yml` reference](../references/moderne-yml-reference.md) lists every other setting.
 
-## 3. Start
+## Starting Moderne DX
 
 ```bash
 java -jar moderne-dx.jar doctor
@@ -93,7 +98,7 @@ java -jar moderne-dx.jar start
 
 Open `https://moderne.localhost:8443` and sign in as `moderne`. `start` prints where to find the password. Connect your SCM account under **Settings** > **SCM connections**. Install recipes from the marketplace.
 
-## 4. Connect the CLI
+## Connecting the CLI
 
 ```bash
 mod config http trust-store edit system
@@ -105,7 +110,8 @@ The first line is for macOS. Elsewhere, [`mod config http trust-store`](../../..
 
 ## Next steps
 
-* [Serve Moderne DX to your organization](../how-to-guides/serving-moderne-dx.md) with a name and certificate of its own.
-* [Connect your identity provider](../how-to-guides/identity-provider-dx.md).
-* [Upgrade and back up Moderne DX](../how-to-guides/upgrading-and-backing-up-dx.md).
-* [Troubleshoot Moderne DX](../references/troubleshooting-dx.md).
+* [Serve DX to your organization](../how-to-guides/running-moderne-dx.md#choosing-its-name) with a name and certificate of its own.
+* [Connect your identity provider](../how-to-guides/running-moderne-dx.md#connecting-your-identity-provider).
+* [Connect your developers](../how-to-guides/running-moderne-dx.md#connecting-your-developers).
+* [Upgrade](../how-to-guides/running-moderne-dx.md#upgrading) and [back up](../how-to-guides/running-moderne-dx.md#backing-up) DX.
+* [Troubleshoot DX](../how-to-guides/running-moderne-dx.md#troubleshooting).
