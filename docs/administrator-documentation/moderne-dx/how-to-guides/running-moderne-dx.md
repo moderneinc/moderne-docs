@@ -181,7 +181,7 @@ You can change the public URL at any time, such as when you move DX from a lapto
 ## Upgrading
 
 1. [Back up](#backing-up) DX's data.
-2. Download the new version's jar.
+2. Download the new version's jar from the [same URL](../getting-started/installing-moderne-dx.md#downloading-moderne-dx).
 3. Stop DX, replace the jar, and start DX again.
 
 The first start of a new version unpacks it and removes the previous version's files. A new version may bring a newer Keycloak, which then updates its database.

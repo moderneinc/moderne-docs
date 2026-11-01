@@ -15,12 +15,11 @@ Moderne DX runs from a single jar. These steps start it on your own machine at `
 ## Downloading Moderne DX
 
 ```bash
-curl -fL -u <cgp-user>:<cgp-token> -o moderne-dx.jar \
-  https://artifacts.codegenomeproject.org/maven/io/moderne/moderne-dx/<version>/moderne-dx-<version>.jar
+curl -fLO -u <cgp-user>:<cgp-token> https://artifacts.codegenomeproject.org/moderne-dx.jar
 java -jar moderne-dx.jar init    # macOS: say yes when it offers to trust DX's certificate authority
 ```
 
-The [Maven metadata](https://artifacts.codegenomeproject.org/maven/io/moderne/moderne-dx/maven-metadata.xml) lists the versions. On Linux, run `java -jar moderne-dx.jar trust` and follow what it prints.
+The URL always serves the newest release. On Linux, run `java -jar moderne-dx.jar trust` and follow what it prints.
 
 ## Configuring Moderne DX
 
@@ -30,8 +29,6 @@ Set these in the `moderne.yml` file that `init` wrote:
 moderne:
   license:
     key: ${MODERNE_LICENSE_KEY}
-  tenant:
-    name: acme
   recipe:
     marketplace:
       repositories:
@@ -69,7 +66,7 @@ java -jar moderne-dx.jar doctor
 java -jar moderne-dx.jar start
 ```
 
-Open `https://moderne.localhost:8443` and sign in as `moderne`. `start` prints where to find the password. Install recipes from the marketplace.
+Once DX is up, `start` prints the password of the `moderne` user. Open `https://moderne.localhost:8443`, sign in as `moderne` and choose a new password. Install recipes from the marketplace.
 
 ## Connecting the CLI
 

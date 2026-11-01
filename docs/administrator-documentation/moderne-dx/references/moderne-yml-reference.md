@@ -26,7 +26,7 @@ Every command but `init` reads the `moderne.yml` file in the working directory, 
 
 | Setting                | Default  | Description                                                                                                         |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
-| `moderne.tenant.name`  | Required | The tag on every metric. Lowercase letters, digits, and dashes.                                                     |
+| `moderne.tenant.name`  | `dx`     | The tag on every metric. The browser's title shows any other name. Lowercase letters, digits, and dashes, but not `app`. |
 | `moderne.license.key`  |          | Your Moderne DX license key. Without a valid one, the CLIs connected to DX stop running recipes.                     |
 
 ## URLs and the proxy
