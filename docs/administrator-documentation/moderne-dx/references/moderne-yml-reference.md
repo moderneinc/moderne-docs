@@ -50,9 +50,9 @@ DX serves four names on one port, through a proxy inside it. The four URLs share
 
 | Setting                                    | Default | Description                                                                                       |
 |--------------------------------------------|---------|---------------------------------------------------------------------------------------------------|
-| `moderne.tenant.code-genome.username`      |         | Your Code Genome Project username.                                                                |
-| `moderne.tenant.code-genome.token`         |         | Your Code Genome Project token.                                                                   |
-| `moderne.tenant.code-genome.snapshots`     | `false` | Set it to `true`, which has DX resolve recipes from the Code Genome Project.                      |
+| `moderne.tenant.code-genome-project.username` |         | Your Code Genome Project username.                                                             |
+| `moderne.tenant.code-genome-project.token`    |         | Your Code Genome Project token. The installer at DX's `/cli` downloads the Moderne CLI with it. |
+| `moderne.tenant.code-genome-project.recipes`  | `false` | Set it to `true` to resolve recipes from the Code Genome Project.                              |
 | `moderne.recipe.marketplace.repositories`  |         | Your own recipe repositories, with the same settings as the Moderne Connector's [recipe marketplace repositories](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md). |
 
 ## Organization sources

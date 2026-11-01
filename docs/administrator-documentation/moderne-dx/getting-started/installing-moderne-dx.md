@@ -86,6 +86,16 @@ Only the user DX runs as may read `moderne.env`. DX refuses to start if anyone e
 
 Each of the sections below fills in one part of `moderne.yml`. Run [`doctor`](#checking-and-starting-moderne-dx) after each one to check what you have so far.
 
+### Adding your license key
+
+```yaml title="moderne.yml"
+moderne:
+  license:
+    key: ${MODERNE_LICENSE_KEY}
+```
+
+Put the key Moderne gave you in `moderne.env` as `MODERNE_LICENSE_KEY`. Developers' CLIs take their license from DX. Without a valid key, the CLIs connected to DX stop running recipes and the UI shows a banner. The same happens once the key expires. Everything else in DX keeps working.
+
 ### Naming your deployment
 
 ```yaml title="moderne.yml"
@@ -98,15 +108,15 @@ Use lowercase letters, digits, and dashes. DX tags every metric with the name.
 
 ### Resolving recipes
 
-DX resolves recipes from the Code Genome Project with the credentials Moderne gave you. Their dependencies come from Moderne's mirror of Maven Central.
+DX uses the Code Genome Project credentials Moderne gave you in two ways. The installer at DX's `/cli` downloads the Moderne CLI from the Code Genome Project. With `recipes: true`, DX also resolves recipes from it. Their dependencies come from Moderne's mirror of Maven Central.
 
 ```yaml title="moderne.yml"
 moderne:
   tenant:
-    code-genome:
+    code-genome-project:
       username: <your CGP username>
       token: ${CGP_TOKEN}
-      snapshots: true
+      recipes: true
 ```
 
 Add the token to `moderne.env`:
@@ -115,19 +125,9 @@ Add the token to `moderne.env`:
 CGP_TOKEN=<your CGP token>
 ```
 
-Keep `snapshots: true`, which has DX resolve recipes from the Code Genome Project. Once DX is running, an administrator installs recipes for everyone from the marketplace in the UI.
+Once DX is running, an administrator installs recipes for everyone from the marketplace in the UI.
 
-To also install recipes from your own artifact repositories, list them under `moderne.recipe.marketplace.repositories`. DX reads the same settings as the Moderne Connector, which the [recipe marketplace repositories guide](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md) describes.
-
-### Adding your license key
-
-```yaml title="moderne.yml"
-moderne:
-  license:
-    key: ${MODERNE_LICENSE_KEY}
-```
-
-Put the key Moderne gave you in `moderne.env` as `MODERNE_LICENSE_KEY`. Developers' CLIs take their license from DX. Without a valid key, the CLIs connected to DX stop running recipes and the UI shows a banner. The same happens once the key expires. Everything else in DX keeps working.
+To install recipes from your own artifact repositories, list them under `moderne.recipe.marketplace.repositories`. DX reads the same settings as the Moderne Connector, which the [recipe marketplace repositories guide](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md) describes. If your repository serves Moderne's recipes too, set `recipes: false`. Keep the credentials for the CLI downloads.
 
 ### Adding your organization sources
 
