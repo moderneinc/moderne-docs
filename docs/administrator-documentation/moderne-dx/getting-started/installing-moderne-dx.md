@@ -71,12 +71,11 @@ Once DX is up, `start` prints the password of the `moderne` user. Open `https://
 ## Connecting the CLI
 
 ```bash
-mod config http trust-store edit system
 mod config moderne edit https://moderne.localhost:8443
-mod config moderne login
+mod login
 ```
 
-The first line is for macOS. Elsewhere, [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store) gives the CLI DX's certificate authority.
+On macOS, the CLI trusts DX's certificate authority once `init` or `trust` has added it to your keychain. Elsewhere, [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store) gives the CLI DX's certificate authority.
 
 ## Next steps
 

@@ -148,7 +148,7 @@ curl -fsSL --cacert moderne-dx-ca.crt https://api.moderne.192-168-1-20.nip.io:84
 
 ### Pointing the CLI at DX
 
-The CLI must trust DX's certificate authority. On macOS, once macOS trusts DX's own, run `mod config http trust-store edit system`. The CLI then trusts what macOS trusts. [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store) covers other systems.
+The CLI must trust DX's certificate authority. On macOS, the CLI trusts what your keychains trust, so it trusts DX's own once macOS does. [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store) covers other systems.
 
 The CLI takes DX's URL. It finds DX's API and Keycloak realm from there:
 
