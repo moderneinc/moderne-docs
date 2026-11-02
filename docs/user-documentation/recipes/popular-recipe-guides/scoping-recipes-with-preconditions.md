@@ -16,7 +16,7 @@ In this guide, we will walk through how preconditions work, the common filtering
 
 Preconditions are evaluated **per source file**, not per repository. A precondition passes for a file only if the precondition recipe would have marked _that specific file_.
 
-This is the single most important thing to understand, because it determines which search recipes are usable. For example, [`FindDependency`](../recipe-catalog/java/dependencies/finddependency.md) marks the `pom.xml` or `build.gradle` file that declares a dependency - and nothing else. Used as a precondition, it would allow your recipe to edit the build file and no Java sources at all.
+This is the single most important thing to understand, because it determines which search recipes are usable. For example, [`FindDependency`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.FindDependency) marks the `pom.xml` or `build.gradle` file that declares a dependency - and nothing else. Used as a precondition, it would allow your recipe to edit the build file and no Java sources at all.
 
 Fortunately, there is also a family of search recipes designed to mark _every_ file in a module or repository when a condition holds. Knowing which family a recipe belongs to is what makes a precondition work as intended.
 
@@ -51,7 +51,7 @@ The examples below all wrap **Migrate to Java 25** (`org.openrewrite.java.migrat
 
 ### Gating on the kind of build
 
-[`RepositoryContainsFile`](../recipe-catalog/search/repositorycontainsfile.md) checks whether a repository contains at least one file matching a glob, and if so marks every file in that repository. Its `filePattern` option accepts several globs separated by a semicolon, and any one of them matching is enough.
+[`RepositoryContainsFile`](https://codegenomeproject.org/recipes/org.openrewrite.search.RepositoryContainsFile) checks whether a repository contains at least one file matching a glob, and if so marks every file in that repository. Its `filePattern` option accepts several globs separated by a semicolon, and any one of them matching is enough.
 
 Combined with the Java 25 migration, this says: if the repository builds with Maven or Gradle, migrate all of it; otherwise leave it completely alone.
 
@@ -70,7 +70,7 @@ recipeList:
 
 ### Gating on a dependency being present
 
-[`RepositoryHasDependency`](../recipe-catalog/java/dependencies/search/repositoryhasdependency.md) marks every file in the repository when any module resolves a dependency matching the group and artifact globs you give it. [`ModuleHasDependency`](../recipe-catalog/java/dependencies/search/modulehasdependency.md) does the same decision module by module, marking only the files in the modules that matched. Both accept an optional `scope` and `version`.
+[`RepositoryHasDependency`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.search.RepositoryHasDependency) marks every file in the repository when any module resolves a dependency matching the group and artifact globs you give it. [`ModuleHasDependency`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.search.ModuleHasDependency) does the same decision module by module, marking only the files in the modules that matched. Both accept an optional `scope` and `version`.
 
 Together with the Java 25 migration, the recipe below says: only spend a pull request on this repository if it is still on Spring Boot 2.x, because those are the applications the platform team wants moved first.
 
@@ -115,12 +115,12 @@ recipeList:
 Note that because the check is per _module_, a multi-module repository where only one module depends on Databricks will still have its other modules upgraded. Files that belong to no module are also marked as not having the dependency, so they remain eligible. That covers repository-root files such as CI definitions and documentation, and it covers a file sitting loose in the pinned module's own directory too, since only the build file and the contents of the source and resource directories are attributed to a module.
 
 :::warning
-[`DoesNotIncludeDependency`](../recipe-catalog/java/dependencies/search/doesnotincludedependency.md) sounds like it does the same thing, but it marks only the `pom.xml` or `build.gradle` file it visits. Use it when the recipe you are wrapping edits the build file, and use `ModuleHasDependency` with `invertMarking: true` when the recipe edits source code.
+[`DoesNotIncludeDependency`](https://codegenomeproject.org/recipes/org.openrewrite.java.dependencies.search.DoesNotIncludeDependency) sounds like it does the same thing, but it marks only the `pom.xml` or `build.gradle` file it visits. Use it when the recipe you are wrapping edits the build file, and use `ModuleHasDependency` with `invertMarking: true` when the recipe edits source code.
 :::
 
 ### Gating on a build plugin
 
-[`ModuleHasPlugin`](../recipe-catalog/gradle/search/modulehasplugin.md) marks every file in a Gradle module that applies a given plugin, and a [Maven equivalent](../recipe-catalog/maven/search/modulehasplugin.md) does the same for Maven modules.
+[`ModuleHasPlugin`](https://codegenomeproject.org/recipes/org.openrewrite.gradle.search.ModuleHasPlugin) marks every file in a Gradle module that applies a given plugin, and a [Maven equivalent](https://codegenomeproject.org/recipes/org.openrewrite.maven.search.ModuleHasPlugin) does the same for Maven modules.
 
 This is how you express "only migrate the things we actually deploy." The recipe below limits the Java 25 migration to modules that build a shadow JAR, on the assumption that those are the runnable applications and the rest are libraries consumed by teams who are not ready.
 
@@ -142,11 +142,11 @@ recipeList:
 Always supply `pluginClass` as well as `pluginId`. `pluginClass` is optional, but when it is left out the recipe matches any module that applies any plugin at all, which silently widens your migration to the whole repository. Supplying both narrows it to the modules you meant.
 :::
 
-Do not substitute [`FindPlugins`](../recipe-catalog/gradle/search/findplugins.md) here. It marks the `build.gradle` file that applies the plugin and nothing else, so the migration would only touch that one file.
+Do not substitute [`FindPlugins`](https://codegenomeproject.org/recipes/org.openrewrite.gradle.search.FindPlugins) here. It marks the `build.gradle` file that applies the plugin and nothing else, so the migration would only touch that one file.
 
 ### Gating on a type used anywhere in a module
 
-[`ModuleUsesType`](../recipe-catalog/java/search/moduleusestype.md) looks for a type anywhere in a module and, if it finds one use, marks every file in that module - including the build file, which a file-by-file type search would miss.
+[`ModuleUsesType`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.ModuleUsesType) looks for a type anywhere in a module and, if it finds one use, marks every file in that module - including the build file, which a file-by-file type search would miss.
 
 Read the recipe below as: if any class in this module still uses JAXB, migrate the whole module, because the migration has to add the JAXB dependency to the build file that the JDK no longer bundles.
 
@@ -166,7 +166,7 @@ recipeList:
 
 ### Gating on a file the module contains
 
-[`ModuleContainsFile`](../recipe-catalog/java/search/modulecontainsfile.md) marks every file in modules that contain a file matching a pattern. It is the module-scoped counterpart to `RepositoryContainsFile`, and it lets you turn a filesystem convention into a policy.
+[`ModuleContainsFile`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.ModuleContainsFile) marks every file in modules that contain a file matching a pattern. It is the module-scoped counterpart to `RepositoryContainsFile`, and it lets you turn a filesystem convention into a policy.
 
 The recipe below encodes the convention "a module with a Spring Boot `application.yml` is a deployable service," and migrates only those modules. Libraries in the same repository are left on their current Java version.
 
@@ -189,7 +189,7 @@ The matching file has to belong to the module itself, which means the build file
 
 ### Gating on the build tool version
 
-[`HasBuildToolVersion`](../recipe-catalog/java/search/hasbuildtoolversion.md) marks files built by a given build tool at a version in the range you specify. The build tool is recorded on the build file and on everything in the module's source sets, so this reaches the files a migration needs. It does not reach files that sit outside the build, such as a repository-root `Dockerfile` or a CI workflow.
+[`HasBuildToolVersion`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.HasBuildToolVersion) marks files built by a given build tool at a version in the range you specify. The build tool is recorded on the build file and on everything in the module's source sets, so this reaches the files a migration needs. It does not reach files that sit outside the build, such as a repository-root `Dockerfile` or a CI workflow.
 
 Use it when the migration depends on build tooling that older versions cannot provide. The recipe below runs the Java 25 migration only where Maven is already at 3.9 or newer, so that the plugin upgrades it performs will actually resolve.
 
@@ -209,7 +209,7 @@ recipeList:
 
 ### Gating on a named list of repositories
 
-When the set of affected applications is already known, [`IsInRepository`](../recipe-catalog/core/isinrepository.md) is the bluntest and clearest instrument. It marks every file in repositories whose name matches one you list, and nothing at all anywhere else.
+When the set of affected applications is already known, [`IsInRepository`](https://codegenomeproject.org/recipes/org.openrewrite.IsInRepository) is the bluntest and clearest instrument. It marks every file in repositories whose name matches one you list, and nothing at all anywhere else.
 
 This is the shape to reach for when piloting a migration: the recipe below is safe to run against your whole estate, but only the two named repositories will produce changes.
 
@@ -240,7 +240,7 @@ Most of the examples below wrap **Common static analysis** (`org.openrewrite.sta
 
 ### Skipping test code
 
-[`IsLikelyNotTest`](../recipe-catalog/java/search/islikelynottest.md) marks files that show no sign of being test code, based on their source set and on whether they use testing libraries such as JUnit, TestNG, Mockito, or AssertJ. Its counterpart [`IsLikelyTest`](../recipe-catalog/java/search/islikelytest.md) marks the ones that do.
+[`IsLikelyNotTest`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.IsLikelyNotTest) marks files that show no sign of being test code, based on their source set and on whether they use testing libraries such as JUnit, TestNG, Mockito, or AssertJ. Its counterpart [`IsLikelyTest`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.IsLikelyTest) marks the ones that do.
 
 The recipe below cleans up production code and leaves test fixtures alone, which keeps the diff reviewable and avoids churning assertions that were written to look a particular way.
 
@@ -258,11 +258,11 @@ recipeList:
 
 `IsLikelyNotTest` is a negation, so it also marks `pom.xml`, `build.gradle`, and other non-Java sources, which makes it safe to combine with recipes that update build files. `IsLikelyTest` only marks Java sources.
 
-[`HasSourceSet`](../recipe-catalog/java/search/hassourceset.md) gives you the same idea with an explicit source set name, such as `main` or `integrationTest`.
+[`HasSourceSet`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.HasSourceSet) gives you the same idea with an explicit source set name, such as `main` or `integrationTest`.
 
 ### Skipping generated and vendored paths
 
-[`FindSourceFiles`](../recipe-catalog/core/findsourcefiles.md) marks files whose path matches a glob, and the glob can be negated. That makes it the tool for carving out directories you do not own.
+[`FindSourceFiles`](https://codegenomeproject.org/recipes/org.openrewrite.FindSourceFiles) marks files whose path matches a glob, and the glob can be negated. That makes it the tool for carving out directories you do not own.
 
 The recipe below applies static analysis fixes everywhere except generated sources, so that the next build does not simply overwrite your changes.
 
@@ -281,7 +281,7 @@ recipeList:
 
 ### Limiting to a Java language level
 
-[`HasJavaVersion`](../recipe-catalog/java/search/hasjavaversion.md) marks source files compiled at a given language level. [`HasMinimumJavaVersion`](../recipe-catalog/java/search/hasminimumjavaversion.md) first works out the oldest language level anywhere in the repository and then marks files only if that oldest level meets your bar - so a repository whose test source set is still on Java 8 is treated as a Java 8 repository.
+[`HasJavaVersion`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.HasJavaVersion) marks source files compiled at a given language level. [`HasMinimumJavaVersion`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.HasMinimumJavaVersion) first works out the oldest language level anywhere in the repository and then marks files only if that oldest level meets your bar - so a repository whose test source set is still on Java 8 is treated as a Java 8 repository.
 
 Use these when a recipe emits syntax that older compilers reject. `instanceof` pattern matching only compiles on Java 16 and newer, so the recipe below applies it only where every source set is already there.
 
@@ -304,7 +304,7 @@ Both of these recipes mark files inside a Java source set, which does not includ
 
 ### Limiting to files that use a type or API
 
-To gate on what a file actually uses rather than what it imports, use the type-aware search recipes: [`HasType`](../recipe-catalog/java/search/hastype.md), [`FindTypes`](../recipe-catalog/java/search/findtypes.md), [`DoesNotUseType`](../recipe-catalog/java/search/doesnotusetype.md), [`HasMethod`](../recipe-catalog/java/search/hasmethod.md), and [`FindAnnotations`](../recipe-catalog/java/search/findannotations.md). Each marks the individual files that match.
+To gate on what a file actually uses rather than what it imports, use the type-aware search recipes: [`HasType`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.HasType), [`FindTypes`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes), [`DoesNotUseType`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.DoesNotUseType), [`HasMethod`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.HasMethod), and [`FindAnnotations`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindAnnotations). Each marks the individual files that match.
 
 The recipe below rewrites string concatenation in log statements into SLF4J's parameterized form, but only in files that actually log through SLF4J - so files using another logging framework are never visited.
 
@@ -325,7 +325,7 @@ recipeList:
 
 ### Limiting to text files that match
 
-[`text.Find`](../recipe-catalog/text/find.md) searches the contents of any text file and accepts its own `filePattern` to limit where it looks. It marks only the files that matched, so use it to gate recipes that edit those same files.
+[`text.Find`](https://codegenomeproject.org/recipes/org.openrewrite.text.Find) searches the contents of any text file and accepts its own `filePattern` to limit where it looks. It marks only the files that matched, so use it to gate recipes that edit those same files.
 
 Read the recipe below as: in Dockerfiles that pin a Temurin 17 base image, and nowhere else, move the tag to 25.
 
@@ -345,7 +345,7 @@ recipeList:
       replace: "eclipse-temurin:25"
 ```
 
-Because `text.Find` marks only the files containing the text, it cannot gate a recipe that edits Java sources. When you need a repository-wide decision based on a non-Java signal, express it as file presence with `RepositoryContainsFile` instead, or use the structured search recipes for [YAML](../recipe-catalog/yaml/search/findkey.md), [properties](../recipe-catalog/properties/search/findproperties.md), and [Maven properties](../recipe-catalog/maven/search/findproperties.md).
+Because `text.Find` marks only the files containing the text, it cannot gate a recipe that edits Java sources. When you need a repository-wide decision based on a non-Java signal, express it as file presence with `RepositoryContainsFile` instead, or use the structured search recipes for [YAML](https://codegenomeproject.org/recipes/org.openrewrite.yaml.search.FindKey), [properties](https://codegenomeproject.org/recipes/org.openrewrite.properties.search.FindProperties), and [Maven properties](https://codegenomeproject.org/recipes/org.openrewrite.maven.search.FindProperties).
 
 ## Combining preconditions
 
