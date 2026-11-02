@@ -45,7 +45,7 @@ This method contains four basic blocks. The first three statements form one bloc
 
 Edges in a CFG represent the possible transfers of control between basic blocks. These aren't just simple arrows – they carry meaning about why control transfers from one block to another.
 
-The main type of edges include:
+The main types of edges include:
 
 * **Sequential edges** represent the normal flow from one statement to the next. When your if-statement completes, control flows to the next statement – that's a sequential edge.
 

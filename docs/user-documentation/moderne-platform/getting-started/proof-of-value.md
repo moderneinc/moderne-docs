@@ -59,7 +59,7 @@ The recipes below progress from simple to complex. Each one links to its page in
 <TabItem value="cli" label="Moderne CLI">
 
 1. **Install the Moderne CLI** – Follow the [installation steps in the CLI documentation](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration) to install the CLI for your platform.
-    * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipes JARs. For example, the Spring migrations recipes have migrations going back a few major versions. Those versions call out now vulnerable dependencies – but those calls may get blocked by your firewall as it doesn't recognize what the purpose of the recipe is. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
+    * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipe JARs. For example, the Spring migrations recipes have migrations going back a few major versions. Those versions call out now vulnerable dependencies – but those calls may get blocked by your firewall as it doesn't recognize what the purpose of the recipe is. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
 
 2. **Clone repos to your local machine** – In order for the CLI to run recipes against your code, you will need to provide it with [a repos.csv file](../../moderne-cli/references/repos-csv.md).
     * Once you've created the `repos.csv` file, create a directory somewhere on your machine and run the following command:
@@ -73,7 +73,7 @@ The recipes below progress from simple to complex. Each one links to its page in
         ```
     
     * **Note**: All of your LSTs may not build successfully. This is a normal experience during initial ingestion as there are always unique configurations and environmental factors that need to be accounted for. We can work with you to investigate these issues on a call.
-      * The CLI stack trace will give some hints as to the issue. There is also a `build.log` file produced to every repo that will contain more context. You can also run the following command to aggregate the build logs:
+      * The CLI stack trace will give some hints as to the issue. There is also a `build.log` file produced for every repo that will contain more context. You can also run the following command to aggregate the build logs:
 
       ```bash
       mod log builds add . logs.zip --last-build
@@ -159,7 +159,7 @@ To explore code search further, select which product you're evaluating and then 
 <Tabs>
 <TabItem value="platform" label="Moderne Platform">
 
-Navigate to your Moderne tenant and click on **Code search** in the left nav bar. Ensure you've selected the organization you want to search and type in a query (or select one of examples).
+Navigate to your Moderne tenant and click on **Code search** in the left nav bar. Ensure you've selected the organization you want to search and type in a query (or select one of the examples).
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![Navigating to Code Search and searching for code](./assets/FullCodeSearch.gif)
@@ -196,7 +196,7 @@ Here are some ideas for how you might use code search to gain insights about you
 
 For more information on customizing queries, check out the [code search guide](./code-search.md#writing-queries) and the [Trigrep query reference](../../agent-tools/trigrep.md#query-reference).
 
-Code search isn't the answer to everything, though. It can't count lines or produce a structure report like a bill of materials. This is where recipes come in to play - such as the ones listed below.
+Code search isn't the answer to everything, though. It can't count lines or produce a structure report like a bill of materials. This is where recipes come into play - such as the ones listed below.
 
 ### [Language composition report](https://codegenomeproject.org/recipes/org.openrewrite.LanguageComposition)
 
@@ -321,7 +321,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 <figure style={{maxWidth: '700px', margin: '0 auto'}}>
   ![Generated CycloneDX XML SBOM file showing component metadata and dependencies](./assets/sbom-example.png)
-  <figcaption>_Example of a SBOM file created from the recipe._</figcaption>
+  <figcaption>_Example of an SBOM file created from the recipe._</figcaption>
 </figure>
 
 ### [Post quantum cryptography](https://codegenomeproject.org/recipes/io.moderne.cryptography.PostQuantumCryptography)

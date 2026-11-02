@@ -13,8 +13,8 @@ As your team develops new code, LSTs will be created and added to your artifact 
 
 There are two common scenarios where LSTs need to be manually cleaned up:
 
-1. When people work in feature branches that then get merged in or deleted – all LSTs for those branches serve no point as any changes made on them can't be merged in at that point.
-2. When people work in feature branches that are continuously updated – all old LSTs for those branches serve no point as they aren't accessible from Moderne anymore (as Moderne only grabs the latest ones).
+1. When people work in feature branches that then get merged in or deleted – all LSTs for those branches serve no purpose as any changes made on them can't be merged in at that point.
+2. When people work in feature branches that are continuously updated – all old LSTs for those branches serve no purpose as they aren't accessible from Moderne anymore (as Moderne only grabs the latest ones).
 
 While those two scenarios are similar, the behavior in Moderne and the cleanup process for the LSTs are slightly different. Let's walk through what you'll need to do in both of these situations.
 

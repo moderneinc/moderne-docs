@@ -114,7 +114,7 @@ openssl x509 -pubkey -noout -in bitbucket_publickey.cer  > bitbucket_publickey.p
 2. Select _Application Links_ from the _System_ section
 3. Click on "Create link"
 4. Ensure that the _Application Type_ is set to _Atlassian product_ (this looks weird, but this is the [documented path](https://confluence.atlassian.com/bitbucketserver/link-to-other-applications-1018764620.html) for external applications to integrate)
-5. Enter the URL for your Moderne instances as the _Application URL_:
+5. Enter the URL for your Moderne instance as the _Application URL_:
     <figure>
         ![Bitbucket Create link dialog with Atlassian product selected and Application URL field](./assets/agent-bitbucket-create-link.png)
         <figcaption>_Create link_</figcaption>

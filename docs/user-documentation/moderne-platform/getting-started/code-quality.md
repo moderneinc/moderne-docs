@@ -51,7 +51,7 @@ As the code in the SaaS is constantly changing, your results will more than like
   <figcaption></figcaption>
 </figure>
 
-By default, changes will be displayed on the right hand of your screen for the selected repository. You can click on any of the other repositories to look at their suggested changes and learn more about why the code is being changed. Some of these changes can be rather complex, such as changing anonymous inner classes that contain only one method into lambdas:
+By default, changes will be displayed on the right-hand side of your screen for the selected repository. You can click on any of the other repositories to look at their suggested changes and learn more about why the code is being changed. Some of these changes can be rather complex, such as changing anonymous inner classes that contain only one method into lambdas:
 
 <figure>
   ![Diff converting an anonymous inner class Visitor to a lambda expression](./assets/lambda-example.png)

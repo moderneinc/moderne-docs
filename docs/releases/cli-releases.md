@@ -549,7 +549,7 @@ _Based on OpenRewrite 8.91.4_
 * Fix silently wrong trigrep results when two threads read one shard
 * Resolve a type-table slot without holding the reader's monitor
 * Benchmark the trigrep query path, and fix what it found
-* MavenJavaVersionDetector now takes active proflies from maven config into account. Remove failed pom requests from SqlitePomCache
+* MavenJavaVersionDetector now takes active profiles from maven config into account. Remove failed pom requests from SqlitePomCache
 * Bump Jackson to 2.21.6
 * Lease the MCP search index, and fix two defects found reviewing #4532
 
@@ -2284,7 +2284,7 @@ _Based on OpenRewrite 8.91.4_
 * Record failed execution when `mod exec` command returns non-zero
 * Trace analysis - don't consider `Failed to download LST` as failure
 * Fixing the empty trace file placed in `~/.moderne/cli/trace/build`
-* Trace analysis - fix syntax hightlighting
+* Trace analysis - fix syntax highlighting
 * Trace analysis - filtering out empty lines on CSV input
 * Trace analysis - Display "No data available" instead of missing chart
 * Fix case in `org.gradle.daemon.idletimeout` property
@@ -3231,7 +3231,7 @@ This release is not available due to publishing issues please use v3.45.1 instea
 * Suppress lucene vulnerability
 * pin lucene to v9
 * use jspecify
-* change groovy namespace from codehaus to apache to fix project compiliation error
+* change groovy namespace from codehaus to apache to fix project compilation error
 * Allow for DX application to start
 * Clean up doc generation for Docusaurus
 * add required remoting codecs dependencies for python/js buildsteps
@@ -3458,7 +3458,7 @@ When DX is integrated with the organization service, it will now utilize the new
 
 * Correct pluralization in mod config scm moderne sync output
 * Remove lucene sneaking in via modcsharp
-* Add timout propagation to dotnet server
+* Add timeout propagation to dotnet server
 
 ### CLI / DX v3.20.3 (2024-09-10) {/* #v3.20.3 */}
 

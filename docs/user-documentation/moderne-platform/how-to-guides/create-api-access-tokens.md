@@ -59,7 +59,7 @@ In this doc, you can find out:
   <figcaption>_Hint: Click the clipboard icon to copy your access token_</figcaption>
 </figure>
 
-6. Copy your token to a safe place such as a password manager. You won't be able to see the token again if you close the window.
+7. Copy your token to a safe place such as a password manager. You won't be able to see the token again if you close the window.
 
 ## How to view your access tokens
 
@@ -72,7 +72,7 @@ From the [access token](https://app.moderne.io/settings/access-token) page (wher
 
 ## How to revoke an access token
 
-From the [access token](https://app.moderne.io/settings/access-token) page, click _Delete_ icon next to the token you wish to revoke:
+From the [access token](https://app.moderne.io/settings/access-token) page, click the _Delete_ icon next to the token you wish to revoke:
 
 <figure>
   ![Token list with delete icons highlighted in the Actions column](./assets/revoke-token.png)

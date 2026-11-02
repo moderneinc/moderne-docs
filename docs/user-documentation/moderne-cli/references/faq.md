@@ -45,7 +45,7 @@ mod study . --last-recipe-run --data-table org.openrewrite.table.ParseFailures
 
 If you experience this issue when running `mod git apply`, please try committing/stashing/reverting the unsaved changes before running `mod git apply` again.
 
-If that doesn't work, and you keep running into issues with this, please contact [support@moderne.io](mailto:support@moderne.io) and provide us with the `fix.patch` file and the target files (ideally reduced to the minimum need to replicate the issues).
+If that doesn't work, and you keep running into issues with this, please contact [support@moderne.io](mailto:support@moderne.io) and provide us with the `fix.patch` file and the target files (ideally reduced to the minimum needed to replicate the issues).
 
 ## My project only builds resources, not my Maven or other build
 

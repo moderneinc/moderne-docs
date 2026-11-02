@@ -122,7 +122,7 @@ The return value of `visitMethodInvocation` controls traversal: when nothing mat
    * Implement `getVisitor()` and add the transformation logic.
    * Consider a precondition so the recipe only visits files using the constructor.
    * Choose `JavaVisitor` or `JavaIsoVisitor` based on the nodes you need.
-   * Decide what method to overwrite depending on what type of [LST elements](../../user-documentation/recipes/authoring-recipes/concepts/lst-examples/java.md#java-lst-types) you need to visit. (Don't forget the call to the superclass version of the method as in Exercise 4-1.)
+   * Decide what method to override depending on what type of [LST elements](../../user-documentation/recipes/authoring-recipes/concepts/lst-examples/java.md#java-lst-types) you need to visit. (Don't forget the call to the superclass version of the method as in Exercise 4-1.)
    * Use `JavaTemplate.builder(...).build().apply(...)` to make the necessary changes and return the result.
 :::info
 Use `JavaIsoVisitor` when you want to return the same LST node type (isomorphic), and `JavaVisitor` if you need to return a different `J` node type (non-isomorphic).

@@ -436,7 +436,7 @@ class MigrateUtilFunctionsVisitor extends JavaScriptVisitor<ExecutionContext> {
 
 ### Find/replace a method
 
-Next, let's pick a method to find and replace such as `util.isArray(...)`. We need to replace that with `Array.isArray(...)` but, **also**, preserve whatever is inside the parenthesis.
+Next, let's pick a method to find and replace such as `util.isArray(...)`. We need to replace that with `Array.isArray(...)` but, **also**, preserve whatever is inside the parentheses.
 
 We can do this by utilizing the `capture()` function in combination with a simple OpenRewrite rule:
 

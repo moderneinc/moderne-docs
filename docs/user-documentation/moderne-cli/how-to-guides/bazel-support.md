@@ -56,7 +56,7 @@ The default build steps used by the CLI give precedence to Maven or Gradle if th
 
 The Bazel command that the Moderne CLI is executing is logged at this path relative to the root of the repository being parsed.
 
-`.moderne/build/<DATA_TIME_HASH>/build.log`
+`.moderne/build/<DATE_TIME_HASH>/build.log`
 
 <figure>
   ![Build log showing bazel query and bazel build commands with their output and debug information](./assets/bazel-build.png)
@@ -69,7 +69,7 @@ At the end of build, a manifest is created that itemizes each file that is conta
 
 <figure>
   ![Manifest CSV output showing Java files incorrectly parsed as Quark type instead of J.CompilationUnit](./assets/misconfigured-bazel.png)
-  <figcaption>_A manifest showing a LST produced with a misconfigured Bazel rule._</figcaption>
+  <figcaption>_A manifest showing an LST produced with a misconfigured Bazel rule._</figcaption>
 </figure>
 
 A quark is an LST type that simply indicates the presence of a file, but does not keep its contents. Java-specific recipes will not operate on Quarks to make changes.
