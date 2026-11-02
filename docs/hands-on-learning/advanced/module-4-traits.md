@@ -13,7 +13,7 @@ Traits are a higher-level abstraction over OpenRewrite's LSTs (Lossless Semantic
 
 ## Exercise A: Explore a recipe that uses Traits
 
-In this exercise, you'll use the `Annotated.Matcher` trait that the [`FindSpringBeans`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/FindSpringBeans.java) recipe uses to identify classes annotated with `@Bean` and marks them using `SearchResult.found`.
+In this exercise, you'll use the `Annotated.Matcher` trait that the [`FindSpringBeans`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/FindSpringBeans.java) recipe uses to identify classes annotated with `@Bean` and mark them using `SearchResult.found`.
 
 ### Goals for this exercise
 

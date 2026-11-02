@@ -45,7 +45,7 @@ piloting Moderne. From there, you can expand to more organizations and more leve
 
 Organizational structure is configured via a `repos.csv` file, accessible to the Connector via the file system or network.
 
-Please see our [creating a repos.csv guide](../../../../user-documentation/moderne-cli/references/repos-csv.md) for details into how to create and format this file.
+Please see our [creating a repos.csv guide](../../../../user-documentation/moderne-cli/references/repos-csv.md) for details on how to create and format this file.
 
 ## Connector configuration
 

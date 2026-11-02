@@ -268,7 +268,7 @@ MOD SUCCEEDED in 1s
 
 </details>
 
-3. Now the code has been modified and committed, you can run the first release, then rebuild LSTs so the CLI sees the updated code state:
+3. Now that the code has been modified and committed, you can run the first release, then rebuild LSTs so the CLI sees the updated code state:
 
 ```bash
 $WORKSHOP/release.sh

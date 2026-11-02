@@ -103,7 +103,7 @@ Do not attempt to create recipe entries from scratch by hand - the `options` JSO
 
 There are two main reasons why you'd want to duplicate recipes and change their columns:
 
-* **Cross-language recipes**: Some recipes work across multiple languages and you may want them to appear in multiple places in the marketplace. For example, if you had a Java recipe that also worked for JavaScript repository, you could duplicate the recipe and change the category so that it appears in both places.
+* **Cross-language recipes**: Some recipes work across multiple languages and you may want them to appear in multiple places in the marketplace. For example, if you had a Java recipe that also worked for JavaScript repositories, you could duplicate the recipe and change the category so that it appears in both places.
 * **Internal recommendations**: Your company may want to create custom groupings of recipes for developers. In this case, you could duplicate the recipe and add it to a specific custom category.
 
 When duplicating rows, the recipe metadata (`options`, `dataTables`, `displayName`, `description`) must remain identical across all copies. Only the _category columns_ should differ.

@@ -25,7 +25,7 @@ Those limits do not fit how OpenRewrite is built and shipped:
 * A single release of OpenRewrite's primary repository exceeds both the release-count and size limits on its own.
 * OpenRewrite releases frequently, often several times per week.
 
-Aside from publishing limits, there are also rate limits that have negatively impacted us. When trying to build and release OpenRewrite, we often will see [HTTP 429 responses](https://central.sonatype.org/faq/429-error/) as we attempt to resolve artifacts across numerous repository. This holds up our release train and makes it take longer to get updates out.
+Aside from publishing limits, there are also rate limits that have negatively impacted us. When trying to build and release OpenRewrite, we often will see [HTTP 429 responses](https://central.sonatype.org/faq/429-error/) as we attempt to resolve artifacts across numerous repositories. This holds up our release train and makes it take longer to get updates out.
 
 Rather than let another party's constraints dictate how these tools reach you, Moderne now hosts OpenRewrite's recipes and the Moderne CLI in the Code Genome Project.
 
@@ -53,7 +53,7 @@ These credentials carry your customer entitlement, so they can pull MSAL and pro
 
 Add `https://artifacts.codegenomeproject.org/maven` as a new remote (proxy) repository in your Artifactory or Nexus, using your Code Genome Project credentials. Authenticate with HTTP Basic auth, using the token as the password. The username is not validated for token credentials, so any value works, though your Moderne-provided username keeps things clear.
 
-When ordering your virtual repositories, it's important that you put the Code Genome Project **below your internal repositories and above Maven Central**. If you put CGP _above_ your internal repositories, you will end up with getting a 404 from CGP and added latency in resolving those artifacts. If you put CGP _below_ Maven Central, you'll end up only seeing stale releases rather than the latest one in CGP.
+When ordering your virtual repositories, it's important that you put the Code Genome Project **below your internal repositories and above Maven Central**. If you put CGP _above_ your internal repositories, you will end up getting a 404 from CGP and added latency in resolving those artifacts. If you put CGP _below_ Maven Central, you'll end up only seeing stale releases rather than the latest one in CGP.
 
 :::info
 Use the repository URL exactly as shown. Do not append a storage prefix such as `/oss`. The gateway adds the correct prefix for you, and an extra one causes the request to be rejected.

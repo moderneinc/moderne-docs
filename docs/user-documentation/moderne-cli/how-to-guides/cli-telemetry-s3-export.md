@@ -49,7 +49,7 @@ Querying the data (with AWS Athena or another engine) is covered separately in [
 
 The supported entry point for the CLI is the [`modw` wrapper script](./cli-wrapper.md) (`modw.cmd` on Windows). The `mod` command is a symlink to it. The recommended approach is for your central platform team to customize the wrapper itself and distribute it to your CLI users, the same way large organizations manage a customized Maven or Gradle wrapper.
 
-The wrapper ends by launching the CLI. You add a small step that runs after the CLI returns and publishes any new trace CSV files. This guide uploads them to S3, but the same hook can POST them to a BI endpoint, copy them to a network share, or do whatever your BI setup needs. CLI users keep using `mod` exactly as before. There are no separate commands or alias's to learn:
+The wrapper ends by launching the CLI. You add a small step that runs after the CLI returns and publishes any new trace CSV files. This guide uploads them to S3, but the same hook can POST them to a BI endpoint, copy them to a network share, or do whatever your BI setup needs. CLI users keep using `mod` exactly as before. There are no separate commands or aliases to learn:
 
 ```mermaid
 flowchart LR

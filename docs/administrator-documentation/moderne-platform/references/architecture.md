@@ -124,7 +124,7 @@ The Moderne UI provides a browser-based interface for:
 * Viewing [audit logs](./audit-logging.md)
 * Generating [access tokens](../../../user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md) for interacting with the Moderne API
 
-The Moderne UI is implemented with client-side Javascript. The Moderne UI is one of three components with a public IP address (the other two being the [Moderne API gateway](#moderne-api-gateway) and [Keycloak](#keycloak)).
+The Moderne UI is implemented with client-side JavaScript. The Moderne UI is one of three components with a public IP address (the other two being the [Moderne API gateway](#moderne-api-gateway) and [Keycloak](#keycloak)).
 
 **Setup requirements**
 

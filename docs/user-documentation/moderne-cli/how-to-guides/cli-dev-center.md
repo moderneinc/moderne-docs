@@ -13,7 +13,7 @@ In this guide, we'll walk you through how to do that.
 
 This guide assumes that you have already [installed and configured the CLI](../getting-started/cli-intro.md#installation-and-configuration).
 
-## Step 1: Checkout the repositories you want to build a DevCenter for
+## Step 1: Check out the repositories you want to build a DevCenter for
 
 The first thing you'll need to do is come up with the list of repositories that you want to build a DevCenter for. Once you have that list, please ensure they are cloned to a shared directory locally. For instance, this might look like:
 

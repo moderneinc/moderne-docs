@@ -357,7 +357,7 @@ If you're not sure a query is going to return what you want, add a `LIMIT` and t
 
 #### Long-running queries
 
-Some queries can take awhile. If a query runs for longer than ~20 seconds, you won't get results back. Instead, you'll get a `queryId`. You can call the tool again with just that `queryId` and it will wait for the query to finish.
+Some queries can take a while. If a query runs for longer than ~20 seconds, you won't get results back. Instead, you'll get a `queryId`. You can call the tool again with just that `queryId` and it will wait for the query to finish.
 
 :::warning
 The server will cancel any query that runs for more than ten minutes. Also, note that the server limits you to only running two queries at a time.
@@ -537,7 +537,7 @@ Every repository you list has to already be in an organization you can see. If o
 
 If this tool successfully runs, you'll get back the new organization's `id` (e.g., `Users/<your email>/<name>`). You'll plug that ID into the `organizationId` field whenever you run a recipe or a search.
 
-Note that for the user organization update tools, you'll pass this ID is as `id` instead of `organizationId`.
+Note that for the user organization update tools, you'll pass this ID as `id` instead of `organizationId`.
 
 ### updateUserOrganization
 

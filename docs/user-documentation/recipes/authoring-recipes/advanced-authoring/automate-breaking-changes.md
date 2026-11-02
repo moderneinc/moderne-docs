@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 
 # How to automate breaking changes
 
-Imagine you are an author of a popular library and you've come to realize that one of your core methods needs to be changed. Unfortunately, making such a change would break all of your user's code. While you _could_ release the change and let your users know so they can manually fix it – there is a much better approach: write a recipe to automatically fix these breaking changes. This saves your users time and reduces their frustration, while also ensuring a smoother transition to the new version.
+Imagine you are an author of a popular library and you've come to realize that one of your core methods needs to be changed. Unfortunately, making such a change would break all of your users' code. While you _could_ release the change and let your users know so they can manually fix it – there is a much better approach: write a recipe to automatically fix these breaking changes. This saves your users time and reduces their frustration, while also ensuring a smoother transition to the new version.
 
 In this guide, we'll walk you through creating such a recipe. By the end, you should have a working recipe bundled up that can be easily shared with others, making it simple for them to upgrade to the latest version of your library.
 

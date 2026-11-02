@@ -193,7 +193,7 @@ MOD PARTIALLY SUCCEEDED in (7m 33s)
 This may take several minutes. Feel free to continue to the next exercise and come back once it finishes.
 
 :::warning
-You might still see `The latest LST is not up to date` for some repositories even after running `mod build .` (for example, if a repo failed to build, the checkout changed after the build, or the CLI used a downloaded LST that doesn’t match your local sources). You may also see some repositories to fail to build the LST. In either case, recipes can still run on repos with LSTs, so you can safely continue the exercise.
+You might still see `The latest LST is not up to date` for some repositories even after running `mod build .` (for example, if a repo failed to build, the checkout changed after the build, or the CLI used a downloaded LST that doesn’t match your local sources). You may also see some repositories fail to build the LST. In either case, recipes can still run on repos with LSTs, so you can safely continue the exercise.
 :::
 
 :::tip

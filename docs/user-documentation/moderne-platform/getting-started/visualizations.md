@@ -16,7 +16,7 @@ In this guide, we will explain everything you need to know to find, use, and cre
 
 ## How to view visualizations
 
-If a recipe produces a visualization, you can find them in the `Visualizations` tab:
+If a recipe produces a visualization, you can find it in the `Visualizations` tab:
 
 ![Visualizations button](./assets/visualizations-tab.png)
 

@@ -64,7 +64,7 @@ Once you've confirmed, the CLI stores the token on your machine, where it stays 
 <details>
 <summary>If the browser didn't open</summary>
 
-This may happen if you installed the CLI with Homebrew or Chocolatey instead of via the install script. To configure the CLI and login manually, run these two steps yourself:
+This may happen if you installed the CLI with Homebrew or Chocolatey instead of via the install script. To configure the CLI and log in manually, run these two steps yourself:
 
 ```bash
 mod config moderne edit https://app.moderne.io

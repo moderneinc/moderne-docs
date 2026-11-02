@@ -42,7 +42,7 @@ To create a custom recipe you will need to:
 
 4. Enter a name, ID, and description for the recipe and then press `Save`. It's important to give the recipe an appropriate name and description if you ever intend to share it with others.
 
-5. In the center of your window, you'll find the 3D recipe viewer. In it, there is a highlighted sphere with the name of your recipe. You can think of this as the root node of your recipe. From there, you can attach other recipes or preconditions to it. To do this, either click on the three horizontal lines next to the recipe title and then click `Add recipe to this recipe node` –– or mouse over the name of your recipe in the recipe list on the right side of the screen and click the triple vertical docs and select `Add recipe to node`:
+5. In the center of your window, you'll find the 3D recipe viewer. In it, there is a highlighted sphere with the name of your recipe. You can think of this as the root node of your recipe. From there, you can attach other recipes or preconditions to it. To do this, either click on the three horizontal lines next to the recipe title and then click `Add recipe to this recipe node` –– or mouse over the name of your recipe in the recipe list on the right side of the screen and click the triple vertical dots and select `Add recipe to node`:
 
 <figure>
   ![Animated demo of adding recipes from the 3D viewer context menu](./assets/3D-recipe-details.gif)
@@ -61,7 +61,7 @@ To create a custom recipe you will need to:
   <figcaption>_Add recipe modal_</figcaption>
 </figure>
 
-7. After you select a recipe, the 3D recipe viewer and recipe list side panel will be updated to include that recipe and all of its sub-recipes. Feel free to add more recipes or edit the ones you've included. For more detailed instructions in how to use the 3D recipe viewer or the recipe list panel, [jump down in this doc](#how-to-use-the-3d-viewer). 
+7. After you select a recipe, the 3D recipe viewer and recipe list side panel will be updated to include that recipe and all of its sub-recipes. Feel free to add more recipes or edit the ones you've included. For more detailed instructions on how to use the 3D recipe viewer or the recipe list panel, [jump down in this doc](#how-to-use-the-3d-viewer). 
 
 8. Once you've got your recipe into the place you want it, you can run it by pressing the `Dry Run` button at the top of your screen:
 
@@ -174,7 +174,7 @@ Scroll the mouse wheel up and down to zoom in and out. The viewer will zoom towa
 
 ### How to reset your 3D viewer
 
-If you've zoomed too far out or moved the recipe too far away, and you want to reset to a stable view, either click the "move to fit" or "move to selected node" button in the bottom-left corner of the 3D viewer. Moving to fit will attempt to make it so all of the recipes nodes fit in the viewer at once. Moving to selected will zoom in to the node you currently have selected.
+If you've zoomed too far out or moved the recipe too far away, and you want to reset to a stable view, either click the "move to fit" or "move to selected node" button in the bottom-left corner of the 3D viewer. Moving to fit will attempt to make it so all of the recipe nodes fit in the viewer at once. Moving to selected will zoom in to the node you currently have selected.
 
 <figure>
   ![3D viewer toolbar with Move to fit button highlighted](./assets/move-to-fit.png)

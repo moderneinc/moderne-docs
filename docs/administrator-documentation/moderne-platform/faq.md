@@ -8,7 +8,7 @@ description: Frequently asked questions related to administrating the Moderne Pl
 
 ## Why do artifact scanners detect vulnerabilities in recipe artifacts/JARs?
 
-In order to modernize and upgrade old or vulnerable code, some OpenRewrite recipe modules bundle copies of old libraries. Libraries bundled into recipe modules are never executed. That being said, these libraries are **never executed**.
+In order to modernize and upgrade old or vulnerable code, some OpenRewrite recipe modules bundle copies of old libraries. Libraries bundled into recipe modules are **never executed**.
 
 OpenRewrite exercises the Java compiler internally to compile code patterns that exist in these old and/or vulnerable libraries. These patterns are then used to **match** old or vulnerable code for the sake of modernizing or repairing it.
 

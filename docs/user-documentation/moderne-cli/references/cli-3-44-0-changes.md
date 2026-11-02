@@ -142,7 +142,7 @@ At this point, the pattern is probably clear, but `mod devcenter` has also been 
 
 The CLI now detects terminal capabilities and adjusts its output accordingly. Modern terminals get full Unicode characters, extended colors, and clickable links (OSC-8). Older terminals receive clean, readable output without these enhancements. The CLI automatically chooses the appropriate format based on what your terminal supports.
 
-Earlier iterations we only distinguished between ANSI and non-ANSI capable terminals. Now we also distinguish between those terminals that support rendering extended UTF-8 characters and colors beyond the basic 256 color palette.
+In earlier iterations, we only distinguished between ANSI and non-ANSI capable terminals. Now we also distinguish between those terminals that support rendering extended UTF-8 characters and colors beyond the basic 256 color palette.
 
 Separately, we also detect terminals that support OSC-8 links, which leads to shorter, more readable output when supported.
 

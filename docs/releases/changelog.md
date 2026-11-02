@@ -1453,7 +1453,7 @@ We have made changes to the key bindings and command palette:
 
 ### UI v11.15.0 (2025/02/28)
 
-- add banner to notifiy user of service disruption
+- add banner to notify user of service disruption
 
 ### UI v11.14.4 (2025/02/28)
 
@@ -1744,7 +1744,7 @@ moderne.agent.bitbucket[0].url=https://bitbucket.moderne.io/stash
 
 ### UI v10.173.0 (2024/12/06)
 
-- Sometimes a recipe run will have results where some repositories have changes but also are marked with status error indicating that the recipe left informational error markers. You can now choose to commit these changes if you would like. When commiting these changes you will see an extra warning:
+- Sometimes a recipe run will have results where some repositories have changes but also are marked with status error indicating that the recipe left informational error markers. You can now choose to commit these changes if you would like. When committing these changes you will see an extra warning:
 
 ![commit warning](./assets/commit-warning.png)
 
@@ -1752,13 +1752,13 @@ moderne.agent.bitbucket[0].url=https://bitbucket.moderne.io/stash
 
 #### Builder
 
-When editting the recipe details or creating a new recipe there is now field synchronization between the name and id fields that can be toggled off an on:
+When editing the recipe details or creating a new recipe there is now field synchronization between the name and id fields that can be toggled off and on:
 
 ![builder-sync](./assets/builder-synchronization.png)
 
 When on you can edit the Name and the last part of the recipe ID will automatically be the Pascal cased version of the Name field.
 
-When toggled off you can edit the fields seperately.
+When toggled off you can edit the fields separately.
 
 ## November 2024
 
@@ -3985,7 +3985,7 @@ The _Data Tables_ button is now ever present on the page along side the familiar
   <figcaption></figcaption>
 </figure>
 
-_API examples_ button has been pulled up from a collapsable portion of the summary and into a more familiar and consistant place on the page.
+_API examples_ button has been pulled up from a collapsible portion of the summary and into a more familiar and consistent place on the page.
 
 <figure>
   ![](./assets/api-example.png)

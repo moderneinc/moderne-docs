@@ -140,7 +140,7 @@ public class CryptoExample {
 
 When you review the recipe's findings, understanding which algorithms are quantum-vulnerable versus quantum-resistant helps you prioritize which tasks to tackle first.
 
-**Quantum-vulnerable algorithms** require replacement with post-quantum alternatives (e.g., RSA, ECC, DSA, etc).
+**Quantum-vulnerable algorithms** require replacement with post-quantum alternatives (e.g., RSA, ECC, DSA, etc.).
 
 **Quantum-resistant algorithms** like **AES** and **SHA-2/SHA-3** remain secure, but may need key size adjustments. The recipe flags these so you know where they're hardcoded, not because they need replacement.
 

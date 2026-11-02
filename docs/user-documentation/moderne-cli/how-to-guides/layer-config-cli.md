@@ -98,7 +98,7 @@ working-set/
 
 Then, after running this command, both the `spring-boot` and `spring-framework` projects will use the arguments you included whenever LSTs are built.
 
-You can see the list of arguments exist for any command by running the following command:
+You can see the list of arguments that exist for any command by running the following command:
 
 ```bash
 mod config build maven arguments show --local ./path/to/your/project
@@ -166,7 +166,7 @@ working-set/
 
 Then, after running this command, both the `spring-boot` and `spring-framework` projects will use the arguments you included whenever LSTs are built.
 
-You can see the list of arguments exist for any command by running the following command:
+You can see the list of arguments that exist for any command by running the following command:
 
 ```bash
 mod config build maven arguments show --local ./path/to/your/project

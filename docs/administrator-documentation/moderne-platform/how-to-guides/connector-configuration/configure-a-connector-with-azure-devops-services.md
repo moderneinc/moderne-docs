@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 In order to view recipe results and commit changes from a recipe back to Azure DevOps Services, you'll need to register a Microsoft Entra ID OAuth app and configure the Moderne Connector with the appropriate variables.
 
 :::info
-Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth and the legacy Azure DevOps OAuth 2.0 models. The Moderne platform only supports the Microsoft Entra ID OAuth model.
+Azure DevOps Services supports two OAuth 2.0 models: Microsoft Entra ID OAuth and the legacy Azure DevOps OAuth 2.0 model. The Moderne platform only supports the Microsoft Entra ID OAuth model.
 :::
 
 ## Azure DevOps Services configuration

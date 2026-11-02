@@ -46,7 +46,7 @@ To help you get started with user-configured organizations, in this guide you wi
   <figcaption></figcaption>
 </figure>
 
-8. Now, when you go to run any recipe, you can click on the `Organizations` icon and select the organization you want to run the recipe on.
+7. Now, when you go to run any recipe, you can click on the `Organizations` icon and select the organization you want to run the recipe on.
 
 ## How to modify or delete existing user-configured organizations
 

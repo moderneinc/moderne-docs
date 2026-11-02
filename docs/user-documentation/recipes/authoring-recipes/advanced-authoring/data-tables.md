@@ -272,7 +272,7 @@ By default, OpenRewrite recipes will **not** produce a data table. In order for 
 1. You will need to ensure your project is built with
    * [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin) version `5.39.0` or higher.
    * [rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin/) version `6.16.5` or higher. 
-2. Next, you will either need to update build file or modify your command for running a recipe:
+2. Next, you will either need to update your build file or modify your command for running a recipe:
 
 :::info
 OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. For Gradle, put your username in `~/.gradle/gradle.properties` as `codegenomeUsername` and your token as `codegenomePassword`, which the snippets below read.

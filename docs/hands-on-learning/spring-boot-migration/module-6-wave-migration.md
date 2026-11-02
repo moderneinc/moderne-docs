@@ -45,7 +45,7 @@ EOF
 Take a look at each recipe in the recipe list of this YAML file so you understand what steps it will take.
 
 :::warning
-You can't use recipe builder in this case since you are referring to a custom recipe that is not available in the platform.
+You can't use the recipe builder in this case since you are referring to a custom recipe that is not available in the platform.
 :::
 
 2. Install `org.openrewrite.recipe.querydsl.CustomUpgradeSpringBoot_4_0` locally with the CLI:

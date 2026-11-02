@@ -81,7 +81,7 @@ When configuring your authentication to the Moderne SaaS, you will need to selec
 
 #### SAML integration
 
-1. Coordinate with your IAM team to create a new SSO application in your identity provider using the following values (Please make sure to replace `CUSTOMER_NAME` through the URI):
+1. Coordinate with your IAM team to create a new SSO application in your identity provider using the following values (Please make sure to replace `CUSTOMER_NAME` throughout the URI):
 
 | Field | Value |
 | --- | --- |

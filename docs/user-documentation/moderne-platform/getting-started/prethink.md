@@ -30,7 +30,7 @@ The Moderne Platform provides the [Update Prethink context recipe](https://app.m
 ## Example results
 
 <figure>
-  ![API contractos](./assets/prethink-api-contracts.png)
+  ![API contracts](./assets/prethink-api-contracts.png)
   <figcaption>_A markdown file summarizing the APIs._</figcaption>
 </figure>
 

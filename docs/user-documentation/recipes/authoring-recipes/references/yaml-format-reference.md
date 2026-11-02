@@ -129,7 +129,7 @@ But because `Find` is used as a precondition, `ChangeText` will only be run on f
 
 * [`org.openrewrite.FindSourceFiles`](https://codegenomeproject.org/recipes/org.openrewrite.FindSourceFiles) - limits the recipe to only run on files whose path matches a glob pattern
 * [`org.openrewrite.text.Find`](https://codegenomeproject.org/recipes/org.openrewrite.text.Find) - limits the recipe to only run on files that contain a given string
-* [`org.openrewrite.java.search.FindTypes`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes) - limits the recipe to run only on source code which contain a given type
+* [`org.openrewrite.java.search.FindTypes`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes) - limits the recipe to run only on source code which contains a given type
 * [`org.openrewrite.java.search.HasJavaVersion`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.HasJavaVersion) - limits the recipe to run only on Java source code with the specified source or target compatibility versions. Allowing a recipe to be targeted only at Java 8, 11, 17, etc., code.
 * [`org.openrewrite.java.search.IsLikelyTest`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.IsLikelyTest) - limits the recipe to run only on source code which is likely to be test code.
 * [`org.openrewrite.java.search.IsLikelyNotTest`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.IsLikelyNotTest) - limits the recipe to run only on source code which is likely to be production code.

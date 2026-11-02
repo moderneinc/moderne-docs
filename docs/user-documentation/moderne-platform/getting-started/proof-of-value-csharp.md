@@ -56,7 +56,7 @@ The recipes below progress from simple to complex. Links go to the [public Moder
 <TabItem value="cli" label="Moderne CLI">
 
 1. **Install the Moderne CLI** – Follow the [installation steps in the CLI documentation](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration) to install the CLI for your platform.
-    * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipes JARs. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
+    * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipe JARs. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
 
 2. **Install the .NET SDK** – The CLI uses `dotnet` to restore and parse C# projects, so a few things need to be in place:
     * **Install .NET 10 or later.** The C# recipe runtime (`rewrite-csharp`) ships as a `net10.0` application, so .NET 8 and 9 will not work. Verify your install with `dotnet --version`.
@@ -78,7 +78,7 @@ The recipes below progress from simple to complex. Links go to the [public Moder
     ```
 
     * **Note**: All of your LSTs may not build successfully. This is a normal experience during initial ingestion as there are always unique configurations and environmental factors that need to be accounted for. We can work with you to investigate these issues on a call.
-      * The CLI stack trace will give some hints as to the issue. There is also a `build.log` file produced to every repo that will contain more context. You can also run the following command to aggregate the build logs:
+      * The CLI stack trace will give some hints as to the issue. There is also a `build.log` file produced for every repo that will contain more context. You can also run the following command to aggregate the build logs:
 
         ```bash
         mod log builds add . logs.zip --last-build

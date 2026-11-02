@@ -28,7 +28,7 @@ Web applications face unique challenges because they interact directly with untr
 
 ### Data protection issues
 
-Protecting sensitive data requires careful handling throughout its lifecycle. Personal Identifiable Information (PII) can leak through URLs that get logged, cached, or shared inadvertently. Storing sensitive data like social security numbers or credit card information without encryption violates both security best practices and regulatory requirements. Information disclosure through verbose error messages or debug logs can provide attackers with valuable reconnaissance data about your system's internals.
+Protecting sensitive data requires careful handling throughout its lifecycle. Personally Identifiable Information (PII) can leak through URLs that get logged, cached, or shared inadvertently. Storing sensitive data like social security numbers or credit card information without encryption violates both security best practices and regulatory requirements. Information disclosure through verbose error messages or debug logs can provide attackers with valuable reconnaissance data about your system's internals.
 
 ### Cryptographic vulnerabilities
 

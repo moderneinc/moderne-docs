@@ -234,7 +234,7 @@ mod run ~/moderne-workshop --recipe com.yourorg.UseApacheStringUtils
 ```
 
 :::warning
-Again, you may see `The latest LST is not up to date` messages for some repositories because you applied changes from a recipe in the last module but didn't rebuild the LSTs. You'll see how to do rebuild LSTs in the next module, but for now you can ignore these warnings since you won't be applying these changes anyway.
+Again, you may see `The latest LST is not up to date` messages for some repositories because you applied changes from a recipe in the last module but didn't rebuild the LSTs. You'll see how to rebuild LSTs in the next module, but for now you can ignore these warnings since you won't be applying these changes anyway.
 :::
 
 <details>
