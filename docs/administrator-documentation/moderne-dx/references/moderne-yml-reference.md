@@ -15,7 +15,7 @@ Every command but `init` reads the `moderne.yml` file in the working directory, 
 
 | Command                                  | What it does                                                                                     |
 |------------------------------------------|--------------------------------------------------------------------------------------------------|
-| `java -jar moderne-dx.jar init [<dir>]`  | Writes `moderne.yml`, `moderne.env` with a new SCM token key, and a systemd unit, keeping any file already there. |
+| `java -jar moderne-dx.jar init [<dir>]`  | Writes `moderne.yml`, `moderne.env` with a new SCM token key, and a systemd unit, keeping any file already there. It fills in the license key and the CGP username and token that the Moderne CLI on this machine has. |
 | `java -jar moderne-dx.jar doctor`        | Checks the configuration and the machine. Once DX runs, it also checks each name through DX's proxy. |
 | `java -jar moderne-dx.jar start`         | Starts DX in the foreground, and keeps every service running until it stops.                     |
 | `java -jar moderne-dx.jar status`        | Says whether DX runs, and which services are up.                                                 |

@@ -50,7 +50,7 @@ moderne:
         #   organizations: [Payments]
 ```
 
-Add the secrets to the `moderne.env` file beside it:
+`init` takes the license key and the CGP username and token from the Moderne CLI on this machine, where it has them. Otherwise, add the secrets to the `moderne.env` file beside `moderne.yml`:
 
 ```bash title="moderne.env"
 MODERNE_LICENSE_KEY=…
