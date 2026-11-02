@@ -1,4 +1,13 @@
 # Platform changelog
+### UI v14.43.0 (2026/11/02)
+
+- link activity data-table rows to their table via a URL search filter
+- expand top-level orgs and collapse My organizations in the org picker
+- restore from a cursor with last/before instead of a saved offset
+- derive tool input placeholders from JSON Schema hints
+- hide what the platform lacks, and offer the CLI in place of Dry run
+- package a standalone build for self-hosted deployments
+
 ### UI v14.42.0 (2026/10/28)
 
 - show the active file filter and apply edits made just before the menu closes
