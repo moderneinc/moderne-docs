@@ -10,6 +10,430 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 2, 2026
+
+#### recipes-csharp - 0.13.0
+
+* Tag redundant boolean literal recipes with RSPEC-S1125
+* Fix recipe idempotency issues
+* Cover remaining RSPEC-S1125 boolean literal forms
+* Keep no trees in the WPF accumulators, and write the nodes the parser reads
+* Format only the constructors ImplementExceptionConstructors adds
+* Apply the && template of the Where combiners where its result goes
+* Fix broken output in string, WPF and exception-constructor recipes
+* Pin the indentation TabIndentedFile expects with an .editorconfig
+* Show that the constructors ImplementExceptionConstructors adds take the file's tabs
+
+#### recipes-go - 0.16.0
+
+* Fix recipe idempotency issues
+* Adapt to changes in Go test harness
+* Keep no trees in accumulators, and write the nodes the parser reads
+* Make MigrateAwsSdkGoToV2 idempotent, keep retryer values as trees, and fix three smaller defects
+
+#### recipes-javascript - 0.7.0
+
+* More cautious removal of self-assignments in `RemoveSelfAssignment`
+* Fix recipe idempotency issues
+* Use RecipeSpec.dataTable for assertions on data table contents in tests
+* Write the nodes the parser builds in six code-quality recipes
+* Fix PreferExponentiationOperator in a with body and NoUselessComputedKey on TypeScript members
+
+#### recipes-mainframe - 0.4.0
+
+* Test an unreadable picture with one the parser still reads
+* Feed RecordLayoutTest a pointer, since a picture count is an integer now
+* Find proven out-of-bounds COBOL table accesses
+* Find embedded SQL status overwritten before inspection
+* Expect COACTUPC and COTRTUPC in the CardDemo corpus tests, now that they parse
+* Fix the defects a review of every recipe package found
+* Prove bounds failures in restricted COBOL VARYING loops
+* Find classified sensitive data exposed by COBOL DISPLAY
+* Find explicit CICS TSQ responses overwritten before inspection
+* Respect metadata operators and literal program IDs in security proofs
+* Prove failed COBOL checks fall through to protected calls
+* Find TSQ writes that exceed their source areas
+* Find short COMMAREA inputs reaching direct copies
+* Skip CICS translator literals in table access analysis
+* Trace prohibited authorization identity origins
+* Keep unresolved AIB origins explicit in fixture expectations
+* Trace copied classified values into DISPLAY
+* Analyze COBOL routing target source evidence
+* Prove failed COBOL routing gates fall through
+* Prove local integer table bounds and respect sentence jumps
+* Prove COMMAREA copy lengths through direct jumps and cycles
+* Trace failed checks through request construction
+* Prove local UNSTRING destination bounds
+* Include field offsets in COMMAREA copy proofs
+* Prove TSQ capacity for whole character records
+* Prove restored identity provenance restrictions
+* Prove reference modification bounds from local integer values
+* Move proven existing bounds checks before buffer copies
+* Verify local bounds under COBOL debugging mode
+* Detect overwritten CICS file responses
+* Move proven UNSTRING bounds checks before parsing
+* Adapt to null literal sets and show the security analyses the translator's EIB
+* Analyze complete declared Db2 unique keys
+* Analyze explicit INSERT bindings to declared unique keys
+* Keep SQL analysis active through ordinary DCLGEN declarations
+* Move exact table bounds checks before writes
+* Support deployed parsers without translator field access
+* Find failed validation gates reaching protected SQL writes
+* Track exact integers through agreeing COBOL branches
+* Analyze Db2 UPDATE assignments and predicates
+* Find missing required Db2 version predicates
+* Propagate intrinsic field lengths into bounds proofs
+* Model unsigned DISPLAY fields in record bounds
+* Analyze locally established COBOL CALL targets
+* Analyze locally established CICS routing targets
+* Find CALL values outside an approved character policy
+* Preserve routing facts across disjoint storage effects
+* Join values across character and level-88 conditions
+* Analyze Db2 SELECT bindings and declared key predicates
+* Find contracted Db2 prechecks with incomplete key predicates
+* Preserve local routing values across ordinary sentences
+* Prove local integer bounds across ordinary sentences
+* Join local values across read-only compound conditions
+* Prove TSQ write lengths from local assignments
+* Find CICS routing targets outside approved character policies
+* Track local values returned by simple performed paragraphs
+* Trace copied sensitive values and identities through local control flow
+* Resolve direct LENGTH OF operands in TSQ writes
+* Preserve copy origins across bounded IF branches
+* Prove table bounds for bounded local integer sets
+* Find failed validation checks before TSQ writes
+* Prove trailing-space character lengths from local values
+* Prove rejected payload lengths reach contracted parser calls
+* Prove visited bounds for nonunit literal loop steps
+* Retain numeric bounds proofs beside disjoint overlays
+* Find failed checks entering protected local paragraphs
+* Find response loss between file and queue commands
+* Prove numeric failure gates from declared success values
+* Prove prohibited origins across alternative copy chains
+* Trace character origins through aligned group copies
+* Prove COMMAREA copies through compound length guards
+* Prove COMMAREA failure paths through literal message assignments
+* Prove equivalent integer guards for bounds check reordering
+* Join bounded integer values across EVALUATE branches
+* Preserve copy origins across EVALUATE branches
+* Find classified copies included in TSQ write buffers
+* Track character values through bounded EVALUATE branches
+* Find numeric failure checks before protected calls
+* Find numeric failure checks before protected paragraphs
+* Prove ordered numeric EVALUATE failure paths
+* Preserve values through conditional performed assignments
+* Analyze returning failure-message paragraphs
+* Analyze explicit ELSE failure branches
+* Follow bounded chains of performed assignments
+* Analyze sliced senders and receivers independently
+* Accept a blank after an INSERT column list's opening parenthesis
+* Remove the redundant SQL write-target regex and pin the SQL status scan
+* Explain structural barriers to local PERFORM summaries
+* Preserve local facts and failure paths across simple EXIT
+* Follow simple EXIT before status overwrites and COMMAREA copies
+* Preserve local proofs across plain literal DISPLAY messages
+* Follow nested returning failure-message paragraphs
+* Explain unresolved local PERFORM targets
+* Prove bounds and lengths after literal subtraction
+* Prove received-length bounds for fixed COMMAREA slices
+* Prove declared slice bounds for fixed records and LINKAGE fields
+* Prove received COMMAREA forwarding length mismatches
+* Prove local binary lengths used for COMMAREA forwarding
+* Prove literal slice bounds in plain DISPLAY operands
+* Prove literal slice bounds in comparisons and MOVE operands
+* Resolve section-qualified local paragraph calls
+* Prove incoming COMMAREA display length violations
+* Preserve existing error messages when moving bounds checks
+* Propagate bounded condition-name assignments
+* Prove failed checks across disjoint condition messages
+* Preserve incoming lengths across local condition assignments
+* Propagate bounded default initialization values
+* Propagate bounded STRING values and retained suffixes
+* Find classified character ranges retained in DISPLAY output
+* Find classified character ranges in TSQ write requests
+* Find prohibited character ranges in authorization identities
+* Filter finite integer values after direct exit guards
+* Filter known routing characters after direct exit guards
+* Analyze bounded direct COBOL exit paths
+* Use proven jump exits in finite value guards
+* Move bounds checks ahead of writes with proven jump exits
+* Preserve failed checks across disjoint initialization
+* Follow SQL status across disjoint literal assignments
+* Follow CICS responses across disjoint literal assignments
+* Preserve COMMAREA lengths across disjoint initialization
+* Follow COMMAREA lengths through numeric EVALUATE
+* Verify vulnerability analysis around inline embedded commands
+* Follow COMMAREA lengths through section-qualified jumps
+* Trace classified characters through DISPLAY operands and slices
+* Preserve diagnostic lifetimes across disjoint STRING operations
+* Preserve COMMAREA lengths across bounded message construction
+* Prove failed checks through bounded STRING messages
+* Propose approved CICS READ response guards
+* Prove jump exits through plain CICS RETURN
+* Prove direct plain CICS RETURN guards
+* Propose snapshot-bound Db2 SELECT response guards
+* Propose SELECT response guards with standard SQLCA
+* Analyze COMMAREA lengths through native EIBCALEN
+* Retain native count witnesses within larger entry domains
+* Analyze native incoming lengths through ordinary data copies
+* Find COMMAREA writes beyond the received length
+* Propose approved length guards before incoming-area copies
+* Prove terminal paths through bounded literal stores
+* Prove terminal stores with standalone SQL declarations
+* Prove terminal stores with standard SQLCA includes
+* Respect INITIALIZE VALUE and FILLER effect boundaries
+* Prove terminal paths that initialize local records
+* Propose complete TSQ record guards from approved contracts
+* Propose exact CALL character policy guards
+* Recognize documented CICS LOAD routing options
+* Propose exact CICS routing character policy guards
+* Propose approved public traces for entry payload displays
+* Prove current identity at authorization calls
+* Propose current identity copies at authorization calls
+* Prove current authorization results before protected calls
+* Propose complete authorization allow guards
+* Prove current copies of designated Db2 versions
+* Propose removing forced authorization success
+* Propose approved Db2 INSERT response guards
+* Preserve sentence boundaries around INSERT response guards
+* Prove current resource mappings at authorization calls
+* Prove validated numeric authorization key copies
+* Preserve current authorization evidence across terminal rejection gates
+* Prove current authorization at protected calls
+* Analyze current payload content length before parsing
+* Find TSQ reads that exceed complete buffer allocations
+* Analyze routing targets and DL/I calls in nested COBOL programs
+* Propose approved TSQ read capacity limits
+* Propose approved payload content length computations
+* Prove current identity through complete mismatch checks
+* Analyze current TSQ payload lengths before parser calls
+* Prove current resource keys through validated comparisons
+* Analyze current Db2 UPDATE result checks
+* Analyze complete Db2 version column schemas
+* Propose Db2 version predicates from successful reads
+* Prove ordered Db2 UPDATE result selection
+* Prove checked Db2 reads through local PERFORM calls
+* Prove native Db2 read provider return contracts
+* Prove native calls to checked Db2 read providers
+* Propose Db2 version predicates from checked native reads
+* Analyze checked database versions saved to temporary storage
+* Analyze complete checked TSQ version records
+* Propose Db2 version predicates across temporary storage tasks
+* Prove declared record lengths through checked queue operations
+* Prove current authorization at actual Db2 updates
+* Propose authorization allow guards before Db2 updates
+* Require a proven denied authorization continuation
+* Prove denied continuations before Db2 authorization guards
+* Resolve an SQL host variable under the structure qualifying it
+* Propose current Db2 UPDATE result guards
+* Analyze current authorization at actual Db2 reads
+* Propose complete authorization guards before Db2 reads
+* Propose current identity for Db2 read authorization
+* Resolve qualified Db2 host bindings
+* Prove read authorization with qualified Db2 hosts
+* Prove update authorization with qualified Db2 hosts
+* Propose current identity for actual Db2 update authorization
+* Support qualified hosts in Db2 update result proofs
+* Resolve exact Db2 indicator bindings
+* Resolve Db2 hosts outside redefined records
+* Analyze current Db2 SELECT output checks
+* Propose approved Db2 SELECT output guards
+* Guard proven incomplete SELECT output checks
+* Preserve exact SQLCODE selections in SELECT result proofs
+* Preserve exact SQLCODE selections in UPDATE result proofs
+* Guard UPDATE reports after proven incomplete result checks
+* Preserve exact SQLCODE literals through result conditions
+* Preserve exact SQLCODE intervals through result checks
+* Propose guards for approved COMMAREA writes
+* Preserve forwarding lengths through proven entry guards
+* Propose COMMAREA forwarding length guards
+* Propose guards for approved COMMAREA displays
+* Preserve known received counts after valid DISPLAY reads
+* Retain unresolved paths after earlier COMMAREA copies
+* Require COPY snapshots for COMMAREA copy guards
+* Build DataItems from the DataDescription hierarchy
+
+#### rewrite-angular - 1.18.0
+
+* Fix recipe idempotency issues
+* Add Angular CDK migrations to the UpgradeToAngularN recipes
+* Write the nodes the parser builds in two migrations, and expect the generated tsconfig.base.json
+
+#### rewrite-devcenter - 1.37.0
+
+* Add OrganizationStatisticsReport to collect organization statistics without a DevCenter run
+
+#### rewrite-hibernate - 0.34.0
+
+* MigrateJpqlTruncToDateCast migrates queries built from concatenated string literals
+
+#### rewrite-java-security - 3.47.0
+
+* GitHub advisories and endoflife.date data as of 2026-10-30T0927
+* Add OWASP LLM02 sensitive information disclosure recipes
+* Add OWASP LLM category review recipes and output-sink detection
+* Remediate LLM02 by disabling explicit prompt and completion logging
+* Compose LLM10 output-token remediations by framework and provider
+* Restrict Spring AI tool resolution fallback (OWASP LLM06)
+* Disable Spring AI tool-content tracing (OWASP LLM02)
+* Cap Spring AI and LangChain4j tool-execution budgets (OWASP LLM10)
+
+#### rewrite-mainframe - 3.7.0
+
+* Parse FUNCTION TRIM with its LEADING or TRAILING keyword
+* Resolve optional statement-list endings by predicate, cutting COBOL parse time 4.5x
+* Visit the parse-tree alternatives two visitor methods never passed on
+* Read every name as one identifier, so subscripts stop landing on its qualifier
+* Inline tableCall into identifier, and bind every parenthesis after a name to it
+* Parse a picture string by adjacency, so each cardinality closes its picture
+* Give a data name one way to parse, in its qualifiers and in its entry
+* Fold the alternatives prediction always resolved the same way
+* Treat a separator in column 72 as whitespace when the comment area follows it
+* Recognize CBL and PROCESS statements between the programs of a batch compile
+* Read a picture string in a lexer mode, as one word per symbol run
+* Add a corpus parse-cost report, and the grammar's guide to using it
+* Read the XML PARSE statement
+* Sort the operands of each combined predicate, so its order cannot duplicate a configuration
+* Read the SERVICE LABEL and SERVICE RELOAD statements
+* Walk the COBOL source by index instead of copying what remains of it
+* Build a Space from a range of the source, finding an interned one without copying
+* Let charDataLine end by predicate, so the preprocessor stops retrying every token
+* Test a line's ending at the cursor instead of copying the rest of the source
+* Keep ENTRY and CICS DFHRESP/DFHVALUE literals when printing
+* Leave DFHRESP and DFHVALUE out of the DataName usages
+* Replace pseudo-text that matches part of a text word, as ==:TAG:== and ==(TESTVAR1)== do
+* Print every copybook a copied word carries, not only the first
+* Print a program's trailing Ctrl-Z back
+* Settle the COBOL grammar's ambiguities in SLL and remove the pipeline's copies
+* Settle the INSPECT ALL and REPLACE operand ambiguities in SLL
+* Read a COBOL batch flat and nest its programs in the visitor
+* Settle the Db2 and JCL grammars' ambiguities in SLL
+* Measure every parser's cost, not only COBOL's
+* Print and read a CREATE TRIGGER as written
+* Print a CREATE MASK's and a CREATE PERMISSION's keywords where they were written
+* Read a CASE expression's END inside an SQL PL block as a body word
+* Print a CREATE TRUSTED CONTEXT's and a CREATE AUXILIARY TABLE's keywords where they were written
+* Read a trusted context's attributes by the names Db2 gives them
+* Read a lone @ as a Db2 statement terminator
+* Read every clause ALTER TRUSTED CONTEXT has
+* Print a Db2 SET without the = its source left out
+* Return a ParseError for an LST that does not print its input back
+* Keep a Db2 comment before its closing parenthesis, and a parameter named DATABASE
+* Add an unqualified DD to the step the DD before it named
+* Read Enterprise COBOL's JSON, XML GENERATE, ALLOCATE and FREE statements
+* Read Enterprise COBOL's data clauses and XML-SCHEMA
+* Read Enterprise COBOL's &gt;&gt; compiler directives
+* Regenerate ANTLR sources exactly as they are committed
+* Read a control card deck that opens with DML as Db2 SQL
+* Read the queries inside a Db2 SQL PL body
+* Read embedded SQL whose query is not a plain SELECT
+* Leave a control card deck that opens with DELETE FROM to Db2
+* Regenerate the Control-M parser with ANTLR 4.13.2
+* Read a .copy whose first statement is assembler with the assembler parser
+* Read the keyword and name of a DFHRESP or DFHVALUE literal
+* Resolve SQLCA, DFHAID, DFHBMSCA and DFHEIBLK to IBM's layouts
+* Leave a data item unresolved when anything but a literal can write it
+* Expose the EXEC interface block the CICS translator inserts
+* Keep a nested COBOL program's data to that program
+* Resolve a containing program's GLOBAL items in a nested COBOL program
+* Read a declarative section as a procedure
+* Leave a data item unresolved when another item's VALUE fills its storage
+* Read IBM COBOL that a sweep of public repositories could not parse
+* Count a nested COBOL program's writes to a containing program's GLOBAL items
+* Read a containing program's GLOBAL items in a nested COBOL program's DL/I call
+* Tell whether a COBOL data item is GLOBAL
+* Read BMS map sets that a sweep of public repositories could not print back
+* Name no target for a VALUE clause on a FILLER
+* Read IMS gen members and Control-M job definitions as IBM and BMC document them
+* Read a DL/I call's PSB position in nested programs and from PROCEDURE DIVISION USING
+* Give a CICS option's operand as the data name it is written as
+* Make COBOL statement-list exits context-dependent
+* Preserve COBOL source around inline embedded commands
+* Respect the including program debug mode in copied lines
+* Keep copied preprocessor directives out of host source
+* Cast each visited COBOL child to the type its field declares
+* Let the COBOL preprocessor lexer cache where each token starts
+* Read debugging mode only from the configuration section
+* Supply the DL/I interface block to a program with EXEC DLI
+* Resolve a record qualified by its file name
+* Parse explicit Db2 row change timestamp columns
+* Read an SQL host variable qualified by its structure
+* Resolve a REDEFINES object by position
+
+#### rewrite-migrate-python - 0.20.0
+
+* Test the BackoffDecorators data table of `FindBackoffDecoratorsNotMigrated`
+* Test each composite as a whole
+* Python: build and/or chains left-nested, and keep text, not trees, in the backoff accumulators
+* Python: DeMorgan distributes over a chain that rewriting an operand made
+
+#### rewrite-nodejs - 0.56.0
+
+* Remove the unused `NodeResolutionResult` and related code
+* Fix recipe idempotency issues
+* Use RecipeSpec.dataTable for assertions on data table contents in tests
+* Wire four unreachable deprecation recipes into the upgrade ladder
+* Add recipes for DEP0185, DEP0129 and DEP0160
+* GitHub advisories as of 2026-10-30T0927
+* Write the nodes the parser builds in three Node.js migrations
+* Install @openrewrite/rewrite with npmInstall, which the build plugin's npmBackpatches depends on
+
+#### rewrite-prethink - 0.21.0
+
+* Collect API call context inside same-CU method candidates
+* Attach native API and artifact context to helper body candidates
+* Inventory written OkHttp header names in method context
+* Relate header names to written sibling value expressions
+* Materialize written Java header name and value contexts
+* Expose source String evaluations beside invocation method contexts
+* Trace lambda argument captures to enclosing method locals
+* Join captured arguments to written initializer calls
+* Attach annotation arguments to directly annotated types
+* Pair explicit OpenFeign service and URL members
+* Extract explicit YAML scalar bindings with structural paths
+* Preserve typed YAML scalar bindings in JSON records
+* Connect Feign URL placeholders to YAML candidates
+* Attach native caller names to Feign configuration contexts
+* Add explicit application YAML scalar binding records
+
+#### rewrite-react - 0.12.0
+
+* Fix recipe idempotency issues
+* Fix broken and missing @see links in recipe docs (P1 of #51)
+* Upgrade `react-test-renderer` with React 16, 17 and 18
+* Write the nodes the parser builds in four React migrations
+* Fix CreateClassToES6 and PureRenderMixin output
+
+#### rewrite-spring - 0.48.0
+
+* Replace the Undertow starter and factory code with Tomcat in UpgradeSpringBoot_4_0
+* [Auto] Spring Boot property migration recipes as of 2026-10-27T1328
+* [Auto] Spring Cloud property migration recipes as of 2026-10-27T1322
+* Remove outdated overrides of Boot-managed version properties
+* Fix `RemoveReplaceNoneFromAutoConfigureTestDatabase` removing `Replace.NONE` where it's still needed
+* Migrate Spring Data Redis Jackson 2 serializers to Jackson 3
+* Fill Spring Boot 4.2 migration gaps and target RC1
+* Migrate KafkaProperties build methods to KafkaConfigBuilder for Boot 4.2
+* Preserve Janino versions when upgrading to Spring Boot 4.2
+* Migrate OriginLookup metadata in proprietary Boot 4 recipes
+
+#### rewrite-sql - 2.24.0
+
+* Convert more Oracle functions and syntax when migrating to Postgres
+* Parse for `ConvertDataType` only when the SQL names the old type
+* Name what `FindFunction` and `FindStoredProcedureCall` found in search markers
+* Find SQL split across Java string concatenations
+
+#### rewrite-static-analysis - 0.5.0
+
+* Add FindThrowInFinally recipe (RSPEC-S1163)
+* Add FindJumpOutOfFinally recipe (RSPEC-S1143)
+* Add FindNonSerializableComparators recipe (RSPEC-S2063)
+
+#### rewrite-tapestry - 0.11.0
+
+* Expect the newest Tapestry 5.9 patch in UpdateTapestryDependenciesTest
+
 ## October 28, 2026
 
 #### recipes-csharp - 0.12.0
