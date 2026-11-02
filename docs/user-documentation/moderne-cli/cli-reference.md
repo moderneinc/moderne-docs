@@ -412,6 +412,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config recipes bundle**](#mod-config-recipes-bundle)
 * [**mod config recipes bundle push**](#mod-config-recipes-bundle-push)
 * [**mod config recipes bundle check**](#mod-config-recipes-bundle-check)
+* [**mod config recipes code-genome-project**](#mod-config-recipes-code-genome-project)
+* [**mod config recipes code-genome-project delete**](#mod-config-recipes-code-genome-project-delete)
+* [**mod config recipes code-genome-project edit**](#mod-config-recipes-code-genome-project-edit)
+* [**mod config recipes code-genome-project show**](#mod-config-recipes-code-genome-project-show)
 * [**mod config recipes csv**](#mod-config-recipes-csv)
 * [**mod config recipes csv sync**](#mod-config-recipes-csv-sync)
 * [**mod config recipes export**](#mod-config-recipes-export)
@@ -768,7 +772,7 @@ mod amp chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | ---- | ----------- | ---------- |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
-| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. |  |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 
 
@@ -972,9 +976,11 @@ mod claude chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `--effort` |  How hard the model reasons, such as medium, high or xhigh. |  |
+| `-m`, `--model` |  The model Claude Code runs with. |  |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
-| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. |  |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 
 
@@ -1158,7 +1164,7 @@ mod codex chat /path/to/working-set --model gpt-5.5-codex --effort high --resume
 | `-m`, `--model` |  The model Codex runs with. |  |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
-| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. |  |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--resume` |  Resume the newest Codex session in the directory, or the one named by id or name. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 
@@ -6412,7 +6418,7 @@ mod config http proxy show
 Configures truststore options that will be used throughout the CLI.
 
 
-All subsequent commands will use these settings.
+All subsequent commands will use these settings. Without any, the CLI on macOS trusts Java's certificate authorities and those your keychains trust.
 
 ### Usage
 
@@ -6458,7 +6464,7 @@ mod config http trust-store edit [subcommands]
 ### Subcommands
 
 * `system`: Configures trust store to use the Operating System specific default trust store.
-On Mac the system trust store is accessed via the Keychain Access app.
+On Mac it trusts Java's certificate authorities and those the Keychain Access app trusts.
 On Windows the system trust store is accessed via the Microsoft Management Console.
 On Linux, the default Java trust store location will typically be symlinked to the distribution's system trust store which is based on the system's cacerts IF using a JVM installed via the package manager, otherwise the trust store packaged with the JVM will be used.
 * `file`: Configures truststore to point to a file.
@@ -6467,7 +6473,7 @@ On Linux, the default Java trust store location will typically be symlinked to t
 ## mod config http trust-store edit system
 
 Configures trust store to use the Operating System specific default trust store.
-On Mac the system trust store is accessed via the Keychain Access app.
+On Mac it trusts Java's certificate authorities and those the Keychain Access app trusts.
 On Windows the system trust store is accessed via the Microsoft Management Console.
 On Linux, the default Java trust store location will typically be symlinked to the distribution's system trust store which is based on the system's cacerts IF using a JVM installed via the package manager, otherwise the trust store packaged with the JVM will be used.
 
@@ -7386,7 +7392,7 @@ mod config lsts artifacts azure-blob edit https://myaccount.blob.core.windows.ne
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `uri` |  The Azure Blob container URL that LSTs will be published to. Must be of the form `https://{account}.blob.core.windows.net/{container}`. | `https://myaccount.blob.core.windows.net/mycontainer` |
+| `uri` |  The Azure Blob container URL that LSTs will be published to, e.g. `https://{account}.blob.core.windows.net/{container}`. Any blob endpoint is accepted, including the sovereign clouds, an Azure Stack Hub deployment, and the path-style `http://{host}:{port}/{account}/{container}` an emulator serves. | `https://myaccount.blob.core.windows.net/mycontainer` |
 
 ### Options
 
@@ -8004,6 +8010,8 @@ Logs the CLI into Moderne
 
 The default authorization mode is a web-based browser flow. After login and consent, a PAT (personal access token) will be created and stored in the configuration file.
 
+On a machine without a browser, use **--device-code** to complete the login from a browser on another device.
+
 Alternatively, use **--with-token** to pass in an existing token on standard input.
 
 After a successful login, the local CLI recipe marketplace is synchronized from Moderne.
@@ -8018,6 +8026,7 @@ mod config moderne login
 
 | Name | Description |
 | ---- | ----------- |
+| `--device-code` |  Log in with the OAuth 2.0 device authorization flow. The CLI prints a URL and a code to enter in a browser on any device, so the machine running the CLI does not need a browser. |
 | `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Example: P180D for 180 days. |
 | `--with-token` |  The Moderne personal access token to use. |
 | `-y`, `--yes` |  Automatic yes to prompts when synchronizing the recipe marketplace. |
@@ -8478,6 +8487,7 @@ mod config recipes moderne sync
 * `active`: Manage the active recipe configuration.
 * `artifacts`: Configures artifact repositories to resolve recipes from.
 * `bundle`: Pack the build of a recipe project into a zip that runs as it is wherever it is put.
+* `code-genome-project`: Resolves recipes from the Code Genome Project.
 * `csv`: Manage the recipe marketplace via a Recipe Marketplace CSV.
 * `export`: Export the recipe catalog for study by different tools.
 * `import`: Import recipes into the marketplace from different formats.
@@ -9333,6 +9343,86 @@ mod config recipes bundle check rewrite-spring.zip
 | Name | Description |
 | ---- | ----------- |
 | `zip` |  The zip that bundle wrote. |
+
+
+
+## mod config recipes code-genome-project
+
+Resolves recipes from the Code Genome Project.
+
+
+With the username and token Moderne gives you, recipes resolve from the Code
+Genome Project's Maven repository, and the packages they use from its npm, PyPI
+and NuGet ones. It is asked after the repositories that
+**mod config recipes artifacts** names.
+
+### Usage
+
+```
+mod config recipes code-genome-project [subcommands]
+```
+
+### Examples
+
+```
+mod config recipes code-genome-project edit --username moderne --token
+```
+
+
+### Subcommands
+
+* `delete`: Stops resolving recipes from the Code Genome Project.
+* `edit`: Sets the username and token the Code Genome Project is read with.
+* `show`: Displays the Code Genome Project recipe source.
+
+## mod config recipes code-genome-project delete
+
+Stops resolving recipes from the Code Genome Project.
+
+
+
+
+### Usage
+
+```
+mod config recipes code-genome-project delete
+```
+
+
+
+## mod config recipes code-genome-project edit
+
+Sets the username and token the Code Genome Project is read with.
+
+
+The token is kept with the CLI's other secrets.
+
+### Usage
+
+```
+mod config recipes code-genome-project edit
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--token` |  Your Code Genome Project token. Given no value, the CLI asks for it. |
+| `--username` |  Your Code Genome Project username. |
+
+
+## mod config recipes code-genome-project show
+
+Displays the Code Genome Project recipe source.
+
+
+
+
+### Usage
+
+```
+mod config recipes code-genome-project show
+```
 
 
 
@@ -10937,9 +11027,11 @@ mod copilot chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `--effort` |  How hard the model reasons, such as medium, high or xhigh. |  |
+| `-m`, `--model` |  The model Copilot runs with. |  |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
-| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. |  |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 
 
@@ -10992,7 +11084,7 @@ mod cursor chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | ---- | ----------- | ---------- |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
-| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. |  |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 
 
@@ -11840,9 +11932,11 @@ mod kiro chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `--effort` |  How hard the model reasons, such as medium, high or xhigh. |  |
+| `-m`, `--model` |  The model Kiro runs with. |  |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
-| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. |  |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 
 
@@ -12094,6 +12188,8 @@ Logs the CLI into Moderne
 
 The default authorization mode is a web-based browser flow. After login and consent, a PAT (personal access token) will be created and stored in the configuration file.
 
+On a machine without a browser, use **--device-code** to complete the login from a browser on another device.
+
 Alternatively, use **--with-token** to pass in an existing token on standard input.
 
 After a successful login, the local CLI recipe marketplace is synchronized from Moderne.
@@ -12108,6 +12204,7 @@ mod login
 
 | Name | Description |
 | ---- | ----------- |
+| `--device-code` |  Log in with the OAuth 2.0 device authorization flow. The CLI prints a URL and a code to enter in a browser on any device, so the machine running the CLI does not need a browser. |
 | `--expiration` |  The time to expiration for the token to be created, as an ISO-8601 duration string. Example: P180D for 180 days. |
 | `--with-token` |  The Moderne personal access token to use. |
 | `-y`, `--yes` |  Automatic yes to prompts when synchronizing the recipe marketplace. |
@@ -12182,7 +12279,7 @@ mod opencode chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | ---- | ----------- | ---------- |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
-| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. |  |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 
 
@@ -12235,7 +12332,7 @@ mod pi chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | ---- | ----------- | ---------- |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
-| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. |  |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 
 
@@ -13507,7 +13604,7 @@ mod vscode chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | ---- | ----------- | ---------- |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
-| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. |  |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 
 
 ## mod windsurf
