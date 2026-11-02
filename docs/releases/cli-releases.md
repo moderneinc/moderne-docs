@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.12.0           |
+| CLI version | 4.12.1           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,27 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.12.1 (2026-11-01) {/* #v4.12.1 */}
+
+_Based on OpenRewrite 8.96.5_
+
+#### What's Changed
+* Make ChangesetPushTest's landed-without-an-answer case pass on git 2.51 and later
+* Add --device-code to mod config moderne login
+* Device code login follow-ups: transient polls, single-statement errors, PAT tag
+* Tell a self-hosted Moderne DX which auth server URL to configure
+* Resolve Backpatch Alliance releases in the build
+* Read --prompt from a file and hand agents prompts too long for the command line
+* Take --model and --effort on Claude, Copilot and Kiro chats
+* Accept any Azure Blob endpoint and route by configuration
+* Learn a self-hosted Moderne DX's auth server from its /cli/config
+* Skip statements pglite cannot run during offline jOOQ codegen
+* Generate QueryDSL code from Liquibase on the embedded Postgres
+* Take the Backpatch Alliance's json-smart and picomatch backpatches
+* Move the Cloud Storage client to google-api-client 2.9.2
+* Trust the macOS keychains by default, alongside Java's certificate authorities
+* Resolve recipes from the Code Genome Project with one username and token
 
 ### CLI / DX v4.12.0 (2026-10-28) {/* #v4.12.0 */}
 
