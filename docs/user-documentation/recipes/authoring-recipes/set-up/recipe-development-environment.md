@@ -22,7 +22,7 @@ If you are looking to build [OpenRewrite](https://github.com/openrewrite/rewrite
 
 ## Prerequisites
 
-* [JDK](https://adoptopenjdk.net) (Java 21)
+* [JDK](https://adoptopenjdk.net) (Java 25)
   * A JRE alone is insufficient since OpenRewrite uses compiler internals and tools only found in the JDK
 * [Gradle](https://gradle.org) (version 4.0+) or [Maven](https://maven.apache.org) (version 3.2+)
 * [IntelliJ](https://www.jetbrains.com/idea/download/) (version 2024.1+) with [built-in support](https://blog.jetbrains.com/idea/2024/02/intellij-idea-2024-1-eap-7/) for OpenRewrite
@@ -109,6 +109,8 @@ dependencies {
     runtimeOnly("org.openrewrite:rewrite-java-8")
     runtimeOnly("org.openrewrite:rewrite-java-11")
     runtimeOnly("org.openrewrite:rewrite-java-17")
+    runtimeOnly("org.openrewrite:rewrite-java-21")
+    runtimeOnly("org.openrewrite:rewrite-java-25")
 
     // rewrite-maven dependency only necessary for Maven Recipe development
     implementation("org.openrewrite:rewrite-maven")
@@ -192,6 +194,16 @@ dependencies {
         <artifactId>rewrite-java-17</artifactId>
         <scope>runtime</scope>
     </dependency>
+    <dependency>
+        <groupId>org.openrewrite</groupId>
+        <artifactId>rewrite-java-21</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.openrewrite</groupId>
+        <artifactId>rewrite-java-25</artifactId>
+        <scope>runtime</scope>
+    </dependency>
 
     <!-- rewrite-maven dependency only necessary for Maven Recipe development -->
     <dependency>
@@ -266,7 +278,7 @@ rewrite-test uses [JUnit 5](https://junit.org/junit5/).
 :::
 
 :::tip
-rewrite-java-17, rewrite-java-11 and rewrite-java-8 can happily coexist on the same classpath. At runtime, the appropriate module for the current JDK will be selected.
+rewrite-java-25, rewrite-java-21, rewrite-java-17, rewrite-java-11 and rewrite-java-8 can happily coexist on the same classpath. At runtime, the appropriate module for the current JDK will be selected.
 :::
 
 ### Set Language Level and Bytecode Level

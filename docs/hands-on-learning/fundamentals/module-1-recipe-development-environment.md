@@ -11,8 +11,8 @@ If you get stuck, you can reference the [workshop-solutions branch](https://gith
 
 You'll want to have the following installed:
 
-* Java 21, as our [RewriteTests](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing.md#rewritetest-interface) use text blocks.
-  * The [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project expects JDK 21. (Temurin JDK 21.0.7 (`temurin-21.0.7`), for example, has been specified in the `.sdkmanrc` file, but other version 21 JDKs may work as well.)
+* Java 25, as our [RewriteTests](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing.md#rewritetest-interface) use text blocks.
+  * The [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project expects JDK 25. (Temurin JDK 25.0.2 (`25.0.2-tem`), for example, has been specified in the `.sdkmanrc` file, but other version 25 JDKs may work as well.)
   * Recipes use Java 8 source level, so they can run on Java 8 and higher.
 * A Java IDE or editor. This workshop demonstrates IntelliJ IDEA (2025.3+ recommended), but you can follow along in any IDE or from the command line.
 * A build tool (Maven or Gradle) to compile the project and run tests. The starter project supports both.
