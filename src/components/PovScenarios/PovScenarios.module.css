@@ -1,0 +1,52 @@
+/* src/components/PovScenarios/PovScenarios.module.css */
+
+.scenarios {
+  margin-bottom: var(--mod-spacing_3);
+}
+
+.picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mod-spacing_2);
+  margin-bottom: var(--mod-spacing_2);
+}
+
+.field {
+  display: flex;
+  flex: 1 1 16rem;
+  flex-direction: column;
+  gap: var(--mod-spacing_1_2);
+}
+
+.label {
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-text-secondary);
+}
+
+.select {
+  padding: var(--mod-spacing_1_2) var(--mod-spacing_2);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-default);
+  color: var(--mod-color-text-primary);
+  background: var(--mod-color-surface-field);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-input);
+  cursor: pointer;
+}
+
+.select:focus-visible {
+  outline: 2px solid var(--mod-button-primary-bg);
+  outline-offset: 2px;
+}
+
+.summary {
+  margin: var(--mod-spacing_1) 0 0;
+  font-size: var(--mod-font-size-sm);
+  color: var(--mod-color-text-secondary);
+}
+
+.kind {
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-primary);
+}

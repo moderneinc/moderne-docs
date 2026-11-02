@@ -7,6 +7,7 @@ const ALLOWED_EXTENSIONS = new Set([
   '.png', '.gif', '.jpg', '.jpeg', '.svg', '.ico',
   '.yaml', '.yml', '.toml', '.lock', '.txt', '.csv', '.excalidraw', '.snap',
   '.kt', '.kts', '.properties',
+  '.pptx',
 ]);
 
 const ALLOWED_FILENAMES = new Set([
