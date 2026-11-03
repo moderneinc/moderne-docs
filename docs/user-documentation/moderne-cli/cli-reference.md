@@ -367,6 +367,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config node version edit**](#mod-config-node-version-edit)
 * [**mod config node version delete**](#mod-config-node-version-delete)
 * [**mod config node version show**](#mod-config-node-version-show)
+* [**mod config node distribution**](#mod-config-node-distribution)
+* [**mod config node distribution edit**](#mod-config-node-distribution-edit)
+* [**mod config node distribution delete**](#mod-config-node-distribution-delete)
+* [**mod config node distribution show**](#mod-config-node-distribution-show)
 * [**mod config python**](#mod-config-python)
 * [**mod config python installation**](#mod-config-python-installation)
 * [**mod config python installation edit**](#mod-config-python-installation-edit)
@@ -7116,6 +7120,7 @@ mod config license show
 | Name | Description |
 | ---- | ----------- |
 | `--json` |  (INCUBATING) Output license information in JSON. The format of this JSON is unsettled at this point, and the data structuremay change. |
+| `--reveal` |  With **--json**, includes the license key itself, for another program to read. |
 
 
 ## mod config license moderne
@@ -8103,6 +8108,7 @@ mod config node [subcommands]
 
 * `installation`: Configures locations of Node that can be used by build tools.
 * `version`: Configures the Node.js version to use.
+* `distribution`: Configures a mirror of https://nodejs.org/dist to download Node.js from.
 
 ## mod config node installation
 
@@ -8189,7 +8195,7 @@ mod config node installation list
 Configures the Node.js version to use.
 
 
-Configure a name like "18", "18.0.0", or "22" depending on the degree of control needed.
+Configure a name like "18", "18.0.0", or "22" depending on the degree of control needed. Recipes use the global setting only when it is 22.15 or newer, and otherwise prefer a detected or downloaded Node.js that is.
 
 ### Usage
 
@@ -8209,7 +8215,7 @@ mod config node version [subcommands]
 Configures the Node.js version to use.
 
 
-Configure a name like "18", "18.0.0", or "22" depending on the degree of control needed.
+Configure a name like "18", "18.0.0", or "22" depending on the degree of control needed. Recipes use the global setting only when it is 22.15 or newer, and otherwise prefer a detected or downloaded Node.js that is.
 
 ### Usage
 
@@ -8267,6 +8273,79 @@ mod config node version show
 | ---- | ----------- |
 | `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config node distribution
+
+Configures a mirror of https://nodejs.org/dist to download Node.js from.
+
+
+Recipe packages that declare @openrewrite/rewrite as an optional peer dependency need Node.js 22.15 or newer. When no installed Node.js is, the CLI downloads one, from https://nodejs.org/dist unless a mirror of it is configured here.
+
+### Usage
+
+```
+mod config node distribution [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures a mirror of https://nodejs.org/dist to download Node.js from.
+* `delete`: Reverts to downloading Node.js from https://nodejs.org/dist.
+* `show`: Displays the configured mirror of https://nodejs.org/dist.
+
+## mod config node distribution edit
+
+Configures a mirror of https://nodejs.org/dist to download Node.js from.
+
+
+The mirror must lay releases out as https://nodejs.org/dist does, as in \<url>/v24.22.2/node-v24.22.2-linux-x64.tar.gz.
+
+### Usage
+
+```
+mod config node distribution edit [parameters]
+```
+
+### Examples
+
+```
+mod config node distribution edit https://artifactory.example.com/artifactory/nodejs-dist
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `url` |  The URL of the mirror. |
+
+
+
+## mod config node distribution delete
+
+Reverts to downloading Node.js from https://nodejs.org/dist.
+
+
+### Usage
+
+```
+mod config node distribution delete
+```
+
+
+
+## mod config node distribution show
+
+Displays the configured mirror of https://nodejs.org/dist.
+
+
+### Usage
+
+```
+mod config node distribution show
+```
+
 
 
 ## mod config python
@@ -9424,6 +9503,12 @@ Displays the Code Genome Project recipe source.
 mod config recipes code-genome-project show
 ```
 
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Prints the username as JSON, for another program to read. |
+| `--reveal` |  With **--json**, includes the token itself. |
 
 
 ## mod config recipes csv

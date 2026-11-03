@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.12.1           |
+| CLI version | 4.12.2           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,26 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.12.2 (2026-11-03) {/* #v4.12.2 */}
+
+_Based on OpenRewrite 8.97.1_
+
+#### What's Changed
+* Let another program read the license key and the Code Genome Project token, with --reveal
+* Link the distributions' runtime from Zulu 25.38.109
+* Regenerate the V3 tag registry for the COBOL trees rewrite-mainframe 3.7 changed
+* Replace deprecated Kotlin DSL container delegates
+* Take the rerun of every recipe fix and the shipping steps out of AGENTS.md
+* Skip Maven formatters, Modernizer and a project's own rewrite plugin in mod's builds and checks
+* Tell a session that the sessions it starts join the changeset by syncing it, reviewers too
+* Have a reviewer the recipes guide asks for join the changeset with a part of its own
+* Name a changeset's repository in its remote the way Moderne does when the changeset holds it at more than one branch
+* Check out what a repos.csv names when re-syncing an existing clone
+* Point HttpClientSenderTest's stalled-handshake test at the address its black hole listens on
+* Run JS recipes on a CLI-chosen Node.js 22.15 or newer
+* Mark a cloneless git directory seeded once its seed is done, and seed again one marked without its base
+* Wait on a changeset's fetch for as long as Moderne keeps answering it
 
 ### CLI / DX v4.12.1 (2026-11-01) {/* #v4.12.1 */}
 
