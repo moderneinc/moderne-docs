@@ -23,11 +23,19 @@ The CLI uses this settings file to download dependencies and look up versions as
 
 ## Controlling Maven Central
 
-The CLI resolves Maven dependencies the way Maven does. It checks the repositories in your `settings.xml`, your POMs, and their parents first. It uses Maven Central only when none of them has the artifact.
+To resolve a Maven dependency, the CLI lists repositories in this order:
 
-When you build an LST, the CLI saves your settings, mirrors, and active profiles with it. A later recipe run uses that same setup. This matches running the recipe on your machine with those settings. Keep your LST build settings the same as your CI build settings.
+* The repositories in your `settings.xml`.
+* The repositories in your POMs and their parents.
+* Maven Central.
 
-To keep Maven Central out of resolution, add a mirror for it to your `settings.xml`:
+If your settings or POMs declare a repository with the ID `central`, the CLI uses that one. It does not add Maven Central. Version lookups, such as finding the latest release, ask every repository and combine the answers.
+
+Set your settings file with `mod config build maven settings edit`. Without one, the CLI reads `~/.m2/settings.xml` and the settings in your Maven installation.
+
+For Maven projects, `mod build` saves your settings and active profiles in the LST. It leaves out your `<servers>` credentials. When you run a recipe, the CLI reads your settings again. Maven recipes that look up versions use both the saved and the current settings.
+
+To keep Maven Central out, add a mirror for it to your `settings.xml`:
 
 ```xml
 <mirror>
@@ -37,7 +45,7 @@ To keep Maven Central out of resolution, add a mirror for it to your `settings.x
 </mirror>
 ```
 
-You can also redeclare or disable `central` in your POM, which works for that project. Listing `sonatype-central` also redirects the snapshots repository the CLI checks for recipes.
+Listing `sonatype-central` also redirects the snapshots repository the CLI adds to install recipes.
 
 :::note
 The `mod config features no-maven-central` command no longer has any effect. Use a mirror instead.
