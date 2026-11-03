@@ -102,7 +102,6 @@ Windsurf does not take `--prompt`. Type your request in the chat panel once the 
 </TabItem>
 </Tabs>
 
-
 The CLI checks that the session can work, creates the `./work` directory with an `AGENTS.md` guide in it, and opens the agent there with your prompt already submitted. Nothing is cloned at this point.
 
 Next, the agent searches and runs recipes on the organization in Moderne. It syncs repositories into the `./work` directory only when it needs to build, test, or fix them. From there, you work with the agent as you normally would.
