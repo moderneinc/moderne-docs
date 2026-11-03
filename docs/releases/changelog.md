@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.43.1 (2026/11/03)
+
+- Bug fixes and other improvements.
+
 ### UI v14.43.0 (2026/11/02)
 
 - link activity data-table rows to their table via a URL search filter
