@@ -41,6 +41,15 @@ This document outlines the formatting and style conventions for all Moderne docu
     // No blank line before code block
     ```
 
+**Rule**: Tag a `bash` block with `join-on-windows` when it splits a cross-platform command such as `mod` with `\` continuations. Windows readers then copy it as one line, because `\` breaks the command in PowerShell and cmd. The block looks the same on every OS. Leave the tag off commands that only run on Linux or macOS, and off blocks already inside a Linux / macOS tab.
+
+**Correct example:**
+
+    ```bash join-on-windows
+    mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
+      -P "groupIdPattern=*"
+    ```
+
 ### 3. Bullet points
 
 **Rule**: Use asterisks (`*`) for all bullet points, not dashes (`-`).
@@ -636,6 +645,7 @@ When editing documentation, verify:
 
 * [ ] All headers followed by blank lines (Rule 1)
 * [ ] All code blocks preceded by blank lines (Rule 2)
+* [ ] Cross-platform commands split with `\` tagged `join-on-windows` (Rule 2)
 * [ ] All bullet points use asterisks (`*`) (Rule 3)
 * [ ] Blank line before bullet lists (Rule 4)
 * [ ] Description lines end with exactly one period (Rule 5)
