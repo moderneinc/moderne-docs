@@ -23,13 +23,13 @@ The CLI uses this settings file to download dependencies and look up versions as
 
 ## Controlling Maven Central
 
-To resolve a Maven dependency, the CLI lists repositories in this order:
+To resolve a Maven dependency, the CLI uses OpenRewrite, which lists repositories in this order:
 
 * The repositories in your `settings.xml`.
 * The repositories in your POMs and their parents.
 * Maven Central.
 
-If your settings or POMs declare a repository with the ID `central`, the CLI uses that one. It does not add Maven Central. Version lookups, such as finding the latest release, ask every repository and combine the answers.
+If your settings or POMs declare a repository with the ID `central`, OpenRewrite uses that one. It does not add Maven Central. Version lookups, such as finding the latest release, ask every repository and combine the answers.
 
 Set your settings file with `mod config build maven settings edit`. Without one, the CLI reads `~/.m2/settings.xml` and the settings in your Maven installation.
 
