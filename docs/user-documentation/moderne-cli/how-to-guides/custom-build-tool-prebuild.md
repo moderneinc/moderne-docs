@@ -263,7 +263,7 @@ For a quick structural check, look at the build manifest. The CLI writes a `mani
 
 The real test is type attribution. Run a type-aware recipe and check that it finds what it should:
 
-```bash
+```bash join-on-windows
 mod run acme-service \
   --recipe=org.openrewrite.java.search.FindTypes \
   -P fullyQualifiedTypeName=com.google.common.collect.ImmutableList

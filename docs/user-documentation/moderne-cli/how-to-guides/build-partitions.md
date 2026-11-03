@@ -151,7 +151,7 @@ When performing a `mod build`, notice that the Moderne CLI still selects one rep
 
 When executing a recipe with `mod run`, you will similarly see a separate entry for each partition:
 
-```bash
+```bash join-on-windows
 mod run . --recipe org.openrewrite.java.search.FindMethods \
   -P "methodPattern=java.io.PrintStream#println(java.lang.String)"
 ```

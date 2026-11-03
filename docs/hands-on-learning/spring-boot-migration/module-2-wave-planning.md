@@ -98,7 +98,7 @@ This workshop uses the third option so you can run both org-wide recipes and wav
 
 Use the following command to install the necessary OpenRewrite recipe modules for this workshop:
 
-```bash
+```bash join-on-windows
 mod config recipes jar install \
   io.moderne.recipe:rewrite-spring \
   org.openrewrite.recipe:rewrite-migrate-java \

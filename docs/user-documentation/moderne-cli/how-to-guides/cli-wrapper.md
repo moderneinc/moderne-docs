@@ -193,7 +193,7 @@ distributionToken=your-token
 
 You can set these properties via `mod wrapper`:
 
-```bash
+```bash join-on-windows
 mod wrapper --global \
   --version RELEASE \
   --distribution-url "https://artifactory.corp.example.com/artifactory/moderne" \

@@ -218,7 +218,7 @@ mod devcenter . --last-recipe-run
 
 #### CLI commands
 
-```bash
+```bash join-on-windows
 # Example: find every Newtonsoft.* dependency in use
 mod run . --recipe org.openrewrite.csharp.dependencies.DependencyInsight \
   -P "packagePattern=Newtonsoft*"
@@ -232,7 +232,7 @@ mod study . --last-recipe-run --data-table DependenciesInUse
 
 #### CLI commands
 
-```bash
+```bash join-on-windows
 mod run . --recipe OpenRewrite.CSharp.Recipes.UpgradeNuGetPackageVersion \
   -P "PackageName=Newtonsoft.Json" \
   -P "NewVersion=latest"
