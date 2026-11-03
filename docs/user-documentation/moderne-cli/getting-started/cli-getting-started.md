@@ -129,68 +129,62 @@ You're now ready to start the agent. The Moderne CLI includes a command that che
 
 Below you can find example commands for starting the agents:
 
+<div className="wrap-code">
+
 <Tabs groupId="agent">
 <TabItem value="claude-code" label="Claude Code" default>
 
 ```bash
-mod claude chat legacy-java-apps --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+mod claude chat legacy-java-apps --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
 
 </TabItem>
 <TabItem value="codex" label="Codex">
 
 ```bash
-mod codex chat legacy-java-apps --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+mod codex chat legacy-java-apps --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
 
 </TabItem>
 <TabItem value="copilot-cli" label="Copilot">
 
 ```bash
-mod copilot chat legacy-java-apps --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+mod copilot chat legacy-java-apps --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
 
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
 ```bash
-mod cursor chat legacy-java-apps --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+mod cursor chat legacy-java-apps --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
 
 </TabItem>
 <TabItem value="kiro" label="Kiro">
 
 ```bash
-mod kiro chat legacy-java-apps --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+mod kiro chat legacy-java-apps --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
 
 </TabItem>
 <TabItem value="amp" label="Amp">
 
 ```bash
-mod amp chat legacy-java-apps --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+mod amp chat legacy-java-apps --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
 
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
 
 ```bash
-mod opencode chat legacy-java-apps --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+mod opencode chat legacy-java-apps --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
 
 ```bash
-mod vscode chat legacy-java-apps --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+mod vscode chat legacy-java-apps --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
 
 </TabItem>
@@ -208,6 +202,8 @@ Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor,
 
 </TabItem>
 </Tabs>
+
+</div>
 
 Let's break the command down:
 
@@ -272,10 +268,13 @@ mod search "moderne://ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps
 
 It compared two candidates. `UpgradeToJava25` updates the build files and replaces APIs that Java 25 removed. `JavaBestPractices` includes that upgrade and also modernizes the code itself: `var`, text blocks, pattern matching, switch expressions. As the prompt asked for code written for Java 25, not just code that compiles on it, the agent picked `JavaBestPractices` and ran it across the whole organization in Moderne:
 
+<div className="wrap-code">
+
 ```bash
-mod run "moderne://ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps" \
-  --recipe org.openrewrite.java.migrate.JavaBestPractices
+mod run "moderne://ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps" --recipe org.openrewrite.java.migrate.JavaBestPractices
 ```
+
+</div>
 
 The run took under a minute across all five repositories because it ran against the LSTs Moderne already had. The run was saved as a [changeset](../../moderne-platform/references/changesets.md), which is what the agent synced to continue the work locally.
 

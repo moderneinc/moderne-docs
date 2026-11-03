@@ -31,6 +31,7 @@ const config: Config = {
   clientModules: [
     require.resolve('./src/client/gtagGuard.js'),
     require.resolve('./src/client/algoliaInsights.js'),
+    require.resolve('./src/client/detectOs.js'),
   ],
 
   headTags: [

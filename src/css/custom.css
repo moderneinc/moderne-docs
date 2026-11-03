@@ -707,3 +707,8 @@ html[data-theme='dark'] {
   padding: 0;
   border-left: none;
 }
+
+.wrap-code pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

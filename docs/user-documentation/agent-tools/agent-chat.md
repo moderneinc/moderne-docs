@@ -44,76 +44,69 @@ irm https://app.moderne.io/cli/windows | iex
 
 Then pick your agent and point it at an organization with a prompt:
 
+<div className="wrap-code">
+
 <Tabs groupId="agent">
 <TabItem value="claude-code" label="Claude Code" default>
 
 ```bash
-mod claude chat ./work --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25."
+mod claude chat ./work --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25."
 ```
 
 </TabItem>
 <TabItem value="codex" label="Codex">
 
 ```bash
-mod codex chat ./work --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25."
+mod codex chat ./work --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25."
 ```
 
 </TabItem>
 <TabItem value="copilot-cli" label="Copilot">
 
 ```bash
-mod copilot chat ./work --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25."
+mod copilot chat ./work --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25."
 ```
 
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
 ```bash
-mod cursor chat ./work --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25."
+mod cursor chat ./work --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25."
 ```
 
 </TabItem>
 <TabItem value="kiro" label="Kiro">
 
 ```bash
-mod kiro chat ./work --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25."
+mod kiro chat ./work --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25."
 ```
 
 </TabItem>
 <TabItem value="amp" label="Amp">
 
 ```bash
-mod amp chat ./work --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25."
+mod amp chat ./work --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25."
 ```
 
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
 
 ```bash
-mod opencode chat ./work --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25."
+mod opencode chat ./work --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25."
 ```
 
 </TabItem>
 <TabItem value="pi" label="Pi">
 
 ```bash
-mod pi chat ./work --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25."
+mod pi chat ./work --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25."
 ```
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
 
 ```bash
-mod vscode chat ./work --org "Legacy Java Apps" \
-  --prompt "Upgrade all of these repositories to Java 25."
+mod vscode chat ./work --org "Legacy Java Apps" --prompt "Upgrade all of these repositories to Java 25."
 ```
 
 </TabItem>
@@ -127,6 +120,8 @@ Windsurf does not take `--prompt`. Type your request in the chat panel once the 
 
 </TabItem>
 </Tabs>
+
+</div>
 
 The CLI checks that the session can work, creates the `./work` directory with an `AGENTS.md` guide in it, and opens the agent there with your prompt already submitted. Nothing is cloned at this point.
 
