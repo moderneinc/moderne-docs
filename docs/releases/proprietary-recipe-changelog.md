@@ -278,6 +278,26 @@ This changelog is automatically generated from GitHub releases and only contains
 * Disable Spring AI tool-content tracing (OWASP LLM02)
 * Cap Spring AI and LangChain4j tool-execution budgets (OWASP LLM10)
 
+#### rewrite-mainframe - 3.7.1
+
+* Report CPU time in ParseCostTest
+* Resolve data names by the compiler's rules for callers outside the tree
+* Read commas, Area A headers and identification paragraphs as the IBM dialect does
+* Pin CBSA to July2024Refresh in the parse cost corpus
+* Give each EXEC block its own statement, visit EVALUATE conditions once, and keep a condition's FALSE value apart
+* Keep customer names out of comments
+* Resolve a COPY of a map set to the symbolic map it generates
+* Read VALUE ... BINARY, NOT = in an abbreviation and ADVANCING by a mnemonic as IBM does
+* Settle the remaining forms the grammar reads two ways without a full-context retry
+* Read an operand list continued inside its parentheses
+* Name the file a COPY depends on in one place
+* Visit a copybook's text once, as the words the program copied
+* Use Java 21 language features and APIs in tests
+* Read a SORT collating sequence that names an alphabet per category
+* Read a statement's INTO targets from its INTO list alone
+* Read a PROGRAM COLLATING SEQUENCE clause written without IS
+* Count the PSB a DL/I SCHD names as read, not written
+
 #### rewrite-mainframe - 3.7.0
 
 * Parse FUNCTION TRIM with its LEADING or TRAILING keyword
