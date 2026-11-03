@@ -14,5 +14,3 @@ export function useIsWindowsSelected(): boolean {
   const [storedOs] = useStorageSlot(CLI_INSTALL_OS_STORAGE_KEY);
   return (queryOs ?? storedOs) === WINDOWS;
 }
-
-export const joinContinuations = (code: string): string => code.replace(/[ \t]*\\\n[ \t]*/g, ' ');

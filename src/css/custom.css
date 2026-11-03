@@ -713,8 +713,14 @@ html[data-theme='dark'] {
   overflow-wrap: anywhere;
 }
 
-/* Redraws the joined line break before a flag that follows a quoted value; generated content is never copied. */
-.joined-on-windows .token.string + .token.plain + .token.parameter::before {
-  content: '\A\00a0\00a0';
+/* Draws a joined line's original break and indent; generated content is never copied. */
+.code-continuation::before {
+  content: '\A';
   white-space: pre;
+}
+
+.code-continuation::after {
+  content: '';
+  display: inline-block;
+  width: var(--indent);
 }
