@@ -5,7 +5,6 @@ description: How to start an AI coding agent on a Moderne organization with mod 
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ShellCommand from '@site/src/components/ShellCommand';
 import ReactPlayer from '@site/src/components/VideoPlayer';
 
 # Agent chat
@@ -48,47 +47,74 @@ Then pick your agent and point it at an organization with a prompt:
 <Tabs groupId="agent">
 <TabItem value="claude-code" label="Claude Code" default>
 
-<ShellCommand lines={['mod claude chat ./work --org "Legacy Java Apps"', '--prompt "Upgrade all of these repositories to Java 25."']} />
+```bash join-on-windows
+mod claude chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
 
 </TabItem>
 <TabItem value="codex" label="Codex">
 
-<ShellCommand lines={['mod codex chat ./work --org "Legacy Java Apps"', '--prompt "Upgrade all of these repositories to Java 25."']} />
+```bash join-on-windows
+mod codex chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
 
 </TabItem>
 <TabItem value="copilot-cli" label="Copilot">
 
-<ShellCommand lines={['mod copilot chat ./work --org "Legacy Java Apps"', '--prompt "Upgrade all of these repositories to Java 25."']} />
+```bash join-on-windows
+mod copilot chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
 
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
-<ShellCommand lines={['mod cursor chat ./work --org "Legacy Java Apps"', '--prompt "Upgrade all of these repositories to Java 25."']} />
+```bash join-on-windows
+mod cursor chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
 
 </TabItem>
 <TabItem value="kiro" label="Kiro">
 
-<ShellCommand lines={['mod kiro chat ./work --org "Legacy Java Apps"', '--prompt "Upgrade all of these repositories to Java 25."']} />
+```bash join-on-windows
+mod kiro chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
 
 </TabItem>
 <TabItem value="amp" label="Amp">
 
-<ShellCommand lines={['mod amp chat ./work --org "Legacy Java Apps"', '--prompt "Upgrade all of these repositories to Java 25."']} />
+```bash join-on-windows
+mod amp chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
 
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
 
-<ShellCommand lines={['mod opencode chat ./work --org "Legacy Java Apps"', '--prompt "Upgrade all of these repositories to Java 25."']} />
+```bash join-on-windows
+mod opencode chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
 
 </TabItem>
 <TabItem value="pi" label="Pi">
 
-<ShellCommand lines={['mod pi chat ./work --org "Legacy Java Apps"', '--prompt "Upgrade all of these repositories to Java 25."']} />
+```bash join-on-windows
+mod pi chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
 
 </TabItem>
 <TabItem value="vscode" label="VS Code">
 
-<ShellCommand lines={['mod vscode chat ./work --org "Legacy Java Apps"', '--prompt "Upgrade all of these repositories to Java 25."']} />
+```bash join-on-windows
+mod vscode chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
 
 </TabItem>
 <TabItem value="windsurf" label="Windsurf">
