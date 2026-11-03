@@ -226,7 +226,7 @@ When you run the command, the CLI first checks that the session can work:
 ```bash
 ● Checking that the session can work
 
-  ℹ  CLI               4.12.0
+  ℹ  CLI               4.12.2
   ℹ  Claude Code       2.1.314
   ℹ  JDKs              25, 21, 17, 11, 8
   ℹ  Tenant            https://app.moderne.io (API https://api.app.moderne.io)

@@ -174,9 +174,9 @@ The `AGENTS.md` guide ships with the CLI and improves as you upgrade. An existin
 
 ## Permissions
 
-Agent chat starts every agent with its tool use approved up front. The agent builds, edits files, and pushes without stopping to ask.
+Agent chat starts every terminal agent with its tool use approved up front. The agent builds, edits files, and pushes without stopping to ask. VS Code and Windsurf open as ordinary IDE sessions and keep whatever permission settings you have given them.
 
-The agent can only push to existing [changesets](../moderne-platform/references/changesets.md) in Moderne. It can't push anything to your SCM directly.
+When the agent is working on a [changeset](../moderne-platform/references/changesets.md), it can only push to that changeset in Moderne. It can't push anything to your SCM directly.
 
 ## Options
 
@@ -185,9 +185,9 @@ The agent can only push to existing [changesets](../moderne-platform/references/
 | `--org <ORG_NAME>`  | The organization in Moderne the agent works on.                                                                                     |
 | `--prompt <PROMPT>` | Start the session with this prompt already submitted. Not available for Windsurf.                                                   |
 | `--unattended`      | Run the prompt to completion and exit. Requires `--prompt`. Not available for VS Code or Windsurf.                                  |
-| `--no-preflight`    | Skip the readiness check. The check only stops the launch for a refused token or an unreachable tenant. Anything else is a warning. |
+| `--no-preflight`    | Skip the readiness check. The check only stops the launch for a refused token, an unreachable tenant, or a failing `codex doctor`. Anything else is a warning. |
 
-Without `--org`, the agent works on whatever the directory already holds. That might be a changeset you synced earlier, or repositories you synced from a CSV as described below.
+Without `--org`, the agent works on whatever the directory already holds. That might be a changeset you synced earlier, or repositories you synced from a CSV as described below. If the directory is empty, the agent can still work on any organization in your tenant that you name in the prompt.
 
 ## Without a Moderne Platform organization
 
