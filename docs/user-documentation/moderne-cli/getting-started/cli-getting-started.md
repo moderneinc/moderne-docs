@@ -25,7 +25,7 @@ While this quickstart guide uses Claude Code, you are free to use [any of our su
 
 You will need to:
 
-* Have the ability to access [app.moderne.io](https://app.moderne.io), so you can clone the sample repositories.
+* Have the ability to access [app.moderne.io](https://app.moderne.io), so your agent can work on the sample organization.
 * [Disable Moderne skills or the local Moderne MCP server](../../agent-tools/agent-chat.md#requirements) if you've enabled those in the past.
 * Ensure a supported coding agent is installed on your `PATH` (we'll use [Claude Code](https://code.claude.com/docs/en/overview) in our examples below).
   * Please make sure you have a current version of whatever agent you pick as the agent needs the ability to read an `AGENTS.md` file the CLI writes (for Claude Code, you'll need version `2.1.286` or later).
@@ -113,19 +113,19 @@ mod config moderne organizations show | grep -A 9 "Sample Estate"
 
 </details>
 
-The `Legacy Java Apps` org is small enough that fully upgrading to Java 25, and verifying that all repositories still build successfully, can finish in about 20 minutes. Each of its five repositories also has something a Java 25 upgrade has to deal with - from a JDK 8 build to an OSGi bundle issue:
+The `Legacy Java Apps` org is small enough that fully upgrading to Java 25, and verifying that all repositories still build successfully, can finish in about an hour. Each of its five repositories also has something a Java 25 upgrade has to deal with - from a JDK 8 build to an OSGi bundle issue:
 
-| Repository        | Started on         | Tests on JDK 25                                              |
-|-------------------|--------------------|--------------------------------------------------------------|
-| JavaVulnerableLab | Java 7 source, JDK 8 | Pass                                                       |
-| SeleniumTDD       | Java 8             | Compiles; the same 4 tests fail as on the original code      |
-| rrd4j             | Java 11            | 310 run; 1 error, a MongoDB test with no local server        |
-| spring-petclinic  | Java 17            | Pass                                                         |
-| maxwell           | Java 8 source      | Pass (406 run)                                               |
+| Repository        | Started on           | Tests on JDK 25                                         |
+|-------------------|----------------------|---------------------------------------------------------|
+| JavaVulnerableLab | Java 7 source, JDK 8 | Pass                                                    |
+| SeleniumTDD       | Java 8               | Compiles; the same 4 tests fail as on the original code |
+| rrd4j             | Java 11              | 311 run; 1 error, a MongoDB test with no local server   |
+| spring-petclinic  | Java 17              | Pass                                                    |
+| maxwell           | Java 8 source        | Pass (406 run)                                          |
 
 ## Step 3: Start the agent
 
-You're now ready to start the agent. The Moderne CLI includes a command that will set up a local workspace, clone repositories, and then prompt the agent all at once.
+You're now ready to start the agent. The Moderne CLI includes a command that checks your setup, creates a working directory for the agent, and then starts the agent with a prompt and an organization.
 
 Below you can find example commands for starting the agents:
 
@@ -211,8 +211,8 @@ Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor,
 
 Let's break the command down:
 
-* `legacy-java-apps` is the location where the repositories will be checked out to. You can name this anything you want. You can also direct it to any location on your local machine.
-* `--org "Legacy Java Apps"` tells the CLI that you want to clone the repositories in the "Legacy Java Apps" organization to the location you just specified. Along with the source code, the LSTs for these repositories will also be downloaded if they are available.
+* `legacy-java-apps` is the agent's working directory. It starts out empty. The agent clones repositories into it only when it needs to build, test, or hand-edit them. You can name this anything you want and put it anywhere on your local machine.
+* `--org "Legacy Java Apps"` tells the CLI which organization the agent works on. The agent searches it and runs recipes on it in the Moderne Platform, where the LSTs already are.
 * `--prompt ...` is what is fed to the agent so that it knows what to work on.
 
 :::tip
@@ -221,142 +221,164 @@ Small changes to the prompt can produce very different results. For instance, if
 By providing a more detailed prompt such as the one above, the agent will, instead, rewrite the code to use a more modern JDK replacement before moving on to modernize the rest.
 :::
 
-When you run the command, the CLI clones the five repositories into `legacy-java-apps`, downloads their LSTs, and links an `AGENTS.md` file into the directory. That file is the agent's guide to the organization. It teaches the agent how to search the recipe marketplace, how to run a recipe across every repository, how to ask the CLI for each repository's own build command, and when to fall back to hand edits. Every supported agent reads it at startup, so the agent knows how to use `mod` right away.
-
-The agent then starts in the directory with your prompt already submitted. The first time you run this command, it may ask whether you trust the folder. Depending on your agent's permission settings, it may ask you to approve commands before it runs them. Claude Code's default auto mode runs most commands on its own and only stops for ones it considers risky, such as discarding uncommitted changes. If you would rather let it run to completion without stopping, add the `--unattended` flag to the command above (see [agent chat options](../../agent-tools/agent-chat.md#options)).
-
-<details>
-<summary>Example output from running the `mod <agent> chat` CLI command</summary>
+When you run the command, the CLI first checks that the session can work:
 
 ```bash
-● Retrieving organization from Moderne
+● Checking that the session can work
 
-Found organization ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps
-
-● Synchronizing organization directory structure
-
-Found 1 organization containing 5 repositories
-
-● Performing Git operations on repositories
-
-  0% (1s)      ▶ naveenchr/SeleniumTDD@master
-  0% (1s)          ✓ Checked out 7535b36 on branch master
- 20% (1s)      ▶ rrd4j/rrd4j@master
- 20% (1s)          ✓ Checked out d928916 on branch master
- 40% (2s)      ▶ zendesk/maxwell@master
- 40% (2s)          ✓ Checked out 3e6ee39 on branch master
- 60% (2s)      ▶ spring-projects/spring-petclinic@main
- 60% (2s)          ✓ Checked out 500158f on branch main
- 80% (4s)      ▶ CSPF-Founder/JavaVulnerableLab@master
- 80% (4s)          ✓ Checked out 626a106 on branch master
-100% (4s)      Done
-
-● Downloading LSTs for repositories
-
-  0% (1s)      ▶ CSPF-Founder/JavaVulnerableLab@master
-  0% (1s)          ✓ Downloaded LST from https://api.app.moderne.io/organizations/lsts/2026/0929/20260929122444-UIl2O.jar
- ...
-100% (1s)      Done
-
-Synced 5 repositories.
+  ℹ  CLI               4.12.2
+  ℹ  Claude Code       2.1.314
+  ℹ  JDKs              25, 21, 17, 11, 8
+  ℹ  Tenant            https://app.moderne.io (API https://api.app.moderne.io)
+  ✔  Token             accepted by https://api.app.moderne.io (must be accepted)
+  ✔  Disk (workspace)  624.1 GiB free (should be at least 10.0 GiB)
+  ✔  Memory free       10.2 GiB (should be at least 8.0 GiB)
 
 ● Starting Claude Code
 ```
-</details>
+
+It then creates the `legacy-java-apps` directory, links an `AGENTS.md` file into it, and starts the agent there. That file is the agent's guide to Moderne. It tells the agent how to run recipes on an organization, bring the changed repositories down, build them, and push the work back. Every supported agent reads it at startup, so the agent knows how to use `mod` right away.
+
+The agent starts with your prompt already submitted. Agent chat approves all of the agent's tool use up front - so it builds, edits, and pushes without asking you first.
+
+Some agents may add additional checks of their own on top of that. Claude Code, for instance, will ask whether you trust the folder and whether you accept bypassing permissions.
+
+If you would rather not be at the terminal at all, add the `--unattended` flag to the command above (see [agent chat options](../../agent-tools/agent-chat.md#options)).
 
 ## Step 4: Watch the agent work
 
-Regardless of which agent you use, the work tends to follow the same path. The agent finds the right recipes, runs them across every repository at once, verifies the result with each repository's own build, and only then edits by hand whatever the recipes left behind. Below is how that played out with Claude Code in October 2026.
+Regardless of which agent you use, the work tends to follow the same path. The agent begins by examining the organization in the Moderne Platform and then runs recipes against it. Afterwards, the agent will clone the changed repositories to your machine, verify that each one builds, and then fix what the recipe got wrong or missed. If it can produce a recipe to ensure consistent results, it will.
+
+Below is how that played out with Claude Code 2.1.314 and Moderne CLI 4.12.2 on November 3, 2026.
 
 :::note
 The exact steps vary from one session to the next, because the agent decides for itself what to do and when. If your agent asks a different question or picks a different recipe, that's expected.
 :::
 
-### Reaching for recipes, not files
+### Reaching for Moderne, not files
 
-The agent's first commands asked the CLI how each repository is built and searched the recipe marketplace:
+Rather than starting by opening files or cloning repositories, the agent began by asking Moderne what was already underway in that organization. It then looked at what the Java 25 recipe would change, and checked which build tools the five repositories used:
+
+```bash
+mod graphql -f org="ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps" '...changesets(first: 20)...'
+mod config recipes tree org.openrewrite.java.migrate.UpgradeToJava25
+mod search "moderne://ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps" "file:pom.xml OR file:build.gradle OR file:build.gradle.kts" --output=summary
+```
+
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![The agent's first commands, all run against the organization in Moderne](./assets/agent-first-commands.png)
+  <figcaption>_The agent reached for Moderne before it reached for any files. Nothing was cloned until it had a changeset to work on._</figcaption>
+</figure>
+
+It compared two candidates. `UpgradeToJava25` updates the build files and replaces APIs that Java 25 removed. `JavaBestPractices` includes that upgrade and also modernizes the code itself: `var`, text blocks, pattern matching, switch expressions. As the prompt asked for code written for Java 25, not just code that compiles on it, the agent picked `JavaBestPractices` and ran it across the whole organization in Moderne:
+
+```bash
+mod run "moderne://ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps" \
+  --recipe org.openrewrite.java.migrate.JavaBestPractices
+```
+
+The run took under a minute across all five repositories because it ran against the LSTs Moderne already had. The run was saved as a [changeset](../../moderne-platform/references/changesets.md), which is what the agent synced to continue the work locally.
+
+### Bringing the changeset to your machine
+
+Once the recipe run was done in Moderne, the next step was to build and test the repositories. The agent can sync only the repositories it cares about by grabbing the changeset that was produced by the recipe run:
+
+```bash
+mod git sync moderne . --changeset 20261103164955-AAP9m --with-sources
+```
+
+That clones the five repositories into `legacy-java-apps`, downloads their LSTs, and checks each one out to a branch for the changeset. The recipe's changes are the first commit on that branch, so the agent reads what the recipe did with plain `git` commands.
+
+The agent then asked the CLI for each repository's compile command and ran them, four at a time to suit the machine:
 
 ```bash
 mod exec . MODERNE_BUILD_TOOL_COMPILE --dry-run --json
-mod config recipes search "java 25" --json=id,displayName,recipeCount --limit 20
+```
+
+Three of the five compiled. rrd4j and maxwell did not.
+
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![The agent syncs the changeset and runs each repository's compile command](./assets/agent-syncs-changeset.png)
+  <figcaption>_The agent syncs the changeset, asks the CLI for each repository's compile command, and finds the first failure._</figcaption>
+</figure>
+
+### Fixing the recipe instead of the files
+
+Both compile failures had the same cause. The recipe had added JSpecify `@Nullable` annotations without adding the `org.jspecify:jspecify` dependency that declares them. While the agent could have quickly fixed the two `pom.xml` files, it decided to create a recipe so that the dependency is added wherever the upgrade runs:
+
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![The agent diagnoses the missing JSpecify dependency and creates a recipe project to fix it](./assets/agent-fixes-recipe.png)
+  <figcaption>_Rather than edit two build files by hand, the agent fixes the recipe._</figcaption>
+</figure>
+
+First it wrote a test that reproduces the missing dependency. Once that test passed, it ran the composite recipe over the working set and compared the result with the original run:
+
+```bash
+mod run . --recipe org.openrewrite.recipe.java25legacy.ModernizeToJava25
+mod git compare . --last-recipe-run
 ```
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
-  ![Claude Code session showing the prompt followed by Bash calls to mod exec, mod config recipes search, and mod config recipes tree](./assets/agent-first-commands.png)
-  <figcaption>_The agent first reached for the Moderne CLI and the recipe marketplace rather than the source files or a web page._</figcaption>
+  ![The agent runs its composite recipe locally and compares the result with the original run](./assets/agent-runs-fixed-recipe.png)
+  <figcaption>_The agent proves the fix with a test, runs the composite recipe locally, and compares the result with the original run._</figcaption>
 </figure>
 
-The search returned two candidates: `UpgradeToJava25` and `JavaBestPractices`.
+The same pattern repeated for everything else the recipe got wrong. Over the session, the agent found and fixed five more recipe defects:
 
-`UpgradeToJava25` updates the build files and replaces APIs that Java 25 removed. `JavaBestPractices` includes that upgrade and also modernizes the code itself: `var`, text blocks, pattern matching, switch expressions.
+* `UseCollectionInterfaces` retyped static calls such as `ConcurrentHashMap.newKeySet()`, which made `RemoveUnusedImports` drop an import that was still used. The agent found this by bisecting the recipe list.
+* `UseVarForGenericMethodInvocations` lost target-typed inference, turning a `Builder<String>` into `Builder<Object>` and a `Map<String, Object>` into a raw `Map`.
+* `SwitchCaseReturnsToSwitchExpression` skipped switches with grouped labels or a throwing `default`.
+* No recipe converted ordinary `case X: ...; break;` switches to arrow form. The agent wrote one, `SwitchCaseStatementsToArrow`, and added it to the Java 21 migration.
+* `ReplaceUnusedVariablesWithUnderscore` renamed a lambda parameter that was still used, which does not compile.
 
-As the prompt asked for code written for Java 25, not just code that compiles on it, the agent picked `JavaBestPractices` and ran it across the whole organization to see what it would change:
-
-```bash
-mod run . --recipe org.openrewrite.java.migrate.JavaBestPractices
-```
-
-```bash
-...
-3m 4s saved by using previously built LSTs
-110h 8m saved by using recipes
-Produced results for 5 repositories.
-```
-
-The run took about 15 seconds across all five repositories. It was that fast because the recipe ran against the LSTs that were downloaded during the sync (so there was no need for the agent to re-parse the code). And because the same recipe ran in every repository, the changes are identical everywhere, which you wouldn't get from an agent editing each one by hand.
-
-<figure style={{maxWidth: '800px', margin: '0 auto'}}>
-  ![Claude Code session showing the mod run command for JavaBestPractices completing in 15 seconds, followed by the agent noting it ran the recipe across all five repos and is reviewing the changes before applying them](./assets/agent-recipe-run.png)
-  <figcaption>_One recipe run across all five repositories. The agent reviews the patches before applying them._</figcaption>
-</figure>
-
-After the recipe finished, the agent read through the patches it produced and then applied them with `mod git apply`.
-
-:::note
-The first recipe command after a marketplace sync downloads the recipe code and resolves its dependencies, which can take several minutes. Every command after that takes seconds. If the agent seems stuck on its first `mod run`, give it time.
-:::
+Only two changes were made by hand. The JSpecify package import in rrd4j's OSGi bundle config became optional, and petclinic's own `spring-javaformat` was applied to the files the recipes had reformatted. The agent recorded both in the changeset's data tables, so a reviewer can tell recipe changes from hand edits.
 
 ### Verifying with each repository's own build
 
-After the changes were applied, the agent asked the CLI for each repository's verification command. This is much faster than the agent needing to step through each of the repos and figure out what tools are needed.
+Once everything compiled, the agent asked the CLI for each repository's test command and then ran them:
 
-Once the agent got that information from the CLI, it ran all five builds in parallel. It then compared the results against a build of each repository's original commit (done in a scratch worktree) so that it could tell which failures were new and which were there before anyone touched the code.
+```bash
+mod exec . MODERNE_BUILD_TOOL_CHECK --dry-run --json
+```
 
-Two of the five failed to compile on the first pass. The agent traced both failures to three of the recipes inside `JavaBestPractices` that had produced wrong code (one referenced a variable it never declared, and two changed inferred types in ways that could alter behavior). Rather than patch around them, it wrote its own version of `JavaBestPractices` without those three recipes, installed it into the local marketplace, and asked for permission before discarding the first attempt and re-running:
-
-<figure style={{maxWidth: '800px', margin: '0 auto'}}>
-  ![Claude Code session in which the agent explains that three sub-recipes produced wrong code, describes the safer recipe it wrote, and asks how to proceed before discarding any working-tree changes](./assets/agent-asks-before-discarding.png)
-  <figcaption>_When a recipe produces code it doesn't trust, the agent explains why and asks before doing anything._</figcaption>
-</figure>
-
-With the re-run applied, the remaining failures were things no recipe covers, and the agent fixed those by hand. For example, `javax.xml.bind.DatatypeConverter` no longer ships with the JDK, so the agent rewrote that code to use `java.util.Base64`.
+rrd4j and SeleniumTDD had failures, so the agent ran the same tests on each one's original commit and found they failed there too.
 
 ## Step 5: Review the result
 
-After a little over 20 minutes of work, the agent reported this:
+After an hour, the agent reported this:
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
-  ![Claude Code session showing the agent's final report with a per-repository table of build results before and after the Java 25 upgrade](./assets/agent-summary.png)
-  <figcaption>_The agent's closing report, including which test failures were already there before the upgrade._</figcaption>
+  ![The opening of the agent's final report](./assets/agent-summary.png)
+  <figcaption>_The opening of the agent's closing report._</figcaption>
 </figure>
 
-Every repository built on Java 25 at least as well as it did before the upgrade. The two with failing tests had those same failures in the original code.
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![The six recipe defects the agent fixed, from its final report](./assets/agent-recipe-defects.png)
+  <figcaption>_The six recipe defects the agent fixed, each with a failing test first._</figcaption>
+</figure>
 
-Aside from the above information, the agent also explicitly called out things for the reviewer to look at - such as enum switches that no longer have a `default` branch now that every value is covered, or test launcher classes that use the new instance `main()` form.
+Every repository built on Java 25 at least as well as it did before the upgrade. As the prompt requested, the changes went beyond updating the Java version in the build files.
 
-The changes are on disk in each repository's work tree - with nothing staged or committed. As the prompt requested, they go beyond just updating the Java version in the build files. Notable changes include using `var` and text blocks where appropriate, replacing `instanceof` chains and old-style `switch` statements with pattern matching, and switching to newer JDK APIs such as `getFirst()` and `String.formatted()`.
+## Step 6: Push to the changeset and create pull requests
 
-## Step 6: Create pull requests
+The agent commits its changes in each repository and pushes them to the changeset as soon as that repository builds.
 
-Review the diffs like you would any other change. When you are ready to turn them into pull requests, the simplest route is to ask the agent to do that for you in the same session. Of course, you can also use the CLI's `mod git` commands to do the same across all the repos at once if you'd prefer. For more details, see [committing changes and creating PRs](./cli-intro.md#committing-changes-and-creating-prs).
+Each push lands on the changeset as a new revision. The agent also records what it did there, as data tables and as status posts on the changeset's message board. You can read both under the **Agent team** tab on the changeset's page in the Platform:
+
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![The Agent team tab of the changeset in the Moderne Platform, with the agent's pushes, recipe repositories, and status posts](./assets/changeset-agent-team.png)
+  <figcaption>_The changeset's Agent team tab: the session, its pushes, the recipe repositories it fixed, and its status posts._</figcaption>
+</figure>
+
+Nothing reaches your SCM until you commit the changeset. When you're ready, find the changeset in the Platform's [activity view](../../moderne-platform/getting-started/activity-view.md). From there, you can look through each repository's diff and, once you're happy with it, commit the changes or open pull requests.
 
 :::note
-When you close the agent session, the CLI will record a [telemetry row](../how-to-guides/cli-telemetry.md#agent-session-telemetry) with the prompt, the agent version, and the token counts - so you can compare sessions and agents over time.
+When you close the agent session, the CLI closes the session in Moderne and records a [telemetry row](../how-to-guides/cli-telemetry.md#agent-session-telemetry) with the prompt, the agent version, and the token counts - so you can compare sessions and agents over time.
 :::
 
 ## Where to go from here
 
-* Try another prompt on the same organization. The agent remembers nothing between sessions, but the synced repositories and LSTs stay on disk - so `mod claude chat legacy-java-apps --prompt "..."` with no `--org` starts a new session in seconds.
+* Try another prompt on the same changeset. The agent remembers nothing between sessions, but the synced repositories and LSTs stay on disk - so `mod claude chat legacy-java-apps --prompt "..."` with no `--org` starts a new session on the same changeset in seconds.
 * Point the agent at a different language. `JavaScript Estate` and `Python Estate` work the same way with prompts suited to them. The full `Sample Estate` lets you watch the agent work out which repositories a request applies to.
 * Run it on your own code. [Agent chat](../../agent-tools/agent-chat.md) covers using an organization from your company's Moderne tenant, or a `repos.csv` when your repositories are not in Moderne at all.
 * Learn what the agent was doing. "[Using the Moderne CLI](./cli-intro.md)" walks through every command the agent used, from syncing an organization to opening pull requests with `mod git`.
