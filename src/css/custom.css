@@ -712,3 +712,9 @@ html[data-theme='dark'] {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+
+/* Redraws the joined line break before a flag that follows a quoted value; generated content is never copied. */
+.joined-on-windows .token.string + .token.plain + .token.parameter::before {
+  content: '\A\00a0\00a0';
+  white-space: pre;
+}

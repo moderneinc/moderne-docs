@@ -9,7 +9,7 @@ type Props = ComponentProps<typeof MDXCode>;
 function JoinOnWindows({ children, className, ...props }: Props): ReactNode {
   const windows = useIsWindowsSelected();
   return (
-    <MDXCode {...props} className={clsx(className, 'wrap-code')}>
+    <MDXCode {...props} className={clsx(className, 'wrap-code', windows && 'joined-on-windows')}>
       {windows && typeof children === 'string' ? joinContinuations(children) : children}
     </MDXCode>
   );
