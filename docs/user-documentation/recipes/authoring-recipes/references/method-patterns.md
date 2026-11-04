@@ -95,7 +95,7 @@ The below table shows some more examples of method patterns and the methods they
 | `org.openrewrite.java.* foo(..)`             | Any method named `foo` in a package that starts with `org.openrewrite.java.`. Note that the `.*` after `java` means that the method _must_ be in this package rather than some subsequent subpackages.             |
 | `org.Foo bar(java.util.List)`                | Exactly the `bar` method in the `org.Foo` class that takes in a single `java.util.List` as an argument.                                                                                                            |
 | `org.Foo bar(java.*.*, *)`                   | Exactly the `bar` method in the `org.Foo` class that takes two arguments of which the first argument type is nested exactly 2 levels deep in the `java` package.                                                   |
-| `org.Foo <constructor>(..)`                  | Matches any constructors in the `org.Foo` class that take in any number of arguments.                                                                                                                              |
+| `org.Foo <constructor>(..)`                  | Matches any constructors in the `org.Foo` class that take in any number of arguments.                                                                                                                             |
 | `org.Foo <init>(..)`                         | Matches the same thing as the previous line. Demonstrates that `init` can be used as an alias of `constructor`.                                                                                                    |
 | `org.Foo bar()`                              | Matches exactly the `bar` method in the `org.Foo` class that has **no** arguments                                                                                                                                  |
 | `org.Foo#bar()`                              | Matches the same thing as the previous line. Demonstrates that `#` can be used to replace a space – which may be useful for certain types of input such as a CLI.                                                  |
@@ -161,6 +161,41 @@ ChangeMethodName cmn = new ChangeMethodName("org..* existingName(..)", "someNewN
 ```java
 MethodMatcher mm = new MethodMatcher("org.mockito.Matchers existingName()");
 ```
+
+### Matching overrides
+
+By default, a `MethodMatcher` matches only the method on the type named in the pattern. An override of that method on a subclass will not match.
+
+Pass `true` as a second constructor argument to also match overrides on subtypes. Given these two classes:
+
+```java
+package com.abc;
+
+class Parent {
+    public void method(String s) {
+    }
+}
+
+class Test extends Parent {
+    @Override
+    public void method(String s) {
+    }
+}
+```
+
+the two matchers below behave differently:
+
+```java
+// Matches only Parent.method(String)
+MethodMatcher exact = new MethodMatcher("com.abc.Parent method(String)");
+
+// Matches both Parent.method(String) and the override in Test
+MethodMatcher withOverrides = new MethodMatcher("com.abc.Parent method(String)", true);
+```
+
+:::tip
+If your pattern names an interface or a superclass and you want the recipe to act on implementations of it too, set `matchOverrides` to `true`.
+:::
 
 `MethodMatcher.matches()` has overloads that accept method declarations, method invocations, and constructor invocations. `matches()` returns `true` if the argument matches the method pattern the matcher was initialized with. They are frequently used by visitors to avoid making changes to LST elements other than those indicated by the method pattern.
 

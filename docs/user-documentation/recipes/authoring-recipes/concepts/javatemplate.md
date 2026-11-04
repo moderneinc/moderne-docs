@@ -216,7 +216,7 @@ As you've seen previously in this doc, JavaTemplates can be used to "generate" c
 
 We extensively use this functionality in our [Refaster template recipes](../writing-recipes/types-of-recipes.md#refaster-template-recipes). It can also be quite useful for tests.
 
-To help make this clearer, let's take a look at the [SimplifyTernary recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/SimplifyTernary.java#L46-L62):
+To help make this clearer, let's take a look at the [SimplifyTernary recipe](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/SimplifyTernary.java#L46-L61):
 
 ```java
 @RecipeDescriptor(
@@ -232,8 +232,7 @@ public static class SimplifyTernaryFalseTrue {
 
     @AfterTemplate
     boolean after(boolean expr) {
-        // We wrap the expression in parentheses as the input expression might be a complex expression
-        return !(expr);
+        return !expr;
     }
 }
 ```
@@ -241,39 +240,64 @@ public static class SimplifyTernaryFalseTrue {
 Behind the scenes, that recipe gets translated into the following code. Notice how we create JavaTemplates but only use them for _matching_.
 
 ```java
+/**
+ * OpenRewrite recipe created for Refaster template {@code SimplifyTernary.SimplifyTernaryFalseTrue}.
+ */
+@SuppressWarnings("all")
 @NullMarked
 public static class SimplifyTernaryFalseTrueRecipe extends Recipe {
 
+    /**
+     * Instantiates a new instance.
+     */
+    public SimplifyTernaryFalseTrueRecipe() {}
+
     @Override
     public String getDisplayName() {
+        //language=markdown
         return "Replace `booleanExpression ? false : true` with `!booleanExpression`";
     }
 
     @Override
     public String getDescription() {
+        //language=markdown
         return "Replace ternary expressions like `booleanExpression ? false : true` with `!booleanExpression`.";
     }
 
     @Override
     public TreeVisitor<?, ExecutionContext> getVisitor() {
-        return new AbstractRefasterJavaVisitor() {
-            final JavaTemplate before = JavaTemplate.builder("#{expr:any(boolean)} ? false : true").build();
-            final JavaTemplate after = JavaTemplate.builder("!(#{expr:any(boolean)})").build();
+        JavaVisitor<ExecutionContext> javaVisitor = new AbstractRefasterJavaVisitor() {
+            JavaTemplate before;
+            JavaTemplate after;
 
             @Override
             public J visitTernary(J.Ternary elem, ExecutionContext ctx) {
                 JavaTemplate.Matcher matcher;
+                if (before == null) {
+                    before = JavaTemplate.builder("#{expr:any(boolean)} ? false : true").build();
+                }
                 if ((matcher = before.matcher(getCursor())).find()) {
+                    if (after == null) {
+                        after = JavaTemplate.builder("!#{expr:any(boolean)}").build();
+                    }
                     return embed(
                             after.apply(getCursor(), elem.getCoordinates().replace(), matcher.parameter(0)),
                             getCursor(),
                             ctx,
-                            REMOVE_PARENS, SHORTEN_NAMES, SIMPLIFY_BOOLEANS
+                            SHORTEN_NAMES, SIMPLIFY_BOOLEANS
                     );
                 }
                 return super.visitTernary(elem, ctx);
             }
+
         };
+        return Preconditions.check(
+                Preconditions.and(
+                        Preconditions.not(new UsesType<>("com.google.errorprone.refaster.annotation.BeforeTemplate", true)),
+                        Preconditions.not(new UsesType<>("org.openrewrite.java.template.Semantics", true))
+                ),
+                javaVisitor
+        );
     }
 }
 ```
@@ -314,7 +338,133 @@ JavaTemplate newInstanceTemplate =
 Behind the scenes, the annotation processor transforms these `Semantics.expression(...)` and `Semantics.statement(...)` calls into actual JavaTemplate definitions with proper substitution indicators and imports.
 
 :::info
-Prerequisite: To use this feature, make sure your project is set up for Refaster-style recipes with annotation processing enabled. See the [How to create a Refaster recipe](../writing-recipes/refaster-recipes#how-to-create-a-refaster-recipe) section for more details.
+Prerequisite: To use this feature, make sure your project is set up for Refaster-style recipes with annotation processing enabled. See the [How to create a Refaster recipe](../writing-recipes/refaster-recipes.md#how-to-create-a-refaster-recipe) section for more details.
 :::
 
 Since the Semantics class is functionally equivalent to defining a JavaTemplate manually, while offering compile-time safety and slightly less boilerplate, it is well-suited for cases where your template is just beyond what Refaster can express easily. It provides a convenient middle ground between Refaster and fully custom JavaTemplate logic.
+
+## KotlinTemplate
+
+Kotlin sources are parsed into their own [LST](./lossless-semantic-trees.md) elements, so `JavaTemplate` — which parses snippets with a `JavaParser` — cannot generate or match them. For Kotlin, `rewrite-kotlin` provides [`KotlinTemplate`](https://github.com/openrewrite/rewrite/blob/main/rewrite-kotlin/src/main/java/org/openrewrite/kotlin/KotlinTemplate.java), which `extends JavaTemplate` and swaps in a `KotlinParser` behind the scenes.
+
+Because it's a subclass, everything covered above still applies: the same `builder(...)` API, the same positional `#{}` / `#{any(<type>)}` [substitution indicators](#code-snippets-and-parameters), the same `apply(cursor, coordinates, parameters...)` [usage](#usage), most of the same [coordinates](#coordinates), and the same ability to [match existing code](#using-javatemplates-to-match-existing-code). Only the parts listed below change.
+
+### What differs from JavaTemplate
+
+* **Where it's used.** Build `KotlinTemplate` inside a `KotlinVisitor`/`KotlinIsoVisitor` (from `rewrite-kotlin`), the same way `JavaTemplate` is built inside a `JavaVisitor`.
+* **Snippet syntax is Kotlin.** The code snippet must be syntactically valid _Kotlin_, not Java — for example `val #{} = #{any()}`, `fun foo() {}`, or `@ExtendWith(MockitoExtension::class)`. Type names inside indicators are Kotlin fully-qualified names, e.g. `#{any(kotlin.String)}`.
+* **Imports use Kotlin syntax.** `KotlinTemplate.Builder.imports(...)` still takes bare fully-qualified names (`"java.time.Duration"`), but they are emitted as Kotlin `import` statements. The builder _rejects_ names that include an `import ` prefix or a trailing `;`/newline. As with `JavaTemplate`, declaring an import to the template does not add it to the file — use `KotlinVisitor.maybeAddImport()` for that.
+* **Custom parser for external types.** To reference types that aren't on the default classpath, supply a parser with `KotlinTemplate.Builder.parser(...)` — the Kotlin analog of `JavaTemplate`'s [`.javaParser(...)`](#referencing-external-types). For example, `.parser(KotlinParser.builder().classpath("jackson-databind"))`, or `.dependsOn(...)` for [stubs](#from-stubs).
+* **Static shortcuts.** `KotlinTemplate` exposes `KotlinTemplate.apply(template, scope, coordinates, parameters...)` and `KotlinTemplate.matches(template, cursor)` for the common one-line case where you don't need to hold onto a reusable template instance.
+
+:::info
+`KotlinTemplate` supports only **context-free** templates: `contextSensitive()` is overridden to throw `UnsupportedOperationException`. There is also no separate static-import concept in Kotlin, so `staticImports(...)` simply delegates to `imports(...)`. See [Context-free vs. Context-sensitive JavaTemplates](#context-free-vs-context-sensitive-javatemplates) for what that trade-off means.
+:::
+
+Here is a minimal, self-contained example from [`ReplaceCharToIntWithCode`](https://github.com/openrewrite/rewrite/blob/main/rewrite-kotlin/src/main/java/org/openrewrite/kotlin/cleanup/ReplaceCharToIntWithCode.java) in `rewrite-kotlin`:
+
+```java
+return Preconditions.check(new UsesMethod<>(CHAR_TO_INT_METHOD_MATCHER), new KotlinVisitor<ExecutionContext>() {
+    @Override
+    public J visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {
+        if (CHAR_TO_INT_METHOD_MATCHER.matches(method) && method.getSelect() != null) {
+            return KotlinTemplate.builder("#{any()}.code")
+                    .build()
+                    .apply(getCursor(), method.getCoordinates().replace(), method.getSelect())
+                    .withPrefix(method.getPrefix());
+        }
+        return super.visitMethodInvocation(method, ctx);
+    }
+});
+```
+
+### Supported coordinates
+
+`KotlinTemplate` works with the coordinates that insert or replace expressions, statements and annotations:
+
+* `replace()` on an expression or a statement
+* `before()` and `after()` on a statement
+* `firstStatement()` and `lastStatement()` on a block, and `replaceBody()` on a method declaration
+* `replaceArguments()` on a method invocation
+* `replaceParameters()` on a function, with a snippet such as `a: Int, b: String = "b"`
+* `replaceTypeParameters()` on a class or a function, with a snippet such as `T : Any`
+* `addAnnotation(...)` and `replaceAnnotations()` on declarations
+
+`replaceExtendsClause()` and `replaceImplementsClause()` parse their snippet inside a stub written in Java syntax, so they don't work with Kotlin snippets and fail with "Could not parse as Java". Kotlin lists the superclass and interfaces together after a single `:`, so change those on the class declaration itself. `replaceThrows()` doesn't apply, since Kotlin has no `throws` clause. Templating a whole class declaration is rejected as well, because it would need a context-sensitive template.
+
+There is also no coordinate for a function's return type alone. Templating the whole function to change it, for example to add `: Unit`, rebuilds the declaration from the snippet, so make that change on the `J.MethodDeclaration` itself instead.
+
+### How the snippet is parsed
+
+A context-free template is parsed on its own, wrapped in a small Kotlin class:
+
+* An **expression** is parsed as the initializer of a property, as in `class Template { var o : Any = <snippet> }`.
+* A **statement** is parsed inside an initializer block, as in `class Template { init { <snippet> } }`.
+
+The snippet therefore has to be valid Kotlin in that position. The [substitution indicators](#code-snippets-and-parameters) become placeholder expressions of the declared type, which is why `#{any(kotlin.Boolean)}` and the like should name the type the surrounding code expects.
+
+### Formatting of inserted code
+
+The code a template inserts is auto-formatted relative to where it lands, using the Kotlin formatter and the source file's style. You don't need to indent a snippet to match its destination. Write it with `\n` line breaks and no leading indentation:
+
+```java
+KotlinTemplate.builder("run {\nval x = #{any(kotlin.Int)}\nprintln(x)\n}")
+```
+
+Inserted three levels deep, this prints with each line of the `run` block indented one level further than `run` itself. Only the inserted code is formatted; the rest of the file is left as it is.
+
+### Substituting lambdas
+
+A lambda passed as a parameter is substituted as an ordinary argument, so `run(#{any()})` prints `run({ ... })` rather than the trailing-lambda form `run { ... }`. A snippet like `run #{any()}` isn't valid Kotlin and fails to parse. To produce a trailing lambda, write the braces in the template and substitute what goes inside them:
+
+```java
+KotlinTemplate.builder("run {\n#{any()}\n}")
+        .build()
+        .apply(getCursor(), statement.getCoordinates().replace(), expression);
+```
+
+### Alternating between Java and Kotlin in one recipe
+
+A single recipe often needs to transform both Java and Kotlin sources. Because the two languages express the "same" change with different syntax, you pick `JavaTemplate` or `KotlinTemplate` — and a language-appropriate snippet — based on the compilation unit being visited. The tell is whether the tree is enclosed in a `K.CompilationUnit` (Kotlin) or a `J.CompilationUnit` (Java). Two patterns show up in the wild.
+
+#### Pattern 1: branch on the compilation unit inside one visitor
+
+When the surrounding visitor logic is identical and only the emitted snippet differs, keep one visitor and branch at the point where the template is applied. [`ReplaceInitMockToOpenMock`](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/mockito/ReplaceInitMockToOpenMock.java) does this with `getCursor().firstEnclosing(K.CompilationUnit.class)`:
+
+```java
+if (getCursor().firstEnclosing(K.CompilationUnit.class) != null) {
+    // Kotlin: `val`/`lateinit var`, no trailing semicolon
+    return KotlinTemplate.apply("private lateinit var " + variableName + ": AutoCloseable",
+            getCursor(), cd.getBody().getCoordinates().firstStatement());
+}
+// Java: typed field declaration, trailing semicolon
+J.ClassDeclaration after = JavaTemplate.apply("private AutoCloseable " + variableName + ";",
+        getCursor(), cd.getBody().getCoordinates().firstStatement());
+return maybeAutoFormat(cd, after, ctx);
+```
+
+Note the syntactic differences the two snippets have to account for: Kotlin uses `lateinit var name: Type` where Java uses `Type name;`, and Kotlin statements omit the trailing `;`. This recipe also skips `maybeAutoFormat` on the Kotlin branch on purpose, because auto-formatting the whole class would reformat unrelated Kotlin code.
+
+#### Pattern 2: dispatch to per-language visitors
+
+When the transformations diverge more substantially, split into dedicated Java and Kotlin visitors and dispatch to them from a top-level `preVisit`. [`AddMockitoExtensionIfAnnotationsUsed`](https://github.com/openrewrite/rewrite-testing-frameworks/blob/main/src/main/java/org/openrewrite/java/testing/mockito/AddMockitoExtensionIfAnnotationsUsed.java) selects the visitor by compilation-unit type:
+
+```java
+@Override
+public @Nullable Tree preVisit(Tree tree, ExecutionContext ctx) {
+    stopAfterPreVisit();
+    if (tree instanceof J.CompilationUnit) {
+        return getJavaVisitor().visit(tree, ctx);
+    }
+    if (tree instanceof K.CompilationUnit) {
+        return getKotlinVisitor().visit(tree, ctx);
+    }
+    return tree;
+}
+```
+
+Each visitor then builds its own template with language-appropriate syntax. The Java visitor annotates with `JavaTemplate.builder("@ExtendWith(MockitoExtension.class)")`, while the Kotlin visitor uses `KotlinTemplate.builder("@ExtendWith(MockitoExtension::class)")` — the difference between Java's `.class` literal and Kotlin's `::class` reference. Both add the same imports (`maybeAddImport("org.mockito.junit.jupiter.MockitoExtension")` and `org.junit.jupiter.api.extension.ExtendWith`), since the fully-qualified type names are identical across languages.
+
+:::tip
+When authoring a dual-language template, the snippet differences are exactly the ordinary Java-vs-Kotlin syntax differences: `void`/`throws` methods become `fun`, field declarations become `val`/`var`, `X.class` becomes `X::class`, and trailing semicolons disappear. Everything else — coordinates, substitution indicators, `maybeAddImport` — works identically on both `JavaTemplate` and `KotlinTemplate`.
+:::

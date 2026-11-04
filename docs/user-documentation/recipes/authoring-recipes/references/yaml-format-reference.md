@@ -42,19 +42,20 @@ Please keep these conventions in mind when you're creating OpenRewrite YAML file
 ### Format
 
 :::info
-You can find the full recipe schema [here](https://github.com/openrewrite/rewrite/blob/241e146a8996a917a8a460b27d17136108b3d50a/rewrite-core/openrewrite.json#L32-L75).
+You can find the full schema for every resource type in [rewrite-core/openrewrite.json](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/openrewrite.json).
 :::
 
-| Key                                                | Type                                                                                                        | Description                                                             |
-|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| type                                               | const                                                                                                       | A constant: `specs.openrewrite.org/v1beta/recipe`                       |
-| name                                               | string                                                                                                      | A fully qualified, unique name for this recipe                          |
-| displayName                                        | string                                                                                                      | A human-readable name for this recipe (does not end with a period)      |
-| description                                        | string                                                                                                      | A human-readable description for this recipe (ends with a period)       |
-| tags                                               | array of strings                                                                                            | A list of strings that help categorize this recipe                      |
-| estimatedEffortPerOccurrence                       | [duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-) | The expected amount of time saved each time this recipe fixes something |
-| causesAnotherCycle                                 | boolean                                                                                                     | Whether or not this recipe can cause another cycle (defaults to false)  |
-| [recipeList](#recipe-list) | array of recipes                                                                                            | The list of recipes which comprise this recipe                          |
+| Key                             | Type                                                                                                        | Description                                                             |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| type                            | const                                                                                                       | A constant: `specs.openrewrite.org/v1beta/recipe`                       |
+| name                            | string                                                                                                      | A fully qualified, unique name for this recipe (**required**)           |
+| displayName                     | string                                                                                                      | A human-readable name for this recipe (does not end with a period)      |
+| description                     | string                                                                                                      | A human-readable description for this recipe (ends with a period)       |
+| tags                            | array of strings                                                                                            | A list of strings that help categorize this recipe                      |
+| estimatedEffortPerOccurrence    | [duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html#parse-java.lang.CharSequence-) | The expected amount of time saved each time this recipe fixes something |
+| causesAnotherCycle              | boolean                                                                                                     | Whether or not this recipe can cause another cycle (defaults to false)  |
+| [preconditions](#preconditions) | array of recipes                                                                                            | Recipes that gate which source files this recipe may edit               |
+| [recipeList](#recipe-list)      | array of recipes                                                                                            | The list of recipes which comprise this recipe                          |
 
 ### Preconditions
 
@@ -129,7 +130,7 @@ But because `Find` is used as a precondition, `ChangeText` will only be run on f
 
 * [`org.openrewrite.FindSourceFiles`](https://codegenomeproject.org/recipes/org.openrewrite.FindSourceFiles) - limits the recipe to only run on files whose path matches a glob pattern
 * [`org.openrewrite.text.Find`](https://codegenomeproject.org/recipes/org.openrewrite.text.Find) - limits the recipe to only run on files that contain a given string
-* [`org.openrewrite.java.search.FindTypes`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes) - limits the recipe to run only on source code which contains a given type
+* [`org.openrewrite.java.search.FindTypes`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes) - limits the recipe to run only on source code which contain a given type
 * [`org.openrewrite.java.search.HasJavaVersion`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.HasJavaVersion) - limits the recipe to run only on Java source code with the specified source or target compatibility versions. Allowing a recipe to be targeted only at Java 8, 11, 17, etc., code.
 * [`org.openrewrite.java.search.IsLikelyTest`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.IsLikelyTest) - limits the recipe to run only on source code which is likely to be test code.
 * [`org.openrewrite.java.search.IsLikelyNotTest`](https://codegenomeproject.org/recipes/org.openrewrite.java.search.IsLikelyNotTest) - limits the recipe to run only on source code which is likely to be production code.
@@ -175,24 +176,24 @@ In this example, if a file matches `**/my.json` OR `**/your.json*` OR `**/our.js
 
 A common mistake new users make is to assume that if a precondition matches any file, then the recipe will apply to the entire repository.
 
-For example, you might be tempted to use `FindPlugins` as a precondition for `CommonStaticAnalysis` with the idea that you only want static analysis fixes on Gradle projects that apply a specific plugin.
+For example, you might be tempted to use `FindPlugins` as a precondition for `RemoveUnusedImports` with the idea that you only want unused imports removed on Gradle projects that apply a specific plugin.
 
-However, if you were to do this, you wouldn't get the results you expected as the `FindPlugins` recipe flags the plugin in `build.gradle` files. In other words, the `CommonStaticAnalysis` recipe would only be run against those `build.gradle` files.
+However, if you were to do this, you wouldn't get the results you expected as the `FindPlugins` recipe flags the plugin in `build.gradle` files. In other words, the `RemoveUnusedImports` recipe would only be run against those `build.gradle` files.
 
 Fortunately, there are recipes that _can_ be used in this type of situation. For instance, the `ModuleHasPlugin` recipe will mark _all_ files within a project if a specific plugin is found:
 
 ```yaml
 type: specs.openrewrite.org/v1beta/recipe
-name: org.sample.FixedSonarStaticAnalysis
-displayName: Fix sonar issues 
-description: >- 
-  This recipe applies common static analysis issues only to gradle projects that apply the sonar plugin. 
+name: org.sample.CleanUpSonarProjects
+displayName: Remove unused imports in sonar projects
+description: >-
+  This recipe removes unused imports only in gradle projects that apply the sonar plugin.
   This works because ModuleHasPlugin will mark all files within a project that applies the plugin.
 preconditions:
   - org.openrewrite.gradle.search.ModuleHasPlugin:
       pluginId: org.sonarqube
 recipeList:
-  - org.openrewrite.staticanalysis.CommonStaticAnalysis
+  - org.openrewrite.java.RemoveUnusedImports
 ```
 
 It isn't obvious from just the names of the recipes that `FindPlugins` and `ModuleHasPlugin` behave differently. Because of that, the best way for you to know whether a particular recipe is suitable as a precondition or not is to run that recipe on its own.
@@ -261,13 +262,13 @@ If you wanted to run this recipe (but not distribute it to others), you would:
 ### Format
 
 :::info
-You can find the full style schema [here](https://github.com/openrewrite/rewrite/blob/241e146a8996a917a8a460b27d17136108b3d50a/rewrite-core/openrewrite.json#L126-L153).
+You can find the full style schema in [rewrite-core/openrewrite.json](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/openrewrite.json).
 :::
 
 | Key          | Type             | Description                                                       |
 |--------------|------------------|-------------------------------------------------------------------|
 | type         | const            | A constant: `specs.openrewrite.org/v1beta/style`                  |
-| name         | string           | A fully qualified, unique name for this style                     |
+| name         | string           | A fully qualified, unique name for this style (**required**)      |
 | displayName  | string           | A human-readable name for this style (does not end with a period) |
 | description  | string           | A human-readable description for this style (ends with a period)  |
 | tags         | array of strings | A list of strings that help categorize this style                 |
@@ -294,6 +295,129 @@ To put this style in effect for any formatting performed by OpenRewrite within t
 2. Configure the [gradle plugin](https://docs.openrewrite.org/reference/gradle-plugin-configuration) or [maven plugin](https://docs.openrewrite.org/reference/rewrite-maven-plugin) with `com.yourorg.YesTabsNoStarImports` listed as the active style
 
 The next time any OpenRewrite recipe is run in that project, any formatting it performs will take these styles into account.
+
+## Categories
+
+Categories control how recipes are grouped, named, and described in the recipe catalog. Every OpenRewrite language module ships one (for example `rewrite-yaml`'s `yaml-categories.yml`), and you can define your own so that your recipes are presented sensibly alongside them.
+
+### Format
+
+| Key         | Type             | Description                                                                     |
+|-------------|------------------|---------------------------------------------------------------------------------|
+| type        | const            | A constant: `specs.openrewrite.org/v1beta/category`                             |
+| packageName | string           | The package this category describes, e.g. `org.openrewrite.yaml` (**required**) |
+| name        | string           | A human-readable name for the category                                          |
+| description | string           | A human-readable description for the category (ends with a period)              |
+| tags        | array of strings | A list of strings that help categorize this category                            |
+| root        | boolean          | Whether this package is only a naming prefix; see [root categories](#root-categories) (defaults to false) |
+| priority    | integer          | Sort order relative to sibling categories; lower sorts first (defaults to 0)    |
+
+### Category example
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/category
+name: Java
+packageName: com.yourorg.java
+description: Recipes for your organization's Java code.
+priority: 1
+```
+
+### How recipes are placed in categories
+
+A recipe's position in the catalog comes from its name: every package segment ahead of the final class name becomes one level of nesting. `com.yourorg.java.MigrateToSpringBoot3` sits under `com` > `yourorg` > `java`.
+
+For each of those levels OpenRewrite looks for a category whose `packageName` matches the package *up to and including* that segment. Where one exists, its `name`, `description`, and `priority` are used; where none exists, a category is synthesized from the segment with its first letter capitalized. That is why an undeclared package shows up in the catalog as **Yourorg** rather than something readable.
+
+Matching is against the whole partial package, never a bare segment: a category for `com.yourorg` describes `com.yourorg` only, and does not apply to a `yourorg` segment appearing anywhere else.
+
+### Root categories
+
+`root: true` marks a package as a naming prefix rather than a category. A root category is not displayed at all; its subcategories are lifted into its parent, which for a top-level prefix means the top of the catalog. This is what keeps `org.openrewrite.java` recipes under **Java** instead of burying them under **Org** > **Openrewrite** > **Java**.
+
+`rewrite-core` ships root categories for the reverse DNS prefixes it knows about — `com`, `org`, `io`, `ai`, `tech`, and `software`. Newer versions also root common generic and country code top-level domains, such as `uk`, `uk.co`, `de`, and `nl`.
+
+Two things are worth knowing if you publish under a prefix that is not rooted:
+
+* Each level needs its own root category. For `uk.co.acme`, rooting only `uk` promotes **Co** to the top level; you need roots for both `uk` and `uk.co`.
+* Declaring a root category that `rewrite-core` already provides does no harm, so when in doubt, declare it.
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/category
+packageName: uk
+root: true
+---
+type: specs.openrewrite.org/v1beta/category
+packageName: uk.co
+root: true
+---
+type: specs.openrewrite.org/v1beta/category
+name: Acme
+packageName: uk.co.acme
+description: Recipes for Acme's codebases.
+```
+
+Recipes named `uk.co.acme.*` are now presented under a single top-level **Acme** category, rather than under **Uk** > **Co** > **Acme**.
+
+:::info
+`packageName` values are subject to YAML interpretation, so a segment such as `no` or `on` has to be quoted to keep it from being read as a boolean.
+:::
+
+## Examples
+
+Examples attach before/after snippets to a recipe so that the generated recipe documentation can show what the recipe does. These are normally **generated** into a module's `META-INF/rewrite/examples.yml` from tests annotated with `@DocumentExample`, rather than written by hand — but it is useful to be able to read them.
+
+### Format
+
+| Key        | Type              | Description                                                       |
+|------------|-------------------|-------------------------------------------------------------------|
+| type       | const             | A constant: `specs.openrewrite.org/v1beta/example`                |
+| recipeName | string            | The fully qualified name of the recipe these examples demonstrate |
+| examples   | array of examples | One or more examples for that recipe                              |
+
+Each entry in `examples` accepts:
+
+| Key         | Type             | Description                                                                  |
+|-------------|------------------|------------------------------------------------------------------------------|
+| description | string           | A human-readable description, usually the originating test's name            |
+| parameters  | array of strings | The recipe options used, in declaration order, for recipes that take options |
+| sources     | array of sources | The source files the example operates on                                     |
+
+And each entry in `sources` accepts:
+
+| Key      | Type   | Description                                                               |
+|----------|--------|---------------------------------------------------------------------------|
+| before   | string | The source code before the recipe is run                                  |
+| after    | string | The source code after the recipe is run; omit it if the file is unchanged |
+| path     | string | The source file's path, where the recipe depends on it                    |
+| language | string | The source language, e.g. `java`, `yaml`, `xml`                           |
+
+### Example
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/example
+recipeName: org.openrewrite.yaml.AddCommentToProperty
+examples:
+- description: '`AddCommentToPropertyTest#addCommentToNestedProperty`'
+  parameters:
+  - management.metrics.enabled
+  - This property is deprecated
+  - 'null'
+  - 'null'
+  sources:
+  - before: |
+      management:
+        metrics:
+          enabled: true
+    after: |
+      management:
+        metrics:
+          # This property is deprecated
+          enabled: true
+    language: yaml
+```
 
 ## Testing
 

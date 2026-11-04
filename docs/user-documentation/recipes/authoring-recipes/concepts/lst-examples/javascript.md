@@ -8,7 +8,7 @@ description: Examples and explanations of the various JavaScript/TypeScript LST 
   <link rel="canonical" href="https://docs.openrewrite.org/concepts-and-explanations/javascript-lst-examples" />
 </head>
 
-# JavaScript examples
+# JavaScript LST examples
 
 When building recipes for JavaScript and TypeScript code, it's important to understand how OpenRewrite [Lossless Semantic Trees](../lossless-semantic-trees.md) (LSTs) correspond to code. You couldn't, for example, properly transform an arrow function without knowing that [JS.ArrowFunction](https://github.com/openrewrite/rewrite/blob/v8.65.0/rewrite-javascript/src/main/java/org/openrewrite/javascript/tree/JS.java#L398-L434) is the class used to represent arrow functions.
 
