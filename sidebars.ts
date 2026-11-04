@@ -382,7 +382,6 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/custom-build-tool-prebuild',
         'user-documentation/moderne-cli/how-to-guides/custom-parser-mappings',
         'user-documentation/moderne-cli/how-to-guides/build-partitions',
-        'user-documentation/moderne-cli/how-to-guides/batch-changes',
         'user-documentation/moderne-cli/how-to-guides/managing-gradle-lock-files',
         'user-documentation/moderne-cli/how-to-guides/repos-lock-csv',
         'user-documentation/moderne-cli/how-to-guides/cli-telemetry',
