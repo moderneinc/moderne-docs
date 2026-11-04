@@ -12,6 +12,316 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## November 4, 2026
 
+#### recipes-csharp - 0.14.0
+
+* Read the NuGet feeds' versions afresh at each restore, since the engine version floats to the newest
+* Keep WPF0023's evaluation order, and align FindOptimizeStartsWith and UseStringInterpolationInsteadOfConcat with their analyzers
+* Replace deprecated Kotlin DSL container delegates
+* Port in-memory dynamic assembly creation from Framework to .NET Core
+* Preserve legacy code-page encodings when migrating to .NET Core
+* Honor CodeGenome environment credentials for Maven dependencies
+* Port symbol-free transient dynamic modules to .NET Core
+* Port bounded WebRequestHandler construction to HttpClientHandler
+* Migrate bounded inline NotifyIcon menus to ToolStrip APIs
+* Cover dynamic code-page requests and explicit encoding fallbacks
+* Migrate closed local WinForms menu graphs to ToolStrip APIs
+* Preserve Boolean choices through explicit RSA padding overloads
+* Preserve named cryptographic factory semantics in .NET 7 migration
+* Cover thread-domain dynamic assemblies and single-use local flags
+* Bound X509 loader migration to known public certificate data
+* Review Rijndael compatibility before replacing it with AES
+* Bound FormatterServices migration to constructor-free allocation
+* Port only explicit default HMACSHA1 constructor selectors
+* Modernize bounded asymmetric algorithm cleanup to Dispose
+* Preserve transient SOAP hex formatting with Convert.ToHexString
+* Make bounded PBKDF2 compatibility defaults explicit
+* Bound PBKDF2 obsolescence findings to implicit defaults
+* Bound certificate loading findings to obsolete content constructors
+* Port closed single-fill RNG locals to the modern default factory
+* Port closed digest locals to the same modern hash factory
+* Prepare MVC enum status results and repair Core namespace imports
+* Preserve stateful PBKDF2 contracts in .NET 10 migration guidance
+* Stop UseReadOnlyAutoProperty crashing on top-level local functions
+* Use ConfigurationManager APIs while preserving XML configuration
+* Retain raw RSA operations until padding semantics are reviewed
+* Migrate bounded delegate APM task wrappers to Task.Run
+* Preserve crypto provider initialization and bound factory repair
+* Bound certificate private-key findings and distinguish setters
+* Preserve bounded SOAP hex parse empty-array fallbacks
+* Find obsolete mutable certificate APIs with bounded review guidance
+* Preserve named RSA provider dispatch through CryptoConfig
+* Preserve named hash CryptoConfig dispatch
+* Bound PlatformAbstractions base-path replacement and make it opt-in
+* Preserve deferred formatting for closed SOAP hex locals
+* Preserve desktop Framework SOAP datetime formatting
+* Review cached public-key identity and bind certificate property names
+* Remove literal null evidence from bounded assembly-load overloads
+* Preserve Windows COM Marshal.GetActiveObject calls on modern .NET
+* Read bounded assembly identities without reflection-only loading
+* Remove obsolete no-op Marshal.ReleaseThreadCache statements
+* Preserve COM type library names through GetDocumentation
+* Invoke bounded current-domain callbacks without AppDomain APIs
+* Replace closed SOAP anyURI value locals with strings
+* Preserve literal-format Forms Authentication password hashes
+* Preserve desktop Framework SOAP duration lexical output
+* Align PBKDF2 guide with stateful compatibility review
+* Preserve ECDH public-key encodings in the .NET 7 migration
+* Review obsolete certificate file factories without guessing formats
+* Convert valid SOAP hex literals to modern hex parsing
+* Preserve SOAP base64 line-feed formatting on modern .NET
+* Preserve legacy ASP.NET URL token wire format on modern .NET
+* Bound AES-GCM findings without selecting authentication tag policy
+* Bound OpenSSL key-sharing findings and correct disposal guidance
+* Compose bounded Framework API ports after independent recipe PRs land
+* Port static Framework filesystem ACL reads to security constructors
+* Bound FIPS construction findings to resolved cryptography APIs
+* Preserve silent fallbacks when migrating SOAP hex parse locals
+* Preserve active conditional snapshots in Framework API ports
+* Skip active conditional branches in SOAP migrations
+* Preserve active conditional snapshots across crypto and menu recipes
+* Review obsolete X509 certificate collection imports with typed bounds
+* Port ASP.NET cache expiration sentinels to exact BCL values
+* Complete named crypto factory review for MD5 and HMAC
+* Retain active conditional snapshots in remaining Framework API ports
+* Review legacy PasswordDeriveBytes output compatibility
+* Use cryptographic zeroization for bounded local byte array clears
+* Port ignored fresh Action APM calls to opt-in Task.Run scheduling
+* Port bounded byte comparison helpers to fixed-time equality
+* Add opt-in factories for SHA CSP locals used once
+* Preserve retained targets and gate API adoption across MSBuild imports
+* Bind RSA padding ports to complete modern overload metadata
+* Make existing PBKDF2 legacy defaults explicit without changing bytes
+* Make generated-salt PBKDF2 SHA1 explicit with typed constructor metadata
+* Preserve modern bindings across reflection API ports
+* Use same-algorithm factories for directly consumed inline hash providers
+* Use default RNG factories within bounded existing using blocks
+* Resolve complete package bindings for ConfigurationManager API ports
+* Use same-algorithm hash factories within bounded existing using blocks
+* Keep captured adapter method-name bindings consistent
+* Port explicitly typed RNG resources while retaining disposal scopes
+* Port closed Rijndael-128 scopes to AES while preserving feedback defaults
+* Port explicitly typed hash resources while retaining disposal scopes
+* Use the AES factory for closed plain AesManaged locals
+* Port hash provider using declarations while preserving disposal boundaries
+* Preserve interface dispatch when porting hash and symmetric Clear cleanup
+* Use the same TripleDES factory for bounded parameterless-transform locals
+* Port algorithm typed hash resources to matching factories
+* Port bounded inline RNG provider fills to the default factory
+* Port bounded RNG using declarations without moving disposal
+* Port closed hash locals while retaining terminal cleanup
+* Port closed plain RNG locals while retaining lifetime
+* Port hash locals that read stored digest state
+* Port initialized AES using resources while preserving failure cleanup
+* Port bounded plain Rijndael locals with feedback defaults retained
+* Port streaming hash using scopes with retained transform behavior
+* Verify named hash factory cast-failure cleanup bounds
+* Port hash using scopes with retained terminal cleanup
+* Port Rijndael initializers with an unobservable default block-size setter
+* Verify certificate DER provenance against virtual PKCS12 overrides
+* Port hash using scopes with retained resets and actual BCL bindings
+* Make proven fixed AES-GCM tag sizes explicit
+* Port initialized Rijndael locals with fixed block-size reads
+* Port closed hash locals with retained finally cleanup
+* Verify certificate loader preserves failure diagnostic copies
+* Verify PBKDF2 review preserves string password fallback
+* Port initialized Rijndael using resources before disposal acquisition
+* Port closed local hash provider selections without narrowing their contract
+* Port fresh XML settings DTD assignments while retaining read-only diagnostics
+* Zeroize inferred local byte vectors with method scope guards
+* Port fresh XML settings initializers while preserving member ordering
+* Port XML text reader DTD setters with static receiver guards
+* Use one-shot encryption for closed AES CBC PKCS7 transforms
+* Review implicit SHA-1 DSA signature migration
+* Port valid literal Membership password generation while retaining legacy policy
+* Validate empty PKCS7 decryption migration boundary
+* Port formatter type lookups on closed loaded assembly locals
+* Review CSP key container identity and RSA persistence
+* Use certificate loader for fixed public certificate data
+* Preserve Windows native AppDomain thread IDs for hook consumers
+* Capture Boolean Action APM inputs before Task.Run scheduling
+* Preserve expression-tree shape in crypto API ports
+* Port closed parameterless delegate APM calls to typed Task lambdas
+
+#### recipes-go - 0.17.0
+
+* Keep the method type a call in a retryer value was parsed with
+* Replace deprecated Kotlin DSL container delegates
+
+#### recipes-javascript - 0.8.0
+
+* Merge all identical branches of a chain in one run in MergeIdenticalBranches
+* Skip `AllBranchesIdentical` when a condition has side effects or a branch is unbraced
+* Bump vite from 8.2.2 to 8.3.5 in /recipes-ui5
+* Bump nanoid from 3.3.12 to 3.3.19 in /recipes-code-quality
+* Replace deprecated Kotlin DSL container delegates
+* Await `vi.importActual` in mock factories that spread `jest.requireActual`
+* Move a Jest project's configuration, scripts and dependencies to Vitest in `JestToVitest`
+* Keep Jest tests meaning the same under Vitest in `JestTestsToVitest`
+* Adapt to recent changes in rewrite-javascript
+
+#### recipes-kotlin - 0.11.0
+
+* Build and test on the plugin's default Java 25 toolchain
+
+#### recipes-mainframe - 0.5.0
+
+* Keep declaration analysis compatible with older parser runtimes
+* Detect COMMAREA overreads in bounded STRING transfers
+* Resolve DataItems references through DataName
+* Prove COMMAREA reads across native CALL boundaries
+* Read each EXEC statement's single line after moderneinc/rewrite-mainframe#271
+* Drop the handling of several EXEC blocks in one statement
+* Resolve EXEC CICS and DL/I operands from their words
+* Share each security analysis between its Find, Analyze and Propose recipes
+* Use Java 21 language features and APIs in tests
+* Fix wrong answers from FindUnreachableProcedures, FindDeadData and FindResourceCrud
+* Expect ORIGIN_NOT_CLASSIFIED for VSQRLATE's WRITEQ after its READQ
+* Follow the branches EXEC SQL WHENEVER adds to the SQL statements after it
+* Prove native CALL entry MOVE and STRING reads
+* Verify evidence at SQL and TSQ command barriers
+* Prove UNSTRING bounds with constant delimiter lists
+* Prove native CALL reads after local initialization
+* Know nothing on arriving through a CICS HANDLE branch or at an ENTRY point
+* Follow a group move and a REDEFINES to the bytes a field occupies
+* Read the key a file statement looks a record up by, and correct the manual's CLAIMS figures
+* Propose full-record COMMAREA guards before native calls
+* Fix FindDeadData verdicts that GnuCOBOL's cross-reference listing contradicts
+* Propose approved exits after failed validation checks
+* Propose capacity guards before output table appends
+* Propose initialized partial COMMAREA copies
+* Propose complete Db2 duplicate precheck keys
+* Reuse existing TSQ validation before saved-record use
+* Discover CICS read repairs from reusable resource policies
+* Discover UPDATE result repairs from reusable table policies
+* Discover and prove table append capacity guards
+* Discover and prove exits after failed checks
+* Take a file's key and records from the program naming it, and read FILE-CONTROL in one place
+* Discover and prove payload content-length corrections
+* Discover partial COMMAREA copies and preserve validated byte flow
+* Discover routing character guards across CALL and CICS
+* Discover public DISPLAY traces from reusable classification policies
+* Discover saved-record validation from reusable queue policies
+* Discover Db2 duplicate prechecks from reusable table policies
+* Discover Db2 version predicates and current timestamp hosts
+* Discover current authorization identity repairs from reusable interfaces
+* Discover authorization allow guards from reusable contracts
+* Discover forced authorization resets with concrete continuation proofs
+* Discover Db2 authorization repairs from reusable table contracts
+* Discover INSERT response and SELECT output guards with COPY proofs
+* Discover called providers and surviving version predicates
+* Discover complete cross-task version proof chains
+* Discover approved TSQ read capacity limits
+* Discover incoming access length guards from reusable policies
+* Compare fields under a shared table within one occurrence of it
+* Place a group move between table entries one occurrence at a time
+* Make the source path and program optional on the Find and Analyze security recipes
+* Pin the corpus the corpus tests read
+* Keep a COPY on a program's last line apart from what it copies
+
+#### rewrite-android - 0.25.0
+
+* Keep the Android Gradle Plugin 4 fixture on Gradle 8.14.5
+
+#### rewrite-angular - 1.19.0
+
+* Read `JS.Alias` property names that are string literals in `FindAngularComponent` (G-angular-7)
+* Read string-literal import names in `ReplaceAngularHttpImports`
+* Upgrade Angular dependency groups atomically and preserve usable project config
+
+#### rewrite-compiled-analysis - 0.21.0
+
+* Ask for JDK 25 in .sdkmanrc, matching the build plugin's toolchain
+* OpenRewrite recipe best practices
+
+#### rewrite-devcenter - 1.38.0
+
+* Ask for JDK 25 in .sdkmanrc, matching the build plugin's toolchain
+* Measure a Node.js engines range by the lowest release it admits
+* Measure the Quarkus card by quarkus-core
+* Load declarative recipes in tests with recipeFromResources
+* Report a Kotlin version only for repositories with Kotlin sources
+* Measure pre-release versions by their numbers instead of counting them as completed
+* Add vulnerability DevCenter cards per package ecosystem
+* Recognize OS-specific target frameworks in CSharpVersionUpgrade
+
+#### rewrite-dropwizard - 0.13.0
+
+* Fix AddSpringBootTestForDropwizardAppExtensionTest on the JDK 25 test toolchain
+
+#### rewrite-elastic - 0.14.0
+
+* Rename the remaining result() and valueBody() response accessors for Elasticsearch 9
+
+#### rewrite-hibernate - 0.35.0
+
+* Retype jackson-datatype-hibernate5 types when moving to jackson-datatype-hibernate6
+* OpenRewrite recipe best practices
+
+#### rewrite-java-application-server - 0.16.0
+
+* Replace deprecated Kotlin DSL container delegates
+* OpenRewrite recipe best practices
+
+#### rewrite-java-security - 3.48.0
+
+* GitHub advisories and endoflife.date data as of 2026-11-02T0923
+* Merge CVE-2026-22732 recipes from rewrite-cve-2026-22732
+* Expect Gradle 9's dependency graphs in Gradle vulnerability tests
+* Add `none` version selection to the NuGet `DependencyVulnerabilityCheck`
+* GitHub advisories and endoflife.date data as of 2026-11-03T2241
+* Replace deprecated Kotlin DSL container delegates
+
+#### rewrite-kafka - 0.13.0
+
+* Only migrate the Config that flows into alterConfigs, and match pre-2.4 AdminClient
+* Migrate `KStream.branch()` to `KStream.split()`
+* Add Kafka 4.2, 4.3 and 4.4 migrations
+* Migrate `Consumer` varargs `TopicPartition` methods to take a `Collection`
+* Only migrate UncaughtExceptionHandlers that are handed to KafkaStreams
+* Only migrate Kafka Streams retry configuration to task.timeout.ms
+* Use Kafka's Scala 2.13 artifacts, and leave Java upgrades to rewrite-migrate-java
+* Migrate poll, committed and close through the client interfaces
+* Migrate `MockProducer` and `ConsumerRecord` constructors removed in Kafka 4.0
+* Migrate more of what Kafka 4.0 removed: Admin, Streams windows, broker and MirrorMaker config
+* Migrate KStreamBuilder and TopologyBuilder, removed in Kafka 2.0
+* Migrate `StreamsConfig` constants removed in Kafka 2.0
+* Apply OpenRewrite recipe best practices
+
+#### rewrite-mainframe - 3.8.0
+
+* Replace deprecated Kotlin DSL container delegates
+* Read a copybook kept under a program's extension
+* Read a CICS condition or CVDA name that is also a COBOL keyword
+* Read the ENTER statement
+* Pair a host variable with its null indicator in INSERT VALUES and UPDATE SET
+* Visit the words of a CBL or PROCESS statement
+* Read the DSNTEP2 input GenevaERS Workbench keeps its schema in
+* Read a primary key declared on its column
+
+#### rewrite-migrate-kotlin - 0.15.0
+
+* Build and test on the plugin's default Java 25 toolchain
+* Replace deprecated Kotlin DSL container delegates
+* OpenRewrite recipe best practices
+
+#### rewrite-migrate-python - 0.21.0
+
+* Replace deprecated Kotlin DSL container delegates
+* Keep utcnow() and utcfromtimestamp() replacements naive
+* Replace pipes.quote() with shlex.quote() in the 3.13 upgrade
+* Add the missing `assert_` prefix to mock assertions in the 3.12 upgrade
+
+#### rewrite-nodejs - 0.57.0
+
+* Skip blank resolved dependencies in DependencyVulnerabilityCheck
+* GitHub advisories as of 2026-11-02T0923
+* Format test classes with the 2-space continuation indent from .editorconfig
+* Expect the source-map-support test's virtual path resolved as on the running OS
+* Add Upgrade to Node.js 18 recipe
+* Expect export {} where a recipe removes a TypeScript module's last import
+* Adapt to @openrewrite/rewrite 8.97.1 string-literal module export names
+* GitHub advisories as of 2026-11-03T2241
+
 #### rewrite-nodejs - 0.56.1
 
 * Skip blank resolved dependencies in DependencyVulnerabilityCheck
@@ -22,6 +332,90 @@ This changelog is automatically generated from GitHub releases and only contains
 * Expect export {} where a recipe removes a TypeScript module's last import
 * Adapt to @openrewrite/rewrite 8.97.1 string-literal module export names
 * GitHub advisories as of 2026-11-03T2241
+
+#### rewrite-nullability - 0.12.0
+
+* Replace deprecated Kotlin DSL container delegates
+* OpenRewrite recipe best practices
+* Keep the shared nullability index in the ScanningRecipe accumulator, not the ExecutionContext
+
+#### rewrite-prethink - 0.22.0
+
+* Use Java 21 language features and APIs in tests
+* Keep the SQL recipes off prethink's own context files
+* Build on the plugin's default Java 25 toolchain
+* Replace deprecated Kotlin DSL container delegates
+
+#### rewrite-program-analysis - 0.24.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-react - 0.13.0
+
+* Keep displayName, comments and layout in CreateClassToES6, and fix PureRenderMixin's prefix
+* Add `review-react-recipe-pr` skill for self-reviewing recipe changes
+* Replace README recipe tables with a link to the recipe catalog (P4)
+* Remove unused import and redundant comments in react16 recipes
+* Remove stray `test-simple.ts` and `debug-import.ts` (P3 of #51)
+* Skip vendored sources and gate type-dependent recipes with `check` (B1 of #51)
+* Read `JS.Alias` property names that are string literals
+* Lock tmp at 0.2.7 for CVE-2026-44705
+* Bump @openrewrite/rewrite to 8.97.1
+
+#### rewrite-reactive-streams - 0.26.0
+
+* Constrain guava past CVE-2026-102554
+* OpenRewrite recipe best practices
+
+#### rewrite-spring - 0.49.0
+
+* Migrate removed `LastModified` support for Spring Framework 7
+* Skip Kotlin sources and optional autowired fields in FieldToConstructorInjection
+* Migrate `spring-security-rsa` to `spring-security-crypto`
+* Send an `HttpEntity` request as headers and body when migrating `RestTemplate` to `RestClient`
+* Disambiguate `null` headers in `HttpEntity` constructors for Spring Framework 7
+* Leave `RestTemplate` alone where `RestClient` cannot stand in for it
+* Chain the Moderne Spring Framework 6.0 migration from Spring Boot 3.0
+* Prevent duplicate ResponseErrorHandler methods in Boot 4 migration
+* Migrate Jetty EE10 to EE11 for Spring Boot 4.0
+* Replace `WebContentGenerator#checkAndPrepare` with its delegates
+* Rename `RedisConnectionDetails` and the other Redis types Spring Boot 4 prefixed with `Data`
+* Rename `@JsonComponent` and the other Boot Jackson support types when adopting Jackson 3
+* Fix tests that fail on the Java 25 test toolchain
+* Relocate Spring Boot types that are only statically imported
+* Move `OAuth2AuthorizationServerConfiguration` to the package Spring Security 7 has it in
+* Replace deprecated Kotlin DSL container delegates
+* Remove `RequestMappingHandlerMapping` path options that restate the default
+* Replace `GenericJackson2JsonRedisSerializer` constructors without an `ObjectMapper` with the builder
+* Leave `requiresChannel` alone where `redirectToHttps` cannot stand in for it
+* Migrate `HttpHeaders#addIfAbsent` and `writableHttpHeaders` for Spring Framework 7
+* Add `spring-web` where `spring-boot-starter-json` brought it in
+* Constrain guava past CVE-2026-102554
+* Run the Kafka 4.2 and 4.4 migrations as part of Spring Boot 4.1 and 4.2
+* [Auto] Spring Boot modular starter table as of 2026-11-03T1107
+* Make `FieldToConstructorInjection` thread-safe
+
+#### rewrite-sql - 2.25.0
+
+* Skip Moderne's own context files in the SQL anti-pattern rules
+* OpenRewrite recipe best practices
+
+#### rewrite-static-analysis - 0.6.0
+
+* Add FindCloneableWithoutClone recipe (RSPEC-S2157)
+* Add FindNullReturnedFromBooleanMethod recipe (RSPEC-S2447)
+* Retain Stack when its push result is consumed
+* Preserve empty-stack failure when replacing Stack.peek
+* Preserve Stack.contains comparison order
+* Preserve Hashtable null rejection during modernization
+* Preserve Vector indexed exception catches
+* Preserve Vector ensureCapacity iterator invalidation
+* Preserve Stack underflow catches around lambdas
+* Preserve Vector bounds catches in initializer blocks
+
+#### rewrite-tapestry - 0.12.0
+
+* Expect the newest Tapestry 5.9 patch in UpdateTapestryDependenciesTest
 
 ## November 2, 2026
 
@@ -6236,14 +6630,6 @@ Republishing to update dependencies
 * Gradle 9.2.0
 
 #### rewrite-kafka - 0.4.0
-
-* Gradle 9.2.0
-
-#### rewrite-reactive-streams - 0.18.0
-
-* Gradle 9.2.0
-
-#### rewrite-struts - 0.23.0
 
 * Gradle 9.2.0
 
