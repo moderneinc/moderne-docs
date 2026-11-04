@@ -50,7 +50,7 @@ moderne:
         #   organizations: [Payments]
 ```
 
-`init` takes the license key and the CGP username and token from the Moderne CLI on this machine, where it has them. Otherwise, add the secrets to the `moderne.env` file beside `moderne.yml`:
+Where the Moderne CLI on this machine holds the license key and the CGP username and token, `init` writes `moderne.yml` to read them from it. Such a value looks like `${moderne-cli:license.key}`. DX asks the CLI for the value each time it starts. Add any secret the CLI lacks to the `moderne.env` file beside `moderne.yml`:
 
 ```bash title="moderne.env"
 MODERNE_LICENSE_KEY=…

@@ -93,6 +93,8 @@ sudo systemctl enable --now moderne-dx
 
 The unit lets DX listen on port 443 as the `moderne` user. Started any other way on Linux, DX needs a public URL whose port is above 1023. Under systemd, `journalctl -u moderne-dx` shows DX's logs.
 
+Run as the `moderne` user, DX takes each `${moderne-cli:key}` value from that user's Moderne CLI. Configure the CLI as `moderne`, or put the values in `moderne.env` instead.
+
 ## Connecting your identity provider
 
 DX signs users in through Keycloak, as the Moderne Platform does. Until you connect your identity provider, you sign in as the `moderne` administrator. Keycloak brokers your identity provider over Security Assertion Markup Language (SAML) or OpenID Connect (OIDC). You will configure it in Keycloak's admin console:

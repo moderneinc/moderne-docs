@@ -9,13 +9,15 @@ Moderne DX reads its configuration from a `moderne.yml` file, which `java -jar m
 
 A value of the form `${NAME}` is an environment variable, or a `NAME=value` line of the `moderne.env` file beside `moderne.yml`. Only the user DX runs as may read `moderne.env`. A path that is not absolute resolves against the directory that holds `moderne.yml`, unless a setting below says otherwise.
 
+A value of the form `${moderne-cli:key}` is what the Moderne CLI holds for the key, as `mod config get <key>` prints it. Each time DX starts, it asks the CLI of the user it runs as.
+
 ## Commands
 
 Every command but `init` reads the `moderne.yml` file in the working directory, or the one `--config <path>` names.
 
 | Command                                  | What it does                                                                                     |
 |------------------------------------------|--------------------------------------------------------------------------------------------------|
-| `java -jar moderne-dx.jar init [<dir>]`  | Writes `moderne.yml`, `moderne.env` with a new SCM token key, and a systemd unit, keeping any file already there. It fills in the license key and the CGP username and token that the Moderne CLI on this machine has. |
+| `java -jar moderne-dx.jar init [<dir>]`  | Writes `moderne.yml`, `moderne.env` with a new SCM token key, and a systemd unit, keeping any file already there. A new `moderne.yml` takes the license key and the CGP username and token from the Moderne CLI on this machine, where the CLI holds them. |
 | `java -jar moderne-dx.jar doctor`        | Checks the configuration and the machine. Once DX runs, it also checks each name through DX's proxy. |
 | `java -jar moderne-dx.jar start`         | Starts DX in the foreground, and keeps every service running until it stops.                     |
 | `java -jar moderne-dx.jar status`        | Says whether DX runs, and which services are up.                                                 |
@@ -168,7 +170,7 @@ Two more ports cannot be moved: 8099, where the router answers its health check,
 | Setting                                    | Default           | Description                                                          |
 |--------------------------------------------|-------------------|----------------------------------------------------------------------|
 | `moderne.monitoring.atlas.disk.retention`  | `2d`              | How long the status page keeps metrics and logs.                     |
-| `moderne.cli.executable`                   | `mod` on the PATH | The Moderne CLI that DX's services run.                              |
+| `moderne.cli.executable`                   | `mod` on the PATH | The Moderne CLI that DX's services run. DX asks it for `${moderne-cli:key}` values. |
 
 ## Environment variables
 
