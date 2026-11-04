@@ -708,11 +708,6 @@ html[data-theme='dark'] {
   border-left: none;
 }
 
-.wrap-code pre code {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-}
-
 /* Draws a joined line's original break and indent; generated content is never copied. */
 .code-continuation::before {
   content: '\A';

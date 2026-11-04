@@ -1,26 +1,25 @@
 import React, { type ComponentProps, type ReactNode } from 'react';
-import clsx from 'clsx';
 import MDXCode from '@theme-original/MDXComponents/Code';
 import { useIsWindowsSelected } from '@site/src/utils/cliInstallOs';
 import { BreaksContext, joinContinuations } from '@site/src/utils/joinContinuations';
 
 type Props = ComponentProps<typeof MDXCode>;
 
-// ```bash join-on-windows: `\` continuations break when pasted into PowerShell or cmd.
-function JoinOnWindows({ children, className, ...props }: Props): ReactNode {
+// `\` continuations break when pasted into PowerShell or cmd, so Windows readers copy one line.
+function JoinOnWindows(props: Props & { children: string }): ReactNode {
   const windows = useIsWindowsSelected();
-  const code = clsx(className, 'wrap-code');
-  if (!windows || typeof children !== 'string') {
-    return <MDXCode {...props} className={code}>{children}</MDXCode>;
-  }
-  const joined = joinContinuations(children);
+  if (!windows) return <MDXCode {...props} />;
+  const joined = joinContinuations(props.children);
   return (
     <BreaksContext.Provider value={joined.breaks}>
-      <MDXCode {...props} className={code}>{joined.code}</MDXCode>
+      <MDXCode {...props}>{joined.code}</MDXCode>
     </BreaksContext.Provider>
   );
 }
 
 export default function Code(props: Props): ReactNode {
-  return /\bjoin-on-windows\b/.test(props.metastring ?? '') ? <JoinOnWindows {...props} /> : <MDXCode {...props} />;
+  const { children, className } = props;
+  return typeof children === 'string' && /\blanguage-(bash|shell|sh)\b/.test(className ?? '') && children.includes('\\\n')
+    ? <JoinOnWindows {...props} children={children} />
+    : <MDXCode {...props} />;
 }

@@ -47,7 +47,7 @@ Then pick your agent and point it at an organization with a prompt:
 <Tabs groupId="agent">
 <TabItem value="claude-code" label="Claude Code" default>
 
-```bash join-on-windows
+```bash
 mod claude chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
@@ -55,7 +55,7 @@ mod claude chat ./work --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="codex" label="Codex">
 
-```bash join-on-windows
+```bash
 mod codex chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
@@ -63,7 +63,7 @@ mod codex chat ./work --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="copilot-cli" label="Copilot">
 
-```bash join-on-windows
+```bash
 mod copilot chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
@@ -71,7 +71,7 @@ mod copilot chat ./work --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
-```bash join-on-windows
+```bash
 mod cursor chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
@@ -79,7 +79,7 @@ mod cursor chat ./work --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="kiro" label="Kiro">
 
-```bash join-on-windows
+```bash
 mod kiro chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
@@ -87,7 +87,7 @@ mod kiro chat ./work --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="amp" label="Amp">
 
-```bash join-on-windows
+```bash
 mod amp chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
@@ -95,7 +95,7 @@ mod amp chat ./work --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
 
-```bash join-on-windows
+```bash
 mod opencode chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
@@ -103,7 +103,7 @@ mod opencode chat ./work --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="pi" label="Pi">
 
-```bash join-on-windows
+```bash
 mod pi chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
@@ -111,7 +111,7 @@ mod pi chat ./work --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="vscode" label="VS Code">
 
-```bash join-on-windows
+```bash
 mod vscode chat ./work --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25."
 ```
