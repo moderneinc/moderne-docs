@@ -17,23 +17,23 @@ The local MCP server is experimental. See the [MCP server overview](./overview.m
 
 ## Summary for security reviewers
 
-| Question                                               | Answer                                                                                                                                                                                                         |
-|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Is `mod mcp` a network service?                        | No. It is a local subprocess that communicates exclusively over stdin/stdout with the process that launched it.                                                                                                |
-| Does it open any listening network port?               | One, conditionally: a loopback-only HTTP server bound to `127.0.0.1` on a random port, used by the macOS tray app. Disabled by default; only active when `feature.agentToolsTray=true` on macOS.               |
-| Can it be reached from the network?                    | No. The MCP interface is stdio-only. The optional HTTP server is bound to loopback and cannot accept external connections.                                                                                     |
-| Does it make outbound internet connections?            | HTTPS requests can occur when a recipe JAR is not in the local Maven cache. Recipes themselves can also make HTTPS requests as part of their own logic. This is standard recipe behavior, not specific to MCP. |
-| Does it contact the Moderne platform?                  | Not by default. The recipe marketplace is read from local CSV files. If you connect the CLI to a Moderne tenant and sign in, `mod mcp` uploads its tool-call telemetry to that tenant.                         |
-| Does it transmit telemetry or usage data?              | Not by default. If you connect the CLI to a Moderne tenant and sign in, each tool call will produce one row of metadata that is then uploaded to that tenant. With no tenant configured, nothing is transmitted.   |
-| Does it use or invoke any LLM or AI?                   | No. It is a deterministic code-intelligence tool server. It contains no model weights and makes no AI API calls.                                                                                               |
-| Does the AI agent run inside `mod mcp`?                | No. The AI runs in the client (e.g., Claude Code, Copilot, Windsurf), which is a separate process. `mod mcp` is a tool server the agent calls; the agent's reasoning is entirely outside `mod mcp`.            |
-| Does it read repository source code?                   | Yes - this is its core function. It reads the working repository to build the search index and LST, and to apply recipe transformations.                                                                       |
-| Does it transmit repository source code?               | No. Source code is processed locally and never included in any outbound request.                                                                                                                               |
-| Does it modify source files?                           | Yes, when refactoring tools are explicitly invoked (`run_recipe`, `change_type`, `change_method_name`, `pattern_replace`). The changes are the same as running the equivalent `mod run` command manually.      |
-| Does it read AI conversation transcripts?              | Yes. The transcript watcher reads the AI client's local conversation transcript files to record search-tool usage statistics in a local CSV. The data never leaves the machine.                                |
-| Does it run with elevated privileges?                  | No. It runs under the developer's own user account with no privilege escalation.                                                                                                                               |
-| Can it be used without outbound internet access?       | Yes. Pre-populate the Maven cache with required recipe JARs and set `feature.noMavenCentral=true`. Note that outbound access for recipe artifacts is standard Moderne CLI behavior, not specific to MCP.       |
-| Is this different from already allowing the `mod` CLI? | No. Every operation `mod mcp` exposes is already available through `mod` CLI subcommands. `mod mcp` makes those same operations callable by an AI assistant in a structured, auditable way.                    |
+| Question                                               | Answer                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Is `mod mcp` a network service?                        | No. It is a local subprocess that communicates exclusively over stdin/stdout with the process that launched it.                                                                                                                                                                                         |
+| Does it open any listening network port?               | One, conditionally: a loopback-only HTTP server bound to `127.0.0.1` on a random port, used by the macOS tray app. Disabled by default; only active when `feature.agentToolsTray=true` on macOS.                                                                                                        |
+| Can it be reached from the network?                    | No. The MCP interface is stdio-only. The optional HTTP server is bound to loopback and cannot accept external connections.                                                                                                                                                                              |
+| Does it make outbound internet connections?            | HTTPS requests can occur when a recipe JAR is not in the local Maven cache. Recipes themselves can also make HTTPS requests as part of their own logic. This is standard recipe behavior, not specific to MCP.                                                                                          |
+| Does it contact the Moderne platform?                  | Not by default. The recipe marketplace is read from local CSV files. If you connect the CLI to a Moderne tenant and sign in, `mod mcp` uploads its tool-call telemetry to that tenant.                                                                                                                  |
+| Does it transmit telemetry or usage data?              | Not by default. If you connect the CLI to a Moderne tenant and sign in, each tool call will produce one row of metadata that is then uploaded to that tenant. With no tenant configured, nothing is transmitted.                                                                                        |
+| Does it use or invoke any LLM or AI?                   | No. It is a deterministic code-intelligence tool server. It contains no model weights and makes no AI API calls.                                                                                                                                                                                        |
+| Does the AI agent run inside `mod mcp`?                | No. The AI runs in the client (e.g., Claude Code, Copilot, Windsurf), which is a separate process. `mod mcp` is a tool server the agent calls; the agent's reasoning is entirely outside `mod mcp`.                                                                                                     |
+| Does it read repository source code?                   | Yes - this is its core function. It reads the working repository to build the search index and LST, and to apply recipe transformations.                                                                                                                                                                |
+| Does it transmit repository source code?               | No. Source code is processed locally and never included in any outbound request.                                                                                                                                                                                                                        |
+| Does it modify source files?                           | Yes, when refactoring tools are explicitly invoked (`run_recipe`, `change_type`, `change_method_name`, `pattern_replace`). The changes are the same as running the equivalent `mod run` command manually.                                                                                               |
+| Does it read AI conversation transcripts?              | Yes. The transcript watcher reads the AI client's local conversation transcript files to record search-tool usage statistics in a local CSV. The data never leaves the machine.                                                                                                                         |
+| Does it run with elevated privileges?                  | No. It runs under the developer's own user account with no privilege escalation.                                                                                                                                                                                                                        |
+| Can it be used without outbound internet access?       | Yes. Pre-populate the Maven cache with required recipe JARs and [mirror Maven Central](../../moderne-cli/getting-started/cli-internal-tools.md#controlling-maven-central) in your `settings.xml`. Note that outbound access for recipe artifacts is standard Moderne CLI behavior, not specific to MCP. |
+| Is this different from already allowing the `mod` CLI? | No. Every operation `mod mcp` exposes is already available through `mod` CLI subcommands. `mod mcp` makes those same operations callable by an AI assistant in a structured, auditable way.                                                                                                             |
 
 ## How it runs
 
@@ -65,17 +65,17 @@ As each component becomes ready, additional tools are registered and the client 
 
 ## Components
 
-| Component          | Role                                                                                                                         |
-|--------------------|------------------------------------------------------------------------------------------------------------------------------|
-| MCP server         | Accepts and responds to MCP protocol messages over stdin/stdout                                                              |
+| Component          | Role                                                                                                                                  |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| MCP server         | Accepts and responds to MCP protocol messages over stdin/stdout                                                                       |
 | LST manager        | Orchestrates builds (Gradle, Maven, or other configured tools) to produce the Lossless Semantic Tree; watches for incremental changes |
-| Trigram indexer    | Builds and maintains a zoekt-based trigram search index; watches for incremental changes                                     |
-| Recipe runner      | Executes OpenRewrite recipes against the LST; writes results to the filesystem and DataTable output to local `.csv.gz` files |
-| MCP side channel   | A loopback-only HTTP server used by the macOS tray app's tool browser (disabled by default)                                  |
-| Tray client        | HTTP client that pushes session metadata to the macOS tray app over loopback (disabled by default)                           |
-| Transcript watcher | Reads the AI client's local conversation transcript files; writes a local CSV of search-tool usage observations              |
-| Recipe marketplace | Read-only view of local CSV files containing OpenRewrite recipe metadata; no network access                                  |
-| Recipe-DSL engine  | Compiles and runs a Kotlin recipe-DSL source (`pattern_replace`) for deterministic structural edits; no AI inference         |
+| Trigram indexer    | Builds and maintains a zoekt-based trigram search index; watches for incremental changes                                              |
+| Recipe runner      | Executes OpenRewrite recipes against the LST; writes results to the filesystem and DataTable output to local `.csv.gz` files          |
+| MCP side channel   | A loopback-only HTTP server used by the macOS tray app's tool browser (disabled by default)                                           |
+| Tray client        | HTTP client that pushes session metadata to the macOS tray app over loopback (disabled by default)                                    |
+| Transcript watcher | Reads the AI client's local conversation transcript files; writes a local CSV of search-tool usage observations                       |
+| Recipe marketplace | Read-only view of local CSV files containing OpenRewrite recipe metadata; no network access                                           |
+| Recipe-DSL engine  | Compiles and runs a Kotlin recipe-DSL source (`pattern_replace`) for deterministic structural edits; no AI inference                  |
 
 ## Tools and resources exposed
 
@@ -159,7 +159,7 @@ Recipes may make outbound HTTPS connections as part of their normal behavior. Th
 * **Maven artifact downloads:** Recipe JARs are resolved from the local Maven cache (`~/.m2/repository/`) first. If not cached, Maven downloads them over HTTPS. Only Maven coordinates are transmitted - no source code or repository data.
 * **Remote file downloads:** Some migration recipes fetch new file content from URLs as part of their output. Most recipes never trigger this.
 
-**For restricted-outbound environments**, you can pre-populate the Maven cache, configure `~/.m2/settings.xml` to use an internal mirror, set `feature.noMavenCentral=true`, or use Maven offline mode.
+**For restricted-outbound environments**, you can pre-populate the Maven cache, [configure `~/.m2/settings.xml` to mirror Maven Central](../../moderne-cli/getting-started/cli-internal-tools.md#controlling-maven-central), or use Maven offline mode.
 
 ### Telemetry
 
@@ -180,34 +180,34 @@ Separately, the transcript watcher writes search-tool usage observations to a lo
 
 ### Files and directories read
 
-| Location                                                  | Purpose                                                                                                                                                        |
-|-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Repository working tree                                   | Source files read to build the LST, trigram search index, and execute recipe transformations.                                                                  |
-| `{repo}/.git/`                                            | Git metadata for detecting the repository root and worktree configurations.                                                                                    |
-| `{repo}/.moderne/recipes-v5.csv`                          | Per-repository recipe marketplace override, if present.                                                                                                        |
-| `{repo}/.moderne/build/{buildId}/sources/**/*.zoekt`      | Per-source-set trigram index shards produced by `mod build`, read by `mod search` and the MCP search tools when no assembled index is present.                 |
-| `{repo}/.moderne/build/{buildId}/index/merged-*.zoekt`    | Repo-level assembled trigram index shards, plus `assembly.csv` (per-part digests) and a `.complete` sentinel. Preferred read source once `.complete` exists.   |
-| `{repo}/.moderne/mcp/lst/`                                | Cached LST files from prior `mod mcp` builds.                                                                                                                  |
-| `~/.moderne/cli/recipes-v5.csv`                           | Global recipe marketplace catalog.                                                                                                                             |
-| `~/.moderne/tray/server.port`                             | Port number of the tray app's HTTP server (macOS/tray feature only).                                                                                           |
-| `~/.moderne/tray/server.lock`                             | Lock file for detecting whether the tray app is running (macOS/tray feature only).                                                                             |
+| Location                                                  | Purpose                                                                                                                                                                                                                                                 |
+|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Repository working tree                                   | Source files read to build the LST, trigram search index, and execute recipe transformations.                                                                                                                                                           |
+| `{repo}/.git/`                                            | Git metadata for detecting the repository root and worktree configurations.                                                                                                                                                                             |
+| `{repo}/.moderne/recipes-v5.csv`                          | Per-repository recipe marketplace override, if present.                                                                                                                                                                                                 |
+| `{repo}/.moderne/build/{buildId}/sources/**/*.zoekt`      | Per-source-set trigram index shards produced by `mod build`, read by `mod search` and the MCP search tools when no assembled index is present.                                                                                                          |
+| `{repo}/.moderne/build/{buildId}/index/merged-*.zoekt`    | Repo-level assembled trigram index shards, plus `assembly.csv` (per-part digests) and a `.complete` sentinel. Preferred read source once `.complete` exists.                                                                                            |
+| `{repo}/.moderne/mcp/lst/`                                | Cached LST files from prior `mod mcp` builds.                                                                                                                                                                                                           |
+| `~/.moderne/cli/recipes-v5.csv`                           | Global recipe marketplace catalog.                                                                                                                                                                                                                      |
+| `~/.moderne/tray/server.port`                             | Port number of the tray app's HTTP server (macOS/tray feature only).                                                                                                                                                                                    |
+| `~/.moderne/tray/server.lock`                             | Lock file for detecting whether the tray app is running (macOS/tray feature only).                                                                                                                                                                      |
 | `$CLAUDE_CONFIG_DIR/projects/{encoded-repo-path}/*.jsonl` | AI client conversation transcript files, read by the transcript watcher for local search-tool usage statistics. The path shown is for Claude Code (`CLAUDE_CONFIG_DIR` defaults to `~/.claude`); other agents store transcripts in their own locations. |
 
 ### Files and directories written
 
-| Location                                              | Purpose                                                                           |
-|-------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `{repo}/**` (arbitrary paths)                         | Source files modified, added, or deleted by refactoring recipes.                  |
-| `{repo}/.moderne/mcp/lst/`                            | Serialized LST files after each `mod mcp` build.                                  |
-| `{repo}/.moderne/build/{buildId}/sources/**/*.zoekt`  | Per-source-set trigram index shards produced inline by `mod build`.               |
-| `{repo}/.moderne/build/{buildId}/index/merged-*.zoekt`| Repo-level assembled trigram shards (`assembly.csv` + `.complete` sentinel).      |
-| `{repo}/.moderne/mcp/run/{runId}/datatables/*.csv.gz` | DataTable files produced by recipe runs. Auto-deleted after one hour.             |
-| `{repo}/.moderne/mcp/lst/recipe.log`                  | Log of Maven artifact resolution activity during recipe preparation.              |
-| `{repo}/.moderne/mcp/lst/parsing-events.json`         | Cached parsing events, replayed to the tray app on restart.                       |
-| `~/.moderne/mcp/tool-observations.csv`                | Append-only log of search-tool usage observations. Local only; never transmitted. |
-| `~/.moderne/mcp/tool-observations.csv.lock`           | File lock for serializing concurrent writes to the observations CSV.              |
-| `~/.moderne/tray/tray.log`                            | Tray app subprocess stdout/stderr (macOS/tray feature only).                      |
-| `{claude-project-dir}/.transcript-watcher.lock`       | File lock ensuring one `mod mcp` process per repository watches transcripts.      |
+| Location                                               | Purpose                                                                           |
+|--------------------------------------------------------|-----------------------------------------------------------------------------------|
+| `{repo}/**` (arbitrary paths)                          | Source files modified, added, or deleted by refactoring recipes.                  |
+| `{repo}/.moderne/mcp/lst/`                             | Serialized LST files after each `mod mcp` build.                                  |
+| `{repo}/.moderne/build/{buildId}/sources/**/*.zoekt`   | Per-source-set trigram index shards produced inline by `mod build`.               |
+| `{repo}/.moderne/build/{buildId}/index/merged-*.zoekt` | Repo-level assembled trigram shards (`assembly.csv` + `.complete` sentinel).      |
+| `{repo}/.moderne/mcp/run/{runId}/datatables/*.csv.gz`  | DataTable files produced by recipe runs. Auto-deleted after one hour.             |
+| `{repo}/.moderne/mcp/lst/recipe.log`                   | Log of Maven artifact resolution activity during recipe preparation.              |
+| `{repo}/.moderne/mcp/lst/parsing-events.json`          | Cached parsing events, replayed to the tray app on restart.                       |
+| `~/.moderne/mcp/tool-observations.csv`                 | Append-only log of search-tool usage observations. Local only; never transmitted. |
+| `~/.moderne/mcp/tool-observations.csv.lock`            | File lock for serializing concurrent writes to the observations CSV.              |
+| `~/.moderne/tray/tray.log`                             | Tray app subprocess stdout/stderr (macOS/tray feature only).                      |
+| `{claude-project-dir}/.transcript-watcher.lock`        | File lock ensuring one `mod mcp` process per repository watches transcripts.      |
 
 ### Filesystem monitoring
 
@@ -222,15 +222,14 @@ Feature flags are stored in the Moderne CLI's local configuration file and manag
 | Flag                     | Default | Effect                                                                                  |
 |--------------------------|---------|-----------------------------------------------------------------------------------------|
 | `feature.agentToolsTray` | `false` | Enables macOS tray app integration. When false, no side-channel HTTP server is started. |
-| `feature.noMavenCentral` | `false` | When true, prevents Maven Central from being contacted for recipe JAR resolution.       |
 
 ### Environment variables
 
-| Variable                          | Effect                                                                                                                                           |
-|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| Variable                          | Effect                                                                                                                                                                                           |
+|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `CLAUDE_CONFIG_DIR`               | Overrides the default Claude Code configuration directory (`~/.claude`). Used by the transcript watcher to locate conversation transcript files. Other agents use their own configuration paths. |
-| `java.home` (JVM system property) | Determines the Java binary used to launch the tray app subprocess.                                                                               |
-| `mod.jar` (JVM system property)   | Points to the Moderne CLI fat JAR, set by the `modw` wrapper script. Used when launching the tray app.                                           |
+| `java.home` (JVM system property) | Determines the Java binary used to launch the tray app subprocess.                                                                                                                               |
+| `mod.jar` (JVM system property)   | Points to the Moderne CLI fat JAR, set by the `modw` wrapper script. Used when launching the tray app.                                                                                           |
 
 ### Secrets and credentials
 

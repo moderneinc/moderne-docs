@@ -21,6 +21,41 @@ mod config build maven settings edit /path/to/maven/settings/file
 
 The CLI uses this settings file to download dependencies and look up versions as needed. A custom settings file commonly exists on developer machines for redirecting Maven Central requests to an internal artifact instance.
 
+## Controlling Maven Central
+
+To resolve a Maven dependency, the CLI uses OpenRewrite, which lists repositories in this order:
+
+* Your local Maven repository, `~/.m2/repository` unless your `settings.xml` sets another.
+* The repositories in your `settings.xml`.
+* The repositories in your POMs and their parents.
+* Maven Central.
+
+If your settings or POMs declare a repository with the ID `central`, OpenRewrite uses that one. It does not add Maven Central. Version lookups, such as finding the latest release, ask every repository and combine the answers.
+
+Set your settings file with `mod config build maven settings edit`. Without one, the CLI reads `~/.m2/settings.xml` and the settings in your Maven installation.
+
+For Maven projects, `mod build` saves your settings and active profiles in the LST. It leaves out your `<servers>` credentials. When you run a recipe, the CLI reads your settings again. Maven recipes that look up versions use both the saved and the current settings.
+
+To keep Maven Central out, add a mirror for it to your `settings.xml`:
+
+```xml
+<settings>
+  <mirrors>
+    <mirror>
+      <id>internal</id>
+      <url>https://artifacts.example.com/maven</url>
+      <mirrorOf>central,sonatype-central</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>
+```
+
+Listing `sonatype-central` also redirects the snapshots repository the CLI adds to install recipes.
+
+:::note
+The `mod config features no-maven-central` command no longer has any effect. Use a mirror instead.
+:::
+
 ## Pointing the CLI at an internal Artifactory for recipes
 
 If you have an internal Artifactory instance where you store recipes, direct the CLI to it:
