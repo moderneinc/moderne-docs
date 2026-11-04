@@ -18,6 +18,25 @@ describe('joinContinuations', () => {
     expect([...breaks.keys()]).toEqual(['mod run . -P "x=1"']);
   });
 
+  it('leaves a block unjoined when a comment sits inside a continued command', () => {
+    const source = 'docker run \\\n-e A=1 \\\n# Optional\n-e B=2 \\\nimage\n';
+    expect(joinContinuations(source)).toEqual({ code: source, breaks: new Map() });
+  });
+
+  it('leaves a block unjoined when a comment line ends with a backslash', () => {
+    const source = '# -e A=1 \\\n# -e B=2\nmod run .\n';
+    expect(joinContinuations(source)).toEqual({ code: source, breaks: new Map() });
+  });
+
+  it('leaves a heredoc block unjoined', () => {
+    const source = "cat <<'EOF' > run.sh\nmod run . \\\n  --recipe X\nEOF\n";
+    expect(joinContinuations(source)).toEqual({ code: source, breaks: new Map() });
+  });
+
+  it('drops a dangling backslash at the end of the block', () => {
+    expect(joinContinuations('java -jar app.jar \\\n--a=1 \\\n').code).toBe('java -jar app.jar --a=1');
+  });
+
   it('returns unchanged code when nothing is continued', () => {
     expect(joinContinuations('mod config\nmod run .\n')).toEqual({ code: 'mod config\nmod run .\n', breaks: new Map() });
   });

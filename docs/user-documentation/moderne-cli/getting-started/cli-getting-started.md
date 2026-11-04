@@ -132,7 +132,7 @@ Below you can find example commands for starting the agents:
 <Tabs groupId="agent">
 <TabItem value="claude-code" label="Claude Code" default>
 
-```bash join-on-windows
+```bash
 mod claude chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
@@ -140,7 +140,7 @@ mod claude chat legacy-java-apps --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="codex" label="Codex">
 
-```bash join-on-windows
+```bash
 mod codex chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
@@ -148,7 +148,7 @@ mod codex chat legacy-java-apps --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="copilot-cli" label="Copilot">
 
-```bash join-on-windows
+```bash
 mod copilot chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
@@ -156,7 +156,7 @@ mod copilot chat legacy-java-apps --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="cursor" label="Cursor">
 
-```bash join-on-windows
+```bash
 mod cursor chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
@@ -164,7 +164,7 @@ mod cursor chat legacy-java-apps --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="kiro" label="Kiro">
 
-```bash join-on-windows
+```bash
 mod kiro chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
@@ -172,7 +172,7 @@ mod kiro chat legacy-java-apps --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="amp" label="Amp">
 
-```bash join-on-windows
+```bash
 mod amp chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
@@ -180,7 +180,7 @@ mod amp chat legacy-java-apps --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="opencode" label="OpenCode">
 
-```bash join-on-windows
+```bash
 mod opencode chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
@@ -188,7 +188,7 @@ mod opencode chat legacy-java-apps --org "Legacy Java Apps" \
 </TabItem>
 <TabItem value="vscode" label="VS Code">
 
-```bash join-on-windows
+```bash
 mod vscode chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
@@ -272,7 +272,7 @@ mod search "moderne://ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps
 
 It compared two candidates. `UpgradeToJava25` updates the build files and replaces APIs that Java 25 removed. `JavaBestPractices` includes that upgrade and also modernizes the code itself: `var`, text blocks, pattern matching, switch expressions. As the prompt asked for code written for Java 25, not just code that compiles on it, the agent picked `JavaBestPractices` and ran it across the whole organization in Moderne:
 
-```bash join-on-windows
+```bash
 mod run "moderne://ALL/Open Source/Sample Estate/Java Estate/Legacy Java Apps" \
   --recipe org.openrewrite.java.migrate.JavaBestPractices
 ```

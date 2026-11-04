@@ -186,7 +186,7 @@ The CLI lists the closest matches and asks you to pick one. You should see `org.
 
 The marketplace sync didn't complete. The usual cause is a network that can't reach the marketplace. You can install the recipe JARs this workshop needs directly from the artifact repository instead:
 
-```bash join-on-windows
+```bash
 mod config recipes jar install \
   org.openrewrite:rewrite-java \
   org.openrewrite.recipe:rewrite-migrate-java \

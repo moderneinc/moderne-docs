@@ -223,7 +223,7 @@ mod study . --last-recipe-run --data-table LanguageCompositionPerRepository
 
 #### CLI commands
 
-```bash join-on-windows
+```bash
 # Find endpoints handling personal data fields like names and emails
 mod run . --recipe org.openrewrite.java.security.search.FindSensitiveApiEndpoints \
     -P "fieldNames=firstName,lastName,email,emailAddress" \
@@ -351,7 +351,7 @@ mod study . --last-recipe-run --data-table TaintFlowTable
 
 #### CLI commands
 
-```bash join-on-windows
+```bash
 # Example: Find all Jackson library versions
 mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
   -P "groupIdPattern=*" \
@@ -485,7 +485,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 #### CLI commands
 
-```bash join-on-windows
+```bash
 # Update specific plugin - adjust parameters for your plugins
 mod run . --recipe org.openrewrite.gradle.plugins.UpgradePluginVersion \
   --recipe-option "pluginIdPattern=org.springframework.boot" \
@@ -525,7 +525,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 #### CLI commands
 
-```bash join-on-windows
+```bash
 # Update specific plugin - adjust parameters for your plugins
 mod run . --recipe org.openrewrite.maven.UpgradePluginVersion \
   --recipe-option "groupId=org.springframework.boot" \
@@ -627,7 +627,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 #### CLI commands
 
-```bash join-on-windows
+```bash
 mod run . --recipe org.openrewrite.java.dependencies.DependencyVulnerabilityCheck \
   -P "scope=runtime" \
   -P "overrideTransitive=True" \

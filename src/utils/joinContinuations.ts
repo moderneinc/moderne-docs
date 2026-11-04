@@ -16,6 +16,8 @@ export const BreaksContext = createContext<Breaks | null>(null);
 export function joinContinuations(code: string): { code: string; breaks: Breaks } {
   const lines: string[] = [];
   const breaks: Breaks = new Map();
+  // A heredoc's `\` may be literal, and a comment ends the command it sits in, so joining would change either.
+  if (/<<-?\s*['"]?\w/.test(code) || /\\\n[ \t]*#|^[ \t]*#.*\\$/m.test(code)) return { code, breaks };
   let current: string | null = null;
   let currentBreaks: Break[] = [];
   for (const source of code.split('\n')) {
@@ -30,8 +32,11 @@ export function joinContinuations(code: string): { code: string; breaks: Breaks 
       current = text.slice(0, continued.index) + ' ';
       continue;
     }
+    if (currentBreaks.length > 0) {
+      text = text.trimEnd();
+      breaks.set(text, currentBreaks);
+    }
     lines.push(text);
-    if (currentBreaks.length > 0) breaks.set(text, currentBreaks);
     current = null;
     currentBreaks = [];
   }

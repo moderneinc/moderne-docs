@@ -374,7 +374,7 @@ class UseKotlinMathTest : RewriteTest {
 
 Once your tests pass, you can point the [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) at your compiled classes and try the recipe on real repositories, exactly as you did with the active recipe in Module 1:
 
-```bash join-on-windows
+```bash
 ./gradlew classes
 mod config recipes active set src/main/kotlin/com/yourorg/UseKotlinMath.kt \
   --recipe='com.yourorg.UseKotlinMath$KtRecipe'
