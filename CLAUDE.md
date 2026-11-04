@@ -10,7 +10,7 @@ When editing any documentation in this repository, ALWAYS follow the rules in ST
 
 * Use asterisks (*) for bullet points, not dashes (-)
 * Add blank lines after headers and before code blocks
-* Tag shell commands as `bash` and keep comment lines out of `\`-continued commands, so Windows readers can copy them as one line (Rule 2)
+* Tag shell commands as `bash`, so Windows readers can copy commands split with `\` as one line (Rule 2)
 * End description lines with exactly one period
 * Use sentence case for headers (no title case, no ending periods)
 * Use explicit relative paths for links (./file.md, ../parent.md), never absolute https://docs.moderne.io URLs (Rules 9, 18)

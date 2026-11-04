@@ -41,21 +41,19 @@ This document outlines the formatting and style conventions for all Moderne docu
     // No blank line before code block
     ```
 
-**Rule**: Tag shell commands as `bash` and keep comment lines out of a command split with `\` continuations. Windows readers copy a split `bash` command as one line, because `\` breaks it in PowerShell and cmd. A comment inside the command ends it in bash and leaves it unjoined for Windows readers.
+**Rule**: Tag shell commands as `bash`. Windows readers then copy a command split with `\` continuations as one line, because `\` breaks it in PowerShell and cmd. Snippets that mark omitted arguments with comments, such as `# ... Existing variables`, are fine and stay as written.
 
 **Correct example:**
 
     ```bash
-    # Find every Jackson version in use
     mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
       -P "artifactIdPattern=jackson*"
     ```
 
 **Incorrect example:**
 
-    ```bash
+    ```
     mod run . --recipe org.openrewrite.java.dependencies.DependencyInsight \
-      # Find every Jackson version in use
       -P "artifactIdPattern=jackson*"
     ```
 
@@ -654,7 +652,7 @@ When editing documentation, verify:
 
 * [ ] All headers followed by blank lines (Rule 1)
 * [ ] All code blocks preceded by blank lines (Rule 2)
-* [ ] Shell commands tagged `bash`, with no comment lines inside a `\`-continued command (Rule 2)
+* [ ] Shell commands tagged `bash` (Rule 2)
 * [ ] All bullet points use asterisks (`*`) (Rule 3)
 * [ ] Blank line before bullet lists (Rule 4)
 * [ ] Description lines end with exactly one period (Rule 5)
