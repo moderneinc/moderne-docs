@@ -86,7 +86,7 @@ Want to use a UI to build declarative recipes rather than trying to figure out a
 
 Refaster template recipes are the "middle ground" of recipes. They offer more functionality than [declarative recipes](#declarative-recipes), but not as much as [imperative recipes](#imperative-recipes). On the other hand, compared to an imperative recipe, they're much quicker to create and require much less knowledge to get started.
 
-Refaster template recipes can only be used to replace one expression with another – or one statement with another. Because of that, they're ideal for straightforward replacements such as converting `StringUtils.equals(..)` to `Objects.equals(..)`. These are more than just a string replacement, though - they offer compiler and type support.
+Refaster template recipes can only be used to replace one expression with another – or one statement with another. Because of that, they're ideal for straightforward replacements such as converting `StringUtils.equals(..)` to `Objects.equals(..)`. These are more than just a string replacement, though; they offer compiler and type support.
 
 To make Refaster template recipes, you will create [Refaster templates](https://errorprone.info/docs/refaster) that will get automatically converted to Refaster template recipes when you build your repository.
 
@@ -100,40 +100,36 @@ Refaster template recipes can also be used as a starting point for more complex 
 If you want to learn more about Refaster, in general, check out the [Error Prone Refaster docs](https://errorprone.info/docs/refaster). Please note, though, that not all annotations available in those docs are available in Moderne.
 :::
 
-A variety of refaster templates can be found in the [StringRules](https://github.com/openrewrite/rewrite-migrate-java/blob/v2.1.1/src/main/java/org/openrewrite/java/migrate/lang/StringRules.java#L23-L48) class in `rewrite-migrate-java`:
+A variety of refaster templates can be found in the [StringRules](https://github.com/openrewrite/rewrite-migrate-java/blob/v3.42.1/src/main/java/org/openrewrite/java/migrate/lang/StringRules.java#L77-L96) class in `rewrite-migrate-java`:
 
 ```java
 @RecipeDescriptor(
-        name = "Replace redundant `String` method calls with self",
-        description = "Replace redundant `substring(..)` and `toString()` method calls with the `String` self."
-)
+        name = "Replace lower and upper case `String` comparisons with `String.equalsIgnoreCase(String)`",
+        description = "Replace `String` equality comparisons involving `.toLowerCase()` or `.toUpperCase()` with `String.equalsIgnoreCase(String anotherString)`.")
 @SuppressWarnings("StringOperationCanBeSimplified")
-public static class RedundantCall {
+public static class UseEqualsIgnoreCase {
     @BeforeTemplate
-    public String start(String string) {
-        return string.substring(0, string.length());
+    public boolean bothLowerCase(String string, String test) {
+        return string.toLowerCase().equals(test.toLowerCase());
     }
 
     @BeforeTemplate
-    public String startAndEnd(String string) {
-        return string.substring(0);
-    }
-
-    @BeforeTemplate
-    public String toString(String string) {
-        return string.toString();
+    public boolean bothUpperCase(String string, String test) {
+        return string.toUpperCase().equals(test.toUpperCase());
     }
 
     @AfterTemplate
-    public String self(String string) {
-        return string;
+    public boolean equalsIgnoreCase(String string, String test) {
+        return string.equalsIgnoreCase(test);
     }
 }
 ```
 
+A single template class can declare more than one `@BeforeTemplate`, as above - any of them matching will be replaced by the one `@AfterTemplate`.
+
 ## Imperative recipes
 
-[Imperative recipes](writing-a-java-refactoring-recipe.md) offer the most freedom and functionality at the cost of being more difficult to create. They allow you to write Java code to implement your recipe.
+[Imperative recipes](./writing-a-java-refactoring-recipe.md) offer the most freedom and functionality at the cost of being more difficult to create. They allow you to write Java code to implement your recipe.
 
 Imperative recipes are ideal for situations where there is a lot of complexity or nuance needed to determine what should be changed or what it should be changed into. For instance, if you wanted to write a recipe that added the `final` modifier to any local variables that aren't reassigned, you would need to create an imperative recipe as refaster templates don't have the ability to determine whether a variable has been reassigned.
 
@@ -144,5 +140,5 @@ The [FinalizeLocalVariables recipe](https://github.com/openrewrite/rewrite-stati
 ## Next steps
 
 * If you want more information about the types of recipes and the recipe execution pipeline, please see our [recipes documentation](../concepts/recipes.md)
-* If you want to write your own imperative recipe, please check out the [writing a Java refactoring recipe](writing-a-java-refactoring-recipe.md) guide.
+* If you want to write your own imperative recipe, please check out the [writing a Java refactoring recipe](./writing-a-java-refactoring-recipe.md) guide.
 * If you want to learn more about how to test recipes, please see our [recipe testing guide](../testing-and-best-practices/recipe-testing.md)

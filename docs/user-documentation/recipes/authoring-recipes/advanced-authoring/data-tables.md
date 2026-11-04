@@ -272,18 +272,12 @@ By default, OpenRewrite recipes will **not** produce a data table. In order for 
 1. You will need to ensure your project is built with
    * [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin) version `5.39.0` or higher.
    * [rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin/) version `6.16.5` or higher. 
-2. Next, you will either need to update your build file or modify your command for running a recipe:
+2. Next, you will either need to update build file or modify your command for running a recipe:
 
 :::info
-OpenRewrite and Moderne recipes are distributed through the Code Genome Project, which requires authentication. For Gradle, put your username in `~/.gradle/gradle.properties` as `codegenomeUsername` and your token as `codegenomePassword`, which the snippets below read.
+OpenRewrite artifacts, including the build plugins, are distributed through the Code Genome Project repository, which requires authentication. Gradle builds read the `codegenomeUsername` and `codegenomePassword` credentials from `gradle.properties`. Maven builds read the same credentials from `settings.xml`, where the `USERNAME` and `TOKEN` placeholders below stand in for the email or username you signed in with and a download token. See the [quickstart guide](../../accessing-the-code-genome-project.md) for how to create a token and where to put it.
 
-For Maven, put the credentials in your `settings.xml`. See [Accessing the Code Genome Project](../../accessing-the-code-genome-project.md) for how to get credentials and the `settings.xml` setup.
-:::
-
-<Tabs>
-
-<TabItem value="build.gradle" label="build.gradle">
-The `org.openrewrite.rewrite` plugin is resolved from the Code Genome Project. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so declare the repository there:
+Gradle also needs that repository declared in `pluginManagement` in `settings.gradle`, because the plugin itself is distributed through the Code Genome Project rather than the Gradle Plugin Portal, and Gradle resolves plugins before it evaluates any project:
 
 ```groovy title="settings.gradle"
 pluginManagement {
@@ -295,12 +289,17 @@ pluginManagement {
                 password = providers.gradleProperty("codegenomePassword").get()
             }
         }
+        // Keep the portal for any other plugins your build applies
         gradlePluginPortal()
     }
 }
 ```
+:::
 
-Then add `exportDatatables = true` to your `build.gradle` file such as in the following example:
+<Tabs>
+
+<TabItem value="build.gradle" label="build.gradle">
+Add `exportDatatables = true` to your `build.gradle` file such as in the following example:
 
 ```groovy
 plugins {
@@ -361,21 +360,35 @@ Add `<exportDatatables>true</exportDatatables>` to your `pom.xml` file such as i
 </plugin>
 ```
 
-The recipe modules resolve from the Code Genome Project, so add the repository to your `pom.xml`:
+Since the plugin and recipe modules are resolved from the Code Genome Project, add the repository to your `pom.xml` as well:
 
 ```xml
 <repositories>
-  <repository>
-    <id>codegenome</id>
-    <url>https://artifacts.codegenomeproject.org/maven</url>
-  </repository>
+    <repository>
+        <id>codegenome</id>
+        <url>https://artifacts.codegenomeproject.org/maven</url>
+    </repository>
 </repositories>
 <pluginRepositories>
-  <pluginRepository>
-    <id>codegenome</id>
-    <url>https://artifacts.codegenomeproject.org/maven</url>
-  </pluginRepository>
+    <pluginRepository>
+        <id>codegenome</id>
+        <url>https://artifacts.codegenomeproject.org/maven</url>
+    </pluginRepository>
 </pluginRepositories>
+```
+
+Then add your credentials to your Maven `settings.xml` file (typically at `~/.m2/settings.xml`):
+
+```xml title="settings.xml"
+<settings>
+    <servers>
+        <server>
+            <id>codegenome</id>
+            <username>USERNAME</username>
+            <password>TOKEN</password>
+        </server>
+    </servers>
+</settings>
 ```
 </TabItem>
 
@@ -383,8 +396,10 @@ The recipe modules resolve from the Code Genome Project, so add the repository t
 Add `-Drewrite.exportDatatables=true` to your Maven command for running a recipe such as in the following example:
 
 ```bash
-mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.exportDatatables=true -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-java-dependencies:RELEASE -Drewrite.activeRecipes=org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
+mvn -U org.openrewrite.maven:rewrite-maven-plugin:{{VERSION_REWRITE_MAVEN_PLUGIN}}:run -Drewrite.exportDatatables=true -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-java-dependencies:RELEASE -Drewrite.activeRecipes=org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
 ```
+
+Since this command doesn't modify your `pom.xml`, the Code Genome Project repository has to be declared in your Maven `settings.xml` file as both a `pluginRepository` and a `repository`, as described in [running Rewrite without modifying the build](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-maven-project-without-modifying-the-build#configure-the-code-genome-project-repository).
 
 </TabItem>
 </Tabs>
@@ -408,6 +423,6 @@ OpenRewrite recipes only run on a single repository at a time. Likewise, a data 
 
 For instance, if you had 1000 repositories you wanted to check, you'd have to configure _each repository_, run the recipe, and build up your own CSV that concatenates all 1000 results together. That would take a considerable amount of time and effort for only a single recipe. If you wanted to run multiple recipes that produced multiple data tables - it spirals out of control even more quickly.
 
-Fortunately, Moderne can help with this. Data tables can be produced for any types of repositories (whether they're built with Maven or not) without any configuration changes. Moderne can also run recipes against all of your repositories at once in a significantly shorter period of time.
+Fortunately, [Moderne](https://docs.moderne.io/) can help with this. Data tables can be produced for any types of repositories (whether they're built with Maven or not) without any configuration changes. Moderne can also run recipes against all of your repositories at once in a significantly shorter period of time.
 
 For more information about data tables in Moderne, check out our [getting started with data tables guide](../../../moderne-platform/getting-started/data-tables.md). 

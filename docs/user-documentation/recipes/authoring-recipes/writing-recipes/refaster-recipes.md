@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 Refaster is easy to use and understand even for developers with no prior experience with parsers, compilers, or other refactoring tools.
 OpenRewrite has independently implemented support for Refaster-style templates so that recipe authors can benefit from Refaster's accessibility and existing catalogue of useful refactoring operations.
 
-Refaster template recipes are recipes created from [Refaster templates](#terminology) that refactor code by doing straightforward replacements (e.g., converting `StringUtils.equals(..)` to `Objects.equals(..)`). These are more than just a string replacement, though - they offer compiler and type support. They can also be used to build more complex recipes. Please note, though, that Refaster recipes are **whitespace agnostic** – meaning that you can't use a Refaster recipe to add or remove whitespace.
+Refaster template recipes are recipes created from [Refaster templates](#terminology) that refactor code by doing straightforward replacements (e.g., converting `StringUtils.equals(..)` to `Objects.equals(..)`). These are more than just a string replacement, though; they offer compiler and type support. They can also be used to build more complex recipes. Please note, though, that Refaster recipes are **whitespace agnostic** – meaning that you can't use a Refaster recipe to add or remove whitespace.
 
 Let's walk through everything you need to know to get started making your own.
 
@@ -84,6 +84,10 @@ Moderne provides a [starter recipe repository](https://github.com/moderneinc/rew
 
 The first thing you'll need to do is update your dependencies and add an annotation processor. Below are the minimum recommended dependencies to include in your project:
 
+:::info
+The rewrite modules below are distributed through the [Code Genome Project](https://artifacts.codegenomeproject.org/maven), which requires authentication. If you haven't already, declare that repository and your credentials as described in the [recipe development environment guide](../set-up/recipe-development-environment.md#dependencies--dependency-management).
+:::
+
 <Tabs groupId="projectType">
 <TabItem value="gradle" label="Gradle">
 
@@ -95,7 +99,7 @@ dependencies {
 
     // If you are developing recipes in Java, you'll need to bring in rewrite-java
     implementation("org.openrewrite:rewrite-java")
-    runtimeOnly("org.openrewrite:rewrite-java-17")
+    runtimeOnly("org.openrewrite:rewrite-java-25")
 
     // Refaster style recipes need the rewrite-templating annotation processor and dependency for generated recipes:
     // https://github.com/openrewrite/rewrite-templating/releases
@@ -292,20 +296,21 @@ public class SimplifyTernary {
 ```java
 package com.yourorg;
 
+import org.jspecify.annotations.NullMarked;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Preconditions;
 import org.openrewrite.Recipe;
 import org.openrewrite.TreeVisitor;
-import org.openrewrite.internal.lang.NonNullApi;
+import org.openrewrite.java.JavaParser;
 import org.openrewrite.java.JavaTemplate;
 import org.openrewrite.java.JavaVisitor;
 import org.openrewrite.java.search.*;
 import org.openrewrite.java.template.Primitive;
-import org.openrewrite.java.template.Semantics;
 import org.openrewrite.java.template.function.*;
 import org.openrewrite.java.template.internal.AbstractRefasterJavaVisitor;
 import org.openrewrite.java.tree.*;
 
+import javax.annotation.Generated;
 import java.util.*;
 
 import static org.openrewrite.java.template.internal.AbstractRefasterJavaVisitor.EmbeddingOption.*;
@@ -314,6 +319,7 @@ import static org.openrewrite.java.template.internal.AbstractRefasterJavaVisitor
  * OpenRewrite recipes created for Refaster template {@code com.yourorg.SimplifyTernary}.
  */
 @SuppressWarnings("all")
+@Generated("org.openrewrite.java.template.processor.RefasterTemplateProcessor")
 public class SimplifyTernaryRecipes extends Recipe {
     /**
      * Instantiates a new instance.
@@ -322,11 +328,13 @@ public class SimplifyTernaryRecipes extends Recipe {
 
     @Override
     public String getDisplayName() {
+        //language=markdown
         return "Simplify ternary expressions";
     }
 
     @Override
     public String getDescription() {
+        //language=markdown
         return "Simplifies various types of ternary expressions to improve code readability.";
     }
 
@@ -342,7 +350,7 @@ public class SimplifyTernaryRecipes extends Recipe {
      * OpenRewrite recipe created for Refaster template {@code SimplifyTernary.SimplifyTernaryTrueFalse}.
      */
     @SuppressWarnings("all")
-    @NonNullApi
+    @NullMarked
     public static class SimplifyTernaryTrueFalseRecipe extends Recipe {
 
         /**
@@ -352,24 +360,32 @@ public class SimplifyTernaryRecipes extends Recipe {
 
         @Override
         public String getDisplayName() {
+            //language=markdown
             return "Replace `booleanExpression ? true : false` with `booleanExpression`";
         }
 
         @Override
         public String getDescription() {
+            //language=markdown
             return "Replace ternary expressions like `booleanExpression ? true : false` with `booleanExpression`.";
         }
 
         @Override
         public TreeVisitor<?, ExecutionContext> getVisitor() {
             JavaVisitor<ExecutionContext> javaVisitor = new AbstractRefasterJavaVisitor() {
-                final JavaTemplate before = Semantics.expression(this, "before", (@Primitive Boolean expr) -> expr ? true : false).build();
-                final JavaTemplate after = Semantics.expression(this, "after", (@Primitive Boolean expr) -> expr).build();
+                JavaTemplate before;
+                JavaTemplate after;
 
                 @Override
                 public J visitTernary(J.Ternary elem, ExecutionContext ctx) {
                     JavaTemplate.Matcher matcher;
+                    if (before == null) {
+                        before = JavaTemplate.builder("#{expr:any(boolean)} ? true : false").build();
+                    }
                     if ((matcher = before.matcher(getCursor())).find()) {
+                        if (after == null) {
+                            after = JavaTemplate.builder("#{expr:any(boolean)}").build();
+                        }
                         return embed(
                                 after.apply(getCursor(), elem.getCoordinates().replace(), matcher.parameter(0)),
                                 getCursor(),
@@ -381,7 +397,13 @@ public class SimplifyTernaryRecipes extends Recipe {
                 }
 
             };
-            return javaVisitor;
+            return Preconditions.check(
+                    Preconditions.and(
+                            Preconditions.not(new UsesType<>("com.google.errorprone.refaster.annotation.BeforeTemplate", true)),
+                            Preconditions.not(new UsesType<>("org.openrewrite.java.template.Semantics", true))
+                    ),
+                    javaVisitor
+            );
         }
     }
 
@@ -389,7 +411,7 @@ public class SimplifyTernaryRecipes extends Recipe {
      * OpenRewrite recipe created for Refaster template {@code SimplifyTernary.SimplifyTernaryFalseTrue}.
      */
     @SuppressWarnings("all")
-    @NonNullApi
+    @NullMarked
     public static class SimplifyTernaryFalseTrueRecipe extends Recipe {
 
         /**
@@ -399,36 +421,50 @@ public class SimplifyTernaryRecipes extends Recipe {
 
         @Override
         public String getDisplayName() {
+            //language=markdown
             return "Replace `booleanExpression ? false : true` with `!booleanExpression`";
         }
 
         @Override
         public String getDescription() {
+            //language=markdown
             return "Replace ternary expressions like `booleanExpression ? false : true` with `!booleanExpression`.";
         }
 
         @Override
         public TreeVisitor<?, ExecutionContext> getVisitor() {
             JavaVisitor<ExecutionContext> javaVisitor = new AbstractRefasterJavaVisitor() {
-                final JavaTemplate before = Semantics.expression(this, "before", (@Primitive Boolean expr) -> expr ? false : true).build();
-                final JavaTemplate after = Semantics.expression(this, "after", (@Primitive Boolean expr) -> !(expr)).build();
+                JavaTemplate before;
+                JavaTemplate after;
 
                 @Override
                 public J visitTernary(J.Ternary elem, ExecutionContext ctx) {
                     JavaTemplate.Matcher matcher;
+                    if (before == null) {
+                        before = JavaTemplate.builder("#{expr:any(boolean)} ? false : true").build();
+                    }
                     if ((matcher = before.matcher(getCursor())).find()) {
+                        if (after == null) {
+                            after = JavaTemplate.builder("!#{expr:any(boolean)}").build();
+                        }
                         return embed(
                                 after.apply(getCursor(), elem.getCoordinates().replace(), matcher.parameter(0)),
                                 getCursor(),
                                 ctx,
-                                REMOVE_PARENS, SHORTEN_NAMES, SIMPLIFY_BOOLEANS
+                                SHORTEN_NAMES, SIMPLIFY_BOOLEANS
                         );
                     }
                     return super.visitTernary(elem, ctx);
                 }
 
             };
-            return javaVisitor;
+            return Preconditions.check(
+                    Preconditions.and(
+                            Preconditions.not(new UsesType<>("com.google.errorprone.refaster.annotation.BeforeTemplate", true)),
+                            Preconditions.not(new UsesType<>("org.openrewrite.java.template.Semantics", true))
+                    ),
+                    javaVisitor
+            );
         }
     }
 

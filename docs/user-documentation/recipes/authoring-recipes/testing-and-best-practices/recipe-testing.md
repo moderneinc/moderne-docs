@@ -40,6 +40,10 @@ Before you can go about writing tests, you'll want to add some dependencies to y
 
 You may need to include additional dependencies depending on the type of recipes you want to create. For instance, [Refaster template recipes](../writing-recipes/types-of-recipes.md#refaster-template-recipes) will need a few more dependencies (included below with comments).
 
+:::info
+The rewrite modules below are distributed through the [Code Genome Project](https://artifacts.codegenomeproject.org/maven), which requires authentication. If you haven't already, declare that repository and your credentials as described in the [recipe development environment guide](../set-up/recipe-development-environment.md#dependencies--dependency-management).
+:::
+
 <Tabs groupId="projectType">
 <TabItem value="gradle" label="Gradle">
 
@@ -148,7 +152,6 @@ package com.yourorg;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Recipe;
 import org.openrewrite.TreeVisitor;
-import org.openrewrite.internal.lang.Nullable;
 import org.openrewrite.java.ChangePackage;
 import org.openrewrite.java.JavaIsoVisitor;
 import org.openrewrite.java.tree.J;
@@ -317,7 +320,7 @@ Before you begin writing the core logic for your tests, you'll need to set up yo
 * It allows you to customize the environment in which the recipe runs (such as what parser(s) to use and whether or not you should log Java compilation errors)
 * It provides convenient callbacks that can be used to execute code before or after any given test
 
-The `RewriteTest.defaults()` method can be used to define common `RecipeSpec` customizations that should be applied to all of the tests in the testing class. Additionally, there are overloaded versions of the `RewriteTest.runRecipe()` method that allow the `RecipeSpec` to be further customized for a specific test. For instance, you may want different tests to have [different Spring properties](https://github.com/openrewrite/rewrite-spring/blob/main/src/test/java/org/openrewrite/java/spring/AddSpringPropertyTest.java) or [different Java versions](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/test/java/org/openrewrite/java/migrate/jakarta/JavaxToJakartaTest.java).
+The `RewriteTest.defaults()` method can be used to define common `RecipeSpec` customizations that should be applied to all of the tests in the testing class. Additionally, there are overloaded versions of the `RewriteTest.rewriteRun()` method that allow the `RecipeSpec` to be further customized for a specific test. For instance, you may want different tests to have [different Spring properties](https://github.com/openrewrite/rewrite-spring/blob/main/src/test/java/org/openrewrite/java/spring/AddSpringPropertyTest.java) or [different Java versions](https://github.com/openrewrite/rewrite-migrate-java/blob/main/src/test/java/org/openrewrite/java/migrate/jakarta/JavaxToJakartaTest.java).
 
 ### SourceSpec
 
@@ -477,7 +480,7 @@ public void defaults(RecipeSpec spec) {
 }
 ```
 
-([Recipe example](https://github.com/openrewrite/rewrite-migrate-java/blob/v2.0.2/src/test/java/org/openrewrite/java/migrate/lang/UseTextBlocksTest.java#L41))
+([Recipe example](https://github.com/openrewrite/rewrite-migrate-java/blob/v3.42.1/src/test/java/org/openrewrite/java/migrate/lang/UseTextBlocksTest.java#L42-L46))
 
 You can also specify the version on an individual test basis [like so](https://github.com/openrewrite/rewrite-migrate-java/blob/927b01de8e8fd8f1ab68bc934a860043e0eba441/src/test/java/org/openrewrite/java/migrate/util/RemoveFinalizerFromZipTest.java#L259-L270):
 
@@ -504,7 +507,7 @@ void noChangeOnJava11() {
 
 If your tests include code that is not part of the JDK itself, you will want to add a `classpath` or `classpathFromResources` to the test so that OpenRewrite can know where those dependencies are coming from.
 
-For instance, if you want to test that your recipe removes a `junit-jupiter-api` method, you would need to let the parser know that there is a dependency on that library such as in [the RemoveUnneededAssertionTest](https://github.com/openrewrite/rewrite-static-analysis/blob/v1.0.4/src/test/java/org/openrewrite/staticanalysis/RemoveUnneededAssertionTest.java#L105).
+For instance, if you want to test that your recipe removes a `junit-jupiter-api` method, you would need to let the parser know that there is a dependency on that library such as in [the RemoveUnneededAssertionTest](https://github.com/openrewrite/rewrite-static-analysis/blob/v2.41.1/src/test/java/org/openrewrite/staticanalysis/RemoveUnneededAssertionTest.java#L84).
 
 If you want to test multiple versions of the same dependency, you'll want to use `classpathFromResources` instead which you can find documentation for in the [using multiple versions of a library guide](../advanced-authoring/multiple-versions.md).
 
@@ -512,4 +515,4 @@ If you want to test multiple versions of the same dependency, you'll want to use
 
 Now that you're familiar with writing tests, consider reading over the [best practice guide for making recipes](./recipe-conventions-and-best-practices.md). You could also check out [the guide that expands on JavaTemplates](../advanced-authoring/modifying-methods-with-javatemplate.md) if you'd like to learn even more about creating recipes.
 
-To learn more about testing recipes on real-world code, check out our [validating recipes at scale](./validating-recipes-at-scale.md) doc.
+To learn more about testing recipes on real-world code, check out the Moderne guide on [validating recipes at scale](./validating-recipes-at-scale.md).

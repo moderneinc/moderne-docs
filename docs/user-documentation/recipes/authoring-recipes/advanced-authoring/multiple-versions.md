@@ -28,7 +28,7 @@ plugins {
 }
 ```
 
-The plugin and the `rewrite-core` libraries it depends on are distributed through the [Code Genome Project](../../accessing-the-code-genome-project.md), which requires authentication. Gradle resolves plugins from `pluginManagement` in `settings.gradle` before any project is evaluated, so declare the repository there, with your username as `codegenomeUsername` and your token as `codegenomePassword` in `~/.gradle/gradle.properties`:
+The OpenRewrite build plugins are distributed through the [Code Genome Project](https://artifacts.codegenomeproject.org/maven), which requires authentication. Plugins are resolved before any project is evaluated, so declare that repository under `pluginManagement` in your `settings.gradle`, with `codegenomeUsername` and `codegenomePassword` (a download token) set in `~/.gradle/gradle.properties`:
 
 ```groovy title="settings.gradle"
 pluginManagement {
@@ -40,6 +40,7 @@ pluginManagement {
                 password = providers.gradleProperty("codegenomePassword").get()
             }
         }
+        // Keep the portal for any other plugins your build applies
         gradlePluginPortal()
     }
 }
@@ -76,6 +77,10 @@ That being said, there may be some cases where you want to use this task – suc
 
 For Maven projects, we've updated the [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin) to include support for multiple versions of a library and TypeTables. You can get this functionality by updating your `pom.xml` and adding a section like:
 
+:::info
+`rewrite-maven-plugin` is distributed through the [Code Genome Project](https://artifacts.codegenomeproject.org/maven), which requires authentication. The snippet below assumes you have already declared that repository as a `<pluginRepository>` and added your credentials to `settings.xml`, as described in the [quickstart guide](../../accessing-the-code-genome-project.md).
+:::
+
 ```xml title="pom.xml"
 <profiles>
     <!--
@@ -89,7 +94,7 @@ For Maven projects, we've updated the [rewrite-maven-plugin](https://github.com/
                 <plugin>
                     <groupId>org.openrewrite.maven</groupId>
                     <artifactId>rewrite-maven-plugin</artifactId>
-                    <version>6.9.0-SNAPSHOT</version>
+                    <version>{{VERSION_REWRITE_MAVEN_PLUGIN}}</version>
                     <executions>
                         <execution>
                             <goals>

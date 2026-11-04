@@ -43,7 +43,7 @@ If you want to distribute a style and apply it to other projects, you'll need to
 Regardless of where you define the style, the style must adhere to the following format:
 
 :::info
-[The full style schema can be found in rewrite-core](https://github.com/openrewrite/rewrite/blob/241e146a8996a917a8a460b27d17136108b3d50a/rewrite-core/openrewrite.json#L126-L153).
+[The full style schema can be found in rewrite-core](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/openrewrite.json).
 :::
 
 | Key          | Type             | Description                                                       |
@@ -96,7 +96,7 @@ Let's take a look at one of the more complicated style configs: `ImportLayoutSty
 |-----------------------------|------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | `classCountToUseStarImport` | int              | 5                | How many imports from the same package must be present before collapsing into a star import            |
 | `nameCountToUseStarImport`  | int              | 3                | How many static imports from the same type must be present before collapsing into a static star import |
-| `layout`                    | array of strings | [IntelliJ default](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/style/IntelliJ.java#L62-L71) | An ordered list defining how imports should be grouped and ordered                                     |
+| `layout`                    | array of strings | [IntelliJ default](https://github.com/openrewrite/rewrite/blob/v8.90.4/rewrite-java/src/main/java/org/openrewrite/java/style/IntelliJ.java#L61-L70) | An ordered list defining how imports should be grouped and ordered                                     |
 | `packagesToFold`            | array of strings | empty            | Packages that should always use star imports when 1 or more types are in use                           |
 
 **Layout syntax**
@@ -153,7 +153,7 @@ This configuration will:
 
 When you go to [specify a style to use](#using-styles), the style needs to be a `NamedStyles`. A `NamedStyles` contains one or more `Style` objects.
 
-If you want to make a style in Java, you will need to extend the `NamedStyles` class such as in our [IntelliJ style](https://github.com/openrewrite/rewrite/blob/v8.8.4/rewrite-java/src/main/java/org/openrewrite/java/style/IntelliJ.java#L28). You'll then need to make sure that your style class returns [a collection of these Style objects](https://github.com/openrewrite/rewrite/blob/v8.8.4/rewrite-java/src/main/java/org/openrewrite/java/style/IntelliJ.java#L40-L44).
+If you want to make a style in Java, you will need to extend the `NamedStyles` class such as in our [IntelliJ style](https://github.com/openrewrite/rewrite/blob/v8.90.4/rewrite-java/src/main/java/org/openrewrite/java/style/IntelliJ.java#L30). You'll then need to make sure that your style class returns [a collection of these Style objects](https://github.com/openrewrite/rewrite/blob/v8.90.4/rewrite-java/src/main/java/org/openrewrite/java/style/IntelliJ.java#L56-L59).
 
 When a user goes to activate your style, all of the styles provided by your style will be merged together and given precedence over any auto-detected styles. If your style does not specify a particular way to handle something, the default detected style will be used.
 
@@ -166,12 +166,21 @@ To enable a style so that it is used for any formatting performed by an OpenRewr
 
 Update your `build.gradle` file to include an `activeStyle` such as in:
 
+:::info
+`rewrite-jackson` is distributed through the [Code Genome Project](https://artifacts.codegenomeproject.org/maven), which requires authentication. The snippet below assumes you have already declared that repository and added your credentials, as described in the [quickstart guide](../../accessing-the-code-genome-project.md).
+:::
+
 ```groovy title="build.gradle"
 rewrite {
-  activeRecipe("someRecipe")
+  activeRecipe("org.openrewrite.java.jackson.UpgradeJackson_2_3")
 
   // This style is made up to have an example.
   activeStyle("com.yourorg.YesTabsNoStarImports")
+}
+
+dependencies {
+  rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:latest.release"))
+  rewrite("org.openrewrite.recipe:rewrite-jackson")
 }
 ```
 </TabItem>
@@ -179,6 +188,10 @@ rewrite {
 <TabItem value="maven" label="Maven">
 
 Update your `pom.xml` file to include an `<activeStyles>` such as in:
+
+:::info
+`rewrite-maven-plugin` is distributed through the [Code Genome Project](https://artifacts.codegenomeproject.org/maven), which requires authentication. The snippet below assumes you have already declared that repository and added your credentials, as described in the [quickstart guide](../../accessing-the-code-genome-project.md).
+:::
 
 ```xml title="pom.xml"
 <plugins>
@@ -188,13 +201,20 @@ Update your `pom.xml` file to include an `<activeStyles>` such as in:
     <version>{{VERSION_REWRITE_MAVEN_PLUGIN}}</version>
     <configuration>
       <activeRecipes>
-        <!-- Recipes here -->
+        <recipe>org.openrewrite.java.jackson.UpgradeJackson_2_3</recipe>
       </activeRecipes>
       <activeStyles>
         <!-- This style is made up to have an example. It isn't packaged with OpenRewrite -->
         <style>com.yourorg.YesTabsNoStarImports</style>
       </activeStyles>
     </configuration>
+    <dependencies>
+      <dependency>
+        <groupId>org.openrewrite.recipe</groupId>
+        <artifactId>rewrite-jackson</artifactId>
+        <version>{{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON}}</version>
+      </dependency>
+    </dependencies>
   </plugin>
 </plugins>
 ```
@@ -205,11 +225,13 @@ Update your `pom.xml` file to include an `<activeStyles>` such as in:
 Add a `-Drewrite.activeStyles` parameter to your Maven command in the terminal such as in:
 
 ```bash
-mvn -U org.openrewrite.maven:rewrite-maven-plugin:run \
-  -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-static-analysis:RELEASE \
-  -Drewrite.activeRecipes=org.openrewrite.staticanalysis.CommonStaticAnalysis \
-  -Drewrite.activeStyles=org.some.style.name
+mvn -U org.openrewrite.maven:rewrite-maven-plugin:{{VERSION_REWRITE_MAVEN_PLUGIN}}:run \
+  -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-jackson:RELEASE \
+  -Drewrite.activeRecipes=org.openrewrite.java.jackson.UpgradeJackson_2_3 \
+  -Drewrite.activeStyles=com.yourorg.YesTabsNoStarImports
 ```
+
+Since this command doesn't modify your `pom.xml`, the Code Genome Project repository has to be declared in your Maven `settings.xml` file as both a `pluginRepository` and a `repository`, as described in [running Rewrite without modifying the build](https://docs.openrewrite.org/running-recipes/running-rewrite-on-a-maven-project-without-modifying-the-build#configure-the-code-genome-project-repository).
 </TabItem>
 </Tabs>
 
@@ -218,4 +240,3 @@ Once the style has been specified as an `activeStyle`, the next time any OpenRew
 ## Reformatting your code
 
 If you want to reformat your code to conform to your configured style so you can ensure consistency throughout your code base, you can use the [format Java code recipe](https://codegenomeproject.org/recipes/org.openrewrite.java.format.AutoFormat).
-
