@@ -25,6 +25,7 @@ The CLI uses this settings file to download dependencies and look up versions as
 
 To resolve a Maven dependency, the CLI uses OpenRewrite, which lists repositories in this order:
 
+* Your local Maven repository, `~/.m2/repository` unless your `settings.xml` sets another.
 * The repositories in your `settings.xml`.
 * The repositories in your POMs and their parents.
 * Maven Central.
@@ -38,11 +39,15 @@ For Maven projects, `mod build` saves your settings and active profiles in the L
 To keep Maven Central out, add a mirror for it to your `settings.xml`:
 
 ```xml
-<mirror>
-  <id>internal</id>
-  <url>https://artifacts.example.com/maven</url>
-  <mirrorOf>central,sonatype-central</mirrorOf>
-</mirror>
+<settings>
+  <mirrors>
+    <mirror>
+      <id>internal</id>
+      <url>https://artifacts.example.com/maven</url>
+      <mirrorOf>central,sonatype-central</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>
 ```
 
 Listing `sonatype-central` also redirects the snapshots repository the CLI adds to install recipes.
