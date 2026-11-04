@@ -10,6 +10,19 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 4, 2026
+
+#### rewrite-nodejs - 0.56.1
+
+* Skip blank resolved dependencies in DependencyVulnerabilityCheck
+* GitHub advisories as of 2026-11-02T0923
+* Format test classes with the 2-space continuation indent from .editorconfig
+* Expect the source-map-support test's virtual path resolved as on the running OS
+* Add Upgrade to Node.js 18 recipe
+* Expect export {} where a recipe removes a TypeScript module's last import
+* Adapt to @openrewrite/rewrite 8.97.1 string-literal module export names
+* GitHub advisories as of 2026-11-03T2241
+
 ## November 2, 2026
 
 #### recipes-csharp - 0.13.0
@@ -6217,26 +6230,6 @@ Republishing to update dependencies
 
 ## November 4, 2025
 
-#### rewrite-android - 0.14.0
-
-* Gradle 9.2.0
-
-#### rewrite-circleci - 3.9.0
-
-* Gradle 9.2.0
-
-#### rewrite-compiled-analysis - 0.10.0
-
-* Gradle 9.2.0
-
-#### rewrite-concourse - 3.9.0
-
-* Gradle 9.2.0
-
-#### rewrite-dotnet - 0.14.0
-
-* Gradle 9.2.0
-
 #### rewrite-elastic - 0.4.0
 
 * Common static analysis issues
@@ -6246,36 +6239,11 @@ Republishing to update dependencies
 
 * Gradle 9.2.0
 
-#### rewrite-kubernetes - 3.13.0
-
-* Common static analysis issues
-* Gradle 9.2.0
-
-#### rewrite-nodejs - 0.33.0
-
-* Dropping usage of `immer`'s `castDraft(..)` as it was causing a leak of binary expressions across test executions
-* Add `ReplaceDeprecatedBufferSlice` recipe
-* Gradle 9.2.0
-* Add JUnit platform launcher
-
-#### rewrite-program-analysis - 0.6.0
-
-* Gradle 9.2.0
-
 #### rewrite-reactive-streams - 0.18.0
 
 * Gradle 9.2.0
 
-#### rewrite-sql - 2.8.0
-
-* Common static analysis issues
-* Gradle 9.2.0
-
 #### rewrite-struts - 0.23.0
-
-* Gradle 9.2.0
-
-#### rewrite-terraform - 3.11.0
 
 * Gradle 9.2.0
 
