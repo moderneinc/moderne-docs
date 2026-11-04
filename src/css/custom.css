@@ -707,3 +707,20 @@ html[data-theme='dark'] {
   padding: 0;
   border-left: none;
 }
+
+.wrap-code pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Draws a joined line's original break and indent; generated content is never copied. */
+.code-continuation::before {
+  content: '\A';
+  white-space: pre;
+}
+
+.code-continuation::after {
+  content: '';
+  display: inline-block;
+  width: var(--indent);
+}
