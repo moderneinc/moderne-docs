@@ -270,6 +270,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config features lst**](#mod-config-features-lst)
 * ~~[**mod config features no-maven-central**](#mod-config-features-no-maven-central-deprecated)~~ (deprecated)
 * [**mod config features pre-study**](#mod-config-features-pre-study)
+* [**mod config get**](#mod-config-get)
 * [**mod config go**](#mod-config-go)
 * [**mod config go installation**](#mod-config-go-installation)
 * [**mod config go installation edit**](#mod-config-go-installation-edit)
@@ -491,6 +492,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod copilot chat**](#mod-copilot-chat)
 * [**mod cursor**](#mod-cursor)
 * [**mod cursor chat**](#mod-cursor-chat)
+* [**mod definition**](#mod-definition)
 * [**mod doctor**](#mod-doctor)
 * [**mod devcenter**](#mod-devcenter)
 * [**mod exec**](#mod-exec)
@@ -594,6 +596,7 @@ mod [subcommands]
 * `config`: Global configuration options that are required by some CLI commands.
 * `copilot`: (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
 * `cursor`: (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
+* `definition`: Read the declaration of a name in a file.
 * `doctor`: Checks that this machine and the CLI's configuration can build and publish LSTs.
 * `devcenter`: Generate DevCenter dashboards.
 * `exec`: Execute an arbitrary shell command on selected repositories and partitions.
@@ -1203,6 +1206,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 * `environment`: The build environment that the CLI is running in.
 * `exec`: Configures shell command execution behavior.
 * `features`: Configures experimental features.
+* `get`: Prints a configuration value.
 * `go`: Configures Go options used for building LSTs and running recipes.
 * `http`: Configures HTTP options that will be used throughout the CLI.
 * `java`: Configures Java options used for building LSTs and running recipes.
@@ -6225,6 +6229,39 @@ mod config features pre-study
 | `--enabled` |  |
 
 
+## mod config get
+
+Prints a configuration value.
+
+
+Prints the value of a key in the global configuration. A value with keys of
+its own prints as JSON. A secret prints only with **--reveal**.
+
+### Usage
+
+```
+mod config get [parameters]
+```
+
+### Examples
+
+```
+mod config get license.key --reveal
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `key` |  The key, as in **recipes.codeGenomeProject.username**. An index picks from a list, as in **java.options[0]**. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--reveal` |  Prints a secret too, for another program to read. |
+
+
 ## mod config go
 
 Configures Go options used for building LSTs and running recipes.
@@ -11171,6 +11208,46 @@ mod cursor chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+
+
+## mod definition
+
+Read the declaration of a name in a file.
+
+
+Prints where the symbol a name on a line of a file resolves to is declared, with the first lines of the declaration's file. Moderne's code search answers in one request. It looks in the repository the file is in, then in the dependency the build resolved, whose sources the Code Genome Project holds, then anywhere in the organization.
+
+The repository is the checkout the command runs in: its origin remote and the branch it is on. Moderne holds a repository at the branch it was ingested from. From a checkout on another branch, name the repository with **--repository** at that branch.
+
+### Usage
+
+```
+mod definition [parameters]
+```
+
+### Examples
+
+```
+mod definition moderne://ALL/Default addAttribute --at src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85
+
+mod definition moderne://ALL/Default Owner --at src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85 --repository github.com/spring-projects/spring-petclinic@main
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `organization` |  The organization in Moderne, as **moderne://\<organization>**. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
+| `name` |  The name as the line writes it: **addAttribute**, **Model.addAttribute** or the whole qualified name. It is matched against the end of each symbol's qualified name on the line. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--at` |  The file's path in the repository and the line the name is on. |
+| `--commit` |  The commit to read the file at, as a **mod search** result names it. |
+| `--lines` |  How many lines of the declaration's file to print, from the declaration's line. 0 prints only where it is. |
+| `--repository` |  The repository the file is in, as Moderne holds it: **github.com/acme/app@main**. Without it, the repository is the checkout the command runs in. Without a branch, the branch is the one the checkout is on. |
 
 
 ## mod doctor

@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.12.2           |
+| CLI version | 4.12.3           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,22 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.12.3 (2026-11-04) {/* #v4.12.3 */}
+
+_Based on OpenRewrite 8.99.0_
+
+#### What's Changed
+* Suppress CVE-2026-33117 on non-keyvault Azure jars permanently
+* Add mod config get to print a configuration value
+* Search one file of a repository on its own
+* Ask sym: for one overload, and say which overload a symbol is
+* Test a sym: name against a file's symbol heads, not its every reference
+* Add mod definition to read the declaration of a name in a file
+* Let modw.cmd reach the repository through a TLS-inspecting proxy
+* Index a Java file the parser failed on by parsing it again without its javadoc
+* Ship only the Java 25 parser in the fat jar
+* Index a method reference as a call of the method it resolved to
 
 ### CLI / DX v4.12.2 (2026-11-03) {/* #v4.12.2 */}
 
