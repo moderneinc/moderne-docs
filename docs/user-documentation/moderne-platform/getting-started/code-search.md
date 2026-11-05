@@ -1,22 +1,22 @@
 ---
-title: Getting started with code search
-sidebar_label: Code search
-description: Learn how to find exactly the code you're looking for across all of your repositories, save what you find, and let your agents run the same searches.
+title: Getting started with Code Search
+sidebar_label: Code Search
+description: Learn how to find code by what it calls, uses, and depends on across all of your repositories, save what you find, and let your agents run the same searches.
 ---
 
-# Getting started with code search
+# Getting started with Code Search
 
 Imagine you want to find every place your company calls `StringUtils.isEmpty`. If you searched for it on GitHub, you'd end up finding results from packages like Apache Commons, Spring, and probably a few others all mixed together.
 
-This is where Moderne's code search comes into play. Since it's powered by [Moderne Trigrep](../../agent-tools/trigrep.md) and the index it searches is built from your LSTs rather than raw text, it lets you perform **type-aware** searches. That means it can tell whether `isEmpty` is coming from Spring or some other library you don't care about.
+This is where Moderne Code Search comes into play. Since it's powered by [Trigrep](../../agent-tools/trigrep.md) and the index it searches is built from your LSTs rather than raw text, it lets you perform **type-aware** searches. That means it can tell whether `isEmpty` is coming from Spring or some other library you don't care about.
 
-This doc will walk you through everything you need to know to get started with code search in the Moderne Platform.
+This doc will walk you through everything you need to know to get started with Code Search, whether you search from the Moderne Platform, the CLI, or your agent.
 
 ## Before you begin
 
 * If the left nav bar does not have a **Code search** icon, ask your Moderne admin to enable it.
-* You will need to select an organization to run code search against - the Global org will not work.
-* Code search can only search across repositories whose LST includes a search index.
+* You will need to select an organization to run Code Search against - the Global org will not work.
+* Code Search can only search across repositories whose LST includes a search index.
   * Moderne CLI 4.10.0 and later write that index as part of the `mod build` command. If the search page reports that some repositories were skipped, rebuild their LSTs with a current CLI and republish them.
 
 ## Running a search
@@ -64,6 +64,10 @@ Each page of search results is capped at ten seconds. If the search runs out of 
 A search only covers repositories you have permission to read. An empty result can mean no access as well as no match.
 :::
 
+### Seeing what a match resolved to
+
+Some matches come with a note that explains why they matched, which opens in a popover. For example, the note on a `dependency:` match gives the version the code compiled against, such as `org.springframework:spring-core:5.3.19`. That version can differ from the one in the build file.
+
 ## Writing queries
 
 The example queries on the search page are the best place to learn the syntax. We'd recommend clicking on one and tweaking it rather than starting from scratch.
@@ -73,6 +77,8 @@ Some tips to keep in mind when writing or modifying search queries:
 * **You don't have to spell out the full package name.** If you only know the class, that's fine:
   * `call:List.add` finds `List.add` in any package.
   * `call:requests..get` finds the Python `get` function however it's imported.
+* **Searches follow the type hierarchy.** `call:java.util.Collection.add` also finds `add` called on a `List`, a `Set`, or any other class that implements `Collection`.
+* **You can pick out one overload.** Add an argument list, with `*` for any one argument and `..` for any number. For example, `call:java.util.List.remove(int)` finds removals by index but not by element.
 * **Versions don't have to be exact.**
   * `dependency:junit:junit:4.x` matches any 4.x release.
   * `dependency:jackson-databind:^2.15` and `~2.15.1` style ranges work as well.
@@ -80,7 +86,9 @@ Some tips to keep in mind when writing or modifying search queries:
   * npm packages use an `@` instead: `dependency:lodash@4.x`.
 * **You can mix `dependency:` with the other filters.**
   * For example, `dependency:guava:29.x call:*..ImmutableList.of` finds every call to `ImmutableList.of` - but only where it came from Guava 29.
+* **Add `repo:` to narrow the search to some repositories.** It matches any part of a repository's origin and path. For example, `repo:payments` limits the search to repositories with `payments` in their name.
 * **Add `select:file` when you only care about which files matched.** It leaves the individual lines out of the results, which keeps things manageable when a query matches thousands of them.
+* **Mainframe code has filters of its own.** For example, `ref.copy:CLMREC` finds every `COPY` of a copybook, `ref.pgm:IDCAMS` finds the JCL steps that run a program, and `call:CLMU010` finds the COBOL statements that call one.
 * **The [Trigrep query reference](../../agent-tools/trigrep.md#query-reference) has documentation for additional filters.**
 
 :::warning
@@ -89,7 +97,7 @@ You can only use one `call:`, `ref:`, or `sym:` filter per query. If you want to
 
 ## Saving and exporting a search
 
-By default, searches are ephemeral. Once you navigate away from the code search page, the search results disappear. This is fine if your goal is to explore - but what if you found results (e.g., every call to a deprecated API) that you want to share with other people? That's where the **Save and export** button comes in.
+By default, searches are ephemeral. Once you navigate away from the Code search page, the search results disappear. This is fine if your goal is to explore - but what if you found results (e.g., every call to a deprecated API) that you want to share with other people? That's where the **Save and export** button comes in.
 
 When you click it, Moderne will run your search on every repository in the organization and save the results to a data table (`org.openrewrite.table.SearchResults`). Once the search is finished, this data table will automatically be downloaded to your machine.
 
@@ -112,16 +120,16 @@ If you have the Moderne CLI set up and connected to the Moderne Platform, you ca
 mod search "moderne://Sample Estate" "dependency:junit:junit:4.x"
 ```
 
-If you want to save the search so that other people can see it, add the `--save` flag to the end of the command. It'll show up in the activity view just like a search saved from the UI. Check out the [CLI reference](../../moderne-cli/cli-reference.md#mod-search) for the full set of options for this command.
+If you want to save the search so that other people can see it, add the `--save` flag to the end of the command. It'll show up in the activity view just like a search saved from the UI. To give it a name other than the query, add `--name`. Check out the [CLI reference](../../moderne-cli/cli-reference.md#mod-search) for the full set of options for this command.
 
-## Code search for agents
+## Code Search for agents
 
-Agents can also take advantage of Moderne's code search via our [remote MCP server](../../agent-tools/mcp/remote-server.md). The MCP server has access to the LST search index, scoped to whatever organizations and repositories your token can read. Once a search turns something up, the agent can use the [`readFile` tool](../../agent-tools/mcp/remote-server.md#readfile) to pull up more of that file around the match. If it needs to count search results or get a breakdown by repository rather than a list of matches, it can use our [SQL tool](../../agent-tools/mcp/remote-server.md#codesearchsql).
+Agents can also take advantage of Code Search via our [remote MCP server](../../agent-tools/mcp/remote-server.md). The MCP server has access to the LST search index, scoped to whatever organizations and repositories your token can read. Along with `codeSearch`, it has tools for common lookups, like the callers of a method or the classes that implement an interface. Once a search turns something up, the agent can use the [`readFile` tool](../../agent-tools/mcp/remote-server.md#readfile) to pull up more of that file around the match. If it needs to count search results or get a breakdown by repository rather than a list of matches, it can use our [SQL tool](../../agent-tools/mcp/remote-server.md#codesearchsql). An agent can save a search too, which creates the same changeset as **Save and export**.
 
 If your agent can't reach the remote MCP server, it can still run the same searches [through the CLI](#searching-from-the-cli), as long as the CLI is installed and logged in to the Platform.
 
 ## When to use a recipe instead
 
-In some situations, you'll find that search won't be able to answer your questions. For example, a search can't tell two overloads of the same method apart or follow a value from one line to another. In situations like those, you'll want to run a recipe instead.
+In some situations, you'll find that search won't be able to answer your questions. For example, a search can't follow a value from one line to another. In situations like those, you'll want to run a recipe instead.
 
 For more details about what search can or can't do, check out our [Trigrep documentation](../../agent-tools/trigrep.md#limitations-and-when-to-use-recipes).

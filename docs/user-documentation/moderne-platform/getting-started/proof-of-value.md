@@ -45,7 +45,7 @@ During the proof of value process, we will teach you how to use building block r
 
 3. **Connector setup** - Your team sets up the Moderne Connector following our [Connector configuration doc](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/connector-config.md). The Connector runs as a Docker image or JAR and connects to your source code manager (SCM) and artifact repository using read-only service accounts (takes less than 1 hour with accounts ready).
 
-4. **Search your code** - With everything set up, start by running a few [code search](./code-search.md) queries against the repositories you ingested. The [code search section](#code-search) below has queries worth trying.
+4. **Search your code** - With everything set up, start by running a few [code search](./code-search.md) queries against the repositories you ingested. The [Code Search section](#code-search) below has queries worth trying.
 
 5. **Run recipes** - Next, run recipes against your code. We strongly recommend starting with simple code quality improvement recipes before progressing to complex migrations. You can find our recommended recipes to run and examples of what they do in the next section of this doc.
 
@@ -148,13 +148,13 @@ To learn more about impact analysis and how to automate it, check out this video
 
 <ReactPlayer className="reactPlayer" url='https://youtu.be/jMxSWB5jJ5M?t=306' controls="true" />
 
-### Code search
+### Code Search
 
 Imagine you wanted to find every place you used `StringUtils.isEmpty`. A text search would give you matches from Apache Commons, Spring, and whatever else happened to define a method with that name.
 
-A better way to search for code is with Moderne's [code search](./code-search.md). Since it's built on an index of your LSTs, it knows which `isEmpty` is which - and it can answer questions about dependencies, inheritance, and annotations that text search can't.
+A better way to search for code is with Moderne [Code Search](./code-search.md). Since it's built on an index of your LSTs, it knows which `isEmpty` is which - and it can answer questions about dependencies, inheritance, and annotations that text search can't.
 
-To explore code search further, select which product you're evaluating and then follow the instructions below:
+To explore Code Search further, select which product you're evaluating and then follow the instructions below:
 
 <Tabs>
 <TabItem value="platform" label="Moderne Platform">
@@ -173,7 +173,7 @@ Since a saved search is also a changeset, you can use the CLI to [pull down exac
 </TabItem>
 <TabItem value="cli" label="Moderne CLI/DX">
 
-Open up a terminal and navigate to the root directory of your repositories. Once you've built the LSTs, you can use `mod search` to run Moderne's code search across all of them:
+Open up a terminal and navigate to the root directory of your repositories. Once you've built the LSTs, you can use `mod search` to run Code Search across all of them:
 
 ```bash
 mod search . "dependency:junit:junit:4.x select:file"
@@ -184,7 +184,7 @@ If you'd rather see counts than every matching line, add `--output=summary`. The
 </TabItem>
 </Tabs>
 
-Here are some ideas for how you might use code search to gain insights about your code:
+Here are some ideas for how you might use Code Search to gain insights about your code:
 
 | Question                                         | Query                                                              |
 |--------------------------------------------------|--------------------------------------------------------------------|
@@ -194,9 +194,9 @@ Here are some ideas for how you might use code search to gain insights about you
 | Which classes carry an annotation?               | `annotated:org.springframework.web.bind.annotation.RestController` |
 | Where does production code print to the console? | `System.out.println -file:src/test`                                |
 
-For more information on customizing queries, check out the [code search guide](./code-search.md#writing-queries) and the [Trigrep query reference](../../agent-tools/trigrep.md#query-reference).
+For more information on customizing queries, check out the [Code Search guide](./code-search.md#writing-queries) and the [Trigrep query reference](../../agent-tools/trigrep.md#query-reference).
 
-Code search isn't the answer to everything, though. It can't count lines or produce a structure report like a bill of materials. This is where recipes come into play - such as the ones listed below.
+Code Search isn't the answer to everything, though. It can't count lines or produce a structure report like a bill of materials. This is where recipes come into play - such as the ones listed below.
 
 ### [Language composition report](https://codegenomeproject.org/recipes/org.openrewrite.LanguageComposition)
 
