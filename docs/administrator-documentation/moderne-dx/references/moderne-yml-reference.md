@@ -121,6 +121,18 @@ Keycloak keeps its realm in a database file under the permanent directory unless
 | `moderne.storage.permanent-dir`  | `data/permanent` beside `moderne.yml`    | Everything DX cannot rebuild. Back it up.                                                   |
 | `moderne.storage.ephemeral-dir`  | `data/ephemeral` beside `moderne.yml`    | What DX rebuilds when it needs to, such as the unpacked jar and code search's index.        |
 
+## Telemetry
+
+We recommend storing CLI telemetry in an Amazon S3 bucket or an Azure Blob Storage container. [Configuring telemetry](../how-to-guides/configure-telemetry-dx.md#choosing-where-dx-stores-telemetry) lists the credentials and permissions each one needs.
+
+| Setting                                          | Description                                                  |
+|--------------------------------------------------|--------------------------------------------------------------|
+| `moderne.gateway.telemetry.s3.bucket`            | The Amazon S3 bucket to store telemetry in.                  |
+| `moderne.gateway.telemetry.azure.account-name`   | The Azure storage account that holds the container.          |
+| `moderne.gateway.telemetry.azure.container-name` | The Azure Blob Storage container to store telemetry in.      |
+
+If you name neither, DX stores telemetry in `<permanent-dir>/telemetry`.
+
 ## Memory
 
 `moderne.dx.memory.<service>` sets a service's heap, as a size such as `2g` or `1536m`. The defaults fit a laptop.

@@ -201,6 +201,7 @@ DX keeps everything it cannot rebuild in its permanent directory. That is `data/
 | `organization`  | Organizations users made for themselves.                                          |
 | `atlas`         | The status page's metrics and logs.                                               |
 | `lsts-v3`       | The V3 copies of V2 LSTs, which DX can make again.                                |
+| `telemetry`     | CLI telemetry, unless you store it in a bucket or container.                      |
 | `dx`            | DX's own settings, its certificate authority, and the secrets it made.            |
 
 Keep the backup of `moderne.env` apart from the data's backup. The SCM token key in it unseals the SCM tokens in `authorization`. The ephemeral directory, `data/ephemeral`, holds only what DX rebuilds, such as code search's index.
