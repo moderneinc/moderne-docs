@@ -61,7 +61,7 @@
     "chromatic": "17.8.0",
     "css-loader": "7.1.2",
     "docusaurus-plugin-llms": "^0.2.2",
-    "glob": "13.0.0",
+    "glob": "14.0.2",
     "graphql": "16.14.0",
     "happy-dom": "21.0.4",
     "knip": "5.77.3",
