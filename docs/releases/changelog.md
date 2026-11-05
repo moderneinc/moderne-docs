@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.45.0 (2026/11/05)
+
+- add a hidden code navigation page
+
 ### UI v14.44.0 (2026/11/04)
 
 - Bug fixes and other improvements.
