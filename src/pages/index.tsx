@@ -110,7 +110,7 @@ export const AboutModerneSection: FunctionComponent = () => {
           The <Link href="/user-documentation/moderne-cli/getting-started/cli-getting-started"><strong>Moderne CLI</strong></Link> is a command line tool that complements the Platform, enabling you to build LST artifacts across many repositories and run recipes against all of them from your local machine. It also provides substantial benefits for creating and testing your own recipes.
         </p>
         <p>
-          <Link href="/administrator-documentation/moderne-dx/getting-started/overview"><strong>Moderne DX</strong></Link> runs the Platform's recipe marketplace, code search, and changesets on a machine you control. Your source code, your LSTs, and everything your developers do with them stay inside your network.
+          <Link href="/administrator-documentation/moderne-dx/getting-started/overview"><strong>Moderne DX</strong></Link> runs the Platform's recipe marketplace, code search, and changesets on a machine you control. Your source code, your LSTs, and everything your developers do with them stays inside your network.
         </p>
         <p>
           <Link href="/user-documentation/moddy/moddy-platform"><strong>Moddy</strong></Link> is a multi-repo AI agent that combines natural language with the accuracy and scalability of Moderne and OpenRewrite. You can ask it questions like "Help me upgrade to Spring Boot 3.5" and it will find and execute the appropriate recipes for you.

@@ -17,11 +17,11 @@ To serve it to your organization, please see [Running Moderne DX for your organi
 ## Downloading Moderne DX
 
 ```bash
-curl -fLO -u user:<cgp-token> https://artifacts.codegenomeproject.org/snapshot/moderne-dx.jar
+curl -fLO -u <cgp-user>:<cgp-token> https://artifacts.codegenomeproject.org/snapshot/moderne-dx.jar
 java -jar moderne-dx.jar init    # macOS: say yes when it offers to trust DX's certificate authority
 ```
 
-The URL always serves the newest release. On Linux, run `java -jar moderne-dx.jar trust` and follow what it prints.
+The URL always serves the newest snapshot build. On Linux, run `java -jar moderne-dx.jar trust` and follow what it prints.
 
 ## Configuring Moderne DX
 

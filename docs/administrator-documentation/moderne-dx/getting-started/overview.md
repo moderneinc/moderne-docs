@@ -41,7 +41,7 @@ DX is a configuration of the Moderne Platform, not a separate product. The parts
 |-----------------------------------------------------|:--------------------------------------------------:|:--------------------------------------:|
 | Recipe marketplace                                  |                        Yes                         |                  Yes                   |
 | Code search across every repository                 |                        Yes                         |                  Yes                   |
-| Organizations from your `repos-lock.csv` file       |                        Yes                         |                  Yes                   |
+| Organizations                                       |          From your `repos-lock.csv` file           |    From your organizations service     |
 | Changesets pushed from the CLI, reviewed in the UI  |                        Yes                         |                  Yes                   |
 | Sign-in through your identity provider              |                        Yes                         |                  Yes                   |
 | A status page with every service's metrics and logs |                        Yes                         |                  Yes                   |

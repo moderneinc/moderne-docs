@@ -286,7 +286,7 @@ Occasionally, a few of the recipes may fail to sync properly and return the mess
 </TabItem>
 <TabItem value="dx" label="Moderne DX">
 
-You can install the CLI from Moderne DX and point it at DX by following [connecting your developers](../../../administrator-documentation/moderne-dx/how-to-guides/running-moderne-dx.md#connecting-your-developers).
+With Moderne DX, you [install the CLI from DX itself and point it at DX's URL](../../../administrator-documentation/moderne-dx/how-to-guides/running-moderne-dx.md#connecting-your-developers) instead of at a tenant.
 </TabItem>
 </Tabs>
 

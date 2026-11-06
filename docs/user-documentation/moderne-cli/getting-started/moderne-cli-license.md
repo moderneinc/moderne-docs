@@ -13,7 +13,7 @@ In this doc, we will walk through everything you need to know about the Moderne 
 
 If you are a Moderne SaaS customer, you don't need to configure a license as it will be automatically configured when you connect the CLI to Moderne.
 
-If you are a Moderne DX customer, your license key comes with DX, and a CLI connected to DX takes its license from DX. You will only need to configure a key on a CLI that doesn't connect to DX. You may contact [support@moderne.io](mailto:support@moderne.io) to request one and then jump to the [How to configure a license key section](#how-to-configure-a-license-key).
+If you are a Moderne DX customer, a CLI connected to DX takes its license from DX. You will only need to configure a key on a CLI that doesn't connect to DX, such as the one on the machine that runs DX. The key is the one DX holds. The [How to configure a license key section](#how-to-configure-a-license-key) shows how to add it.
 
 If you are not a Moderne customer, but still want to use the Moderne IDE plugin, please fill out our [try the Moderne IDE plugin signup form](https://www.moderne.io/moderne-ide-plugin-signup) and we will coordinate with you.
 
