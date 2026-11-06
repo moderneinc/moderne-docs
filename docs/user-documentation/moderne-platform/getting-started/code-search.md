@@ -66,7 +66,7 @@ A search only covers repositories you have permission to read. An empty result c
 
 ### Seeing what a match resolved to
 
-Some matches come with a note that explains why they matched, which opens in a popover. For example, the note on a `dependency:` match gives the version the code compiled against, such as `org.springframework:spring-core:5.3.19`. That version can differ from the one in the build file.
+Some matches come with a note that explains why they matched, which opens in a popover. For example, the note on a `dependency:` match gives the version the code compiled against, such as `org.springframework:spring-web:5.1.8.RELEASE`. That version can differ from the one in the build file.
 
 <figure>
   ![A Code search match with its note open in a popover, showing the dependency org.springframework:spring-web:5.1.8.RELEASE](./assets/code-search-match-note.png)

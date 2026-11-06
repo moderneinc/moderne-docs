@@ -318,7 +318,7 @@ Agents can use summary mode to see how many matches a search has before they rea
 
 ### Match notes
 
-Some matches come with a note that explains why they matched. It appears below the match, or in a popover on the Code search page. For example, the note on a `dependency:` match gives the version the code compiled against, such as `org.springframework:spring-core:5.3.19`. That version can differ from the one in the build file.
+Some matches come with a note that explains why they matched. It appears below the match, or in a popover on the Code search page. For example, the note on a `dependency:` match gives the version the code compiled against, such as `org.springframework:spring-web:5.1.8.RELEASE`. That version can differ from the one in the build file.
 
 <figure>
   ![A Code search match with its note open in a popover, showing the dependency org.springframework:spring-web:5.1.8.RELEASE](../moderne-platform/getting-started/assets/code-search-match-note.png)
@@ -516,7 +516,7 @@ These filters only find matches if the LST records line history, which is off by
 
 ### Mainframe filters
 
-`sym:` finds where a program, copybook, or other mainframe name is declared. The reference filters below find the statements that use it:
+`sym:` finds where a mainframe name is declared, like a COBOL program or paragraph, or a JCL job. The reference filters below find the statements that use it:
 
 | Query                      | Matches                                                                                  |
 |----------------------------|------------------------------------------------------------------------------------------|
