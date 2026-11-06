@@ -225,7 +225,7 @@ mod search working-set --syntax zoekt 'file:*.java' @Autowired
 
 The default is `sourcegraph`, which is what most online documentation and AI training data use. If you're already familiar with the original [Zoekt query language](https://github.com/google/zoekt), you can switch to `zoekt` to use its native syntax directly.
 
-A third option, `--syntax=sql`, lets agents run [SQL search](#sql-search) from the CLI.
+A third option, `--syntax=sql`, lets agents run [SQL search](#sql-search) from the CLI on an organization in Moderne using `moderne://`.
 
 ### Differences between the two syntaxes
 
@@ -329,7 +329,7 @@ Some matches come with a note that explains why they matched. It appears below t
 
 SQL search is built for agents. An agent writes a [DuckDB](https://duckdb.org/) SQL query and gets back just the answer it needs, like how many repositories still use a library.
 
-Agents use it through the [`codeSearchSql` tool](./mcp/remote-server.md#codesearchsql) on the remote MCP server, or with `mod search --syntax=sql` in the CLI. It isn't available on the Code search page. You don't need to write the SQL yourself, because the server gives agents a guide to every function and column.
+Agents use it through the [`codeSearchSql` tool](./mcp/remote-server.md#codesearchsql) on the remote MCP server, or with `mod search moderne://<organization> --syntax=sql` in the CLI. It isn't available on the Code search page. You don't need to write the SQL yourself, because the server gives agents a guide to every function and column.
 
 The SQL reads from functions that run a search and return the results as rows:
 
@@ -373,7 +373,7 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `case:`        | Control case sensitivity (`yes`/`no`). Searches are case-sensitive by default, which is the opposite of Sourcegraph's default.                                                                                                                                                                                                                                                                                                                                                      | `case:yes findById`           |
 | `type:`        | Choose what a term matches against: file content (`file`, the default), file paths only (`path`), or symbol declarations only (`symbol`).<br/><br/>`type:symbol` is easy to confuse with `sym:`, which [matches declarations by name rather than by text](#typesymbol-versus-sym).                                                                                                                                                                                                  | `type:symbol Person`          |
 | `sym:`         | Match symbol declarations by name. A bare name (`sym:add`) matches every symbol whose own name is exactly `add`, in any class. A fully qualified name (`sym:java.util.List.add`) matches that one symbol. A partly qualified name needs `..` for the packages it leaves out (`sym:..List.add`), and `/regex/` matches against the simple name, or against the whole FQN when the pattern contains a dot. Declarations only: use `call:` or `ref:` to find usages. Alias: `symbol:`. | `sym:UserRepository`          |
-| `select:`      | Return matching files without their lines (`select:file`), or filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`, `symbol.record`, `symbol.javadoc-ref`, `symbol.comment`, `symbol.string-literal`, plus language-specific kinds such as `symbol.program` and `symbol.paragraph` (COBOL) or `symbol.job` and `symbol.step` (JCL).                                                                                                                            | `select:symbol.method`        |
+| `select:`      | Return matching files without their lines (`select:file`), or filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`, `symbol.record`, `symbol.javadoc-ref`, `symbol.comment`, `symbol.string-literal`, plus mainframe kinds under `symbol.mainframe`, such as `symbol.mainframe.program` or `symbol.mainframe.jcl.job`.                                                                                                                            | `select:symbol.method`        |
 | `scope:`       | Search only comments (`comments`), only string literals (`strings`), or everything except comments (`code`). Today only COBOL records where its comments and strings are. In other languages, `scope:comments` finds nothing and `scope:code` finds everything.                                                                                                                                                                                                                     | `scope:comments TODO`         |
 | `count:`       | Cap the total results returned by the query, or `count:all` to return every match.                                                                                                                                                                                                                                                                                                                                                                                                  | `count:500`                   |
 | `content:`     | Match the given text in file content (Sourcegraph). Use it when a search term would otherwise be read as a filter name, such as `content:"type:"`.                                                                                                                                                                                                                                                                                                                                  | `content:"text"`              |
@@ -511,7 +511,7 @@ Older CLIs did not record which dependency a reference came from. If an LST was 
 For example, `author:Alex call:*..ImmutableList.of` finds the calls to `ImmutableList.of` on lines Alex changed. `after:2026-01-01 TODO` finds the TODOs added or edited since the start of 2026. With no search term, `author:Alex lang:java` lists every Java line Alex changed.
 
 :::warning[Requires line history in the LST]
-These filters only find matches if the LST records line history, which is off by default. To turn it on, run `mod config features build git-blame` before you run `mod git sync` and `mod build`.
+These filters only find matches if the LST was built from a repository with its full git history. By default, `mod git sync` doesn't download that history. To include it, run `mod config features build git-blame` before you sync. A repository you cloned yourself with `git clone` already has it.
 :::
 
 ### Mainframe filters

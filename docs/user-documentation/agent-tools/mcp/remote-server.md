@@ -141,7 +141,7 @@ Recipe runs are not allowed against the root organization (`ALL`). Pass a specif
 
 A typical recipe flow is to find a recipe with `searchForRecipe`, inspect it with `describeRecipeOptions` and `describeRecipeDataTables`, run it with `runRecipe`, and then query the results with `processDataTableSql`. A recipe run can take a little time, so your agent waits for it to finish before returning the results.
 
-A typical code search flow starts with `codeSearch` (which takes the same queries as the [Platform's Code search page](../../moderne-platform/getting-started/code-search.md)) or with one of the `find` tools for a common lookup. If a match looks interesting, `readFile` pulls up more of that file. If what the agent really wants is a number or a breakdown rather than a list of matches, the `codeSearchSql` tool is used. Any of these searches can be saved as a [changeset](../../moderne-platform/references/changesets.md).
+A typical code search flow starts with `codeSearch` (which takes the same queries as the [Platform's Code search page](../../moderne-platform/getting-started/code-search.md)) or with one of the `find` tools for a common lookup. If a match looks interesting, `readFile` pulls up more of that file. If what the agent really wants is a number or a breakdown rather than a list of matches, the `codeSearchSql` tool is used. A `codeSearch` or `codeSearchSql` search can be saved as a [changeset](../../moderne-platform/references/changesets.md).
 
 The organization tools fit into either flow. An agent that hasn't been told which organization to use can find one with `listOrganizations`. Once a search or recipe has turned up a set of repositories, `createUserOrganization` groups them into an organization that `runRecipe` can target.
 

@@ -17,7 +17,7 @@ This doc will walk you through everything you need to know to get started with C
 * If the left nav bar does not have a **Code search** icon, ask your Moderne admin to enable it.
 * You will need to select an organization to run Code Search against - the Global org will not work.
 * Code Search can only search across repositories whose LST includes a search index.
-  * Moderne CLI 4.10.0 and later write that index as part of the `mod build` command. If the search page reports that some repositories were skipped, rebuild their LSTs with a current CLI and republish them.
+  * `mod build` only writes that index when it builds version 3 LSTs, so run `mod config features lst --version 3` first. If the search page reports that some repositories were skipped, rebuild their LSTs that way and republish them.
 
 ## Running a search
 
