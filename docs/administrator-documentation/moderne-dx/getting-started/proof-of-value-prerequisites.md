@@ -9,6 +9,7 @@ Before starting a Moderne DX proof of value, your team will need to:
 
 * Set up source control access
 * Prepare a repository list
+* Set aside a machine for Moderne DX
 
 This page covers everything you need to do so nothing is missed on day one.
 
@@ -17,8 +18,9 @@ This page covers everything you need to do so nothing is missed on day one.
 | # | Requirement                                                                                 | Details                                                                                            |
 |---|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | 1 | [SCM service account](#source-control-access) with read access to all in-scope repositories | Used by the CLI and mass ingest to clone and build repositories                                    |
-| 2 | [SCM OAuth application](#source-control-access) (GitHub App, GitLab OAuth, etc.)            | Allows users to commit changes through the Moderne CLI                                             |
+| 2 | An optional [SCM OAuth application](../how-to-guides/repository-access-control.md)           | Lets Moderne DX show each user only the repositories they can read                                 |
 | 3 | [Repository list](#preparing-your-repository-list) (repos.csv)                              | Generated with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers) |
+| 4 | A machine for Moderne DX, with Java 25 and the Moderne CLI                                  | macOS on Apple silicon or Linux. See the [installation guide](./installing-moderne-dx.md)          |
 
 ## Source control access
 
@@ -56,9 +58,10 @@ If you have a standard base image that includes your existing certificates or ot
 
 During the POV process, Moderne will provide:
 
-* A **Moderne CLI license** for running recipes across your repositories
+* A **Moderne DX license key**, from which your developers' CLIs take their license
+* A **Code Genome Project token**, which Moderne DX resolves recipes with
 * **Technical support** throughout the setup and evaluation process
 
 ## Next steps
 
-Once these prerequisites are in place, proceed to the [proof of value process](../../../user-documentation/moderne-platform/getting-started/proof-of-value.md) to start running recipes against your code.
+Once these prerequisites are in place, [install Moderne DX](./installing-moderne-dx.md), then proceed to the [proof of value process](../../../user-documentation/moderne-platform/getting-started/proof-of-value.md) to start running recipes against your code.

@@ -110,3 +110,4 @@ Do not pin to a version prior to 4.9.0.
 ## Next steps
 
 * [Set up mass run](./mass-run-dx.md) to run recipes across your repositories. It syncs the LSTs from the `repos-lock.csv` file that mass ingest writes.
+* [Send mass ingest's telemetry to DX](./configure-telemetry-dx.md#including-telemetry-from-mass-ingest). Without this, it is lost when each container stops.
