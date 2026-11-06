@@ -377,7 +377,7 @@ java -jar connector-{version}.jar \
 
 ## Go
 
-Go recipe modules are resolved through a Go module proxy, such as an [Artifactory Go repository](https://jfrog.com/help/r/jfrog-artifactory-documentation/go-registry). Go does not support native bearer authentication for dependency resolution, so a proxy authenticates with basic auth only. Supply your credentials as `username` + `password` (for Artifactory, use your username and identity token as the password). If your proxy issues a bearer or access token rather than a username and password, supply the token as the `password` and set `username` to any non-empty placeholder that your proxy ignores (for example, `__token__`).
+Go recipe modules are resolved through a Go module proxy, such as an [Artifactory Go repository](https://docs.jfrog.com/artifactory/docs/go-modules). Go does not support native bearer authentication for dependency resolution, so a proxy authenticates with basic auth only. Supply your credentials as `username` + `password` (for Artifactory, use your username and identity token as the password). If your proxy issues a bearer or access token rather than a username and password, supply the token as the `password` and set `username` to any non-empty placeholder that your proxy ignores (for example, `__token__`).
 
 The configured feeds are authoritative. There is no `direct` fallback and no external egress: modules that are not served by a configured feed will not resolve.
 

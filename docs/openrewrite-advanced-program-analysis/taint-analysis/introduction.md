@@ -328,4 +328,4 @@ Begin with one vulnerability type (like SQL injection) in a small codebase. Once
 For more on secure coding and vulnerability patterns:
 * [OWASP Top 10](https://owasp.org/www-project-top-ten/) - the most critical web application security risks
 * [CWE/SANS Top 25](https://cwe.mitre.org/top25/) - the most dangerous software weaknesses
-* [CERT secure coding standards](https://wiki.sei.cmu.edu/confluence/display/seccode) - language-specific security guidelines
+* [CERT secure coding standards](https://cmu-sei.github.io/secure-coding-standards/) - language-specific security guidelines

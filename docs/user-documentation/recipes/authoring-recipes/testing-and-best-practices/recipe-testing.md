@@ -276,7 +276,7 @@ class LowercasePackageTest implements RewriteTest {
     // Demonstrates how you can do multiple checks in one test.
     //
     // You can also combine different types (such as `java` and `text`) in one test:
-    // https://github.com/openrewrite/rewrite-spring/blob/main/src/testWithSpringBoot_2_7/java/org/openrewrite/java/spring/boot2/MoveAutoConfigurationToImportsFileTest.java#L177-L224
+    // https://github.com/openrewrite/rewrite-spring/blob/main/src/test/java/org/openrewrite/java/spring/boot2/MoveAutoConfigurationToImportsFileTest.java#L203-L251
     @Test
     void combinedExample() {
         rewriteRun(
