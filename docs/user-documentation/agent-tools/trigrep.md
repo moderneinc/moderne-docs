@@ -314,11 +314,16 @@ Summary mode shows how many matches, files, and repositories a search found, wit
 mod search "moderne://Spring" "dependency:org.springframework:*:5.x" --output summary
 ```
 
-This is a good first step for an agent, which can size a change before it reads through the matches.
+Agents can use summary mode to see how many matches a search has before they read any of them. If a search finds 4,000 matches across 300 repositories, the agent can narrow the query instead of paging through all of them.
 
 ### Match notes
 
 Some matches come with a note that explains why they matched. It appears below the match, or in a popover on the Code search page. For example, the note on a `dependency:` match gives the version the code compiled against, such as `org.springframework:spring-core:5.3.19`. That version can differ from the one in the build file.
+
+<figure>
+  ![A Code search match with its note open in a popover, showing the dependency org.springframework:spring-web:5.1.8.RELEASE](../moderne-platform/getting-started/assets/code-search-match-note.png)
+  <figcaption></figcaption>
+</figure>
 
 ## SQL search
 
@@ -408,8 +413,6 @@ mod search . '@Service or @Controller'
 mod search . 'annotated:Test throws:Exception'
 mod search . '"two words"'
 ```
-
-If you pass the query unquoted instead, the CLI joins the separate arguments back together with spaces. In that case, put `--` before a query that starts with `-`, so that the CLI doesn't read it as an option.
 :::
 
 ### Specifying a type or symbol in a filter
@@ -468,7 +471,7 @@ To find the calls of one overload, add an argument list, as you would in an Open
 | `call:java.lang.String.format(String, Object...)` | the varargs `format`                           |
 
 :::warning[Requires LSTs built with CLI 4.12.0 or later]
-In LSTs built with an older CLI, an argument list matches every overload of the method, and `ref.subtype:` finds nothing. Rebuild the LST with `mod build`, or sync it again from the Moderne Platform.
+Some filters, like `ref.subtype:`, don't work in LSTs built with an older CLI. Update the CLI and rebuild the LSTs with `mod build`, or sync them again from the Moderne Platform.
 :::
 
 ### The `dependency:` filter
@@ -503,15 +506,17 @@ Older CLIs did not record which dependency a reference came from. If an LST was 
 
 ### Searching by author and date
 
-`author:` limits a search to the lines a person last changed. `after:` and `before:` limit it to lines last changed in a date range. All three read the same history that `git blame` does. For example, `author:alex call:*..ImmutableList.of` finds the calls to `ImmutableList.of` on lines alex last changed. `after:2026-01-01 TODO` finds the TODOs written or touched since the start of 2026. Without another search term, `author:alex lang:java` lists every Java line alex last changed.
+`author:` limits a search to lines changed by a specific person. `after:` and `before:` limit it to lines changed within a date range. A line's author and date come from the most recent commit that changed it, the same as with `git blame`.
+
+For example, `author:Alex call:*..ImmutableList.of` finds the calls to `ImmutableList.of` on lines Alex changed. `after:2026-01-01 TODO` finds the TODOs added or edited since the start of 2026. With no search term, `author:Alex lang:java` lists every Java line Alex changed.
 
 :::warning[Requires line history in the LST]
-These filters find nothing unless the LST was built from a full clone with CLI 4.11.0 or later. `mod git sync` makes treeless clones by default, so run `mod config features build git-blame` before you sync and build.
+These filters only find matches if the LST records line history, which is off by default. To turn it on, run `mod config features build git-blame` before you run `mod git sync` and `mod build`.
 :::
 
 ### Mainframe filters
 
-Mainframe code is searched by name as well as by text. `sym:` finds where a program, copybook, or other mainframe name is declared. The reference filters below find the statements that use it:
+`sym:` finds where a program, copybook, or other mainframe name is declared. The reference filters below find the statements that use it:
 
 | Query                      | Matches                                                                                  |
 |----------------------------|------------------------------------------------------------------------------------------|
@@ -520,7 +525,7 @@ Mainframe code is searched by name as well as by text. `sym:` finds where a prog
 | `ref.pgm:IDCAMS`           | each JCL step that runs `IDCAMS` (`EXEC PGM=`)                                           |
 | `ref.data:CLM-STATUS`      | each use of a data item, including its level-88 condition names                          |
 
-Mainframe names match in any case. You can narrow a mainframe search with `repo:` and `lang:`, such as `lang:cobol` or `lang:jcl`. The [`mod search` CLI reference](../moderne-cli/cli-reference.md#mod-search) lists every mainframe language, symbol kind, and reference filter.
+Mainframe name searches are case-insensitive. You can narrow a mainframe search with `repo:` and `lang:`, such as `lang:cobol` or `lang:jcl`. The [`mod search` CLI reference](../moderne-cli/cli-reference.md#mod-search) lists every mainframe language, symbol kind, and reference filter.
 
 ### Structural holes
 
