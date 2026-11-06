@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.46.0 (2026/11/06)
+
+- retry the failed repositories of a commit job
+- navigate on inside a package's sources
+
 ### UI v14.45.0 (2026/11/05)
 
 - add a hidden code navigation page
