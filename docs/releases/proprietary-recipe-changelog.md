@@ -10,6 +10,233 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 6, 2026
+
+#### recipes-csharp - 0.16.0
+
+* Preserve PlatformServices directive and conditional boundaries
+* Replace the modern safe formatter allocation alias
+* Use the generator factory for closed readonly random fields
+* Use the generator factory for closed stable random fields
+* Cover readonly random fields inside statement lambdas
+* Preserve nullable directives in security and SOAP hex ports
+* Use same-algorithm factories for closed streaming hash fields
+* Preserve modern generic hash dispatch and failed-cast cleanup
+* Resolve legacy HttpContext authentication findings by actual API binding
+* Require legacy authentication API bindings before extension rewrites
+* Port directory security persistence with preserved argument validation
+* Respect legacy authentication contracts in extension migration
+* Port closed transient dynamic assemblies to Run access
+* Port directory creation with supplied security to modern API
+* Port ACL persistence for closed temporary-file paths
+* Port secured named-pipe constructors to ACL factory
+* Port secured mutex creation and add its project dependency
+* Port explicit-rights mutex opens with nullable and package contracts
+* Add experimental conservative Framework library and console pipeline
+* Constrain Newtonsoft advisory to resolved legacy MVC result settings
+* Preserve classic output directories when converting to modern .NET
+* Preserve legacy NLog registration with typed migration review
+* Allow proven .NET Standard outgoing project-reference edges
+* Bridge self-contained legacy OAuth code exchange overrides
+* Preserve known overlong mutex-name validation paths
+* Port bounded secured Semaphore constructors to SemaphoreAcl.Create
+* Plan converter build context before trailing project attestation
+* Upgrade GitHub SourceLink overrides for opted-in SDK 10 builds
+* Convert Framework references with known 3.5 minimum metadata
+* Keep ValueTuple packages for legacy targets while excluding .NET 10
+* Add opt-in System.IO.Ports dependency port for modern projects
+* Plan SerialPort package ports after explicit Framework retargeting
+* Supply Ports dependencies when converting classic Framework libraries
+* Guard Test SDK 18.11 upgrade for selected .NET 10 test projects
+* Load public certificate exports with closed BCL provenance
+* Specify a missing Newtonsoft.Json version in one selected unmanaged project
+* Map classic XML cryptography uses to the target package
+* Map Framework CMS dependencies with patched crypto defaults
+* Map classic ODBC dependencies through the existing converter
+* Add an opted-in modern target to one SDK Framework library
+* Require concrete CodeDOM provider review before classic conversion
+* Map classic LDAP Protocols dependency with DSML and platform review gates
+* Bind source signing review to assembly attributes
+* Preserve literal wildcard assembly versions through attributed metadata
+* Require explicit policy review for the existing FormsAuthentication hash port
+* Require NetDataContractSerializer binding review before conversion
+* Require a source port for bound AppDomain assembly factories
+* Discover Framework packages and risks in used signatures
+* Preserve consumer targets and Framework identity for short TFMs
+* Add opt-in NUnit2 ExpectedException contract port
+* Document SDK10 built-in SourceLink proof and NoRecipe boundary
+* Preserve bounded local framework condition buckets when retargeting
+* Repack local C# builds every time
+* Preserve bounded NUnit2 exact ExpectedMessage contracts
+* Preserve bounded composite framework condition buckets
+* Require provider review for SQL Server Compact Framework migration
+
+#### recipes-go - 0.19.0
+
+* Bump rewrite-go to v0.0.43
+
+#### recipes-javascript - 0.10.0
+
+* Skip `CollapsibleIfStatements` when the inner if body is unbraced
+* `RemoveDuplicateConditions` - preserve duplicate conditions when evaluation may have side effects
+* Fix NoDuplicates crash when merging an empty import block with a default import
+
+#### recipes-kotlin - 0.13.0
+
+* Build and test on the plugin's default Java 25 toolchain
+
+#### recipes-mainframe - 0.7.0
+
+* Remove test Java parsers the build plugin provides
+
+#### recipes-scala - 0.13.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-ai - 0.12.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-android - 0.27.0
+
+* Keep the Android Gradle Plugin 4 fixture on Gradle 8.14.5
+
+#### rewrite-angular - 1.21.0
+
+* Read `JS.Alias` property names that are string literals in `FindAngularComponent` (G-angular-7)
+* Read string-literal import names in `ReplaceAngularHttpImports`
+* Upgrade Angular dependency groups atomically and preserve usable project config
+
+#### rewrite-compiled-analysis - 0.23.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-devcenter - 1.40.0
+
+* Ask for JDK 25 in .sdkmanrc, matching the build plugin's toolchain
+* Measure a Node.js engines range by the lowest release it admits
+* Measure the Quarkus card by quarkus-core
+* Load declarative recipes in tests with recipeFromResources
+* Report a Kotlin version only for repositories with Kotlin sources
+* Measure pre-release versions by their numbers instead of counting them as completed
+* Add vulnerability DevCenter cards per package ecosystem
+* Recognize OS-specific target frameworks in CSharpVersionUpgrade
+
+#### rewrite-dropwizard - 0.15.0
+
+* Fix AddSpringBootTestForDropwizardAppExtensionTest on the JDK 25 test toolchain
+
+#### rewrite-elastic - 0.16.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-hibernate - 0.37.0
+
+* Create `AddCascadePersistToIdMappedAssociations` preconditions in `getVisitor()`
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-jasperreports - 0.14.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-java-application-server - 0.18.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-java-security - 3.50.0
+
+* Remove test Java parsers the build plugin provides
+* Add FindRequestedSessionId (Sonar S2254)
+
+#### rewrite-kafka - 0.15.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-mainframe - 3.10.0
+
+* Replace deprecated Kotlin DSL container delegates
+* Read a copybook kept under a program's extension
+* Read a CICS condition or CVDA name that is also a COBOL keyword
+* Read the ENTER statement
+* Pair a host variable with its null indicator in INSERT VALUES and UPDATE SET
+* Visit the words of a CBL or PROCESS statement
+* Read the DSNTEP2 input GenevaERS Workbench keeps its schema in
+* Read a primary key declared on its column
+
+#### rewrite-migrate-kotlin - 0.17.0
+
+* Build and test on the plugin's default Java 25 toolchain
+* Replace deprecated Kotlin DSL container delegates
+* OpenRewrite recipe best practices
+
+#### rewrite-migrate-python - 0.23.0
+
+* Replace deprecated Kotlin DSL container delegates
+* Keep utcnow() and utcfromtimestamp() replacements naive
+* Replace pipes.quote() with shlex.quote() in the 3.13 upgrade
+* Add the missing `assert_` prefix to mock assertions in the 3.12 upgrade
+
+#### rewrite-nodejs - 0.59.0
+
+* Skip blank resolved dependencies in DependencyVulnerabilityCheck
+* GitHub advisories as of 2026-11-02T0923
+* Format test classes with the 2-space continuation indent from .editorconfig
+* Expect the source-map-support test's virtual path resolved as on the running OS
+* Add Upgrade to Node.js 18 recipe
+* Expect export {} where a recipe removes a TypeScript module's last import
+* Adapt to @openrewrite/rewrite 8.97.1 string-literal module export names
+* GitHub advisories as of 2026-11-03T2241
+
+#### rewrite-nullability - 0.14.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-prethink - 0.24.0
+
+* Use Java 21 language features and APIs in tests
+* Keep the SQL recipes off prethink's own context files
+* Build on the plugin's default Java 25 toolchain
+* Replace deprecated Kotlin DSL container delegates
+
+#### rewrite-program-analysis - 0.26.0
+
+* Inline calls to deprecated OpenRewrite methods
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-react - 0.15.0
+
+* Create one root per container in `ReplaceReactDomRender` (D2 of #51)
+* Add Enzyme inventory and a conservative RTL migration prototype
+* Add a Create React App to Vite migration recipe
+* Add per-major React upgrade steps (16→17, 17→18, 18→19)
+
+#### rewrite-reactive-streams - 0.28.0
+
+* Constrain guava past CVE-2026-102554
+* OpenRewrite recipe best practices
+
+#### rewrite-spring - 0.51.0
+
+* Pass `Function` instances to `PropertyMapper.Source#as` as method references for Spring Boot 4
+* Inline calls to deprecated OpenRewrite methods
+* Replace `HttpMessageConverters` beans removed in Spring Boot 4.2
+* Remove `HandlerMappingIntrospector` uses for Spring Framework 7.1
+
+#### rewrite-sql - 2.27.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-static-analysis - 0.8.0
+
+* Remove test Java parsers the build plugin provides
+* Add FindPrivateReadResolve recipe (RSPEC-S2062)
+* Add FindInvalidFormatStrings recipe (RSPEC-S2275)
+* Add FixInvalidRegularExpressions recipe (RSPEC-S5856)
+
+#### rewrite-tapestry - 0.14.0
+
+* Remove test Java parsers the build plugin provides
+
 ## November 5, 2026
 
 #### recipes-csharp - 0.15.0
