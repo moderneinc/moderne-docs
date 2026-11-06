@@ -2,56 +2,38 @@
 
 @CONTRIBUTING.md
 
-## Important: Style Guide
+## Style guide
 
-When editing any documentation in this repository, ALWAYS follow the rules in STYLE_GUIDE.md. Key rules include:
+`STYLE_GUIDE.md` governs all documentation. It loads automatically when you touch files under `docs/`. Before you write a new page, read `STYLE_GUIDE.md` in full. The prose rules (11 and 22-27) matter most, because `yarn lint:markdown` does not check them.
 
-**Formatting:**
+## Commands
 
-* Use asterisks (*) for bullet points, not dashes (-)
-* Add blank lines after headers and before code blocks
-* Tag shell commands as `bash`, so Windows readers can copy commands split with `\` as one line (Rule 2)
-* End description lines with exactly one period
-* Use sentence case for headers (no title case, no ending periods)
-* Use explicit relative paths for links (./file.md, ../parent.md), never absolute https://docs.moderne.io URLs (Rules 9, 18)
-* Use Docusaurus admonitions (:::note, :::tip, :::warning) for callouts, never bold blockquotes (Rule 17)
+* `yarn start`: dev server for previews (does not exit)
+* `yarn build`: production build, the same one CI runs
+* `yarn lint:markdown`: mechanical style checks for `docs/`
+* `yarn validate:css`: undefined CSS variable check
+* `yarn typecheck`: TypeScript check
+* `yarn test:run`: vitest, single run
+* `yarn storybook`: Storybook on port 6006
 
-**Prose:**
+## Pre-commit validation
 
-* Keep one fact per sentence, but do not chop long sentences that develop a single idea (Rule 22)
-* Do not open a section by restating its header (Rule 25)
-* Use a list or table when prose enumerates three or more conditions or paths; keep a simple either/or as prose (Rule 22)
-* Address the reader ("you will need to", "you can"), not impersonal declarative phrasing (Rule 11)
-* State facts plainly: no rule-then-"so" deductions, announced points, colon lists in prose, or sentences that only carry a link (Rule 26)
-* Describe outcomes, not implementation mechanics or parser vocabulary (Rule 27)
+Before committing or opening a pull request:
 
-These are summaries. For the full rule and its examples, grep STYLE_GUIDE.md for `### <number>` rather than reading the whole file.
+1. Run `yarn build` and fix any warnings or broken links.
+2. Run `yarn lint:markdown` for docs changes, `yarn validate:css` for CSS changes, and `yarn typecheck` for TypeScript changes.
 
-## Critical: Pre-commit Validation
+## Quality assurance for documentation
 
-**IMPERATIVE**: Before committing any changes or opening a pull request, you MUST:
+After any change to documentation files:
 
-1. Run `yarn start` to build and start the Docusaurus site
-2. Verify there are no build errors, warnings, or broken links
-3. Fix any issues before proceeding with the commit
+1. Check spelling, grammar, and clarity in all modified content.
+2. Re-read the diff against the rules in `STYLE_GUIDE.md`, the prose rules (11 and 22-27) in particular.
+3. Fix inconsistent terminology and awkward phrasing.
 
-This validation step is non-negotiable and ensures documentation quality.
+## Generated files
 
-## Claude Instructions: Quality Assurance
-
-After making ANY changes to documentation files, you MUST:
-
-1. Run a thorough spelling check on all modified content
-2. Review grammar and sentence structure
-3. Assess clarity and readability
-4. Verify the changes follow the STYLE_GUIDE.md rules
-
-Use your language processing capabilities to identify and fix:
-* Spelling errors and typos
-* Grammatical mistakes
-* Awkward phrasing or unclear explanations
-* Inconsistent terminology
-* Style guide violations
+Do not hand-edit the latest-versions list, the GraphQL reference, or the proprietary recipe changelog. Scheduled workflows overwrite them. See CONTRIBUTING.md.
 
 ## Working with CSS modules and design tokens
 
@@ -100,21 +82,6 @@ full list of collections):
 * Strokes: `strokes`
 * Sizing: `height`, `icon-size`
 * Aggregate (imports all collections): `moderne`
-
-## Important Context
-
-### Language and Terminology
-
-* **Recipe**: A program that makes automated changes to source code
-* **LST (Lossless Semantic Tree)**: A tree representation of source code that is type-attributed and format preserving
-* **Visitor**: Pattern for traversing and modifying LSTs
-* **Marker**: Metadata attached to LST elements
-* **Data Table**: Structured output from recipes for reporting
-
-### Resources
-
-* [Moderne Platform](https://app.moderne.io) - Public instance
-* [OpenRewrite Docs](https://docs.openrewrite.org) - OpenRewrite documentation
 
 ## Project Overview
 
@@ -167,19 +134,12 @@ Sections are automatically detected using HTML divider elements in `sidebars.ts`
 
 ### Swizzled Components and Docusaurus Compatibility
 
-This project uses **Docusaurus 3.9.1** and has customized several theme components through swizzling. When upgrading Docusaurus, carefully review the migration guide for potential breaking changes to these components.
+This project uses **Docusaurus 3.10.x** and swizzles many theme components. The folders in `src/theme/` are the full list. When upgrading Docusaurus, review the migration guide for breaking changes to them.
 
-**Swizzled components:**
+Two customizations carry behavior beyond styling:
 
-* `DocBreadcrumbs` - Custom breadcrumb component using the design system tokens
-* `DocCard` - Enhanced with gem icon support via `customProps.gemIcon`
-* `DocCategoryGeneratedIndexPage` - Custom layout for category index pages
-* `DocPaginator` - Styled pagination for documentation pages
-* `DocSidebar/Desktop/Content` - Custom sidebar layout and styling
-* `DocSidebarItems` - Implements contextual filtering (see above)
-* `Footer` - Custom footer with Moderne branding
-* `Navbar/Layout` - Custom navbar layout with MegaMenu integration
-* `Navbar/Logo` - Custom logo component with dark mode support
+* `DocSidebarItems` implements contextual filtering (see above)
+* `DocCard` adds gem icon support via `customProps.gemIcon`
 
 **Important upgrade considerations:**
 
