@@ -149,7 +149,7 @@ Throughout our LSTs and other APIs, we have been careful to use Java's nullabili
 
 ### Week Year ("YYYY") should not be used for date formatting
 
-If your recipe is going to work with dates, please ensure that you adhere to [RSPEC-3986](https://rules.sonarsource.com/java/RSPEC-3986). Dates should be constructed with `y` for `Year` instead of `Y` for `Week Year`.
+If your recipe is going to work with dates, please ensure that you adhere to [RSPEC-3986](https://next.sonarqube.com/sonarqube/coding_rules?open=java%3AS3986&rule_key=java%3AS3986). Dates should be constructed with `y` for `Year` instead of `Y` for `Week Year`.
 
 ### Avoid constructing LST elements by hand
 
