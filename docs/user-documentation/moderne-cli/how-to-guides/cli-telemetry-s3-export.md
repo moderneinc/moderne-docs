@@ -23,7 +23,7 @@ See [Configuring telemetry exports and reports](../../../administrator-documenta
 
 This guide is for:
 
-* **Moderne DX customers** and CLI-only deployments not connected to a Moderne tenant, which don't have the platform-native replication path.
+* **Moderne DX customers** whose CLIs can't reach DX, and CLI-only deployments not connected to a Moderne tenant, which don't have the platform-native replication path. A CLI signed in to DX [uploads its telemetry to DX](../../../administrator-documentation/moderne-dx/how-to-guides/configure-telemetry-dx.md) instead.
 * Anyone who wants to publish CLI telemetry directly from the CLI to a destination they control (their own object storage, a BI endpoint, or anywhere else) in addition to (or instead of) the platform replication. This guide uses AWS S3 as the worked example, but the same wrapper customization can target any destination.
 
 In either case, this is a one-time setup for a platform or admin team, done on behalf of the people who consume the telemetry. The CLI users generating the telemetry don't publish anything themselves - they keep running `mod` as usual.

@@ -37,19 +37,19 @@ Every user can read every repository in DX until you turn on [user-level reposit
 
 DX is a configuration of the Moderne Platform, not a separate product. The parts it runs work as they do on the Platform.
 
-| Capability                                           |              Moderne DX                          |            Moderne Platform            |
-|------------------------------------------------------|:------------------------------------------------:|:--------------------------------------:|
-| Recipe marketplace                                   |                       Yes                        |                  Yes                   |
-| Code search across every repository                  |                       Yes                        |                  Yes                   |
-| Organizations from your `repos.csv` file             |                       Yes                        |                  Yes                   |
-| Changesets pushed from the CLI, reviewed in the UI   |                       Yes                        |                  Yes                   |
-| Sign-in through your identity provider               |                       Yes                        |                  Yes                   |
-| A status page with every service's metrics and logs  |                       Yes                        |                  Yes                   |
-| Recipe runs started from the UI                      | No. The marketplace shows the CLI command instead. |                  Yes                   |
-| Commits and pull requests made from the UI           |                       No                         |                  Yes                   |
-| Visualizations, DevCenter, and audit logs            |                       No                         |                  Yes                   |
-| Moddy                                                |                       No                         |                  Yes                   |
-| Where it runs                                        |             A machine you control                | A single-tenant SaaS hosted by Moderne |
+| Capability                                          |                     Moderne DX                     |            Moderne Platform            |
+|-----------------------------------------------------|:--------------------------------------------------:|:--------------------------------------:|
+| Recipe marketplace                                  |                        Yes                         |                  Yes                   |
+| Code search across every repository                 |                        Yes                         |                  Yes                   |
+| Organizations                                       |          From your `repos-lock.csv` file           |    From your organizations service     |
+| Changesets pushed from the CLI, reviewed in the UI  |                        Yes                         |                  Yes                   |
+| Sign-in through your identity provider              |                        Yes                         |                  Yes                   |
+| A status page with every service's metrics and logs |                        Yes                         |                  Yes                   |
+| Recipe runs started from the UI                     | No. The marketplace shows the CLI command instead. |                  Yes                   |
+| Commits and pull requests made from the UI          |                         No                         |                  Yes                   |
+| Visualizations, DevCenter, and audit logs in the UI |                         No                         |                  Yes                   |
+| Moddy                                               |                         No                         |                  Yes                   |
+| Where it runs                                       |               A machine you control                | A single-tenant SaaS hosted by Moderne |
 
 The marketplace's **Run with the CLI** button gives developers the commands that sync an organization and run a recipe with the options they picked.
 

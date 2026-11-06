@@ -9,7 +9,7 @@ Moderne DX reads its configuration from a `moderne.yml` file, which `java -jar m
 
 A value of the form `${NAME}` is an environment variable, or a `NAME=value` line of the `moderne.env` file beside `moderne.yml`. Only the user DX runs as may read `moderne.env`. A path that is not absolute resolves against the directory that holds `moderne.yml`, unless a setting below says otherwise.
 
-A value of the form `${moderne-cli:key}` is what the Moderne CLI holds for the key, as `mod config get <key>` prints it. Each time DX starts, it asks the CLI of the user it runs as.
+A value of the form `${moderne-cli:key}` is what the Moderne CLI holds for the key, as `mod config get <key>` prints it. A secret prints only with `--reveal`. Each time DX starts, it asks the CLI of the user it runs as.
 
 ## Commands
 
@@ -28,7 +28,7 @@ Every command but `init` reads the `moderne.yml` file in the working directory, 
 
 | Setting                | Default  | Description                                                                                                         |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
-| `moderne.tenant.name`  | `dx`     | The tag on every metric. The browser's title shows any other name. Lowercase letters, digits, and dashes, but not `app`. |
+| `moderne.tenant.name`  | `dx`     | The tag on every metric. The browser's title shows any other name. Lowercase letters, digits, and dashes. |
 | `moderne.license.key`  |          | Your Moderne DX license key. Without a valid one, the CLIs connected to DX stop running recipes.                     |
 
 ## URLs and the proxy

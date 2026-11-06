@@ -81,9 +81,22 @@ The `moderne-dx.service` file that `init` wrote runs DX under systemd. It expect
 
 * The jar at `/opt/moderne-dx/moderne-dx.jar`.
 * `moderne.yml` and `moderne.env` in `/etc/moderne-dx`.
+* Java 25 at `/usr/bin/java`.
+* `mod` in `/usr/local/bin`, `/usr/bin`, or `/bin`.
 * A `moderne` user who owns `moderne.env` and DX's data directories.
 
-Edit those paths in the file if yours differ, then install it:
+Edit those paths in the file if yours differ.
+
+DX keeps its data beside `moderne.yml` unless you name other directories. To keep it out of `/etc/moderne-dx`, set them in `moderne.yml`:
+
+```yaml title="moderne.yml"
+moderne:
+  storage:
+    permanent-dir: /var/lib/moderne-dx/permanent
+    ephemeral-dir: /var/lib/moderne-dx/ephemeral
+```
+
+Then install the unit:
 
 ```bash
 sudo cp moderne-dx.service /etc/systemd/system/
@@ -222,6 +235,6 @@ Start with `java -jar moderne-dx.jar doctor`. It checks the configuration, and o
 | A repository with a V2 LST is missing from code search  | DX's log says why its conversion failed. Python, Go, and .NET LSTs need those tools on the machine. |
 | The marketplace has no recipes                          | Check where recipes come from with `doctor`. Then install them from the marketplace as an administrator. |
 
-The status page at `https://status.moderne.acme.com` shows every service's metrics and logs from the last two days. Any user can open it.
+The status page at `https://status.moderne.acme.com` shows every service's metrics and logs from the last two days. Any signed-in user can open it.
 
 A service that runs out of memory leaves a heap dump named after it in the ephemeral directory. DX then restarts the service. Give it more memory with `moderne.dx.memory`.
