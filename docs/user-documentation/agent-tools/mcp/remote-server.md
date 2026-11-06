@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Remote Moderne MCP server
 
-The Moderne Platform hosts a remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents access to your platform's recipes, recipe results, and code search. It operates on the repositories already ingested into your tenant, so your agent can run a recipe or search code across an entire organization without checking anything out.
+The Moderne Platform hosts a remote [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that gives AI coding agents access to your platform's recipes, recipe results, and [Code Search](../../moderne-platform/getting-started/code-search.md). It operates on the repositories already ingested into your tenant, so your agent can run a recipe or search code across an entire organization without checking anything out.
 
 :::info[Beta]
 The remote MCP server is in beta. Tools will be added, reshaped, and occasionally removed as we learn how agents use them. That being said, it's only the tools themselves that are in beta - not the platform underneath it. Authentication and access scoping work exactly as they do for the rest of the Moderne API (as described under [Security](#security)).
@@ -141,7 +141,7 @@ Recipe runs are not allowed against the root organization (`ALL`). Pass a specif
 
 A typical recipe flow is to find a recipe with `searchForRecipe`, inspect it with `describeRecipeOptions` and `describeRecipeDataTables`, run it with `runRecipe`, and then query the results with `processDataTableSql`. A recipe run can take a little time, so your agent waits for it to finish before returning the results.
 
-A typical code search flow starts with `codeSearch` (which takes the same queries as the [Platform's code search page](../../moderne-platform/getting-started/code-search.md)). If a match looks interesting, `readFile` pulls up more of that file. If what the agent really wants is a number or a breakdown rather than a list of matches, the `codeSearchSql` tool is used.
+A typical code search flow starts with `codeSearch` (which takes the same queries as the [Platform's Code search page](../../moderne-platform/getting-started/code-search.md)) or with one of the `find` tools for a common lookup. If a match looks interesting, `readFile` pulls up more of that file. If what the agent really wants is a number or a breakdown rather than a list of matches, the `codeSearchSql` tool is used. A `codeSearch` or `codeSearchSql` search can be saved as a [changeset](../../moderne-platform/references/changesets.md).
 
 The organization tools fit into either flow. An agent that hasn't been told which organization to use can find one with `listOrganizations`. Once a search or recipe has turned up a set of repositories, `createUserOrganization` groups them into an organization that `runRecipe` can target.
 
@@ -328,23 +328,21 @@ The results come back as a CSV, with a few lines above it that tell you how many
 }
 ```
 
-#### Tables
+#### Tables and examples
 
-The SQL query doesn't read from ordinary tables. Instead, it reads from a handful of functions that run a search and hand back the results as rows. The `<query>` you pass to them is a normal code search query - the same thing you'd give to `codeSearch`:
+The SQL reads from functions that run a search and return the results as rows:
 
-| Function                             | One row per                                    | Columns                                                                                                                                                              |
-|--------------------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `search('<query>')`                  | Matching file                                  | `origin`, `path`, `branch`, `file`, `language`, `matches` (how many lines in the file matched)                                                                       |
-| `search_lines('<query>')`            | Matching line                                  | `origin`, `path`, `branch`, `file`, `language`, `line_number`, `line`                                                                                                |
-| `search_matches('<query>')`          | Individual match                               | `origin`, `path`, `branch`, `file`, `language`, the exact position (`start_line`, `start_column`, `end_line`, `end_column`), `matched_text`, `captures`, and the symbol that matched |
-| `organizations()`                    | Repository, once per organization it belongs to | `origin`, `path`, `branch`, `organization`, `name`, `depth`, `indexed`                                                                                               |
-| `recipe('<recipe>', '<data table>')` | Row of the data table, from the latest run of that recipe on each repository | `origin`, `path`, `branch`, `changeset_id`, then the data table's own columns                                                                                         |
+| Function                             | One row per                                    |
+|--------------------------------------|------------------------------------------------|
+| `search('<query>')`                  | Matching file                                  |
+| `search_lines('<query>')`            | Matching line                                  |
+| `search_matches('<query>')`          | Individual match                               |
+| `organizations()`                    | Repository in the organization tree            |
+| `recipe('<recipe>', '<data table>')` | Row of a data table from an earlier recipe run |
 
-To join two searches, match them on `origin`, `path`, `branch`, and `file`. To join a search with `organizations()` or `recipe()`, match on `origin`, `path`, and `branch`. The full column list and more examples are in the `moderne://code-search/query-guide` resource that the server provides alongside its tools.
+The server's `moderne://code-search/query-guide` resource gives agents every column of each function, along with example queries.
 
-#### Example
-
-To count the files in each repository that still call `java.sql.Statement.executeQuery`:
+For example, to count the files in each repository that still call `java.sql.Statement.executeQuery`:
 
 ```sql
 SELECT path, count(*) AS files
@@ -374,10 +372,6 @@ Saving only makes sense when each row is a specific line of code that someone co
 Finds every place a method is called. The tool looks at which method is actually being called, not at the text. That means a comment that mentions a method won't match. Likewise, a method that happens to have the same name - but on an unrelated type - also won't match.
 
 Calls on subtypes are included. For instance, since a `List` in Java is a kind of `Collection` - if you search for `java.util.Collection.add`, you'll get results for adding something to a `List`, a `Set`, or any other class that implements `Collection`.
-
-:::tip
-findMethods can't tell overloaded methods apart. If you need to do so, use a recipe instead.
-:::
 
 ```json
 {

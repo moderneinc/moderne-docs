@@ -34,6 +34,12 @@ That will take you to the [activity view](https://app.moderne.io/recent-activity
 If your organizations are hierarchical (meaning that one organization contains 1 or more sub-organizations), you will see all of the repositories in both the selected organization and its sub-organizations.
 :::
 
+## Saved searches
+
+When you or your agent [save a search](./code-search.md#saving-and-exporting-a-search), Moderne runs the search across the organization and lists it in the activity view.
+
+Like a recipe run, a saved search is a [changeset](../references/changesets.md). Click on it to see which repositories matched. By default, a saved search's name is its query. You can give it a different name with `mod search --save --name`, or by asking your agent to name it.
+
 ## Parts of the activity view
 
 ### Navigate to the recipe, commit, or visualization

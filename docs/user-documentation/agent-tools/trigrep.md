@@ -1,23 +1,23 @@
 ---
-sidebar_label: Moderne Trigrep
-description: Fast trigram-indexed code search for finding patterns across repositories.
+sidebar_label: Trigrep
+description: The search engine behind Moderne Code Search, with the full query syntax, filters, and SQL search.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
 
-# Moderne Trigrep
+# Trigrep
 
-Moderne Trigrep provides fast, indexed search across your entire codebase, delivering sub-second search times even across thousands of repositories. It operates within the context of a Moderne organization, so you can scope searches to specific business units, teams, or application portfolios.
+Trigrep is the search engine behind Moderne [Code Search](../moderne-platform/getting-started/code-search.md). It provides fast, indexed search across your entire codebase, delivering sub-second search times even across thousands of repositories. It operates within the context of a Moderne organization, so you can scope searches to specific business units, teams, or application portfolios.
 
-Moderne Trigrep supports [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) and [Comby structural patterns](https://comby.dev/docs/syntax-reference), so AI models already trained on those tools can use Moderne Trigrep without learning a new query language. Beyond standard Sourcegraph filters, Moderne Trigrep adds semantic filters like `visibility:`, `extends:`, and `implements:` powered by Lossless Semantic Tree (LST) metadata.
+Trigrep supports [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) and [Comby structural patterns](https://comby.dev/docs/syntax-reference), so AI models already trained on those tools can use Trigrep without learning a new query language. Beyond standard Sourcegraph filters, Trigrep adds semantic filters like `call:`, `extends:`, and `implements:` powered by Lossless Semantic Tree (LST) metadata.
 
-Search results can feed directly into OpenRewrite recipe execution, allowing you to use cheap text searches as prefilters for expensive code transformations.
+You can also [save a search and run a recipe on just the repositories it matched](#using-search-as-a-prefilter-for-recipes), instead of every repository in the organization.
 
-You can run Moderne Trigrep locally via the CLI's `mod search` command or through an AI coding agent running against the [MCP server](./mcp/overview.md).
+Trigrep powers the [Code search page](../moderne-platform/getting-started/code-search.md) in the Moderne Platform, the CLI's `mod search` command, and the search tools on the [remote](./mcp/remote-server.md) and [local](./mcp/overview.md) MCP servers. Agents can use it to find every call to a method or use of a library across an organization in a single search, instead of grepping and reading files one at a time.
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
 
-## Why use Moderne Trigrep
+## Why use Trigrep
 
 Traditional text search tools struggle with enterprise codebases for several reasons:
 
@@ -25,22 +25,35 @@ Traditional text search tools struggle with enterprise codebases for several rea
 2. Regular expressions without indexing are even worse (they require full file reads to evaluate patterns).
 3. They lack an understanding of code structure. For example, they treat a method named `getUserById` in the same way they treat a comment that happens to mention it.
 
-**Moderne Trigrep addresses these challenges** by building trigram indexes during the repository build process. Once indexed, queries run against pre-computed data structures rather than raw files.
+**Trigrep addresses these challenges** by building trigram indexes during the repository build process. Once indexed, queries run against pre-computed data structures rather than raw files.
 
 The search engine also understands code structure, so you can filter by:
 
 * Symbol type (class, method, field)
-* Visibility (public, private, protected)
+* Method calls and type references, including through subtypes
+* Dependencies and their versions
 * Inheritance relationships (extends, implements)
 * Return types and thrown exceptions
 
 This combination of speed and structural awareness makes exploratory queries practical (the kind of queries you wouldn't even bother attempting with grep).
 
-For example, consider the situation where you want to search for all public methods that return a `List` across 500 repositories. A naive `grep` run would need to read every Java file and manually parse method signatures. Moderne Trigrep, on the other hand, answers the same question in under a second.
+For example, consider the situation where you want to search for all methods that return a `List` across 500 repositories. A naive `grep` run would need to read every Java file and manually parse method signatures. Code Search, on the other hand, answers the same question in under a second.
 
 ## Getting started
 
-To get started with Moderne Trigrep, you'll first need to sync an organization to your local machine. `mod git sync moderne` downloads the LST of each repository, which is all `mod search` needs:
+### Searching an organization in the Moderne Platform
+
+If your organization's LSTs are already in the Moderne Platform, you can search it from the CLI without syncing anything to your machine:
+
+```bash
+mod search "moderne://Spring" "KafkaTemplate"
+```
+
+This runs the same search as the Platform's [Code search page](../moderne-platform/getting-started/code-search.md), against the same index.
+
+### Searching a working set
+
+To search repositories on your machine instead, sync an organization to a working set first. `mod git sync moderne` downloads the LST of each repository, which is all `mod search` needs:
 
 ```bash
 # Sync the Spring organization to the working-set directory
@@ -50,7 +63,7 @@ mod git sync moderne working-set --organization Spring
 mod search working-set "KafkaTemplate"
 ```
 
-Moderne Trigrep needs an LST for every repository it searches, because the trigram index is derived from the LST rather than from the source text. The first `mod search` over a repository converts its LST to the V3 format in place, if it isn't already, and writes the index as part of the conversion. You should expect that first search to take a while on a large repository. Every search after that runs in under a second, because the converted LST and its index are reused.
+Trigrep needs an LST for every repository it searches, because the trigram index is derived from the LST rather than from the source text. The first `mod search` over a repository converts its LST to the V3 format in place, if it isn't already, and writes the index as part of the conversion. You should expect that first search to take a while on a large repository. Every search after that runs in under a second, because the converted LST and its index are reused.
 
 If a repository has no LST in Moderne - or you want to search your own local changes - clone the sources and build them yourself instead:
 
@@ -71,7 +84,7 @@ Below, we'll dive into various ways you can refine your searches based on your n
 
 ## Three ways to search
 
-Moderne Trigrep supports three query paradigms, each suited to different tasks. You can combine them freely in a single search.
+Trigrep supports three query paradigms, each suited to different tasks. You can combine them freely in a single search.
 
 ### Literal and Sourcegraph-style queries
 
@@ -84,7 +97,7 @@ To refine your search, you can combine terms with boolean logic:
 * **NOT**: Prefix with `-` to exclude. Because the CLI intercepts leading `-` as an option marker, insert `--` between the path and the query: `mod search . -- @RestController -test` finds files containing `@RestController` but not `test`.
 * **Grouping**: Parentheses control precedence. For example, `(@Service or @Controller) getUserById` finds files with `getUserById` that also have either annotation.
 
-You can also combine literal searches with [filters](#filters) to narrow results by file path, repository, language, or semantic properties like visibility and inheritance.
+You can also combine literal searches with [filters](#filters) to narrow results by file path, repository, language, or semantic properties like inheritance.
 
 <details>
 <summary>Common literal queries</summary>
@@ -116,7 +129,7 @@ You can also combine literal searches with [filters](#filters) to narrow results
 
 When literal matching isn't enough, you can use regular expressions to match patterns rather than exact text. To do so, wrap your pattern in forward slashes. For example, `/log\.(info|debug|warn)\(/` finds logging calls at any of three levels.
 
-Moderne Trigrep optimizes regex searches by extracting literal fragments from your pattern to narrow down candidate files first, so most regex searches are nearly as fast as literal ones.
+Trigrep optimizes regex searches by extracting literal fragments from your pattern to narrow down candidate files first, so most regex searches are nearly as fast as literal ones.
 
 <details>
 <summary>Common regex queries</summary>
@@ -200,7 +213,7 @@ Structural matching also respects string and comment boundaries, so a pattern wo
 
 ## Choosing a query syntax
 
-Moderne Trigrep supports two query language dialects: **Sourcegraph** and **Zoekt**. You can switch between them with the `--syntax` flag:
+Trigrep supports two query language dialects: **Sourcegraph** and **Zoekt**. You can switch between them with the `--syntax` flag:
 
 ```bash
 # Sourcegraph syntax (default), path: is a Sourcegraph alias for file:
@@ -212,9 +225,11 @@ mod search working-set --syntax zoekt 'file:*.java' @Autowired
 
 The default is `sourcegraph`, which is what most online documentation and AI training data use. If you're already familiar with the original [Zoekt query language](https://github.com/google/zoekt), you can switch to `zoekt` to use its native syntax directly.
 
+A third option, `--syntax=sql`, lets agents run [SQL search](#sql-search) from the CLI on an organization in Moderne using `moderne://`.
+
 ### Differences between the two syntaxes
 
-Both dialects share the same core query features: literal search, regex, boolean operators, filters like `file:`, `lang:`, `sym:`, and all of the semantic filters (`visibility:`, `extends:`, `implements:`, etc.). The differences are mostly syntactic shortcuts that Sourcegraph adds on top of Zoekt:
+Both dialects share the same core query features: literal search, regex, boolean operators, filters like `file:`, `lang:`, `sym:`, and all of the semantic filters (`call:`, `extends:`, `implements:`, etc.). The differences are mostly syntactic shortcuts that Sourcegraph adds on top of Zoekt:
 
 | Feature                | Sourcegraph                  | Zoekt                         |
 |------------------------|------------------------------|-------------------------------|
@@ -250,22 +265,20 @@ mod search working-set --syntax zoekt KafkaTemplate @Autowired
 
 Running an OpenRewrite recipe across thousands of repositories can be expensive since each one requires parsing its LST and running visitor patterns across the entire tree. If you know a recipe will only affect files containing a specific pattern, you can search first to skip repositories that don't match.
 
-To do this, use the `--last-search` flag on the run command:
+To do this, [save the search](../moderne-platform/getting-started/code-search.md#saving-and-exporting-a-search) with `--save`, which creates a [changeset](../moderne-platform/references/changesets.md) covering only the repositories it matched. You can then run the recipe on that changeset, using the ID `mod search` prints once the search is saved. An agent narrows a recipe run the same way:
 
 ```bash
-mod search working-set KafkaTemplate or KafkaProducer or @SendTo
-mod run working-set --recipe=io.moderne.java.spring.kafka.KafkaMigration --last-search
+mod search "moderne://Spring" "KafkaTemplate or KafkaProducer or @SendTo" --save --name "Kafka producers"
+mod run moderne://changeset/<changesetId> --recipe=io.moderne.java.spring.kafka.KafkaMigration
 ```
 
-The first command runs in under a second, identifying which repositories contain any Kafka producer patterns. The second command then processes only those repositories, skipping everything else. If your search found matches in 47 repositories out of 10,000 total, the recipe run processes 47 instead of 10,000.
+If your search found matches in 47 repositories out of 10,000 total, the recipe run processes 47 instead of 10,000.
 
 This is particularly useful for migrations. Before converting all usages of a deprecated API, you can verify the scope with an instant search. The results also serve as a checklist for verifying that the recipe transformed every occurrence.
 
-If you need to reference an older search rather than the most recent one, you can do so by taking advantage of the unique search identifier each search gets: `--search=<id>`.
-
 ## Output modes
 
-The `mod search` command offers two options for how results are displayed.
+The `mod search` command offers three options for how results are displayed.
 
 ### Rich mode (default)
 
@@ -293,6 +306,55 @@ Use plain mode when integrating with automated workflows or when you don't need 
 If you try and run a `mod search` that violates this, you will be asked to confirm that's what you really want by running the command with the `-y` flag. If a script or an agent tries to run a command like this, it will fail with a message instead.
 :::
 
+### Summary mode
+
+Summary mode shows how many matches, files, and repositories a search found, without listing them:
+
+```bash
+mod search "moderne://Spring" "dependency:org.springframework:*:5.x" --output summary
+```
+
+Agents can use summary mode to see how many matches a search has before they read any of them. If a search finds 4,000 matches across 300 repositories, the agent can narrow the query instead of paging through all of them.
+
+### Match notes
+
+Some matches come with a note that explains why they matched. It appears below the match, or in a popover on the Code search page. For example, the note on a `dependency:` match gives the version the code compiled against, such as `org.springframework:spring-web:5.1.8.RELEASE`. That version can differ from the one in the build file.
+
+<figure>
+  ![A Code search match with its note open in a popover, showing the dependency org.springframework:spring-web:5.1.8.RELEASE](../moderne-platform/getting-started/assets/code-search-match-note.png)
+  <figcaption></figcaption>
+</figure>
+
+## SQL search
+
+SQL search is built for agents. An agent writes a [DuckDB](https://duckdb.org/) SQL query and gets back just the answer it needs, like how many repositories still use a library.
+
+Agents use it through the [`codeSearchSql` tool](./mcp/remote-server.md#codesearchsql) on the remote MCP server, or with `mod search moderne://<organization> --syntax=sql` in the CLI. It isn't available on the Code search page. You don't need to write the SQL yourself, because the server gives agents a guide to every function and column.
+
+The SQL reads from functions that run a search and return the results as rows:
+
+| Function                             | One row per                                    |
+|--------------------------------------|------------------------------------------------|
+| `search('<query>')`                  | Matching file                                  |
+| `search_lines('<query>')`            | Matching line                                  |
+| `search_matches('<query>')`          | Individual match                               |
+| `organizations()`                    | Repository in the organization tree            |
+| `recipe('<recipe>', '<data table>')` | Row of a data table from an earlier recipe run |
+
+An agent can also combine a recipe's results with a search. For example, this query finds the methods where the SQL injection flows from `FindSqlInjection` reach `executeQuery`:
+
+```sql
+SELECT r.path, s.enclosing_method_id, count(*) AS flows
+FROM recipe('FindSqlInjection', 'TaintFlowTable') r
+JOIN search_matches('call:java.sql.Statement.executeQuery') s
+  ON (s.origin, s.path, s.branch, s.file, s.start_line) = (r.origin, r.path, r.branch, r.file, r.sinkLine)
+WHERE NOT r.stale
+GROUP BY ALL
+ORDER BY flows DESC
+```
+
+An agent can also save the results of a SQL query as a [changeset](../moderne-platform/references/changesets.md). The rows are saved to the `io.moderne.codesearch.SqlResults` data table.
+
 ## Query reference
 
 This section provides a quick reference for all query operators, filters, and structural hole types.
@@ -307,61 +369,50 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 |----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
 | `file:`        | Match file paths. You can write the path as a glob (`file:*.java`, `file:src/**/*.java`) or as a regular expression (`file:\.kt$`, `file:^src/(main\|test)/`). Aliases: `f:`, `path:` (Sourcegraph).                                                                                                                                                                                                                                                                                | `file:src/**/*.java`          |
 | `lang:`        | Filter by language. Aliases: `language:`, `l:` (Sourcegraph).                                                                                                                                                                                                                                                                                                                                                                                                                       | `lang:java`                   |
+| `repo:`        | Match part of a repository's origin and path, to narrow a search to some of the repositories it covers.                                                                                                                                                                                                                                                                                                                                                                             | `repo:payments`               |
 | `case:`        | Control case sensitivity (`yes`/`no`). Searches are case-sensitive by default, which is the opposite of Sourcegraph's default.                                                                                                                                                                                                                                                                                                                                                      | `case:yes findById`           |
 | `type:`        | Choose what a term matches against: file content (`file`, the default), file paths only (`path`), or symbol declarations only (`symbol`).<br/><br/>`type:symbol` is easy to confuse with `sym:`, which [matches declarations by name rather than by text](#typesymbol-versus-sym).                                                                                                                                                                                                  | `type:symbol Person`          |
 | `sym:`         | Match symbol declarations by name. A bare name (`sym:add`) matches every symbol whose own name is exactly `add`, in any class. A fully qualified name (`sym:java.util.List.add`) matches that one symbol. A partly qualified name needs `..` for the packages it leaves out (`sym:..List.add`), and `/regex/` matches against the simple name, or against the whole FQN when the pattern contains a dot. Declarations only: use `call:` or `ref:` to find usages. Alias: `symbol:`. | `sym:UserRepository`          |
-| `select:`      | Filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`, `symbol.record`, `symbol.javadoc-ref`, `symbol.comment`, `symbol.string-literal`, plus language-specific kinds such as `symbol.program` and `symbol.paragraph` (COBOL) or `symbol.job` and `symbol.step` (JCL).                                                                                                                            | `select:symbol.method`        |
+| `select:`      | Return matching files without their lines (`select:file`), or filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`, `symbol.record`, `symbol.javadoc-ref`, `symbol.comment`, `symbol.string-literal`, plus mainframe kinds under `symbol.mainframe`, such as `symbol.mainframe.program` or `symbol.mainframe.jcl.job`.                                                                                                                            | `select:symbol.method`        |
 | `scope:`       | Search only comments (`comments`), only string literals (`strings`), or everything except comments (`code`). Today only COBOL records where its comments and strings are. In other languages, `scope:comments` finds nothing and `scope:code` finds everything.                                                                                                                                                                                                                     | `scope:comments TODO`         |
 | `count:`       | Cap the total results returned by the query, or `count:all` to return every match.                                                                                                                                                                                                                                                                                                                                                                                                  | `count:500`                   |
 | `content:`     | Match the given text in file content (Sourcegraph). Use it when a search term would otherwise be read as a filter name, such as `content:"type:"`.                                                                                                                                                                                                                                                                                                                                  | `content:"text"`              |
 | `patternType:` | Sourcegraph-only. Switch how unquoted terms are read: `keyword` (default), `literal`, `regexp`, or `structural`.                                                                                                                                                                                                                                                                                                                                                                    | `patternType:regexp foo.bar`  |
-| `visibility:`  | Filter by access modifier: `public`, `private`, `protected`, `package` (or `package-private`), or `any` (Sourcegraph; matches everything).                                                                                                                                                                                                                                                                                                                                          | `visibility:public`           |
-| `static:`      | Filter for static modifier (`yes`/`no`).                                                                                                                                                                                                                                                                                                                                                                                                                                            | `static:yes`                  |
-| `final:`       | Filter for final modifier (`yes`/`no`).                                                                                                                                                                                                                                                                                                                                                                                                                                             | `final:yes`                   |
-| `abstract:`    | Filter for abstract modifier (`yes`/`no`).                                                                                                                                                                                                                                                                                                                                                                                                                                          | `abstract:yes`                |
 | `extends:`     | Match classes that extend the given class, directly or through any intermediate superclass.                                                                                                                                                                                                                                                                                                                                                                                         | `extends:BaseService`         |
 | `implements:`  | Match classes that implement the given interface, directly or through a superclass or superinterface.                                                                                                                                                                                                                                                                                                                                                                               | `implements:Repository`       |
 | `annotated:`   | Match declarations (class, method, or field) that carry the given annotation directly. Meta-annotations don't count, so a Spring `@Service` class does not match `annotated:Component`.                                                                                                                                                                                                                                                                                             | `annotated:AutoConfiguration` |
 | `returns:`     | Match methods by return type.                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `returns:List`                |
 | `throws:`      | Match methods by declared exceptions.                                                                                                                                                                                                                                                                                                                                                                                                                                               | `throws:IOException`          |
 | `ref:`         | Match the places a type is named: variable and field declarations, generics, casts, `new`, and Javadoc links (like OpenRewrite's `FindTypes`). Narrow to one kind of use with `ref.call:`, `ref.field:`, and so on. See [the `ref:` and `call:` filters](#the-ref-and-call-filters). Alias: `references:`.                                                                                                                                                                          | `ref:java.util.List`          |
-| `call:`        | Match method and constructor call sites by the called method's declaring type and name, subclass-aware. See [the `ref:` and `call:` filters](#the-ref-and-call-filters). Alias: `calls:`.                                                                                                                                                                                                                                                                                           | `call:java.util.List.add`     |
+| `call:`        | Match method and constructor call sites by the called method's declaring type and name, subclass-aware. An argument list picks out one overload. See [the `ref:` and `call:` filters](#the-ref-and-call-filters). Alias: `calls:`.                                                                                                                                                                                                                                                                                           | `call:java.util.List.add`     |
 | `dependency:`  | Match the calls and references whose target comes from a dependency, by name and optional version. See [the `dependency:` filter](#the-dependency-filter). Alias: `dep:`.                                                                                                                                                                                                                                                                                                           | `dependency:guava:29.x`       |
+| `author:`      | Match lines whose last commit's author matches, as `git blame` attributes them. A word or quoted value matches part of `Name <email>`, ignoring case. A `/regex/` matches as a regular expression. See [searching by author and date](#searching-by-author-and-date).                                                                                                                                                                                                           | `author:alex`                 |
+| `after:`       | Match lines last changed on or after a day in UTC (`2026-01-31`) or a time ago (`"3 months ago"`). See [searching by author and date](#searching-by-author-and-date).                                                                                                                                                                                                                                                                                                               | `after:2026-01-01`            |
+| `before:`      | Match lines last changed before a day in UTC or a time ago. See [searching by author and date](#searching-by-author-and-date).                                                                                                                                                                                                                                                                                                                                                      | `before:2025-01-01`           |
 
 :::info[Which filters require symbol data]
 The symbol-aware filters read from LST symbol metadata rather than raw text, which trigrep extracts from source code. They come in two groups:
 
-* **Declaration filters** (`sym:`, `select:`, `type:symbol`, `visibility:`, `static:`, `final:`, `abstract:`) read a symbol's name, kind, and modifiers off the parse tree, so they work across all supported source languages: Java, Kotlin, Groovy, Scala, Python, JavaScript, TypeScript, Go, C#, COBOL, JCL, and BMS. The mainframe languages declare their own symbol kinds (programs, paragraphs, jobs, steps, DD statements, and maps) and reference kinds such as `ref.pgm:`, `ref.perform:`, and `ref.copy:`.
+* **Declaration filters** (`sym:`, `select:`, `type:symbol`) read a symbol's name and kind off the parse tree, so they work across all supported source languages: Java, Kotlin, Groovy, Scala, Python, JavaScript, TypeScript, Go, C#, COBOL, JCL, and BMS. The mainframe languages declare their own symbol kinds (programs, paragraphs, jobs, steps, DD statements, and maps) and reference kinds such as `ref.pgm:`, `ref.perform:`, and `ref.copy:`.
 * **Type-reference filters** (`extends:`, `implements:`, `annotated:`, `returns:`, `throws:`, `ref:`, `call:`, `dependency:`) resolve types through the LST, so how much they find depends on the language's type attribution, which is most complete for Java.
 
 Configuration and data files (XML, JSON, YAML, and the like) are indexed for text only. Literal search, regex, and the text-oriented filters (`file:`, `lang:`, `case:`, `content:`, `count:`, `patternType:`) work everywhere, but the symbol-aware filters above do not apply to text-only files.
 :::
 
 :::info
-The filters `repo:`, `branch:`, `rev:`, `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect: they emit a warning and are dropped from the query. An index covers one repository's working tree, so there is no other repository or branch to select. `mod search` scopes a search by the directory you give it instead.
+The filters `branch:`, `rev:`, `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect: they emit a warning and are dropped from the query. An index covers one branch of each repository, so there is no other branch to select.
+
+The modifier filters `visibility:`, `static:`, `final:`, and `abstract:` aren't supported yet. They're ignored with a warning too.
 :::
 
-:::warning[Quoting multi-token queries]
-The CLI treats a single-arg query as a **literal phrase** and re-emits it quoted in the `Searching for:` line. As a result, multi-token queries wrapped in a single pair of shell quotes lose their Sourcegraph semantics and almost always return 0 matches. Examples:
-
-* `'@Service or @Controller'` is searched as the literal phrase `@Service or @Controller` (which appears nowhere), so 0 matches.
-* `'visibility:public returns:List'` is parsed as a single filter with value `public returns:List`, so it fails with `Unknown visibility: public returns:List`.
-* `'KafkaTemplate -test'` is searched as the literal phrase `KafkaTemplate -test`, so 0 matches. To use `-` negation, pass terms unquoted with `--`: `mod search . -- KafkaTemplate -test`.
-
-Pass each token as its own argument, or quote each individually:
+:::tip[Quoting queries for the shell]
+Quote the whole query once, so that the shell passes it through unchanged. To search for an exact phrase, put double quotes around it inside the single quotes:
 
 ```bash
-# Works
-mod search . @Service or @Controller
-mod search . visibility:public returns:List
-mod search . "@Service" or "@Controller"
-
-# Fails (literal phrase)
-mod search . "@Service or @Controller"
-mod search . 'visibility:public returns:List'
+mod search . '@Service or @Controller'
+mod search . 'annotated:Test throws:Exception'
+mod search . '"two words"'
 ```
-
-Quoting a single token to protect it from the shell (e.g. `"file:**/*Test.java"` to prevent glob expansion) is fine.
 :::
 
 ### Specifying a type or symbol in a filter
@@ -404,11 +455,24 @@ The `type:symbol` restriction only applies to literal terms. A regex such as `ty
 | `ref.call:T`        | a method call on a `T` value (by receiver / declaring type)                                                      |
 | `ref.field:T`       | a field access whose owner is `T`                                                                                |
 | `ref.fieldtype:T`   | a field-access expression whose result type is `T` (`this.list` where `list` is a `List`)                        |
+| `ref.subtype:T`     | a use of a type that has `T` among its supertypes (`new ArrayList<>()` for `java.util.List`)                     |
+| `ref.import:T`      | an import of `T`, whether or not the file uses it                                                                |
 | `ref.owner:T`       | members **declared in** `T` (its surface), not uses of it                                                        |
 | `ref.[type,call]:T` | a union of the listed kinds                                                                                      |
 | `ref.any:T`         | every reference kind, no filtering                                                                               |
 
-**`call:Type.method`, where a method is called.** `call:` finds the places that call a method, named by the type that declares it: `call:java.util.List.add` finds every call to `List.add`. Constructors use `<init>`, so `call:java.util.ArrayList.<init>` finds every `new ArrayList<>()`. Subtypes count too. `call:java.util.Collection.add` also matches calls made through a `List` or an `ArrayList`, because each call is indexed against every supertype that declares the same method, including types from the JDK and your dependencies. Values take the same forms as the type filters: a fully qualified name, an AspectJ glob, or `/regex/`. One thing `call:` can't do is tell overloads apart, because the index stores a method's name but not its parameters. For that, use a recipe (see [Limitations and when to use recipes](#limitations-and-when-to-use-recipes)).
+**`call:Type.method`, where a method is called.** `call:` finds the places that call a method, named by the type that declares it: `call:java.util.List.add` finds every call to `List.add`. Constructors use `<init>`, so `call:java.util.ArrayList.<init>` finds every `new ArrayList<>()`. Subtypes count too. `call:java.util.Collection.add` also matches calls made through a `List` or an `ArrayList`, because each call is indexed against every supertype that declares the same method, including types from the JDK and your dependencies. Values take the same forms as the type filters: a fully qualified name, an AspectJ glob, or `/regex/`. A type alone, such as `call:java.util.List`, finds the calls of every method and constructor the type declares.
+
+To find the calls of one overload, add an argument list, as you would in an OpenRewrite method pattern. Use `*` for any one argument and `..` for any number of them:
+
+| Query                                            | Matches                                         |
+|--------------------------------------------------|-------------------------------------------------|
+| `call:java.util.List.remove(int)`                | removals by index, not by element               |
+| `call:java.lang.String.format(String, Object...)` | the varargs `format`                           |
+
+:::warning[Requires LSTs built with CLI 4.12.0 or later]
+Some filters, like `ref.subtype:`, don't work in LSTs built with an older CLI. Update the CLI and rebuild the LSTs with `mod build`, or sync them again from the Moderne Platform.
+:::
 
 ### The `dependency:` filter
 
@@ -440,6 +504,29 @@ mod search working-set dependency:guava:29.x call:*..ImmutableList.of
 Older CLIs did not record which dependency a reference came from. If an LST was built or converted before 4.9.1, `dependency:` finds nothing in it. Rebuild it with `mod build`, or sync it again from Moderne.
 :::
 
+### Searching by author and date
+
+`author:` limits a search to lines changed by a specific person. `after:` and `before:` limit it to lines changed within a date range. A line's author and date come from the most recent commit that changed it, the same as with `git blame`.
+
+For example, `author:Alex call:*..ImmutableList.of` finds the calls to `ImmutableList.of` on lines Alex changed. `after:2026-01-01 TODO` finds the TODOs added or edited since the start of 2026. With no search term, `author:Alex lang:java` lists every Java line Alex changed.
+
+:::warning[Requires line history in the LST]
+These filters only find matches if the LST was built from a repository with its full git history. By default, `mod git sync` doesn't download that history. To include it, run `mod config features build git-blame` before you sync. A repository you cloned yourself with `git clone` already has it.
+:::
+
+### Mainframe filters
+
+`sym:` finds where a mainframe name is declared, like a COBOL program or paragraph, or a JCL job. The reference filters below find the statements that use it:
+
+| Query                      | Matches                                                                                  |
+|----------------------------|------------------------------------------------------------------------------------------|
+| `call:CLMU010`             | each COBOL `CALL`, `EXEC CICS LINK`, and `XCTL` that transfers control to program `CLMU010` |
+| `ref.copy:CLMREC`          | each `COPY` or `EXEC SQL INCLUDE` of copybook `CLMREC`                                   |
+| `ref.pgm:IDCAMS`           | each JCL step that runs `IDCAMS` (`EXEC PGM=`)                                           |
+| `ref.data:CLM-STATUS`      | each use of a data item, including its level-88 condition names                          |
+
+Mainframe name searches are case-insensitive. You can narrow a mainframe search with `repo:` and `lang:`, such as `lang:cobol` or `lang:jcl`. The [`mod search` CLI reference](../moderne-cli/cli-reference.md#mod-search) lists every mainframe language, symbol kind, and reference filter.
+
 ### Structural holes
 
 These holes require the `struct:` prefix (see [structural pattern matching](#structural-pattern-matching)).
@@ -461,28 +548,18 @@ These holes require the `struct:` prefix (see [structural pattern matching](#str
 
 ## Limitations and when to use recipes
 
-While Moderne Trigrep offers a lot of flexibility in how to search, there are some questions that don't fit cleanly in a search query (e.g., whether user input can reach a SQL query, or which calls to `List.add` use the two-argument version). Below, we'll go into more detail about when you should reach for a recipe.
-
-| If you want to...                                                                                                 | What search will return                                                                                                         | What recipe to use instead                                                                                                                                                                                                                                                                                                                    |
-|-------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Find calls to one version of an overloaded method, such as the two-argument `List.add`                            | Every call to `List.add`. The index keeps a method's name but not its parameters.                                               | [FindMethods](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindMethods) with a method pattern such as `java.util.List add(int, ..)`                                                                                                                                                                                                               |
-| Find every use of a type or any of its subtypes                                                                   | Only the type you named. `returns:List` skips a method that returns `ArrayList`, and `ref:java.util.Collection` skips a `List`. | [FindTypes](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindTypes) with `checkAssignability` set to `true`                                                                                                                                                                                                                                       |
-| Find classes picked up through a meta-annotation, such as everything behind Spring's `@Configuration`             | Only annotations written directly on the declaration, so `annotated:Configuration` misses an `@AutoConfiguration` class.        | [FindAnnotations](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindAnnotations) with `matchMetaAnnotations` set to `true`                                                                                                                                                                                                                         |
-| Find calls to deprecated library methods                                                                          | Only the places in your own code that write `@Deprecated`.                                                                      | [FindDeprecatedUses](https://codegenomeproject.org/recipes/org.openrewrite.java.search.FindDeprecatedUses)                                                                                                                                                                                                                                                             |
-| Learn where a value came from, whether user input reaches a SQL query, or which methods transitively call another | Each match on its own. A query can't relate one line to another.                                                                | A recipe with [control flow](../../openrewrite-advanced-program-analysis/control-flow/introduction.md) or [data flow](../../openrewrite-advanced-program-analysis/data-flow/introduction.md) analysis, or a [scanning recipe](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes) for whole-repository questions |
-| Get a data table you can query or aggregate                                                                       | Files, lines, and snippets.                                                                                                     | A search recipe such as FindMethods, whose data table you can query with [`mod study`](../moderne-cli/cli-reference.md#mod-study)                                                                                                                                                                                                             |
-| Fix the matches, not just list them                                                                               | Nothing. Search is read-only.                                                                                                   | A transformation recipe, with search as the [prefilter](#using-search-as-a-prefilter-for-recipes)                                                                                                                                                                                                                                             |
+A search can answer most questions about where code lives and what it calls or depends on. To trace how a value moves through the code, you'll need a recipe that uses [data flow](../../openrewrite-advanced-program-analysis/data-flow/introduction.md) or [taint analysis](../../openrewrite-advanced-program-analysis/taint-analysis/introduction.md).
 
 ### When to start with search
 
-Despite these limitations, Moderne Trigrep is still valuable as a first step in many workflows. You can use it to gauge the scope of a migration before writing or running a recipe. For example, a quick search for `extends:AbstractController` tells you how many classes inherit from a base class you plan to refactor.
+Code Search is a useful first step in many workflows. You can use it to gauge the scope of a migration before writing or running a recipe. For example, a quick search for `extends:AbstractController` tells you how many classes inherit from a base class you plan to refactor.
 
-Moderne Trigrep also helps during recipe development. When you're building a recipe to find a specific pattern, you can use Moderne Trigrep to locate examples in real code first. These examples become test cases and help you understand the variations you need to handle.
+Search also helps when you're building a recipe. Before you write it, you can find examples of the pattern in real code. These examples become test cases and help you understand the variations you need to handle.
 
 <details>
 <summary>How trigram indexing works</summary>
 
-Trigram indexing has been referenced in research papers since the 1940s. In 2012, Russ Cox [described the approach](https://swtch.com/~rsc/regexp/regexp4.html) he used to build Google Code Search. Google later open-sourced [Zoekt](https://github.com/google/zoekt), a trigram-based search engine, which Sourcegraph subsequently forked. Moderne Trigrep is a from-scratch Java implementation that is compatible with Sourcegraph's query syntax but does not share any code with the Google or Sourcegraph implementations.
+Trigram indexing has been referenced in research papers since the 1940s. In 2012, Russ Cox [described the approach](https://swtch.com/~rsc/regexp/regexp4.html) he used to build Google Code Search. Google later open-sourced [Zoekt](https://github.com/google/zoekt), a trigram-based search engine, which Sourcegraph subsequently forked. Trigrep is a from-scratch Java implementation that is compatible with Sourcegraph's query syntax but does not share any code with the Google or Sourcegraph implementations.
 
 A trigram is a sequence of three consecutive characters. A sliding window moves across the text, extracting each overlapping triple:
 
@@ -502,7 +579,7 @@ During indexing, every position where each trigram appears is recorded. When you
 
 Even in a codebase with millions of files, the intersection of posting lists typically narrows the search to a handful of files that need actual verification. A typical trigram index runs about 10-20% of the original source code size.
 
-Moderne Trigrep generates its indexes from LSTs rather than raw source code, which gives the index access to symbol information, type data, and other semantic details that wouldn't be available from text alone. This is what powers semantic filters like `sym:`, `extends:`, and `visibility:`. Each symbol's related types are stored as compact V3 type-table slots (resolved at search time through the source set's type tables) rather than duplicated inline strings, so a query like `sym:`, `extends:`, or `implements:` narrows the candidate file set before any byte reads.
+Trigrep generates its indexes from LSTs rather than raw source code, which gives the index access to symbol information, type data, and other semantic details that wouldn't be available from text alone. This is what powers semantic filters like `sym:`, `call:`, and `extends:`. Each symbol's related types are stored as compact V3 type-table slots (resolved at search time through the source set's type tables) rather than duplicated inline strings, so a query like `sym:`, `extends:`, or `implements:` narrows the candidate file set before any byte reads.
 
 The index is written at the same time as the V3 LST and lives next to it. Look under `.moderne/build/{buildId}/` for the `.zoekt` files: there's one shard per source set plus a merged index for the whole repository. A search never sees a half-written index, because the CLI marks it as complete only after the last file is written on disk. Each shard also keeps a copy of the file's content, which is why you can search repositories you have only synced LSTs for, without cloning their source. To refresh the index after significant code changes, re-run `mod build`.
 
@@ -510,7 +587,7 @@ The index is written at the same time as the V3 LST and lives next to it. Look u
 
 ## Further reading
 
-Since Moderne Trigrep supports both Sourcegraph and Zoekt query syntax as well as Comby-style structural patterns, documentation for those tools applies directly here:
+Since Trigrep supports both Sourcegraph and Zoekt query syntax as well as Comby-style structural patterns, documentation for those tools applies directly here:
 
 * [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) covers the full Sourcegraph query language including boolean operators, filters, and regex patterns. This is the default syntax for `mod search`.
 * [Zoekt query syntax](https://github.com/google/zoekt) documents the original Zoekt query language. Use `--syntax zoekt` to switch to this dialect.
@@ -521,5 +598,4 @@ Since Moderne Trigrep supports both Sourcegraph and Zoekt query syntax as well a
 
 {/* Hidden until ready to share publicly: * [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to practice Trigrep queries on a sample workspace. */}
 * [Moderne CLI reference](../moderne-cli/cli-reference.md) for the full `mod search` command documentation.
-* [Code search on the Moderne Platform](../moderne-platform/getting-started/code-search.md) to run the same searches from the Moderne Platform (no local sync required).
-* [Recipe authoring fundamentals](../../hands-on-learning/fundamentals/workshop-overview.md) to learn how to build recipes for the searches Trigrep can't express, such as matching one overload or relating results across files.
+* [Getting started with Code Search](../moderne-platform/getting-started/code-search.md) to run the same searches from the Moderne Platform (no local sync required).
