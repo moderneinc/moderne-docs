@@ -286,7 +286,7 @@ Occasionally, a few of the recipes may fail to sync properly and return the mess
 </TabItem>
 <TabItem value="dx" label="Moderne DX">
 
-> For Moderne DX, follow the [deploying the CLI from an internal artifact repository](./cli-internal-mirror.md) guide.
+You can install the CLI from Moderne DX and point it at DX by following [connecting your developers](../../../administrator-documentation/moderne-dx/how-to-guides/running-moderne-dx.md#connecting-your-developers).
 </TabItem>
 </Tabs>
 
@@ -469,14 +469,12 @@ If you need to enter an SSH passphrase to clone repositories, please see our [SS
 
 #### Working with organizations in DX
 
-For Moderne DX customers, organizations are defined in [your organization's repos.csv file](../references/repos-csv.md) (or in a `repos-lock.csv` file shared with you). It's up to your team to figure out the best way to distribute this file. That being said, we'd recommend having your [mass ingest pipeline](../../../administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx.md) publish this CSV to S3 (or something similar) so people can easily download this file to their machines.
+Moderne DX builds your organizations from the `repos-lock.csv` file your [mass ingest pipeline](../../../administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx.md) publishes. The CLI downloads LSTs from your artifact repository with credentials of its own, which you will need to [add once](../how-to-guides/repos-lock-csv.md#for-team-members-using-the-file).
 
-Once you have the CSV downloaded, you can either clone all of the repositories in that file and then `cd` into the organization (a specific directory) you care about – or you can filter the CSV file down to just the ones you care about and then clone those.
-
-In either case, the command you should run is:
+With your CLI pointed at DX, you can download an organization's LSTs and code by running the following command:
 
 ```bash
-mod git sync csv /path/to/your/workspace repos.csv --with-sources
+mod git sync moderne /path/to/your/workspace --organization "<organization-name>" --with-sources
 ```
 
 If you don't want to download the code and just want to download the LSTs, you can remove the `--with-sources` flag.

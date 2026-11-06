@@ -5,7 +5,9 @@ description: How to install and start Moderne DX on your own machine, and connec
 
 # Installing Moderne DX
 
-Moderne DX runs from a single jar. These steps start it on your own machine at `https://moderne.localhost:8443`. Serving it to your organization afterwards takes [a name and usually a certificate](../how-to-guides/running-moderne-dx.md#choosing-its-name).
+This guide will walk you through the steps to start DX on your own machine at: `https://moderne.localhost:8443`.
+
+To serve it to your organization, please see [Running Moderne DX for your organization](../how-to-guides/running-moderne-dx.md).
 
 ## Prerequisites
 
@@ -15,7 +17,7 @@ Moderne DX runs from a single jar. These steps start it on your own machine at `
 ## Downloading Moderne DX
 
 ```bash
-curl -fLO -u <cgp-user>:<cgp-token> https://artifacts.codegenomeproject.org/moderne-dx.jar
+curl -fLO -u user:<cgp-token> https://artifacts.codegenomeproject.org/snapshot/moderne-dx.jar
 java -jar moderne-dx.jar init    # macOS: say yes when it offers to trust DX's certificate authority
 ```
 
