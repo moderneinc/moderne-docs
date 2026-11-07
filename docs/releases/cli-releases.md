@@ -103,6 +103,8 @@ _Based on OpenRewrite 8.96.5_
 * Trust the macOS keychains by default, alongside Java's certificate authorities
 * Resolve recipes from the Code Genome Project with one username and token
 
+## October 2026
+
 ### CLI / DX v4.12.0 (2026-10-28) {/* #v4.12.0 */}
 
 _Based on OpenRewrite 8.95.0_
@@ -417,6 +419,8 @@ _Based on OpenRewrite 8.92.17_
 * Find a file in every repository of a compound shard when a query combines terms
 * End agent chat sessions cleanly, accept a push that undoes a change, and say where recipe repositories came from
 
+## September 2026
+
 ### CLI / DX v4.8.10 (2026-09-28) {/* #v4.8.10 */}
 
 _Based on OpenRewrite 8.92.11_
@@ -547,6 +551,8 @@ _Based on OpenRewrite 8.91.4_
 * Validate login with `currentUser` instead of the admin-gated `users` query
 * End an inline COBOL comment at column 72
 * Survive a vendored engine bundle that cannot be renamed into place
+
+## August 2026
 
 ### CLI / DX v4.7.3 (2026-08-30) {/* #v4.7.3 */}
 
@@ -695,6 +701,8 @@ _Based on OpenRewrite 8.91.4_
 * Kill wedged rewrite-rpc peer descendants when the CLI is terminated
 * Pin npm to the repository's existing lockfileVersion
 * Per-coordinate V3 type tables for C#, JavaScript, Go, and Python
+
+## July 2026
 
 ### CLI / DX v4.4.3 (2026-07-29) {/* #v4.4.3 */}
 
@@ -880,6 +888,8 @@ _Based on OpenRewrite 8.91.4_
 * Detect Gradle Daemon JVM criteria for LST builds
 * Fix rewrite-polyglot install rejected with wrong-GAV suggestion
 * Include sibling source-set outputs on the Gradle test parse classpath
+
+## June 2026
 
 ### CLI / DX v4.3.6 (2026-06-23) {/* #v4.3.6 */}
 
