@@ -7,11 +7,21 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.324 |
+| Connector | 0.151.379 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.324/connector-0.151.324.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.379/connector-0.151.379.jar)
 
 ## Changelog
+
+## November 2026
+
+### v0.151.379 – 2026-11-06
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.379/connector-0.151.379.jar)
+
+* Publish the DX converter's V3 copies to a Maven repository, and read only an LST's index by range (#2970)
+* Log the tunneled requests an upstream is slow to answer (#2886)
+* Feat(egress): fail-closed direct access and network-isolated CLI runs (#2360)
 
 ## October 2026
 
