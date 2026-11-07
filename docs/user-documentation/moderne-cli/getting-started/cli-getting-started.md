@@ -162,6 +162,14 @@ mod cursor chat legacy-java-apps --org "Legacy Java Apps" \
 ```
 
 </TabItem>
+<TabItem value="devin" label="Devin">
+
+```bash
+mod devin chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
 <TabItem value="kiro" label="Kiro">
 
 ```bash
@@ -182,6 +190,14 @@ mod amp chat legacy-java-apps --org "Legacy Java Apps" \
 
 ```bash
 mod opencode chat legacy-java-apps --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
+```
+
+</TabItem>
+<TabItem value="pi" label="Pi">
+
+```bash
+mod pi chat legacy-java-apps --org "Legacy Java Apps" \
   --prompt "Upgrade all of these repositories to Java 25. Compiling on Java 25 is the floor, not the goal. When you are done, a reviewer should see code written for Java 25 - not older code with a newer compiler flag. Every repository must still build."
 ```
 

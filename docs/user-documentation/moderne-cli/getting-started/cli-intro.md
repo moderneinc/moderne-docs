@@ -126,10 +126,14 @@ Agent Commands:
                  mod for deterministic multi-repository work.
   cursor       (INCUBATING) Launches a Cursor session configured to use mod for
                  deterministic multi-repository work.
+  devin        (INCUBATING) Launches a Devin CLI session configured to use mod
+                 for deterministic multi-repository work.
   kiro         (INCUBATING) Launches a Kiro session configured to use mod for
                  deterministic multi-repository work.
   opencode     (INCUBATING) Launches an opencode session configured to use mod
                  for deterministic multi-repository work.
+  pi           (INCUBATING) Launches a Pi session configured to use mod for
+                 deterministic multi-repository work.
   vscode       (INCUBATING) Launches a Visual Studio Code Chat session
                  configured to use mod for deterministic multi-repository work.
   windsurf     (INCUBATING) Launches a Windsurf session configured to use mod
