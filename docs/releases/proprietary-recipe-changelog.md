@@ -10,7 +10,284 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 7, 2026
+
+#### recipes-csharp - 0.17.0
+
+* Find bound Assembly.GlobalAssemblyCache reads for migration review
+* Upgrade Gradle wrapper to 9.9.0
+* Document ConsoleLoggerOptions formatter migration boundaries
+* Match MVC compatibility findings by resolved extension signatures
+* Limit .NET Core 3.0 package additions to netcoreapp1.x/2.x projects
+* Add explicitly reviewed scoped constructor formal operation
+* Require a declaring type for WPF dependency property members
+* Avoid local package versions under proven Central Package Management
+* Admit explicitly reviewed compatible SourceLink dependency pins
+* Add explicit reviewed target-specific AdditionalFiles mapping
+* Preserve SOAP base64 formatting in partial-class methods
+* Document SourceLink dependency migration pass boundaries
+* Exclude reviewed Compression references from .NET 10 builds
+* Guard .NET 10 System.Text.Json upgrades against direct-pin downgrades
+* Guard Extensions 10 upgrades against incompatible dependency pins
+* Preserve sealed reviewed literal DefineConstants conditions after retargeting
+* Preserve producer targets required by retained project consumers
+* Guard .NET 9 Extensions upgrades against incompatible direct pins
+* Preserve reviewed deserialized JsonDocument null guards
+* Preserve culture policy in string presence rewrites
+* Use AES factory for closed scoped key generation
+* Use AES factory for closed CBC transform scopes
+* Remove explicitly reviewed modern constrained-region preparation
+* Remove reviewed modern fresh reflection permission assertions
+
+#### recipes-go - 0.20.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### recipes-javascript - 0.11.0
+
+* Upgrade @openrewrite/rewrite to 8.99.1 and use its new LST helpers
+* Keep `var` in `NoVar` when an indirect use may run before initialization
+* Upgrade @openrewrite/rewrite to 8.100.1 and drop workarounds it makes redundant
+* Bump vite from 8.0.16 to 8.3.6 in /recipes-code-quality
+* Upgrade Gradle wrapper to 9.9.0
+
+#### recipes-kotlin - 0.14.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### recipes-mainframe - 0.8.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### recipes-scala - 0.14.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-ai - 0.13.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-android - 0.28.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-angular - 1.22.0
+
+* Bump @openrewrite/rewrite to 8.99.1 and use its LST helpers
+* Bump @openrewrite/rewrite to 8.100.1 and use its JSON edit helpers
+* Upgrade Gradle wrapper to 9.9.0
+* Choose `static: true` for view queries read before change detection in `AddStaticFalseToViewQueries`
+
+#### rewrite-circleci - 3.21.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-compiled-analysis - 0.24.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-concourse - 3.20.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-cryptography - 0.25.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-devcenter - 1.41.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-dotnet - 0.26.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-dropwizard - 0.16.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-elastic - 0.17.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-hibernate - 0.38.0
+
+* Share one parser and type factory across MigrateHibernateCriteriaToJpaCriteria's templates
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-jasperreports - 0.15.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-java-application-server - 0.19.0
+
+* Remove test Java parsers the build plugin provides
+
+#### rewrite-java-security - 3.51.0
+
+* Run at most four tests at once, as the parallelism intends
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-kafka - 0.16.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-kubernetes - 3.28.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-mainframe - 3.11.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-migrate-kotlin - 0.18.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-migrate-python - 0.24.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-nodejs - 0.60.0
+
+* Upgrade to @openrewrite/rewrite 8.99.1 and adopt its new LST helpers
+* Upgrade to @openrewrite/rewrite 8.100.1 and adopt its JSON edit helpers
+* Upgrade Gradle wrapper to 9.9.0
+* Recognize fs-extra callbacks by type, not by argument name
+
+#### rewrite-nullability - 0.15.0
+
+* Model library methods that never return null
+* Generate the library-model table at build time, importing IntelliJ's JDK annotations
+* Apply the nullability fixers to Java sources only
+* Build the assertion prototype without printing the wrapped expression's type
+* Emit Guava's checkNotNull only where the file already uses it, and qualify a shadowed assertion
+* Don't assert against the nullness defaults of the project's own declarations
+* Hoist a repeated nullable call only where hoisting keeps its evaluation and value
+* Stop deleting live null guards, fix field hoisting, and two index lifetime bugs
+* Declare the annotation libraries NullSafety imports
+* Require the nullability annotation modules in module-info.java
+* Leave a field that already declares its nullness to AddNullableToField
+* Narrow a value null-checked in an enclosing ternary, && or || condition
+* Annotate a qualified type on its simple name, not in the leading position
+* Count the constructors Lombok generates when deciding whether a field is initialized
+* Keep the hoisted local from clashing with any name in its member, and accept only null proofs that run
+* Narrow a value dereferenced earlier in the same expression
+* Narrow a local after a statement that dereferences it
+* Narrow a value after a negated instanceof early return
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-prethink - 0.25.0
+
+* Use Java 21 language features and APIs in tests
+* Keep the SQL recipes off prethink's own context files
+* Build on the plugin's default Java 25 toolchain
+* Replace deprecated Kotlin DSL container delegates
+
+#### rewrite-program-analysis - 0.27.0
+
+* Drop path constraints on a variable once it is written
+* Upgrade Gradle wrapper to 9.9.0
+* Compare constraints by condition, and check feasibility without building maps
+
+#### rewrite-react - 0.16.0
+
+* Bump @openrewrite/rewrite to 8.99.1 and use its new LST helpers
+* Bump vitest, vite and source-map-js
+* Enzyme: replace hand-rolled scope and parenthesization logic with upstream helpers
+* Review skill: compare trees with `isEqual` instead of printing
+* Bump @openrewrite/rewrite to 8.100.1 and use its JSON edit helpers
+* Unmount the existing root in ReplaceUnmountComponentAtNode (D1 of #51)
+* Upgrade Gradle wrapper to 9.9.0
+* Convert Enzyme `shallow` wrappers of host-only components to RTL
+
+#### rewrite-reactive-streams - 0.29.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-spring - 0.52.0
+
+* Add `@SpringExtensionConfig` when `SpringExtension` comes from a meta-annotation
+* Guard `HttpMethod.valueOf` and flag uncovered overloads in `MigrateAntPathRequestMatcher`
+* Leave `MvcRequestMatcher.Builder` alone when a servlet path is set
+* Leave the three-argument `DockerConnectionConfiguration.Host` constructor alone in `ReplaceDeprecatedDockerApi`
+* Emit `exchange()` for bare `MockMvcTester#perform(..)` calls
+* Map `enableByDefault` to `Access.UNRESTRICTED` and `Access.READ_ONLY` in the endpoint migrations
+* Only add Spring Boot 4 starters in `SpringToSpringBoot` for Spring Framework 7 projects
+* Generate compiling dispatch from `MigrateSpringRetryRecoverToRetryTemplate`
+* Only rename `setRestOperations` to `setRestClient` where the OAuth2 token response client has it
+* Keep all `standaloneSetup` controllers and fall back to `MockMvcTester.create(..)` in `MockMvcToMockMvcTester`
+* Keep `setThrowLastExceptionOnExhausted` and match `RetryTemplate` variables by identity
+* Upgrade Gradle wrapper to 9.9.0
+* Add Spring AI 1.0 and 1.1 migrations
+* Generate each Spring Cloud release train into its own property migration file
+* Add Spring AI 2.0 migration
+* Migrate the Spring AI APIs that trial runs on public projects left behind
+
+#### rewrite-sql - 2.28.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-static-analysis - 0.9.0
+
+* Add FindOverMockedType recipe (RSPEC-S5969)
+* Add FindOverridableCallInConstructor recipe (RSPEC-S1699)
+* Add FindNonSerializableField recipe (RSPEC-S1948)
+* Upgrade Gradle wrapper to 9.9.0
+* Add AddDefaultToSwitch recipe (RSPEC-S131)
+* Add SynchronizeLazyStaticInitialization recipe (RSPEC-S2444)
+* Add RenamePrivateConstantsToUpperSnakeCase recipe (RSPEC-S115)
+* Add ReplaceSingleUseRandomWithThreadLocalRandom recipe (RSPEC-S2119)
+* Add RenameShadowingTypeParameter recipe (RSPEC-S4977)
+
+#### rewrite-struts - 0.38.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-tapestry - 0.15.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
+#### rewrite-terraform - 3.24.0
+
+* Upgrade Gradle wrapper to 9.9.0
+
 ## November 6, 2026
+
+#### recipes-csharp - 0.16.1
+
+* Keep MySql.Data version upgrades buildable on .NET Core 3.0
+* Preserve culture and binding semantics in string char optimization
+* Add reviewed portable runtime identifier migration for SDK projects
+* Document NoRecipe evidence for Windows assembly platform metadata
+* Document RID retarget composition boundary found in Azure
+* Document existing immediate Managed hash migration overlap
+* Admit exact net40 Client profiles for full Framework retirement
+* Document complete Ombi updater portable RID admission counterexample
+* Preserve source-owned crypto identities in inline hash migration
+* Retain Framework executables with no modeled source inputs
+* Admit reviewed Ombi portable RID lists after native validation
+* Keep adjacent hash locals bound to source-owned providers
+* Record passing Azure RID composition after BOM fix
+* Guard scoped and field hash factories against source crypto identities
+* Guard captured build paths before policy materialization
+* Add opt-in reviewed ILGenerator runtime fallback
+* Preserve reviewed Core compiler defines for finite modern targets
+* Add opt-in scoped-in annotation for closed copy-only ref-struct constructors
+* Retire explicitly reviewed legacy Core targets with a deferred model
+* Guard automatic EF migration upgrades against incompatible retained targets
+* Resolve NuGet version property consumers by definition scope
+* Preserve newer literal NuGet versions during upgrades
+* Scope reviewed sequence-length constructor input storage
+* Add opt-in snapshots for explicitly selected sequence parameters
+* Document F# implicit ValueTuple retained-net452 NoRecipe boundary
+* Preserve declared lower targets when replacement runtime is present
+* Preserve resolved CSharp type bindings with standalone global qualification
+* Qualify proven unconditional methods in selected conditional CSharp source
+* Preserve retained Framework targets when adopting RuntimeHelpers allocation
+* Extend reviewed TFM asset branches using a closed static field scope proof
+* Find AssemblyName CodeBase obsoletions in the .NET 7 migration
+* Snapshot reviewed OUT sequences before a selected AdvanceTo statement
 
 #### recipes-csharp - 0.16.0
 
