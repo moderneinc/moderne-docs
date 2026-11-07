@@ -13,6 +13,13 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## Changelog
 
+### CLI v4.12.5 (2026-11-07) {/* #v4.12.5 */}
+
+_Based on OpenRewrite 8.101.2_
+
+#### What's Changed
+* Index JavaScript and TypeScript for code navigation
+
 ### CLI v4.12.4 (2026-11-07) {/* #v4.12.4 */}
 
 _Based on [OpenRewrite 8.101.1](https://github.com/openrewrite/rewrite/releases/tag/v8.101.1)_

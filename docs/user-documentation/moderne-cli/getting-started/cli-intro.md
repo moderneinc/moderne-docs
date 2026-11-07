@@ -70,7 +70,7 @@ On its first run, the wrapper [downloads the CLI distribution for your platform 
 ```bash
 ➜ mod
 
-Moderne CLI 4.12.4
+Moderne CLI 4.12.5
 
 Usage:
 
@@ -126,10 +126,14 @@ Agent Commands:
                  mod for deterministic multi-repository work.
   cursor       (INCUBATING) Launches a Cursor session configured to use mod for
                  deterministic multi-repository work.
+  devin        (INCUBATING) Launches a Devin CLI session configured to use mod
+                 for deterministic multi-repository work.
   kiro         (INCUBATING) Launches a Kiro session configured to use mod for
                  deterministic multi-repository work.
   opencode     (INCUBATING) Launches an opencode session configured to use mod
                  for deterministic multi-repository work.
+  pi           (INCUBATING) Launches a Pi session configured to use mod for
+                 deterministic multi-repository work.
   vscode       (INCUBATING) Launches a Visual Studio Code Chat session
                  configured to use mod for deterministic multi-repository work.
   windsurf     (INCUBATING) Launches a Windsurf session configured to use mod
@@ -347,7 +351,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 4.12.4
+Moderne CLI 4.12.5
 
 ⏺ Retrieving the configured organizations
 
@@ -413,7 +417,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 4.12.4
+Moderne CLI 4.12.5
 
 ⏺ Retrieving the configured organizations
 
