@@ -56,6 +56,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config agents cursor launcher delete**](#mod-config-agents-cursor-launcher-delete)
 * [**mod config agents cursor launcher edit**](#mod-config-agents-cursor-launcher-edit)
 * [**mod config agents cursor launcher show**](#mod-config-agents-cursor-launcher-show)
+* [**mod config agents devin**](#mod-config-agents-devin)
+* [**mod config agents devin launcher**](#mod-config-agents-devin-launcher)
+* [**mod config agents devin launcher delete**](#mod-config-agents-devin-launcher-delete)
+* [**mod config agents devin launcher edit**](#mod-config-agents-devin-launcher-edit)
+* [**mod config agents devin launcher show**](#mod-config-agents-devin-launcher-show)
 * [**mod config agents kiro**](#mod-config-agents-kiro)
 * [**mod config agents kiro launcher**](#mod-config-agents-kiro-launcher)
 * [**mod config agents kiro launcher delete**](#mod-config-agents-kiro-launcher-delete)
@@ -132,6 +137,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build bazel timeout delete**](#mod-config-build-bazel-timeout-delete)
 * [**mod config build bazel timeout edit**](#mod-config-build-bazel-timeout-edit)
 * [**mod config build bazel timeout show**](#mod-config-build-bazel-timeout-show)
+* [**mod config build coldfusion**](#mod-config-build-coldfusion)
+* [**mod config build coldfusion timeout**](#mod-config-build-coldfusion-timeout)
+* [**mod config build coldfusion timeout delete**](#mod-config-build-coldfusion-timeout-delete)
+* [**mod config build coldfusion timeout edit**](#mod-config-build-coldfusion-timeout-edit)
+* [**mod config build coldfusion timeout show**](#mod-config-build-coldfusion-timeout-show)
 * [**mod config build dotnet**](#mod-config-build-dotnet)
 * [**mod config build dotnet nuget-config**](#mod-config-build-dotnet-nuget-config)
 * [**mod config build dotnet nuget-config delete**](#mod-config-build-dotnet-nuget-config-delete)
@@ -141,6 +151,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build dotnet timeout delete**](#mod-config-build-dotnet-timeout-delete)
 * [**mod config build dotnet timeout edit**](#mod-config-build-dotnet-timeout-edit)
 * [**mod config build dotnet timeout show**](#mod-config-build-dotnet-timeout-show)
+* [**mod config build eclipse**](#mod-config-build-eclipse)
+* [**mod config build eclipse timeout**](#mod-config-build-eclipse-timeout)
+* [**mod config build eclipse timeout delete**](#mod-config-build-eclipse-timeout-delete)
+* [**mod config build eclipse timeout edit**](#mod-config-build-eclipse-timeout-edit)
+* [**mod config build eclipse timeout show**](#mod-config-build-eclipse-timeout-show)
 * [**mod config build environment**](#mod-config-build-environment)
 * [**mod config build environment delete**](#mod-config-build-environment-delete)
 * [**mod config build environment edit**](#mod-config-build-environment-edit)
@@ -493,6 +508,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod cursor**](#mod-cursor)
 * [**mod cursor chat**](#mod-cursor-chat)
 * [**mod definition**](#mod-definition)
+* [**mod devin**](#mod-devin)
+* [**mod devin chat**](#mod-devin-chat)
 * [**mod doctor**](#mod-doctor)
 * [**mod devcenter**](#mod-devcenter)
 * [**mod exec**](#mod-exec)
@@ -597,6 +614,7 @@ mod [subcommands]
 * `copilot`: (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
 * `cursor`: (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
 * `definition`: Read the declaration of a name in a file.
+* `devin`: (INCUBATING) Launches a Devin CLI session configured to use **mod** for deterministic multi-repository work.
 * `doctor`: Checks that this machine and the CLI's configuration can build and publish LSTs.
 * `devcenter`: Generate DevCenter dashboards.
 * `exec`: Execute an arbitrary shell command on selected repositories and partitions.
@@ -772,11 +790,13 @@ mod amp chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
@@ -978,6 +998,7 @@ mod claude chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
@@ -985,6 +1006,7 @@ mod claude chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | ---- | ----------- | ---------- |
 | `--effort` |  How hard the model reasons, such as medium, high or xhigh. |  |
 | `-m`, `--model` |  The model Claude Code runs with. |  |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
@@ -1162,6 +1184,7 @@ mod codex chat /path/to/working-set --model gpt-5.5-codex --effort high --resume
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
@@ -1169,6 +1192,7 @@ mod codex chat /path/to/working-set --model gpt-5.5-codex --effort high --resume
 | ---- | ----------- | ---------- |
 | `--effort` |  How hard the model reasons, such as medium, high or xhigh. |  |
 | `-m`, `--model` |  The model Codex runs with. |  |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
@@ -1244,6 +1268,7 @@ mod config agents [subcommands]
 * `codex`: Configures how Codex is started.
 * `copilot`: Configures how GitHub Copilot is started.
 * `cursor`: Configures how Cursor is started.
+* `devin`: Configures how the Devin CLI is started.
 * `kiro`: Configures how Kiro is started.
 * `opencode`: Configures how opencode is started.
 * `pi`: Configures how Pi is started.
@@ -1727,6 +1752,97 @@ Displays the launcher of the agent.
 
 ```
 mod config agents cursor launcher show
+```
+
+
+
+## mod config agents devin
+
+Configures how the Devin CLI is started.
+
+
+### Usage
+
+```
+mod config agents devin [subcommands]
+```
+
+
+### Subcommands
+
+* `launcher`: Configures a script that starts the agent in place of its executable.
+
+## mod config agents devin launcher
+
+Configures a script that starts the agent in place of its executable.
+
+
+### Usage
+
+```
+mod config agents devin launcher [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the launcher of the agent.
+* `edit`: Configures the script that starts the agent in place of its executable.
+* `show`: Displays the launcher of the agent.
+
+## mod config agents devin launcher delete
+
+Removes the launcher of the agent.
+
+
+### Usage
+
+```
+mod config agents devin launcher delete
+```
+
+
+
+## mod config agents devin launcher edit
+
+Configures the script that starts the agent in place of its executable.
+
+
+The script is started with the agent's arguments, including **--version**, and must pass them on to the agent.
+
+On Linux and macOS, end it with **exec \<agent> "$@"**. On Windows, end a batch file with **\<agent> %%\*** or a PowerShell script with **& \<agent> @args; exit $LASTEXITCODE**, or use a program.
+
+### Usage
+
+```
+mod config agents devin launcher edit [parameters]
+```
+
+### Examples
+
+```
+mod config agents claude launcher edit ~/bin/claude-launcher.sh
+
+mod config agents claude launcher edit C:\tools\claude-launcher.cmd
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `launcher` |  The script that starts the agent. |
+
+
+
+## mod config agents devin launcher show
+
+Displays the launcher of the agent.
+
+
+### Usage
+
+```
+mod config agents devin launcher show
 ```
 
 
@@ -3034,7 +3150,9 @@ mod config build [subcommands]
 ### Subcommands
 
 * `bazel`: Configures Bazel as it is used for LST production.
+* `coldfusion`: Configures ColdFusion as it is used for LST production.
 * `dotnet`: Configures dotnet as it is used for LST production.
+* `eclipse`: Configures Eclipse projects as they are used for LST production.
 * `environment`: Configure environment variables to apply to build tool when building LSTs.
 * `go`: Configures Go as it is used to produce LSTs and run recipes.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
@@ -3320,6 +3438,109 @@ mod config build bazel timeout show
 | `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
 
 
+## mod config build coldfusion
+
+Configures ColdFusion as it is used for LST production.
+
+
+
+
+### Usage
+
+```
+mod config build coldfusion [subcommands]
+```
+
+
+### Subcommands
+
+* `timeout`: Configure the build timeout.
+
+## mod config build coldfusion timeout
+
+Configure the build timeout.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool.
+
+### Usage
+
+```
+mod config build coldfusion timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured build timeout.
+* `edit`: Configure the timeout for build operations.
+* `show`: Displays the configured build timeout.
+
+## mod config build coldfusion timeout delete
+
+Removes the configured build timeout.
+
+
+### Usage
+
+```
+mod config build coldfusion timeout delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build coldfusion timeout edit
+
+Configure the timeout for build operations.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
+
+### Usage
+
+```
+mod config build coldfusion timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `duration` |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build coldfusion timeout show
+
+Displays the configured build timeout.
+
+
+### Usage
+
+```
+mod config build coldfusion timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
 ## mod config build dotnet
 
 Configures dotnet as it is used for LST production.
@@ -3513,6 +3734,109 @@ Displays the configured build timeout.
 
 ```
 mod config build dotnet timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build eclipse
+
+Configures Eclipse projects as they are used for LST production.
+
+
+
+
+### Usage
+
+```
+mod config build eclipse [subcommands]
+```
+
+
+### Subcommands
+
+* `timeout`: Configure the build timeout.
+
+## mod config build eclipse timeout
+
+Configure the build timeout.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool.
+
+### Usage
+
+```
+mod config build eclipse timeout [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured build timeout.
+* `edit`: Configure the timeout for build operations.
+* `show`: Displays the configured build timeout.
+
+## mod config build eclipse timeout delete
+
+Removes the configured build timeout.
+
+
+### Usage
+
+```
+mod config build eclipse timeout delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build eclipse timeout edit
+
+Configure the timeout for build operations.
+
+
+Limits the amount of time the CLI will wait for a single execution of the build tool. Setting this to too high of a value may cause mass ingestion to hang or appear to hang.
+
+### Usage
+
+```
+mod config build eclipse timeout edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `duration` |  The duration of the timeout expressed as an ISO-8601 duration. For example: 'PT1H' for one hour, 'PT30M' for 30 minutes, 'PT1H30M' for one hour and 30 minutes. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build eclipse timeout show
+
+Displays the configured build timeout.
+
+
+### Usage
+
+```
+mod config build eclipse timeout show
 ```
 
 ### Options
@@ -11144,6 +11468,7 @@ mod copilot chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
@@ -11151,6 +11476,7 @@ mod copilot chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | ---- | ----------- | ---------- |
 | `--effort` |  How hard the model reasons, such as medium, high or xhigh. |  |
 | `-m`, `--model` |  The model Copilot runs with. |  |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
@@ -11199,11 +11525,13 @@ mod cursor chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
@@ -11248,6 +11576,62 @@ mod definition moderne://ALL/Default Owner --at src/main/java/org/springframewor
 | `--commit` |  The commit to read the file at, as a **mod search** result names it. |
 | `--lines` |  How many lines of the declaration's file to print, from the declaration's line. 0 prints only where it is. |
 | `--repository` |  The repository the file is in, as Moderne holds it: **github.com/acme/app@main**. Without it, the repository is the checkout the command runs in. Without a branch, the branch is the one the checkout is on. |
+
+
+## mod devin
+
+(INCUBATING) Launches a Devin CLI session configured to use **mod** for deterministic multi-repository work.
+
+
+
+
+### Usage
+
+```
+mod devin [subcommands]
+```
+
+
+### Subcommands
+
+* `chat`: (INCUBATING) Launches a Devin CLI session configured to use **mod** for deterministic multi-repository work.
+
+## mod devin chat
+
+(INCUBATING) Launches a Devin CLI session configured to use **mod** for deterministic multi-repository work.
+
+
+The agent works on what the directory holds. All its tool use is approved up front. With a Moderne login it can also search and run recipes in Moderne. It syncs a changeset when it needs to build or test. Moderne lists the agent on any changeset it checks out.
+
+### Usage
+
+```
+mod devin chat [parameters]
+```
+
+### Examples
+
+```
+mod devin chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
+```
+
+### Parameters
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
+
+### Options
+
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `-m`, `--model` |  The model Devin runs with. |  |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
+| `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
+| `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
+| `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
+| `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 
 
 ## mod doctor
@@ -12089,6 +12473,7 @@ mod kiro chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
@@ -12096,6 +12481,7 @@ mod kiro chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | ---- | ----------- | ---------- |
 | `--effort` |  How hard the model reasons, such as medium, high or xhigh. |  |
 | `-m`, `--model` |  The model Kiro runs with. |  |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
@@ -12434,11 +12820,13 @@ mod opencode chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
@@ -12487,11 +12875,13 @@ mod pi chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
@@ -12749,8 +13139,9 @@ mod search moderne://ALL/Default --syntax=sql \
 
 Queries use Sourcegraph syntax by default. Plain words match literally and must
 all appear in a file (AND is implied). OR, NOT and parentheses combine terms.
-"two words" is a phrase, /pattern/ is a regular expression, and case:no ignores
-case. Quote the whole query for the shell, so that a phrase keeps its quotes:
+"two words" is a phrase and /pattern/ is a regular expression. Matching ignores
+case unless the query says case:yes. Quote the whole query for the shell, so
+that a phrase keeps its quotes:
 
 ```
 mod search . '"two words"'
@@ -12792,7 +13183,8 @@ Bare ref: includes written type uses, constructor uses and documentation links.
 Use ref.call: or ref.field: for member references, ref.any: for all reference
 kinds, ref.[type,call]: for a set, or ref.owner: for members declared in a type.
 Names may be qualified, simple (List) or patterns (java.util.\* or \*..List), and
-are case-sensitive except mainframe names. select:symbol.class,
+match in any case as text does. An index an earlier CLI built matches names as
+written until the repository is built again. select:symbol.class,
 select:symbol.method and select:symbol.field keep one kind of declaration;
 select:symbol.\<path> also narrows the targets of ref: and call:.
 
@@ -12891,12 +13283,11 @@ repositories it skipped and why, and the matching files --max kept out.
 **Mainframe sources and symbol kinds**
 
 Mainframe analysis tools split search in two, and both are here. A search in
-the source is a text search, except that text is case-sensitive here unless
-the query says case:no. A search by name is sym: for where a program,
-copybook, data item, paragraph, job, step, map or DB2 table is declared, and
-ref:, or call: for a program, for where a statement names it. Filtering by
-application is repo: or a smaller organization, and filtering by type is lang:
-and select:symbol.\<path>.
+the source is a text search, which ignores case unless the query says case:yes.
+A search by name is sym: for where a program, copybook, data item, paragraph,
+job, step, map or DB2 table is declared, and ref:, or call: for a program, for
+where a statement names it. Filtering by application is repo: or a smaller
+organization, and filtering by type is lang: and select:symbol.\<path>.
 
 Members are typed by language whether or not they parsed: lang:cobol (programs
 and copybooks), lang:jcl (jobs and procedures), lang:bms, lang:controlm,
@@ -13105,8 +13496,8 @@ lines it continues onto after it. scope: holds each part of it to where it was
 printed. A regular expression, struct: and every other language read the
 printed text only.
 
-Mainframe names match in any case, so call:clmu010 is call:CLMU010; Java and
-the other languages keep exact names, and text keeps its default.
+Mainframe names match in any case even under case:yes, so case:yes
+call:clmu010 is call:CLMU010.
 
 **SQL search syntax and schemas (moderne:// organizations only)**
 
@@ -13194,7 +13585,9 @@ knew, as an array of objects with source, text and shown fields, plus fields
 by source:
 
 ```
-symbol: kind, name, parent, parentKind, access
+symbol: kind, name, parent, parentKind, access; parameters and dependencies
+  when there are any (the overload's argument list; the comma-separated
+  coordinates the symbol's own types come from)
 dependency: group, artifact, version
 capture: hole, value
 ```
@@ -13759,11 +14152,13 @@ mod vscode chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
@@ -13811,11 +14206,13 @@ mod windsurf chat /path/to/working-set
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
+| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 

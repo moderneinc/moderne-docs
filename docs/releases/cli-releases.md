@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.12.3           |
+| CLI version | 4.12.4           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,35 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.12.4 (2026-11-07) {/* #v4.12.4 */}
+
+_Based on OpenRewrite 8.101.1_
+
+#### What's Changed
+* Give a source set built on Java 8 its JDK's class library
+* Drop jars the JDK can't open from the parser classpath
+* Put a Gradle source set's own compiled classes on its parser classpath
+* Fall back past recipe versions a repository lists but refuses to serve
+* Detect a lockfile-less JavaScript project's package manager from packageManager or configuration files
+* Match Node.js installations against full engines.node ranges, not just major versions
+* Skip Flyway and Liquibase migrations that only set up test databases
+* Name a symbol's own dependencies in its match note
+* Bound the Eclipse build step and read WEB-INF/lib for web projects
+* Retry a Maven build on the plugin versions Maven 3.8 chose
+* Discover Bazel workspaces from workspace markers, not orphan BUILD files
+* Unblock complete Gradle prebuilds across daemon and JVM requirements
+* Apply recipe-run patches to repositories that are linked git worktrees
+* Recover Maven JDK mismatches and package reactor artifacts needed by copy/unpack
+* Pass the options after -- through to the agent a chat launches
+* Stop writing apply.whitespace=fix into the repository's git config in mod git apply
+* Skip Clover in Maven prebuilds and log the plugin retry into build.log
+* Match code search queries in any case by default
+* Support the Devin CLI in mod devin chat
+* Build and index ColdFusion LSTs
+* Make code search that ignores case about as fast as case:yes
+* File what a chat's agent creates under one revision in Moderne
+* Index Go, Ruby and ColdFusion for code navigation
 
 ### CLI / DX v4.12.3 (2026-11-04) {/* #v4.12.3 */}
 
