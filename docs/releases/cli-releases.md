@@ -1,13 +1,9 @@
 ---
 sidebar_label: CLI releases
-description: The current version of the Moderne CLI and links to useful CLI documentation.
+description: Release notes for every version of the Moderne CLI, newest first.
 ---
 
 # CLI releases
-
-| Component   | Current version |
-| ----------- | --------------- |
-| CLI version | 4.12.4           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -17,7 +13,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## Changelog
 
-### CLI / DX v4.12.4 (2026-11-07) {/* #v4.12.4 */}
+### CLI v4.12.4 (2026-11-07) {/* #v4.12.4 */}
 
 _Based on [OpenRewrite 8.101.1](https://github.com/openrewrite/rewrite/releases/tag/v8.101.1)_
 
@@ -46,7 +42,7 @@ _Based on [OpenRewrite 8.101.1](https://github.com/openrewrite/rewrite/releases/
 * File what a chat's agent creates under one revision in Moderne
 * Index Go, Ruby and ColdFusion for code navigation
 
-### CLI / DX v4.12.3 (2026-11-04) {/* #v4.12.3 */}
+### CLI v4.12.3 (2026-11-04) {/* #v4.12.3 */}
 
 _Based on [OpenRewrite 8.99.0](https://github.com/openrewrite/rewrite/releases/tag/v8.99.0)_
 
@@ -62,7 +58,7 @@ _Based on [OpenRewrite 8.99.0](https://github.com/openrewrite/rewrite/releases/t
 * Ship only the Java 25 parser in the fat jar
 * Index a method reference as a call of the method it resolved to
 
-### CLI / DX v4.12.2 (2026-11-03) {/* #v4.12.2 */}
+### CLI v4.12.2 (2026-11-03) {/* #v4.12.2 */}
 
 _Based on [OpenRewrite 8.97.1](https://github.com/openrewrite/rewrite/releases/tag/v8.97.1)_
 
@@ -82,7 +78,7 @@ _Based on [OpenRewrite 8.97.1](https://github.com/openrewrite/rewrite/releases/t
 * Mark a cloneless git directory seeded once its seed is done, and seed again one marked without its base
 * Wait on a changeset's fetch for as long as Moderne keeps answering it
 
-### CLI / DX v4.12.1 (2026-11-01) {/* #v4.12.1 */}
+### CLI v4.12.1 (2026-11-01) {/* #v4.12.1 */}
 
 _Based on [OpenRewrite 8.96.5](https://github.com/openrewrite/rewrite/releases/tag/v8.96.5)_
 
@@ -105,7 +101,7 @@ _Based on [OpenRewrite 8.96.5](https://github.com/openrewrite/rewrite/releases/t
 
 ## October 2026
 
-### CLI / DX v4.12.0 (2026-10-28) {/* #v4.12.0 */}
+### CLI v4.12.0 (2026-10-28) {/* #v4.12.0 */}
 
 _Based on [OpenRewrite 8.95.0](https://github.com/openrewrite/rewrite/releases/tag/v8.95.0)_
 
@@ -193,7 +189,7 @@ _Based on [OpenRewrite 8.95.0](https://github.com/openrewrite/rewrite/releases/t
 * Run the CLI reference push only when dispatched, as CGP's release does at its tag
 * Find the installed CLI's AOT cache in the wrapper's slot
 
-### CLI / DX v4.11.0 (2026-10-18) {/* #v4.11.0 */}
+### CLI v4.11.0 (2026-10-18) {/* #v4.11.0 */}
 
 _Based on [OpenRewrite 8.93.11](https://github.com/openrewrite/rewrite/releases/tag/v8.93.11)_
 
@@ -261,7 +257,7 @@ _Based on [OpenRewrite 8.93.11](https://github.com/openrewrite/rewrite/releases/
 * Say which files a build step leaves out for their size, in the build log and once for the repository on the console
 * Show the DB2 table note as it prints, below the line after ℹ
 
-### CLI / DX v4.10.1 (2026-10-14) {/* #v4.10.1 */}
+### CLI v4.10.1 (2026-10-14) {/* #v4.10.1 */}
 
 _Based on [OpenRewrite 8.93.7](https://github.com/openrewrite/rewrite/releases/tag/v8.93.7)_
 
@@ -285,7 +281,7 @@ _Based on [OpenRewrite 8.93.7](https://github.com/openrewrite/rewrite/releases/t
 * Keep JVM warnings off the wrapper's stdout
 * `sym:` and type filters such as `ref:` accept a wildcard in an unqualified name (`sym:get*`, `ref:*List`), and `sym:/regex/` is always searched as a regex
 
-### CLI / DX v4.10.0 (2026-10-12) {/* #v4.10.0 */}
+### CLI v4.10.0 (2026-10-12) {/* #v4.10.0 */}
 
 _Based on [OpenRewrite 8.93.3](https://github.com/openrewrite/rewrite/releases/tag/v8.93.3)_
 
@@ -314,7 +310,7 @@ _Based on [OpenRewrite 8.93.3](https://github.com/openrewrite/rewrite/releases/t
 * Report a failed `nuget.config` write as a warning, not a stack trace
 * Reject unconstrained searches and expose precise trigrep evidence
 
-### CLI / DX v4.9.2 (2026-10-10) {/* #v4.9.2 */}
+### CLI v4.9.2 (2026-10-10) {/* #v4.9.2 */}
 
 _Based on [OpenRewrite 8.93.0](https://github.com/openrewrite/rewrite/releases/tag/v8.93.0)_
 
@@ -336,7 +332,7 @@ _Based on [OpenRewrite 8.93.0](https://github.com/openrewrite/rewrite/releases/t
 * Don't apply git ignore rules in the Bazel per-target build
 * Match the parse aspect's BEP key when Bazel appends its resolved parameters
 
-### CLI / DX v4.9.1 (2026-10-07) {/* #v4.9.1 */}
+### CLI v4.9.1 (2026-10-07) {/* #v4.9.1 */}
 
 _Based on [OpenRewrite 8.92.18](https://github.com/openrewrite/rewrite/releases/tag/v8.92.18)_
 
@@ -363,7 +359,7 @@ _Based on [OpenRewrite 8.92.18](https://github.com/openrewrite/rewrite/releases/
 * Convert a V2 LST to V3 without language processes or a copy of the Maven reactor per module, and keep edits to a module's resolution
 * Point spectator-reg-atlas at the CLI's own Jackson
 
-### CLI / DX v4.9.0 (2026-10-04) {/* #v4.9.0 */}
+### CLI v4.9.0 (2026-10-04) {/* #v4.9.0 */}
 
 _Based on [OpenRewrite 8.92.17](https://github.com/openrewrite/rewrite/releases/tag/v8.92.17)_
 
@@ -421,14 +417,14 @@ _Based on [OpenRewrite 8.92.17](https://github.com/openrewrite/rewrite/releases/
 
 ## September 2026
 
-### CLI / DX v4.8.10 (2026-09-28) {/* #v4.8.10 */}
+### CLI v4.8.10 (2026-09-28) {/* #v4.8.10 */}
 
 _Based on [OpenRewrite 8.92.11](https://github.com/openrewrite/rewrite/releases/tag/v8.92.11)_
 
 #### What's Changed
 * OpenRewrite 8.92.11
 
-### CLI / DX v4.8.9 (2026-09-27) {/* #v4.8.9 */}
+### CLI v4.8.9 (2026-09-27) {/* #v4.8.9 */}
 
 _Based on [OpenRewrite 8.92.10](https://github.com/openrewrite/rewrite/releases/tag/v8.92.10)_
 
@@ -448,7 +444,7 @@ _Based on [OpenRewrite 8.92.10](https://github.com/openrewrite/rewrite/releases/
 * Detect line separators when PreStudyTest reads an aggregate back
 * Check a working set out to a Moderne changeset and push to it
 
-### CLI / DX v4.8.8 (2026-09-23) {/* #v4.8.8 */}
+### CLI v4.8.8 (2026-09-23) {/* #v4.8.8 */}
 
 _Based on [OpenRewrite 8.92.8](https://github.com/openrewrite/rewrite/releases/tag/v8.92.8)_
 
@@ -465,14 +461,14 @@ _Based on [OpenRewrite 8.92.8](https://github.com/openrewrite/rewrite/releases/t
 * Give the metrics writer a private lock
 * Search the SaaS v2 recipe marketplace in `mod config recipes moderne install`
 
-### CLI / DX v4.8.7 (2026-09-21) {/* #v4.8.7 */}
+### CLI v4.8.7 (2026-09-21) {/* #v4.8.7 */}
 
 _Based on [OpenRewrite 8.92.6](https://github.com/openrewrite/rewrite/releases/tag/v8.92.6)_
 
 #### What's Changed
 * Use full configured Go environment when building Go RPC binary
 
-### CLI / DX v4.8.5 (2026-09-16) {/* #v4.8.5 */}
+### CLI v4.8.5 (2026-09-16) {/* #v4.8.5 */}
 
 _Based on [OpenRewrite 8.92.3](https://github.com/openrewrite/rewrite/releases/tag/v8.92.3)_
 
@@ -482,7 +478,7 @@ _Based on [OpenRewrite 8.92.3](https://github.com/openrewrite/rewrite/releases/t
 * Exempt the loopback recipe registry from a configured proxy
 * Register `PlainText.Snippet` in the V3 tree codec so text search results serialize
 
-### CLI / DX v4.8.4 (2026-09-14) {/* #v4.8.4 */}
+### CLI v4.8.4 (2026-09-14) {/* #v4.8.4 */}
 
 _Based on [OpenRewrite 8.92.2](https://github.com/openrewrite/rewrite/releases/tag/v8.92.2)_
 
@@ -507,7 +503,7 @@ _Based on [OpenRewrite 8.92.2](https://github.com/openrewrite/rewrite/releases/t
 * Read ~/.git-credentials when no credential helper is configured
 * Download public S3 LSTs without usable AWS credentials
 
-### CLI / DX v4.8.3 (2026-09-10) {/* #v4.8.3 */}
+### CLI v4.8.3 (2026-09-10) {/* #v4.8.3 */}
 
 _Based on [OpenRewrite 8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)_
 
@@ -517,21 +513,21 @@ _Based on [OpenRewrite 8.92.1](https://github.com/openrewrite/rewrite/releases/t
 * Bundle the Python engine against Python 3.12 so releases stop shipping without it
 * Serve build logs the trace records with absolute paths
 
-### CLI / DX v4.8.2 (2026-09-09) {/* #v4.8.2 */}
+### CLI v4.8.2 (2026-09-09) {/* #v4.8.2 */}
 
 _Based on [OpenRewrite 8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)_
 
-#### What's Changed CLI
+#### What's Changed
 * Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
 
-### CLI / DX v4.8.1 (2026-09-09) {/* #v4.8.1 */}
+### CLI v4.8.1 (2026-09-09) {/* #v4.8.1 */}
 
 _Based on [OpenRewrite 8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)_
 
-#### What's Changed CLI
+#### What's Changed
 * Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
 
-### CLI / DX v4.8.0 (2026-09-02) {/* #v4.8.0 */}
+### CLI v4.8.0 (2026-09-02) {/* #v4.8.0 */}
 
 _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/tag/v8.91.4)_
 
@@ -539,7 +535,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Add daily repository backup workflow to S3
 * Open the agent on a partial sync and fill the agent trace from its transcript
 
-### CLI / DX v4.7.5 (2026-09-01) {/* #v4.7.5 */}
+### CLI v4.7.5 (2026-09-01) {/* #v4.7.5 */}
 
 #### What's Changed
 * use Invoke-RestMethod to resolve CLI version in get-mod.ps1
@@ -554,18 +550,18 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 
 ## August 2026
 
-### CLI / DX v4.7.3 (2026-08-30) {/* #v4.7.3 */}
+### CLI v4.7.3 (2026-08-30) {/* #v4.7.3 */}
 
 #### What's Changed
 * Retrieve a pip package that installed no recipes from its dist-info on disk
 
-### CLI / DX v4.7.2 (2026-08-29) {/* #v4.7.2 */}
+### CLI v4.7.2 (2026-08-29) {/* #v4.7.2 */}
 
 #### What's Changed
 * Find a pip bundle's dist-info inside the venv the sidecar installs it into
 * Make a dry run legible, and stop the harness scoring what builds regenerate
 
-### CLI / DX v4.7.1 (2026-08-28) {/* #v4.7.1 */}
+### CLI v4.7.1 (2026-08-28) {/* #v4.7.1 */}
 
 #### What's Changed
 * Stop stashing the working tree around TypeSync
@@ -580,7 +576,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Skip the POSIX-path Sh dialect tests on Windows
 * Build against rewrite-mainframe, and every member kind it reads
 
-### CLI / DX v4.7.0 (2026-08-26) {/* #v4.7.0 */}
+### CLI v4.7.0 (2026-08-26) {/* #v4.7.0 */}
 
 #### What's Changed
 * Dependency type tables for V2 to V3 LST conversion
@@ -588,7 +584,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Search COBOL, JCL and BMS with trigrep
 * Make the CLI usable by an agent that cannot answer a prompt
 
-### CLI / DX v4.6.5 (2026-08-25) {/* #v4.6.5 */}
+### CLI v4.6.5 (2026-08-25) {/* #v4.6.5 */}
 
 #### What's Changed
 * Warning when configuring Go environment with bearer token
@@ -602,7 +598,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Read a sym: glob as a glob, not as a regex
 * Let ref: see a symbol whose name the shard stored inline
 
-### CLI / DX v4.6.4 (2026-08-23) {/* #v4.6.4 */}
+### CLI v4.6.4 (2026-08-23) {/* #v4.6.4 */}
 
 #### What's Changed
 * Resolve io.moderne and org.openrewrite only from Code Genome
@@ -610,7 +606,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Reclaim superseded LST cache slots whatever the artifact is named
 * Create repository directories lazily in mod run --sync-csv
 
-### CLI / DX v4.6.3 (2026-08-19) {/* #v4.6.3 */}
+### CLI v4.6.3 (2026-08-19) {/* #v4.6.3 */}
 
 #### What's Changed
 * (V3) Never fail a recipe run because edit scratch could not be deleted
@@ -624,7 +620,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Bump Jackson to 2.21.6
 * Lease the MCP search index, and fix two defects found reviewing #4532
 
-### CLI / DX v4.6.2 (2026-08-17) {/* #v4.6.2 */}
+### CLI v4.6.2 (2026-08-17) {/* #v4.6.2 */}
 
 #### What's Changed
 * Merge npm packuments across the configured registry chain
@@ -632,7 +628,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Constrain the MCP grep tool's path argument to the repository root
 * Fix recipe-generated classes failing to be written
 
-### CLI / DX v4.6.1 (2026-08-16) {/* #v4.6.1 */}
+### CLI v4.6.1 (2026-08-16) {/* #v4.6.1 */}
 
 #### What's Changed
 * Resolve COPY in a mainframe build, and stop routing the step through OmniParser
@@ -640,7 +636,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Point pip at the PEP 503 index rather than the repository root
 * Parent-load every mainframe LST type, not just the four visitors
 
-### CLI / DX v4.6.0 (2026-08-14) {/* #v4.6.0 */}
+### CLI v4.6.0 (2026-08-14) {/* #v4.6.0 */}
 
 #### What's Changed
 * Restore the create-recipe and create-organization skills
@@ -655,7 +651,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Remove stale NpmExecutor parent-delegated package entry
 * Pin nebula.release to 21.0.0 to unbreak tag releases
 
-### CLI / DX v4.5.2 (2026-08-12) {/* #v4.5.2 */}
+### CLI v4.5.2 (2026-08-12) {/* #v4.5.2 */}
 
 #### What's Changed
 * Drop the BouncyCastle exclusion now that jgit-gpg-bc 1.5.0 ships jdk18on
@@ -667,7 +663,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Accept Kotlin recipe sources in `mod config recipes active set`
 * Take recipe bundle identity from the resolver
 
-### CLI / DX v4.5.1 (2026-08-10) {/* #v4.5.1 */}
+### CLI v4.5.1 (2026-08-10) {/* #v4.5.1 */}
 
 #### What's Changed
 * Restore type attribution on Gradle build scripts
@@ -684,7 +680,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Attach MavenResolutionResult markers to sub-module poms not parented to the reactor root
 * Tag Gradle wrapper files with BuildTool(Gradle), matching the Maven handling
 
-### CLI / DX v4.5.0 (2026-08-05) {/* #v4.5.0 */}
+### CLI v4.5.0 (2026-08-05) {/* #v4.5.0 */}
 
 #### What's Changed
 * Fail `mod publish` when every repos-lock.csv update attempt loses the race
@@ -704,12 +700,12 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 
 ## July 2026
 
-### CLI / DX v4.4.3 (2026-07-29) {/* #v4.4.3 */}
+### CLI v4.4.3 (2026-07-29) {/* #v4.4.3 */}
 
-#### What's Changed CLI
+#### What's Changed
 * Incorporates the latest versions of OpenRewrite ([v8.88.0](https://github.com/openrewrite/rewrite/releases/tag/v8.88.0)), the rewrite-gradle-plugin ([v7.38.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.38.0)), and the rewrite-maven-plugin ([v6.45.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.45.0)) to improve code parsing accuracy and recipe execution reliability.
 
-### CLI / DX v4.4.2 (2026-07-27) {/* #v4.4.2 */}
+### CLI v4.4.2 (2026-07-27) {/* #v4.4.2 */}
 
 #### What's Changed
 * Split oversize V2 LST partitions so they stay under the reader's load cap
@@ -720,13 +716,13 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Handle race conditions during harvest
 * Fix MCP server ignoring existing LST in favor of an incremental rebuild.
 
-### CLI / DX v4.4.1 (2026-07-23) {/* #v4.4.1 */}
+### CLI v4.4.1 (2026-07-23) {/* #v4.4.1 */}
 
 #### What's Changed
 * Validate trust/key store before persisting it to config
 * Represent oversize source files as Quarks in the RPC project parsers
 
-### CLI / DX v4.4.0 (2026-07-22) {/* #v4.4.0 */}
+### CLI v4.4.0 (2026-07-22) {/* #v4.4.0 */}
 
 #### What's Changed
 * bound recipe-run HTTP senders with timeouts so a stalled repository can't hang the run
@@ -738,7 +734,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Run builds on Java 11+ when using com.mycila license-maven-plugin 5+
 * Tag Maven wrapper files with BuildTool(Maven) so UpdateMavenWrapper runs under the CLI
 
-### CLI / DX v4.3.18 (2026-07-20) {/* #v4.3.18 */}
+### CLI v4.3.18 (2026-07-20) {/* #v4.3.18 */}
 
 #### What's Changed
 * Force spectator-reg-atlas to 1.10.x for patched shaded Jackson
@@ -748,7 +744,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Publish LST jars under a valid Maven 2 path
 * Retry failed CLI telemetry, and permanently set aside what can never be sent
 
-### CLI / DX v4.3.17 (2026-07-16) {/* #v4.3.17 */}
+### CLI v4.3.17 (2026-07-16) {/* #v4.3.17 */}
 
 #### What's Changed
 * Union macOS system roots and keychain trust for `trust-store edit system`
@@ -760,7 +756,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Correct Prethink recipe id in examples and config test
 * Intern JavaTemplate types on the V2 read path to prevent recipe-run OOM
 
-### CLI / DX v4.3.16 (2026-07-15) {/* #v4.3.16 */}
+### CLI v4.3.16 (2026-07-15) {/* #v4.3.16 */}
 
 #### What's Changed
 * Solve Lombok warnings
@@ -770,18 +766,18 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Float httpclient5 to latest.release (CVE-2026-54399, CVE-2026-54428)
 * Add kind-qualified ref: filters to trigrep symbol search
 
-### CLI / DX v4.3.15 (2026-07-14) {/* #v4.3.15 */}
+### CLI v4.3.15 (2026-07-14) {/* #v4.3.15 */}
 
-#### What's Changed CLI
+#### What's Changed
 * Incorporates the latest versions of OpenRewrite ([v8.87.0](https://github.com/openrewrite/rewrite/releases/tag/v8.87.0)), the rewrite-gradle-plugin ([v7.37.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.37.0)), and the rewrite-maven-plugin ([v6.44.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.44.0)) to improve code parsing accuracy and recipe execution reliability.
 
-### CLI / DX v4.3.14 (2026-07-13) {/* #v4.3.14 */}
+### CLI v4.3.14 (2026-07-13) {/* #v4.3.14 */}
 
 #### What's Changed
 * Add opencode support to `mod config agent-tools`
 * Ensure that we preserve maven settings repositories in the built LST
 
-### CLI / DX v4.3.13 (2026-07-12) {/* #v4.3.13 */}
+### CLI v4.3.13 (2026-07-12) {/* #v4.3.13 */}
 
 #### What's Changed
 * Upgrade to Jackson 2.21.5
@@ -793,7 +789,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Derive missing type tables from dependencies.bin, dropping types-manifest.txt
 * Kill the process tree on build timeout, tolerate list-shaped android manifests, and lead with the verb for bazel wrappers
 
-### CLI / DX v4.3.12 (2026-07-10) {/* #v4.3.12 */}
+### CLI v4.3.12 (2026-07-10) {/* #v4.3.12 */}
 
 #### What's Changed
 * Add LST v3 entries for go.sum
@@ -802,7 +798,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fall back to default Maven settings in the prebuild MavenParser pass
 * Pass configured recipe artifact repositories to RPC servers during recipe resolution
 
-### CLI / DX v4.3.10 (2026-07-08) {/* #v4.3.10 */}
+### CLI v4.3.10 (2026-07-08) {/* #v4.3.10 */}
 
 #### What's Changed
 * Cache reflection accessors in TreeWriter's remaining generic write paths
@@ -812,7 +808,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Add lines added/removed metrics to recipe run report
 * Fix RPC servers running on Windows - `error: unknown option --package'`
 
-### CLI / DX v4.3.9 (2026-07-07) {/* #v4.3.9 */}
+### CLI v4.3.9 (2026-07-07) {/* #v4.3.9 */}
 
 #### What's Changed
 * Migrate from tibdex/github-app-token to actions/create-github-app-token
@@ -825,7 +821,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Expand external SYSIN/SYSTSIN .prm members into the JCL LST during build
 * Call JclParser parmMembers(List`<Path>`) for the rewrite-cobol 2.20.1 seam
 
-### CLI / DX v4.3.8 (2026-07-06) {/* #v4.3.8 */}
+### CLI v4.3.8 (2026-07-06) {/* #v4.3.8 */}
 
 #### What's Changed
 * Speed up the organization-directory walk (read git metadata from files)
@@ -850,7 +846,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fix MavenResolutionResult dependencies losing their depth field during serialization roundtrip
 * Add responsive layout so the trace analyzer table keeps usable rows on short screens
 
-### CLI / DX v4.3.7 (2026-07-01) {/* #v4.3.7 */}
+### CLI v4.3.7 (2026-07-01) {/* #v4.3.7 */}
 
 #### What's Changed
 * Add an `annotated:` filter to trigrep symbol search
@@ -891,7 +887,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 
 ## June 2026
 
-### CLI / DX v4.3.6 (2026-06-23) {/* #v4.3.6 */}
+### CLI v4.3.6 (2026-06-23) {/* #v4.3.6 */}
 
 #### What's Changed
 * Incremental `mod build` for Bazel: git-diff target differ + in-place LST reuse
@@ -901,7 +897,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Remove redundant per-repo stat calls in data-table enumeration
 * Skip the unused per-repo isDirectory stat during org-structure read
 
-### CLI / DX v4.3.5 (2026-06-22) {/* #v4.3.5 */}
+### CLI v4.3.5 (2026-06-22) {/* #v4.3.5 */}
 
 #### What's Changed
 * Live Prethink context refresh in mod mcp
@@ -919,7 +915,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Reorder RunTrace stage columns to follow Sync, Build, Run
 * Handle empty plugin configuration in Maven prebuild serialization
 
-### CLI / DX v4.3.4 (2026-06-19) {/* #v4.3.4 */}
+### CLI v4.3.4 (2026-06-19) {/* #v4.3.4 */}
 
 #### What's Changed
 * Fix v3 roster root store
@@ -927,7 +923,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Install the vendored Python engine offline instead of via a server-wide pip env
 * tolerate lost staging race when unpacking the bundled Python wheels
 
-### CLI / DX v4.3.3 (2026-06-19) {/* #v4.3.3 */}
+### CLI v4.3.3 (2026-06-19) {/* #v4.3.3 */}
 
 #### What's Changed
 * Match type-FQN search filters by simple name and AspectJ glob
@@ -941,7 +937,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Detect Git worktrees as repositories in `OrganizationWalkingCommand`
 * Bazel: scale LST builds + search to whole monorepos (partition analysis, fix finalize, fast aggregate search)
 
-### CLI / DX v4.3.2 (2026-06-17) {/* #v4.3.2 */}
+### CLI v4.3.2 (2026-06-17) {/* #v4.3.2 */}
 
 #### What's Changed
 * Publish repos.csv and repos-lock.csv to a Maven coordinate on Maven artifact stores
@@ -949,7 +945,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Preserve J.Literal value's boxed type across v3 LST round-trip
 * Register cross-ecosystem resolvers for npm/pip recipe installs
 
-### CLI / DX v4.3.1 (2026-06-16) {/* #v4.3.1 */}
+### CLI v4.3.1 (2026-06-16) {/* #v4.3.1 */}
 
 #### What's Changed
 * Add mainframe build step with configurable Cobol parse timeout
@@ -958,7 +954,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Reset PlainProgressBar on setMax so non-TTY progress no longer pins at 100% during the edit phase
 * Discover versioned, pyenv, and uv Python interpreters
 
-### CLI / DX v4.3.0 (2026-06-15) {/* #v4.3.0 */}
+### CLI v4.3.0 (2026-06-15) {/* #v4.3.0 */}
 
 #### What's Changed
 * Support `${os}` and `${arch}` placeholders in wrapper jdkUrl
@@ -1222,7 +1218,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Store per-symbol relationship arrays sparsely in the zoekt shard
 * Store the repo-index assembly manifest as streaming CSV
 
-### CLI / DX v4.2.14 (2026-06-10) {/* #v4.2.14 */}
+### CLI v4.2.14 (2026-06-10) {/* #v4.2.14 */}
 
 #### What's Changed
 * [4.2.x] Backport #4067 + #4070: modw wrapper path + mod study CSV merger
@@ -1233,26 +1229,26 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * [4.2.x] Fix double-including some files
 * [4.2.x] Do not reuse the relaxed project-listing JDK for the Gradle LST build
 
-### CLI / DX v4.2.13 (2026-06-04) {/* #v4.2.13 */}
+### CLI v4.2.13 (2026-06-04) {/* #v4.2.13 */}
 
 #### What's Changed
 * [4.2.x] Minor command documentation fixes
 * [4.2.x] Preserve full recipe chain in changes.json (#3876)
 
-### CLI / DX v4.2.12 (2026-06-01) {/* #v4.2.12 */}
+### CLI v4.2.12 (2026-06-01) {/* #v4.2.12 */}
 
 #### What's Changed
 * [4.2.x] Propagate a valid `user.home` and `HOME` to build subprocess JVMs
 * [4.2.x] Backport trust-store quoting + eval-mangled recipe names
 
-### CLI / DX v4.2.11 (2026-06-01) {/* #v4.2.11 */}
+### CLI v4.2.11 (2026-06-01) {/* #v4.2.11 */}
 
 #### What's Changed
 * [4.2.x] cli: add 'mod config run polyglot-parallel' to cap rewrite-rpc concurrency
 
 ## May 2026
 
-### CLI / DX 4.2.10 (2026-05-29) {/* #v4.2.10 */}
+### CLI 4.2.10 (2026-05-29) {/* #v4.2.10 */}
 
 #### What's Changed
 * `mod config recipes artifacts show`: now suggests `add` subcommand
@@ -1270,7 +1266,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Add `--jdk-url` option to mod wrapper
 * Support placeholders in wrapper jdkUrl
 
-### CLI / DX v4.2.9 (2026-05-21) {/* #v4.2.9 */}
+### CLI v4.2.9 (2026-05-21) {/* #v4.2.9 */}
 
 #### What's Changed
 * [4.2.x] Keep DevCenterSpec record from being obfuscated (#3881)
@@ -1285,7 +1281,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * [4.2.x] Apply lsts.artifacts auth when fetching remote repos.csv (#3922)
 * [4.2.x] `modw`: fall back to installed CLI jar on 403/404 download failure
 
-### CLI / DX v4.2.8 (2026-05-14) {/* #v4.2.8 */}
+### CLI v4.2.8 (2026-05-14) {/* #v4.2.8 */}
 
 #### What's Changed
 * Exclude filter-mismatched repos from the `mod run` progress bar (#3835)
@@ -1293,31 +1289,31 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fix DevCenter spec loading for declarative parent recipes (#3851)
 * Fix `mod` commands finding zero repos when sync target is nested in a parent git worktree
 
-### CLI / DX v4.2.7 (2026-05-12) {/* #v4.2.7 */}
+### CLI v4.2.7 (2026-05-12) {/* #v4.2.7 */}
 
 #### What's Changed
 * Fix race condition in RepositoryGitTask#updateBranchChangeset
 * mod run: release recipe classloader handles when all partitions complete
 * Unbundle rewrite-devcenter from CLI fat jar; consume DevCenter via JSON
 
-### CLI / DX v4.2.6 (2026-05-11) {/* #v4.2.6 */}
+### CLI v4.2.6 (2026-05-11) {/* #v4.2.6 */}
 
 #### What's Changed
 * Fix terminal escape leak by disabling JLine grapheme cluster probe
 * Quote JVM system property values in `JvmArgsResolver` output (#3823)
 
-### CLI / DX v4.2.5 (2026-05-11) {/* #v4.2.5 */}
+### CLI v4.2.5 (2026-05-11) {/* #v4.2.5 */}
 
 #### What's Changed
 * [4.2.x] Stop closing cached recipe classloaders on resolver close
 
-### CLI / DX v4.2.4 (2026-05-08) {/* #v4.2.4 */}
+### CLI v4.2.4 (2026-05-08) {/* #v4.2.4 */}
 
 #### What's Changed
 * [4.2.x] Publish repos.csv and repos-lock.csv to a Maven coordinate on Maven artifact stores
 * [4.2.x] Log effective pom.xml to it's own file to avoid `build.log` bloat
 
-### CLI / DX v4.2.3 (2026-05-06) {/* #v4.2.3 */}
+### CLI v4.2.3 (2026-05-06) {/* #v4.2.3 */}
 
 #### What's Changed
 * Migrate to `gotemplate4j` 0.5.0 API
@@ -1325,7 +1321,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * install.cmd: create `mod` forwarder alongside `modw.cmd`
 * GoBuildStep: parse via project-aware `parseProject` RPC
 
-### CLI / DX v4.2.2 (2026-05-05) {/* #v4.2.2 */}
+### CLI v4.2.2 (2026-05-05) {/* #v4.2.2 */}
 
 #### What's Changed
 * Do not clobber clone log when writing per-repo sync.log
@@ -1346,7 +1342,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 
 ## April 2026
 
-### CLI / DX v4.2.1 (2026-04-28) {/* #v4.2.1 */}
+### CLI v4.2.1 (2026-04-28) {/* #v4.2.1 */}
 
 #### What's Changed
 * JavaScript: when building have another fallback with `--legacy-peer-deps` option
@@ -1355,32 +1351,32 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Skip runtime lookup in resource build steps when no work
 * Allow installing rewrite-docker again
 
-### CLI / DX v4.2.0 (2026-04-27) {/* #v4.2.0 */}
+### CLI v4.2.0 (2026-04-27) {/* #v4.2.0 */}
 
-#### What's Changed CLI
+#### What's Changed
 * Incorporates the latest versions of OpenRewrite ([v8.81.0](https://github.com/openrewrite/rewrite/releases/tag/v8.81.0)), the rewrite-gradle-plugin ([v7.32.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.32.0)), and the rewrite-maven-plugin ([v6.38.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.38.0)) to improve code parsing accuracy and recipe execution reliability.
 
-### CLI / DX v4.1.9 (2026-04-23) {/* #v4.1.9 */}
+### CLI v4.1.9 (2026-04-23) {/* #v4.1.9 */}
 
 #### What's Changed
 * Upgrade MCP SDK
 * Skip eager verification in `mod config <lang> installation edit`
 
-### CLI / DX v4.1.8 (2026-04-22) {/* #v4.1.8 */}
+### CLI v4.1.8 (2026-04-22) {/* #v4.1.8 */}
 
 #### What's Changed
 * Rename `mod config java jdk` to `installation` (with `jdk` alias)
 * Include sync and build details in mod publish trace.csv
 * Revert "Deduplicate cross-sub-org repository clones via shared cache (#3703)" (this was done to give us more space to test this feature before releasing)
 
-### CLI / DX v4.1.7 (2026-04-22) {/* #v4.1.7 */}
+### CLI v4.1.7 (2026-04-22) {/* #v4.1.7 */}
 
 #### What's Changed
 * Cache recipe bundle reader per bundle to avoid classloader duplication
 * Fix wrapper race in concurrent `mod` invocations
 * Deduplicate cross-sub-org repository clones via shared cache
 
-### CLI / DX v4.1.6 (2026-04-21) {/* #v4.1.6 */}
+### CLI v4.1.6 (2026-04-21) {/* #v4.1.6 */}
 
 #### What's Changed
 * Fix unreadable diff output on light terminal backgrounds
@@ -1393,7 +1389,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Include sibling Java output on Scala parser classpath
 * Allow selecting `MavenBuildStep2` via `moderne.yml` (`maven2` type)
 
-### CLI / DX v4.1.5 (2026-04-17) {/* #v4.1.5 */}
+### CLI v4.1.5 (2026-04-17) {/* #v4.1.5 */}
 
 #### What's Changed
 * When building a JavaScript project perform `npm install` as a fallback if lock file is not in sync
@@ -1407,7 +1403,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Check branch existence before checkout during sync
 * Gate MCP side-channel HTTP server behind agentToolsTray flag
 
-### CLI / DX v4.1.4 (2026-04-14) {/* #v4.1.4 */}
+### CLI v4.1.4 (2026-04-14) {/* #v4.1.4 */}
 
 #### What's Changed
 * Fix .moderne/context files not ending up in the LST
@@ -1415,7 +1411,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Internal test and development flow fixes
 * ModerneLauncher to delete stale files when extracting the libraries
 
-### CLI / DX v4.1.3 (2026-04-11) {/* #v4.1.3 */}
+### CLI v4.1.3 (2026-04-11) {/* #v4.1.3 */}
 
 #### What's Changed
 * Fix wrapper startup time regression (~3s -> 0.5s on warm runs)
@@ -1428,7 +1424,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fix configured styles not applied during builds
 * Fix mod devcenter aggregation for grouped data tables
 
-### CLI / DX v4.1.2 (2026-04-09) {/* #v4.1.2 */}
+### CLI v4.1.2 (2026-04-09) {/* #v4.1.2 */}
 
 #### What's Changed
 * Remove jansi native access warnings from wrapper scripts
@@ -1438,12 +1434,12 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fix intermingled path error when building from a repository subdirectory
 * Fix NPE in mod run when Node.js is not installed
 
-### CLI / DX v4.1.1 (2026-04-08) {/* #v4.1.1 */}
+### CLI v4.1.1 (2026-04-08) {/* #v4.1.1 */}
 
 #### What's Changed
 * Simplify DotNetBuildStep to use unified parseSolution API
 
-### CLI / DX v4.1.0 (2026-04-08) {/* #v4.1.0 */}
+### CLI v4.1.0 (2026-04-08) {/* #v4.1.0 */}
 
 #### What's Changed
 * Add `mod config recipes upgrade` command, to upgrade only already installed recipe modules
@@ -1458,7 +1454,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fix modw classpath for nested-JAR layout
 * Fix `query_datatable` always failing with DuckDB `access_mode` error
 
-### CLI / DX v4.0.11 (2026-04-07) {/* #v4.0.11 */}
+### CLI v4.0.11 (2026-04-07) {/* #v4.0.11 */}
 
 #### What's Changed
 * Defer CSharp RPC startup until a C# recipe is actually needed
@@ -1490,7 +1486,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 
 ## March 2026
 
-### CLI / DX v4.0.10 (2026-03-30) {/* #v4.0.10 */}
+### CLI v4.0.10 (2026-03-30) {/* #v4.0.10 */}
 
 #### What's Changed
 * Add per-agent subcommands to mod config agent-tools
@@ -1499,7 +1495,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fix NullPointerException in mod run when path is a file
 * Add ScanningRecipe section to create-recipe skill
 
-### CLI / DX v4.0.9 (2026-03-27) {/* #v4.0.9 */}
+### CLI v4.0.9 (2026-03-27) {/* #v4.0.9 */}
 
 #### What's Changed
 * Fix duplicate CSV headers when collecting data tables from multiple repos
@@ -1520,7 +1516,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Detect copy-dependencies in effective POM to avoid MDEP-187
 * Fix duplicate CSV headers when merging data tables from multiple repos
 
-### CLI / DX v4.0.8 (2026-03-24) {/* #v4.0.8 */}
+### CLI v4.0.8 (2026-03-24) {/* #v4.0.8 */}
 
 #### What's Changed
 * When node installation fails to be found, include information on what were the constraints
@@ -1531,7 +1527,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Suppress stderr in Chocolatey install instead of moving echo to stdout
 * Set PATH for npx version check so symlinked npx can find node
 
-### CLI / DX v4.0.7 (2026-03-23) {/* #v4.0.7 */}
+### CLI v4.0.7 (2026-03-23) {/* #v4.0.7 */}
 
 #### What's Changed
 * Fix Windows terminal rendering: UTF-8 icons and inline-diff contrast
@@ -1544,7 +1540,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Preserve clone error when .git cleanup fails
 * Start MCP server transport before heavy initialization
 
-### CLI / DX v4.0.6 (2026-03-20) {/* #v4.0.6 */}
+### CLI v4.0.6 (2026-03-20) {/* #v4.0.6 */}
 
 #### What's Changed
 * Remove --last-search and --search from mod study
@@ -1574,13 +1570,13 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fix version downgrading issue
 * Add `mod config python version edit/delete/show` commands
 
-### CLI / DX v3.57.16 (2026-03-19) {/* #v3.57.16 */}
+### CLI v3.57.16 (2026-03-19) {/* #v3.57.16 */}
 
 #### What's Changed
 * Fix Bitbucket Server repos with org columns skipped as no source code
 * Daemon running recipes not to advertise port number until the server is started
 
-### CLI / DX v4.0.5 (2026-03-12) {/* #v4.0.5 */}
+### CLI v4.0.5 (2026-03-12) {/* #v4.0.5 */}
 
 #### What's Changed
 * Skip --experimental_show_artifacts on Bazel 7+
@@ -1612,7 +1608,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * JavaScript: Prefer node from `PATH` if it satisfies constraints
 * Convert dotted groupIds to slashes in Maven GAV download URL
 
-### CLI / DX v3.57.15 (2026-03-12) {/* #v3.57.15 */}
+### CLI v3.57.15 (2026-03-12) {/* #v3.57.15 */}
 
 #### What's Changed
 * Support Bazel 8 for building LSTs
@@ -1620,7 +1616,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Pass JVM options during Gradle project discovery
 * Use `nodeVersion` from `repos.csv`
 
-### CLI / DX v4.0.4 (2026-03-05) {/* #v4.0.4 */}
+### CLI v4.0.4 (2026-03-05) {/* #v4.0.4 */}
 
 #### What's Changed
 * Fix wrapper distributionUrl to use template format
@@ -1633,14 +1629,14 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Replace `StreamingResultPrinter` with RPC-safe offset computation
 * We're suppressing logging of some errors during maven java version detection
 
-### CLI / DX v3.57.14 (2026-03-05) {/* #v3.57.14 */}
+### CLI v3.57.14 (2026-03-05) {/* #v3.57.14 */}
 
 #### What's Changed
 * Includes OpenRewrite v8.75.1
 * Add custom file-extension-to-parser mappings (build.parsers)
 * Add multi-version Node.js auto-discovery, PATH isolation, and devEngines detection
 
-### CLI / DX v3.57.13 (2026-03-04) {/* #v3.57.13 */}
+### CLI v3.57.13 (2026-03-04) {/* #v3.57.13 */}
 
 #### What's Changed
 * Fix YAML recipe deletion and :null display in listing
@@ -1652,7 +1648,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * GPG commit signing
 * Fix delete to handle installed YAML recipes where paths are not normalized
 
-### CLI / DX v4.0.3 (2026-03-02) {/* #v4.0.3 */}
+### CLI v4.0.3 (2026-03-02) {/* #v4.0.3 */}
 
 #### What's Changed
 * Remove snapshot fallback from get-mod installer scripts
@@ -1669,17 +1665,17 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 
 ## February 2026
 
-### CLI / DX v4.0.2 (2026-02-27) {/* #v4.0.2 */}
+### CLI v4.0.2 (2026-02-27) {/* #v4.0.2 */}
 
 #### What's Changed
 * Fix documentation publishing for release
 
-### CLI / DX v4.0.1 (2026-02-27) {/* #v4.0.1 */}
+### CLI v4.0.1 (2026-02-27) {/* #v4.0.1 */}
 
 #### What's Changed
 * Fix publishing of platform distributions
 
-### CLI / DX v4.0.0 (2026-02-27) {/* #v4.0.0 */}
+### CLI v4.0.0 (2026-02-27) {/* #v4.0.0 */}
 
 #### What's Changed
 * JAR only distribution with modw wrapper
@@ -1751,45 +1747,45 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Isolate openrewrite Python package per version
 * Add distributionUrl customization and v4 minimum to wrapper scripts
 
-### CLI / DX v3.57.12 (2026-02-26) {/* #v3.57.12 */}
+### CLI v3.57.12 (2026-02-26) {/* #v3.57.12 */}
 
 #### What's Changed
 * Fix ZipException: zip END header not found
 * Fix StackOverflowError from mutual recursion in installation discovery
 * Add `~/.moderne/cli/recipes/pip` to Python path when calling Python Rewrite RPC in build and run
 
-### CLI / DX v3.57.11 (2026-02-23) {/* #v3.57.11 */}
+### CLI v3.57.11 (2026-02-23) {/* #v3.57.11 */}
 
 #### What's Changed
 * Fix `mod search` in native binary throwing an error deserializing `IndexData$IndexMetadata`
 * Drop Copybook absolute path mitigation following fix in `rewrite-cobol`
 
-### CLI / DX v3.57.10 (2026-02-20) {/* #v3.57.10 */}
+### CLI v3.57.10 (2026-02-20) {/* #v3.57.10 */}
 
 #### What's Changed
 * References latest release of `org.openrewrite:rewrite-cobol`, providing parsing improvements
 
-### CLI / DX v3.57.9 (2026-02-19) {/* #v3.57.9 */}
+### CLI v3.57.9 (2026-02-19) {/* #v3.57.9 */}
 
 #### What's Changed
 * Don't require Python and JS RPC to run unless running a Python/JS recipe
 
-### CLI / DX v3.57.8 (2026-02-18) {/* #v3.57.8 */}
+### CLI v3.57.8 (2026-02-18) {/* #v3.57.8 */}
 
 #### What's Changed
 * Pass marketplace resolvers to JS and Python RPC factories
 
-### CLI / DX v3.57.7 (2026-02-18) {/* #v3.57.7 */}
+### CLI v3.57.7 (2026-02-18) {/* #v3.57.7 */}
 
 #### What's Changed
 * Fall back to root org when current org not found in CSV
 
-### CLI / DX v3.57.6 (2026-02-13) {/* #v3.57.6 */}
+### CLI v3.57.6 (2026-02-13) {/* #v3.57.6 */}
 
 #### What's Changed
 * Fix partition matching sibling false positives
 
-### CLI / DX v3.57.5 (2026-02-13) {/* #v3.57.5 */}
+### CLI v3.57.5 (2026-02-13) {/* #v3.57.5 */}
 
 #### What's Changed
 * Show all artifact repositories in artifacts show command
@@ -1800,30 +1796,30 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fix partition matching to use git root instead of Gradle root
 * Fix recipe execution failure on Apple Silicon Macs using homebrew install
 
-### CLI / DX v3.57.4 (2026-02-11) {/* #v3.57.4 */}
+### CLI v3.57.4 (2026-02-11) {/* #v3.57.4 */}
 
 #### What's Changed
 * Fix ClassCastException when running COBOL recipes
 * Add `mod config node version` command for Node.js version selection
 
-### CLI / DX v3.57.3 (2026-02-11) {/* #v3.57.3 */}
+### CLI v3.57.3 (2026-02-11) {/* #v3.57.3 */}
 
 #### What's Changed
 * Fix issue with `mod config (recipes|lsts) (artifactory|maven) (add|delete)` causing `ClassCastException`s in places that still expected the old map style
 
-### CLI / DX v3.57.2 (2026-02-10) {/* #v3.57.2 */}
+### CLI v3.57.2 (2026-02-10) {/* #v3.57.2 */}
 
 #### What's Changed
 - Based on [OpenRewrite 8.73.0](https://github.com/openrewrite/rewrite/releases/tag/v8.73.0)
 * Fix ZipException by validating cached LST files
 
-### CLI / DX v3.57.1 (2026-02-10) {/* #v3.57.1 */}
+### CLI v3.57.1 (2026-02-10) {/* #v3.57.1 */}
 
 #### What's Changed
 * Handle null NodeInstallation in JavaScriptBuildStep.getVersion()
 * Include skills resources in native image
 
-### CLI / DX v3.57.0 (2026-02-10) {/* #v3.57.0 */}
+### CLI v3.57.0 (2026-02-10) {/* #v3.57.0 */}
 
 #### What's Changed
 #### # New Features
@@ -1848,13 +1844,13 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fix `repos-lock.csv` error handling during `mod publish`
 * Fix publish error message which previously rendered a raw byte array
 
-### CLI / DX v3.56.8 (2026-02-04) {/* #v3.56.8 */}
+### CLI v3.56.8 (2026-02-04) {/* #v3.56.8 */}
 
 #### What's Changed
 - Uses OpenRewrite 8.72.6
 * Fix error with launching python from the system path
 
-### CLI / DX v3.56.7 (2026-02-03) {/* #v3.56.7 */}
+### CLI v3.56.7 (2026-02-03) {/* #v3.56.7 */}
 
 #### What's Changed
 * Add `mod log syncs add` and `mod trace syncs analyze` commands for debugging sync issues
@@ -1868,14 +1864,14 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Add Python build step and `mod config recipes pip` support for Python recipes
 * Stay with current organization by default in mod git sync
 
-### CLI / DX v3.56.6 (2026-02-02) {/* #v3.56.6 */}
+### CLI v3.56.6 (2026-02-02) {/* #v3.56.6 */}
 
 #### What's Changed
 * Logging parse errors for copybooks upfront before we try to relativize the path, as there's insufficient information to tell which file failed to parse otherwise.
 * `mod exec` to properly handle repositories with partitions
 * Wrap special characters into double quotes for Windows invocations
 
-### CLI / DX v3.56.5 (2026-02-02) {/* #v3.56.5 */}
+### CLI v3.56.5 (2026-02-02) {/* #v3.56.5 */}
 
 #### What's Changed
 * Remove requirement for system-installed mvn in tests
@@ -1895,7 +1891,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 
 ## January 2026
 
-### CLI / DX v3.56.4 (2026-01-28) {/* #v3.56.4 */}
+### CLI v3.56.4 (2026-01-28) {/* #v3.56.4 */}
 
 #### What's Changed
 * Fix yaml recipe installation
@@ -1908,7 +1904,7 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Add DockerParser and ability to run related recipes
 * Sanitize build arguments for Gradle, Maven, and Bazel
 
-### CLI / DX v3.56.3 (2026-01-26) {/* #v3.56.3 */}
+### CLI v3.56.3 (2026-01-26) {/* #v3.56.3 */}
 
 #### What's Changed
 * Run `mod exec` `CHECK` and `COMPILE` tools in the tool directory
@@ -1916,12 +1912,12 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Add Moderne plugin for Claude Code with recipe development skills
 * Fix missing space between JVM args in command logging
 
-### CLI / DX v3.56.2 (2026-01-23) {/* #v3.56.2 */}
+### CLI v3.56.2 (2026-01-23) {/* #v3.56.2 */}
 
 #### What's Changed
 * Refactor diff rendering to use fenced markers for search results
 
-### CLI / DX v3.56.1 (2026-01-23) {/* #v3.56.1 */}
+### CLI v3.56.1 (2026-01-23) {/* #v3.56.1 */}
 
 #### What's Changed
 * Fix issue with reading of organizations
@@ -1932,12 +1928,12 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Fixing passing arguments to `mod run` subprocess calls in the JAR variant of `mod`
 * Fix `mod run` wrt Maven POM cache statistics
 
-### CLI / DX v3.56.0 (2026-01-21) {/* #v3.56.0 */}
+### CLI v3.56.0 (2026-01-21) {/* #v3.56.0 */}
 
-#### What's Changed CLI
+#### What's Changed
 * Batch partitions together by build tool
 
-### CLI / DX v3.55.3 (2026-01-20) {/* #v3.55.3 */}
+### CLI v3.55.3 (2026-01-20) {/* #v3.55.3 */}
 
 #### What's Changed
 * Fix issue where yaml recipes are not runnable
@@ -1947,9 +1943,9 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Add cliVersion to BuildTrace
 * Fix installation of YAML recipes
 
-### CLI / DX v3.55.2 (2026-01-19) {/* #v3.55.2 */}
+### CLI v3.55.2 (2026-01-19) {/* #v3.55.2 */}
 
-#### What's Changed CLI
+#### What's Changed
 * `mod run`: Optimize diff generation
 * Trace Analysis - fix for not being able to search for `e`
 * Trace to store build tool version even if the build fails during validate
@@ -1958,19 +1954,17 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Trace analysis - various fixes 
 * Write a build trace with outcome if LST download step is skipped
 
-### CLI / DX v3.55.1 (2026-01-13) {/* #v3.55.1 */}
+### CLI v3.55.1 (2026-01-13) {/* #v3.55.1 */}
 
-#### What's Changed CLI
+#### What's Changed
 * Add `mod config java jdk edit` documentation example
 * Set recipe marketplace resolvers prior to validating recipes during DevCenter dashboard generation
 * Introduce Cobol build step
 * Remove `node` installation dependency when running recipes
-#### What's Changed DX
-* N/A
 
-### CLI / DX v3.55.0 (2026-01-08) {/* #v3.55.0 */}
+### CLI v3.55.0 (2026-01-08) {/* #v3.55.0 */}
 
-#### What's Changed CLI
+#### What's Changed
 * Introduce a CSV-based recipe marketplace
 * Fix CSV column alignment when stages are null in `trace.csv` files
 * Claude Code does not support line erasure in task output so use a plain progress bar
@@ -1980,9 +1974,6 @@ _Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/t
 * Continue Maven Java version detection when `RawPom.parse` fails on POM
 * Correct invalid paths in zip archive when built from Windows
 * Properly handle org hierarchies with multiple roots during `mod build`
-
-#### What's Changed DX
-* N/A
 
 ## December 2025
 
