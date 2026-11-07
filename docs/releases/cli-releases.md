@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.12.4           |
+| CLI version | 4.12.5           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,13 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.12.5 (2026-11-07) {/* #v4.12.5 */}
+
+_Based on OpenRewrite 8.101.2_
+
+#### What's Changed
+* Index JavaScript and TypeScript for code navigation
 
 ### CLI / DX v4.12.4 (2026-11-07) {/* #v4.12.4 */}
 
