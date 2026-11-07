@@ -111,7 +111,7 @@ get_trace_directory() {
     case "$1" in
         build) echo "build" ;;
         # "mod <agent> chat" writes to the "agent" directory.
-        amp|claude|codex|copilot|cursor|kiro|opencode|vscode|windsurf)
+        amp|claude|codex|copilot|cursor|devin|kiro|opencode|pi|vscode|windsurf)
             if [ "${2:-}" = "chat" ]; then echo "agent"; else echo "$1"; fi
             ;;
         git)
@@ -244,7 +244,7 @@ for /f "tokens=1,2" %%a in ("%_MOD_ARGS_%") do (
 if not defined CMD exit /b 0
 set "TRACE_DIR=!CMD!"
 rem "mod <agent> chat" writes to the "agent" directory.
-for %%g in (amp claude codex copilot cursor kiro opencode vscode windsurf) do if /i "!CMD!"=="%%g" set "TRACE_DIR=agent"
+for %%g in (amp claude codex copilot cursor devin kiro opencode pi vscode windsurf) do if /i "!CMD!"=="%%g" set "TRACE_DIR=agent"
 if /i "!CMD!"=="git" (
     rem The deprecated "mod git clone" still writes to the "sync" directory.
     if /i "!SUB!"=="clone" (set "TRACE_DIR=sync") else (set "TRACE_DIR=!SUB!")

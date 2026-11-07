@@ -77,6 +77,14 @@ mod cursor chat ./work --org "Legacy Java Apps" \
 ```
 
 </TabItem>
+<TabItem value="devin" label="Devin">
+
+```bash
+mod devin chat ./work --org "Legacy Java Apps" \
+  --prompt "Upgrade all of these repositories to Java 25."
+```
+
+</TabItem>
 <TabItem value="kiro" label="Kiro">
 
 ```bash
@@ -211,6 +219,7 @@ If you already publish LSTs to an artifact repository, sync from a `repos-lock.c
 | OpenAI Codex            | `mod codex chat`    | `codex`         |
 | GitHub Copilot          | `mod copilot chat`  | `copilot`       |
 | Cursor                  | `mod cursor chat`   | `cursor-agent`  |
+| Devin                   | `mod devin chat`    | `devin`         |
 | Kiro                    | `mod kiro chat`     | `kiro-cli chat` |
 | Sourcegraph Amp         | `mod amp chat`      | `amp`           |
 | OpenCode                | `mod opencode chat` | `opencode`      |
