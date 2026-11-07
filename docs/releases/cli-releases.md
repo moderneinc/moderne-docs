@@ -19,7 +19,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ### CLI / DX v4.12.4 (2026-11-07) {/* #v4.12.4 */}
 
-_Based on OpenRewrite 8.101.1_
+_Based on [OpenRewrite 8.101.1](https://github.com/openrewrite/rewrite/releases/tag/v8.101.1)_
 
 #### What's Changed
 * Give a source set built on Java 8 its JDK's class library
@@ -48,7 +48,7 @@ _Based on OpenRewrite 8.101.1_
 
 ### CLI / DX v4.12.3 (2026-11-04) {/* #v4.12.3 */}
 
-_Based on OpenRewrite 8.99.0_
+_Based on [OpenRewrite 8.99.0](https://github.com/openrewrite/rewrite/releases/tag/v8.99.0)_
 
 #### What's Changed
 * Suppress CVE-2026-33117 on non-keyvault Azure jars permanently
@@ -64,7 +64,7 @@ _Based on OpenRewrite 8.99.0_
 
 ### CLI / DX v4.12.2 (2026-11-03) {/* #v4.12.2 */}
 
-_Based on OpenRewrite 8.97.1_
+_Based on [OpenRewrite 8.97.1](https://github.com/openrewrite/rewrite/releases/tag/v8.97.1)_
 
 #### What's Changed
 * Let another program read the license key and the Code Genome Project token, with --reveal
@@ -84,7 +84,7 @@ _Based on OpenRewrite 8.97.1_
 
 ### CLI / DX v4.12.1 (2026-11-01) {/* #v4.12.1 */}
 
-_Based on OpenRewrite 8.96.5_
+_Based on [OpenRewrite 8.96.5](https://github.com/openrewrite/rewrite/releases/tag/v8.96.5)_
 
 #### What's Changed
 * Make ChangesetPushTest's landed-without-an-answer case pass on git 2.51 and later
@@ -107,7 +107,7 @@ _Based on OpenRewrite 8.96.5_
 
 ### CLI / DX v4.12.0 (2026-10-28) {/* #v4.12.0 */}
 
-_Based on OpenRewrite 8.95.0_
+_Based on [OpenRewrite 8.95.0](https://github.com/openrewrite/rewrite/releases/tag/v8.95.0)_
 
 #### What's Changed
 * Push the Chocolatey package with a deploy key instead of a personal access token
@@ -195,7 +195,7 @@ _Based on OpenRewrite 8.95.0_
 
 ### CLI / DX v4.11.0 (2026-10-18) {/* #v4.11.0 */}
 
-_Based on OpenRewrite 8.93.11_
+_Based on [OpenRewrite 8.93.11](https://github.com/openrewrite/rewrite/releases/tag/v8.93.11)_
 
 #### What's Changed
 * Add `mod <agent> factory`, with `mod graphql` and one-off recipe bundles
@@ -263,7 +263,7 @@ _Based on OpenRewrite 8.93.11_
 
 ### CLI / DX v4.10.1 (2026-10-14) {/* #v4.10.1 */}
 
-_Based on OpenRewrite 8.93.7_
+_Based on [OpenRewrite 8.93.7](https://github.com/openrewrite/rewrite/releases/tag/v8.93.7)_
 
 #### What's Changed
 * Pin ClassGraph to 4.x
@@ -287,7 +287,7 @@ _Based on OpenRewrite 8.93.7_
 
 ### CLI / DX v4.10.0 (2026-10-12) {/* #v4.10.0 */}
 
-_Based on OpenRewrite 8.93.3_
+_Based on [OpenRewrite 8.93.3](https://github.com/openrewrite/rewrite/releases/tag/v8.93.3)_
 
 #### What's Changed
 * One trigrep per tenant: shards of whole repositories, segment postings over resolved names, and a build's index as the one thing assembled
@@ -316,7 +316,7 @@ _Based on OpenRewrite 8.93.3_
 
 ### CLI / DX v4.9.2 (2026-10-10) {/* #v4.9.2 */}
 
-_Based on OpenRewrite 8.93.0_
+_Based on [OpenRewrite 8.93.0](https://github.com/openrewrite/rewrite/releases/tag/v8.93.0)_
 
 #### What's Changed
 * Incorporates the latest version of OpenRewrite ([v8.93.0](https://github.com/openrewrite/rewrite/releases/tag/v8.93.0)) to improve code parsing accuracy and recipe execution reliability.
@@ -338,7 +338,7 @@ _Based on OpenRewrite 8.93.0_
 
 ### CLI / DX v4.9.1 (2026-10-07) {/* #v4.9.1 */}
 
-_Based on OpenRewrite 8.92.18_
+_Based on [OpenRewrite 8.92.18](https://github.com/openrewrite/rewrite/releases/tag/v8.92.18)_
 
 #### What's Changed
 * Search for the calls and references that come from a dependency, by name and version
@@ -365,7 +365,7 @@ _Based on OpenRewrite 8.92.18_
 
 ### CLI / DX v4.9.0 (2026-10-04) {/* #v4.9.0 */}
 
-_Based on OpenRewrite 8.92.17_
+_Based on [OpenRewrite 8.92.17](https://github.com/openrewrite/rewrite/releases/tag/v8.92.17)_
 
 #### What's Changed
 * Read an unquoted proxy port from moderne.yml
@@ -423,14 +423,14 @@ _Based on OpenRewrite 8.92.17_
 
 ### CLI / DX v4.8.10 (2026-09-28) {/* #v4.8.10 */}
 
-_Based on OpenRewrite 8.92.11_
+_Based on [OpenRewrite 8.92.11](https://github.com/openrewrite/rewrite/releases/tag/v8.92.11)_
 
 #### What's Changed
 * OpenRewrite 8.92.11
 
 ### CLI / DX v4.8.9 (2026-09-27) {/* #v4.8.9 */}
 
-_Based on OpenRewrite 8.92.10_
+_Based on [OpenRewrite 8.92.10](https://github.com/openrewrite/rewrite/releases/tag/v8.92.10)_
 
 #### What's Changed
 * Write the name index into assembled search shards
@@ -450,7 +450,7 @@ _Based on OpenRewrite 8.92.10_
 
 ### CLI / DX v4.8.8 (2026-09-23) {/* #v4.8.8 */}
 
-_Based on OpenRewrite 8.92.8_
+_Based on [OpenRewrite 8.92.8](https://github.com/openrewrite/rewrite/releases/tag/v8.92.8)_
 
 #### What's Changed
 * Scope an unpartitioned Bazel build to its enumerated targets
@@ -467,14 +467,14 @@ _Based on OpenRewrite 8.92.8_
 
 ### CLI / DX v4.8.7 (2026-09-21) {/* #v4.8.7 */}
 
-_Based on OpenRewrite 8.92.6_
+_Based on [OpenRewrite 8.92.6](https://github.com/openrewrite/rewrite/releases/tag/v8.92.6)_
 
 #### What's Changed
 * Use full configured Go environment when building Go RPC binary
 
 ### CLI / DX v4.8.5 (2026-09-16) {/* #v4.8.5 */}
 
-_Based on OpenRewrite 8.92.3_
+_Based on [OpenRewrite 8.92.3](https://github.com/openrewrite/rewrite/releases/tag/v8.92.3)_
 
 #### What's Changed
 * Upgrade `csv-parse` to 7.0.2
@@ -484,7 +484,7 @@ _Based on OpenRewrite 8.92.3_
 
 ### CLI / DX v4.8.4 (2026-09-14) {/* #v4.8.4 */}
 
-_Based on OpenRewrite 8.92.2_
+_Based on [OpenRewrite 8.92.2](https://github.com/openrewrite/rewrite/releases/tag/v8.92.2)_
 
 #### What's Changed
 * Additional memory lock around Go RPC server
@@ -509,7 +509,7 @@ _Based on OpenRewrite 8.92.2_
 
 ### CLI / DX v4.8.3 (2026-09-10) {/* #v4.8.3 */}
 
-_Based on OpenRewrite 8.92.1_
+_Based on [OpenRewrite 8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)_
 
 #### What's Changed
 * Give the Go RPC server its own log instead of the build log
@@ -519,21 +519,21 @@ _Based on OpenRewrite 8.92.1_
 
 ### CLI / DX v4.8.2 (2026-09-09) {/* #v4.8.2 */}
 
-_Based on OpenRewrite 8.92.1_
+_Based on [OpenRewrite 8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)_
 
 #### What's Changed CLI
 * Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
 
 ### CLI / DX v4.8.1 (2026-09-09) {/* #v4.8.1 */}
 
-_Based on OpenRewrite 8.92.1_
+_Based on [OpenRewrite 8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)_
 
 #### What's Changed CLI
 * Incorporates the latest version of OpenRewrite ([v8.92.1](https://github.com/openrewrite/rewrite/releases/tag/v8.92.1)) to improve code parsing accuracy and recipe execution reliability.
 
 ### CLI / DX v4.8.0 (2026-09-02) {/* #v4.8.0 */}
 
-_Based on OpenRewrite 8.91.4_
+_Based on [OpenRewrite 8.91.4](https://github.com/openrewrite/rewrite/releases/tag/v8.91.4)_
 
 #### What's Changed
 * Add daily repository backup workflow to S3
@@ -1814,7 +1814,7 @@ _Based on OpenRewrite 8.91.4_
 ### CLI / DX v3.57.2 (2026-02-10) {/* #v3.57.2 */}
 
 #### What's Changed
-- Based on OpenRewrite 8.73.0
+- Based on [OpenRewrite 8.73.0](https://github.com/openrewrite/rewrite/releases/tag/v8.73.0)
 * Fix ZipException by validating cached LST files
 
 ### CLI / DX v3.57.1 (2026-02-10) {/* #v3.57.1 */}
