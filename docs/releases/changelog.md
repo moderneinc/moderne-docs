@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.47.0 (2026/11/07)
+
+- group what an agent chat made under it as a project
+- search organizations by repository
+
 ### UI v14.46.0 (2026/11/06)
 
 - retry the failed repositories of a commit job
