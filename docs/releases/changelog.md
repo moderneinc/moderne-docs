@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.49.0 (2026/11/08)
+
+- ask for a definition by the symbol itself
+
 ### UI v14.48.0 (2026/11/08)
 
 - send the file's path with a definition lookup
