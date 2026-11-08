@@ -70,7 +70,7 @@ On its first run, the wrapper [downloads the CLI distribution for your platform 
 ```bash
 ➜ mod
 
-Moderne CLI 4.12.5
+Moderne CLI 4.12.6
 
 Usage:
 
@@ -351,7 +351,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 4.12.5
+Moderne CLI 4.12.6
 
 ⏺ Retrieving the configured organizations
 
@@ -417,7 +417,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 4.12.5
+Moderne CLI 4.12.6
 
 ⏺ Retrieving the configured organizations
 

@@ -13,6 +13,26 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## Changelog
 
+### CLI / DX v4.12.6 (2026-11-08) {/* #v4.12.6 */}
+
+_Based on OpenRewrite 8.101.3_
+
+#### What's Changed
+* Attribute ColdFusion names to the ForgeBox packages they come from
+* Keep a select:file file's notes when a search attributes it to its repository
+* Give each build step its own LST directory when two open the same source set
+* Let mod \<agent> chat start in a git repository, as list, build and run do
+* Remove Windsurf, which is retired, from chat, agent config and agent tools
+* Publish LSTs to a directory
+* Keep V3 edits distinct when destination paths collide
+* Preserve V3 generated files across recipe cycles
+* Preserve captured dependency types during V3 conversion
+* Say how a name is written without 'spelling'
+* Navigate code by its symbols: mod navigate definition, read and symbols
+* Restore template attribution for captured classes without a hierarchy
+* Preserve converted JavaSourceSet classpath membership and GAV coordinates
+* Navigate a working set from its own LSTs
+
 ### CLI v4.12.5 (2026-11-07) {/* #v4.12.5 */}
 
 _Based on OpenRewrite 8.101.2_

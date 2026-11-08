@@ -81,11 +81,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config agents vscode launcher delete**](#mod-config-agents-vscode-launcher-delete)
 * [**mod config agents vscode launcher edit**](#mod-config-agents-vscode-launcher-edit)
 * [**mod config agents vscode launcher show**](#mod-config-agents-vscode-launcher-show)
-* [**mod config agents windsurf**](#mod-config-agents-windsurf)
-* [**mod config agents windsurf launcher**](#mod-config-agents-windsurf-launcher)
-* [**mod config agents windsurf launcher delete**](#mod-config-agents-windsurf-launcher-delete)
-* [**mod config agents windsurf launcher edit**](#mod-config-agents-windsurf-launcher-edit)
-* [**mod config agents windsurf launcher show**](#mod-config-agents-windsurf-launcher-show)
 * [**mod config agent-tools**](#mod-config-agent-tools)
 * [**mod config agent-tools install**](#mod-config-agent-tools-install)
 * [**mod config agent-tools uninstall**](#mod-config-agent-tools-uninstall)
@@ -95,9 +90,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config agent-tools claude**](#mod-config-agent-tools-claude)
 * [**mod config agent-tools claude install**](#mod-config-agent-tools-claude-install)
 * [**mod config agent-tools claude uninstall**](#mod-config-agent-tools-claude-uninstall)
-* [**mod config agent-tools windsurf**](#mod-config-agent-tools-windsurf)
-* [**mod config agent-tools windsurf install**](#mod-config-agent-tools-windsurf-install)
-* [**mod config agent-tools windsurf uninstall**](#mod-config-agent-tools-windsurf-uninstall)
 * [**mod config agent-tools cursor**](#mod-config-agent-tools-cursor)
 * [**mod config agent-tools cursor install**](#mod-config-agent-tools-cursor-install)
 * [**mod config agent-tools cursor uninstall**](#mod-config-agent-tools-cursor-uninstall)
@@ -344,6 +336,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config lsts artifacts azure-blob edit**](#mod-config-lsts-artifacts-azure-blob-edit)
 * [**mod config lsts artifacts azure-blob delete**](#mod-config-lsts-artifacts-azure-blob-delete)
 * [**mod config lsts artifacts azure-blob show**](#mod-config-lsts-artifacts-azure-blob-show)
+* [**mod config lsts artifacts file**](#mod-config-lsts-artifacts-file)
+* [**mod config lsts artifacts file edit**](#mod-config-lsts-artifacts-file-edit)
+* [**mod config lsts artifacts file delete**](#mod-config-lsts-artifacts-file-delete)
+* [**mod config lsts artifacts file show**](#mod-config-lsts-artifacts-file-show)
 * [**mod config lsts artifacts gcs**](#mod-config-lsts-artifacts-gcs)
 * [**mod config lsts artifacts gcs edit**](#mod-config-lsts-artifacts-gcs-edit)
 * [**mod config lsts artifacts gcs delete**](#mod-config-lsts-artifacts-gcs-delete)
@@ -507,7 +503,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod copilot chat**](#mod-copilot-chat)
 * [**mod cursor**](#mod-cursor)
 * [**mod cursor chat**](#mod-cursor-chat)
-* [**mod definition**](#mod-definition)
 * [**mod devin**](#mod-devin)
 * [**mod devin chat**](#mod-devin-chat)
 * [**mod doctor**](#mod-doctor)
@@ -546,6 +541,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod list**](#mod-list)
 * [**mod login**](#mod-login)
 * [**mod monitor**](#mod-monitor)
+* [**mod navigate**](#mod-navigate)
+* [**mod navigate definition**](#mod-navigate-definition)
+* [**mod navigate read**](#mod-navigate-read)
+* [**mod navigate symbols**](#mod-navigate-symbols)
 * [**mod opencode**](#mod-opencode)
 * [**mod opencode chat**](#mod-opencode-chat)
 * [**mod pi**](#mod-pi)
@@ -569,8 +568,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod trace syncs analyze**](#mod-trace-syncs-analyze)
 * [**mod vscode**](#mod-vscode)
 * [**mod vscode chat**](#mod-vscode-chat)
-* [**mod windsurf**](#mod-windsurf)
-* [**mod windsurf chat**](#mod-windsurf-chat)
 * [**mod wrapper**](#mod-wrapper)
 
 ## mod
@@ -613,7 +610,6 @@ mod [subcommands]
 * `config`: Global configuration options that are required by some CLI commands.
 * `copilot`: (INCUBATING) Launches a GitHub Copilot session configured to use **mod** for deterministic multi-repository work.
 * `cursor`: (INCUBATING) Launches a Cursor session configured to use **mod** for deterministic multi-repository work.
-* `definition`: Read the declaration of a name in a file.
 * `devin`: (INCUBATING) Launches a Devin CLI session configured to use **mod** for deterministic multi-repository work.
 * `doctor`: Checks that this machine and the CLI's configuration can build and publish LSTs.
 * `devcenter`: Generate DevCenter dashboards.
@@ -625,6 +621,7 @@ mod [subcommands]
 * `list`: Lists locally checked-out repositories.
 * `login`: Logs the CLI into Moderne
 * `monitor`: (INCUBATING) Launches an HTTP server used to monitor the CLI.
+* `navigate`: Move through code by its symbols, in a working set or an organization in Moderne.
 * `opencode`: (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
 * `pi`: (INCUBATING) Launches a Pi session configured to use **mod** for deterministic multi-repository work.
 * `prebuild`: Extracts build metadata without parsing source files.
@@ -636,7 +633,6 @@ mod [subcommands]
 * `telemetry`: Manage CLI telemetry pushed to the configured Moderne tenant.
 * `trace`: Manages trace analysis tools.
 * `vscode`: (INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
-* `windsurf`: (INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
 * `wrapper`: Create or configure a Moderne wrapper.
 
 ## mod agent
@@ -789,7 +785,7 @@ mod amp chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -997,7 +993,7 @@ mod claude chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -1183,7 +1179,7 @@ mod codex chat /path/to/working-set --model gpt-5.5-codex --effort high --resume
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -1273,7 +1269,6 @@ mod config agents [subcommands]
 * `opencode`: Configures how opencode is started.
 * `pi`: Configures how Pi is started.
 * `vscode`: Configures how Visual Studio Code Chat is started.
-* `windsurf`: Configures how Windsurf is started.
 
 ## mod config agents mcp
 
@@ -2211,103 +2206,12 @@ mod config agents vscode launcher show
 
 
 
-## mod config agents windsurf
-
-Configures how Windsurf is started.
-
-
-### Usage
-
-```
-mod config agents windsurf [subcommands]
-```
-
-
-### Subcommands
-
-* `launcher`: Configures a script that starts the agent in place of its executable.
-
-## mod config agents windsurf launcher
-
-Configures a script that starts the agent in place of its executable.
-
-
-### Usage
-
-```
-mod config agents windsurf launcher [subcommands]
-```
-
-
-### Subcommands
-
-* `delete`: Removes the launcher of the agent.
-* `edit`: Configures the script that starts the agent in place of its executable.
-* `show`: Displays the launcher of the agent.
-
-## mod config agents windsurf launcher delete
-
-Removes the launcher of the agent.
-
-
-### Usage
-
-```
-mod config agents windsurf launcher delete
-```
-
-
-
-## mod config agents windsurf launcher edit
-
-Configures the script that starts the agent in place of its executable.
-
-
-The script is started with the agent's arguments, including **--version**, and must pass them on to the agent.
-
-On Linux and macOS, end it with **exec \<agent> "$@"**. On Windows, end a batch file with **\<agent> %%\*** or a PowerShell script with **& \<agent> @args; exit $LASTEXITCODE**, or use a program.
-
-### Usage
-
-```
-mod config agents windsurf launcher edit [parameters]
-```
-
-### Examples
-
-```
-mod config agents claude launcher edit ~/bin/claude-launcher.sh
-
-mod config agents claude launcher edit C:\tools\claude-launcher.cmd
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `launcher` |  The script that starts the agent. |
-
-
-
-## mod config agents windsurf launcher show
-
-Displays the launcher of the agent.
-
-
-### Usage
-
-```
-mod config agents windsurf launcher show
-```
-
-
-
 ## mod config agent-tools
 
 Manage Moderne agent tools for coding agents.
 
 
-Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro, and Pi.
+Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro, and Pi.
 
 ### Usage
 
@@ -2328,7 +2232,6 @@ mod config agent-tools install
 * `uninstall`: Removes Moderne agent tools from coding agents.
 * `skills`: Manage Moderne skills for coding agents.
 * `claude`: Manage Moderne agent tools for Claude Code.
-* `windsurf`: Manage Moderne agent tools for Windsurf.
 * `cursor`: Manage Moderne agent tools for Cursor.
 * `copilot`: Manage Moderne agent tools for GitHub Copilot.
 * `amp`: Manage Moderne agent tools for Sourcegraph Amp.
@@ -2343,7 +2246,7 @@ mod config agent-tools install
 Creates or updates Moderne agent tools for coding agents.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) and registers the Moderne MCP server for all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro). Installs the skills for Pi. Safe to run multiple times — existing installations are updated in place.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) and registers the Moderne MCP server for all detected coding agents (Claude Code, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro). Installs the skills for Pi. Safe to run multiple times — existing installations are updated in place.
 
 ### Usage
 
@@ -2364,7 +2267,7 @@ mod config agent-tools install
 Removes Moderne agent tools from coding agents.
 
 
-Removes skills and unregisters the Moderne MCP server from all detected coding agents (Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro). Removes the skills from Pi.
+Removes skills and unregisters the Moderne MCP server from all detected coding agents (Claude Code, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro). Removes the skills from Pi.
 
 ### Usage
 
@@ -2510,73 +2413,6 @@ mod config agent-tools claude uninstall
 
 ```
 mod config agent-tools claude uninstall
-```
-
-
-
-## mod config agent-tools windsurf
-
-Manage Moderne agent tools for Windsurf.
-
-
-Installs skills under \~/.codeium/windsurf/skills/ and registers the MCP server in \~/.codeium/windsurf/mcp\_config.json.
-
-### Usage
-
-```
-mod config agent-tools windsurf [subcommands]
-```
-
-### Examples
-
-```
-mod config agent-tools windsurf install
-```
-
-
-### Subcommands
-
-* `install`: Install Moderne agent tools for Windsurf.
-* `uninstall`: Remove Moderne agent tools from Windsurf.
-
-## mod config agent-tools windsurf install
-
-Install Moderne agent tools for Windsurf.
-
-
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under \~/.codeium/windsurf/skills/ and registers the Moderne MCP server in \~/.codeium/windsurf/mcp\_config.json. Safe to run multiple times.
-
-### Usage
-
-```
-mod config agent-tools windsurf install
-```
-
-### Examples
-
-```
-mod config agent-tools windsurf install
-```
-
-
-
-## mod config agent-tools windsurf uninstall
-
-Remove Moderne agent tools from Windsurf.
-
-
-Removes skills and unregisters the Moderne MCP server from Windsurf.
-
-### Usage
-
-```
-mod config agent-tools windsurf uninstall
-```
-
-### Examples
-
-```
-mod config agent-tools windsurf uninstall
 ```
 
 
@@ -7567,6 +7403,7 @@ mod config lsts artifacts [subcommands]
 * `artifactory`: Configures the Artifactory repository that LSTs will be published to and downloaded from.
 * `show`: Displays the LST artifacts repository configuration.
 * `azure-blob`: Configures the Azure Blob Storage container that LSTs will be published to and downloaded from.
+* `file`: Configures the directory that LSTs will be published to.
 * `gcs`: Configures the Google Cloud Storage bucket that LSTs will be published to and downloaded from.
 * `maven`: Configures a Maven-formatted artifact repository that LSTs will be published to and downloaded from.
 * `s3`: Configures the S3 repository that LSTs will be published to and downloaded from.
@@ -7794,6 +7631,83 @@ Displays the Azure Blob LST repository configuration.
 
 ```
 mod config lsts artifacts azure-blob show
+```
+
+
+
+## mod config lsts artifacts file
+
+Configures the directory that LSTs will be published to.
+
+
+**mod publish** copies each LST into this directory and lists it in the repos-lock.csv there. With **--sync-csv** it works through the repos.csv there.
+
+### Usage
+
+```
+mod config lsts artifacts file [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures the directory that LSTs will be published to. Must be configured before you can run the publish command.
+* `delete`: Removes the file LST configuration. The publish command will no longer function until another artifact source is configured.
+* `show`: Displays the file LST configuration.
+
+## mod config lsts artifacts file edit
+
+Configures the directory that LSTs will be published to. Must be configured before you can run the publish command.
+
+
+All subsequent publish commands will use this directory.
+
+### Usage
+
+```
+mod config lsts artifacts file edit [parameters]
+```
+
+### Examples
+
+```
+mod config lsts artifacts file edit /var/moderne/lsts
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `location` |  The directory that LSTs will be published to. |
+
+
+
+## mod config lsts artifacts file delete
+
+Removes the file LST configuration. The publish command will no longer function until another artifact source is configured.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts file delete
+```
+
+
+
+## mod config lsts artifacts file show
+
+Displays the file LST configuration.
+
+
+
+
+### Usage
+
+```
+mod config lsts artifacts file show
 ```
 
 
@@ -11467,7 +11381,7 @@ mod copilot chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -11524,7 +11438,7 @@ mod cursor chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -11536,46 +11450,6 @@ mod cursor chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
-
-
-## mod definition
-
-Read the declaration of a name in a file.
-
-
-Prints where the symbol a name on a line of a file resolves to is declared, with the first lines of the declaration's file. Moderne's code search answers in one request. It looks in the repository the file is in, then in the dependency the build resolved, whose sources the Code Genome Project holds, then anywhere in the organization.
-
-The repository is the checkout the command runs in: its origin remote and the branch it is on. Moderne holds a repository at the branch it was ingested from. From a checkout on another branch, name the repository with **--repository** at that branch.
-
-### Usage
-
-```
-mod definition [parameters]
-```
-
-### Examples
-
-```
-mod definition moderne://ALL/Default addAttribute --at src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85
-
-mod definition moderne://ALL/Default Owner --at src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85 --repository github.com/spring-projects/spring-petclinic@main
-```
-
-### Parameters
-
-| Name | Description |
-| ---- | ----------- |
-| `organization` |  The organization in Moderne, as **moderne://\<organization>**. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
-| `name` |  The name as the line writes it: **addAttribute**, **Model.addAttribute** or the whole qualified name. It is matched against the end of each symbol's qualified name on the line. |
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--at` |  The file's path in the repository and the line the name is on. |
-| `--commit` |  The commit to read the file at, as a **mod search** result names it. |
-| `--lines` |  How many lines of the declaration's file to print, from the declaration's line. 0 prints only where it is. |
-| `--repository` |  The repository the file is in, as Moderne holds it: **github.com/acme/app@main**. Without it, the repository is the checkout the command runs in. Without a branch, the branch is the one the checkout is on. |
 
 
 ## mod devin
@@ -11619,7 +11493,7 @@ mod devin chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -12472,7 +12346,7 @@ mod kiro chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -12778,6 +12652,149 @@ mod monitor
 | `--port` |  The port to listen on. Default is 8080. |
 
 
+## mod navigate
+
+Move through code by its symbols, in a working set or an organization in Moderne.
+
+
+
+
+### Usage
+
+```
+mod navigate [subcommands]
+```
+
+
+### Subcommands
+
+* `definition`: Where a symbol is declared.
+* `read`: Read a file.
+* `symbols`: List what a file declares.
+
+## mod navigate definition
+
+Where a symbol is declared.
+
+
+Prints where a symbol is declared, with the first lines of the declaration. Moderne looks in the repository the symbol is used in, then in the dependency that repository resolves, whose sources the Code Genome Project holds, then in the JDK, then anywhere in the organization.
+
+The symbol is named as search results and **mod navigate symbols** print it. With **--at** it is a name as a line of a file writes it, and the symbol the name resolves to is printed first.
+
+In a working set, the file's repository answers first. A name that comes from a dependency or the JDK is then asked of Moderne. After that the working set's other repositories answer. Moderne answers for the rest of the organization last.
+
+### Usage
+
+```
+mod navigate definition [parameters]
+```
+
+### Examples
+
+```
+mod navigate definition moderne://ALL/Default 'org.springframework.ui.Model.addAttribute(java.lang.String,java.lang.Object)'
+
+mod navigate definition moderne://ALL/Default java.util.concurrent.ConcurrentHashMap.computeIfAbsent
+
+mod navigate definition moderne://ALL/Default addAttribute --at src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85
+
+mod navigate definition . addAttribute --at spring-projects/spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `directory\|organization` |  A working set, or the organization in Moderne as **moderne://\<organization>**. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
+| `symbol` |  The symbol: its qualified name, with an overload's parameter types in parentheses, **org.springframework.ui.Model.addAttribute(java.lang.String,java.lang.Object)**. A type or a field is its name alone. A method without parentheses is every overload. With **--at**, the name as the line writes it: **addAttribute** or **Model.addAttribute**. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--at` |  A file and the line the name is on. The symbol is then looked up from that file. In a working set, the path from the working set's root or from inside the file's repository. |
+| `--in` |  The repository the symbol is used in, as Moderne holds it: **github.com/acme/app@main**. Or the package a file is in: **org.springframework:spring-context:7.0.2**. Without it, the checkout the command runs in, when it runs in one. |
+| `--lines` |  How many lines of the declaration's file to print, from the declaration's line. 0 prints only where it is. |
+| `--organization`, `--org` |  In a working set, the organization in Moderne to ask for what the working set does not declare. Without it, the organization the working set was synced from. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
+
+
+## mod navigate read
+
+Read a file.
+
+
+Prints numbered lines of a file as Moderne holds it: a file of a repository of the organization, or a file of a package whose sources the Code Genome Project holds. In a working set, the file is read from disk.
+
+### Usage
+
+```
+mod navigate read [parameters]
+```
+
+### Examples
+
+```
+mod navigate read moderne://ALL/Default src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java --from 80 --to 120
+
+mod navigate read moderne://ALL/Default src/main/java/org/springframework/ui/Model.java:52 --in org.springframework:spring-context:7.0.2
+
+mod navigate read . spring-projects/spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:80
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `directory\|organization` |  A working set, or the organization in Moderne as **moderne://\<organization>**. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
+| `path[:line]` |  The file's path in its repository or package. A line after a colon is the first line to print. In a working set, the path from the working set's root or from inside the file's repository. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--from` |  The first line to print. |
+| `--in` |  The repository the file is in, as Moderne holds it: **github.com/acme/app@main**. Or its package: **org.springframework:spring-context:7.0.2**. Without it, the checkout the file is in. |
+| `--to` |  The last line to print. Without it, 2000 lines from the first, or the end of the file. |
+
+
+## mod navigate symbols
+
+List what a file declares.
+
+
+Prints each declaration in a file with its line, in the form **mod navigate definition** takes. **--references** adds what the file refers to, each with the dependency it comes from. In a working set, the symbols are read from the index of the repository's LST.
+
+### Usage
+
+```
+mod navigate symbols [parameters]
+```
+
+### Examples
+
+```
+mod navigate symbols moderne://ALL/Default src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+
+mod navigate symbols moderne://ALL/Default src/main/java/org/springframework/ui/Model.java --in org.springframework:spring-context:7.0.2
+
+mod navigate symbols . spring-projects/spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `directory\|organization` |  A working set, or the organization in Moderne as **moderne://\<organization>**. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
+| `path` |  The file's path in its repository or package. In a working set, the path from the working set's root or from inside the file's repository. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--in` |  The repository the file is in, as Moderne holds it: **github.com/acme/app@main**. Or its package: **org.springframework:spring-context:7.0.2**. Without it, the checkout the file is in. |
+| `--references` |  Also print what the file refers to, each with the dependency it comes from. |
+
+
 ## mod opencode
 
 (INCUBATING) Launches an opencode session configured to use **mod** for deterministic multi-repository work.
@@ -12819,7 +12836,7 @@ mod opencode chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -12874,7 +12891,7 @@ mod pi chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -13553,7 +13570,7 @@ range\_precision='line\_fragment', whose absolute offsets are unknown. A phrase
 that runs across lines has match\_kind phrase, and its end\_line and end\_column
 are where it ends.
 
-For sym:, ref: and call: matches, symbol\_kind is the kind as the index spells
+For sym:, ref: and call: matches, symbol\_kind is the kind as the index writes
 it (method-call, type-ref, mainframe.program/call, ...) and symbol\_id the
 qualified name those filters take, which for a reference is its resolved
 target: CALL WS-EDIT-PGM can have symbol\_id='CLMU040'. symbol\_parent and
@@ -14151,7 +14168,7 @@ mod vscode chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
+| `path` |  The working set or git repository the agent works in. The directory is created if missing. | `/path/to/working-set` |
 | `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
 
 ### Options
@@ -14162,59 +14179,6 @@ mod vscode chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
-
-
-## mod windsurf
-
-(INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
-
-
-
-
-### Usage
-
-```
-mod windsurf [subcommands]
-```
-
-
-### Subcommands
-
-* `chat`: (INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
-
-## mod windsurf chat
-
-(INCUBATING) Launches a Windsurf session configured to use **mod** for deterministic multi-repository work.
-
-
-The agent works on what the directory holds. All its tool use is approved up front. With a Moderne login it can also search and run recipes in Moderne. It syncs a changeset when it needs to build or test. Moderne lists the agent on any changeset it checks out.
-
-### Usage
-
-```
-mod windsurf chat [parameters]
-```
-
-### Examples
-
-```
-mod windsurf chat /path/to/working-set
-```
-
-### Parameters
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `path` |  The working set the agent works in. The directory is created if missing. | `/path/to/working-set` |
-| `-- agent-option` |  Options after **--** go to the agent's own command line as they are, after the ones mod gives it. |  |
-
-### Options
-
-| Name | Description | Example |
-| ---- | ----------- | ---------- |
-| `-n`, `--name` |  What this chat reads as in Moderne's activity. Defaults to the first line of the prompt. | `Upgrade to Java 25` |
-| `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
-| `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 
 
 ## mod wrapper
