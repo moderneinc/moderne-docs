@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.48.0 (2026/11/08)
+
+- send the file's path with a definition lookup
+- show a chat project's prompt from its row
+
 ### UI v14.47.0 (2026/11/07)
 
 - group what an agent chat made under it as a project
