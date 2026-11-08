@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.50.0 (2026/11/08)
+
+- highlight ColdFusion
+
 ### UI v14.49.0 (2026/11/08)
 
 - ask for a definition by the symbol itself
