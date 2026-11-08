@@ -1,6 +1,7 @@
 package io.moderne.docs
 
 import groovy.json.JsonSlurper
+import java.io.InputStream
 import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
@@ -9,10 +10,14 @@ import java.util.Base64
 
 private val client = HttpClient.newBuilder().followRedirects(HttpClient.Redirect.NORMAL).build()
 
-internal fun httpGet(url: String, headers: Map<String, String> = emptyMap()): HttpResponse<String> {
-    val request = HttpRequest.newBuilder(URI(url)).apply { headers.forEach(::header) }.build()
-    return client.send(request, HttpResponse.BodyHandlers.ofString())
-}
+internal fun httpGet(url: String, headers: Map<String, String> = emptyMap()): HttpResponse<String> =
+    client.send(request(url, headers), HttpResponse.BodyHandlers.ofString())
+
+internal fun httpGetStream(url: String, headers: Map<String, String> = emptyMap()): HttpResponse<InputStream> =
+    client.send(request(url, headers), HttpResponse.BodyHandlers.ofInputStream())
+
+private fun request(url: String, headers: Map<String, String>): HttpRequest =
+    HttpRequest.newBuilder(URI(url)).apply { headers.forEach(::header) }.build()
 
 internal fun httpGetBody(url: String, headers: Map<String, String> = emptyMap()): String {
     val response = httpGet(url, headers)
