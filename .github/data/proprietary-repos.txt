@@ -18,7 +18,6 @@ rewrite-concourse
 rewrite-containerized-logging
 rewrite-cryptography
 rewrite-cve-2025-50059
-rewrite-cve-2026-22732
 rewrite-devcenter
 rewrite-dotnet
 rewrite-dropwizard
