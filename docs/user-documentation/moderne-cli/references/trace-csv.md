@@ -39,7 +39,7 @@ Each command produces a trace that includes its own stage plus all prior stages.
 
 `mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec` and MCP tool calls are standalone: they carry the common columns plus their own stage, with no earlier workflow stages.
 
-Agent sessions are standalone too. Since they are not tied to a repository, they only have the `developer` and [agent columns](#agent-fields).
+Agent sessions are standalone too. Since they are not tied to a repository, they only have the `developer` and `cliVersion` columns and the [agent columns](#agent-fields).
 
 ## Build columns and prebuilt LSTs
 
@@ -51,14 +51,15 @@ LSTs produced before CLI 3.45.0 have no embedded `trace.json`. Their build colum
 
 ## Common fields
 
-Present in every row except agent rows, which have only `developer`.
+Agent rows have only `developer` and `cliVersion`. Every other row has all of these columns.
 
-| Column      | Type   | Description                | Example               |
-|-------------|--------|----------------------------|-----------------------|
-| `origin`    | string | SCM host                   | `github.com`          |
-| `path`      | string | Repository path (org/repo) | `openrewrite/rewrite` |
-| `branch`    | string | Branch name                | `main`                |
-| `developer` | string | User email                 | `user@example.com`    |
+| Column       | Type   | Description                                                                    | Example               |
+|--------------|--------|--------------------------------------------------------------------------------|-----------------------|
+| `origin`     | string | SCM host                                                                       | `github.com`          |
+| `path`       | string | Repository path (org/repo)                                                     | `openrewrite/rewrite` |
+| `branch`     | string | Branch name                                                                    | `main`                |
+| `developer`  | string | User email                                                                     | `user@example.com`    |
+| `cliVersion` | string | CLI version that wrote the row | `4.12.6`              |
 
 ## Sync stage
 
@@ -84,6 +85,7 @@ Populated after `mod build`.
 | `buildFailureCategory`            | string   | Why a failed build failed       | `Other`                              |
 | `buildFailureException`           | string   | Innermost exception reported    | `java.lang.ClassNotFoundException`   |
 | `buildFailureReason`              | string   | Innermost cause, tool's words   | `org.gradle.api.plugins.MavenPlugin` |
+| `buildFailureStep`                | string   | Step that failed last, named like `buildTool`. A JavaScript failure in a Maven repository reads `JavaScript` | `JavaScript` |
 | `buildStartTime`                  | ISO 8601 | Build start timestamp           | `2026-02-19T00:12:22.215Z`           |
 | `buildEndTime`                    | ISO 8601 | Build end timestamp             | `2026-02-19T00:12:47.263Z`           |
 | `buildId`                         | string   | Build identifier                | `20260219000719-cYGAL`               |
@@ -259,7 +261,7 @@ Populated by Moderne MCP server tool calls. MCP rows are standalone: they carry 
 
 ## Agent fields
 
-Populated by [`mod <agent> chat`](../../agent-tools/agent-chat.md), one row per agent session. Agent rows carry `developer` plus the agent columns, with no repository columns, no `organization`, and no trace tags. The session columns (`agentSessionId` through `agentCostUnit`) come from the agent's own transcript and are empty for agents whose transcript the CLI does not read.
+Populated by [`mod <agent> chat`](../../agent-tools/agent-chat.md), one row per agent session. Agent rows carry `developer` and `cliVersion` plus the agent columns, with no repository columns, no `organization`, and no trace tags. The session columns (`agentSessionId` through `agentCostUnit`) come from the agent's own transcript and are empty for agents whose transcript the CLI does not read.
 
 :::warning
 `agentPrompt` records the full text of the session's initial prompt. Don't put credentials or other sensitive values in a prompt.
@@ -273,6 +275,7 @@ Populated by [`mod <agent> chat`](../../agent-tools/agent-chat.md), one row per 
 | `agentId`                | string   | `mod <agent> chat` command identifier                | `20260916100211-Qw3Rt`                |
 | `agentSyncId`            | string   | Command identifier of the sync the session ran on    | `20260916095502-Hk8Zp`                |
 | `agentName`              | string   | Agent command that was run                           | `claude`                              |
+| `agentCommand`           | string   | Agent subcommand that started the session            | `chat`                                |
 | `agentVersion`           | string   | Agent's installed version, if known                  | `2.1.252`                             |
 | `agentPrompt`            | string   | Initial prompt of the session                        | `Upgrade every repository to Java 25` |
 | `agentSessionId`         | string   | Agent's own session identifier                       | `0c6f3e9a-...`                        |
