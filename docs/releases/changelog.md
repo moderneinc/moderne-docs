@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v14.51.0 (2026/11/09)
+
+- read Ruby right a line at a time
+- read PHP templates and docblocks right, line by line
+
 ### UI v14.50.0 (2026/11/08)
 
 - highlight ColdFusion
