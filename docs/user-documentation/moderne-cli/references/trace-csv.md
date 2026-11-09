@@ -11,8 +11,9 @@ This page is the field reference for those rows.
 
 ## How to read this reference
 
-* **Traces are hierarchical.** Each command writes its own stage plus every earlier stage in the workflow. A `mod run` row therefore carries the sync, build, and run columns, while a `mod git commit` row carries everything through commit. A stage a command didn't reach is left empty.
-* **`organization` is the last of the stage columns.** Because each command type carries a different set of stages, the row width and the position of `organization` differ by type. If you use [trace tags](../how-to-guides/cli-telemetry.md), one `tag.<key>` column per tag is appended *after* `organization`, so it is not the last column in that case.
+* **Columns are grouped by stage.** A stage is one step of the CLI workflow - such as sync, build, or run. Each stage's columns start with its name as a prefix. For example, build stage's columns are `buildOutcome`, `buildStartTime`, and so on.
+* **Traces are hierarchical.** Each command writes its own stage plus every earlier stage in the workflow. A `mod run` row therefore has the sync, build, and run columns, while a `mod git commit` row has everything through commit. A stage a command didn't reach is left empty.
+* **`organization` is the last of the stage columns.** Because each command type writes a different set of stages, the row width and the position of `organization` differ by type. If you use [trace tags](../how-to-guides/cli-telemetry.md), one `tag.<key>` column per tag is appended *after* `organization`, so it is not the last column in that case.
 * **Every field is written as text.** The **Type** column below is the *logical* type of the value (what it represents), not a storage type. A CSV field is always text until you cast it.
 * **Column headers are mixed-case** in the file (`runStartTime`). Query engines that fold identifiers to lowercase (Athena, Trino) will expose them lowercased (`runstarttime`).
 * **Every `*Outcome` column holds one of `Succeeded`, `Failed`, `Canceled`, or `Skipped`.**
@@ -37,9 +38,7 @@ Each command produces a trace that includes its own stage plus all prior stages.
 | MCP server tool call | `mcp`     | MCP (standalone)                                 |
 | `mod <agent> chat`   | `agent`   | Agent (standalone, no repository columns)        |
 
-`mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec` and MCP tool calls are standalone: they carry the common columns plus their own stage, with no earlier workflow stages.
-
-Agent sessions are standalone too. Since they are not tied to a repository, they only have the `developer` and `cliVersion` columns and the [agent columns](#agent-fields).
+`mod publish` runs after Build in place of the Run through Push chain. Its rows have no columns for those stages.
 
 ## Build columns and prebuilt LSTs
 
@@ -51,14 +50,16 @@ LSTs produced before CLI 3.45.0 have no embedded `trace.json`. Their build colum
 
 ## Common fields
 
-Agent rows have only `developer` and `cliVersion`. Every other row has all of these columns.
+Every row has these columns. The first three are the repository columns, which identify the repository the command ran in. Agent rows are the exception and have only `developer` and `cliVersion`.
 
-| Column       | Type   | Description                                                                    | Example               |
-|--------------|--------|--------------------------------------------------------------------------------|-----------------------|
-| `origin`     | string | SCM host                                                                       | `github.com`          |
-| `path`       | string | Repository path (org/repo)                                                     | `openrewrite/rewrite` |
-| `branch`     | string | Branch name                                                                    | `main`                |
-| `developer`  | string | User email                                                                     | `user@example.com`    |
+Rows written by a CLI older than 4.12.0 have no `cliVersion` column.
+
+| Column       | Type   | Description                    | Example               |
+|--------------|--------|--------------------------------|-----------------------|
+| `origin`     | string | SCM host                       | `github.com`          |
+| `path`       | string | Repository path (org/repo)     | `openrewrite/rewrite` |
+| `branch`     | string | Branch name                    | `main`                |
+| `developer`  | string | User email                     | `user@example.com`    |
 | `cliVersion` | string | CLI version that wrote the row | `4.12.6`              |
 
 ## Sync stage
@@ -85,7 +86,7 @@ Populated after `mod build`.
 | `buildFailureCategory`            | string   | Why a failed build failed       | `Other`                              |
 | `buildFailureException`           | string   | Innermost exception reported    | `java.lang.ClassNotFoundException`   |
 | `buildFailureReason`              | string   | Innermost cause, tool's words   | `org.gradle.api.plugins.MavenPlugin` |
-| `buildFailureStep`                | string   | Step that failed last, named like `buildTool`. A JavaScript failure in a Maven repository reads `JavaScript` | `JavaScript` |
+| `buildFailureStep`                | string   | Build step that failed          | `JavaScript`                         |
 | `buildStartTime`                  | ISO 8601 | Build start timestamp           | `2026-02-19T00:12:22.215Z`           |
 | `buildEndTime`                    | ISO 8601 | Build end timestamp             | `2026-02-19T00:12:47.263Z`           |
 | `buildId`                         | string   | Build identifier                | `20260219000719-cYGAL`               |
@@ -112,7 +113,7 @@ Populated after `mod build`.
 | `buildWeight`                     | integer  | LST weight                      | `83285`                              |
 | `buildMaxWeight`                  | integer  | Max single-file weight          | `6617`                               |
 | `buildMaxWeightSourceFile`        | string   | Heaviest file path              | `src/test/MessageMLContextTest.java` |
-| `buildCliVersion`                 | string   | CLI version used                | `3.57.8`                             |
+| `buildCliVersion`                 | string   | CLI version that built the LST  | `3.57.8`                             |
 | `buildElapsedTimeMs`              | integer  | Build duration (ms)             | `25048`                              |
 
 ## Run stage
@@ -212,7 +213,7 @@ Populated after `mod publish`. These columns appear only in `mod publish` rows -
 
 ## Exec stage
 
-Populated by `mod exec`. Exec rows are standalone: they carry the common columns plus the exec columns, with no sync/build/run stages.
+Populated by `mod exec`. Exec rows are standalone: they have the common columns plus the exec columns, with no sync/build/run stages.
 
 :::warning
 `execCommand` records the full command line and `execExecutionDirectory` records an absolute local path. Pass credentials to `mod exec` through environment variables rather than as command arguments, so they are not captured in telemetry.
@@ -242,7 +243,7 @@ Populated by `mod exec`. Exec rows are standalone: they carry the common columns
 
 ## MCP fields
 
-Populated by Moderne MCP server tool calls. MCP rows are standalone: they carry the common columns plus the MCP columns, with no sync/build/run stages.
+Populated by Moderne MCP server tool calls. MCP rows are standalone: they have the common columns plus the MCP columns, with no sync/build/run stages.
 
 | Column             | Type     | Description                                                                                                                                               | Example                             |
 |--------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
@@ -261,7 +262,7 @@ Populated by Moderne MCP server tool calls. MCP rows are standalone: they carry 
 
 ## Agent fields
 
-Populated by [`mod <agent> chat`](../../agent-tools/agent-chat.md), one row per agent session. Agent rows carry `developer` and `cliVersion` plus the agent columns, with no repository columns, no `organization`, and no trace tags. The session columns (`agentSessionId` through `agentCostUnit`) come from the agent's own transcript and are empty for agents whose transcript the CLI does not read.
+Populated by [`mod <agent> chat`](../../agent-tools/agent-chat.md), one row per agent session. Agent rows have `developer`, `cliVersion`, and the agent columns, with no repository columns, no `organization`, and no trace tags. The session columns (`agentSessionId` through `agentCostUnit`) come from the agent's own transcript and are empty for agents whose transcript the CLI does not read.
 
 :::warning
 `agentPrompt` records the full text of the session's initial prompt. Don't put credentials or other sensitive values in a prompt.
