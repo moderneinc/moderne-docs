@@ -15,7 +15,7 @@ When you run a recipe across an organization, Moderne has to keep track of what 
 
 The object that holds all these things is a **changeset**.
 
-You can see all the changesets in your tenant by navigating to the [activity view](../getting-started/activity-view.md). Every row on that page is a changeset. You can click on one and be taken to a page that contains all of the changeset details.
+You can see all the changesets in your tenant by navigating to the [activity view](../getting-started/activity-view.md). Changesets are one of the types of activity it lists. You can click on one and be taken to a page that contains all of the changeset details.
 
 ## Where changesets come from
 
