@@ -194,7 +194,7 @@ Here are some ideas for how you might use Code Search to gain insights about you
 | Which classes carry an annotation?               | `annotated:org.springframework.web.bind.annotation.RestController` |
 | Where does production code print to the console? | `System.out.println -file:src/test`                                |
 
-For more information on customizing queries, check out the [Code Search guide](./code-search.md#writing-queries) and the [Trigrep query reference](../../agent-tools/trigrep.md#query-reference).
+For more information on customizing queries, check out the [Code Search guide](./code-search.md#writing-queries) and the [Code Search query reference](../../agent-tools/code-search.md#query-reference).
 
 Code Search isn't the answer to everything, though. It can't count lines or produce a structure report like a bill of materials. This is where recipes come into play - such as the ones listed below.
 

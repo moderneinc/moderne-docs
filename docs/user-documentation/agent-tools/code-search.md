@@ -1,23 +1,23 @@
 ---
-sidebar_label: Trigrep
-description: The search engine behind Moderne Code Search, with the full query syntax, filters, and SQL search.
+sidebar_label: Code Search
+description: Learn how to write Code Search queries, how agents use SQL search, and how the search index works.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
 
-# Trigrep
+# Code Search
 
-Trigrep is the search engine behind Moderne [Code Search](../moderne-platform/getting-started/code-search.md). It provides fast, indexed search across your entire codebase, delivering sub-second search times even across thousands of repositories. It operates within the context of a Moderne organization, so you can scope searches to specific business units, teams, or application portfolios.
+Moderne Code Search, powered by [Trigrep](#how-code-search-works), provides fast, indexed search across your entire codebase, delivering sub-second search times even across thousands of repositories. It operates within the context of a Moderne organization, so you can scope searches to specific business units, teams, or application portfolios.
 
-Trigrep supports [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) and [Comby structural patterns](https://comby.dev/docs/syntax-reference), so AI models already trained on those tools can use Trigrep without learning a new query language. Beyond standard Sourcegraph filters, Trigrep adds semantic filters like `call:`, `extends:`, and `implements:` powered by Lossless Semantic Tree (LST) metadata.
+Code Search supports [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) and [Comby structural patterns](https://comby.dev/docs/syntax-reference), so AI models already trained on those tools can use it without learning a new query language. Beyond standard Sourcegraph filters, Code Search adds semantic filters like `call:`, `extends:`, and `implements:` powered by Lossless Semantic Tree (LST) metadata.
 
 You can also [save a search and run a recipe on just the repositories it matched](#using-search-as-a-prefilter-for-recipes), instead of every repository in the organization.
 
-Trigrep powers the [Code search page](../moderne-platform/getting-started/code-search.md) in the Moderne Platform, the CLI's `mod search` command, and the search tools on the [remote](./mcp/remote-server.md) and [local](./mcp/overview.md) MCP servers. Agents can use it to find every call to a method or use of a library across an organization in a single search, instead of grepping and reading files one at a time.
+You can use Code Search from the [Code search page](../moderne-platform/getting-started/code-search.md) in the Moderne Platform, the CLI's `mod search` command, or the search tools on the [remote](./mcp/remote-server.md) and [local](./mcp/overview.md) MCP servers. Agents can use it to find every call to a method or use of a library across an organization in a single search, instead of grepping and reading files one at a time.
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=FuOaGA7JYTc' controls="true" />
 
-## Why use Trigrep
+## Why use Code Search
 
 Traditional text search tools struggle with enterprise codebases for several reasons:
 
@@ -25,7 +25,7 @@ Traditional text search tools struggle with enterprise codebases for several rea
 2. Regular expressions without indexing are even worse (they require full file reads to evaluate patterns).
 3. They lack an understanding of code structure. For example, they treat a method named `getUserById` in the same way they treat a comment that happens to mention it.
 
-**Trigrep addresses these challenges** by building trigram indexes during the repository build process. Once indexed, queries run against pre-computed data structures rather than raw files.
+**Code Search addresses these challenges** with [Trigrep](#how-code-search-works), a search engine that builds trigram indexes during the repository build process. Once indexed, queries run against pre-computed data structures rather than raw files.
 
 The search engine also understands code structure, so you can filter by:
 
@@ -63,7 +63,7 @@ mod git sync moderne working-set --organization Spring
 mod search working-set "KafkaTemplate"
 ```
 
-Trigrep needs an LST for every repository it searches, because the trigram index is derived from the LST rather than from the source text. The first `mod search` over a repository converts its LST to the V3 format in place, if it isn't already, and writes the index as part of the conversion. You should expect that first search to take a while on a large repository. Every search after that runs in under a second, because the converted LST and its index are reused.
+Code Search needs an LST for every repository it searches, because the trigram index is derived from the LST rather than from the source text. The first `mod search` over a repository converts its LST to the V3 format in place, if it isn't already, and writes the index as part of the conversion. You should expect that first search to take a while on a large repository. Every search after that runs in under a second, because the converted LST and its index are reused.
 
 If a repository has no LST in Moderne - or you want to search your own local changes - clone the sources and build them yourself instead:
 
@@ -84,7 +84,7 @@ Below, we'll dive into various ways you can refine your searches based on your n
 
 ## Three ways to search
 
-Trigrep supports three query paradigms, each suited to different tasks. You can combine them freely in a single search.
+Code Search supports three query paradigms, each suited to different tasks. You can combine them freely in a single search.
 
 ### Literal and Sourcegraph-style queries
 
@@ -129,7 +129,7 @@ You can also combine literal searches with [filters](#filters) to narrow results
 
 When literal matching isn't enough, you can use regular expressions to match patterns rather than exact text. To do so, wrap your pattern in forward slashes. For example, `/log\.(info|debug|warn)\(/` finds logging calls at any of three levels.
 
-Trigrep optimizes regex searches by extracting literal fragments from your pattern to narrow down candidate files first, so most regex searches are nearly as fast as literal ones.
+Code Search optimizes regex searches by extracting literal fragments from your pattern to narrow down candidate files first, so most regex searches are nearly as fast as literal ones.
 
 <details>
 <summary>Common regex queries</summary>
@@ -213,7 +213,7 @@ Structural matching also respects string and comment boundaries, so a pattern wo
 
 ## Choosing a query syntax
 
-Trigrep supports two query language dialects: **Sourcegraph** and **Zoekt**. You can switch between them with the `--syntax` flag:
+Code Search supports two query language dialects: **Sourcegraph** and **Zoekt**. You can switch between them with the `--syntax` flag:
 
 ```bash
 # Sourcegraph syntax (default), path: is a Sourcegraph alias for file:
@@ -391,7 +391,7 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `before:`      | Match lines last changed before a day in UTC or a time ago. See [searching by author and date](#searching-by-author-and-date).                                                                                                                                                                                                                                                                                                                                                      | `before:2025-01-01`           |
 
 :::info[Which filters require symbol data]
-The symbol-aware filters read from LST symbol metadata rather than raw text, which trigrep extracts from source code. They come in two groups:
+The symbol-aware filters read from LST symbol metadata rather than raw text, which Trigrep extracts from source code. They come in two groups:
 
 * **Declaration filters** (`sym:`, `select:`, `type:symbol`) read a symbol's name and kind off the parse tree, so they work across all supported source languages: Java, Kotlin, Groovy, Scala, Python, JavaScript, TypeScript, Go, C#, COBOL, JCL, and BMS. The mainframe languages declare their own symbol kinds (programs, paragraphs, jobs, steps, DD statements, and maps) and reference kinds such as `ref.pgm:`, `ref.perform:`, and `ref.copy:`.
 * **Type-reference filters** (`extends:`, `implements:`, `annotated:`, `returns:`, `throws:`, `ref:`, `call:`, `dependency:`) resolve types through the LST, so how much they find depends on the language's type attribution, which is most complete for Java.
@@ -556,8 +556,9 @@ Code Search is a useful first step in many workflows. You can use it to gauge th
 
 Search also helps when you're building a recipe. Before you write it, you can find examples of the pattern in real code. These examples become test cases and help you understand the variations you need to handle.
 
-<details>
-<summary>How trigram indexing works</summary>
+## How Code Search works
+
+Code Search runs on Trigrep, combining a trigram index with what the LST knows about your code. The trigram index makes text search fast. The LST records the type behind each symbol and the dependency it came from. Filters like `call:`, `extends:`, and `dependency:` search that data.
 
 Trigram indexing has been referenced in research papers since the 1940s. In 2012, Russ Cox [described the approach](https://swtch.com/~rsc/regexp/regexp4.html) he used to build Google Code Search. Google later open-sourced [Zoekt](https://github.com/google/zoekt), a trigram-based search engine, which Sourcegraph subsequently forked. Trigrep is a from-scratch Java implementation that is compatible with Sourcegraph's query syntax but does not share any code with the Google or Sourcegraph implementations.
 
@@ -583,11 +584,9 @@ Trigrep generates its indexes from LSTs rather than raw source code, which gives
 
 The index is written at the same time as the V3 LST and lives next to it. Look under `.moderne/build/{buildId}/` for the `.zoekt` files: there's one shard per source set plus a merged index for the whole repository. A search never sees a half-written index, because the CLI marks it as complete only after the last file is written on disk. Each shard also keeps a copy of the file's content, which is why you can search repositories you have only synced LSTs for, without cloning their source. To refresh the index after significant code changes, re-run `mod build`.
 
-</details>
-
 ## Further reading
 
-Since Trigrep supports both Sourcegraph and Zoekt query syntax as well as Comby-style structural patterns, documentation for those tools applies directly here:
+Since Code Search supports both Sourcegraph and Zoekt query syntax as well as Comby-style structural patterns, documentation for those tools applies directly here:
 
 * [Sourcegraph query syntax](https://sourcegraph.com/docs/code-search/queries) covers the full Sourcegraph query language including boolean operators, filters, and regex patterns. This is the default syntax for `mod search`.
 * [Zoekt query syntax](https://github.com/google/zoekt) documents the original Zoekt query language. Use `--syntax zoekt` to switch to this dialect.
@@ -596,6 +595,5 @@ Since Trigrep supports both Sourcegraph and Zoekt query syntax as well as Comby-
 
 ## Next steps
 
-{/* Hidden until ready to share publicly: * [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to practice Trigrep queries on a sample workspace. */}
 * [Moderne CLI reference](../moderne-cli/cli-reference.md) for the full `mod search` command documentation.
 * [Getting started with Code Search](../moderne-platform/getting-started/code-search.md) to run the same searches from the Moderne Platform (no local sync required).

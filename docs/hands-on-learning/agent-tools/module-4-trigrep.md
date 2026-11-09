@@ -8,7 +8,7 @@ draft: true
 
 In this module, you'll explore the trigram search index that `mod build` already produced across the workspace from [Module 1](./module-1-cli-and-lsts.md). You'll run literal queries, regex, and Comby-style structural patterns, and you'll see how Trigrep's Java-aware filters (`visibility:`, `extends:`, `returns:`, etc.) push beyond what `grep` can do.
 
-For the deep reference on syntax and semantics, see [Moderne Trigrep](../../user-documentation/agent-tools/trigrep.md). This module is hands-on practice.
+For the deep reference on syntax and semantics, see [Code Search](../../user-documentation/agent-tools/code-search.md). This module is hands-on practice.
 
 ## Exercise 4-1: Confirm the search index exists
 
@@ -107,7 +107,7 @@ mod search . @Autowired not test         # negation
 Sourcegraph's negation operator is also written as `-test`, but `mod` parses leading-dash arguments as CLI flags and rejects them. Use `not` (or `NOT`) instead, or pass the rest of the query after a `--` separator.
 :::
 
-Combine with [filters](../../user-documentation/agent-tools/trigrep.md#filters) to narrow by file path, language, or symbol type:
+Combine with [filters](../../user-documentation/agent-tools/code-search.md#filters) to narrow by file path, language, or symbol type:
 
 ```bash
 mod search . visibility:public @RestController
@@ -142,7 +142,7 @@ Use regex when literal search isn't expressive enough but you don't need to resp
 
 #### Step 3: Structural queries with Comby holes
 
-Prefix a query with `struct:` to switch into [structural matching](../../user-documentation/agent-tools/trigrep.md#structural-pattern-matching). Holes (`:[name]`) match content while respecting balanced delimiters, which lets you express things regex can't:
+Prefix a query with `struct:` to switch into [structural matching](../../user-documentation/agent-tools/code-search.md#structural-pattern-matching). Holes (`:[name]`) match content while respecting balanced delimiters, which lets you express things regex can't:
 
 ```bash
 # Find findById calls regardless of receiver expression
@@ -155,7 +155,7 @@ mod search . struct:'logger.:[level](:[msg] + :[rest])'
 mod search . struct:'Optional.ofNullable(:[x:e]).orElse(:[y:e])'
 ```
 
-The hole syntax includes typed variants like `:[name:e]` (balanced expression), `:[name:id]` (identifier), `:[name:block]` (balanced braces), and `:[name:g]` (generics). See [Structural holes](../../user-documentation/agent-tools/trigrep.md#structural-holes) for the full reference.
+The hole syntax includes typed variants like `:[name:e]` (balanced expression), `:[name:id]` (identifier), `:[name:block]` (balanced braces), and `:[name:g]` (generics). See [Structural holes](../../user-documentation/agent-tools/code-search.md#structural-holes) for the full reference.
 
 #### Step 4: Semantic filters
 
@@ -224,7 +224,7 @@ mod run . --recipe org.openrewrite.staticanalysis.CommonStaticAnalysis --last-se
 
 If the search matched 3 of 10 repositories, the recipe processes 3 instead of 10. On larger workspaces (think thousands of repos) this is the difference between a coffee break and overnight.
 
-See [Using search as a prefilter for recipes](../../user-documentation/agent-tools/trigrep.md#using-search-as-a-prefilter-for-recipes) for more on this pattern.
+See [Using search as a prefilter for recipes](../../user-documentation/agent-tools/code-search.md#using-search-as-a-prefilter-for-recipes) for more on this pattern.
 
 ### Takeaways
 
