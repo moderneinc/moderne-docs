@@ -1,4 +1,5 @@
 import io.moderne.docs.Pom
+import io.moderne.docs.UpdateCliReleases
 import io.moderne.docs.UpdateLatestVersions
 
 repositories {
@@ -52,6 +53,13 @@ tasks.register<UpdateLatestVersions>("updateLatestVersions") {
     codegenomePassword = providers.gradleProperty("codegenomePassword")
     markdownFile = layout.projectDirectory.file("docs/user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module.md")
     javascriptFile = layout.projectDirectory.file("src/plugins/latest-versions.js")
+}
+
+tasks.register<UpdateCliReleases>("updateCliReleases") {
+    group = "documentation"
+    description = "Adds the Moderne CLI releases newer than those on the CLI releases page."
+    githubToken = providers.environmentVariable("GITHUB_TOKEN")
+    markdownFile = layout.projectDirectory.file("docs/releases/cli-releases.md")
 }
 
 /// Returns the `groupId:artifactId` of every module managed by the BOM at [coordinate], following `import`-scoped BOMs.

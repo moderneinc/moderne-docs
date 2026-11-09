@@ -1,0 +1,57 @@
+# The name is load-bearing: pages.yml deploys when a run of "Update CLI release notes" completes.
+name: Update CLI release notes
+
+on:
+  schedule:
+    # Run every day at 6 AM Pacific (2 PM UTC)
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: update-cli-release-notes
+  cancel-in-progress: true
+
+jobs:
+  update-release-notes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 25
+
+      - uses: gradle/actions/setup-gradle@v5
+
+      # moderne-cli's releases are private, so the release notes app needs to be installed on moderne-cli
+      - name: Generate GitHub App token
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          app-id: ${{ secrets.PROPRIETARY_RELEASE_NOTES_APP_ID }}
+          private-key: ${{ secrets.PROPRIETARY_RELEASE_NOTES_PRIVATE_KEY }}
+          owner: moderneinc
+          repositories: moderne-cli
+
+      - name: Add new CLI releases
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          ORG_GRADLE_PROJECT_codegenomeUsername: ${{ secrets.CODEGENOME_USERNAME }}
+          ORG_GRADLE_PROJECT_codegenomePassword: ${{ secrets.CODEGENOME_TOKEN }}
+        run: ./gradlew updateCliReleases
+
+      # Push back to the ref the workflow ran on: main for the scheduled runs, or the
+      # selected branch for a manual workflow_dispatch.
+      - name: Commit and push
+        run: |
+          git add docs/releases/cli-releases.md
+          git diff --cached --quiet && exit 0
+          git config user.email "team@moderne.io"
+          git config user.name "team-moderne[bot]"
+          git commit -m "[Auto] Add new CLI releases as of $(date +'%Y-%m-%dT%H%M')"
+          git push origin "HEAD:${{ github.ref_name }}"
