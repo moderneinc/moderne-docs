@@ -8362,6 +8362,7 @@ mod config moderne organizations show
 
 | Name | Description |
 | ---- | ----------- |
+| `--depth` |  With --json, how many levels of children to list under each organization. 0 lists none, so each organization is one entry. Without it, all of them. |
 | `--json` |  |
 
 
@@ -12677,11 +12678,11 @@ mod navigate [subcommands]
 Where a symbol is declared.
 
 
-Prints where a symbol is declared, with the first lines of the declaration. Moderne looks in the repository the symbol is used in, then in the dependency that repository resolves, whose sources the Code Genome Project holds, then in the JDK, then anywhere in the organization.
+Prints where a symbol is declared, and the declaration from its doc comment to its end. Moderne looks in the repository the symbol is used in, then in the dependency that repository resolves, whose sources the Code Genome Project holds, then in the language's SDK, then anywhere in the organization.
 
 The symbol is named as search results and **mod navigate symbols** print it. With **--at** it is a name as a line of a file writes it, and the symbol the name resolves to is printed first.
 
-In a working set, the file's repository answers first. A name that comes from a dependency or the JDK is then asked of Moderne. After that the working set's other repositories answer. Moderne answers for the rest of the organization last.
+In a working set, the file's repository answers first. A name that comes from a dependency or the language's SDK is then asked of Moderne. After that the working set's other repositories answer. Moderne answers for the rest of the organization last.
 
 ### Usage
 
@@ -12696,7 +12697,7 @@ mod navigate definition moderne://ALL/Default 'org.springframework.ui.Model.addA
 
 mod navigate definition moderne://ALL/Default java.util.concurrent.ConcurrentHashMap.computeIfAbsent
 
-mod navigate definition moderne://ALL/Default addAttribute --at src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85
+mod navigate definition moderne://ALL/Default addAttribute --at src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85 --in github.com/spring-projects/spring-petclinic@main
 
 mod navigate definition . addAttribute --at spring-projects/spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85
 ```
@@ -12714,8 +12715,9 @@ mod navigate definition . addAttribute --at spring-projects/spring-petclinic/src
 | ---- | ----------- |
 | `--at` |  A file and the line the name is on. The symbol is then looked up from that file. In a working set, the path from the working set's root or from inside the file's repository. |
 | `--in` |  The repository the symbol is used in, as Moderne holds it: **github.com/acme/app@main**. Or the package a file is in: **org.springframework:spring-context:7.0.2**. Without it, the checkout the command runs in, when it runs in one. |
-| `--lines` |  How many lines of the declaration's file to print, from the declaration's line. 0 prints only where it is. |
-| `--organization`, `--org` |  In a working set, the organization in Moderne to ask for what the working set does not declare. Without it, the organization the working set was synced from. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
+| `--lines` |  How many lines of the declaration to print at most. 0 prints only where it is. |
+| `--organization`, `--org` |  In a working set, the organization in Moderne to ask for what the working set does not declare. Without it, the organization the working set was synced from. A working set that records none asks the Global Organization. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
+| `--references` |  Also print what the lines printed refer to, each with the dependency it comes from and the file and line it is declared at. |
 
 
 ## mod navigate read
@@ -13179,6 +13181,7 @@ filters skip comments, strings and unrelated types with the same simple name:
 ```
 call:java.util.List.add               calls, including calls on subtypes
 call:java.util.List.remove(int)       calls of one overload
+call:java.net.URL.<init>(String)      calls of one constructor
 ref:java.util.List                    written uses of a type
 ref.new:java.util.ArrayList           constructor uses
 ref.call:java.util.List               calls whose receiver has that type
@@ -13200,13 +13203,21 @@ Bare ref: includes written type uses, constructor uses and documentation links.
 Use ref.call: or ref.field: for member references, ref.any: for all reference
 kinds, ref.[type,call]: for a set, or ref.owner: for members declared in a type.
 Names may be qualified, simple (List) or patterns (java.util.\* or \*..List), and
-match in any case as text does. An index an earlier CLI built matches names as
-written until the repository is built again. select:symbol.class,
-select:symbol.method and select:symbol.field keep one kind of declaration;
+match in any case as text does; case:yes keeps the case. An index an earlier CLI
+built matches names as written until the repository is built again.
+select:symbol.\<kind> keeps one kind of declaration: class, interface, enum,
+record, annotation, method, constructor or field. A class is not an interface.
 select:symbol.\<path> also narrows the targets of ref: and call:.
 
 ```
 mod search . 'sym:User* select:symbol.class' --output=plain
+```
+
+A pom or Gradle build file declares the artifact its build publishes, named
+group:artifact in quotes, which finds the repository that builds a library.
+
+```
+mod search . 'sym:"com.acme:billing" select:symbol.artifact'
 ```
 
 Several declaration filters describe the same declaration:
@@ -13283,6 +13294,12 @@ finds one, and mod run --help shows how to run it.
 
 **Reading results**
 
+--output=summary counts every match over the whole search without listing them.
+--output=repositories also lists the repositories with a match, the most matches
+first, each with its matches and files. A search counts at most 100 matches in a
+file, and a count says when a file reaches that, so that its matches are a lower
+bound.
+
 --output=plain lists each repository, then each matching file's path in it,
 then the file's numbered lines, with a : after the number of a matching line.
 A match sits under the lines that declare its enclosing classes and methods,
@@ -13294,8 +13311,8 @@ coordinates of the dependencies it uses below its path, so
 dependency:org.springframework\*:\*:5.x select:file names each file's artifact
 and version.
 
-When a search did not cover everything, it says so after its results: the
-repositories it skipped and why, and the matching files --max kept out.
+When a search did not cover everything, it says so after its results: how
+many repositories it skipped and why, and the matching files --max kept out.
 
 **Mainframe sources and symbol kinds**
 
@@ -13525,7 +13542,8 @@ searches, and a plain search to read the matching lines. The SQL can read
 nothing but these tables, and its rows come in no particular order without an
 ORDER BY. A search streams its rows into the SQL as it finds them, so a LIMIT
 stops it early, while --max only caps the rows that come back. Count in the
-SQL, with count(\*) and GROUP BY; --output=summary does not apply.
+SQL, with count(\*) and GROUP BY; --output=summary and --output=repositories do
+not apply.
 
 **File, line and occurrence tables**
 
@@ -13538,7 +13556,7 @@ search('\<query>'): one row per matching file.
 
 ```
 origin, path, branch, file, language, matches
-matches counts matching lines, not individual occurrences.
+matches counts occurrences, as search_matches lists them, not lines.
 ```
 
 search\_lines('\<query>'): one row per matching line.
@@ -13829,9 +13847,9 @@ mod search "moderne://ALL/Financial Services" "dependency:org.springframework.bo
 
 | Name | Description |
 | ---- | ----------- |
-| `-m`, `--max` |  Maximum number of matching files to show across the whole search, 100 by default. An explicit **count:** filter in the query overrides it, and **count:all** lifts it. It does not apply to **--output=summary**, which counts every match. With **--syntax=sql** it is the maximum number of rows to keep. |
+| `-m`, `--max` |  Maximum number of matching files to show across the whole search, 100 by default. An explicit **count:** filter in the query overrides it, and **count:all** lifts it. It does not apply to **--output=summary**, which counts every match. With **--output=repositories** it is the most repositories listed. With **--syntax=sql** it is the maximum number of rows to keep. |
 | `--name` |  The name of the changeset **--save** makes. Defaults to the query. |
-| `--output` |  How to show what the search finds. **rich**, the default, shows highlighted diffs and, for a working set, writes a run directory. **plain** is fast text output. **summary** counts every match over the whole search, with the files and repositories they are in, and lists neither the matches nor the repositories. |
+| `--output` |  How to show what the search finds. **rich**, the default, shows highlighted diffs and, for a working set, writes a run directory. **plain** is fast text output. **summary** counts every match over the whole search, with the files and repositories they are in, and lists neither the matches nor the repositories. **repositories** counts the same, and lists the repositories with a match, the most matches first. |
 | `--save` |  Save the search as a changeset in Moderne. The command waits until the whole organization is searched. For **moderne://** only. |
 | `--syntax` |  The language the query is written in. **sourcegraph**, the default, is Sourcegraph's syntax, and **zoekt** is zoekt's. **sql** is DuckDB SQL, as Moderne's code search runs it, over **search('\<query>')**, **search\_lines('\<query>')**, **search\_matches('\<query>')**, **organizations()** and **recipe('\<recipe>', '\<data table>')**, a recipe's data table as its newest runs in the organization left it, so it is for a moderne:// organization only. |
 | `-y`, `--yes` |  Proceed without confirmation for a search that cannot use the trigram index and must scan every file. Required when there is no console to prompt on. |
