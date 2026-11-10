@@ -113,7 +113,6 @@ Start with the skills. They work on their own and teach agents the recipe develo
 
 ## Next steps
 
-{/* Hidden until ready to share publicly: * [Try the hands-on agent tools workshop](../../../hands-on-learning/agent-tools/workshop-overview.md) to set up the MCP server and exercise its tools on a sample workspace */}
 * [Install the MCP server](./getting-started.md) for your AI coding agent
 * [Set up the tool browser](./tool-browser.md) to monitor builds and test tools
 * [Review the security architecture](./security.md) for compliance and IT review

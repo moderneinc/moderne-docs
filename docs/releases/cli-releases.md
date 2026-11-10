@@ -13,6 +13,43 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## Changelog
 
+## November 2026
+
+### CLI v4.12.7 (2026-11-09) {/* #v4.12.7 */}
+
+_Based on [OpenRewrite 8.101.6](https://github.com/openrewrite/rewrite/releases/tag/v8.101.6)_
+
+#### What's Changed
+* Know JavaScript's runtime globals and Go's standard library by name
+* Navigate past the traps agents fell into
+* Give Node.js the heap a container leaves the CLI's children
+* Read Maven Central through the Code Genome Project's Maven cache instead of Artifactory
+* Collect complete Gradle composite metadata without task cycles
+* Resolve a Ruby project's gems from its gemspecs and Gemfile when it has no lockfile
+* Print a declaration from its doc comment to its end, and what it refers to
+* Rank the artifacts a repository uses for a name it never references
+* Name a primitive or array parameter by its type when the index is assembled
+* Declare the artifact a pom or Gradle build publishes in its build file
+* Find a constructor's end by the name its extent is recorded under, and write a constructor as \<init>
+* Read a package's file through Moderne when --in names one in a working set
+* Say how many of the repositories searched a search matched in, and what matches counts
+* Print a constructor as \<init> in the CLI's own symbol listing too
+* Answer a name written twice on a line with the constructor the line calls
+* Match repo: in a working set by the origin and path the search prints
+* Give a name on a line to a later constructor call only in place of a reference
+* Stop writing the CLI changelog from the docs workflow
+* Skip role and grant statements Liquibase sends the embedded Postgres
+* Say where each name a declaration refers to is declared
+* List the repositories a search matched in with --output=repositories, and say when a count is a lower bound
+* Name the files a count could not finish, label a reference by the package that declares it, and say when Moderne is being replaced
+* Find the declaration that holds a line of a file
+* Say what a type extends and implements, each with where it is declared
+* Look a name written without its package up in every package
+* Find the constructor that holds a line
+* Find the declaration that holds any line of a file, and the handler an annotation belongs to
+* List the organizations flat with organizations show --json --depth 0
+* Resolve the login callback URI before parsing the authorization response
+
 ### CLI / DX v4.12.6 (2026-11-08) {/* #v4.12.6 */}
 
 _Based on OpenRewrite 8.101.3_
