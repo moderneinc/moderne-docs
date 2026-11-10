@@ -8,7 +8,7 @@ description: Learn how to find code by what it calls, uses, and depends on acros
 
 Imagine you want to find every place your company calls `StringUtils.isEmpty`. If you searched for it on GitHub, you'd end up finding results from packages like Apache Commons, Spring, and probably a few others all mixed together.
 
-This is where Moderne Code Search comes into play. Since it's powered by [Trigrep](../../agent-tools/trigrep.md) and the index it searches is built from your LSTs rather than raw text, it lets you perform **type-aware** searches. That means it can tell whether `isEmpty` is coming from Spring or some other library you don't care about.
+This is where Moderne Code Search comes into play. Since it's powered by [Trigrep](../../agent-tools/code-search.md#how-code-search-works) and the index it searches is built from your LSTs rather than raw text, it lets you perform **type-aware** searches. That means it can tell whether `isEmpty` is coming from Spring or some other library you don't care about.
 
 This doc will walk you through everything you need to know to get started with Code Search, whether you search from the Moderne Platform, the CLI, or your agent.
 
@@ -94,7 +94,7 @@ Some tips to keep in mind when writing or modifying search queries:
 * **Add `repo:` to narrow the search to some repositories.** It matches any part of a repository's origin and path. For example, `repo:payments` limits the search to repositories with `payments` in their name.
 * **Add `select:file` when you only care about which files matched.** It leaves the individual lines out of the results, which keeps things manageable when a query matches thousands of them.
 * **Mainframe code has filters of its own.** For example, `ref.copy:CLMREC` finds every `COPY` of a copybook, `ref.pgm:IDCAMS` finds the JCL steps that run a program, and `call:CLMU010` finds the COBOL statements that call one.
-* **The [Trigrep query reference](../../agent-tools/trigrep.md#query-reference) has documentation for additional filters.**
+* **The [Code Search query reference](../../agent-tools/code-search.md#query-reference) has documentation for additional filters.**
 
 :::warning
 You can only use one `call:`, `ref:`, or `sym:` filter per query. If you want to find files that match two of them, search for each with `select:file` and compare the results - or [join the two searches in SQL](../../agent-tools/mcp/remote-server.md#codesearchsql).
@@ -137,4 +137,4 @@ If your agent can't reach the remote MCP server, it can still run the same searc
 
 In some situations, you'll find that search won't be able to answer your questions. For example, a search can't follow a value from one line to another. In situations like those, you'll want to run a recipe instead.
 
-For more details about what search can or can't do, check out our [Trigrep documentation](../../agent-tools/trigrep.md#limitations-and-when-to-use-recipes).
+For more details about what search can or can't do, check out our [Code Search reference](../../agent-tools/code-search.md#limitations-and-when-to-use-recipes).
