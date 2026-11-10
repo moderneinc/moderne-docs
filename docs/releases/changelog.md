@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.53.0 (2026/11/10)
+
+- console layout, connect-agent drawer, expandable history
+- suggest select:file in the empty box and at file
+- revive the commit-job overlay on the campaign timeline
+
 ### UI v14.52.0 (2026/11/10)
 
 - offer to authorize the SCMs a search skips
