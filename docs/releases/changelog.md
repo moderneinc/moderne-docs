@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.54.0 (2026/11/10)
+
+- count browser errors in tenant Atlas
+
 ### UI v14.53.0 (2026/11/10)
 
 - console layout, connect-agent drawer, expandable history
