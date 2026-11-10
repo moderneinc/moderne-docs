@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.52.0 (2026/11/10)
+
+- offer to authorize the SCMs a search skips
+- keep new recipe IDs under the user's io.moderne.user package
+- read the Title cell like Activity's Name cell
+
 ### UI v14.51.0 (2026/11/09)
 
 - read Ruby right a line at a time
