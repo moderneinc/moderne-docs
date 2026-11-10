@@ -105,7 +105,7 @@ Running the recipe never modifies your source repositories directly. Instead, th
 
 Spring Boot 3 brought one of the most significant breaking changes in the framework's history: the move from `javax.*` to `jakarta.*`, alongside renamed configuration properties, a rewritten Spring Security configuration model, and a baseline bump to Java 17. Every Spring Boot 2 codebase is touched by these changes, so complete this upgrade first, then return to [What this recipe does](#what-this-recipe-does) to continue on to Spring Boot 4.
 
-The [`UpgradeSpringBoot_3_5`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5) recipe migrates the Jakarta namespace, updates configuration settings, modernizes deprecated APIs, and chains the supporting framework upgrades (Spring Framework, Spring Data, Spring Security, Spring Cloud) so everything lands on compatible versions.
+The [`UpgradeSpringBoot_3_5`](https://codegenomeproject.org/recipes/io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5) recipe migrates the Jakarta namespace, updates configuration settings, modernizes deprecated APIs, and chains the supporting framework upgrades (Spring Framework, Spring Data, Spring Security, Spring Cloud) so every framework ends up on a compatible version.
 
 ```java title="Before"
 import javax.servlet.http.HttpServletRequest;

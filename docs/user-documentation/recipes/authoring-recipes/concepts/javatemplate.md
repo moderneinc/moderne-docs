@@ -405,7 +405,7 @@ The snippet therefore has to be valid Kotlin in that position. The [substitution
 
 ### Formatting of inserted code
 
-The code a template inserts is auto-formatted relative to where it lands, using the Kotlin formatter and the source file's style. You don't need to indent a snippet to match its destination. Write it with `\n` line breaks and no leading indentation:
+The code a template inserts is auto-formatted relative to where it's inserted, using the Kotlin formatter and the source file's style. You don't need to indent a snippet to match its destination. Write it with `\n` line breaks and no leading indentation:
 
 ```java
 KotlinTemplate.builder("run {\nval x = #{any(kotlin.Int)}\nprintln(x)\n}")

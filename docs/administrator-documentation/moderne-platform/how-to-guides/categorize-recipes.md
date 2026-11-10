@@ -65,7 +65,7 @@ packageName: uk.co
 root: true
 ```
 
-Entries are matched against the whole package prefix rather than against individual segments, so every level of a multi-segment prefix needs its own entry. Without the `uk.co` entry above, skipping `uk` would only promote **Co** to the top level. With both entries, `uk.co.acme.recipes.MyRecipe` lands under **Acme** > **Recipes**.
+Every level of a multi-segment prefix needs its own entry since entries are matched against the whole package prefix rather than against individual segments. Without the `uk.co` entry above, skipping `uk` would only promote **Co** to the top level. With both entries, `uk.co.acme.recipes.MyRecipe` appears under **Acme** > **Recipes**.
 
 :::note
 Root categories are one of the few cases where a `category.yml` entry affects packages you do not own. Descriptors are read from the whole classpath, so a root entry you publish applies to every recipe whose package starts with that prefix.

@@ -379,7 +379,7 @@ Every repository built on Java 25 at least as well as it did before the upgrade.
 
 The agent commits its changes in each repository and pushes them to the changeset as soon as that repository builds.
 
-Each push lands on the changeset as a new revision. The agent also records what it did there, as data tables and as status posts on the changeset's message board. You can read both under the **Agent team** tab on the changeset's page in the Platform:
+Each push is added to the changeset as a new revision. The agent also posts status updates to the changeset's message board and saves data tables of its work. You can see both on the changeset's **Agent team** tab in the Platform:
 
 <figure style={{maxWidth: '800px', margin: '0 auto'}}>
   ![The Agent team tab of the changeset in the Moderne Platform, with the agent's pushes, recipe repositories, and status posts](./assets/changeset-agent-team.png)

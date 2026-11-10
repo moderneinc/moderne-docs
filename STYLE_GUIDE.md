@@ -433,20 +433,20 @@ Name the thing being determined in the lead-in, so the reader knows what the ite
 
 **Correct:**
 
-    Which category a recipe lands in depends on how its package name matches the
+    Which category a recipe appears in depends on how its package name matches the
     entries in your `category.yml` file.
 
-    * A package matching one entry lands in that category.
-    * A package matching several entries lands in the longest match, so
+    * A package matching one entry goes in that category.
+    * A package matching several entries goes in the longest match, so
       `com.myorg.spring.UpgradeBoot` uses `com.myorg.spring`, not `com.myorg`.
-    * A package matching no entry lands in a fallback category named after its
+    * A package matching no entry goes in a fallback category named after its
       capitalized package name.
 
 **Incorrect:**
 
     Each recipe's fully qualified name is compared against the entries in your
     `category.yml` file, and if several entries match the longest prefix wins, so
-    `com.myorg.spring.UpgradeBoot` lands under `com.myorg.spring` rather than
+    `com.myorg.spring.UpgradeBoot` goes under `com.myorg.spring` rather than
     `com.myorg`, while a recipe matching no entry at all falls back to a category
     generated from its capitalized package name.
 

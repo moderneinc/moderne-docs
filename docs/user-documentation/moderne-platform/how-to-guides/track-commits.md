@@ -30,7 +30,7 @@ There are several reasons for this:
 
 2. **A PR might be merged, but developers could modify or undo those changes afterwards.** Someone might merge a PR but then make follow-up commits that partially undo the fix or introduce new issues.
 
-3. **PR workflows could vary significantly across organizations.** Some teams squash commits, others rebase, and some use alternative merging strategies that make it difficult to track what actually landed in the codebase.
+3. **PR workflows could vary significantly across organizations.** Some teams squash commits, others rebase, and some use alternative merging strategies that make it difficult to track what was actually merged into the codebase.
 
 ### The accurate way to track migration progress
 

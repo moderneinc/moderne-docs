@@ -16,7 +16,7 @@ Here's how the setup works end-to-end:
 1. You create a destination bucket in your AWS account.
 2. You send Moderne your tenant name, the destination bucket ARN, and the AWS account ID that owns the bucket.
 3. Moderne sends back a bucket policy scoped to your tenant's replication role, which you apply to the bucket.
-4. Moderne configures a replication rule on your tenant's source bucket and confirms when objects start landing.
+4. Moderne configures a replication rule on your tenant's source bucket and confirms when objects start appearing.
 
 ## Prerequisites
 
@@ -131,7 +131,7 @@ Run the sync on a schedule rather than on demand, since a pull only captures wha
 |                                 | Replication (push)                    | Pull                                     |
 |---------------------------------|---------------------------------------|------------------------------------------|
 | Who moves the data              | Moderne, continuously                 | You, on your schedule                    |
-| Lands in your account           | Automatically, within ~15 minutes     | When your job next runs                  |
+| Arrives in your account         | Automatically, within ~15 minutes     | When your job next runs                  |
 | Your KMS key                    | Moderne's role must be able to use it | Never shared                             |
 | Inbound access to your account  | Required                              | None                                     |
 | Missed data if your side breaks | Replication retries                   | Your job has to catch up on its next run |
@@ -140,4 +140,4 @@ Use replication where your policy allows it, and pull where it doesn't.
 
 ## Next
 
-With data landing in your storage, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there use an AWS-native query path that requires no additional infrastructure beyond what you've just set up.
+Once data is arriving in your storage, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there use an AWS-native query path that requires no additional infrastructure beyond what you've just set up.

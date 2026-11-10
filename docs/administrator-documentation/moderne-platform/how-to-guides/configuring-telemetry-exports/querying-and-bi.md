@@ -5,7 +5,7 @@ description: Query Moderne telemetry from object storage with Athena, Snowflake,
 
 # Querying and BI
 
-Once telemetry is landing in your bucket or container, you can query it directly with any engine that reads CSV from object storage. Because the data is Hive-partitioned, every major engine can prune to just the partitions a query needs.
+Once telemetry begins appearing in your bucket or container, you can query it directly with any engine that reads CSV from object storage. Because the data is Hive-partitioned, every major engine can prune to just the partitions a query needs.
 
 This page applies whether Moderne replicates your telemetry for you or you self-publish it from the CLI wrapper. For replication, set it up first with the [AWS](./aws-replication.md) or [Azure](./azure-replication.md) guides. For self-publishing, follow [Exporting CLI telemetry to Amazon S3](../../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export.md), whose worked example writes the same layout.
 
@@ -19,7 +19,7 @@ Each row records one repository's run of one command, keyed by command `type` (`
 
 Build columns describe the build that produced the LST, which is not always a build that ran on the machine issuing the command. A downloaded LST carries its own build record into the trace, so filter on `syncLstDownloadUri` if you need to separate local builds from prebuilt ones. See [build columns and prebuilt LSTs](../../../../user-documentation/moderne-cli/references/trace-csv.md#build-columns-and-prebuilt-lsts).
 
-Telemetry lands in a Hive-partitioned layout, which every engine below prunes on:
+Telemetry is stored in a Hive-partitioned layout, which every engine below prunes on:
 
 ```
 tenant=<your-tenant>/source={saas|cli}/type=<command>/year=YYYY/month=MM/day=DD/<command-id>.csv
@@ -29,7 +29,7 @@ tenant=<your-tenant>/source={saas|cli}/type=<command>/year=YYYY/month=MM/day=DD/
 
 Any engine that reads CSV from object storage and understands Hive partitions will work.
 
-For ongoing reporting, we recommend materializing the telemetry into a columnar format such as Parquet or Delta rather than querying the CSV in place. Raw CSV is all-string and uncompressed, so queries scan the full files and every value needs casting. The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repo's **data layer** shows one way to do this, with a complete AWS Athena example: per-type ingest tables plus a daily compaction job that lands a single Parquet-backed `traces` table, alongside the report SQL that queries it.
+For ongoing reporting, we recommend materializing the telemetry into a columnar format such as Parquet or Delta rather than querying the CSV in place. Raw CSV is all-string and uncompressed, so queries scan the full files and every value needs casting. The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repo's **data layer** shows one way to do this, with a complete AWS Athena example: per-type ingest tables plus a daily compaction job that builds a single Parquet-backed `traces` table, alongside the report SQL that queries it.
 
 To explore the data first, or to build your own layout, here is the basic setup for reading the raw CSV with each engine.
 
@@ -44,7 +44,7 @@ Note also that a row is one repository's run of a command, not the command itsel
 * **Microsoft Fabric / Synapse**: use a serverless SQL pool with `OPENROWSET(BULK ...)` for ad-hoc queries, or create a Lakehouse shortcut to the bucket and let Fabric infer partitions. Both work against S3 and ADLS Gen2.
 * **DuckDB**: simplest for local exploration. With the `httpfs` extension loaded, `SELECT * FROM read_csv_auto('s3://<your-dest-bucket>/tenant=acme/*/type=run/**/*.csv', hive_partitioning=true)` reads one type with no catalog setup. The `*` matches the `source=` level, which sits between `tenant=` and `type=`.
 
-If your tool isn't listed, the only requirements are to read CSV from object storage and recognize Hive-style partitions for predicate pushdown, which every modern engine meets. Whichever engine you land on, the Athena example's CSV→Parquet compaction is the pattern to copy: materialize into that engine's native columnar format once your volume grows past exploration.
+If your tool isn't listed, the only requirements are to read CSV from object storage and recognize Hive-style partitions for predicate pushdown, which every modern engine meets. Whichever engine you choose, the Athena example's CSV→Parquet compaction is the pattern to copy: materialize into that engine's native columnar format once your volume grows past exploration.
 
 ## Reports and dashboards
 
@@ -52,7 +52,7 @@ Beyond the data layer, [moderne-bi-templates](https://github.com/moderneinc/mode
 
 ## Troubleshooting
 
-### No objects are landing in my bucket or container
+### No objects are appearing in my bucket or container
 
 Please confirm that:
 

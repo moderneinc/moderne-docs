@@ -700,7 +700,7 @@ Major migrations are complex transformations that typically automate 80-90% of t
 
 ### [Migrate to Java 25](https://codegenomeproject.org/recipes/org.openrewrite.java.migrate.UpgradeToJava25)
 
-> Comprehensive migration from Java 8/11 to Java 25. Updates build files for Java 25 target/source, replaces deprecated APIs, adopts new language features, upgrades plugins to Java 25 compatible versions, and updates GitHub Actions configurations. Swap in the recipe for another target version (such as `org.openrewrite.java.migrate.UpgradeToJava17`) when you need to land on an earlier release.
+> Comprehensive migration from Java 8/11 to Java 25. Updates build files for Java 25 target/source, replaces deprecated APIs, adopts new language features, upgrades plugins to Java 25 compatible versions, and updates GitHub Actions configurations. Swap in the recipe for another target version (such as `org.openrewrite.java.migrate.UpgradeToJava17`) when you need to target an earlier release.
 
 #### CLI commands
 

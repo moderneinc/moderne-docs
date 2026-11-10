@@ -120,4 +120,4 @@ Contact your CSM to stop the share. To stop delivery from your side, revoke your
 
 ## Next
 
-With data landing in your container, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there are AWS-specific, but the per-engine notes cover Microsoft Fabric and Synapse (the most natural Azure-side choice) along with other engines.
+Once data begins arriving in your container, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there are AWS-specific, but the per-engine notes cover Microsoft Fabric and Synapse (the most natural Azure-side choice) along with other engines.
