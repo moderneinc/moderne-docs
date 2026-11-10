@@ -119,7 +119,7 @@ export const MyCleanup: CategoryDescriptor[] = [
 
 Levels that don't exist yet are created on install.
 
-A category is keyed by its display name, so you can reuse an existing name to put your recipes next to ones already in the marketplace. If your organization publishes Java recipes named `com.example.recipes.*`, those show up under a top-level **Example** category, and a descriptor with `displayName: "Example"` lands your JavaScript recipes right there. There's no shared registry to import from. Every package declares its own descriptor, and matching ones merge into a single node.
+A category is keyed by its display name, so you can reuse an existing name to put your recipes next to ones already in the marketplace. If your organization publishes Java recipes named `com.example.recipes.*`, those show up under a top-level **Example** category, and a descriptor with `displayName: "Example"` puts your JavaScript recipes right there. There's no shared registry to import from. Every package declares its own descriptor, and matching ones merge into a single node.
 
 Copy the existing category's `description` as well as its `displayName`. Whichever bundle is installed first owns the node, so matching both is what keeps the result the same either way. If several of your own packages share a category, publish the descriptors in a small shared package and depend on it from each one.
 

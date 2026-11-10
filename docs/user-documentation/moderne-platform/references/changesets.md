@@ -44,7 +44,7 @@ You can pull down exactly the repositories a changeset covers:
 mod git sync moderne working-set --changeset <ID>
 ```
 
-That clones each repository at the right commit and downloads its LST alongside it, so a team or an agent can pick up where the changeset left off. Anything they push lands back on the same changeset as a new revision, as described in [how a changeset grows](#how-a-changeset-grows).
+That clones each repository at the right commit and downloads its LST alongside it, so a team or an agent can pick up where the changeset left off. Anything they push is added to the same changeset as a new revision, as described in [how a changeset grows](#how-a-changeset-grows).
 
 You can also read a changeset's data tables without checking anything out. For a saved search, the table is `SearchResults`. For a recipe run, it's whichever table that recipe produces.
 
@@ -58,7 +58,7 @@ Everything the results page does is also available through the API. The [recipe 
 
 ## How a changeset grows
 
-When the CLI syncs a changeset's repositories to your machine, it points each repository's git remote at the changeset in Moderne rather than at your SCM. A push from one of those repositories lands on the changeset as a new **revision** of that repository. Each revision builds on the one before it. This is how an agent chat or team session hands its work back to Moderne - and how several sessions build on each other's changes.
+When the CLI syncs a changeset's repositories to your machine, it points each repository's git remote at the changeset in Moderne rather than at your SCM. A push from one of those repositories is added to the changeset as a new **revision** of that repository. Each revision builds on the one before it. This is how an agent chat or team session hands its work back to Moderne - and how several sessions build on each other's changes.
 
 If a recipe run created the changeset, the repositories you sync already contain the recipe's changes. Your pushes add to them.
 

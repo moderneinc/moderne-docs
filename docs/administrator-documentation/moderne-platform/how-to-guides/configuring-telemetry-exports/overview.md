@@ -1,13 +1,13 @@
 ---
 sidebar_label: Overview
-description: What telemetry Moderne collects, where it lands by default, and how to receive a copy in your own cloud account.
+description: What telemetry Moderne collects, where it is stored by default, and how to receive a copy in your own cloud account.
 ---
 
 # Configuring telemetry exports and reports
 
 Moderne emits structured usage telemetry for every recipe run, build, and commit produced through the platform or the CLI. This set of guides covers:
 
-1. What telemetry Moderne collects and where it lands by default.
+1. What telemetry Moderne collects and where it is stored by default.
 2. How to receive a continuous copy of *your tenant's* telemetry in a bucket or storage account you own, with separate setup paths for [AWS](./aws-replication.md) and [Azure](./azure-replication.md).
 3. How to [query that data and build reports](./querying-and-bi.md).
 
@@ -24,7 +24,7 @@ There are two **sources** that produce this telemetry:
 | `source=saas` | Recipe runs, builds, and commits originated from the Moderne web UI. The recipe worker fleet invokes the same CLI server-side and uploads the resulting `trace.csv`.                                                                                                                           | Any user clicking "Run recipe" or "Commit changes" in the UI.                             |
 | `source=cli`  | Everything run with `mod` outside the web UI, signed into your tenant. That covers developer machines and any automation you run, including [mass ingest](../mass-ingest.md). The CLI queues each trace locally and uploads it to your tenant gateway at the end of each command.              | Anyone running `mod build`, `mod run`, `mod git commit`, etc., and every mass-ingest run. |
 
-Both sources land in the same place, with the same partition layout, so queries can analyze them together or filter to one source as needed.
+Both sources are written to the same place, with the same partition layout, so queries can analyze them together or filter to one source as needed.
 
 ### How and when CLI telemetry is pushed
 
@@ -79,7 +79,7 @@ flowchart LR
 
 ### Object key layout
 
-Every trace lands at:
+Every trace is written to:
 
 ```
 tenant=<your-tenant>/source={saas|cli}/type=<command>/year=YYYY/month=MM/day=DD/<command-id>.csv
@@ -87,7 +87,7 @@ tenant=<your-tenant>/source={saas|cli}/type=<command>/year=YYYY/month=MM/day=DD/
 
 The Hive-style partition keys (`tenant=`, `source=`, `type=`, `year=`, `month=`, `day=`) are recognized by every major query engine for partition pruning. A query that filters on, say, `day = '15' AND month = '03'` will read only those keys, not the full bucket.
 
-The `tenant=` key is part of that layout everywhere the data lands, but it is not what isolates you. Each tenant writes to its own Moderne-managed bucket or container, and the delivery described in the cloud-specific guides reads from that one, so no tenant's data passes through a store another tenant can reach.
+The `tenant=` key is part of that layout everywhere the data is stored, but it is not what isolates you. Each tenant writes to its own Moderne-managed bucket or container, and the delivery described in the cloud-specific guides reads from that one, so no tenant's data passes through a store another tenant can reach.
 
 ## Retention
 

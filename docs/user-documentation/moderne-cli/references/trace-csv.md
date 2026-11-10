@@ -17,8 +17,8 @@ This page is the field reference for those rows.
 * **Every field is written as text.** The **Type** column below is the *logical* type of the value (what it represents), not a storage type. A CSV field is always text until you cast it.
 * **Column headers are mixed-case** in the file (`runStartTime`). Query engines that fold identifiers to lowercase (Athena, Trino) will expose them lowercased (`runstarttime`).
 * **Every `*Outcome` column holds one of `Succeeded`, `Failed`, `Canceled`, or `Skipped`.**
-* **Columns change between CLI versions**, and new fields land mid-stage rather than at the end. Older partitions can be both narrower and differently ordered, which a positional reader will not warn you about. Prefer reading by column name.
-* **`*Log` columns are not exported.** Each stage records a local log path, but those columns are stripped when the trace is queued for upload, so they never appear in the CSV that lands in your bucket.
+* **Columns change between CLI versions**, and new fields are inserted mid-stage rather than added at the end. Older partitions can be both narrower and differently ordered, which a positional reader will not warn you about. Prefer reading by column name.
+* **`*Log` columns are not exported.** Each stage records a local log path, but those columns are stripped when the trace is queued for upload, so they never appear in the CSV delivered to your bucket.
 
 ## Trace hierarchy
 

@@ -39,7 +39,7 @@ If you already have the Moderne or OpenRewrite catalog installed locally, your c
 If you do not have the catalog installed locally, or you want a canonical copy that stays current, download the full published catalog from the [Code Genome Project](../../recipes/accessing-the-code-genome-project.md). It refreshes both variants within minutes of each new release or snapshot, and you do not need credentials to download them:
 
 * [`recipes.csv`](https://artifacts.codegenomeproject.org/recipes.csv) pins each recipe to its newest stable release, best for teams that value reproducibility.
-* [`recipes-snapshots.csv`](https://artifacts.codegenomeproject.org/recipes-snapshots.csv) tracks the newest available build, including snapshots, for teams that want the latest fixes as soon as they land.
+* [`recipes-snapshots.csv`](https://artifacts.codegenomeproject.org/recipes-snapshots.csv) tracks the newest available build, including snapshots, for teams that want the latest fixes as soon as they're published.
 
 ```bash
 curl -fLo recipes-v5.csv https://artifacts.codegenomeproject.org/recipes.csv

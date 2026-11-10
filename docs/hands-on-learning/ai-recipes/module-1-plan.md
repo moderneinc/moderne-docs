@@ -83,7 +83,7 @@ When you've seen enough, stop the agent. You won't be using this output.
 
 ### How this maps to the workshop
 
-Here is where each module lands in the loop from Exercise 1-1:
+Here is where each module fits in the loop from Exercise 1-1:
 
 * **This exercise:** Plan what the recipe should do, scope it down, and confirm recipe type(s)
 * **Module 2:** Build the recipe with AI assistance, writing tests first to validate output

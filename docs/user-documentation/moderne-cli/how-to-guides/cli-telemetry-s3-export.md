@@ -325,7 +325,7 @@ Here’s what each key means:
 | `type`                 | CLI command name              | `build`, `sync`, `publish` | Separates command types for targeted queries.                                                                    |
 | `year`, `month`, `day` | Date at upload time           | `2026`, `02`, `24`         | Date-based filtering.                                                                                            |
 
-For example, a build trace uploaded on February 24, 2026 for the `my-company` organization would land at:
+For example, a build trace uploaded on February 24, 2026 for the `my-company` organization would be written to:
 
 ```
 s3://my-company-cli-telemetry/tenant=my-company/source=cli/type=build/year=2026/month=02/day=24/trace.csv
@@ -374,4 +374,4 @@ This is by design. The customized wrapper treats telemetry publishing as non-blo
 
 **Telemetry stopped publishing after a CLI upgrade:**
 
-An upgrade changed the wrapper scripts and replaced your customized copy. Re-apply your changes, or re-distribute your customized wrapper, and consider [pinning the CLI version](./cli-wrapper.md#controlling-auto-updates) so upgrades land when you choose.
+An upgrade changed the wrapper scripts and replaced your customized copy. Re-apply your changes, or re-distribute your customized wrapper, and consider [pinning the CLI version](./cli-wrapper.md#controlling-auto-updates) so upgrades happen when you choose.
