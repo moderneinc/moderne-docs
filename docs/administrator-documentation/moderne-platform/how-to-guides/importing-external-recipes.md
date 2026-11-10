@@ -76,19 +76,3 @@ Query variables:
   "version": "LATEST"
 }
 ```
-
-## Importing recipes via the CLI
-
-You can also import recipes via CLI calls. 
-
-First, you have to install the recipe artifacts into your local CLI recipe marketplace (below is an example of installing `rewrite-spring` from a pre-configured list of artifact repositories):
-
-```bash
-mod config recipes jar install org.openrewrite.recipe:rewrite-spring:LATEST
-```
-
-Next, you can upload all of these recipe artifacts from your local CLI marketplace to the Moderne Platform by running the following command:
-
-```bash
-mod config recipes moderne push
-```

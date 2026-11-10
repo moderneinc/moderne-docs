@@ -90,6 +90,8 @@ The load balancer must forward all four names to that port, with each request's 
 
 ## Running DX as a service
 
+For your organization, run DX on a Linux server or virtual machine (VM) as a systemd service. It then starts when the machine boots and restarts if it fails.
+
 The `moderne-dx.service` file that `init` wrote runs DX under systemd. It expects the following layout:
 
 * The jar at `/opt/moderne-dx/moderne-dx.jar`.
@@ -123,15 +125,11 @@ Run as the `moderne` user, DX takes each `${moderne-cli:key}` value from that us
 
 ## Connecting your identity provider
 
-DX signs users in through Keycloak, as the Moderne Platform does. Until you connect your identity provider, you sign in as the `moderne` administrator. Keycloak brokers your identity provider over Security Assertion Markup Language (SAML) or OpenID Connect (OIDC). You will configure it in Keycloak's admin console:
+DX signs users in through Keycloak, as the Moderne Platform does. Until you connect your identity provider, you sign in as the `moderne` administrator. Keycloak brokers your identity provider over Security Assertion Markup Language (SAML) or OpenID Connect (OIDC).
 
-1. Open `https://login.moderne.acme.com/auth/admin/`. On a laptop, open `https://login.moderne.localhost:8443/auth/admin/`.
-2. Sign in as `admin`, with the password in `data/permanent/dx/secrets/keycloak-admin-password`.
-3. Switch to the `dx` realm.
-4. Under **Identity providers**, add a **SAML v2.0** or **OpenID Connect v1.0** provider. Give it an alias, such as `corporate-sso`.
-5. Add the mappers in the Platform's [Keycloak IdP mapping table](../../moderne-platform/references/authentication.md#keycloak-idp-mapping). The `admin` mapper gives your administrators DX's `admin` role.
+### Registering DX with your identity provider
 
-Your identity provider will need DX's values for the new application:
+Pick an alias for the provider, such as `corporate-sso`, and add an application for DX in your identity provider:
 
 | Protocol | Field                       | Value                                                                          |
 |----------|-----------------------------|--------------------------------------------------------------------------------|
@@ -139,7 +137,16 @@ Your identity provider will need DX's values for the new application:
 | SAML     | Audience URI (SP Entity ID) | `https://login.moderne.acme.com/auth/realms/dx`                               |
 | OIDC     | Redirect URI                | `https://login.moderne.acme.com/auth/realms/dx/broker/corporate-sso/endpoint` |
 
-Replace `moderne.acme.com` with DX's host and `corporate-sso` with your provider's alias. Once your administrators can sign in through your identity provider, disable the `moderne` user under **Users**.
+Replace `moderne.acme.com` with DX's host and `corporate-sso` with your alias. Send each user's `firstName`, `lastName`, and `email`, and an `admin` claim for your administrators.
+
+### Adding the provider to Keycloak
+
+1. Sign in to `https://login.moderne.acme.com/auth/admin/` as `admin`, with the password in `data/permanent/dx/secrets/keycloak-admin-password`.
+2. Switch to the `dx` realm with **Manage realms** in the left menu.
+3. Under **Identity providers**, add an **OpenID Connect v1.0** provider (with your discovery URL, client ID and client secret) or a **SAML v2.0** provider (with your metadata URL or XML), using the alias you registered.
+4. On the provider's **Mappers** tab, add the mappers in the [Keycloak IdP mapping table](../../moderne-platform/references/authentication.md#keycloak-idp-mapping). For OIDC, use **Claim to Role** in place of **SAML Attribute to Role**.
+
+Once your administrators can sign in through your identity provider, disable the `moderne` user under **Users**.
 
 ### Keeping the realm in PostgreSQL
 
@@ -214,9 +221,16 @@ You can change the public URL at any time, such as when you move DX from a lapto
 
 The first start of a new version unpacks it and removes the previous version's files. A new version may bring a newer Keycloak, which then updates its database.
 
-## Backing up
+## Where DX keeps its files
 
-DX keeps everything it cannot rebuild in its permanent directory. That is `data/permanent` unless `moderne.storage.permanent-dir` names another. Back up that directory with `moderne.yml` and `moderne.env`. Stop DX first, or take a snapshot of the file system.
+DX reads `moderne.yml` and `moderne.env` from the directory `init` wrote them to, or from the file `--config` names. It keeps everything else in two directories beside them, unless `moderne.storage` names others:
+
+| Directory        | What it holds                                                                                                     |
+|------------------|-------------------------------------------------------------------------------------------------------------------|
+| `data/permanent` | Everything DX can't rebuild. [Back it up](#backing-up).                                                           |
+| `data/ephemeral` | What DX rebuilds when it needs to: the unpacked services, code search's index, downloaded LSTs and recipes, heap dumps, and the output of each `mod` command DX runs, under `cli-output`. |
+
+The permanent directory holds:
 
 | Directory       | What it holds                                                                     |
 |-----------------|-----------------------------------------------------------------------------------|
@@ -230,7 +244,22 @@ DX keeps everything it cannot rebuild in its permanent directory. That is `data/
 | `telemetry`     | CLI telemetry, unless you store it in a bucket or container.                      |
 | `dx`            | DX's own settings, its certificate authority, and the secrets it made.            |
 
-Keep the backup of `moderne.env` apart from the data's backup. The SCM token key in it unseals the SCM tokens in `authorization`. The ephemeral directory, `data/ephemeral`, holds only what DX rebuilds, such as code search's index.
+## Reading DX's logs
+
+DX writes no log file of its own. `start` prints every service's output, each line prefixed with the service's name. Where that output ends up depends on how you run DX:
+
+* **As a systemd service**, it goes to the journal. Read it with `journalctl -u moderne-dx`, or follow it with `journalctl -fu moderne-dx`.
+* **From a terminal**, it goes to the terminal. To keep it, send it to a file, such as `java -jar moderne-dx.jar start > dx.log 2>&1`, and rotate that file yourself.
+
+However you run DX, the status page at `https://status.moderne.acme.com` shows every service's logs and metrics from the last two days. Any signed-in user can open it.
+
+When a recipe install or an LST conversion fails, the service's log says which `mod` command failed. That command's full output is under `cli-output` in the ephemeral directory.
+
+## Backing up
+
+Back up the permanent directory, `data/permanent` unless `moderne.storage.permanent-dir` names another, with `moderne.yml` and `moderne.env`. Stop DX first, or take a snapshot of the file system. [Where DX keeps its files](#where-dx-keeps-its-files) lists what the permanent directory holds.
+
+Keep the backup of `moderne.env` apart from the data's backup. The SCM token key in it unseals the SCM tokens in `authorization`.
 
 ## Troubleshooting
 
@@ -246,8 +275,8 @@ Start with `java -jar moderne-dx.jar doctor`. It checks the configuration, and o
 | Sign-in fails with a certificate from your own CA       | Add your CA's PEM file to `moderne.env` as `NODE_EXTRA_CA_CERTS`.                                    |
 | Code search shows a user none of an SCM's repositories  | Have the user connect their SCM account under **Settings** > **SCM connections**.                   |
 | A repository with a V2 LST is missing from code search  | DX's log says why its conversion failed. Python, Go, and .NET LSTs need those tools on the machine. |
-| The marketplace has no recipes                          | Check where recipes come from with `doctor`. Then install them from the marketplace as an administrator. |
+| The marketplace has no recipes                          | Check where recipes come from with `doctor`. Then, as an administrator, click **Load recipes** on the **Deploy** page. |
 
-The status page at `https://status.moderne.acme.com` shows every service's metrics and logs from the last two days. Any signed-in user can open it.
+See [Reading DX's logs](#reading-dxs-logs) for where to find what each service logged.
 
 A service that runs out of memory leaves a heap dump named after it in the ephemeral directory. DX then restarts the service. Give it more memory with `moderne.dx.memory`.

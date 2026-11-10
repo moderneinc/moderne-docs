@@ -42,9 +42,7 @@ curl -fLO -u <cgp-user>:<cgp-token> https://artifacts.codegenomeproject.org/snap
 `init` creates DX's two configuration files, `moderne.yml` and `moderne.env`, in the current directory.
 
 :::tip
-If you've already given the Moderne CLI on this machine your license key and CGP credentials, with `mod config license edit` and `mod config recipes code-genome-project edit`, `init` sets DX up to use them. You can then skip [Configuring Moderne DX](#configuring-moderne-dx). A license the CLI leases from a Moderne tenant doesn't count.
-
-If the CLI also publishes LSTs to a Maven or Artifactory repository, `init` points DX at that repository for the V3 copies it makes of V2 LSTs. That's optional. Without it, DX keeps them on its own disk.
+If the Moderne CLI on this machine already has your license key and CGP credentials, `init` uses them and you can skip [Configuring Moderne DX](#configuring-moderne-dx).
 :::
 
 import Tabs from '@theme/Tabs';
@@ -99,13 +97,51 @@ MODERNE_LICENSE_KEY=…
 CGP_TOKEN=…
 ```
 
+You can set these as environment variables of the process that runs DX instead. An environment variable wins over a `moderne.env` line of the same name.
+
 :::warning
 `doctor` doesn't check the license key. If `MODERNE_LICENSE_KEY` isn't set, `doctor` can pass and `start` will still fail.
 :::
 
 `SCM_TOKEN_KEY` is only used once you turn on [user-level repository access control](../how-to-guides/repository-access-control.md). Until then, every user can read every repository in DX.
 
-DX starts on Netflix's public repositories. To index your own, add the `repos-lock.csv` file your [mass ingest](../how-to-guides/mass-ingest-dx.md) publishes. For everything else, see the [`moderne.yml` reference](../references/moderne-yml-reference.md).
+For everything else, see the [`moderne.yml` reference](../references/moderne-yml-reference.md).
+
+### Adding your repositories
+
+DX shows the repositories in a `repos-lock.csv` file. [Mass ingest](../how-to-guides/mass-ingest-dx.md) writes that file next to your `repos.csv`, in the artifact repository it publishes LSTs to. Until you name your own, DX shows Netflix's public repositories from Moderne's mass ingest.
+
+Name your file under `moderne.organization.sources.http`, with a user that can read it and the LSTs it lists:
+
+```yaml title="moderne.yml"
+moderne:
+  organization:
+    sources:
+      http:
+        - uri: https://artifactory.acme.com/artifactory/moderne-ingest/repos-lock.csv
+          username: moderne
+          password: ${INGEST_PASSWORD}
+```
+
+Then add `INGEST_PASSWORD=…` to `moderne.env`, and remove the Netflix entry that `init` wrote. For local files, filtering organizations, or LSTs on another host, see [organization sources](../references/moderne-yml-reference.md#organization-sources).
+
+### Choosing where DX keeps V3 LSTs
+
+DX makes a V3 copy of each V2 LST that mass ingest publishes, and keeps it under `data/permanent` by default. To keep the copies in a Maven or Artifactory repository instead:
+
+```yaml title="moderne.yml"
+moderne:
+  repository:
+    converter:
+      lsts:
+        artifacts:
+          maven:
+            - url: https://artifactory.acme.com/artifactory/moderne-lsts
+              username: moderne
+              password: ${LST_PUBLISH_PASSWORD}
+```
+
+`doctor` checks that DX can reach the repository. If mass ingest already publishes V3 LSTs, add `lst-version: 3` to its source instead, and DX makes no copies.
 
 ## Starting Moderne DX
 
@@ -114,7 +150,13 @@ java -jar moderne-dx.jar doctor
 java -jar moderne-dx.jar start
 ```
 
-Once DX is up, `start` prints the password of the `moderne` user. Open `https://moderne.localhost:8443`, sign in as `moderne` and choose a new password. Install recipes from the marketplace.
+Once DX is up, `start` prints the password of the `moderne` user. It only prints it the first time, and also keeps it in `data/permanent/dx/secrets/initial-user-password`. Open `https://moderne.localhost:8443`, sign in as `moderne` and choose a new password.
+
+### Loading recipes
+
+DX starts with no recipes. To install a default set of OpenRewrite and Moderne recipe modules from CGP, click **Deploy** in the left menu, then click **Load recipes**. The button only shows while no recipes are installed.
+
+To add other recipes, such as your own module or any [module CGP publishes](https://codegenomeproject.org/recipes?view=modules), click **Add** on the same page. See [Importing external recipes](../../moderne-platform/how-to-guides/importing-external-recipes.md).
 
 ## Connecting the CLI
 
@@ -123,7 +165,9 @@ mod config moderne edit https://moderne.localhost:8443
 mod login
 ```
 
-On macOS, the CLI trusts DX's certificate authority once `init` or `trust` has added it to your keychain. Elsewhere, [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store) gives the CLI DX's certificate authority.
+After you sign in, `mod login` replaces the CLI's recipes with the ones installed in DX. If the CLI already has recipes, it asks before replacing them. Answer no to keep your current recipes; you stay logged in, and you can switch to DX's recipes later with `mod config recipes moderne sync`.
+
+The CLI must trust DX's certificate authority. On macOS, `mod config http trust-store edit system` makes it use the keychain, where `init` or `trust` added it. Elsewhere, see [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store).
 
 ## Next steps
 
@@ -132,4 +176,5 @@ On macOS, the CLI trusts DX's certificate authority once `init` or `trust` has a
 * [Show each user only the repositories they can read](../how-to-guides/repository-access-control.md).
 * [Connect your developers](../how-to-guides/running-moderne-dx.md#connecting-your-developers).
 * [Upgrade](../how-to-guides/running-moderne-dx.md#upgrading) and [back up](../how-to-guides/running-moderne-dx.md#backing-up) DX.
+* [Find DX's files](../how-to-guides/running-moderne-dx.md#where-dx-keeps-its-files) and [read its logs](../how-to-guides/running-moderne-dx.md#reading-dxs-logs).
 * [Troubleshoot DX](../how-to-guides/running-moderne-dx.md#troubleshooting).

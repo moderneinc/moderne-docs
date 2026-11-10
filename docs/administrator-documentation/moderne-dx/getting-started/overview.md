@@ -45,6 +45,7 @@ DX is a configuration of the Moderne Platform, not a separate product. The parts
 | Changesets pushed from the CLI, reviewed in the UI  |                        Yes                         |                  Yes                   |
 | Sign-in through your identity provider              |                        Yes                         |                  Yes                   |
 | A status page with every service's metrics and logs |                        Yes                         |                  Yes                   |
+| CLI telemetry for usage reporting                   | Yes. Stored on DX's disk, or in your S3 bucket or Azure container | Yes |
 | Recipe runs started from the UI                     | No. The marketplace shows the CLI command instead. |                  Yes                   |
 | Commits and pull requests made from the UI          |                         No                         |                  Yes                   |
 | Visualizations, DevCenter, and audit logs in the UI |                         No                         |                  Yes                   |
@@ -52,6 +53,14 @@ DX is a configuration of the Moderne Platform, not a separate product. The parts
 | Where it runs                                       |               A machine you control                | A single-tenant SaaS hosted by Moderne |
 
 The marketplace's **Run with the CLI** button gives developers the commands that sync an organization and run a recipe with the options they picked.
+
+## Where to run DX
+
+DX runs on macOS on Apple silicon or on Linux, with Java 25. How you run it depends on what it's for:
+
+* **Trying DX on your own machine.** Run `java -jar moderne-dx.jar start` from a terminal. See [Installing Moderne DX](./installing-moderne-dx.md).
+* **Serving your organization from a Linux server or VM.** Run DX as a systemd service, so it starts when the machine boots and restarts if it fails. See [Running DX as a service](../how-to-guides/running-moderne-dx.md#running-dx-as-a-service).
+* **Running DX in a container.** Make `java -jar moderne-dx.jar start` the container's command, in place of systemd, and keep [DX's permanent directory](../how-to-guides/running-moderne-dx.md#where-dx-keeps-its-files) on a persistent volume. Moderne doesn't publish a container image for DX yet.
 
 ## Next steps
 

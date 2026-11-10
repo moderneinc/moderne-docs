@@ -97,4 +97,4 @@ mod devcenter dashboard-demo --last-recipe-run
 
 ## Next steps
 
-Once you've arrived at a DevCenter that you like, consider sharing it with your team by publishing the recipe to your Moderne recipe marketplace using the command `mod config recipes moderne push`.
+Once you've arrived at a DevCenter that you like, consider sharing it with your team by publishing the recipe to your Moderne recipe marketplace. See [Importing external recipes](../../../administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes.md).
