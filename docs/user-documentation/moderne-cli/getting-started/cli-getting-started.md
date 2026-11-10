@@ -271,7 +271,7 @@ Below is how that played out with Claude Code 2.1.314 and Moderne CLI 4.12.2 on 
 The exact steps vary from one session to the next, because the agent decides for itself what to do and when. If your agent asks a different question or picks a different recipe, that's expected.
 :::
 
-### Reaching for Moderne, not files
+### Reaching for Moderne instead of files
 
 Rather than starting by opening files or cloning repositories, the agent began by asking Moderne what was already underway in that organization. It then looked at what the Java 25 recipe would change, and checked which build tools the five repositories used:
 
