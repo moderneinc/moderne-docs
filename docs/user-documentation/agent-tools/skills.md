@@ -167,6 +167,5 @@ This ensures the agent tools stay current as CLI capabilities evolve.
 
 ## Next steps
 
-{/* Hidden until ready to share publicly: * [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to install skills and exercise them end-to-end */}
 * [Start an agent on a whole organization](./agent-chat.md) with `mod <agent> chat`
 * [Learn about Moderne Prethink](./prethink.md) for giving agents pre-resolved codebase context

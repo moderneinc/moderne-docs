@@ -596,6 +596,5 @@ Since Trigrep supports both Sourcegraph and Zoekt query syntax as well as Comby-
 
 ## Next steps
 
-{/* Hidden until ready to share publicly: * [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to practice Trigrep queries on a sample workspace. */}
 * [Moderne CLI reference](../moderne-cli/cli-reference.md) for the full `mod search` command documentation.
 * [Getting started with Code Search](../moderne-platform/getting-started/code-search.md) to run the same searches from the Moderne Platform (no local sync required).
