@@ -1,6 +1,6 @@
 ---
 sidebar_label: Combining recipes across ecosystems
-description: Which recipe packaging lets you compose Java, JavaScript, Python, C#, and Go recipes into one recipe, and how to distribute the result.
+description: Learn how to combine Java, JavaScript, Python, C#, and Go recipes into a single recipe.
 ---
 
 # Combining recipes across ecosystems
@@ -15,19 +15,21 @@ Recipes are published through five package ecosystems:
 | NuGet | C# | `mod config recipes nuget install` |
 | Go modules | Go | `mod config recipes go install` |
 
-A single migration often needs recipes from more than one of these, such as Moderne's TypeScript Angular upgrade alongside your own dependency alignment recipes. Whether a composition resolves depends on how the recipe that does the composing is packaged, not on the languages involved.
+A single migration often needs recipes from more than one ecosystem. For example, you may want to run Moderne's Angular upgrade from npm together with your own dependency alignment recipes from a JAR.
 
-## How recipe names are resolved
+You can combine recipes from any ecosystem, as long as the recipe that lists them is packaged the right way. The languages involved don't matter.
 
-Every entry in a `recipeList` is a recipe name that has to be turned into a runnable recipe. There are two ways that can happen:
+## Why packaging matters
 
-* **Through the recipe marketplace.** The marketplace knows every recipe you have installed, in every ecosystem, and hands each name to the ecosystem that contributed it. A name resolved this way can come from anywhere.
-* **Through a recipe JAR's classpath.** A recipe loaded from a JAR looks names up among the classes and `META-INF/rewrite/*.yml` files in that JAR and its Maven dependencies. A recipe contributed by npm, PyPI, NuGet, or Go has no class there, so it cannot be found.
+A recipe that combines other recipes lists them by name in its `recipeList`. Where the Moderne CLI looks for those names depends on how that recipe was installed:
 
-## Supported compositions
+* **A standalone YAML file, or a recipe from the recipe builder**, finds its recipes in the recipe marketplace. The marketplace contains every recipe you have installed, from every ecosystem.
+* **A recipe inside a JAR** only finds recipes in that JAR and its Maven dependencies. Recipes from npm, PyPI, NuGet, or Go are never in there.
 
-| The composing recipe is | It can list recipes from |
-| ----------------------- | ------------------------ |
+## Supported combinations
+
+| Your combining recipe is | It can list recipes from |
+| ------------------------ | ------------------------ |
 | Declarative YAML installed with `mod config recipes yaml install` | Any installed ecosystem |
 | Declarative YAML built in the [Moderne recipe builder](https://app.moderne.io/builder) | Any installed ecosystem |
 | Declarative YAML packaged in a recipe JAR under `META-INF/rewrite/` | Only that JAR and its Maven dependencies |
@@ -37,11 +39,13 @@ Every entry in a `recipeList` is a recipe name that has to be turned into a runn
 | A C# recipe implementing `IDelegatesTo` | Its own package, plus any installed Java or YAML recipe |
 | A Go recipe implementing `recipe.DelegatesTo` | Its own module, plus any installed Java or YAML recipe |
 
-Installing a composing recipe does not install the recipes it lists. You will need to install each ecosystem's recipe package separately, in every environment that runs the composition.
+Installing a combining recipe does not install the recipes it lists. You will need to install each package yourself, on every machine that runs the recipe.
 
-## Composing recipes with declarative YAML
+## Combining recipes with declarative YAML
 
-Declarative YAML is the recommended way to combine recipes from different ecosystems, because it needs no code and no new recipe module in the ecosystem you are reaching into. For example, to run Moderne's Angular 10 upgrade together with your own dependency alignment recipe:
+We recommend declarative YAML for combining recipes across ecosystems. You don't have to write any code or create a new recipe module.
+
+The following recipe runs Moderne's Angular 10 upgrade, then your own recipe that aligns internal libraries:
 
 ```yaml title="angular-upgrade-10.yml"
 type: specs.openrewrite.org/v1beta/recipe
@@ -53,7 +57,7 @@ recipeList:
   - com.example.angular.AlignInternalLibrariesV10
 ```
 
-Install the recipe packages it lists, then install the YAML file itself:
+Install the packages that contain the listed recipes, then install the YAML file itself:
 
 ```bash
 mod config recipes npm install @openrewrite/recipes-angular
@@ -61,21 +65,25 @@ mod config recipes jar install com.example:example-recipes:LATEST
 mod config recipes yaml install angular-upgrade-10.yml
 ```
 
-You can distribute the composition by sharing the YAML file, or by adding it to your organization's marketplace through the recipe builder.
+To share the recipe with others, send them the YAML file or add it to your organization's marketplace with the recipe builder.
 
 :::warning
-Do not package a cross-ecosystem composition in a recipe JAR yet. The JAR installs and the recipe appears in the marketplace, but running it fails validation because every entry is resolved against the JAR's classpath:
+Don't put a recipe that combines ecosystems inside a recipe JAR. This isn't supported yet.
+
+The JAR will install, and the recipe will show up in the marketplace. When you run it, though, the CLI only searches the JAR for the listed recipes. Any recipe from another ecosystem fails with an error like this:
 
 ```
 com.example.angular.AngularUpgrade10.recipeList[0] (in jar:file:///.../example-recipes-1.0.0.jar!/META-INF/rewrite/angular.yml) was 'org.openrewrite.angular.UpgradeToAngular10' but it refers to a recipe that doesn't exist.
 ```
 
-Wrapping the JAR recipe in a loosely installed YAML recipe does not help, since the JAR recipe still resolves its own `recipeList` against its classpath. Keep cross-ecosystem compositions in loosely installed YAML, and package only same-ecosystem recipes in the JAR.
+Wrapping the JAR recipe in a standalone YAML recipe doesn't fix this. The JAR recipe still only searches its own JAR. Keep the recipe that combines ecosystems in a standalone YAML file, and only package recipes from the same ecosystem in the JAR.
 :::
 
 ## Calling Java recipes from other ecosystems
 
-When the composition needs logic of its own, you can write it in JavaScript, Python, C#, or Go and reference Java or YAML recipes by name. The reference carries only the recipe name and its options. When the recipe runs, the Moderne CLI looks the name up in the marketplace and runs the Java recipe natively, including the scanning phase and any non-source files it edits.
+If your combining recipe needs logic of its own, you can write it in JavaScript, Python, C#, or Go instead of YAML. These recipes can still call Java or YAML recipes by name and pass them options.
+
+The Java recipe runs exactly as it would on its own. This includes its scanning phase and any changes it makes to non-source files.
 
 In TypeScript, return `prepareJavaRecipe(...)` from `recipeList()`:
 
@@ -111,14 +119,16 @@ def recipe_list(self):
     ]
 ```
 
-In C#, implement `IDelegatesTo` and return the Java recipe name and options from `JavaRecipeName` and `Options`. In Go, implement `recipe.DelegatesTo` with `JavaRecipeName()` and `JavaOptions()`.
+In C#, implement `IDelegatesTo`. Return the Java recipe's name from `JavaRecipeName` and its options from `Options`.
 
-The Java or YAML recipe you reference must be installed separately with `mod config recipes jar install` or `mod config recipes yaml install`.
+In Go, implement `recipe.DelegatesTo`. Return the Java recipe's name from `JavaRecipeName()` and its options from `JavaOptions()`.
+
+You still need to install the Java or YAML recipe yourself, with `mod config recipes jar install` or `mod config recipes yaml install`.
 
 ## Troubleshooting
 
-If a run reports that a `recipeList` entry `refers to a recipe that doesn't exist`, check the following:
+If a run fails because a `recipeList` entry `refers to a recipe that doesn't exist`, check the following:
 
-* **The recipe's package is installed.** Run `mod config recipes list` and confirm the recipe appears. If it does not, install the package that contributes it.
-* **The composing recipe is not inside a JAR.** The message names the file the entry came from. If that is a `jar:file:` path and the missing recipe comes from npm, PyPI, NuGet, or Go, move the composition to a YAML file installed with `mod config recipes yaml install`.
-* **The name is spelled exactly as listed.** Recipe names are case-sensitive and must be fully qualified.
+* **The recipe is installed.** Run `mod config recipes list` and look for the recipe. If it's missing, install the package that contains it.
+* **The combining recipe is not inside a JAR.** The error message shows which file the recipe was listed in. If that path starts with `jar:file:` and the missing recipe comes from npm, PyPI, NuGet, or Go, move the combining recipe to a standalone YAML file. Then install it with `mod config recipes yaml install`.
+* **The name is spelled correctly.** Recipe names are case-sensitive and must be fully qualified.
