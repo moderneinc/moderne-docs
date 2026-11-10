@@ -391,7 +391,7 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `before:`      | Match lines last changed before a day in UTC or a time ago. See [searching by author and date](#searching-by-author-and-date).                                                                                                                                                                                                                                                                                                                                                      | `before:2025-01-01`           |
 
 :::info[Which filters require symbol data]
-The symbol-aware filters read from LST symbol metadata rather than raw text, which Trigrep extracts from source code. They come in two groups:
+The symbol-aware filters read from LST symbol metadata rather than raw text. They come in two groups:
 
 * **Declaration filters** (`sym:`, `select:`, `type:symbol`) read a symbol's name and kind off the parse tree, so they work across all supported source languages: Java, Kotlin, Groovy, Scala, Python, JavaScript, TypeScript, Go, C#, COBOL, JCL, and BMS. The mainframe languages declare their own symbol kinds (programs, paragraphs, jobs, steps, DD statements, and maps) and reference kinds such as `ref.pgm:`, `ref.perform:`, and `ref.copy:`.
 * **Type-reference filters** (`extends:`, `implements:`, `annotated:`, `returns:`, `throws:`, `ref:`, `call:`, `dependency:`) resolve types through the LST, so how much they find depends on the language's type attribution, which is most complete for Java.
