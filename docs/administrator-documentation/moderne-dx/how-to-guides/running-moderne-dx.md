@@ -38,6 +38,19 @@ moderne:
 
 Each person who opens DX trusts its certificate authority once. The page at DX's http port, `http://moderne.192-168-1-20.nip.io:8080`, says how. The name holds the machine's address, and it changes when the address does.
 
+### How DX's own certificate authority works
+
+When `moderne.yml` names no certificate, DX creates its own certificate authority the first time you run `init`, `start`, `doctor`, or `trust`. It keeps two files in its permanent directory:
+
+| File                              | What it is                                                                                     |
+|-----------------------------------|------------------------------------------------------------------------------------------------|
+| `dx/ca/moderne-dx-ca.crt`         | The authority's root certificate. DX serves it at its http port as `/moderne-dx-ca.crt`.       |
+| `dx/secrets/moderne-dx-ca.key`    | The root's private key. Protect it as you would the other files in `dx/secrets`.               |
+
+The root lasts ten years and only covers names under `localhost`, `nip.io`, and `sslip.io`. DX's proxy uses it to issue a short-lived certificate for each of DX's four names, so you never renew those yourself.
+
+If either file is missing, DX creates a new authority. Everyone who trusted the old one then has to trust the new one, in their browsers and in their CLIs. To avoid that, [back up](#backing-up) the whole `dx` directory and restore both files together.
+
 ## Adding a certificate
 
 A name outside `localhost`, `nip.io`, and `sslip.io` needs a Transport Layer Security (TLS) certificate of your own. It must cover both `moderne.acme.com` and `*.moderne.acme.com`, in PEM files:
