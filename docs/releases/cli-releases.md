@@ -15,6 +15,23 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## November 2026
 
+### CLI v4.12.8 (2026-11-11) {/* #v4.12.8 */}
+
+_Based on [OpenRewrite 8.104.0](https://github.com/openrewrite/rewrite/releases/tag/v8.104.0)_
+
+#### What's Changed
+* Read the declaration that holds a line, follow calls down several levels, and say which package each declaration of a simple name is in
+* Show each declaration of a name with its line, read a type's header whatever --lines prints, and print the code along a chain
+* Read Maven Central and the plugin portal through CGP's caches in build-windows
+* Look a member up by its type's simple name
+* Apply recipe results to files whose names hold a backslash
+* Expand a leading ~ in every path argument, not just the few that handled it
+* Strip database qualifiers and LOCK statements from Flyway DDL for pglite
+* Find a member of a nested type by the names a developer writes
+* Upgrade sqlite-jdbc to 3.54.1.0
+* Name the repositories a search did not go through, keep references with --lines 0, and answer a working set's --in from the dependency it records
+* Resolve exported types in Bazel targets and name real GAVs in their search index
+
 ### CLI v4.12.7 (2026-11-09) {/* #v4.12.7 */}
 
 _Based on [OpenRewrite 8.101.6](https://github.com/openrewrite/rewrite/releases/tag/v8.101.6)_
