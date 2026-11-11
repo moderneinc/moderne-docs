@@ -410,7 +410,7 @@ Moderne supports the following recipe marketplace registry types:
 * **PyPI** indexes
 
 :::info[At least one Maven repository is required]
-Moderne does not fall back to Maven Central or any other public registry. You must explicitly configure at least one Maven recipe marketplace repository that hosts every recipe artifact (and its transitive dependencies) you intend to deploy.
+Unless Moderne [configures the Code Genome Project as a recipe source for your tenant](../code-genome-project-recipe-source.md), Moderne does not fall back to Maven Central or any other public registry. You must explicitly configure at least one Maven recipe marketplace repository that hosts every recipe artifact (and its transitive dependencies) you intend to deploy.
 
 For recipes published by OpenRewrite (for example, `org.openrewrite:rewrite-core`), the simplest options are:
 
