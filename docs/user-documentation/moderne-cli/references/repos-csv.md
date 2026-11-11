@@ -30,6 +30,7 @@ After creating your `repos.csv` file and running initial setup commands, the Mod
 | path              | `true`   | The organization and repository name portion of the clone URL. This is typically the remainder of the cloneUrl after `origin` minus any leading symbols and trailing `.git`. For SCP-style URLs (like `git@github.com:moderneinc/moderne-docs`), the path is typically the portion after the `:`. <br /><br />Example: `moderne-inc/moderne-docs`, `openrewrite/rewrite`, `businessunit/teamA/subteamB/app` |
 | alternateCloneUrl | `false`  | If the `cloneUrl` doesn't work, then we will attempt to clone from this URL. This is commonly filled out if you want to provide both an HTTP link and an SSH link for a repository. Multiple columns with this name are supported for organizations that have additional clone URLs.                                                              |
 | changeset         | `false`  | If provided, this will check out the repository at this specific commit SHA. Requires a `branch` value on the same row. <br /><br />Example: `aa5f25ac0031`                                                                                                                                                                                                                                  |
+| environment       | `false`  | Environment variables applied to build tools when building LSTs. Separate `NAME=VALUE` pairs with spaces. During `mod git sync csv`, this value is saved as repository-local `build.environment` configuration and replaces any existing list. [Configure build environment variables](#configuring-build-environment-variables) with literal values or references to variables on the build machine.<br /><br />Example: `CI=true NPM_TOKEN=${CI_TOKEN}` |
 | gradleArgs        | `false`  | Build arguments that are added to the end of the Gradle command line when building LSTs. During `mod git sync csv`, these values are written to each repository's `.moderne` directory and will overwrite any existing values. See [configuration precedence](../how-to-guides/layer-config-cli.md#configuration-precedence) for details.<br /><br />Example: `-Dmyprop=myvalue`                                                                                                                                                                                                                   |
 | gradleVersion     | `false`  | Selects a specific Gradle version to use when building LSTs. Takes precedence over the repository's Gradle wrapper; leave it empty to use the wrapper. The version must exactly match one of the Gradle installations known to the CLI (detected from `$PATH`, `$GRADLE_HOME`, SDKMAN, Homebrew, or manually configured via `mod config build gradle installation edit`). During `mod git sync csv`, this value is written to each repository's `.moderne` directory. Use `mod config build gradle installation list` to see available versions.<br /><br />Example: `8.1.1` |
 | java              | `false`  | Configures the JDK to use during LST generation.<br /><br />Example: `17` or `17-tem` or `17.0.6-tem`                                                                                                                                                                                                                                             |
@@ -41,6 +42,42 @@ After creating your `repos.csv` file and running initial setup commands, the Mod
 | org*              | `false`  | Defines the [organizational hierarchy](#defining-an-organizational-hierarchy). Each column specifies an organization the repository should be part of. The column name should be `org` plus a number such as: `org1,org2,org3`. There is no limit for how many orgs you can define. These columns are optional for local CLI use, but **at least one org column is required when providing this file to the Moderne Connector**.<br /><br />Example: `openrewrite` |
 | publishUri        | `false`  | A URL pointing to a pre-built LST artifact (typically hosted in Artifactory). When this column is present, `mod git sync csv` will download the LST directly from this URL instead of requiring you to clone sources and run `mod build`. This is useful for sharing pre-built LSTs with team members.<br /><br />Example: `https://artifactory.example.com/artifactory/moderne-lsts/myorg/myrepo/20251120044534864/myrepo-20251120044534864-ast.jar` |
 | alternatePublishUri* | `false`  | Fallback URLs for LST downloads if the primary `publishUri` is unavailable. Multiple columns are supported using incrementing numbers (e.g., `alternatePublishUri1`, `alternatePublishUri2`). These can point to different artifact repositories or use custom URI schemes.<br /><br />Example: `https://backup-artifactory.example.com/moderne-lsts/myorg/myrepo/ast.jar` |
+
+### Configuring build environment variables
+
+You can use the optional `environment` column to set build environment variables for each repository. Write each entry as `NAME=VALUE`, with no spaces around `=`. Separate entries with spaces, and quote an entry when its value contains spaces.
+
+This example enables CI mode, passes a token from the build machine, and sets a value containing spaces:
+
+```csv
+cloneUrl,branch,origin,path,environment
+https://github.com/example/service,main,github.com,example/service,CI=true NPM_TOKEN=${CI_TOKEN} 'BUILD_LABEL=Nightly build'
+```
+
+You can also use double quotes around an entry. Inside a double-quoted CSV field, escape each double quote by doubling it:
+
+```csv
+cloneUrl,branch,origin,path,environment
+https://github.com/example/service,main,github.com,example/service,"CI=true ""BUILD_LABEL=Nightly build"""
+```
+
+During `mod git sync csv`, the CLI saves these entries in the repository's `.moderne` directory as `build.environment` configuration. An explicit value replaces the repository's existing list. An empty cell or an omitted `environment` column leaves the existing repository setting unchanged. Repository-local configuration takes precedence over the [global build configuration](../how-to-guides/layer-config-cli.md#configuration-precedence).
+
+For credentials, reference an environment variable available on the machine running `mod build`. The CLI saves the reference as written and resolves it when building LSTs. You can use any of these reference forms:
+
+* `NPM_TOKEN=$CI_TOKEN`.
+* `NPM_TOKEN=${CI_TOKEN}`.
+* `NPM_TOKEN=%CI_TOKEN%`.
+
+You can reference variables defined earlier in the same cell, such as `BASE=/opt/tools TOOL_HOME=$BASE/bin`.
+
+:::note
+If a value consists entirely of a reference to a missing variable, the CLI warns and leaves the target variable's inherited value unchanged. A missing reference within a longer value, such as `$MISSING/bin`, remains as written.
+:::
+
+:::tip
+Keep secrets in the build machine's environment and store only their references in `repos.csv`. Literal values are saved in repository configuration. The CLI masks configured values when logging the command environment.
+:::
 
 ### Understanding origin and path values
 
