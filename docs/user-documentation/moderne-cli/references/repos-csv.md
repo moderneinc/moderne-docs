@@ -43,42 +43,6 @@ After creating your `repos.csv` file and running initial setup commands, the Mod
 | publishUri        | `false`  | A URL pointing to a pre-built LST artifact (typically hosted in Artifactory). When this column is present, `mod git sync csv` will download the LST directly from this URL instead of requiring you to clone sources and run `mod build`. This is useful for sharing pre-built LSTs with team members.<br /><br />Example: `https://artifactory.example.com/artifactory/moderne-lsts/myorg/myrepo/20251120044534864/myrepo-20251120044534864-ast.jar` |
 | alternatePublishUri* | `false`  | Fallback URLs for LST downloads if the primary `publishUri` is unavailable. Multiple columns are supported using incrementing numbers (e.g., `alternatePublishUri1`, `alternatePublishUri2`). These can point to different artifact repositories or use custom URI schemes.<br /><br />Example: `https://backup-artifactory.example.com/moderne-lsts/myorg/myrepo/ast.jar` |
 
-### Configuring build environment variables
-
-You can use the optional `environment` column to set build environment variables for each repository. Write each entry as `NAME=VALUE`, with no spaces around `=`. Separate entries with spaces, and quote an entry when its value contains spaces.
-
-This example enables CI mode, passes a token from the build machine, and sets a value containing spaces:
-
-```csv
-cloneUrl,branch,origin,path,environment
-https://github.com/example/service,main,github.com,example/service,CI=true NPM_TOKEN=${CI_TOKEN} 'BUILD_LABEL=Nightly build'
-```
-
-You can also use double quotes around an entry. Inside a double-quoted CSV field, escape each double quote by doubling it:
-
-```csv
-cloneUrl,branch,origin,path,environment
-https://github.com/example/service,main,github.com,example/service,"CI=true ""BUILD_LABEL=Nightly build"""
-```
-
-During `mod git sync csv`, the CLI saves these entries in the repository's `.moderne` directory as `build.environment` configuration. An explicit value replaces the repository's existing list. An empty cell or an omitted `environment` column leaves the existing repository setting unchanged. Repository-local configuration takes precedence over the [global build configuration](../how-to-guides/layer-config-cli.md#configuration-precedence).
-
-For credentials, reference an environment variable available on the machine running `mod build`. The CLI saves the reference as written and resolves it when building LSTs. You can use any of these reference forms:
-
-* `NPM_TOKEN=$CI_TOKEN`.
-* `NPM_TOKEN=${CI_TOKEN}`.
-* `NPM_TOKEN=%CI_TOKEN%`.
-
-You can reference variables defined earlier in the same cell, such as `BASE=/opt/tools TOOL_HOME=$BASE/bin`.
-
-:::note
-If a value consists entirely of a reference to a missing variable, the CLI warns and leaves the target variable's inherited value unchanged. A missing reference within a longer value, such as `$MISSING/bin`, remains as written.
-:::
-
-:::tip
-Keep secrets in the build machine's environment and store only their references in `repos.csv`. Literal values are saved in repository configuration. The CLI masks configured values when logging the command environment.
-:::
-
 ### Understanding origin and path values
 
 The Moderne Platform uses a combination of `origin`, `path`, and `branch` to uniquely identify a specific repository. In general, all repositories coming from the same SCM server should have the same `origin` – whereas the `path` and `branch` will differ. The combination of `origin`, `path`, and `branch` must uniquely identify each row in your `repos.csv`. For that reason, we recommend setting `branch` explicitly when you provide this file to the Moderne Connector, even though the CLI can resolve it from the remote.
@@ -164,6 +128,42 @@ If you need both the LST and source code, use:
 ```bash
 mod git sync csv /path/to/repos ./repos.csv --with-sources
 ```
+
+### Configuring build environment variables
+
+You can use the optional `environment` column to set build environment variables for each repository. Write each entry as `NAME=VALUE`, with no spaces around `=`. Separate entries with spaces, and quote an entry when its value contains spaces.
+
+This example enables CI mode, passes a token from the build machine, and sets a value containing spaces:
+
+```csv
+cloneUrl,branch,origin,path,environment
+https://github.com/example/service,main,github.com,example/service,CI=true NPM_TOKEN=${CI_TOKEN} 'BUILD_LABEL=Nightly build'
+```
+
+You can also use double quotes around an entry. Inside a double-quoted CSV field, escape each double quote by doubling it:
+
+```csv
+cloneUrl,branch,origin,path,environment
+https://github.com/example/service,main,github.com,example/service,"CI=true ""BUILD_LABEL=Nightly build"""
+```
+
+During `mod git sync csv`, the CLI saves these entries in the repository's `.moderne` directory as `build.environment` configuration. An explicit value replaces the repository's existing list. An empty cell or an omitted `environment` column leaves the existing repository setting unchanged. Repository-local configuration takes precedence over the [global build configuration](../how-to-guides/layer-config-cli.md#configuration-precedence).
+
+For credentials, reference an environment variable available on the machine running `mod build`. The CLI saves the reference as written and resolves it when building LSTs. You can use any of these reference forms:
+
+* `NPM_TOKEN=$CI_TOKEN`.
+* `NPM_TOKEN=${CI_TOKEN}`.
+* `NPM_TOKEN=%CI_TOKEN%`.
+
+You can reference variables defined earlier in the same cell, such as `BASE=/opt/tools TOOL_HOME=$BASE/bin`.
+
+:::note
+If a value consists entirely of a reference to a missing variable, the CLI warns and leaves the target variable's inherited value unchanged. A missing reference within a longer value, such as `$MISSING/bin`, remains as written.
+:::
+
+:::tip
+Keep secrets in the build machine's environment and store only their references in `repos.csv`. Literal values are saved in repository configuration. The CLI masks configured values when logging the command environment.
+:::
 
 ## Generating this file
 
