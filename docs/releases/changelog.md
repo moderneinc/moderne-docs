@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.54.1 (2026/11/11)
+
+- Bug fixes and other improvements.
+
 ### UI v14.54.0 (2026/11/10)
 
 - count browser errors in tenant Atlas
