@@ -198,6 +198,7 @@ const platform = {
           'administrator-documentation/moderne-platform/how-to-guides/org-service',
           'administrator-documentation/moderne-platform/how-to-guides/create-visualization',
           'administrator-documentation/moderne-platform/how-to-guides/importing-external-recipes',
+          'administrator-documentation/moderne-platform/how-to-guides/code-genome-project-recipe-source',
           'administrator-documentation/moderne-platform/how-to-guides/categorize-recipes',
           'administrator-documentation/moderne-platform/how-to-guides/lst-cleanup',
           'administrator-documentation/moderne-platform/how-to-guides/troubleshooting-lst-issues',
