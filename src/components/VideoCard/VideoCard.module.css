@@ -1,0 +1,163 @@
+/**
+ * VideoCard — gradient poster tile that becomes an inline player on click.
+ * Hover nudges the poster up 3px, matching the video cards in moderne.io's
+ * content library (.lh-card). The play button stays as it is. Keyboard focus
+ * adds a green ring around the tile.
+ */
+
+/* Persistent 16:9 box. It stays mounted across the poster-to-player swap and
+   takes focus once the player is up. */
+.frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--mod-border-radius-card);
+}
+
+.frame:focus-visible {
+  outline: var(--mod-stroke-width-2) solid var(--mod-color-text-success);
+  outline-offset: var(--mod-spacing_1_2);
+}
+
+/* Embedded player once the poster has been clicked. react-player sizes the
+   iframe to 100% of this box itself. */
+.player {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--mod-border-radius-card);
+  overflow: hidden;
+  background: var(--mod-color-surface-black);
+}
+
+/* The poster is a <button>, so reset the UA chrome and make it behave like a tile. */
+.poster {
+  position: absolute;
+  inset: 0;
+  container-type: inline-size;
+  isolation: isolate;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--mod-border-radius-card);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: var(--mod-white);
+  transition: transform 0.16s ease;
+}
+
+.poster:hover,
+.poster:focus-visible {
+  transform: translateY(-3px);
+}
+
+.poster:focus-visible {
+  outline: var(--mod-stroke-width-2) solid var(--mod-color-text-success);
+  outline-offset: var(--mod-spacing_1_2);
+}
+
+/* Brand gradients, composed from the categorical scale so each poster stays on palette. */
+.poster--coral {
+  background: linear-gradient(
+    135deg,
+    var(--mod-chart-categorical-coral) 0%,
+    var(--mod-chart-categorical-magenta) 50%,
+    var(--mod-violet-500) 100%
+  );
+}
+
+.poster--violet {
+  background: linear-gradient(
+    135deg,
+    var(--mod-periwinkle-500) 0%,
+    var(--mod-chart-categorical-magenta) 55%,
+    var(--mod-chart-categorical-orange) 100%
+  );
+}
+
+.poster--sky {
+  background: linear-gradient(
+    135deg,
+    var(--mod-periwinkle-300) 0%,
+    var(--mod-chart-categorical-lilac) 58%,
+    var(--mod-violet-500) 100%
+  );
+}
+
+/* Scrim behind the title region. The lightest gradient stops sit under the
+   title and would leave white text below 3:1, so darken the top half enough
+   to clear 4.5:1 at the palest stop (periwinkle-300 needs about 30% black).
+   A translucent black wash has no token equivalent; it is a tint, not a color. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.42) 0%,
+    rgba(0, 0, 0, 0.42) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Title scales with the tile width (container query units) between 15px and 42px. */
+.title {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: clamp(18px, 7cqi, 56px);
+  padding-right: calc(clamp(20px, 7.7cqi, 48px) + 11cqi);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-weight: var(--mod-font-weight-bold);
+  font-size: clamp(15px, calc(9cqi - 6.5px), 42px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.16);
+}
+
+.mark {
+  position: absolute;
+  z-index: 2;
+  top: clamp(16px, 5.5cqi, 44px);
+  right: clamp(16px, 5.5cqi, 44px);
+  width: clamp(20px, 7.7cqi, 48px);
+  height: clamp(20px, 7.7cqi, 48px);
+  opacity: 0.95;
+}
+
+/* Play button: static ink disc, as on the marketing site. */
+.play {
+  position: absolute;
+  z-index: 2;
+  right: clamp(10px, 4%, 16px);
+  bottom: clamp(10px, 4%, 16px);
+  width: clamp(38px, 15%, 60px);
+  aspect-ratio: 1;
+  border-radius: var(--mod-border-radius-full);
+  background: var(--mod-color-surface-black);
+  color: var(--mod-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--mod-docs-shadow-dropdown);
+}
+
+.playIcon {
+  width: 42%;
+  height: 42%;
+  margin-left: 6%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster {
+    transition: none;
+  }
+
+  .poster:hover,
+  .poster:focus-visible {
+    transform: none;
+  }
+}

@@ -16,6 +16,7 @@ const platform = {
       gemIcon: 'clear-block',
       megaMenu: true,
       homepageHref: '/user-documentation/moderne-platform/getting-started/running-your-first-recipe',
+      homepageIcon: 'monitor',
     },
     link: {
       type: 'generated-index' as const,
@@ -248,6 +249,7 @@ const dx = {
     gemIcon: 'red-triangle',
     megaMenu: true,
     homepageHref: '/administrator-documentation/moderne-dx/getting-started/overview',
+    homepageIcon: 'server',
   },
   link: {
     type: 'generated-index' as const,
@@ -315,6 +317,7 @@ const cli = {
     gemIcon: 'blue-block',
     megaMenu: true,
     homepageHref: '/user-documentation/moderne-cli/getting-started/cli-getting-started',
+    homepageIcon: 'square-terminal',
   },
   link: {
     type: 'generated-index' as const,
@@ -427,6 +430,7 @@ const agentTools = {
     gemIcon: 'purple',
     megaMenu: true,
     homepageHref: '/user-documentation/agent-tools/prethink',
+    homepageIcon: 'crosshair',
   },
   link: {
     type: 'generated-index' as const,
@@ -478,6 +482,7 @@ const moddy = {
     gemIcon: 'green-triangle',
     megaMenu: true,
     homepageHref: '/user-documentation/moddy/moddy-platform',
+    homepageIcon: 'message-square',
   },
   link: {
     type: 'generated-index' as const,
@@ -500,6 +505,7 @@ const recipes = {
     megaMenu: true,
     featured: true,
     homepageHref: '/user-documentation/recipes',
+    homepageIcon: 'book-open',
   },
   link: {
     type: 'generated-index' as const,
@@ -688,6 +694,7 @@ const jetbrainsPlugin = {
     gemIcon: 'pink-large',
     megaMenu: true,
     homepageHref: '/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install',
+    homepageIcon: 'code',
   },
   link: {
     type: 'generated-index' as const,

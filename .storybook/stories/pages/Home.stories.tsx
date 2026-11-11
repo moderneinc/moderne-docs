@@ -6,10 +6,10 @@ import Home from '@site/src/pages/index';
  * Homepage - Custom Docusaurus homepage
  *
  * The homepage features:
- * - Hero section with headline and CTA
- * - Product navigation pills (Platform, DX, CLI, Moddy, Recipes)
- * - Resource cards (Code Remix, Learning Resources)
- * - Decorative gem elements
+ * - Hero section with headline and CTAs
+ * - "Browse by area" tiles derived from the sidebar config
+ * - "What is Moderne?" band with inline video cards
+ * - "More about Moderne" product grid
  * - Responsive layout with dark mode support
  */
 const meta: Meta<typeof Home> = {
