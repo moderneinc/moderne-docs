@@ -110,25 +110,6 @@ You can provide both `cloneUrl` and `alternateCloneUrl` to support both your pri
 
 If the `cloneUrl` and `alternateCloneUrl` differ in their domain (as is the case with Azure DevOps above), you should set `origin` based on the HTTPS URL (since origins are used to build URLs for SCM API calls such as creating PRs) in a consistent way across HTTPS and SSH repositories for that SCM provider so that Moderne can successfully identify the repository in both cases. The origin should always be the root of the service on HTTP(S) but without the protocol and can most easily be inferred from the HTTP(S) clone URL.
 
-### Using `publishUri` to share pre-built LSTs
-
-When you have pre-built LST artifacts stored in an artifact repository (such as Artifactory), you can include the `publishUri` column in your `repos.csv` to enable direct LST downloads. This is particularly useful for:
-
-1. **Sharing LSTs with team members** - Instead of everyone building LSTs locally, one person (or mass-ingest) can build and publish them, then share a `repos.csv` with `publishUri` values
-2. **Faster onboarding** - New team members can download pre-built LSTs immediately without cloning sources or running builds
-3. **Offline/air-gapped environments** - Pre-built LSTs can be distributed via artifact repositories
-
-When `mod git sync csv` encounters a row with a `publishUri`:
-
-* It downloads the LST artifact from that URL
-* Source code is **not** cloned unless you also specify `--with-sources`
-
-If you need both the LST and source code, use:
-
-```bash
-mod git sync csv /path/to/repos ./repos.csv --with-sources
-```
-
 ### Configuring build environment variables
 
 You can use the optional `environment` column to set build environment variables for each repository. Write each entry as `NAME=VALUE`, with no spaces around `=`. Separate entries with spaces, and quote an entry when its value contains spaces.
@@ -164,6 +145,25 @@ If a value consists entirely of a reference to a missing variable, the CLI warns
 :::tip
 Keep secrets in the build machine's environment and store only their references in `repos.csv`. Literal values are saved in repository configuration. The CLI masks configured values when logging the command environment.
 :::
+
+### Using `publishUri` to share pre-built LSTs
+
+When you have pre-built LST artifacts stored in an artifact repository (such as Artifactory), you can include the `publishUri` column in your `repos.csv` to enable direct LST downloads. This is particularly useful for:
+
+1. **Sharing LSTs with team members** - Instead of everyone building LSTs locally, one person (or mass-ingest) can build and publish them, then share a `repos.csv` with `publishUri` values
+2. **Faster onboarding** - New team members can download pre-built LSTs immediately without cloning sources or running builds
+3. **Offline/air-gapped environments** - Pre-built LSTs can be distributed via artifact repositories
+
+When `mod git sync csv` encounters a row with a `publishUri`:
+
+* It downloads the LST artifact from that URL
+* Source code is **not** cloned unless you also specify `--with-sources`
+
+If you need both the LST and source code, use:
+
+```bash
+mod git sync csv /path/to/repos ./repos.csv --with-sources
+```
 
 ## Generating this file
 
