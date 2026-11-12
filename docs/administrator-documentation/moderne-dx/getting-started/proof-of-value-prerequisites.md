@@ -32,7 +32,7 @@ The easiest way to generate this file is with our [repository fetcher scripts](h
 
 ## Mass ingest
 
-While mass ingest is typically set up after the initial POV rather than during it, you may want to plan for it early. Mass ingest builds all of your repositories and creates the [LST artifacts](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster.
+Plan for mass ingest early, even though you will usually set it up after the POV rather than during it. Mass ingest builds all of your repositories and creates the [LST artifacts](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster.
 
 | Resource | Minimum    | Recommended                                                                   |
 |----------|------------|-------------------------------------------------------------------------------|
@@ -40,7 +40,7 @@ While mass ingest is typically set up after the initial POV rather than during i
 | Memory   | 16 GB      | 16 GB                                                                         |
 | Disk     | 10 GB free | Sized to your largest repository (the example Kubernetes Job requests 150 GB) |
 
-The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns when memory or free disk is below the other two. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
+The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns below 16 GB of memory or 10 GB of free disk. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
 
 Only one repository is stored on disk at a time. This is because each container builds one repository at a time and then deletes it once its LST is published.
 
@@ -56,8 +56,8 @@ If you have a standard base image that includes your existing certificates or ot
 
 During the POV process, Moderne will provide:
 
-* A **Moderne DX license key**, from which your developers' CLIs take their license
-* A **Code Genome Project token**, which Moderne DX resolves recipes with
+* A **Moderne DX license key**, which your developers' CLIs get their license from
+* A **Code Genome Project token**, which Moderne DX uses to download recipes
 * **Technical support** throughout the setup and evaluation process
 
 ## Next steps

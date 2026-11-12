@@ -23,10 +23,10 @@ For detailed instructions on how to set up mass run, please follow the direction
 
 ## Including source code with `--with-sources`
 
-By default, `mod git sync` only creates the directory structure and downloads LSTs. This is typically sufficient for most analysis and recipe operations. However, if you also need the source code (for example, to commit changes or create pull requests), you can do so by adding the `--with-sources` flag:
+By default, `mod git sync` only creates the directory structure and downloads LSTs. That is enough to run recipes and analyze the results. If you also need the source code, for example to commit changes or open pull requests, add the `--with-sources` flag:
 
 ```bash
 mod git sync csv /path/to/repos ./repos-lock.csv --with-sources
 ```
 
-Keep in mind that you don't need to decide this up front. You can always start without sources, run recipes, and review patch files. If you later decide to act on the change, you can run `mod git sync` again with the `--with-sources` flag to overlay the source code onto your existing directory structure without disturbing the LSTs.
+You don't need to decide this up front. You can start without sources, run recipes, and review patch files. If you later decide to act on the change, run `mod git sync` again with the `--with-sources` flag. It overlays the source code onto your existing directory structure without disturbing the LSTs.

@@ -23,13 +23,11 @@ For each repository in that list, the CLI will:
 4. Record the result in a `repos-lock.csv` file stored next to the `repos.csv` file.
 5. Delete the checkout and move on to the next repository.
 
-As a result, the workspace never holds more than one repository at a time.
-
 On later runs, the CLI skips any repository whose `repos-lock.csv` row shows that a rebuild would produce the same LST. For a repository to be skipped, all of the following must be true:
 
 * The row records the commit at the repository's current remote HEAD.
 * The row was written by the same CLI version that is running now.
-* The last build was reproducible. This means it resolved no dynamic dependency versions and, if the ecosystem has lock files, it used one.
+* The last build was reproducible. It resolved no dynamic dependency versions. If the build tool supports lock files, it used one.
 
 If any of these are false, the CLI rebuilds the repository. Additionally, there are two kinds of repositories that are rebuilt on every run:
 
@@ -42,7 +40,7 @@ Both `--sync-csv` and the `--shard` option described below are incubating. Their
 
 ## Prerequisites
 
-There are some prerequisites that you'll need to address before you can set up mass ingest. They are listed in the [mass ingest example repository's README](https://github.com/moderneinc/mass-ingest-example#what-youll-need).
+The [mass ingest example repository's README](https://github.com/moderneinc/mass-ingest-example#what-youll-need) lists what you will need before you can set up mass ingest.
 
 ## Setting up mass ingest
 
@@ -66,10 +64,13 @@ The example's Dockerfile contains the build tools for JVM, JavaScript, Python, .
 
 You will need to do three things to configure the container (via environment variables and one mounted file):
 
-* **Tell the container where to publish the LSTs.** Set the environment variables for your artifact store, which the example's [Artifact stores](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/stores.md) page lists for S3, Google Cloud Storage, Azure Blob Storage, Artifactory, and Nexus or other Maven repositories.
-  * **Note**: An LST contains the full source code of its repository. Anyone who can read the artifact repository can download it.
-* **Give it your license key.** Set `MOD_LICENSE_KEY` to your Moderne DX license key. The CLI never contacts Moderne. The image does download the CLI from Moderne's artifact host when a container starts. If your network blocks that, see [air-gapped installations](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#air-gapped-installations).
+* **Tell the container where to publish the LSTs.** Set the environment variables for your artifact repository. The example's [Artifact stores](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/stores.md) page lists them for S3, Google Cloud Storage, Azure Blob Storage, Artifactory, and Nexus or other Maven repositories.
+* **Give it your license key.** Set `MOD_LICENSE_KEY` to your Moderne DX license key. The CLI doesn't send anything to Moderne. Each container does download the CLI from Moderne when it starts. If your network blocks that, see [air-gapped installations](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#air-gapped-installations).
 * **Give it credentials for private repositories.** The CLI clones with Git, which reads credentials from a `.git-credentials` file in the home directory of the container's user. You will need to mount yours at `/home/moderne/.git-credentials`. The example's Kubernetes Job mounts it from a secret, and its single-machine script mounts it from your home directory. If every repository is public, an empty file is enough.
+
+:::warning
+An LST contains the full source code of its repository. Anyone who can read the artifact repository can download it.
+:::
 
 You should start with `mod doctor`, which checks that everything is in place without changing anything and suggests a fix for anything that is not. Once it passes, run the image itself. The README shows both commands.
 
@@ -77,7 +78,7 @@ You should start with `mod doctor`, which checks that everything is in place wit
 
 A large repository list finishes sooner when it is split into shards. You choose how many shards there are and how many run at once. You never assign repositories to shards yourself. Each container works out its own share of the list, and every repository goes in exactly one shard. A container runs one shard when its publish command includes `--shard i/M`, where `M` is the number of shards and `i` is its own index. Any scheduler that runs containers can do this.
 
-The example repository shows two ways to do this. [Running on one machine](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/docker.md) uses a short shell script that starts one container per shard on a single large VM. [Running on Kubernetes](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/kubernetes.md) uses an indexed Job, where Kubernetes creates one pod per shard and fills in each pod's index. On Amazon EKS, the example also includes a node pool that adds a spot instance for each pod and scales to zero between runs. Both pages explain what happens when a build fails. Keeping LSTs current is then a matter of starting a run every night, from cron, CI, or a CronJob.
+The example repository shows two ways to do this. [Running on one machine](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/docker.md) uses a short shell script that starts one container per shard on a single large VM. [Running on Kubernetes](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/kubernetes.md) uses an indexed Job, where Kubernetes creates one pod per shard and fills in each pod's index. On Amazon EKS, the example also includes a node pool that adds a spot instance for each pod and scales to zero between runs. Both pages explain what happens when a build fails. To keep LSTs current, start a run every night from cron, CI, or a Kubernetes CronJob.
 
 ## Sizing
 
@@ -101,7 +102,7 @@ The number of shards sets how long each container runs. Shorter runs mean a lost
 
 ### Pinning the CLI version
 
-By default, the image installs the newest CLI release each time a container starts. Each new CLI release rebuilds every repository once, because the CLI only skips repositories that the same version built. CLI releases are frequent, and an unpinned image will rebuild everything on many nights. To choose when that happens, pin the version with the `MODERNE_WRAPPER_VERSION` environment variable, as [customizing the image](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#the-cli-version) describes.
+By default, the image installs the newest CLI release each time a container starts. After each new CLI release, the next run rebuilds every repository, because the CLI only skips repositories that the same version built. CLI releases are frequent. To choose when that happens, pin the version with the `MODERNE_WRAPPER_VERSION` environment variable, as [customizing the image](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#the-cli-version) describes.
 
 :::warning
 Do not pin to a version prior to 4.9.0.

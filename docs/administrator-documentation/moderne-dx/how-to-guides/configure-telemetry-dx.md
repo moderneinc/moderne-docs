@@ -9,7 +9,7 @@ The Moderne CLI records telemetry on every LST build, recipe run, and git operat
 
 DX can collect this telemetry for you. A CLI signed in to DX uploads it automatically. Moderne does not receive any of this telemetry data.
 
-By default, the data is written to the file system, but we recommend storing it in an Amazon S3 bucket or an Azure Blob Storage container. 
+By default, the data is written to the file system. We recommend storing it in an Amazon S3 bucket or an Azure Blob Storage container instead. Your BI tools can query it there, and it won't fill DX's disk.
 
 In this guide, we will walk you through how uploads work, how to choose where DX stores telemetry, how to include mass ingest, and how to query the data.
 
@@ -23,13 +23,13 @@ This guide assumes you have:
 
 ## How CLIs upload telemetry
 
-A CLI signed in to DX uploads its telemetry at the end of every command. Before a developer signs in with `mod login`, the CLI keeps its telemetry in a queue on their machine. After that, it uploads the queue at the end of each command.
+Before a developer signs in with `mod login`, the CLI keeps its telemetry in a queue on their machine. Once they sign in, the CLI uploads the queue at the end of each command.
 
 To upload a long queue all at once, run `mod telemetry publish`.
 
 ## Choosing where DX stores telemetry
 
-To set up an Amazon S3 bucket or Azure Blob Storage container, follow the steps below and restart DX.
+To store telemetry in an Amazon S3 bucket or Azure Blob Storage container, follow the steps below and restart DX.
 
 ### Using an Amazon S3 bucket
 
@@ -82,7 +82,7 @@ If you don't set a bucket or container, DX writes telemetry to the `telemetry` d
 
 DX never deletes these files, so plan disk space for them.
 
-To use other storage, such as Google Cloud Storage, you may copy these files there using your own automation or process.
+To use other storage, such as Google Cloud Storage, you will need to copy these files there yourself.
 
 If you set a bucket or container later, new telemetry goes there and anything DX already wrote stays on disk.
 

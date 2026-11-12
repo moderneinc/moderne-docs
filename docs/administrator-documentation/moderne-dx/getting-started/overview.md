@@ -16,7 +16,7 @@ DX does not build LSTs and does not run recipes. Instead, it works alongside two
 * **[Mass ingest](../how-to-guides/mass-ingest-dx.md)** builds an [LST](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) and code search index for every repository listed in your [`repos.csv` file](../how-to-guides/mass-ingest-dx.md#creating-the-reposcsv-file) and publishes it to your artifact repository. It also publishes a `repos-lock.csv` file that lists where each LST is.
 * **The [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md)** runs recipes on developers' machines, against LSTs it downloads from your artifact repository.
 
-DX reads the `repos-lock.csv` file to build your organizations, and combines individual LSTs into a shared index for code search. In the DX UI, developers can pick an organization to see its repositories and their LST build status. They can also search code in every repository across any organization.
+DX reads the `repos-lock.csv` file to build your organizations. It combines the individual LSTs into a shared index for code search. In the DX UI, developers can pick an organization to see its repositories and their LST build status. They can also search code across all of their organizations' repositories.
 
 Developers [connect their CLI to DX](../how-to-guides/running-moderne-dx.md#pointing-the-cli-at-dx) to sync an organization's repositories, and the marketplace's recipes, to their machines. From there, they or their agents can run recipes and push any changes they make back to DX as changesets.
 
@@ -54,11 +54,11 @@ The **Run with the CLI** button in the recipe marketplace gives developers the c
 
 ## Where to run DX
 
-DX runs on macOS on Apple silicon or on Linux and requires Java 25.
+DX runs on Linux, or on macOS with Apple silicon. It requires Java 25.
 
 * **Trying DX on your own machine.** Run `java -jar moderne-dx.jar start` from a terminal. See [Installing Moderne DX](./installing-moderne-dx.md).
 * **Serving your organization from a Linux server or VM.** Run DX as a `systemd` service, so it starts when the machine boots and restarts if it fails. See [Running DX as a service](../how-to-guides/running-moderne-dx.md#running-dx-as-a-service).
-* **Running DX in a container.** Moderne doesn't currently publish a container image for DX, but you can run it in a container by setting `java -jar moderne-dx.jar start` as the container's command, and connecting it to [DX's permanent directory](../how-to-guides/running-moderne-dx.md#where-dx-keeps-its-files) on a persistent volume.
+* **Running DX in a container.** Moderne doesn't publish a DX container image. To run DX in a container, use `java -jar moderne-dx.jar start` as its command and mount [DX's permanent directory](../how-to-guides/running-moderne-dx.md#where-dx-keeps-its-files) on a persistent volume.
 
 ## Next steps
 

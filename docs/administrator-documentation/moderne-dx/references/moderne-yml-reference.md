@@ -1,13 +1,13 @@
 ---
 sidebar_label: moderne.yml reference
-description: Every setting of Moderne DX's moderne.yml file, with its default, and the commands of the moderne-dx jar.
+description: Every setting of Moderne DX's moderne.yml file, with its default, and the commands of the moderne-dx JAR.
 ---
 
 # `moderne.yml` reference
 
 Moderne DX reads its configuration from a `moderne.yml` file, which `java -jar moderne-dx.jar init` writes with comments to fill in.
 
-A value of the form `${NAME}` is an environment variable, or a `NAME=value` line of the `moderne.env` file beside `moderne.yml`. Only the user DX runs as may read `moderne.env`. A path that is not absolute resolves against the directory that holds `moderne.yml`, unless a setting below says otherwise.
+A value of the form `${NAME}` is an environment variable, or a `NAME=value` line of the `moderne.env` file beside `moderne.yml`. Make `moderne.env` readable only by the OS account DX runs as. A path that is not absolute resolves against the directory that holds `moderne.yml`, unless a setting below says otherwise.
 
 A value of the form `${moderne-cli:key}` reads the key from the Moderne CLI's configuration, the same value `mod config get <key>` prints. A secret prints only when the `--reveal` flag is added. DX reads these values from the Moderne CLI of the OS account it runs as, each time it starts.
 
@@ -18,11 +18,11 @@ Every command except `init` reads `moderne.yml` from the working directory. To u
 | Command                                  | What it does                                                                                     |
 |------------------------------------------|--------------------------------------------------------------------------------------------------|
 | `java -jar moderne-dx.jar init [<dir>]`  | Writes `moderne.yml`, `moderne.env` with a new SCM token key, and a systemd unit. It doesn't overwrite files that already exist. A new `moderne.yml` reads the license key and the CGP username and token from the Moderne CLI on this machine, if the CLI has them. |
-| `java -jar moderne-dx.jar doctor`        | Checks the configuration and the machine. Once DX runs, it also checks each name through DX's proxy. |
-| `java -jar moderne-dx.jar start`         | Starts DX in the foreground, and restarts any service that stops until you stop DX.                     |
+| `java -jar moderne-dx.jar doctor`        | Checks the configuration and the machine. Once DX is running, it also checks each host name through DX's proxy. |
+| `java -jar moderne-dx.jar start`         | Starts DX in the foreground. Until you stop DX, it restarts any service that stops.                     |
 | `java -jar moderne-dx.jar status`        | Says whether DX runs, and which services are up.                                                 |
 | `java -jar moderne-dx.jar stop`          | Stops a running DX.                                                                              |
-| `java -jar moderne-dx.jar trust`         | Has this machine trust DX's own certificate authority. On macOS it adds the authority to your login keychain. On Linux it prints the commands that do. |
+| `java -jar moderne-dx.jar trust`         | Makes this machine trust DX's own certificate authority (CA). On macOS it adds the CA to your login keychain. On Linux it prints the commands that do. |
 
 ## Deployment
 
@@ -37,7 +37,7 @@ DX serves four host names on one port, through a proxy inside DX. All four URLs 
 
 | Setting                         | Default                                         | Description                                                                                       |
 |---------------------------------|-------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `moderne.dx.public-url`         | `https://moderne.localhost:8443`                | Where people open the UI. An `http` or `https` URL with a host name and no path. DX's own certificate authority serves an `https` URL under `localhost`, `nip.io`, or `sslip.io`. |
+| `moderne.dx.public-url`         | `https://moderne.localhost:8443`                | Where people open the UI. An `http` or `https` URL with a host name and no path. For an `https` URL under `localhost`, `nip.io`, or `sslip.io`, DX's own certificate authority (CA) issues the certificate. |
 | `moderne.dx.api-url`            | `api.` before the public URL's host             | Where the CLI and the UI reach DX's API.                                                          |
 | `moderne.dx.login-url`          | `login.` before the public URL's host           | Where users sign in, through Keycloak.                                                            |
 | `moderne.dx.status-url`         | `status.` before the public URL's host          | Where the status page shows every service's metrics and logs.                                     |
@@ -45,9 +45,9 @@ DX serves four host names on one port, through a proxy inside DX. All four URLs 
 | `moderne.dx.tls.private-key`    |                                                 | The certificate's private key, as a PEM file.                                                     |
 | `moderne.dx.bind-address`       | `127.0.0.1` for a URL under `localhost`, `0.0.0.0` otherwise | The IP address the proxy listens on. Every other process listens on `127.0.0.1`.  |
 | `moderne.dx.ports.proxy`        | The public URL's port                           | The port the proxy listens on. Set it when a load balancer that handles TLS forwards to DX, and leave out `tls`. |
-| `moderne.dx.ports.proxy-http`   | `8080`                                          | With DX's own certificate authority, the port where the proxy hands out that authority's certificate and redirects http to https. |
+| `moderne.dx.ports.proxy-http`   | `8080`                                          | With DX's own certificate authority, the port where the proxy hands out the CA's root certificate and redirects http to https. |
 | `moderne.dx.logo`               | The Moderne icon                                | An SVG file that the UI shows as your deployment's icon.                                          |
-| `moderne.dx.java`               | The Java that runs the jar                      | The `java` executable that DX's services run on. It must be Java 25.                              |
+| `moderne.dx.java`               | The Java that runs the JAR                      | The `java` executable that DX's services run on. It must be Java 25.                              |
 
 ## Recipes
 
@@ -56,7 +56,7 @@ Configure the Code Genome Project, your own repository that proxies it, or both.
 | Setting                                                                | Description                                                                                       |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | `moderne.recipe.marketplace.repositories.code-genome-project.username` | Your Code Genome Project username.                                                                |
-| `moderne.recipe.marketplace.repositories.code-genome-project.token`    | Your Code Genome Project token. DX resolves recipes from the Code Genome Project with it. The installer at DX's `/cli` downloads the Moderne CLI with it too, or anonymously without it. |
+| `moderne.recipe.marketplace.repositories.code-genome-project.token`    | Your Code Genome Project token. DX uses it to download recipes from the Code Genome Project. The installer at DX's `/cli` also uses it to download the Moderne CLI. Without it, that download is anonymous. |
 | `moderne.recipe.marketplace.repositories.maven`, `npm`, `pypi`, `nuget`, `go` | Your own recipe repositories, with the same settings as the Moderne Connector's [recipe marketplace repositories](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md). |
 
 ## Organization sources
@@ -119,7 +119,7 @@ Keycloak keeps its realm in a database file under the permanent directory unless
 | Setting                          | Default                                  | Description                                                                                 |
 |----------------------------------|------------------------------------------|---------------------------------------------------------------------------------------------|
 | `moderne.storage.permanent-dir`  | `data/permanent` beside `moderne.yml`    | Everything DX cannot rebuild. Back it up.                                                   |
-| `moderne.storage.ephemeral-dir`  | `data/ephemeral` beside `moderne.yml`    | What DX rebuilds when it needs to, such as the unpacked jar and code search's index.        |
+| `moderne.storage.ephemeral-dir`  | `data/ephemeral` beside `moderne.yml`    | What DX rebuilds when it needs to, such as the unpacked JAR and code search's index.        |
 
 ## Telemetry
 
@@ -153,7 +153,7 @@ If you set neither, DX stores telemetry in `<permanent-dir>/telemetry`.
 
 `conversions` is the heap of the CLI process that converts V2 LSTs. It converts as many LSTs at once as it has gigabytes of heap, up to one per CPU core.
 
-Code search leaves out a repository whose index has a single part larger than `moderne.code-search.shard-max-bytes`, 512 MB by default. To index larger repositories, raise it along with `moderne.dx.memory.code-search`. A 6 GB heap holds parts of about 2 GB.
+Code search leaves out a repository whose index has a shard larger than `moderne.code-search.shard-max-bytes`, 512 MB by default. To index larger repositories, raise it along with `moderne.dx.memory.code-search`. A 6 GB heap holds index shards of about 2 GB.
 
 ## Ports
 

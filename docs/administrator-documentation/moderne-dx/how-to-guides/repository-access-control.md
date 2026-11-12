@@ -5,7 +5,7 @@ description: How to show each user only the repositories they can read on your S
 
 # User-level repository access control
 
-By default, every user who signs in to Moderne DX can read every repository in its organizations. To show each user only the repositories they can read on your source control management (SCM) system, configure your SCM's OAuth app in `moderne.yml`. Each user then connects their SCM account in the UI once and DX checks their read access with it.
+By default, every user who signs in to Moderne DX can read every repository in its organizations. To show each user only the repositories they can read on your source control management (SCM) system, configure your SCM's OAuth app in `moderne.yml`. Each user then connects their SCM account in the UI once. DX uses that account to check their read access.
 
 In this guide, we will walk you through what access control protects, which repositories it covers, and how to turn it on.
 
@@ -15,7 +15,7 @@ DX checks a user's read access before it shows them what is in a repository.
 
 * Code search, and its SQL queries, show only the repositories the user can read.
 * A changeset shows its changes only to users who can read the affected repository. This applies whether they open the changeset in the UI, download it, or read it through MCP.
-* The CLI fetches a changeset's repository and allows pushing changes to it only for users who have access to read it.
+* Only users who can read a changeset's repository can fetch it with the CLI or push changes to it.
 
 Every user can still see the full list of repositories each organization holds.
 
@@ -25,7 +25,7 @@ DX checks access only for SCMs that have an OAuth app configured in `moderne.yml
 
 ## Turning on access control
 
-Create an OAuth app on your SCM with a callback URL of DX's public URL, such as `https://moderne.localhost:8443`. You create it with the same steps as for the [Moderne Connector](../../moderne-platform/how-to-guides/connector-configuration/connector-config.md). The only difference is that for the Moderne Connector, you grant write permissions for committing from the UI, but DX only needs read permissions.
+Create an OAuth app on your SCM. Set its callback URL to DX's public URL, such as `https://moderne.localhost:8443`. Follow the [Moderne Connector](../../moderne-platform/how-to-guides/connector-configuration/connector-config.md) steps for your SCM, except DX only needs read permissions:
 
 * [GitHub](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-github.md)
 * [GitLab](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-gitlab.md)

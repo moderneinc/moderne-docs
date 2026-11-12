@@ -27,7 +27,7 @@ The generated link in the command works without a credential, so you can run the
 
 ### Downloading with a CGP token
 
-If you need a download that doesn't expire for use in a script that installs or upgrades DX, use your CGP token instead with one of the following commands. Each URL always serves the newest build of its kind:
+To script installs or upgrades, download with your CGP token instead. These URLs don't expire, and each one always serves the newest build of its kind:
 
 ```bash
 # The newest release
@@ -66,14 +66,14 @@ java -jar moderne-dx.jar trust
 </TabItem>
 </Tabs>
 
-To create the files somewhere else, pass a directory, like `java -jar moderne-dx.jar init /etc/moderne-dx`. In this case, you will need to run further DX commands from that directory or otherwise specify the path in the `--config` parameter, like `--config /etc/moderne-dx/moderne.yml`.
+To create the files somewhere else, pass a directory, like `java -jar moderne-dx.jar init /etc/moderne-dx`. Then run later DX commands from that directory, or pass the file with `--config`, such as `--config /etc/moderne-dx/moderne.yml`.
 
 ## Configuring Moderne DX
 
 Before DX will start, you need to set your license key, CGP username, and CGP token. The [`moderne.yml` reference](../references/moderne-yml-reference.md) lists every other option.
 
 :::tip
-If the Moderne CLI on this machine already has your license key and CGP credentials set, `init` uses them and you can skip [Configuring Moderne DX](#configuring-moderne-dx).
+If the Moderne CLI on this machine already has your license key and CGP credentials set, `init` uses them and you can skip the rest of this section.
 :::
 
 You may set the values directly or use environment variables:
@@ -101,7 +101,7 @@ Environment variables that are set at the process-level will override those set 
 
 ### Controlling SCM access
 
-By default, every user can read every repository that DX ingests. [Turn on user-level repository access control](../how-to-guides/repository-access-control.md) to ensure that DX will show a repository only to people who have access to read it in your source control management (SCM) system.
+By default, every user can read every repository that DX ingests. [Turn on user-level repository access control](../how-to-guides/repository-access-control.md) so DX shows each repository only to people who can read it in your source control management (SCM) system.
 
 Access control needs an `SCM_TOKEN_KEY`, which `init` already wrote to `moderne.env`. Keep that line in the file. Without it, users will have to reconnect their SCM accounts every time DX restarts.
 
@@ -158,8 +158,6 @@ moderne:
 
 ## Starting Moderne DX
 
-
-
 The `doctor` command will check your configuration and report whether it looks okay or needs to be corrected. If everything looks good, you can start DX with the `start` command:
 
 ```bash
@@ -182,7 +180,7 @@ mod config moderne edit https://moderne.localhost:8443
 mod login
 ```
 
-After you sign in, `mod login` syncs the local CLI's recipe marketplace with the one in DX. If the machine running the CLI already has recipes installed, the CLI asks before replacing them. When you answer no, you keep your current recipes and stay logged in. You can switch to DX's recipes later with `mod config recipes moderne sync`.
+After you sign in, `mod login` syncs the local CLI's recipe marketplace with the one in DX. If the machine running the CLI already has recipes installed, the CLI asks before replacing them. When you answer no, you keep your current recipes and stay signed in. You can switch to DX's recipes later with `mod config recipes moderne sync`.
 
 The CLI must trust DX's certificate authority before it can sign in. On macOS, `mod config http trust-store edit system` makes the CLI use the keychain where `init` or `trust` added it. To set a different location, use [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store).
 
