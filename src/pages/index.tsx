@@ -4,6 +4,7 @@ import { ProductCardsGrid } from '@site/src/components/ProductCardsGrid';
 import { VideoCard, type VideoCardGradient } from '@site/src/components/VideoCard';
 import { homepageProducts } from '@site/src/config/megaMenuData';
 import Layout from '@theme/Layout';
+import ThemedImage from '@theme/ThemedImage';
 import clsx from 'clsx';
 import type { FunctionComponent } from 'react';
 import styles from './index.module.css';
@@ -25,20 +26,36 @@ function hrefFor(productName: string): string {
 
 /**
  * Three overlapping screenshots of the Platform, stacked like the welcome
- * modal's collage. Purely decorative: the hero copy already says what the
- * product does, so the group is hidden from assistive tech.
+ * modal's collage, with a light and a dark capture of each screen. Purely
+ * decorative: the hero copy already says what the product does, so the group
+ * is hidden from assistive tech.
  */
 const HeroCollage: FunctionComponent = () => {
   return (
     <div className={styles.collage} aria-hidden="true">
       <div className={clsx(styles.collageCard, styles.collageRuns)}>
-        <img className={styles.collageImage} src="/img/home/recipe-runs.png" alt="" />
+        <ThemedImage
+          className={styles.collageImage}
+          alt=""
+          sources={{ light: '/img/home/recipe-runs.png', dark: '/img/home/recipe-runs-dark.png' }}
+        />
       </div>
       <div className={clsx(styles.collageCard, styles.collageMarketplace)}>
-        <img className={styles.collageImage} src="/img/home/recipe-marketplace.png" alt="" />
+        <ThemedImage
+          className={styles.collageImage}
+          alt=""
+          sources={{
+            light: '/img/home/recipe-marketplace.png',
+            dark: '/img/home/recipe-marketplace-dark.png',
+          }}
+        />
       </div>
       <div className={clsx(styles.collageCard, styles.collageDevCenter)}>
-        <img className={styles.collageImage} src="/img/home/devcenter.png" alt="" />
+        <ThemedImage
+          className={styles.collageImage}
+          alt=""
+          sources={{ light: '/img/home/devcenter.png', dark: '/img/home/devcenter-dark.png' }}
+        />
       </div>
     </div>
   );
