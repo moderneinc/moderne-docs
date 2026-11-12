@@ -20,7 +20,7 @@ const meta: Meta<typeof Home> = {
     docs: {
       description: {
         component:
-          'The main homepage for Moderne documentation featuring hero section, product navigation, and resource cards.',
+          'The main homepage for Moderne documentation: hero with screenshot collage, "Browse by area" tiles, the "What is Moderne?" band with video cards, and the "More about Moderne" grid.',
       },
     },
   },
@@ -34,7 +34,7 @@ type Story = StoryObj<typeof meta>;
  * Default Homepage
  *
  * Shows the complete homepage as it appears to visitors.
- * Includes hero section, product pills, and resource cards.
+ * Includes the hero, product tiles, video band, and product grid.
  */
 export const Default: Story = {
   render: () => <Home />,

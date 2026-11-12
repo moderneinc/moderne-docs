@@ -20,7 +20,7 @@ const meta: Meta<typeof HeroSection> = {
     docs: {
       description: {
         component:
-          'Hero section that appears at the top of the homepage with heading, subheading, and call-to-action button.',
+          'Hero section at the top of the homepage with the headline, lede, two call-to-action buttons, and the screenshot collage.',
       },
     },
   },

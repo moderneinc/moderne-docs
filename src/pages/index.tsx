@@ -37,16 +37,24 @@ const HeroCollage: FunctionComponent = () => {
         <ThemedImage
           className={styles.collageImage}
           alt=""
-          sources={{ light: '/img/home/recipe-runs.png', dark: '/img/home/recipe-runs-dark.png' }}
+          width={720}
+          height={594}
+          loading="lazy"
+          decoding="async"
+          sources={{ light: '/img/home/recipe-runs.webp', dark: '/img/home/recipe-runs-dark.webp' }}
         />
       </div>
       <div className={clsx(styles.collageCard, styles.collageMarketplace)}>
         <ThemedImage
           className={styles.collageImage}
           alt=""
+          width={660}
+          height={461}
+          loading="lazy"
+          decoding="async"
           sources={{
-            light: '/img/home/recipe-marketplace.png',
-            dark: '/img/home/recipe-marketplace-dark.png',
+            light: '/img/home/recipe-marketplace.webp',
+            dark: '/img/home/recipe-marketplace-dark.webp',
           }}
         />
       </div>
@@ -54,7 +62,11 @@ const HeroCollage: FunctionComponent = () => {
         <ThemedImage
           className={styles.collageImage}
           alt=""
-          sources={{ light: '/img/home/devcenter.png', dark: '/img/home/devcenter-dark.png' }}
+          width={840}
+          height={417}
+          loading="lazy"
+          decoding="async"
+          sources={{ light: '/img/home/devcenter.webp', dark: '/img/home/devcenter-dark.webp' }}
         />
       </div>
     </div>

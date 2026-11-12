@@ -68,6 +68,7 @@ const config: StorybookConfig = {
       '@theme/Tabs': path.resolve(__dirname, '../src/__mocks__/theme/Tabs.tsx'),
       '@theme/TabItem': path.resolve(__dirname, '../src/__mocks__/theme/TabItem.tsx'),
       '@theme/CodeBlock': path.resolve(__dirname, '../src/__mocks__/theme/CodeBlock.tsx'),
+      '@theme/ThemedImage': path.resolve(__dirname, '../src/__mocks__/theme/ThemedImage.tsx'),
       '@docusaurus/BrowserOnly': path.resolve(__dirname, '../src/__mocks__/docusaurus/BrowserOnly.tsx'),
       '@theme': path.resolve(__dirname, '../src/theme'),
     };

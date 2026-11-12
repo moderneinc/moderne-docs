@@ -58,6 +58,7 @@ export const VideoCard: FunctionComponent<VideoCardProps> = ({
       ref={frameRef}
       className={clsx(styles.frame, className)}
       tabIndex={playing ? -1 : undefined}
+      role={playing ? 'group' : undefined}
       aria-label={playing ? title : undefined}
     >
       {playing ? (

@@ -4,7 +4,7 @@
  *
  * Green accent: --mod-color-text-success is the package's only mode-aware pair
  * that is forest green on cream and Digital Green on ink, which is the accent
- * the design uses for inline links, rules, and focus rings.
+ * the design uses for inline links, arrows, and focus rings.
  *
  * Section rhythm (88px to 120px) runs past the spacing scale's 80px top, so
  * those paddings are composed from two spacing tokens.
@@ -39,10 +39,12 @@
 
 /* ---------- Hero ---------- */
 
-/* Copy on the left, screenshot collage on the right. */
+/* Copy on the left, screenshot collage on the right. The collage track is
+   capped at 40% of the row so the copy column never drops below about 500px,
+   which keeps each half of the headline on one line down to 997px. */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, min(440px, 40%));
   align-items: center;
   gap: var(--mod-spacing_8);
   padding-top: calc(var(--mod-spacing_10) + var(--mod-spacing_3));
@@ -57,8 +59,8 @@
 
 /* Display size, above the type ramp's 28px top. The 30px floor keeps
    "Explore documentation" on one line at 390px, so the forced break before
-   "and" gives two lines, not four. The 52px cap keeps it on one line beside
-   the collage. */
+   "and" gives two lines, not four. The 52px cap keeps each half on one line
+   beside the collage at the 1200px container width. */
 .heroHeading {
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: clamp(30px, 3.6vw, 52px);
@@ -97,13 +99,14 @@
 
 /* Outlined ghost on the page surface. ModButton's secondary border is too faint
    against cream for a control boundary, so use the strong border. Three
-   classes so it beats ModButton's own dark-mode secondary rule. */
+   classes beat ModButton's dark-mode secondary rule, and the hover repeats
+   ModButton's :not(:disabled) so it also beats the dark-mode hover rule. */
 .heroActions .heroButton.heroButtonSecondary {
   background: transparent;
   border-color: var(--mod-color-border-strong);
 }
 
-.heroActions .heroButton.heroButtonSecondary:hover {
+.heroActions .heroButton.heroButtonSecondary:hover:not(:disabled) {
   background: var(--mod-color-surface-raised);
 }
 
@@ -206,9 +209,10 @@
   margin: 0;
 }
 
+/* 280px minimum keeps three cards across down to about 970px. */
 .videoGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: var(--mod-spacing_4);
 }
 

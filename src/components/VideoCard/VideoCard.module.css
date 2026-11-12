@@ -45,7 +45,7 @@
   text-align: left;
   font: inherit;
   color: var(--mod-white);
-  transition: transform 0.16s ease;
+  transition: transform var(--ifm-transition-fast) ease;
 }
 
 .poster:hover,
@@ -89,7 +89,8 @@
 /* Scrim behind the title region. The lightest gradient stops sit under the
    title and would leave white text below 3:1, so darken the top half enough
    to clear 4.5:1 at the palest stop (periwinkle-300 needs about 30% black).
-   A translucent black wash has no token equivalent; it is a tint, not a color. */
+   The package's scrim tokens are mode-aware and lighten in light mode, but
+   this poster must read the same in both modes, so the wash is a literal. */
 .scrim {
   position: absolute;
   inset: 0;
@@ -115,7 +116,6 @@
   font-size: clamp(15px, calc(9cqi - 6.5px), 42px);
   line-height: 1.12;
   letter-spacing: -0.02em;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.16);
 }
 
 .mark {
