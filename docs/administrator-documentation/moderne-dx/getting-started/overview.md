@@ -13,7 +13,7 @@ DX is a single JAR (Java archive) file that you start with one command. It runs 
 
 DX does not build LSTs and does not run recipes. Instead, it works alongside two things you already have:
 
-* **[Mass ingest](../how-to-guides/mass-ingest-dx.md)** builds an [LST](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) and code search index for every repository listed in your [`repos.csv` file](../how-to-guides/mass-ingest-dx.md#creating-the-reposcsv-file) and publishes it to your artifact repository. It also publishes a `repos-lock.csv` file that lists where each LST is.
+* **[Mass ingest](../how-to-guides/mass-ingest-dx.md)** builds an [LST](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) and code search index for every repository listed in your [`repos.csv` file](../how-to-guides/mass-ingest-dx.md#creating-the-reposcsv-file) and publishes them to your artifact repository. It also publishes a `repos-lock.csv` file that lists where each LST is.
 * **The [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md)** runs recipes on developers' machines, against LSTs it downloads from your artifact repository.
 
 DX reads the `repos-lock.csv` file to build your organizations. It combines the individual LSTs into a shared index for code search. In the DX UI, developers can pick an organization to see its repositories and their LST build status. They can also search code across all of their organizations' repositories.

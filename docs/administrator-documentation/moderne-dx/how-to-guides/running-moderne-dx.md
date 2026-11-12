@@ -9,9 +9,9 @@ When you [install Moderne DX](../getting-started/installing-moderne-dx.md), it r
 
 ## Choosing its host name
 
-DX serves four host names, all on the public URL's port:
+DX serves four host names, all on the same port as the public URL:
 
-* The UI, at the public URL's own host, such as `moderne.acme.com`.
+* The UI, at the host in the public URL, such as `moderne.acme.com`.
 * The API, at `api.moderne.acme.com`.
 * Keycloak, at `login.moderne.acme.com`.
 * The status page, at `status.moderne.acme.com`.
@@ -28,7 +28,7 @@ moderne:
 
 Give `moderne.acme.com` and `*.moderne.acme.com` DNS records that point at the machine. For a public URL outside `localhost`, DX listens on every address of the machine. Under `localhost`, it listens only on the loopback address.
 
-Without DNS records of your own, you can use a host name under `nip.io`, a public DNS service that resolves a name to the IP address written in it. `moderne.192-168-1-20.nip.io` and every name under it resolve to `192.168.1.20`. DX's own certificate authority (CA) covers this host name, so you don't need to supply a certificate of your own:
+Without DNS records of your own, you can use a host name under `nip.io`, a public DNS service that resolves a name to the IP address written in it. `moderne.192-168-1-20.nip.io` and every name under it resolve to `192.168.1.20`. The built-in DX certificate authority (CA) covers this host name, so you don't need to supply a certificate of your own:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -38,18 +38,18 @@ moderne:
 
 Each person who uses DX will need to trust its CA once. To find out how, open `http://moderne.192-168-1-20.nip.io:8080` in a browser. The host name contains the machine's IP address. If the address changes, set `public-url` to the new host name.
 
-### How DX's own certificate authority works
+### How the built-in certificate authority works
 
-When `moderne.yml` sets no certificate, DX creates its own CA the first time you run `init`, `start`, `doctor`, or `trust`. It keeps two files in its permanent directory:
+When `moderne.yml` sets no certificate, DX creates its own CA the first time you run `init`, `start`, `doctor`, or `trust`, and keeps two files in the permanent directory:
 
 | File                              | What it is                                                                                     |
 |-----------------------------------|------------------------------------------------------------------------------------------------|
-| `dx/ca/moderne-dx-ca.crt`         | The CA's root certificate. DX serves it at its http port as `/moderne-dx-ca.crt`.             |
+| `dx/ca/moderne-dx-ca.crt`         | The CA's root certificate. DX serves it on the HTTP port as `/moderne-dx-ca.crt`.             |
 | `dx/secrets/moderne-dx-ca.key`    | The root's private key. Protect it as you would the other files in `dx/secrets`.               |
 
-The CA's root certificate lasts ten years and only covers names under `localhost`, `nip.io`, and `sslip.io`. DX's proxy uses it to issue a short-lived certificate for each of DX's four host names, so you never renew those yourself.
+The root certificate lasts ten years and only covers names under `localhost`, `nip.io`, and `sslip.io`. The DX proxy uses it to issue short-lived certificates for the four host names, so you never have to renew them yourself.
 
-If either file is missing, DX creates a new CA. Everyone who trusted the old one then has to trust the new one, in their browsers and in their CLIs. To avoid that, [back up](#backing-up) the whole `dx` directory and restore both files together.
+If either file is missing, DX creates a new CA, and everyone who trusted the old one has to trust the new one in their browsers and CLIs. To avoid that, [back up](#backing-up) the whole `dx` directory and restore both files together.
 
 ## Adding a certificate
 
@@ -66,7 +66,7 @@ moderne:
 
 Put the certificate first in its file, followed by the rest of its chain. DX only reads the certificate when it starts, so restart DX after you renew it. `doctor` checks that the certificate covers all four host names and matches its key. It also warns you a month before the certificate expires.
 
-If the certificate comes from a private CA, DX's UI needs to trust that CA too. Add the CA's PEM file to `moderne.env`:
+If the certificate comes from a private CA, the DX UI needs to trust that CA too. Add the CA's PEM file to `moderne.env`:
 
 ```bash title="moderne.env"
 NODE_EXTRA_CA_CERTS=/etc/moderne-dx/ca.pem
@@ -98,11 +98,11 @@ The `moderne-dx.service` file that `init` wrote runs DX under systemd. It expect
 * `moderne.yml` and `moderne.env` in `/etc/moderne-dx`.
 * Java 25 at `/usr/bin/java`.
 * `mod` in `/usr/local/bin`, `/usr/bin`, or `/bin`.
-* A `moderne` OS account that owns `moderne.env` and DX's data directories.
+* A `moderne` OS account that owns `moderne.env` and the DX data directories.
 
 Edit those paths in the file if yours differ.
 
-DX keeps its data beside `moderne.yml` unless you set other directories. To keep it out of `/etc/moderne-dx`, set them in `moderne.yml`:
+DX keeps its data in the same directory as `moderne.yml` unless you set other directories. To keep it out of `/etc/moderne-dx`, set them in `moderne.yml`:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -119,7 +119,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now moderne-dx
 ```
 
-The unit lets DX listen on port 443 as the `moderne` OS account. If you start DX any other way on Linux, use a public URL with a port above 1023, since lower ports need root. Under systemd, `journalctl -u moderne-dx` shows DX's logs.
+The unit lets DX listen on port 443 as the `moderne` OS account. If you start DX any other way on Linux, use a public URL with a port above 1023, since lower ports need root. Under systemd, `journalctl -u moderne-dx` shows the DX logs.
 
 Running as the `moderne` OS account, DX takes each `${moderne-cli:key}` value from that account's Moderne CLI. Configure the CLI as that account, or put the values in `moderne.env` instead.
 
@@ -137,7 +137,7 @@ Pick an alias for the provider, such as `corporate-sso`, and add an application 
 | SAML     | Audience URI (SP Entity ID) | `https://login.moderne.acme.com/auth/realms/dx`                               |
 | OIDC     | Redirect URI                | `https://login.moderne.acme.com/auth/realms/dx/broker/corporate-sso/endpoint` |
 
-Replace `moderne.acme.com` with DX's host and `corporate-sso` with your alias. Configure the application to send each user's `firstName`, `lastName`, and `email`. For your administrators, also send an `admin` claim.
+Replace `moderne.acme.com` with your DX host name and `corporate-sso` with your alias. Configure the application to send each user's `firstName`, `lastName`, and `email`. For your administrators, also send an `admin` claim.
 
 ### Adding the provider to Keycloak
 
@@ -150,7 +150,7 @@ Once your administrators can sign in through your identity provider, disable the
 
 ### Keeping the realm in PostgreSQL
 
-Keycloak keeps its realm in a database file under DX's permanent directory. To keep it in a PostgreSQL database instead, set the database in `moderne.yml`:
+Keycloak keeps its realm in a database file under the permanent directory. To keep it in a PostgreSQL database instead, set the database in `moderne.yml`:
 
 ```yaml title="moderne.yml"
 spring:
@@ -174,7 +174,7 @@ DX serves an installer for the CLI, which downloads the CLI through DX:
 curl -fsSL https://api.moderne.acme.com/cli | bash
 ```
 
-If DX uses its own CA, download the CA's certificate from DX's http port and give it to curl:
+If DX uses its built-in CA, download the CA certificate from the HTTP port and give it to curl:
 
 ```bash
 curl -fsSLO http://moderne.192-168-1-20.nip.io:8080/moderne-dx-ca.crt
@@ -183,16 +183,16 @@ curl -fsSL --cacert moderne-dx-ca.crt https://api.moderne.192-168-1-20.nip.io:84
 
 ### Pointing the CLI at DX
 
-The CLI must trust DX's CA. On macOS, once DX's CA is in your keychain, `mod config http trust-store edit system` makes the CLI use the keychain. Elsewhere, see [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store).
+The CLI must trust the DX CA. On macOS, once the CA is in your keychain, `mod config http trust-store edit system` makes the CLI use the keychain. Elsewhere, see [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store).
 
-Give the CLI DX's public URL. The CLI works out the API and sign-in addresses from it:
+Give the CLI the DX public URL. The CLI works out the API and sign-in addresses from it:
 
 ```bash
 mod config moderne edit https://moderne.acme.com
 mod config moderne login
 ```
 
-When developers sign in, the CLI offers to replace its recipes with DX's. To bring recipes installed later, run `mod config recipes moderne sync`.
+When developers sign in, the CLI offers to replace its recipes with the ones in DX. To bring recipes installed later, run `mod config recipes moderne sync`.
 
 ### Syncing, running recipes, and pushing changes
 
@@ -211,11 +211,11 @@ Each push adds to the changeset. Everyone can review it in the UI.
 
 ## Changing the URL later
 
-You can change the public URL at any time, such as when you move DX from a laptop to a server. If `moderne.yml` configures an SCM's OAuth app, set the app's callback URL to the new URL too. DX updates Keycloak the next time it starts. After that, users will need to sign in again, and developers will need to point their CLIs at the new URL with `mod config moderne edit`. A machine that trusts DX's own CA keeps trusting it for a new host name under `localhost`, `nip.io`, or `sslip.io`.
+You can change the public URL at any time, such as when you move DX from a laptop to a server. If `moderne.yml` configures an SCM's OAuth app, set the app's callback URL to the new URL too. DX updates Keycloak the next time it starts. After that, users will need to sign in again, and developers will need to point their CLIs at the new URL with `mod config moderne edit`. A machine that trusts the built-in DX CA keeps trusting it for a new host name under `localhost`, `nip.io`, or `sslip.io`.
 
 ## Upgrading
 
-1. [Back up](#backing-up) DX's data.
+1. [Back up](#backing-up) the DX data.
 2. Download the new version's JAR from the [same URL](../getting-started/installing-moderne-dx.md#downloading-moderne-dx).
 3. Stop DX, replace the JAR, and start DX again.
 
@@ -223,12 +223,12 @@ The first time a new version starts, it unpacks itself and removes the previous 
 
 ## Where DX keeps its files
 
-DX reads `moderne.yml` and `moderne.env` from the directory `init` wrote them to, or from the file you pass to `--config`. It keeps everything else in two directories beside them, unless you set others under `moderne.storage`:
+DX reads `moderne.yml` and `moderne.env` from the directory `init` wrote them to, or from the file you pass to `--config`. It keeps everything else under `data/` in that same directory, unless you set other locations under `moderne.storage`:
 
 | Directory        | What it holds                                                                                                     |
 |------------------|-------------------------------------------------------------------------------------------------------------------|
 | `data/permanent` | Everything DX can't rebuild. [Back it up](#backing-up).                                                           |
-| `data/ephemeral` | What DX rebuilds when it needs to: the unpacked services, code search's index, downloaded LSTs and recipes, heap dumps, and the output of each `mod` command DX runs, under `cli-output`. |
+| `data/ephemeral` | What DX rebuilds when it needs to: the unpacked services, the code search index, downloaded LSTs and recipes, heap dumps, and the output of each `mod` command DX runs, under `cli-output`. |
 
 The permanent directory holds:
 
@@ -238,43 +238,43 @@ The permanent directory holds:
 | `authorization` | Users' connected SCM accounts, encrypted with the SCM token key, and access tokens.  |
 | `changeset`     | The changesets developers pushed.                                                 |
 | `marketplace`   | The recipes installed for everyone.                                               |
-| `organization`  | Organizations users made for themselves.                                          |
+| `organization`  | Organizations that users created for themselves.                                  |
 | `atlas`         | The status page's metrics and logs.                                               |
 | `lsts-v3`       | The V3 copies of V2 LSTs, which DX can make again.                                |
 | `telemetry`     | CLI telemetry, unless you store it in a bucket or container.                      |
-| `dx`            | DX's own settings, its CA, and the secrets it made.                               |
+| `dx`            | DX settings, the built-in CA, and the secrets DX generated.                       |
 
-## Reading DX's logs
+## Reading the DX logs
 
-DX doesn't write a log file. Instead, `start` prints the output of every service, and each line starts with the service's name. Where that output ends up depends on how you run DX:
+DX doesn't write a log file. Instead, `start` prints the output of every service, and each line starts with the name of the service. Where that output ends up depends on how you run DX:
 
 * **As a systemd service**, it goes to the journal. Read it with `journalctl -u moderne-dx`, or follow it with `journalctl -fu moderne-dx`.
 * **From a terminal**, it goes to the terminal. To keep it, send it to a file, such as `java -jar moderne-dx.jar start > dx.log 2>&1`, and rotate that file yourself.
 
-However you run DX, the status page at `https://status.moderne.acme.com` shows every service's logs and metrics from the last two days. Any signed-in user can open it.
+However you run DX, the status page at `https://status.moderne.acme.com` shows logs and metrics for every service from the last two days. Any signed-in user can open it.
 
-When a recipe install or an LST conversion fails, the service's log says which `mod` command failed. That command's full output is under `cli-output` in the ephemeral directory.
+When a recipe install or an LST conversion fails, the service log says which `mod` command failed. That command's full output is under `cli-output` in the ephemeral directory.
 
 ## Backing up
 
 Back up the permanent directory (`data/permanent`, unless you set `moderne.storage.permanent-dir`) with `moderne.yml` and `moderne.env`. Stop DX first, or take a snapshot of the file system. [Where DX keeps its files](#where-dx-keeps-its-files) lists what the permanent directory holds.
 
-Keep the backup of `moderne.env` apart from the data's backup. The SCM token key in it decrypts the SCM tokens in `authorization`.
+Keep the backup of `moderne.env` apart from the data backup. The SCM token key in it decrypts the SCM tokens in `authorization`.
 
 ## Troubleshooting
 
-Start with `java -jar moderne-dx.jar doctor`. It checks the configuration. Once DX is running, it also checks each host name through the proxy. `status` shows which services are up.
+Start with `java -jar moderne-dx.jar doctor`, which checks the configuration and, once DX is running, each host name through the proxy. `status` shows which services are up.
 
 | What you see                                            | What to do                                                                                          |
 |---------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | `doctor` says a host name does not resolve              | On a laptop, add the line `doctor` prints to `/etc/hosts`. On a server, give `moderne.acme.com` and `*.moderne.acme.com` DNS records. |
 | `doctor` says a port is taken                           | Stop what holds it, or move the service with `moderne.dx.ports`, as `doctor` says.                  |
 | `doctor` says the certificate does not cover a host name | Get a certificate that covers `moderne.acme.com` and `*.moderne.acme.com`.                          |
-| The browser warns about DX's certificate                | Run `java -jar moderne-dx.jar trust` where DX runs. Elsewhere, open DX's http port, such as `http://moderne.192-168-1-20.nip.io:8080`. |
-| The CLI fails with a PKIX error                         | Have the CLI trust DX's CA with `mod config http trust-store`.                    |
+| The browser warns about the DX certificate              | Run `java -jar moderne-dx.jar trust` where DX runs. Elsewhere, open the DX HTTP port, such as `http://moderne.192-168-1-20.nip.io:8080`. |
+| The CLI fails with a PKIX error                         | Have the CLI trust the DX CA with `mod config http trust-store`.                    |
 | Sign-in fails with a certificate from your own CA       | Add your CA's PEM file to `moderne.env` as `NODE_EXTRA_CA_CERTS`.                                    |
 | Code search shows a user none of an SCM's repositories  | Have the user connect their SCM account under **Settings** > **SCM connections**.                   |
-| A repository with a V2 LST is missing from code search  | [DX's log](#reading-dxs-logs) says why its conversion failed. Python, Go, and .NET LSTs need those tools on the machine. |
+| A repository with a V2 LST is missing from code search  | [The DX log](#reading-the-dx-logs) says why its conversion failed. Python, Go, and .NET LSTs need those tools on the machine. |
 | The marketplace has no recipes                          | Check where recipes come from with `doctor`. Then, as an administrator, click **Load recipes** on the **Deploy** page. |
 
 A service that runs out of memory leaves a heap dump named after it in the ephemeral directory. DX then restarts the service. Give it more memory with `moderne.dx.memory`.

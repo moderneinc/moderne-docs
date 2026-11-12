@@ -82,7 +82,7 @@ The example repository shows two ways to do this. [Running on one machine](https
 
 ## Sizing
 
-Each container runs one build at a time. To run more builds at once, you run more containers. The example Job requests the following for each pod, which fits a 4 vCPU, 16 GiB node:
+Each container runs one build at a time, so you add containers to run more builds at once. The example Job requests the following for each pod, which fits a 4 vCPU, 16 GiB node:
 
 | Resource | Per container                |
 |----------|------------------------------|
@@ -92,17 +92,17 @@ Each container runs one build at a time. To run more builds at once, you run mor
 
 These are what the example provisions, not the minimum. Any host that passes `mod doctor` can run a shard. The check fails on fewer than 2 CPUs and warns below 16 GiB of memory or 10 GiB of free disk.
 
-You should keep the memory limit equal to the request. The CLI holds each build below that limit. A build that runs out of memory fails on its own, and the container moves on to the next repository.
+You should keep the memory limit equal to the request, since the CLI holds each build below that limit. A build that runs out of memory fails on its own, and the container moves on to the next repository.
 
-Only one repository is on disk at a time. Size the disk for your largest one. Lower the storage request if nothing you build comes close to 150 GiB.
+Only one repository is on disk at a time, so size the disk for your largest one. You can lower the storage request if nothing you build comes close to 150 GiB.
 
 On one machine, the same numbers apply to each shard. Give each shard about 4 vCPUs and 16 GiB of the VM, and plan disk for your largest repository times the number of shards. The example's script caps each container at 12 GiB of memory.
 
-The number of shards sets how long each container runs. Shorter runs mean a lost container has less to redo. About four shards per concurrent container keeps each one to a few hours. You can change both numbers between runs without causing extra rebuilds.
+The number of shards sets how long each container runs, and shorter runs mean a lost container has less to redo. About four shards per concurrent container keeps each run to a few hours. You can change both numbers between runs without causing extra rebuilds.
 
 ### Pinning the CLI version
 
-By default, the image installs the newest CLI release each time a container starts. After each new CLI release, the next run rebuilds every repository, because the CLI only skips repositories that the same version built. CLI releases are frequent. To choose when that happens, pin the version with the `MODERNE_WRAPPER_VERSION` environment variable, as [customizing the image](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#the-cli-version) describes.
+By default, the image installs the newest CLI release each time a container starts. After each new CLI release, the next run rebuilds every repository, because the CLI only skips repositories that the same version built. CLI releases are frequent, so an unpinned image rebuilds everything often. To control when those full rebuilds happen, pin the version with the `MODERNE_WRAPPER_VERSION` environment variable, as [customizing the image](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#the-cli-version) describes.
 
 :::warning
 Do not pin to a version prior to 4.9.0.
@@ -112,7 +112,7 @@ Do not pin to a version prior to 4.9.0.
 
 If DX runs on a machine that can reach your code, you can run mass ingest on that machine too. The CLI builds each LST into a directory on the machine, and DX serves the LSTs from there. You won't need containers or an artifact repository.
 
-You will need a `repos.csv` file that lists the repositories to build. You will also need a Moderne CLI that has the `mod config lsts artifacts file` command.
+You will need a `repos.csv` file that lists the repositories to build. You will also need Moderne CLI 4.12.6 or later.
 
 ### Publishing LSTs to a directory
 

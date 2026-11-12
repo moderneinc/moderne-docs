@@ -27,7 +27,7 @@ The generated link in the command works without a credential, so you can run the
 
 ### Downloading with a CGP token
 
-To script installs or upgrades, download with your CGP token instead. These URLs don't expire, and each one always serves the newest build of its kind:
+To script installs or upgrades, download with your CGP token instead. These URLs don't expire, and each one always serves the newest release or snapshot:
 
 ```bash
 # The newest release
@@ -97,7 +97,7 @@ MODERNE_LICENSE_KEY=…
 CGP_TOKEN=…
 ```
 
-Environment variables that are set at the process-level will override those set in `moderne.env`.
+Environment variables that are set at the process level will override those set in `moderne.env`.
 
 ### Controlling SCM access
 
@@ -191,5 +191,5 @@ The CLI must trust DX's certificate authority before it can sign in. On macOS, `
 * [Show each user only the repositories they can read](../how-to-guides/repository-access-control.md).
 * [Connect your developers](../how-to-guides/running-moderne-dx.md#connecting-your-developers).
 * [Upgrade](../how-to-guides/running-moderne-dx.md#upgrading) and [back up](../how-to-guides/running-moderne-dx.md#backing-up) DX.
-* [Find DX's files](../how-to-guides/running-moderne-dx.md#where-dx-keeps-its-files) and [read its logs](../how-to-guides/running-moderne-dx.md#reading-dxs-logs).
+* [Find DX's files](../how-to-guides/running-moderne-dx.md#where-dx-keeps-its-files) and [read its logs](../how-to-guides/running-moderne-dx.md#reading-the-dx-logs).
 * [Troubleshoot DX](../how-to-guides/running-moderne-dx.md#troubleshooting).
