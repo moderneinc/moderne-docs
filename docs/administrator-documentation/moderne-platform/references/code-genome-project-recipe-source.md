@@ -25,11 +25,11 @@ Once Moderne adds the [Code Genome Project](../../../user-documentation/recipes/
 
 ## Security posture
 
-Companies often have cooldowns on newly published releases so there's time to catch a compromised or vulnerable version before it ends up in their code. Adding the Code Genome Project as a recipe marketplace repository **will not** change that. Your builds will still download through your artifact repository and wait for the cooldown like they do today.
+Companies often have cooldowns on newly published releases so there's time to catch a compromised or vulnerable version before it ends up in their production applications. Adding the Code Genome Project as a recipe marketplace repository **will not** change that. Your builds will still download through your internal artifact repository and wait for the cooldown like they do today.
 
-What will change is that the _recipes_ in your Moderne tenant won't wait anymore. Your tenant will be able to use new recipe versions (and the public dependencies they need) before your cooldown has cleared them. Those recipes will only run inside your Moderne tenant. Nothing they download gets added to your builds.
+What will change is that the _recipes_ in your Moderne tenant won't have to wait for the cooldown anymore. Your tenant will be able to use new recipe versions (and the public dependencies they need) before your cooldown has cleared them. Those recipes will only run inside your Moderne tenant. Nothing they download will be added to your builds.
 
-You also won't need to open anything up on your side. The Moderne Platform downloads from the Code Genome Project and Maven Central directly - without going through your Connector or your network.
+You also won't need to open anything up on your side. The Moderne Platform downloads recipe artifacts from the Code Genome Project directly - without going through your Connector or your network.
 
 ## Checking that the Code Genome Project is enabled
 
