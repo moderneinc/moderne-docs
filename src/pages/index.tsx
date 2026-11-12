@@ -23,36 +23,60 @@ function hrefFor(productName: string): string {
   return product.homepageHref || product.href;
 }
 
+/**
+ * Three overlapping screenshots of the Platform, stacked like the welcome
+ * modal's collage. Purely decorative: the hero copy already says what the
+ * product does, so the group is hidden from assistive tech.
+ */
+const HeroCollage: FunctionComponent = () => {
+  return (
+    <div className={styles.collage} aria-hidden="true">
+      <div className={clsx(styles.collageCard, styles.collageRuns)}>
+        <img className={styles.collageImage} src="/img/home/recipe-runs.png" alt="" />
+      </div>
+      <div className={clsx(styles.collageCard, styles.collageMarketplace)}>
+        <img className={styles.collageImage} src="/img/home/recipe-marketplace.png" alt="" />
+      </div>
+      <div className={clsx(styles.collageCard, styles.collageDevCenter)}>
+        <img className={styles.collageImage} src="/img/home/devcenter.png" alt="" />
+      </div>
+    </div>
+  );
+};
+
 export const HeroSection: FunctionComponent = () => {
   return (
     <section className={clsx(styles.container, styles.hero)}>
-      <h1 className={styles.heroHeading}>
-        Explore documentation
-        <br />
-        and tutorials to go further
-      </h1>
-      <p className={styles.heroLede}>
-        Discover how to fix vulnerabilities, standardize code quality, perform type-aware code
-        searches, and accelerate refactoring at enterprise scale.
-      </p>
-      <div className={styles.heroActions}>
-        <ModButton
-          variant="primary"
-          size="large"
-          className={styles.heroButton}
-          href={hrefFor('Platform')}
-        >
-          Get started
-        </ModButton>
-        <ModButton
-          variant="secondary"
-          size="large"
-          className={clsx(styles.heroButton, styles.heroButtonSecondary)}
-          href="#what-is-moderne"
-        >
-          What is Moderne?
-        </ModButton>
+      <div className={styles.heroCopy}>
+        <h1 className={styles.heroHeading}>
+          Explore documentation
+          <br />
+          and tutorials to go further
+        </h1>
+        <p className={styles.heroLede}>
+          Discover how to fix vulnerabilities, standardize code quality, perform type-aware code
+          searches, and accelerate refactoring at enterprise scale.
+        </p>
+        <div className={styles.heroActions}>
+          <ModButton
+            variant="primary"
+            size="large"
+            className={styles.heroButton}
+            href={hrefFor('Platform')}
+          >
+            Get started
+          </ModButton>
+          <ModButton
+            variant="secondary"
+            size="large"
+            className={clsx(styles.heroButton, styles.heroButtonSecondary)}
+            href="#what-is-moderne"
+          >
+            What is Moderne?
+          </ModButton>
+        </div>
       </div>
+      <HeroCollage />
     </section>
   );
 };

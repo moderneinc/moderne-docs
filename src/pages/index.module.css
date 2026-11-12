@@ -39,20 +39,29 @@
 
 /* ---------- Hero ---------- */
 
+/* Copy on the left, screenshot collage on the right. */
 .hero {
-  display: flex;
-  flex-direction: column;
-  gap: var(--mod-spacing_3_1_2);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
+  align-items: center;
+  gap: var(--mod-spacing_8);
   padding-top: calc(var(--mod-spacing_10) + var(--mod-spacing_3));
   padding-bottom: calc(var(--mod-spacing_10) + var(--mod-spacing_1));
 }
 
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_3_1_2);
+}
+
 /* Display size, above the type ramp's 28px top. The 30px floor keeps
    "Explore documentation" on one line at 390px, so the forced break before
-   "and" gives two lines, not four. */
+   "and" gives two lines, not four. The 52px cap keeps it on one line beside
+   the collage. */
 .heroHeading {
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
-  font-size: clamp(30px, 5.2vw, 68px);
+  font-size: clamp(30px, 3.6vw, 52px);
   font-weight: var(--mod-font-weight-semi-bold);
   letter-spacing: -0.035em;
   line-height: 1.02;
@@ -96,6 +105,49 @@
 
 .heroActions .heroButton.heroButtonSecondary:hover {
   background: var(--mod-color-surface-raised);
+}
+
+/* Collage: a 530:550 box with three cards placed by percentage, so the stack
+   scales with the column. Positions come from the welcome modal's collage,
+   widened so the DevCenter card is not clipped. Cards are bottom-to-top in
+   DOM order. */
+.collage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 530 / 550;
+}
+
+.collageCard {
+  position: absolute;
+  background: var(--mod-color-surface-raised);
+  border: var(--mod-stroke-width-1) solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-s);
+  box-shadow: var(--mod-docs-shadow-dropdown);
+  overflow: hidden;
+}
+
+.collageImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.collageRuns {
+  left: 28.3%;
+  top: 7.3%;
+  width: 67.9%;
+}
+
+.collageMarketplace {
+  left: 7.5%;
+  top: 27.3%;
+  width: 62.3%;
+}
+
+.collageDevCenter {
+  left: 20.8%;
+  top: 54.5%;
+  width: 79.2%;
 }
 
 /* ---------- Browse by area ---------- */
@@ -291,9 +343,15 @@
     padding-right: var(--mod-spacing_4);
   }
 
+  /* Single column; the collage is decoration and does not earn the scroll. */
   .hero {
+    grid-template-columns: minmax(0, 1fr);
     padding-top: var(--mod-spacing_9);
     padding-bottom: var(--mod-spacing_7);
+  }
+
+  .collage {
+    display: none;
   }
 
   .browse {
