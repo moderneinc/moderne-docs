@@ -26,7 +26,11 @@ function hrefFor(productName: string): string {
 export const HeroSection: FunctionComponent = () => {
   return (
     <section className={clsx(styles.container, styles.hero)}>
-      <h1 className={styles.heroHeading}>Explore documentation and tutorials to go further</h1>
+      <h1 className={styles.heroHeading}>
+        Explore documentation
+        <br />
+        and tutorials to go further
+      </h1>
       <p className={styles.heroLede}>
         Discover how to fix vulnerabilities, standardize code quality, perform type-aware code
         searches, and accelerate refactoring at enterprise scale.

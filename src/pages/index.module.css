@@ -47,10 +47,12 @@
   padding-bottom: calc(var(--mod-spacing_10) + var(--mod-spacing_1));
 }
 
-/* Display size, above the type ramp's 28px top. */
+/* Display size, above the type ramp's 28px top. The 30px floor keeps
+   "Explore documentation" on one line at 390px, so the forced break before
+   "and" gives two lines, not four. */
 .heroHeading {
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
-  font-size: clamp(36px, 5.2vw, 68px);
+  font-size: clamp(30px, 5.2vw, 68px);
   font-weight: var(--mod-font-weight-semi-bold);
   letter-spacing: -0.035em;
   line-height: 1.02;
