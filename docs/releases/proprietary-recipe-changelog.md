@@ -10,6 +10,203 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 12, 2026
+
+#### recipes-csharp - 0.22.0
+
+* Add C# security recipes: secure random, security best practices, OWASP Top Ten
+* Run C# tests with `--blame`
+
+#### recipes-go - 0.25.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### recipes-javascript - 0.16.0
+
+* `RemoveUnconditionalValueOverwrite` - preserve property writes read by subsequent overwrite values
+* Use JsonPathMatcher in UI5 migration recipes
+* A few fixes to testing frameworks migration
+* Bump source-map-js from 1.2.1 to 1.2.2 in /recipes-testing-frameworks
+* Keep bracket access to private members and index signatures in `DotNotation` (G-rj-3)
+* Upgrade Gradle wrapper to 9.9.1
+* Pin recipes-ui5 to the released @openrewrite/rewrite 8.103.1
+
+#### recipes-kotlin - 0.19.0
+
+* Avoid textual LST comparisons in `BestPractices` and `Compose` search recipes
+* Upgrade Gradle wrapper to 9.9.1
+
+#### recipes-mainframe - 0.13.0
+
+* Document delivered mainframe vulnerability remediations
+
+#### recipes-scala - 0.19.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-ai - 0.18.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-android - 0.33.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-angular - 1.27.0
+
+* Rename imported members with `ChangeImport` alone
+
+#### rewrite-circleci - 3.26.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-compiled-analysis - 0.29.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-concourse - 3.25.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-cryptography - 0.30.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-devcenter - 1.46.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-dotnet - 0.31.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-elastic - 0.22.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-hibernate - 0.43.0
+
+* Drop the unused Hibernate7Module.Feature import from MigrateJacksonDatatypeHibernate6To7Test
+
+#### rewrite-jasperreports - 0.20.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-java-application-server - 0.24.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-java-security - 3.56.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-kafka - 0.21.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-kubernetes - 3.33.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-mainframe - 3.16.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-migrate-kotlin - 0.23.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-migrate-python - 0.29.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-nodejs - 0.65.0
+
+* Upgrade Gradle wrapper to 9.9.1
+* Evaluate the argument of `util.isObject` and `util.isPrimitive` once
+
+#### rewrite-nullability - 0.20.0
+
+* Annotate array references when collection entries or array rows can be null
+* Infer nullable map keys and map inherited generic slots correctly
+* Recognize attributed ThriftNullable contracts across inference and repair
+* Preserve Lombok NonNull annotations that generate runtime checks
+* Infer nullable fields assigned through Lombok generated builders
+* Analyze callback null flow and preserve argument evaluation order
+* Preserve receiving input contracts during nullability inference
+
+#### rewrite-prethink - 0.30.0
+
+* Link JS/TS tests to the implementation they exercise
+* Detect JS/TS styling, data fetching, export, naming and test placement conventions
+* Find Next.js, tRPC and Remix endpoints, and Fastify routes
+* Add a React component catalog to Prethink
+* Report Node.js workspace packages and duplicate dependency versions
+* Add a Node.js build, lint and test tooling digest
+* Add JS/TS function complexity metrics and React smells
+* Find React Testing Library test issues
+* Map React state and data fetching
+* Record frontend API calls with normalized URLs and axios base URLs
+* Extract TypeScript DTO field schemas from NestJS classes and zod schemas
+* Export the data tables of TypeScript-authored recipes
+
+#### rewrite-program-analysis - 0.32.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-react - 0.21.0
+
+* Move a store its entry source creates to a module of its own
+* Add RTL 16 only where its peer @testing-library/dom landed, running that step first
+* Make two tests pass on Windows
+* Follow imports through jsconfig/tsconfig paths aliases, and read export {store}
+* Redux to zustand: a whole store's dispatch rejects what Redux does
+* Find hard-coded strings and translate them with react-i18next
+* Enzyme to RTL: say what to do with a wrapper by where it escapes, and with a found wrapper's length
+* Enzyme to RTL: say what keeps each render on Enzyme in its review row
+* Redux to zustand: connect keeps its props when mapStateToProps throws on a store update, as react-redux 8 does
+* Enzyme to RTL: say what to write instead of the rest of Enzyme's wrapper methods and of dive
+* Redux to zustand: a held store's review rows say what to do about each use of react-redux they name
+
+#### rewrite-reactive-streams - 0.34.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-spring - 0.57.0
+
+* Find same-class calls that bypass `@Transactional` propagation
+* Add FindOptionalPrimitiveRequestParameters (Sonar S6814)
+* Expect qualified OpenAI audio enums after `ChangeType`
+* Add FindUninjectedSpringComponentMember (Sonar S3749)
+* Add AddNullDefaultToNullableValue (Sonar S6816)
+* Add FindInjectedFieldUsedByOneBeanMethod (Sonar S3305)
+* Add FindMisorderedHttpSecurityMatchers (Sonar S4601)
+* Add FindAsyncInConfigurationClass (Sonar S6817)
+
+#### rewrite-sql - 2.33.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-static-analysis - 0.14.0
+
+* Add FindAssertionInRunMethod recipe (RSPEC-S2186)
+* Add FindAssertionOnIncompatibleTypes recipe (RSPEC-S5845)
+* Add FindNullFromMapCompute recipe (RSPEC-S6104)
+* Add FindIgnoredRecordSerializationMember recipe (RSPEC-S6209)
+
+#### rewrite-struts - 0.43.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-tapestry - 0.20.0
+
+* Upgrade Gradle wrapper to 9.9.1
+* Give the code that three recipes write the types a parser gives it
+
+#### rewrite-terraform - 3.29.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
 ## November 11, 2026
 
 #### recipes-csharp - 0.21.0
