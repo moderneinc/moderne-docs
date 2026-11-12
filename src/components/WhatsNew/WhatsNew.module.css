@@ -1,0 +1,226 @@
+/**
+ * What's new feed: month sections holding product update cards.
+ * Bound to --mod-* tokens, which are mode-aware, so one set of rules covers
+ * light and dark.
+ */
+
+/* Month section */
+.month {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_2);
+  max-width: 760px;
+  margin: 0 0 var(--mod-spacing_4);
+}
+
+.monthHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--mod-spacing_1_1_2);
+}
+
+/* The rule that runs from the month label to the right edge */
+.monthHeader::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--mod-color-border-primary);
+}
+
+/* Doubled class: outranks the global docMainContainer h2 rules in custom.css,
+   which give every doc h2 the large size, bottom border, and (in dark mode)
+   primary text color. The month label is a small secondary caption instead. */
+.month .monthHeader .monthTitle.monthTitle {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-semi-bold);
+  line-height: 18px;
+  color: var(--mod-color-text-secondary);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_2);
+}
+
+/* Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_1_1_4);
+  padding: var(--mod-spacing_3) var(--mod-spacing_3_1_2);
+  background: var(--mod-color-surface-raised);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-card);
+  color: var(--mod-color-text-primary);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+}
+
+.cardWarning {
+  background: var(--mod-color-feedback-warning-bg);
+  border-color: var(--mod-color-feedback-warning-border);
+}
+
+/* Header row: icon, product + kind, optional badge. The product class on
+   this row sets the color that the icon and product label inherit. */
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--mod-spacing_1_1_2);
+  margin-bottom: var(--mod-spacing_1_2);
+}
+
+.icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 40px;
+}
+
+.meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_1_4);
+}
+
+.product {
+  font-size: var(--mod-font-size-sm);
+  line-height: 18px;
+  font-weight: var(--mod-font-weight-semi-bold);
+}
+
+.kind {
+  font-size: var(--mod-font-size-caption);
+  line-height: 18px;
+  color: var(--mod-color-text-tertiary);
+}
+
+.badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mod-spacing_3_4);
+  height: 26px;
+  padding: 0 var(--mod-spacing_1_1_4);
+  border: 1px solid var(--mod-color-status-neutral-border);
+  border-radius: var(--mod-border-radius-x-s);
+  background: var(--mod-color-status-neutral-bg);
+  color: var(--mod-color-status-neutral-fg);
+  font-size: var(--mod-font-size-xs);
+  font-weight: var(--mod-font-weight-semi-bold);
+  white-space: nowrap;
+}
+
+.badgeWarning {
+  border-color: transparent;
+  background: var(--mod-color-status-warning-solid);
+  color: var(--mod-color-text-on-primary);
+}
+
+/* Product colors */
+.productPlatform {
+  color: var(--mod-color-status-active-fg);
+}
+
+.productCli {
+  color: var(--mod-color-status-success-fg);
+}
+
+.productDx {
+  color: var(--mod-color-categorical-berry-fg);
+}
+
+.productOpenRewrite {
+  color: var(--mod-color-status-warning-fg);
+}
+
+.productAgents {
+  color: var(--mod-color-categorical-jade-fg);
+}
+
+.productModdy {
+  color: var(--mod-color-categorical-blue-fg);
+}
+
+.productDocs {
+  color: var(--mod-color-status-info-fg);
+}
+
+.productModerne {
+  color: var(--mod-color-text-primary);
+}
+
+/* Title: the .card prefix outranks the theme's h3 color and weight rules */
+.card .cardTitle {
+  margin: 0;
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-h4);
+  line-height: 1.3;
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-primary);
+}
+
+/* Body: markdown paragraphs and lists inherit this type and color */
+.body {
+  font-size: var(--mod-font-size-default);
+  line-height: 1.55;
+  color: var(--mod-color-text-secondary);
+}
+
+.body > :last-child {
+  margin-bottom: 0;
+}
+
+/* Bold lead-ins in bullets read as the item's label, so they take the
+   primary text color. The body is markdown output, so there is no class
+   to hang this on. */
+.body strong {
+  color: var(--mod-color-text-primary);
+  font-weight: var(--mod-font-weight-semi-bold);
+}
+
+/* The .card prefix outranks the theme's .markdown img rule, which puts 40px
+   above and below media. The hairline frame that rule draws is kept. */
+.card .image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: var(--mod-spacing_1_2) 0 0;
+}
+
+/* Links row: the .links prefix outranks the theme's .markdown a underline */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mod-spacing_1) var(--mod-spacing_3);
+  margin-top: var(--mod-spacing_1_2);
+}
+
+.links .link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mod-spacing_3_4);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-action-default);
+  text-decoration: none;
+}
+
+.links .link:hover {
+  color: var(--mod-color-action-default);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: var(--mod-spacing_2) var(--mod-spacing_2_1_2);
+  }
+}
