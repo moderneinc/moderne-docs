@@ -194,8 +194,9 @@
 }
 
 /* Whole block is the link. Resting: a heavy rule above the first product in
-   the column, nothing above the second. Hover/focus: raised panel under a green
-   rule, name underlined, arrow slides in. */
+   the column, nothing above the second. Hover/focus: the block fills one
+   surface step, flat and unshadowed like the "Browse by area" tiles, and the
+   arrow slides in. The rule does not change. */
 .product {
   position: relative;
   display: flex;
@@ -203,13 +204,11 @@
   gap: var(--mod-spacing_1);
   padding: var(--mod-spacing_2_1_2) var(--tile-bleed) var(--mod-spacing_3);
   margin: 0 calc(-1 * var(--tile-bleed));
-  border-radius: 0 0 var(--mod-border-radius-card) var(--mod-border-radius-card);
+  border-radius: 0 0 var(--mod-border-radius-x-xs) var(--mod-border-radius-x-xs);
   background: transparent;
   text-decoration: none;
   color: var(--mod-color-text-primary);
-  transition:
-    background-color var(--ifm-transition-fast) ease,
-    box-shadow var(--ifm-transition-fast) ease;
+  transition: background-color var(--ifm-transition-fast) ease;
 }
 
 .product::before {
@@ -220,11 +219,6 @@
   right: var(--tile-bleed);
   height: 0;
   background: var(--mod-color-text-primary);
-  transition:
-    left var(--ifm-transition-fast) ease,
-    right var(--ifm-transition-fast) ease,
-    height var(--ifm-transition-fast) ease,
-    background-color var(--ifm-transition-fast) ease;
 }
 
 .productColumn > .product:first-child::before {
@@ -233,19 +227,9 @@
 
 .product:hover,
 .product:focus-visible {
-  background: var(--mod-color-surface-raised);
-  box-shadow: var(--mod-docs-shadow-dropdown);
+  background: var(--mod-color-surface-sunken);
   text-decoration: none;
   color: var(--mod-color-text-primary);
-}
-
-/* The 3px hover weight has no stroke token. */
-.product:hover::before,
-.product:focus-visible::before {
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--mod-color-text-success);
 }
 
 /* Ring drawn with outline, not box-shadow, so forced-colors mode keeps it. */
@@ -265,14 +249,6 @@
   font-weight: var(--mod-font-weight-semi-bold);
   letter-spacing: -0.015em;
   color: var(--mod-color-text-primary);
-  text-decoration-thickness: var(--mod-stroke-width-2);
-  text-underline-offset: var(--mod-spacing_1_2);
-}
-
-.product:hover .productName,
-.product:focus-visible .productName {
-  color: var(--mod-color-text-success);
-  text-decoration: underline;
 }
 
 .productArrow {
@@ -350,7 +326,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .product,
-  .product::before,
   .productArrow {
     transition: none;
   }
