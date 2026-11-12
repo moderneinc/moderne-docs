@@ -267,7 +267,7 @@
 }
 
 .productDescription {
-  font-size: var(--mod-font-size-default);
+  font-size: var(--mod-font-size-sm);
   line-height: 1.55;
   color: var(--mod-color-text-secondary);
 }
