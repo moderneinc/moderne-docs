@@ -69,7 +69,7 @@
 }
 
 .productCardTitle {
-  font-size: var(--mod-font-size-default);
+  font-size: var(--mod-font-size-h4);
   font-weight: var(--mod-font-weight-semi-bold);
   color: var(--mod-color-text-primary);
   margin: 0;
