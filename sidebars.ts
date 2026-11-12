@@ -1004,6 +1004,7 @@ const sidebars: SidebarsConfig = {
     openRewriteAdvanced,
     platform.admin,
     dx,
+    'whats-new',
     releases,
     licensing,
   ]

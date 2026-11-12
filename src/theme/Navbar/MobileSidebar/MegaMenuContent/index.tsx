@@ -12,6 +12,7 @@ import {
   products,
   trainingItems,
   releasesItems,
+  whatsNewLink,
   footerLinks,
 } from '@site/src/config/megaMenuData';
 import styles from './styles.module.css';
@@ -81,6 +82,12 @@ const MobileMegaMenuContent: FunctionComponent = () => {
     href: trainingItems[0]?.href || '/hands-on-learning',
   };
 
+  // What's New is a single page, so it links straight there
+  const whatsNewMenuItem: MenuItem = {
+    name: whatsNewLink.name,
+    href: whatsNewLink.href,
+  };
+
   // Add Releases as a menu item (links to first releases item)
   const releasesMenuItem: MenuItem = {
     name: 'Releases',
@@ -100,6 +107,10 @@ const MobileMegaMenuContent: FunctionComponent = () => {
         ))}
         <MenuItemRow
           item={trainingMenuItem}
+          onClick={handleLinkClick}
+        />
+        <MenuItemRow
+          item={whatsNewMenuItem}
           onClick={handleLinkClick}
         />
         <MenuItemRow

@@ -513,6 +513,41 @@ describe('filterSidebarItemsByContext', () => {
       expect(hasPlatformSubsection).toBe(true);
     });
 
+    it('should show only a standalone top-level doc when on its page', () => {
+      // What's new is a top-level doc with no category of its own.
+      const standaloneItems: PropSidebarItem[] = [
+        ...mockSidebarItems,
+        {
+          type: 'link',
+          docId: 'whats-new',
+          label: "What's new",
+          href: '/whats-new',
+        } as PropSidebarItem,
+      ];
+
+      const result = filterSidebarItemsByContext(
+        standaloneItems,
+        '/whats-new',
+        1,
+        null
+      );
+
+      expect(result).toHaveLength(1);
+      expect(result[0].type).toBe('link');
+      if (result[0].type === 'link') {
+        expect(result[0].href).toBe('/whats-new');
+      }
+
+      // Docusaurus may serve the page with a trailing slash
+      const withSlash = filterSidebarItemsByContext(
+        standaloneItems,
+        '/whats-new/',
+        1,
+        null
+      );
+      expect(withSlash).toEqual(result);
+    });
+
     it('should show the owning section when another section cross-links to a doc', () => {
       // CLI links to the CLI releases doc, which lives in the Releases section.
       // The sidebar should show Releases, not the CLI tree that links to it.

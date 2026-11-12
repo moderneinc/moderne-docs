@@ -77,6 +77,14 @@ export function filterSidebarItemsByContext(
     return addCategoryHeader(matchingCategory, currentPath);
   }
 
+  // A standalone top-level doc (such as What's new) has no category to show,
+  // so the sidebar holds just that page
+  const pathWithoutTrailingSlash = currentPath.replace(/\/+$/, '') || '/';
+  const standaloneDoc = items.find(item => isOwningDocLink(item, pathWithoutTrailingSlash));
+  if (standaloneDoc) {
+    return [standaloneDoc];
+  }
+
   // If no match found, return all items unfiltered as fallback
   // This ensures mobile users always see navigation content
   return items as PropSidebarItem[];
