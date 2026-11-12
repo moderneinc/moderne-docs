@@ -79,10 +79,6 @@ Confirm the active recipe has been set correctly by running:
 mod config recipes active show
 ```
 
-:::tip
-Using the Moderne IntelliJ plugin? You can set the active recipe from the IDE instead of the command line: right-click the recipe class and choose **Set Active Recipe**. See [Debugging recipes](../../../moderne-ide-integration/how-to-guides/debugging-recipes.md#step-1-set-the-active-recipe) for details.
-:::
-
 </TabItem>
 <TabItem value="csharp" label="C#">
 
@@ -199,7 +195,15 @@ If you run into issues with your recipe, keep in mind that you can set breakpoin
 mod --debug run /path/to/your/workspace --active-recipe
 ```
 
-The CLI suspends on startup and waits for a debugger to attach, then stops at your breakpoints as the recipe runs against real code. Any JDWP-capable debugger works (IntelliJ IDEA, VS Code, Eclipse). See [Debugging recipes](../../../moderne-ide-integration/how-to-guides/debugging-recipes.md) for the full setup, including how to [drive it entirely from the CLI without the Moderne IDE plugin](../../../moderne-ide-integration/how-to-guides/debugging-recipes.md#debugging-without-the-moderne-plugin).
+The CLI suspends on startup and waits for a debugger to attach on port `5005` (use `--debug=PORT` for a different port), then stops at your breakpoints as the recipe runs against real code. This is a standard JDWP attach, so any JDWP-capable debugger works:
+
+* **IntelliJ IDEA**: create a **Remote JVM Debug** run configuration for host `localhost` and port `5005`, then start it.
+* **VS Code**: add a `Java: Attach` launch configuration targeting port `5005`.
+* **Eclipse, `jdb`, or any other JDWP client**: attach to `localhost:5005`.
+
+Set your breakpoints in the recipe source before you attach. If the recipe takes options, pass them on the same command with `--recipe-option`, for example `--recipe-option methodPattern="java.util.Collections emptyList()"`.
+
+To iterate, edit and rebuild the recipe, then run the same command again. The active recipe persists between runs, so you only need to set it again if the recipe file or its classpath changes.
 
 :::note
 Breakpoint debugging attaches a JVM debugger, so it only applies to Java and YAML recipes. Debug C#, Python, and JavaScript recipes with your language's usual tooling.

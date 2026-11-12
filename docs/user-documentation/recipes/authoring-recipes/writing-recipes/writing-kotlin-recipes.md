@@ -465,11 +465,7 @@ mod run ./workspace --active-recipe
 
 From there, each edit to your recipe costs one `./gradlew classes` and one `mod run ./workspace --active-recipe`. Because the CLI loads the recipe from the Gradle or Maven classpath, there is no jar to package and no artifact to publish in between. Add `--continuous` to the Gradle command to have it recompile on every save.
 
-When the recipe runs but does not change what you expected, [attach a debugger](../../../moderne-ide-integration/how-to-guides/debugging-recipes.md) to that same active recipe with `modw --debug run ./workspace --active-recipe` and step through your visitor.
-
-:::tip
-The Moderne IntelliJ plugin's **Set Active Recipe** action is a UI shortcut for the same command, so you can select the recipe from the editor instead of typing its ID. The plugin needs a [licensed CLI](../../../moderne-cli/getting-started/moderne-cli-license.md).
-:::
+When the recipe runs but does not change what you expected, [attach a debugger](../testing-and-best-practices/validating-recipes-at-scale.md#debug-a-recipe-against-real-code) to that same active recipe with `modw --debug run ./workspace --active-recipe` and step through your visitor.
 
 ### Knowing what your recipe is called
 

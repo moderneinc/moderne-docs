@@ -547,9 +547,9 @@ Now you can run your recipe with `mvn rewrite:run` or `mvn rewrite:dryRun`
 </TabItem>
 </Tabs>
 
-## Moderne IntelliJ plugin
+## Moderne CLI
 
-Moderne offers a [CLI](../../../moderne-cli/getting-started/cli-intro.md) and an [IntelliJ plugin](../../../moderne-ide-integration/how-to-guides/moderne-plugin-install.md) that can help speed up the development and testing of recipes. We'd strongly encourage you to check those out while developing recipes.
+The [Moderne CLI](../../../moderne-cli/getting-started/cli-intro.md) can help speed up the development and testing of recipes. It runs a recipe straight from your project against real repositories, and lets you attach a debugger while it runs. See [Validating recipes at scale](../testing-and-best-practices/validating-recipes-at-scale.md) for the workflow.
 
 ## Next steps
 
