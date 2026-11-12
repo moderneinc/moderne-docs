@@ -159,7 +159,7 @@ This changelog is automatically generated from GitHub releases and only contains
 * Move a store its entry source creates to a module of its own
 * Add RTL 16 only where its peer @testing-library/dom landed, running that step first
 * Make two tests pass on Windows
-* Follow imports through jsconfig/tsconfig paths aliases, and read export {store}
+* Follow imports through jsconfig/tsconfig paths aliases, and read export `{store}`
 * Redux to zustand: a whole store's dispatch rejects what Redux does
 * Find hard-coded strings and translate them with react-i18next
 * Enzyme to RTL: say what to do with a wrapper by where it escapes, and with a found wrapper's length
