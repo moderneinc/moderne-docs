@@ -7,8 +7,6 @@ export type ProductItem = {
   icon: string;
   description: string;
   homepageHref?: string;
-  /** Lucide icon name used by the homepage "Browse by area" tile */
-  homepageIcon?: string;
 };
 
 /**

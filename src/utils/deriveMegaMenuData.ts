@@ -33,7 +33,6 @@ interface CategoryWithLink {
     megaMenu?: boolean;
     gemIcon?: string;
     homepageHref?: string;
-    homepageIcon?: string;
     [key: string]: any;
   };
   [key: string]: any;
@@ -82,7 +81,6 @@ export function deriveProductsFromSidebars(): ProductItem[] {
         description: item.link.description || '',
         href: item.link.slug || `/${item.label.toLowerCase()}`,
         homepageHref: item.customProps.homepageHref,
-        homepageIcon: item.customProps.homepageIcon,
       });
     }
   });

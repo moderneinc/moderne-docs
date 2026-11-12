@@ -1,263 +1,93 @@
 /**
- * ProductCardsGrid — "Browse by area".
- *
- * Two tiers of link tiles. Each tile is a flat block under a rule; hovering or
- * focusing it fills a raised panel (the raised surface in both modes) under a
- * thicker green rule, underlines the name, and nudges the arrow.
- *
- * Panels bleed into the grid gap with negative margins so the resting text
- * stays flush with the section header. The rule is a pseudo-element inset by
- * the same amount at rest and widens to the panel edge on hover, so nothing
- * shifts.
- *
- * Green accent: --mod-color-text-success is the package's only mode-aware pair
- * that is forest green on cream and Digital Green on ink, which is exactly the
- * accent the design uses for links, rules, and rings.
+ * ProductCardsGrid — "Browse by area" grid.
+ * Morpheus: a bordered section header with an area count, and flat surface tiles
+ * that raise a step on hover. Mirrors the prototype's .sec-head / .grid / .area.
  */
 
 .browseByProduct {
   display: flex;
   flex-direction: column;
-  gap: var(--mod-spacing_3_1_2);
+  gap: var(--mod-spacing_2_1_2);
 }
 
+/* Section header: title on the left, right-aligned area count, divided from the
+   grid by a hairline rule. */
 .sectionHead {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
   gap: var(--mod-spacing_2);
+  border-bottom: 1px solid var(--mod-color-border-primary);
+  padding-bottom: var(--mod-spacing_1_1_2);
 }
 
 .sectionTitle {
-  font-size: var(--mod-font-size-h1);
+  font-size: 22px;
   font-weight: var(--mod-font-weight-semi-bold);
   letter-spacing: -0.02em;
-  line-height: 1.2;
   color: var(--mod-color-text-primary);
   margin: 0;
 }
 
 .sectionCount {
   font-family: var(--mod-font-family-code), ui-monospace, monospace;
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-xs);
   color: var(--mod-color-text-tertiary);
+  margin-left: auto;
 }
 
-/* ---------- Top tier ---------- */
-
-.featuredGrid {
-  --tile-bleed: var(--mod-spacing_2_1_2);
+/* Auto-fill at a 320px minimum → three columns on desktop, reflowing down to one
+   on narrow screens. min(100%, 320px) keeps a single card from overflowing on
+   very small viewports. */
+.productGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: var(--mod-spacing_5);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: var(--mod-spacing_2);
 }
 
-.areaCard {
-  position: relative;
+/* Flat, borderless surface tile (matches the prototype's .area). It raises one
+   surface step on hover; the "Explore" affordance and the gap between tiles carry
+   the boundary rather than a stroke. */
+.productCard {
+  display: flex;
+  padding: var(--mod-spacing_2_1_2);
+  background: var(--mod-color-surface-sunken);
+  border: none;
+  border-radius: var(--mod-border-radius-x-xs);
+  text-decoration: none;
+  transition: background-color var(--ifm-transition-fast) ease;
+}
+
+.productCard:hover {
+  background: var(--mod-color-surface-sunken-deep);
+  text-decoration: none;
+}
+
+.productCardContent {
   display: flex;
   flex-direction: column;
-  gap: var(--mod-spacing_1_3_4);
-  padding: var(--mod-spacing_3_1_2) var(--tile-bleed);
-  margin: 0 calc(-1 * var(--tile-bleed));
-  border-radius: 0 0 var(--mod-border-radius-card) var(--mod-border-radius-card);
-  background: transparent;
-  text-decoration: none;
-  color: var(--mod-color-text-primary);
-  transition:
-    background-color var(--ifm-transition-fast) ease,
-    box-shadow var(--ifm-transition-fast) ease;
+  min-width: 0;
 }
 
-/* The rule. Ink at rest and inset to the text column; green, thicker, and
-   full-width when the panel is up. The 3px hover weight has no stroke token. */
-.areaCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: var(--tile-bleed);
-  right: var(--tile-bleed);
-  height: var(--mod-stroke-width-2);
-  background: var(--mod-color-text-primary);
-  transition:
-    left var(--ifm-transition-fast) ease,
-    right var(--ifm-transition-fast) ease,
-    height var(--ifm-transition-fast) ease,
-    background-color var(--ifm-transition-fast) ease;
-}
-
-.areaCard:hover,
-.areaCard:focus-visible {
-  background: var(--mod-color-surface-raised);
-  box-shadow: var(--mod-docs-shadow-dropdown);
-  text-decoration: none;
-  color: var(--mod-color-text-primary);
-}
-
-.areaCard:hover::before,
-.areaCard:focus-visible::before {
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--mod-color-text-success);
-}
-
-/* Ring drawn with outline, not box-shadow, so forced-colors mode keeps it. */
-.areaCard:focus-visible {
-  outline: var(--mod-stroke-width-2) solid var(--mod-color-text-success);
-  outline-offset: 0;
-}
-
-/* 28px display icon; the icon-size scale tops out at 24px. */
-.areaIcon {
-  width: 28px;
-  height: 28px;
-  flex: 0 0 auto;
-  color: var(--mod-color-text-success);
-}
-
-.areaName {
-  font-size: var(--mod-font-size-h3);
-  font-weight: var(--mod-font-weight-semi-bold);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: var(--mod-color-text-primary);
-  text-decoration-thickness: var(--mod-stroke-width-2);
-  text-underline-offset: var(--mod-spacing_1_2);
-}
-
-.areaDescription {
+.productCardTitle {
   font-size: var(--mod-font-size-default);
-  line-height: 1.6;
-  color: var(--mod-color-text-secondary);
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-primary);
+  margin: 0;
+  line-height: 1.3;
 }
 
+.productCardDescription {
+  font-size: var(--mod-font-size-caption);
+  font-weight: var(--mod-font-weight-regular);
+  color: var(--mod-color-text-tertiary);
+  margin: var(--mod-spacing_3_4) 0 0;
+  line-height: 1.5;
+}
+
+/* "Explore →" affordance — link-colored, sits below the description. */
 .explore {
-  font-size: var(--mod-font-size-sm);
+  margin-top: var(--mod-spacing_1_1_2);
+  font-size: var(--mod-font-size-xs);
   font-weight: var(--mod-font-weight-semi-bold);
-  color: var(--mod-color-text-success);
-}
-
-.arrow {
-  display: inline-block;
-  color: var(--mod-color-text-success);
-  transition: transform var(--ifm-transition-fast) ease;
-}
-
-.areaCard:hover .areaName,
-.areaCard:focus-visible .areaName {
-  color: var(--mod-color-text-success);
-  text-decoration: underline;
-}
-
-.areaCard:hover .arrow,
-.areaCard:focus-visible .arrow,
-.compactCard:hover .arrow,
-.compactCard:focus-visible .arrow {
-  transform: translateX(var(--mod-spacing_3_4));
-}
-
-/* ---------- Lower tier ---------- */
-
-.compactGrid {
-  --tile-bleed: var(--mod-spacing_2);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  gap: 0 var(--mod-spacing_4);
-  margin-top: var(--mod-spacing_2);
-}
-
-.compactCard {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--mod-spacing_1);
-  padding: var(--mod-spacing_2_1_4) var(--tile-bleed) var(--mod-spacing_2_1_2);
-  margin: 0 calc(-1 * var(--tile-bleed));
-  border-radius: 0 0 var(--mod-border-radius-card) var(--mod-border-radius-card);
-  background: transparent;
-  text-decoration: none;
-  color: var(--mod-color-text-primary);
-  transition:
-    background-color var(--ifm-transition-fast) ease,
-    box-shadow var(--ifm-transition-fast) ease;
-}
-
-.compactCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: var(--tile-bleed);
-  right: var(--tile-bleed);
-  height: var(--mod-stroke-width-1);
-  background: var(--mod-color-border-primary);
-  transition:
-    left var(--ifm-transition-fast) ease,
-    right var(--ifm-transition-fast) ease,
-    height var(--ifm-transition-fast) ease,
-    background-color var(--ifm-transition-fast) ease;
-}
-
-.compactCard:hover,
-.compactCard:focus-visible {
-  background: var(--mod-color-surface-raised);
-  box-shadow: var(--mod-docs-shadow-dropdown);
-  text-decoration: none;
-  color: var(--mod-color-text-primary);
-}
-
-.compactCard:hover::before,
-.compactCard:focus-visible::before {
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--mod-color-text-success);
-}
-
-.compactCard:focus-visible {
-  outline: var(--mod-stroke-width-2) solid var(--mod-color-text-success);
-  outline-offset: 0;
-}
-
-.compactHead {
-  display: flex;
-  align-items: center;
-  gap: var(--mod-spacing_1_1_4);
-}
-
-.compactIcon {
-  width: var(--mod-icon-size-lg);
-  height: var(--mod-icon-size-lg);
-  flex: 0 0 auto;
-  color: var(--mod-color-text-success);
-}
-
-.compactName {
-  font-size: var(--mod-font-size-h5);
-  font-weight: var(--mod-font-weight-semi-bold);
-  letter-spacing: -0.015em;
-  color: var(--mod-color-text-primary);
-  text-decoration-thickness: var(--mod-stroke-width-2);
-  text-underline-offset: var(--mod-spacing_1_2);
-}
-
-.compactCard:hover .compactName,
-.compactCard:focus-visible .compactName {
-  color: var(--mod-color-text-success);
-  text-decoration: underline;
-}
-
-.compactDescription {
-  font-size: var(--mod-font-size-sm);
-  line-height: 1.55;
-  color: var(--mod-color-text-secondary);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .areaCard,
-  .areaCard::before,
-  .compactCard,
-  .compactCard::before,
-  .arrow {
-    transition: none;
-  }
+  color: var(--mod-color-action-default);
 }
