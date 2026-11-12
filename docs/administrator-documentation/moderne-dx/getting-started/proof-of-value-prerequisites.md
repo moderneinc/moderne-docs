@@ -11,8 +11,6 @@ Before starting a Moderne DX proof of value, your team will need to:
 * Prepare a repository list
 * Set aside a machine for Moderne DX
 
-This page covers everything you need to do so nothing is missed on day one.
-
 ## Checklist
 
 | # | Requirement                                                                                 | Details                                                                                            |
@@ -28,7 +26,7 @@ You will need a source control management (SCM) service account with **read acce
 
 ### Preparing your repository list
 
-You will need a [repos.csv file](../../../user-documentation/moderne-cli/references/repos-csv.md) that lists the repositories to work with. The more repositories you include, the more value you will see from the POV — Moderne's strength is working across repositories at scale.
+You will need a [repos.csv file](../../../user-documentation/moderne-cli/references/repos-csv.md) that lists the repositories to work with. The more repositories you include, the more value you will see from the POV, because Moderne is built to work across many repositories at once.
 
 The easiest way to generate this file is with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers), which are available for GitHub, GitLab, Bitbucket (Data Center and Cloud), and Azure DevOps. These scripts query your SCM's API and produce a ready-to-use `repos.csv` file.
 
@@ -46,7 +44,7 @@ The minimums are what `mod doctor` checks before you start. The check fails on f
 
 Only one repository is stored on disk at a time. This is because each container builds one repository at a time and then deletes it once its LST is published.
 
-To finish a large repository list sooner, you can run several containers in parallel. You will need to choose the number of shards you want - the CLI will then assign the repositories to them automatically.
+To finish a large repository list sooner, you can run several containers in parallel. You will need to choose how many shards you want. The CLI assigns repositories to them automatically.
 
 The [mass ingest guide](../how-to-guides/mass-ingest-dx.md#sizing) covers sizing and sharding. The [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Docker script and a Kubernetes Job that run the shards for you.
 

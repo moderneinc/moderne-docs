@@ -9,7 +9,7 @@ One of the first steps of integrating your code with Moderne is setting up a pip
 
 Building LSTs on a schedule rather than in CI keeps every repository current. That includes the repositories that rarely build, and the ones whose code has not changed but whose dependencies have. To understand why we recommend this over building LSTs in CI, see [mass ingest vs CI-integrated LST builds](../../moderne-platform/references/mass-ingest-vs-ci.md).
 
-In this guide, we will walk you through how mass ingest works, what you will need to arrange before you start, how to set it up from the Moderne mass ingest example repository, and how to size and scale it.
+In this guide, we will walk you through how mass ingest works, what you will need to arrange before you start, how to set it up from the Moderne mass ingest example repository, and how to size and scale it. We will also cover running it on the same machine as DX, without containers or an artifact repository.
 
 ## How mass ingest works
 
@@ -75,7 +75,7 @@ You should start with `mod doctor`, which checks that everything is in place wit
 
 ## Running mass ingest every day
 
-A large repository list finishes sooner when it is split into shards. You choose how many shards there are and how many run at once. The CLI decides which repositories belong to each shard by hashing each repository's origin, path, and branch. The containers split one list without coordinating, and you never assign repositories to shards yourself. A container runs one shard when its publish command includes `--shard i/M`, where `M` is the number of shards and `i` is its own index. Any scheduler that runs containers can do this.
+A large repository list finishes sooner when it is split into shards. You choose how many shards there are and how many run at once. You never assign repositories to shards yourself. Each container works out its own share of the list, and every repository goes in exactly one shard. A container runs one shard when its publish command includes `--shard i/M`, where `M` is the number of shards and `i` is its own index. Any scheduler that runs containers can do this.
 
 The example repository shows two ways to do this. [Running on one machine](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/docker.md) uses a short shell script that starts one container per shard on a single large VM. [Running on Kubernetes](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/kubernetes.md) uses an indexed Job, where Kubernetes creates one pod per shard and fills in each pod's index. On Amazon EKS, the example also includes a node pool that adds a spot instance for each pod and scales to zero between runs. Both pages explain what happens when a build fails. Keeping LSTs current is then a matter of starting a run every night, from cron, CI, or a CronJob.
 
@@ -97,14 +97,65 @@ Only one repository is on disk at a time. Size the disk for your largest one. Lo
 
 On one machine, the same numbers apply to each shard. Give each shard about 4 vCPUs and 16 GiB of the VM, and plan disk for your largest repository times the number of shards. The example's script caps each container at 12 GiB of memory.
 
-The number of shards sets how long each container runs. Shorter runs mean a lost container has less to redo. About four shards per concurrent container keeps each one to a few hours. You can change both numbers between runs. The lock tracks each repository, not the shard that built it.
+The number of shards sets how long each container runs. Shorter runs mean a lost container has less to redo. About four shards per concurrent container keeps each one to a few hours. You can change both numbers between runs without causing extra rebuilds.
 
 ### Pinning the CLI version
 
-By default, the image installs the newest CLI release each time a container starts. Every CLI release then rebuilds every repository once. The lock only skips a repository that the same CLI version built. CLI releases are frequent, and an unpinned image will rebuild everything on many nights. To choose when that happens, pin the version with the `MODERNE_WRAPPER_VERSION` environment variable, as [customizing the image](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#the-cli-version) describes.
+By default, the image installs the newest CLI release each time a container starts. Each new CLI release rebuilds every repository once, because the CLI only skips repositories that the same version built. CLI releases are frequent, and an unpinned image will rebuild everything on many nights. To choose when that happens, pin the version with the `MODERNE_WRAPPER_VERSION` environment variable, as [customizing the image](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#the-cli-version) describes.
 
 :::warning
 Do not pin to a version prior to 4.9.0.
+:::
+
+## Running mass ingest on the DX machine
+
+If DX runs on a machine that can reach your code, you can run mass ingest on that machine too. The CLI builds each LST into a directory on the machine, and DX serves the LSTs from there. You won't need containers or an artifact repository.
+
+You will need a `repos.csv` file that lists the repositories to build. You will also need a Moderne CLI that has the `mod config lsts artifacts file` command.
+
+### Publishing LSTs to a directory
+
+Configure the CLI to build V3 LSTs and publish them to a directory. Then copy your `repos.csv` file into that directory:
+
+```bash
+mod config features lst --version 3
+mod config lsts artifacts file edit ~/moderne/lsts
+cp repos.csv ~/moderne/lsts/
+```
+
+Code search reads V3 LSTs as they are. DX won't need to make V3 copies of them.
+
+### Building the LSTs
+
+Run mass ingest from a workspace directory:
+
+```bash
+mod publish ~/moderne/workspace --sync-csv
+```
+
+The CLI works through your list one repository at a time, [as in any mass ingest run](#how-mass-ingest-works). It copies each LST into the directory and lists it in a `repos-lock.csv` file there. While it builds, it updates that file every few minutes.
+
+To refresh the LSTs, run the command again. The CLI rebuilds only the repositories that changed. Each new LST replaces the repository's old one.
+
+### Pointing DX at the directory
+
+[Install DX](../getting-started/installing-moderne-dx.md) as usual. In the `moderne.yml` file that `init` wrote, remove the public `http` organization source and add a `file` source that reads the directory's `repos-lock.csv` file:
+
+```yaml title="moderne.yml"
+moderne:
+  organization:
+    sources:
+      file:
+        - path: /Users/you/moderne/lsts/repos-lock.csv
+          lst-version: 3
+```
+
+You will need to give the full path to the file. The `lst-version: 3` setting tells DX that the LSTs are V3.
+
+When you run `java -jar moderne-dx.jar doctor`, it should report that every organization source publishes V3 LSTs. After DX starts, code search finds a repository a few minutes after its LST is built.
+
+:::note
+Only a CLI on this machine can download these LSTs. DX gives each LST's location as a path on this machine, so developers on other machines can't sync these repositories with the CLI.
 :::
 
 ## Next steps
