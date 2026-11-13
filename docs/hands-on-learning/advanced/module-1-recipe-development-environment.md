@@ -1,19 +1,17 @@
 ---
-sidebar_label: "Module 1: Development environment"
-description: Debug recipes with IDE breakpoints and the Moderne CLI.
+sidebar_label: "Module 1: Debugging recipes"
+description: Learn how to debug recipes with unit tests and with the Moderne CLI.
 ---
 
-# Module 1: Recipe development environment and debugging
+# Module 1: Debugging recipes
 
-This module takes a deeper dive into the tools you'll use to author, run, and debug advanced OpenRewrite recipes. You'll learn how to debug recipes using both IDE breakpoints and CLI runs.
+In this module, you'll learn how to debug recipes with unit tests and with the Moderne CLI.
 
 :::info
 This module assumes you have already completed [Fundamentals Module 1: Recipe development environment](../fundamentals/module-1-recipe-development-environment.md). That module covers the environment setup this workshop depends on, including cloning the [`rewrite-recipe-starter` repository](https://github.com/moderneinc/rewrite-recipe-starter), installing the Moderne CLI, and running the starter's tests. Complete it first if you haven't, then return here.
 :::
 
 ## Exercise 1: Debugging recipes
-
-In this exercise, you’ll learn how to debug recipes using both IDE breakpoints and command-line execution.
 
 ### Goals for this exercise
 

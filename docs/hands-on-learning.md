@@ -48,7 +48,7 @@ Master deeper, more powerful features of the OpenRewrite and Moderne ecosystem. 
 **What you'll learn:**
 
 * How to set up and optimize your development environment for recipe authoring
-* Debugging techniques using both the CLI and IDE breakpoints
+* How to debug recipes in unit tests and in CLI runs
 * How to build scanning recipes that analyze multiple files across a codebase
 * Using traits to model higher-level abstractions in recipes
 * Writing and analyzing data tables to extract insights from source code

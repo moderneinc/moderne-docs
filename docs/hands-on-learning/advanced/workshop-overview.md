@@ -15,7 +15,7 @@ If you get stuck or have questions, feel free to ask in the [OpenRewrite Slack](
 
 ## What you'll learn
 
-* Debugging techniques using both the CLI and IDE breakpoints
+* Debugging techniques for both unit tests and the CLI
 * Writing and analyzing data tables to extract insights from source code
 * How to build scanning recipes that analyze and generate files across a codebase
 * Using traits to model higher-level abstractions in recipes (covered in the optional bonus module)
@@ -32,7 +32,7 @@ If you haven’t been through the [Fundamentals of OpenRewrite recipe developmen
 
 ## Workshop modules
 
-1. [Module 1: Development environment and debugging](./module-1-recipe-development-environment.md)
+1. [Module 1: Debugging recipes](./module-1-recipe-development-environment.md)
 2. [Module 2: Data tables](./module-2-data-tables.md)
 3. [Module 3: Scanning recipes](./module-3-scanning-recipes.md)
 4. [Bonus: Traits](./module-4-traits.md) — an optional deeper dive that builds on Module 3

@@ -549,7 +549,7 @@ Now you can run your recipe with `mvn rewrite:run` or `mvn rewrite:dryRun`
 
 ## Moderne CLI
 
-The [Moderne CLI](../../../moderne-cli/getting-started/cli-intro.md) can help speed up the development and testing of recipes. It runs a recipe straight from your project against real repositories, and lets you attach a debugger while it runs. See [Validating recipes at scale](../testing-and-best-practices/validating-recipes-at-scale.md) for the workflow.
+The [Moderne CLI](../../../moderne-cli/getting-started/cli-intro.md) can help you build and test recipes faster. You can use it to [run your recipe on real repositories](../testing-and-best-practices/validating-recipes-at-scale.md) and debug it as it runs.
 
 ## Next steps
 

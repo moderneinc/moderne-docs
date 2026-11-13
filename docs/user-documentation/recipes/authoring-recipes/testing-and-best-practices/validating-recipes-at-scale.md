@@ -195,7 +195,9 @@ If you run into issues with your recipe, keep in mind that you can set breakpoin
 mod --debug run /path/to/your/workspace --active-recipe
 ```
 
-The CLI suspends on startup and waits for a debugger to attach on port `5005` (use `--debug=PORT` for a different port), then stops at your breakpoints as the recipe runs against real code. This is a standard JDWP attach, so any JDWP-capable debugger works:
+The CLI will pause and wait for a debugger to connect on port `5005`. After you connect, the recipe runs and stops at your breakpoints. To use a different port, pass `--debug=PORT`.
+
+You can use any Java debugger:
 
 * **IntelliJ IDEA**: create a **Remote JVM Debug** run configuration for host `localhost` and port `5005`, then start it.
 * **VS Code**: add a `Java: Attach` launch configuration targeting port `5005`.
@@ -203,7 +205,7 @@ The CLI suspends on startup and waits for a debugger to attach on port `5005` (u
 
 Set your breakpoints in the recipe source before you attach. If the recipe takes options, pass them on the same command with `--recipe-option`, for example `--recipe-option methodPattern="java.util.Collections emptyList()"`.
 
-To iterate, edit and rebuild the recipe, then run the same command again. The active recipe persists between runs, so you only need to set it again if the recipe file or its classpath changes.
+To iterate, edit and rebuild the recipe. Then run the same command again.
 
 :::note
 Breakpoint debugging attaches a JVM debugger, so it only applies to Java and YAML recipes. Debug C#, Python, and JavaScript recipes with your language's usual tooling.
