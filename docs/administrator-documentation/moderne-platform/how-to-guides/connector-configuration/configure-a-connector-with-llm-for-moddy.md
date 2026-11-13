@@ -245,7 +245,7 @@ java -jar connector-{version}.jar \
 # ... other required agent configuration ...
 --moderne.moddy.vertex.uri=https://aiplatform.googleapis.com/v1/projects/my-project/locations/global/publishers/google \
 --moderne.moddy.vertex.model=gemini-3.1-pro-preview \
---moderne.moddy.vertex.credentials-json=$MODERNE_MODDY_VERTEX_CREDENTIALSJSON \
+--moderne.moddy.vertex.credentials-json="$MODERNE_MODDY_VERTEX_CREDENTIALSJSON" \
 # ... rest of configuration ...
 ```
 
