@@ -196,7 +196,7 @@ const productColumns: Product[][] = [
       name: 'Moderne Platform',
       product: 'Platform',
       description:
-        'An enterprise-ready, private SaaS solution that enables anyone in your organization to run recipes, create pull requests, and generate detailed reports across all of your repositories. No code required.',
+        'An enterprise-ready, private SaaS solution that enables anyone in your organization to run recipes, create pull requests, and generate detailed reports across all of your repositories without writing a line of code.',
     },
     {
       name: 'Moddy',
@@ -269,7 +269,7 @@ export const AboutModerneSection: FunctionComponent = () => {
 
       <p className={styles.footnote}>
         Moderne is SOC 2 Type 2 compliant. A private SaaS can be created for your team in any major
-        cloud provider or region. It supports numerous languages, data formats, build tools, and
+        cloud provider or region. Moderne supports many languages, data formats, build tools, and
         frameworks, plus{' '}
         <Link
           className={styles.proseLink}
