@@ -6,9 +6,9 @@ import { HeroSection } from '@site/src/pages/index';
  * HeroSection - Homepage hero section
  *
  * The main hero section featuring:
- * - Two-line heading with brand colors
- * - Descriptive subheading
- * - Primary CTA button with icon
+ * - Large display headline
+ * - Descriptive lede
+ * - Primary "Get started" and secondary "What is Moderne?" buttons
  * - Responsive typography
  * - Dark mode support
  */
@@ -20,7 +20,7 @@ const meta: Meta<typeof HeroSection> = {
     docs: {
       description: {
         component:
-          'Hero section that appears at the top of the homepage with heading, subheading, and call-to-action button.',
+          'Hero section at the top of the homepage with the headline, lede, two call-to-action buttons, and the screenshot collage.',
       },
     },
   },

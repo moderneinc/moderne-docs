@@ -129,6 +129,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build bazel timeout delete**](#mod-config-build-bazel-timeout-delete)
 * [**mod config build bazel timeout edit**](#mod-config-build-bazel-timeout-edit)
 * [**mod config build bazel timeout show**](#mod-config-build-bazel-timeout-show)
+* [**mod config build bazel workers**](#mod-config-build-bazel-workers)
+* [**mod config build bazel workers delete**](#mod-config-build-bazel-workers-delete)
+* [**mod config build bazel workers edit**](#mod-config-build-bazel-workers-edit)
+* [**mod config build bazel workers show**](#mod-config-build-bazel-workers-show)
 * [**mod config build coldfusion**](#mod-config-build-coldfusion)
 * [**mod config build coldfusion timeout**](#mod-config-build-coldfusion-timeout)
 * [**mod config build coldfusion timeout delete**](#mod-config-build-coldfusion-timeout-delete)
@@ -268,8 +272,6 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config exec timeout edit**](#mod-config-exec-timeout-edit)
 * [**mod config exec timeout show**](#mod-config-exec-timeout-show)
 * [**mod config features**](#mod-config-features)
-* [**mod config features agent-tools**](#mod-config-features-agent-tools)
-* [**mod config features agent-tools tray**](#mod-config-features-agent-tools-tray)
 * [**mod config features build**](#mod-config-features-build)
 * [**mod config features build git-blame**](#mod-config-features-build-git-blame)
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
@@ -797,6 +799,7 @@ mod amp chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod audit
@@ -1007,6 +1010,7 @@ mod claude chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod clean
@@ -1194,6 +1198,7 @@ mod codex chat /path/to/working-set --model gpt-5.5-codex --effort high --resume
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--resume` |  Resume the newest Codex session in the directory, or the one named by id or name. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod config
@@ -3021,6 +3026,7 @@ mod config build bazel [subcommands]
 * `arguments`: Configure Bazel build arguments.
 * `executable`: Configure Bazel executable.
 * `timeout`: Configure the build timeout.
+* `workers`: (INCUBATING) Configure Bazel persistent workers for LST mini-builds.
 
 ## mod config build bazel arguments
 
@@ -3264,6 +3270,88 @@ Displays the configured build timeout.
 
 ```
 mod config build bazel timeout show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build bazel workers
+
+(INCUBATING) Configure Bazel persistent workers for LST mini-builds.
+
+
+When enabled, Bazel serves the per-target mini-builds that produce LSTs from long-lived worker JVMs instead of starting a JVM per target. Enabling workers re-parses every target once, because it changes the cache key of every mini-build action. Disabled by default. The number of JVM workers of each kind and of Python source-set workers Bazel runs at once can each be limited.
+
+### Usage
+
+```
+mod config build bazel workers [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: (INCUBATING) Removes the Bazel persistent workers settings.
+* `edit`: (INCUBATING) Configure Bazel persistent workers for LST mini-builds.
+* `show`: (INCUBATING) Displays the Bazel persistent workers settings.
+
+## mod config build bazel workers delete
+
+(INCUBATING) Removes the Bazel persistent workers settings.
+
+
+### Usage
+
+```
+mod config build bazel workers delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build bazel workers edit
+
+(INCUBATING) Configure Bazel persistent workers for LST mini-builds.
+
+
+Only the settings given change. With none given, workers are enabled. Enabling workers re-parses every target once, because it changes the cache key of every mini-build action.
+
+### Usage
+
+```
+mod config build bazel workers edit
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  Whether to use persistent workers. |
+| `--jvm-max-instances` |  The most JVM workers Bazel runs at once, applied separately to source-set and type-table workers. Bazel's default applies when unset. |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--python-max-instances` |  The most Python source-set workers Bazel runs at once. Bazel's default applies when unset. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build bazel workers show
+
+(INCUBATING) Displays the Bazel persistent workers settings.
+
+
+### Usage
+
+```
+mod config build bazel workers show
 ```
 
 ### Options
@@ -3739,7 +3827,7 @@ mod config build environment edit [parameters]
 
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
-| `environmentKeyPairs` |  Environment variables in KEY=VALUE format. | `MAVEN_OPTS=-Xmx2g NPM_TOKEN=secret123` |
+| `environmentKeyPairs` |  Environment variables in KEY=VALUE format. Reference a variable of this machine, as in 'NPM\_TOKEN=null', rather than saving a secret in the configuration. | `MAVEN_OPTS=-Xmx2g 'NPM_TOKEN=${CI_TOKEN}'` |
 
 ### Options
 
@@ -6211,49 +6299,12 @@ mod config features [subcommands]
 
 ### Subcommands
 
-* `agent-tools`: Configure agent tools features.
 * `build`: Configure what LST builds record.
 * `index-recipes`
 * `inline-diff`: Configure inline diff rendering in the terminal.
 * `lst`: Configure the LST serialization format version.
 * `no-maven-central`: (DEPRECATED) Use mod config build maven settings edit instead.
 * `pre-study`: Configure data table aggregation during recipe runs.
-
-## mod config features agent-tools
-
-Configure agent tools features.
-
-
-### Usage
-
-```
-mod config features agent-tools [subcommands]
-```
-
-
-### Subcommands
-
-* `tray`: Configure the agent tools system tray icon.
-
-## mod config features agent-tools tray
-
-Configure the agent tools system tray icon.
-
-
-When enabled, the MCP server launches a system tray icon with a browser-based dashboard for monitoring LST builds, tool calls, and executing tools. Disabled by default.
-
-### Usage
-
-```
-mod config features agent-tools tray
-```
-
-### Options
-
-| Name | Description |
-| ---- | ----------- |
-| `--enabled` |  |
-
 
 ## mod config features build
 
@@ -11396,6 +11447,7 @@ mod copilot chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod cursor
@@ -11451,6 +11503,7 @@ mod cursor chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod devin
@@ -11507,6 +11560,7 @@ mod devin chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod doctor
@@ -12153,7 +12207,7 @@ mod git sync [subcommands]
 Synchronizes the repositories and metadata of an organization from a local repos.csv file.
 
 
-Synchronize repositories and metadata to **path** using a local repos.csv **csv** file. The file need not be named repos.csv. The name is shorthand for a CSV in the format described at https://docs.moderne.io/user-documentation/moderne-cli/references/repos-csv/. The CSV must include a **cloneUrl** column. A flat directory structure is used unless one or more **orgN** columns are present. By default, repositories do not include source code. Use **--with-sources** to clone sources. If a **publishUri** column is present, associated LSTs will also be downloaded.
+Synchronize repositories and metadata to **path** using a local repos.csv **csv** file. The file need not be named repos.csv. The name is shorthand for a CSV in the format described at https://docs.moderne.io/user-documentation/moderne-cli/references/repos-csv/. The CSV must include a **cloneUrl** column. A flat directory structure is used unless one or more **orgN** columns are present. By default, repositories do not include source code. Use **--with-sources** to clone sources. If a **publishUri** column is present, associated LSTs will also be downloaded. An **environment** column sets build environment variables for a repository as space-separated NAME=VALUE pairs. Reference a variable of the machine that builds, as in NPM\_TOKEN=null, rather than putting a secret in the file.
 
 ### Usage
 
@@ -12361,6 +12415,7 @@ mod kiro chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod log
@@ -12680,7 +12735,7 @@ Where a symbol is declared.
 
 Prints where a symbol is declared, and the declaration from its doc comment to its end. Moderne looks in the repository the symbol is used in, then in the dependency that repository resolves, whose sources the Code Genome Project holds, then in the language's SDK, then anywhere in the organization.
 
-The symbol is named as search results and **mod navigate symbols** print it. With **--at** it is a name as a line of a file writes it, and the symbol the name resolves to is printed first.
+The symbol is named as search results and **mod navigate symbols** print it. With **--at** it is a name as a line of a file writes it, and the symbol the name resolves to is printed first. With **--at** alone it is the declaration that holds the line.
 
 In a working set, the file's repository answers first. A name that comes from a dependency or the language's SDK is then asked of Moderne. After that the working set's other repositories answer. Moderne answers for the rest of the organization last.
 
@@ -12699,6 +12754,10 @@ mod navigate definition moderne://ALL/Default java.util.concurrent.ConcurrentHas
 
 mod navigate definition moderne://ALL/Default addAttribute --at src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85 --in github.com/spring-projects/spring-petclinic@main
 
+mod navigate definition moderne://ALL/Default --at src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85 --in github.com/spring-projects/spring-petclinic@main
+
+mod navigate definition moderne://ALL/Default org.springframework.samples.petclinic.owner.OwnerController.processFindForm --references --depth 2
+
 mod navigate definition . addAttribute --at spring-projects/spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:85
 ```
 
@@ -12707,17 +12766,19 @@ mod navigate definition . addAttribute --at spring-projects/spring-petclinic/src
 | Name | Description |
 | ---- | ----------- |
 | `directory\|organization` |  A working set, or the organization in Moderne as **moderne://\<organization>**. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
-| `symbol` |  The symbol: its qualified name, with an overload's parameter types in parentheses, **org.springframework.ui.Model.addAttribute(java.lang.String,java.lang.Object)**. A type or a field is its name alone. A method without parentheses is every overload. With **--at**, the name as the line writes it: **addAttribute** or **Model.addAttribute**. |
+| `symbol` |  The symbol: its qualified name, with an overload's parameter types in parentheses, **org.springframework.ui.Model.addAttribute(java.lang.String,java.lang.Object)**. A type or a field is its name alone, and written without its package it is every declaration of the name. A method without parentheses is every overload. With **--at**, the name as the line writes it: **addAttribute** or **Model.addAttribute**. Without a symbol, **--at** gives the declaration that holds the line, the method a match is in. |
 
 ### Options
 
 | Name | Description |
 | ---- | ----------- |
-| `--at` |  A file and the line the name is on. The symbol is then looked up from that file. In a working set, the path from the working set's root or from inside the file's repository. |
+| `--at` |  A file and the line the name is on. The symbol is then looked up from that file. Without a symbol, any line in a declaration, and that declaration is read. In a working set, the path from the working set's root or from inside the file's repository. |
+| `--callee-lines` |  With --depth, also print the first n lines of each method it follows, under its row, so that what happens along a chain is read in one command. |
+| `--depth` |  Follow the calls --references lists into the methods they are declared in: 2 lists what each of them calls, 3 what those call, to 5. Implies --references. |
 | `--in` |  The repository the symbol is used in, as Moderne holds it: **github.com/acme/app@main**. Or the package a file is in: **org.springframework:spring-context:7.0.2**. Without it, the checkout the command runs in, when it runs in one. |
 | `--lines` |  How many lines of the declaration to print at most. 0 prints only where it is. |
 | `--organization`, `--org` |  In a working set, the organization in Moderne to ask for what the working set does not declare. Without it, the organization the working set was synced from. A working set that records none asks the Global Organization. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
-| `--references` |  Also print what the lines printed refer to, each with the dependency it comes from and the file and line it is declared at. |
+| `--references` |  Also print what the lines printed refer to, each with the dependency it comes from and the file and line it is declared at. With --lines 0 it lists what the first 60 lines refer to. |
 
 
 ## mod navigate read
@@ -12850,6 +12911,7 @@ mod opencode chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod pi
@@ -12905,6 +12967,7 @@ mod pi chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod prebuild
@@ -14197,6 +14260,7 @@ mod vscode chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
+| `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
 
 ## mod wrapper

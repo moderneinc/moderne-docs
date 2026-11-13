@@ -70,7 +70,7 @@ On its first run, the wrapper [downloads the CLI distribution for your platform 
 ```bash
 ➜ mod
 
-Moderne CLI 4.12.7
+Moderne CLI 4.12.9
 
 Usage:
 
@@ -351,7 +351,7 @@ mod config moderne organizations show
 <summary>You should see something like this:</summary>
 
 ```bash
-Moderne CLI 4.12.7
+Moderne CLI 4.12.9
 
 ⏺ Retrieving the configured organizations
 
@@ -417,7 +417,7 @@ mod config moderne organizations show
 <summary>You should see something that looks similar to this (it will have your organizations instead):</summary>
 
 ```bash
-Moderne CLI 4.12.7
+Moderne CLI 4.12.9
 
 ⏺ Retrieving the configured organizations
 
@@ -755,7 +755,6 @@ If you want to learn more about the Moderne CLI, we'd encourage you to check out
 
 * [Layered configuration in the CLI](../how-to-guides/layer-config-cli.md)
 * [Java configuration](../how-to-guides/java.md)
-* [Using the Moderne IntelliJ plugin with the CLI](../../moderne-ide-integration/how-to-guides/moderne-plugin-install.md)
 
 Or watch the following videos:
 
