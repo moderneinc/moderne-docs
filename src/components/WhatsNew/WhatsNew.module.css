@@ -17,7 +17,8 @@
 .chip {
   height: 34px;
   padding: 0 var(--mod-spacing_1_3_4);
-  border: 1px solid var(--mod-color-border-strong);
+  /* The design draws chip outlines at 28% of the text color */
+  border: 1px solid color-mix(in srgb, var(--mod-color-text-primary) 28%, transparent);
   border-radius: var(--mod-border-radius-s);
   background: var(--mod-color-surface-raised);
   color: var(--mod-color-text-primary);

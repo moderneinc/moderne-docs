@@ -28,20 +28,23 @@ export const WhatsNewFeed: FunctionComponent<WhatsNewFeedProps> = ({ children })
 
   return (
     <WhatsNewFilterContext.Provider value={selected}>
-      <div role="group" aria-label="Filter by product" className={styles.filters}>
-        {options.map((option) => (
-          <button
-            key={option.value}
-            type="button"
-            aria-pressed={selected === option.value}
-            className={clsx(styles.chip, { [styles.chipSelected]: selected === option.value })}
-            onClick={() => setSelected(option.value)}
-          >
-            {option.label}
-          </button>
-        ))}
+      {/* The global class lets custom.css restyle the surrounding doc page with :has() */}
+      <div className="whats-new-page">
+        <div role="group" aria-label="Filter by product" className={styles.filters}>
+          {options.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              aria-pressed={selected === option.value}
+              className={clsx(styles.chip, { [styles.chipSelected]: selected === option.value })}
+              onClick={() => setSelected(option.value)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+        {children}
       </div>
-      {children}
     </WhatsNewFilterContext.Provider>
   );
 };

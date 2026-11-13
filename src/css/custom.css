@@ -357,8 +357,37 @@ figure figcaption {
   margin: 0 auto;
 }
 
-/* What's new sidebar: the page's month sections nest under the page row like a
-   table of contents, in the smaller muted type the design gives them. */
+/* What's new page: the content column sits on a lighter surface than the page,
+   and the title, intro, and measure take the sizes the design specifies. Doc
+   pages carry no class of their own, so these key off the feed's marker class. */
+[class*="docMainContainer"]:has(.whats-new-page) {
+  background: var(--mod-color-surface-raised);
+}
+
+[class*="docMainContainer"]:has(.whats-new-page) .markdown {
+  max-width: 900px;
+}
+
+[class*="docMainContainer"]:has(.whats-new-page) h1 {
+  margin: var(--mod-spacing_3_1_2) 0 var(--mod-spacing_2);
+  font-size: 30px;
+  line-height: 52px;
+  font-weight: var(--mod-font-weight-medium);
+  letter-spacing: -0.02em;
+}
+
+[class*="docMainContainer"]:has(.whats-new-page) .markdown > p {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+/* What's new sidebar: the page row is tinted while it is the current page, and
+   the page's month sections nest under it like a table of contents, in the
+   smaller muted type the design gives them. */
+.theme-doc-sidebar-menu .whats-new-sidebar > .menu__list-item-collapsible--active {
+  background: var(--mod-color-action-tint);
+}
+
 .theme-doc-sidebar-menu .whats-new-sidebar > .menu__list {
   margin-left: var(--mod-spacing_1_1_2);
   padding-left: var(--mod-spacing_1);
