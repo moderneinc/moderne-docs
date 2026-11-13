@@ -191,8 +191,21 @@
   box-shadow: none;
 }
 
-/* No display rule here: ThemedImage hides the off-theme copy with display:none,
-   and the figure's flex column already lays the image out as a block */
+/* Before the figure mounts it holds a light and a dark copy; the page's theme
+   attribute decides which one shows. After mount only the current one renders,
+   wrapped for zooming. */
+.body .figure .imageDark {
+  display: none;
+}
+
+:global(html[data-theme='dark']) .body .figure .imageDark {
+  display: block;
+}
+
+:global(html[data-theme='dark']) .body .figure .imageLight {
+  display: none;
+}
+
 .body .figure .image {
   width: auto;
   max-width: 100%;
