@@ -194,8 +194,9 @@
   box-shadow: none;
 }
 
+/* No display rule here: ThemedImage hides the off-theme copy with display:none,
+   and the figure's flex column already lays the image out as a block */
 .body .figure .image {
-  display: block;
   width: 100%;
   height: auto;
   margin: 0;

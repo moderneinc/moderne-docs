@@ -63,6 +63,7 @@ const config: StorybookConfig = {
       '@generated/routes': path.resolve(__dirname, '../src/__mocks__/generated/routes.ts'),
       '@generated/site-storage': path.resolve(__dirname, '../src/__mocks__/generated/site-storage.ts'),
       '@theme/Heading': path.resolve(__dirname, '../src/__mocks__/theme/Heading.tsx'),
+      '@theme/ThemedImage': path.resolve(__dirname, '../src/__mocks__/theme/ThemedImage.tsx'),
       '@theme/Layout': path.resolve(__dirname, '../src/__mocks__/theme/Layout.tsx'),
       '@theme/Icon/Close': path.resolve(__dirname, '../src/__mocks__/theme/IconClose.tsx'),
       '@theme/Tabs': path.resolve(__dirname, '../src/__mocks__/theme/Tabs.tsx'),
