@@ -370,8 +370,8 @@ figure figcaption {
 
 [class*="docMainContainer"]:has(.whats-new-page) h1 {
   margin: 0 0 var(--mod-spacing_1);
-  font-size: 32px;
-  line-height: 40px;
+  font-size: var(--mod-font-size-h1);
+  line-height: 36px;
   font-weight: var(--mod-font-weight-medium);
   letter-spacing: -0.01em;
 }
@@ -385,9 +385,9 @@ figure figcaption {
 
 [class*="docMainContainer"]:has(.whats-new-page) [class*="breadcrumbsRow"] {
   position: relative;
-  /* Centers the 36px button on the title's 40px line, which starts below the
-     content's top padding */
-  top: var(--mod-spacing_2_1_4);
+  /* Lines the 36px button up with the title's 36px line, which starts below
+     the content's top padding */
+  top: var(--mod-spacing_2);
   z-index: 2;
   height: 0;
   justify-content: flex-end;
