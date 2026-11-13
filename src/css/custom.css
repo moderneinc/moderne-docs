@@ -368,8 +368,9 @@ figure figcaption {
   max-width: 900px;
 }
 
-/* Room between the sidebar divider and the content */
-[class*="docMainContainer"]:has(.whats-new-page) [class*="docItemCol"] {
+/* Room between the sidebar divider and the content. With the table of contents
+   hidden, the doc column is a plain .col, so that is what gets the padding. */
+[class*="docMainContainer"]:has(.whats-new-page) .row > .col {
   padding-left: var(--mod-spacing_5);
 }
 
