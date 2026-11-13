@@ -30,6 +30,7 @@ After creating your `repos.csv` file and running initial setup commands, the Mod
 | path              | `true`   | The organization and repository name portion of the clone URL. This is typically the remainder of the cloneUrl after `origin` minus any leading symbols and trailing `.git`. For SCP-style URLs (like `git@github.com:moderneinc/moderne-docs`), the path is typically the portion after the `:`. <br /><br />Example: `moderne-inc/moderne-docs`, `openrewrite/rewrite`, `businessunit/teamA/subteamB/app` |
 | alternateCloneUrl | `false`  | If the `cloneUrl` doesn't work, then we will attempt to clone from this URL. This is commonly filled out if you want to provide both an HTTP link and an SSH link for a repository. Multiple columns with this name are supported for organizations that have additional clone URLs.                                                              |
 | changeset         | `false`  | If provided, this will check out the repository at this specific commit SHA. Requires a `branch` value on the same row. <br /><br />Example: `aa5f25ac0031`                                                                                                                                                                                                                                  |
+| environment       | `false`  | Environment variables the CLI passes to build tools when building LSTs. Write them as `NAME=VALUE` pairs with a space between each pair. During `mod git sync csv`, these are written to each repository's `.moderne` directory. They will replace all the variables that were previously saved for that repository. You can [pass credentials by pointing to variables on the build machine](#configuring-build-environment-variables).<br /><br />Example: `CI=true NPM_TOKEN=${CI_TOKEN}` |
 | gradleArgs        | `false`  | Build arguments that are added to the end of the Gradle command line when building LSTs. During `mod git sync csv`, these values are written to each repository's `.moderne` directory and will overwrite any existing values. See [configuration precedence](../how-to-guides/layer-config-cli.md#configuration-precedence) for details.<br /><br />Example: `-Dmyprop=myvalue`                                                                                                                                                                                                                   |
 | gradleVersion     | `false`  | Selects a specific Gradle version to use when building LSTs. Takes precedence over the repository's Gradle wrapper; leave it empty to use the wrapper. The version must exactly match one of the Gradle installations known to the CLI (detected from `$PATH`, `$GRADLE_HOME`, SDKMAN, Homebrew, or manually configured via `mod config build gradle installation edit`). During `mod git sync csv`, this value is written to each repository's `.moderne` directory. Use `mod config build gradle installation list` to see available versions.<br /><br />Example: `8.1.1` |
 | java              | `false`  | Configures the JDK to use during LST generation.<br /><br />Example: `17` or `17-tem` or `17.0.6-tem`                                                                                                                                                                                                                                             |
@@ -108,6 +109,56 @@ For self-hosted providers such as GitHub Enterprise, Self-Managed GitLab, or Bit
 You can provide both `cloneUrl` and `alternateCloneUrl` to support both your primary protocol (HTTPS or SSH) and a secondary protocol for maximum flexibility. In situations where your organization allows read access over one protocol but only allows commits through a different protocol, this enables the Moderne Platform to present a single repository while correctly supporting both workflows. This also allows matching when an LST is built manually from a git repository cloned with the secondary URL.
 
 If the `cloneUrl` and `alternateCloneUrl` differ in their domain (as is the case with Azure DevOps above), you should set `origin` based on the HTTPS URL (since origins are used to build URLs for SCM API calls such as creating PRs) in a consistent way across HTTPS and SSH repositories for that SCM provider so that Moderne can successfully identify the repository in both cases. The origin should always be the root of the service on HTTP(S) but without the protocol and can most easily be inferred from the HTTP(S) clone URL.
+
+### Configuring build environment variables
+
+Some builds only work when certain environment variables are set, such as a registry token that npm reads. To set those variables for each repository, update the optional `environment` column.
+
+Write each variable as `NAME=VALUE`, with no spaces around the `=`. If you have more than one variable, put a space between them. If a value has a space in it, wrap the whole `NAME=VALUE` pair in quotes (e.g., `'NAME=MY VALUE'`).
+
+Let's take a look at an example. We'll turn on CI mode, pass a token from the build machine, and set a label that has a space in it:
+
+```csv
+cloneUrl,branch,origin,path,environment
+https://github.com/example/service,main,github.com,example/service,CI=true NPM_TOKEN=${CI_TOKEN} 'BUILD_LABEL=Nightly build'
+```
+
+In this example, `NPM_TOKEN=${CI_TOKEN}` doesn't contain the token itself. Instead, it points to a variable called `CI_TOKEN` on the machine that runs `mod build`. The CLI saves that reference and will look up the real value when it builds the LST. You should point to a variable like this for any secret, since the CLI will save all variables as plain text in the repository's `.moderne` directory.
+
+If `CI_TOKEN` isn't set on that machine, the CLI will leave `NPM_TOKEN` alone and will write a warning to the build log.
+
+If the missing variable is only part of a longer value, such as `TOOL_HOME=$MISSING/bin`, the CLI will not warn you. It will pass `$MISSING/bin` to the build as written.
+
+There are three different formats you can use to point to a variable: `$CI_TOKEN`, `${CI_TOKEN}`, and `%CI_TOKEN%`. These will all look for the value of `CI_TOKEN` on the build machine.
+
+The build log will hide the values of these variables. If you look in the logs for the environment, it will show each variable as something like `NAME=********`.
+
+Which variables a repository ends up with after you run `mod git sync csv` depends on what its row has in the `environment` column:
+
+* If the row has variables, the CLI will save them in the repository's `.moderne` directory. They will replace **all** the variables it saved for that repository on an earlier sync.
+* If the row is blank, or your file has no `environment` column, the CLI will keep the variables it saved last time.
+* If the row has variables, the repository [will ignore the ones you set globally](../how-to-guides/layer-config-cli.md#configuration-precedence) with `mod config build environment edit`. The two lists will not be combined. If the repository still needs a global variable, you will need to add it to the row too.
+
+<details>
+
+<summary>More ways to write values</summary>
+
+**Commas**
+
+If a value has a comma in it, you will need to wrap the whole column value in double quotes. Otherwise, the CLI will drop everything after the comma without warning you.
+
+```csv
+cloneUrl,branch,origin,path,environment
+https://github.com/example/service,main,github.com,example/service,"NO_PROXY=a.example.com,b.example.com CI=true"
+```
+
+If you also need double quotes inside the value, you will need to type each one twice.
+
+**Reusing a variable**
+
+A variable can use one you set earlier in the same row. For example, `BASE=/opt/tools TOOL_HOME=$BASE/bin` will set `TOOL_HOME` to `/opt/tools/bin`.
+
+</details>
 
 ### Using `publishUri` to share pre-built LSTs
 
