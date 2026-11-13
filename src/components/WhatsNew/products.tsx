@@ -11,17 +11,11 @@ export type WhatsNewProduct =
   | 'docs'
   | 'moderne';
 
-/** The order products appear in the filter chips */
-export const PRODUCT_ORDER: WhatsNewProduct[] = [
-  'platform',
-  'cli',
-  'dx',
-  'openrewrite',
-  'agents',
-  'moddy',
-  'docs',
-  'moderne',
-];
+/**
+ * The products that get a filter chip, in chip order. Other products still
+ * label their entries, which show under All.
+ */
+export const FILTERABLE_PRODUCTS: WhatsNewProduct[] = ['platform', 'cli', 'dx', 'openrewrite'];
 
 const ICON_SIZE = 16;
 const ICON_STROKE = 1.8;

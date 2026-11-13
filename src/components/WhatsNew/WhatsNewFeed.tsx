@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { type FunctionComponent, type ReactNode, useMemo, useState } from 'react';
 import { collectProducts, WhatsNewFilterContext, type WhatsNewSelection } from './filter';
-import { PRODUCT_ORDER, products } from './products';
+import { FILTERABLE_PRODUCTS, products } from './products';
 import styles from './WhatsNew.module.css';
 
 export type WhatsNewFeedProps = {
@@ -10,16 +10,15 @@ export type WhatsNewFeedProps = {
 };
 
 /**
- * Wraps the What's new feed with a row of product filter chips. The chips
- * are derived from the entries inside, so a product only appears once an
- * entry uses it.
+ * Wraps the What's new feed with a row of product filter chips. A chip
+ * appears for each filterable product that at least one entry uses.
  */
 export const WhatsNewFeed: FunctionComponent<WhatsNewFeedProps> = ({ children }) => {
   const [selected, setSelected] = useState<WhatsNewSelection>('all');
 
   const options = useMemo(() => {
     const present = new Set(collectProducts(children));
-    const productOptions = PRODUCT_ORDER.filter((product) => present.has(product)).map((product) => ({
+    const productOptions = FILTERABLE_PRODUCTS.filter((product) => present.has(product)).map((product) => ({
       value: product as WhatsNewSelection,
       label: products[product].label,
     }));

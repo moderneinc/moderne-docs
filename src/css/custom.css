@@ -412,9 +412,16 @@ figure figcaption {
 }
 
 .theme-doc-sidebar-menu .whats-new-sidebar > .menu__list .menu__link {
+  padding-top: var(--mod-spacing_1_2);
+  padding-bottom: var(--mod-spacing_1_2);
   font-size: var(--mod-font-size-sm);
   line-height: 20px;
   color: var(--mod-color-text-tertiary);
+}
+
+/* Month rows sit flush against each other instead of Infima's 4px gap */
+.theme-doc-sidebar-menu .whats-new-sidebar > .menu__list .menu__list-item {
+  margin-top: 0;
 }
 
 /* Media borders use the mode-aware --mod-color-border-primary, so no dark override is needed. */
