@@ -1,29 +1,29 @@
 /**
- * What's new feed: product filter chips, ruled month sections, and two-column
- * entries (product on the left, content on the right).
+ * What's new feed: product filter chips, ruled month sections, and entries
+ * with a meta line, title, body, and links.
  * Bound to --mod-* tokens, which are mode-aware, so one set of rules covers
- * light and dark. The design sets body copy at 15px/24px, a size the type
- * scale has no token for, so those two values are written out.
+ * light and dark. Body copy is 15px/24px, a size the type scale has no token
+ * for, so that pair is written out.
  */
 
 /* Filter chips */
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--mod-spacing_1);
-  margin-top: var(--mod-spacing_3_1_2);
+  gap: var(--mod-spacing_3_4);
+  margin-top: var(--mod-spacing_2);
 }
 
 .chip {
-  height: 34px;
-  padding: 0 var(--mod-spacing_1_3_4);
+  height: 28px;
+  padding: 0 var(--mod-spacing_1_1_2);
   /* The design draws chip outlines at 28% of the text color */
   border: 1px solid color-mix(in srgb, var(--mod-color-text-primary) 28%, transparent);
   border-radius: var(--mod-border-radius-s);
   background: var(--mod-color-surface-raised);
   color: var(--mod-color-text-primary);
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-caption);
   font-weight: var(--mod-font-weight-medium);
   cursor: pointer;
 }
@@ -49,31 +49,34 @@
 .month {
   display: flex;
   flex-direction: column;
-  margin-top: var(--mod-spacing_6);
+  margin-top: var(--mod-spacing_4);
+}
+
+/* The first month sits closer to the filter row */
+.filters + .month {
+  margin-top: var(--mod-spacing_3);
 }
 
 /* Doubled class: outranks the global docMainContainer h2 rules in custom.css,
    which set their own size, margins, and dark-mode color on every doc h2. */
 .month .monthHeader .monthTitle.monthTitle {
   margin: 0;
-  padding: 0 0 var(--mod-spacing_1_3_4);
+  padding: 0 0 var(--mod-spacing_1);
   border-bottom: 1px solid var(--mod-color-border-primary);
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: 22px;
-  line-height: 36px;
+  line-height: 30px;
   font-weight: var(--mod-font-weight-medium);
   color: var(--mod-color-text-primary);
 }
 
-/* Entry: product column + content column, ruled off from the next entry.
-   The .month prefix outranks custom.css's docItemContainer rule, which stacks
-   every article in a doc into a column. */
+/* Entry: meta line, title, body, and links stacked, ruled off from the next
+   entry. The .month prefix outranks custom.css's docItemContainer article rule. */
 .month .entry {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: var(--mod-spacing_1_1_2) var(--mod-spacing_5);
-  padding: var(--mod-spacing_4) 0;
+  flex-direction: column;
+  gap: var(--mod-spacing_1);
+  padding: var(--mod-spacing_3) 0;
   border-bottom: 1px solid var(--mod-color-border-primary);
 }
 
@@ -81,22 +84,21 @@
   border-bottom: 0;
 }
 
-.aside {
-  flex: 0 0 168px;
+.heading {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding-top: var(--mod-spacing_1_2);
+  gap: var(--mod-spacing_1_2);
 }
 
-.product {
+/* Meta line: icon, product · kind, and any badge */
+.meta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--mod-spacing_1);
-  font-size: var(--mod-font-size-sm);
+  gap: var(--mod-spacing_3_4);
+  font-size: var(--mod-font-size-caption);
   line-height: 20px;
-  font-weight: var(--mod-font-weight-medium);
-  color: var(--mod-color-text-primary);
+  color: var(--mod-color-text-tertiary);
 }
 
 .icon {
@@ -104,19 +106,18 @@
   color: var(--mod-color-text-tertiary);
 }
 
+.product {
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-text-primary);
+}
+
+.separator,
 .kind {
-  padding-left: var(--mod-spacing_3);
-  font-size: var(--mod-font-size-caption);
-  line-height: 20px;
   color: var(--mod-color-text-tertiary);
 }
 
-.badgeRow {
-  margin-top: var(--mod-spacing_1);
-}
-
 .badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: var(--mod-spacing_3_4);
   height: 26px;
@@ -130,30 +131,22 @@
   white-space: nowrap;
 }
 
-.main {
-  flex: 1 1 420px;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--mod-spacing_1_1_2);
-}
-
 /* Title: the .entry prefix outranks the theme's h3 weight and color rules */
 .entry .title {
   margin: 0;
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: var(--mod-font-size-h4);
-  line-height: 30px;
+  line-height: 28px;
   font-weight: var(--mod-font-weight-medium);
   color: var(--mod-color-text-primary);
 }
 
 /* Body: markdown output, so the elements it produces are styled by tag here.
-   Blocks stack with the same 12px gap as the rest of the content column. */
+   Blocks stack with the same 8px gap as the rest of the entry. */
 .body {
   display: flex;
   flex-direction: column;
-  gap: var(--mod-spacing_1_1_2);
+  gap: var(--mod-spacing_1);
   font-size: 15px;
   line-height: 24px;
   color: var(--mod-color-text-primary);
@@ -166,7 +159,7 @@
 .body ul {
   display: flex;
   flex-direction: column;
-  gap: var(--mod-spacing_3_4);
+  gap: var(--mod-spacing_1_2);
   padding-left: var(--mod-spacing_2_3_4);
 }
 
@@ -184,10 +177,11 @@
 .body .figure {
   display: flex;
   flex-direction: column;
-  gap: var(--mod-spacing_1);
+  align-items: flex-start;
+  gap: var(--mod-spacing_3_4);
   width: 100%;
   max-width: 100%;
-  margin: var(--mod-spacing_1_2) 0 0;
+  margin: 0;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -198,8 +192,11 @@
 /* No display rule here: ThemedImage hides the off-theme copy with display:none,
    and the figure's flex column already lays the image out as a block */
 .body .figure .image {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  max-height: 360px;
   height: auto;
+  object-fit: contain;
   margin: 0;
   padding: 0;
   border: 1px solid var(--mod-color-border-primary);
@@ -210,7 +207,7 @@
 /* The theme centers figure captions; the design keeps them flush left */
 .body .figure .caption {
   text-align: left;
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-caption);
   line-height: 20px;
   color: var(--mod-color-text-tertiary);
 }
@@ -219,15 +216,14 @@
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--mod-spacing_1) var(--mod-spacing_3);
-  margin-top: var(--mod-spacing_1_4);
+  gap: var(--mod-spacing_1) var(--mod-spacing_2_1_2);
 }
 
 .links .link {
   display: flex;
   align-items: center;
   gap: var(--mod-spacing_3_4);
-  font-size: 15px;
+  font-size: var(--mod-font-size-sm);
   font-weight: var(--mod-font-weight-medium);
   color: var(--mod-color-action-default);
   text-decoration: none;

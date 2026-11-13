@@ -23,7 +23,7 @@ export type WhatsNewEntryProps = {
   title: string;
   /** Anchor id for the title; defaults to a slug of the title */
   id?: string;
-  /** Badge under the kind for notices that need action, e.g. "Action required" */
+  /** Badge at the end of the meta line for notices that need action, e.g. "Action required" */
   badge?: string;
   /** Links shown as a row at the end of the entry */
   links?: WhatsNewLink[];
@@ -32,8 +32,9 @@ export type WhatsNewEntryProps = {
 };
 
 /**
- * One update in the What's new feed: a product column on the left and the
- * title, body, and links on the right, separated from its neighbors by a rule.
+ * One update in the What's new feed: a meta line (product · kind, plus any
+ * badge), the title, the body, and a row of links, ruled off from the next
+ * entry.
  */
 export const WhatsNewEntry: FunctionComponent<WhatsNewEntryProps> = ({
   product,
@@ -54,39 +55,38 @@ export const WhatsNewEntry: FunctionComponent<WhatsNewEntryProps> = ({
 
   return (
     <article className={styles.entry}>
-      <div className={styles.aside}>
-        <span className={styles.product}>
+      <div className={styles.heading}>
+        <div className={styles.meta}>
           <span className={styles.icon}>
             <Icon />
           </span>
-          {label}
-        </span>
-        <span className={styles.kind}>{kind}</span>
-        {badge && (
-          <span className={styles.badgeRow}>
+          <span className={styles.product}>{label}</span>
+          <span className={styles.separator} aria-hidden="true">
+            ·
+          </span>
+          <span className={styles.kind}>{kind}</span>
+          {badge && (
             <span className={styles.badge}>
               <TriangleAlert size={13} strokeWidth={2.4} aria-hidden="true" />
               {badge}
             </span>
-          </span>
-        )}
-      </div>
-      <div className={styles.main}>
+          )}
+        </div>
         <Heading as="h3" id={id ?? slugify(title)} className={styles.title}>
           {title}
         </Heading>
-        {children && <div className={styles.body}>{children}</div>}
-        {links && links.length > 0 && (
-          <div className={styles.links}>
-            {links.map((link) => (
-              <Link key={link.to} to={link.to} className={styles.link}>
-                {link.label}
-                <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
-              </Link>
-            ))}
-          </div>
-        )}
       </div>
+      {children && <div className={styles.body}>{children}</div>}
+      {links && links.length > 0 && (
+        <div className={styles.links}>
+          {links.map((link) => (
+            <Link key={link.to} to={link.to} className={styles.link}>
+              {link.label}
+              <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
+      )}
     </article>
   );
 };

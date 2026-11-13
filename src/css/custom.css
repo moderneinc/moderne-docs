@@ -369,11 +369,28 @@ figure figcaption {
 }
 
 [class*="docMainContainer"]:has(.whats-new-page) h1 {
-  margin: var(--mod-spacing_3_1_2) 0 var(--mod-spacing_2);
-  font-size: 30px;
-  line-height: 52px;
+  margin: 0 0 var(--mod-spacing_1);
+  font-size: 32px;
+  line-height: 40px;
   font-weight: var(--mod-font-weight-medium);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+}
+
+/* The breadcrumb trail is hidden on this page, and its row collapses to no
+   height so the Copy page button it shares the row with lands on the title
+   line, right-aligned. */
+[class*="docMainContainer"]:has(.whats-new-page) nav[aria-label="Breadcrumbs"] {
+  display: none;
+}
+
+[class*="docMainContainer"]:has(.whats-new-page) [class*="breadcrumbsRow"] {
+  position: relative;
+  /* Centers the 36px button on the title's 40px line, which starts below the
+     content's top padding */
+  top: var(--mod-spacing_2_1_4);
+  z-index: 2;
+  height: 0;
+  justify-content: flex-end;
 }
 
 [class*="docMainContainer"]:has(.whats-new-page) .markdown > p {
