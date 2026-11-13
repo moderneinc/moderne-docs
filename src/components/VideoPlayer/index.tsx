@@ -4,6 +4,8 @@ import type { FunctionComponent } from 'react';
 interface VideoPlayerProps {
   url: string;
   controls?: boolean | string;
+  /** Start playback as soon as the player mounts */
+  playing?: boolean;
   className?: string;
   width?: number | string;
   height?: number | string;
@@ -19,6 +21,7 @@ interface VideoPlayerProps {
 const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({
   url,
   controls = true,
+  playing = false,
   className,
   width,
   height,
@@ -37,6 +40,7 @@ const VideoPlayer: FunctionComponent<VideoPlayerProps> = ({
             className={className}
             url={url}
             controls={controls === true || controls === 'true'}
+            playing={playing}
             width={width}
             height={height}
           />
