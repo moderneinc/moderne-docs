@@ -56,7 +56,7 @@ export const Feature: Story = {
 export const Release: Story = {
   args: {
     product: 'cli',
-    kind: 'Release · v4.5.0',
+    kind: 'Release v4.5.0',
     title: 'Moderne CLI v4.5.0',
     links: [{ label: 'Full release notes', to: '/releases/cli-releases' }],
     children: (

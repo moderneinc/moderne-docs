@@ -17,7 +17,7 @@ export type WhatsNewLink = {
 export type WhatsNewEntryProps = {
   /** Which product the update belongs to; sets the icon and label */
   product: WhatsNewProduct;
-  /** What kind of update this is, e.g. "Feature", "Release · v4.12.8", "Notice" */
+  /** What kind of update this is, e.g. "Feature", "Release v4.12.8", "Notice" */
   kind: string;
   /** Entry title */
   title: string;
