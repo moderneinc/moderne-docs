@@ -462,7 +462,6 @@ const agentTools = {
           },
           items: [
             'user-documentation/agent-tools/mcp/getting-started',
-            'user-documentation/agent-tools/mcp/tool-browser',
             'user-documentation/agent-tools/mcp/tool-routing-skills',
             'user-documentation/agent-tools/mcp/security',
           ],

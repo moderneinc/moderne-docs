@@ -98,6 +98,7 @@ const redirects: RedirectRule[] = [
   { from: '/hands-on-learning/fundamentals/module-3-refaster-recipes', to: '/hands-on-learning/fundamentals/module-3-kotlin-dsl-recipes' },
   { from: '/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project', to: '/user-documentation/recipes/accessing-the-code-genome-project' },
   { from: '/user-documentation/moderne-platform/how-to-guides/introduction-to-type-aware-code-search', to: '/user-documentation/moderne-platform/getting-started/code-search' },
+  { from: '/user-documentation/agent-tools/mcp/tool-browser', to: '/user-documentation/agent-tools/mcp/overview' },
   {
     from: [
       '/user-documentation/recipes/lists',

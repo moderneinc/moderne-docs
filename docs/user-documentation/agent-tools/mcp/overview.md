@@ -93,11 +93,6 @@ The MCP server exposes the following tools:
 | `build_status` | Reports the status of the trigram search index. Shows whether the search tools will return useful results.                          |
 | `lst_status`   | Reports the status of the LST build. Shows build state, source file count, and pending incremental changes.                         |
 
-<figure>
-  ![The Moderne Agent Tools browser showing all available MCP tools in a dropdown list](./assets/mcp-tools.png)
-  <figcaption>_The tool browser showing all available MCP tools_</figcaption>
-</figure>
-
 ## Skills vs MCP
 
 Skills and the MCP server are complementary:
@@ -114,7 +109,6 @@ Start with the skills. They work on their own and teach agents the recipe develo
 ## Next steps
 
 * [Install the MCP server](./getting-started.md) for your AI coding agent
-* [Set up the tool browser](./tool-browser.md) to monitor builds and test tools
 * [Review the security architecture](./security.md) for compliance and IT review
 * [Install skills for AI coding agents](../skills.md)
 * [Review the tool-routing skills](./tool-routing-skills.md) that tell an agent when to call these tools
