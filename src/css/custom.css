@@ -368,6 +368,11 @@ figure figcaption {
   max-width: 900px;
 }
 
+/* Room between the sidebar divider and the content */
+[class*="docMainContainer"]:has(.whats-new-page) [class*="docItemCol"] {
+  padding-left: var(--mod-spacing_5);
+}
+
 [class*="docMainContainer"]:has(.whats-new-page) h1 {
   margin: 0 0 var(--mod-spacing_1);
   font-size: var(--mod-font-size-h1);

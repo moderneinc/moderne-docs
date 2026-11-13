@@ -90,13 +90,13 @@
   gap: var(--mod-spacing_1_2);
 }
 
-/* Meta line: icon, product · kind, and any badge */
+/* Meta line: icon, product, kind, and any badge */
 .meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--mod-spacing_3_4);
-  font-size: var(--mod-font-size-caption);
+  gap: var(--mod-spacing_1);
+  font-size: var(--mod-font-size-sm);
   line-height: 20px;
   color: var(--mod-color-text-tertiary);
 }
@@ -111,7 +111,6 @@
   color: var(--mod-color-text-primary);
 }
 
-.separator,
 .kind {
   color: var(--mod-color-text-tertiary);
 }

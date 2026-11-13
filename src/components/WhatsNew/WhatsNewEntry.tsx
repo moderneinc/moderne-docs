@@ -32,7 +32,7 @@ export type WhatsNewEntryProps = {
 };
 
 /**
- * One update in the What's new feed: a meta line (product · kind, plus any
+ * One update in the What's new feed: a meta line (product, kind, and any
  * badge), the title, the body, and a row of links, ruled off from the next
  * entry.
  */
@@ -61,9 +61,6 @@ export const WhatsNewEntry: FunctionComponent<WhatsNewEntryProps> = ({
             <Icon />
           </span>
           <span className={styles.product}>{label}</span>
-          <span className={styles.separator} aria-hidden="true">
-            ·
-          </span>
           <span className={styles.kind}>{kind}</span>
           {badge && (
             <span className={styles.badge}>
