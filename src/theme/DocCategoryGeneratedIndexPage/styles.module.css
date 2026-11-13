@@ -48,7 +48,7 @@
   font-size: 15px;
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.55;
-  color: var(--mod-color-text-tertiary);
+  color: var(--mod-docs-text-muted);
   margin: 0;
 }
 
@@ -101,7 +101,7 @@
   font-size: var(--mod-font-size-sm);
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.55;
-  color: var(--mod-color-text-tertiary);
+  color: var(--mod-docs-text-muted);
   max-width: 720px;
   margin: 0 0 var(--mod-spacing_1_1_2);
 }
@@ -119,6 +119,13 @@
 .sectionCount:hover {
   color: var(--mod-color-text-success);
   text-decoration: underline;
+}
+
+/* In dark mode green is reserved for "you are here" and the arrows, so the
+   count link reads in cream instead. */
+:global(html[data-theme='dark']) .sectionCount,
+:global(html[data-theme='dark']) .sectionCount:hover {
+  color: var(--mod-color-text-primary);
 }
 
 /* Always two columns, so a row never holds a lone item; one column under
@@ -149,7 +156,7 @@
 .item {
   display: block;
   padding: var(--mod-spacing_1_3_4) 0 0;
-  border-top: 2px solid var(--mod-color-text-primary);
+  border-top: 2px solid var(--mod-docs-rule-ink);
   color: inherit;
   text-decoration: none;
   transition:
@@ -197,7 +204,7 @@
   display: inline-block;
   margin-left: var(--mod-spacing_1);
   font-weight: var(--mod-font-weight-medium);
-  color: var(--mod-color-text-tertiary);
+  color: var(--mod-docs-text-muted);
   transition:
     transform 180ms ease-out,
     color 180ms ease-out;
@@ -234,7 +241,7 @@
   font-size: var(--mod-font-size-caption);
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.5;
-  color: var(--mod-color-text-tertiary);
+  color: var(--mod-docs-text-muted);
   margin: 0;
 }
 

@@ -57,6 +57,12 @@
   padding-bottom: 5px;
 }
 
+/* Dark mode: links drop to grey so the open group and the current page stand
+   out rather than every link shining. */
+:global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link) {
+  color: var(--mod-docs-text-muted);
+}
+
 /* Hover states - brand lavender tint (not in Morpheus) + selected color */
 :global(.theme-doc-sidebar-menu .menu__link:hover) {
   background-color: rgba(212, 211, 228, 0.2);
@@ -65,7 +71,7 @@
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link:hover) {
   background-color: rgba(212, 211, 228, 0.1);
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
 }
 
 /* Category item hover - applies to the full row including caret */
@@ -83,7 +89,7 @@
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__list-item-collapsible:hover .menu__link) {
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
   background-color: transparent;
 }
 
@@ -93,7 +99,7 @@
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link--active) {
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
 }
 
 /* Border styling between top-level sections - brand lavender */
@@ -115,7 +121,7 @@
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-item-link > strong) {
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
 }
 
 /* Note: Caret icons are now rendered using Lucide React icons
