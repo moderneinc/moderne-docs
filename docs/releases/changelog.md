@@ -1,4 +1,12 @@
 # Platform changelog
+### UI v14.56.0 (2026/11/12)
+
+- redesign the Day Zero welcome modal
+
+### UI v14.55.0 (2026/11/11)
+
+- Bug fixes and other improvements.
+
 ### UI v14.54.1 (2026/11/11)
 
 - Bug fixes and other improvements.

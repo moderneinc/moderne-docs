@@ -189,7 +189,7 @@ type Product = {
   description: string;
 };
 
-/** Four columns; the first two stack a pair of products. */
+/** Four columns; the first stacks a pair of products. */
 const productColumns: Product[][] = [
   [
     {
@@ -211,12 +211,6 @@ const productColumns: Product[][] = [
       product: 'CLI',
       description:
         'A command line tool that complements the Platform, enabling you to build LST artifacts across many repositories and run recipes against all of them from your local machine. It also helps you create and test your own recipes.',
-    },
-    {
-      name: 'IntelliJ IDEA plugin',
-      product: 'IDE plugins',
-      description:
-        'Helps you create and debug recipes while letting you search for code across all of your repositories at once.',
     },
   ],
   [

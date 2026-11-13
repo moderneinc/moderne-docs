@@ -67,7 +67,26 @@ const redirects: RedirectRule[] = [
     ],
     to: '/user-documentation/recipes/popular-recipe-guides/migrate-to-java',
   },
+  {
+    from: [
+      '/user-documentation/moderne-ide-integration',
+      '/user-documentation/moderne-ide-integration/how-to-guides',
+      '/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install',
+      '/user-documentation/moderne-ide-integration/how-to-guides/creating-recipes',
+      '/user-documentation/moderne-ide-integration/reference',
+      '/user-documentation/moderne-ide-integration/reference/refactor-actions',
+    ],
+    to: '/user-documentation/recipes/authoring-recipes/set-up/recipe-development-environment',
+  },
+  {
+    from: [
+      '/user-documentation/moderne-ide-integration/how-to-guides/code-search',
+      '/user-documentation/moderne-ide-integration/reference/code-search-actions',
+    ],
+    to: '/user-documentation/moderne-platform/getting-started/code-search',
+  },
   // One-to-one moves.
+  { from: '/user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes', to: '/user-documentation/recipes/authoring-recipes/testing-and-best-practices/validating-recipes-at-scale#debug-a-recipe-against-real-code' },
   {
     from: '/administrator-documentation/moderne-dx/references/moderne-dx-architecture',
     to: '/administrator-documentation/moderne-dx/getting-started/overview',
@@ -98,6 +117,7 @@ const redirects: RedirectRule[] = [
   { from: '/hands-on-learning/fundamentals/module-3-refaster-recipes', to: '/hands-on-learning/fundamentals/module-3-kotlin-dsl-recipes' },
   { from: '/administrator-documentation/moderne-platform/how-to-guides/accessing-the-code-genome-project', to: '/user-documentation/recipes/accessing-the-code-genome-project' },
   { from: '/user-documentation/moderne-platform/how-to-guides/introduction-to-type-aware-code-search', to: '/user-documentation/moderne-platform/getting-started/code-search' },
+  { from: '/user-documentation/agent-tools/mcp/tool-browser', to: '/user-documentation/agent-tools/mcp/overview' },
   {
     from: [
       '/user-documentation/recipes/lists',

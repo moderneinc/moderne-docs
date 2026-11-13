@@ -270,9 +270,9 @@ export const AllVariations: Story = {
               type: 'category',
             },
             {
-              href: '/docs/ide',
-              label: 'IDE',
-              description: 'IntelliJ plugin',
+              href: '/docs/example',
+              label: 'Example',
+              description: 'Placeholder card',
               type: 'category',
             },
           ]}
