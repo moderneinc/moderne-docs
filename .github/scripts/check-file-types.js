@@ -4,7 +4,7 @@ const path = require('path');
 
 const ALLOWED_EXTENSIONS = new Set([
   '.md', '.mdx', '.tsx', '.ts', '.js', '.mjs', '.sh', '.css', '.json', '.graphql',
-  '.png', '.gif', '.jpg', '.jpeg', '.svg', '.ico',
+  '.png', '.gif', '.jpg', '.jpeg', '.webp', '.svg', '.ico',
   '.yaml', '.yml', '.toml', '.lock', '.txt', '.csv', '.excalidraw', '.snap',
   '.kt', '.kts', '.properties',
 ]);

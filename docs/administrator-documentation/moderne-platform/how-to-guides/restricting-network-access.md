@@ -14,7 +14,7 @@ In this guide, we will walk you through everything you need to know to set up th
 ```mermaid
 flowchart LR
     subgraph customer["Your network"]
-        users["People: UI, CLI, IDE plugins<br/>(via your proxy or VPN)"]
+        users["People: UI, CLI<br/>(via your proxy or VPN)"]
         ci["Automation and CI"]
         connector["Moderne Connector"]
     end
@@ -43,7 +43,7 @@ Keep the following in mind before building your list:
 
 You will need the public egress range of everything that reaches your tenant:
 
-* Your corporate proxy and VPN, used by people working in the Moderne UI, the Moderne CLI, or the IDE plugins
+* Your corporate proxy and VPN, used by people working in the Moderne UI or the Moderne CLI
 * Every Moderne Connector you run
 * Any automation or CI pipeline that calls the Moderne API with an access token
 

@@ -1,14 +1,15 @@
 import React from 'react';
 
-/** Storybook stand-in for Docusaurus's ThemedImage: renders the light source. */
-export default function ThemedImage({
-  sources,
-  alt,
-  ...props
-}: {
+interface ThemedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   sources: { light: string; dark: string };
-  alt?: string;
-  [key: string]: any;
-}): JSX.Element {
-  return <img src={sources.light} alt={alt} {...props} />;
 }
+
+/**
+ * Mock implementation of Docusaurus ThemedImage for Storybook.
+ * Renders the light source only; Storybook has no Docusaurus color mode.
+ */
+const ThemedImage: React.FC<ThemedImageProps> = ({ sources, alt = '', ...props }) => {
+  return <img src={sources.light} alt={alt} {...props} />;
+};
+
+export default ThemedImage;

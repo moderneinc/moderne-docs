@@ -42,7 +42,6 @@ const secondaryNavOrder = [
   'Recipes',
   'DX',
   'Moddy',
-  'IDE plugins',
 ];
 
 /**
@@ -55,7 +54,6 @@ const homepageCardOrder = [
   'Recipes',
   'DX',
   'Moddy',
-  'IDE plugins',
 ];
 
 /**
@@ -99,11 +97,6 @@ export const businessItems: ProductItem[] = [
  * Displayed in the right column of the mega menu
  */
 export const learningItems: LearningItem[] = [
-  {
-    name: 'IDE plugins',
-    href: '/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install',
-    external: false,
-  },
   {
     name: 'Code Remix',
     href: '/user-documentation/code-remix-sessions/2026',

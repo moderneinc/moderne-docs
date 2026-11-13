@@ -463,7 +463,6 @@ const agentTools = {
           },
           items: [
             'user-documentation/agent-tools/mcp/getting-started',
-            'user-documentation/agent-tools/mcp/tool-browser',
             'user-documentation/agent-tools/mcp/tool-routing-skills',
             'user-documentation/agent-tools/mcp/security',
           ],
@@ -680,57 +679,6 @@ const recipes = {
       href: 'https://codegenomeproject.org/recipes',
     },
     'user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module',
-  ],
-};
-
-const jetbrainsPlugin = {
-  type: 'category' as const,
-  label: 'IDE plugins',
-  customProps: {
-    gemIcon: 'pink-large',
-    megaMenu: true,
-    homepageHref: '/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install',
-  },
-  link: {
-    type: 'generated-index' as const,
-    title: 'Moderne IDE plugins',
-    description: 'An IntelliJ IDE plugin for multi-repository code search and recipe development.',
-    slug: '/user-documentation/moderne-ide-integration',
-    keywords: ['guides'],
-  },
-  items: [
-    {
-      type: 'category' as const,
-      label: 'How to guides',
-      link: {
-        type: 'generated-index' as const,
-        title: 'How to guides',
-        description: 'Learn how to work with the Moderne IntelliJ IDEA plugin.',
-        slug: '/user-documentation/moderne-ide-integration/how-to-guides',
-        keywords: ['guides'],
-      },
-      items: [
-        'user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install',
-        'user-documentation/moderne-ide-integration/how-to-guides/code-search',
-        'user-documentation/moderne-ide-integration/how-to-guides/creating-recipes',
-        'user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes',
-      ],
-    },
-    {
-      type: 'category' as const,
-      label: 'Reference',
-      link: {
-        type: 'generated-index' as const,
-        title: 'Reference',
-        description: 'Reference documentation for Moderne IDE integrations.',
-        slug: '/user-documentation/moderne-ide-integration/reference',
-        keywords: ['reference'],
-      },
-      items: [
-        'user-documentation/moderne-ide-integration/reference/code-search-actions',
-        'user-documentation/moderne-ide-integration/reference/refactor-actions',
-      ],
-    },
   ],
 };
 
@@ -1013,7 +961,6 @@ const sidebars: SidebarsConfig = {
     cli,
     agentTools,
     moddy,
-    jetbrainsPlugin,
     recipes,
     {
       type: 'category',

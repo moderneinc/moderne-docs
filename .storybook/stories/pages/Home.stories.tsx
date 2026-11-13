@@ -6,10 +6,10 @@ import Home from '@site/src/pages/index';
  * Homepage - Custom Docusaurus homepage
  *
  * The homepage features:
- * - Hero section with headline and CTA
- * - Product navigation pills (Platform, DX, CLI, Moddy, Recipes)
- * - Resource cards (Code Remix, Learning Resources)
- * - Decorative gem elements
+ * - Hero section with headline and CTAs
+ * - "Browse by area" tiles derived from the sidebar config
+ * - "What is Moderne?" band with inline video cards
+ * - "More about Moderne" product grid
  * - Responsive layout with dark mode support
  */
 const meta: Meta<typeof Home> = {
@@ -20,7 +20,7 @@ const meta: Meta<typeof Home> = {
     docs: {
       description: {
         component:
-          'The main homepage for Moderne documentation featuring hero section, product navigation, and resource cards.',
+          'The main homepage for Moderne documentation: hero with screenshot collage, "Browse by area" tiles, the "What is Moderne?" band with video cards, and the "More about Moderne" grid.',
       },
     },
   },
@@ -34,7 +34,7 @@ type Story = StoryObj<typeof meta>;
  * Default Homepage
  *
  * Shows the complete homepage as it appears to visitors.
- * Includes hero section, product pills, and resource cards.
+ * Includes the hero, product tiles, video band, and product grid.
  */
 export const Default: Story = {
   render: () => <Home />,
