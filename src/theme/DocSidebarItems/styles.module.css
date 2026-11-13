@@ -4,6 +4,6 @@
 
 .platformToggleRow {
   display: flex;
-  margin: var(--mod-spacing_3) 0 var(--mod-spacing_2) 0;
+  margin: var(--mod-spacing_2) 0 var(--mod-spacing_2_1_2) 0;
   list-style: none;
 }

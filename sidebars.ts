@@ -981,9 +981,37 @@ const licensing = {
   ],
 };
 
+// Category index pages show each subcategory's generated-index description next
+// to a preview of its pages, and category cards use it in place of the item
+// count. Docusaurus only exposes a category's own `description` to the client,
+// so copy the generated-index description onto the category where one is not
+// already set.
+type CategoryLike = {
+  type?: string;
+  description?: string;
+  link?: { type?: string; description?: string };
+  items?: unknown[];
+};
+
+const withCategoryDescriptions = <T,>(items: T[]): T[] =>
+  items.map((item) => {
+    const category = item as CategoryLike;
+    if (category.type !== 'category' || !Array.isArray(category.items)) {
+      return item;
+    }
+    const description =
+      category.description ??
+      (category.link?.type === 'generated-index' ? category.link.description : undefined);
+    return {
+      ...category,
+      ...(description !== undefined && { description }),
+      items: withCategoryDescriptions(category.items),
+    } as T;
+  });
+
 // Final sidebar composition
 const sidebars: SidebarsConfig = {
-  docs: [
+  docs: withCategoryDescriptions([
     platform.practitioner,
     cli,
     agentTools,
@@ -991,7 +1019,7 @@ const sidebars: SidebarsConfig = {
     jetbrainsPlugin,
     recipes,
     {
-      type: 'category',
+      type: 'category' as const,
       label: 'Code Remix sessions',
       items: [
         'user-documentation/code-remix-sessions/2026',
@@ -1005,7 +1033,7 @@ const sidebars: SidebarsConfig = {
     dx,
     releases,
     licensing,
-  ]
+  ]),
 };
 
 export default sidebars;

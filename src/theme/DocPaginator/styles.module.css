@@ -22,7 +22,7 @@
   border: none;
   padding: 0;
   font-family: var(--mod-font-family-body), sans-serif;
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-caption);
   font-weight: var(--mod-font-weight-medium);
   line-height: 1;
   color: var(--mod-color-text-tertiary);
@@ -46,6 +46,6 @@
 
 .arrow {
   color: var(--mod-color-text-tertiary);
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-caption);
   font-weight: var(--mod-font-weight-medium);
 }

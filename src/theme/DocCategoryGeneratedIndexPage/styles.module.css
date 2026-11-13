@@ -4,100 +4,334 @@
   position: relative;
 }
 
-/* Marker class added to top-level category index pages only. The footer uses
-   this to know whether to be sticky (top-level only) vs scroll naturally. */
-.topLevelCategory {
-  /* No styles needed — class is used as a CSS selector hook. */
-}
-
+/* The content column sits against the sidebar rather than centred in the page. */
 .generatedIndexPage {
-
-  /* Override Infima row margins to align cards with heading */
-  :global(.row[class*='list_']) {
-    margin-left: 0;
-    margin-right: 0;
-
-    > :global(.col) {
-      display: flex;
-    }
-  }
-
-  /* Hide gem icons on auto-generated category index pages */
-  :global([class*='cardIcon']) {
-    display: none;
-  }
+  max-width: 960px;
 }
 
-@media (min-width: 997px) {
-  .generatedIndexPage {
-    /* Override Docusaurus container max-width */
-    max-width: 83%;
-  }
-}
-
-/* Flex column; per-element margins handle spacing for breadcrumb + header + list */
+/* Flex column; per-element margins handle spacing for breadcrumb + header + grid */
 .content {
   display: flex;
   flex-direction: column;
 }
 
-/* Section hero — flat Morpheus card with a spectral bar across the top edge. */
+/* Page header: title and intro on the page surface, 24px down to a hairline
+   rule, then 28px to what follows. */
 .header {
   display: flex;
   flex-direction: column;
   gap: var(--mod-spacing_1);
-  margin-bottom: var(--mod-spacing_4);
-  padding: var(--mod-spacing_5) var(--mod-spacing_4);
-  background: var(--mod-color-surface-data-grid-hover);
-  border: 1px solid var(--mod-color-border-strong);
-  border-radius: var(--mod-border-radius-card);
-  position: relative;
-  overflow: hidden;
+  margin-bottom: var(--mod-spacing_3_1_2);
+  padding-bottom: var(--mod-spacing_3);
+  border-bottom: 1px solid var(--mod-color-border-primary);
 }
 
-/* Spectral bar across the top edge; the card's overflow:hidden clips it to the
-   rounded corners. */
-.header::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: var(--mod-gradient-spectral);
-  z-index: 1;
-  pointer-events: none;
+/* When a grid comes straight after the intro, the items' top rules mark the
+   start of the list, so the divider goes and the intro sits 28px above the
+   first row. */
+.headerBeforeGrid {
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .header .title {
   font-family: var(--mod-font-family-body), sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: var(--mod-font-weight-semi-bold);
-  line-height: 45px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   color: var(--mod-color-text-primary);
   margin: 0;
 }
 
-.header p {
-  font-size: var(--mod-font-size-sm);
+.header .description {
+  font-size: 15px;
   font-weight: var(--mod-font-weight-regular);
-  line-height: 1.4;
+  line-height: 1.55;
   color: var(--mod-color-text-tertiary);
   margin: 0;
 }
 
-/* Force single-column layout for card list */
-.list {
+/* Grids and subcategory sections stack down the page, 24px above each
+   section heading. */
+.sections {
   display: flex;
   flex-direction: column;
-  gap: var(--mod-spacing_1);
+  gap: var(--mod-spacing_3);
+}
 
-  /* Make list items full width and remove Infima col padding */
-  > * {
-    width: 100%;
-    max-width: none;
-    flex: 0 0 auto;
-    padding: 0;
-    margin-bottom: 0;
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_2);
+}
+
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_3_4);
+}
+
+/* Section title on the left, "N items →" on the same line, right-aligned. */
+.sectionTitleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--mod-spacing_1) var(--mod-spacing_3);
+}
+
+/* Nested under .generatedIndexPage to outweigh the global docMainContainer
+   heading rules, which add a rule and top margin to every h2 and resize h3. */
+.generatedIndexPage .section .sectionTitle {
+  font-family: var(--mod-font-family-body), sans-serif;
+  font-size: var(--mod-font-size-h5);
+  font-weight: var(--mod-font-weight-semi-bold);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--mod-color-text-primary);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* The section's 16px gap plus this margin puts the intro 28px above the first
+   row of items. */
+.sectionDescription {
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-regular);
+  line-height: 1.55;
+  color: var(--mod-color-text-tertiary);
+  max-width: 720px;
+  margin: 0 0 var(--mod-spacing_1_1_2);
+}
+
+.sectionCount {
+  flex-shrink: 0;
+  font-size: var(--mod-font-size-xs);
+  font-weight: var(--mod-font-weight-semi-bold);
+  line-height: 1.5;
+  color: var(--mod-color-text-success);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.sectionCount:hover {
+  color: var(--mod-color-text-success);
+  text-decoration: underline;
+}
+
+/* Always two columns, so a row never holds a lone item; one column under
+   700px. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--mod-spacing_3_1_2) var(--mod-spacing_5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 699px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.gridItem {
+  margin: 0;
+}
+
+/* A page in the grid: no box or fill, just a 2px ink rule on top, then 14px
+   down to the title. Opacity waits 120ms before it starts to move, so passing
+   over an item does not flicker the rest of the grid; the hovered item itself
+   answers at once. */
+.item {
+  display: block;
+  padding: var(--mod-spacing_1_3_4) 0 0;
+  border-top: 2px solid var(--mod-color-text-primary);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    opacity 180ms ease-out 120ms,
+    border-top-color 180ms ease-out;
+}
+
+/* Forest green is --mod-color-text-success: #1d5937 in light mode and the
+   brand green in dark mode, so one rule covers both. */
+.item:hover,
+.item:focus-visible {
+  border-top-color: var(--mod-color-text-success);
+  opacity: 1;
+  transition-delay: 0ms;
+  color: inherit;
+  text-decoration: none;
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--mod-color-text-success);
+  outline-offset: 4px;
+}
+
+.generatedIndexPage .grid .itemTitle {
+  display: block;
+  font-family: var(--mod-font-family-body), sans-serif;
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-semi-bold);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--mod-color-text-primary);
+  margin: 0 0 var(--mod-spacing_3_4);
+}
+
+.itemName {
+  transition: color 180ms ease-out;
+}
+
+/* The last word of the title, any tag, and the arrow stay on one line. */
+.itemTail {
+  white-space: nowrap;
+}
+
+.itemArrow {
+  display: inline-block;
+  margin-left: var(--mod-spacing_1);
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-text-tertiary);
+  transition:
+    transform 180ms ease-out,
+    color 180ms ease-out;
+}
+
+.item:hover .itemName,
+.item:focus-visible .itemName {
+  color: var(--mod-color-text-success);
+}
+
+.item:hover .itemArrow,
+.item:focus-visible .itemArrow {
+  color: var(--mod-color-text-success);
+  transform: translateX(6px);
+}
+
+/* A note from the sidebar label, such as "Experimental", shown as a pill. */
+.itemTag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: var(--mod-spacing_1);
+  font-family: var(--mod-font-family-code), ui-monospace, monospace;
+  font-size: 10.5px;
+  font-weight: var(--mod-font-weight-regular);
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--mod-color-text-success);
+  border: 1px solid var(--mod-color-status-success-border);
+  border-radius: var(--mod-border-radius-full);
+  padding: var(--mod-spacing_1_4) var(--mod-spacing_1);
+}
+
+.itemDescription {
+  font-size: var(--mod-font-size-caption);
+  font-weight: var(--mod-font-weight-regular);
+  line-height: 1.5;
+  color: var(--mod-color-text-tertiary);
+  margin: 0;
+}
+
+/* Item count shown when a subcategory has no description. */
+.itemMeta {
+  font-family: var(--mod-font-family-code), ui-monospace, monospace;
+  font-size: 11.5px;
+}
+
+/* Inline code in a description; matches the markdown inline code chip. */
+.itemCode {
+  background-color: var(--mod-color-surface-field);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-x-s);
+  color: var(--mod-color-text-code);
+  font-family: var(--mod-font-family-code), ui-monospace, monospace;
+  font-size: 11.5px;
+  padding: 0.1em 0.4em;
+  white-space: nowrap;
+}
+
+/* Compact list, for categories with more items than the threshold. Rows stack
+   on hairline rules with no gap between them. */
+.gridCompact {
+  row-gap: 0;
+}
+
+/* 1px hairline instead of the ink rule, 12px down to the title, 4px to the
+   description, and 14px below it. */
+.itemCompact {
+  padding: var(--mod-spacing_1_1_2) 0 var(--mod-spacing_1_3_4);
+  border-top: 1px solid var(--mod-color-border-primary);
+}
+
+.generatedIndexPage .grid .itemCompact .itemTitle {
+  margin-bottom: var(--mod-spacing_1_2);
+}
+
+/* Two lines of description; the link's title attribute carries the rest. */
+.itemCompact .itemDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* The arrow is hidden at rest. It fades in after the last word on hover and
+   focus, moving 4px right. */
+.itemCompact .itemArrow {
+  opacity: 0;
+  transition:
+    opacity 180ms ease-out,
+    transform 180ms ease-out,
+    color 180ms ease-out;
+}
+
+.itemCompact:hover .itemArrow,
+.itemCompact:focus-visible .itemArrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* Subcategories in the compact layout follow the pages, 40px below them, with
+   a hairline above the heading. */
+.sectionCompact {
+  margin-top: var(--mod-spacing_2);
+  padding-top: var(--mod-spacing_3);
+  border-top: 1px solid var(--mod-color-border-primary);
+}
+
+/* Spotlight: while one item is hovered or focused, every other item in the
+   content area fades. Headings and paragraphs outside the items keep their
+   opacity. Needs :has(), which every browser in our browserslist supports
+   except UC Browser, where the colour change still works and only the fade is
+   lost. */
+.spotlight:has(.item:hover, .item:focus-visible) .item:not(:hover):not(:focus-visible) {
+  opacity: 0.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .itemName,
+  .itemArrow {
+    transition: none;
+  }
+
+  .item:hover .itemArrow,
+  .item:focus-visible .itemArrow {
+    transform: none;
+  }
+
+  .itemCompact .itemArrow {
+    transition: none;
+  }
+
+  .spotlight:has(.item:hover, .item:focus-visible) .item:not(:hover):not(:focus-visible) {
+    opacity: 1;
   }
 }
