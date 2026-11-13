@@ -119,9 +119,6 @@ export const AboutModerneSection: FunctionComponent = () => {
           <Link href="/user-documentation/agent-tools/prethink"><strong>Moderne Prethink</strong></Link> recipes generate structured context that gives coding agents a clear, accurate understanding of your entire codebase. Instead of forcing agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
         </p>
         <p>
-          Moderne also offers an <Link href="/user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install"><strong>IntelliJ IDEA plugin</strong></Link> that helps you create and debug recipes while allowing you to search for code across all of your repositories at once.
-        </p>
-        <p>
           Moderne is SOC 2 Type 2 compliant, so you can be confident that your code is secure. Furthermore, a private SaaS can be created for your team in any major cloud provider or region of your choice. Moderne currently supports numerous languages, data formats, build tools, and frameworks - with more being routinely added over time. Moderne also supports <Link href="/administrator-documentation/moderne-platform/references/supported-scms">most Git-based source code management tools</Link>.
         </p>
       </div>

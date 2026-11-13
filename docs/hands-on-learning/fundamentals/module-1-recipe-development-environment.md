@@ -18,10 +18,7 @@ You'll want to have the following installed:
 * A build tool (Maven or Gradle) to compile the project and run tests. The starter project supports both.
 * [The Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs. The CLI is free to use against public repositories.
 
-If you use IntelliJ IDEA, the following plugins can improve the experience, but neither is required to complete this workshop:
-
-* The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes.
-* [The Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes. Note that this plugin requires the CLI to be configured with a [Moderne license](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
+If you use IntelliJ IDEA, the [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite) can improve the experience by letting you run and write YAML recipes, but it isn't required to complete this workshop.
 
 :::warning
 If you have not already completed the [Introduction to OpenRewrite course](../introduction/workshop-overview.md), go there first and complete at least Module 1 before continuing. The exercises in this workshop assume that module has been completed - meaning that the Moderne CLI is working and that you have a `~/moderne-workshop` directory with the `Default` org synced.
@@ -96,10 +93,6 @@ You need to do this every time you change the recipe. Alternatively, you can bui
   cd ~/moderne-workshop
   mod run . --active-recipe
   ```
-
-:::tip
-The Moderne plugin's **Set Active Recipe** action is a UI shortcut for `mod config recipes active set`. The plugin requires a [licensed CLI](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md), but the commands above do not need the plugin.
-:::
 
 ### Takeaways
 
