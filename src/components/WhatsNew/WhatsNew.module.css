@@ -178,10 +178,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--mod-spacing_3_4);
+  gap: var(--mod-spacing_1);
   width: 100%;
   max-width: 100%;
-  margin: 0;
+  /* Screenshots get 16px of air above and below, twice the gap between
+     the text blocks around them */
+  margin: var(--mod-spacing_1) 0;
   padding: 0;
   border: 0;
   border-radius: 0;
