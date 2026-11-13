@@ -24,7 +24,7 @@ Moddy does not include its own model. You configure your own. We currently suppo
 
 * Anthropic (Claude)
 * OpenAI (GPT)
-* Google (Gemini)
+* Google (Gemini, including Gemini on Vertex AI)
 * Mistral
 
 Models deployed to your on-prem environment can also be supported.
