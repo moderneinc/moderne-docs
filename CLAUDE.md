@@ -4,7 +4,7 @@
 
 ## Style guide
 
-`STYLE_GUIDE.md` governs all documentation. It loads automatically when you touch files under `docs/`. Before you write a new page, read `STYLE_GUIDE.md` in full. The prose rules (11 and 22-27) matter most, because `yarn lint:markdown` does not check them.
+`STYLE_GUIDE.md` governs all documentation. It loads automatically when you touch files under `docs/`. Before you write a new page, read `STYLE_GUIDE.md` in full. The prose rules (11 and 22-28) matter most, because `yarn lint:markdown` does not check them.
 
 ## Commands
 
@@ -28,7 +28,7 @@ Before committing or opening a pull request:
 After any change to documentation files:
 
 1. Check spelling, grammar, and clarity in all modified content.
-2. Re-read the diff against the rules in `STYLE_GUIDE.md`, the prose rules (11 and 22-27) in particular.
+2. Re-read the diff against the rules in `STYLE_GUIDE.md`, the prose rules (11 and 22-28) in particular.
 3. Fix inconsistent terminology and awkward phrasing.
 
 ## Generated files

@@ -2,6 +2,12 @@
 
 This document outlines the formatting and style conventions for all Moderne documentation. Following these rules ensures consistency across all documentation files.
 
+## How to apply these rules
+
+The formatting rules are fixed since `yarn lint:markdown` checks them and CI will fail when one is broken.
+
+On the other hand, the writing rules (11-16 and 22-28) are strong recommendations, not laws. Follow them unless doing so makes a passage awkward, less clear, or less accurate. Try rewriting the sentence first. If every version that follows the rule still reads worse, break the rule and keep the sentence that reads best.
+
 ## Markdown formatting rules
 
 ### 1. Headers and spacing
@@ -601,6 +607,43 @@ Never state that a rule or mechanism exists without saying what it is. A sentenc
     release), a range (`^2.15`, `~2.15.1`, or a quoted Maven range), or a glob over
     the version as written (`*-jre`).
 
+### 28. Reading level
+
+**Rule**: Write for an 8th to 9th grade reading level. A reader who is new to Moderne, or who reads English as a second language, should understand each sentence on the first pass.
+
+**Applies to**: All hand-written documentation, including release notes.
+
+**Exempt**: Auto-generated content, code, and command output.
+
+**Keep sentences short.** Aim for 20 words or fewer. A longer sentence is fine when it develops a single idea (Rule 22), but it should be the exception on a page.
+
+**Use the common word.** If a shorter, everyday word means the same thing, use it.
+
+| Instead of   | Write       |
+|--------------|-------------|
+| utilize      | use         |
+| in order to  | to          |
+| prior to     | before      |
+| subsequently | then, later |
+| facilitate   | help, let   |
+| additional   | more        |
+| numerous     | many        |
+| sufficient   | enough      |
+
+**Keep technical terms.** Product names and the terms a reader needs for the task, such as "repository", "recipe", and "Lossless Semantic Tree", do not count against the target. Do not swap one for a simpler word that is less exact. Define the term on first use instead.
+
+**Correct example:**
+
+    Before you run a recipe, you will need to ingest your repositories. Ingestion
+    builds a Lossless Semantic Tree (LST) for each repository. Recipes read the
+    LST rather than your source files.
+
+**Incorrect example:**
+
+    Prior to recipe execution, it is necessary to perform repository ingestion,
+    which facilitates construction of the Lossless Semantic Tree (LST)
+    representation that recipes subsequently utilize in lieu of your source files.
+
 ## Complete example
 
 Here's what properly formatted documentation looks like:
@@ -679,6 +722,7 @@ When editing documentation, verify:
 * [ ] No sentences that restate the header or announce the topic (Rule 25)
 * [ ] No rule-then-"so" deductions, announced points, balanced match/non-match halves, colon lists in prose, or link-only sentences (Rule 26)
 * [ ] Outcomes described, not parser or implementation mechanics; reasons given a full sentence or cut (Rule 27)
+* [ ] 8th to 9th grade reading level: short sentences, common words, technical terms kept (Rule 28)
 
 ---
 
