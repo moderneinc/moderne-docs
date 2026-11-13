@@ -77,14 +77,6 @@ export function filterSidebarItemsByContext(
     return addCategoryHeader(matchingCategory, currentPath);
   }
 
-  // A standalone top-level doc (such as What's new) has no category to show,
-  // so the sidebar holds just that page
-  const pathWithoutTrailingSlash = currentPath.replace(/\/+$/, '') || '/';
-  const standaloneDoc = items.find(item => isOwningDocLink(item, pathWithoutTrailingSlash));
-  if (standaloneDoc) {
-    return [standaloneDoc];
-  }
-
   // If no match found, return all items unfiltered as fallback
   // This ensures mobile users always see navigation content
   return items as PropSidebarItem[];
@@ -102,6 +94,12 @@ function addCategoryHeader(
   category: PropSidebarItemCategory,
   currentPath: string
 ): PropSidebarItem[] {
+  // A single-page category (such as What's new, whose items are sections of
+  // the page itself) is shown as the page row with its sections nested under it
+  if (category.customProps?.singlePage) {
+    return setAutoExpandState([category], currentPath, false);
+  }
+
   // Create a section header using the category label
   const header: PropSidebarItem = {
     type: 'html',

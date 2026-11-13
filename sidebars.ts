@@ -1,4 +1,5 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
+import { whatsNewMonthHref, whatsNewMonths } from './src/data/whatsNewMonths';
 
 // Helper function for section dividers
 const sectionDivider = (label: string) => ({
@@ -938,6 +939,29 @@ const openRewriteAdvanced = {
   ],
 };
 
+// A single page whose sidebar entries are its month sections. The
+// `singlePage` prop tells the contextual sidebar filter to show the page row
+// with the months nested under it, instead of a section header.
+const whatsNew = {
+  type: 'category' as const,
+  label: "What's new",
+  className: 'whats-new-sidebar',
+  collapsible: false,
+  collapsed: false,
+  customProps: {
+    singlePage: true,
+  },
+  link: {
+    type: 'doc' as const,
+    id: 'whats-new',
+  },
+  items: whatsNewMonths.map((label) => ({
+    type: 'link' as const,
+    label,
+    href: whatsNewMonthHref(label),
+  })),
+};
+
 const releases = {
   type: 'category' as const,
   label: 'Releases',
@@ -1004,7 +1028,7 @@ const sidebars: SidebarsConfig = {
     openRewriteAdvanced,
     platform.admin,
     dx,
-    'whats-new',
+    whatsNew,
     releases,
     licensing,
   ]

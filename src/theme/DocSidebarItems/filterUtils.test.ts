@@ -513,39 +513,38 @@ describe('filterSidebarItemsByContext', () => {
       expect(hasPlatformSubsection).toBe(true);
     });
 
-    it('should show only a standalone top-level doc when on its page', () => {
-      // What's new is a top-level doc with no category of its own.
-      const standaloneItems: PropSidebarItem[] = [
+    it('should show a single-page category as the page row with its sections nested', () => {
+      // What's new is one page whose sidebar items are its month anchors.
+      const singlePageItems: PropSidebarItem[] = [
         ...mockSidebarItems,
         {
-          type: 'link',
-          docId: 'whats-new',
+          type: 'category',
           label: "What's new",
           href: '/whats-new',
-        } as PropSidebarItem,
+          collapsed: true,
+          collapsible: false,
+          customProps: { singlePage: true },
+          items: [
+            { type: 'link', label: 'November 2026', href: '/whats-new#november-2026' },
+            { type: 'link', label: 'October 2026', href: '/whats-new#october-2026' },
+          ],
+        } as PropSidebarItemCategory,
       ];
 
       const result = filterSidebarItemsByContext(
-        standaloneItems,
+        singlePageItems,
         '/whats-new',
         1,
         null
       );
 
       expect(result).toHaveLength(1);
-      expect(result[0].type).toBe('link');
-      if (result[0].type === 'link') {
-        expect(result[0].href).toBe('/whats-new');
+      expect(result[0].type).toBe('category');
+      if (result[0].type === 'category') {
+        expect(result[0].label).toBe("What's new");
+        expect(result[0].collapsed).toBe(false);
+        expect(result[0].items).toHaveLength(2);
       }
-
-      // Docusaurus may serve the page with a trailing slash
-      const withSlash = filterSidebarItemsByContext(
-        standaloneItems,
-        '/whats-new/',
-        1,
-        null
-      );
-      expect(withSlash).toEqual(result);
     });
 
     it('should show the owning section when another section cross-links to a doc', () => {

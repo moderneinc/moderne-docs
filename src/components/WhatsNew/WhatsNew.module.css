@@ -1,199 +1,216 @@
 /**
- * What's new feed: month sections holding product update cards.
+ * What's new feed: product filter chips, ruled month sections, and two-column
+ * entries (product on the left, content on the right).
  * Bound to --mod-* tokens, which are mode-aware, so one set of rules covers
- * light and dark.
+ * light and dark. The design sets body copy at 15px/24px, a size the type
+ * scale has no token for, so those two values are written out.
  */
+
+/* Filter chips */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mod-spacing_1);
+  margin-top: var(--mod-spacing_3_1_2);
+}
+
+.chip {
+  height: 34px;
+  padding: 0 var(--mod-spacing_1_3_4);
+  border: 1px solid var(--mod-color-border-strong);
+  border-radius: var(--mod-border-radius-s);
+  background: var(--mod-color-surface-raised);
+  color: var(--mod-color-text-primary);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--mod-color-text-primary);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--mod-color-action-default);
+  outline-offset: 2px;
+}
+
+.chipSelected,
+.chipSelected:hover {
+  border-color: var(--mod-color-text-primary);
+  background: var(--mod-color-text-primary);
+  color: var(--mod-color-surface-page);
+  font-weight: var(--mod-font-weight-semi-bold);
+}
 
 /* Month section */
 .month {
   display: flex;
   flex-direction: column;
-  gap: var(--mod-spacing_2);
-  max-width: 760px;
-  margin: 0 0 var(--mod-spacing_4);
-}
-
-.monthHeader {
-  display: flex;
-  align-items: center;
-  gap: var(--mod-spacing_1_1_2);
-}
-
-/* The rule that runs from the month label to the right edge */
-.monthHeader::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--mod-color-border-primary);
+  margin-top: var(--mod-spacing_6);
 }
 
 /* Doubled class: outranks the global docMainContainer h2 rules in custom.css,
-   which give every doc h2 the large size, bottom border, and (in dark mode)
-   primary text color. The month label is a small secondary caption instead. */
+   which set their own size, margins, and dark-mode color on every doc h2. */
 .month .monthHeader .monthTitle.monthTitle {
   margin: 0;
-  padding: 0;
-  border: 0;
+  padding: 0 0 var(--mod-spacing_1_3_4);
+  border-bottom: 1px solid var(--mod-color-border-primary);
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
-  font-size: var(--mod-font-size-sm);
-  font-weight: var(--mod-font-weight-semi-bold);
-  line-height: 18px;
-  color: var(--mod-color-text-secondary);
-}
-
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: var(--mod-spacing_2);
-}
-
-/* Card */
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--mod-spacing_1_1_4);
-  padding: var(--mod-spacing_3) var(--mod-spacing_3_1_2);
-  background: var(--mod-color-surface-raised);
-  border: 1px solid var(--mod-color-border-primary);
-  border-radius: var(--mod-border-radius-card);
+  font-size: 22px;
+  line-height: 36px;
+  font-weight: var(--mod-font-weight-medium);
   color: var(--mod-color-text-primary);
-  font-family: var(--mod-font-family-body), system-ui, sans-serif;
 }
 
-.cardWarning {
-  background: var(--mod-color-feedback-warning-bg);
-  border-color: var(--mod-color-feedback-warning-border);
-}
-
-/* Header row: icon, product + kind, optional badge. The product class on
-   this row sets the color that the icon and product label inherit. */
-.header {
+/* Entry: product column + content column, ruled off from the next entry.
+   The .month prefix outranks custom.css's docItemContainer rule, which stacks
+   every article in a doc into a column. */
+.month .entry {
   display: flex;
-  align-items: center;
-  gap: var(--mod-spacing_1_1_2);
-  margin-bottom: var(--mod-spacing_1_2);
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--mod-spacing_1_1_2) var(--mod-spacing_5);
+  padding: var(--mod-spacing_4) 0;
+  border-bottom: 1px solid var(--mod-color-border-primary);
 }
 
-.icon {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 40px;
+.month .entry:last-child {
+  border-bottom: 0;
 }
 
-.meta {
-  flex: 1;
-  min-width: 0;
+.aside {
+  flex: 0 0 168px;
   display: flex;
   flex-direction: column;
-  gap: var(--mod-spacing_1_4);
+  align-items: flex-start;
+  padding-top: var(--mod-spacing_1_2);
 }
 
 .product {
+  display: flex;
+  align-items: center;
+  gap: var(--mod-spacing_1);
   font-size: var(--mod-font-size-sm);
-  line-height: 18px;
-  font-weight: var(--mod-font-weight-semi-bold);
+  line-height: 20px;
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-text-primary);
 }
 
-.kind {
-  font-size: var(--mod-font-size-caption);
-  line-height: 18px;
+.icon {
+  display: flex;
   color: var(--mod-color-text-tertiary);
 }
 
+.kind {
+  padding-left: var(--mod-spacing_3);
+  font-size: var(--mod-font-size-caption);
+  line-height: 20px;
+  color: var(--mod-color-text-tertiary);
+}
+
+.badgeRow {
+  margin-top: var(--mod-spacing_1);
+}
+
 .badge {
-  flex: 0 0 auto;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: var(--mod-spacing_3_4);
   height: 26px;
   padding: 0 var(--mod-spacing_1_1_4);
-  border: 1px solid var(--mod-color-status-neutral-border);
-  border-radius: var(--mod-border-radius-x-s);
-  background: var(--mod-color-status-neutral-bg);
-  color: var(--mod-color-status-neutral-fg);
+  /* 6px sits between the x-s (4px) and s (8px) radius tokens */
+  border-radius: 6px;
+  background: var(--mod-color-status-warning-solid);
+  color: var(--mod-color-text-on-primary);
   font-size: var(--mod-font-size-xs);
   font-weight: var(--mod-font-weight-semi-bold);
   white-space: nowrap;
 }
 
-.badgeWarning {
-  border-color: transparent;
-  background: var(--mod-color-status-warning-solid);
-  color: var(--mod-color-text-on-primary);
+.main {
+  flex: 1 1 420px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_1_1_2);
 }
 
-/* Product colors */
-.productPlatform {
-  color: var(--mod-color-status-active-fg);
-}
-
-.productCli {
-  color: var(--mod-color-status-success-fg);
-}
-
-.productDx {
-  color: var(--mod-color-categorical-berry-fg);
-}
-
-.productOpenRewrite {
-  color: var(--mod-color-status-warning-fg);
-}
-
-.productAgents {
-  color: var(--mod-color-categorical-jade-fg);
-}
-
-.productModdy {
-  color: var(--mod-color-categorical-blue-fg);
-}
-
-.productDocs {
-  color: var(--mod-color-status-info-fg);
-}
-
-.productModerne {
-  color: var(--mod-color-text-primary);
-}
-
-/* Title: the .card prefix outranks the theme's h3 color and weight rules */
-.card .cardTitle {
+/* Title: the .entry prefix outranks the theme's h3 weight and color rules */
+.entry .title {
   margin: 0;
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: var(--mod-font-size-h4);
-  line-height: 1.3;
-  font-weight: var(--mod-font-weight-semi-bold);
+  line-height: 30px;
+  font-weight: var(--mod-font-weight-medium);
   color: var(--mod-color-text-primary);
 }
 
-/* Body: markdown paragraphs and lists inherit this type and color */
+/* Body: markdown output, so the elements it produces are styled by tag here.
+   Blocks stack with the same 12px gap as the rest of the content column. */
 .body {
-  font-size: var(--mod-font-size-default);
-  line-height: 1.55;
-  color: var(--mod-color-text-secondary);
-}
-
-.body > :last-child {
-  margin-bottom: 0;
-}
-
-/* Bold lead-ins in bullets read as the item's label, so they take the
-   primary text color. The body is markdown output, so there is no class
-   to hang this on. */
-.body strong {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_1_1_2);
+  font-size: 15px;
+  line-height: 24px;
   color: var(--mod-color-text-primary);
-  font-weight: var(--mod-font-weight-semi-bold);
 }
 
-/* The .card prefix outranks the theme's .markdown img rule, which puts 40px
-   above and below media. The hairline frame that rule draws is kept. */
-.card .image {
+.body > * {
+  margin: 0;
+}
+
+.body ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_3_4);
+  padding-left: var(--mod-spacing_2_3_4);
+}
+
+.body li {
+  margin: 0;
+}
+
+.body strong {
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-primary);
+}
+
+/* Figure: the .body prefix outranks the theme's .markdown figure frame, which
+   adds padding, a shadow, and 40px margins around media */
+.body .figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_1);
+  width: 100%;
+  max-width: 100%;
+  margin: var(--mod-spacing_1_2) 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.body .figure .image {
   display: block;
   width: 100%;
   height: auto;
-  margin: var(--mod-spacing_1_2) 0 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-input);
+  box-shadow: none;
+}
+
+/* The theme centers figure captions; the design keeps them flush left */
+.body .figure .caption {
+  text-align: left;
+  font-size: var(--mod-font-size-sm);
+  line-height: 20px;
+  color: var(--mod-color-text-tertiary);
 }
 
 /* Links row: the .links prefix outranks the theme's .markdown a underline */
@@ -201,14 +218,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--mod-spacing_1) var(--mod-spacing_3);
-  margin-top: var(--mod-spacing_1_2);
+  margin-top: var(--mod-spacing_1_4);
 }
 
 .links .link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: var(--mod-spacing_3_4);
-  font-size: var(--mod-font-size-sm);
+  font-size: 15px;
   font-weight: var(--mod-font-weight-medium);
   color: var(--mod-color-action-default);
   text-decoration: none;
@@ -217,10 +234,4 @@
 .links .link:hover {
   color: var(--mod-color-action-default);
   text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-  .card {
-    padding: var(--mod-spacing_2) var(--mod-spacing_2_1_2);
-  }
 }

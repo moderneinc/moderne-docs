@@ -357,6 +357,20 @@ figure figcaption {
   margin: 0 auto;
 }
 
+/* What's new sidebar: the page's month sections nest under the page row like a
+   table of contents, in the smaller muted type the design gives them. */
+.theme-doc-sidebar-menu .whats-new-sidebar > .menu__list {
+  margin-left: var(--mod-spacing_1_1_2);
+  padding-left: var(--mod-spacing_1);
+  border-left: 1px solid var(--mod-color-border-primary);
+}
+
+.theme-doc-sidebar-menu .whats-new-sidebar > .menu__list .menu__link {
+  font-size: var(--mod-font-size-sm);
+  line-height: 20px;
+  color: var(--mod-color-text-tertiary);
+}
+
 /* Media borders use the mode-aware --mod-color-border-primary, so no dark override is needed. */
 
 /* Zoomed image background */
