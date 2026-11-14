@@ -13,7 +13,8 @@ This guide will walk you through how to configure the Moderne Connector to enabl
 
 ## Prerequisites
 
-* You will need an API key from your chosen LLM provider (OpenAI, Anthropic, Google, or Mistral)
+* You will need an API key from your chosen LLM provider (OpenAI, Anthropic, Google Gemini, or Mistral)
+* If you use Google Vertex AI, you will need a Google Cloud project with the Vertex AI API enabled and a service account instead of an API key
 
 ## Supported LLM providers
 
@@ -24,6 +25,7 @@ The Moderne Connector currently supports the following LLM providers:
 | OpenAI        | GPT-6 Astra            | `https://api.openai.com/v1`                        |
 | Anthropic     | Claude Opus 5          | `https://api.anthropic.com/v1`                     |
 | Google Gemini | Gemini 3.1 Pro Preview | `https://generativelanguage.googleapis.com/v1beta` |
+| Google Vertex AI | Gemini 3.1 Pro Preview | You set the full URL. See [Google Vertex AI](#google-vertex-ai). |
 | Mistral       | Mistral Large Latest   | `https://api.mistral.ai/v1`                        |
 
 If you need a model or LLM provider that isn't listed here, please contact Moderne support.
@@ -32,7 +34,11 @@ If you need a model or LLM provider that isn't listed here, please contact Moder
 
 The following table contains all of the variables/arguments you need to add to your Moderne Connector run command in order to enable Moddy. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-config.md).
 
-Variables are nested under the specific provider you are configuring. Replace `{PROVIDER}` with one of: `OPENAI`, `ANTHROPIC`, `GEMINI`, `MISTRAL` (for environment variables) or `{provider}` with one of: `openai`, `anthropic`, `gemini`, `mistral` (for JAR arguments).
+Variables are nested under the specific provider you are configuring. Replace `{PROVIDER}` with one of: `OPENAI`, `ANTHROPIC`, `GEMINI`, `VERTEX`, `MISTRAL` (for environment variables) or `{provider}` with one of: `openai`, `anthropic`, `gemini`, `vertex`, `mistral` (for JAR arguments).
+
+:::note
+Google Vertex AI has no API key. For `VERTEX`, `URI` is required, and you can set `CREDENTIALSJSON` instead of `APIKEY`. See [Google Vertex AI](#google-vertex-ai).
+:::
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -47,6 +53,7 @@ Variables are nested under the specific provider you are configuring. Replace `{
 | `MODERNE_MODDY_{PROVIDER}_HASHUSERID` | `false`  | `true`  | Whether to send the SHA-256 hash of the user's email (`true`) or the plain email (`false`) as the user identifier on each LLM request. See [User identity on LLM requests](#user-identity-on-llm-requests).                                          |
 | `MODERNE_MODDY_{PROVIDER}_PROXY_HOST` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `PROXY_PORT` must also be set.                                                                                       |
 | `MODERNE_MODDY_{PROVIDER}_PROXY_PORT` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `PROXY_HOST` must also be set.                                                                                         |
+| `MODERNE_MODDY_VERTEX_CREDENTIALSJSON` | `false` |         | The contents of a Google Cloud service account key file. Used only for `VERTEX`. If you leave it out, the Connector uses Application Default Credentials. |
 | `MODERNE_MODDY_ADMINONLY`             | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
 
 **Example:**
@@ -74,6 +81,7 @@ moderne-connector:latest
 | `--moderne.moddy.{provider}.hash-user-id` | `false`  | `true`  | Whether to send the SHA-256 hash of the user's email (`true`) or the plain email (`false`) as the user identifier on each LLM request. See [User identity on LLM requests](#user-identity-on-llm-requests).                                        |
 | `--moderne.moddy.{provider}.proxy.host` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `proxy.port` must also be set.                                                                                       |
 | `--moderne.moddy.{provider}.proxy.port` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `proxy.host` must also be set.                                                                                         |
+| `--moderne.moddy.vertex.credentials-json` | `false` |         | The contents of a Google Cloud service account key file. Used only for `vertex`. If you leave it out, the Connector uses Application Default Credentials. |
 | `--moderne.moddy.admin-only`            | `false`  | `false` | If `true`, only admins will see Moddy in the UI and be able to chat with Moddy.                                                                                                              |
 
 **Example:**
@@ -182,6 +190,68 @@ java -jar connector-{version}.jar \
 </TabItem>
 </Tabs>
 
+### Google Vertex AI
+
+Vertex AI serves Gemini models from your own Google Cloud project. You set the full endpoint URL yourself, and the Connector signs each request with a Google access token.
+
+#### Setting the endpoint
+
+Set `URI` to the base URL for your project and location. Replace `{PROJECT}` with your Google Cloud project ID.
+
+| Where the model runs | `URI`                                                                                          |
+|----------------------|------------------------------------------------------------------------------------------------|
+| Global               | `https://aiplatform.googleapis.com/v1/projects/{PROJECT}/locations/global/publishers/google`   |
+| One region           | `https://europe-west4-aiplatform.googleapis.com/v1/projects/{PROJECT}/locations/europe-west4/publishers/google` |
+| EU multi-region      | `https://aiplatform.eu.rep.googleapis.com/v1/projects/{PROJECT}/locations/eu/publishers/google` |
+| Through a gateway    | `https://llm-gateway.company.com/vertex_ai/v1/projects/{PROJECT}/locations/global/publishers/google` |
+
+Google does not offer every model in every location. Check that your model is available in the location you pick.
+
+If you use a gateway, the Connector still sends a Google access token with each request. Your gateway needs to accept that token or pass it through.
+
+#### Choosing credentials
+
+Create a service account with the Vertex AI User role (`roles/aiplatform.user`) on your project. You can then give the Connector its key in one of two ways.
+
+* Set `CREDENTIALSJSON` to the contents of the service account key file.
+* Leave `CREDENTIALSJSON` out. The Connector then uses Application Default Credentials, such as the `GOOGLE_APPLICATION_CREDENTIALS` variable or a service account attached to the machine it runs on.
+
+#### Choosing a model
+
+Set `MODEL` to a Gemini model name that your project can use. The default is `gemini-3.1-pro-preview`, which is a preview model. You should set `MODEL` to the model you want so it does not change under you.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+```bash
+export MODERNE_MODDY_VERTEX_CREDENTIALSJSON="$(cat service-account-key.json)"
+
+docker run \
+# ... other required agent configuration ...
+-e MODERNE_MODDY_VERTEX_URI=https://aiplatform.googleapis.com/v1/projects/my-project/locations/global/publishers/google \
+-e MODERNE_MODDY_VERTEX_MODEL=gemini-3.1-pro-preview \
+-e MODERNE_MODDY_VERTEX_CREDENTIALSJSON \
+# ... rest of configuration ...
+moderne-connector:latest
+```
+
+</TabItem>
+<TabItem value="executable-jar" label="Executable JAR">
+
+```bash
+export MODERNE_MODDY_VERTEX_CREDENTIALSJSON="$(cat service-account-key.json)"
+
+java -jar connector-{version}.jar \
+# ... other required agent configuration ...
+--moderne.moddy.vertex.uri=https://aiplatform.googleapis.com/v1/projects/my-project/locations/global/publishers/google \
+--moderne.moddy.vertex.model=gemini-3.1-pro-preview \
+--moderne.moddy.vertex.credentials-json="$MODERNE_MODDY_VERTEX_CREDENTIALSJSON" \
+# ... rest of configuration ...
+```
+
+</TabItem>
+</Tabs>
+
 ### Mistral
 
 <Tabs groupId="agent-type">
@@ -257,6 +327,7 @@ Every request Moddy sends to your LLM carries the signed-in user's identifier an
 | OpenAI        | Request body `user`             | Header `x-moderne-user-country` |
 | Anthropic     | Request body `metadata.user_id` | Header `x-moderne-user-country` |
 | Google Gemini | Header `x-moderne-user-id`      | Header `x-moderne-user-country` |
+| Google Vertex AI | Header `x-moderne-user-id`   | Header `x-moderne-user-country` |
 | Mistral       | Header `x-moderne-user-id`      | Header `x-moderne-user-country` |
 
 By default, the user identifier is the SHA-256 hash of the user's email address. The country is passed through from your identity provider unchanged. Send a two-letter ISO 3166-1 code, such as `DE`, so your proxy has a predictable value to match. If a user has no country, the header is omitted.
@@ -309,7 +380,7 @@ Your identity provider needs to send the user's country as a claim on login. Mod
 
 Point the provider's `URI` at your proxy. Moddy sends each request in the provider's native format. The `MODEL` value is the model name your proxy receives, so your proxy decides which backend model answers.
 
-* Your proxy can read the user identifier from the request body for OpenAI and Anthropic without configuration. For Google Gemini and Mistral, you will need to configure your proxy to read the `x-moderne-user-id` header. In LiteLLM, for example, add `header_name: x-moderne-user-id` with `litellm_user_role: customer` under `general_settings.user_header_mappings`.
+* Your proxy can read the user identifier from the request body for OpenAI and Anthropic without configuration. For Google Gemini, Google Vertex AI, and Mistral, you will need to configure your proxy to read the `x-moderne-user-id` header. In LiteLLM, for example, add `header_name: x-moderne-user-id` with `litellm_user_role: customer` under `general_settings.user_header_mappings`.
 * Routing by country is a rule you add to your proxy that reads `x-moderne-user-country`. No proxy applies one by default.
 * Your proxy will need to end its response to the Connector as soon as the provider's stream ends. Moddy asks your LLM for every answer as a stream.
 
