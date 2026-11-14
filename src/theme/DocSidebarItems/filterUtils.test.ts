@@ -513,6 +513,40 @@ describe('filterSidebarItemsByContext', () => {
       expect(hasPlatformSubsection).toBe(true);
     });
 
+    it('should show a single-page category as the page row with its sections nested', () => {
+      // What's new is one page whose sidebar items are its month anchors.
+      const singlePageItems: PropSidebarItem[] = [
+        ...mockSidebarItems,
+        {
+          type: 'category',
+          label: "What's new",
+          href: '/whats-new',
+          collapsed: true,
+          collapsible: false,
+          customProps: { singlePage: true },
+          items: [
+            { type: 'link', label: 'November 2026', href: '/whats-new#november-2026' },
+            { type: 'link', label: 'October 2026', href: '/whats-new#october-2026' },
+          ],
+        } as PropSidebarItemCategory,
+      ];
+
+      const result = filterSidebarItemsByContext(
+        singlePageItems,
+        '/whats-new',
+        1,
+        null
+      );
+
+      expect(result).toHaveLength(1);
+      expect(result[0].type).toBe('category');
+      if (result[0].type === 'category') {
+        expect(result[0].label).toBe("What's new");
+        expect(result[0].collapsed).toBe(false);
+        expect(result[0].items).toHaveLength(2);
+      }
+    });
+
     it('should show the owning section when another section cross-links to a doc', () => {
       // CLI links to the CLI releases doc, which lives in the Releases section.
       // The sidebar should show Releases, not the CLI tree that links to it.

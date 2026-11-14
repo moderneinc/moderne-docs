@@ -14,19 +14,22 @@ export type SecondaryNavProps = {
   trainingItems: NavLink[];
   /** Items for the "Releases" dropdown */
   releasesItems: NavLink[];
+  /** Standalone link shown beside the "Releases" dropdown */
+  whatsNewLink: NavLink;
 };
 
 type DropdownState = 'training' | 'releases' | null;
 
 /**
  * Secondary navigation bar displayed below the primary navbar on desktop.
- * Shows product links, a "Training" dropdown, and a "Releases" dropdown.
+ * Shows product links, a "Training" dropdown, a "What's New" link, and a "Releases" dropdown.
  * Hidden on mobile where the MegaMenu handles navigation.
  */
 export const SecondaryNav: FunctionComponent<SecondaryNavProps> = ({
   products,
   trainingItems,
   releasesItems,
+  whatsNewLink,
 }) => {
   const [openDropdown, setOpenDropdown] = useState<DropdownState>(null);
   const trainingRef = useRef<HTMLDivElement>(null);
@@ -156,6 +159,15 @@ export const SecondaryNav: FunctionComponent<SecondaryNavProps> = ({
         </div>
       </div>
       <div className={styles.rightSection}>
+        <Link
+          href={whatsNewLink.href}
+          className={clsx(styles.productLink, {
+            [styles.productLinkActive]: isProductActive(whatsNewLink.href),
+          })}
+          aria-current={isProductActive(whatsNewLink.href) ? 'page' : undefined}
+        >
+          {whatsNewLink.name}
+        </Link>
         <div className={styles.dropdownWrapper} ref={releasesRef}>
           <button
             className={clsx(styles.dropdownButton, {

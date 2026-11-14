@@ -357,6 +357,79 @@ figure figcaption {
   margin: 0 auto;
 }
 
+/* What's new page: the content column sits on a lighter surface than the page,
+   and the title, intro, and measure take the sizes the design specifies. Doc
+   pages carry no class of their own, so these key off the feed's marker class. */
+[class*="docMainContainer"]:has(.whats-new-page) {
+  background: var(--mod-color-surface-raised);
+}
+
+[class*="docMainContainer"]:has(.whats-new-page) .markdown {
+  max-width: 900px;
+}
+
+/* Room between the sidebar divider and the content. With the table of contents
+   hidden, the doc column is a plain .col, so that is what gets the padding. */
+[class*="docMainContainer"]:has(.whats-new-page) .row > .col {
+  padding-left: var(--mod-spacing_5);
+}
+
+[class*="docMainContainer"]:has(.whats-new-page) h1 {
+  margin: 0 0 var(--mod-spacing_1);
+  font-size: var(--mod-font-size-h1);
+  line-height: 36px;
+  font-weight: var(--mod-font-weight-medium);
+  letter-spacing: -0.01em;
+}
+
+/* The breadcrumb trail is hidden on this page, and its row collapses to no
+   height so the Copy page button it shares the row with lands on the title
+   line, right-aligned. */
+[class*="docMainContainer"]:has(.whats-new-page) nav[aria-label="Breadcrumbs"] {
+  display: none;
+}
+
+[class*="docMainContainer"]:has(.whats-new-page) [class*="breadcrumbsRow"] {
+  position: relative;
+  /* Lines the 36px button up with the title's 36px line, which starts below
+     the content's top padding */
+  top: var(--mod-spacing_2);
+  z-index: 2;
+  height: 0;
+  justify-content: flex-end;
+}
+
+[class*="docMainContainer"]:has(.whats-new-page) .markdown > p {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+/* What's new sidebar: the page row is tinted while it is the current page, and
+   the page's month sections nest under it like a table of contents, in the
+   smaller muted type the design gives them. */
+.theme-doc-sidebar-menu .whats-new-sidebar > .menu__list-item-collapsible--active {
+  background: var(--mod-color-action-tint);
+}
+
+.theme-doc-sidebar-menu .whats-new-sidebar > .menu__list {
+  margin-left: var(--mod-spacing_1_1_2);
+  padding-left: var(--mod-spacing_1);
+  border-left: 1px solid var(--mod-color-border-primary);
+}
+
+.theme-doc-sidebar-menu .whats-new-sidebar > .menu__list .menu__link {
+  padding-top: var(--mod-spacing_1_2);
+  padding-bottom: var(--mod-spacing_1_2);
+  font-size: var(--mod-font-size-sm);
+  line-height: 20px;
+  color: var(--mod-color-text-tertiary);
+}
+
+/* Month rows sit flush against each other instead of Infima's 4px gap */
+.theme-doc-sidebar-menu .whats-new-sidebar > .menu__list .menu__list-item {
+  margin-top: 0;
+}
+
 /* Media borders use the mode-aware --mod-color-border-primary, so no dark override is needed. */
 
 /* Zoomed image background */
