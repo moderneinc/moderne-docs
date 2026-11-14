@@ -15,6 +15,29 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## November 2026
 
+### CLI v4.12.9 (2026-11-13) {/* #v4.12.9 */}
+
+_Based on [OpenRewrite 8.107.3](https://github.com/openrewrite/rewrite/releases/tag/v8.107.3)_
+
+#### What's Changed
+* Rewrite Flyway and Liquibase SQL for pglite in one place, and handle plpgsql
+* Detect a single-project Gradle build that has no settings file
+* Detect styles for Gradle build scripts, Groovy sources, and POMs
+* Read back LSTs containing HCL or Python comments
+* Keep inline HCL comments inline when reading LSTs from older CLIs
+* Add an environment column to repos.csv and apply the build environment to every build tool
+* Fail a JVM build that parsed its own source without types, and add --clean to sync-csv
+* Fail only the repository whose moderne.yml won't parse, not the whole build or publish
+* Serve Bazel mini-builds from a persistent worker
+* Add --window to agent chat to show what the agent reads, and remove mod tray
+* Fail a modw.cmd version lookup that returns nothing, and report its URL and status
+* Drop the unused Apache MINA SSHD dependency
+* Speed up git line history on monorepos with many merges
+* Ignore .moderne in a linked git worktree
+* Build Bazel py_* targets into Python LSTs
+* Record local searches and navigations as telemetry
+* Keep a clone when git cannot store a case-colliding remote ref on a case-insensitive filesystem
+
 ### CLI v4.12.8 (2026-11-11) {/* #v4.12.8 */}
 
 _Based on [OpenRewrite 8.104.0](https://github.com/openrewrite/rewrite/releases/tag/v8.104.0)_
