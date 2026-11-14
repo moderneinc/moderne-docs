@@ -7,13 +7,26 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.379 |
+| Connector | 0.151.415 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.379/connector-0.151.379.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.415/connector-0.151.415.jar)
 
 ## Changelog
 
 ## November 2026
+
+### v0.151.415 – 2026-11-13
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.415/connector-0.151.415.jar)
+
+* Read the dev Vertex key from a wrapped secret property (#3071)
+* Gauge the connector's disk once per device (#3053)
+* Moddy: support Google Vertex AI (Gemini) (#3061)
+* Keep google-auth-library off 1.58.0 until Maven Central has the api-common it needs (#3069)
+* Connector: summarise artifacts that cannot be described and report progress during long polling cycles (#3045)
+* Start the connector's org-source sync once the gateway bootstrap completes (#3039)
+* Drop moderne-cache-3 from the app, dev, devaz and local configs (#3020)
+* Say how a name is written without 'spelling' (#2985)
 
 ### v0.151.379 – 2026-11-06
 
