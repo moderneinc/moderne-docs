@@ -1,33 +1,31 @@
 /**
  * Platform Toggle Component Styles
- * Segmented control for switching between Practitioner and Admin views
+ * Underline tabs for switching between the User and Admin views: text tabs on
+ * a hairline, with a forest underline on the active one, in the same language
+ * as the rules on the section pages.
  */
 
 .toggle {
-  display: inline-flex;
-  width: fit-content;
-  border: 1px solid var(--mod-color-border-primary);
-  border-radius: var(--mod-border-radius-full);
-  overflow: hidden;
-  background: var(--mod-color-surface-search-input);
+  display: flex;
+  gap: var(--mod-spacing_3);
+  width: 100%;
+  border-bottom: 1px solid var(--mod-color-border-primary);
 }
 
 .segment {
-  padding: var(--mod-spacing_1_2) var(--mod-spacing_2);
+  /* The underline overlaps the hairline by its own 1px so the two read as one line. */
+  margin-bottom: -1px;
+  padding: 0 0 var(--mod-spacing_1);
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: var(--mod-font-size-sm);
   font-weight: var(--mod-font-weight-medium);
   line-height: 1.4;
   text-decoration: none;
   color: var(--mod-color-text-tertiary);
-  background: transparent;
-  transition: all 0.15s ease;
-  cursor: pointer;
-  border-right: 1px solid var(--mod-color-border-primary);
-}
-
-.segment:last-child {
-  border-right: none;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .segment:hover {
@@ -36,26 +34,20 @@
 }
 
 .segment:focus-visible {
-  outline: 2px solid var(--mod-button-primary-bg);
-  outline-offset: -2px;
-  z-index: 1;
+  outline: 2px solid var(--mod-color-text-success);
+  outline-offset: 2px;
+  border-radius: var(--mod-border-radius-x-xs);
 }
 
+/* Forest green is --mod-color-text-success, which is mode-aware, so one rule
+   covers light and dark. */
 .active {
-  background: var(--mod-color-surface-search-input);
-  color: var(--mod-color-action-default);
+  color: var(--mod-color-text-primary);
+  font-weight: var(--mod-font-weight-semi-bold);
+  border-bottom-color: var(--mod-color-text-success);
   cursor: default;
 }
 
 .active:hover {
-  color: var(--mod-color-action-default);
-}
-
-/* Dark mode */
-html[data-theme='dark'] .active {
-  color: var(--brand-digital-green);
-}
-
-html[data-theme='dark'] .active:hover {
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
 }

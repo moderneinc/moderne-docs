@@ -1,6 +1,6 @@
 ---
 sidebar_label: Agent chat
-description: How to start an AI coding agent on a Moderne organization with mod <agent> chat, and how the agent works through changesets.
+description: How to start an AI coding agent on a Moderne organization with `mod <agent> chat`, and how the agent works through changesets.
 ---
 
 import Tabs from '@theme/Tabs';

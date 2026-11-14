@@ -13,7 +13,7 @@
   gap: var(--mod-spacing_1);
   margin: var(--mod-spacing_1) 0 var(--mod-spacing_2) 0;
   padding: 0;
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-caption);
   color: var(--brand-midnight);
 }
 

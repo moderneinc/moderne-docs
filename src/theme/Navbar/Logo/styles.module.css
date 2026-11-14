@@ -30,9 +30,10 @@
 /* Both lockups are exported on the same 1280px-wide canvas (tight-cropped), so
    they're sized by WIDTH to render identically — no box jump on theme toggle.
    The ~2px intrinsic-height difference between the colored and white wordmarks
-   is absorbed by the navbar's vertical centering. */
+   is absorbed by the navbar's vertical centering. Widths put the wordmark at
+   20px and the mark at 17px. */
 .lockup {
-  width: 300px;
+  width: 230px;
   height: auto;
   display: block;
   flex-shrink: 0;
@@ -40,7 +41,7 @@
 
 @media (min-width: 1280px) {
   .lockup {
-    width: 340px;
+    width: 260px;
   }
 }
 

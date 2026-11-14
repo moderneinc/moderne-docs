@@ -24,6 +24,10 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  /* Root type size: 15px rather than the browser's 16px, so every rem-based
+     size across the site steps down with it. */
+  --ifm-font-size-base: 93.75%;
+
   /* Page background — mode-aware design-system surface. */
   --ifm-background-color: var(--mod-color-surface-page);
   --background: #fafaff; /* brand background token */
@@ -71,7 +75,7 @@
   --ifm-navbar-padding-horizontal: 32px;
   --ifm-navbar-item-padding-horizontal: 1.4rem;
   --ifm-navbar-height: 37px;
-  --ifm-secondary-nav-height: 48px;
+  --ifm-secondary-nav-height: 40px;
   /* Defaults to 0 (no bar). The `html:has([role="banner"])` rule below bumps it
      to the bar's height only when an announcement bar is actually rendered, so
      the layout offsets don't reserve phantom space when no bar is configured. */
@@ -142,7 +146,7 @@ html[data-announcement-bar-initially-dismissed='true'] {
 
 /* Use selector for specificity */
 html.docs-wrapper {
-  --doc-sidebar-width: 307px;
+  --doc-sidebar-width: 260px;
 }
 
 /* Use selector for specificity */
@@ -159,7 +163,7 @@ html[data-theme=light] {
 /* Algolia DocSearch — Morpheus search field */
 .DocSearch-Button {
   width: 232px;
-  height: 40px;
+  height: 36px;
   border-radius: var(--mod-border-radius-input);
   background: var(--mod-color-surface-field);
   border: 1px solid var(--mod-color-border-strong);
@@ -190,6 +194,10 @@ html[data-theme='light'] .DocSearch-Button {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.DocSearch-Button-Placeholder {
+  font-size: var(--mod-font-size-sm);
 }
 
 .DocSearch-Search-Icon {
@@ -415,12 +423,26 @@ html {
   padding-top: 0;
 }
 
+/* The doc content column sits on a surface one step lighter than the page, in
+   both modes, on every doc page, with 20px of extra room between the sidebar
+   divider and where the content starts. */
+[class*="docMainContainer"] {
+  background: var(--mod-color-surface-raised);
+}
+
+@media (min-width: 997px) {
+  [class*="docMainContainer"] {
+    padding-left: var(--mod-spacing_2_1_2);
+  }
+}
+
 .reactPlayer + p {
   margin-top: 1.25rem;
 }
 
+/* Article body copy: 15px, one step under the default token. */
 [class^=docMainContainer_] {
-  font-size: var(--mod-font-size-default);
+  font-size: 15px;
 }
 
 [class*="docItemContainer"] article {
@@ -430,18 +452,19 @@ html {
 
 h1 {
   font-family: var(--mod-font-family-body), sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: var(--mod-font-weight-semi-bold);
-  line-height: 45px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   color: var(--brand-midnight);
   margin-top: 0;
 }
 
 [class^=docMainContainer_] h2:not(.doc-card-title) {
   font-family: var(--mod-font-family-body), sans-serif;
-  font-size: var(--mod-font-size-h2);
+  font-size: 21px;
   font-weight: var(--mod-font-weight-medium);
-  line-height: 32px;
+  line-height: 1.3;
   color: var(--mod-color-text-primary);
   margin-top: var(--mod-spacing_5);
   padding-bottom: var(--mod-spacing_1);
@@ -483,8 +506,7 @@ h1 {
   margin-left: 10px;
 }
 [class^=docMainContainer_] h3:not(.doc-card-title) {
-  font-size: var(--mod-font-size-h4);
-
+  font-size: var(--mod-font-size-h5);
 }
 
 /* !important: --ifm-heading-color inheritance doesn't update for dynamic content */

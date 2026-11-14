@@ -10,7 +10,7 @@
   /* Override default menu padding with Morpheus spacing */
   .menu {
     flex-grow: 1;
-    padding: var(--mod-spacing_1) var(--mod-spacing_4) 8rem var(--mod-spacing_4);
+    padding: var(--mod-spacing_1) var(--mod-spacing_3) 8rem var(--mod-spacing_3);
     overflow-y: auto;
     scroll-padding-top: 12rem;
   }
@@ -32,7 +32,7 @@
  * Aligned with the Morpheus design system
  */
 :global(.theme-doc-sidebar-menu) {
-  font-size: var(--mod-font-size-default);
+  font-size: var(--mod-font-size-sm);
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.5;
 }
@@ -44,10 +44,23 @@
   font-weight: var(--mod-font-weight-semi-bold);
 }
 
-/* Sidebar link spacing */
+/* Sidebar link spacing: 14px top-level rows come to 32px tall. */
 :global(.theme-doc-sidebar-menu .menu__link) {
   padding: var(--mod-spacing_3_4) var(--mod-spacing_1_1_2);
   line-height: 1.4;
+}
+
+/* Nested rows are 13px and 28px tall. */
+:global(.theme-doc-sidebar-menu .menu__list .menu__list .menu__link) {
+  font-size: var(--mod-font-size-caption);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Dark mode: links drop to grey so the open group and the current page stand
+   out rather than every link shining. */
+:global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link) {
+  color: var(--mod-docs-text-muted);
 }
 
 /* Hover states - brand lavender tint (not in Morpheus) + selected color */
@@ -58,7 +71,7 @@
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link:hover) {
   background-color: rgba(212, 211, 228, 0.1);
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
 }
 
 /* Category item hover - applies to the full row including caret */
@@ -76,7 +89,7 @@
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__list-item-collapsible:hover .menu__link) {
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
   background-color: transparent;
 }
 
@@ -86,7 +99,7 @@
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link--active) {
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
 }
 
 /* Border styling between top-level sections - brand lavender */
@@ -101,15 +114,14 @@
 
 /* Sidebar section headers (HTML dividers in sidebar) */
 :global(.theme-doc-sidebar-item-link > strong) {
-  text-transform: uppercase;
   color: var(--mod-color-text-primary);
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-caption);
   line-height: 1.4;
   font-weight: var(--mod-font-weight-semi-bold);
 }
 
 :global(html[data-theme='dark'] .theme-doc-sidebar-item-link > strong) {
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
 }
 
 /* Note: Caret icons are now rendered using Lucide React icons
