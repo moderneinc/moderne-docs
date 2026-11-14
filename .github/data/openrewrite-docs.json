@@ -1,0 +1,189 @@
+{
+  "repository": "openrewrite/rewrite-docs",
+  "ref": "master",
+  "linkOverrides": {
+    "docs/running-recipes/getting-started.md#step-2-add-rewrite-maven-plugin-or-rewrite-gradle-plugin-to-your-project": "docs/user-documentation/recipes/accessing-the-code-genome-project.md"
+  },
+  "pages": [
+    {
+      "upstream": "docs/authoring-recipes/automate-breaking-changes.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/advanced-authoring/automate-breaking-changes.md",
+      "sidebar_label": "Automating breaking changes"
+    },
+    {
+      "upstream": "docs/authoring-recipes/data-tables.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/advanced-authoring/data-tables.md",
+      "sidebar_label": "Creating recipes with data tables"
+    },
+    {
+      "upstream": "docs/authoring-recipes/estimated-time-saved.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/advanced-authoring/estimated-time-saved.md",
+      "sidebar_label": "Estimated time saved"
+    },
+    {
+      "upstream": "docs/authoring-recipes/javascript-recipe-development-environment.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/set-up/javascript-recipe-development-environment.md",
+      "sidebar_label": "JavaScript recipe development environment"
+    },
+    {
+      "upstream": "docs/authoring-recipes/modifying-methods-with-javatemplate.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/advanced-authoring/modifying-methods-with-javatemplate.md",
+      "sidebar_label": "Modifying methods with JavaTemplates"
+    },
+    {
+      "upstream": "docs/authoring-recipes/multiple-versions.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/advanced-authoring/multiple-versions.md",
+      "sidebar_label": "Multiple versions of a library"
+    },
+    {
+      "upstream": "docs/authoring-recipes/multiple-visitors.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/advanced-authoring/multiple-visitors.md",
+      "sidebar_label": "Multiple visitors in one recipe"
+    },
+    {
+      "upstream": "docs/authoring-recipes/recipe-conventions-and-best-practices.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices.md",
+      "sidebar_label": "Recipe conventions and best practices"
+    },
+    {
+      "upstream": "docs/authoring-recipes/recipe-development-environment.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/set-up/recipe-development-environment.md",
+      "sidebar_label": "Recipe development environment",
+      "pinned": {
+        "reason": "Adds Moderne Platform deployment, moderne-recipe-bom and Code Genome Project access guidance",
+        "reconciledWith": "8fb9d864613753463f2d3d53889171f2e90bf9ec"
+      }
+    },
+    {
+      "upstream": "docs/authoring-recipes/recipe-testing.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing.md",
+      "sidebar_label": "Testing recipes"
+    },
+    {
+      "upstream": "docs/authoring-recipes/refaster-recipes.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/writing-recipes/refaster-recipes.md",
+      "sidebar_label": "Creating Refaster template recipes"
+    },
+    {
+      "upstream": "docs/authoring-recipes/types-of-recipes.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md",
+      "sidebar_label": "Types of recipes"
+    },
+    {
+      "upstream": "docs/authoring-recipes/writing-a-java-refactoring-recipe.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-java-refactoring-recipe.md",
+      "sidebar_label": "Writing a Java refactoring recipe"
+    },
+    {
+      "upstream": "docs/authoring-recipes/writing-a-javascript-refactoring-recipe.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-javascript-refactoring-recipe.md",
+      "sidebar_label": "Writing a JavaScript refactoring recipe"
+    },
+    {
+      "upstream": "docs/authoring-recipes/writing-recipes-over-multiple-source-file-types.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/advanced-authoring/writing-recipes-over-multiple-source-file-types.md",
+      "sidebar_label": "Multiple source file types"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/cursors.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/cursors.md",
+      "sidebar_label": "Cursors"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/javascript-lst-examples.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/lst-examples/javascript.md",
+      "sidebar_label": "JavaScript examples"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/javatemplate.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/javatemplate.md",
+      "sidebar_label": "JavaTemplate"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/lst-examples.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/lst-examples/java.md",
+      "sidebar_label": "Java examples"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/markers.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/markers.md",
+      "sidebar_label": "Markers"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/quarks.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/quarks.md",
+      "sidebar_label": "Quarks"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/recipes.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/recipes.md",
+      "sidebar_label": "Recipes"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/styles.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/styles.md",
+      "sidebar_label": "Styles"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/traits.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/traits.md",
+      "sidebar_label": "Traits"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/tree-visiting-printer.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/tree-visiting-printer.md",
+      "sidebar_label": "TreeVisitingPrinter"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/type-attribution.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/type-attribution.md",
+      "sidebar_label": "Type attribution"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/visitors.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/visitors.md",
+      "sidebar_label": "Visitors"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/yaml-lst-examples.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/lst-examples/yaml.md",
+      "sidebar_label": "YAML examples"
+    },
+    {
+      "upstream": "docs/reference/dependency-version-selectors.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/references/dependency-version-selectors.md",
+      "sidebar_label": "Dependency version selectors"
+    },
+    {
+      "upstream": "docs/reference/framework-provided-markers.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/references/framework-provided-markers.md",
+      "sidebar_label": "Framework-provided markers"
+    },
+    {
+      "upstream": "docs/reference/jsonpath-and-jsonpathmatcher-reference.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/references/jsonpath-and-jsonpathmatcher-reference.md",
+      "sidebar_label": "JsonPath and JsonPathMatcher"
+    },
+    {
+      "upstream": "docs/reference/method-patterns.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/references/method-patterns.md",
+      "sidebar_label": "Method patterns"
+    },
+    {
+      "upstream": "docs/reference/type-attribution.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/references/type-attribution.md",
+      "sidebar_label": "Type attribution for recipe authors"
+    },
+    {
+      "upstream": "docs/reference/yaml-format-reference.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/references/yaml-format-reference.md",
+      "sidebar_label": "Declarative YAML format"
+    },
+    {
+      "upstream": "docs/concepts-and-explanations/lossless-semantic-trees.md",
+      "moderne": "docs/user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md",
+      "linkOnly": true
+    }
+  ],
+  "upstreamCommit": "8f2b5c73caeb2a9b1d380ab2f8ab918cbb4e27a3"
+}
