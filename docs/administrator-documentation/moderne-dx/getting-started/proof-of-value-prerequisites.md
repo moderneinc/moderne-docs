@@ -11,8 +11,6 @@ Before starting a Moderne DX proof of value, your team will need to:
 * Prepare a repository list
 * Set aside a machine for Moderne DX
 
-This page covers everything you need to do so nothing is missed on day one.
-
 ## Checklist
 
 | # | Requirement                                                                                 | Details                                                                                            |
@@ -28,13 +26,13 @@ You will need a source control management (SCM) service account with **read acce
 
 ### Preparing your repository list
 
-You will need a [repos.csv file](../../../user-documentation/moderne-cli/references/repos-csv.md) that lists the repositories to work with. The more repositories you include, the more value you will see from the POV — Moderne's strength is working across repositories at scale.
+You will need a [repos.csv file](../../../user-documentation/moderne-cli/references/repos-csv.md) that lists the repositories to work with. The more repositories you include, the more value you will see from the POV, because Moderne is built to work across many repositories at once.
 
 The easiest way to generate this file is with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers), which are available for GitHub, GitLab, Bitbucket (Data Center and Cloud), and Azure DevOps. These scripts query your SCM's API and produce a ready-to-use `repos.csv` file.
 
 ## Mass ingest
 
-While mass ingest is typically set up after the initial POV rather than during it, you may want to plan for it early. Mass ingest builds all of your repositories and creates the [LST artifacts](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster.
+Plan for mass ingest early, even though you will usually set it up after the POV rather than during it. Mass ingest builds all of your repositories and creates the [LST artifacts](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster.
 
 | Resource | Minimum    | Recommended                                                                   |
 |----------|------------|-------------------------------------------------------------------------------|
@@ -42,11 +40,11 @@ While mass ingest is typically set up after the initial POV rather than during i
 | Memory   | 16 GB      | 16 GB                                                                         |
 | Disk     | 10 GB free | Sized to your largest repository (the example Kubernetes Job requests 150 GB) |
 
-The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns when memory or free disk is below the other two. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
+The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns below 16 GB of memory or 10 GB of free disk. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
 
 Only one repository is stored on disk at a time. This is because each container builds one repository at a time and then deletes it once its LST is published.
 
-To finish a large repository list sooner, you can run several containers in parallel. You will need to choose the number of shards you want - the CLI will then assign the repositories to them automatically.
+To finish a large repository list sooner, you can run several containers in parallel. You will need to choose how many shards you want. The CLI assigns repositories to them automatically.
 
 The [mass ingest guide](../how-to-guides/mass-ingest-dx.md#sizing) covers sizing and sharding. The [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Docker script and a Kubernetes Job that run the shards for you.
 
@@ -58,8 +56,8 @@ If you have a standard base image that includes your existing certificates or ot
 
 During the POV process, Moderne will provide:
 
-* A **Moderne DX license key**, from which your developers' CLIs take their license
-* A **Code Genome Project token**, which Moderne DX resolves recipes with
+* A **Moderne DX license key** for your developers' CLIs
+* A **Code Genome Project token**, which Moderne DX uses to download recipes
 * **Technical support** throughout the setup and evaluation process
 
 ## Next steps

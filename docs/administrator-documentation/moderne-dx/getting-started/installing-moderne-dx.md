@@ -16,16 +16,67 @@ To serve it to your organization, please see [Running Moderne DX for your organi
 
 ## Downloading Moderne DX
 
+1. Sign in to your [Code Genome Project account page](https://codegenomeproject.org/account) with your [CGP credentials](../../../user-documentation/recipes/accessing-the-code-genome-project.md#getting-credentials).
+2. Under **Moderne DX**, click **Make a link** next to **Latest release** (or **Latest snapshot**).
+
+   {/* Placeholder: retake once a DX release is published to CGP, so Latest release shows a version. */}
+   ![The Moderne DX section of the Code Genome Project account page, with a Make a link button next to Latest release and Latest snapshot](./assets/cgp-dx-download-links.png)
+3. Run the revealed `curl` command to download `moderne-dx.jar`.
+
+The generated link in the command works without a credential, so you can run the command on a server or send it to someone else. It expires a day after you make it, but until then, anyone who has it can download Moderne DX.
+
+### Downloading with a CGP token
+
+To script installs or upgrades, download with your CGP token instead. These URLs don't expire, and each one always serves the newest release or snapshot:
+
 ```bash
+# The newest release
+curl -fLO -u <cgp-user>:<cgp-token> https://artifacts.codegenomeproject.org/moderne-dx.jar
+
+# The newest snapshot
 curl -fLO -u <cgp-user>:<cgp-token> https://artifacts.codegenomeproject.org/snapshot/moderne-dx.jar
-java -jar moderne-dx.jar init    # macOS: say yes when it offers to trust DX's certificate authority
 ```
 
-The URL always serves the newest snapshot build. On Linux, run `java -jar moderne-dx.jar trust` and follow what it prints.
+## Initializing Moderne DX
+
+`init` creates DX's two configuration files, `moderne.yml` and `moderne.env`, in the current directory.
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="dx-os" queryString="os">
+<TabItem value="macos" label="macOS" default>
+
+```bash
+java -jar moderne-dx.jar init
+```
+
+Say yes when `init` offers to trust DX's certificate authority.
+
+</TabItem>
+<TabItem value="linux" label="Linux">
+
+```bash
+java -jar moderne-dx.jar init
+java -jar moderne-dx.jar trust
+```
+
+`trust` prints the commands that make your system and your browsers trust DX's certificate authority. Run the ones for your distribution and browser.
+
+</TabItem>
+</Tabs>
+
+To create the files somewhere else, pass a directory, like `java -jar moderne-dx.jar init /etc/moderne-dx`. Then run later DX commands from that directory, or pass the file with `--config`, such as `--config /etc/moderne-dx/moderne.yml`.
 
 ## Configuring Moderne DX
 
-Set these in the `moderne.yml` file that `init` wrote:
+Before DX will start, you need to set your license key, CGP username, and CGP token. The [`moderne.yml` reference](../references/moderne-yml-reference.md) lists every other option.
+
+:::tip
+If the Moderne CLI on this machine already has your license key and CGP credentials set, `init` uses them and you can skip the rest of this section.
+:::
+
+You may set the values directly or use environment variables:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -37,38 +88,90 @@ moderne:
         code-genome-project:
           username: <cgp-user>
           token: ${CGP_TOKEN}
-        # maven:                  # or your own repository that proxies CGP
-        #   - uri: https://artifactory.acme.com/artifactory/moderne-recipes
-        #     username: moderne
-        #     password: ${ARTIFACTORY_PASSWORD}
-  organization:
-    sources:
-      http:
-        - uri: https://moderne-lsts.s3.us-west-2.amazonaws.com/repos-lock.csv
-          organizations: [Netflix]  # public repositories to start with
-        # - uri: https://artifactory.acme.com/artifactory/moderne-ingest/repos-lock.csv
-        #   username: moderne
-        #   password: ${ARTIFACTORY_PASSWORD}
-        #   organizations: [Payments]
 ```
 
-Where the Moderne CLI on this machine holds the license key and the CGP username and token, `init` writes `moderne.yml` to read them from it. Such a value looks like `${moderne-cli:license.key}`. DX asks the CLI for the value each time it starts. Add any secret the CLI lacks to the `moderne.env` file beside `moderne.yml`:
+You can set environment variables in the process that runs DX, or set the values in `moderne.env`:
 
 ```bash title="moderne.env"
 MODERNE_LICENSE_KEY=…
 CGP_TOKEN=…
 ```
 
-DX starts on Netflix's public repositories, from Moderne's mass ingest of open source. To index your own repositories, add the `repos-lock.csv` file your [mass ingest](../how-to-guides/mass-ingest-dx.md) publishes. The [`moderne.yml` reference](../references/moderne-yml-reference.md) lists every other setting.
+Environment variables that are set at the process level will override those set in `moderne.env`.
+
+### Controlling SCM access
+
+By default, every user can read every repository that DX ingests. [Turn on user-level repository access control](../how-to-guides/repository-access-control.md) so DX shows each repository only to people who can read it in your source control management (SCM) system.
+
+Access control needs an `SCM_TOKEN_KEY`, which `init` already wrote to `moderne.env`. Keep that line in the file. Without it, users will have to reconnect their SCM accounts every time DX restarts.
+
+### Adding your repositories
+
+DX shows the repositories in a `repos-lock.csv` file. [Mass ingest](../how-to-guides/mass-ingest-dx.md) writes that file next to your `repos.csv` in the artifact repository it publishes LSTs to. Until you add your own, DX shows Netflix's public repositories from Moderne's public mass ingest as an example.
+
+To customize your repository and organization list, add the URI and credentials under `moderne.organization.sources.http` in `moderne.yml`, and remove the default `organizations: [Netflix]` line:
+
+```yaml title="moderne.yml"
+moderne:
+  organization:
+    sources:
+      http:
+        - uri: https://artifactory.acme.com/artifactory/moderne-ingest/repos-lock.csv
+          username: moderne
+          password: ${INGEST_PASSWORD}
+```
+
+:::note
+For the `username` field, be sure to specify a user that has access to read both the file and the LST artifacts listed. In the example above, you would also need to add `INGEST_PASSWORD` as an environment variable or as a line in `moderne.env`.
+:::
+
+A source can also [keep only some of the file's organizations, or read a file on DX's machine instead of over HTTP](../references/moderne-yml-reference.md#organization-sources).
+
+### Choosing where DX keeps V3 LSTs
+
+If your mass ingest is configured to publish V3 LSTs, add `lst-version: 3` to the organization source in `moderne.yml`:
+
+```yaml title="moderne.yml"
+moderne:
+  organization:
+    sources:
+      http:
+        - uri: https://artifactory.acme.com/artifactory/moderne-ingest/repos-lock.csv
+          lst-version: 3
+```
+
+With this setting, DX uses the LSTs without converting them, and you can skip the rest of this section.
+
+If you are still ingesting V2 LSTs, DX makes a V3 copy of each V2 LST that is published, and keeps it under `data/permanent` by default. To keep the copies in a Maven or Artifactory repository instead:
+
+```yaml title="moderne.yml"
+moderne:
+  repository:
+    converter:
+      lsts:
+        artifacts:
+          maven:
+            - url: https://artifactory.acme.com/artifactory/moderne-lsts
+              username: moderne
+              password: ${LST_PUBLISH_PASSWORD}
+```
 
 ## Starting Moderne DX
+
+The `doctor` command will check your configuration and report whether it looks okay or needs to be corrected. If everything looks good, you can start DX with the `start` command:
 
 ```bash
 java -jar moderne-dx.jar doctor
 java -jar moderne-dx.jar start
 ```
 
-Once DX is up, `start` prints the password of the `moderne` user. Open `https://moderne.localhost:8443`, sign in as `moderne` and choose a new password. Install recipes from the marketplace.
+The first time DX starts, it prints the initial password for the `moderne` user. DX also saves it in `data/permanent/dx/secrets/initial-user-password`. Open `https://moderne.localhost:8443`, sign in as `moderne`, and set a new password.
+
+### Loading recipes
+
+Initially, DX starts without any recipes in its marketplace. To install a default set of OpenRewrite and Moderne recipe modules from CGP, click **Deploy** in the left menu, then click **Load recipes**. (The button only shows when no recipes are installed.)
+
+To add other recipes, such as your own module or any [module CGP publishes](https://codegenomeproject.org/recipes?view=modules), click **Add** on the same page. See [Importing external recipes](../../moderne-platform/how-to-guides/importing-external-recipes.md) for more details.
 
 ## Connecting the CLI
 
@@ -77,13 +180,16 @@ mod config moderne edit https://moderne.localhost:8443
 mod login
 ```
 
-On macOS, the CLI trusts DX's certificate authority once `init` or `trust` has added it to your keychain. Elsewhere, [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store) gives the CLI DX's certificate authority.
+After you sign in, `mod login` syncs the local CLI's recipe marketplace with the one in DX. If the machine running the CLI already has recipes installed, the CLI asks before replacing them. When you answer no, you keep your current recipes and stay signed in. You can switch to DX's recipes later with `mod config recipes moderne sync`.
+
+The CLI must trust DX's certificate authority before it can sign in. On macOS, `mod config http trust-store edit system` makes the CLI use the keychain where `init` or `trust` added it. To set a different location, use [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store).
 
 ## Next steps
 
-* [Serve DX to your organization](../how-to-guides/running-moderne-dx.md#choosing-its-name) with a name and certificate of its own.
+* [Serve DX to your organization](../how-to-guides/running-moderne-dx.md#choosing-its-host-name) with a host name and certificate of its own.
 * [Connect your identity provider](../how-to-guides/running-moderne-dx.md#connecting-your-identity-provider).
 * [Show each user only the repositories they can read](../how-to-guides/repository-access-control.md).
 * [Connect your developers](../how-to-guides/running-moderne-dx.md#connecting-your-developers).
 * [Upgrade](../how-to-guides/running-moderne-dx.md#upgrading) and [back up](../how-to-guides/running-moderne-dx.md#backing-up) DX.
+* [Find DX's files](../how-to-guides/running-moderne-dx.md#where-dx-keeps-its-files) and [read its logs](../how-to-guides/running-moderne-dx.md#reading-the-dx-logs).
 * [Troubleshoot DX](../how-to-guides/running-moderne-dx.md#troubleshooting).
