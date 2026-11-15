@@ -59,7 +59,7 @@ If you have a standard base image that includes your existing certificates or ot
 During the POV process, Moderne will provide:
 
 * A **Moderne DX license key**, from which your developers' CLIs take their license
-* A **Code Genome Project token**, which Moderne DX resolves recipes with
+* A **Code Genome Project token**, which Moderne DX resolves recipes with and takes its name under `moderne.direct` from
 * **Technical support** throughout the setup and evaluation process
 
 ## Next steps

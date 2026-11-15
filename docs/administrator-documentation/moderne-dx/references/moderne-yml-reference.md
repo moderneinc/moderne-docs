@@ -22,7 +22,6 @@ Every command but `init` reads the `moderne.yml` file in the working directory, 
 | `java -jar moderne-dx.jar start`         | Starts DX in the foreground, and keeps every service running until it stops.                     |
 | `java -jar moderne-dx.jar status`        | Says whether DX runs, and which services are up.                                                 |
 | `java -jar moderne-dx.jar stop`          | Stops a running DX.                                                                              |
-| `java -jar moderne-dx.jar trust`         | Has this machine trust DX's own certificate authority. On macOS it adds the authority to your login keychain. On Linux it prints the commands that do. |
 
 ## Deployment
 
@@ -31,23 +30,39 @@ Every command but `init` reads the `moderne.yml` file in the working directory, 
 | `moderne.tenant.name`  | `dx`     | The tag on every metric. The browser's title shows any other name. Lowercase letters, digits, and dashes. |
 | `moderne.license.key`  |          | Your Moderne DX license key. Without a valid one, the CLIs connected to DX stop running recipes.                     |
 
-## URLs and the proxy
+## Routes
 
-DX serves four names on one port, through a proxy inside it. The four URLs share a scheme and a port, and each has a host of its own.
+`moderne.dx.routes` names how people reach DX, and exactly one route. DX serves four names on one port, through a proxy inside it: a host, and `api.`, `login.`, and `status.` before it. They are the UI, the API, Keycloak's sign-in, and the status page. Every public URL is `https`. Every other process listens on the loopback address alone.
 
-| Setting                         | Default                                         | Description                                                                                       |
-|---------------------------------|-------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `moderne.dx.public-url`         | `https://moderne.localhost:8443`                | Where people open the UI. An `http` or `https` URL with a host name and no path. DX's own certificate authority serves an `https` URL under `localhost`, `nip.io`, or `sslip.io`. |
-| `moderne.dx.api-url`            | `api.` before the public URL's host             | Where the CLI and the UI reach DX's API.                                                          |
-| `moderne.dx.login-url`          | `login.` before the public URL's host           | Where users sign in, through Keycloak.                                                            |
-| `moderne.dx.status-url`         | `status.` before the public URL's host          | Where the status page shows every service's metrics and logs.                                     |
-| `moderne.dx.tls.certificate`    |                                                 | A PEM file with the certificate for an `https` public URL first, then its chain. It must cover the public URL's host and the names under it. |
-| `moderne.dx.tls.private-key`    |                                                 | The certificate's private key, as a PEM file.                                                     |
-| `moderne.dx.bind-address`       | `127.0.0.1` for a URL under `localhost`, `0.0.0.0` otherwise | The IP address the proxy listens on. Every other process listens on `127.0.0.1`.  |
-| `moderne.dx.ports.proxy`        | The public URL's port                           | The port the proxy listens on. Name it when a load balancer that ends TLS forwards to DX, and leave out `tls`. |
-| `moderne.dx.ports.proxy-http`   | `8080`                                          | With DX's own certificate authority, the port where the proxy hands out the authority's certificate and redirects http to https. |
-| `moderne.dx.logo`               | The Moderne icon                                | An SVG file that the UI shows as your deployment's icon.                                          |
-| `moderne.dx.java`               | The Java that runs the jar                      | The `java` executable that DX's services run on. It must be Java 25.                              |
+A `managed` route takes its name and certificate from the Code Genome Project. It is what `init` writes:
+
+| Setting                             | Default  | Description                                                                                       |
+|-------------------------------------|----------|---------------------------------------------------------------------------------------------------|
+| `moderne.dx.routes.managed.token`   | Required | The CGP token Moderne gave you for DX. CGP names DX after the token's user: `<user>.moderne.direct`. |
+| `moderne.dx.routes.managed.address` | Required | The address CGP points the four names at. `127.0.0.1` keeps DX on this machine alone. DX listens on the address where it is the machine's own, and on every address where it is not. |
+| `moderne.dx.routes.managed.port`    | `443`    | The port DX listens on.                                                                           |
+
+A `custom-certificate` route serves a name of your own, with your certificate:
+
+| Setting                                            | Default  | Description                                                                          |
+|----------------------------------------------------|----------|--------------------------------------------------------------------------------------|
+| `moderne.dx.routes.custom-certificate.public-url`  | Required | Where people open the UI, such as `https://moderne.acme.com`. DX listens on its port. |
+| `moderne.dx.routes.custom-certificate.certificate` | Required | A PEM file with the certificate first, then its chain. It must cover all four names. |
+| `moderne.dx.routes.custom-certificate.private-key` | Required | The certificate's private key, as a PEM file.                                        |
+
+A `load-balanced` route serves a name of your own, behind a load balancer that ends TLS:
+
+| Setting                                      | Default  | Description                                                                                      |
+|----------------------------------------------|----------|--------------------------------------------------------------------------------------------------|
+| `moderne.dx.routes.load-balanced.public-url` | Required | Where people open the UI, such as `https://moderne.acme.com`.                                    |
+| `moderne.dx.routes.load-balanced.http-port`  | Required | The port the load balancer forwards plain HTTP to, with each request's `Host` header unchanged.  |
+
+[Serving Moderne DX under your own name](../how-to-guides/serving-dx-under-your-own-name.md) covers the last two. A start refuses the settings that routes replaced, and prints the route that does what they did: `public-url`, `api-url`, `login-url`, `status-url`, `tls`, `ports.proxy`, `ports.proxy-http`, and `bind-address` under `moderne.dx`.
+
+| Setting            | Default                    | Description                                                          |
+|--------------------|----------------------------|----------------------------------------------------------------------|
+| `moderne.dx.logo`  | The Moderne icon           | An SVG file that the UI shows as your deployment's icon.             |
+| `moderne.dx.java`  | The Java that runs the jar | The `java` executable that DX's services run on. It must be Java 25. |
 
 ## Recipes
 
@@ -97,14 +112,22 @@ Every user can read every repository until `moderne.scm` names an SCM's OAuth ap
 
 ## Sign-in
 
+Keycloak makes DX's first user at DX's first start. That user signs in to DX as an administrator, and administers nothing in Keycloak. Keycloak asks for no new password. Set later, these settings change nothing, so change the user in Keycloak instead.
+
+| Setting                           | Default       | Description                                  |
+|-----------------------------------|---------------|----------------------------------------------|
+| `moderne.keycloak.user.name`      | `admin`       | The first user's name.                       |
+| `moderne.keycloak.user.password`  | `moderne1001` | The first user's password.                   |
+
+The `moderne.yml` that `init` writes takes both from `moderne.env`, as `${KEYCLOAK_USERNAME:admin}` and `${KEYCLOAK_PASSWORD:moderne1001}`.
+
 DX makes each of these secrets at its first start, and keeps it under `<permanent-dir>/dx/secrets`, unless `moderne.yml` names one.
 
-| Setting                                   | Description                                                                                 |
-|-------------------------------------------|---------------------------------------------------------------------------------------------|
-| `moderne-keycloak.server.password`        | The password of Keycloak's `admin` user, who configures your identity provider.             |
-| `moderne-keycloak.initial-user.password`  | The first password of the realm's `moderne` user. It applies only when the realm is made.   |
-| `moderne.keycloak.client-secret`          | The secret the UI and DX's services share with Keycloak.                                    |
-| `moderne.dx.ui-secret`                    | The key the UI signs its sessions with.                                                     |
+| Setting                             | Description                                                                                 |
+|-------------------------------------|---------------------------------------------------------------------------------------------|
+| `moderne.keycloak.server.password`  | The password of Keycloak's own `admin` user, who configures your identity provider in Keycloak's admin console. This is not DX's first user. |
+| `moderne.keycloak.client-secret`    | The secret the UI and DX's services share with Keycloak.                                    |
+| `moderne.dx.ui-secret`              | The key the UI signs its sessions with.                                                     |
 
 Keycloak keeps its realm in a database file under the permanent directory unless `spring.datasource` names a database:
 
@@ -188,4 +211,5 @@ Two more ports cannot be moved: 8099, where the router answers its health check,
 
 | Variable              | Description                                                                                                      |
 |-----------------------|------------------------------------------------------------------------------------------------------------------|
-| `NODE_EXTRA_CA_CERTS` | A PEM file of certificate authorities that the UI trusts beyond the public ones. Set it when your certificate comes from a private CA. DX's own certificate authority needs no setting. |
+| `NODE_EXTRA_CA_CERTS` | A PEM file of certificate authorities that the UI trusts beyond the public ones. Set it when a `custom-certificate` route's certificate comes from a private CA. A `managed` route's certificate needs no setting. |
+| `KEYCLOAK_USERNAME`, `KEYCLOAK_PASSWORD` | DX's first user, in the `moderne.yml` that `init` writes. Set them before DX's first start. |

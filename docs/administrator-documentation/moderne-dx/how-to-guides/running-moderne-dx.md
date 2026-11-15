@@ -5,75 +5,28 @@ description: How to serve Moderne DX to your organization, sign users in through
 
 # Running Moderne DX for your organization
 
-[Installing Moderne DX](../getting-started/installing-moderne-dx.md) starts DX at `https://moderne.localhost:8443`, which only your own machine reaches. To serve DX to your organization, give it a name that reaches the machine and keep it running. A name of your own also needs a certificate.
+[Installing Moderne DX](../getting-started/installing-moderne-dx.md) starts DX at a name under `moderne.direct` that points at `127.0.0.1`, so only your own machine reaches it. To serve DX to your organization, point that name at a machine your users reach, and keep DX running there.
 
-## Choosing its name
+## Serving DX to your organization
 
-DX serves four names, all on the public URL's port:
+DX serves four names on one port, through a proxy inside it: its name under `moderne.direct`, such as `acme.moderne.direct`, and `api.`, `login.`, and `status.` before it. Every other DX process listens on the machine's loopback address alone.
 
-* The UI, at the public URL's own host, such as `moderne.acme.com`.
-* The API, at `api.` before that host.
-* Keycloak, at `login.` before that host.
-* The status page, at `status.` before that host.
-
-A proxy inside DX serves all four names. Every other DX process listens on the machine's loopback address alone.
-
-Set the public URL to the name your users will open:
+Set the managed route's address to the address your users reach the machine at. A private address works. Leave out the port to serve DX on `443`:
 
 ```yaml title="moderne.yml"
 moderne:
   dx:
-    public-url: https://moderne.acme.com
+    routes:
+      managed:
+        token: ${CGP_TOKEN}
+        address: 10.20.3.7
 ```
 
-Give `moderne.acme.com` and `*.moderne.acme.com` DNS records that point at the machine. DX then listens on every address of the machine. For a name under `localhost`, it listens on the loopback address alone.
+The Code Genome Project points the four names at that address. DX tells it the address at each start and every hour after. DX listens on the address where it is one of the machine's own, and on every address of the machine where it is not, such as behind a cloud provider's network address translation.
 
-Without DNS records of your own, you can use a name under `nip.io`, a public DNS service. Such a name resolves to the address it holds. `moderne.192-168-1-20.nip.io` and every name under it resolve to `192.168.1.20`. DX's own certificate authority covers the name, and it needs no certificate:
+Some DNS resolvers drop answers that point at private addresses, to guard against DNS rebinding. Where yours does, `doctor` says the names do not resolve. Have your DNS answer for the four names, or add the line `doctor` prints to each machine's hosts file.
 
-```yaml title="moderne.yml"
-moderne:
-  dx:
-    public-url: https://moderne.192-168-1-20.nip.io:8443
-```
-
-Each person who opens DX trusts its certificate authority once. The page at DX's http port, `http://moderne.192-168-1-20.nip.io:8080`, says how. The name holds the machine's address, and it changes when the address does.
-
-## Adding a certificate
-
-A name outside `localhost`, `nip.io`, and `sslip.io` needs a Transport Layer Security (TLS) certificate of your own. It must cover both `moderne.acme.com` and `*.moderne.acme.com`, in PEM files:
-
-```yaml title="moderne.yml"
-moderne:
-  dx:
-    public-url: https://moderne.acme.com
-    tls:
-      certificate: /etc/moderne-dx/tls.crt
-      private-key: /etc/moderne-dx/tls.key
-```
-
-Put the certificate first in its file, then the certificates of its chain. `doctor` checks that the certificate covers all four names and that its key matches. It warns a month before the certificate expires. DX reads the certificate when it starts. Restart DX after you renew it.
-
-If the certificate comes from a private certificate authority (CA), DX's UI needs to trust that CA too. Add the CA's PEM file to `moderne.env`:
-
-```bash title="moderne.env"
-NODE_EXTRA_CA_CERTS=/etc/moderne-dx/ca.pem
-```
-
-Developers' CLIs need to trust the CA as well. Unless it is already in their Java trust store, they add it with [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store).
-
-## Serving DX behind a load balancer
-
-If a load balancer ends TLS in front of DX, leave out `tls` and name the port the load balancer forwards to:
-
-```yaml title="moderne.yml"
-moderne:
-  dx:
-    public-url: https://moderne.acme.com
-    ports:
-      proxy: 8080
-```
-
-The load balancer must forward all four names to that port, with each request's `Host` header unchanged.
+To serve DX under a name of your own instead, with your own certificate or behind a load balancer, see [Serving Moderne DX under your own name](./serving-dx-under-your-own-name.md).
 
 ## Running DX as a service
 
@@ -104,16 +57,16 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now moderne-dx
 ```
 
-The unit lets DX listen on port 443 as the `moderne` user. Started any other way on Linux, DX needs a public URL whose port is above 1023. Under systemd, `journalctl -u moderne-dx` shows DX's logs.
+The unit lets DX listen on port 443 as the `moderne` user. Started any other way on Linux, DX needs a route whose port is above 1023. Under systemd, `journalctl -u moderne-dx` shows DX's logs.
 
 Run as the `moderne` user, DX takes each `${moderne-cli:key}` value from that user's Moderne CLI. Configure the CLI as `moderne`, or put the values in `moderne.env` instead.
 
 ## Connecting your identity provider
 
-DX signs users in through Keycloak, as the Moderne Platform does. Until you connect your identity provider, you sign in as the `moderne` administrator. Keycloak brokers your identity provider over Security Assertion Markup Language (SAML) or OpenID Connect (OIDC). You will configure it in Keycloak's admin console:
+DX signs users in through Keycloak, as the Moderne Platform does. Until you connect your identity provider, you sign in as DX's first user, `admin` unless you [named another](../getting-started/installing-moderne-dx.md#the-first-user). That user is an administrator of DX, not of Keycloak. Keycloak brokers your identity provider over Security Assertion Markup Language (SAML) or OpenID Connect (OIDC). You will configure it in Keycloak's admin console:
 
-1. Open `https://login.moderne.acme.com/auth/admin/`. On a laptop, open `https://login.moderne.localhost:8443/auth/admin/`.
-2. Sign in as `admin`, with the password in `data/permanent/dx/secrets/keycloak-admin-password`.
+1. Open `https://login.acme.moderne.direct/auth/admin/`, with DX's own name in place of `acme.moderne.direct` and its port, if it names one.
+2. Sign in as Keycloak's own `admin`, with the password in `data/permanent/dx/secrets/keycloak-admin-password`.
 3. Switch to the `dx` realm.
 4. Under **Identity providers**, add a **SAML v2.0** or **OpenID Connect v1.0** provider. Give it an alias, such as `corporate-sso`.
 5. Add the mappers in the Platform's [Keycloak IdP mapping table](../../moderne-platform/references/authentication.md#keycloak-idp-mapping). The `admin` mapper gives your administrators DX's `admin` role.
@@ -122,11 +75,11 @@ Your identity provider will need DX's values for the new application:
 
 | Protocol | Field                       | Value                                                                          |
 |----------|-----------------------------|--------------------------------------------------------------------------------|
-| SAML     | Single sign-on URL          | `https://login.moderne.acme.com/auth/realms/dx/broker/corporate-sso/endpoint` |
-| SAML     | Audience URI (SP Entity ID) | `https://login.moderne.acme.com/auth/realms/dx`                               |
-| OIDC     | Redirect URI                | `https://login.moderne.acme.com/auth/realms/dx/broker/corporate-sso/endpoint` |
+| SAML     | Single sign-on URL          | `https://login.acme.moderne.direct/auth/realms/dx/broker/corporate-sso/endpoint` |
+| SAML     | Audience URI (SP Entity ID) | `https://login.acme.moderne.direct/auth/realms/dx`                               |
+| OIDC     | Redirect URI                | `https://login.acme.moderne.direct/auth/realms/dx/broker/corporate-sso/endpoint` |
 
-Replace `moderne.acme.com` with DX's host and `corporate-sso` with your provider's alias. Once your administrators can sign in through your identity provider, disable the `moderne` user under **Users**.
+Replace `acme.moderne.direct` with DX's host and `corporate-sso` with your provider's alias. Once your administrators can sign in through your identity provider, disable DX's first user under **Users**.
 
 ### Keeping the realm in PostgreSQL
 
@@ -151,26 +104,19 @@ Developers point their Moderne CLI at DX. With [user-level repository access con
 DX serves an installer for the CLI, which downloads the CLI through DX:
 
 ```bash
-curl -fsSL https://api.moderne.acme.com/cli | bash
-```
-
-With DX's own certificate authority, give curl the authority's certificate from DX's http port:
-
-```bash
-curl -fsSLO http://moderne.192-168-1-20.nip.io:8080/moderne-dx-ca.crt
-curl -fsSL --cacert moderne-dx-ca.crt https://api.moderne.192-168-1-20.nip.io:8443/cli | bash
+curl -fsSL https://api.acme.moderne.direct/cli | bash
 ```
 
 ### Pointing the CLI at DX
 
-The CLI must trust DX's certificate authority. On macOS, the CLI trusts what your keychains trust, so it trusts DX's own once macOS does. [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store) covers other systems.
-
 The CLI takes DX's URL. It finds DX's API and Keycloak realm from there:
 
 ```bash
-mod config moderne edit https://moderne.acme.com
+mod config moderne edit https://acme.moderne.direct
 mod config moderne login
 ```
+
+The CLI trusts the certificate of a `moderne.direct` name as it is. If you [serve DX under your own name](./serving-dx-under-your-own-name.md) with a certificate from a private certificate authority, developers add that authority to the CLI with [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store).
 
 Signing in also brings DX's recipes to the CLI. To bring recipes installed later, run `mod config recipes moderne sync`.
 
@@ -189,9 +135,9 @@ mod git push ~/acme -m "Remove unused imports"
 
 Each push adds to the changeset. Everyone can review it in the UI.
 
-## Changing the URL later
+## Moving DX to another machine
 
-You can change the public URL at any time, such as when you move DX from a laptop to a server. If `moderne.yml` names an SCM's OAuth app, set the app's callback URL to the new URL too. DX updates Keycloak at its next start. Users then sign in again. Developers point their CLIs at the new URL. A machine that trusts DX's own certificate authority keeps trusting it for a new name under `localhost`, `nip.io`, or `sslip.io`.
+To move DX from a laptop to a server, copy `moderne.yml`, `moderne.env`, and DX's permanent directory to the server, and set the managed route's address to the server's. DX keeps its name under `moderne.direct`, so users and developers keep the same URL. If you leave out the port, which `init` set to `8443`, the URL loses it, and developers point their CLIs at the new URL. If `moderne.yml` names an SCM's OAuth app, set the app's callback URL to the new URL too. DX updates Keycloak at its next start, and users sign in again.
 
 ## Upgrading
 
@@ -215,7 +161,7 @@ DX keeps everything it cannot rebuild in its permanent directory. That is `data/
 | `atlas`         | The status page's metrics and logs.                                               |
 | `lsts-v3`       | The V3 copies of V2 LSTs, which DX can make again.                                |
 | `telemetry`     | CLI telemetry, unless you store it in a bucket or container.                      |
-| `dx`            | DX's own settings, its certificate authority, and the secrets it made.            |
+| `dx`            | DX's own settings, the secrets it made, and its managed route's name, certificate, and private key. |
 
 Keep the backup of `moderne.env` apart from the data's backup. The SCM token key in it unseals the SCM tokens in `authorization`. The ephemeral directory, `data/ephemeral`, holds only what DX rebuilds, such as code search's index.
 
@@ -225,16 +171,16 @@ Start with `java -jar moderne-dx.jar doctor`. It checks the configuration, and o
 
 | What you see                                            | What to do                                                                                          |
 |---------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
-| `doctor` says a name does not resolve                   | On a laptop, add the line `doctor` prints to `/etc/hosts`. On a server, give `moderne.acme.com` and `*.moderne.acme.com` DNS records. |
+| `doctor` says a name does not resolve                   | Right after the Code Genome Project first names DX, wait up to 15 minutes. After that, your resolver may drop answers that point at private addresses: have your DNS answer for the four names, or add the line `doctor` prints to the hosts file. With a name of your own, give it and `*.` before it DNS records. |
 | `doctor` says a port is taken                           | Stop what holds it, or move the service with `moderne.dx.ports`, as `doctor` says.                  |
-| `doctor` says the certificate does not cover a name     | Get a certificate that covers `moderne.acme.com` and `*.moderne.acme.com`.                          |
-| The browser warns about DX's certificate                | Run `java -jar moderne-dx.jar trust` where DX runs. Elsewhere, open DX's http port, such as `http://moderne.192-168-1-20.nip.io:8080`. |
-| The CLI fails with a PKIX error                         | Have the CLI trust DX's certificate authority with `mod config http trust-store`.                    |
+| A start says the Code Genome Project could not be asked | Check that the machine reaches `api.codegenomeproject.org` over HTTPS, and that the route's `token` is the CGP token Moderne gave you for DX. |
+| `doctor` says the certificate does not cover a name     | With your own certificate, get one that covers `moderne.acme.com` and `*.moderne.acme.com`.          |
+| The CLI fails with a PKIX error                         | With a certificate from a private CA, have the CLI trust the CA with `mod config http trust-store`. |
 | Sign-in fails with a certificate from your own CA       | Add your CA's PEM file to `moderne.env` as `NODE_EXTRA_CA_CERTS`.                                    |
 | Code search shows a user none of an SCM's repositories  | Have the user connect their SCM account under **Settings** > **SCM connections**.                   |
 | A repository with a V2 LST is missing from code search  | DX's log says why its conversion failed. Python, Go, and .NET LSTs need those tools on the machine. |
 | The marketplace has no recipes                          | Check where recipes come from with `doctor`. Then install them from the marketplace as an administrator. |
 
-The status page at `https://status.moderne.acme.com` shows every service's metrics and logs from the last two days. Any signed-in user can open it.
+The status page at `https://status.acme.moderne.direct` shows every service's metrics and logs from the last two days. Any signed-in user can open it.
 
 A service that runs out of memory leaves a heap dump named after it in the ephemeral directory. DX then restarts the service. Give it more memory with `moderne.dx.memory`.

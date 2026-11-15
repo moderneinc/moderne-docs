@@ -25,7 +25,7 @@ DX checks access only to repositories on an SCM whose OAuth app `moderne.yml` na
 
 ## Turning on access control
 
-Create an OAuth app on your SCM. Its callback URL is DX's public URL, such as `https://moderne.localhost:8443`. You create it with the same steps as for the Moderne Connector. Those guides grant write permissions, for committing from the UI. DX needs read permissions alone.
+Create an OAuth app on your SCM. Its callback URL is DX's public URL, such as `https://acme.moderne.direct:8443`. You create it with the same steps as for the Moderne Connector. Those guides grant write permissions, for committing from the UI. DX needs read permissions alone.
 
 * [GitHub](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-github.md)
 * [GitLab](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-gitlab.md)
