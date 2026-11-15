@@ -286,6 +286,7 @@ const dx = {
       },
       items: [
         'administrator-documentation/moderne-dx/how-to-guides/running-moderne-dx',
+        'administrator-documentation/moderne-dx/how-to-guides/serving-dx-under-your-own-name',
         'administrator-documentation/moderne-dx/how-to-guides/repository-access-control',
         'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx',
         'administrator-documentation/moderne-dx/how-to-guides/mass-run-dx',

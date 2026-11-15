@@ -116,7 +116,7 @@ To keep it, set these two environment variables on the containers, alongside `MO
 
 | Variable                   | Value                                                                                                                                 |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `MOD_TENANT_HOST`          | DX's public URL, such as `https://moderne.acme.com`.                                                                                  |
+| `MOD_TENANT_HOST`          | DX's public URL, such as `https://acme.moderne.direct`.                                                                                  |
 | `MOD_TENANT_AUTHORIZATION` | A [personal access token](../../../user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md) you created in DX. |
 
 The [mass ingest example](https://github.com/moderneinc/mass-ingest-example) image already waits up to 30 seconds for the upload when a command ends. If you build your own image, or run the CLI on CI runners, run `mod config telemetry wait-for-upload` there too.
