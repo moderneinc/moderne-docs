@@ -134,9 +134,6 @@ const videos: Video[] = [
   },
 ];
 
-
-
-
 export const WhatIsModerneSection: FunctionComponent = () => {
   return (
     <section className={styles.band} aria-labelledby="what-is-moderne">
