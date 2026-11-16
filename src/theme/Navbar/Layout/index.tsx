@@ -19,7 +19,7 @@ import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar';
 import type {Props} from '@theme/Navbar/Layout';
 import {AnnouncementBarInline} from '@theme/AnnouncementBar';
 import { SecondaryNav } from '@site/src/components/SecondaryNav';
-import { products, releasesItems, trainingItems } from '@site/src/config/megaMenuData';
+import { products, releasesItems, trainingItems, whatsNewLink } from '@site/src/config/megaMenuData';
 import styles from './styles.module.css';
 
 function NavbarBackdrop(props: ComponentProps<'div'>) {
@@ -76,7 +76,12 @@ const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
         <NavbarBackdrop onClick={mobileSidebar.toggle} />
         <NavbarMobileSidebar />
       </nav>
-      <SecondaryNav products={products} trainingItems={trainingItems} releasesItems={releasesItems} />
+      <SecondaryNav
+        products={products}
+        trainingItems={trainingItems}
+        releasesItems={releasesItems}
+        whatsNewLink={whatsNewLink}
+      />
     </div>
   );
 };

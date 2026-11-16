@@ -27,10 +27,11 @@
   gap: var(--mod-spacing_3);
 }
 
-/* Right section: releases */
+/* Right section: What's New link + releases */
 .rightSection {
   display: flex;
   align-items: center;
+  gap: var(--mod-spacing_3);
 }
 
 /* Product links container */

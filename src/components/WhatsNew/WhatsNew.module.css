@@ -1,0 +1,249 @@
+/**
+ * What's new feed: product filter chips, ruled month sections, and entries
+ * with a meta line, title, body, and links.
+ * Bound to --mod-* tokens, which are mode-aware, so one set of rules covers
+ * light and dark. Body copy is 15px/24px, a size the type scale has no token
+ * for, so that pair is written out.
+ */
+
+/* Filter chips */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mod-spacing_3_4);
+  margin-top: var(--mod-spacing_2);
+}
+
+.chip {
+  height: 28px;
+  padding: 0 var(--mod-spacing_1_1_2);
+  /* The design draws chip outlines at 28% of the text color */
+  border: 1px solid color-mix(in srgb, var(--mod-color-text-primary) 28%, transparent);
+  border-radius: var(--mod-border-radius-s);
+  background: var(--mod-color-surface-raised);
+  color: var(--mod-color-text-primary);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-caption);
+  font-weight: var(--mod-font-weight-medium);
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--mod-color-text-primary);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--mod-color-action-default);
+  outline-offset: 2px;
+}
+
+.chipSelected,
+.chipSelected:hover {
+  border-color: var(--mod-color-text-primary);
+  background: var(--mod-color-text-primary);
+  color: var(--mod-color-surface-page);
+  font-weight: var(--mod-font-weight-semi-bold);
+}
+
+/* Month section */
+.month {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--mod-spacing_4);
+}
+
+/* The first month sits closer to the filter row */
+.filters + .month {
+  margin-top: var(--mod-spacing_3);
+}
+
+/* Doubled class: outranks the global docMainContainer h2 rules in custom.css,
+   which set their own size, margins, and dark-mode color on every doc h2. */
+.month .monthHeader .monthTitle.monthTitle {
+  margin: 0;
+  padding: 0 0 var(--mod-spacing_1);
+  border-bottom: 1px solid var(--mod-color-border-primary);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-text-primary);
+}
+
+/* Entry: meta line, title, body, and links stacked, ruled off from the next
+   entry. The .month prefix outranks custom.css's docItemContainer article rule. */
+.month .entry {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_1);
+  padding: var(--mod-spacing_3) 0;
+  border-bottom: 1px solid var(--mod-color-border-primary);
+}
+
+.month .entry:last-child {
+  border-bottom: 0;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_1_2);
+}
+
+/* Meta line: icon, product, kind, and any badge */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--mod-spacing_1);
+  font-size: var(--mod-font-size-sm);
+  line-height: 20px;
+  color: var(--mod-color-text-tertiary);
+}
+
+.icon {
+  display: flex;
+  color: var(--mod-color-text-tertiary);
+}
+
+.product {
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-text-primary);
+}
+
+.kind {
+  color: var(--mod-color-text-tertiary);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mod-spacing_3_4);
+  height: 26px;
+  padding: 0 var(--mod-spacing_1_1_4);
+  /* 6px sits between the x-s (4px) and s (8px) radius tokens */
+  border-radius: 6px;
+  background: var(--mod-color-status-warning-solid);
+  color: var(--mod-color-text-on-primary);
+  font-size: var(--mod-font-size-xs);
+  font-weight: var(--mod-font-weight-semi-bold);
+  white-space: nowrap;
+}
+
+/* Title: the .entry prefix outranks the theme's h3 weight and color rules */
+.entry .title {
+  margin: 0;
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-h4);
+  line-height: 28px;
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-text-primary);
+}
+
+/* Body: markdown output, so the elements it produces are styled by tag here.
+   Blocks stack with the same 8px gap as the rest of the entry. */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_1);
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--mod-color-text-primary);
+}
+
+.body > * {
+  margin: 0;
+}
+
+.body ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-spacing_1_2);
+  padding-left: var(--mod-spacing_2_3_4);
+}
+
+.body li {
+  margin: 0;
+}
+
+.body strong {
+  font-weight: var(--mod-font-weight-semi-bold);
+  color: var(--mod-color-text-primary);
+}
+
+/* Figure: the .body prefix outranks the theme's .markdown figure frame, which
+   adds padding, a shadow, and 40px margins around media */
+.body .figure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--mod-spacing_1);
+  width: 100%;
+  max-width: 100%;
+  /* Screenshots get 16px of air above and below, twice the gap between
+     the text blocks around them */
+  margin: var(--mod-spacing_1) 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Before the figure mounts it holds a light and a dark copy; the page's theme
+   attribute decides which one shows. After mount only the current one renders,
+   wrapped for zooming. */
+.body .figure .imageDark {
+  display: none;
+}
+
+:global(html[data-theme='dark']) .body .figure .imageDark {
+  display: block;
+}
+
+:global(html[data-theme='dark']) .body .figure .imageLight {
+  display: none;
+}
+
+.body .figure .image {
+  width: auto;
+  max-width: 100%;
+  max-height: 360px;
+  height: auto;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-input);
+  box-shadow: none;
+}
+
+/* The theme centers figure captions; the design keeps them flush left */
+.body .figure .caption {
+  text-align: left;
+  font-size: var(--mod-font-size-caption);
+  line-height: 20px;
+  color: var(--mod-color-text-tertiary);
+}
+
+/* Links row: the .links prefix outranks the theme's .markdown a underline */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--mod-spacing_1) var(--mod-spacing_2_1_2);
+}
+
+.links .link {
+  display: flex;
+  align-items: center;
+  gap: var(--mod-spacing_3_4);
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-medium);
+  color: var(--mod-color-action-default);
+  text-decoration: none;
+}
+
+.links .link:hover {
+  color: var(--mod-color-action-default);
+  text-decoration: underline;
+}
