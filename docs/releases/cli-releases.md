@@ -17,6 +17,8 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ### CLI v4.12.10 (2026-11-15) {/* #v4.12.10 */}
 
+_Based on [OpenRewrite 8.108.1](https://github.com/openrewrite/rewrite/releases/tag/v8.108.1)_
+
 #### What's Changed
 * Pin google-auth-library-oauth2-http to 1.57.0
 * Don't fail a JVM build over module-info.java
