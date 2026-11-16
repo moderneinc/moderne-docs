@@ -39,7 +39,7 @@ A `managed` route takes its name and certificate from the Code Genome Project. I
 | Setting                             | Default  | Description                                                                                       |
 |-------------------------------------|----------|---------------------------------------------------------------------------------------------------|
 | `moderne.dx.routes.managed.token`   | Required | The CGP token Moderne gave you for DX. CGP names DX after the token's user: `<user>.moderne.direct`. |
-| `moderne.dx.routes.managed.address` | This machine's | The address CGP points the four names at. Left out, DX uses the address this machine reaches CGP from, and `doctor` names it. `127.0.0.1` keeps DX on this machine alone. DX listens on the address where it is the machine's own, and on every address where it is not. |
+| `moderne.dx.routes.managed.address` | The machine's network address | The IP address the four names will resolve to. If you leave it out, DX will use the machine's own network address. Run `doctor` to see the address DX picked. With `127.0.0.1`, the names will only work on this machine. DX listens on the address where it is the machine's own, and on every address where it is not. |
 | `moderne.dx.routes.managed.port`    | `443`    | The port DX listens on.                                                                           |
 
 A `custom-certificate` route serves a name of your own, with your certificate:

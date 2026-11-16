@@ -11,7 +11,7 @@ description: How to serve Moderne DX to your organization, sign users in through
 
 DX serves four names on one port, through a proxy inside it: its name under `moderne.direct`, such as `acme.moderne.direct`, and `api.`, `login.`, and `status.` before it. Every other DX process listens on the machine's loopback address alone.
 
-Set the managed route's address to the address your users reach the machine at, or leave it out: DX then uses the address the machine reaches the Code Genome Project from, and `doctor` says which. A private address works. Leave out the port to serve DX on `443`:
+Set the managed route's address to the address your users reach the machine at. A private address works. Leave out the port to serve DX on `443`:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -23,6 +23,8 @@ moderne:
 ```
 
 The Code Genome Project points the four names at that address. DX tells it the address at each start and every hour after. DX listens on the address where it is one of the machine's own, and on every address of the machine where it is not, such as behind a cloud provider's network address translation.
+
+You can also leave `address` out. DX will then use the machine's own network address. Run `doctor` to see the address DX picked. If your users reach the machine at a different address, set `address` to that one.
 
 Some DNS resolvers drop answers that point at private addresses, to guard against DNS rebinding. Where yours does, `doctor` says the names do not resolve. Have your DNS answer for the four names, or add the line `doctor` prints to each machine's hosts file.
 
@@ -137,7 +139,9 @@ Each push adds to the changeset. Everyone can review it in the UI.
 
 ## Moving DX to another machine
 
-To move DX from a laptop to a server, copy `moderne.yml`, `moderne.env`, and DX's permanent directory to the server, and set the managed route's address to the server's, or leave it out. DX keeps its name under `moderne.direct`, so users and developers keep the same URL. If you leave out the port, which `init` set to `8443`, the URL loses it, and developers point their CLIs at the new URL. If `moderne.yml` names an SCM's OAuth app, set the app's callback URL to the new URL too. DX updates Keycloak at its next start, and users sign in again.
+To move DX from a laptop to a server, copy `moderne.yml`, `moderne.env`, and DX's permanent directory to the server. Then set the managed route's address to the server's address. You can also remove the address, and DX will use the server's own network address.
+
+DX keeps its name under `moderne.direct`, so users and developers keep the same URL. If you leave out the port, which `init` set to `8443`, the URL loses it, and developers point their CLIs at the new URL. If `moderne.yml` names an SCM's OAuth app, set the app's callback URL to the new URL too. DX updates Keycloak at its next start, and users sign in again.
 
 ## Upgrading
 

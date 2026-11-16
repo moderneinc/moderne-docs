@@ -66,7 +66,9 @@ DX needs the CGP token from Moderne for two things. It resolves recipes from the
 The `managed` route is how people reach DX. CGP names DX after the CGP user the token belongs to: a token for the user `acme` gives DX the name `acme.moderne.direct`. DX serves three more names under it: `api.acme.moderne.direct` for the API, `login.acme.moderne.direct` for sign-in, and `status.acme.moderne.direct` for the status page.
 
 * `token` is the CGP token. Set it before DX's first start.
-* `address` is where CGP points the four names. `127.0.0.1` keeps DX on your own machine. Left out, it is the address your machine reaches CGP from.
+* `address` is the IP address the four names will resolve to.
+  * `init` sets this to `127.0.0.1`. If you leave it as that, the names will only work on the machine running DX. This is what you want if you are trying DX out on a laptop.
+  * If you leave the `address` field out, DX will use the machine's own network address. Other people on your network will then be able to reach DX. You can run `doctor` to see the address DX picked.
 * `port` is where DX listens. It is `443` unless you name another, and `init` names `8443`.
 
 At its first start, DX asks CGP for its name and a certificate, which CGP gets from Let's Encrypt. DX keeps them in its permanent directory and renews the certificate before it expires. The certificate's private key never leaves your machine.
