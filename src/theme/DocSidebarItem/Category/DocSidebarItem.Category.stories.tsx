@@ -138,7 +138,7 @@ function CategoryContainer({ children }: { children: React.ReactNode }) {
   return (
     <aside
       style={{
-        width: '260px',
+        width: '307px',
         background: 'var(--ifm-background-surface-color)',
         border: '1px solid var(--ifm-color-border)',
         borderRadius: '4px',
