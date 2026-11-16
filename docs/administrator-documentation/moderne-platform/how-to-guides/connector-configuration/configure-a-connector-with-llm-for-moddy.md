@@ -49,7 +49,7 @@ Google Vertex AI has no API key. For `VERTEX`, `URI` is required, and you can se
 |---------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `MODERNE_MODDY_{PROVIDER}_APIKEY`     | `true`   |         | The API key for the specified LLM provider. Replace `{PROVIDER}` with `OPENAI`, `ANTHROPIC`, `GEMINI`, or `MISTRAL`.                                                                         |
 | `MODERNE_MODDY_{PROVIDER}_MODEL`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                                           |
-| `MODERNE_MODDY_{PROVIDER}_URI`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
+| `MODERNE_MODDY_{PROVIDER}_URI`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). **Required for `VERTEX`**, where you set the full endpoint URL. Useful for routing requests through a custom API gateway. |
 | `MODERNE_MODDY_{PROVIDER}_HASHUSERID` | `false`  | `true`  | Whether to send the SHA-256 hash of the user's email (`true`) or the plain email (`false`) as the user identifier on each LLM request. See [User identity on LLM requests](#user-identity-on-llm-requests).                                          |
 | `MODERNE_MODDY_{PROVIDER}_PROXY_HOST` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `PROXY_PORT` must also be set.                                                                                       |
 | `MODERNE_MODDY_{PROVIDER}_PROXY_PORT` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `PROXY_HOST` must also be set.                                                                                         |
@@ -77,7 +77,7 @@ moderne-connector:latest
 |-----------------------------------------|----------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `--moderne.moddy.{provider}.api-key`    | `true`   |         | The API key for the specified LLM provider. Replace `{provider}` with `openai`, `anthropic`, `gemini`, or `mistral`.                                                                         |
 | `--moderne.moddy.{provider}.model`      | `false`  |         | Optional model name override for the LLM provider.                                                                                                                                           |
-| `--moderne.moddy.{provider}.uri`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). Useful for routing requests through a custom API gateway. |
+| `--moderne.moddy.{provider}.uri`        | `false`  |         | Optional URI override for the LLM API endpoint. If not specified, the default endpoint for the provider is used (see table above). **Required for `vertex`**, where you set the full endpoint URL. Useful for routing requests through a custom API gateway. |
 | `--moderne.moddy.{provider}.hash-user-id` | `false`  | `true`  | Whether to send the SHA-256 hash of the user's email (`true`) or the plain email (`false`) as the user identifier on each LLM request. See [User identity on LLM requests](#user-identity-on-llm-requests).                                        |
 | `--moderne.moddy.{provider}.proxy.host` | `false`  |         | The hostname of a proxy server used to reach the LLM API. If specified, `proxy.port` must also be set.                                                                                       |
 | `--moderne.moddy.{provider}.proxy.port` | `false`  |         | The port of the proxy server used to reach the LLM API. If specified, `proxy.host` must also be set.                                                                                         |
@@ -207,14 +207,14 @@ Set `URI` to the base URL for your project and location. Replace `{PROJECT}` wit
 
 Google does not offer every model in every location. Check that your model is available in the location you pick.
 
-If you use a gateway, the Connector still sends a Google access token with each request. Your gateway needs to accept that token or pass it through.
+If you use a gateway, you will still need to [give the Connector Google credentials](#choosing-credentials). The Connector will send a Google access token with each request. Your gateway will need to accept that token or pass it through.
 
 #### Choosing credentials
 
 Create a service account with the Vertex AI User role (`roles/aiplatform.user`) on your project. You can then give the Connector its key in one of two ways.
 
-* Set `CREDENTIALSJSON` to the contents of the service account key file.
-* Leave `CREDENTIALSJSON` out. The Connector then uses Application Default Credentials, such as the `GOOGLE_APPLICATION_CREDENTIALS` variable or a service account attached to the machine it runs on.
+1. Set `CREDENTIALSJSON` to the contents of the service account key file.
+2. Leave `CREDENTIALSJSON` out. The Connector then uses Application Default Credentials, such as the `GOOGLE_APPLICATION_CREDENTIALS` variable or a service account attached to the machine it runs on.
 
 #### Choosing a model
 
