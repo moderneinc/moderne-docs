@@ -118,6 +118,10 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Get data table rows by class instead of by name
 
+#### rewrite-primefaces - 0.7.0
+
+* Pin the PrimeFaces 15 upgrade to 15.0.19
+
 #### rewrite-program-analysis - 0.36.0
 
 * Add FindXPathInjection taint recipe (RSPEC-S2091)
@@ -295,6 +299,10 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-prethink - 0.33.0
 
 * Expect PEP 440 requires-python for Poetry projects
+
+#### rewrite-primefaces - 0.6.0
+
+* Pin the PrimeFaces 15 upgrade to 15.0.19
 
 #### rewrite-program-analysis - 0.35.0
 
@@ -487,6 +495,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Find Python async misuse and inventory async usage
 * Simplify lambda blocks to expressions
 
+#### rewrite-primefaces - 0.5.0
+
+* Pin the PrimeFaces 15 upgrade to 15.0.19
+
 #### rewrite-program-analysis - 0.34.0
 
 * Add FindXPathInjection taint recipe (RSPEC-S2091)
@@ -677,6 +689,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add Python package and dependency health
 * Add Python HTTP, LLM and scheduled-task finders
 * Add FastAPI endpoint contracts and security
+
+#### rewrite-primefaces - 0.4.0
+
+* Pin the PrimeFaces 15 upgrade to 15.0.19
 
 #### rewrite-program-analysis - 0.33.0
 
@@ -875,6 +891,11 @@ This changelog is automatically generated from GitHub releases and only contains
 * Extract TypeScript DTO field schemas from NestJS classes and zod schemas
 * Export the data tables of TypeScript-authored recipes
 
+#### rewrite-primefaces - 0.3.0
+
+* Remove redundant build declarations and template leftovers
+* Trim the README to an overview, the recipe structure and how to run it
+
 #### rewrite-program-analysis - 0.32.0
 
 * Upgrade Gradle wrapper to 9.9.1
@@ -1057,6 +1078,11 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-prethink - 0.29.0
 
 * Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-primefaces - 0.2.0
+
+* Remove redundant build declarations and template leftovers
+* Trim the README to an overview, the recipe structure and how to run it
 
 #### rewrite-program-analysis - 0.31.0
 
@@ -1795,6 +1821,14 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Upgrade Gradle wrapper to 9.9.0
 * Keep class metrics separate for duplicate class names
+
+#### rewrite-primefaces - 0.1.0
+
+* Add PrimeFaces 14 to 15 migration recipes
+* Describe the PrimeFaces 15 migration in the README
+* Upgrade Gradle wrapper to 9.9.0
+* Gate the PrimeFaces 15 migration on the version each module starts from
+* Drop unused rewrite-templating and rewrite-java-21 dependencies
 
 #### rewrite-program-analysis - 0.30.0
 
