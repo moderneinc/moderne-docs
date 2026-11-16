@@ -211,7 +211,7 @@ If you use a gateway, you will still need to [give the Connector Google credenti
 
 #### Choosing credentials
 
-Create a service account with the Vertex AI User role (`roles/aiplatform.user`) on your project. You can then give the Connector its key in one of two ways.
+Create a service account with the Vertex AI User role (`roles/aiplatform.user`) on your project. You can then give the Connector its key in one of two ways:
 
 1. Set `CREDENTIALSJSON` to the contents of the service account key file.
 2. Leave `CREDENTIALSJSON` out. The Connector then uses Application Default Credentials, such as the `GOOGLE_APPLICATION_CREDENTIALS` variable or a service account attached to the machine it runs on.
