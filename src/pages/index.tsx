@@ -123,16 +123,19 @@ const videos: Video[] = [
     gradient: 'coral',
   },
   {
-    url: 'https://www.youtube.com/watch?v=Q-ej2lCJHRs',
-    title: 'Moderne vs. OpenRewrite: What’s the difference?',
+    url: 'https://www.youtube.com/watch?v=maZDbrvc3u0',
+    title: 'Give Your AI Agent a Deterministic Layer with Moderne',
     gradient: 'violet',
   },
   {
-    url: 'https://www.youtube.com/watch?v=FQs048JKXVw',
-    title: 'Understand your code landscape with the Moderne DevCenter',
+    url: 'https://www.youtube.com/watch?v=jAJRUJHLtoo',
+    title: 'Agents Find What to Upgrade Across Repos with Moderne Code Search',
     gradient: 'sky',
   },
 ];
+
+
+
 
 export const WhatIsModerneSection: FunctionComponent = () => {
   return (
