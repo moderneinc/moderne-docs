@@ -115,7 +115,7 @@
 /* Sidebar section headers (HTML dividers in sidebar) */
 :global(.theme-doc-sidebar-item-link > strong) {
   color: var(--mod-color-text-primary);
-  font-size: var(--mod-font-size-caption);
+  font-size: var(--mod-font-size-default);
   line-height: 1.4;
   font-weight: var(--mod-font-weight-semi-bold);
 }

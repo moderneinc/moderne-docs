@@ -13,11 +13,11 @@
   width: 100%;
 }
 
-/* Same size and weight as the top-level sidebar items, so the heading does not
-   read smaller than the rows under it. */
+/* One step larger than the top-level rows under it, so it reads as their
+   heading. */
 .label {
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-default);
   font-weight: var(--mod-font-weight-semi-bold);
   line-height: 1.4;
   color: var(--mod-color-text-primary);

@@ -45,19 +45,19 @@
 }
 
 .header .description {
-  font-size: 15px;
+  font-size: var(--mod-font-size-default);
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.55;
   color: var(--mod-color-text-primary);
   margin: 0;
 }
 
-/* Grids and subcategory sections stack down the page, 24px above each
+/* Grids and subcategory sections stack down the page, 40px above each
    section heading. */
 .sections {
   display: flex;
   flex-direction: column;
-  gap: var(--mod-spacing_3);
+  gap: var(--mod-spacing_5);
 }
 
 .section {
@@ -85,7 +85,7 @@
    heading rules, which add a rule and top margin to every h2 and resize h3. */
 .generatedIndexPage .section .sectionTitle {
   font-family: var(--mod-font-family-body), sans-serif;
-  font-size: var(--mod-font-size-h5);
+  font-size: var(--mod-font-size-h3);
   font-weight: var(--mod-font-weight-semi-bold);
   line-height: 1.3;
   letter-spacing: -0.015em;
@@ -95,15 +95,15 @@
   border: 0;
 }
 
-/* The section's 16px gap plus this margin puts the intro 28px above the first
-   row of items. */
+/* The section's 16px gap plus this margin puts the intro 20px above the first
+   row of boxes. */
 .sectionDescription {
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-default);
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.55;
   color: var(--mod-color-text-primary);
   max-width: 720px;
-  margin: 0 0 var(--mod-spacing_1_1_2);
+  margin: 0 0 var(--mod-spacing_1_2);
 }
 
 .sectionCount {
@@ -133,7 +133,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--mod-spacing_3_1_2) var(--mod-spacing_5);
+  gap: var(--mod-spacing_2);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -149,26 +149,27 @@
   margin: 0;
 }
 
-/* A page in the grid: no box or fill, just a 2px ink rule on top, then 14px
-   down to the title. Opacity waits 120ms before it starts to move, so passing
-   over an item does not flicker the rest of the grid; the hovered item itself
-   answers at once. */
+/* A page in the grid: a hairline box with no fill. Opacity waits 120ms before
+   it starts to move, so passing over an item does not flicker the rest of the
+   grid; the hovered item itself answers at once. */
 .item {
   display: block;
-  padding: var(--mod-spacing_1_3_4) 0 0;
-  border-top: 2px solid var(--mod-docs-rule-ink);
+  height: 100%;
+  padding: var(--mod-spacing_2_1_2);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-s);
   color: inherit;
   text-decoration: none;
   transition:
     opacity 180ms ease-out 120ms,
-    border-top-color 180ms ease-out;
+    border-color 180ms ease-out;
 }
 
 /* Forest green is --mod-color-text-success: #1d5937 in light mode and the
    brand green in dark mode, so one rule covers both. */
 .item:hover,
 .item:focus-visible {
-  border-top-color: var(--mod-color-text-success);
+  border-color: var(--mod-color-text-success);
   opacity: 1;
   transition-delay: 0ms;
   color: inherit;
@@ -183,7 +184,7 @@
 .generatedIndexPage .grid .itemTitle {
   display: block;
   font-family: var(--mod-font-family-body), sans-serif;
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-default);
   font-weight: var(--mod-font-weight-semi-bold);
   line-height: 1.4;
   letter-spacing: -0.01em;
@@ -202,7 +203,7 @@
 
 .itemArrow {
   display: inline-block;
-  margin-left: var(--mod-spacing_1);
+  margin-left: var(--mod-spacing_3_4);
   font-weight: var(--mod-font-weight-medium);
   color: var(--mod-docs-text-muted);
   transition:
@@ -238,7 +239,7 @@
 }
 
 .itemDescription {
-  font-size: var(--mod-font-size-caption);
+  font-size: 15px;
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.5;
   color: var(--mod-color-text-primary);
@@ -263,17 +264,14 @@
   white-space: nowrap;
 }
 
-/* Compact list, for categories with more items than the threshold. Rows stack
-   on hairline rules with no gap between them. */
+/* Compact list, for categories with more items than the threshold: the same
+   boxes with tighter padding and a tighter row gap. */
 .gridCompact {
-  row-gap: 0;
+  row-gap: var(--mod-spacing_1_1_2);
 }
 
-/* 1px hairline instead of the ink rule, 12px down to the title, 4px to the
-   description, and 14px below it. */
 .itemCompact {
-  padding: var(--mod-spacing_1_1_2) 0 var(--mod-spacing_1_3_4);
-  border-top: 1px solid var(--mod-color-border-primary);
+  padding: var(--mod-spacing_1_3_4) var(--mod-spacing_2);
 }
 
 .generatedIndexPage .grid .itemCompact .itemTitle {
