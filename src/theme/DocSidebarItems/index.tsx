@@ -65,8 +65,16 @@ const DocSidebarItemsWrapper: FunctionComponent<Props> = (props) => {
     );
   }
 
-  // For Platform pages at the top level, show toggle above the header
+  // On Platform pages at the top level, the section heading doubles as the
+  // switch between the user and admin docs. The filtered items carry a plain
+  // "Platform" header, so drop it and render the switcher in its place.
   const showPlatformToggle = isPlatformPage && !isNestedRendering && filteredItems.length > 0;
+  const items = showPlatformToggle
+    ? filteredItems.filter(
+        (item: any) =>
+          !(item.type === 'html' && /<strong>Platform<\/strong>/.test(item.value ?? '')),
+      )
+    : filteredItems;
 
   return (
     <>
@@ -75,7 +83,7 @@ const DocSidebarItemsWrapper: FunctionComponent<Props> = (props) => {
           <PlatformToggle />
         </li>
       )}
-      <DocSidebarItems {...props} items={filteredItems} />
+      <DocSidebarItems {...props} items={items} />
     </>
   );
 };

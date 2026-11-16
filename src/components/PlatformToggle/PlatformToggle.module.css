@@ -1,53 +1,123 @@
 /**
  * Platform Toggle Component Styles
- * Underline tabs for switching between the User and Admin views: text tabs on
- * a hairline, with a forest underline on the active one, in the same language
- * as the rules on the section pages.
+ * The Platform section heading in the sidebar, read as one phrase: "Platform
+ * user docs". The second part is a dotted-underlined trigger that opens a menu
+ * to switch between the user and admin docs.
  */
 
-.toggle {
+.switcher {
   display: flex;
-  gap: var(--mod-spacing_3);
-  width: 100%;
-  border-bottom: 1px solid var(--mod-color-border-primary);
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--mod-spacing_1);
 }
 
-.segment {
-  /* The underline overlaps the hairline by its own 1px so the two read as one line. */
-  margin-bottom: -1px;
-  padding: 0 0 var(--mod-spacing_1);
+/* Same size and weight as the top-level sidebar items, so the heading does not
+   read smaller than the rows under it. */
+.label {
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
   font-size: var(--mod-font-size-sm);
-  font-weight: var(--mod-font-weight-medium);
+  font-weight: var(--mod-font-weight-semi-bold);
   line-height: 1.4;
-  text-decoration: none;
-  color: var(--mod-color-text-tertiary);
-  border-bottom: 2px solid transparent;
-  transition:
-    color 0.15s ease,
-    border-color 0.15s ease;
-}
-
-.segment:hover {
-  text-decoration: none;
   color: var(--mod-color-text-primary);
 }
 
-.segment:focus-visible {
-  outline: 2px solid var(--mod-color-text-success);
+/* The menu anchors to the trigger, not the whole heading row. */
+.triggerWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mod-spacing_1_2);
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-regular);
+  line-height: 1.4;
+  color: var(--mod-color-text-tertiary);
+  text-decoration: underline dotted;
+  text-decoration-color: var(--mod-color-border-strong);
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.trigger:hover,
+.triggerOpen {
+  color: var(--mod-color-text-primary);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--mod-color-action-default);
   outline-offset: 2px;
   border-radius: var(--mod-border-radius-x-xs);
 }
 
-/* Forest green is --mod-color-text-success, which is mode-aware, so one rule
-   covers light and dark. */
-.active {
-  color: var(--mod-color-text-primary);
-  font-weight: var(--mod-font-weight-semi-bold);
-  border-bottom-color: var(--mod-color-text-success);
-  cursor: default;
+.chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
-.active:hover {
+.triggerOpen .chevron {
+  transform: rotate(180deg);
+}
+
+/* The menu drops below the trigger and sits over the sidebar rows. Same
+   surface, border, radius, and shadow as the secondary nav dropdowns. */
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  min-width: 180px;
+  margin-top: var(--mod-spacing_1);
+  padding: var(--mod-spacing_1);
+  background: var(--mod-color-surface-search-input);
+  border: 1px solid var(--mod-color-border-primary);
+  border-radius: var(--mod-border-radius-x-s);
+  box-shadow: var(--mod-docs-shadow-dropdown);
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mod-spacing_2);
+  padding: var(--mod-spacing_1) var(--mod-spacing_1_1_2);
+  font-family: var(--mod-font-family-body), system-ui, sans-serif;
+  font-size: var(--mod-font-size-sm);
+  font-weight: var(--mod-font-weight-regular);
+  line-height: 1.4;
   color: var(--mod-color-text-primary);
+  text-decoration: none;
+  border-radius: var(--mod-border-radius-x-s);
+  transition: background-color 0.15s ease;
+}
+
+.menuItem:hover,
+.menuItem:focus-visible {
+  background-color: var(--mod-color-surface-row-hover);
+  color: var(--mod-color-text-primary);
+  text-decoration: none;
+}
+
+.menuItem:focus-visible {
+  outline: 2px solid var(--mod-color-action-default);
+  outline-offset: -2px;
+}
+
+/* The current choice is tinted and carries a check. */
+.menuItemActive {
+  background-color: var(--mod-color-surface-row-hover);
+}
+
+.check {
+  flex-shrink: 0;
+  color: var(--mod-color-text-success);
 }
