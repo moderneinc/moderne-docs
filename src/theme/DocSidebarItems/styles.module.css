@@ -2,11 +2,11 @@
  * DocSidebarItems custom styles
  */
 
-/* The Platform heading row. Matches the spacing of the html section headers it
-   stands in for, with the dropdown allowed to overflow it. */
+/* The Platform heading row. Inset to the same edges as the rows under it, so
+   the label lines up with their text and the switch with their carets. */
 .platformToggleRow {
   display: flex;
-  margin: var(--mod-spacing_2) 0 var(--mod-spacing_1) var(--mod-spacing_1_1_2);
+  margin: var(--mod-spacing_2) var(--mod-spacing_1_4) var(--mod-spacing_1) var(--mod-spacing_1_1_2);
   list-style: none;
   overflow: visible;
 }

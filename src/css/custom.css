@@ -440,9 +440,9 @@ html {
   margin-top: 1.25rem;
 }
 
-/* Article body copy: 15px, one step under the default token. */
+/* Article body copy at the default 16px. */
 [class^=docMainContainer_] {
-  font-size: 15px;
+  font-size: var(--mod-font-size-default);
 }
 
 [class*="docItemContainer"] article {

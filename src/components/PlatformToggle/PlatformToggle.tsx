@@ -9,14 +9,14 @@ const USER_BASE = '/user-documentation/moderne-platform';
 const ADMIN_BASE = '/administrator-documentation/moderne-platform';
 
 const OPTIONS = [
-  { key: 'user', label: 'User docs', trigger: 'user docs', href: USER_BASE },
-  { key: 'admin', label: 'Admin docs', trigger: 'admin docs', href: ADMIN_BASE },
+  { key: 'user', label: 'User docs', href: USER_BASE },
+  { key: 'admin', label: 'Admin docs', href: ADMIN_BASE },
 ] as const;
 
 /**
  * Sidebar heading for the Platform section that doubles as the switch between
- * the user and administrator docs. It reads as one phrase, "Platform user
- * docs", where the second part opens a menu with the two sets of docs.
+ * the user and administrator docs. The label sits on the left and the current
+ * choice on the right, where it opens a menu with the two sets of docs.
  */
 export const PlatformToggle: FunctionComponent = () => {
   const location = useLocation();
@@ -63,9 +63,9 @@ export const PlatformToggle: FunctionComponent = () => {
           aria-haspopup="menu"
           aria-expanded={open}
           aria-controls={menuId}
-          aria-label={`Platform ${current.trigger}. Switch between user and admin docs`}
+          aria-label={`${current.label}. Switch between user and admin docs`}
         >
-          {current.trigger}
+          {current.label}
           <ChevronDown className={styles.chevron} size={12} aria-hidden="true" />
         </button>
         {open && (

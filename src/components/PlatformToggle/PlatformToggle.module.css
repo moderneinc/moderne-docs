@@ -1,15 +1,16 @@
 /**
  * Platform Toggle Component Styles
- * The Platform section heading in the sidebar, read as one phrase: "Platform
- * user docs". The second part is a dotted-underlined trigger that opens a menu
- * to switch between the user and admin docs.
+ * The Platform section heading in the sidebar: the label on the left and the
+ * current choice, "User docs" or "Admin docs", on the right, where it opens a
+ * menu to switch between the two.
  */
 
 .switcher {
   display: flex;
   align-items: baseline;
-  flex-wrap: wrap;
-  gap: var(--mod-spacing_1);
+  justify-content: space-between;
+  gap: var(--mod-spacing_2);
+  width: 100%;
 }
 
 /* Same size and weight as the top-level sidebar items, so the heading does not
@@ -41,9 +42,6 @@
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.4;
   color: var(--mod-color-text-tertiary);
-  text-decoration: underline dotted;
-  text-decoration-color: var(--mod-color-border-strong);
-  text-underline-offset: 4px;
   cursor: pointer;
   transition: color 0.15s ease;
 }
@@ -68,12 +66,14 @@
   transform: rotate(180deg);
 }
 
-/* The menu drops below the trigger and sits over the sidebar rows. Same
-   surface, border, radius, and shadow as the secondary nav dropdowns. */
+/* The menu drops below the trigger and sits over the sidebar rows, with its
+   right edge on the chevron so it stays inside the sidebar, which clips
+   anything past its edge. Same surface, border, radius, and shadow as the
+   secondary nav dropdowns. */
 .menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   z-index: 100;
   min-width: 180px;
   margin-top: var(--mod-spacing_1);
