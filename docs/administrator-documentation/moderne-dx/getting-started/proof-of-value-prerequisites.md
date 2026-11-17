@@ -24,17 +24,19 @@ This page covers everything you need to do so nothing is missed on day one.
 
 ## Source control access
 
-You will need a source control management (SCM) service account with **read access** to all in-scope repositories. This is used by the Moderne CLI and mass ingest to clone repositories and build LSTs. Credentials are mounted at runtime and never baked into images. The mass ingest example's README shows [where the credentials file is mounted](https://github.com/moderneinc/mass-ingest-example#3-configure-and-run-it).
+You will need a source control management (SCM) service account with **read access** to all in-scope repositories. The Moderne CLI and mass ingest will use this account to clone your repositories and build Lossless Semantic Trees (LSTs) from them.
 
-### Preparing your repository list
+You won't need to store these credentials in a container image. Instead, you'll provide them when the container starts. To see how that works, check out [where the credentials file is mounted](https://github.com/moderneinc/mass-ingest-example#3-configure-and-run-it) in the mass ingest example's README.
 
-You will need a [repos.csv file](../../../user-documentation/moderne-cli/references/repos-csv.md) that lists the repositories to work with. The more repositories you include, the more value you will see from the POV — Moderne's strength is working across repositories at scale.
+## Preparing your repository list
+
+You will need a [repos.csv file](../../../user-documentation/moderne-cli/references/repos-csv.md) that lists the repositories to work with. The more repositories you include, the more value you will see from the POV. This is because Moderne's strength is working across repositories at scale.
 
 The easiest way to generate this file is with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers), which are available for GitHub, GitLab, Bitbucket (Data Center and Cloud), and Azure DevOps. These scripts query your SCM's API and produce a ready-to-use `repos.csv` file.
 
 ## Mass ingest
 
-While mass ingest is typically set up after the initial POV rather than during it, you may want to plan for it early. Mass ingest builds all of your repositories and creates the [LST artifacts](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster.
+You may want to plan for mass ingest early, even though it's typically set up after the initial POV rather than during it. Mass ingest builds all of your repositories and creates the [LST artifacts](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster.
 
 | Resource | Minimum    | Recommended                                                                   |
 |----------|------------|-------------------------------------------------------------------------------|
@@ -42,7 +44,7 @@ While mass ingest is typically set up after the initial POV rather than during i
 | Memory   | 16 GB      | 16 GB                                                                         |
 | Disk     | 10 GB free | Sized to your largest repository (the example Kubernetes Job requests 150 GB) |
 
-The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns when memory or free disk is below the other two. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
+The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns below 16 GB of memory or 10 GB of free disk. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
 
 Only one repository is stored on disk at a time. This is because each container builds one repository at a time and then deletes it once its LST is published.
 
@@ -58,8 +60,8 @@ If you have a standard base image that includes your existing certificates or ot
 
 During the POV process, Moderne will provide:
 
-* A **Moderne DX license key**, from which your developers' CLIs take their license
-* A **Code Genome Project token**, which Moderne DX resolves recipes with and takes its name under `moderne.direct` from
+* A **Moderne DX license key**, which your developers' CLIs will also use for their license
+* A **Code Genome Project token**, which Moderne DX will use to download recipes and to get its name under `moderne.direct`
 * **Technical support** throughout the setup and evaluation process
 
 ## Next steps
