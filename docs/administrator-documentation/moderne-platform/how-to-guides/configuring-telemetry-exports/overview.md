@@ -15,14 +15,18 @@ Moderne emits structured usage telemetry for every recipe run, build, and commit
 
 Moderne produces a single, uniform trace schema regardless of where the command ran. Each completed command writes one row to a `trace.csv`. Rows include only command metadata: repository identifiers, timings, tool versions, outcomes, and the user's git email. No source code, no recipe output, and no LST contents are emitted.
 
-One exception is worth knowing about: `mod exec` records the command line it ran (`execCommand`) and the directory it ran in (`execExecutionDirectory`). Pass credentials to `mod exec` through environment variables rather than as command arguments, so they are not captured in telemetry.
+A few columns record more than command metadata:
+
+* `mod exec` records the command line it ran (`execCommand`) and the directory it ran in (`execExecutionDirectory`). Pass credentials to `mod exec` through environment variables rather than as command arguments, so they are not captured in telemetry.
+* `mod <agent> chat` records the session's initial prompt (`agentPrompt`).
+* Both `mod search` and code search in Moderne record the query (`searchQuery`).
 
 There are two **sources** that produce this telemetry:
 
-| Source        | What it represents                                                                                                                                                                                                                                                                             | When you'll see rows                                                                      |
-|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| `source=saas` | Recipe runs, builds, and commits originated from the Moderne web UI. The recipe worker fleet invokes the same CLI server-side and uploads the resulting `trace.csv`.                                                                                                                           | Any user clicking "Run recipe" or "Commit changes" in the UI.                             |
-| `source=cli`  | Everything run with `mod` outside the web UI, signed into your tenant. That covers developer machines and any automation you run, including [mass ingest](../mass-ingest.md). The CLI queues each trace locally and uploads it to your tenant gateway at the end of each command.              | Anyone running `mod build`, `mod run`, `mod git commit`, etc., and every mass-ingest run. |
+| Source        | What it represents                                                                                                                                                                                                                                                                                                              | When you'll see rows                                                                                      |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| `source=saas` | Recipe runs, builds, and commits originated from the Moderne web UI. The recipe worker fleet invokes the same CLI server-side and uploads the resulting `trace.csv`. Searching or navigating code in Moderne (whether from the web UI, the CLI, or the remote MCP server) will also add `type=search` and `type=navigate` rows. | Any user clicking "Run recipe" or "Commit changes" in the UI, or searching or navigating code in Moderne. |
+| `source=cli`  | Everything run with `mod` outside the web UI, signed into your tenant. That covers developer machines and any automation you run, including [mass ingest](../mass-ingest.md). The CLI queues each trace locally and uploads it to your tenant gateway at the end of each command.                                               | Anyone running `mod build`, `mod run`, `mod git commit`, etc., and every mass-ingest run.                 |
 
 Both sources are written to the same place, with the same partition layout, so queries can analyze them together or filter to one source as needed.
 
@@ -43,7 +47,13 @@ Build is optional because `mod git sync` can download a prebuilt LST instead of 
 
 The build columns are populated either way. Each LST carries a record of the build that produced it, so a downloaded LST contributes that original build's values to the trace. See [build columns and prebuilt LSTs](../../../../user-documentation/moderne-cli/references/trace-csv.md#build-columns-and-prebuilt-lsts).
 
-In addition, `mod exec` (`type=exec`) and MCP server tool calls (`type=mcp`) emit standalone traces that are not part of either workflow chain.
+These commands emit standalone traces that are not part of either workflow chain:
+
+* `mod exec` (`type=exec`)
+* MCP server tool calls (`type=mcp`)
+* `mod <agent> chat` (`type=agent`)
+* `mod search` over a working set, and code search in Moderne (`type=search`)
+* `mod navigate` over a working set, and code navigation in Moderne (`type=navigate`)
 
 The full column-by-column reference is the [trace.csv reference](../../../../user-documentation/moderne-cli/references/trace-csv.md).
 
@@ -59,6 +69,8 @@ A quick orientation:
 | Publish                     | `publishOutcome`, `publishStartTime`, `publishEndTime`, `publishId`, `publishUri` | `mod publish` (LST publication; used by mass-ingest pipelines) |
 | Exec                        | `execCommand`, `execExitCode`, `execExecutionDirectory`, `execElapsedTimeMs`      | `mod exec`                                                     |
 | MCP                         | `mcpToolName`, `mcpOutcome`, `mcpMatchCount`, `mcpElapsedTimeMs`                  | MCP server tool calls                                          |
+| Search                      | `searchSyntax`, `searchQuery`, `searchFileCount`, `searchElapsedTimeMs`           | `mod search`, and code search in Moderne                       |
+| Navigate                    | `navigateOperation`, `navigateSource`, `navigateElapsedTimeMs`                    | `mod navigate`, and code navigation in Moderne                 |
 | Organization                | `organization`                                                                    | when run within a Moderne organization context                 |
 
 ## How telemetry flows into your environment

@@ -67,7 +67,7 @@ Please confirm that:
 
 ### Some `mod` commands are missing traces
 
-Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit exported telemetry: sync, build, run, apply, add, commit, push, publish, exec, mcp, and agent. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
+Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit exported telemetry: sync, build, run, apply, add, commit, push, publish, exec, mcp, agent, search, and navigate. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
 
 ### Replication lag is too high
 
