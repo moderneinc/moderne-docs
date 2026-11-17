@@ -11,7 +11,7 @@ description: How to serve Moderne DX to your organization, sign users in through
 
 DX serves four names on one port, through a proxy inside it: its name under `moderne.direct`, such as `acme.moderne.direct`, and `api.`, `login.`, and `status.` before it. Every other DX process listens on the machine's loopback address alone.
 
-Set the managed route's address to the address your users reach the machine at. A private address works. Leave out the port to serve DX on `443`:
+Set the managed route's address to the private address your users reach the machine at. Leave out the port to serve DX on `443`:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -22,11 +22,11 @@ moderne:
         address: 10.20.3.7
 ```
 
-The Code Genome Project points the four names at that address. DX tells it the address at each start and every hour after. DX listens on the address where it is one of the machine's own, and on every address of the machine where it is not, such as behind a cloud provider's network address translation.
+The Code Genome Project [points the four names at that address](./configuring-dns-for-dx.md#how-the-name-resolves). DX tells it the address at each start and every hour after. DX listens on the address where it is one of the machine's own, and on every address of the machine where it is not, such as behind a cloud provider's network address translation.
 
 Some DNS resolvers drop answers that point at private addresses, to guard against DNS rebinding. Where yours does, `doctor` says the names do not resolve. Have your DNS answer for the four names, or add the line `doctor` prints to each machine's hosts file.
 
-To serve DX under a name of your own instead, with your own certificate or behind a load balancer, see [Serving Moderne DX under your own name](./serving-dx-under-your-own-name.md).
+You can also [serve DX under a name of your own](./configuring-dns-for-dx.md#choosing-a-route), with your own certificate or behind a load balancer.
 
 ## Running DX as a service
 
@@ -116,7 +116,7 @@ mod config moderne edit https://acme.moderne.direct
 mod config moderne login
 ```
 
-The CLI trusts the certificate of a `moderne.direct` name as it is. If you [serve DX under your own name](./serving-dx-under-your-own-name.md) with a certificate from a private certificate authority, developers add that authority to the CLI with [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store).
+The CLI trusts the certificate of a `moderne.direct` name as it is. If you [serve DX under your own name](./configuring-dns-for-dx.md#trusting-a-private-certificate-authority) with a certificate from a private certificate authority, developers add that authority to the CLI with [`mod config http trust-store`](../../../user-documentation/moderne-cli/cli-reference.md#mod-config-http-trust-store).
 
 Signing in also brings DX's recipes to the CLI. To bring recipes installed later, run `mod config recipes moderne sync`.
 

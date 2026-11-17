@@ -120,7 +120,7 @@ The CLI trusts the Let's Encrypt certificate as it is.
 ## Next steps
 
 * [Serve DX to your organization](../how-to-guides/running-moderne-dx.md#serving-dx-to-your-organization).
-* [Serve DX under your own name](../how-to-guides/serving-dx-under-your-own-name.md), with your own certificate or behind a load balancer.
+* [Serve DX under your own name](../how-to-guides/configuring-dns-for-dx.md#choosing-a-route), with your own certificate or behind a load balancer.
 * [Connect your identity provider](../how-to-guides/running-moderne-dx.md#connecting-your-identity-provider).
 * [Show each user only the repositories they can read](../how-to-guides/repository-access-control.md).
 * [Connect your developers](../how-to-guides/running-moderne-dx.md#connecting-your-developers).

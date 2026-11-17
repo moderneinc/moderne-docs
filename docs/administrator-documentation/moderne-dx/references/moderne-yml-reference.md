@@ -32,7 +32,7 @@ Every command but `init` reads the `moderne.yml` file in the working directory, 
 
 ## Routes
 
-`moderne.dx.routes` names how people reach DX, and exactly one route. DX serves four names on one port, through a proxy inside it: a host, and `api.`, `login.`, and `status.` before it. They are the UI, the API, Keycloak's sign-in, and the status page. Every public URL is `https`. Every other process listens on the loopback address alone.
+`moderne.dx.routes` names [how people reach DX](../how-to-guides/configuring-dns-for-dx.md), and exactly one route. DX serves four names on one port, through a proxy inside it: a host, and `api.`, `login.`, and `status.` before it. They are the UI, the API, Keycloak's sign-in, and the status page. Every public URL is `https`. Every other process listens on the loopback address alone.
 
 A `managed` route takes its name and certificate from the Code Genome Project. It is what `init` writes:
 
@@ -57,7 +57,7 @@ A `load-balanced` route serves a name of your own, behind a load balancer that e
 | `moderne.dx.routes.load-balanced.public-url` | Required | Where people open the UI, such as `https://moderne.acme.com`.                                    |
 | `moderne.dx.routes.load-balanced.http-port`  | Required | The port the load balancer forwards plain HTTP to, with each request's `Host` header unchanged.  |
 
-[Serving Moderne DX under your own name](../how-to-guides/serving-dx-under-your-own-name.md) covers the last two. A start refuses the settings that routes replaced, and prints the route that does what they did: `public-url`, `api-url`, `login-url`, `status-url`, `tls`, `ports.proxy`, `ports.proxy-http`, and `bind-address` under `moderne.dx`.
+A start refuses the settings that routes replaced, and prints the route that does what they did: `public-url`, `api-url`, `login-url`, `status-url`, `tls`, `ports.proxy`, `ports.proxy-http`, and `bind-address` under `moderne.dx`.
 
 | Setting            | Default                    | Description                                                          |
 |--------------------|----------------------------|----------------------------------------------------------------------|
@@ -211,5 +211,5 @@ Two more ports cannot be moved: 8099, where the router answers its health check,
 
 | Variable              | Description                                                                                                      |
 |-----------------------|------------------------------------------------------------------------------------------------------------------|
-| `NODE_EXTRA_CA_CERTS` | A PEM file of certificate authorities that the UI trusts beyond the public ones. Set it when a `custom-certificate` route's certificate comes from a private CA. A `managed` route's certificate needs no setting. |
+| `NODE_EXTRA_CA_CERTS` | A PEM file of certificate authorities that the UI trusts beyond the public ones. Set it when the certificate of a `custom-certificate` or `load-balanced` route comes from a private CA. A `managed` route's certificate needs no setting. |
 | `KEYCLOAK_USERNAME`, `KEYCLOAK_PASSWORD` | DX's first user, in the `moderne.yml` that `init` writes. Set them before DX's first start. |
