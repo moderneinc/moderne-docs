@@ -244,7 +244,9 @@ function isOwningDocLink(item: PropSidebarItem, targetPath: string): boolean {
   }
 
   const link = item as PropSidebarItemLink;
-  return Boolean(link.docId) && link.href === targetPath;
+  // A page loaded directly can carry a trailing slash that the sidebar href lacks
+  const normalizedPath = targetPath.length > 1 ? targetPath.replace(/\/$/, '') : targetPath;
+  return Boolean(link.docId) && link.href === normalizedPath;
 }
 
 /**
