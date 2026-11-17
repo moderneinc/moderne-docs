@@ -10,6 +10,170 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 17, 2026
+
+#### recipes-csharp - 0.27.0
+
+* Implement code-quality recipes and exclude unsupported placeholders
+* Preserve required generic casts in `RemoveRedundantCast`
+* Preserve sort precedence in `LinqCodeQuality`
+
+#### recipes-go - 0.30.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### recipes-javascript - 0.20.0
+
+* Preserve comments when collapsing ifs and removing assignments in Code Quality recipes
+* Add Jest 28 upgrade recipe
+* Apply `Object.hasOwn` and logical assignment autofixes only when the project targets a runtime that has them (G-rj-2)
+
+#### recipes-kotlin - 0.24.0
+
+* Apply the Kotlin1To2 type validation opt-out to the output only
+
+#### recipes-mainframe - 0.18.0
+
+* Refactor RewriteTest to use defaults method
+
+#### rewrite-android - 0.38.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-angular - 1.32.0
+
+* Apply text-based Material migrations only below their version
+* Keep the Material 18 to 20 stylesheet rewrites valid and complete
+* Move only the form field's default appearance to fill
+* Leave CDK entry point imports to the CDK migration
+* Add the base mixins to themes that start out on the @import theming API
+* Type-check the test sources
+* Look up legacy Material projects once and shorten the recipe descriptions
+* Move to rewrite 8.107.0 and keep the names that re-exports export
+* Run the dependency changes of UpgradeToAngularN against Java in a test
+* Move re-exports from the removed @angular/material entry point
+* Replace initializer tokens with their Angular 19 provider functions
+* Add the router guard-interface and getCurrentNavigation migrations
+* Migrate three angular.json workspace options ng update rewrites
+* Migrate the Angular 19 and 20 server-side rendering API moves
+* Promote preserveQueryParams from a search recipe to a transform
+* Move to rewrite 8.107.3 and accept its import order and indentation
+
+#### rewrite-circleci - 3.31.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-compiled-analysis - 0.34.0
+
+* Explain the type validation opt-out
+
+#### rewrite-concourse - 3.30.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-cryptography - 0.35.0
+
+* Skip the Jasypt shim verification classpaths in the OWASP scan
+* Skip the Jasypt shim classpaths in the subproject's aggregate scan too
+
+#### rewrite-dotnet - 0.36.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-dropwizard - 0.26.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-elastic - 0.27.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-hibernate - 0.48.0
+
+* Add `MigrateToHibernate56` for Hibernate 3.x and 4.x and chain it from `MigrateToHibernate60`
+
+#### rewrite-jasperreports - 0.25.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-java-application-server - 0.29.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-java-security - 3.61.0
+
+* Refactor RewriteTest to use defaults method
+
+#### rewrite-kafka - 0.26.0
+
+* Remove redundant afterTypeValidationOptions(all())
+
+#### rewrite-mainframe - 3.21.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-migrate-python - 0.34.0
+
+* Publish the Python package to the Code Genome Project under the username `cgp`
+* Require openrewrite 8.108.1 and drop the workarounds it makes redundant
+
+#### rewrite-nodejs - 0.70.0
+
+* Expect hpagent's replacement import where hpagent's was, as @openrewrite/rewrite 8.107.3 places it
+* GitHub advisories as of 2026-11-13T1848
+
+#### rewrite-nullability - 0.25.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-prethink - 0.35.0
+
+* Refactor RewriteTest to use defaults method
+
+#### rewrite-primefaces - 0.8.0
+
+* Pin the PrimeFaces 15 upgrade to 15.0.19
+
+#### rewrite-program-analysis - 0.37.0
+
+* Refactor RewriteTest to use defaults method
+
+#### rewrite-react - 0.26.0
+
+* Remove `persist()` only on React synthetic events in `RemoveEventPersist` (C1-v3)
+
+#### rewrite-reactive-streams - 0.39.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-spring - 0.62.0
+
+* OpenRewrite recipe best practices
+* [Auto] Spring Boot modular starter table as of 2026-11-16T1753
+* Migrate Spring REST Docs 3.0 REST Assured packages and request parameters
+* Upgrade Hibernate to 5.6 in `UpgradeSpringORM_5_0`
+* Migrate Spring Integration 6.0 Java DSL and moved types
+* Migrate Spring Cloud AWS 2.x and spring-data-dynamodb off end-of-life AWS libraries
+* Migrate `#oauth2` method security expressions to Spring Security authorities
+
+#### rewrite-static-analysis - 0.19.0
+
+* Add FindObjectOutputStreamAppending recipe (RSPEC-S2689)
+* Add FindWildcardReturnType recipe (RSPEC-S1452)
+* Add FindMethodCyclomaticComplexity recipe (RSPEC-S1541)
+* Add FindZeroCorePoolSize recipe (RSPEC-S2122)
+* Add FindChangedNullabilityContract recipe (RSPEC-S2638)
+* Add FindDivisionByZero recipe (RSPEC-S3518)
+* Add FindIrregularNumberGrouping recipe (RSPEC-S3937)
+
+#### rewrite-tapestry - 0.25.0
+
+* Narrow the type validation opt-outs
+
+#### rewrite-terraform - 3.34.0
+
+* Refactor RewriteTest to use defaults method
+
 ## November 16, 2026
 
 #### recipes-csharp - 0.26.0
