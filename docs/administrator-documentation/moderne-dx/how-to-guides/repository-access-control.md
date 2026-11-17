@@ -1,31 +1,37 @@
 ---
 sidebar_label: User-level repository access control
-description: How to show each user only the repositories they can read on your SCM, by naming its OAuth app.
+description: How to show each user only the repositories they can read in your SCM by configuring its OAuth app.
 ---
 
 # User-level repository access control
 
-Every user who signs in to Moderne DX can read every repository in its organizations. To show each user only the repositories they can read on your source control management (SCM) system, name your SCM's OAuth app. Each user then connects their SCM account in the UI once. DX checks their read access with it.
+By default, every user who signs in to Moderne DX can read every repository in its organizations. If you want to restrict who can see some of your repositories, you'll want to turn on user-level access control. With it, DX will only show each user the repositories they can already read in your source control management (SCM) system.
 
-In this guide, we will walk you through what access control guards, which repositories it covers, and how to turn it on.
+To make this work, you'll need to configure an OAuth app for your SCM in DX. Each user will then connect their SCM account in the DX UI once. DX will use that connection to check what they can read.
 
-## What access control guards
+In this guide, we will walk you through what access control restricts, which repositories it applies to, and how to turn it on.
 
-DX checks a user's read access before it shows them what is in a repository.
+## What access control restricts
 
-* Code search, and its SQL queries, show only the repositories the user can read.
-* A changeset shows its changes to a repository only to users who can read it. This holds in the UI, in downloads, and through MCP.
-* The CLI fetches a changeset's repository, and pushes changes to it, only for users who can read it.
+Before DX shows a user what's inside of a repository, it will check that they have read access to it. Here are the places where that check will limit what a user can see or do:
 
-Every user still sees which repositories each organization holds.
+* Code search (and its SQL queries) will only show results from repositories the user can read.
+* A changeset will only show its changes to users who can read the affected repository. This applies whether they open the changeset in the UI, download it, or read it through the Model Context Protocol (MCP).
+* The CLI will only let a user fetch a repository from a changeset if they can read that repository. The same goes for pushing changes to it.
 
-## Which repositories it covers
+Keep in mind that access control doesn't hide the names of repositories. Every user will still be able to see which repositories each organization contains.
 
-DX checks access only to repositories on an SCM whose OAuth app `moderne.yml` names. Every user can read the repositories on any other host. If you name the OAuth app of your GitHub Enterprise server, the public repositories that DX starts with on github.com stay open to everyone.
+## Which repositories DX checks access for
+
+DX will only check access for repositories that live in an SCM you've configured an OAuth app for in your `moderne.yml` file. Repositories on any other host will stay readable by everyone.
+
+For example, let's say you only configure the OAuth app for your GitHub Enterprise server. The public github.com repositories that DX starts with will stay open to every user.
 
 ## Turning on access control
 
-Create an OAuth app on your SCM. Its callback URL is DX's public URL, such as `https://acme.moderne.direct:8443`. You create it with the same steps as for the Moderne Connector. Those guides grant write permissions, for committing from the UI. DX needs read permissions alone.
+The first thing you'll need to do is create an OAuth app in your SCM. When you create it, set its callback URL to DX's public URL (e.g., `https://acme.moderne.direct:8443`).
+
+The steps for creating this app are the same as they are for the Moderne Connector, so you can follow the guide for your SCM below. One difference to be aware of is that those guides grant write permissions (so that people can commit from the Platform UI). DX only needs read permissions.
 
 * [GitHub](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-github.md)
 * [GitLab](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-gitlab.md)
@@ -33,7 +39,7 @@ Create an OAuth app on your SCM. Its callback URL is DX's public URL, such as `h
 * [Bitbucket Cloud](../../moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-cloud-to-connector.md)
 * [Azure DevOps](../../moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-devops-services.md)
 
-Name the app in `moderne.yml`, with the SCM token key that `init` wrote to `moderne.env`:
+Once you've created the app, add it to your `moderne.yml` file. You'll also need to include the `scm-token-key` setting. DX uses this key to encrypt each user's SCM token on disk. You don't need to come up with a key yourself. `init` already wrote one to your `moderne.env` file as `SCM_TOKEN_KEY`:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -47,17 +53,21 @@ moderne:
     scm-token-key: ${SCM_TOKEN_KEY}
 ```
 
-Add the client secret to `moderne.env`, and restart DX:
+Next, add the client secret for your OAuth app to your `moderne.env` file:
 
 ```bash title="moderne.env"
 GITHUB_OAUTH_SECRET=…
 ```
 
-Each user then connects their SCM account under **Settings** > **SCM connections**. Until they do, code search shows them none of that SCM's repositories. A user who loses access on your SCM loses it in DX within a day.
+Once that's done, restart DX so the change takes effect.
+
+From there, each user will need to connect their SCM account in DX by going to **Settings** > **SCM connections**. Until they do, code search won't show them any repositories from that SCM.
+
+If a user later loses access to a repository in your SCM, they'll lose access to it in DX within a day.
 
 ## Settings for each SCM
 
-DX asks each SCM for read access alone.
+DX only asks each SCM for read access. The table below shows the settings each SCM needs and the access DX will ask for:
 
 | Setting                               | One entry per | OAuth credentials                                           | Access DX asks for                 |
 |---------------------------------------|---------------|-------------------------------------------------------------|------------------------------------|
@@ -67,14 +77,20 @@ DX asks each SCM for read access alone.
 | `moderne.scm.bitbucket-cloud`         | Not a list    | `oauth.key`, `oauth.secret`                                 | `repository`                       |
 | `moderne.scm.azure-devops`            | Organization  | `oauth.client-id`, `oauth.client-secret`, `oauth.tenant-id` | What your app registration grants  |
 
-GitHub, GitLab, and Bitbucket Data Center entries also take the server's `uri`. A Bitbucket Data Center entry takes `skip-ssl: true` for a server with a self-signed certificate. GitHub's OAuth apps have no read-only scope for private repositories, which is why DX asks GitHub for `repo`.
+There are a few more things to know about these settings:
 
-| Setting                                | Default                | Description                                                                                  |
-|----------------------------------------|------------------------|----------------------------------------------------------------------------------------------|
-| `moderne.authorization.scm-token-key`  | One made at each start | A base64 AES key of 32 bytes that seals users' SCM tokens on disk. Without one, users connect their SCM accounts again after every restart. `init` writes one to `moderne.env`. |
+* GitHub, GitLab, and Bitbucket Data Center entries also need the server's `uri`.
+* If your Bitbucket Data Center server uses a self-signed certificate, you can add `skip-ssl: true` to its entry.
+* DX asks GitHub for the `repo` scope because GitHub's OAuth apps don't have a read-only scope for private repositories.
+
+You'll also need the SCM token key setting, which applies no matter which SCM you use:
+
+| Setting                                | Default                           | Description                                                                                  |
+|----------------------------------------|-----------------------------------|----------------------------------------------------------------------------------------------|
+| `moderne.authorization.scm-token-key`  | A new key each time DX starts     | A base64 AES key of 32 bytes that encrypts users' SCM tokens on disk. Without one, users will need to connect their SCM accounts again after every restart. `init` writes one to `moderne.env`. |
 
 ## On the Moderne Platform
 
-Access control works the same way on the Moderne Platform. Your Moderne Connector's configuration names each SCM's OAuth app at the same `moderne.scm` settings. The connector requires an OAuth app for each SCM it names. Every user can read the repositories on a host it does not name.
+Access control works the same way on the Moderne Platform. There, you'll configure each SCM's OAuth app in your Moderne Connector's configuration, using the same `moderne.scm` settings. The Connector requires an OAuth app for every SCM you configure in it. Just like in DX, repositories on a host you haven't configured will be readable by every user.
 
-On the Platform, access control also guards the LSTs that the CLI downloads through Moderne, and the changelog of each pull request that Moderne opened.
+On the Platform, access control also protects the LSTs that the CLI downloads through Moderne, as well as the changelog of each pull request that Moderne opened.
