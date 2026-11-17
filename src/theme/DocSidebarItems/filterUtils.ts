@@ -94,6 +94,12 @@ function addCategoryHeader(
   category: PropSidebarItemCategory,
   currentPath: string
 ): PropSidebarItem[] {
+  // A single-page category (such as What's new, whose items are sections of
+  // the page itself) is shown as the page row with its sections nested under it
+  if (category.customProps?.singlePage) {
+    return setAutoExpandState([category], currentPath, false);
+  }
+
   // Create a section header using the category label
   const header: PropSidebarItem = {
     type: 'html',

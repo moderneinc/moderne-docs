@@ -5,13 +5,13 @@ description: How Moderne DX collects telemetry from the Moderne CLI, where it st
 
 # Configuring telemetry for Moderne DX
 
-The Moderne CLI records telemetry on every LST build, recipe run, and git operation. Each record shows what ran, how many repositories it touched, and how much developer effort it saved. You can track things like CLI adoption and migration impact by sending that data to your BI tools.
+Every time someone builds an LST, runs a recipe, or performs a git operation with the Moderne CLI, the CLI records telemetry about it. Each record shows what ran, how many repositories it touched, and how much developer effort it saved. If you send that data to your BI tools, you can track things like CLI adoption and the impact of your migrations.
 
-Moderne DX collects this telemetry for you. A CLI signed in to DX uploads to it automatically. Moderne does not receive this telemetry.
+Moderne DX will collect this telemetry for you. Once a developer signs in to DX from their CLI, the CLI will start uploading its telemetry automatically. None of it is sent to Moderne.
 
-We recommend storing it in an Amazon S3 bucket or an Azure Blob Storage container. Your BI tools can query it from there. Until you set one up, DX keeps it on its own disk.
+Out of the box, DX will keep this telemetry on its own disk. We recommend storing it in an Amazon S3 bucket or an Azure Blob Storage container instead, since that's where your BI tools will be able to query it.
 
-In this guide, we will walk you through how uploads work, how to choose where DX stores telemetry, how to include mass ingest, and how to query the data.
+In this guide, we will walk you through how uploads work, how to choose where DX stores telemetry, how to include telemetry from mass ingest, and how to query the data.
 
 ## Prerequisites
 
@@ -23,21 +23,21 @@ This guide assumes you have:
 
 ## How CLIs upload telemetry
 
-A CLI signed in to DX uploads its telemetry at the end of every command. You do not need to turn this on.
+Once a developer has signed in to DX with `mod login`, their CLI will upload its telemetry at the end of every command. You don't need to turn anything on for that to happen.
 
-DX only accepts uploads from a signed-in CLI. Until a CLI signs in, its telemetry waits in a queue on its machine. The same thing happens when a CLI's token expires. Once the developer runs `mod login`, the queue starts uploading at the end of each command.
+If a developer hasn't signed in yet (or if their token has expired), the CLI will hold on to its telemetry in a queue on their machine. The next time they run `mod login`, the CLI will start working through that queue at the end of each command.
 
-To upload a long queue all at once, run `mod telemetry publish`.
+If the queue has gotten long and you'd like to upload it all at once, you can run `mod telemetry publish`.
 
 ## Choosing where DX stores telemetry
 
-We recommend an Amazon S3 bucket or an Azure Blob Storage container. Your BI tools can query telemetry from there. It also won't use up DX's disk.
+We recommend storing telemetry in an Amazon S3 bucket or an Azure Blob Storage container. This is because your BI tools will be able to query it from there, and it won't take up space on DX's disk.
 
-To set one up, follow the steps for your storage below and restart DX.
+To set one up, follow the steps below based on the type of storage you're using. Once you're done, you'll need to restart DX for the change to take effect.
 
 ### Using an Amazon S3 bucket
 
-Name the bucket in your `moderne.yml` file:
+Start by adding the name of your bucket to your `moderne.yml` file:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -47,7 +47,7 @@ moderne:
         bucket: acme-moderne-telemetry
 ```
 
-In your `moderne.env` file, add the AWS credentials for DX to use:
+Next, add the AWS credentials you'd like DX to use to your `moderne.env` file:
 
 ```bash title="moderne.env"
 AWS_REGION=us-east-1
@@ -55,11 +55,11 @@ AWS_ACCESS_KEY_ID=…
 AWS_SECRET_ACCESS_KEY=…
 ```
 
-These credentials need `s3:ListBucket` on the bucket and `s3:PutObject` on its objects.
+Please make sure these credentials have the `s3:ListBucket` permission on the bucket and the `s3:PutObject` permission on its objects.
 
 ### Using an Azure Blob Storage container
 
-Name both the storage account and the container in your `moderne.yml` file:
+Start by adding both your storage account and your container to your `moderne.yml` file:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -70,7 +70,7 @@ moderne:
         container-name: bi-telemetry
 ```
 
-In your `moderne.env` file, add the credentials of the service principal for DX to use:
+Next, add the credentials for the service principal you'd like DX to use to your `moderne.env` file:
 
 ```bash title="moderne.env"
 AZURE_TENANT_ID=…
@@ -78,72 +78,72 @@ AZURE_CLIENT_ID=…
 AZURE_CLIENT_SECRET=…
 ```
 
-This service principal needs the Storage Blob Data Contributor role on the container.
+Please make sure this service principal has the Storage Blob Data Contributor role on the container.
 
 ### Keeping telemetry on DX's disk
 
-If you don't name a bucket or container, DX writes telemetry to the `telemetry` directory in its permanent directory. That is `data/permanent/telemetry` unless `moderne.storage.permanent-dir` names another. [Your backups](./running-moderne-dx.md#backing-up) will include it.
+If you don't set a bucket or container, DX will write telemetry to the `telemetry` directory inside of its permanent directory. By default, this is located at `data/permanent/telemetry` (unless you've set `moderne.storage.permanent-dir` to another directory). Since it lives in the permanent directory, [your backups](./running-moderne-dx.md#backing-up) will include it.
 
-DX never deletes these files. You will need to plan disk space for them.
+Keep in mind that DX will never delete these files, so you'll need to plan disk space for them.
 
-To use other storage, such as Google Cloud Storage, you will need to copy these files there yourself.
+If you'd like to use some other type of storage (such as Google Cloud Storage), you'll need to copy these files there yourself.
 
-If you name a bucket or container later, new telemetry goes there. Anything DX already wrote stays on disk.
+If you decide to set up a bucket or container later on, new telemetry will go there. Anything DX has already written will stay on disk.
 
 ### Checking where telemetry is going
 
-Each time DX starts, it logs where telemetry will go. Under systemd, you can find that line with this command:
+Each time DX starts, it will log where telemetry is going to go. If you're running DX under systemd, you can find that line with this command:
 
 ```bash
 journalctl -u moderne-dx | grep "CLI telemetry uploads go to"
 ```
 
-If you started DX with `java -jar moderne-dx.jar start`, the line is in that command's output. You should see the bucket or container you named:
+If you started DX with `java -jar moderne-dx.jar start` instead, you'll find the line in that command's output. Either way, you should see the bucket or container you set:
 
 ```text
 CLI telemetry uploads go to s3://acme-moderne-telemetry
 ```
 
-If you see the `telemetry` directory instead, check the spelling of the setting in your `moderne.yml` file. DX does not warn about a misspelled setting. It keeps writing to disk.
+If you see the `telemetry` directory instead, double-check the spelling of the setting in your `moderne.yml` file. DX won't warn you about a misspelled setting. It will just keep writing to disk.
 
-If DX can't reach your bucket or container, it will not finish starting. The gateway's log says what went wrong.
+If DX can't reach your bucket or container, it won't finish starting. You can find out what went wrong by looking at the gateway's log.
 
 ## Including telemetry from mass ingest
 
-Mass ingest containers do not upload telemetry to DX by default. Their telemetry is lost when each container stops.
+By default, mass ingest containers don't upload their telemetry to DX. That means their telemetry is lost whenever a container stops.
 
-To keep it, set these two environment variables on the containers, alongside `MOD_LICENSE_KEY`:
+If you'd like to keep this telemetry, you will need to set these two environment variables on the containers (alongside `MOD_LICENSE_KEY`):
 
 | Variable                   | Value                                                                                                                                 |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| `MOD_TENANT_HOST`          | DX's public URL, such as `https://moderne.acme.com`.                                                                                  |
+| `MOD_TENANT_HOST`          | DX's public URL, such as `https://acme.moderne.direct`.                                                                                  |
 | `MOD_TENANT_AUTHORIZATION` | A [personal access token](../../../user-documentation/moderne-platform/how-to-guides/create-api-access-tokens.md) you created in DX. |
 
-The [mass ingest example](https://github.com/moderneinc/mass-ingest-example) image already waits up to 30 seconds for the upload when a command ends. If you build your own image, or run the CLI on CI runners, run `mod config telemetry wait-for-upload` there too.
+If you're using the [mass ingest example](https://github.com/moderneinc/mass-ingest-example) image, it already waits up to 30 seconds for the upload to finish when a command ends. If you've built your own image, or you run the CLI on CI runners, you'll need to run `mod config telemetry wait-for-upload` there too.
 
 If DX's certificate comes from a private certificate authority, you will need to [add it to the image](https://github.com/moderneinc/mass-ingest-example/blob/main/docs/image.md#self-signed-certificates).
 
 ## Publishing telemetry from a CLI that can't reach DX
 
-A CLI that can't reach DX keeps its telemetry on its own machine. To collect it, you can customize the [`modw` wrapper](../../../user-documentation/moderne-cli/how-to-guides/cli-wrapper.md) so it uploads each new trace CSV file to storage you control after every command.
+If a CLI can't reach DX, it will keep its telemetry on its own machine. To collect that telemetry, you can customize the [`modw` wrapper](../../../user-documentation/moderne-cli/how-to-guides/cli-wrapper.md) so that it uploads each new trace CSV file to storage you control after every command.
 
-Your platform team maintains the customized wrapper and distributes it [the same way you already distribute the CLI](../../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md). CLI users keep running `mod` as usual.
+Keep in mind that your platform team will need to maintain this customized wrapper and distribute it to your developers. They can distribute it [the same way you already distribute the CLI](../../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md). Once that's in place, nothing will change for your developers. They'll keep running `mod` like they always have.
 
-Follow [Exporting CLI telemetry to Amazon S3](../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export.md) for the `modw` and `modw.cmd` edits and an example upload. The same wrapper hook can target any object store or BI endpoint.
+For the `modw` and `modw.cmd` edits you'll need (along with an example upload), check out our guide on [exporting CLI telemetry to Amazon S3](../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export.md). You can point the same wrapper hook at any object store or BI endpoint.
 
 ## Querying telemetry
 
-DX writes the same `tenant`/`source`/`type`/`year`/`month`/`day` partition layout that Moderne's platform replication produces. The layout is the same on disk, in S3, and in Azure Blob Storage. A trace from `mod run` looks like this:
+DX organizes telemetry into `tenant`/`source`/`type`/`year`/`month`/`day` folders. This is the same layout the Moderne Platform uses for its telemetry exports. It's also the same whether you store telemetry on disk, in S3, or in Azure Blob Storage. For example, a trace from `mod run` will look like this:
 
 ```text
 tenant=dx/source=cli/type=run/year=2026/month=11/day=05/20261105143000-abcde.csv
 ```
 
-The `tenant` value comes from `moderne.tenant.name`, which defaults to `dx`.
+The `tenant` value comes from the `moderne.tenant.name` setting, which defaults to `dx`.
 
-See [Querying and BI](../../moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md) for how to make this data queryable, notes for engines such as Athena, Snowflake, BigQuery, Databricks, and Fabric, and the Moderne BI templates starter kit.
+To learn how to make this data queryable, check out our [querying and BI guide](../../moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md). It has notes for engines such as Athena, Snowflake, BigQuery, Databricks, and Fabric. It also covers the Moderne BI templates starter kit.
 
-If you keep telemetry on DX's disk, DuckDB can read the directory where it is. This query reads every `run` trace:
+If you're keeping telemetry on DX's disk, you can use DuckDB to read it straight from that directory. For example, this query will read every `run` trace:
 
 ```sql
 SELECT *

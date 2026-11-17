@@ -113,6 +113,11 @@ export const learningItems: LearningItem[] = [
     external: false,
   },
   {
+    name: "What's New",
+    href: '/whats-new',
+    external: false,
+  },
+  {
     name: 'Releases',
     href: '/releases/connector-releases',
     external: false,
@@ -196,6 +201,14 @@ export const trainingItems: NavLink[] = [
     external: true,
   },
 ];
+
+/**
+ * "What's New" link for the secondary nav, shown beside the Releases dropdown
+ */
+export const whatsNewLink: NavLink = {
+  name: "What's New",
+  href: '/whats-new',
+};
 
 /**
  * Releases dropdown items for secondary nav

@@ -35,6 +35,7 @@ rewrite-nodejs
 rewrite-nullability
 rewrite-poolside
 rewrite-prethink
+rewrite-primefaces
 rewrite-program-analysis
 rewrite-react
 rewrite-reactive-streams

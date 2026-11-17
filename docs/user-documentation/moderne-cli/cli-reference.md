@@ -568,6 +568,7 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod trace runs analyze**](#mod-trace-runs-analyze)
 * [**mod trace syncs**](#mod-trace-syncs)
 * [**mod trace syncs analyze**](#mod-trace-syncs-analyze)
+* [**mod upgrade**](#mod-upgrade)
 * [**mod vscode**](#mod-vscode)
 * [**mod vscode chat**](#mod-vscode-chat)
 * [**mod wrapper**](#mod-wrapper)
@@ -634,6 +635,7 @@ mod [subcommands]
 * `study`: Exports a recipe data table from a working set or a changeset in Moderne.
 * `telemetry`: Manage CLI telemetry pushed to the configured Moderne tenant.
 * `trace`: Manages trace analysis tools.
+* `upgrade`: Install the Moderne CLI version the wrapper is set to use.
 * `vscode`: (INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
 * `wrapper`: Create or configure a Moderne wrapper.
 
@@ -14208,6 +14210,28 @@ mod trace syncs analyze [parameters]
 | `--sync` |  A sync ID for a sync that has completed previously. |
 
 
+## mod upgrade
+
+Install the Moderne CLI version the wrapper is set to use.
+
+
+Installs the version moderne-wrapper.properties names: the latest release, the latest early-access build, or a pinned version. A running CLI keeps the version it started with.
+
+### Usage
+
+```
+mod upgrade
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--dry-run` |  Print the version that would be installed, without installing it. |
+| `--force` |  Download and install the version again, even when it is installed. |
+| `--version` |  Install this version instead: RELEASE, LATEST, a version or a -SNAPSHOT version. The wrapper's next check returns to the version moderne-wrapper.properties names. |
+
+
 ## mod vscode
 
 (INCUBATING) Launches a Visual Studio Code Chat session configured to use **mod** for deterministic multi-repository work.
@@ -14285,8 +14309,8 @@ mod wrapper
 | `--distribution-password` |  Password for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or \~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-token` |  Bearer token for authenticated distribution downloads (stored in plaintext in moderne/wrapper/moderne-wrapper.properties, or \~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--distribution-url` |  Where to download the CLI distribution from: the root of a Maven repository, which RELEASE is then also resolved against, or a URL template. A template supports $\{directory}, $\{version}, $\{platform} and $\{extension} placeholders. $\{directory} is the Maven directory, which for a snapshot keeps the -SNAPSHOT suffix while $\{version} is the timestamped file version. |
-| `--distribution-url-cache-ttl` |  How long the wrapper caches the resolved RELEASE version before re-checking the distribution repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. Avoids a metadata lookup on every invocation. |
-| `--distribution-url-early-access-cache-ttl` |  How long the wrapper caches the resolved LATEST/snapshot version before re-checking the early-access repository, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S disables caching. |
+| `--distribution-url-cache-ttl` |  How often the wrapper checks for a new RELEASE, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S checks on every run. |
+| `--distribution-url-early-access-cache-ttl` |  How often the wrapper checks for a new LATEST or snapshot build, as an ISO-8601 duration (e.g. PT1H, PT10M). PT0S checks on every run. |
 | `--distribution-username` |  Username for authenticated distribution downloads (stored in moderne/wrapper/moderne-wrapper.properties, or \~/.moderne/cli/dist/moderne-wrapper.properties with --global). |
 | `--global` |  Configure the global CLI installation instead of creating a project-local wrapper. |
 | `--jdk-url` |  URL template for a JDK archive, used when no bundled JRE or system JDK is found. Supports $\{os} and $\{arch} placeholders. Set to 'skip' to disable JDK auto-download (useful for air-gapped environments where Java is available via MODERNE\_JAVA\_HOME or PATH). |

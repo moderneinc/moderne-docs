@@ -7,7 +7,7 @@ description: What Moderne DX is, what it runs on your own machine, and how it wo
 
 Moderne DX runs the Moderne Platform's recipe marketplace, code search, and changesets on a machine you control. Your source code, your Lossless Semantic Trees (LSTs), and everything your developers do with them stay inside your network.
 
-DX is one jar that you start with one command. It runs the same way on a laptop and on a server, and a server adds only its own name and a certificate. You can try DX on your own machine, then move the same configuration to the machine your organization will use.
+DX is one jar that you start with one command. It runs the same way on a laptop and on a server. The Code Genome Project gives it a name under `moderne.direct` and a certificate for it, so it needs neither DNS records nor a certificate of your own. You can try DX on your own machine, then move the same configuration to the machine your organization will use.
 
 ## How DX fits with mass ingest and the CLI
 
@@ -28,7 +28,7 @@ flowchart TB
         dx -.->|read access, optional| scm[("Your SCM")]
         dx -->|sign-in| idp[("Your identity provider")]
     end
-    dx -->|recipes| cgp["Code Genome Project"]
+    dx -->|recipes, its name and certificate| cgp["Code Genome Project"]
 ```
 
 Every user can read every repository in DX until you turn on [user-level repository access control](../how-to-guides/repository-access-control.md). DX then shows a repository only to people who can read it on your source control management (SCM) system.
