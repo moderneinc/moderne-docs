@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.57.0 (2026/11/17)
+
+- dark-mode collage for the Day Zero welcome modal
+- restyle the guided-tour popover, stepper, spotlight and scrim
+- light and dark header images for the new-version toast
+
 ### UI v14.56.0 (2026/11/12)
 
 - redesign the Day Zero welcome modal
