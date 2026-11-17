@@ -32,7 +32,7 @@ You will need two separate environments provisioned and ready:
 
 ### Mass ingest
 
-The mass ingest environment builds all of your repositories and creates the [LST artifacts](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster. When using a self-hosted SCM, it operates entirely within your network. When using a cloud SCM (github.com, gitlab.com, etc.), it requires outbound HTTPS to that service.
+The mass ingest environment builds all of your repositories and creates the [Lossless Semantic Tree (LST) artifacts](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a container. You can host that container on a VM or in a Kubernetes cluster. When using a self-hosted SCM, it operates entirely within your network. When using a cloud SCM (github.com, gitlab.com, etc.), it requires outbound HTTPS to that service.
 
 | Resource | Minimum    | Recommended                                                                   |
 |----------|------------|-------------------------------------------------------------------------------|
@@ -40,13 +40,13 @@ The mass ingest environment builds all of your repositories and creates the [LST
 | Memory   | 16 GB      | 16 GB                                                                         |
 | Disk     | 10 GB free | Sized to your largest repository (the example Kubernetes Job requests 150 GB) |
 
-The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns when memory or free disk is below the other two. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
+The minimums are what `mod doctor` checks before you start. The check fails on fewer than 2 CPUs and warns below 16 GB of memory or 10 GB of free disk. The recommended figures are the size of the machine that the example Kubernetes Job runs each shard on.
 
 Only one repository is stored on disk at a time. This is because each container builds one repository at a time and then deletes it once its LST is published.
 
-To finish a large repository list sooner, you can run several containers in parallel. You will need to choose the number of shards you want, and the CLI will then assign the repositories to them automatically.
+To finish a large repository list sooner, you can run several containers in parallel. You will need to choose the number of shards you want. The CLI will then assign the repositories to them automatically.
 
-The [mass ingest guide](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md#sizing) covers sizing and sharding, and the [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Docker script and a Kubernetes Job that run the shards for you.
+The [mass ingest guide](../../../administrator-documentation/moderne-platform/how-to-guides/mass-ingest.md#sizing) covers sizing and sharding. The [mass ingest example repository](https://github.com/moderneinc/mass-ingest-example) has a Docker script and a Kubernetes Job that run the shards for you.
 
 :::tip
 If you have a standard base image that includes your existing certificates or other configuration, we can build on top of that. If you don't, we'll build from standard open-source base images and configure it with any certificates, credentials, and build tool settings during the first few days of the engagement.
@@ -68,11 +68,11 @@ The [Connector configuration guide](../../../administrator-documentation/moderne
 
 Both environments need access to your source control management system (SCM), but for different purposes:
 
-* **Mass ingest** needs a service account with **read access** to all in-scope repositories. This is used to clone repositories and build LSTs. Credentials are mounted at runtime and never baked into images. The [mass ingest source control credentials documentation](https://github.com/moderneinc/mass-ingest-example#source-control-credentials) has setup details.
+* **Mass ingest** needs a service account with **read access** to all in-scope repositories. It will use this account to clone your repositories and build LSTs from them. You won't need to store these credentials in a container image. Instead, you'll provide them when the container starts. The [mass ingest source control credentials documentation](https://github.com/moderneinc/mass-ingest-example#source-control-credentials) has setup details.
 
 * **The Moderne Connector** needs an **OAuth application** configured in your SCM. This enables users to authenticate through the Moderne Platform to view code and commit changes back to your repositories. You will need to set up an OAuth app with a callback URL of `https://TENANT.moderne.io`.
 
-SCM-specific configuration guides:
+You can find the configuration guide for your SCM below:
 
 * [GitHub](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-github.md) (GitHub App or OAuth App)
 * [GitLab](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-gitlab.md)
@@ -80,9 +80,9 @@ SCM-specific configuration guides:
 * [Bitbucket Cloud](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-bitbucket-cloud-to-connector.md)
 * [Azure DevOps](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-azure-devops-services.md)
 
-### Preparing your repository list
+## Preparing your repository list
 
-You will need a [repos.csv file](../../moderne-cli/references/repos-csv.md) that lists the repositories to ingest. The more repositories you include, the more value you will see from the POV — Moderne's strength is working across repositories at scale. We recommend including as many repositories as a single mass ingest container can build in a day.
+You will need a [repos.csv file](../../moderne-cli/references/repos-csv.md) that lists the repositories to ingest. The more repositories you include, the more value you will see from the POV. This is because Moderne's strength is working across repositories at scale. We recommend including as many repositories as a single mass ingest container can build in a day.
 
 The easiest way to generate this file is with our [repository fetcher scripts](https://github.com/moderneinc/repository-fetchers), which are available for GitHub, GitLab, Bitbucket (Data Center and Cloud), and Azure DevOps. These scripts query your SCM's API and produce a ready-to-use `repos.csv` file.
 
@@ -92,14 +92,14 @@ You need a dedicated location for storing and retrieving LST artifacts. Mass ing
 
 ### Option 1: Maven-formatted repository (Artifactory or Nexus)
 
-Create a **new Maven 2 type repository** dedicated to LST artifacts. We strongly recommend keeping LSTs in their own repository rather than mixing them into an existing one — this makes indexing, cleanup, and troubleshooting much easier.
+Create a **new Maven 2 type repository** dedicated to LST artifacts. We strongly recommend keeping LSTs in their own repository rather than mixing them into an existing one. This makes indexing, cleanup, and troubleshooting much easier.
 
 * For **Artifactory**, the Connector uses [Artifactory Query Language (AQL)](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-artifactory-access.md) for near real-time artifact discovery.
-* For **Nexus 3** or other Maven repositories, you must [enable Maven Indexer publishing](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-maven-repository-access.md#configure-the-maven-indexer) on the LST repository so the Connector can discover new artifacts. The repository must also have its **layout policy set to Permissive** — mass ingest uploads build logs alongside LSTs using paths that do not follow Maven coordinate structure, and Nexus will reject these with HTTP 400 if the layout policy is Strict. The [Maven repository configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-maven-repository-access.md) has full setup instructions.
+* For **Nexus 3** or other Maven repositories, you must [enable Maven Indexer publishing](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-maven-repository-access.md#configure-the-maven-indexer) on the LST repository so the Connector can discover new artifacts. You will also need to set the repository's **layout policy to Permissive**. This is because mass ingest uploads build logs alongside LSTs using paths that don't follow the Maven coordinate structure. If the layout policy is Strict, Nexus will reject those uploads with an HTTP 400 error. The [Maven repository configuration guide](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-maven-repository-access.md) has full setup instructions.
 
 ### Option 2: Amazon S3 (or S3-compatible storage)
 
-Create a **dedicated S3 bucket** for LST artifacts. The mass ingest pipeline publishes LSTs into this bucket and also writes a `repos-lock.csv` that the Connector reads to discover your repositories and their LST locations. The [S3 organization source guide](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-s3-access.md) covers the Connector-side configuration — authentication options (IAM role, AWS profile, or access keys) and the S3 URI for the CSV object.
+Create a **dedicated S3 bucket** for LST artifacts. The mass ingest pipeline publishes LSTs into this bucket and also writes a `repos-lock.csv` that the Connector reads to discover your repositories and their LST locations. The [S3 organization source guide](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-s3-access.md) covers the Connector-side configuration. That includes the authentication options (IAM role, AWS profile, or access keys) and the S3 URI for the CSV object.
 
 :::info
 The Connector also needs read access to any artifact repositories that contain **dependencies** for the projects you will be running recipes against.
@@ -120,7 +120,7 @@ The Connector also needs read access to any artifact repositories that contain *
 
 **Mass ingest** requires egress access to all SCMs that live outside your network (if any), but otherwise requires no ingress or egress access.
 
-**The Moderne Connector** requires outbound HTTPS to your Moderne tenant's API at `https://api.TENANT.moderne.io`. If your repositories are hosted on a cloud SCM, the Connector also requires outbound HTTPS to that service. Moderne never initiates inbound connections to the Connector — the Connector establishes the connection using the [RSocket](https://rsocket.io/) protocol over HTTPS.
+**The Moderne Connector** requires outbound HTTPS to your Moderne tenant's API at `https://api.TENANT.moderne.io`. If your repositories are hosted on a cloud SCM, the Connector also requires outbound HTTPS to that service. Moderne never initiates inbound connections to the Connector. Instead, the Connector establishes the connection using the [RSocket](https://rsocket.io/) protocol over HTTPS.
 
 If your environment requires an HTTP proxy for outbound traffic, the Connector supports [proxy configuration](../../../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-to-connect-to-moderne-via-an-http-proxy.md).
 
