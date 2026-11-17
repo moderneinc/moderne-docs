@@ -1,9 +1,9 @@
 import { slugify } from '../components/WhatsNew/slugify';
 
 /**
- * The months on the What's new page, newest first. The sidebar lists these
- * under the page as section links, so keep them in step with the
- * WhatsNewMonth labels in docs/whats-new.mdx (a test checks this).
+ * The months on the What's new page, newest first. The page's table of
+ * contents is built from these, so keep them in step with the WhatsNewMonth
+ * labels in docs/whats-new.mdx (a test checks this).
  */
 export const whatsNewMonths = [
   'November 2026',
@@ -26,7 +26,13 @@ export const whatsNewMonths = [
   'June 2025',
 ];
 
-/** The in-page link for a month, e.g. /whats-new#november-2026 */
-export function whatsNewMonthHref(label: string): string {
-  return `/whats-new#${slugify(label)}`;
-}
+/**
+ * Table of contents entries for the What's new page. The month headings are
+ * rendered by WhatsNewMonth, where Docusaurus can't find them, so the page
+ * exports this as its `toc`.
+ */
+export const whatsNewToc = whatsNewMonths.map((label) => ({
+  value: label,
+  id: slugify(label),
+  level: 2,
+}));
