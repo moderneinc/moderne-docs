@@ -529,6 +529,33 @@ describe('filterSidebarItemsByContext', () => {
         expect(result[0].value).not.toContain('CLI');
       }
     });
+    it('should show the owning section for a doc whose path is outside the section and has a trailing slash', () => {
+      // What's new lives at /whats-new but belongs to Releases. A direct page
+      // load can add a trailing slash, which must still match the doc's link.
+      const items: PropSidebarItem[] = [
+        ...mockSidebarItems,
+        {
+          type: 'category',
+          label: 'Releases',
+          href: '/releases',
+          collapsed: false,
+          collapsible: true,
+          items: [
+            { type: 'link', docId: 'whats-new', label: "What's new", href: '/whats-new' },
+          ],
+        } as PropSidebarItemCategory,
+      ];
+
+      for (const path of ['/whats-new', '/whats-new/']) {
+        const result = filterSidebarItemsByContext(items, path, 1, null);
+
+        expect(result).toHaveLength(2);
+        expect(result[0].type).toBe('html');
+        if (result[0].type === 'html') {
+          expect(result[0].value).toContain('Releases');
+        }
+      }
+    });
   });
 
   describe('Shallowest product category behavior', () => {
