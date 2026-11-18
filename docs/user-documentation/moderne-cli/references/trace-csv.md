@@ -220,7 +220,7 @@ Populated after `mod publish`. These columns appear only in `mod publish` rows -
 Populated by `mod exec`. Exec rows are standalone: they have the common columns plus the exec columns, with no sync/build/run stages.
 
 :::warning
-`execCommand` records the full command line and `execExecutionDirectory` records an absolute local path. Pass credentials to `mod exec` through environment variables rather than as command arguments, so they are not captured in telemetry.
+`execCommand` records the full command line and `execExecutionDirectory` records an absolute local path. If you don't want credentials captured in telemetry, pass them to `mod exec` through environment variables instead of as command arguments.
 :::
 
 | Column                              | Type     | Description                                              | Example                     |
