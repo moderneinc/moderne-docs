@@ -10,6 +10,237 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 18, 2026
+
+#### recipes-csharp - 0.28.0
+
+* Use explicit template factories in recipe authoring guidance/skills
+
+#### recipes-go - 0.31.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### recipes-javascript - 0.21.0
+
+* Check `Date`, `Moment` and date-fns types with `Type.isOfTypeWithName`
+* Match Express interfaces and module functions by type
+* Rewrite `req.params.hasOwnProperty()` where the request is typed
+* Check array, object and function types with `Type.isOfTypeWithName` in the lodash recipes
+* Check Jest types with `Type.isOfTypeWithName`
+* Remove class docs that repeat the description from the Jest to Vitest recipes
+* Match `jest-mock` calls and test environments by type in the Jest 28 recipes
+* Remove class docs that repeat the description from the control-flow recipes
+* Remove class docs that repeat the description from the declaration, function and operator recipes
+* Remove class docs that repeat the description from the object and literal recipes
+* Remove class docs that repeat the description from the `import-x` and aggregate recipes
+* Put each `npm(...)` argument on its own line in tests
+* Replace change flags in recipe helpers with identity checks
+* Match exact type names in the JavaScript recipe skill
+* Replace the `hidden` and `from` options Express 5 removed
+
+#### recipes-kotlin - 0.25.0
+
+* Apply the Kotlin1To2 type validation opt-out to the output only
+
+#### recipes-mainframe - 0.19.0
+
+* Refactor RewriteTest to use defaults method
+
+#### recipes-scala - 0.25.0
+
+* Match parameterless calls as method invocations
+* Remove workarounds for fixed rewrite-scala parsing and import handling
+* Detect Scala stdlib patterns on the LST instead of printed text
+* Measure nesting, method length and isInstanceOf chains on the LST
+* Give rewritten calls in the performance recipes their new method types
+* Rewrite procedure syntax to an explicit Unit return type
+* Only rewrite guarded `head`/`last` and type the performance recipes
+* Fix false positives and gaps in the safety, testing, concurrency and error-handling recipes
+* Fix harmful rewrites and missed findings in the cleanup recipes
+* Find library usages instead of deleting imports, and migrate Akka to Pekko
+* Make the core migrate recipes rewrite or match by type, and delete the harmful ones
+* Fix missed findings and false positives in the cleanup recipes, and rewrite unreassigned local vars
+* Add Scala 2.13 and Scala 3 migration composites
+* Inline FlatSpec and Matchers migrations into MigrateToScalaTest3_1
+* Add a CodeCleanup composite of the version-independent Scala rewrites
+* Migrate ScalaTest `fixture` styles to their 3.1 packages
+
+#### rewrite-android - 0.39.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-angular - 1.33.0
+
+* Add `UpgradeToNgRx12` to `UpgradeToNgRx22` recipes and run them from `UpgradeToAngular12` to `22`
+* Add `review-angular-recipe-pr` skill for self-reviewing recipe changes
+* P7: Fix the doc comment and description of RemoveResponseJsonUnwrap
+* P5: Make the check-no-changes sub-recipe ID follow the naming pattern
+* P8: Declare the MoveDocumentImport option and reject unknown target modules
+* P4: Remove unused code and fix import hygiene
+* P10: Check the version claims in recipe descriptions against the changelogs
+* Inline the PrimeNG 18 rename recipes into `UpgradeComponentsTo18`
+* Inline the Angular rename recipes into the `UpgradeToAngularNCodeChanges` composites
+* Rename `createNgModuleRef`, `RouterLinkWithHref` and `getAngularLib`/`setAngularLib` with `ChangeImport`
+* Match Angular calls in search recipes with `MethodMatcher` and `Type.isOfTypeWithName`
+* Match Angular core migrations with `MethodMatcher` and `Type.isOfTypeWithName`
+* Match `Http` by type in the `@angular/http` migrations
+* Match Angular CDK types with `Type.isOfTypeWithName` instead of `importedNames`
+* Match `ComponentFactoryResolver$1` in `RemoveComponentFactoryResolver`
+* Match Angular Material types with `Type.isOfTypeWithName` instead of `importedNames`
+* Match the `PrimeNG` config service by type in the PrimeNG 18 config migrations
+* Remove class doc comments that repeat the recipe description
+* Replace the `needsChange` flag in `UpdateComponentTemplateUrl` and an unused `withXsrfConfiguration` import
+* Indent the `angular.json` sources in migration tests as blocks
+* Indent the `tsconfig` and polyfill sources in migration tests as blocks
+* Indent the Material, i18n and Java RPC test sources as blocks
+* Bump vitest to 4.1.12 and remove the Dependabot auto-merge workflow
+* Replace change flags in recipe visitors with identity checks
+* Rename the untyped form classes with `maybeRebind`
+* Add type-attribution lessons to the Angular recipe review skill
+* Mark `PrimeNGConfig` constructor injection by the parameter type
+* Replace `async` with `waitForAsync` in `UpgradeToAngular11`
+* Replace `DATE_PIPE_DEFAULT_TIMEZONE` providers with `DATE_PIPE_DEFAULT_OPTIONS`
+* Remove `componentFactoryResolver` from CDK `DialogConfig` literals
+* Rename `validator` options only in `FormBuilder.group` calls
+* Only add `aot` to browser builders in `EnableAotBuild`
+* Escape @ and } in templates when upgrading to Angular 17
+* P1: Make search recipe marker messages consistent
+* P6: Correct recipe descriptions and comments that misstate behaviour
+* Repoint nested tsconfigs when migrating to a solution-style tsconfig
+* P2: Say "imports" in import-only search descriptions and list the decorators FindAngularDecorator finds
+* P3: Remove duplicated helpers in the signal and inject migration recipes
+* Apply each Angular major's migrations only to projects on an older version
+
+#### rewrite-circleci - 3.32.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-compiled-analysis - 0.35.0
+
+* Explain the type validation opt-out
+
+#### rewrite-concourse - 3.31.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-cryptography - 0.36.0
+
+* Skip the Jasypt shim verification classpaths in the OWASP scan
+* Skip the Jasypt shim classpaths in the subproject's aggregate scan too
+
+#### rewrite-dotnet - 0.37.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-dropwizard - 0.27.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-elastic - 0.28.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-hibernate - 0.49.0
+
+* Add `MigrateToHibernate56` for Hibernate 3.x and 4.x and chain it from `MigrateToHibernate60`
+
+#### rewrite-jasperreports - 0.26.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-java-application-server - 0.30.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-java-security - 3.62.0
+
+* Drop blank line from Gradle resolution-rule expectation
+
+#### rewrite-kafka - 0.27.0
+
+* Remove redundant afterTypeValidationOptions(all())
+
+#### rewrite-mainframe - 3.22.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-migrate-python - 0.35.0
+
+* Publish the Python package to the Code Genome Project under the username `cgp`
+* Require openrewrite 8.108.1 and drop the workarounds it makes redundant
+
+#### rewrite-nodejs - 0.71.0
+
+* Expect hpagent's replacement import where hpagent's was, as @openrewrite/rewrite 8.107.3 places it
+* GitHub advisories as of 2026-11-13T1848
+
+#### rewrite-nullability - 0.26.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-prethink - 0.36.0
+
+* Refactor RewriteTest to use defaults method
+
+#### rewrite-primefaces - 0.9.0
+
+* Upgrade PrimeFaces artifacts to the newest 15.0.x they all publish
+
+#### rewrite-program-analysis - 0.38.0
+
+* Refactor RewriteTest to use defaults method
+
+#### rewrite-react - 0.27.0
+
+* Bump @openrewrite/rewrite to 8.110.0
+* Use maybeBind and maybeUnbind instead of the deprecated maybeAddImport and maybeRemoveImport
+* Replace change flags in recipe visitors with identity checks
+* Check React context and `JSX` namespace types with `Type.isOfTypeWithName`
+* Match React hook calls with `MethodMatcher`
+* Match `unstable_batchedUpdates` with `MethodMatcher`
+* Match `ReactDOM.render`, `createFactory` and `createElement` calls with `MethodMatcher`
+* Check Enzyme methods and `toJson` with `Type.isOfTypeWithName` and `MethodMatcher`
+* Review skill: port lessons from the Angular review skill
+* Match the React DOM finders' calls with `MethodMatcher`
+* Match MUI color functions and Emotion's `createCache` with `MethodMatcher`
+* Recognise React class components by their supertype
+* Inline the React 19 import renames into `react-18-to-19-code-changes`
+* Drop recipe class docs that repeat the `description` in React 16 to 18, React Native and root
+* Drop recipe class docs that repeat the `description` in React 19
+* Drop recipe class docs that repeat the `description` in the MUI recipes from A to R
+* Drop recipe class docs that repeat the `description` in the MUI recipes from R to U
+* Drop recipe class docs that repeat the `description` in the Create React App to Vite recipes
+* Drop recipe class docs that repeat the `description` in the search, refactoring, testing, zustand and i18n recipes
+* Lay out React test sources as blocks with one `npm` argument per line
+* Move `ReplaceCreateFactory` to the React 19 step
+
+#### rewrite-reactive-streams - 0.40.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-spring - 0.63.0
+
+* Move a wildcard CORS origin to `allowedOriginPatterns` where credentials are allowed
+* Move a wildcard SockJS allowed origin to `setAllowedOriginPatterns`
+
+#### rewrite-static-analysis - 0.20.0
+
+* Add FindInfiniteRecursion recipe (RSPEC-S2190)
+* Add RemoveHiddenCatchClause recipe (RSPEC-S4970)
+* Add FindMissingValidAnnotation recipe (RSPEC-S5128)
+* Add FindImpossibleCast recipe (RSPEC-S6320)
+* Add FindCallThatThrows recipe (RSPEC-S6416)
+* Add FindArrayIndexOutOfBounds recipe (RSPEC-S6466)
+* Add ReplaceReverseCopyWithReversedView recipe (RSPEC-S6877)
+
+#### rewrite-tapestry - 0.26.0
+
+* Narrow the type validation opt-outs
+
+#### rewrite-terraform - 3.35.0
+
+* Refactor RewriteTest to use defaults method
+
 ## November 17, 2026
 
 #### recipes-csharp - 0.27.0
