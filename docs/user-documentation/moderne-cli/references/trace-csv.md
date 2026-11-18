@@ -301,10 +301,10 @@ Search rows can come from two places:
 
 Keep in mind that when you search `moderne://<organization>`, the search runs in Moderne rather than on your machine. That means you'll see a row from Moderne for it, not one from the CLI.
 
-Search rows don't have repository columns. They have `developer`, the search columns, and `organization`. There are a few differences depending on where a row came from:
+Search rows don't have repository columns. They have `developer`, the search columns, and `organization`. A couple of things change depending on where the row came from:
 
-* Rows from the CLI also have a `cliVersion` column. Their `organization` will always be empty, since a working set isn't an organization in Moderne.
-* Rows from Moderne don't have a `cliVersion` column. Their `organization` is the organization that was searched, and it comes right after `developer` (rather than at the end of the row).
+* Rows from the CLI will also have a `cliVersion` column. Their `organization` column will always be empty because a working set isn't an organization in Moderne.
+* Rows from Moderne won't have a `cliVersion` column. Their `organization` column will hold the organization that was searched. It'll come right after `developer` instead of at the end of the row.
 
 :::warning
 `searchQuery` records the full query. Please don't paste credentials or other sensitive values into a search.
@@ -352,7 +352,7 @@ Like search rows, navigate rows can come from two places:
 * **The CLI.** When you run [`mod navigate`](../cli-reference.md#mod-navigate) against a working set, the CLI will write one row for each command (starting in CLI 4.12.9). It'll write a row even if the navigation fails.
 * **Moderne.** When someone navigates code in Moderne, Moderne will write rows that count those navigations. This includes navigation in the web UI, `mod navigate` when it runs in Moderne, and the remote MCP server's `codeNavigate` and `readFile` tools. You'll find these rows under `source=saas`.
 
-`mod navigate` will run in Moderne (and Moderne will write the row instead of the CLI) in these cases:
+`mod navigate` will run in Moderne instead of on your machine in any of these cases:
 
 * The target is `moderne://<organization>`.
 * The `--in` option names a package, such as `org.springframework:spring-context:7.0.2`.
@@ -360,10 +360,10 @@ Like search rows, navigate rows can come from two places:
 
 Navigate rows have the repository columns, `developer`, the navigate columns, and `organization`. As with search rows, they differ a bit depending on where they came from:
 
-* Rows from the CLI also have a `cliVersion` column. Their `organization` will always be empty, since a working set isn't an organization in Moderne.
-* Rows from Moderne don't have a `cliVersion` column. Their `organization` is the organization the navigation ran in, and it comes right after `developer`.
+* Rows from the CLI will also have a `cliVersion` column. Their `organization` column will always be empty because a working set isn't an organization in Moderne.
+* Rows from Moderne won't have a `cliVersion` column. Their `organization` column will hold the organization the navigation ran in. It'll come right after `developer` instead of at the end of the row.
 
-The repository columns tell you which repository the navigation happened in. If the CLI or Moderne can't tell which repository that is, they'll be empty. For example, if you run a `definition` lookup from the root of a working set without `--at` or `--in`, the row won't have a repository.
+The repository columns tell you which repository the navigation happened in. If the CLI or Moderne can't tell which repository that is, those columns will be empty. For example, if you run a `definition` lookup from the root of a working set without `--at` or `--in`, the row won't have a repository.
 
 Rows from Moderne work a bit differently from rows from the CLI. Rather than writing a row for every navigation, Moderne will group navigations into windows of up to ten minutes. Within each window, it will write one row for each combination of operation, organization, developer, repository, `navigateSource`, and outcome. That means:
 

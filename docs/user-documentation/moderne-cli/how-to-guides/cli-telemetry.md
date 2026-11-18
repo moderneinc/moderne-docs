@@ -317,7 +317,7 @@ In the aggregate CSV these become the `agent`-prefixed columns (`agentOutcome`, 
 
 ### Search and navigation telemetry
 
-Each time you run `mod search` or `mod navigate` against a working set, the CLI will record one row about it. If Moderne does the work instead (e.g., when you search `moderne://<organization>`), the CLI won't record anything. Moderne will record the row instead.
+Each time you run `mod search` or `mod navigate` against a working set, the CLI will search the repositories on your machine and record one row for it. If you point the command at `moderne://<organization>` instead, the search or navigation will run in Moderne. In that case, Moderne will record the row and the CLI won't record anything.
 
 Like MCP and agent telemetry, these rows don't have a `trace.json` file. The CLI will add each row straight to the telemetry queue (in `~/.moderne/cli/trace/search/` or `~/.moderne/cli/trace/navigate/`), and it'll upload them just like any other command's telemetry.
 
