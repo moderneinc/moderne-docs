@@ -24,10 +24,6 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* Root type size: 15px rather than the browser's 16px, so every rem-based
-     size across the site steps down with it. */
-  --ifm-font-size-base: 93.75%;
-
   /* Page background — mode-aware design-system surface. */
   --ifm-background-color: var(--mod-color-surface-page);
   --background: #fafaff; /* brand background token */
@@ -75,7 +71,7 @@
   --ifm-navbar-padding-horizontal: 32px;
   --ifm-navbar-item-padding-horizontal: 1.4rem;
   --ifm-navbar-height: 37px;
-  --ifm-secondary-nav-height: 40px;
+  --ifm-secondary-nav-height: 48px;
   /* Defaults to 0 (no bar). The `html:has([role="banner"])` rule below bumps it
      to the bar's height only when an announcement bar is actually rendered, so
      the layout offsets don't reserve phantom space when no bar is configured. */
@@ -163,7 +159,7 @@ html[data-theme=light] {
 /* Algolia DocSearch — Morpheus search field */
 .DocSearch-Button {
   width: 232px;
-  height: 36px;
+  height: 40px;
   border-radius: var(--mod-border-radius-input);
   background: var(--mod-color-surface-field);
   border: 1px solid var(--mod-color-border-strong);
@@ -194,10 +190,6 @@ html[data-theme='light'] .DocSearch-Button {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.DocSearch-Button-Placeholder {
-  font-size: var(--mod-font-size-sm);
 }
 
 .DocSearch-Search-Icon {

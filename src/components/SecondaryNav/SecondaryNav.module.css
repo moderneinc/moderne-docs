@@ -42,7 +42,7 @@
 }
 
 .productLink {
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-default);
   font-weight: var(--mod-font-weight-medium);
   color: var(--ifm-navbar-link-color);
   text-decoration: none;
@@ -73,7 +73,7 @@
   gap: var(--mod-spacing_1_2);
   padding: var(--mod-spacing_1) 0;
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
-  font-size: var(--mod-font-size-sm);
+  font-size: var(--mod-font-size-default);
   font-weight: var(--mod-font-weight-medium);
   color: var(--ifm-navbar-link-color);
   background: transparent;

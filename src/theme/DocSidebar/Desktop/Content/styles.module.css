@@ -50,11 +50,10 @@
   line-height: 1.4;
 }
 
-/* Nested rows are 13px and 28px tall. */
+/* Nested rows keep the 14px size and sit a little tighter than top-level rows. */
 :global(.theme-doc-sidebar-menu .menu__list .menu__list .menu__link) {
-  font-size: var(--mod-font-size-caption);
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: var(--mod-spacing_1_2);
+  padding-bottom: var(--mod-spacing_1_2);
 }
 
 /* Dark mode: links drop to grey so the open group and the current page stand
