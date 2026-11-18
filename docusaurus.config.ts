@@ -233,8 +233,8 @@ const config: Config = {
       },
     },
     announcementBar: {
-      id: "code_genome_project",
-      content: 'Recipes are moving from Maven Central to the <a href="https://codegenomeproject.org/" target="_blank" rel="noopener noreferrer">Code Genome Project</a>. <a href="/user-documentation/recipes/accessing-the-code-genome-project">Configure access</a> to keep releases resolving.',
+      id: "ai_software_factory_27",
+      content: '<strong>AI Software Factory Summit</strong> - Feb. 22-24 in Miami. Moderne customers get a free pass (ask your account team). Everyone else: <strong>MODDOCS50</strong> for half off - <a href="https://dashboard.eventcombo.com/e/ai-software-factory-summit-2027-79906?discount=MODDOCS50" target="_blank" rel="noopener noreferrer">Register Now</a>.',
       isCloseable: true,
     },
     colorMode: {
