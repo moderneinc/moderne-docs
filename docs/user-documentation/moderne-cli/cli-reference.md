@@ -12,6 +12,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod agent sessions**](#mod-agent-sessions)
 * [**mod agent send**](#mod-agent-send)
 * [**mod agent stop**](#mod-agent-stop)
+* [**mod agent close**](#mod-agent-close)
+* [**mod agent attach**](#mod-agent-attach)
 * [**mod amp**](#mod-amp)
 * [**mod amp chat**](#mod-amp-chat)
 * [**mod audit**](#mod-audit)
@@ -272,6 +274,8 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config exec timeout edit**](#mod-config-exec-timeout-edit)
 * [**mod config exec timeout show**](#mod-config-exec-timeout-show)
 * [**mod config features**](#mod-config-features)
+* [**mod config features agent-chat**](#mod-config-features-agent-chat)
+* [**mod config features agent-chat advertise**](#mod-config-features-agent-chat-advertise)
 * [**mod config features build**](#mod-config-features-build)
 * [**mod config features build git-blame**](#mod-config-features-build-git-blame)
 * [**mod config features index-recipes**](#mod-config-features-index-recipes)
@@ -603,7 +607,7 @@ mod [subcommands]
 
 ### Subcommands
 
-* `agent`: Lists, messages and stops coding agent sessions.
+* `agent`: Lists, messages, stops and closes coding agent sessions.
 * `amp`: (INCUBATING) Launches an Amp session configured to use **mod** for deterministic multi-repository work.
 * `audit`: (INCUBATING) Perform an audit of recent activity.
 * `build`: Generates LST artifacts for one or more repositories.
@@ -641,7 +645,7 @@ mod [subcommands]
 
 ## mod agent
 
-Lists, messages and stops coding agent sessions.
+Lists, messages, stops and closes coding agent sessions.
 
 
 
@@ -658,6 +662,8 @@ mod agent [subcommands]
 * `sessions`: Lists coding agent sessions on a changeset in Moderne, or on this machine.
 * `send`: Sends a message to a coding agent session.
 * `stop`: Stops a coding agent session.
+* `close`: Closes a coding agent session in Moderne whose process is gone.
+* `attach`: Opens a session on a changeset for a coding agent that mod did not start.
 
 ## mod agent sessions
 
@@ -698,7 +704,7 @@ mod agent sessions --json
 Sends a message to a coding agent session.
 
 
-The agent reads it as its next turn, whatever it is doing.
+The agent reads it whatever it is doing. A message from an agent's session ends with the command that answers it.
 
 ### Usage
 
@@ -746,6 +752,76 @@ mod agent stop 20261027120000-AbCdE/20261027121500-FgHiJ
 | ---- | ----------- |
 | `session` |  The session as **mod agent sessions** lists it. A session on this machine also goes by its own id. |
 
+
+
+## mod agent close
+
+Closes a coding agent session in Moderne whose process is gone.
+
+
+Use it for a session that a deleted Copilot session left open. Only the user who opened a session can close it. A session that already ended counts as closed. So does one that Moderne does not have. To ask a running agent to stop, use **mod agent stop**.
+
+### Usage
+
+```
+mod agent close [parameters]
+```
+
+### Examples
+
+```
+mod agent close 20261027120000-AbCdE/20261027121500-FgHiJ
+
+mod agent close 20261027120000-AbCdE/20261027121500-FgHiJ --json
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `session` |  The session as **mod agent sessions** lists it. A session on this machine also goes by its own id. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--json` |  Print the result as JSON. |
+
+
+## mod agent attach
+
+Opens a session on a changeset for a coding agent that mod did not start.
+
+
+Moderne's extension for GitHub Copilot runs this command. Messages to the session are written to the inbox. The session stays open when the command's input ends, so --session can pick it up again.
+
+### Usage
+
+```
+mod agent attach [parameters]
+```
+
+### Examples
+
+```
+mod agent attach 20261027120000-AbCdE --inbox /path/to/inbox --json
+
+mod agent attach 20261027120000-AbCdE --session 20261027121500-FgHiJ --inbox /path/to/inbox --json
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `changeset` |  The changeset the session opens on. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--inbox` |  The directory the session's messages are written to. |
+| `--json` |  Print the session as JSON. |
+| `--session` |  Picks up this session again, keeping its address. Messages sent while it was away arrive. |
 
 
 ## mod amp
@@ -6301,12 +6377,49 @@ mod config features [subcommands]
 
 ### Subcommands
 
+* `agent-chat`: Configure agent chat features.
 * `build`: Configure what LST builds record.
 * `index-recipes`
 * `inline-diff`: Configure inline diff rendering in the terminal.
 * `lst`: Configure the LST serialization format version.
 * `no-maven-central`: (DEPRECATED) Use mod config build maven settings edit instead.
 * `pre-study`: Configure data table aggregation during recipe runs.
+
+## mod config features agent-chat
+
+Configure agent chat features.
+
+
+### Usage
+
+```
+mod config features agent-chat [subcommands]
+```
+
+
+### Subcommands
+
+* `advertise`: Configure whether a chat announces itself in Moderne when it starts.
+
+## mod config features agent-chat advertise
+
+Configure whether a chat announces itself in Moderne when it starts.
+
+
+When enabled, a chat on its own revision opens its session in Moderne as it starts. People and agents can then find the chat, message it and attach to it before it changes anything. The revision is in the organization named with **--org**, or else in the Global Organization.
+
+### Usage
+
+```
+mod config features agent-chat advertise
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--enabled` |  |
+
 
 ## mod config features build
 
