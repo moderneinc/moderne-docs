@@ -7,6 +7,12 @@
  * --mod-docs-* to mark them as docs-local. Remove each token when the design
  * system ships a mode-aware equivalent.
  *
+ * The card border token exists because the package has no mid-weight neutral
+ * border: its hairline is 12% ink and its strong border 50%. In light mode the
+ * card uses the neutral status border, a warm light grey that sits well on the
+ * cream surface. That token's dark value is a near-black brown, so dark mode
+ * uses the package's strong border instead, a mid grey at 38%.
+ *
  * The muted text token below exists for dark-mode contrast on the docs pages.
  * In light mode it is the package's tertiary text. In dark mode the package's
  * tertiary text is too dim for secondary copy (5.1:1), so it steps up to the
@@ -23,6 +29,7 @@
   --mod-docs-shadow-dropdown: 0 var(--mod-spacing_1_1_2) var(--mod-spacing_3_1_2) rgba(35, 35, 66, 0.14);
   --mod-docs-shadow-modal: 0 var(--mod-spacing_3) var(--mod-spacing_8) rgba(35, 35, 66, 0.25);
   --mod-docs-text-muted: var(--mod-color-text-tertiary);
+  --mod-docs-border-card: var(--mod-color-status-neutral-border);
 }
 
 [data-theme='dark'] {
@@ -30,4 +37,5 @@
   --mod-docs-shadow-dropdown: 0 var(--mod-spacing_1_1_2) var(--mod-spacing_3_1_2) rgba(0, 0, 0, 0.5);
   --mod-docs-shadow-modal: 0 var(--mod-spacing_3) var(--mod-spacing_8) rgba(0, 0, 0, 0.6);
   --mod-docs-text-muted: var(--mod-color-text-secondary);
+  --mod-docs-border-card: var(--mod-color-border-strong);
 }

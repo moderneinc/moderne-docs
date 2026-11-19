@@ -283,6 +283,10 @@ html[data-theme='dark'] {
      muted tertiary in light, primary in dark for contrast. */
   --ifm-menu-color: var(--mod-color-text-primary);
 
+  /* Nav links hover to cream rather than Infima's blue, so the only colour in
+     the dark nav is the green on the active item. */
+  --ifm-navbar-link-hover-color: var(--mod-color-text-primary);
+
   /* Dark mode borders — no mode-aware token maps to this Infima-specific value. */
   --ifm-color-border: rgba(255, 255, 255, 0.2);
 

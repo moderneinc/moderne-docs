@@ -13,11 +13,10 @@
   width: 100%;
 }
 
-/* One step larger than the top-level rows under it, so it reads as their
-   heading. */
+/* One step larger than the 15px rows under it, so it reads as their heading. */
 .label {
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
-  font-size: var(--mod-font-size-default);
+  font-size: 17px;
   font-weight: var(--mod-font-weight-semi-bold);
   line-height: 1.4;
   color: var(--mod-color-text-primary);
@@ -38,7 +37,7 @@
   background: transparent;
   border: 0;
   font-family: var(--mod-font-family-body), system-ui, sans-serif;
-  font-size: var(--mod-font-size-sm);
+  font-size: 15px;
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.4;
   color: var(--mod-color-text-tertiary);

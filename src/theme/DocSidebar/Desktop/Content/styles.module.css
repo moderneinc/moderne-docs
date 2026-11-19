@@ -32,7 +32,7 @@
  * Aligned with the Morpheus design system
  */
 :global(.theme-doc-sidebar-menu) {
-  font-size: var(--mod-font-size-sm);
+  font-size: 15px;
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.5;
 }
@@ -50,7 +50,7 @@
   line-height: 1.4;
 }
 
-/* Nested rows keep the 14px size and sit a little tighter than top-level rows. */
+/* Nested rows keep the 15px size and sit a little tighter than top-level rows. */
 :global(.theme-doc-sidebar-menu .menu__list .menu__list .menu__link) {
   padding-top: var(--mod-spacing_1_2);
   padding-bottom: var(--mod-spacing_1_2);

@@ -26,7 +26,6 @@ const PREVIEW_COUNT = 4;
 
 const LABEL_TAG = /\s*\[([^\]]+)\]\s*$/;
 
-const pluralize = (count: number) => (count === 1 ? '1 item' : `${count} items`);
 
 function splitLabelTag(label: string): { title: string; tag?: string } {
   const match = LABEL_TAG.exec(label);
@@ -130,16 +129,20 @@ function CategoryPageLayout({
 }): JSX.Element {
   const compact = (items?.length ?? 0) + (sections?.length ?? 0) > COMPACT_THRESHOLD;
   const gridFollowsHeader = (items?.length ?? 0) > 0;
+  const singleColumn = (items?.length ?? 0) > 0 && !(sections?.length ?? 0);
   return (
     <div className={styles.generatedIndexPage}>
       <div className={styles.content}>
         <header className={clsx(styles.header, gridFollowsHeader && styles.headerBeforeGrid)}>
           <Heading as="h1" className={styles.title}>
             {title}
+            {singleColumn && <span className={styles.titleCount}>{items?.length}</span>}
           </Heading>
           {description && <p className={styles.description}>{description}</p>}
         </header>
-        <article className={clsx(styles.sections, styles.spotlight)}>
+        <article
+          className={clsx(styles.sections, styles.spotlight, singleColumn && styles.singleColumn)}
+        >
           {items && <ItemGrid items={items} compact={compact} />}
           {sections?.map((section, index) => (
             <section key={index} className={clsx(styles.section, compact && styles.sectionCompact)}>
@@ -148,9 +151,6 @@ function CategoryPageLayout({
                   <Heading as="h2" className={styles.sectionTitle}>
                     {section.label}
                   </Heading>
-                  <Link href={section.href} className={styles.sectionCount}>
-                    {pluralize(section.items.length)} <span aria-hidden="true">→</span>
-                  </Link>
                 </div>
                 {section.description && (
                   <p className={styles.sectionDescription}>{section.description}</p>
@@ -160,6 +160,11 @@ function CategoryPageLayout({
                 items={compact ? section.items : section.items.slice(0, PREVIEW_COUNT)}
                 compact={compact}
               />
+              {!compact && section.items.length > PREVIEW_COUNT && (
+                <Link href={section.href} className={styles.moreButton}>
+                  + {section.items.length - PREVIEW_COUNT} more items <span aria-hidden="true">→</span>
+                </Link>
+              )}
             </section>
           ))}
         </article>

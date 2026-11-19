@@ -79,6 +79,23 @@ function renderDescription(text: string): ReactNode {
   );
 }
 
+/** "+ N more items", for the pages a section preview leaves out. */
+function useMoreItemsPlural() {
+  const { selectMessage } = usePluralForm();
+  return (count: number) =>
+    selectMessage(
+      count,
+      translate(
+        {
+          message: '+ 1 more item|+ {count} more items',
+          id: 'theme.docs.categoryIndex.moreItems.plurals',
+          description: 'Label of the link to a category page, counting the pages the preview leaves out',
+        },
+        { count },
+      ),
+    );
+}
+
 function useCategoryItemsPlural() {
   const { selectMessage } = usePluralForm();
   return (count: number) =>
@@ -249,9 +266,11 @@ const CategorySection: FunctionComponent<{ item: PropSidebarItemCategory; compac
   item,
   compact,
 }) => {
-  const categoryItemsPlural = useCategoryItemsPlural();
+  const moreItemsPlural = useMoreItemsPlural();
   const href = item.href ?? findFirstSidebarItemLink(item);
   const items = withLinks(item.items);
+  const shown = compact ? items : items.slice(0, PREVIEW_COUNT);
+  const remaining = items.length - shown.length;
 
   if (!href) {
     return null;
@@ -264,17 +283,19 @@ const CategorySection: FunctionComponent<{ item: PropSidebarItemCategory; compac
           <Heading as="h2" className={styles.sectionTitle}>
             {item.label}
           </Heading>
-          <Link
-            href={href}
-            className={styles.sectionCount}
-            aria-label={`${item.label}: ${categoryItemsPlural(items.length)}`}
-          >
-            {categoryItemsPlural(items.length)} <span aria-hidden="true">→</span>
-          </Link>
         </div>
         {item.description && <p className={styles.sectionDescription}>{item.description}</p>}
       </div>
-      <ItemGrid items={compact ? items : items.slice(0, PREVIEW_COUNT)} compact={compact} />
+      <ItemGrid items={shown} compact={compact} />
+      {remaining > 0 && (
+        <Link
+          href={href}
+          className={styles.moreButton}
+          aria-label={`${item.label}: ${moreItemsPlural(remaining)}`}
+        >
+          {moreItemsPlural(remaining)} <span aria-hidden="true">→</span>
+        </Link>
+      )}
     </section>
   );
 };
@@ -332,6 +353,9 @@ const DocCategoryGeneratedIndexPageContent: FunctionComponent<Props> = ({
   const category = useCurrentSidebarCategory();
   const items = withLinks(category.items);
   const compact = items.length > COMPACT_THRESHOLD;
+  // A leaf category, one list of pages with no subcategories, reads better as
+  // a single column of cards.
+  const singleColumn = items.every((item) => item.type === 'link');
   // A grid's own top rules mark where the list starts, so the header only
   // keeps its divider when a section heading follows it instead.
   const gridFollowsHeader = compact
@@ -350,13 +374,20 @@ const DocCategoryGeneratedIndexPageContent: FunctionComponent<Props> = ({
         <header className={clsx(styles.header, gridFollowsHeader && styles.headerBeforeGrid)}>
           <Heading as="h1" className={styles.title}>
             {categoryGeneratedIndex.title}
+            {singleColumn && (
+              <span className={styles.titleCount} aria-label={`${items.length} pages`}>
+                {items.length}
+              </span>
+            )}
           </Heading>
           {categoryGeneratedIndex.description && (
             <p className={styles.description}>{categoryGeneratedIndex.description}</p>
           )}
         </header>
         {/* The spotlight hover fades every grid item in the content area except the hovered one. */}
-        <article className={clsx(styles.sections, styles.spotlight)}>
+        <article
+          className={clsx(styles.sections, styles.spotlight, singleColumn && styles.singleColumn)}
+        >
           {compact ? renderCompactItems(items) : renderStandardItems(items)}
         </article>
         <footer>

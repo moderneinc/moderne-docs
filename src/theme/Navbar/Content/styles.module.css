@@ -126,18 +126,25 @@
   }
 }
 
+/* Same hover pill as the secondary nav links. */
 .externalLink {
   display: flex;
   align-items: center;
   gap: var(--mod-spacing_1_2);
+  margin: 0 calc(-1 * var(--mod-spacing_1_1_4));
+  padding: var(--mod-spacing_3_4) var(--mod-spacing_1_1_4);
+  border-radius: var(--mod-border-radius-x-s);
   font-size: var(--mod-font-size-sm);
   font-weight: var(--mod-font-weight-medium);
   color: var(--ifm-navbar-link-color);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .externalLink:hover {
+  background-color: var(--mod-color-surface-sunken-deep);
   color: var(--ifm-navbar-link-hover-color);
   text-decoration: none;
 }
