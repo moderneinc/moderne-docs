@@ -1,135 +1,188 @@
 ---
 sidebar_label: moderne.yml reference
-description: Every setting of Moderne DX's moderne.yml file, with its default, and the commands of the moderne-dx jar.
+description: The settings in Moderne DX's moderne.yml file, their defaults, and the commands of the moderne-dx JAR.
 ---
 
 # `moderne.yml` reference
 
-Moderne DX reads its configuration from a `moderne.yml` file, which `java -jar moderne-dx.jar init` writes with comments to fill in. This page lists every setting it reads. The [installation guide](../getting-started/installing-moderne-dx.md) shows the ones every deployment needs.
+Moderne DX reads its configuration from a `moderne.yml` file. When you run `java -jar moderne-dx.jar init`, DX will create this file for you with comments that explain what to fill in.
 
-A value of the form `${NAME}` is an environment variable, or a `NAME=value` line of the `moderne.env` file beside `moderne.yml`. Only the user DX runs as may read `moderne.env`. A path that is not absolute resolves against the directory that holds `moderne.yml`, unless a setting below says otherwise.
+This page lists the settings DX reads from that file. If you're only looking for the settings that every deployment needs, check out the [installation guide](../getting-started/installing-moderne-dx.md).
 
-A value of the form `${moderne-cli:key}` is what the Moderne CLI holds for the key, as `mod config get <key>` prints it. A secret prints only with `--reveal`. Each time DX starts, it asks the CLI of the user it runs as.
+There are a few things to know about how DX reads values from this file:
+
+* If a value looks like `${NAME}`, DX will fill it in from an environment variable with that name. You can also set it with a `NAME=value` line in the `moderne.env` file that sits next to `moderne.yml`. Please make sure that only the OS account DX runs as can read the `moderne.env` file.
+* If a value looks like `${moderne-cli:key}`, DX will read it from the Moderne CLI's configuration. It's the same value you'd see by running `mod config get <key>` (you'll need to add `--reveal` to see a secret). DX reads these values each time it starts, from the CLI of the OS account it runs as.
+* If you use a relative path for a setting, DX will resolve it against the directory that holds `moderne.yml` (unless that setting's description says otherwise).
 
 ## Commands
 
-Every command but `init` reads the `moderne.yml` file in the working directory, or the one `--config <path>` names.
+Every command except `init` will read the `moderne.yml` file in your current directory. If you'd like to use a different file, you can pass `--config <path>`.
 
 | Command                                  | What it does                                                                                     |
 |------------------------------------------|--------------------------------------------------------------------------------------------------|
-| `java -jar moderne-dx.jar init [<dir>]`  | Writes `moderne.yml`, `moderne.env` with a new SCM token key, and a systemd unit, keeping any file already there. A new `moderne.yml` takes the license key and the CGP username and token from the Moderne CLI on this machine, where the CLI holds them. |
-| `java -jar moderne-dx.jar doctor`        | Checks the configuration and the machine. Once DX runs, it also checks each name through DX's proxy. |
-| `java -jar moderne-dx.jar start`         | Starts DX in the foreground, and keeps every service running until it stops.                     |
-| `java -jar moderne-dx.jar status`        | Says whether DX runs, and which services are up.                                                 |
-| `java -jar moderne-dx.jar stop`          | Stops a running DX.                                                                              |
+| `java -jar moderne-dx.jar init [<dir>]`  | Creates `moderne.yml`, `moderne.env` (with a new SCM token key), and a systemd unit file. It won't overwrite any of these files if they already exist. If the Moderne CLI on this machine has your license key, CGP username, or CGP token, the new `moderne.yml` will read them from the CLI. |
+| `java -jar moderne-dx.jar doctor`        | Checks that DX has what it needs to start. This includes your `moderne.yml` settings, Java, the Moderne CLI, disk space, your certificate, and your organization sources. If DX is running, it will also check each of DX's names through the proxy. |
+| `java -jar moderne-dx.jar start`         | Starts DX in the foreground. It will keep every service running until DX stops.                  |
+| `java -jar moderne-dx.jar status`        | Tells you whether DX is running and which services are up.                                       |
+| `java -jar moderne-dx.jar stop`          | Stops DX if it's running.                                                                        |
 
 ## Deployment
 
 | Setting                | Default  | Description                                                                                                         |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------|
-| `moderne.tenant.name`  | `dx`     | The tag on every metric. The browser's title shows any other name. Lowercase letters, digits, and dashes. |
-| `moderne.license.key`  |          | Your Moderne DX license key. Without a valid one, the CLIs connected to DX stop running recipes.                     |
+| `moderne.tenant.name`  | `dx`     | The name DX tags every metric with. If you change it from `dx`, the browser's title will show the new name. It can contain lowercase letters, digits, and dashes. |
+| `moderne.license.key`  |          | Your Moderne DX license key. Without a valid one, the CLIs connected to DX will stop running recipes.               |
 
 ## Routes
 
-`moderne.dx.routes` names [how people reach DX](../how-to-guides/configuring-dns-for-dx.md), and exactly one route. DX serves four names on one port, through a proxy inside it: a host, and `api.`, `login.`, and `status.` before it. They are the UI, the API, Keycloak's sign-in, and the status page. Every public URL is `https`. Every other process listens on the loopback address alone.
+The `moderne.dx.routes` setting controls [how people reach DX](../how-to-guides/configuring-dns-for-dx.md). You'll need to configure exactly one route.
 
-A `managed` route takes its name and certificate from the Code Genome Project. It is what `init` writes:
+Regardless of which route you pick, people will reach DX through four host names that all use the same port. For example, if your host is `acme.moderne.direct`, the four names will be:
+
+| Name                         | What you'll find there      |
+|------------------------------|-----------------------------|
+| `acme.moderne.direct`        | The UI                      |
+| `api.acme.moderne.direct`    | The API                     |
+| `login.acme.moderne.direct`  | The sign-in page (Keycloak) |
+| `status.acme.moderne.direct` | The status page             |
+
+Every public URL uses `https`. A proxy that's built into DX handles all four names. Every other DX process will only listen on the machine's loopback address.
+
+### Managed route
+
+With a `managed` route, DX will get its name and certificate from the Code Genome Project (CGP). This is the route that `init` sets up for you:
 
 | Setting                             | Default  | Description                                                                                       |
 |-------------------------------------|----------|---------------------------------------------------------------------------------------------------|
-| `moderne.dx.routes.managed.token`   | Required | The CGP token Moderne gave you for DX. CGP names DX after the token's user: `<user>.moderne.direct`. |
-| `moderne.dx.routes.managed.address` | The machine's network address | The IP address the four names will resolve to. If you leave it out, DX will use the machine's own network address. Run `doctor` to see the address DX picked. With `127.0.0.1`, the names will only work on this machine. DX listens on the address where it is the machine's own, and on every address where it is not. |
-| `moderne.dx.routes.managed.port`    | `443`    | The port DX listens on.                                                                           |
+| `moderne.dx.routes.managed.token`   | Required | The CGP token that Moderne gave you for DX. CGP will name your DX after the user this token belongs to, in the form `<user>.moderne.direct`. |
+| `moderne.dx.routes.managed.address` | The machine's network address | The IP address the four names will resolve to. If you leave it out, DX will use the machine's own network address. Run `doctor` to see the address DX picked. With `127.0.0.1`, the names will only work on this machine. If this address belongs to the machine, DX will only listen on that address. If it doesn't, DX will listen on all of the machine's addresses. |
+| `moderne.dx.routes.managed.port`    | `443`    | The port DX will listen on.                                                                       |
 
-A `custom-certificate` route serves a name of your own, with your certificate:
+### Custom certificate route
+
+With a `custom-certificate` route, DX will use a name you own and a certificate you provide:
 
 | Setting                                            | Default  | Description                                                                          |
 |----------------------------------------------------|----------|--------------------------------------------------------------------------------------|
-| `moderne.dx.routes.custom-certificate.public-url`  | Required | Where people open the UI, such as `https://moderne.acme.com`. DX listens on its port. |
-| `moderne.dx.routes.custom-certificate.certificate` | Required | A PEM file with the certificate first, then its chain. It must cover all four names. |
-| `moderne.dx.routes.custom-certificate.private-key` | Required | The certificate's private key, as a PEM file.                                        |
+| `moderne.dx.routes.custom-certificate.public-url`  | Required | The URL people will use to open the UI (e.g., `https://moderne.acme.com`). DX will listen on the port in this URL. |
+| `moderne.dx.routes.custom-certificate.certificate` | Required | A PEM file that contains the certificate first, followed by its chain. The certificate needs to cover all four names. |
+| `moderne.dx.routes.custom-certificate.private-key` | Required | A PEM file that contains the certificate's private key.                              |
 
-A `load-balanced` route serves a name of your own, behind a load balancer that ends TLS:
+### Load-balanced route
+
+With a `load-balanced` route, DX will use a name you own and sit behind a load balancer that handles Transport Layer Security (TLS):
 
 | Setting                                      | Default  | Description                                                                                      |
 |----------------------------------------------|----------|--------------------------------------------------------------------------------------------------|
-| `moderne.dx.routes.load-balanced.public-url` | Required | Where people open the UI, such as `https://moderne.acme.com`.                                    |
-| `moderne.dx.routes.load-balanced.http-port`  | Required | The port the load balancer forwards plain HTTP to, with each request's `Host` header unchanged.  |
+| `moderne.dx.routes.load-balanced.public-url` | Required | The URL people will use to open the UI, such as `https://moderne.acme.com`.                      |
+| `moderne.dx.routes.load-balanced.http-port`  | Required | The port your load balancer will forward plain HTTP traffic to. The load balancer needs to leave each request's `Host` header unchanged. |
 
-A start refuses the settings that routes replaced, and prints the route that does what they did: `public-url`, `api-url`, `login-url`, `status-url`, `tls`, `ports.proxy`, `ports.proxy-http`, and `bind-address` under `moderne.dx`.
+### Settings that routes replaced
 
-| Setting            | Default                    | Description                                                          |
-|--------------------|----------------------------|----------------------------------------------------------------------|
-| `moderne.dx.logo`  | The Moderne icon           | An SVG file that the UI shows as your deployment's icon.             |
-| `moderne.dx.java`  | The Java that runs the jar | The `java` executable that DX's services run on. It must be Java 25. |
+Routes replaced a number of older settings under `moderne.dx`. If your `moderne.yml` file still has any of the following settings, DX won't start. Instead, it will tell you which route to use in its place:
+
+* `public-url`
+* `api-url`
+* `login-url`
+* `status-url`
+* `tls`
+* `ports.proxy`
+* `ports.proxy-http`
+* `bind-address`
 
 ## Recipes
 
-Name the Code Genome Project, your own repository that proxies it, or both. DX tries your own first.
+DX needs to know where to get recipes from. You can point it at the Code Genome Project, at your own repository that proxies it, or at both. If you configure both, DX will try your own repository first.
 
 | Setting                                                                | Description                                                                                       |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | `moderne.recipe.marketplace.repositories.code-genome-project.username` | Your Code Genome Project username.                                                                |
-| `moderne.recipe.marketplace.repositories.code-genome-project.token`    | Your Code Genome Project token. DX resolves recipes from the Code Genome Project with it. The installer at DX's `/cli` downloads the Moderne CLI with it too, or anonymously without it. |
-| `moderne.recipe.marketplace.repositories.maven`, `npm`, `pypi`, `nuget`, `go` | Your own recipe repositories, with the same settings as the Moderne Connector's [recipe marketplace repositories](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md). |
+| `moderne.recipe.marketplace.repositories.code-genome-project.token`    | Your Code Genome Project token. DX will use it to download recipes from the Code Genome Project. The CLI installer that DX serves at `/cli` will also use it to download the Moderne CLI. Without a token, the installer will download the CLI anonymously. |
+| `moderne.recipe.marketplace.repositories.maven`, `npm`, `pypi`, `nuget`, `go` | Your own recipe repositories. These use the same settings as the Moderne Connector's [recipe marketplace repositories](../../moderne-platform/how-to-guides/connector-configuration/configure-recipe-marketplace-repositories.md). |
 
 ## Organization sources
 
-Each entry of `moderne.organization.sources.http` reads a `repos-lock.csv` file over HTTP or HTTPS:
+Organization sources tell DX where to find your `repos-lock.csv` files.
+
+### HTTP sources
+
+Each entry under `moderne.organization.sources.http` will read a `repos-lock.csv` file over HTTP or HTTPS:
 
 | Setting          | Default  | Description                                                                                          |
 |------------------|----------|------------------------------------------------------------------------------------------------------|
 | `uri`            | Required | The URL of the file.                                                                                 |
-| `username`       |          | The user to read the file and its LSTs as.                                                           |
+| `username`       |          | The user DX will read the file and its LSTs as.                                                      |
 | `password`       |          | That user's password.                                                                                |
-| `bearer-token`   |          | A token to send in place of a user and password.                                                     |
-| `lst-version`    | `2`      | The LST format the source's mass ingest publishes, `2` or `3`. DX keeps a V3 copy of each V2 LST for code search. |
-| `organizations`  | All      | The organizations to keep, at any level of the file's org columns, with every repository under them. |
+| `bearer-token`   |          | A token to send instead of a username and password.                                                  |
+| `lst-version`    | `2`      | The LST format that this source's mass ingest publishes (`2` or `3`). For V2 LSTs, DX will keep a V3 copy of each one for code search. |
+| `organizations`  | All      | The organizations to keep, along with every repository under them. You can list organizations at any level of the file's org columns. |
 
-The `init` command names Moderne's public mass ingest, `https://moderne-lsts.s3.us-west-2.amazonaws.com/repos-lock.csv`, with `organizations: [Netflix]`. A business unit can run a DX of its own by naming just its organizations.
+By default, `init` will point DX at Moderne's public mass ingest (`https://moderne-lsts.s3.us-west-2.amazonaws.com/repos-lock.csv`) and only keep the `Netflix` organization.
 
-Each entry of `moderne.organization.sources.file` reads a file on the machine:
+The `organizations` setting is also useful if a single business unit wants a DX of its own. In that case, you can list just that unit's organizations.
+
+### File sources
+
+Each entry under `moderne.organization.sources.file` will read a file that's on the same machine as DX:
 
 | Setting         | Default  | Description                                                              |
 |-----------------|----------|--------------------------------------------------------------------------|
-| `path`          | Required | The file's path, relative to `moderne.storage.permanent-dir`.            |
-| `lst-version`   | `2`      | The LST format the source's mass ingest publishes, `2` or `3`.           |
-| `organizations` | All      | The organizations to keep, as for an http source.                        |
+| `path`          | Required | The path to the file. This can be a full path or a path relative to `moderne.storage.permanent-dir`. |
+| `lst-version`   | `2`      | The LST format that this source's mass ingest publishes (`2` or `3`).    |
+| `organizations` | All      | The organizations to keep. This works the same way as it does for an `http` source. |
 
-DX downloads each LST with the credentials of the source whose host serves it. An `s3://` LST comes over HTTPS from its bucket, without credentials, when an organization source is in that bucket. Each entry of `moderne.lst.http` gives credentials for another host:
+### Credentials for downloading LSTs
+
+When DX downloads an LST, it will use the credentials of the organization source that's on the same host as that LST.
+
+LSTs with an `s3://` location are a special case. If one of your organization sources is in the same bucket, DX will download those LSTs from the bucket over HTTPS without credentials.
+
+If your LSTs are on a host that none of your organization sources use, you can add credentials for that host with an entry under `moderne.lst.http`:
 
 | Setting        | Default  | Description                                            |
 |----------------|----------|--------------------------------------------------------|
-| `host`         | Required | The host that serves LSTs, as the `publishUri` column names it. |
-| `username`     |          | The user to download as.                               |
+| `host`         | Required | The host that serves the LSTs. This needs to match the host in the `publishUri` column. |
+| `username`     |          | The user to download LSTs as.                          |
 | `password`     |          | That user's password.                                  |
-| `bearer-token` |          | A token to send in place of a user and password.       |
+| `bearer-token` |          | A token to send instead of a username and password.    |
 
 ## Repository access control
 
-Every user can read every repository until `moderne.scm` names an SCM's OAuth app. DX then shows that SCM's repositories only to the users who can read them. The [user-level repository access control](../how-to-guides/repository-access-control.md#settings-for-each-scm) guide lists the settings of each SCM, and `moderne.authorization.scm-token-key`.
+By default, every user can read every repository. Once you configure an OAuth app for your source control management (SCM) system under `moderne.scm`, DX will only show that SCM's repositories to the users who can read them.
+
+You can find the settings for each SCM (along with `moderne.authorization.scm-token-key`) in our [user-level repository access control guide](../how-to-guides/repository-access-control.md#settings-for-each-scm).
 
 ## Sign-in
 
-Keycloak makes DX's first user at DX's first start. That user signs in to DX as an administrator, and administers nothing in Keycloak. Keycloak asks for no new password. Set later, these settings change nothing, so change the user in Keycloak instead.
+### The first user
+
+The first time DX starts, Keycloak will create DX's first user. That user can sign in to DX as an administrator, but they can't administer anything in Keycloak itself. Keycloak also won't ask them to choose a new password.
+
+You can use these settings to choose that first user's name and password:
 
 | Setting                           | Default       | Description                                  |
 |-----------------------------------|---------------|----------------------------------------------|
 | `moderne.keycloak.user.name`      | `admin`       | The first user's name.                       |
 | `moderne.keycloak.user.password`  | `moderne1001` | The first user's password.                   |
 
-The `moderne.yml` that `init` writes takes both from `moderne.env`, as `${KEYCLOAK_USERNAME:admin}` and `${KEYCLOAK_PASSWORD:moderne1001}`.
+Keep in mind that these settings only apply the first time DX starts. If you change them later, nothing will happen. You'll need to change the user in Keycloak instead.
 
-DX makes each of these secrets at its first start, and keeps it under `<permanent-dir>/dx/secrets`, unless `moderne.yml` names one.
+In the `moderne.yml` file that `init` creates, both of these settings are read from `moderne.env`. They're written as `${KEYCLOAK_USERNAME:admin}` and `${KEYCLOAK_PASSWORD:moderne1001}`.
+
+### Secrets DX creates
+
+DX will create the following secrets the first time it starts. It keeps them under `<permanent-dir>/dx/secrets`. If you'd like to use your own value for one of them, you can set it in `moderne.yml`:
 
 | Setting                             | Description                                                                                 |
 |-------------------------------------|---------------------------------------------------------------------------------------------|
-| `moderne.keycloak.server.password`  | The password of Keycloak's own `admin` user, who configures your identity provider in Keycloak's admin console. This is not DX's first user. |
-| `moderne.keycloak.client-secret`    | The secret the UI and DX's services share with Keycloak.                                    |
-| `moderne.dx.ui-secret`              | The key the UI signs its sessions with.                                                     |
+| `moderne.keycloak.server.password`  | The password for Keycloak's own `admin` user. This is the user who configures your identity provider in Keycloak's admin console. It isn't the same as DX's first user. |
+| `moderne.keycloak.client-secret`    | The secret that the UI and DX's services share with Keycloak.                               |
+| `moderne.dx.ui-secret`              | The key the UI uses to sign its sessions.                                                   |
 
-Keycloak keeps its realm in a database file under the permanent directory unless `spring.datasource` names a database:
+### Keycloak's database
+
+By default, Keycloak will keep its realm in a database file under the permanent directory. If you'd like it to use a PostgreSQL database instead, you can set the following:
 
 | Setting                        | Description                                                        |
 |--------------------------------|--------------------------------------------------------------------|
@@ -141,12 +194,12 @@ Keycloak keeps its realm in a database file under the permanent directory unless
 
 | Setting                          | Default                                  | Description                                                                                 |
 |----------------------------------|------------------------------------------|---------------------------------------------------------------------------------------------|
-| `moderne.storage.permanent-dir`  | `data/permanent` beside `moderne.yml`    | Everything DX cannot rebuild. Back it up.                                                   |
-| `moderne.storage.ephemeral-dir`  | `data/ephemeral` beside `moderne.yml`    | What DX rebuilds when it needs to, such as the unpacked jar and code search's index.        |
+| `moderne.storage.permanent-dir`  | `data/permanent` next to `moderne.yml`   | Everything DX can't rebuild. You should back this directory up.                             |
+| `moderne.storage.ephemeral-dir`  | `data/ephemeral` next to `moderne.yml`   | Things DX can rebuild when it needs to, such as the unpacked JAR and the code search index. |
 
 ## Telemetry
 
-We recommend storing CLI telemetry in an Amazon S3 bucket or an Azure Blob Storage container. [Configuring telemetry](../how-to-guides/configure-telemetry-dx.md#choosing-where-dx-stores-telemetry) lists the credentials and permissions each one needs.
+We recommend storing CLI telemetry in an Amazon S3 bucket or an Azure Blob Storage container. For the credentials and permissions each one needs, check out our guide on [choosing where DX stores telemetry](../how-to-guides/configure-telemetry-dx.md#choosing-where-dx-stores-telemetry).
 
 | Setting                                          | Description                                                  |
 |--------------------------------------------------|--------------------------------------------------------------|
@@ -154,11 +207,11 @@ We recommend storing CLI telemetry in an Amazon S3 bucket or an Azure Blob Stora
 | `moderne.gateway.telemetry.azure.account-name`   | The Azure storage account that holds the container.          |
 | `moderne.gateway.telemetry.azure.container-name` | The Azure Blob Storage container to store telemetry in.      |
 
-If you name neither, DX stores telemetry in `<permanent-dir>/telemetry`.
+If you don't set any of these, DX will store telemetry in `<permanent-dir>/telemetry`.
 
 ## Memory
 
-`moderne.dx.memory.<service>` sets a service's heap, as a size such as `2g` or `1536m`. The defaults fit a laptop.
+You can use `moderne.dx.memory.<service>` to set how much heap memory a service gets. The value is a size such as `2g` or `1536m`. The defaults below are sized to fit on a laptop:
 
 | Service                | Default |
 |------------------------|---------|
@@ -174,13 +227,13 @@ If you name neither, DX stores telemetry in `<permanent-dir>/telemetry`.
 | `repository-converter` | `512m`  |
 | `conversions`          | `4g`    |
 
-`conversions` is the heap of the CLI process that converts V2 LSTs. It converts one LST at a time per gigabyte, up to one per core.
+The `conversions` value is the heap for the CLI process that converts V2 LSTs. That process will convert one LST at a time for each gigabyte of heap, up to one per CPU core.
 
-Code search leaves out a repository whose index has a single part larger than `moderne.code-search.shard-max-bytes`, 512 MB by default. To index larger repositories, raise it along with `moderne.dx.memory.code-search`. A 6 GB heap holds parts of about 2 GB.
+Code search will skip a repository if any single part of its index is larger than `moderne.code-search.shard-max-bytes` (512 MB by default). If you need to index larger repositories, you can raise that limit. You'll also need to raise `moderne.dx.memory.code-search` along with it. As a guide, a 6 GB heap can hold index parts of about 2 GB.
 
 ## Ports
 
-Each of DX's processes listens on the loopback address at a port of its own. `moderne.dx.ports.<process>` moves one when another program holds its port.
+Each DX process listens on the machine's loopback address, on a port of its own. If another program is already using one of these ports, you can move that process to a different port with `moderne.dx.ports.<process>`:
 
 | Process                | Port |
 |------------------------|------|
@@ -198,18 +251,20 @@ Each of DX's processes listens on the loopback address at a port of its own. `mo
 | `atlas`                | 8098 |
 | `authentication`       | 8180 |
 
-Two more ports cannot be moved: 8099, where the router answers its health check, and 7101, where the services send their metrics and logs.
+There are two more ports that you can't move: 8099 and 7101. The router uses port 8099 to answer its health check, and the services send their metrics and logs to port 7101.
 
 ## Other settings
 
 | Setting                                    | Default           | Description                                                          |
 |--------------------------------------------|-------------------|----------------------------------------------------------------------|
-| `moderne.monitoring.atlas.disk.retention`  | `2d`              | How long the status page keeps metrics and logs.                     |
-| `moderne.cli.executable`                   | `mod` on the PATH | The Moderne CLI that DX's services run. DX asks it for `${moderne-cli:key}` values. |
+| `moderne.monitoring.atlas.disk.retention`  | `2d`              | How long the status page will keep metrics and logs.                 |
+| `moderne.cli.executable`                   | `mod` on the PATH | The Moderne CLI that DX's services will run. DX also asks this CLI for any `${moderne-cli:key}` values. |
+| `moderne.dx.logo`                          | The Moderne icon           | An SVG file that the UI will show as your deployment's icon.         |
+| `moderne.dx.java`                          | The Java that runs the JAR | The `java` executable that DX's services will run on. It needs to be Java 25. |
 
 ## Environment variables
 
 | Variable              | Description                                                                                                      |
 |-----------------------|------------------------------------------------------------------------------------------------------------------|
-| `NODE_EXTRA_CA_CERTS` | A PEM file of certificate authorities that the UI trusts beyond the public ones. Set it when the certificate of a `custom-certificate` or `load-balanced` route comes from a private CA. A `managed` route's certificate needs no setting. |
-| `KEYCLOAK_USERNAME`, `KEYCLOAK_PASSWORD` | DX's first user, in the `moderne.yml` that `init` writes. Set them before DX's first start. |
+| `NODE_EXTRA_CA_CERTS` | A PEM file of certificate authorities (CAs) that the UI should trust in addition to the public ones. You'll need to set this if the certificate for your `custom-certificate` or `load-balanced` route comes from a private CA. You don't need it for a `managed` route. |
+| `KEYCLOAK_USERNAME`, `KEYCLOAK_PASSWORD` | The name and password for DX's first user, as used by the `moderne.yml` file that `init` creates. You'll need to set these before DX starts for the first time. |
