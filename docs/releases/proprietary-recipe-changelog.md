@@ -10,15 +10,73 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 19, 2026
+
+#### recipes-javascript - 0.22.0
+
+* Add recipes-node with the UpgradeToNode8 to UpgradeToNode16 rungs
+* Add recipes-primeng: upgrade PrimeNG 18 to 22, one major at a time
+
+#### rewrite-angular - 1.34.0
+
+* Ignore peer ranges when reading a project's Angular version
+* Migrate off unmaintained Angular libraries: platform-browser-dynamic, build-angular, ng2-cookies, ng-inline-svg
+
+#### rewrite-dropwizard - 0.28.0
+
+* Attribute types on untyped field accesses
+
+#### rewrite-java-application-server - 0.31.0
+
+* Avoid commonPool for the Gradle server build and fail fast when the server exits
+
+#### rewrite-java-security - 3.63.0
+
+* Use Java 25 features in tests
+* Add migration from JJWT 0.2 - 0.11 to 0.12
+* Add FindAndroidExternalStorageAccess (Sonar S5324)
+* Add FindUnprotectedAndroidReceiver (Sonar S5322)
+* Add FindClearTextProtocol (Sonar S5332)
+* Add FindUnprotectedAndroidBroadcast (Sonar S5320)
+* Add FindCustomMessageDigest (Sonar S2257)
+* Add FindReusedCounterModeIv (Sonar S6432)
+
+#### rewrite-prethink - 0.37.0
+
+* Use Java 25 features in tests
+
+#### rewrite-primefaces - 0.10.0
+
+* Add PrimeFaces 15 to 16 migration recipes
+
+#### rewrite-program-analysis - 0.39.0
+
+* Use Java 25 features in tests
+* Tag FindPathTraversal with RSPEC-S2083 and read Spring handler parameters
+
+#### rewrite-react - 0.28.0
+
+* Use Java 25 features in tests
+
+#### rewrite-spring - 0.64.0
+
+* Attribute types on untyped field accesses
+* Enable `X-Forwarded-Prefix` through `server.request.header.forwarded.use-prefix`
+* Migrate Spring Modulith to 2.0 and 2.1 with Spring Boot 4.0 and 4.1
+* Run all Spring recipe generators in one weekly workflow
+* Add FindMalformedSpringExpression (Sonar S6857)
+
+#### rewrite-static-analysis - 0.21.0
+
+* Use Java 25 features in tests
+* Add AddOrUpdateLicenseHeader recipe (RSPEC-S1451)
+* Add ReplacePlatformThreadWithVirtualThread recipe (RSPEC-S6881)
+
 ## November 18, 2026
 
 #### recipes-csharp - 0.28.0
 
 * Use explicit template factories in recipe authoring guidance/skills
-
-#### recipes-go - 0.31.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### recipes-javascript - 0.21.0
 
@@ -38,14 +96,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Match exact type names in the JavaScript recipe skill
 * Replace the `hidden` and `from` options Express 5 removed
 
-#### recipes-kotlin - 0.25.0
-
-* Apply the Kotlin1To2 type validation opt-out to the output only
-
-#### recipes-mainframe - 0.19.0
-
-* Refactor RewriteTest to use defaults method
-
 #### recipes-scala - 0.25.0
 
 * Match parameterless calls as method invocations
@@ -64,10 +114,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Inline FlatSpec and Matchers migrations into MigrateToScalaTest3_1
 * Add a CodeCleanup composite of the version-independent Scala rewrites
 * Migrate ScalaTest `fixture` styles to their 3.1 packages
-
-#### rewrite-android - 0.39.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-angular - 1.33.0
 
@@ -111,84 +157,13 @@ This changelog is automatically generated from GitHub releases and only contains
 * P3: Remove duplicated helpers in the signal and inject migration recipes
 * Apply each Angular major's migrations only to projects on an older version
 
-#### rewrite-circleci - 3.32.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-compiled-analysis - 0.35.0
-
-* Explain the type validation opt-out
-
-#### rewrite-concourse - 3.31.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-cryptography - 0.36.0
-
-* Skip the Jasypt shim verification classpaths in the OWASP scan
-* Skip the Jasypt shim classpaths in the subproject's aggregate scan too
-
-#### rewrite-dotnet - 0.37.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-dropwizard - 0.27.0
-
-* OpenRewrite recipe best practices
-
-#### rewrite-elastic - 0.28.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-hibernate - 0.49.0
-
-* Add `MigrateToHibernate56` for Hibernate 3.x and 4.x and chain it from `MigrateToHibernate60`
-
-#### rewrite-jasperreports - 0.26.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-application-server - 0.30.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-java-security - 3.62.0
 
 * Drop blank line from Gradle resolution-rule expectation
 
-#### rewrite-kafka - 0.27.0
-
-* Remove redundant afterTypeValidationOptions(all())
-
-#### rewrite-mainframe - 3.22.0
-
-* OpenRewrite recipe best practices
-
-#### rewrite-migrate-python - 0.35.0
-
-* Publish the Python package to the Code Genome Project under the username `cgp`
-* Require openrewrite 8.108.1 and drop the workarounds it makes redundant
-
-#### rewrite-nodejs - 0.71.0
-
-* Expect hpagent's replacement import where hpagent's was, as @openrewrite/rewrite 8.107.3 places it
-* GitHub advisories as of 2026-11-13T1848
-
-#### rewrite-nullability - 0.26.0
-
-* OpenRewrite recipe best practices
-
-#### rewrite-prethink - 0.36.0
-
-* Refactor RewriteTest to use defaults method
-
 #### rewrite-primefaces - 0.9.0
 
 * Upgrade PrimeFaces artifacts to the newest 15.0.x they all publish
-
-#### rewrite-program-analysis - 0.38.0
-
-* Refactor RewriteTest to use defaults method
 
 #### rewrite-react - 0.27.0
 
@@ -214,10 +189,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Lay out React test sources as blocks with one `npm` argument per line
 * Move `ReplaceCreateFactory` to the React 19 step
 
-#### rewrite-reactive-streams - 0.40.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-spring - 0.63.0
 
 * Move a wildcard CORS origin to `allowedOriginPatterns` where credentials are allowed
@@ -233,14 +204,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add FindArrayIndexOutOfBounds recipe (RSPEC-S6466)
 * Add ReplaceReverseCopyWithReversedView recipe (RSPEC-S6877)
 
-#### rewrite-tapestry - 0.26.0
-
-* Narrow the type validation opt-outs
-
-#### rewrite-terraform - 3.35.0
-
-* Refactor RewriteTest to use defaults method
-
 ## November 17, 2026
 
 #### recipes-csharp - 0.27.0
@@ -249,121 +212,40 @@ This changelog is automatically generated from GitHub releases and only contains
 * Preserve required generic casts in `RemoveRedundantCast`
 * Preserve sort precedence in `LinqCodeQuality`
 
-#### recipes-go - 0.30.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### recipes-javascript - 0.20.0
 
 * Preserve comments when collapsing ifs and removing assignments in Code Quality recipes
 * Add Jest 28 upgrade recipe
 * Apply `Object.hasOwn` and logical assignment autofixes only when the project targets a runtime that has them (G-rj-2)
 
-#### recipes-kotlin - 0.24.0
-
-* Apply the Kotlin1To2 type validation opt-out to the output only
-
 #### recipes-mainframe - 0.18.0
 
 * Refactor RewriteTest to use defaults method
-
-#### rewrite-android - 0.38.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-angular - 1.32.0
-
-* Apply text-based Material migrations only below their version
-* Keep the Material 18 to 20 stylesheet rewrites valid and complete
-* Move only the form field's default appearance to fill
-* Leave CDK entry point imports to the CDK migration
-* Add the base mixins to themes that start out on the @import theming API
-* Type-check the test sources
-* Look up legacy Material projects once and shorten the recipe descriptions
-* Move to rewrite 8.107.0 and keep the names that re-exports export
-* Run the dependency changes of UpgradeToAngularN against Java in a test
-* Move re-exports from the removed @angular/material entry point
-* Replace initializer tokens with their Angular 19 provider functions
-* Add the router guard-interface and getCurrentNavigation migrations
-* Migrate three angular.json workspace options ng update rewrites
-* Migrate the Angular 19 and 20 server-side rendering API moves
-* Promote preserveQueryParams from a search recipe to a transform
-* Move to rewrite 8.107.3 and accept its import order and indentation
-
-#### rewrite-circleci - 3.31.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-compiled-analysis - 0.34.0
-
-* Explain the type validation opt-out
-
-#### rewrite-concourse - 3.30.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-cryptography - 0.35.0
 
 * Skip the Jasypt shim verification classpaths in the OWASP scan
 * Skip the Jasypt shim classpaths in the subproject's aggregate scan too
 
-#### rewrite-dotnet - 0.36.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-dropwizard - 0.26.0
 
 * OpenRewrite recipe best practices
-
-#### rewrite-elastic - 0.27.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-hibernate - 0.48.0
 
 * Add `MigrateToHibernate56` for Hibernate 3.x and 4.x and chain it from `MigrateToHibernate60`
 
-#### rewrite-jasperreports - 0.25.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-application-server - 0.29.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-java-security - 3.61.0
 
 * Refactor RewriteTest to use defaults method
 
-#### rewrite-kafka - 0.26.0
-
-* Remove redundant afterTypeValidationOptions(all())
-
 #### rewrite-mainframe - 3.21.0
-
-* OpenRewrite recipe best practices
-
-#### rewrite-migrate-python - 0.34.0
-
-* Publish the Python package to the Code Genome Project under the username `cgp`
-* Require openrewrite 8.108.1 and drop the workarounds it makes redundant
-
-#### rewrite-nodejs - 0.70.0
-
-* Expect hpagent's replacement import where hpagent's was, as @openrewrite/rewrite 8.107.3 places it
-* GitHub advisories as of 2026-11-13T1848
-
-#### rewrite-nullability - 0.25.0
 
 * OpenRewrite recipe best practices
 
 #### rewrite-prethink - 0.35.0
 
 * Refactor RewriteTest to use defaults method
-
-#### rewrite-primefaces - 0.8.0
-
-* Pin the PrimeFaces 15 upgrade to 15.0.19
 
 #### rewrite-program-analysis - 0.37.0
 
@@ -372,10 +254,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-react - 0.26.0
 
 * Remove `persist()` only on React synthetic events in `RemoveEventPersist` (C1-v3)
-
-#### rewrite-reactive-streams - 0.39.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-spring - 0.62.0
 
@@ -397,113 +275,11 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add FindDivisionByZero recipe (RSPEC-S3518)
 * Add FindIrregularNumberGrouping recipe (RSPEC-S3937)
 
-#### rewrite-tapestry - 0.25.0
-
-* Narrow the type validation opt-outs
-
 #### rewrite-terraform - 3.34.0
 
 * Refactor RewriteTest to use defaults method
 
 ## November 16, 2026
-
-#### recipes-csharp - 0.26.0
-
-* Add opt-in primary constructor conversion and shared detection
-* Respect effective C# language versions in code quality recipes
-* RemoveRedundantEmptyLine - preserve blank lines after file-scoped namespaces
-* Share platform metadata references across migration tests
-
-#### recipes-go - 0.29.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### recipes-kotlin - 0.23.0
-
-* Apply the Kotlin1To2 type validation opt-out to the output only
-
-#### recipes-mainframe - 0.17.0
-
-* Stub the JCICS types and narrow the type validation opt-outs
-
-#### rewrite-android - 0.37.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-angular - 1.31.0
-
-* Apply text-based Material migrations only below their version
-* Keep the Material 18 to 20 stylesheet rewrites valid and complete
-* Move only the form field's default appearance to fill
-* Leave CDK entry point imports to the CDK migration
-* Add the base mixins to themes that start out on the @import theming API
-* Type-check the test sources
-* Look up legacy Material projects once and shorten the recipe descriptions
-* Move to rewrite 8.107.0 and keep the names that re-exports export
-* Run the dependency changes of UpgradeToAngularN against Java in a test
-* Move re-exports from the removed @angular/material entry point
-* Replace initializer tokens with their Angular 19 provider functions
-* Add the router guard-interface and getCurrentNavigation migrations
-* Migrate three angular.json workspace options ng update rewrites
-* Migrate the Angular 19 and 20 server-side rendering API moves
-* Promote preserveQueryParams from a search recipe to a transform
-* Move to rewrite 8.107.3 and accept its import order and indentation
-
-#### rewrite-circleci - 3.30.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-compiled-analysis - 0.33.0
-
-* Explain the type validation opt-out
-
-#### rewrite-concourse - 3.29.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-cryptography - 0.34.0
-
-* Remove unneeded class-level TypeValidation opt-outs
-* Type the @Import RemoveJasypt adds and drop the remaining opt-outs
-
-#### rewrite-dotnet - 0.35.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-dropwizard - 0.25.0
-
-* Narrow the type validation opt-outs
-
-#### rewrite-elastic - 0.26.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-jasperreports - 0.24.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-application-server - 0.28.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-security - 3.60.0
-
-* Narrow TypeValidation none() opt-outs and say why
-* GitHub advisories and endoflife.date data as of 2026-11-13T1848
-
-#### rewrite-kafka - 0.25.0
-
-* Remove redundant afterTypeValidationOptions(all())
-
-#### rewrite-migrate-python - 0.33.0
-
-* Publish the Python package to the Code Genome Project under the username `cgp`
-* Require openrewrite 8.108.1 and drop the workarounds it makes redundant
-
-#### rewrite-nodejs - 0.69.0
-
-* Expect hpagent's replacement import where hpagent's was, as @openrewrite/rewrite 8.107.3 places it
-* GitHub advisories as of 2026-11-13T1848
 
 #### rewrite-nullability - 0.24.0
 
@@ -513,238 +289,16 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Get data table rows by class instead of by name
 
-#### rewrite-primefaces - 0.7.0
-
-* Pin the PrimeFaces 15 upgrade to 15.0.19
-
-#### rewrite-program-analysis - 0.36.0
-
-* Add FindXPathInjection taint recipe (RSPEC-S2091)
-* Add FindCodeInjection taint recipe (RSPEC-S5334)
-* Remove type validation opt-outs from the injection tests
-
-#### rewrite-react - 0.25.0
-
-* Keep `useContext` when it has a type argument
-* Preserve valid JSX quoting in `ChangeComponentPropValue`
-* Bump @openrewrite/rewrite to 8.107.3 and update MUI import-order expectations
-
-#### rewrite-reactive-streams - 0.38.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-spring - 0.61.0
-
-* Add only one `clone()` to a migrated `RestTemplateBuilder` chain
-* Remove unneeded TypeValidation opt-outs and say why the rest are needed
-* Fix JsonFactoryBuilder type in MigrateJsonFactoryDecorator
-* Add FindComponentOutsideComponentScan (Sonar S4605)
-* Mark and remove spring-security-jwt in the Spring Security OAuth migration
-* Move PageableExecutionUtils for Spring Data 3.0
-* Replace SimpleJobLauncher for Spring Batch 5.0
-* Migrate older Spring Framework 5.3, 6.1 and 6.2 deprecations
-
-#### rewrite-static-analysis - 0.18.0
-
-* Narrow TypeValidation opt-outs to the checks that need them
-* Correct three opt-out comments in ReplaceConstantInterfaceWithClassTest
-* Add AnnotateSetUpAndTearDown recipe (RSPEC-S5826)
-* Add MakeFinalizeProtected recipe (RSPEC-S1174)
-* Add FindFinalizeOverload recipe (RSPEC-S1175)
-* Add FindNestedSwitch recipe (RSPEC-S1821)
-* Add CompareRemainderWithZero recipe (RSPEC-S2197)
-* Add FindCatchIllegalMonitorStateException recipe (RSPEC-S2235)
-* Add RemoveNonNullFromEqualsParameter recipe (RSPEC-S4454)
-
-#### rewrite-tapestry - 0.24.0
-
-* Narrow the type validation opt-outs
-
-#### rewrite-terraform - 3.33.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 ## November 15, 2026
-
-#### recipes-csharp - 0.25.0
-
-* Add opt-in primary constructor conversion and shared detection
-* Respect effective C# language versions in code quality recipes
-* RemoveRedundantEmptyLine - preserve blank lines after file-scoped namespaces
-* Share platform metadata references across migration tests
-
-#### recipes-go - 0.28.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### recipes-kotlin - 0.22.0
-
-* Apply the Kotlin1To2 type validation opt-out to the output only
-
-#### recipes-mainframe - 0.16.0
-
-* Stub the JCICS types and narrow the type validation opt-outs
-
-#### recipes-scala - 0.22.0
-
-* Remove an unneeded type validation opt-out
-
-#### rewrite-android - 0.36.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-angular - 1.30.0
-
-* Apply text-based Material migrations only below their version
-* Keep the Material 18 to 20 stylesheet rewrites valid and complete
-* Move only the form field's default appearance to fill
-* Leave CDK entry point imports to the CDK migration
-* Add the base mixins to themes that start out on the @import theming API
-* Type-check the test sources
-* Look up legacy Material projects once and shorten the recipe descriptions
-* Move to rewrite 8.107.0 and keep the names that re-exports export
-* Run the dependency changes of UpgradeToAngularN against Java in a test
-* Move re-exports from the removed @angular/material entry point
-* Replace initializer tokens with their Angular 19 provider functions
-* Add the router guard-interface and getCurrentNavigation migrations
-* Migrate three angular.json workspace options ng update rewrites
-* Migrate the Angular 19 and 20 server-side rendering API moves
-* Promote preserveQueryParams from a search recipe to a transform
-* Move to rewrite 8.107.3 and accept its import order and indentation
-
-#### rewrite-circleci - 3.29.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-compiled-analysis - 0.32.0
-
-* Explain the type validation opt-out
-
-#### rewrite-concourse - 3.28.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-cryptography - 0.33.0
-
-* Remove unneeded class-level TypeValidation opt-outs
-* Type the @Import RemoveJasypt adds and drop the remaining opt-outs
-
-#### rewrite-devcenter - 1.49.0
-
-* Repoint the Gradle 9 fix recipe at rewrite-migrate-gradle
-
-#### rewrite-dotnet - 0.34.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-dropwizard - 0.24.0
-
-* Narrow the type validation opt-outs
-
-#### rewrite-elastic - 0.25.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-hibernate - 0.46.0
-
-* Narrow TypeValidation opt-outs to the checks that need them
-* Remove the hibernate type validation opt-outs that had fixable causes
-
-#### rewrite-jasperreports - 0.23.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-application-server - 0.27.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-security - 3.59.0
-
-* Narrow TypeValidation none() opt-outs and say why
-* GitHub advisories and endoflife.date data as of 2026-11-13T1848
-
-#### rewrite-kafka - 0.24.0
-
-* Remove redundant afterTypeValidationOptions(all())
-
-#### rewrite-migrate-kotlin - 0.26.0
-
-* Narrow TypeValidation opt-outs and say why
 
 #### rewrite-migrate-python - 0.32.0
 
 * Publish the Python package to the Code Genome Project under the username `cgp`
 * Require openrewrite 8.108.1 and drop the workarounds it makes redundant
 
-#### rewrite-nodejs - 0.68.0
-
-* Expect hpagent's replacement import where hpagent's was, as @openrewrite/rewrite 8.107.3 places it
-* GitHub advisories as of 2026-11-13T1848
-
-#### rewrite-nullability - 0.23.0
-
-* Annotate array references when collection entries or array rows can be null
-* Infer nullable map keys and map inherited generic slots correctly
-* Recognize attributed ThriftNullable contracts across inference and repair
-* Preserve Lombok NonNull annotations that generate runtime checks
-* Infer nullable fields assigned through Lombok generated builders
-* Analyze callback null flow and preserve argument evaluation order
-* Preserve receiving input contracts during nullability inference
-
 #### rewrite-prethink - 0.33.0
 
 * Expect PEP 440 requires-python for Poetry projects
-
-#### rewrite-primefaces - 0.6.0
-
-* Pin the PrimeFaces 15 upgrade to 15.0.19
-
-#### rewrite-program-analysis - 0.35.0
-
-* Add FindXPathInjection taint recipe (RSPEC-S2091)
-* Add FindCodeInjection taint recipe (RSPEC-S5334)
-* Remove type validation opt-outs from the injection tests
-
-#### rewrite-react - 0.24.0
-
-* Keep `useContext` when it has a type argument
-* Preserve valid JSX quoting in `ChangeComponentPropValue`
-* Bump @openrewrite/rewrite to 8.107.3 and update MUI import-order expectations
-
-#### rewrite-reactive-streams - 0.37.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-spring - 0.60.0
-
-* Add only one `clone()` to a migrated `RestTemplateBuilder` chain
-* Remove unneeded TypeValidation opt-outs and say why the rest are needed
-* Fix JsonFactoryBuilder type in MigrateJsonFactoryDecorator
-* Add FindComponentOutsideComponentScan (Sonar S4605)
-* Mark and remove spring-security-jwt in the Spring Security OAuth migration
-* Move PageableExecutionUtils for Spring Data 3.0
-* Replace SimpleJobLauncher for Spring Batch 5.0
-* Migrate older Spring Framework 5.3, 6.1 and 6.2 deprecations
-
-#### rewrite-static-analysis - 0.17.0
-
-* Narrow TypeValidation opt-outs to the checks that need them
-* Correct three opt-out comments in ReplaceConstantInterfaceWithClassTest
-* Add AnnotateSetUpAndTearDown recipe (RSPEC-S5826)
-* Add MakeFinalizeProtected recipe (RSPEC-S1174)
-* Add FindFinalizeOverload recipe (RSPEC-S1175)
-* Add FindNestedSwitch recipe (RSPEC-S1821)
-* Add CompareRemainderWithZero recipe (RSPEC-S2197)
-* Add FindCatchIllegalMonitorStateException recipe (RSPEC-S2235)
-* Add RemoveNonNullFromEqualsParameter recipe (RSPEC-S4454)
-
-#### rewrite-tapestry - 0.23.0
-
-* Narrow the type validation opt-outs
-
-#### rewrite-terraform - 3.32.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 ## November 14, 2026
 
@@ -754,10 +308,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Respect effective C# language versions in code quality recipes
 * RemoveRedundantEmptyLine - preserve blank lines after file-scoped namespaces
 * Share platform metadata references across migration tests
-
-#### recipes-go - 0.27.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### recipes-javascript - 0.18.0
 
@@ -782,10 +332,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Remove an unneeded type validation opt-out
 
-#### rewrite-android - 0.35.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-angular - 1.29.0
 
 * Apply text-based Material migrations only below their version
@@ -805,17 +351,9 @@ This changelog is automatically generated from GitHub releases and only contains
 * Promote preserveQueryParams from a search recipe to a transform
 * Move to rewrite 8.107.3 and accept its import order and indentation
 
-#### rewrite-circleci - 3.28.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-compiled-analysis - 0.31.0
 
 * Explain the type validation opt-out
-
-#### rewrite-concourse - 3.27.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-cryptography - 0.32.0
 
@@ -826,30 +364,14 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Repoint the Gradle 9 fix recipe at rewrite-migrate-gradle
 
-#### rewrite-dotnet - 0.33.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-dropwizard - 0.23.0
 
 * Narrow the type validation opt-outs
-
-#### rewrite-elastic - 0.24.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-hibernate - 0.45.0
 
 * Narrow TypeValidation opt-outs to the checks that need them
 * Remove the hibernate type validation opt-outs that had fixable causes
-
-#### rewrite-jasperreports - 0.22.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-application-server - 0.26.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-java-security - 3.58.0
 
@@ -864,24 +386,10 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Narrow TypeValidation opt-outs and say why
 
-#### rewrite-migrate-python - 0.31.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-nodejs - 0.67.0
 
 * Expect hpagent's replacement import where hpagent's was, as @openrewrite/rewrite 8.107.3 places it
 * GitHub advisories as of 2026-11-13T1848
-
-#### rewrite-nullability - 0.22.0
-
-* Annotate array references when collection entries or array rows can be null
-* Infer nullable map keys and map inherited generic slots correctly
-* Recognize attributed ThriftNullable contracts across inference and repair
-* Preserve Lombok NonNull annotations that generate runtime checks
-* Infer nullable fields assigned through Lombok generated builders
-* Analyze callback null flow and preserve argument evaluation order
-* Preserve receiving input contracts during nullability inference
 
 #### rewrite-prethink - 0.32.0
 
@@ -889,10 +397,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add Python schema migrations map
 * Find Python async misuse and inventory async usage
 * Simplify lambda blocks to expressions
-
-#### rewrite-primefaces - 0.5.0
-
-* Pin the PrimeFaces 15 upgrade to 15.0.19
 
 #### rewrite-program-analysis - 0.34.0
 
@@ -905,10 +409,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Keep `useContext` when it has a type argument
 * Preserve valid JSX quoting in `ChangeComponentPropValue`
 * Bump @openrewrite/rewrite to 8.107.3 and update MUI import-order expectations
-
-#### rewrite-reactive-streams - 0.36.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-spring - 0.59.0
 
@@ -937,10 +437,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Narrow the type validation opt-outs
 
-#### rewrite-terraform - 3.31.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 ## November 13, 2026
 
 #### recipes-csharp - 0.23.0
@@ -949,10 +445,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Avoid matching based on printed tree representations
 * Adopt C# SDK comment and identifier text helpers
 
-#### recipes-go - 0.26.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### recipes-javascript - 0.17.0
 
 * Add Express 4 to 5 migration recipe
@@ -960,74 +452,13 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add UpgradeToTypeScript6
 * Add recipes migrating lodash/underscore calls to native JavaScript
 
-#### recipes-kotlin - 0.20.0
-
-* Avoid textual LST comparisons in `BestPractices` and `Compose` search recipes
-* Upgrade Gradle wrapper to 9.9.1
-
-#### recipes-mainframe - 0.14.0
-
-* Document delivered mainframe vulnerability remediations
-
-#### recipes-scala - 0.20.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-ai - 0.19.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-android - 0.34.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-angular - 1.28.0
 
 * Add Angular Material migrations to `UpgradeToAngularN`
 
-#### rewrite-circleci - 3.27.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-compiled-analysis - 0.30.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-concourse - 3.26.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-cryptography - 0.31.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-devcenter - 1.47.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-dotnet - 0.32.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-dropwizard - 0.22.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-elastic - 0.23.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-hibernate - 0.44.0
 
 * Expect the nested Feature import after migrating a directly imported Feature
-
-#### rewrite-jasperreports - 0.21.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-application-server - 0.25.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-java-security - 3.57.0
 
@@ -1037,40 +468,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add FindUserControlledThreadSuspension (Sonar S6390)
 * Add FindIntentRedirection (Sonar S6384)
 
-#### rewrite-kafka - 0.22.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-kubernetes - 3.34.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-mainframe - 3.17.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-migrate-kotlin - 0.24.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-migrate-python - 0.30.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-nodejs - 0.66.0
 
 * Use `maybeBind` for CommonJS builtin bindings
 * Migrate AWS SDK for JavaScript v2 to v3
-
-#### rewrite-nullability - 0.21.0
-
-* Annotate array references when collection entries or array rows can be null
-* Infer nullable map keys and map inherited generic slots correctly
-* Recognize attributed ThriftNullable contracts across inference and repair
-* Preserve Lombok NonNull annotations that generate runtime checks
-* Infer nullable fields assigned through Lombok generated builders
-* Analyze callback null flow and preserve argument evaluation order
-* Preserve receiving input contracts during nullability inference
 
 #### rewrite-prethink - 0.31.0
 
@@ -1088,10 +489,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-primefaces - 0.4.0
 
 * Pin the PrimeFaces 15 upgrade to 15.0.19
-
-#### rewrite-program-analysis - 0.33.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-react - 0.22.0
 
@@ -1112,17 +509,9 @@ This changelog is automatically generated from GitHub releases and only contains
 * Document the Enzyme to React Testing Library recipe
 * Enzyme to RTL: the recipe description says which shared wrappers it converts
 
-#### rewrite-reactive-streams - 0.35.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-spring - 0.58.0
 
 * Repoint MigrateToGradle7/8 at rewrite-migrate-gradle
-
-#### rewrite-sql - 2.34.0
-
-* Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-static-analysis - 0.15.0
 
@@ -1133,19 +522,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add FindContradictoryLookahead recipe (RSPEC-S6002)
 * Add FindUnreachableAfterPossessiveQuantifier recipe (RSPEC-S5994)
 
-#### rewrite-struts - 0.44.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-tapestry - 0.21.0
-
-* Upgrade Gradle wrapper to 9.9.1
-* Give the code that three recipes write the types a parser gives it
-
-#### rewrite-terraform - 3.30.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 ## November 12, 2026
 
 #### recipes-csharp - 0.22.0
@@ -1153,113 +529,13 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add C# security recipes: secure random, security best practices, OWASP Top Ten
 * Run C# tests with `--blame`
 
-#### recipes-go - 0.25.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### recipes-javascript - 0.16.0
-
-* `RemoveUnconditionalValueOverwrite` - preserve property writes read by subsequent overwrite values
-* Use JsonPathMatcher in UI5 migration recipes
-* A few fixes to testing frameworks migration
-* Bump source-map-js from 1.2.1 to 1.2.2 in /recipes-testing-frameworks
-* Keep bracket access to private members and index signatures in `DotNotation` (G-rj-3)
-* Upgrade Gradle wrapper to 9.9.1
-* Pin recipes-ui5 to the released @openrewrite/rewrite 8.103.1
-
-#### recipes-kotlin - 0.19.0
-
-* Avoid textual LST comparisons in `BestPractices` and `Compose` search recipes
-* Upgrade Gradle wrapper to 9.9.1
-
-#### recipes-mainframe - 0.13.0
-
-* Document delivered mainframe vulnerability remediations
-
-#### recipes-scala - 0.19.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-ai - 0.18.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-android - 0.33.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-angular - 1.27.0
 
 * Rename imported members with `ChangeImport` alone
 
-#### rewrite-circleci - 3.26.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-compiled-analysis - 0.29.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-concourse - 3.25.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-cryptography - 0.30.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-devcenter - 1.46.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-dotnet - 0.31.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-elastic - 0.22.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-hibernate - 0.43.0
 
 * Drop the unused Hibernate7Module.Feature import from MigrateJacksonDatatypeHibernate6To7Test
-
-#### rewrite-jasperreports - 0.20.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-application-server - 0.24.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-java-security - 3.56.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-kafka - 0.21.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-kubernetes - 3.33.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-mainframe - 3.16.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-migrate-kotlin - 0.23.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-migrate-python - 0.29.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-nodejs - 0.65.0
-
-* Upgrade Gradle wrapper to 9.9.1
-* Evaluate the argument of `util.isObject` and `util.isPrimitive` once
 
 #### rewrite-nullability - 0.20.0
 
@@ -1286,15 +562,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Extract TypeScript DTO field schemas from NestJS classes and zod schemas
 * Export the data tables of TypeScript-authored recipes
 
-#### rewrite-primefaces - 0.3.0
-
-* Remove redundant build declarations and template leftovers
-* Trim the README to an overview, the recipe structure and how to run it
-
-#### rewrite-program-analysis - 0.32.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-react - 0.21.0
 
 * Move a store its entry source creates to a module of its own
@@ -1309,10 +576,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Enzyme to RTL: say what to write instead of the rest of Enzyme's wrapper methods and of dive
 * Redux to zustand: a held store's review rows say what to do about each use of react-redux they name
 
-#### rewrite-reactive-streams - 0.34.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-spring - 0.57.0
 
 * Find same-class calls that bypass `@Transactional` propagation
@@ -1324,10 +587,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add FindMisorderedHttpSecurityMatchers (Sonar S4601)
 * Add FindAsyncInConfigurationClass (Sonar S6817)
 
-#### rewrite-sql - 2.33.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 #### rewrite-static-analysis - 0.14.0
 
 * Add FindAssertionInRunMethod recipe (RSPEC-S2186)
@@ -1335,42 +594,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add FindNullFromMapCompute recipe (RSPEC-S6104)
 * Add FindIgnoredRecordSerializationMember recipe (RSPEC-S6209)
 
-#### rewrite-struts - 0.43.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-tapestry - 0.20.0
-
-* Upgrade Gradle wrapper to 9.9.1
-* Give the code that three recipes write the types a parser gives it
-
-#### rewrite-terraform - 3.29.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
 ## November 11, 2026
 
 #### recipes-csharp - 0.21.0
 
-* Upgrade Gradle wrapper to 9.9.1
-
-#### recipes-go - 0.24.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### recipes-javascript - 0.15.0
-
-* `RemoveUnconditionalValueOverwrite` - preserve property writes read by subsequent overwrite values
-* Use JsonPathMatcher in UI5 migration recipes
-* A few fixes to testing frameworks migration
-* Bump source-map-js from 1.2.1 to 1.2.2 in /recipes-testing-frameworks
-* Keep bracket access to private members and index signatures in `DotNotation` (G-rj-3)
-* Upgrade Gradle wrapper to 9.9.1
-* Pin recipes-ui5 to the released @openrewrite/rewrite 8.103.1
-
-#### recipes-kotlin - 0.18.0
-
-* Avoid textual LST comparisons in `BestPractices` and `Compose` search recipes
 * Upgrade Gradle wrapper to 9.9.1
 
 #### recipes-mainframe - 0.12.0
@@ -1382,19 +609,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Upgrade Gradle wrapper to 9.9.1
 
 #### rewrite-android - 0.32.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-angular - 1.26.0
-
-* Gate `RemoveZoneJsPolyfill` on zoneless change detection
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-circleci - 3.25.0
-
-* Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-compiled-analysis - 0.28.0
 
 * Upgrade Gradle wrapper to 9.9.1
 
@@ -1646,14 +860,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Upgrade Gradle wrapper to 9.9.1
 
-#### recipes-go - 0.22.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### recipes-go - 0.21.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### recipes-javascript - 0.14.0
 
 * `RemoveUnconditionalValueOverwrite` - preserve property writes read by subsequent overwrite values
@@ -1682,13 +888,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Avoid textual LST comparisons in `BestPractices` and `Compose` search recipes
 * Upgrade Gradle wrapper to 9.9.1
 
-#### recipes-kotlin - 0.16.0
-
-* Use constant-time comparison for proven Kotlin cryptographic byte arrays
-* Keep unknown helper results outside automatic crypto remediation
-* Pin conservative crypto heap proof and retain Kotlin negatives
-* Unpin rewrite-program-analysis and rewrite-go
-
 #### recipes-kotlin - 0.15.0
 
 * Use constant-time comparison for proven Kotlin cryptographic byte arrays
@@ -1700,176 +899,39 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Upgrade Gradle wrapper to 9.9.1
 
-#### recipes-mainframe - 0.10.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### recipes-mainframe - 0.9.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### recipes-scala - 0.17.0
-
-* Avoid text comparison of `Any` type in `PreferSpecificTypes`
-
 #### recipes-scala - 0.16.0
 
 * Avoid text comparison of `Any` type in `PreferSpecificTypes`
 
-#### recipes-scala - 0.15.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-ai - 0.16.0
 
 * Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-ai - 0.15.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-ai - 0.14.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-android - 0.31.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-android - 0.30.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-android - 0.29.0
-
-* Upgrade Gradle wrapper to 9.9.0
 
 #### rewrite-angular - 1.25.0
 
 * Gate `RemoveZoneJsPolyfill` on zoneless change detection
 * Upgrade Gradle wrapper to 9.9.1
 
-#### rewrite-angular - 1.24.0
-
-* Bump @openrewrite/rewrite to 8.99.1 and use its LST helpers
-* Bump @openrewrite/rewrite to 8.100.1 and use its JSON edit helpers
-* Upgrade Gradle wrapper to 9.9.0
-* Choose `static: true` for view queries read before change detection in `AddStaticFalseToViewQueries`
-
-#### rewrite-angular - 1.23.0
-
-* Bump @openrewrite/rewrite to 8.99.1 and use its LST helpers
-* Bump @openrewrite/rewrite to 8.100.1 and use its JSON edit helpers
-* Upgrade Gradle wrapper to 9.9.0
-* Choose `static: true` for view queries read before change detection in `AddStaticFalseToViewQueries`
-
 #### rewrite-circleci - 3.24.0
 
 * Upgrade Gradle wrapper to 9.9.1
 
-#### rewrite-circleci - 3.23.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-circleci - 3.22.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-compiled-analysis - 0.27.0
 
 * Upgrade Gradle wrapper to 9.9.1
-
-#### rewrite-compiled-analysis - 0.26.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-compiled-analysis - 0.25.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-concourse - 3.23.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-concourse - 3.22.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-concourse - 3.21.0
-
-* Upgrade Gradle wrapper to 9.9.0
 
 #### rewrite-cryptography - 0.28.0
 
 * Take the repositories the build plugin adds rather than declaring them again
 * Add Jasypt to AWS Secrets Manager migration
 
-#### rewrite-cryptography - 0.27.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-cryptography - 0.26.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-devcenter - 1.44.0
-
-* Count lines in lazy V3 source-file subclasses
-
-#### rewrite-devcenter - 1.43.0
-
-* Count lines in lazy V3 source-file subclasses
-
 #### rewrite-devcenter - 1.42.0
 
 * Count lines in lazy V3 source-file subclasses
 
-#### rewrite-dotnet - 0.29.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-dotnet - 0.28.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-dotnet - 0.27.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-dropwizard - 0.19.0
 
 * Avoid textual matching in `RemoveMethodsByPackage` and `DropwizardCallParser`
-
-#### rewrite-dropwizard - 0.18.0
-
-* Preserve required declarations during Spring migration cleanup
-* Make managed lifecycle annotation migration idempotent
-* Preserve Jetty servlet contexts during Spring Boot migration
-* Select the Spring Boot 3 parser resource for application templates
-* Preserve unsupported Ruby in the Java framework composite
-* Avoid type-name collisions when adding class annotations
-* Restrict datasource YAML migration to source-known configuration paths
-* Preserve imports that disambiguate wildcard member types
-* Retain Codahale metrics and health consumer contracts by default
-* Preserve externally reachable fields and initialization effects during cleanup
-* Preserve lifecycle registrations without proven Spring instance ownership
-* Add Lombok from configuration intent in the first migration cycle
-* Preserve Dropwizard test context and accessor contracts
-* Retain configured commands that need an explicit Boot bridge
-* Preserve Maven dependency management during the Spring Boot migration
-* Retain Dropwizard dependencies with Boot Maven management
-* Preserve Gradle dependency exclusions during Boot migration
-* Preserve Maven runtime management alongside retained Dropwizard
-* Gate test and actuator starters on Spring consumers
-* Preserve Mockito stubbing resets during Boot migration
-* Retain generic superclass override contracts
-* Preserve valid overrides with raw and bounded generic parameters
-* Preserve incompatible runtimes before adding Boot starters
-* Preserve legacy Dropwizard runtime components during Boot migration
-* Preserve explicit imports that disambiguate same-package types
-* Preserve Dropwizard host ownership during incremental Boot adoption
-* Migrate Dropwizard YAML factories and obsolete checked exceptions
-* Bridge Dropwizard servlet registration beans to reachable Spring startup
 
 #### rewrite-dropwizard - 0.17.0
 
@@ -1902,18 +964,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Migrate Dropwizard YAML factories and obsolete checked exceptions
 * Bridge Dropwizard servlet registration beans to reachable Spring startup
 
-#### rewrite-elastic - 0.20.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-elastic - 0.19.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-elastic - 0.18.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-hibernate - 0.41.0
 
 * Avoid textual type and column name handling in `MigrateRemovedUuidTypes` and `ReplaceHibernateWithJakartaAnnotations`
@@ -1928,18 +978,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Keep hibernate-commons-annotations when the module uses its types
 * Leave the version of a kept hibernate-commons-annotations declaration alone
 
-#### rewrite-jasperreports - 0.18.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-jasperreports - 0.17.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-jasperreports - 0.16.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-java-application-server - 0.22.0
 
 * Skip integration tests in CGP train builds until their Gradle builds can resolve the train's versions
@@ -1953,70 +991,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-java-application-server - 0.20.0
 
 * Upgrade to Gradle 9.9.0
-
-#### rewrite-java-security - 3.54.0
-
-* Inventory Semgrep and CodeQL remediation coverage by language
-* Keep internal issue links out of scanner inventory metadata
-* Document all 249 Ruby Scala and PHP SAST rule decisions
-* Integrate Go C# Ruby Scala and PHP scanner reviews
-* Audit bounded JVM SAST mappings with pinned source evidence
-* Audit 559 configuration-language SAST inventory rows
-* Use constant-time comparison for taint-proven digest and MAC bytes
-* Integrate JVM configuration reviews and validated Java remediation
-* Extend JVM SAST audit with whole-slice contracts and bounded search reuse
-* Join JVM finding contracts to the central SAST inventory
-* Find authentication header flows into nonconstant String comparisons
-* Finalize crypto public build validation and control evidence
-* Record validated Java header and Go SQL search subsets
-* Separate native rule triage from reviewed and executed coverage
-* Preserve native C# and Go evidence without inflating coverage
-* Audit complete JS/TS finding contracts and bounded recipe reuse
-* Integrate complete JS contracts and finished Python evidence
-* Record merged Kotlin subsets and finished JS configuration audit
-* Require proved call and heap origin for cryptographic comparison edits
-* Require proved header origins in timing comparison searches
-* Record final Go and C# audits and strict JVM acceptance evidence
-* Finalize Python audit evidence and native CGP train enrollment
-* Record C# await acceptance and completed Python audits
-* Add `overrideTransitive` and `maximumUpgradeDelta` to the NuGet `DependencyVulnerabilityCheck`
-* Record combined Go checks and the final publication gate
-* Resolve rewrite-program-analysis through rewriteVersion
-* Find secrets in JSON and XML files such as appsettings.json and web.config
-* Read the mirror test's versions from Google's copy of Central
-* GitHub advisories and endoflife.date data as of 2026-11-09T2138
-
-#### rewrite-java-security - 3.53.0
-
-* Inventory Semgrep and CodeQL remediation coverage by language
-* Keep internal issue links out of scanner inventory metadata
-* Document all 249 Ruby Scala and PHP SAST rule decisions
-* Integrate Go C# Ruby Scala and PHP scanner reviews
-* Audit bounded JVM SAST mappings with pinned source evidence
-* Audit 559 configuration-language SAST inventory rows
-* Use constant-time comparison for taint-proven digest and MAC bytes
-* Integrate JVM configuration reviews and validated Java remediation
-* Extend JVM SAST audit with whole-slice contracts and bounded search reuse
-* Join JVM finding contracts to the central SAST inventory
-* Find authentication header flows into nonconstant String comparisons
-* Finalize crypto public build validation and control evidence
-* Record validated Java header and Go SQL search subsets
-* Separate native rule triage from reviewed and executed coverage
-* Preserve native C# and Go evidence without inflating coverage
-* Audit complete JS/TS finding contracts and bounded recipe reuse
-* Integrate complete JS contracts and finished Python evidence
-* Record merged Kotlin subsets and finished JS configuration audit
-* Require proved call and heap origin for cryptographic comparison edits
-* Require proved header origins in timing comparison searches
-* Record final Go and C# audits and strict JVM acceptance evidence
-* Finalize Python audit evidence and native CGP train enrollment
-* Record C# await acceptance and completed Python audits
-* Add `overrideTransitive` and `maximumUpgradeDelta` to the NuGet `DependencyVulnerabilityCheck`
-* Record combined Go checks and the final publication gate
-* Resolve rewrite-program-analysis through rewriteVersion
-* Find secrets in JSON and XML files such as appsettings.json and web.config
-* Read the mirror test's versions from Google's copy of Central
-* GitHub advisories and endoflife.date data as of 2026-11-09T2138
 
 #### rewrite-java-security - 3.52.0
 
@@ -2050,74 +1024,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Read the mirror test's versions from Google's copy of Central
 * GitHub advisories and endoflife.date data as of 2026-11-09T2138
 
-#### rewrite-kafka - 0.19.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-kafka - 0.18.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-kafka - 0.17.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-kubernetes - 3.31.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-kubernetes - 3.30.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-kubernetes - 3.29.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-mainframe - 3.14.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-mainframe - 3.13.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-mainframe - 3.12.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-migrate-kotlin - 0.21.0
 
 * Take the repositories the build plugin adds rather than declaring them again
 * Avoid textual class name comparison in `AutoValueToDataClass`
-
-#### rewrite-migrate-kotlin - 0.20.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-migrate-kotlin - 0.19.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-migrate-python - 0.27.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-migrate-python - 0.26.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-migrate-python - 0.25.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-nodejs - 0.63.0
-
-* Add major-version upgrade recipes for 10 popular JS libraries
-* Add Vue, webpack, Vite and Cypress code recipes to the major-version upgrades
-* Fix major-upgrade recipes found broken on real repos; add Storybook 7 and 10 config recipes
-* GitHub advisories as of 2026-11-09T2138
-* Real-repo validation fixes: Storybook 7→10 config/MDX/addons, Fastify 4 marker, Svelte 4/Nest companions
 
 #### rewrite-nodejs - 0.62.0
 
@@ -2127,90 +1037,12 @@ This changelog is automatically generated from GitHub releases and only contains
 * GitHub advisories as of 2026-11-09T2138
 * Real-repo validation fixes: Storybook 7→10 config/MDX/addons, Fastify 4 marker, Svelte 4/Nest companions
 
-#### rewrite-nodejs - 0.61.0
-
-* Upgrade to @openrewrite/rewrite 8.99.1 and adopt its new LST helpers
-* Upgrade to @openrewrite/rewrite 8.100.1 and adopt its JSON edit helpers
-* Upgrade Gradle wrapper to 9.9.0
-* Recognize fs-extra callbacks by type, not by argument name
-
-#### rewrite-nullability - 0.18.0
-
-* Model library methods that never return null
-* Generate the library-model table at build time, importing IntelliJ's JDK annotations
-* Apply the nullability fixers to Java sources only
-* Build the assertion prototype without printing the wrapped expression's type
-* Emit Guava's checkNotNull only where the file already uses it, and qualify a shadowed assertion
-* Don't assert against the nullness defaults of the project's own declarations
-* Hoist a repeated nullable call only where hoisting keeps its evaluation and value
-* Stop deleting live null guards, fix field hoisting, and two index lifetime bugs
-* Declare the annotation libraries NullSafety imports
-* Require the nullability annotation modules in module-info.java
-* Leave a field that already declares its nullness to AddNullableToField
-* Narrow a value null-checked in an enclosing ternary, && or || condition
-* Annotate a qualified type on its simple name, not in the leading position
-* Count the constructors Lombok generates when deciding whether a field is initialized
-* Keep the hoisted local from clashing with any name in its member, and accept only null proofs that run
-* Narrow a value dereferenced earlier in the same expression
-* Narrow a local after a statement that dereferences it
-* Narrow a value after a negated instanceof early return
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-nullability - 0.17.0
-
-* Model library methods that never return null
-* Generate the library-model table at build time, importing IntelliJ's JDK annotations
-* Apply the nullability fixers to Java sources only
-* Build the assertion prototype without printing the wrapped expression's type
-* Emit Guava's checkNotNull only where the file already uses it, and qualify a shadowed assertion
-* Don't assert against the nullness defaults of the project's own declarations
-* Hoist a repeated nullable call only where hoisting keeps its evaluation and value
-* Stop deleting live null guards, fix field hoisting, and two index lifetime bugs
-* Declare the annotation libraries NullSafety imports
-* Require the nullability annotation modules in module-info.java
-* Leave a field that already declares its nullness to AddNullableToField
-* Narrow a value null-checked in an enclosing ternary, && or || condition
-* Annotate a qualified type on its simple name, not in the leading position
-* Count the constructors Lombok generates when deciding whether a field is initialized
-* Keep the hoisted local from clashing with any name in its member, and accept only null proofs that run
-* Narrow a value dereferenced earlier in the same expression
-* Narrow a local after a statement that dereferences it
-* Narrow a value after a negated instanceof early return
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-nullability - 0.16.0
-
-* Model library methods that never return null
-* Generate the library-model table at build time, importing IntelliJ's JDK annotations
-* Apply the nullability fixers to Java sources only
-* Build the assertion prototype without printing the wrapped expression's type
-* Emit Guava's checkNotNull only where the file already uses it, and qualify a shadowed assertion
-* Don't assert against the nullness defaults of the project's own declarations
-* Hoist a repeated nullable call only where hoisting keeps its evaluation and value
-* Stop deleting live null guards, fix field hoisting, and two index lifetime bugs
-* Declare the annotation libraries NullSafety imports
-* Require the nullability annotation modules in module-info.java
-* Leave a field that already declares its nullness to AddNullableToField
-* Narrow a value null-checked in an enclosing ternary, && or || condition
-* Annotate a qualified type on its simple name, not in the leading position
-* Count the constructors Lombok generates when deciding whether a field is initialized
-* Keep the hoisted local from clashing with any name in its member, and accept only null proofs that run
-* Narrow a value dereferenced earlier in the same expression
-* Narrow a local after a statement that dereferences it
-* Narrow a value after a negated instanceof early return
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-prethink - 0.28.0
 
 * Take the repositories the build plugin adds rather than declaring them again
 * Avoid `toString()` of imports and catch types in `ExtractCodingConventions` and `FindNodeErrorPatterns`
 * FindDotnetDataAssets - fix primitive property descriptors in .NET data assets
 * Add recipe-specific assertions for data table output
-
-#### rewrite-prethink - 0.27.0
-
-* Upgrade Gradle wrapper to 9.9.0
-* Keep class metrics separate for duplicate class names
 
 #### rewrite-prethink - 0.26.0
 
@@ -2317,18 +1149,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Convert a find within a positioned element only where Enzyme can't match the element itself
 * Convert selectors built from constant strings in templates
 
-#### rewrite-reactive-streams - 0.32.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-reactive-streams - 0.31.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-reactive-streams - 0.30.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-spring - 0.55.0
 
 * Avoid textual LST comparisons in `AddSpringBootApplication`, `FindWelcomeFileConfiguration` and `MigrateEndpointAnnotationAccessValueSpring34`
@@ -2404,18 +1224,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Keep `RestTemplate` where builder calls have no `RestClient.Builder` equivalent
 * Don't send a `null` body from migrated `RestClient` calls
 
-#### rewrite-sql - 2.31.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-sql - 2.30.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-sql - 2.29.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-static-analysis - 0.12.0
 
 * Add FindInfiniteLoop recipe (RSPEC-S2189)
@@ -2461,41 +1269,9 @@ This changelog is automatically generated from GitHub releases and only contains
 * Fix bounded numeric contracts (RSPEC-S9354, S9147, S4517)
 * Correct the C# NaN remediation mapping to include the Roslyn fixer
 
-#### rewrite-struts - 0.41.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-struts - 0.40.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-struts - 0.39.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
 #### rewrite-tapestry - 0.18.0
 
 * Avoid textual type matching in `RemoveObsoleteFormTypes` and `RemoveTapestryBaseClasses`
-
-#### rewrite-tapestry - 0.17.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-tapestry - 0.16.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-terraform - 3.27.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-terraform - 3.26.0
-
-* Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-terraform - 3.25.0
-
-* Upgrade Gradle wrapper to 9.9.0
 
 ## November 7, 2026
 
@@ -2606,10 +1382,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Upgrade Gradle wrapper to 9.9.0
 
-#### rewrite-java-application-server - 0.19.0
-
-* Remove test Java parsers the build plugin provides
-
 #### rewrite-java-security - 3.51.0
 
 * Run at most four tests at once, as the parallelism intends
@@ -2663,13 +1435,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Narrow a local after a statement that dereferences it
 * Narrow a value after a negated instanceof early return
 * Upgrade Gradle wrapper to 9.9.0
-
-#### rewrite-prethink - 0.25.0
-
-* Use Java 21 language features and APIs in tests
-* Keep the SQL recipes off prethink's own context files
-* Build on the plugin's default Java 25 toolchain
-* Replace deprecated Kotlin DSL container delegates
 
 #### rewrite-program-analysis - 0.27.0
 
@@ -2835,19 +1600,11 @@ This changelog is automatically generated from GitHub releases and only contains
 * Preserve bounded composite framework condition buckets
 * Require provider review for SQL Server Compact Framework migration
 
-#### recipes-go - 0.19.0
-
-* Bump rewrite-go to v0.0.43
-
 #### recipes-javascript - 0.10.0
 
 * Skip `CollapsibleIfStatements` when the inner if body is unbraced
 * `RemoveDuplicateConditions` - preserve duplicate conditions when evaluation may have side effects
 * Fix NoDuplicates crash when merging an empty import block with a default import
-
-#### recipes-kotlin - 0.13.0
-
-* Build and test on the plugin's default Java 25 toolchain
 
 #### recipes-mainframe - 0.7.0
 
@@ -2861,34 +1618,9 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Remove test Java parsers the build plugin provides
 
-#### rewrite-android - 0.27.0
-
-* Keep the Android Gradle Plugin 4 fixture on Gradle 8.14.5
-
-#### rewrite-angular - 1.21.0
-
-* Read `JS.Alias` property names that are string literals in `FindAngularComponent` (G-angular-7)
-* Read string-literal import names in `ReplaceAngularHttpImports`
-* Upgrade Angular dependency groups atomically and preserve usable project config
-
 #### rewrite-compiled-analysis - 0.23.0
 
 * Remove test Java parsers the build plugin provides
-
-#### rewrite-devcenter - 1.40.0
-
-* Ask for JDK 25 in .sdkmanrc, matching the build plugin's toolchain
-* Measure a Node.js engines range by the lowest release it admits
-* Measure the Quarkus card by quarkus-core
-* Load declarative recipes in tests with recipeFromResources
-* Report a Kotlin version only for repositories with Kotlin sources
-* Measure pre-release versions by their numbers instead of counting them as completed
-* Add vulnerability DevCenter cards per package ecosystem
-* Recognize OS-specific target frameworks in CSharpVersionUpgrade
-
-#### rewrite-dropwizard - 0.15.0
-
-* Fix AddSpringBootTestForDropwizardAppExtensionTest on the JDK 25 test toolchain
 
 #### rewrite-elastic - 0.16.0
 
@@ -2916,51 +1648,9 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Remove test Java parsers the build plugin provides
 
-#### rewrite-mainframe - 3.10.0
-
-* Replace deprecated Kotlin DSL container delegates
-* Read a copybook kept under a program's extension
-* Read a CICS condition or CVDA name that is also a COBOL keyword
-* Read the ENTER statement
-* Pair a host variable with its null indicator in INSERT VALUES and UPDATE SET
-* Visit the words of a CBL or PROCESS statement
-* Read the DSNTEP2 input GenevaERS Workbench keeps its schema in
-* Read a primary key declared on its column
-
-#### rewrite-migrate-kotlin - 0.17.0
-
-* Build and test on the plugin's default Java 25 toolchain
-* Replace deprecated Kotlin DSL container delegates
-* OpenRewrite recipe best practices
-
-#### rewrite-migrate-python - 0.23.0
-
-* Replace deprecated Kotlin DSL container delegates
-* Keep utcnow() and utcfromtimestamp() replacements naive
-* Replace pipes.quote() with shlex.quote() in the 3.13 upgrade
-* Add the missing `assert_` prefix to mock assertions in the 3.12 upgrade
-
-#### rewrite-nodejs - 0.59.0
-
-* Skip blank resolved dependencies in DependencyVulnerabilityCheck
-* GitHub advisories as of 2026-11-02T0923
-* Format test classes with the 2-space continuation indent from .editorconfig
-* Expect the source-map-support test's virtual path resolved as on the running OS
-* Add Upgrade to Node.js 18 recipe
-* Expect export {} where a recipe removes a TypeScript module's last import
-* Adapt to @openrewrite/rewrite 8.97.1 string-literal module export names
-* GitHub advisories as of 2026-11-03T2241
-
 #### rewrite-nullability - 0.14.0
 
 * Remove test Java parsers the build plugin provides
-
-#### rewrite-prethink - 0.24.0
-
-* Use Java 21 language features and APIs in tests
-* Keep the SQL recipes off prethink's own context files
-* Build on the plugin's default Java 25 toolchain
-* Replace deprecated Kotlin DSL container delegates
 
 #### rewrite-program-analysis - 0.26.0
 
@@ -2973,11 +1663,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add Enzyme inventory and a conservative RTL migration prototype
 * Add a Create React App to Vite migration recipe
 * Add per-major React upgrade steps (16→17, 17→18, 18→19)
-
-#### rewrite-reactive-streams - 0.28.0
-
-* Constrain guava past CVE-2026-102554
-* OpenRewrite recipe best practices
 
 #### rewrite-spring - 0.51.0
 
@@ -3080,258 +1765,13 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Bump rewrite-go to v0.0.43
 
-#### recipes-go - 0.18.0
-
-* Keep the method type a call in a retryer value was parsed with
-* Replace deprecated Kotlin DSL container delegates
-
-#### recipes-javascript - 0.9.0
-
-* Merge all identical branches of a chain in one run in MergeIdenticalBranches
-* Skip `AllBranchesIdentical` when a condition has side effects or a branch is unbraced
-* Bump vite from 8.2.2 to 8.3.5 in /recipes-ui5
-* Bump nanoid from 3.3.12 to 3.3.19 in /recipes-code-quality
-* Replace deprecated Kotlin DSL container delegates
-* Await `vi.importActual` in mock factories that spread `jest.requireActual`
-* Move a Jest project's configuration, scripts and dependencies to Vitest in `JestToVitest`
-* Keep Jest tests meaning the same under Vitest in `JestTestsToVitest`
-* Adapt to recent changes in rewrite-javascript
-
-#### recipes-kotlin - 0.12.0
-
-* Build and test on the plugin's default Java 25 toolchain
-
-#### recipes-mainframe - 0.6.0
-
-* Keep declaration analysis compatible with older parser runtimes
-* Detect COMMAREA overreads in bounded STRING transfers
-* Resolve DataItems references through DataName
-* Prove COMMAREA reads across native CALL boundaries
-* Read each EXEC statement's single line after moderneinc/rewrite-mainframe#271
-* Drop the handling of several EXEC blocks in one statement
-* Resolve EXEC CICS and DL/I operands from their words
-* Share each security analysis between its Find, Analyze and Propose recipes
-* Use Java 21 language features and APIs in tests
-* Fix wrong answers from FindUnreachableProcedures, FindDeadData and FindResourceCrud
-* Expect ORIGIN_NOT_CLASSIFIED for VSQRLATE's WRITEQ after its READQ
-* Follow the branches EXEC SQL WHENEVER adds to the SQL statements after it
-* Prove native CALL entry MOVE and STRING reads
-* Verify evidence at SQL and TSQ command barriers
-* Prove UNSTRING bounds with constant delimiter lists
-* Prove native CALL reads after local initialization
-* Know nothing on arriving through a CICS HANDLE branch or at an ENTRY point
-* Follow a group move and a REDEFINES to the bytes a field occupies
-* Read the key a file statement looks a record up by, and correct the manual's CLAIMS figures
-* Propose full-record COMMAREA guards before native calls
-* Fix FindDeadData verdicts that GnuCOBOL's cross-reference listing contradicts
-* Propose approved exits after failed validation checks
-* Propose capacity guards before output table appends
-* Propose initialized partial COMMAREA copies
-* Propose complete Db2 duplicate precheck keys
-* Reuse existing TSQ validation before saved-record use
-* Discover CICS read repairs from reusable resource policies
-* Discover UPDATE result repairs from reusable table policies
-* Discover and prove table append capacity guards
-* Discover and prove exits after failed checks
-* Take a file's key and records from the program naming it, and read FILE-CONTROL in one place
-* Discover and prove payload content-length corrections
-* Discover partial COMMAREA copies and preserve validated byte flow
-* Discover routing character guards across CALL and CICS
-* Discover public DISPLAY traces from reusable classification policies
-* Discover saved-record validation from reusable queue policies
-* Discover Db2 duplicate prechecks from reusable table policies
-* Discover Db2 version predicates and current timestamp hosts
-* Discover current authorization identity repairs from reusable interfaces
-* Discover authorization allow guards from reusable contracts
-* Discover forced authorization resets with concrete continuation proofs
-* Discover Db2 authorization repairs from reusable table contracts
-* Discover INSERT response and SELECT output guards with COPY proofs
-* Discover called providers and surviving version predicates
-* Discover complete cross-task version proof chains
-* Discover approved TSQ read capacity limits
-* Discover incoming access length guards from reusable policies
-* Compare fields under a shared table within one occurrence of it
-* Place a group move between table entries one occurrence at a time
-* Make the source path and program optional on the Find and Analyze security recipes
-* Pin the corpus the corpus tests read
-* Keep a COPY on a program's last line apart from what it copies
-
-#### rewrite-android - 0.26.0
-
-* Keep the Android Gradle Plugin 4 fixture on Gradle 8.14.5
-
-#### rewrite-angular - 1.20.0
-
-* Read `JS.Alias` property names that are string literals in `FindAngularComponent` (G-angular-7)
-* Read string-literal import names in `ReplaceAngularHttpImports`
-* Upgrade Angular dependency groups atomically and preserve usable project config
-
-#### rewrite-compiled-analysis - 0.22.0
-
-* Leave the choice of Java parser to the application running the recipes
-
-#### rewrite-devcenter - 1.39.0
-
-* Ask for JDK 25 in .sdkmanrc, matching the build plugin's toolchain
-* Measure a Node.js engines range by the lowest release it admits
-* Measure the Quarkus card by quarkus-core
-* Load declarative recipes in tests with recipeFromResources
-* Report a Kotlin version only for repositories with Kotlin sources
-* Measure pre-release versions by their numbers instead of counting them as completed
-* Add vulnerability DevCenter cards per package ecosystem
-* Recognize OS-specific target frameworks in CSharpVersionUpgrade
-
-#### rewrite-dropwizard - 0.14.0
-
-* Fix AddSpringBootTestForDropwizardAppExtensionTest on the JDK 25 test toolchain
-
-#### rewrite-elastic - 0.15.0
-
-* Rename the remaining result() and valueBody() response accessors for Elasticsearch 9
-
 #### rewrite-hibernate - 0.36.0
 
 * Constrain guava past CVE-2026-102554
 
-#### rewrite-java-application-server - 0.17.0
-
-* Replace deprecated Kotlin DSL container delegates
-* OpenRewrite recipe best practices
-
-#### rewrite-java-security - 3.49.0
-
-* GitHub advisories and endoflife.date data as of 2026-11-02T0923
-* Merge CVE-2026-22732 recipes from rewrite-cve-2026-22732
-* Expect Gradle 9's dependency graphs in Gradle vulnerability tests
-* Add `none` version selection to the NuGet `DependencyVulnerabilityCheck`
-* GitHub advisories and endoflife.date data as of 2026-11-03T2241
-* Replace deprecated Kotlin DSL container delegates
-
-#### rewrite-kafka - 0.14.0
-
-* Only migrate the Config that flows into alterConfigs, and match pre-2.4 AdminClient
-* Migrate `KStream.branch()` to `KStream.split()`
-* Add Kafka 4.2, 4.3 and 4.4 migrations
-* Migrate `Consumer` varargs `TopicPartition` methods to take a `Collection`
-* Only migrate UncaughtExceptionHandlers that are handed to KafkaStreams
-* Only migrate Kafka Streams retry configuration to task.timeout.ms
-* Use Kafka's Scala 2.13 artifacts, and leave Java upgrades to rewrite-migrate-java
-* Migrate poll, committed and close through the client interfaces
-* Migrate `MockProducer` and `ConsumerRecord` constructors removed in Kafka 4.0
-* Migrate more of what Kafka 4.0 removed: Admin, Streams windows, broker and MirrorMaker config
-* Migrate KStreamBuilder and TopologyBuilder, removed in Kafka 2.0
-* Migrate `StreamsConfig` constants removed in Kafka 2.0
-* Apply OpenRewrite recipe best practices
-
-#### rewrite-mainframe - 3.9.0
-
-* Replace deprecated Kotlin DSL container delegates
-* Read a copybook kept under a program's extension
-* Read a CICS condition or CVDA name that is also a COBOL keyword
-* Read the ENTER statement
-* Pair a host variable with its null indicator in INSERT VALUES and UPDATE SET
-* Visit the words of a CBL or PROCESS statement
-* Read the DSNTEP2 input GenevaERS Workbench keeps its schema in
-* Read a primary key declared on its column
-
-#### rewrite-migrate-kotlin - 0.16.0
-
-* Build and test on the plugin's default Java 25 toolchain
-* Replace deprecated Kotlin DSL container delegates
-* OpenRewrite recipe best practices
-
-#### rewrite-migrate-python - 0.22.0
-
-* Replace deprecated Kotlin DSL container delegates
-* Keep utcnow() and utcfromtimestamp() replacements naive
-* Replace pipes.quote() with shlex.quote() in the 3.13 upgrade
-* Add the missing `assert_` prefix to mock assertions in the 3.12 upgrade
-
-#### rewrite-nodejs - 0.58.0
-
-* Skip blank resolved dependencies in DependencyVulnerabilityCheck
-* GitHub advisories as of 2026-11-02T0923
-* Format test classes with the 2-space continuation indent from .editorconfig
-* Expect the source-map-support test's virtual path resolved as on the running OS
-* Add Upgrade to Node.js 18 recipe
-* Expect export {} where a recipe removes a TypeScript module's last import
-* Adapt to @openrewrite/rewrite 8.97.1 string-literal module export names
-* GitHub advisories as of 2026-11-03T2241
-
-#### rewrite-nullability - 0.13.0
-
-* Replace deprecated Kotlin DSL container delegates
-* OpenRewrite recipe best practices
-* Keep the shared nullability index in the ScanningRecipe accumulator, not the ExecutionContext
-
-#### rewrite-prethink - 0.23.0
-
-* Use Java 21 language features and APIs in tests
-* Keep the SQL recipes off prethink's own context files
-* Build on the plugin's default Java 25 toolchain
-* Replace deprecated Kotlin DSL container delegates
-
-#### rewrite-program-analysis - 0.25.0
-
-* OpenRewrite recipe best practices
-
-#### rewrite-react - 0.14.0
-
-* Keep displayName, comments and layout in CreateClassToES6, and fix PureRenderMixin's prefix
-* Add `review-react-recipe-pr` skill for self-reviewing recipe changes
-* Replace README recipe tables with a link to the recipe catalog (P4)
-* Remove unused import and redundant comments in react16 recipes
-* Remove stray `test-simple.ts` and `debug-import.ts` (P3 of #51)
-* Skip vendored sources and gate type-dependent recipes with `check` (B1 of #51)
-* Read `JS.Alias` property names that are string literals
-* Lock tmp at 0.2.7 for CVE-2026-44705
-* Bump @openrewrite/rewrite to 8.97.1
-
-#### rewrite-reactive-streams - 0.27.0
-
-* Constrain guava past CVE-2026-102554
-* OpenRewrite recipe best practices
-
-#### rewrite-spring - 0.50.0
-
-* Migrate removed `LastModified` support for Spring Framework 7
-* Skip Kotlin sources and optional autowired fields in FieldToConstructorInjection
-* Migrate `spring-security-rsa` to `spring-security-crypto`
-* Send an `HttpEntity` request as headers and body when migrating `RestTemplate` to `RestClient`
-* Disambiguate `null` headers in `HttpEntity` constructors for Spring Framework 7
-* Leave `RestTemplate` alone where `RestClient` cannot stand in for it
-* Chain the Moderne Spring Framework 6.0 migration from Spring Boot 3.0
-* Prevent duplicate ResponseErrorHandler methods in Boot 4 migration
-* Migrate Jetty EE10 to EE11 for Spring Boot 4.0
-* Replace `WebContentGenerator#checkAndPrepare` with its delegates
-* Rename `RedisConnectionDetails` and the other Redis types Spring Boot 4 prefixed with `Data`
-* Rename `@JsonComponent` and the other Boot Jackson support types when adopting Jackson 3
-* Fix tests that fail on the Java 25 test toolchain
-* Relocate Spring Boot types that are only statically imported
-* Move `OAuth2AuthorizationServerConfiguration` to the package Spring Security 7 has it in
-* Replace deprecated Kotlin DSL container delegates
-* Remove `RequestMappingHandlerMapping` path options that restate the default
-* Replace `GenericJackson2JsonRedisSerializer` constructors without an `ObjectMapper` with the builder
-* Leave `requiresChannel` alone where `redirectToHttps` cannot stand in for it
-* Migrate `HttpHeaders#addIfAbsent` and `writableHttpHeaders` for Spring Framework 7
-* Add `spring-web` where `spring-boot-starter-json` brought it in
-* Constrain guava past CVE-2026-102554
-* Run the Kafka 4.2 and 4.4 migrations as part of Spring Boot 4.1 and 4.2
-* [Auto] Spring Boot modular starter table as of 2026-11-03T1107
-* Make `FieldToConstructorInjection` thread-safe
-
-#### rewrite-sql - 2.26.0
-
-* Skip Moderne's own context files in the SQL anti-pattern rules
-* OpenRewrite recipe best practices
-
 #### rewrite-static-analysis - 0.7.0
 
 * Fix escape analysis of locals in initializer blocks
-
-#### rewrite-tapestry - 0.13.0
-
-* Expect the newest Tapestry 5.9 patch in UpdateTapestryDependenciesTest
 
 ## November 4, 2026
 
@@ -3638,17 +2078,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Replace pipes.quote() with shlex.quote() in the 3.13 upgrade
 * Add the missing `assert_` prefix to mock assertions in the 3.12 upgrade
 
-#### rewrite-nodejs - 0.57.0
-
-* Skip blank resolved dependencies in DependencyVulnerabilityCheck
-* GitHub advisories as of 2026-11-02T0923
-* Format test classes with the 2-space continuation indent from .editorconfig
-* Expect the source-map-support test's virtual path resolved as on the running OS
-* Add Upgrade to Node.js 18 recipe
-* Expect export {} where a recipe removes a TypeScript module's last import
-* Adapt to @openrewrite/rewrite 8.97.1 string-literal module export names
-* GitHub advisories as of 2026-11-03T2241
-
 #### rewrite-nodejs - 0.56.1
 
 * Skip blank resolved dependencies in DependencyVulnerabilityCheck
@@ -3739,10 +2168,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Preserve Vector ensureCapacity iterator invalidation
 * Preserve Stack underflow catches around lambdas
 * Preserve Vector bounds catches in initializer blocks
-
-#### rewrite-tapestry - 0.12.0
-
-* Expect the newest Tapestry 5.9 patch in UpdateTapestryDependenciesTest
 
 ## November 2, 2026
 
@@ -4190,14 +2615,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## October 28, 2026
 
-#### recipes-csharp - 0.12.0
-
-* Report AddNuGetPackageReferenceIfTypeUsed option error once, not per file
-* Remove matched C# calls instead of delegating RemoveMethodInvocations
-* Stop publishing the empty Maven artifact
-* Read referenced projects from MSBuildProject.ProjectReferences
-* Upgrade to Gradle 9.8.2
-
 #### recipes-go - 0.15.0
 
 * Bump rewrite-go to v0.0.40
@@ -4207,72 +2624,14 @@ This changelog is automatically generated from GitHub releases and only contains
 * Type-check test sources as part of `npm test` and `ci:test`
 * Fix unsafe relational inversion in `BooleanChecksNotInverted`
 
-#### recipes-kotlin - 0.9.0
-
-* Add recipes.csv
-
 #### recipes-mainframe - 0.3.0
 
 * Apply OpenRewrite recipe best practices
-
-#### rewrite-compiled-analysis - 0.19.0
-
-* Opt breaksParsing test out of parser-shaped tree validation
-* Compare types with TypeUtils.isOfType instead of JavaType.equals
-
-#### rewrite-cryptography - 0.20.0
-
-* Move BouncyCastle test jars to a test type table
 
 #### rewrite-devcenter - 1.36.0
 
 * Rename BuildToolCard's fixRecipeId option to upgradeRecipe
 * Drop the fixRecipeId alias from BuildToolCard
-
-#### rewrite-dotnet - 0.21.0
-
-* Upgrade to Gradle 9.8.2
-
-#### rewrite-dropwizard - 0.11.0
-
-* Move test-only parser dependencies to type tables
-* Preserve valid overrides after removing a superclass
-* Type Health in the Result.healthy/unhealthy replacement templates
-
-#### rewrite-elastic - 0.12.0
-
-* Compare types with TypeUtils.isOfType instead of JavaType.equals
-
-#### rewrite-hibernate - 0.33.0
-
-* Move test-only parser dependencies to type tables
-
-#### rewrite-java-security - 3.46.0
-
-* Keep DES/DESede key sizes and infer the floor from key size when the …
-* Move test-only parser jars to the test type table
-* Compare versions with core's Version now that rewrite-java-dependencies dropped its internal parser
-
-#### rewrite-mainframe - 3.6.0
-
-* Share copybook trees and copied-word markers, so a COBOL LST takes 42% less heap
-
-#### rewrite-migrate-kotlin - 0.13.0
-
-* Parse Exposed 0.x test sources from a test type table instead of jars
-
-#### rewrite-migrate-python - 0.19.0
-
-* Python: prepare recipes for OpenRewrite 8.94
-* Fix recipe bugs found by cross-checking the Python recipe skill, and correct the skill
-
-#### rewrite-nodejs - 0.55.0
-
-* Replace `SlowBuffer` and the `fs` access constants in UpgradeNode26, since Node.js 25 removed both
-
-#### rewrite-nullability - 0.10.0
-
-* Resolve template parser classpath from the type table
 
 #### rewrite-prethink - 0.20.0
 
@@ -4284,15 +2643,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Collect same-CU invocation method metadata candidates
 * Use the element returned by singleElement() instead of re-fetching it
 * Collect coding conventions in a per-run scanning accumulator
-
-#### rewrite-program-analysis - 0.22.0
-
-* Compare types with TypeUtils.isOfType instead of JavaType.equals
-* Move test parser jars to a test type table
-
-#### rewrite-reactive-streams - 0.24.0
-
-* Move test-only parser dependencies to type tables
 
 #### rewrite-spring - 0.47.0
 
@@ -4312,21 +2662,11 @@ This changelog is automatically generated from GitHub releases and only contains
 * Convert Oracle `LONG RAW` and `FLOAT(p)` when migrating to Postgres
 * Group no-change tests into nested `NoChange` classes
 
-#### rewrite-static-analysis - 0.4.0
-
-* Add io.moderne.java.staticanalysis.CommonStaticAnalysis, which runs the proprietary remediations and then the open source CommonStaticAnalysis
-* Name the Java recipes io.moderne.staticanalysis, as the open source ones are named org.openrewrite.staticanalysis, so that both are in one category, and say that CommonStaticAnalysis builds on the open source one
-* Remove the Python recipes, which moved to rewrite-migrate-python, with the build and publishing of their package, openrewrite-static-analysis
-
 #### rewrite-static-analysis - 0.3.1
 
 * Add io.moderne.java.staticanalysis.CommonStaticAnalysis, which runs the proprietary remediations and then the open source CommonStaticAnalysis
 * Name the Java recipes io.moderne.staticanalysis, as the open source ones are named org.openrewrite.staticanalysis, so that both are in one category, and say that CommonStaticAnalysis builds on the open source one
 * Remove the Python recipes, which moved to rewrite-migrate-python, with the build and publishing of their package, openrewrite-static-analysis
-
-#### rewrite-struts - 0.33.0
-
-* Move test-only parser dependencies to type tables
 
 ## October 27, 2026
 
