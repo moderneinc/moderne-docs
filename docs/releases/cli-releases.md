@@ -15,6 +15,47 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## November 2026
 
+### CLI v4.12.11 (2026-11-19) {/* #v4.12.11 */}
+
+_Based on [OpenRewrite 8.112.3](https://github.com/openrewrite/rewrite/releases/tag/v8.112.3)_
+
+#### What's Changed
+* Speak Bazel's protobuf worker protocol, so workers run under remote execution
+* Keep a file shared by two Bazel targets of one package in the LST once
+* Build Bazel Python workspaces that failed or mis-parsed in the wild
+* Harvest only the Bazel outputs this build produced
+* Pass unquoted arguments when the shell is the executable, and expect #5195's partition failures
+* Test that an incremental Bazel Python build only rebuilds the changed targets
+* Build Bazel 8+ Bzlmod roots that do not declare rules_java
+* Copilot sessions take messages, and attach to, resume and close sessions on changesets
+* Harvest each Bazel label's source set from one output, preferring the build's own configuration
+* Bazel: type a mixed Java+Kotlin target's languages against each other
+* Keep Bazel-generated sources out of the LST, without losing their types
+* Keep a negated repo:/branch: filter from emptying trigrep results
+* Clear ANDROID_HOME after the nightly deletes the Android SDK
+* Test that removing rows from a repos.csv deletes only their repositories
+* Restore Gradle build-script types on rewrite 8.110.0
+* Build the Go indexing test against rewrite-go 8.110.1
+* Record the organization an agent session works on in its trace
+* Read the launcher's version from its own jar, not the classloader
+* Keep existing settings when mod wrapper rewrites moderne-wrapper.properties
+* Keep Spring dependency management and build file data in Gradle LSTs
+* Cascade drops in migrations replayed on the embedded Postgres
+* Expand brace and ';'-separated globs in the MCP grep tool
+* Use HTTPS when upgrading legacy Gradle wrappers
+* Mask secret recipe options wherever a run displays, stores or exports them
+* Build legacy Maven projects with a supported installed Maven
+* Handle other official Gradle distribution hosts when upgrading old wrappers
+* Restore old Gradle wrappers after LST prebuilds
+* Package shaded reactor dependencies before Java compilation
+* Preserve Java enum types in mixed Java and Groovy builds
+* Retry old plugins missing Plexus utilities with Maven 3.8.9
+* Select wrapperless Gradle by the project Java generation
+* Resolve compatibility Maven distributions through configured repositories
+* Use non-deprecated J.MethodDeclaration constructor in JavaScript symbol test
+* Upgrade Gradle wrapper to 9.9.1
+* Prune Gradle feature scans and preserve the first failed promotion
+
 ### CLI v4.12.10 (2026-11-15) {/* #v4.12.10 */}
 
 _Based on [OpenRewrite 8.108.1](https://github.com/openrewrite/rewrite/releases/tag/v8.108.1)_
