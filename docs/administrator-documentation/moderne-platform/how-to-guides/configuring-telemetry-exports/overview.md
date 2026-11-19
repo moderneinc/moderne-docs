@@ -15,7 +15,7 @@ Moderne emits structured usage telemetry for every recipe run, build, and commit
 
 Moderne produces a single, uniform trace schema regardless of where the command ran. Each completed command writes one row to a `trace.csv`. Rows include only command metadata: repository identifiers, timings, tool versions, outcomes, and the user's git email. No source code, no recipe output, and no LST contents are emitted.
 
-A few columns record more than command metadata:
+A few commands record values that could contain sensitive data:
 
 * `mod exec` records the command line it ran (`execCommand`) and the directory it ran in (`execExecutionDirectory`). If you don't want credentials captured in telemetry, pass them to `mod exec` through environment variables instead of as command arguments.
 * `mod <agent> chat` records the session's initial prompt (`agentPrompt`).
