@@ -30,6 +30,10 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Avoid commonPool for the Gradle server build and fail fast when the server exits
 
+#### rewrite-java-security - 3.63.1
+
+* Add Java4Shell CVE-2026-114938 triage and remediation recipes
+
 #### rewrite-java-security - 3.63.0
 
 * Use Java 25 features in tests
