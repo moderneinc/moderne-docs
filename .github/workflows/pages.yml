@@ -3,7 +3,7 @@ name: Deploy Moderne docs to Pages
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["Update docs", "Update CLI release notes"]
+    workflows: ["Update docs", "Update CLI release notes", "Update Proprietary Recipe Release Notes"]
     types:
       - completed
   push:
