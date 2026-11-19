@@ -18,6 +18,27 @@ Monthly roundup of changes across Moderne, newest first. Version-level detail is
 <WhatsNewMonth label="November 2026">
 
 <WhatsNewEntry
+  product="moderne"
+  kind="Security"
+  title="Find and fix Java4Shell (CVE-2026-114938)"
+  links={[
+    { label: 'Find Java4Shell exposure recipe', to: 'https://codegenomeproject.org/recipes/org.openrewrite.java.security.cve2026114938.FindJava4ShellExposure' },
+    { label: 'Remediate Java4Shell recipe', to: 'https://codegenomeproject.org/recipes/org.openrewrite.java.security.cve2026114938.RemediateJava4Shell' },
+  ]}
+>
+
+Java4Shell is a flaw in the JVM's own Base64 decoder. It affects Java 17.0.6 and later on x86-64 servers with AVX-512 VBMI. The bug is in the runtime, not a library, so dependency scanners that only check your build configuration won't catch it.
+
+Two new composite recipes in `rewrite-java-security` 3.63.1 can help:
+
+* **Find Java4Shell exposure** shows where your code decodes Base64 and marks the calls that take HTTP request input. It also finds the JDKs your code was built with and the container images that may be affected.
+* **Remediate Java4Shell** upgrades Amazon Corretto images from Docker Hub to patched builds. For common OpenJDK images, like Temurin and Zulu, it adds a temporary JVM flag until you can patch.
+
+If you build on your own internal images, you will need to update those yourself, or ask `mod <agent> chat` to write a recipe for them. Either way, rebuild, restart, and confirm you're running the fixed build.
+
+</WhatsNewEntry>
+
+<WhatsNewEntry
   product="platform"
   kind="Feature"
   title="See your agents' work in the activity view"
