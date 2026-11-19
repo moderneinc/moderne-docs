@@ -22,7 +22,7 @@ Every command except `init` will read the `moderne.yml` file in your current dir
 | Command                                  | What it does                                                                                     |
 |------------------------------------------|--------------------------------------------------------------------------------------------------|
 | `java -jar moderne-dx.jar init [<dir>]`  | Creates `moderne.yml`, `moderne.env` (with a new SCM token key), and a systemd unit file. It won't overwrite any of these files if they already exist. If the Moderne CLI on this machine has your license key, CGP username, or CGP token, the new `moderne.yml` will read them from the CLI. |
-| `java -jar moderne-dx.jar doctor`        | Checks that DX has what it needs to start. This includes your `moderne.yml` settings, Java, the Moderne CLI, disk space, your certificate, and your organization sources. If DX is running, it will also check each of DX's names through the proxy. |
+| `java -jar moderne-dx.jar doctor`        | Checks that DX has what it needs to start. This includes your `moderne.yml` settings, Java, the Moderne CLI, disk space, your certificate, and your organization sources. If DX is running, it will also check each of DX's host names through the proxy. |
 | `java -jar moderne-dx.jar start`         | Starts DX in the foreground. It will keep every service running until DX stops.                  |
 | `java -jar moderne-dx.jar status`        | Tells you whether DX is running and which services are up.                                       |
 | `java -jar moderne-dx.jar stop`          | Stops DX if it's running.                                                                        |
@@ -38,40 +38,40 @@ Every command except `init` will read the `moderne.yml` file in your current dir
 
 The `moderne.dx.routes` setting controls [how people reach DX](../how-to-guides/configuring-dns-for-dx.md). You'll need to configure exactly one route.
 
-Regardless of which route you pick, people will reach DX through four host names that all use the same port. For example, if your host is `acme.moderne.direct`, the four names will be:
+Regardless of which route you pick, people will reach DX through four host names that all use the same port. For example, if your host is `acme.moderne.direct`, the four host names will be:
 
-| Name                         | What you'll find there      |
+| Host name                    | What you'll find there      |
 |------------------------------|-----------------------------|
 | `acme.moderne.direct`        | The UI                      |
 | `api.acme.moderne.direct`    | The API                     |
 | `login.acme.moderne.direct`  | The sign-in page (Keycloak) |
 | `status.acme.moderne.direct` | The status page             |
 
-Every public URL uses `https`. A proxy that's built into DX handles all four names. Every other DX process will only listen on the machine's loopback address.
+Every public URL uses `https`. A proxy that's built into DX handles all four host names. Every other DX process will only listen on the machine's loopback address.
 
 ### Managed route
 
-With a `managed` route, DX will get its name and certificate from the Code Genome Project (CGP). This is the route that `init` sets up for you:
+With a `managed` route, DX will get its host name and certificate from the Code Genome Project (CGP). This is the route that `init` sets up for you:
 
 | Setting                             | Default  | Description                                                                                       |
 |-------------------------------------|----------|---------------------------------------------------------------------------------------------------|
-| `moderne.dx.routes.managed.token`   | Required | The CGP token that Moderne gave you for DX. CGP will name your DX after the user this token belongs to, in the form `<user>.moderne.direct`. |
-| `moderne.dx.routes.managed.address` | The machine's network address | The IP address the four names will resolve to. If you leave it out, DX will use the machine's own network address. Run `doctor` to see the address DX picked. With `127.0.0.1`, the names will only work on this machine. If this address belongs to the machine, DX will only listen on that address. If it doesn't, DX will listen on all of the machine's addresses. |
+| `moderne.dx.routes.managed.token`   | Required | The CGP token that Moderne gave you for DX. CGP will give your DX a host name based on the user this token belongs to, in the form `<user>.moderne.direct`. |
+| `moderne.dx.routes.managed.address` | The machine's network address | The IP address the four host names will resolve to. If you leave it out, DX will use the machine's own network address. Run `doctor` to see the address DX picked. With `127.0.0.1`, the host names will only work on this machine. If this address belongs to the machine, DX will only listen on that address. If it doesn't, DX will listen on all of the machine's addresses. |
 | `moderne.dx.routes.managed.port`    | `443`    | The port DX will listen on.                                                                       |
 
 ### Custom certificate route
 
-With a `custom-certificate` route, DX will use a name you own and a certificate you provide:
+With a `custom-certificate` route, DX will use a host name you own and a certificate you provide:
 
 | Setting                                            | Default  | Description                                                                          |
 |----------------------------------------------------|----------|--------------------------------------------------------------------------------------|
 | `moderne.dx.routes.custom-certificate.public-url`  | Required | The URL people will use to open the UI (e.g., `https://moderne.acme.com`). DX will listen on the port in this URL. |
-| `moderne.dx.routes.custom-certificate.certificate` | Required | A PEM file that contains the certificate first, followed by its chain. The certificate needs to cover all four names. |
+| `moderne.dx.routes.custom-certificate.certificate` | Required | A PEM file that contains the certificate first, followed by its chain. The certificate needs to cover all four host names. |
 | `moderne.dx.routes.custom-certificate.private-key` | Required | A PEM file that contains the certificate's private key.                              |
 
 ### Load-balanced route
 
-With a `load-balanced` route, DX will use a name you own and sit behind a load balancer that handles Transport Layer Security (TLS):
+With a `load-balanced` route, DX will use a host name you own and sit behind a load balancer that handles Transport Layer Security (TLS):
 
 | Setting                                      | Default  | Description                                                                                      |
 |----------------------------------------------|----------|--------------------------------------------------------------------------------------------------|

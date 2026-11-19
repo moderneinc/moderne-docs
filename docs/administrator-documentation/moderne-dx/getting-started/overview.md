@@ -7,7 +7,7 @@ description: What Moderne DX is, what it runs on your own machine, and how it wo
 
 Moderne DX lets you host parts of the Moderne Platform on a machine you control. With it, your developers can browse the recipe marketplace, [use Moderne Code Search](../../../user-documentation/moderne-platform/getting-started/code-search.md), and review [changesets](../../../user-documentation/moderne-platform/references/changesets.md). Because DX runs on your machine, your source code, your Lossless Semantic Trees (LSTs), and everything your developers do with them will stay inside of your network.
 
-DX is a single JAR file that you start with one command, and it runs the same way on a laptop as it does on a server. You also won't need to set up DNS records or a certificate for it. The Code Genome Project (CGP) will give your DX a name under `moderne.direct`, along with a certificate for that name.
+DX is a single JAR file that you start with one command, and it runs the same way on a laptop as it does on a server. You also won't need to set up DNS records or a certificate for it. The Code Genome Project (CGP) will give your DX a host name under `moderne.direct`, along with a certificate for that host name.
 
 Because of that, you can try DX out on your own machine first. Once you're happy with it, you can move the same configuration over to the machine your organization will use.
 
@@ -32,7 +32,7 @@ flowchart TB
         dx -.->|read access, optional| scm[("Your SCM")]
         dx -->|sign-in| idp[("Your identity provider")]
     end
-    dx -->|recipes, its name and certificate| cgp["Code Genome Project"]
+    dx -->|recipes, its host name and certificate| cgp["Code Genome Project"]
 ```
 
 By default, every user can read every repository in DX. If you'd like DX to only show each user the repositories they can read in your source control management (SCM) system, you can turn on [user-level repository access control](../how-to-guides/repository-access-control.md).
