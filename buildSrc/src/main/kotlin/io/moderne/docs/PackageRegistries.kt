@@ -45,8 +45,8 @@ class PackageRegistries(codegenomeUsername: String, codegenomePassword: String) 
         const val RECIPES_CSHARP = "https://github.com/moderneinc/recipes-csharp"
 
         val PACKAGES = listOf(
-            Package("io.moderne.recipe", "recipes-javascript-code-quality", "@openrewrite/recipes-code-quality", RECIPES_JAVASCRIPT, Registry.CodeGenomeNpm),
-            Package("io.moderne.recipe", "recipes-javascript-date-libraries", "@openrewrite/recipes-date-libraries", RECIPES_JAVASCRIPT, Registry.CodeGenomeNpm),
+            Package("io.moderne.recipe", "recipes-javascript-code-quality", "@moderneinc/recipes-code-quality", RECIPES_JAVASCRIPT, Registry.CodeGenomeNpm),
+            Package("io.moderne.recipe", "recipes-javascript-date-libraries", "@moderneinc/recipes-date-libraries", RECIPES_JAVASCRIPT, Registry.CodeGenomeNpm),
             Package("io.moderne.recipe", "recipes-code-quality", "OpenRewrite.Recipes.CSharp.CodeQuality", RECIPES_CSHARP, Registry.CodeGenomeNuGet),
             Package("io.moderne.recipe", "recipes-migrate-dotnet", "OpenRewrite.Recipes.CSharp.Migration.Dotnet", RECIPES_CSHARP, Registry.CodeGenomeNuGet),
             Package("io.moderne.recipe", "recipes-tunit", "OpenRewrite.Recipes.CSharp.Migration.TUnit", RECIPES_CSHARP, Registry.CodeGenomeNuGet),
