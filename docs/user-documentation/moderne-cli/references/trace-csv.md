@@ -296,10 +296,10 @@ Populated by [`mod <agent> chat`](../../agent-tools/agent-chat.md), one row per 
 
 Search rows can come from two places:
 
-* **The CLI.** When you run [`mod search`](../cli-reference.md#mod-search) against a working set, the CLI will write one row for each search (starting in CLI 4.12.9). It'll write a row even if the search fails (e.g., because of a syntax error).
-* **Moderne.** When someone searches code in Moderne, Moderne will write one row for each page of results they ask for. It will also write one row for each SQL query. This includes searches from the web UI, from `mod search moderne://<organization>`, and from the code search tools in the [remote MCP server](../../agent-tools/mcp/remote-server.md). You'll find these rows under `source=saas`.
+* **The CLI.** When you run [`mod search`](../cli-reference.md#mod-search) against a working set, the CLI will write one row for each search (starting in CLI 4.12.9). It'll write a row even if the search fails, for example because of a syntax error.
+* **Moderne.** When someone searches code in Moderne, Moderne will write the rows. This includes searches from the web UI, from `mod search moderne://<organization>`, and from the code search tools in the [remote MCP server](../../agent-tools/mcp/remote-server.md). You'll find these rows under `source=saas`.
 
-Keep in mind that when you search `moderne://<organization>`, the search runs in Moderne rather than on your machine. That means you'll see a row from Moderne for it, not one from the CLI.
+If you point `mod search` at `moderne://<organization>`, the search will run in Moderne instead of on your machine. In that case, Moderne will write the row and the CLI won't write anything.
 
 Search rows don't have repository columns. They have `developer`, the search columns, and `organization`. A couple of things change depending on where the row came from:
 
@@ -309,6 +309,8 @@ Search rows don't have repository columns. They have `developer`, the search col
 :::warning
 `searchQuery` records the full query. Please don't paste credentials or other sensitive values into a search.
 :::
+
+### Columns in every search row
 
 | Column                           | Type     | Description                                     | Example                    |
 |----------------------------------|----------|-------------------------------------------------|----------------------------|
@@ -328,22 +330,33 @@ If a search fails, the four count columns (`searchFileCount` through `searchOrga
 
 In rows from the CLI, `searchSyntax` will be `sourcegraph` or `zoekt`. In rows from Moderne, it will be `sourcegraph` for a search and `sql` for a SQL query.
 
-In rows from Moderne, `searchFileCount` and `searchRepositoryCount` only count the files and repositories on the page of results that the row is for. Both will be empty for a SQL query.
+### Search rows from Moderne
 
-Rows from Moderne also have these columns:
+Moderne will write one row for each page of results someone asks for. `searchFileCount` and `searchRepositoryCount` only count the files and repositories on that page.
+
+Rows from Moderne also have a `searchTool` column:
+
+| Column       | Type   | Description                                | Example     |
+|--------------|--------|--------------------------------------------|-------------|
+| `searchTool` | string | What ran the search. Empty for a SQL query | `findTypes` |
+
+`searchTool` tells you what ran the search:
+
+* `codeSearch` means the search came from the remote MCP server's `codeSearch` tool or from Moderne's API. The web UI and `mod search` both use the API. A `codeSearch` row could have come from the web UI, `mod search`, or the remote MCP server.
+* `findTypes`, `findMethods`, `findImplementations`, and `usageExamples` mean the search came from the remote MCP server tool with that name.
+
+### SQL queries
+
+Moderne will write one row for each SQL query. In these rows, `searchTool`, `searchFileCount`, and `searchRepositoryCount` will be empty.
+
+Rows from Moderne also have these columns for SQL queries:
 
 | Column                    | Type    | Description                                                               | Example            |
 |---------------------------|---------|---------------------------------------------------------------------------|--------------------|
-| `searchTool`              | string  | What ran the search. Empty for a SQL query                                | `findTypes`        |
 | `searchRowCount`          | integer | Rows a SQL query answered. Empty for a search, or a SQL query that failed | `42`               |
 | `searchComplete`          | boolean | Whether a SQL query's answer is the whole answer. Empty for a search      | `true`             |
 | `searchIncompleteReasons` | string  | Why a SQL query's answer is not whole, separated by a vertical bar        | `RESULT_TRUNCATED` |
 | `searchFailure`           | string  | `TIMEOUT` or `QUERY_FAILED` when a SQL query failed. Empty otherwise      | `TIMEOUT`          |
-
-`searchTool` tells you what ran the search:
-
-* `codeSearch` means the search came from the remote MCP server's `codeSearch` tool or from Moderne's API. The web UI and `mod search` both use the API, so `codeSearch` on its own won't tell you whether a search came from the remote MCP server.
-* `findTypes`, `findMethods`, `findImplementations`, and `usageExamples` mean the search came from the remote MCP server tool with that name.
 
 ## Navigate fields
 
