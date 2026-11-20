@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.58.0 (2026/11/20)
+
+- show run scale and commit progress on Activity rows
+
 ### UI v14.57.0 (2026/11/17)
 
 - dark-mode collage for the Day Zero welcome modal
