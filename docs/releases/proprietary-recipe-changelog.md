@@ -10,6 +10,132 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 20, 2026
+
+#### recipes-csharp - 0.30.0
+
+* Adapt to new upstream test harness features
+
+#### recipes-javascript - 0.23.0
+
+* License recipes-javascript as Moderne Proprietary
+* Add recipes-esm: find what blocks a CommonJS to ES module migration
+* Add recipes-playwright: migrate Cypress E2E specs to Playwright
+* Find a deprecated Node.js member by a string key and destructured from the module
+* Add UpgradeToNode18 to recipes-node
+* Fix review findings on `UpgradeToNode18` in `recipes-node`
+
+#### recipes-mainframe - 0.21.0
+
+* Shorten fully qualified Java references
+
+#### rewrite-angular - 1.35.0
+
+* Match `Injector.get` overrides in `ReplaceInjectFlags`
+
+#### rewrite-cryptography - 0.38.0
+
+* Shorten verified Java type references
+
+#### rewrite-devcenter - 1.54.0
+
+* Shorten fully qualified Java type references
+
+#### rewrite-dropwizard - 0.29.0
+
+* Shorten fully qualified Java references
+
+#### rewrite-hibernate - 0.51.0
+
+* Fix untyped FieldAccess found by stricter type validation
+
+#### rewrite-java-application-server - 0.32.0
+
+* Ignore `.kotlin/` so a release build that compiles `buildSrc` passes
+
+#### rewrite-java-security - 3.64.0
+
+* GitHub advisories and endoflife.date data as of 2026-11-19T1215
+* Shorten fully qualified Java references
+
+#### rewrite-kubernetes - 3.41.0
+
+* Shorten fully qualified Java references
+
+#### rewrite-mainframe - 3.24.0
+
+* Use imports for fully qualified Java types
+
+#### rewrite-migrate-kotlin - 0.31.0
+
+* Fix untyped FieldAccess found by stricter type validation
+* Shorten fully qualified Java type references
+
+#### rewrite-migrate-python - 0.37.0
+
+* Remove the backoff dependency when migrating to tenacity
+* Migrate retry to tenacity and async-timeout to asyncio.timeout
+* Shorten verified Java type references
+
+#### rewrite-nodejs - 0.73.0
+
+* GitHub advisories as of 2026-11-19T1215
+* Migrate the deprecated @aws-sdk/* packages that moved to @smithy/*
+* Shorten verified Java type references
+
+#### rewrite-nullability - 0.28.0
+
+* Fix untyped FieldAccess found by stricter type validation
+* Reattach elementTypeName Javadoc displaced in #61
+* Shorten fully qualified Java references
+
+#### rewrite-prethink - 0.38.0
+
+* Fix untyped FieldAccess found by stricter type validation
+* Shorten verified Java type references
+
+#### rewrite-primefaces - 0.11.0
+
+* Shorten fully qualified Java type references
+
+#### rewrite-program-analysis - 0.40.0
+
+* Add FindUnclosedCustomResources recipe (RSPEC-S3546)
+* Tag FindXssVulnerability with RSPEC-S5131 and read Spring handler parameters
+* Shorten verified Java type references
+* Shorten verified Java type references
+
+#### rewrite-react - 0.29.0
+
+* Migrate the React types `@types/react` 18 and 19 removed
+* Declare recipes-react's npm license as Moderne Proprietary
+* Shorten qualified Java type references
+
+#### rewrite-spring - 0.65.0
+
+* Resolve Spring Boot 4.0 patch version at runtime in SpringToSpringBootTest
+* Retry generator downloads that fail on 429 or 5xx
+* [Auto] Generated Spring recipes as of 2026-11-19
+* Target Spring Boot 4.2, Spring Modulith 2.2 and Spring AI 2.1 GA releases
+* Gate `MigrateSpringRetryToSpringFramework7` with a precondition and retype once per file (C5)
+* Drop unneeded contextSensitive() from AddDynamicDestinationResolverToJmsTemplate (C6)
+* Add missing preconditions to `FindOkHttp3IntegrationUsage` and `FindThemeSupportUsage` (C16)
+* Use ChangeMethodName and replaceArguments() in MigrateAwspringSqsMessageConverter (C4)
+* Use constants and imports instead of inline FQNs (C19)
+* Take the repositories the build plugin adds rather than declaring them again
+* Download Spring releases in parallel in the recipe generators
+* Shorten fully qualified Java type references
+
+#### rewrite-static-analysis - 0.22.0
+
+* Fix untyped FieldAccess found by stricter type validation
+* Shorten verified Java type references
+
+#### rewrite-tapestry - 0.28.0
+
+* Fix untyped FieldAccess found by stricter type validation
+* Shorten fully qualified Java type references
+
 ## November 19, 2026
 
 #### recipes-javascript - 0.22.0
