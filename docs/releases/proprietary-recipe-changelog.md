@@ -8249,27 +8249,6 @@ Republishing to update dependencies
 
 ## November 20, 2025
 
-#### rewrite-android - 0.15.0
-
-* Fix recipe references
-
-#### rewrite-angular - v0.1.0
-
-* New `UpdateComponentTemplateUrl` recipe
-* Change group ID to `io.moderne.recipe`
-
-#### rewrite-circleci - 3.9.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-compiled-analysis - 0.11.0
-
-* Common static analysis issues
-
-#### rewrite-concourse - 3.9.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
 #### rewrite-cryptography - 0.11.2
 
 * Updated repository to use OpenRewrite version v8.67.0
@@ -8279,91 +8258,8 @@ Republishing to update dependencies
 * Track upgrades to Spring Boot 4.0
 * Add a configurable vulnerability reporting devcenter recipe
 
-#### rewrite-dotnet - 0.14.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-elastic - 0.4.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-hibernate - 0.15.0
-
-* Do not duplicate the Java 17 migration when included in Spring Boot 4
-
 #### rewrite-jasperreports - v0.1.0
 
 * Jasper 5 Migrations
 * Basic Jasper 6 Migrations
-
-#### rewrite-java-security - 3.22.0
-
-* Separate Maven and Gradle tests for better maintability and understandability
-* Introduce CVE pattern filtering option
-* Reuse fixture to remove code duplication
-* Fixed expectations + recipe for snakeyaml recipe
-
-#### rewrite-kafka - 0.4.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-kubernetes - 3.13.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-nodejs - 0.34.0
-
-* Bumping OpenRewrite to 8.66.2
-* `RemoveUsageOfProcessFeaturesTlsConstants` recipe
-* Adding ReplaceCryptoHashConstructor recipe
-* Amend the `ReplaceCryptoConstructors` recipe to handle DEP0181 too.
-* Bump js-yaml from 3.14.1 to 3.14.2 in /recipes-nodejs
-* Add tags to the `UseNativeTypeCheckingMethods` recipe
-* `ReplaceUtilLog` recipe
-* `ReplaceUtilExtend` recipe
-* Update to new OpenRewrite
-
-#### rewrite-program-analysis - 0.6.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-react - v0.1.0
-
-* Adding Java/Gradle structure to the project
-* Github CI
-* Add JUnit platform launcher
-* Leverage type system in `FindReactComponent` and add data table
-* `FindPropUsage` recipe
-* Add a simple React 19 upgrade recipe
-* Reporting real component names when aliases are used
-* `remove-forward-ref` recipe enhancements
-* Add `ChangeComponentPropValue` recipe for React prop migrations
-* Change group ID to `io.moderne.recipe`
-
-#### rewrite-reactive-streams - 0.18.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-spring - 0.17.0
-
-* Spring Boot 3.3 Deprecations
-* Add recipe to replace deprecated RequestMatcherProvider
-* Adopt classic starters in Spring Boot 4 migration
-* Spring Boot 4.0 Quickwins
-* Modularize Starters
-* Modularize Legacy and Classic starters
-* Spring Boot 3.4 Deprecations
-* Pin Spring Retry version
-
-#### rewrite-sql - 2.8.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-struts - 0.23.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-terraform - 3.11.1
-
-* Updated repository to use OpenRewrite version v8.67.0
 
