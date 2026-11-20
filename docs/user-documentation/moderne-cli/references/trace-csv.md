@@ -365,12 +365,6 @@ Like search rows, navigate rows can come from two places:
 * **The CLI.** When you run [`mod navigate`](../cli-reference.md#mod-navigate) against a working set, the CLI will write one row for each command (starting in CLI 4.12.9). It'll write a row even if the navigation fails.
 * **Moderne.** When someone navigates code in Moderne, Moderne will write rows that count those navigations. This includes navigation in the web UI, `mod navigate` when it runs in Moderne, and the remote MCP server's `codeNavigate` and `readFile` tools. You'll find these rows under `source=saas`.
 
-`mod navigate` will run in Moderne instead of on your machine in any of these cases:
-
-* The target is `moderne://<organization>`.
-* The `--in` option names a package, such as `org.springframework:spring-context:7.0.2`.
-* A `definition` lookup needs Moderne to answer it. This happens when the name comes from a dependency or from the language's SDK, or when no repository in the working set declares it.
-
 Navigate rows have the repository columns, `developer`, the navigate columns, and `organization`. As with search rows, they differ a bit depending on where they came from:
 
 * Rows from the CLI will also have a `cliVersion` column. Their `organization` column will always be empty because a working set isn't an organization in Moderne.
@@ -378,17 +372,7 @@ Navigate rows have the repository columns, `developer`, the navigate columns, an
 
 The repository columns tell you which repository the navigation happened in. If the CLI or Moderne can't tell which repository that is, those columns will be empty. For example, if you run a `definition` lookup from the root of a working set without `--at` or `--in`, the row won't have a repository.
 
-Rows from Moderne work a bit differently from rows from the CLI. Rather than writing a row for every navigation, Moderne will group navigations into windows of up to ten minutes. Within each window, it will write one row for each combination of operation, organization, developer, repository, `navigateSource`, and outcome. That means:
-
-* `navigateStartTime` and `navigateEndTime` mark the start and end of the window.
-* `navigateCount` is the number of navigations the row covers. If you want to know how many navigations there were, you'll need to add up `navigateCount` (rather than counting rows).
-* `navigateElapsedTimeMs` is the total time of those navigations, and `navigateMaxElapsedTimeMs` is the longest one.
-
-Keep in mind that rows from Moderne don't record whether a navigation came from the web UI, the CLI, or the remote MCP server.
-
-:::note
-If a window has more combinations than Moderne can keep track of, it will count the rest in one row with an empty developer, organization, repository, and `navigateSource`.
-:::
+### Columns in every navigate row
 
 | Column                     | Type     | Description                                                | Example                    |
 |----------------------------|----------|------------------------------------------------------------|----------------------------|
@@ -404,11 +388,33 @@ If a window has more combinations than Moderne can keep track of, it will count 
 `navigateSource` tells you where a `definition` lookup found the declaration:
 
 * `repository` means it's in the repository the lookup was made in.
-* `organization` means it's in another repository of the working set (or of the organization, for rows from Moderne).
+* `organization` means it's in another repository of the working set. In rows from Moderne, it means another repository of the organization.
 * `package` means it's in a dependency's sources. You'll only see this value in rows from Moderne.
 * `none` means the lookup didn't find a declaration.
 
 `navigateSource` will be empty for `read` and `symbols`, as well as for any navigation that failed.
+
+### Navigate rows from Moderne
+
+`mod navigate` will run in Moderne instead of on your machine in any of these cases:
+
+* The target is `moderne://<organization>`.
+* The `--in` option names a package, such as `org.springframework:spring-context:7.0.2`.
+* A `definition` lookup needs Moderne to answer it. This happens when the name comes from a dependency or from the language's SDK, or when no repository in the working set declares it.
+
+Moderne won't write a row for every navigation. Instead, it will group navigations into windows of up to ten minutes. Within each window, it will write one row for each combination of operation, organization, developer, repository, `navigateSource`, and outcome.
+
+In these rows, the time and count columns describe the whole window:
+
+* `navigateStartTime` and `navigateEndTime` mark the start and end of the window.
+* `navigateCount` is the number of navigations the row covers. To count navigations, add up `navigateCount` instead of counting rows.
+* `navigateElapsedTimeMs` is the total time of those navigations. `navigateMaxElapsedTimeMs` is the longest one.
+
+These rows don't record whether a navigation came from the web UI, the CLI, or the remote MCP server.
+
+:::note
+If a window has more combinations than Moderne can keep track of, it will count the rest in one row with an empty developer, organization, repository, and `navigateSource`.
+:::
 
 ## Organization and trace tags
 
