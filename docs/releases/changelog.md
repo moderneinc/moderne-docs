@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.58.1 (2026/11/20)
+
+- Bug fixes and other improvements.
+
 ### UI v14.58.0 (2026/11/20)
 
 - show run scale and commit progress on Activity rows
