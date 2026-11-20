@@ -220,7 +220,7 @@ Populated after `mod publish`. These columns appear only in `mod publish` rows -
 Populated by `mod exec`. Exec rows are standalone: they have the common columns plus the exec columns, with no sync/build/run stages.
 
 :::warning
-`execCommand` records the full command line and `execExecutionDirectory` records an absolute local path. If you don't want credentials captured in telemetry, pass them to `mod exec` through environment variables instead of as command arguments.
+`execCommand` records the full command line and `execExecutionDirectory` records an absolute local path. Pass credentials to `mod exec` through environment variables instead of as command arguments. Otherwise, they'll be captured in telemetry.
 :::
 
 | Column                              | Type     | Description                                              | Example                     |
@@ -297,11 +297,11 @@ Populated by [`mod <agent> chat`](../../agent-tools/agent-chat.md), one row per 
 Search rows can come from two places:
 
 * **The CLI.** When you run [`mod search`](../cli-reference.md#mod-search) against a working set, the CLI will write one row for each search (starting in CLI 4.12.9). It'll write a row even if the search fails (e.g., because of a syntax error).
-* **Moderne.** When someone searches code in Moderne, Moderne will write one row for each page of results they ask for. It will also write one row for each SQL query. This includes searches from the web UI, from `mod search moderne://<organization>`, and from the code search tools in the [remote MCP server](../../agent-tools/mcp/remote-server.md). You'll find these rows under `source=saas`.
+* **Moderne.** When someone searches code in Moderne, Moderne will write one row for each page of results they ask for. For example, if someone loads three pages of results for one search, you'll get three rows. It will also write one row for each SQL query. This includes searches from the web UI, from `mod search moderne://<organization>`, and from the code search tools in the [remote MCP server](../../agent-tools/mcp/remote-server.md). You'll find these rows under `source=saas`.
 
 Keep in mind that when you search `moderne://<organization>`, the search runs in Moderne rather than on your machine. That means you'll see a row from Moderne for it, not one from the CLI.
 
-Search rows don't have repository columns. They have `developer`, the search columns, and `organization`. A couple of things change depending on where the row came from:
+Search rows don't have the repository columns. They have `developer`, the search columns, and `organization`. A couple of things change depending on where the row came from:
 
 * Rows from the CLI will also have a `cliVersion` column. Their `organization` column will always be empty because a working set isn't an organization in Moderne.
 * Rows from Moderne won't have a `cliVersion` column. Their `organization` column will hold the organization that was searched. It'll come right after `developer` instead of at the end of the row.
@@ -310,40 +310,44 @@ Search rows don't have repository columns. They have `developer`, the search col
 `searchQuery` records the full query. Please don't paste credentials or other sensitive values into a search.
 :::
 
-| Column                           | Type     | Description                                     | Example                    |
-|----------------------------------|----------|-------------------------------------------------|----------------------------|
-| `searchOutcome`                  | string   | Search result                                   | `Succeeded`                |
-| `searchStartTime`                | ISO 8601 | Search start timestamp                          | `2026-11-13T16:20:04.118Z` |
-| `searchEndTime`                  | ISO 8601 | Search end timestamp                            | `2026-11-13T16:20:04.903Z` |
-| `searchSyntax`                   | string   | Query syntax: `sourcegraph`, `zoekt`, or `sql`  | `sourcegraph`              |
-| `searchQuery`                    | string   | The query as it was run, up to 8,192 characters | `JPAQuery lang:java`       |
-| `searchQueryTruncated`           | boolean  | Whether the query was cut at 8,192 characters   | `false`                    |
-| `searchFileCount`                | integer  | Files with at least one match                   | `14`                       |
-| `searchRepositoryCount`          | integer  | Repositories with at least one match            | `3`                        |
-| `searchIndexedRepositories`      | integer  | Repositories that had a search index            | `9`                        |
-| `searchOrganizationRepositories` | integer  | Repositories searched, indexed or not           | `10`                       |
-| `searchElapsedTimeMs`            | integer  | Duration in milliseconds                        | `785`                      |
+### Columns in every search row
+
+| Column                           | Type     | Description                                                                                                                                                                                                                                                                     | Example                    |
+|----------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|
+| `searchOutcome`                  | string   | Search result                                                                                                                                                                                                                                                                   | `Succeeded`                |
+| `searchStartTime`                | ISO 8601 | Search start timestamp                                                                                                                                                                                                                                                          | `2026-11-13T16:20:04.118Z` |
+| `searchEndTime`                  | ISO 8601 | Search end timestamp                                                                                                                                                                                                                                                            | `2026-11-13T16:20:04.903Z` |
+| `searchSyntax`                   | string   | Query syntax: `sourcegraph` or `zoekt` from the CLI, `sourcegraph` or `sql` from Moderne                                                                                                                                                                                        | `sourcegraph`              |
+| `searchQuery`                    | string   | The query as it was run, up to 8,192 characters                                                                                                                                                                                                                                 | `JPAQuery lang:java`       |
+| `searchQueryTruncated`           | boolean  | Whether the query was cut at 8,192 characters                                                                                                                                                                                                                                   | `false`                    |
+| `searchFileCount`                | integer  | The number of files with at least one match.<br/><br/>If the row came from Moderne, this will only count the files on one page of results. Moderne writes a separate row each time someone loads another page.<br/><br/>Empty for a failed search or a SQL query.               | `14`                       |
+| `searchRepositoryCount`          | integer  | The number of repositories with at least one match.<br/><br/>If the row came from Moderne, this will only count the repositories on one page of results. Moderne writes a separate row each time someone loads another page.<br/><br/>Empty for a failed search or a SQL query. | `3`                        |
+| `searchIndexedRepositories`      | integer  | The number of repositories that had a search index.<br/><br/>Empty for a failed search.                                                                                                                                                                                         | `9`                        |
+| `searchOrganizationRepositories` | integer  | The number of repositories searched, indexed or not.<br/><br/>Empty for a failed search.                                                                                                                                                                                        | `10`                       |
+| `searchElapsedTimeMs`            | integer  | Duration in milliseconds                                                                                                                                                                                                                                                        | `785`                      |
 
 If a search fails, the four count columns (`searchFileCount` through `searchOrganizationRepositories`) will be empty.
 
-In rows from the CLI, `searchSyntax` will be `sourcegraph` or `zoekt`. In rows from Moderne, it will be `sourcegraph` for a search and `sql` for a SQL query.
+### Search rows from Moderne
 
-In rows from Moderne, `searchFileCount` and `searchRepositoryCount` only count the files and repositories on the page of results that the row is for. Both will be empty for a SQL query.
+Moderne will write one row for each page of results. In those rows, `searchFileCount` and `searchRepositoryCount` will only count what's on that page.
 
-Rows from Moderne also have these columns:
+Each SQL query will get a row too. In those rows, `searchSyntax` will be `sql`.
 
-| Column                    | Type    | Description                                                               | Example            |
-|---------------------------|---------|---------------------------------------------------------------------------|--------------------|
-| `searchTool`              | string  | What ran the search. Empty for a SQL query                                | `findTypes`        |
-| `searchRowCount`          | integer | Rows a SQL query answered. Empty for a search, or a SQL query that failed | `42`               |
-| `searchComplete`          | boolean | Whether a SQL query's answer is the whole answer. Empty for a search      | `true`             |
-| `searchIncompleteReasons` | string  | Why a SQL query's answer is not whole, separated by a vertical bar        | `RESULT_TRUNCATED` |
-| `searchFailure`           | string  | `TIMEOUT` or `QUERY_FAILED` when a SQL query failed. Empty otherwise      | `TIMEOUT`          |
+Rows from Moderne will also have these columns:
 
-`searchTool` tells you what ran the search:
+| Column                    | Type    | Description                                                                                                                               | Example            |
+|---------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
+| `searchTool`              | string  | What ran the search: `codeSearch`, `findTypes`, `findMethods`, `findImplementations`, or `usageExamples`.<br/><br/>Empty for a SQL query. | `findTypes`        |
+| `searchRowCount`          | integer | The number of rows a SQL query returned.<br/><br/>Empty for a search or a failed SQL query.                                               | `42`               |
+| `searchComplete`          | boolean | Whether a SQL query returned its full result.<br/><br/>`false` for a failed SQL query.<br/><br/>Empty for a search.                       | `true`             |
+| `searchIncompleteReasons` | string  | Why a SQL query's result isn't complete. Reasons are separated by a vertical bar.<br/><br/>Empty for a search.                            | `RESULT_TRUNCATED` |
+| `searchFailure`           | string  | `TIMEOUT` or `QUERY_FAILED` when a SQL query failed.<br/><br/>Empty otherwise.                                                            | `TIMEOUT`          |
 
-* `codeSearch` means the search came from the remote MCP server's `codeSearch` tool or from Moderne's API. The web UI and `mod search` both use the API, so `codeSearch` on its own won't tell you whether a search came from the remote MCP server.
-* `findTypes`, `findMethods`, `findImplementations`, and `usageExamples` mean the search came from the remote MCP server tool with that name.
+You can use `searchTool` to see what ran a search.
+
+* If the search came from the remote MCP server, `searchTool` will be the name of the tool that ran it (`codeSearch`, `findTypes`, `findMethods`, `findImplementations`, or `usageExamples`).
+* If the search came from the web UI or `mod search`, `searchTool` will also be `codeSearch`. You won't be able to tell those searches apart from the ones the remote MCP server's `codeSearch` tool made.
 
 ## Navigate fields
 
@@ -356,46 +360,50 @@ Like search rows, navigate rows can come from two places:
 
 * The target is `moderne://<organization>`.
 * The `--in` option names a package, such as `org.springframework:spring-context:7.0.2`.
-* A `definition` lookup needs Moderne to answer it. This happens when the name comes from a dependency or from the language's SDK, or when no repository in the working set declares it.
+* A `definition` lookup needs Moderne to answer it. This will happen when the name comes from a dependency or from the language's SDK, or when no repository in the working set declares it.
 
-Navigate rows have the repository columns, `developer`, the navigate columns, and `organization`. As with search rows, they differ a bit depending on where they came from:
+Navigate rows have the repository columns, `developer`, the navigate columns, and `organization`. As with search rows, a couple of things change depending on where the row came from:
 
 * Rows from the CLI will also have a `cliVersion` column. Their `organization` column will always be empty because a working set isn't an organization in Moderne.
 * Rows from Moderne won't have a `cliVersion` column. Their `organization` column will hold the organization the navigation ran in. It'll come right after `developer` instead of at the end of the row.
 
 The repository columns tell you which repository the navigation happened in. If the CLI or Moderne can't tell which repository that is, those columns will be empty. For example, if you run a `definition` lookup from the root of a working set without `--at` or `--in`, the row won't have a repository.
 
-Rows from Moderne work a bit differently from rows from the CLI. Rather than writing a row for every navigation, Moderne will group navigations into windows of up to ten minutes. Within each window, it will write one row for each combination of operation, organization, developer, repository, `navigateSource`, and outcome. That means:
+### Columns in every navigate row
 
-* `navigateStartTime` and `navigateEndTime` mark the start and end of the window.
-* `navigateCount` is the number of navigations the row covers. If you want to know how many navigations there were, you'll need to add up `navigateCount` (rather than counting rows).
-* `navigateElapsedTimeMs` is the total time of those navigations, and `navigateMaxElapsedTimeMs` is the longest one.
+| Column                     | Type     | Description                                                                                                                                                                                          | Example                    |
+|----------------------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|
+| `navigateOutcome`          | string   | Navigation result                                                                                                                                                                                    | `Succeeded`                |
+| `navigateStartTime`        | ISO 8601 | Navigation start timestamp.<br/><br/>If the row came from Moderne, this will be when Moderne started counting navigations for the row. Moderne counts for about ten minutes and then writes the row. | `2026-11-13T16:21:40.352Z` |
+| `navigateEndTime`          | ISO 8601 | Navigation end timestamp.<br/><br/>If the row came from Moderne, this will be when Moderne stopped counting and wrote the row.                                                                       | `2026-11-13T16:21:40.564Z` |
+| `navigateOperation`        | string   | Operation: `definition`, `read`, or `symbols`                                                                                                                                                        | `definition`               |
+| `navigateSource`           | string   | Where a `definition` lookup found the declaration: `repository`, `organization`, `package`, or `none`.<br/><br/>Empty for `read` and `symbols`, and for a failed navigation.                         | `repository`               |
+| `navigateCount`            | integer  | The number of navigations the row covers.<br/><br/>To count navigations, add this column up instead of counting rows.<br/><br/>Always `1` in rows from the CLI.                                      | `1`                        |
+| `navigateMaxElapsedTimeMs` | integer  | Longest navigation the row covers, in milliseconds                                                                                                                                                   | `212`                      |
+| `navigateElapsedTimeMs`    | integer  | Duration in milliseconds.<br/><br/>In rows from Moderne, the total for every navigation the row covers.                                                                                              | `212`                      |
 
-Keep in mind that rows from Moderne don't record whether a navigation came from the web UI, the CLI, or the remote MCP server.
+You can use `navigateSource` to see where a `definition` lookup found the declaration.
 
-:::note
-If a window has more combinations than Moderne can keep track of, it will count the rest in one row with an empty developer, organization, repository, and `navigateSource`.
-:::
-
-| Column                     | Type     | Description                                                | Example                    |
-|----------------------------|----------|------------------------------------------------------------|----------------------------|
-| `navigateOutcome`          | string   | Navigation result                                          | `Succeeded`                |
-| `navigateStartTime`        | ISO 8601 | Navigation start timestamp                                 | `2026-11-13T16:21:40.352Z` |
-| `navigateEndTime`          | ISO 8601 | Navigation end timestamp                                   | `2026-11-13T16:21:40.564Z` |
-| `navigateOperation`        | string   | Operation: `definition`, `read`, or `symbols`              | `definition`               |
-| `navigateSource`           | string   | Where a `definition` lookup found the declaration          | `repository`               |
-| `navigateCount`            | integer  | Navigations the row counts. Always `1` in a CLI row        | `1`                        |
-| `navigateMaxElapsedTimeMs` | integer  | Longest navigation the row counts, in milliseconds         | `212`                      |
-| `navigateElapsedTimeMs`    | integer  | Duration in milliseconds                                   | `212`                      |
-
-`navigateSource` tells you where a `definition` lookup found the declaration:
-
-* `repository` means it's in the repository the lookup was made in.
-* `organization` means it's in another repository of the working set (or of the organization, for rows from Moderne).
+* `repository` means the declaration is in the repository the lookup was made in.
+* `organization` means it's in another repository. For rows from the CLI, that's another repository in the working set. For rows from Moderne, it's another repository in the organization.
 * `package` means it's in a dependency's sources. You'll only see this value in rows from Moderne.
 * `none` means the lookup didn't find a declaration.
 
-`navigateSource` will be empty for `read` and `symbols`, as well as for any navigation that failed.
+`navigateSource` will be empty for `read` and `symbols` operations. It will also be empty for any navigation that failed.
+
+### Navigate rows from Moderne
+
+Moderne won't write a row every time someone navigates like the CLI does. Instead, it will keep a count. Every ten minutes or so, it will write the counts out as rows and start counting again. Each time, you'll get one row for each combination of operation, organization, developer, repository, `navigateSource`, and outcome.
+
+For example, say Moderne writes rows at 2:00 and again at 2:10. In between, you look up a definition seven times in the same repository. The row written at 2:10 will have a `navigateStartTime` of 2:00, a `navigateEndTime` of 2:10, and a `navigateCount` of 7.
+
+To find out how many navigations there were, you'll need to add up `navigateCount` instead of counting rows.
+
+Rows from Moderne also won't tell you whether a navigation came from the web UI, the CLI, or the remote MCP server.
+
+:::note
+If there are more combinations than Moderne can keep track of, Moderne will count the rest in one row. That row's developer, organization, repository, and `navigateSource` will be empty.
+:::
 
 ## Organization and trace tags
 

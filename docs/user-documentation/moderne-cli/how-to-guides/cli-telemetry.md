@@ -319,9 +319,9 @@ In the aggregate CSV these become the `agent`-prefixed columns (`agentOutcome`, 
 
 Each time you run `mod search` or `mod navigate` against a working set, the CLI will search the repositories on your machine and record one row for it. If you point the command at `moderne://<organization>` instead, the search or navigation will run in Moderne. In that case, Moderne will record the row and the CLI won't record anything.
 
-Like MCP and agent telemetry, these rows don't have a `trace.json` file. The CLI will add each row straight to the telemetry queue (in `~/.moderne/cli/trace/search/` or `~/.moderne/cli/trace/navigate/`), and it'll upload them just like any other command's telemetry.
+Like MCP and agent telemetry, these rows don't have a `trace.json` file. The CLI will add each row straight to the telemetry queue in `~/.moderne/cli/trace/search/` or `~/.moderne/cli/trace/navigate/`. From there, it'll be uploaded just like any other command's telemetry.
 
-A search row includes [the query and what it matched](../references/trace-csv.md#search-fields). A navigate row includes [the subcommand and where a definition was found](../references/trace-csv.md#navigate-fields).
+A search row will include [the query and what it matched](../references/trace-csv.md#search-fields). A navigate row will include [the subcommand and where a definition was found](../references/trace-csv.md#navigate-fields).
 
 :::warning
 The `searchQuery` column records the full text of the query. If the CLI is signed in to a tenant, the query will be uploaded along with the rest of the row. Please don't paste credentials or other sensitive values into a search.

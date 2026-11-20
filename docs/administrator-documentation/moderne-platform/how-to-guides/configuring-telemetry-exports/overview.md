@@ -17,7 +17,7 @@ Moderne produces a single, uniform trace schema regardless of where the command 
 
 A few commands record values that could contain sensitive data:
 
-* `mod exec` records the command line it ran (`execCommand`) and the directory it ran in (`execExecutionDirectory`). If you don't want credentials captured in telemetry, pass them to `mod exec` through environment variables instead of as command arguments.
+* `mod exec` records the command line it ran (`execCommand`) and the directory it ran in (`execExecutionDirectory`). Pass credentials to `mod exec` through environment variables instead of as command arguments. Otherwise, they'll be captured in telemetry.
 * `mod <agent> chat` records the session's initial prompt (`agentPrompt`).
 * Both `mod search` and code search in Moderne record the query (`searchQuery`).
 
