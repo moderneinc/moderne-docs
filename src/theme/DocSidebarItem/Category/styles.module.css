@@ -81,5 +81,5 @@ button.caret :global(svg.lucide) {
 }
 
 html[data-theme='dark'] .caretActive {
-  color: var(--brand-digital-green);
+  color: var(--mod-color-text-primary);
 }

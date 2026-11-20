@@ -142,7 +142,7 @@ html[data-announcement-bar-initially-dismissed='true'] {
 
 /* Use selector for specificity */
 html.docs-wrapper {
-  --doc-sidebar-width: 307px;
+  --doc-sidebar-width: 260px;
 }
 
 /* Use selector for specificity */
@@ -282,6 +282,10 @@ html[data-theme='dark'] {
   /* Menu text is the one bridge var that maps to a different token per mode:
      muted tertiary in light, primary in dark for contrast. */
   --ifm-menu-color: var(--mod-color-text-primary);
+
+  /* Nav links hover to cream rather than Infima's blue, so the only colour in
+     the dark nav is the green on the active item. */
+  --ifm-navbar-link-hover-color: var(--mod-color-text-primary);
 
   /* Dark mode borders — no mode-aware token maps to this Infima-specific value. */
   --ifm-color-border: rgba(255, 255, 255, 0.2);
@@ -462,10 +466,24 @@ html {
   padding-top: 0;
 }
 
+/* The doc content column sits on a surface one step lighter than the page, in
+   both modes, on every doc page, with 20px of extra room between the sidebar
+   divider and where the content starts. */
+[class*="docMainContainer"] {
+  background: var(--mod-color-surface-raised);
+}
+
+@media (min-width: 997px) {
+  [class*="docMainContainer"] {
+    padding-left: var(--mod-spacing_2_1_2);
+  }
+}
+
 .reactPlayer + p {
   margin-top: 1.25rem;
 }
 
+/* Article body copy at the default 16px. */
 [class^=docMainContainer_] {
   font-size: var(--mod-font-size-default);
 }
@@ -477,18 +495,19 @@ html {
 
 h1 {
   font-family: var(--mod-font-family-body), sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: var(--mod-font-weight-semi-bold);
-  line-height: 45px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   color: var(--brand-midnight);
   margin-top: 0;
 }
 
 [class^=docMainContainer_] h2:not(.doc-card-title) {
   font-family: var(--mod-font-family-body), sans-serif;
-  font-size: var(--mod-font-size-h2);
+  font-size: 21px;
   font-weight: var(--mod-font-weight-medium);
-  line-height: 32px;
+  line-height: 1.3;
   color: var(--mod-color-text-primary);
   margin-top: var(--mod-spacing_5);
   padding-bottom: var(--mod-spacing_1);
@@ -530,8 +549,7 @@ h1 {
   margin-left: 10px;
 }
 [class^=docMainContainer_] h3:not(.doc-card-title) {
-  font-size: var(--mod-font-size-h4);
-
+  font-size: var(--mod-font-size-h5);
 }
 
 /* !important: --ifm-heading-color inheritance doesn't update for dynamic content */

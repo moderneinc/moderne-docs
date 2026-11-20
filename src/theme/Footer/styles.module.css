@@ -9,7 +9,7 @@
 /* On desktop docs pages, scope the footer to the main content column only */
 @media (min-width: 997px) {
   :global(html.docs-wrapper) .footer {
-    margin-left: 307px;
+    margin-left: var(--doc-sidebar-width);
   }
 }
 
