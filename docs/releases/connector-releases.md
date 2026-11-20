@@ -7,13 +7,25 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.415 |
+| Connector | 0.151.440 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.415/connector-0.151.415.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.440/connector-0.151.440.jar)
 
 ## Changelog
 
 ## November 2026
+
+### v0.151.440 – 2026-11-20
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.440/connector-0.151.440.jar)
+
+* Read LSTs from a file store the Moderne CLI published to (#3128)
+* Shorten fully qualified Java type references (#3125)
+* Settle what counts as a configured credential, in one place per side (#2963)
+* Mirror Maven Central to moderne-cache-3 for dev's recipe workers, which Central answers with 429 (#3095)
+* Give dev's connector FINOS OSERA as an httptool, so recipe runs resolve OSERA patches (#3094)
+* Refuse to start a connector that lists the Code Genome Project as a recipe repository (#3049)
+* Remove the temporary Vertex AI config from dev and devaz connectors (#3070)
 
 ### v0.151.415 – 2026-11-13
 
