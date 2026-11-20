@@ -374,11 +374,6 @@ const DocCategoryGeneratedIndexPageContent: FunctionComponent<Props> = ({
         <header className={clsx(styles.header, gridFollowsHeader && styles.headerBeforeGrid)}>
           <Heading as="h1" className={styles.title}>
             {categoryGeneratedIndex.title}
-            {singleColumn && (
-              <span className={styles.titleCount} aria-label={`${items.length} pages`}>
-                {items.length}
-              </span>
-            )}
           </Heading>
           {categoryGeneratedIndex.description && (
             <p className={styles.description}>{categoryGeneratedIndex.description}</p>

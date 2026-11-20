@@ -136,7 +136,6 @@ function CategoryPageLayout({
         <header className={clsx(styles.header, gridFollowsHeader && styles.headerBeforeGrid)}>
           <Heading as="h1" className={styles.title}>
             {title}
-            {singleColumn && <span className={styles.titleCount}>{items?.length}</span>}
           </Heading>
           {description && <p className={styles.description}>{description}</p>}
         </header>
