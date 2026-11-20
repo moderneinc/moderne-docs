@@ -75,6 +75,8 @@ The upload won't interfere with your workflow. If it fails for any reason, the o
 * `mod git push`
 * `mod mcp`
 * `mod <agent> chat`
+* `mod search`
+* `mod navigate`
 
 </details>
 :::note
