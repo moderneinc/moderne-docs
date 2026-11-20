@@ -15,6 +15,22 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## November 2026
 
+### CLI v4.12.13 (2026-11-20) {/* #v4.12.13 */}
+
+_Based on [OpenRewrite 8.112.4](https://github.com/openrewrite/rewrite/releases/tag/v8.112.4)_
+
+#### What's Changed
+* Record effective Maven compiler source levels
+* Record each Gradle source set compiler runtime
+* Select the Java 8 parser platform from the build runtime
+
+### CLI v4.12.12 (2026-11-19) {/* #v4.12.12 */}
+
+_Based on [OpenRewrite 8.112.3](https://github.com/openrewrite/rewrite/releases/tag/v8.112.3)_
+
+#### What's Changed
+* Keep installed Gradle when automatic era selection is unavailable
+
 ### CLI v4.12.11 (2026-11-19) {/* #v4.12.11 */}
 
 _Based on [OpenRewrite 8.112.3](https://github.com/openrewrite/rewrite/releases/tag/v8.112.3)_
