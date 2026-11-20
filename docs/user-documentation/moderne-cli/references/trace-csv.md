@@ -296,10 +296,10 @@ Populated by [`mod <agent> chat`](../../agent-tools/agent-chat.md), one row per 
 
 Search rows can come from two places:
 
-* **The CLI.** When you run [`mod search`](../cli-reference.md#mod-search) against a working set, the CLI will write one row for each search (starting in CLI 4.12.9). It'll write a row even if the search fails (e.g., because of a syntax error).
+* **The CLI.** When you run [`mod search`](../cli-reference.md#mod-search) against a working set, the CLI will write one row for each search (starting in CLI 4.12.9). It'll write a row even if the search fails, for example because of a syntax error.
 * **Moderne.** When someone searches code in Moderne, Moderne will write one row for each page of results they ask for. For example, if someone loads three pages of results for one search, you'll get three rows. It will also write one row for each SQL query. This includes searches from the web UI, from `mod search moderne://<organization>`, and from the code search tools in the [remote MCP server](../../agent-tools/mcp/remote-server.md). You'll find these rows under `source=saas`.
 
-Keep in mind that when you search `moderne://<organization>`, the search runs in Moderne rather than on your machine. That means you'll see a row from Moderne for it, not one from the CLI.
+If you point `mod search` at `moderne://<organization>`, the search will run in Moderne instead of on your machine. In that case, Moderne will write the row and the CLI won't write anything.
 
 Search rows don't have the repository columns. They have `developer`, the search columns, and `organization`. A couple of things change depending on where the row came from:
 
@@ -332,22 +332,29 @@ If a search fails, the four count columns (`searchFileCount` through `searchOrga
 
 Moderne will write one row for each page of results. In those rows, `searchFileCount` and `searchRepositoryCount` will only count what's on that page.
 
-Each SQL query will get a row too. In those rows, `searchSyntax` will be `sql`.
+Rows from Moderne will also have a `searchTool` column:
 
-Rows from Moderne will also have these columns:
-
-| Column                    | Type    | Description                                                                                                                               | Example            |
-|---------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| `searchTool`              | string  | What ran the search: `codeSearch`, `findTypes`, `findMethods`, `findImplementations`, or `usageExamples`.<br/><br/>Empty for a SQL query. | `findTypes`        |
-| `searchRowCount`          | integer | The number of rows a SQL query returned.<br/><br/>Empty for a search or a failed SQL query.                                               | `42`               |
-| `searchComplete`          | boolean | Whether a SQL query returned its full result.<br/><br/>`false` for a failed SQL query.<br/><br/>Empty for a search.                       | `true`             |
-| `searchIncompleteReasons` | string  | Why a SQL query's result isn't complete. Reasons are separated by a vertical bar.<br/><br/>Empty for a search.                            | `RESULT_TRUNCATED` |
-| `searchFailure`           | string  | `TIMEOUT` or `QUERY_FAILED` when a SQL query failed.<br/><br/>Empty otherwise.                                                            | `TIMEOUT`          |
+| Column       | Type   | Description                                                                                                                               | Example     |
+|--------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| `searchTool` | string | What ran the search: `codeSearch`, `findTypes`, `findMethods`, `findImplementations`, or `usageExamples`.<br/><br/>Empty for a SQL query. | `findTypes` |
 
 You can use `searchTool` to see what ran a search.
 
 * If the search came from the remote MCP server, `searchTool` will be the name of the tool that ran it (`codeSearch`, `findTypes`, `findMethods`, `findImplementations`, or `usageExamples`).
 * If the search came from the web UI or `mod search`, `searchTool` will also be `codeSearch`. You won't be able to tell those searches apart from the ones the remote MCP server's `codeSearch` tool made.
+
+### SQL queries
+
+Moderne will also write one row for each SQL query. In those rows, `searchSyntax` will be `sql`.
+
+Rows from Moderne will also have these columns for SQL queries:
+
+| Column                    | Type    | Description                                                                                                         | Example            |
+|---------------------------|---------|---------------------------------------------------------------------------------------------------------------------|--------------------|
+| `searchRowCount`          | integer | The number of rows a SQL query returned.<br/><br/>Empty for a search or a failed SQL query.                         | `42`               |
+| `searchComplete`          | boolean | Whether a SQL query returned its full result.<br/><br/>`false` for a failed SQL query.<br/><br/>Empty for a search. | `true`             |
+| `searchIncompleteReasons` | string  | Why a SQL query's result isn't complete. Reasons are separated by a vertical bar.<br/><br/>Empty for a search.      | `RESULT_TRUNCATED` |
+| `searchFailure`           | string  | `TIMEOUT` or `QUERY_FAILED` when a SQL query failed.<br/><br/>Empty otherwise.                                      | `TIMEOUT`          |
 
 ## Navigate fields
 
@@ -355,12 +362,6 @@ Like search rows, navigate rows can come from two places:
 
 * **The CLI.** When you run [`mod navigate`](../cli-reference.md#mod-navigate) against a working set, the CLI will write one row for each command (starting in CLI 4.12.9). It'll write a row even if the navigation fails.
 * **Moderne.** When someone navigates code in Moderne, Moderne will write rows that count those navigations. This includes navigation in the web UI, `mod navigate` when it runs in Moderne, and the remote MCP server's `codeNavigate` and `readFile` tools. You'll find these rows under `source=saas`.
-
-`mod navigate` will run in Moderne instead of on your machine in any of these cases:
-
-* The target is `moderne://<organization>`.
-* The `--in` option names a package, such as `org.springframework:spring-context:7.0.2`.
-* A `definition` lookup needs Moderne to answer it. This will happen when the name comes from a dependency or from the language's SDK, or when no repository in the working set declares it.
 
 Navigate rows have the repository columns, `developer`, the navigate columns, and `organization`. As with search rows, a couple of things change depending on where the row came from:
 
@@ -392,6 +393,12 @@ You can use `navigateSource` to see where a `definition` lookup found the declar
 `navigateSource` will be empty for `read` and `symbols` operations. It will also be empty for any navigation that failed.
 
 ### Navigate rows from Moderne
+
+`mod navigate` will run in Moderne instead of on your machine in any of these cases:
+
+* The target is `moderne://<organization>`.
+* The `--in` option names a package, such as `org.springframework:spring-context:7.0.2`.
+* A `definition` lookup needs Moderne to answer it. This will happen when the name comes from a dependency or from the language's SDK, or when no repository in the working set declares it.
 
 Moderne won't write a row every time someone navigates like the CLI does. Instead, it will keep a count. Every ten minutes or so, it will write the counts out as rows and start counting again. Each time, you'll get one row for each combination of operation, organization, developer, repository, `navigateSource`, and outcome.
 
