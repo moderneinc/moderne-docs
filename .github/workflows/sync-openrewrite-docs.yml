@@ -1,0 +1,42 @@
+name: Sync OpenRewrite docs
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/checkout@v7
+        with:
+          repository: openrewrite/rewrite-docs
+          ref: master
+          path: .rewrite-docs
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Regenerate the OpenRewrite pages
+        run: node .github/scripts/sync-openrewrite-docs.mjs .rewrite-docs "$RUNNER_TEMP/sync-report.md"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: |
+            docs/user-documentation/recipes/authoring-recipes
+            .github/data/openrewrite-docs.json
+          commit-message: Sync OpenRewrite docs from rewrite-docs
+          title: Sync OpenRewrite docs from rewrite-docs
+          body-path: ${{ runner.temp }}/sync-report.md
+          branch: sync-openrewrite-docs
+          delete-branch: true
