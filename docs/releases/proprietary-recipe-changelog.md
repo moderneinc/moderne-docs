@@ -53,6 +53,11 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Ignore `.kotlin/` so a release build that compiles `buildSrc` passes
 
+#### rewrite-java-security - 3.64.1
+
+* GitHub advisories and endoflife.date data as of 2026-11-20T1150
+* Split Java4Shell runtime finder and report compilation JDK once per repo
+
 #### rewrite-java-security - 3.64.0
 
 * GitHub advisories and endoflife.date data as of 2026-11-19T1215
@@ -8246,20 +8251,4 @@ First release.
 #### rewrite-devcenter - 1.12.1
 
 Republishing to update dependencies
-
-## November 20, 2025
-
-#### rewrite-cryptography - 0.11.2
-
-* Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-devcenter - 1.12.0
-
-* Track upgrades to Spring Boot 4.0
-* Add a configurable vulnerability reporting devcenter recipe
-
-#### rewrite-jasperreports - v0.1.0
-
-* Jasper 5 Migrations
-* Basic Jasper 6 Migrations
 
