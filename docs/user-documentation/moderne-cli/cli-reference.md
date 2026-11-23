@@ -307,6 +307,10 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config http key-store edit file**](#mod-config-http-key-store-edit-file)
 * [**mod config http key-store show**](#mod-config-http-key-store-show)
 * [**mod config java**](#mod-config-java)
+* [**mod config java download**](#mod-config-java-download)
+* [**mod config java download edit**](#mod-config-java-download-edit)
+* [**mod config java download delete**](#mod-config-java-download-delete)
+* [**mod config java download show**](#mod-config-java-download-show)
 * [**mod config java installation**](#mod-config-java-installation)
 * [**mod config java installation edit**](#mod-config-java-installation-edit)
 * [**mod config java installation delete**](#mod-config-java-installation-delete)
@@ -1068,6 +1072,8 @@ mod claude chat [parameters]
 
 ```
 mod claude chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
+
+mod claude chat /path/to/working-set --resume --prompt "<PROMPT>"
 ```
 
 ### Parameters
@@ -1087,6 +1093,7 @@ mod claude chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
+| `--resume` |  Resume the newest Claude Code session in the directory, or the one named by id or name. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 | `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
@@ -2329,7 +2336,7 @@ mod config agent-tools install
 Creates or updates Moderne agent tools for coding agents.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) and registers the Moderne MCP server for all detected coding agents (Claude Code, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro). Installs the skills for Pi. Safe to run multiple times — existing installations are updated in place.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) and registers the Moderne MCP server for all detected coding agents (Claude Code, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, opencode, Kiro). Installs the skills for Pi. Safe to run multiple times — existing installations are updated in place.
 
 ### Usage
 
@@ -2371,7 +2378,7 @@ mod config agent-tools uninstall
 Manage Moderne skills for coding agents.
 
 
-Install or remove only the Moderne skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) for all detected coding agents, without modifying MCP server registrations. Use 'mod config agent-tools install' to install both skills and the MCP server together.
+Install or remove only the Moderne skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) for all detected coding agents, without modifying MCP server registrations. Use 'mod config agent-tools install' to install both skills and the MCP server together.
 
 ### Usage
 
@@ -2396,7 +2403,7 @@ mod config agent-tools skills install
 Install Moderne skills to all detected coding agents.
 
 
-Installs only the skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) to all detected coding agents without registering the MCP server. Use 'mod config agent-tools install' to install both skills and the MCP server together.
+Installs only the skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) to all detected coding agents without registering the MCP server. Use 'mod config agent-tools install' to install both skills and the MCP server together.
 
 ### Usage
 
@@ -2463,7 +2470,7 @@ mod config agent-tools claude install
 Install Moderne agent tools for Claude Code.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) as a Claude Code plugin and registers the Moderne MCP server via the 'claude' CLI. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) as a Claude Code plugin and registers the Moderne MCP server via the 'claude' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -2530,7 +2537,7 @@ mod config agent-tools cursor install
 Install Moderne agent tools for Cursor.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) as .mdc rule files in .cursor/rules/ and registers the Moderne MCP server in \~/.cursor/mcp.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) as .mdc rule files in .cursor/rules/ and registers the Moderne MCP server in \~/.cursor/mcp.json. Safe to run multiple times.
 
 ### Usage
 
@@ -2597,7 +2604,7 @@ mod config agent-tools copilot install
 Install Moderne agent tools for GitHub Copilot.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) as instruction files in .github/instructions/ and registers the Moderne MCP server in both .vscode/mcp.json and \~/.copilot/mcp-config.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) as instruction files in .github/instructions/ and registers the Moderne MCP server in both .vscode/mcp.json and \~/.copilot/mcp-config.json. Safe to run multiple times.
 
 ### Usage
 
@@ -2664,7 +2671,7 @@ mod config agent-tools amp install
 Install Moderne agent tools for Sourcegraph Amp.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under \~/.config/agents/skills/ and registers the Moderne MCP server via the 'amp' CLI. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under \~/.config/agents/skills/ and registers the Moderne MCP server via the 'amp' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -2731,7 +2738,7 @@ mod config agent-tools codex install
 Install Moderne agent tools for OpenAI Codex.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under \~/.agents/skills/ and registers the Moderne MCP server via the 'codex' CLI. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under \~/.agents/skills/ and registers the Moderne MCP server via the 'codex' CLI. Safe to run multiple times.
 
 ### Usage
 
@@ -2798,7 +2805,7 @@ mod config agent-tools opencode install
 Install Moderne agent tools for opencode.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under \~/.config/opencode/skills/ and registers the Moderne MCP server in \~/.config/opencode/opencode.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under \~/.config/opencode/skills/ and registers the Moderne MCP server in \~/.config/opencode/opencode.json. Safe to run multiple times.
 
 ### Usage
 
@@ -2865,7 +2872,7 @@ mod config agent-tools kiro install
 Install Moderne agent tools for Kiro.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under \~/.kiro/skills/ and registers the Moderne MCP server in \~/.kiro/settings/mcp.json. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under \~/.kiro/skills/ and registers the Moderne MCP server in \~/.kiro/settings/mcp.json. Safe to run multiple times.
 
 ### Usage
 
@@ -2932,7 +2939,7 @@ mod config agent-tools pi install
 Install Moderne agent tools for Pi.
 
 
-Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable, create-recipe) under \~/.agents/skills/. Safe to run multiple times.
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under \~/.agents/skills/. Safe to run multiple times.
 
 ### Usage
 
@@ -7045,10 +7052,86 @@ mod config java [subcommands]
 
 ### Subcommands
 
+* `download`: Configures where the CLI downloads JDKs from.
 * `installation`: Configures locations of JDKs that can be used by build tools.
 * `jdk`: (DEPRECATED) Use `installation` instead. Configures locations of JDKs that can be used by build tools.
 * `options`: Configures JVM options for use building LSTs and running recipes.
 * `version`: Configures the JDK to use.
+
+## mod config java download
+
+Configures where the CLI downloads JDKs from.
+
+
+The CLI downloads a JDK when no installed JDK satisfies a repository. It finds one through the Foojay Disco API unless a mirror is configured here.
+
+### Usage
+
+```
+mod config java download [subcommands]
+```
+
+
+### Subcommands
+
+* `edit`: Configures a mirror to download JDKs from.
+* `delete`: Reverts to downloading JDKs through the Foojay Disco API.
+* `show`: Displays where the CLI downloads JDKs from.
+
+## mod config java download edit
+
+Configures a mirror to download JDKs from.
+
+
+The mirror's URL is a template. $\{version} is the major version. $\{os} is linux, mac or windows. $\{arch} is x64 or aarch64. The SHA-256 is read from the same URL with .sha256 appended. Give skip in place of a URL to turn JDK downloads off.
+
+### Usage
+
+```
+mod config java download edit [parameters]
+```
+
+### Examples
+
+```
+mod config java download edit https://nexus.example.com/repository/jdks/${version}/jdk-${os}-${arch}.tar.gz
+
+mod config java download edit skip
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `url` |  The URL template of the mirror. Give skip to turn JDK downloads off. |
+
+
+
+## mod config java download delete
+
+Reverts to downloading JDKs through the Foojay Disco API.
+
+
+### Usage
+
+```
+mod config java download delete
+```
+
+
+
+## mod config java download show
+
+Displays where the CLI downloads JDKs from.
+
+
+### Usage
+
+```
+mod config java download show
+```
+
+
 
 ## mod config java installation
 
@@ -11542,6 +11625,8 @@ mod copilot chat [parameters]
 
 ```
 mod copilot chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
+
+mod copilot chat /path/to/working-set --resume
 ```
 
 ### Parameters
@@ -11561,6 +11646,7 @@ mod copilot chat /path/to/working-set --org <ORG_NAME> --prompt "<PROMPT>"
 | `--no-preflight` |  Skip the readiness checks that run before the agent starts. |  |
 | `--organization`, `--org` |  The organization in Moderne the agent works on. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. | `ALL/Financial Services` |
 | `--prompt` |  The prompt the session starts with. Say what the work is and when it is done. **@\<file>** reads it from a file. |  |
+| `--resume` |  Resume the newest Copilot session, or the one named by id, id prefix or name. |  |
 | `--unattended` |  Run the prompt to completion and exit. Requires **--prompt**. |  |
 | `--window` |  Show what the agent reads, searches and looks up in a small window that floats over your other windows. macOS only. |  |
 
@@ -11711,7 +11797,7 @@ mod doctor --sync-csv --skip-remote
 | ---- | ----------- |
 | `--json` |  Output the report in JSON. Each row says whether its fix lies with the host, the setup or a remote service. |
 | `--skip-remote` |  Do not contact any network service. Remote sections report a single skipped row. |
-| `--sync-csv` |  A repos.csv whose rows are summarized and whose SCM origins are probed. Without a value, the central repos.csv of the configured LST artifact store is read, as **mod publish --sync-csv** would. |
+| `--sync-csv` |  A repos.csv whose rows are summarized and whose SCM origins are probed. Without a value, the central repos.csv of the configured LST artifact store is read, as **mod publish --sync-csv** would. A **github://\<host>/\<org>** value lists a GitHub organization instead. |
 
 
 ## mod devcenter
@@ -11965,6 +12051,7 @@ mod git checkout /path/to/project --changeset --name "Java 25"
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |
 | `-n`, `--name` |  The name of a new changeset. |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--search` |  A search run ID to filter repositories to only those with matches. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
@@ -12324,10 +12411,18 @@ Synchronizes the repositories and metadata of an organization from a local repos
 
 Synchronize repositories and metadata to **path** using a local repos.csv **csv** file. The file need not be named repos.csv. The name is shorthand for a CSV in the format described at https://docs.moderne.io/user-documentation/moderne-cli/references/repos-csv/. The CSV must include a **cloneUrl** column. A flat directory structure is used unless one or more **orgN** columns are present. By default, repositories do not include source code. Use **--with-sources** to clone sources. If a **publishUri** column is present, associated LSTs will also be downloaded. An **environment** column sets build environment variables for a repository as space-separated NAME=VALUE pairs. Reference a variable of the machine that builds, as in NPM\_TOKEN=null, rather than putting a secret in the file.
 
+A **github://\<host>/\<org>** URI syncs a GitHub organization. Its repositories are listed into **.moderne/repos.csv** on their default branches. Archived, forked, disabled and empty repositories are skipped. Private repositories need a token. GITHUB\_TOKEN supplies one for github.com. Otherwise git's credential helpers do.
+
 ### Usage
 
 ```
 mod git sync csv [parameters]
+```
+
+### Examples
+
+```
+mod git sync csv /path/to/working-set github://github.com/openrewrite
 ```
 
 ### Parameters
@@ -12335,23 +12430,24 @@ mod git sync csv [parameters]
 | Name | Description | Example |
 | ---- | ----------- | ---------- |
 | `path` |  The working set to sync into. It is created if missing. | `/path/to/project` |
-| `csv` |  A repos.csv file or URL. A **moderne://** URI syncs from Moderne instead. |  |
+| `csv` |  A repos.csv file or URL. A **moderne://** URI syncs from Moderne instead. A **github://\<host>/\<org>** URI syncs a GitHub organization. |  |
 
 ### Options
 
-| Name | Description |
-| ---- | ----------- |
-| `--depth` |  Equivalent to the **git clone --depth** option. |
-| `--filter` |  Equivalent to the **git clone --filter** option. Defaults to **tree:0**, or to a full clone while **mod config features build git-blame** is enabled. |
-| `--limit` |  (DEPRECATED) Has no effect. |
-| `--organization`, `--org` |  Only the repositories of this organization. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. **mod config moderne organizations show** lists them. |
-| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |
-| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |
-| `--shard` |  Sync only shard i of M. For example 3/8. This splits the repositories across M working sets. Each repository always lands in the same shard. i counts from 1. |
-| `--single-branch` |  Equivalent to the **git clone --single-branch** option. |
-| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
-| `--with-lsts` |  Download each repository's LST. |
-| `--with-sources` |  Clone or pull every repository at the commit of its LST. With a changeset they are checked out to its branch. Repositories with local changes or on another branch are skipped. |
+| Name | Description | Example |
+| ---- | ----------- | ---------- |
+| `--depth` |  Equivalent to the **git clone --depth** option. |  |
+| `--filter` |  Equivalent to the **git clone --filter** option. Defaults to **tree:0**, or to a full clone while **mod config features build git-blame** is enabled. |  |
+| `--limit` |  (DEPRECATED) Has no effect. |  |
+| `--organization`, `--org` |  Only the repositories of this organization. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. **mod config moderne organizations show** lists them. |  |
+| `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
+| `--repository` |  Sync only this repository. Name it by its path in Moderne. Repositories already in the working set stay. Repeat to name more. | `acme/billing` |
+| `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |  |
+| `--shard` |  Sync only shard i of M. For example 3/8. This splits the repositories across M working sets. Each repository always lands in the same shard. i counts from 1. |  |
+| `--single-branch` |  Equivalent to the **git clone --single-branch** option. |  |
+| `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |  |
+| `--with-lsts` |  Download each repository's LST. |  |
+| `--with-sources` |  Clone or pull every repository at the commit of its LST. With a changeset they are checked out to its branch. Repositories with local changes or on another branch are skipped. |  |
 
 
 ## mod git sync moderne
@@ -12361,7 +12457,7 @@ Synchronizes an organization or a changeset from Moderne.
 
 A directory is created for every repository. The LST is downloaded too. Many code transformations and analyses can be done with just the LST since it is a superset of the text of the repository.
 
-**--organization** limits the sync to one organization. **--changeset** limits it to the repositories with results in a changeset. With sources they are checked out to the changeset's branch. Pushes then go to the changeset. With LSTs only the changes go to **.moderne/run** for **mod git apply**.
+**--organization** limits the sync to one organization. **--changeset** limits it to the repositories with results in a changeset. With sources they are checked out to the changeset's branch. Pushes then go to the changeset. Beside **--changeset**, **--repository** can also name a repository without results. A push from that repository adds it to the changeset. With LSTs only the changes go to **.moderne/run** for **mod git apply**.
 
 ### Usage
 
@@ -12396,6 +12492,7 @@ mod git sync moderne /path/to/working-set --changeset 20260924153000-Ab1cD --org
 | `--limit` |  (DEPRECATED) Has no effect. |  |
 | `--organization`, `--org` |  Only the repositories of this organization. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. **mod config moderne organizations show** lists them. |  |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
+| `--repository` |  Sync only this repository. Name it by its path in Moderne. Repositories already in the working set stay. Repeat to name more. | `acme/billing` |
 | `--save` |  If the CSV has per repository configuration like custom build tool options, JVM configuration, etc. save that configuration in a **.moderne/moderne.yml** which can be committed to source control. |  |
 | `--shard` |  Sync only shard i of M. For example 3/8. This splits the repositories across M working sets. Each repository always lands in the same shard. i counts from 1. |  |
 | `--single-branch` |  Equivalent to the **git clone --single-branch** option. |  |
@@ -12893,7 +12990,7 @@ mod navigate definition . addAttribute --at spring-projects/spring-petclinic/src
 | `--in` |  The repository the symbol is used in, as Moderne holds it: **github.com/acme/app@main**. Or the package a file is in: **org.springframework:spring-context:7.0.2**. Without it, the checkout the command runs in, when it runs in one. |
 | `--lines` |  How many lines of the declaration to print at most. 0 prints only where it is. |
 | `--organization`, `--org` |  In a working set, the organization in Moderne to ask for what the working set does not declare. Without it, the organization the working set was synced from. A working set that records none asks the Global Organization. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. |
-| `--references` |  Also print what the lines printed refer to, each with the dependency it comes from and the file and line it is declared at. With --lines 0 it lists what the first 60 lines refer to. |
+| `--references` |  Also print what the declaration refers to, each with the dependency it comes from and the file and line it is declared at. The references are read from at least its first 200 lines, whatever --lines prints. |
 
 
 ## mod navigate read
@@ -13146,6 +13243,8 @@ mod publish [parameters]
 mod publish /path/to/project
 
 mod publish /path/to/ws --sync-csv --organization Payments
+
+mod publish /path/to/ws --sync-csv=github://github.com/openrewrite
 ```
 
 ### Parameters
@@ -13158,10 +13257,11 @@ mod publish /path/to/ws --sync-csv --organization Payments
 
 | Name | Description |
 | ---- | ----------- |
+| `--exclude` |  Leave a repository out of a **github://\<host>/\<org>** value's listing, so that it is neither built nor kept in repos-lock.csv. Name it as \<org>/\<name>, or by its name alone, where \* stands for any characters. Can be given more than once. |
 | `--full`, `--rebuild` |  (INCUBATING) Build and publish every repository, even one whose repos-lock.csv row already records the remote HEAD, this CLI version and a reproducible build. The row does not record how the repository was built, so a run after the build steps change needs this to build again what they now read differently. |
 | `--organization`, `--org` |  Only the repositories of this organization. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. **mod config moderne organizations show** lists them. |
 | `--shard` |  Work through only shard i of M of the repository list, for example 3/8 (i counts from 1, and 0 is read as M, so a job index that counts from 0 still covers the list), so M tasks split one repos.csv without coordinating. A repository's shard is the SHA-256 of `origin\|path\|branch` (origin and path lowercased, any partition removed, the branch blank when the row has none), leading 8 bytes as an unsigned number, modulo M, plus 1. It depends on that row alone and is the same on every machine. Applied after --organization. |
-| `--sync-csv` |  Work through a repos.csv one repository at a time: clone, build, publish, record the result in the artifact store's repos-lock.csv, and delete the repository directory before moving to the next, so the workspace never holds more than the repository in flight. A repository is skipped when its repos-lock.csv row already records the remote HEAD, was built by this CLI version, and was a reproducible build, unless --full. A repository listed under several organizations is built once, and every one of its rows records that publish. Without a value, the csv is the repos.csv in the configured artifact store, which must exist either way. Put the path before this option. |
+| `--sync-csv` |  Work through a repos.csv one repository at a time: clone, build, publish, record the result in the artifact store's repos-lock.csv, and delete the repository directory before moving to the next, so the workspace never holds more than the repository in flight. A repository is skipped when its repos-lock.csv row already records the remote HEAD, was built by this CLI version, and was a reproducible build, unless --full. A repository listed under several organizations is built once, and every one of its rows records that publish. Without a value, the csv is the repos.csv in the configured artifact store, which must exist either way. A **github://\<host>/\<org>** value writes a GitHub organization's repositories to that repos.csv first. Put the working-set path before this option. |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |
 
 
@@ -13206,6 +13306,11 @@ mod run . --recipe org.openrewrite.gradle.UpdateGradleWrapper \
 mod git apply . --last-recipe-run
 mod study . --last-recipe-run --data-table <name> --csv
 ```
+
+On a working set checked out to a changeset, the run works from each repository as
+it was before the changeset until the repository is built again, so
+**mod git compare . --last-recipe-run** compares its patch with what the
+changeset holds instead of applying it.
 
 **Runs in Moderne**
 
@@ -13254,7 +13359,7 @@ mod run moderne://changeset/<changesetId> \
 
 ### Options
 
-| Name | Description | Example |
+| Name | Description | Examples |
 | ---- | ----------- | ---------- |
 | `--active-recipe` |  Run the recipe that is active in the Moderne IDE plugin. |  |
 | `--bundle` |  Use the recipe from this bundle instead of the marketplace. **mod config recipes bundle push** prints the id. For runs in Moderne. | `mod run "moderne://ALL/Financial Services" --recipe=<recipe> --bundle <BUNDLE_ID>` |
@@ -13262,15 +13367,16 @@ mod run moderne://changeset/<changesetId> \
 | `--last-search` |  Select the ID of the last search run to filter repositories. Only repositories that had search matches will be processed. |  |
 | `--max-files` |  How many files of each repository's diff print. For runs in Moderne. |  |
 | `--no-patch` |  (INCUBATING) Skip the patch files. Useful when you only need the data tables. |  |
+| `--organization`, `--org` |  Only the repositories of this organization. An organization is named by its id or its name. For example **ALL/Financial Services** or **Financial Services**. **mod config moderne organizations show** lists them. |  |
 | `-P`, `--recipe-option` |  A recipe option as **name=value**. | `mod run . --recipe=<recipe> -P methodPattern='java.util.List add(..)' -P moreOptions='moreOptions'` |
 | `--parallel` |  (INCUBATING) Run the command in parallel. Setting this option to 2 or more causes the command to run with a fixed-size thread pool with that many threads. Setting this to 1 causes the command to run sequentially. Setting this to 0 runs the command with a thread pool sized to the number of CPU cores on your machine. Setting this to a negative number runs the command with a fixed-size thread pool equal to the number of CPU cores minus the absolute value of that number. For example, `-1` runs the command with (cores-1) threads. |  |
-| `--patches` |  Write each repository's whole patch under **.moderne/run/\<changesetId>**. For runs in Moderne. |  |
+| `--patches` |  Write each repository's whole patch under **.moderne/run/\<changesetId>**, and list those it could not write in its skipped.csv. For runs in Moderne. |  |
 | `--recipe` |  The id of the recipe to run. A short name works when only one recipe has it. For example **org.openrewrite.java.ChangeMethodName** or **ChangeMethodName**. Recipes aren't as fast as searches but can do vastly more complex things. | `org.openrewrite.java.search.FindMethods` |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |  |
 | `--search` |  A search run ID to filter repositories to only those with matches. |  |
-| `--shard` |  Sync only shard i of M. For example 3/8. This splits the repositories across M working sets. Each repository always lands in the same shard. i counts from 1. Takes effect with **--sync-csv**. |  |
+| `--shard` |  Sync only shard i of M. For example 3/8. This splits the repositories across M working sets. Each repository always lands in the same shard. i counts from 1. Takes effect with **--sync-csv**. Applied after **--organization**. |  |
 | `--streaming` |  (INCUBATING) Print machine-readable results as they are produced. |  |
-| `--sync-csv` |  Sync the LSTs in this repos.csv before the run. Syncing is interleaved with running. Repositories complete incrementally instead of waiting for a full sync of a large organization. Repositories without a published LST are skipped. | `mod run ./ws --sync-csv ./repos.csv --recipe=<recipe>` |
+| `--sync-csv` |  Sync the LSTs in this repos.csv before the run. Syncing is interleaved with running. Repositories complete incrementally instead of waiting for a full sync of a large organization. Repositories without a published LST are skipped. Without a value, the csv is the repos-lock.csv that **mod publish** records in the configured artifact store. Put the working-set path before this option. | • `mod run ./ws --sync-csv ./repos.csv --recipe=<recipe>`<br/>• `mod run ./ws --sync-csv --organization Payments --recipe=<recipe>` |
 | `--trace-tag` |  Tags to add as extra columns to the trace.csv emitted by this command. Each tag becomes a column with header `tag.<key>` and the supplied value. Repeat the option to add multiple tags. |  |
 
 
@@ -14074,7 +14180,7 @@ mod study moderne://changeset/<CHANGESET_ID> --data-table SourcesFileResults --s
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `-m`, `--max` |  The most rows to print. Up to 10,000. For changesets in Moderne. |
 | `-o`, `--output-file` |  Where to write the data table. The extension picks the format. For example **.xlsx** for Excel. |
-| `--patches` |  Write each repository's whole patch under **.moderne/run/\<changesetId>**. For changesets in Moderne. |
+| `--patches` |  Write each repository's whole patch under **.moderne/run/\<changesetId>**, and list those it could not write in its skipped.csv. For changesets in Moderne. |
 | `--recipe-run` |  A recipe run ID listed by **mod run-history** |
 | `--repositories` |  Export each repository's outcome instead of a data table. The columns are its state, files with results, files changed, errors, sync status, start and finish. For changesets in Moderne. |
 | `--sql` |  DuckDB SQL over the data table. The table is named **data\_table**. For example **SELECT repositoryPath, count(\*) FROM data\_table GROUP BY ALL**. For changesets in Moderne. |
