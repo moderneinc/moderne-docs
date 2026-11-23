@@ -6,13 +6,19 @@ on:
     # Run every day at 6 AM Pacific (2 PM UTC)
     - cron: '0 14 * * *'
   workflow_dispatch:
-
-concurrency:
-  group: update-cli-release-notes
-  cancel-in-progress: true
+  # moderne-cli's docs workflow pushes a "Release moderne-cli vX.Y.Z" commit once a release is published.
+  push:
+    branches: [main]
+    paths:
+      - docs/user-documentation/moderne-cli/**
 
 jobs:
   update-release-notes:
+    if: github.event_name != 'push' || startsWith(github.event.head_commit.message, 'Release moderne-cli')
+    # On the job rather than the workflow, so a push that skips the job doesn't cancel a run in progress.
+    concurrency:
+      group: update-cli-release-notes
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
