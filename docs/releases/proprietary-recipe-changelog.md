@@ -10,6 +10,265 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 23, 2026
+
+#### recipes-csharp - 0.32.0
+
+* Run `ConverterAttestationTest` plan check through `RewriteRun`
+
+#### recipes-csharp - 0.31.0
+
+* Move workaround tests to `RewriteTest`
+* `UseShortCircuitOperator` - preserve observable evaluation when converting `&`/`|` to short-circuit operators
+* Run `SerialPortPackagePolicyTest` through `RewriteRun`
+
+#### recipes-go - 0.34.0
+
+* Preserve evaluation, labels and shadowed constants in Go remediations
+
+#### recipes-javascript - 0.25.0
+
+* OpenRewrite recipe best practices
+
+#### recipes-javascript - 0.24.0
+
+* Raise `@types/node` with each Node.js rung in `recipes-node`
+* Add `UpgradeToNode20` to `recipes-node`
+* Rename the packages to `@moderneinc` and the recipe ids to `io.moderne`
+* Break inserted lines as the file does in `PreserveQueryParser` and `RethrowListenErrors`
+
+#### recipes-kotlin - 0.28.0
+
+* Apply the Kotlin1To2 type validation opt-out to the output only
+
+#### recipes-mainframe - 0.22.0
+
+* Shorten fully qualified Java references
+
+#### recipes-scala - 0.29.0
+
+* OpenRewrite recipe best practices
+
+#### recipes-scala - 0.28.0
+
+* Match parameterless calls as method invocations
+* Remove workarounds for fixed rewrite-scala parsing and import handling
+* Detect Scala stdlib patterns on the LST instead of printed text
+* Measure nesting, method length and isInstanceOf chains on the LST
+* Give rewritten calls in the performance recipes their new method types
+* Rewrite procedure syntax to an explicit Unit return type
+* Only rewrite guarded `head`/`last` and type the performance recipes
+* Fix false positives and gaps in the safety, testing, concurrency and error-handling recipes
+* Fix harmful rewrites and missed findings in the cleanup recipes
+* Find library usages instead of deleting imports, and migrate Akka to Pekko
+* Make the core migrate recipes rewrite or match by type, and delete the harmful ones
+* Fix missed findings and false positives in the cleanup recipes, and rewrite unreassigned local vars
+* Add Scala 2.13 and Scala 3 migration composites
+* Inline FlatSpec and Matchers migrations into MigrateToScalaTest3_1
+* Add a CodeCleanup composite of the version-independent Scala rewrites
+* Migrate ScalaTest `fixture` styles to their 3.1 packages
+
+#### rewrite-android - 0.42.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-angular - 1.37.0
+
+* OpenRewrite recipe best practices
+* Handle computed and unreadable `static` keys in `AddStaticFalseToViewQueries`
+
+#### rewrite-angular - 1.36.0
+
+* Angular upgrade recipes to use two cycles
+* Migrate Jasmine tests to Vitest
+
+#### rewrite-circleci - 3.35.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-compiled-analysis - 0.38.0
+
+* Explain the type validation opt-out
+
+#### rewrite-concourse - 3.34.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-devcenter - 1.55.0
+
+* Target Spring Boot 4.2 in starter and Kotlin DevCenters
+* OpenRewrite recipe best practices
+
+#### rewrite-dotnet - 0.40.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-dropwizard - 0.31.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-dropwizard - 0.30.0
+
+* Shorten fully qualified Java references
+
+#### rewrite-elastic - 0.31.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-hibernate - 0.52.0
+
+* Fix untyped FieldAccess found by stricter type validation
+
+#### rewrite-jasperreports - 0.29.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-java-application-server - 0.33.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-java-security - 3.66.0
+
+* Report Java4Shell remediation decisions
+* Expand Java runtime image and argument-file support
+* Avoid false Java4Shell review advisories for own mitigation and stage aliases
+
+#### rewrite-java-security - 3.65.0
+
+* GitHub advisories and endoflife.date data as of 2026-11-20T1150
+* Split Java4Shell runtime finder and report compilation JDK once per repo
+
+#### rewrite-kafka - 0.30.0
+
+* Remove redundant afterTypeValidationOptions(all())
+
+#### rewrite-kubernetes - 3.42.0
+
+* Shorten fully qualified Java references
+
+#### rewrite-mainframe - 3.26.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-mainframe - 3.25.0
+
+* Use imports for fully qualified Java types
+
+#### rewrite-migrate-kotlin - 0.33.0
+
+* Keep enum entries replacements compiling and migrate the `kotlinOptions.jvmTarget` property form
+
+#### rewrite-migrate-kotlin - 0.32.0
+
+* Fix untyped FieldAccess found by stricter type validation
+* Shorten fully qualified Java type references
+
+#### rewrite-migrate-python - 0.38.0
+
+* Remove the backoff dependency when migrating to tenacity
+* Migrate retry to tenacity and async-timeout to asyncio.timeout
+* Shorten verified Java type references
+
+#### rewrite-nodejs - 0.75.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-nodejs - 0.74.0
+
+* GitHub advisories as of 2026-11-20T1150
+
+#### rewrite-nullability - 0.30.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-nullability - 0.29.0
+
+* Fix untyped FieldAccess found by stricter type validation
+* Reattach elementTypeName Javadoc displaced in #61
+* Shorten fully qualified Java references
+
+#### rewrite-prethink - 0.40.0
+
+* Let `CsvDataTableStore` read back `TestMapping` and `EndpointSecurity` rows
+
+#### rewrite-prethink - 0.39.0
+
+* Fix untyped FieldAccess found by stricter type validation
+* Shorten verified Java type references
+
+#### rewrite-primefaces - 0.13.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-primefaces - 0.12.0
+
+* Shorten fully qualified Java type references
+
+#### rewrite-program-analysis - 0.41.0
+
+* Add FindUnclosedCustomResources recipe (RSPEC-S3546)
+* Tag FindXssVulnerability with RSPEC-S5131 and read Spring handler parameters
+* Shorten verified Java type references
+* Shorten verified Java type references
+
+#### rewrite-react - 0.31.0
+
+* OpenRewrite recipe best practices
+* Replace configured TypeScript entries in `react-migrate.yml` with named recipes
+
+#### rewrite-react - 0.30.0
+
+* Migrate the React types `@types/react` 18 and 19 removed
+* Declare recipes-react's npm license as Moderne Proprietary
+* Shorten qualified Java type references
+
+#### rewrite-reactive-streams - 0.43.0
+
+* Upgrade Gradle wrapper to 9.9.1
+
+#### rewrite-spring - 0.67.0
+
+* OpenRewrite recipe best practices
+* Chain `UpgradeToKotlin2` into `UpgradeSpringBoot_4_0` for modules with Kotlin sources
+
+#### rewrite-spring - 0.66.0
+
+* Keep `X-Forwarded-Prefix` and Pulsar configuration working when migrating to Spring Boot 4.2
+* Change `native` to `web-server` with the Spring Boot 4.2 forwarded strategy
+* A28: Preserve `web.xml` order and escape generated literals in `WebXmlToWebApplicationInitializer`
+* A29: Keep `@MockitoBean` attributes, or bail out, in `ReplaceMockitoBeanWithBeanMethod`
+* Target Jackson 3 types in `MigrateJsonFactoryDecorator` (A23)
+* Relocate rather than remove `HttpMessageConvertersAutoConfiguration` references (A33)
+* A25: Leave `Jackson2ObjectMapperBuilder` chains with unmapped calls unchanged in `MigrateJackson2ObjectMapperBuilder`
+* A31: Leave RestTemplate calls whose headers lambda would capture a reassigned local
+* Generate property migrations from every Spring module, not only starters
+* Reuse only completed Spring release downloads in the property generator
+* Resolve names through `Scope` in recipes that add or move code
+* Drop the unused Jackson 2 `JsonFactory` import when `MigrateJsonFactoryDecorator` keeps a body
+* A27: Bail out of `FieldToConstructorInjection` next to other constructors, and support `javax.inject`
+* A35: Keep constant `@Path`/`@Produces` values and sub-resource locators in `JaxRsToSpringWeb`
+* Harden UpgradeSpringBoot_4_2 for projects already on Boot 4.0/4.1
+* Migrate `CrudRepository` methods renamed in Spring Data 2.0
+* Add `UpgradeSpringData_2_0` for the rest of Spring Data 2.0
+* Migrate injected TestRestTemplate GET tests to RestTestClient for Boot 4.2
+
+#### rewrite-static-analysis - 0.24.0
+
+* OpenRewrite recipe best practices
+
+#### rewrite-static-analysis - 0.23.0
+
+* Indent StringBuilderIsEmptyTest's continuation line like the formatter
+
+#### rewrite-tapestry - 0.29.0
+
+* Fix untyped FieldAccess found by stricter type validation
+* Shorten fully qualified Java type references
+
+#### rewrite-terraform - 3.38.0
+
+* Refactor RewriteTest to use defaults method
+
 ## November 20, 2026
 
 #### recipes-csharp - 0.30.0
