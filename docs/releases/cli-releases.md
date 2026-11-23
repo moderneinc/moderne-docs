@@ -15,6 +15,69 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## November 2026
 
+### CLI v4.13.0 (2026-11-23) {/* #v4.13.0 */}
+
+_Based on [OpenRewrite 8.115.1](https://github.com/openrewrite/rewrite/releases/tag/v8.115.1)_
+
+#### What's Changed
+* Provision the Python deps env through rewrite-python's installer
+* Write PyPI and NuGet dependency coordinates as navigation reads them
+* Shorten qualified Java type references
+* Stop cutting query_datatable rows short at a #
+* Link the version in the banner to its release notes
+* Say why the Code Genome Project could not build a package
+* Read a package's code before the declaration files that say what it does
+* Bound the publish watchdog central lock flush
+* Pass quoted cmd.exe metacharacters through modw.cmd verbatim
+* Preserve `!` in modw.cmd arguments when `--debug` is passed
+* List what a declaration refers to below a doc comment of any length
+* Skip a patch Moderne refuses instead of aborting mod study --patches, and list it
+* Give Android modules their sources and the SDK platform jar
+* Read JDK versions from `release` files when checking that an agent session can work
+* Generate the bundled LTS JDK type tables from pinned Zulu archives, and require all five
+* Trail window zoom and step sources, and navigation guidance for agents
+* Hoist edit filters of recipes under declarative preconditions and decide uses per file from the V3 search index
+* Check out a changeset's repositories in parallel
+* Sync only named repositories with --repository
+* Remove three fixed costs from every mod build
+* Say why mod git compare skipped each repository
+* Name a sibling module's type table for its outputs, not its module path
+* Give chat's readiness check one time limit
+* Install the prebuild plugin jars so another build never sees one half written
+* Retry a clone without the credentials written into its URL
+* Let a launcher name itself in the git credential helper
+* Keep the Gradle prebuild jars the CLI bundles at another version
+* Say why chat starts an agent without Moderne's MCP server
+* Sync and publish a GitHub organization in place of a repos.csv
+* Download a JDK when no installed one satisfies a repository
+* Fail a prebuild plugin install that cannot replace a changed jar
+* Stop concurrent Python builds from failing or losing stdlib types
+* Resolve a conversion's jars from the repositories its LST declares
+* Steer Claude Code chats through Moderne, and resume Claude Code, Codex and Copilot chats
+* Run each prebuild again on mod build --full
+* Let --repository name a repository a changeset holds no change for
+* Say what to do when a changeset sync cannot read repos.csv
+* Skip the plugin descriptor in a Maven plugin module's prebuild
+* Keep a running CLI's jars when the next build of its version is extracted
+* Suggest git compare after a run on a changeset, and teach the agent guide what agents missed
+* Stop installing the create-recipe skill, and remove the copies earlier installs left
+* Convert assigning switch statements to switch expressions
+* Give V2 Ruby LSTs only the repository's own types, as the JVM steps do
+* Let a guarded ADD CONSTRAINT in a DO block redefine an existing foreign key on pglite
+* Type the resource scope against a bundled LTS JDK, and record none when nothing typed was parsed
+* Leave the JDK type tables the CLI bundles out of published LSTs
+* Run on the artifact store's repos-lock.csv with a bare --sync-csv, and select an organization from it with --organization
+* Hoist DDL a DO block runs through EXECUTE of a constant string on pglite
+* Don't count a Maven reactor's own SNAPSHOT modules as dynamic versions
+* Leave repositories out of a GitHub organization's listing with --exclude
+* Match a quoted EXECUTE constant without an alternation per character
+* Stop a wrapper that can't record itself in the install lock
+* Name the recipe template's Gradle scripts *.template so builds don't run it
+* Build on Windows on CGP, and drop the Actions Windows job
+* Run mod's tests in several JVMs at once
+* Trace an agent session on the organization its working set was synced from
+* Drop the Build and Release workflow, since CGP checks the distributions when it publishes main
+
 ### CLI v4.12.13 (2026-11-20) {/* #v4.12.13 */}
 
 _Based on [OpenRewrite 8.112.4](https://github.com/openrewrite/rewrite/releases/tag/v8.112.4)_
