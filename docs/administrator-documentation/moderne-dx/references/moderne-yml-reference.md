@@ -21,7 +21,7 @@ Every command except `init` will read the `moderne.yml` file in your current dir
 
 | Command                                  | What it does                                                                                     |
 |------------------------------------------|--------------------------------------------------------------------------------------------------|
-| `java -jar moderne-dx.jar init [<dir>]`  | Creates `moderne.yml`, `moderne.env` (with a new SCM token key), and a systemd unit file. It won't overwrite any of these files if they already exist. If the Moderne CLI on this machine has your license key, CGP username, or CGP token, the new `moderne.yml` will read them from the CLI. |
+| `java -jar moderne-dx.jar init [<dir>]`  | Creates `moderne.yml` and `moderne.env` (with a new SCM token key). On Linux, it will also create a systemd unit file. It won't overwrite any of these files if they already exist. If the Moderne CLI on this machine has your license key, CGP username, or CGP token, the new `moderne.yml` will read them from the CLI. |
 | `java -jar moderne-dx.jar doctor`        | Checks that DX has what it needs to start. This includes your `moderne.yml` settings, Java, the Moderne CLI, disk space, your certificate, and your organization sources. If DX is running, it will also check each of DX's host names through the proxy. |
 | `java -jar moderne-dx.jar start`         | Starts DX in the foreground. It will keep every service running until DX stops.                  |
 | `java -jar moderne-dx.jar status`        | Tells you whether DX is running and which services are up.                                       |
