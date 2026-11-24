@@ -101,6 +101,12 @@
   color: var(--mod-color-text-primary);
 }
 
+/* Dark mode: the current page alone is green. Its open parent groups stay
+   cream, so the green marks one row rather than the whole trail. */
+:global(html[data-theme='dark'] .theme-doc-sidebar-menu .menu__link--active[aria-current='page']) {
+  color: var(--mod-color-text-success);
+}
+
 /* Border styling between top-level sections - brand lavender */
 :global(.theme-doc-sidebar-menu > .menu__list > .menu__list-item) {
   border-top: 0.5px solid var(--brand-dark-lavender);

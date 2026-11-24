@@ -466,11 +466,13 @@ html {
   padding-top: 0;
 }
 
-/* The doc content column sits on a surface one step lighter than the page, in
-   both modes, on every doc page, with 20px of extra room between the sidebar
-   divider and where the content starts. */
+/* The doc content column sits on the canvas surface on every doc page, with
+   20px of extra room between the sidebar divider and where the content starts.
+   Canvas is near-white in light mode and a near-black one small step above the
+   page in dark mode, so body text keeps its contrast and dark screenshots do
+   not read as holes in the page. */
 [class*="docMainContainer"] {
-  background: var(--mod-color-surface-raised);
+  background: var(--mod-color-surface-canvas);
 }
 
 @media (min-width: 997px) {
