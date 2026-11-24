@@ -18,14 +18,15 @@ Before you begin, you will need:
 * A machine running Linux or macOS on Apple silicon.
 * Java 25 and the [Moderne CLI](../../../user-documentation/moderne-cli/getting-started/cli-intro.md) installed on that machine.
 * A license key and a [Code Genome Project](../../../user-documentation/recipes/accessing-the-code-genome-project.md) token from Moderne.
+  * This needs to be the token Moderne gave you for DX. A token from a CGP account that you signed in to with GitHub or Google won't work.
 * HTTPS access from that machine to `artifacts.codegenomeproject.org` and `api.codegenomeproject.org`.
 
 ## Downloading Moderne DX
 
-To download DX, run the following command with your CGP username and token:
+To download DX, run the following command with your CGP token:
 
 ```bash
-curl -fLO -u <cgp-user>:<cgp-token> https://artifacts.codegenomeproject.org/snapshot/moderne-dx.jar
+curl -fLO -u cgp:<cgp-token> https://artifacts.codegenomeproject.org/snapshot/moderne-dx.jar
 ```
 
 This URL always serves the newest snapshot build.
@@ -38,7 +39,7 @@ java -jar moderne-dx.jar init
 
 ## Configuring Moderne DX
 
-Open the `moderne.yml` file that `init` created. It will contain settings like these:
+Open your `moderne.yml` file. It will contain settings like these:
 
 ```yaml title="moderne.yml"
 moderne:
@@ -48,7 +49,7 @@ moderne:
     marketplace:
       repositories:
         code-genome-project:
-          username: <cgp-user>
+          username: cgp
           token: ${CGP_TOKEN}
         # maven:                  # or your own repository that proxies CGP
         #   - uri: https://artifactory.acme.com/artifactory/moderne-recipes
@@ -75,9 +76,9 @@ The sections below explain which of these settings you'll need to fill in or cha
 
 ### Your license key and CGP token
 
-If the Moderne CLI on this machine already has your license key, CGP username, and CGP token, `init` will set up `moderne.yml` to read them from the CLI. In that case, you'll see values that look like `${moderne-cli:license.key}`. DX will ask the CLI for these values each time it starts.
+If the Moderne CLI on this machine already has your license key and CGP token, `init` will set up `moderne.yml` to read them from the CLI. In that case, you'll see values that look like `${moderne-cli:license.key}`. DX will ask the CLI for these values each time it starts.
 
-If the CLI doesn't have one of these values, you'll need to add it to the `moderne.env` file that sits next to `moderne.yml`:
+If the CLI doesn't have one of these values, you'll need to add it to the `moderne.env` file. You'll find this file in the same folder as your `moderne.yml` file:
 
 ```bash title="moderne.env"
 MODERNE_LICENSE_KEY=…
@@ -139,17 +140,34 @@ java -jar moderne-dx.jar doctor
 java -jar moderne-dx.jar start
 ```
 
+:::note
+If `doctor` says the host names don't resolve, there are two likely reasons:
+
+* CGP only just gave your DX its host names. It can take up to 15 minutes for them to resolve everywhere, so wait a few minutes and run `doctor` again.
+* Your network's DNS server won't pass on answers that point at a private address like `127.0.0.1`. This is likely the reason if the host names still don't resolve after 15 minutes. To fix it, you'll need to add the line that `doctor` prints to your `/etc/hosts` file.
+:::
+
 The first start will take longer than later ones, because DX's services need to download the Moderne CLI they run. Once DX is up, `start` will print where to sign in:
 
 ```text
 Up. Sign in at https://acme.moderne.direct:8443 as admin with the password moderne1001
 ```
 
-Open that URL and sign in. From there, you can install recipes from the marketplace.
+Open that URL and sign in.
 
-:::note
-The first time CGP gives your DX its host names, it can take up to 15 minutes for them to resolve everywhere. If `doctor` or `start` says a host name doesn't resolve, wait a few minutes and try again.
-:::
+### Loading recipes
+
+When you first sign in, the recipe marketplace will be empty. To fill it, you'll need to load recipes from the **Deploy** page:
+
+1. Click **Deploy** in the left sidebar.
+2. Click **Load recipes**.
+
+   <figure>
+     ![The Deploy page before any recipes are installed, with a Load recipes button in the middle of the page](./assets/dx-deploy-load-recipes.png)
+     <figcaption>_The Deploy page before any recipes are installed._</figcaption>
+   </figure>
+
+DX will then download and install each recipe bundle, one after another. This will take about 10 minutes. Once the bundles show a status of `Finished`, you'll find their recipes in the **Marketplace**.
 
 ## Connecting the CLI
 
