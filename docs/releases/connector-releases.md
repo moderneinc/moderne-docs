@@ -7,13 +7,20 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.440 |
+| Connector | 0.151.458 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.440/connector-0.151.440.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.458/connector-0.151.458.jar)
 
 ## Changelog
 
 ## November 2026
+
+### v0.151.458 – 2026-11-24
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.458/connector-0.151.458.jar)
+
+* Stop advertising a connector's S3 organization sources to the services (#3184)
+* Serve every LST source through Moderne DX's gateway (#3161)
 
 ### v0.151.440 – 2026-11-20
 
