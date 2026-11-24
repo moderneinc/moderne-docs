@@ -7,13 +7,19 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.151.458 |
+| Connector | 0.151.459 |
 
-[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.458/connector-0.151.458.jar)
+[Download latest](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.459/connector-0.151.459.jar)
 
 ## Changelog
 
 ## November 2026
+
+### v0.151.459 – 2026-11-24
+
+[Download](https://artifacts.codegenomeproject.org/maven/io/moderne/connector/0.151.459/connector-0.151.459.jar)
+
+* Hold the connector on Spring Cloud 2025.1 so it ships Spring Boot 4.1 (#3186)
 
 ### v0.151.458 – 2026-11-24
 
