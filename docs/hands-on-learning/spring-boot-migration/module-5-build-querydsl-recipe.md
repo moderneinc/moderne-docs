@@ -89,7 +89,7 @@ The agent will run the same searches you did above, cross-reference them with th
 
 ### Goals for this exercise
 
-* Use the Moderne `create-recipe` skill to scaffold and build a QueryDSL upgrade recipe
+* Use an AI coding agent to scaffold and build a QueryDSL upgrade recipe
 * Follow a test-driven approach
 * Produce a working recipe JAR
 
@@ -97,16 +97,16 @@ The agent will run the same searches you did above, cross-reference them with th
 
 #### Step 1: Set up the recipe project
 
-Create a directory for the recipe project and launch your AI coding agent. This exercise uses [Claude Code](https://docs.anthropic.com/en/docs/claude-code) with the Moderne extension, but you can use any AI coding agent or build the recipe manually. If you prefer not to use an agent, skip to the alternative path in Step 4.
+Create a directory for the recipe project and launch your AI coding agent. This exercise uses [Claude Code](https://docs.anthropic.com/en/docs/claude-code), but you can use any AI coding agent or build the recipe manually. If you prefer not to use an agent, skip to the alternative path in Step 4.
 
 ```bash
 mkdir -p $PROJECTS/rewrite-querydsl && cd $PROJECTS/rewrite-querydsl
 claude  # or launch your preferred agent
 ```
 
-#### Step 2: Invoke the skill with the change specification
+#### Step 2: Give the agent the change specification
 
-Feed the agent the change specification from Exercise 5-1 — it should load the `create-recipe` skill on its own. The prompt should describe the concrete changes, not just "fix QueryDSL."
+Feed the agent the change specification from Exercise 5-1. The prompt should describe the concrete changes, not just "fix QueryDSL." It should also ask for tests first, since the agent won't always write them on its own.
 
 <details>
 <summary>Suggested prompt</summary>
@@ -126,6 +126,8 @@ Feed the agent the change specification from Exercise 5-1 — it should load the
 > 9. Rename packages from `com.mysema.query` to `com.querydsl` in Java source files
 >
 > Build it as a declarative YAML recipe using existing OpenRewrite primitives like `ChangeDependencyGroupIdAndArtifactId`, `ChangeDependencyClassifier`, `ChangeType`, `ChangeMethodName`, and `ChangeTagValue` wherever possible. Steps 7 and 8 may need imperative recipes if declarative primitives cannot express them.
+>
+> Write `RewriteTest` tests with before and after code for each change first, then implement the recipe until they pass.
 
 </details>
 
@@ -171,7 +173,7 @@ You can compare your version against this one after the workshop.
 
 * A clear change specification from Exercise 5-1 keeps the agent focused on the right transformations.
 * The recipe type hierarchy applies here: dependency changes, plugin changes, and package renames are all declarative.
-* The `create-recipe` skill provides the TDD workflow (tests first, then implementation) that catches mistakes early.
+* Asking for tests first, then the implementation, catches mistakes early.
 
 :::info
 This exercise followed an abbreviated version of the plan-build-test workflow from the [AI recipes workshop](../ai-recipes/workshop-overview.md). If you want to go deeper into AI-assisted recipe development, including Refaster templates, imperative recipes, and testing against larger working sets, check out that workshop.

@@ -1,16 +1,13 @@
 ---
 sidebar_label: Skills for AI coding agents
-description: How to install and use the Moderne skills that teach AI coding agents to write recipes and read Prethink context.
+description: How to install and use the Moderne skills that teach AI coding agents to read Prethink context and use Moderne tools.
 ---
 
 # Using Moderne skills with AI coding agents
 
 The Moderne CLI can install agent tools (skills and MCP servers) that teach AI coding agents how to work with OpenRewrite recipes. With a single command, you can install these tools for all detected agents.
 
-Two skills work without an MCP server:
-
-* **create-recipe** carries recipe-authoring knowledge and drives the `mod` CLI directly.
-* **prethink** points the agent at [Prethink context](./prethink.md) files already generated for the repository.
+The **prethink** skill works without an MCP server. It points the agent at [Prethink context](./prethink.md) files already generated for the repository.
 
 The CLI installs eight more skills that route the agent to a [local MCP server](./mcp/overview.md) tool. Those are experimental and documented with that server, in [tool-routing skills](./mcp/tool-routing-skills.md).
 
@@ -24,12 +21,12 @@ Skills operate on one repository. To work across a whole organization, use [agen
 
 ## Why use Moderne skills
 
-Building OpenRewrite recipes requires understanding [visitor patterns](https://docs.openrewrite.org/concepts-and-explanations/visitors), [LST structures](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees), and testing idioms that AI coding agents don't know out of the box. Agents also don't know when a Moderne tool will do a job better than `grep` and a hand edit.
+An AI coding agent starts each session without knowing your repository's architecture, its dependencies, or where it is risky to change. Agents also don't know when a Moderne tool will do a job better than `grep` and a hand edit.
 
 Moderne skills teach agents about:
 
-* **Recipe creation** - choosing the right type of recipe ([Declarative](https://docs.openrewrite.org/concepts-and-explanations/recipes#declarative-recipes), [Refaster](https://docs.openrewrite.org/concepts-and-explanations/recipes#refaster-template-recipes), or [Imperative](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes)) and following [OpenRewrite conventions](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices)
 * **Codebase context** - pre-resolved architecture, dependency, and risk information about a repository before the agent starts editing
+* **Moderne tools** - when to reach for a [local MCP server](./mcp/overview.md) tool to search, navigate, or change code
 
 The skills are bundled with the CLI and stay current when you update.
 
@@ -106,16 +103,12 @@ mod config agent-tools skills uninstall
 ```
 
 :::note
-This installs every skill, including the experimental [tool-routing skills](./mcp/tool-routing-skills.md), which do nothing without the MCP server they call. `create-recipe` works on its own, and `prethink` works as long as you have generated [Prethink context](./prethink.md).
+This installs every skill, including the experimental [tool-routing skills](./mcp/tool-routing-skills.md), which do nothing without the MCP server they call. `prethink` works as long as you have generated [Prethink context](./prethink.md).
 :::
 
 ## Invoking skills
 
 Skills trigger automatically. Describe the task in your own words and the agent loads whichever skill matches — there are no commands to memorize:
-
-```
-Write a recipe that replaces all calls to Logger.info() with Logger.debug()
-```
 
 ```
 What does this repository look like, and where is it riskiest to change?
@@ -124,30 +117,16 @@ What does this repository look like, and where is it riskiest to change?
 In Claude Code you can also invoke a skill explicitly with the `/moderne:` prefix, which is useful when you want to force a particular workflow:
 
 ```
-/moderne:create-recipe
+/moderne:prethink
 
-Create a recipe that migrates deprecated API calls.
+Which methods in this repository are high-risk and untested?
 ```
 
 ## Available skills
 
-### create-recipe
-
 :::note
-`create-recipe` requires Moderne CLI 4.5.3 or later. On earlier versions, `mod config agent-tools install` installs the other nine skills.
+The `create-recipe` skill was removed in Moderne CLI 4.13.0. On that version or later, the install command will also remove the copy an earlier version installed. To fix or write a recipe with an agent, use [agent chat](./agent-chat.md) instead.
 :::
-
-Use this skill when you want to create a new OpenRewrite recipe or modify an existing one.
-
-**When not to use**: general Java programming unrelated to OpenRewrite, or running an existing recipe across a working set (use `mod build` and `mod run`).
-
-This skill helps you with:
-
-* **Recipe type selection** - Choosing between declarative YAML (for composing existing recipes), Refaster templates (for simple expression replacements), or imperative Java recipes (for complex logic)
-* **Critical patterns** - LST immutability, visitor traversal, type matching with `MethodMatcher`, and proper import handling
-* **Testing** - Writing tests with the `RewriteTest` framework, including before/after assertions and no-change cases
-* **Data tables** - Emitting structured data for analysis
-* **Validating against real code** - Publishing the recipe, installing it, and running it across a working set with the CLI
 
 ### prethink
 

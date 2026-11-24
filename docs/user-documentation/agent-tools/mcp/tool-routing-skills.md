@@ -9,7 +9,7 @@ description: The experimental skills that tell an AI coding agent when to reach 
 These skills are experimental, like the [local MCP server](./overview.md) they depend on. Each one tells the agent when to reach for one of the [server's tools](./overview.md#available-tools), so none of them do anything unless that server is registered. They also work on one repository at a time. To run a recipe across many repositories, use [agent chat](../agent-chat.md) or `mod run` from the CLI.
 :::
 
-`mod config agent-tools install` installs these skills alongside the two the CLI supports on their own, [create-recipe and prethink](../skills.md). Like every Moderne skill, they trigger automatically: you describe the task, and the agent loads whichever skill matches.
+`mod config agent-tools install` installs these skills alongside [prethink](../skills.md#prethink), the one skill that works without an MCP server. Like every Moderne skill, they trigger automatically: you describe the task, and the agent loads whichever skill matches.
 
 | Skill               | What it covers                                                                                                  | MCP tool                                                                                     |
 |---------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -25,4 +25,4 @@ These skills are experimental, like the [local MCP server](./overview.md) they d
 ## Next steps
 
 * [Set up the local MCP server](./overview.md) that these skills route to
-* [Read about create-recipe and prethink](../skills.md), the skills that work without an MCP server
+* [Read about the prethink skill](../skills.md#prethink), which works without an MCP server

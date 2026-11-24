@@ -28,27 +28,13 @@ Each module in this workshop is one part of that loop: plan here, build in Modul
 
 Coding models already know OpenRewrite reasonably well — the framework and its recipes are open source and well represented in training data — so you can work this loop with your agent and the `mod` CLI alone.
 
-The CLI can also install a `create-recipe` skill that encodes recipe type selection, project layout, and `RewriteTest` conventions, so the agent doesn't have to rediscover them each session. It's an accelerator, not a prerequisite.
-
 :::note
 This workshop demos with **Claude Code**, but the same workflow applies to Windsurf, Sourcegraph Amp, Cursor, GitHub Copilot, OpenAI Codex, and OpenCode. Results may vary across agents, but the loop and the principles are the same.
 :::
 
 ### Steps
 
-#### Step 1 (optional): Install the Moderne skills
-
-```bash
-mod config agent-tools install
-```
-
-In Claude Code, type `/` afterward and you should see entries like `/moderne:create-recipe`. For other agents, see [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) for install locations and how to verify.
-
-:::note
-`create-recipe` requires Moderne CLI 4.5.3 or later. On an earlier version, skip this step — everything below works without it.
-:::
-
-#### Step 2: Try a throwaway request
+#### Step 1: Try a throwaway request
 
 Open your agent and give it a small, self-contained task:
 

@@ -42,7 +42,7 @@ You will also need:
 * A JDK installed locally (Java 17 or higher recommended)
 * An AI coding agent (the instructor will demo with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), but the exercises work with other agents)
 
-Coding models already know OpenRewrite reasonably well, so the exercises work with your agent and the `mod` CLI alone. The CLI can also install a `create-recipe` skill that saves the agent from rediscovering recipe conventions each session. It's optional, and [Exercise 1-1](./module-1-plan.md#exercise-1-1-set-up-your-agent-and-see-the-loop) covers installing it. For more details, see the [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) page.
+Coding models already know OpenRewrite reasonably well, so the exercises work with your agent and the `mod` CLI alone.
 
 :::warning
 Agents don't always respond the same way. Your results will differ from the examples shown here, and that's expected. Treat the exercises as a guide, not a script. You may need to adjust your prompts, skip steps the agent already completed, or steer the agent back on track. That's part of working with AI.
