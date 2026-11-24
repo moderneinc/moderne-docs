@@ -10,6 +10,30 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 24, 2026
+
+#### recipes-javascript - 0.26.0
+
+* Close the remaining Express 5 gaps in recipes-express
+* Add recipes-fastify: Fastify 3 to 4 to 5 migration recipes
+
+#### rewrite-angular - 1.38.0
+
+* Remove `defaultProject` in `UpgradeToAngular14` instead of `UpgradeToAngular13`
+
+#### rewrite-devcenter - 1.56.0
+
+* Point EcmaScriptModernization at io.moderne.javascript.migrate.es6.ModernizeToES6
+
+#### rewrite-spring - 0.68.0
+
+* A13: Keep SSL settings when replacing the removed `StandardMongoClientSettingsBuilderCustomizer` constructor
+* Keep `@Autowired` on fields an existing injection constructor doesn't assign in `FieldToConstructorInjection`
+* A32: Bail out of `DaoAuthenticationProvider` folding when the argument could change in between
+* A34: Split `spring.grpc.server.address` per YAML document
+* Fold `setUserDetailsService` past other provider calls whatever their arguments (A32 follow-up)
+* Carry field `@Qualifier`/`@Named` onto the existing constructor parameter in `FieldToConstructorInjection`
+
 ## November 23, 2026
 
 #### recipes-csharp - 0.32.0
