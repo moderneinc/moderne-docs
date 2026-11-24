@@ -155,8 +155,8 @@
   }
 }
 
-/* Leaf categories list their pages as rows: title on the left, description on
-   the right, a hairline between rows, no boxes. */
+/* Leaf categories list their pages as rows: the title with its description
+   right under it, a hairline between rows, no boxes. */
 .singleColumn .grid {
   grid-template-columns: minmax(0, 1fr);
   row-gap: 0;
@@ -164,11 +164,7 @@
 
 .singleColumn .item,
 .singleColumn .itemCompact {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-  align-items: baseline;
-  column-gap: var(--mod-spacing_4);
-  padding: var(--mod-spacing_2_1_2) 0;
+  padding: var(--mod-spacing_2) 0;
   border: 0;
   border-top: 1px solid var(--mod-color-border-primary);
   border-radius: 0;
@@ -186,21 +182,9 @@
 
 .generatedIndexPage .singleColumn .grid .itemTitle {
   font-size: var(--mod-font-size-default);
-  margin: 0;
+  margin: 0 0 var(--mod-spacing_1_2);
 }
 
-.singleColumn .itemDescription {
-  color: var(--mod-docs-text-muted);
-  margin: 0;
-}
-
-@media (max-width: 699px) {
-  .singleColumn .item,
-  .singleColumn .itemCompact {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: var(--mod-spacing_1_2);
-  }
-}
 .gridItem {
   margin: 0;
 }
@@ -300,7 +284,7 @@
   font-size: 15px;
   font-weight: var(--mod-font-weight-regular);
   line-height: 1.65;
-  color: var(--mod-color-text-primary);
+  color: var(--mod-docs-text-muted);
   margin: 0;
 }
 
