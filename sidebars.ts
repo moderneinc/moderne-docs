@@ -182,6 +182,7 @@ const platform = {
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-lst-encryption',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-generic-http-tools-for-use-in-recipes',
+              'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-to-restrict-recipe-network-access',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-the-pom-cache',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-client-ssl-certificates',
               'administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-a-connector-with-a-moderne-tenant-ssl-certificate',

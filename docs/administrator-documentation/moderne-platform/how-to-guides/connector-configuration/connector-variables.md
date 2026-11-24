@@ -1456,6 +1456,49 @@ java -jar connector-{version}.jar \
 
 </Tabs>
 
+## Recipe network access variables
+
+See [Restrict recipe network access with a Connector](./configure-a-connector-to-restrict-recipe-network-access.md) for what this setting blocks and what stays reachable.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+**Environment variables:**
+
+| Variable Name                          | Required | Default | Description                                                                        |
+|----------------------------------------|----------|---------|------------------------------------------------------------------------------------|
+| `MODERNE_PLATFORM_EGRESS_DIRECTACCESS` | `false`  | `allow` | Set to `deny` to refuse recipe requests to any URL that no Connector tool matches. |
+
+**Example:**
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_PLATFORM_EGRESS_DIRECTACCESS=deny \
+# ... Additional variables
+```
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+**Arguments:**
+
+| Argument Name                             | Required | Default | Description                                                                        |
+|-------------------------------------------|----------|---------|------------------------------------------------------------------------------------|
+| `--moderne.platform.egress.direct-access` | `false`  | `allow` | Set to `deny` to refuse recipe requests to any URL that no Connector tool matches. |
+
+**Example:**
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.platform.egress.direct-access=deny \
+# ... Additional arguments
+```
+</TabItem>
+
+</Tabs>
+
 ## Moddy LLM variables
 
 Variables for enabling [Moddy](./configure-a-connector-with-llm-for-moddy.md), Moderne's multi-repo AI agent. Variables are nested under the specific provider you are configuring. Replace `{PROVIDER}` with one of `OPENAI`, `ANTHROPIC`, `GEMINI`, `VERTEX`, or `MISTRAL` (for environment variables) or `{provider}` with one of `openai`, `anthropic`, `gemini`, `vertex`, or `mistral` (for JAR arguments).
