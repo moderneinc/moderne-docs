@@ -15,6 +15,15 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## November 2026
 
+### CLI v4.13.1 (2026-11-24) {/* #v4.13.1 */}
+
+_Based on [OpenRewrite 8.116.0](https://github.com/openrewrite/rewrite/releases/tag/v8.116.0)_
+
+#### What's Changed
+* Keep the characters Windows' code page lacks in mod's arguments
+* Load parsers from the CLI even when a recipe bundle ships its own
+* Give Claude Code absolute paths to its settings and system prompt when the working set is relative
+
 ### CLI v4.13.0 (2026-11-23) {/* #v4.13.0 */}
 
 _Based on [OpenRewrite 8.115.1](https://github.com/openrewrite/rewrite/releases/tag/v8.115.1)_
