@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.59.0 (2026/11/24)
+
+- add a build page and a DX welcome over the ingest service
+- search recipe runs by recipe ID
+- allow code searches on the Global organization
+
 ### UI v14.58.1 (2026/11/20)
 
 - Bug fixes and other improvements.
