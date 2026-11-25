@@ -10,6 +10,46 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 25, 2026
+
+#### recipes-csharp - 0.34.0
+
+* Upgrading to OpenRewrite 8.115.1
+* Restrict LINQ recipes to LINQ calls and type what they write
+* Keep null semantics in conditional-access recipes
+* Keep the backing field's initializer in UseAutoProperty
+* Keep the item lists of a classic project in `ConvertClassicCsprojToSdk`
+* Restrict SimplifyNullableToShorthand to positions where T? is legal
+* Make `MakeClassStatic` leave classes alone that code uses as a type
+* Rename parameters safely in `ParameterNameDiffersFromBase`
+* Keep `UseXorForBooleanInequality` off conditional access and literals
+* Restrict `UseDefaultLiteral` to targets of exactly type `T`
+* Unify `ConditionalAccess.IsConditional` so boolean recipes see through parens and `!`
+
+#### recipes-javascript - 0.27.0
+
+* Raise the Node.js engine Express 5 and Fastify need, using `recipes-nodejs`
+
+#### rewrite-angular - 1.39.0
+
+* Pin `@angular-devkit/architect*` and `build-webpack` to `0.2202.x` in `UpgradeToAngular22`
+* Migrate `@ViewChild` fields with `!` to `viewChild.required()`
+
+#### rewrite-migrate-python - 0.41.0
+
+* Migrate pytest-json to pytest-json-report
+
+#### rewrite-react - 0.33.0
+
+* Follow-up to #65: hoist `ReplaceDefaultProps` values a prop would shadow into a module-level const (E17 of #51)
+* Add Next.js 12 to 16 upgrade recipes
+* Follow namespace imports of next/headers in AsyncRequestApis
+
+#### rewrite-spring - 0.69.0
+
+* [Auto] Generated Spring recipes as of 2026-11-24
+* Retry generator downloads that time out, and allow a minute to read them
+
 ## November 24, 2026
 
 #### recipes-javascript - 0.26.0
