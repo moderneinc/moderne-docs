@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.61.0 (2026/11/25)
+
+- responsive phone and tablet layouts on the design-system 7.8.0
+
 ### UI v14.60.0 (2026/11/25)
 
 - create an access token from the connect drawer
