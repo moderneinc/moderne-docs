@@ -15,6 +15,18 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 
 ## November 2026
 
+### CLI v4.13.2 (2026-11-25) {/* #v4.13.2 */}
+
+_Based on [OpenRewrite 8.117.0](https://github.com/openrewrite/rewrite/releases/tag/v8.117.0)_
+
+#### What's Changed
+* Fix backward compatibility towards `modw` after recent changes
+* Leave repositories whose clone failed out of repos-lock.csv
+* Keep a repository with a downloaded LST in repos-lock.csv when its clone fails
+* Build library fact tables in every V3 JVM build, as type tables are built
+* Cap the build JDK by the Kotlin Maven plugin version
+* Install JavaScript dependencies on the Node a configured build environment PATH names
+
 ### CLI v4.13.1 (2026-11-24) {/* #v4.13.1 */}
 
 _Based on [OpenRewrite 8.116.0](https://github.com/openrewrite/rewrite/releases/tag/v8.116.0)_
