@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.63.0 (2026/11/25)
+
+- add Codex CLI tab to the connect drawer
+
 ### UI v14.62.0 (2026/11/25)
 
 - visual pickers for the Appearance tab
