@@ -25,7 +25,7 @@ This guide assumes that you have:
 * An AWS account you can create resources in, with permission to create S3 buckets and write bucket policies.
 * The [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed and configured with credentials for that account.
 * Your Moderne tenant name (the subdomain in your tenant's URL, e.g. `acme` for `acme.moderne.io`).
-* A Moderne SaaS v2 tenant. If you are still on v1, see the [Availability note in the overview](./overview.md).
+* A Moderne SaaS tenant.
 
 ## What we'll need from you
 
