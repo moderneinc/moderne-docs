@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v14.60.0 (2026/11/25)
+
+- create an access token from the connect drawer
+- single-column summary on the deploy table
+- enable the global organization on code navigation
+
 ### UI v14.59.0 (2026/11/24)
 
 - add a build page and a DX welcome over the ingest service
