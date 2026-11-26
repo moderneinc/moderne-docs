@@ -10,6 +10,47 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 26, 2026
+
+#### recipes-csharp - 0.35.0
+
+* Upgrading to OpenRewrite 8.117.0
+
+#### recipes-javascript - 0.28.0
+
+* Add UpgradeToNode22 to recipes-nodejs
+
+#### rewrite-java-security - 3.69.0
+
+* FixCwe338: keep fields, and each call's length and characters
+* FixSqlInjectionConcat: bind an operand only where the SQL shows it is a value
+* Drop @Option annotations that recipe introspection never reads
+* Add Sonar severity composites
+* Name Sonar composites after their repository
+* XXE fixes: Checkstyle's DTDs don't count for XMLInputFactory
+
+#### rewrite-program-analysis - 0.45.0
+
+* Avoid StringIndexOutOfBoundsException on bare get() in PrivacyFlowSpec
+* Add Sonar severity composites
+* Name Sonar composites after their repository
+
+#### rewrite-react - 0.34.0
+
+* Format translated strings under Prettier, translate memo and forwardRef components, and skip stories and sample code
+* Translate with the translator the package's own code calls
+
+#### rewrite-spring - 0.70.0
+
+* Add Sonar severity composites
+* Name Sonar composites after their repository
+* Require Java 17
+
+#### rewrite-static-analysis - 0.27.0
+
+* Add Sonar severity composites
+* Name Sonar composites after their repository
+
 ## November 25, 2026
 
 #### recipes-csharp - 0.34.0
