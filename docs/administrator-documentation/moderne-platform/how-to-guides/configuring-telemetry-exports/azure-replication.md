@@ -1,43 +1,33 @@
 ---
 sidebar_label: Azure replication setup
-description: Receive a copy of your Moderne telemetry in an Azure storage account you own, using Azure Data Share.
+description: Receive a copy of your Moderne telemetry in storage you own when your Moderne tenant runs on Azure.
 ---
 
 # Azure replication setup
 
-This guide walks you through receiving telemetry into a blob container in **your** Azure storage account via [Azure Data Share](https://learn.microsoft.com/en-us/azure/data-share/overview). Before starting, read the [overview](./overview.md) for context on what the data looks like and how it flows.
+This guide walks you through receiving telemetry when your Moderne tenant runs on Azure. Before starting, read the [overview](./overview.md) for context on what the data looks like and how it flows.
 
-Moderne shares your tenant's telemetry as a copy-based share. You accept an invitation in your own Azure tenant and choose the storage account that receives the data. Moderne never holds a credential into your subscription, and you never hold one into Moderne's. The invitation is the only link between the two.
+Moderne will give you read-only access to your tenant's telemetry. You'll then copy it into storage you own, on your own schedule. That storage doesn't have to be in Azure. Moderne never needs access to it.
 
 Here's how the setup works end-to-end:
 
-1. You create a destination storage account and container.
-2. You send Moderne your tenant name and a recipient email address.
-3. Moderne configures the share and sends a Data Share invitation to that address.
-4. You accept the invitation, point it at your container, and enable the snapshot schedule.
+1. You create the destination you'll copy the data into.
+2. You ask your CSM for read access.
+3. Moderne sets up read-only access and sends you the details you need to sign in.
+4. You set up a job that copies the data into your destination on a schedule.
 
 ## Prerequisites
 
 This guide assumes that you have:
 
-* An Azure subscription you can create resources in, with permission to create resource groups, storage accounts, and blob containers, and to accept Data Share invitations.
-* The [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) installed, with `az login` completed against the target subscription.
-* Your Moderne tenant name (the subdomain in your tenant's URL, e.g. `acme` for `acme.moderne.io`).
-* A recipient email address (a Microsoft Entra user or group) that can accept the Data Share invitation.
-* A Moderne SaaS v2 tenant. If you are still on v1, see the [Availability note in the overview](./overview.md).
+* A Moderne SaaS tenant.
+* Somewhere you own to store the data, such as an Azure Storage account, an Amazon S3 bucket, or a Google Cloud Storage bucket.
 
-## What we'll need from you
+## Step 1: Create the destination
 
-| Value           | Example                  | How to get it                                                            |
-|-----------------|--------------------------|--------------------------------------------------------------------------|
-| Tenant name     | `acme`                   | Your Moderne tenant subdomain.                                           |
-| Recipient email | `data-platform@acme.com` | An Entra user or group in your directory that can accept the invitation. |
+Create the bucket, container, or other storage you'll copy the data into.
 
-That is all we need. You choose the target storage account and container yourself when you accept the invitation, so Moderne never asks for those details.
-
-## Step 1: Create the destination storage account and container
-
-Create the resource group, storage account, and container with the following commands:
+If you're copying into Azure Storage, sign in with the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli). Then, create the resource group, storage account, and container with the following commands:
 
 ```bash
 # Replace these with your values:
@@ -63,61 +53,77 @@ az storage container create \
 ```
 
 :::note
-Versioning and change feed are not required on the destination. Data Share copies blobs on a schedule rather than replicating them, so the prerequisites that object replication would need do not apply here.
+Versioning and change feed are not required on the destination because you'll copy blobs into it instead of replicating them.
 :::
 
-## Step 2: Send Moderne your details
+## Step 2: Request read access
 
-Send your CSM your tenant name and the recipient email address. Moderne then configures the share and sends a Data Share invitation to that address.
+Ask your CSM for read access to your tenant's telemetry. You can sign in with a service principal that Moderne creates for you, or Moderne can trust an identity you already own.
 
-You are not asked to share your storage account details, and Moderne does not request any access to your subscription.
+### Using a service principal from Moderne
 
-## Step 3: Accept the invitation
+Moderne will create a service principal and send you the following values through a secure channel you both agree on:
 
-The recipient receives an Azure Data Share invitation by email. In the Azure portal:
+| Value                | What it is                                                                                    |
+|----------------------|-----------------------------------------------------------------------------------------------|
+| Tenant ID            | The ID of the Microsoft Entra tenant the credential belongs to. This is Moderne's tenant, not yours. |
+| Client ID            | The ID of the service principal you'll sign in as.                                            |
+| Client secret        | The password for that service principal.                                                      |
+| Storage account name | The Moderne storage account that holds your telemetry.                                        |
+| Container name       | Always `bi-telemetry`.                                                                        |
 
-1. Go to **Data Share**, then **Received shares**, and open the invitation.
-2. Create a share subscription.
-3. Choose the target storage account and container you created in step 1.
-
-## Step 4: Enable the snapshot schedule
-
-When creating the share subscription, enable the snapshot schedule. To receive data immediately, trigger a manual snapshot as well.
+The service principal can only read your tenant's telemetry. Moderne doesn't request any access to your storage.
 
 :::warning
-Data does not flow until you complete this step. Accepting the invitation on its own does not start delivery, so a share subscription left without an active schedule receives nothing. See [Data delivery](#data-delivery).
+The client secret will expire one year after Moderne issues it. Ask your CSM for a new one before then. Otherwise, your copy job will stop working.
 :::
+
+You can check that the credential works with [AzCopy](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10). Set the following environment variables so AzCopy signs in as the service principal. Then, list the container by running the following command:
+
+```bash
+export AZCOPY_AUTO_LOGIN_TYPE=SPN
+export AZCOPY_TENANT_ID=<tenant-id>
+export AZCOPY_SPA_APPLICATION_ID=<client-id>
+export AZCOPY_SPA_CLIENT_SECRET=<client-secret>
+
+azcopy list "https://<storage-account-name>.blob.core.windows.net/bi-telemetry"
+```
+
+### Using an identity you already own
+
+Let your CSM know which identity your copy job runs as. Moderne will then trust that identity instead of creating a service principal. You won't have a secret to manage or renew.
+
+Moderne already supports the Google service account that runs a Storage Transfer Service job. For other kinds of identities, talk to your CSM.
+
+Moderne will send you the same values as above, without the client secret.
+
+## Step 3: Copy the data on a schedule
+
+Set up a job that copies the `bi-telemetry` container into the destination you created in step 1. You can use any tool that can sign in to Moderne's storage account as the identity from step 2.
+
+If you're copying into Azure Storage, an Azure Data Factory copy activity can do this on a schedule. For its source, use an [Azure Blob Storage linked service](https://learn.microsoft.com/en-us/azure/data-factory/connector-azure-blob-storage) with service principal authentication and the values from step 2. For its sink, use your own storage account.
+
+Keep the schedule running. Each run only copies what's in the `bi-telemetry` container at that moment.
 
 ## Verification
 
-After the first snapshot completes, list your target container:
+After the first copy completes, check your destination. If you copied into Azure Storage, list your container by running the following command:
 
 ```bash
 az storage blob list \
     --account-name "$DEST_ACCOUNT" \
     --container-name "$DEST_CONTAINER" \
-    --prefix "tenant=$YOUR_TENANT/" \
     --auth-mode login \
     --num-results 10 \
     --output table
 ```
 
-Blobs under `tenant=<your-tenant>/source=<saas|cli>/type=<command>/year=.../month=.../day=.../` confirm the share is live. See [Object key layout](./overview.md) for what each partition key means.
-
-## Data delivery
-
-| Property       | Behavior                                                               |
-|----------------|------------------------------------------------------------------------|
-| Cadence        | Snapshots run daily once the schedule is enabled.                      |
-| First delivery | Up to 24 hours after acceptance, or immediately with a manual snapshot. |
-| Deletions      | Not propagated. Your copy is yours to keep for as long as you choose.  |
-
-Keep the snapshot schedule running. If snapshots stop, whether from a disabled schedule, a revoked subscription that is not restored, or repeated snapshot failures, your copy stops updating until they resume. Monitor snapshot success in the Azure portal under your share subscription's snapshot history, and contact your CSM if you need a backfill to close the gap.
+Files under `tenant=<your-tenant>/source=<saas|cli>/type=<command>/year=.../month=.../day=.../` confirm the copy is working. See [Object key layout](./overview.md) for what each partition key means.
 
 ## Opting out
 
-Contact your CSM to stop the share. To stop delivery from your side, revoke your share subscription in the Azure portal (**Data Share**, then **Received shares**, then revoke). Revoking stops further snapshots into your account. Data already delivered remains in your storage account.
+Contact your CSM to remove your access. Moderne will then delete the service principal or stop trusting your identity. After that, your copy job won't be able to sign in. Data you've already copied will stay in your storage.
 
 ## Next
 
-Once data begins arriving in your container, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there are AWS-specific, but the per-engine notes cover Microsoft Fabric and Synapse (the most natural Azure-side choice) along with other engines.
+Once data begins arriving in your storage, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there are AWS-specific, but the per-engine notes cover Microsoft Fabric and Synapse (the most natural Azure-side choice) along with other engines.
