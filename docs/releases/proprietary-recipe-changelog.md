@@ -10,6 +10,106 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 27, 2026
+
+#### recipes-javascript - 0.29.0
+
+* Add migration recipe from `cucumber` to `@cucumber/cucumber`
+* Add UpgradeToNode24 to recipes-nodejs
+* Add `UpgradeToNode26` to `recipes-nodejs`
+* Read the comments in a YAML flow sequence from either parser's layout
+* Add `MigrateExpressRequestIdToNative` to `recipes-express`
+* Add `UpgradeToMocha10` and `UpgradeToMocha11` to `recipes-testing`
+* Add Cypress 13, 14 and 15 upgrade recipes to `recipes-testing`
+
+#### recipes-mainframe - 0.27.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-angular - 1.41.0
+
+* Match Java and npm Rewrite builds and remove the npm lockfile
+* Stop running opt-in signal and `inject()` migrations in `UpgradeToAngular21`
+* Migrate RxJS 5 deep imports and keep `rxjs-compat`
+
+#### rewrite-concourse - 3.39.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-cryptography - 0.43.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-dropwizard - 0.35.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-hibernate - 0.57.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-java-application-server - 0.37.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-java-security - 3.70.0
+
+* Limit Sonar composites to Java sources
+* Let Sonar composites find secrets in config files
+* Leave CSRF configured with the lambda DSL alone, and insert code that compiles
+
+#### rewrite-kafka - 0.35.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-kubernetes - 3.47.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-migrate-kotlin - 0.37.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-migrate-python - 0.43.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-nodejs - 0.79.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-prethink - 0.44.0
+
+* Tolerate null and empty names in `GenerateCalmMermaidDiagram`
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-primefaces - 0.17.0
+
+* Fix tests broken by XML type references and monacoeditor 16.0.3
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-program-analysis - 0.46.0
+
+* Limit Sonar composites to Java sources
+
+#### rewrite-spring - 0.71.0
+
+* Limit Sonar composites to Java sources
+* Add UpgradeSpringBatch_6_1 and wire it into Spring Boot 4.2
+
+#### rewrite-static-analysis - 0.28.0
+
+* Limit Sonar composites to Java sources
+* Skip mocked interfaces in FindOverMockedType
+
+#### rewrite-struts - 0.57.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
+#### rewrite-terraform - 3.43.0
+
+* Group no-change tests in a `@Nested class NoChange`
+
 ## November 26, 2026
 
 #### recipes-csharp - 0.35.0
@@ -8609,10 +8709,4 @@ First release.
 #### rewrite-terraform - 3.11.2
 
 * Updated repository to use OpenRewrite version v8.68.1
-
-## November 26, 2025
-
-#### rewrite-devcenter - 1.12.1
-
-Republishing to update dependencies
 
