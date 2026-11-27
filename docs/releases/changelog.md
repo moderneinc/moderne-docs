@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v14.64.0 (2026/11/27)
+
+- revoke access and SCM tokens from the Users page
+
 ### UI v14.63.0 (2026/11/25)
 
 - add Codex CLI tab to the connect drawer
