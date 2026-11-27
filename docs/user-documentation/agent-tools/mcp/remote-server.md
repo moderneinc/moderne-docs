@@ -28,11 +28,7 @@ The token carries the same permissions as your account, so an agent that uses it
 
 Your coding agent can't use Moderne's recipes or results until it knows the remote server exists. Connecting it registers the server's tools with the agent, so you can ask, in plain language, to find a recipe, run it across an organization, and explore the results - without leaving your editor or opening the platform. You only need to do this once per agent. Afterwards, the tools are available in every session.
 
-Whichever agent you use, register the remote server as a streamable HTTP MCP server at `https://api.<tenant>.moderne.io/mcp` with two headers:
-
-* `Authorization: Bearer <your-moderne-access-token>`
-* `X-Moderne-Platform-Version: v2`
-  * _This is required while you have SaaS v1 running in parallel with SaaS v2._
+Whichever agent you use, register the remote server as a streamable HTTP MCP server at `https://api.<tenant>.moderne.io/mcp` with an `Authorization: Bearer <your-moderne-access-token>` header.
 
 :::info
 Don't forget to replace `<tenant>` with your tenant's subdomain.
@@ -45,19 +41,30 @@ If you want to connect to the public Moderne instance, please use the following 
 
 ```bash
 claude mcp add --scope user --transport http modernesaasv2 https://api.<tenant>.moderne.io/mcp \
-  --header "Authorization: Bearer <your-moderne-access-token>" \
-  --header "X-Moderne-Platform-Version: v2"
+  --header "Authorization: Bearer <your-moderne-access-token>"
 ```
 
 Verify the connection with `claude mcp list`, or run `/mcp` inside a session to see the server and its tools.
+
+</TabItem>
+<TabItem value="codex" label="Codex">
+
+Codex reads the token from an environment variable each time it starts. You will need to set that variable before you add the server:
+
+```bash
+export MODERNE_ACCESS_TOKEN="<your-moderne-access-token>"
+codex mcp add modernesaasv2 --url https://api.<tenant>.moderne.io/mcp \
+  --bearer-token-env-var MODERNE_ACCESS_TOKEN
+```
+
+Add the `export` line to your shell profile to keep the token across terminals. To verify the connection, start `codex` and run `/mcp`. Don't rely on `codex mcp list` for this, because it only prints the configuration and succeeds even when the token is not set.
 
 </TabItem>
 <TabItem value="gemini-cli" label="Gemini CLI">
 
 ```bash
 gemini mcp add --transport http -s user modernesaasv2 https://api.<tenant>.moderne.io/mcp \
-  -H "Authorization: Bearer <your-moderne-access-token>" \
-  -H "X-Moderne-Platform-Version: v2"
+  -H "Authorization: Bearer <your-moderne-access-token>"
 ```
 
 Verify the connection with `gemini mcp list`.
@@ -68,17 +75,50 @@ Verify the connection with `gemini mcp list`.
 ```bash
 copilot mcp add --transport http \
   --header "Authorization: Bearer <your-moderne-access-token>" \
-  --header "X-Moderne-Platform-Version: v2" \
   modernesaasv2 https://api.<tenant>.moderne.io/mcp
 ```
 
 Verify the connection with `copilot mcp list`.
 
 </TabItem>
+<TabItem value="kiro" label="Kiro">
+
+Add the server to `~/.kiro/settings/mcp.json` to use it in every workspace, or to `.kiro/settings/mcp.json` for a single workspace:
+
+```json
+{
+  "mcpServers": {
+    "modernesaasv2": {
+      "url": "https://api.<tenant>.moderne.io/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MODERNE_ACCESS_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+Kiro reads `${MODERNE_ACCESS_TOKEN}` from your environment, which keeps the token out of the file. You will need to approve the variable first by adding `MODERNE_ACCESS_TOKEN` under **Mcp Approved Env Vars** in Kiro's settings. Kiro reloads the file when you save it. Verify the connection in the **MCP Servers** view of the Kiro panel, or with `/mcp` in the Kiro CLI.
+
+</TabItem>
+<TabItem value="devin" label="Devin">
+
+You can add the server in the Devin web app:
+
+1. Go to **Customize** → **MCPs**, click **+** and choose **New MCP**. To make the server available to everyone in your Devin organization, switch **Myself** to the organization and choose **Add custom MCP**, which requires the **Manage MCP Servers** permission.
+2. Choose the **HTTP** transport and enter `https://api.<tenant>.moderne.io/mcp` as the **Server URL**.
+3. Under **Authentication**, choose **Authorization header** and enter `Bearer <your-moderne-access-token>` as its value.
+4. Click **Add**, then **Test tools** to verify the connection.
+
+:::note
+Devin runs in Devin's cloud, not on your machine. It can only reach the server when `api.<tenant>.moderne.io` is reachable from the internet.
+:::
+
+</TabItem>
 </Tabs>
 
 :::tip
-Any coding agent that supports remote MCP servers with custom request headers can connect using the same URL and the two headers above. The configuration steps vary by client, so consult your agent's MCP documentation for the exact syntax.
+Any coding agent that supports remote MCP servers with custom request headers can connect using the same URL and header. The configuration steps vary by client, so consult your agent's MCP documentation for the exact syntax.
 :::
 
 ## Example prompts
