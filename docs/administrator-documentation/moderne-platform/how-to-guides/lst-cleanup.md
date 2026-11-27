@@ -302,6 +302,46 @@ This script only targets objects stored under date-prefixed keys (`YYYY/MM/DD/HH
 :::
 
 </TabItem>
+<TabItem value="gcs" label="Google Cloud Storage">
+
+You can use [Cloud Storage Object Lifecycle Management](https://cloud.google.com/storage/docs/lifecycle) to clean up old LSTs without a script. The example below targets live objects whose names begin with a digit, including the date-prefixed LSTs published by `mod publish`. It leaves root-level files such as `repos.csv` and `repos-lock.csv` in place.
+
+:::warning
+Review the rules before applying them. The first rule also matches other objects whose names begin with a digit. The second applies to noncurrent versions throughout the bucket.
+
+Setting a lifecycle configuration replaces the bucket's existing rules. Include any existing rules you want to keep.
+:::
+
+Add these rules to your bucket's lifecycle configuration. Set the retention period longer than your ingestion interval to allow for delayed or failed builds. The example uses three days.
+
+```json
+{
+  "rule": [
+    {
+      "action": { "type": "Delete" },
+      "condition": {
+        "age": 3,
+        "isLive": true,
+        "matchesPrefix": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+      }
+    },
+    {
+      "action": { "type": "Delete" },
+      "condition": { "daysSinceNoncurrentTime": 3, "isLive": false }
+    },
+    {
+      "action": { "type": "AbortIncompleteMultipartUpload" },
+      "condition": { "age": 1 }
+    }
+  ]
+}
+```
+
+The first rule makes matching live objects eligible for deletion after three days. The second deletes noncurrent versions after they have been noncurrent for three days. This includes old CSV versions if Object Versioning is enabled. With versioning enabled, the first rule makes live artifacts noncurrent, and the second removes them after the noncurrent retention period.
+
+The third rule aborts incomplete XML API multipart uploads after one day. It does not apply to resumable uploads. Lifecycle actions run asynchronously, and object holds or retention policies can delay deletion. If soft delete is enabled, deleted objects remain recoverable and incur storage charges until the soft delete retention period expires.
+
+</TabItem>
 <TabItem value="artifactory" label="Artifactory">
 
 For Artifactory, you can use AQL (Artifactory Query Language) queries to find and clean up old LSTs. Below are example queries to help you get started.
