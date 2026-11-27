@@ -90,10 +90,16 @@ Unlike the scenario where a branch is deleted, you **do not need to make any API
 
 LST cleanup will look different depending on your artifact storage solution. Select the appropriate tab below for guidance based on your environment.
 
+Choose a retention period longer than your LST build interval. For example, keep artifacts for three days with daily ingestion or ten days with weekly ingestion. Allow extra time for failed or delayed builds: deleting the latest LST leaves the branch without an available artifact until the next successful publish.
+
 <Tabs>
 <TabItem value="s3" label="Amazon S3">
 
 For most S3 users, we recommend using [AWS S3 Lifecycle Rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) to automatically delete old LST versions. This approach requires no custom scripting.
+
+:::warning
+The bucket-wide current-version rule below also expires files such as `repos.csv` and `repos-lock.csv`. Scope the rule to artifact prefixes that exclude files you need to keep, and review any other objects in the bucket before applying it.
+:::
 
 Due to how S3 handles different object types, we recommend creating three lifecycle rules:
 
@@ -137,14 +143,6 @@ This rule handles incomplete uploads from mass-ingest - which would occur if a n
 | **Lifecycle rule actions**              | Delete expired object delete markers or incomplete multipart uploads |
 | **Delete incomplete multipart uploads** | Yes                                                                  |
 | **Number of days**                      | 1                                                                    |
-
-#### Retention period guidance
-
-The retention period (days) should at least match how often you build LSTs:
-
-* **Daily ingestion**: 3 days retention
-* **Weekly ingestion**: 10 days retention
-* **Less frequent ingestion**: Adjust accordingly, but ensure retention exceeds your build frequency
 
 #### Custom cleanup script
 
@@ -300,6 +298,112 @@ This script requires `s3:ListBucket`, `s3:DeleteObject`, and `s3:HeadBucket` per
 :::tip
 This script only targets objects stored under date-prefixed keys (`YYYY/MM/DD/HH/`). Files at the bucket root such as `repos.csv` and `repos-lock.csv` are not affected.
 :::
+
+</TabItem>
+<TabItem value="gcs" label="Google Cloud Storage">
+
+You can use [Cloud Storage Object Lifecycle Management](https://cloud.google.com/storage/docs/lifecycle) to delete old LST artifacts without a custom script. The following example targets object names beginning with a digit, as date-prefixed LST artifacts do. Confirm that this scope matches your bucket before applying it; the rule also matches any other object whose name begins with a digit. It leaves root-level files such as `repos.csv` and `repos-lock.csv` in place.
+
+Add these rules to your bucket's lifecycle configuration. Adjust the three-day retention period to suit your ingestion schedule.
+
+```json
+{
+  "rule": [
+    {
+      "action": { "type": "Delete" },
+      "condition": {
+        "age": 3,
+        "isLive": true,
+        "matchesPrefix": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+      }
+    },
+    {
+      "action": { "type": "Delete" },
+      "condition": { "daysSinceNoncurrentTime": 3, "isLive": false }
+    },
+    {
+      "action": { "type": "AbortIncompleteMultipartUpload" },
+      "condition": { "age": 1 }
+    }
+  ]
+}
+```
+
+The first rule deletes live date-prefixed objects after three days. The second deletes noncurrent versions after three days, including old versions of the CSV files when Object Versioning is enabled. With versioning enabled, the first rule makes live artifacts noncurrent; the second rule deletes them after the noncurrent retention period. The third rule aborts incomplete XML API multipart uploads after one day. It does not apply to resumable uploads.
+
+:::warning
+Setting a lifecycle configuration replaces the bucket's existing rules. Merge these rules with any rules you need to keep. Review their scope before applying them, particularly the noncurrent-version rule, which applies to the entire bucket.
+:::
+
+Lifecycle actions run asynchronously. Object holds or retention policies can delay deletion. If soft delete is enabled, deleted objects remain recoverable and incur storage charges until the soft delete retention period expires. Cloud Storage does not use S3 delete markers.
+
+#### Custom cleanup script
+
+For more targeted cleanup, you can use the [Cloud Storage Python client](https://cloud.google.com/python/docs/reference/storage/latest). This example selects objects with a `YYYY/MM/DD/HH/` prefix older than the cutoff date. It leaves root-level CSV files untouched. It lists live objects only; use lifecycle rules to clean up noncurrent versions.
+
+Install the `google-cloud-storage` package and configure [Application Default Credentials](https://cloud.google.com/docs/authentication/provide-credentials-adc) for the account running the script. That account needs `storage.objects.list` and `storage.objects.delete` on the bucket. These permissions are separate from those used by the [Connector](./connector-configuration/configure-a-connector-with-gcs-access.md).
+
+:::warning
+Run the script in dry run mode first, then review the listed objects before deleting them. The script deletes every matching object, not just LST JAR files.
+:::
+
+```python title="gcs-lst-cleanup.py"
+import datetime
+import os
+import re
+
+from google.cloud import storage
+
+bucket_name = os.environ.get("BUCKET", "my-lst-bucket").removeprefix("gs://").rstrip("/")
+retention_days = int(os.environ.get("RETENTION_DAYS", "3"))
+dry_run = os.environ.get("DRY_RUN", "true").lower()
+if retention_days < 1 or dry_run not in ("true", "false"):
+    raise ValueError("RETENTION_DAYS must be positive and DRY_RUN must be true or false")
+
+cutoff = datetime.datetime.now(datetime.timezone.utc).date() - datetime.timedelta(days=retention_days)
+pattern = re.compile(r"^(\d{4})/(\d{2})/(\d{2})/\d{2}/")
+client = storage.Client()
+bucket = client.bucket(bucket_name)
+count = 0
+
+for blob in client.list_blobs(bucket):
+    match = pattern.match(blob.name)
+    if not match:
+        continue
+    try:
+        object_date = datetime.date(*(int(part) for part in match.groups()))
+    except ValueError:
+        continue
+    if object_date >= cutoff:
+        continue
+    print(f"{'Would delete' if dry_run == 'true' else 'Deleting'}: gs://{bucket_name}/{blob.name}")
+    if dry_run == "false":
+        blob.delete(if_generation_match=blob.generation)
+    count += 1
+
+print(f"{'Would delete' if dry_run == 'true' else 'Deleted'} {count} object(s).")
+```
+
+The cutoff uses the date in the object name and excludes the cutoff day. The generation precondition prevents the script from deleting an object that was replaced after it was listed.
+
+Run a dry run first:
+
+```bash
+BUCKET=gs://my-lst-bucket RETENTION_DAYS=3 python3 gcs-lst-cleanup.py
+```
+
+When you have reviewed the results, run the cleanup:
+
+```bash
+BUCKET=gs://my-lst-bucket RETENTION_DAYS=3 DRY_RUN=false python3 gcs-lst-cleanup.py
+```
+
+You can schedule the cleanup with cron. Ensure the scheduled environment has the Python package and credentials configured:
+
+```bash
+# Run daily at 2 AM
+0 2 * * * BUCKET=gs://my-lst-bucket RETENTION_DAYS=3 DRY_RUN=false /path/to/python3 /path/to/gcs-lst-cleanup.py >> /var/log/lst-cleanup.log 2>&1
+```
 
 </TabItem>
 <TabItem value="artifactory" label="Artifactory">
