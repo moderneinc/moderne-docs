@@ -10,6 +10,22 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## November 28, 2026
+
+#### recipes-javascript - 0.30.0
+
+* Mark `res.sendStatus()` with an invalid status, and turn numeric status strings into numbers
+
+#### rewrite-hibernate - 0.58.0
+
+* Migrate LockOptions constants passed to Session get, refresh and lock
+
+#### rewrite-spring - 0.72.0
+
+* Only add lenient `@MockitoSettings` for tests still on `@MockBean`
+* Find Feign decoders and encoders built from HttpMessageConverters
+* Add `MigrateResilience4jToSpringBoot4` to the Spring Boot 4.0 migration
+
 ## November 27, 2026
 
 #### recipes-javascript - 0.29.0
